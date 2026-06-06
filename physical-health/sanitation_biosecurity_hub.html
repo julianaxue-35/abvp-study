@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sanitation &amp; Biosecurity Subdomain Hub | ABVP Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0f3d3a;--ink2:#15514c;--paper:#f4efe4;--paper2:#fbf8f1;
+    --line:#d9d0bd;--muted:#5d6b62;
+    --id:#3c4a86;--id-soft:#e2e4f2;            /* physical health blue */
+    --good:#1f7a4d;--bad:#b23b3b;
+    --notes:#7a4fb5;--notes-soft:#ece3f7;       /* your sanitation notes */
+    --lit:#1f6f8b;--lit-soft:#dcedf2;           /* reserved */
+    --aspca:#8a6d1f;--aspca-soft:#f3ebcf;       /* ASPCA Pro poster */
+    --ref:#b5651d;--ref-soft:#f6e7d4;           /* standard veterinary references */
+    --shadow:0 1px 2px rgba(15,61,58,.08),0 8px 24px rgba(15,61,58,.06);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;
+    background-image:radial-gradient(circle at 1px 1px,rgba(15,61,58,.04) 1px,transparent 0);background-size:22px 22px;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+  header.top{background:var(--ink);color:var(--paper2);padding:26px 0 22px;border-bottom:4px solid var(--id)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#9ec9c2;margin:0 0 6px}
+  header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(26px,4.5vw,40px);margin:0;line-height:1.05}
+  header.top p.sub{margin:8px 0 0;color:#cfe3df;font-size:14px;max-width:70ch}
+  .legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}
+  .legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.25);color:#eaf4f1;display:flex;align-items:center;gap:6px}
+  .legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--paper2);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button:hover{background:var(--paper);color:var(--ink)}
+  .tabrow button.active{background:var(--ink);color:var(--paper2)}
+  .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--id)}
+  main{padding:30px 0 80px}
+  .panel{display:none;animation:fade .35s ease}
+  .panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;letter-spacing:-.01em}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:78ch}
+  h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:30px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;scroll-margin-top:64px}
+  h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;color:var(--ink2);text-transform:uppercase;letter-spacing:.03em}
+  .card{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}
+  p.note{font-size:14px;margin:0 0 6px}
+  ul.hy{margin:8px 0;padding-left:0;list-style:none}
+  ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed #e6ddca;font-size:14px}
+  ul.hy li:last-child{border-bottom:0}
+  ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;border-radius:2px;background:var(--id);transform:rotate(45deg)}
+  .trap{background:#eef0f8;border:1px solid #c6cbe6;border-left:4px solid var(--id);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .trap b{color:var(--id);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .corrbox{background:#e9f4ee;border:1px solid #bfe0cc;border-left:4px solid var(--good);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .corrbox b{color:var(--good);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .verifybox{background:#fdf5e6;border:1px solid #ecd9a8;border-left:4px solid var(--aspca);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .verifybox b{color:var(--aspca);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:var(--paper2);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp th{background:var(--ink);color:var(--paper2);font-weight:600;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase}
+  table.cmp tr:last-child td{border-bottom:0}
+  table.cmp td b{color:var(--ink)}
+  .yes{color:var(--good);font-weight:700}
+  .no{color:var(--bad);font-weight:700}
+  .fig{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0;box-shadow:var(--shadow)}
+  .fig figcaption{font-size:12.5px;color:var(--muted);margin-top:8px;font-style:italic}
+  /* source badges */
+  .bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+  .bdg.notes{background:var(--notes-soft);color:var(--notes)}
+  .bdg.asv{background:var(--id-soft);color:var(--id)}
+  .bdg.aspca{background:var(--aspca-soft);color:var(--aspca)}
+  .bdg.ref{background:var(--ref-soft);color:var(--ref)}
+  .bdg.corr{background:var(--good);color:#fff}
+  /* mcq */
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--ink);color:var(--paper2);border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:54px;z-index:10}
+  .mcqbar .filters{display:flex;gap:6px;flex-wrap:wrap}
+  .mcqbar .filters button{font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#d6e7e3;padding:6px 11px;border-radius:999px;cursor:pointer}
+  .mcqbar .filters button.on{background:var(--id);border-color:var(--id);color:#fff}
+  .score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}
+  .score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;color:#d6e7e3;padding:5px 10px;border-radius:8px;font-size:11px}
+  .q{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
+  .q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+  .q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--id-soft);color:var(--id)}
+  .q .stem{font-weight:600;font-size:15px;margin-bottom:10px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;font-family:"Public Sans";transition:background .15s,border-color .15s}
+  .opt:hover{border-color:var(--ink)}
+  .opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}
+  .opt.correct{background:#e8f5ec;border-color:var(--good);color:#0d3d24}
+  .opt.wrong{background:#fbe9e9;border-color:var(--bad);color:#5e1d1d}
+  .opt.locked{cursor:default}
+  .expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:#f3efe3;border:1px solid var(--line);font-size:13.5px}
+  .expl.show{display:block}
+  .expl b.cor{color:var(--good)}
+  footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
+  @media(max-width:640px){.mcqbar{top:50px}.score{font-size:12px}}
+
+</style>
+</head>
+<body>
+<nav style="background:#0f3d3a;padding:9px 18px;display:flex;align-items:center;gap:10px;font-family:'Public Sans',system-ui,sans-serif;font-size:13px;font-weight:500;border-bottom:2px solid #1f5c4e"><a href="../index.html" style="color:#9ec9c2;text-decoration:none;display:flex;align-items:center;gap:5px"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span style="color:#4a7a6e;font-size:11px">›</span><span style="color:#cfe3df">Physical Health of Animals</span></nav>
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">ABVP Shelter Medicine Practice RVS &middot; Physical Health of Animal</p>
+    <h1>Sanitation &amp; Biosecurity Subdomain Hub</h1>
+    <p class="sub">Exam-depth study tool for the Sanitation and Biosecurity subdomain (12% of the Physical Health of Animal domain, which is 29% of the exam, so roughly 12 of 350 questions). Four tabs cover cleaning vs disinfection principles, disinfectant classes and spectrum, sanitation protocols and workflow, and biosecurity infrastructure. The MCQ Test Bank is shared and filterable by topic. Every claim is badged by source. Active outbreak detection and response live in your Infectious Disease hub and are cross-referenced, not repeated.</p>
+    <div class="legend">
+      <span><i style="background:var(--notes)"></i>Your sanitation notes</span>
+      <span><i style="background:var(--id)"></i>ASV Standards of Care 2022</span>
+      <span><i style="background:var(--aspca)"></i>ASPCA Pro disinfectant poster</span>
+      <span><i style="background:var(--ref)"></i>Standard reference</span>
+      <span><i style="background:var(--good)"></i>Corrected</span>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="principles"><span class="dot"></span>Cleaning vs Disinfection</button>
+  <button data-p="disinfectants"><span class="dot"></span>Disinfectant Classes &amp; Spectrum</button>
+  <button data-p="protocols"><span class="dot"></span>Protocols &amp; Workflow</button>
+  <button data-p="biosecurity"><span class="dot"></span>Biosecurity Infrastructure</button>
+  <button data-p="mcq"><span class="dot" style="background:#0f3d3a"></span>MCQ Test Bank</button>
+</div></div></nav>
+
+<main><div class="wrap">
+
+<section class="panel show" id="principles">
+  <h2 class="sec">Cleaning vs Disinfection Principles</h2>
+  <p class="lead">The conceptual backbone of the subdomain. Examiners test whether you can separate cleaning from disinfection from sterilization, sequence the steps correctly, and explain why organic matter and contact time decide success or failure. Content is drawn from your sanitation notes and verified against ASV Standards of Care 2022, Section 5.</p>
+
+  <div class="card">
+    <h4>Blueprint placement</h4>
+    <ul class="hy">
+      <li>Physical Health of Animal = <b>29%</b> of the exam. Sanitation and Biosecurity = <b>12%</b> of that domain, so roughly <b>12 of 350</b> exam questions.</li>
+      <li>Sibling subdomains in this domain: infectious disease/outbreaks, surgery and anesthesia, vaccination, facility/environment, euthanasia, medical (non-infectious), nutrition and husbandry, parasites.</li>
+    </ul>
+  </div>
+
+  <h3>Four definitions you must not blur <span class="bdg asv">ASV</span></h3>
+  <table class="cmp">
+    <tr><th>Term</th><th>ASV definition</th><th>Exam hook</th></tr>
+    <tr><td><b>Cleaning</b></td><td>Manual removal of urine, feces, food waste, hair, bodily fluids and other debris.</td><td>Physical removal, no killing implied.</td></tr>
+    <tr><td><b>Disinfection</b></td><td>Applying a chemical to a clean surface for a specified contact time to kill most remaining pathogens.</td><td>Kills most, not necessarily all. Needs a clean surface and contact time.</td></tr>
+    <tr><td><b>Sanitation</b></td><td>The combination of cleaning and disinfection.</td><td>Two separate steps, even with a combination product.</td></tr>
+    <tr><td><b>Sterilization</b></td><td>Destruction of all pathogens including spores; reserved for surgical instruments.</td><td>Not achievable on cage and kennel surfaces.</td></tr>
+  </table>
+  <div class="trap"><b>Exam trap &middot; sterilization</b>The ASV states plainly that true sterilization of cage and kennel surfaces does not occur. If an answer choice claims a disinfectant "sterilizes" a kennel, it is wrong. Sterilization language belongs to autoclaved surgical instruments, not housing.</div>
+
+  <h3>The three-step sanitation sequence <span class="bdg notes">notes</span><span class="bdg asv">ASV</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Step 1, mechanical removal of visible organic matter.</b> Most detergents and disinfectants are completely or partly inactivated by organic material (food, feces, urine, soil), so gross removal first is essential.</li>
+      <li><b>Step 2, cleaning with soap or detergent and warm-to-hot water,</b> then thorough rinsing. Detergents and degreasers break down oil and grime with soap-like action and can remove up to <b>90%</b> of environmental pathogens. Rinse before disinfecting so residue does not inactivate the next product.</li>
+      <li><b>Step 3, disinfection of the now-clean surface</b> at the correct concentration for the full labeled contact time, then rinse if indicated and dry.</li>
+      <li>Sanitation can be by chemical means (soaps, detergents, disinfectants) or physical means (heat, steam, UV, desiccation), but physical methods must never be the sole means in a shelter.</li>
+    </ul>
+  </div>
+
+  <figure class="fig">
+    <svg viewBox="0 0 720 250" width="100%" role="img" aria-label="Three-step sanitation sequence from organic removal to dry surface">
+      <defs><marker id="arA" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0f3d3a"/></marker></defs>
+      <rect x="14" y="60" width="120" height="64" rx="10" fill="#ece3f7" stroke="#7a4fb5"/><text x="74" y="86" font-size="12" text-anchor="middle" font-weight="600">1. Remove</text><text x="74" y="103" font-size="10.5" text-anchor="middle">organic matter</text>
+      <rect x="170" y="60" width="120" height="64" rx="10" fill="#e2e4f2" stroke="#3c4a86"/><text x="230" y="86" font-size="12" text-anchor="middle" font-weight="600">2. Clean</text><text x="230" y="100" font-size="10" text-anchor="middle">detergent + rinse</text><text x="230" y="113" font-size="9.5" text-anchor="middle">(up to 90% removed)</text>
+      <rect x="326" y="60" width="120" height="64" rx="10" fill="#f3ebcf" stroke="#8a6d1f"/><text x="386" y="82" font-size="12" text-anchor="middle" font-weight="600">3. Disinfect</text><text x="386" y="98" font-size="10" text-anchor="middle">full contact time</text><text x="386" y="111" font-size="9.5" text-anchor="middle">on clean surface</text>
+      <rect x="482" y="60" width="110" height="64" rx="10" fill="#e9f4ee" stroke="#1f7a4d"/><text x="537" y="86" font-size="12" text-anchor="middle" font-weight="600">Rinse / dry</text><text x="537" y="103" font-size="10" text-anchor="middle">before reuse</text>
+      <rect x="624" y="60" width="82" height="64" rx="10" fill="#fbf8f1" stroke="#d9d0bd"/><text x="665" y="88" font-size="11" text-anchor="middle" font-weight="600">Sanitary</text><text x="665" y="104" font-size="10" text-anchor="middle">enclosure</text>
+      <line x1="134" y1="92" x2="166" y2="92" stroke="#0f3d3a" stroke-width="1.6" marker-end="url(#arA)"/>
+      <line x1="290" y1="92" x2="322" y2="92" stroke="#0f3d3a" stroke-width="1.6" marker-end="url(#arA)"/>
+      <line x1="446" y1="92" x2="478" y2="92" stroke="#0f3d3a" stroke-width="1.6" marker-end="url(#arA)"/>
+      <line x1="592" y1="92" x2="620" y2="92" stroke="#0f3d3a" stroke-width="1.6" marker-end="url(#arA)"/>
+      <text x="360" y="165" font-size="11.5" text-anchor="middle" fill="#b23b3b" font-weight="600">Skipping step 1 or 2 leaves organic matter that inactivates the disinfectant in step 3.</text>
+      <text x="360" y="190" font-size="11" text-anchor="middle" fill="#5d6b62">Water alone, or spray-and-wipe without contact time, is not sanitation.</text>
+    </svg>
+    <figcaption>The order is fixed: remove, clean, disinfect, then dry. Drying aids pathogen inactivation and animal comfort. Source: your notes plus ASV 2022 Section 5.</figcaption>
+  </figure>
+
+  <h3>Order of cleaning through the building <span class="bdg asv">ASV</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Recommended order, first to last: <b>healthy puppies and kittens, then healthy adult animals, then unhealthy animals.</b> The principle is to move from least to most likely to be shedding, protecting the most susceptible.</li>
+      <li>Customize for subpopulations (specific infectious diseases, immune-compromised animals) per the shelter's protocols.</li>
+      <li>Staff change outer clothing and gloves and wash hands before moving to a different area and after cleaning.</li>
+      <li>Industry guidelines recommend a minimum of <b>9 minutes per animal per day</b> for routine enclosure cleaning (NACA), useful for staffing math.</li>
+    </ul>
+  </div>
+
+  <h3>Why each step matters mechanistically <span class="bdg asv">ASV</span><span class="bdg ref">std ref</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Organic matter</b> physically shields microbes and chemically neutralizes many disinfectants, which is why removal precedes everything.</li>
+      <li><b>Dilution matters both ways:</b> too weak may be ineffective, too strong may harm animals and people. Follow label or published shelter recommendations.</li>
+      <li><b>Residue removal</b> is a true step. Quats and bleach can harm animals that contact or ingest them even at recommended dilution, so rinsing is essential.</li>
+      <li><b>Contact (dwell) time</b> is the interval the product must stay wet on the clean surface to kill the target pathogen. Spray-and-quick-wipe defeats it.</li>
+      <li>A labeled detergent-disinfectant combination product still represents two conceptual steps; cleaning and disinfection do not merge into one.</li>
+      <li>Observe practices against written protocols regularly. Common failures: wrong disinfectant, under or over-dilution, and missed contact time.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="panel" id="disinfectants">
+  <h2 class="sec">Disinfectant Classes &amp; Spectrum</h2>
+  <p class="lead">The highest-yield tab. The shelter-defining question is always the same: does the product reliably kill non-enveloped viruses (parvovirus, panleukopenia, calicivirus) and dermatophytes, and what does it cost you in organic-matter sensitivity, contact time, corrosion and rinsing? The comparison table is rebuilt from the ASPCA Pro Shelter Disinfectant Quick Reference and cross-checked against your notes and ASV 2022.</p>
+
+  <h3>Master comparison table <span class="bdg aspca">ASPCA Pro</span><span class="bdg notes">notes</span></h3>
+  <table class="cmp">
+    <tr><th>Property</th><th>Accelerated H2O2 (Accel)</th><th>Potassium peroxymonosulfate (Virkon, Trifectant)</th><th>Quaternary ammonium (quats)</th><th>Calcium hypochlorite (Wysiwash)</th><th>Sodium hypochlorite (bleach)</th></tr>
+    <tr><td><b>Non-enveloped viruses</b></td><td class="yes">Yes (1:32)</td><td class="yes">Yes (1%)</td><td class="no">No (not per independent research)</td><td class="yes">Yes</td><td class="yes">Yes (1:32)</td></tr>
+    <tr><td><b>Ringworm after cleaning</b></td><td class="yes">Yes (1:16)</td><td class="yes">Yes (2%)</td><td>Only if labeled fungicidal vs Trichophyton</td><td class="no">No (not per independent research)</td><td class="yes">Yes</td></tr>
+    <tr><td><b>Inactivated by organic matter</b></td><td>Minimal</td><td>Slight (less than bleach or quats)</td><td>Mildly</td><td class="no">Yes</td><td class="no">Yes</td></tr>
+    <tr><td><b>Detergent activity</b></td><td>Some</td><td>Some</td><td>Variable</td><td>None</td><td>None</td></tr>
+    <tr><td><b>Stability once diluted</b></td><td>About 90 days</td><td>About 7 days</td><td>Varies</td><td>About 24 hours</td><td>About 24 hours</td></tr>
+    <tr><td><b>Contact time</b></td><td>1 to 5 min (10 min at 1:32)</td><td>10 min</td><td>10 min</td><td>10 min</td><td>10 min</td></tr>
+    <tr><td><b>Rinse required</b></td><td class="no">No</td><td class="no">No</td><td class="yes">Yes</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+  </table>
+  <p class="note" style="color:var(--muted);font-size:12.5px">Household bleach is most commonly 5.25%; always check the concentration and adjust the dilution. Rinsing housing and dishes after any product is recommended to remove residue.</p>
+
+  <h3>Class-by-class detail <span class="bdg notes">notes</span><span class="bdg asv">ASV</span></h3>
+  <div class="card">
+    <h4>Sodium hypochlorite (bleach)</h4>
+    <ul class="hy">
+      <li>Inexpensive and effective against FPV, CPV, FCV and ringworm. Retains efficacy in hard water.</li>
+      <li>No detergent action and significantly inactivated by organic matter, so the surface must be cleaned first.</li>
+      <li>Loses potency in light or if left out; prepare daily or whenever organic matter contaminates the solution.</li>
+      <li>Corrosive to metal and chain-link; toxic gas if mixed with ammonia or acids. Routine dilution about 1:32.</li>
+    </ul>
+    <h4>Quaternary ammonium compounds (quats)</h4>
+    <ul class="hy">
+      <li>Broad label claims and detergent-plus-disinfectant action, non-irritating when properly diluted and rinsed.</li>
+      <li>The shelter limitation: multiple independent studies show quats do <b>not</b> reliably eliminate non-enveloped viruses (FPV, CPV, FCV) despite label claims. They can be effective against ringworm only if specifically labeled fungicidal against <i>Trichophyton</i> spp.</li>
+      <li>Inactivated by anionic soaps and detergents, so do not layer over un-rinsed soap.</li>
+    </ul>
+    <h4>Potassium peroxymonosulfate, calcium hypochlorite, accelerated hydrogen peroxide, NaDCC</h4>
+    <ul class="hy">
+      <li><b>Potassium peroxymonosulfate</b> (Virkon, Trifectant): oxidizing agent that denatures proteins and lipids and disrupts permeability. Some detergent activity, relatively good in organic matter, low tissue toxicity, less corrosive than bleach, but costly. Effective against dermatophytes at 2%.</li>
+      <li><b>Calcium hypochlorite</b> (Wysiwash): effective against FPV, CPV, FCV; no detergent activity; inactivated by organic matter; dry tablet form for hose-end applicators.</li>
+      <li><b>Accelerated hydrogen peroxide</b> (Accel): good detergent activity, works in light organic soil, short contact time (1 to 5 min), long diluted stability, no rinse required.</li>
+      <li><b>Sodium dichloroisocyanurate, NaDCC</b> (Bruclean): chlorine-releasing tablet, no detergent activity, inactivated by organic matter, less corrosive to metal than liquid bleach.</li>
+    </ul>
+  </div>
+
+  <div class="corrbox"><b>Corrected &middot; peroxymonosulfate vs ringworm</b>Earlier notes treated potassium peroxymonosulfate as ringworm-negative. It is effective against dermatophytes at 2%. Treat it as ringworm-active at that concentration.</div>
+
+  <div class="corrbox"><b>Clarified &middot; bleach dilution for ringworm</b>Older shelter teaching recommended a strong 1:10 bleach solution for dermatophytes. The gentler <b>1:32 dilution with a 10-minute contact time, after thorough cleaning,</b> is also effective against ringworm. The trade is concentration for dwell time: the lower 1:32 concentration is less irritating and less corrosive, so it is safer for both patients and staff while a longer contact time still achieves dermatophyte kill. The operational rule is unchanged: animals out of the area, clean first, full contact time, ventilate before return.</div>
+
+  <h3>Agents to avoid or restrict <span class="bdg notes">notes</span><span class="bdg ref">std ref</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Aldehydes</b> (glutaraldehyde, formaldehyde): carcinogenic to humans, avoid.</li>
+      <li><b>Biguanides</b> (chlorhexidine, Nolvasan, Virosan): toxic to fish and aquatic environments, and a narrow spectrum that performs poorly against non-enveloped viruses.</li>
+      <li><b>Phenols</b> (Lysol, Pine-Sol): cats are highly sensitive; do not use where cats are housed. Mechanistically, cats are deficient in the glucuronyl transferase conjugation pathway needed to clear phenolic compounds.</li>
+      <li><b>Alcohols</b> (hand sanitizer, more than 60%): inadequate against non-enveloped viruses and useless on visibly soiled hands.</li>
+      <li><b>Never mix products</b> unless the manufacturer approves. Bleach plus ammonia or acid yields toxic gas; quats are inactivated by soaps.</li>
+    </ul>
+  </div>
+
+  <div class="trap"><b>Exam trap &middot; quat toxicity mimics calicivirus</b>Improperly diluted or inadequately rinsed quats cause oral and skin ulceration, ocular lesions, fever, and respiratory signs in cats that can be misread as a virulent systemic calicivirus outbreak. The tell is the operational source: review dilution, application and rinsing. Management is to bathe the animal with warm water and gentle shampoo and rinse and dry the environment to remove residue. Revising the protocol resolves new cases faster than chasing a virus.</div>
+</section>
+
+<section class="panel" id="protocols">
+  <h2 class="sec">Protocols &amp; Workflow</h2>
+  <p class="lead">How the principles become daily practice: what a written plan must contain, the deep-clean sequence, spot cleaning, laundry and dishes, group housing, and the housing and flooring that make cleaning possible without removing the animal. Verified against ASV 2022 Section 5, with one laundry correction from the dermatophyte literature.</p>
+
+  <h3>What a written sanitation plan must specify <span class="bdg notes">notes</span><span class="bdg asv">ASV</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>The <b>areas</b> to clean and disinfect (including foster homes and outdoor spaces), the <b>frequency</b>, the <b>responsible staff</b>, and the <b>products and supplies</b> per area.</li>
+      <li>A step-by-step guide that walks staff and volunteers through the process, flags hazards to people, animals and the environment, and covers <b>PPE</b>.</li>
+      <li>Plans must be dynamic: alter protocols when disease rates rise or a harder-to-kill pathogen appears, and during an outbreak review protocols and observe practice for efficacy.</li>
+      <li>Sanitation plans must cover <b>every</b> location where animals are present, not just kennels.</li>
+    </ul>
+  </div>
+
+  <h3>Deep cleaning vs spot cleaning <span class="bdg asv">ASV</span><span class="bdg notes">notes</span></h3>
+  <table class="cmp">
+    <tr><th>Step</th><th>Deep clean (sanitizing)</th><th>Spot clean</th></tr>
+    <tr><td>Animal</td><td>Remove (or move to clean compartment); cats into a carrier</td><td>Stays in enclosure or gets out-of-kennel enrichment</td></tr>
+    <tr><td>Items</td><td>Remove all items</td><td>Remove bowls and wet or soiled items only</td></tr>
+    <tr><td>Organic matter</td><td>Remove all</td><td>Remove all</td></tr>
+    <tr><td>Detergent</td><td>Apply and scrub all surfaces</td><td>Clean soiled areas with detergent and a single-use towel</td></tr>
+    <tr><td>Rinse</td><td>Rinse all, remove standing water</td><td>Wipe to remove detergent</td></tr>
+    <tr><td>Disinfect</td><td>Apply for full contact time, rinse as needed, dry, reset</td><td>Replace care items; deep clean only when heavily soiled or between occupants</td></tr>
+  </table>
+  <div class="card">
+    <ul class="hy">
+      <li>Enclosures must be <b>completely sanitized between different occupants</b>, even after brief use, even if not visibly soiled, and even if the animal seemed healthy, because animals shed pathogens without signs.</li>
+      <li>Spot cleaning is less stressful (less handling, familiar scent retained), saves time and chemical, and lowers fomite transmission. It is especially valuable for shy or under-socialized cats and for animals with stress-worsened disease such as feline respiratory infection.</li>
+      <li>Group housing: for 2 to 3 animals clean as usual; for larger groups consider spot cleaning with periodic deep cleaning, scaled to group size, age, vaccination status and length of stay. Remove animals and deep clean if disease, excessive hair, dirt or smell appears.</li>
+      <li>It is unacceptable to spray or hose a primary enclosure while the animal is inside; remove animals from nearby compartments when overspray is likely.</li>
+    </ul>
+  </div>
+
+  <figure class="fig">
+    <svg viewBox="0 0 700 220" width="100%" role="img" aria-label="Decision between spot cleaning and deep cleaning">
+      <defs><marker id="arB" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0f3d3a"/></marker></defs>
+      <rect x="250" y="14" width="200" height="46" rx="10" fill="#e2e4f2" stroke="#3c4a86"/><text x="350" y="33" font-size="11.5" text-anchor="middle" font-weight="600">Same animal staying?</text><text x="350" y="49" font-size="10" text-anchor="middle">Enclosure not heavily soiled?</text>
+      <rect x="60" y="110" width="240" height="84" rx="10" fill="#e9f4ee" stroke="#1f7a4d"/><text x="180" y="132" font-size="12" text-anchor="middle" font-weight="600">SPOT CLEAN</text><text x="180" y="150" font-size="10" text-anchor="middle">Animal stays, remove soiled items,</text><text x="180" y="164" font-size="10" text-anchor="middle">tidy, resupply food and water.</text><text x="180" y="181" font-size="9.5" text-anchor="middle" fill="#5d6b62">Daily, less stress, scent kept</text>
+      <rect x="400" y="110" width="240" height="84" rx="10" fill="#f3ebcf" stroke="#8a6d1f"/><text x="520" y="132" font-size="12" text-anchor="middle" font-weight="600">DEEP CLEAN (sanitize)</text><text x="520" y="150" font-size="10" text-anchor="middle">Remove animal, all items, organic</text><text x="520" y="164" font-size="10" text-anchor="middle">matter, clean, rinse, disinfect, dry.</text><text x="520" y="181" font-size="9.5" text-anchor="middle" fill="#5d6b62">Between occupants, always</text>
+      <line x1="300" y1="50" x2="190" y2="106" stroke="#0f3d3a" stroke-width="1.6" marker-end="url(#arB)"/>
+      <line x1="400" y1="50" x2="510" y2="106" stroke="#0f3d3a" stroke-width="1.6" marker-end="url(#arB)"/>
+      <text x="225" y="86" font-size="10.5" fill="#1f7a4d" font-weight="600">Yes</text>
+      <text x="470" y="86" font-size="10.5" fill="#b23b3b" font-weight="600">No / new occupant</text>
+    </svg>
+    <figcaption>Spot vs deep cleaning decision. New occupant always triggers a full deep clean regardless of appearance. Source: ASV 2022 Table 5.1 and your notes.</figcaption>
+  </figure>
+
+  <h3>Tools, mopping and cross-contamination control <span class="bdg asv">ASV</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Provide <b>separate cleaning supplies</b> (mops, rags, buckets) per shelter section, or sanitize before use in each area.</li>
+      <li>Avoid aerosolizing pathogens: use damp, electrostatic or dust mops rather than vigorous brooms and high-pressure hoses where animals are present.</li>
+      <li>Mopping is ideally avoided (mops harbor pathogens) but may be needed where there are no drains. <b>Mop heads must be disposed of, or sanitized and dried, between uses,</b> including between cleaning and disinfection products and between housing areas.</li>
+      <li>Transport cages, traps and vehicle compartments must be sanitized between animals. Mobile carts and rolling bins should be assigned to one area or sanitized between areas, wheels included.</li>
+      <li>Each animal housing room should have its own dedicated cleaning supplies and storage.</li>
+    </ul>
+  </div>
+
+  <h3>Dishes, bowls and laundry <span class="bdg asv">ASV</span><span class="bdg ref">std ref</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Dishwashers reach high temperatures that destroy most pathogens but <b>may not destroy non-enveloped viruses such as parvovirus</b>, so apply a disinfectant to dishes after the cycle. Sanitize food and water bowls separately in location or time from litter pans to avoid cross-contamination.</li>
+      <li>Automatic watering devices and water bottles should not be used if the valve cannot be sanitized before the next animal.</li>
+      <li>Laundry: remove heavy organic debris first, wash in hot water with soap and bleach (about one-half to one cup per standard washer), do not overload, and dry completely.</li>
+      <li>Items that cannot be readily disinfected (leather gloves, muzzles) can spread disease when used on ill animals or during outbreaks.</li>
+      <li>Bedding contaminated with non-enveloped viruses (CPV, FPV) or dermatophytes should be discarded or laundered with a pathogen-specific protocol, because routine laundering may not remove them.</li>
+    </ul>
+  </div>
+
+  <div class="corrbox"><b>Corrected &middot; laundry temperature claim</b>The supplementary gap-analysis note that fabrics "must reach at least 60 C (140 F) paired with chlorine bleach" to achieve mycological cure overstates the role of temperature. Moriello's dermatophyte laundering studies found that the decisive factor is <b>washing twice (mechanical washing and rinsing) without overloading the machine</b>; water temperature and the addition of bleach were not the critical variables when items were washed twice. Keep hot water and bleach as reasonable practice, but the exam-defensible point is the mechanical double wash, not a temperature threshold.</div>
+
+  <h3>Flooring and drainage <span class="bdg notes">notes</span><span class="bdg ref">std ref</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Polished sealed concrete suits high-traffic corridors but is not durable enough inside dog kennels. Resinous epoxy and urethane coatings over concrete generally meet kennel flooring needs; non-porous tile with epoxy grout is a costlier option.</li>
+      <li>Simple sealed concrete is not recommended in most animal-traffic areas unless resealed annually, because porous or damaged surfaces cannot be fully disinfected.</li>
+      <li>Dog kennels need a sloped floor toward an appropriately sized, covered drain with adequate flow, to prevent standing water and cross-contamination between runs.</li>
+    </ul>
+    <div class="verifybox"><b>Verify against source &middot; slope figure</b>The specific "exactly one-quarter inch per foot toward a rear drain" figure in the supplementary note is a facility-design specification, not an ASV Section 5 sanitation requirement, and exact slope and drain placement vary by design reference. Detailed flooring and drainage standards belong to the Facility/Environment subdomain; treat the number as a design guideline rather than a fixed sanitation rule.</div>
+  </div>
+</section>
+
+<section class="panel" id="biosecurity">
+  <h2 class="sec">Biosecurity Infrastructure</h2>
+  <p class="lead">The standing systems that interrupt pathogen movement between animals: fomite control, PPE, hand hygiene, foot traffic, pest control, and the housing and population conditions that make the rest work. This tab is the routine infrastructure side. Outbreak detection, surveillance triggers and response stay in your Infectious Disease hub and are cross-referenced, not repeated here. Verified against ASV 2022 Sections 5.4 to 5.6.</p>
+
+  <h3>Fomites and the routes you are interrupting <span class="bdg asv">ASV</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>A <b>fomite</b> is an inanimate object that can carry pathogens and contribute to transmission. In a shelter the everyday fomites are hands, work clothing, medical equipment, food bowls, litter boxes, toys, and cleaning and handling equipment.</li>
+      <li>Foot traffic spreads pathogens across the shelter and grounds; gloves, clothes and shoes all act as fomites.</li>
+      <li>Objects with scratched, damaged or porous surfaces (plastic litter pans, airline carriers, unglazed bowls) are difficult or impossible to fully disinfect and should be used with caution or discarded between animals.</li>
+      <li>In outbreaks, or when supplies cannot be sanitized between animals, switch to disposable items.</li>
+    </ul>
+  </div>
+
+  <h3>PPE and hand hygiene <span class="bdg asv">ASV</span><span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Select PPE by the specific pathogens and exposure risks in each population. Change or sanitize and dispose of PPE between areas, and change protective garments between animals when transmission risk is high. Wash hands after removing PPE.</li>
+      <li>Hand hygiene stations belong in or near every area where animal contact occurs. A sink with soap, water and single-use towels is ideal; the minimum is hand sanitizer with <b>at least 60% alcohol.</b></li>
+      <li>Handwashing: wet with clean running water, scrub with soap for at least <b>20 seconds</b> over all surfaces, between fingers and under nails, rinse, and dry with a fresh towel or forced air.</li>
+      <li>Hand sanitizer is for <b>visibly clean hands only</b> and is ineffective against parvovirus, calicivirus and ringworm, so it must not be the sole means of hand hygiene.</li>
+      <li>Shelter personnel are far more likely to move pathogens during daily care than visitors, so staff protocols matter most.</li>
+    </ul>
+  </div>
+
+  <h3>Footbaths, the classic exam target <span class="bdg asv">ASV</span><span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>The current ASV position is firm: <b>footbaths must not be relied on for infectious disease control in the shelter.</b> Adequate contact time is impractical, organic debris accumulates and inactivates the disinfectant, and poorly maintained baths encourage pathogen growth.</li>
+      <li>It is <b>unacceptable for animals to walk through footbaths.</b></li>
+      <li>The preferred approach in contaminated or protected areas (isolation, surgery) is dedicated boots that can be sanitized, or disposable shoe covers.</li>
+    </ul>
+    <div class="corrbox"><b>Corrected &middot; footbath emphasis</b>Your notes describe how to use footbaths (step in for at least 10 minutes, change solution daily, bleach or 1% Virkon preferred over quats). Those operational details are not wrong, but they reflect older guidance. The ASV 2022 standard is stronger: footbaths are not a reliable control and should not be depended on. If a question frames footbaths as a primary biosecurity measure, the ASV-aligned answer is that they must not be relied on, with boot changes or covers preferred. Within a parvo or panleukopenia situation, bleach and potassium peroxymonosulfate are still more reliable than quats if a bath is used at all.</div>
+  </div>
+
+  <figure class="fig">
+    <svg viewBox="0 0 720 250" width="100%" role="img" aria-label="Biosecurity layers interrupting pathogen movement between animals">
+      <defs><marker id="arC" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0f3d3a"/></marker></defs>
+      <rect x="20" y="95" width="120" height="60" rx="10" fill="#fbe9e9" stroke="#b23b3b"/><text x="80" y="120" font-size="11.5" text-anchor="middle" font-weight="600">Source animal</text><text x="80" y="137" font-size="10" text-anchor="middle">(shedding)</text>
+      <rect x="580" y="95" width="120" height="60" rx="10" fill="#e9f4ee" stroke="#1f7a4d"/><text x="640" y="120" font-size="11.5" text-anchor="middle" font-weight="600">Susceptible</text><text x="640" y="137" font-size="10" text-anchor="middle">animal</text>
+      <rect x="190" y="40" width="150" height="44" rx="9" fill="#e2e4f2" stroke="#3c4a86"/><text x="265" y="59" font-size="10.5" text-anchor="middle" font-weight="600">Hand hygiene</text><text x="265" y="74" font-size="9.5" text-anchor="middle">wash 20s, sink first</text>
+      <rect x="190" y="103" width="150" height="44" rx="9" fill="#e2e4f2" stroke="#3c4a86"/><text x="265" y="122" font-size="10.5" text-anchor="middle" font-weight="600">PPE change</text><text x="265" y="137" font-size="9.5" text-anchor="middle">between animals/areas</text>
+      <rect x="190" y="166" width="150" height="44" rx="9" fill="#e2e4f2" stroke="#3c4a86"/><text x="265" y="185" font-size="10.5" text-anchor="middle" font-weight="600">Fomite control</text><text x="265" y="200" font-size="9.5" text-anchor="middle">bowls, tools, carts</text>
+      <rect x="390" y="72" width="150" height="44" rx="9" fill="#f3ebcf" stroke="#8a6d1f"/><text x="465" y="91" font-size="10.5" text-anchor="middle" font-weight="600">Boots / covers</text><text x="465" y="106" font-size="9.5" text-anchor="middle">not footbaths</text>
+      <rect x="390" y="134" width="150" height="44" rx="9" fill="#f3ebcf" stroke="#8a6d1f"/><text x="465" y="153" font-size="10.5" text-anchor="middle" font-weight="600">Pest control + food</text><text x="465" y="168" font-size="9.5" text-anchor="middle">sealed bins, IPM</text>
+      <line x1="140" y1="125" x2="186" y2="100" stroke="#0f3d3a" stroke-width="1.5" marker-end="url(#arC)"/>
+      <line x1="340" y1="95" x2="386" y2="100" stroke="#0f3d3a" stroke-width="1.5" marker-end="url(#arC)"/>
+      <line x1="540" y1="120" x2="576" y2="123" stroke="#0f3d3a" stroke-width="1.5" marker-end="url(#arC)"/>
+      <text x="360" y="232" font-size="11" text-anchor="middle" fill="#5d6b62">Each layer interrupts a transmission route. No single layer is sufficient; population management underpins all of them.</text>
+    </svg>
+    <figcaption>Biosecurity is layered interruption of fomite and contact routes between a shedding animal and a susceptible one. Source: ASV 2022 Sections 5.4 to 5.6.</figcaption>
+  </figure>
+
+  <h3>Environment, pests and population <span class="bdg asv">ASV</span><span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Physical methods (UV, steam, heat, freezing, HEPA) reduce pathogen dose but lack proven efficacy against all shelter pathogens and must not be the sole means of sanitation.</li>
+      <li>Environmental sampling helps assess sanitation efficacy and investigate outbreaks, for example ringworm, which can be widespread and persistent.</li>
+      <li>Rodents and insects may harbor pathogens spread by ingestion or by contaminating food and the environment. Protect all food in sealed bins, clean spills promptly, reseal and refrigerate opened containers, and use an integrated pest management plan.</li>
+      <li>Do not allow standing water (mosquitoes breed and pathogens thrive). Outdoor gravel, dirt and grass cannot be disinfected, so rotate or replace surface covers and restrict access to vaccinated, dewormed, healthy adults or where benefits outweigh risk.</li>
+      <li>Individual housing should at minimum allow effective cleaning without removing the animal and limit the animal's exposure to cleaning. Double-compartment housing is preferred for short stays.</li>
+      <li>Even the best sanitation and building cannot compensate for a poorly managed population; capacity and flow are biosecurity, not just husbandry.</li>
+    </ul>
+  </div>
+
+  <div class="trap"><b>Exam trap &middot; isolation vs the rest</b>Routine biosecurity (this tab) keeps endemic transmission low. When an actual outbreak is suspected, the response algorithm, surveillance and isolation tier sit in the Infectious Disease subdomain. On a combined question, anchor your answer to whichever the stem emphasizes: standing infrastructure here, active outbreak response there.</div>
+</section>
+
+<section class="panel" id="mcq">
+  <h2 class="sec">MCQ Test Bank</h2>
+  <p class="lead">Shared bank for the whole Sanitation and Biosecurity subdomain. This subdomain is about 12 of 350 live exam questions, so the 32 practice items here (8 per topic) already exceed the live count. Use the chips to focus on one topic or review the whole subdomain.</p>
+  <div class="mcqbar">
+    <div class="filters">
+      <button class="on" data-f="all">All</button>
+      <button data-f="principles">&#9670; Principles</button>
+      <button data-f="disinfectants">&#9670; Disinfectants</button>
+      <button data-f="protocols">&#9670; Protocols</button>
+      <button data-f="biosecurity">&#9670; Biosecurity</button>
+    </div>
+    <div class="score"><span id="scoreTxt">0 / 0 correct</span><button class="reset" id="resetBtn">Reset</button></div>
+  </div>
+  <div id="qhost"></div>
+</section>
+
+</div></main>
+
+<footer><div class="wrap">
+  <p>Sanitation and Biosecurity subdomain (Physical Health of Animal, ABVP Shelter Medicine Practice RVS). Built from your uploaded sanitation notes, cross-verified against the ASV Guidelines for Standards of Care in Animal Shelters (2022, Section 5) and the ASPCA Pro Shelter Disinfectant Quick Reference. Gap-analysis additions are badged by source and source corrections are flagged inline. The MCQ bank holds 32 questions (8 per topic), filterable by topic.</p>
+</div>
+</footer>
+
+<script>
+const tabrow=document.getElementById('tabrow');
+tabrow.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.disabled)return;
+  [...tabrow.children].forEach(x=>x.classList.remove('active'));b.classList.add('active');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('show'));
+  document.getElementById(b.dataset.p).classList.add('show');window.scrollTo({top:0,behavior:'smooth'});});
+
+/* Shared sanitation/biosecurity MCQ bank.
+   t = topic tag (drives the filter chip + label)
+   f = source/flag badge: notes | asv | aspca | ref | corr  (optional)
+   q = stem, o = options, a = correct index, e = explanation */
+const Q=[{"t": "principles", "f": "notes", "q": "Why must visible organic matter be removed before any soap or disinfectant is applied?", "o": ["It preserves the stainless appearance for public viewing", "Most detergents and disinfectants are completely or partly inactivated by organic material such as feces, urine, food and soil", "Mechanical removal forces bacteria into resistant spores", "Organic debris changes ward humidity and accelerates viral mutation"], "a": 1, "e": "Organic matter physically shields microbes and chemically neutralizes many products, so gross removal must come first."}, {"t": "principles", "f": "asv", "q": "Sanitation is best defined as:", "o": ["Destruction of all pathogens including spores", "The manual removal of debris only", "The combination of cleaning and disinfection", "Application of ultraviolet light to surfaces"], "a": 2, "e": "ASV defines sanitation as cleaning plus disinfection, two separate steps even with a combination product."}, {"t": "principles", "f": "asv", "q": "According to the ASV, true sterilization of cage and kennel surfaces:", "o": ["Is achieved with 1:32 bleach", "Does not occur", "Occurs only with steam", "Is the goal of routine daily cleaning"], "a": 1, "e": "The ASV states plainly that true sterilization of cage and kennel surfaces does not occur; that language belongs to autoclaved instruments."}, {"t": "principles", "f": "asv", "q": "Detergents and degreasers can remove up to what proportion of environmental pathogens before any disinfectant is applied?", "o": ["About 50%", "About 75%", "Up to 90%", "99.9%"], "a": 2, "e": "Detergents break down oil and grime so debris can be rinsed away, removing up to 90% of environmental pathogens."}, {"t": "principles", "f": "asv", "q": "The recommended ASV order of cleaning, from first to last, is:", "o": ["Unhealthy animals, then healthy adults, then puppies and kittens", "Healthy puppies and kittens, then healthy adults, then unhealthy animals", "Newest intakes, then oldest residents", "By proximity to the front intake office"], "a": 1, "e": "Move from least likely to shed toward most likely, protecting the most susceptible animals."}, {"t": "principles", "f": "asv", "q": "Adequate sanitation CANNOT be accomplished by:", "o": ["Cleaning then disinfecting for the full contact time", "Using water alone, or spraying and quickly wiping off a disinfectant", "Removing organic matter first", "Following the label dilution"], "a": 1, "e": "Water alone, spray-and-wipe, or a no-detergent disinfectant used without cleaning first all fail to sanitize."}, {"t": "principles", "f": "asv", "q": "Industry guidelines recommend a minimum of how much time per animal per day for routine enclosure cleaning?", "o": ["About 3 minutes", "About 9 minutes", "About 20 minutes", "About 45 minutes"], "a": 1, "e": "NACA guidelines cite a minimum of about 9 minutes per animal per day, useful for staffing calculations."}, {"t": "principles", "f": "asv", "q": "Even with a labeled detergent-disinfectant combination product, cleaning and disinfection:", "o": ["Become a single combined step", "Remain two separate steps", "Become unnecessary", "No longer require contact time"], "a": 1, "e": "Cleaning and disinfection are conceptually and practically separate steps regardless of the product used."}, {"t": "disinfectants", "f": "asv", "q": "The key shelter limitation of quaternary ammonium compounds is that they:", "o": ["Are corrosive to metal", "Do not reliably eliminate non-enveloped viruses (parvo, panleukopenia, calici) despite label claims", "Have no detergent activity", "Are unstable after 10 minutes"], "a": 1, "e": "Multiple independent studies show quats fail against non-enveloped viruses even when the label claims otherwise."}, {"t": "disinfectants", "f": "notes", "q": "Which statement about sodium hypochlorite (bleach) is accurate?", "o": ["It is ineffective against parvovirus", "It is effective against FPV, CPV, FCV and ringworm but is inactivated by organic matter and has no detergent action", "It is a strong detergent", "It stays stable for about 90 days once diluted"], "a": 1, "e": "Bleach is broadly virucidal and fungicidal but has no detergent action and is readily inactivated by organic matter, so cleaning must come first."}, {"t": "disinfectants", "f": "aspca", "q": "Once diluted, bleach and calcium hypochlorite remain stable for about:", "o": ["90 days", "7 days", "24 hours", "1 hour"], "a": 2, "e": "Chlorine dilutions are short-lived (about 24 hours) versus 7 days for potassium peroxymonosulfate and about 90 days for accelerated hydrogen peroxide."}, {"t": "disinfectants", "f": "corr", "q": "Regarding ringworm, potassium peroxymonosulfate (Virkon, Trifectant) is best described as:", "o": ["Never effective against dermatophytes", "Effective at about 2% concentration with appropriate contact time", "Effective only at a 1:10 dilution", "Effective only when used as a footbath"], "a": 1, "e": "The ASPCA Pro reference and ASV list it as effective against dermatophytes at about 2%, correcting the common note that it is ringworm-negative."}, {"t": "disinfectants", "f": "aspca", "q": "Which group of products is EFFECTIVE against non-enveloped viruses per the ASPCA Pro reference?", "o": ["Quats and chlorhexidine", "Accelerated hydrogen peroxide, potassium peroxymonosulfate, calcium hypochlorite and bleach", "Phenols and alcohols", "Aldehydes only"], "a": 1, "e": "The oxidizers and chlorine-releasing products clear non-enveloped viruses; quats, biguanides, phenols and alcohols do not reliably do so."}, {"t": "disinfectants", "f": "notes", "q": "Cats are particularly sensitive to which class, which must not be used where cats are housed?", "o": ["Quaternary ammonium compounds", "Phenols such as Lysol and Pine-Sol", "Accelerated hydrogen peroxide", "Bleach at 1:32"], "a": 1, "e": "Phenolic disinfectants are toxic to cats (feline glucuronyl transferase deficiency slows clearance) and are excluded from cat-housing areas."}, {"t": "disinfectants", "f": "aspca", "q": "Which products require NO rinse after the contact time per the ASPCA Pro reference?", "o": ["Bleach and calcium hypochlorite", "Accelerated hydrogen peroxide and potassium peroxymonosulfate", "Quats", "All chlorine products"], "a": 1, "e": "AHP and potassium peroxymonosulfate are listed as no-rinse, whereas quats, calcium hypochlorite and bleach require rinsing."}, {"t": "disinfectants", "f": "notes", "q": "Several cats develop fever, oral and skin ulceration, ocular lesions and respiratory signs after cage disinfection. The first operational cause to rule out is:", "o": ["Virulent systemic calicivirus only", "Quaternary ammonium compound toxicity from improper dilution or inadequate rinsing", "Bleach used at 1:32", "Ringworm"], "a": 1, "e": "Quat toxicity mimics virulent calicivirus; the clue is the cleaning process, and revising it resolves new cases quickly."}, {"t": "protocols", "f": "asv", "q": "An enclosure must be completely sanitized (deep cleaned) between different occupants:", "o": ["Only if visibly soiled", "Even after brief use, even if not visibly soiled, and even if the animal seemed healthy", "Only weekly", "Only during a declared outbreak"], "a": 1, "e": "Animals shed pathogens without signs, so a full deep clean is required between occupants regardless of appearance."}, {"t": "protocols", "f": "asv", "q": "A documented advantage of spot cleaning for cats is that it:", "o": ["Guarantees daily sterilization", "Reduces handling and stress, saves time and chemical, lowers fomite transmission and preserves familiar scent", "Eliminates the need for clean bowls", "Forces the cat to live in a carrier"], "a": 1, "e": "Spot cleaning is less stressful and lower-risk, and is especially valuable for shy cats and stress-worsened disease such as feline respiratory infection."}, {"t": "protocols", "f": "asv", "q": "It is unacceptable to:", "o": ["Use a detergent before disinfecting", "Spray or hose a primary enclosure while the animal is inside it", "Dry the cage before returning the animal", "Place a cat in a carrier during deep cleaning"], "a": 1, "e": "Spraying enclosures with animals inside causes distress and contamination; remove animals from nearby compartments when overspray is likely."}, {"t": "protocols", "f": "asv", "q": "Mop heads must be:", "o": ["Reused across rooms as long as they stay wet", "Disposed of, or sanitized and dried, between uses, including between products and housing areas", "Stored inside food bins", "Used as the main tool inside cat cages"], "a": 1, "e": "Mops harbor pathogens; ideally mopping is avoided, and mop heads are decontaminated between products and areas."}, {"t": "protocols", "f": "asv", "q": "A biological limitation of dishwashers for bowls is that they:", "o": ["Reliably kill parvovirus", "Reach high temperatures that destroy most pathogens but may not destroy non-enveloped viruses, so apply a disinfectant after the cycle", "Warp all stainless bowls", "Increase pathogen mutation rates"], "a": 1, "e": "Heat destroys most pathogens but parvovirus may survive, so a disinfectant step after the cycle is recommended."}, {"t": "protocols", "f": "corr", "q": "Recent dermatophyte laundering evidence (Moriello) indicates the most decisive factor for removing Microsporum canis spores from fabric is:", "o": ["Very hot water alone", "Washing twice (mechanical washing and rinsing) without overloading the machine", "Bleach alone in cold water", "A single short cycle"], "a": 1, "e": "The mechanical double wash is decisive; water temperature and bleach were not the critical variables when items were washed twice."}, {"t": "protocols", "f": "notes", "q": "Recommended flooring for the interior of dog kennels is:", "o": ["Carpet", "Resinous epoxy or urethane coatings over concrete (polished sealed concrete suits corridors but not kennels)", "Unsealed asphalt", "Porous tile with sand grout"], "a": 1, "e": "Epoxy or urethane coatings give a durable, non-porous, disinfectable kennel surface; polished sealed concrete is for high-traffic corridors."}, {"t": "protocols", "f": "asv", "q": "Food and water bowls should be sanitized:", "o": ["In the same basin as litter pans to save time", "At a different location or time than litter pans to prevent cross-contamination", "Only once weekly", "Without any rinse"], "a": 1, "e": "Separating bowl and litter-pan sanitation prevents fecal cross-contamination of feeding items."}, {"t": "biosecurity", "f": "asv", "q": "A fomite is:", "o": ["A type of non-enveloped virus", "An inanimate object (hands, clothing, bowls, equipment) that can carry pathogens and transmit disease", "A class of disinfectant", "A vaccine adjuvant"], "a": 1, "e": "Fomites are contaminated objects; hands, clothing, bowls, litter boxes, toys and equipment are the everyday shelter examples."}, {"t": "biosecurity", "f": "asv", "q": "The current ASV position on footbaths is that they:", "o": ["Are a reliable primary biosecurity control", "Must not be relied on for infectious disease control, because adequate contact time is impractical and organic debris inactivates the disinfectant", "Sterilize boots in two seconds", "Should replace boot changes in isolation"], "a": 1, "e": "The 2022 ASV standard is that footbaths are unreliable and should not be depended on; dedicated boots or disposable covers are preferred."}, {"t": "biosecurity", "f": "asv", "q": "The minimum acceptable hand hygiene station provides:", "o": ["A shared cloth towel only", "Hand sanitizer with at least 60% alcohol (a sink with soap, water and single-use towels is ideal)", "Plain water only", "A footbath"], "a": 1, "e": "At minimum, at least 60% alcohol sanitizer; ideally a sink with soap, running water and single-use towels."}, {"t": "biosecurity", "f": "asv", "q": "Hand sanitizer (more than 60% alcohol) should be used:", "o": ["On heavily soiled hands during cleaning", "Only on hands that are visibly clean, and never as the sole means of hand hygiene", "As a substitute for handwashing in all cases", "Only between low-risk rooms"], "a": 1, "e": "Alcohol gels fail on soiled hands and against parvovirus, calicivirus and ringworm, so they are for visibly clean hands and not the sole method."}, {"t": "biosecurity", "f": "asv", "q": "Within the shelter, who is most likely to move pathogens around during daily tasks?", "o": ["Visitors", "Shelter personnel performing daily care", "Adopters", "Delivery drivers"], "a": 1, "e": "Staff handle many animals during care, so their protocols (PPE, hand hygiene) matter most for transmission."}, {"t": "biosecurity", "f": "asv", "q": "Outdoor surfaces such as gravel, dirt and grass:", "o": ["Are easily disinfected with 1:32 bleach", "Cannot be disinfected, so covers are rotated or replaced and access is managed", "Require daily bleaching", "Are inherently sterile in sunlight"], "a": 1, "e": "These surfaces cannot be disinfected; manage them by rotating covers and restricting access to vaccinated, dewormed, healthy adults."}, {"t": "biosecurity", "f": "asv", "q": "The recommended approach to rodents and insects in the shelter is:", "o": ["Maximal routine pesticide use", "An integrated pest management plan, with all food protected in sealed bins and spills cleaned promptly", "Ignoring them unless animals get sick", "Traps only in summer"], "a": 1, "e": "Pests harbor pathogens; IPM plus protected food storage reduces both infestation and chemical use."}, {"t": "biosecurity", "f": "notes", "q": "Even with excellent sanitation and facility design, disease control still fails if:", "o": ["Staff wear PPE", "The population is not well managed (capacity and flow)", "Bowls are washed daily", "Floors are epoxy-coated"], "a": 1, "e": "Population management underpins biosecurity; no amount of cleaning compensates for crowding and poor flow."}];
+
+const host=document.getElementById('qhost');
+const scoreTxt=document.getElementById('scoreTxt');
+let answered=0, correct=0, filter='all';
+const DLABEL={principles:"Principles",disinfectants:"Disinfectants",protocols:"Protocols",biosecurity:"Biosecurity"};
+function tagLabel(t){return DLABEL[t]||t.toUpperCase();}
+function flagBadge(f){
+  if(f==='corr')return '<span class="bdg corr">corrected</span>';
+  if(f==='notes')return '<span class="bdg notes">your notes</span>';
+  if(f==='asv')return '<span class="bdg asv">ASV</span>';
+  if(f==='aspca')return '<span class="bdg aspca">ASPCA Pro</span>';
+  if(f==='ref')return '<span class="bdg ref">std ref</span>';
+  return '';
+}
+function render(){
+  host.innerHTML='';answered=0;correct=0;updateScore();
+  Q.forEach((item,i)=>{
+    if(filter!=='all' && item.t!==filter) return;
+    const card=document.createElement('div');card.className='q';
+    card.innerHTML=`<div class="meta"><span class="num">#${i+1}</span><span class="tag">&#9670; ${tagLabel(item.t)}</span>${flagBadge(item.f)}</div><div class="stem">${item.q}</div>`;
+    const opts=document.createElement('div');
+    item.o.forEach((txt,oi)=>{
+      const btn=document.createElement('button');btn.className='opt';
+      btn.innerHTML=`<span class="k">${String.fromCharCode(65+oi)}</span>${txt}`;
+      btn.onclick=()=>choose(card,opts,item,oi);opts.appendChild(btn);
+    });
+    card.appendChild(opts);
+    const ex=document.createElement('div');ex.className='expl';
+    ex.innerHTML=`<b class="cor">Correct: ${String.fromCharCode(65+item.a)}.</b> ${item.e}`;
+    card.appendChild(ex);host.appendChild(card);
+  });
+}
+function choose(card,opts,item,oi){
+  if(card.dataset.done)return;card.dataset.done='1';answered++;
+  [...opts.children].forEach((b,bi)=>{b.classList.add('locked');
+    if(bi===item.a)b.classList.add('correct');
+    if(bi===oi && oi!==item.a)b.classList.add('wrong');});
+  if(oi===item.a)correct++;
+  card.querySelector('.expl').classList.add('show');updateScore();
+}
+function updateScore(){scoreTxt.textContent=`${correct} / ${answered} correct`;}
+document.querySelector('.filters').addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  document.querySelectorAll('.filters button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');filter=b.dataset.f;render();});
+document.getElementById('resetBtn').onclick=render;
+render();
+</script>
+</body>
+</html>

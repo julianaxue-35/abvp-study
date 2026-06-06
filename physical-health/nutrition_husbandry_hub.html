@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nutrition &amp; Husbandry Subdomain Hub | ABVP Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0f3d3a;--ink2:#15514c;--paper:#f4efe4;--paper2:#fbf8f1;
+    --line:#d9d0bd;--muted:#5d6b62;
+    --ac:#2f7d8c;--ac-soft:#d8ebee;             /* hub accent (teal) */
+    --id:#3c4a86;--id-soft:#e2e4f2;             /* ASV blue */
+    --good:#1f7a4d;--bad:#b23b3b;
+    --notes:#7a4fb5;--notes-soft:#ece3f7;        /* your notes */
+    --txt:#8a6d1f;--txt-soft:#f3ebcf;            /* textbook / standard reference */
+    --warn:#a8641a;--warn-soft:#f7e6cd;          /* exam trap amber */
+    --shadow:0 1px 2px rgba(15,61,58,.08),0 8px 24px rgba(15,61,58,.06);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;
+    background-image:radial-gradient(circle at 1px 1px,rgba(15,61,58,.04) 1px,transparent 0);background-size:22px 22px;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+  header.top{background:var(--ink);color:var(--paper2);padding:26px 0 22px;border-bottom:4px solid var(--ac)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#9ec9c2;margin:0 0 6px}
+  header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(26px,4.5vw,40px);margin:0;line-height:1.05}
+  header.top p.sub{margin:8px 0 0;color:#cfe3df;font-size:14px;max-width:80ch}
+  .legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}
+  .legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.25);color:#eaf4f1;display:flex;align-items:center;gap:6px}
+  .legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--paper2);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button:hover{background:var(--paper);color:var(--ink)}
+  .tabrow button.active{background:var(--ink);color:var(--paper2)}
+  .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--ac)}
+  main{padding:30px 0 80px}
+  .panel{display:none;animation:fade .35s ease}
+  .panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;letter-spacing:-.01em}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:80ch}
+  h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:30px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;scroll-margin-top:64px}
+  h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;color:var(--ink2);text-transform:uppercase;letter-spacing:.03em}
+  .card{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}
+  ul.hy{margin:8px 0;padding-left:0;list-style:none}
+  ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed #e6ddca;font-size:14px}
+  ul.hy li:last-child{border-bottom:0}
+  ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;border-radius:2px;background:var(--ac);transform:rotate(45deg)}
+  .trap{background:var(--warn-soft);border:1px solid #e6cfa6;border-left:4px solid var(--warn);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .trap b{color:var(--warn);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .corrbox{background:#e9f4ee;border:1px solid #bfe0cc;border-left:4px solid var(--good);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .corrbox b{color:var(--good);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .clarify{background:var(--ac-soft);border:1px solid #b9d7dc;border-left:4px solid var(--ac);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .clarify b{color:var(--ac);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:var(--paper2);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp th{background:var(--ink);color:var(--paper2);font-weight:600;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase}
+  table.cmp tr:last-child td{border-bottom:0}
+  table.cmp td b{color:var(--ink)}
+  .yes{color:var(--good);font-weight:700}
+  .no{color:var(--bad);font-weight:700}
+  .fig{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0;box-shadow:var(--shadow)}
+  .fig figcaption{font-size:12.5px;color:var(--muted);margin-top:8px;font-style:italic}
+  .bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+  .bdg.notes{background:var(--notes-soft);color:var(--notes)}
+  .bdg.asv{background:var(--id-soft);color:var(--id)}
+  .bdg.txt{background:var(--txt-soft);color:var(--txt)}
+  .bdg.corr{background:var(--good);color:#fff}
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--ink);color:var(--paper2);border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:54px;z-index:10}
+  .mcqbar .filters{display:flex;gap:6px;flex-wrap:wrap}
+  .mcqbar .filters button{font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#d6e7e3;padding:6px 11px;border-radius:999px;cursor:pointer}
+  .mcqbar .filters button.on{background:var(--ac);border-color:var(--ac);color:#fff}
+  .score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}
+  .score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;color:#d6e7e3;padding:5px 10px;border-radius:8px;font-size:11px}
+  .q{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
+  .q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+  .q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--ac-soft);color:var(--ac)}
+  .q .stem{font-weight:600;font-size:15px;margin-bottom:10px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;font-family:"Public Sans";transition:background .15s,border-color .15s}
+  .opt:hover{border-color:var(--ink)}
+  .opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}
+  .opt.correct{background:#e8f5ec;border-color:var(--good);color:#0d3d24}
+  .opt.wrong{background:#fbe9e9;border-color:var(--bad);color:#5e1d1d}
+  .opt.locked{cursor:default}
+  .expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:#f3efe3;border:1px solid var(--line);font-size:13.5px}
+  .expl.show{display:block}
+  .expl b.cor{color:var(--good)}
+  footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
+  @media(max-width:640px){.mcqbar{top:50px}.score{font-size:12px}}
+</style>
+</head>
+<body>
+<nav style="background:#0f3d3a;padding:9px 18px;display:flex;align-items:center;gap:10px;font-family:'Public Sans',system-ui,sans-serif;font-size:13px;font-weight:500;border-bottom:2px solid #1f5c4e"><a href="../index.html" style="color:#9ec9c2;text-decoration:none;display:flex;align-items:center;gap:5px"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span style="color:#4a7a6e;font-size:11px">›</span><span style="color:#cfe3df">Physical Health of Animals</span></nav>
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">ABVP Shelter Medicine Practice RVS &middot; Physical Health of Animal</p>
+    <h1>Nutrition &amp; Husbandry Subdomain Hub</h1>
+    <p class="sub">Exam-depth study tool for the Nutrition and Husbandry subdomain: quality of life and welfare, nutrition principles, feeding management, neonatal and pediatric care, reproduction and life-stage, and shelter toxicology. Five tabs plus a shared, filterable MCQ bank. Preventive-health overlap (BCS frequency, prescription labels, deficiency indicators) lives in the Medical Health hub and is not duplicated here. Claims are badged by source; ASV claims are verified against the ASV Standards of Care 2022 nutrition section, and clinical figures against standard veterinary references.</p>
+    <div class="legend">
+      <span><i style="background:var(--notes)"></i>Your notes</span>
+      <span><i style="background:var(--id)"></i>ASV Standards of Care 2022</span>
+      <span><i style="background:var(--txt)"></i>Textbook / standard reference</span>
+      <span><i style="background:var(--good)"></i>Corrected</span>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="qol"><span class="dot"></span>QOL &amp; Welfare</button>
+  <button data-p="nutrition"><span class="dot"></span>Nutrition Principles</button>
+  <button data-p="feeding"><span class="dot"></span>Feeding Management</button>
+  <button data-p="neonatal"><span class="dot"></span>Neonatal &amp; Pediatric</button>
+  <button data-p="repro"><span class="dot"></span>Reproduction &amp; Life-Stage</button>
+  <button data-p="tox"><span class="dot"></span>Shelter Toxicology</button>
+  <button data-p="mcq"><span class="dot" style="background:#0f3d3a"></span>MCQ Test Bank</button>
+</div></div></nav>
+
+<main><div class="wrap">
+
+<!-- ============ TAB 1: QOL ============ -->
+<section class="panel show" id="qol">
+  <h2 class="sec">Quality of Life &amp; Welfare</h2>
+  <p class="lead">Quality of life (QOL) is fundamentally about feeling: the balance of an animal's pleasant and unpleasant experiences. This tab covers the affective-balance model from your notes, the behavioral measures used to assess it, species-specific stress signs, and a structured clinical scoring tool.</p>
+
+  <h3>The affective-balance model of QOL <span class="bdg notes">notes</span></h3>
+  <figure class="fig">
+    <svg viewBox="0 0 720 250" width="100%" role="img" aria-label="Quality of life as a balance between pleasant and unpleasant feelings tipping toward an unlivable state">
+      <defs><marker id="arNH1" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0f3d3a"/></marker></defs>
+      <polygon points="355,120 385,120 370,150" fill="#15514c"/>
+      <line x1="200" y1="92" x2="540" y2="128" stroke="#15514c" stroke-width="3"/>
+      <rect x="170" y="60" width="120" height="34" rx="8" fill="#e9f4ee" stroke="#1f7a4d"/><text x="230" y="81" font-size="10" text-anchor="middle" font-weight="600">Pleasant feelings</text>
+      <rect x="455" y="116" width="120" height="34" rx="8" fill="#fbe9e9" stroke="#b23b3b"/><text x="515" y="137" font-size="10" text-anchor="middle" font-weight="600">Unpleasant feelings</text>
+      <text x="360" y="175" font-size="10" text-anchor="middle" fill="#5d6b62">QOL is the net balance; the greater the tilt to pleasant, the higher the QOL.</text>
+      <rect x="60" y="195" width="120" height="30" rx="5" fill="#e9f4ee" stroke="#1f7a4d"/><text x="120" y="214" font-size="9.5" text-anchor="middle">Enjoyable</text>
+      <rect x="184" y="195" width="120" height="30" rx="5" fill="#eef3ea" stroke="#5a8f6a"/><text x="244" y="214" font-size="9.5" text-anchor="middle">Acceptable</text>
+      <rect x="308" y="195" width="120" height="30" rx="5" fill="#f3ebcf" stroke="#8a6d1f"/><text x="368" y="214" font-size="9.5" text-anchor="middle">Tolerable</text>
+      <rect x="432" y="195" width="130" height="30" rx="5" fill="#f7e0cd" stroke="#a8641a"/><text x="497" y="214" font-size="9" text-anchor="middle">Barely tolerable</text>
+      <rect x="566" y="195" width="100" height="30" rx="5" fill="#fbe9e9" stroke="#b23b3b"/><text x="616" y="214" font-size="9.5" text-anchor="middle" font-weight="600">Unlivable</text>
+      <line x1="120" y1="192" x2="616" y2="192" stroke="#0f3d3a" stroke-width="1.3" marker-end="url(#arNH1)"/>
+      <text x="370" y="245" font-size="9.5" text-anchor="middle" fill="#5d6b62">As QOL declines, the scale tips toward unpleasant feelings; an unlivable state supports humane euthanasia.</text>
+    </svg>
+    <figcaption>QOL as the balance of feelings (Franklin McMillan's model). Source: your husbandry notes, Shelter Medicine for Veterinarians and Staff, chapter on QOL, stress, and emotional pain.</figcaption>
+  </figure>
+  <div class="card">
+    <ul class="hy">
+      <li><b>QOL definition:</b> the affective and cognitive assessment an animal makes of its life overall, on a continuum of good to bad, derived primarily from the balance of pleasant and unpleasant feelings. QOL can be thought of as enjoyment of life.</li>
+      <li>QOL is a matter of <b>feeling</b>: objective factors, however precisely measured, cannot by themselves represent an individual's QOL.</li>
+      <li><b>Emotional pain may cause greater suffering than physical pain,</b> and emotional factors weigh more heavily than physical pain in animals' behavioral choices.</li>
+    </ul>
+  </div>
+
+  <h3>Behavioral measures and species stress signs <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Behavioral criteria:</b> normal species-typical behavior (social interaction, grooming, foraging, exploring, play), abnormal behavior (pacing, rocking, bizarre postures, self-mutilation), response to enrichment, avoidance and aversion, and preference tests.</li>
+      <li><b>Cats:</b> hiding, apathy, low activity, and feigned sleep are stress indicators; hiding is negatively correlated with cortisol and may be an important coping behavior. Cats usually adjust to a shelter within 2 to 5 weeks; some never adjust.</li>
+      <li><b>Dogs:</b> fear and anxiety appear almost immediately on admission; signs include displacement behaviors, looking back at the handler, elimination, lip licking, body shaking, and yawning. Chronic stress raises cortisol and can blunt the HPA axis and suppress immune function. High cortisol indicates chronic stress and does not always track with behavioral change.</li>
+      <li><b>Barking</b> is the most noticed indicator of poor welfare in kennels, alongside repetitive pacing and wall rebounding.</li>
+    </ul>
+  </div>
+
+  <h3>Good QOL, poor QOL, and the euthanasia threshold <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Good QOL features</b> include: alert and species-typically busy; a range of context-appropriate behaviors; play and enjoyment; minimal abnormal behaviors; species-typical sleep; confidence and free movement without inappropriate fear; able to rest relaxed without constant vigilance; eats normally with stable body weight; and good general health.</li>
+      <li><b>Euthanasia decision:</b> weigh all pleasant against all unpleasant feelings. Ask whether any pleasant feelings remain, whether anything fun remains (for species capable of fun), and whether there is a reasonable probability the negative state can be made positive again. If not, the QOL has fallen to a level where euthanasia is the humane choice.</li>
+    </ul>
+    <div class="clarify"><b>Do not wait for the last good day</b>Waiting until every positive experience is gone means the only experiences left are unpleasant. The threshold is reached while some unpleasant-dominant balance is established, not at total absence of pleasure.</div>
+  </div>
+
+  <h3>A structured scoring tool: the HHHHHMM scale <span class="bdg txt">textbook</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>The Villalobos <b>HHHHHMM scale (the "H5M2" scale)</b> scores seven variables 0 to 10: <b>H</b>urt, <b>H</b>unger, <b>H</b>ydration, <b>H</b>ygiene, <b>H</b>appiness, <b>M</b>obility, and <b>M</b>ore good days than bad.</li>
+      <li>A total <b>above 35</b> (out of 70) is generally considered an acceptable quality of life; a total below 35 suggests QOL has tipped to an unacceptable state.</li>
+    </ul>
+    <div class="clarify"><b>Two tools, one principle</b>The HHHHHMM scale is a clinical scoring instrument, separate from the affective-balance model in your notes. Both express the same idea: QOL is the net balance of welfare states. Use the scale as a structured aid, not a replacement for clinical judgment.</div>
+  </div>
+</section>
+
+<!-- ============ TAB 2: NUTRITION ============ -->
+<section class="panel" id="nutrition">
+  <h2 class="sec">Nutrition Principles</h2>
+  <p class="lead">Shelter diets must be complete, balanced, and life-stage appropriate, with feeding driven by energy requirements rather than guesswork. The dog-versus-cat distinction (omnivore versus obligate carnivore) underpins everything.</p>
+
+  <h3>Complete and balanced, and the AAFCO statement <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Feed a complete, nutritionally balanced, life-stage-appropriate diet of as high a quality as possible, with fresh water available at all times. Dietary consistency reduces stress, inappetence, and gastrointestinal irritation.</li>
+      <li>The <b>AAFCO statement of nutritional adequacy</b> on the label indicates how the diet meets requirements and should not be expired. AAFCO sets standards, definitions, and nutritional requirements for pet foods.</li>
+      <li>A diet labeled <b>complete and balanced for all life stages</b> is suitable for puppies, adults, and pregnant or nursing animals.</li>
+      <li><b>Food recalls</b> remove a product from the market and may be initiated by the manufacturer or by FDA request or order. Do not underestimate the health risk of feeding recalled food.</li>
+    </ul>
+  </div>
+
+  <h3>Dog versus cat: omnivore versus obligate carnivore <span class="bdg notes">notes</span></h3>
+  <table class="cmp">
+    <tr><th>Feature</th><th>Dog</th><th>Cat</th></tr>
+    <tr><td><b>Dietary type</b></td><td>Practical omnivore; a meat-only diet is not balanced</td><td>Obligate (true) carnivore; needs higher dietary protein than dogs or humans</td></tr>
+    <tr><td><b>Essential nutrients</b></td><td>Broad tolerance</td><td>Requires pre-formed <b>taurine, arginine, and vitamin A</b> (cannot synthesize them adequately from plant sources)</td></tr>
+    <tr><td><b>Raw diets</b></td><td class="no">Seldom balanced; salmonella and other risks</td><td class="no">Should not be fed; bacterial contamination and public-health risk</td></tr>
+    <tr><td><b>Feeding pattern</b></td><td>Regular meals, once but ideally twice daily</td><td>Prefers many small meals; nibbles through the day</td></tr>
+  </table>
+  <div class="trap"><b>Exam trap</b>A taurine-deficient diet in cats causes dilated cardiomyopathy and central retinal degeneration. The obligate-carnivore requirements (taurine, arginine, vitamin A, arachidonic acid) are the classic distractor target against dog nutrition.</div>
+
+  <h3>How much to feed: RER and MER <span class="bdg txt">textbook</span><span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>RER (resting energy requirement)</b> is the baseline energy at rest; <b>MER (maintenance energy requirement)</b> applies a life-stage and activity factor to RER. Overweight and underweight animals should have RER and MER calculated; formal MER calculation is accurate but seldom practical at shelter scale.</li>
+      <li>Typical calorie densities: roughly <b>350 to 500 kcal per cup</b> of dry food and <b>120 to 190 kcal per 5.5 oz can</b> of wet food.</li>
+    </ul>
+    <div class="corrbox"><b>Correction</b>Your dog note allows treats up to "10 to 25%" of daily calories. The standard is the <b>10% rule</b>: treats should not exceed 10% of daily caloric intake (your cat note correctly states 10%). Use 10% as the ceiling.</div>
+  </div>
+</section>
+
+<!-- ============ TAB 3: FEEDING ============ -->
+<section class="panel" id="feeding">
+  <h2 class="sec">Feeding Management</h2>
+  <p class="lead">Beyond what to feed, how and when to feed shapes welfare and disease risk: meal versus free-choice, group-feeding safety, anorexia and its feline consequences, and the danger of refeeding the chronically starved.</p>
+
+  <h3>Feeding schedules and methods <span class="bdg asv">ASV</span><span class="bdg notes">notes</span></h3>
+  <table class="cmp">
+    <tr><th>Topic</th><th>Guidance</th></tr>
+    <tr><td><b>Adult dogs</b></td><td>Regular portion feeding at least once, ideally twice daily. <b>Large, deep-chested dogs</b> fed twice or more often to reduce gastric dilatation-volvulus (GDV) risk.</td></tr>
+    <tr><td><b>Puppies under 6 months and high-demand dogs</b> (pregnant, nursing, underweight, debilitated)</td><td>Fed more frequently, or offered dry food free-choice based on age and condition.</td></tr>
+    <tr><td><b>Adult cats</b></td><td>At least two meals per day; many prefer small frequent meals. Meal feeding is ideal when intake must be controlled or monitored.</td></tr>
+    <tr><td><b>Group-housed cats</b></td><td>Free-choice dry food is practical (canned food spoils at room temperature). Note that animals not eating can go unnoticed for days, and some overeat.</td></tr>
+    <tr><td><b>Cohoused feeding</b></td><td>Feed separately, or monitor closely so all individuals get adequate food and none are stressed or injured by guarding or bullying.</td></tr>
+  </table>
+  <div class="card">
+    <ul class="hy">
+      <li>Examine food regularly to confirm it has been consumed and is free of debris and not spoiled. <b>Discard uneaten food at least every 24 hours,</b> and discard contaminated or pest-infested food immediately.</li>
+      <li>Shy cats should be fed in privacy; many cats prefer shallow dishes or plates. Paper plates suit canned food (biosecure, cheap, disposable).</li>
+      <li>Proper food storage (including refrigeration of perishables) preserves health and limits rodents and pests.</li>
+    </ul>
+  </div>
+
+  <h3>Anorexia and its feline consequences <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Anorexia arises from illness or stress. <b>Kittens under 4 months</b> who do not eat for over 24 hours need prompt exam (risk of hypoglycemia, weakness, death).</li>
+      <li><b>Adult cats refusing food for 3 to 5 days</b> need examination, given the risk of <b>hepatic lipidosis</b>.</li>
+      <li><b>Food aversion</b> develops when ill cats learn to associate a food's sight and smell with nausea; when a cat will not eat, offer food periodically rather than leaving it in the cage constantly.</li>
+    </ul>
+  </div>
+
+  <h3>Chronic starvation and refeeding syndrome <span class="bdg txt">textbook</span><span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Chronic negative energy balance shifts metabolism to using fat and muscle and causes significant electrolyte alterations.</li>
+      <li>Reintroducing food too aggressively risks <b>refeeding syndrome:</b> weakness, seizures, coma, irritability, aggression, and death. Reintroduce nutrition gradually with veterinary input and electrolyte monitoring.</li>
+    </ul>
+    <div class="trap"><b>Exam trap</b>The danger in a severely starved animal is not the starvation alone but rapid refeeding. Electrolyte shifts (notably phosphate, potassium, and magnesium) drive the syndrome. Feed slowly and monitor.</div>
+  </div>
+</section>
+
+<!-- ============ TAB 4: NEONATAL ============ -->
+<section class="panel" id="neonatal">
+  <h2 class="sec">Neonatal &amp; Pediatric Care</h2>
+  <p class="lead">Neonates are fragile: temperature, feeding volume, and feeding frequency must be exact, and a cold neonate must never be fed. Fading kitten syndrome is the high-yield emergency.</p>
+
+  <h3>Housing, temperature, and feeding cadence <span class="bdg notes">notes</span><span class="bdg txt">textbook</span></h3>
+  <figure class="fig">
+    <svg viewBox="0 0 720 180" width="100%" role="img" aria-label="Neonatal environmental temperature and feeding interval timeline by week">
+      <defs><marker id="arNH2" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0f3d3a"/></marker></defs>
+      <line x1="40" y1="60" x2="690" y2="60" stroke="#d9d0bd" stroke-width="2"/>
+      <circle cx="95" cy="60" r="6" fill="#2f7d8c"/><text x="95" y="42" font-size="10" text-anchor="middle" font-weight="700">Week 1</text><text x="95" y="80" font-size="9" text-anchor="middle">85 to 95 F</text><text x="95" y="91" font-size="9" text-anchor="middle">(29 to 35 C)</text><text x="95" y="106" font-size="8.5" text-anchor="middle" fill="#5d6b62">feed q2 to 3 h</text>
+      <circle cx="280" cy="60" r="6" fill="#2f7d8c"/><text x="280" y="42" font-size="10" text-anchor="middle" font-weight="700">to 3 weeks</text><text x="280" y="80" font-size="9" text-anchor="middle">drop ~5 F per week</text><text x="280" y="95" font-size="8.5" text-anchor="middle" fill="#5d6b62">feed q4 to 5 h</text>
+      <circle cx="470" cy="60" r="6" fill="#2f7d8c"/><text x="470" y="42" font-size="10" text-anchor="middle" font-weight="700">Week 4</text><text x="470" y="80" font-size="9" text-anchor="middle">70 to 75 F</text><text x="470" y="91" font-size="9" text-anchor="middle">(21 to 24 C)</text><text x="470" y="106" font-size="8.5" text-anchor="middle" fill="#5d6b62">4 feeds per day</text>
+      <circle cx="650" cy="60" r="6" fill="#1f7a4d"/><text x="650" y="42" font-size="10" text-anchor="middle" font-weight="700">3 to 6 weeks</text><text x="650" y="80" font-size="9" text-anchor="middle">weaning begins</text><text x="650" y="95" font-size="8.5" text-anchor="middle" fill="#5d6b62">semisolid slurry</text>
+      <line x1="103" y1="60" x2="270" y2="60" stroke="#0f3d3a" stroke-width="1.3" marker-end="url(#arNH2)"/>
+      <line x1="288" y1="60" x2="460" y2="60" stroke="#0f3d3a" stroke-width="1.3" marker-end="url(#arNH2)"/>
+      <line x1="478" y1="60" x2="640" y2="60" stroke="#0f3d3a" stroke-width="1.3" marker-end="url(#arNH2)"/>
+      <text x="365" y="150" font-size="10" text-anchor="middle" fill="#5d6b62">Stomach capacity is about 40 to 50 mL/kg per feeding; never exceed it. Orphans: weigh daily and stimulate to eliminate.</text>
+    </svg>
+    <figcaption>Neonatal temperature gradient and feeding cadence. Source: your notes; capacity figure from standard neonatology references.</figcaption>
+  </figure>
+  <div class="card">
+    <ul class="hy">
+      <li>House nursing mothers and litters separately, away from isolation and quarantine, with extra bedding. Vaccinate the dam (DA2PP for dogs) and deworm; check the dam's milk and weigh pups or kittens daily for adequate intake.</li>
+      <li>Neonates are tube- or bottle-fed every 2 to 3 hours for the first few days, every 4 to 5 hours until 3 weeks, then 4 times daily until 6 weeks. <b>Stomach capacity is about 40 to 50 mL/kg per feeding; do not exceed it</b> (over-distension causes reflux, emesis, and fatal aspiration).</li>
+      <li>Puppy weight gain is roughly 1 to 1.25 g/day per pound of expected adult weight in the first month. Orphan neonates: weigh daily for the first week and stimulate urination and defecation.</li>
+      <li><b>Weaning</b> begins at 3 to 4 weeks with a warm semisolid slurry in a shallow pan; for hand-reared kittens, complete weaning from formula by 5 to 6 weeks.</li>
+    </ul>
+  </div>
+
+  <h3>Fading kitten syndrome <span class="bdg txt">textbook</span><span class="bdg notes">notes</span></h3>
+  <figure class="fig">
+    <svg viewBox="0 0 720 230" width="100%" role="img" aria-label="Fading kitten syndrome cascade">
+      <defs><marker id="arNH3" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0f3d3a"/></marker></defs>
+      <rect x="250" y="14" width="220" height="34" rx="8" fill="#e2e4f2" stroke="#3c4a86"/><text x="360" y="35" font-size="10.5" text-anchor="middle" font-weight="600">Hypothermia (core under 94 F / 34.4 C)</text>
+      <rect x="250" y="62" width="220" height="34" rx="8" fill="#f3ebcf" stroke="#8a6d1f"/><text x="360" y="83" font-size="10.5" text-anchor="middle" font-weight="600">GI motility halts (ileus)</text>
+      <rect x="230" y="110" width="260" height="34" rx="8" fill="#f7e0cd" stroke="#a8641a"/><text x="360" y="125" font-size="10" text-anchor="middle" font-weight="600">Feeding now ferments in the gut</text><text x="360" y="138" font-size="9" text-anchor="middle">to endotoxemia</text>
+      <rect x="220" y="158" width="280" height="34" rx="8" fill="#fbe9e9" stroke="#b23b3b"/><text x="360" y="173" font-size="10" text-anchor="middle" font-weight="600">Hypoglycemia (under 60 mg/dL) + dehydration</text><text x="360" y="186" font-size="9" text-anchor="middle">circulatory collapse</text>
+      <line x1="360" y1="48" x2="360" y2="60" stroke="#0f3d3a" stroke-width="1.5" marker-end="url(#arNH3)"/>
+      <line x1="360" y1="96" x2="360" y2="108" stroke="#0f3d3a" stroke-width="1.5" marker-end="url(#arNH3)"/>
+      <line x1="360" y1="144" x2="360" y2="156" stroke="#0f3d3a" stroke-width="1.5" marker-end="url(#arNH3)"/>
+      <text x="360" y="216" font-size="10.5" text-anchor="middle" fill="#b23b3b" font-weight="600">Rewarm BEFORE feeding. Feeding a cold neonate is the trap.</text>
+    </svg>
+    <figcaption>Fading kitten syndrome cascade. Source: standard neonatology references, consistent with your notes.</figcaption>
+  </figure>
+  <div class="card">
+    <ul class="hy">
+      <li>Acute rapid decline and death of young kittens in the first weeks; often one or two fade first, then others over days. Necropsy is the best tool to determine a definitive diagnosis, though the cause may remain undetermined.</li>
+      <li><b>Supportive treatment:</b> rewarm first, then tube feeding, subcutaneous fluids, active warming, treat the littermates aggressively, rule out feline panleukopenia, and broad-spectrum antibiotics by injection as directed.</li>
+      <li><b>Never feed a hypothermic neonate:</b> a cold gut cannot move milk, which ferments and causes endotoxemia. Restore normothermia, then feed.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ TAB 5: REPRO ============ -->
+<section class="panel" id="repro">
+  <h2 class="sec">Reproduction &amp; Life-Stage</h2>
+  <p class="lead">Feline reproduction, pregnancy diagnosis, kitten age estimation, and life-stage care (geriatric, grooming) round out husbandry. Age estimation by dentition is heavily tested.</p>
+
+  <h3>Feline reproduction and pregnancy diagnosis <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Cats are <b>seasonal breeders</b>, becoming active as day length increases; queens cycle roughly every 2 weeks during the season until bred, spayed, or season's end. Receptivity lasts about 4 to 7 days.</li>
+      <li><b>Gestation is about 65 days,</b> with 3 to 5 kittens; most kittens are born mid-spring and late summer. Queens reach puberty at 5 to 9 months (range 3.5 to 18); toms at about 8 to 13 months.</li>
+      <li><b>Pregnancy diagnosis:</b> abdominal palpation from day 14 to 17 (small uterine swellings); ultrasound as early as day 10; serum relaxin elevated by day 25; radiographs limited until fetal skulls calcify around day 43. Obvious abdominal distension means birth is usually under 2 weeks away.</li>
+    </ul>
+  </div>
+
+  <h3>Kitten age estimation <span class="bdg notes">notes</span></h3>
+  <figure class="fig">
+    <svg viewBox="0 0 720 175" width="100%" role="img" aria-label="Kitten developmental and dental milestones for age estimation">
+      <defs><marker id="arNH4" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0f3d3a"/></marker></defs>
+      <line x1="40" y1="70" x2="690" y2="70" stroke="#d9d0bd" stroke-width="2"/>
+      <circle cx="80" cy="70" r="5" fill="#2f7d8c"/><text x="80" y="52" font-size="9" text-anchor="middle" font-weight="700">7 to 10 d</text><text x="80" y="90" font-size="8.5" text-anchor="middle">eyes open</text>
+      <circle cx="200" cy="70" r="5" fill="#2f7d8c"/><text x="200" y="52" font-size="9" text-anchor="middle" font-weight="700">3 to 4 wk</text><text x="200" y="90" font-size="8.5" text-anchor="middle">deciduous teeth;</text><text x="200" y="101" font-size="8.5" text-anchor="middle">walk and wean</text>
+      <circle cx="340" cy="70" r="5" fill="#2f7d8c"/><text x="340" y="52" font-size="9" text-anchor="middle" font-weight="700">pound-a-month</text><text x="340" y="90" font-size="8.5" text-anchor="middle">~1 lb gained</text><text x="340" y="101" font-size="8.5" text-anchor="middle">per month</text>
+      <circle cx="490" cy="70" r="5" fill="#2f7d8c"/><text x="490" y="52" font-size="9" text-anchor="middle" font-weight="700">~5 to 6 mo</text><text x="490" y="90" font-size="8.5" text-anchor="middle">adult canines</text><text x="490" y="101" font-size="8.5" text-anchor="middle">erupt</text>
+      <circle cx="640" cy="70" r="5" fill="#1f7a4d"/><text x="640" y="52" font-size="9" text-anchor="middle" font-weight="700">12 to 14 mo</text><text x="640" y="90" font-size="8.5" text-anchor="middle">mature testes</text><text x="640" y="101" font-size="8.5" text-anchor="middle">(tomcat)</text>
+      <line x1="86" y1="70" x2="192" y2="70" stroke="#0f3d3a" stroke-width="1.2" marker-end="url(#arNH4)"/>
+      <line x1="208" y1="70" x2="330" y2="70" stroke="#0f3d3a" stroke-width="1.2" marker-end="url(#arNH4)"/>
+      <line x1="350" y1="70" x2="480" y2="70" stroke="#0f3d3a" stroke-width="1.2" marker-end="url(#arNH4)"/>
+      <line x1="500" y1="70" x2="630" y2="70" stroke="#0f3d3a" stroke-width="1.2" marker-end="url(#arNH4)"/>
+      <text x="365" y="150" font-size="10" text-anchor="middle" fill="#5d6b62">Pound-a-month: a 3 lb kitten is roughly 3 months old. Deciduous incisors erupt in order I1, I2, I3.</text>
+    </svg>
+    <figcaption>Kitten developmental and dental milestones. Source: your notes.</figcaption>
+  </figure>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Pound-a-month rule:</b> kittens gain roughly 1 lb per month, so a 3 lb kitten is about 3 months old. Eyes open at 7 to 10 days; walking and play around 3 to 4 weeks.</li>
+      <li><b>Dentition:</b> deciduous teeth erupt around 3 to 4 weeks; deciduous incisors erupt in order I1, I2, I3. Adult canines erupt around 5.5 to 6 months. In males, permanent canines with small testes suggest about 6 to 9 months; mature testes suggest 12 to 14 months.</li>
+      <li><b>Orphan kittens:</b> a foster queen with similarly sized kittens reduces competition; neonates are born about 100 g and should gain 10 to 15 g/day. A daily gain under 7 g is inadequate and signals a need for supplemental feeding or a health check. Screen the queen for FeLV and FIV. Kittens under 6 to 8 weeks should not be housed in the shelter due to infection risk.</li>
+    </ul>
+  </div>
+
+  <h3>Geriatric care and grooming <span class="bdg notes">notes</span><span class="bdg asv">ASV</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Geriatric dogs</b> commonly have orthopedic disease (provide soft bedding and extra warmth), may need soft food, and can have cognitive decline, cataracts, or hearing loss. Weigh regularly and provide checkups with appropriate lab work.</li>
+      <li><b>Grooming:</b> basic grooming (regular brushing, bathing as needed) is part of care for all shelter animals and helps minimize fecal-oral transmission (for example giardia and parvovirus). ASV frames grooming and bathing as essential when needed for health or comfort.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ TAB 6: TOXICOLOGY ============ -->
+<section class="panel" id="tox">
+  <h2 class="sec">Shelter Toxicology</h2>
+  <p class="lead">Cats carry a metabolic vulnerability that makes several common shelter and household products dangerous. Knowing the mechanism explains the pattern of feline toxicoses.</p>
+
+  <h3>The feline metabolic basis <span class="bdg corr">corrected</span><span class="bdg txt">textbook</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Cats have a <b>genetic deficiency of hepatic glucuronosyltransferase</b> (UGT1A6 is a pseudogene, and they lack other UGT isoforms), which impairs glucuronide conjugation and slows clearance of many phenolic compounds and drugs.</li>
+      <li>This deficiency underlies feline sensitivity to <b>phenols, aspirin (salicylates), and acetaminophen</b>, and contributes to <b>permethrin</b> sensitivity.</li>
+    </ul>
+    <div class="corrbox"><b>Correction</b>The draft answer described a "complete absence" of glucuronosyltransferase. That overstates it: cats have a <b>deficiency / reduced activity</b> (UGT1A6 is a pseudogene) and still express some UGT isoforms. The deficiency is real and is an accepted contributor to permethrin sensitivity, but it is a deficiency, not a total absence.</div>
+    <div class="clarify"><b>Acetaminophen is multifactorial</b>Feline acetaminophen toxicity (methemoglobinemia, Heinz-body anemia) is driven by both deficient glucuronidation (UGT1A6) and a lack of N-acetyltransferase 2 (NAT2), with the p-aminophenol pathway producing the methemoglobinemia. It is not glucuronidation deficiency alone.</div>
+  </div>
+
+  <h3>Common feline and shelter toxicants <span class="bdg notes">notes</span></h3>
+  <table class="cmp">
+    <tr><th>Toxicant</th><th>Source and signs</th></tr>
+    <tr><td><b>Permethrin / pyrethroids</b></td><td>Dog flea spot-ons misapplied to cats; tremors, muscle fasciculations, hyperthermia, seizures. Cats are highly sensitive (deficient glucuronidation, accumulation of potent Phase I metabolites).</td></tr>
+    <tr><td><b>Acetaminophen, aspirin, ibuprofen</b></td><td>Human analgesics; acetaminophen causes methemoglobinemia and Heinz-body anemia in cats. Avoid in cats.</td></tr>
+    <tr><td><b>Quaternary ammonium disinfectants, phenols, pine oils</b></td><td>Improperly diluted or residual film groomed off fur; caustic oral and glossal ulceration, hypersalivation, anorexia, painful inappetence.</td></tr>
+    <tr><td><b>Onion (incl. baby foods with onion powder), lily family</b></td><td>Onion causes hemolytic anemia; lilies are nephrotoxic to cats. Avoid onion-containing baby foods.</td></tr>
+    <tr><td><b>Organophosphates, rodenticides</b></td><td>Lawn and garden insecticides; rodenticides are not recommended in shelters because rodents can die in cat cages and be ingested.</td></tr>
+  </table>
+  <div class="trap"><b>Exam trap</b>The classic scenario: a dog-labeled permethrin spot-on applied to a cat. The mechanism question wants the feline glucuronidation deficiency, not a receptor-density or hemoglobin-fragility distractor.</div>
+</section>
+
+<!-- ============ MCQ ============ -->
+<section class="panel" id="mcq">
+  <h2 class="sec">MCQ Test Bank</h2>
+  <p class="lead">Filter by topic. Click an option to lock your answer and reveal the one-line rationale. Source badge on each item shows where the answer is anchored. Corrected items carry the green badge.</p>
+  <div class="mcqbar">
+    <div class="filters">
+      <button class="on" data-f="all">All</button>
+      <button data-f="qol">QOL</button>
+      <button data-f="nutrition">Nutrition</button>
+      <button data-f="feeding">Feeding</button>
+      <button data-f="neonatal">Neonatal</button>
+      <button data-f="repro">Reproduction</button>
+      <button data-f="tox">Toxicology</button>
+    </div>
+    <div class="score"><span id="scoreTxt">0 / 0 correct</span><button class="reset" id="resetBtn">Reset</button></div>
+  </div>
+  <div id="qhost"></div>
+</section>
+
+</div></main>
+
+<footer><div class="wrap">
+  Nutrition &amp; Husbandry Subdomain Hub &middot; ABVP Shelter Medicine Practice RVS prep. Sources badged inline: your notes; ASV Standards of Care 2022 (nutrition section); Shelter Medicine for Veterinarians and Staff; AAFCO; the Villalobos HHHHHMM scale; and standard veterinary toxicology and neonatology references. Preventive-health overlap is covered in the Medical Health hub. Built to merge with the Infectious Disease, Sanitation, Facility, Euthanasia, and Medical Health hubs.
+</div></footer>
+
+<script>
+const tabrow=document.getElementById('tabrow');
+tabrow.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.disabled)return;
+  [...tabrow.children].forEach(x=>x.classList.remove('active'));b.classList.add('active');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('show'));
+  document.getElementById(b.dataset.p).classList.add('show');window.scrollTo({top:0,behavior:'smooth'});});
+
+/* Shared nutrition and husbandry MCQ bank.
+   t = topic tag (drives filter chip + label)
+   f = source/flag badge: notes | asv | txt | corr  (optional)
+   q = stem, o = options, a = correct index, e = one-line rationale */
+const Q=[
+{"t":"neonatal","f":"txt","q":"A 200 g orphaned kitten needs tube feeding. What is the maximum safe single-feeding volume, given neonatal stomach capacity?","o":["2 mL","9 mL","22 mL","40 mL"],"a":1,"e":"Stomach capacity is about 40 to 50 mL/kg; 0.2 kg x 45 mL/kg is roughly 9 mL. Exceeding it risks reflux and fatal aspiration."},
+{"t":"neonatal","f":"txt","q":"A 10-day-old kitten is hypothermic (91 F), hypoglycemic, and recumbent. What is the correct initial sequence?","o":["Immediately tube-feed 10 mL of warm milk replacer","Rewarm to near-normothermia first, then give warm fluids with dextrose (SC or IO), withholding oral intake until normothermic","Give a cold SC dextrose bolus and a warm water bath","Inject enrofloxacin and place in a 105 F incubator"],"a":1,"e":"A cold gut has ileus; feeding ferments milk and causes endotoxemia. Rewarm first, then warm dextrose-containing fluids; feed only once normothermic."},
+{"t":"neonatal","f":"notes","q":"A litter of 4-week-old kittens is ready to wean. Which method is correct?","o":["Abruptly remove the queen and offer dry adult kibble in a deep bowl","Offer a warm semisolid slurry of kitten food in a shallow pan, completing weaning from formula by 5 to 6 weeks","Bottle-feed formula exclusively until 8 weeks","Feed ground raw beef with cow's milk by syringe pump"],"a":1,"e":"Weaning starts at 3 to 4 weeks with a warm semisolid slurry in a shallow pan; complete weaning from formula by 5 to 6 weeks."},
+{"t":"tox","f":"notes","q":"Cats in a ward cleaned with a quaternary ammonium disinfectant at 4x the correct dilution develop hypersalivation, anorexia, and tongue ulcers. What is the cause?","o":["An immune reaction to DA2PP antigens","Caustic mucosal injury from grooming residual quaternary ammonium compound off the fur","Systemic organophosphate toxicity from run-off","Permethrin neurotoxicity of cranial nerves"],"a":1,"e":"Improperly diluted quaternary ammonium compounds are caustic; cats groom the residue off and develop glossal ulceration and hypersalivation."},
+{"t":"tox","f":"corr","q":"Why are cats uniquely sensitive to permethrin?","o":["No functional renal filtration of lipophilic compounds","A genetic deficiency of hepatic glucuronosyltransferase (UGT1A6 is a pseudogene), impairing conjugation and prolonging exposure","High density of dermal nicotinic receptors","Structural fragility of feline hemoglobin"],"a":1,"e":"Cats have a UGT (glucuronidation) deficiency, not a complete absence; this contributes to permethrin sensitivity through accumulation of potent metabolites."},
+{"t":"qol","f":"notes","q":"An 11-year-old arthritic dog at 5 months in the shelter is reactive, anorexic, and curled in the back corner 90% of the time. Which finding confirms an unlivable QOL state?","o":["Greeting a familiar caretaker who brings high-value treats","Constant hyper-vigilance, inability to rest relaxed, and a persistent shift toward unpleasant over pleasant states","Occasional vocalization when neighboring dogs are moved","Stable body weight and BCS on monthly audits"],"a":1,"e":"QOL is the balance of feelings; persistent hyper-vigilance, no relaxed rest, and dominance of unpleasant states indicate an unlivable state."},
+{"t":"qol","f":"notes","q":"How does McMillan's model define quality of life?","o":["A checklist of normal vital signs","The animal's affective and cognitive assessment of its life as a balance of pleasant and unpleasant feelings","The number of enrichment items in the enclosure","The veterinarian's prognosis score"],"a":1,"e":"QOL is the animal's affective and cognitive self-assessment, driven by the balance of pleasant versus unpleasant feelings."},
+{"t":"qol","f":"notes","q":"Which is a recognized stress indicator in shelter cats?","o":["Increased exploratory play in the first 24 hours","Hiding, apathy, low activity, and feigned sleep, with hiding negatively correlated with cortisol","A rising body weight in week one","Eager approach to unfamiliar handlers"],"a":1,"e":"Hiding, apathy, low activity, and feigned sleep indicate feline stress; hiding negatively correlates with cortisol and aids coping."},
+{"t":"qol","f":"notes","q":"Which set of signs indicates stress in a newly admitted shelter dog?","o":["Relaxed posture and steady appetite","Displacement behaviors, looking back at the handler, lip licking, body shaking, and yawning","A single bark at intake then settling","Immediate solicitation of play"],"a":1,"e":"Displacement behaviors, lip licking, yawning, body shaking, and looking back at the handler are early canine stress signs."},
+{"t":"qol","f":"txt","q":"On the Villalobos HHHHHMM (H5M2) scale, what cumulative score generally indicates that quality of life has become unacceptable?","o":["Below 35 out of 70","Above 60 out of 70","Exactly 50 out of 70","Any score with mobility above 5"],"a":0,"e":"Each of the seven variables is scored 0 to 10; a total above 35 suggests acceptable QOL, and below 35 suggests it has become unacceptable."},
+{"t":"nutrition","f":"notes","q":"What does the AAFCO statement of nutritional adequacy on a pet-food label indicate?","o":["The product is organic and grain-free","How the diet meets nutritional requirements and for which life stage; it should not be expired","The wholesale price of the product","That the food was made in the United States"],"a":1,"e":"The AAFCO statement indicates nutritional adequacy and life stage; AAFCO sets pet-food standards, and the statement should not be expired."},
+{"t":"nutrition","f":"notes","q":"Which nutrients must cats obtain pre-formed because they cannot synthesize them adequately?","o":["Vitamin C and fiber","Taurine, arginine, and vitamin A","Calcium and phosphorus only","Omega-9 fatty acids and starch"],"a":1,"e":"As obligate carnivores, cats require pre-formed taurine, arginine, and vitamin A, which a meat-derived diet supplies."},
+{"t":"nutrition","f":"corr","q":"What is the standard ceiling for treats as a fraction of an animal's daily caloric intake?","o":["Up to 50%","No more than 10%","Between 25 and 40%","Unlimited if the diet is complete and balanced"],"a":1,"e":"The standard is the 10% rule: treats should not exceed 10% of daily calories (correcting the 10 to 25% figure in the dog notes)."},
+{"t":"nutrition","f":"notes","q":"Why are raw diets discouraged for shelter cats and dogs?","o":["They are too expensive to source","They are seldom nutritionally balanced and carry bacterial contamination and public-health risk","They cause immediate vitamin A toxicity","They are banned by AAFCO in all states"],"a":1,"e":"Raw and home-cooked diets are seldom balanced and carry contamination and zoonotic risk (for example salmonella)."},
+{"t":"nutrition","f":"txt","q":"What is the difference between RER and MER?","o":["RER is for cats and MER is for dogs","RER is baseline resting energy; MER applies a life-stage and activity factor to RER","They are identical terms","MER is only used for neonates"],"a":1,"e":"RER is the resting energy requirement; MER multiplies RER by a life-stage and activity factor for maintenance."},
+{"t":"feeding","f":"notes","q":"Why are large, deep-chested dogs fed twice daily or more often?","o":["To increase their treat allowance","To help reduce the risk of gastric dilatation-volvulus (GDV)","Because they cannot digest dry food","To speed weight gain for adoption photos"],"a":1,"e":"Splitting feeding across the day helps reduce GDV risk in large, deep-chested dogs."},
+{"t":"feeding","f":"notes","q":"Which feeding method is most appropriate for a group-housed room of healthy cats?","o":["A single communal bowl of canned food refilled weekly","Free-choice dry food kept fresh and topped up, with monitoring since non-eaters can be missed","Withholding food except for one supervised meal per week","Raw meat left out at room temperature"],"a":1,"e":"Free-choice dry food suits group-housed cats (canned spoils), but monitor because animals not eating can go unnoticed."},
+{"t":"feeding","f":"notes","q":"An adult cat in the shelter has refused all food for 4 days. Why is prompt examination important?","o":["Risk of immediate rabies shedding","Risk of hepatic lipidosis","It will void the cat's AAFCO warranty","It indicates the cat is pregnant"],"a":1,"e":"Adult cats not eating for 3 to 5 days risk hepatic lipidosis and need prompt examination."},
+{"t":"feeding","f":"txt","q":"When refeeding a chronically starved animal, what is the principal danger?","o":["Immediate obesity","Refeeding syndrome from electrolyte shifts (phosphate, potassium, magnesium), causing weakness, seizures, and death","Permanent taurine depletion","Food aversion to all future diets"],"a":1,"e":"Rapid refeeding causes dangerous electrolyte shifts (refeeding syndrome); reintroduce nutrition gradually with monitoring."},
+{"t":"feeding","f":"asv","q":"How often must uneaten food be discarded in shelter feeding protocols?","o":["Once per week","At least every 24 hours, and immediately if contaminated or pest-infested","Only when visibly moldy","Never, to reduce waste"],"a":1,"e":"Discard uneaten food at least every 24 hours, and immediately if contaminated or pest-infested."},
+{"t":"neonatal","f":"notes","q":"What is the recommended feeding interval for neonates during the first few days of life?","o":["Every 8 hours","Every 2 to 3 hours","Once daily","Free-choice dry food"],"a":1,"e":"Neonates are fed every 2 to 3 hours for the first few days, then every 4 to 5 hours until 3 weeks."},
+{"t":"neonatal","f":"notes","q":"What environmental temperature is appropriate for orphaned neonates in the first week of life?","o":["60 to 65 F","85 to 95 F (29 to 35 C), dropping about 5 F per week","100 to 105 F","Room temperature is sufficient"],"a":1,"e":"First-week neonatal environmental temperature is about 85 to 95 F, dropping roughly 5 F per week to 70 to 75 F by week 4."},
+{"t":"neonatal","f":"txt","q":"A litter shows fading kitten syndrome. Which is part of correct supportive care?","o":["Feed the cold kittens immediately to correct energy deficit","Rewarm first, then provide tube feeding, SC fluids, and active warming, treat littermates, and rule out panleukopenia","Place all kittens in a freezer to slow metabolism","Give a single oral NSAID and observe"],"a":1,"e":"Rewarm before feeding, then supportive care (tube feeding, SC fluids, warming), treat littermates, and rule out FPV."},
+{"t":"repro","f":"notes","q":"What is the approximate gestation length in the cat?","o":["About 42 days","About 65 days","About 90 days","About 115 days"],"a":1,"e":"Feline gestation is about 65 days, typically producing 3 to 5 kittens."},
+{"t":"repro","f":"notes","q":"By which day of feline pregnancy is serum relaxin typically elevated enough to support a diagnosis?","o":["Day 5","Day 25","Day 50","Day 60"],"a":1,"e":"Serum relaxin is elevated by about day 25; ultrasound can detect pregnancy as early as day 10, and palpation from day 14 to 17."},
+{"t":"repro","f":"notes","q":"Using dentition, a male cat with permanent canines but small testes is approximately what age?","o":["6 to 9 months","Under 8 weeks","18 to 24 months","Over 5 years"],"a":0,"e":"Permanent canines with small testes suggest about 6 to 9 months; mature testes suggest 12 to 14 months."},
+{"t":"repro","f":"notes","q":"An orphan kitten weighs 100 g at birth. What daily weight gain should prompt concern?","o":["A gain of 10 to 15 g per day","A gain under 7 g per day","Any gain at all","A gain over 5 g per day"],"a":1,"e":"Neonatal kittens should gain 10 to 15 g/day; under 7 g/day is inadequate and signals supplemental feeding or a health problem."},
+{"t":"repro","f":"notes","q":"Why should kittens under 6 to 8 weeks of age generally not be housed in the shelter?","o":["They cannot be microchipped at that age","High infection risk; foster care is strongly preferred","A legal hold requires it","They are too young to be photographed for adoption"],"a":1,"e":"Kittens under 6 to 8 weeks are at high infection risk and are best placed in foster care rather than housed in the shelter."},
+{"t":"tox","f":"corr","q":"Feline acetaminophen toxicity (methemoglobinemia, Heinz-body anemia) is best explained by:","o":["Glucuronidation deficiency alone","Both deficient glucuronidation (UGT1A6) and a lack of N-acetyltransferase 2, with the p-aminophenol pathway driving methemoglobinemia","A receptor mutation in erythrocytes","Excess hepatic glucuronidation"],"a":1,"e":"Feline acetaminophen toxicity is multifactorial: deficient UGT glucuronidation plus NAT2 deficiency, with p-aminophenol producing methemoglobinemia."},
+{"t":"tox","f":"notes","q":"Which household or shelter item is a recognized feline toxicant to avoid?","o":["Plain fresh water","Baby food containing onion powder, and lilies","A complete and balanced commercial cat diet","A clean stainless steel bowl"],"a":1,"e":"Onion (including onion-powder baby foods) causes hemolytic anemia and lilies are nephrotoxic; both must be avoided in cats."}
+];
+
+const host=document.getElementById('qhost');
+const scoreTxt=document.getElementById('scoreTxt');
+let answered=0, correct=0, filter='all';
+const DLABEL={qol:"QOL & Welfare",nutrition:"Nutrition",feeding:"Feeding",neonatal:"Neonatal",repro:"Reproduction",tox:"Toxicology"};
+function tagLabel(t){return DLABEL[t]||t.toUpperCase();}
+function flagBadge(f){
+  if(f==='corr')return '<span class="bdg corr">corrected</span>';
+  if(f==='notes')return '<span class="bdg notes">your notes</span>';
+  if(f==='asv')return '<span class="bdg asv">ASV</span>';
+  if(f==='txt')return '<span class="bdg txt">textbook</span>';
+  return '';
+}
+function render(){
+  host.innerHTML='';answered=0;correct=0;updateScore();
+  Q.forEach((item,i)=>{
+    if(filter!=='all' && item.t!==filter) return;
+    const card=document.createElement('div');card.className='q';
+    card.innerHTML=`<div class="meta"><span class="num">#${i+1}</span><span class="tag">&#9670; ${tagLabel(item.t)}</span>${flagBadge(item.f)}</div><div class="stem">${item.q}</div>`;
+    const opts=document.createElement('div');
+    item.o.forEach((txt,oi)=>{
+      const btn=document.createElement('button');btn.className='opt';
+      btn.innerHTML=`<span class="k">${String.fromCharCode(65+oi)}</span>${txt}`;
+      btn.onclick=()=>choose(card,opts,item,oi);opts.appendChild(btn);
+    });
+    card.appendChild(opts);
+    const ex=document.createElement('div');ex.className='expl';
+    ex.innerHTML=`<b class="cor">Correct: ${String.fromCharCode(65+item.a)}.</b> ${item.e}`;
+    card.appendChild(ex);host.appendChild(card);
+  });
+}
+function choose(card,opts,item,oi){
+  if(card.dataset.done)return;card.dataset.done='1';answered++;
+  [...opts.children].forEach((b,bi)=>{b.classList.add('locked');
+    if(bi===item.a)b.classList.add('correct');
+    if(bi===oi && oi!==item.a)b.classList.add('wrong');});
+  if(oi===item.a)correct++;
+  card.querySelector('.expl').classList.add('show');updateScore();
+}
+function updateScore(){scoreTxt.textContent=`${correct} / ${answered} correct`;}
+document.querySelector('.filters').addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  document.querySelectorAll('.filters button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');filter=b.dataset.f;render();});
+document.getElementById('resetBtn').onclick=render;
+render();
+</script>
+</body>
+</html>

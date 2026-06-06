@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Surgery &amp; Anesthesia Subdomain Hub | ABVP Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0f3d3a;--ink2:#15514c;--paper:#f4efe4;--paper2:#fbf8f1;
+    --line:#d9d0bd;--muted:#5d6b62;
+    --id:#3c4a86;--id-soft:#e2e4f2;            /* physical health blue */
+    --good:#1f7a4d;--bad:#b23b3b;
+    --notes:#7a4fb5;--notes-soft:#ece3f7;       /* your sanitation notes */
+    --lit:#1f6f8b;--lit-soft:#dcedf2;           /* reserved */
+    --aspca:#8a6d1f;--aspca-soft:#f3ebcf;       /* ASPCA Pro poster */
+    --ref:#b5651d;--ref-soft:#f6e7d4;           /* standard veterinary references */
+    --shadow:0 1px 2px rgba(15,61,58,.08),0 8px 24px rgba(15,61,58,.06);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;
+    background-image:radial-gradient(circle at 1px 1px,rgba(15,61,58,.04) 1px,transparent 0);background-size:22px 22px;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+  header.top{background:var(--ink);color:var(--paper2);padding:26px 0 22px;border-bottom:4px solid var(--id)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#9ec9c2;margin:0 0 6px}
+  header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(26px,4.5vw,40px);margin:0;line-height:1.05}
+  header.top p.sub{margin:8px 0 0;color:#cfe3df;font-size:14px;max-width:70ch}
+  .legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}
+  .legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.25);color:#eaf4f1;display:flex;align-items:center;gap:6px}
+  .legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--paper2);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button:hover{background:var(--paper);color:var(--ink)}
+  .tabrow button.active{background:var(--ink);color:var(--paper2)}
+  .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--id)}
+  main{padding:30px 0 80px}
+  .panel{display:none;animation:fade .35s ease}
+  .panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;letter-spacing:-.01em}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:78ch}
+  h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:30px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;scroll-margin-top:64px}
+  h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;color:var(--ink2);text-transform:uppercase;letter-spacing:.03em}
+  .card{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}
+  p.note{font-size:14px;margin:0 0 6px}
+  ul.hy{margin:8px 0;padding-left:0;list-style:none}
+  ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed #e6ddca;font-size:14px}
+  ul.hy li:last-child{border-bottom:0}
+  ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;border-radius:2px;background:var(--id);transform:rotate(45deg)}
+  .trap{background:#eef0f8;border:1px solid #c6cbe6;border-left:4px solid var(--id);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .trap b{color:var(--id);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .corrbox{background:#e9f4ee;border:1px solid #bfe0cc;border-left:4px solid var(--good);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .corrbox b{color:var(--good);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .verifybox{background:#fdf5e6;border:1px solid #ecd9a8;border-left:4px solid var(--aspca);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .verifybox b{color:var(--aspca);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:var(--paper2);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp th{background:var(--ink);color:var(--paper2);font-weight:600;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase}
+  table.cmp tr:last-child td{border-bottom:0}
+  table.cmp td b{color:var(--ink)}
+  .yes{color:var(--good);font-weight:700}
+  .no{color:var(--bad);font-weight:700}
+  .fig{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0;box-shadow:var(--shadow)}
+  .fig figcaption{font-size:12.5px;color:var(--muted);margin-top:8px;font-style:italic}
+  /* source badges */
+  .bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+  .bdg.notes{background:var(--notes-soft);color:var(--notes)}
+  .bdg.asv{background:var(--id-soft);color:var(--id)}
+  .bdg.aspca{background:var(--aspca-soft);color:var(--aspca)}
+  .bdg.ref{background:var(--ref-soft);color:var(--ref)}
+  .bdg.corr{background:var(--good);color:#fff}
+  /* mcq */
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--ink);color:var(--paper2);border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:54px;z-index:10}
+  .mcqbar .filters{display:flex;gap:6px;flex-wrap:wrap}
+  .mcqbar .filters button{font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#d6e7e3;padding:6px 11px;border-radius:999px;cursor:pointer}
+  .mcqbar .filters button.on{background:var(--id);border-color:var(--id);color:#fff}
+  .score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}
+  .score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;color:#d6e7e3;padding:5px 10px;border-radius:8px;font-size:11px}
+  .q{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
+  .q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+  .q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--id-soft);color:var(--id)}
+  .q .stem{font-weight:600;font-size:15px;margin-bottom:10px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;font-family:"Public Sans";transition:background .15s,border-color .15s}
+  .opt:hover{border-color:var(--ink)}
+  .opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}
+  .opt.correct{background:#e8f5ec;border-color:var(--good);color:#0d3d24}
+  .opt.wrong{background:#fbe9e9;border-color:var(--bad);color:#5e1d1d}
+  .opt.locked{cursor:default}
+  .expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:#f3efe3;border:1px solid var(--line);font-size:13.5px}
+  .expl.show{display:block}
+  .expl b.cor{color:var(--good)}
+  footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
+  @media(max-width:640px){.mcqbar{top:50px}.score{font-size:12px}}
+
+</style>
+</head>
+<body>
+<nav style="background:#0f3d3a;padding:9px 18px;display:flex;align-items:center;gap:10px;font-family:'Public Sans',system-ui,sans-serif;font-size:13px;font-weight:500;border-bottom:2px solid #1f5c4e"><a href="../index.html" style="color:#9ec9c2;text-decoration:none;display:flex;align-items:center;gap:5px"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span style="color:#4a7a6e;font-size:11px">›</span><span style="color:#cfe3df">Physical Health of Animals</span></nav>
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">ABVP Shelter Medicine Practice RVS &middot; Physical Health of Animal</p>
+    <h1>Surgery &amp; Anesthesia Subdomain Hub</h1>
+    <p class="sub">Exam-depth study tool for the Surgery and Anesthesia subdomain (12% of the Physical Health of Animal domain, which is 29% of the exam, so roughly 12 of 350 questions). This is a compact section, so all content sits on one page, organized by topic. The MCQ Test Bank is filterable by topic. Built from your surgery notes. High-volume spay-neuter throughput, pediatric spay-neuter, and the AAHA anesthesia, monitoring and pain-management depth are built under Companion Animal Homelessness, not here.</p>
+    <div class="legend">
+      <span><i style="background:var(--notes)"></i>Your surgery notes</span>
+      <span><i style="background:var(--id)"></i>Scope note</span>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="surgery"><span class="dot"></span>Surgery &amp; Anesthesia</button>
+  <button data-p="mcq"><span class="dot" style="background:#0f3d3a"></span>MCQ Test Bank</button>
+</div></div></nav>
+
+<main><div class="wrap">
+
+<section class="panel show" id="surgery">
+  <h2 class="sec">Surgery &amp; Anesthesia</h2>
+  <p class="lead">A compact subdomain covering the program-level rules, preoperative assessment, anesthesia and airway management, and intraoperative monitoring that the shelter veterinarian owns. All claims are from your notes.</p>
+
+  <div class="card">
+    <h4>Blueprint placement</h4>
+    <ul class="hy">
+      <li>Physical Health of Animal = <b>29%</b> of the exam. Surgery and Anesthesia = <b>12%</b> of that domain, so roughly <b>12 of 350</b> exam questions.</li>
+      <li>Sibling subdomains: infectious disease/outbreaks, sanitation and biosecurity, vaccination, facility/environment, euthanasia, medical (non-infectious), nutrition and husbandry, parasites.</li>
+    </ul>
+  </div>
+
+  <div class="trap"><b>Scope note &middot; where the rest lives</b>High-quality high-volume spay-neuter (HQHVSN) throughput, pediatric spay-neuter (fasting thresholds, hypoglycemia, thermoregulation), the multimodal pre-emptive analgesia mandate, surgical-site preparation technique, sterilization identification tattoos, and the AAHA anesthesia, monitoring and pain-management guidelines are built under Companion Animal Homelessness. This page is the general shelter-surgery and anesthesia content from your notes only.</div>
+
+  <h3>Surgical program &amp; dentistry <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>All surgical practices and protocols must be developed in consultation with a veterinarian familiar with the organization, its population and its facilities.</li>
+      <li>Non-sterilization surgeries performed in the shelter, including dentistry, must adhere to the ASV spay-neuter guidelines for surgical suite, anesthesia, analgesia, and principles of sterility for instrumentation and surgical practice.</li>
+      <li>Non-anesthetic dental probing, scaling and polishing is unacceptable: without sedation, significant dental disease can be missed or inadequately addressed, and the restraint required causes major stress and risks serious injury from sharp instruments or bites.</li>
+      <li>Ideally intraoral radiographs are taken for dental surgery, but treatment for a painful mouth is strongly recommended even when radiology is unavailable, because dental disease carries serious welfare implications.</li>
+      <li>The goal of balanced anesthesia, optimal peri-operative care, good technique and low-stress handling is not only survival but long-term health and vitality.</li>
+    </ul>
+    <div class="trap"><b>Exam trap &middot; non-anesthetic dentistry</b>If a cost-saving proposal offers non-anesthetic dental cleaning, the correct answer is that it is unacceptable. Sedation is required to assess and treat disease and to protect both the patient and staff.</div>
+  </div>
+
+  <h3>Preoperative assessment <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <h4>Intake history to obtain before GA or surgery</h4>
+    <ul class="hy">
+      <li>Known medical history; current or recent medications, including parasiticides.</li>
+      <li>Behavior (lethargy, depression), appetite, food and water intake, vomiting or diarrhea, ability to urinate and defecate, sneezing or coughing, stress level.</li>
+      <li>Satisfaction of post-operative fasting requirements, and any other unusual behavior or medical concern. A standardized intake form is recommended.</li>
+    </ul>
+    <h4>Physical examination (vet performs the complete PE before any GA or analgesic agent)</h4>
+    <ul class="hy">
+      <li>A licensed or trained technician can perform the initial exam and vital-parameter assessment; the veterinarian then performs a more complete PE before drugs are given.</li>
+      <li>A preoperative PE must be performed before GA <b>unless the animal is fearful, aggressive or feral.</b></li>
+      <li>Components: thoracic auscultation; pulse rate and rhythm; respiratory rate and pattern; hydration; airway patency; BCS and body weight; oral mucous membrane color; ambulation; attitude and handleability; sexual status; congenital defects affecting GA or approach; abdominal palpation; mental and neurologic status.</li>
+    </ul>
+  </div>
+
+  <h3>ASA physical status classification <span class="bdg notes">notes</span></h3>
+  <table class="cmp">
+    <tr><th>Class</th><th>Risk</th><th>Description and examples</th></tr>
+    <tr><td><b>I</b></td><td>Minimal</td><td>Normal healthy animal, no underlying disease.</td></tr>
+    <tr><td><b>II</b></td><td>Mild</td><td>Slight to mild systemic disturbance; able to compensate without intervention.</td></tr>
+    <tr><td><b>III</b></td><td>Moderate</td><td>Moderate systemic disturbance, unable to fully compensate, showing clinical signs (anemia, dehydration, fever, asymptomatic low-grade murmur, fluid imbalance, renal insufficiency).</td></tr>
+    <tr><td><b>IV</b></td><td>High</td><td>Significantly ill with significant disease or compromise (severe dehydration, shock, high fever, uremia, renal failure, high-grade cardiac disease, clinical pulmonary or neuromuscular disease, trauma, most endocrinopathies).</td></tr>
+    <tr><td><b>V</b></td><td>Grave</td><td>Moribund or comatose; not expected to survive 24 hours with or without surgery (advanced organ failure, major trauma, terminal cancer, deep shock).</td></tr>
+  </table>
+
+  <h3>Bloodwork and reasons to defer <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>In the cited shelter data, blood work was considered unnecessary in over 84% of dogs; of the remaining 16%, surgery would have been postponed in less than 1% and the GA protocol altered in only 0.2%. Pre-GA blood work is therefore unlikely to add peri-operative information in healthy animals. Point-of-care tests (PCV/TP, blood glucose, BUN) can be considered.</li>
+      <li>Age should <b>not</b> be the determinant of whether blood work is needed. Concerns about health status, disease potential and the risk of GA or surgical complications should dictate testing.</li>
+      <li><b>Reasons to defer surgery:</b> extreme stress; traumatic injuries; severe dermatologic disease; severe dehydration; severe debilitation; known or suspected intestinal or urinary obstruction; malnourishment or starvation; severe parasitism; severe or life-threatening respiratory disease; prolonged vomiting or diarrhea; jaundice; toxicity or other signs of severe systemic disease.</li>
+    </ul>
+  </div>
+
+  <h3>Anesthesia &amp; airway <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Mask induction is not recommended:</b> unnecessary stress, uncontrolled entrance into unconsciousness, gas waste to staff and environment, and it is sympathomimetic and bronchoirritating, with risk of aspiration of gastric contents through an unprotected airway.</li>
+      <li><b>Chamber induction should be avoided at all costs</b> (unless a heavy risk-benefit analysis for patient and staff is done): severe waste-gas accumulation, prolonged and excessive sympathomimetic windup, and lethal high inhalant concentrations.</li>
+      <li>In a busy operation, brief mask inhalant supplementation on a small share of animals (under about 10 to 15%) for short periods is often necessary and appropriate. If mask maintenance is needed too often, consider: a protocol that does not use inhalant anesthesia; a protocol that uses intubation rather than masking; protocols with better analgesics and sedatives; and eliminating contributors to unsteady anesthesia (hypotension, hypoxia, hypercarbia, hypoglycemia).</li>
+    </ul>
+    <h4>Intubation</h4>
+    <ul class="hy">
+      <li><b>Benefits:</b> a protected airway and reliable maintenance under GA.</li>
+      <li><b>Drawbacks:</b> risks of intubation including regurgitation, vomiting, increased intracranial and ocular pressure, increased vagal tone, and post-operative complications.</li>
+      <li><b>Prioritize intubation in:</b> most unfasted dogs or those with unknown fasting status; patients with severe upper respiratory or pharyngeal disease; patients with questionable regurgitation or vomiting; overweight dogs; brachycephalic dogs.</li>
+    </ul>
+  </div>
+
+  <figure class="fig">
+    <svg viewBox="0 0 720 250" width="100%" role="img" aria-label="Anesthesia and airway decision avoiding mask and chamber induction">
+      <defs><marker id="arA" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0f3d3a"/></marker></defs>
+      <rect x="250" y="14" width="220" height="44" rx="10" fill="#fbe9e9" stroke="#b23b3b"/><text x="360" y="33" font-size="11.5" text-anchor="middle" font-weight="600">Avoid mask and chamber induction</text><text x="360" y="49" font-size="9.5" text-anchor="middle">stress, waste gas, no airway protection</text>
+      <rect x="250" y="92" width="220" height="44" rx="10" fill="#e9f4ee" stroke="#1f7a4d"/><text x="360" y="111" font-size="11.5" text-anchor="middle" font-weight="600">Injectable IM sedation + analgesia</text><text x="360" y="127" font-size="9.5" text-anchor="middle">controlled, touchless for fractious animals</text>
+      <rect x="40" y="170" width="300" height="64" rx="10" fill="#e2e4f2" stroke="#3c4a86"/><text x="190" y="191" font-size="11" text-anchor="middle" font-weight="600">Intubate (protected airway)</text><text x="190" y="207" font-size="9.5" text-anchor="middle">unfasted/unknown, overweight, brachycephalic,</text><text x="190" y="221" font-size="9.5" text-anchor="middle">severe URD/pharyngeal, questionable regurg</text>
+      <rect x="380" y="170" width="300" height="64" rx="10" fill="#f3ebcf" stroke="#8a6d1f"/><text x="530" y="191" font-size="11" text-anchor="middle" font-weight="600">Brief mask supplementation only</text><text x="530" y="207" font-size="9.5" text-anchor="middle">under about 10 to 15% of animals,</text><text x="530" y="221" font-size="9.5" text-anchor="middle">short periods; if frequent, change protocol</text>
+      <line x1="360" y1="58" x2="360" y2="88" stroke="#0f3d3a" stroke-width="1.6" marker-end="url(#arA)"/>
+      <line x1="300" y1="136" x2="210" y2="166" stroke="#0f3d3a" stroke-width="1.6" marker-end="url(#arA)"/>
+      <line x1="420" y1="136" x2="510" y2="166" stroke="#0f3d3a" stroke-width="1.6" marker-end="url(#arA)"/>
+    </svg>
+    <figcaption>Airway plan in shelter anesthesia: avoid mask and chamber induction, favor injectable sedation, intubate higher-risk patients, and reserve brief mask supplementation for a small minority. Source: your notes.</figcaption>
+  </figure>
+
+  <h3>Intraoperative monitoring <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Whatever monitors are used, monitoring requires vigilance over CNS depression, circulation, oxygenation and ventilation; it improves recognition of worrisome trends and provides a legal record of significant events.</li>
+      <li>Reliance on a single variable can lead to an inadequate plane of anesthesia, or to excessive depth with accompanying risk of emergencies.</li>
+      <li>Track heart rate, pulse quality and oxygenation; blood pressure; and respiratory rate and pattern.</li>
+      <li>Capnography monitors expired CO2 and reflects the balance of CO2 production, circulation delivering CO2 to the alveoli, and CO2 removal by ventilation.</li>
+    </ul>
+  </div>
+  <table class="cmp">
+    <tr><th>End-tidal CO2 (ETCO2)</th><th>Primary causes</th></tr>
+    <tr><td><b>Low ETCO2</b></td><td>Hyperventilation, low perfusion states, hypothermia.</td></tr>
+    <tr><td><b>High ETCO2</b></td><td>Hypoventilation, excessive metabolism or heat, build-up of CO2 within the machine.</td></tr>
+  </table>
+</section>
+
+<section class="panel" id="mcq">
+  <h2 class="sec">MCQ Test Bank</h2>
+  <p class="lead">Shared bank for the Surgery and Anesthesia subdomain. This subdomain is about 12 of 350 live exam questions, and this is a compact content area, so the bank holds 20 items. Use the chips to focus on one topic or review the whole subdomain.</p>
+  <div class="mcqbar">
+    <div class="filters">
+      <button class="on" data-f="all">All</button>
+      <button data-f="program">&#9670; Program</button>
+      <button data-f="preop">&#9670; Preop</button>
+      <button data-f="anesthesia">&#9670; Anesthesia</button>
+      <button data-f="monitoring">&#9670; Monitoring</button>
+    </div>
+    <div class="score"><span id="scoreTxt">0 / 0 correct</span><button class="reset" id="resetBtn">Reset</button></div>
+  </div>
+  <div id="qhost"></div>
+</section>
+
+</div></main>
+
+<footer><div class="wrap">
+  <p>Surgery and Anesthesia subdomain (Physical Health of Animal, ABVP Shelter Medicine Practice RVS). Built from your uploaded surgery and anesthesia notes and presented without independent re-verification at your request. High-volume spay-neuter, pediatric spay-neuter, multimodal analgesia depth, surgical-site preparation technique and controlled-substance handling are routed to the Companion Animal Homelessness build. The MCQ bank holds 20 questions, filterable by topic.</p>
+</div>
+</footer>
+
+<script>
+const tabrow=document.getElementById('tabrow');
+tabrow.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.disabled)return;
+  [...tabrow.children].forEach(x=>x.classList.remove('active'));b.classList.add('active');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('show'));
+  document.getElementById(b.dataset.p).classList.add('show');window.scrollTo({top:0,behavior:'smooth'});});
+
+/* Surgery and anesthesia MCQ bank.
+   t = topic tag (program | preop | anesthesia | monitoring)
+   f = source/flag badge: notes | ref | corr  (optional)
+   q = stem, o = options, a = correct index, e = explanation */
+const Q=[{"t": "program", "f": "notes", "q": "Non-sterilization surgeries in the shelter, including dentistry, must adhere to:", "o": ["Relaxed biosecurity, given the high bacterial load of shelter populations", "Local animal-control rules only", "The ASV spay-neuter guidelines for surgical suite, anesthesia, analgesia and sterility", "No particular standard if done in the medical wing"], "a": 2, "e": "All shelter surgery, including dentistry, must meet the ASV spay-neuter standards for suite, anesthesia, analgesia and aseptic technique."}, {"t": "program", "f": "notes", "q": "Why is non-anesthetic dental probing, scaling and polishing considered unacceptable?", "o": ["It alters the oral microbiome and spreads infection between species", "Significant disease can be missed and the restraint causes severe stress and risk of serious injury from sharp instruments or bites", "It needs intraoral radiographs that only work on awake patients", "It breaches commercial dishwasher sanitation standards"], "a": 1, "e": "Without sedation, pathology is missed and the patient and staff are placed at real risk; sedation is required."}, {"t": "program", "f": "notes", "q": "A hoarding-case cat has a painful mouth but the shelter has no intraoral radiography. The correct approach is:", "o": ["Defer all dental care until imaging is acquired", "Treat the painful mouth even without radiology, because dental disease has serious welfare implications", "Give long-term steroids and avoid surgery to reduce length of stay", "Perform non-anesthetic scaling instead"], "a": 1, "e": "Welfare comes first; a painful mouth is treated even when advanced imaging is unavailable."}, {"t": "program", "f": "notes", "q": "The overarching goal of balanced anesthesia, optimal perioperative care and low-stress handling is to ensure:", "o": ["Lower disinfectant costs in the surgical suite", "Not only survival but the long-term health and vitality of the patient", "Automated decision-making during outbreaks", "Elimination of the preoperative physical exam"], "a": 1, "e": "The aim is durable health and vitality, so the animal enters adoption resilient, not merely survival of the procedure."}, {"t": "preop", "f": "notes", "q": "Before GA or surgery, the correct examination sequence is:", "o": ["The technician's assessment alone is sufficient; the vet reviews logs afterward", "A trained technician performs the initial vital-parameter assessment, then the veterinarian performs a complete PE before any drugs are given", "The vet may skip the PE when a signed intake form exists", "The exam is deferred to the recovery period"], "a": 1, "e": "A tiered approach is used, but a veterinary PE must precede administration of any GA or analgesic agent."}, {"t": "preop", "f": "notes", "q": "A cat has moderate anemia, about 6% dehydration and an asymptomatic low-grade heart murmur. The ASA class is:", "o": ["I", "II", "III", "IV"], "a": 2, "e": "Moderate systemic disturbance with clinical signs the animal cannot fully compensate for is ASA III."}, {"t": "preop", "f": "notes", "q": "A dog has severe uremia, acute renal failure, clinical pulmonary disease and recent trauma but is not moribund. The ASA class is:", "o": ["II", "III", "IV", "V"], "a": 2, "e": "Significant illness with significant compromise (uremia, renal failure, clinical pulmonary disease, trauma) is ASA IV; ASA V is reserved for moribund or comatose animals."}, {"t": "preop", "f": "notes", "q": "Regarding routine preoperative blood work, the best stance is:", "o": ["It changes the surgical technique in more than half of shelter cases", "Age should not be the sole determinant; in the cited data the anesthetic protocol changed in only 0.2% of dogs, so health status and disease potential drive testing", "The ASV mandates it for every animal over 5 years of age", "Point-of-care testing is useless and should be replaced by full electrolyte panels"], "a": 1, "e": "Routine screening rarely alters management in healthy animals; clinical status, not age, guides whether to test."}, {"t": "preop", "f": "notes", "q": "Which presentation is an explicit reason to defer elective sterilization?", "o": ["Asymptomatic ear mites", "Known or suspected intestinal or urinary obstruction", "Mild, non-painful flea-allergy dermatitis", "Having missed a single meal"], "a": 1, "e": "Obstructive disease is a serious problem that defers elective surgery; the other items do not."}, {"t": "preop", "f": "notes", "q": "Which must a standardized intake form capture before GA or surgery?", "o": ["Pedigree and registration status", "Current or recent medications (including parasiticides) and satisfaction of post-operative fasting requirements", "The surrenderer's income bracket", "The transport route to the shelter"], "a": 1, "e": "Medication history and fasting status are essential to avoid drug interactions and aspiration risk."}, {"t": "preop", "f": "notes", "q": "A feral cat is lunging in the trap. How does the preoperative PE requirement apply?", "o": ["Pin the cat without sedation to auscultate the thorax", "A volunteer performs a full unsedated PE first", "A preoperative PE is required before GA except when the animal is fearful, aggressive or feral", "Surgery is permanently cancelled"], "a": 2, "e": "The PE-before-GA rule has an explicit exception for fearful, aggressive or feral animals, where an unsedated exam is unsafe."}, {"t": "anesthesia", "f": "notes", "q": "Chamber induction with inhalant gas should be avoided at all costs because it:", "o": ["Causes severe waste-gas accumulation, prolonged sympathomimetic windup and lethal high inhalant concentrations", "Drops intraocular pressure and invalidates ophthalmic screening", "Degrades plastic or glass containment tanks", "Makes capnography hypersensitive"], "a": 0, "e": "Chambers produce dangerous gas accumulation, excessive sympathetic windup and the risk of lethal inhalant concentrations."}, {"t": "anesthesia", "f": "notes", "q": "A direct drawback of mask induction is that it:", "o": ["Is non-sympathomimetic and drops heart rate", "Causes unnecessary stress, uncontrolled loss of consciousness, gas waste, and bronchoirritation with risk of gastric aspiration via an unprotected airway", "Takes at least 45 minutes to reach a surgical plane", "Is only compatible with ASA V patients"], "a": 1, "e": "Masking forces the animal through an agitated phase, wastes gas, and leaves the airway unprotected against aspiration."}, {"t": "anesthesia", "f": "notes", "q": "If mask maintenance is being required too often, an appropriate corrective strategy is to:", "o": ["Increase the inhalant concentration to speed up surgery", "Switch the whole population to chamber induction", "Use a protocol that requires intubation rather than masking, or one with better analgesics and sedatives", "Stop performing preoperative vital assessments"], "a": 2, "e": "Frequent masking signals an unstable protocol; move to intubation or improve the injectable sedation and analgesia."}, {"t": "anesthesia", "f": "notes", "q": "Which dogs should be prioritized for endotracheal intubation?", "o": ["Lean athletic dogs with confirmed 12-hour fasts", "Most unfasted dogs or those with unknown fasting status, overweight dogs, and brachycephalic dogs", "Puppies under 6 weeks for suture removal", "Dogs with normal airways and low vagal tone"], "a": 1, "e": "Aspiration and airway-occlusion risk is highest in unfasted, overweight and brachycephalic dogs, so intubation is prioritized."}, {"t": "anesthesia", "f": "notes", "q": "An explicit drawback of endotracheal intubation listed in your notes is:", "o": ["Coagulative necrosis of the pinnae", "Regurgitation or vomiting, increased intracranial and ocular pressure, and increased vagal tone", "False-positive calicivirus titers", "Breakdown of epoxy flooring in the suite"], "a": 1, "e": "Laryngeal stimulation can trigger vagal responses, raise intracranial and ocular pressure, and provoke regurgitation."}, {"t": "monitoring", "f": "notes", "q": "A capnograph shows a low end-tidal CO2 (ETCO2). A primary cause is:", "o": ["Hypoventilation", "Build-up of CO2 within the anesthetic machine", "Hyperventilation, low perfusion states or hypothermia", "Excessive metabolism or systemic heat"], "a": 2, "e": "Low ETCO2 reflects either rapid clearance (hyperventilation) or reduced delivery of CO2 to the lungs (low perfusion, hypothermia)."}, {"t": "monitoring", "f": "notes", "q": "A high ETCO2 reading indicates:", "o": ["Severe hyperventilation from deep CNS depression", "Hypoventilation, excessive metabolism or heat, or build-up of CO2 within the machine", "High perfusion combined with extreme hypothermia", "Failure of the airway-patency monitor"], "a": 1, "e": "High ETCO2 points to CO2 retention from hypoventilation, increased production, or spent absorbent in the circuit."}, {"t": "monitoring", "f": "notes", "q": "The risk of relying on a single monitoring variable is that it:", "o": ["Increases capnograph sensitivity", "Can lead to an inadequate plane of anesthesia, or to excessive depth with risk of emergencies", "Removes the need for chest auscultation", "Forces the patient into ASA IV status"], "a": 1, "e": "No single parameter is reliable alone; multi-parameter monitoring prevents an undetected depth crisis."}, {"t": "monitoring", "f": "notes", "q": "The primary benefit of anesthetic monitoring is that it:", "o": ["Accelerates metabolism during hypothermia", "Enhances recognition of worrisome trends and provides a legal record of significant events", "Lets technicians bypass veterinary supervision", "Converts ASA status into an epidemic curve"], "a": 1, "e": "Monitoring catches dangerous trends early and documents significant events for the medical and legal record."}];
+
+const host=document.getElementById('qhost');
+const scoreTxt=document.getElementById('scoreTxt');
+let answered=0, correct=0, filter='all';
+const DLABEL={program:"Program",preop:"Preop",anesthesia:"Anesthesia",monitoring:"Monitoring"};
+function tagLabel(t){return DLABEL[t]||t.toUpperCase();}
+function flagBadge(f){
+  if(f==='corr')return '<span class="bdg corr">corrected</span>';
+  if(f==='notes')return '<span class="bdg notes">your notes</span>';
+  if(f==='ref')return '<span class="bdg ref">std ref</span>';
+  return '';
+}
+function render(){
+  host.innerHTML='';answered=0;correct=0;updateScore();
+  Q.forEach((item,i)=>{
+    if(filter!=='all' && item.t!==filter) return;
+    const card=document.createElement('div');card.className='q';
+    card.innerHTML=`<div class="meta"><span class="num">#${i+1}</span><span class="tag">&#9670; ${tagLabel(item.t)}</span>${flagBadge(item.f)}</div><div class="stem">${item.q}</div>`;
+    const opts=document.createElement('div');
+    item.o.forEach((txt,oi)=>{
+      const btn=document.createElement('button');btn.className='opt';
+      btn.innerHTML=`<span class="k">${String.fromCharCode(65+oi)}</span>${txt}`;
+      btn.onclick=()=>choose(card,opts,item,oi);opts.appendChild(btn);
+    });
+    card.appendChild(opts);
+    const ex=document.createElement('div');ex.className='expl';
+    ex.innerHTML=`<b class="cor">Correct: ${String.fromCharCode(65+item.a)}.</b> ${item.e}`;
+    card.appendChild(ex);host.appendChild(card);
+  });
+}
+function choose(card,opts,item,oi){
+  if(card.dataset.done)return;card.dataset.done='1';answered++;
+  [...opts.children].forEach((b,bi)=>{b.classList.add('locked');
+    if(bi===item.a)b.classList.add('correct');
+    if(bi===oi && oi!==item.a)b.classList.add('wrong');});
+  if(oi===item.a)correct++;
+  card.querySelector('.expl').classList.add('show');updateScore();
+}
+function updateScore(){scoreTxt.textContent=`${correct} / ${answered} correct`;}
+document.querySelector('.filters').addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  document.querySelectorAll('.filters button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');filter=b.dataset.f;render();});
+document.getElementById('resetBtn').onclick=render;
+render();
+</script>
+</body>
+</html>

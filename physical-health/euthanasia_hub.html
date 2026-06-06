@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Euthanasia Subdomain Hub | ABVP Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0f3d3a;--ink2:#15514c;--paper:#f4efe4;--paper2:#fbf8f1;
+    --line:#d9d0bd;--muted:#5d6b62;
+    --id:#3c4a86;--id-soft:#e2e4f2;            /* ASV blue */
+    --good:#1f7a4d;--bad:#b23b3b;
+    --notes:#7a4fb5;--notes-soft:#ece3f7;       /* your euth notes */
+    --avma:#9c3d54;--avma-soft:#f4dde3;         /* AVMA Euthanasia Guidelines 2020 */
+    --txt:#8a6d1f;--txt-soft:#f3ebcf;           /* textbook / standard reference */
+    --warn:#a8641a;--warn-soft:#f7e6cd;         /* exam trap amber */
+    --shadow:0 1px 2px rgba(15,61,58,.08),0 8px 24px rgba(15,61,58,.06);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;
+    background-image:radial-gradient(circle at 1px 1px,rgba(15,61,58,.04) 1px,transparent 0);background-size:22px 22px;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+  header.top{background:var(--ink);color:var(--paper2);padding:26px 0 22px;border-bottom:4px solid var(--avma)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#9ec9c2;margin:0 0 6px}
+  header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(26px,4.5vw,40px);margin:0;line-height:1.05}
+  header.top p.sub{margin:8px 0 0;color:#cfe3df;font-size:14px;max-width:78ch}
+  .legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}
+  .legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.25);color:#eaf4f1;display:flex;align-items:center;gap:6px}
+  .legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--paper2);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button:hover{background:var(--paper);color:var(--ink)}
+  .tabrow button.active{background:var(--ink);color:var(--paper2)}
+  .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--avma)}
+  main{padding:30px 0 80px}
+  .panel{display:none;animation:fade .35s ease}
+  .panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;letter-spacing:-.01em}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:80ch}
+  h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:30px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;scroll-margin-top:64px}
+  h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;color:var(--ink2);text-transform:uppercase;letter-spacing:.03em}
+  .card{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}
+  ul.hy{margin:8px 0;padding-left:0;list-style:none}
+  ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed #e6ddca;font-size:14px}
+  ul.hy li:last-child{border-bottom:0}
+  ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;border-radius:2px;background:var(--avma);transform:rotate(45deg)}
+  .trap{background:var(--warn-soft);border:1px solid #e6cfa6;border-left:4px solid var(--warn);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .trap b{color:var(--warn);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .corrbox{background:#e9f4ee;border:1px solid #bfe0cc;border-left:4px solid var(--good);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .corrbox b{color:var(--good);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .clarify{background:var(--id-soft);border:1px solid #c6cbe6;border-left:4px solid var(--id);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .clarify b{color:var(--id);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:var(--paper2);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp th{background:var(--ink);color:var(--paper2);font-weight:600;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase}
+  table.cmp tr:last-child td{border-bottom:0}
+  table.cmp td b{color:var(--ink)}
+  .yes{color:var(--good);font-weight:700}
+  .no{color:var(--bad);font-weight:700}
+  .fig{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0;box-shadow:var(--shadow)}
+  .fig figcaption{font-size:12.5px;color:var(--muted);margin-top:8px;font-style:italic}
+  .bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+  .bdg.notes{background:var(--notes-soft);color:var(--notes)}
+  .bdg.asv{background:var(--id-soft);color:var(--id)}
+  .bdg.avma{background:var(--avma-soft);color:var(--avma)}
+  .bdg.txt{background:var(--txt-soft);color:var(--txt)}
+  .bdg.corr{background:var(--good);color:#fff}
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--ink);color:var(--paper2);border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:54px;z-index:10}
+  .mcqbar .filters{display:flex;gap:6px;flex-wrap:wrap}
+  .mcqbar .filters button{font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#d6e7e3;padding:6px 11px;border-radius:999px;cursor:pointer}
+  .mcqbar .filters button.on{background:var(--avma);border-color:var(--avma);color:#fff}
+  .score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}
+  .score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;color:#d6e7e3;padding:5px 10px;border-radius:8px;font-size:11px}
+  .q{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
+  .q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+  .q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--avma-soft);color:var(--avma)}
+  .q .stem{font-weight:600;font-size:15px;margin-bottom:10px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;font-family:"Public Sans";transition:background .15s,border-color .15s}
+  .opt:hover{border-color:var(--ink)}
+  .opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}
+  .opt.correct{background:#e8f5ec;border-color:var(--good);color:#0d3d24}
+  .opt.wrong{background:#fbe9e9;border-color:var(--bad);color:#5e1d1d}
+  .opt.locked{cursor:default}
+  .expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:#f3efe3;border:1px solid var(--line);font-size:13.5px}
+  .expl.show{display:block}
+  .expl b.cor{color:var(--good)}
+  footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
+  @media(max-width:640px){.mcqbar{top:50px}.score{font-size:12px}}
+</style>
+</head>
+<body>
+<nav style="background:#0f3d3a;padding:9px 18px;display:flex;align-items:center;gap:10px;font-family:'Public Sans',system-ui,sans-serif;font-size:13px;font-weight:500;border-bottom:2px solid #1f5c4e"><a href="../index.html" style="color:#9ec9c2;text-decoration:none;display:flex;align-items:center;gap:5px"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span style="color:#4a7a6e;font-size:11px">›</span><span style="color:#cfe3df">Physical Health of Animals</span></nav>
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">ABVP Shelter Medicine Practice RVS &middot; Physical Health of Animal</p>
+    <h1>Euthanasia Subdomain Hub</h1>
+    <p class="sub">Exam-depth study tool for the Euthanasia subdomain. Seven tabs cover law and decision-making, agents and pharmacology, routes and verification, environment and handling, carbon monoxide and gas methods, special populations and species, and human factors. The MCQ Test Bank is shared and filterable. Claims are badged by source. ASV claims are verified against the ASV Euthanasia (2020), CO Inhalation (2019), and Depopulation (2020) position statements; AVMA claims against the AVMA Guidelines for the Euthanasia of Animals (2020).</p>
+    <div class="legend">
+      <span><i style="background:var(--notes)"></i>Your euth notes</span>
+      <span><i style="background:var(--id)"></i>ASV position statements</span>
+      <span><i style="background:var(--avma)"></i>AVMA Euthanasia Guidelines 2020</span>
+      <span><i style="background:var(--txt)"></i>Textbook / standard reference</span>
+      <span><i style="background:var(--good)"></i>Corrected</span>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="law"><span class="dot"></span>Law, Policy &amp; Decisions</button>
+  <button data-p="agents"><span class="dot"></span>Agents &amp; Pharmacology</button>
+  <button data-p="routes"><span class="dot"></span>Routes &amp; Verification</button>
+  <button data-p="environment"><span class="dot"></span>Environment &amp; Handling</button>
+  <button data-p="co"><span class="dot"></span>CO &amp; Gas Methods</button>
+  <button data-p="species"><span class="dot"></span>Special Populations &amp; Species</button>
+  <button data-p="human"><span class="dot"></span>Human Factors</button>
+  <button data-p="mcq"><span class="dot" style="background:#0f3d3a"></span>MCQ Test Bank</button>
+</div></div></nav>
+
+<main><div class="wrap">
+
+<!-- ============ TAB 1: LAW ============ -->
+<section class="panel show" id="law">
+  <h2 class="sec">Law, Policy &amp; Decision-Making</h2>
+  <p class="lead">Shelter euthanasia sits inside a legal and ethical framework: mandated stray holds, the veterinary determination that can override them, written criteria that protect against bias, and the distinction between euthanasia and depopulation. Getting the decision architecture right is as tested as the technique.</p>
+
+  <h3>Stray holds and irremediable suffering <span class="bdg notes">notes</span><span class="bdg asv">ASV</span></h3>
+  <figure class="fig">
+    <svg viewBox="0 0 720 300" width="100%" role="img" aria-label="Euthanasia legal decision flow for a stray animal">
+      <defs><marker id="arEU1" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0f3d3a"/></marker></defs>
+      <rect x="20" y="20" width="200" height="48" rx="10" fill="#e2e4f2" stroke="#3c4a86"/><text x="120" y="40" font-size="11.5" text-anchor="middle" font-weight="600">Stray animal admitted</text><text x="120" y="56" font-size="9.5" text-anchor="middle">legal stray hold applies</text>
+      <polygon points="360,18 470,60 360,102 250,60" fill="#f4dde3" stroke="#9c3d54"/><text x="360" y="52" font-size="10.5" text-anchor="middle" font-weight="600">Irremediable</text><text x="360" y="67" font-size="10.5" text-anchor="middle" font-weight="600">suffering?</text>
+      <text x="360" y="118" font-size="9" text-anchor="middle" fill="#5d6b62">licensed veterinarian determines</text>
+      <line x1="220" y1="44" x2="248" y2="56" stroke="#0f3d3a" stroke-width="1.5" marker-end="url(#arEU1)"/>
+      <rect x="500" y="20" width="200" height="80" rx="10" fill="#fbe9e9" stroke="#b23b3b"/><text x="600" y="44" font-size="11" text-anchor="middle" font-weight="600">YES</text><text x="600" y="62" font-size="9.5" text-anchor="middle">Document in writing</text><text x="600" y="76" font-size="9.5" text-anchor="middle">+ photos, then immediate</text><text x="600" y="90" font-size="9.5" text-anchor="middle">humane euthanasia (EBI)</text>
+      <line x1="470" y1="60" x2="498" y2="60" stroke="#0f3d3a" stroke-width="1.5" marker-end="url(#arEU1)"/>
+      <rect x="250" y="150" width="220" height="64" rx="10" fill="#e9f4ee" stroke="#1f7a4d"/><text x="360" y="172" font-size="11" text-anchor="middle" font-weight="600">NO</text><text x="360" y="190" font-size="9.5" text-anchor="middle">Complete the hold, then</text><text x="360" y="204" font-size="9.5" text-anchor="middle">evaluate for adoption / rescue</text>
+      <line x1="360" y1="102" x2="360" y2="148" stroke="#0f3d3a" stroke-width="1.5" marker-end="url(#arEU1)"/>
+      <rect x="20" y="240" width="680" height="44" rx="10" fill="#ece3f7" stroke="#7a4fb5"/><text x="360" y="261" font-size="10.5" text-anchor="middle" font-weight="600">If ID present (collar/tag, microchip, or tattoo): contact owner immediately and provide palliative or stabilizing care in the meantime.</text><text x="360" y="277" font-size="9.5" text-anchor="middle" fill="#5d6b62">The identification triad triggers owner tracking regardless of the suffering determination.</text>
+    </svg>
+    <figcaption>Decision flow for a stray with potential irremediable suffering. Source: your notes; ASV Euthanasia PS (2020) for the EBI and documentation principles.</figcaption>
+  </figure>
+  <div class="card">
+    <ul class="hy">
+      <li>Many shelters are under a government or municipal agency that sets a legal stray holding period before euthanasia, and defines when medical necessity overrides it.</li>
+      <li>A stray may be euthanized before the hold expires only if a licensed veterinarian deems the animal <b>irremediably suffering</b>. That determination needs a <b>signed, written medical record with objective findings</b>, and high-quality photographs are advisable.</li>
+      <li><b>Identification triad</b> (collar and tag, microchip, tattoo): make every effort to locate the owner and provide palliative or stabilizing care meanwhile.</li>
+      <li>Once the hold expires, evaluate the sick or injured animal for adoption or rescue using the <b>same criteria as any other animal</b>.</li>
+    </ul>
+  </div>
+
+  <h3>Written euthanasia criteria and protocols <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>A lack of written criteria creates legal and emotional burden on decision-makers, allows bias and inconsistency, and makes decisions look arbitrary to stakeholders.</li>
+      <li>Every shelter should have a <b>written protocol and decision process</b>, communicated to board, employees, volunteers, foster caregivers, and the community.</li>
+      <li><b>Selection criteria</b> consider species, breed, sex, neuter status, age, health and disabilities, temperament and behavior, and history, plus the shelter's <b>Capacity for Care</b> and community factors (number of adoptive homes, financial resources, attitudes toward shelter adoption, and propensity to adopt mature versus juvenile animals).</li>
+      <li>Criteria must be accepted, implemented, and adhered to across management, staff, board, and volunteers, reassessed regularly, never wholly inflexible, and applied by people who are committed, supportive, and consistent.</li>
+    </ul>
+  </div>
+
+  <h3>State regulation, technician certification, and EBI <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Each state sets its own regulations, training, and certification for euthanasia technicians, and its own rules for access to controlled substances.</li>
+      <li>Access models vary: some states allow certified technicians <b>direct access</b> to sodium pentobarbital without direct veterinary oversight; others permit only <b>indirect access</b>, where a veterinarian obtains and oversees its use.</li>
+      <li>Many shelters have no veterinarian on staff; oversight may be volunteer, and the veterinarian must ensure record-keeping, storage, and use requirements are met.</li>
+      <li><b>EBI (euthanasia by injection)</b> is the preferred shelter method. More states are banning CO and gas methods and moving to EBI. AHA, HSUS, and NACA offer EBI training.</li>
+    </ul>
+    <div class="trap"><b>Exam trap</b>Not every state requires a licensed veterinarian to physically press the plunger. In many states, trained and certified euthanasia technicians perform EBI under varying levels of veterinary involvement.</div>
+  </div>
+
+  <h3>Euthanasia versus depopulation <span class="bdg asv">ASV</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Depopulation</b> is the rapid destruction of an entire population, diseased and healthy, in response to urgent circumstances such as bioterrorism, nuclear disaster, or a massive community-wide emergency. It is a technique of <b>last resort</b>.</li>
+      <li>Depopulation is <b>not</b> an appropriate response to a routine shelter disease outbreak: it kills healthy animals and fails to resolve the underlying cause. Consult a veterinarian experienced in outbreak management first.</li>
+      <li>Where depopulation is unavoidable in a shelter, <b>euthanasia by injection per AVMA 2020</b> should be used whenever possible, rather than the destruction methods in the AVMA Depopulation Guidelines (2019), because shelter numbers are usually small enough to allow EBI.</li>
+    </ul>
+    <div class="clarify"><b>Three separate AVMA documents</b>Euthanasia, depopulation, and humane slaughter are governed by three distinct AVMA guideline documents. Know the difference: euthanasia is individual and good-death focused; depopulation is population-scale and emergency-driven.</div>
+  </div>
+</section>
+
+<!-- ============ TAB 2: AGENTS ============ -->
+<section class="panel" id="agents">
+  <h2 class="sec">Agents &amp; Pharmacology</h2>
+  <p class="lead">Sodium pentobarbital is the backbone of shelter euthanasia. This tab covers its mechanism and stages, the lethal-versus-label-dose cushion, the phenytoin combination and DEA scheduling, why T61 and neuromuscular blockers are unacceptable, and the pre-euthanasia sedation and chemical-restraint agents.</p>
+
+  <h3>The definition and the "good death" criteria <span class="bdg asv">ASV</span><span class="bdg avma">AVMA</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Euthanasia is a good, graceful death, as gentle and rapid as possible and as free from fear, anxiety, and distress as possible.</li>
+      <li>The chosen method must induce loss of consciousness then death without pain, distress, anxiety, or apprehension; be quick, reliable, and irreversible; be appropriate for the species, age, and health of the animal; and be safe for personnel.</li>
+    </ul>
+  </div>
+
+  <h3>Sodium pentobarbital: mechanism and stages <span class="bdg notes">notes</span></h3>
+  <figure class="fig">
+    <svg viewBox="0 0 720 130" width="100%" role="img" aria-label="IV pentobarbital five-step progression">
+      <defs><marker id="arEU2" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0f3d3a"/></marker></defs>
+      <text x="360" y="22" font-size="12.5" text-anchor="middle" font-weight="700" fill="#15514c">IV progression (operational shelter sequence)</text>
+      <rect x="8" y="44" width="118" height="50" rx="9" fill="#ece3f7" stroke="#7a4fb5"/><text x="67" y="66" font-size="10" text-anchor="middle" font-weight="600">1. Sedation</text><text x="67" y="82" font-size="8.5" text-anchor="middle">calm, sleepy</text>
+      <rect x="150" y="44" width="118" height="50" rx="9" fill="#e2e4f2" stroke="#3c4a86"/><text x="209" y="62" font-size="9.5" text-anchor="middle" font-weight="600">2. Involuntary</text><text x="209" y="76" font-size="9.5" text-anchor="middle" font-weight="600">excitement</text>
+      <rect x="292" y="44" width="118" height="50" rx="9" fill="#e2e4f2" stroke="#3c4a86"/><text x="351" y="62" font-size="9.5" text-anchor="middle" font-weight="600">3. Light</text><text x="351" y="76" font-size="9.5" text-anchor="middle" font-weight="600">anesthesia</text>
+      <rect x="434" y="44" width="118" height="50" rx="9" fill="#e2e4f2" stroke="#3c4a86"/><text x="493" y="62" font-size="9.5" text-anchor="middle" font-weight="600">4. Deep</text><text x="493" y="76" font-size="9.5" text-anchor="middle" font-weight="600">anesthesia</text>
+      <rect x="576" y="44" width="136" height="50" rx="9" fill="#fbe9e9" stroke="#b23b3b"/><text x="644" y="62" font-size="9.5" text-anchor="middle" font-weight="600">5. Apnea then</text><text x="644" y="76" font-size="9.5" text-anchor="middle" font-weight="600">cardiac arrest</text>
+      <line x1="126" y1="69" x2="148" y2="69" stroke="#0f3d3a" stroke-width="1.5" marker-end="url(#arEU2)"/>
+      <line x1="268" y1="69" x2="290" y2="69" stroke="#0f3d3a" stroke-width="1.5" marker-end="url(#arEU2)"/>
+      <line x1="410" y1="69" x2="432" y2="69" stroke="#0f3d3a" stroke-width="1.5" marker-end="url(#arEU2)"/>
+      <line x1="552" y1="69" x2="574" y2="69" stroke="#0f3d3a" stroke-width="1.5" marker-end="url(#arEU2)"/>
+      <text x="360" y="116" font-size="10" text-anchor="middle" fill="#5d6b62">Brain is the primary site of action; IV onset is 45 to 90 seconds.</text>
+    </svg>
+    <figcaption>Operational IV pentobarbital progression. Source: your notes (shelter euthanasia training sequence).</figcaption>
+  </figure>
+  <div class="clarify"><b>Reconciling 4 versus 5 stages</b>Your notes list both a "4 stages in the brain" sequence (voluntary excitement, involuntary excitement, surgical anesthesia, medullary paralysis) and the 5-step IV sequence above. These are two framings, not a contradiction: the 4-stage list is the classic anesthetic-depth (Guedel) model, while the 5-step list is the operational shelter-training description of the IV experience. The 5-step sequence is the one to use for board questions phrased about IV pentobarbital.</div>
+
+  <h3>Lethal dose versus label dose <span class="bdg notes">notes</span></h3>
+  <figure class="fig">
+    <svg viewBox="0 0 720 150" width="100%" role="img" aria-label="Label dose exceeds lethal dose by 30 to 50 percent">
+      <defs><marker id="arEU3" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0f3d3a"/></marker></defs>
+      <text x="20" y="40" font-size="11.5" font-weight="600" fill="#15514c">Lethal dose</text>
+      <rect x="140" y="26" width="380" height="26" rx="5" fill="#e9f4ee" stroke="#1f7a4d"/><text x="330" y="43" font-size="10" text-anchor="middle">enough to move through all stages and stop respiration + circulation</text>
+      <text x="20" y="92" font-size="11.5" font-weight="600" fill="#15514c">Label dose</text>
+      <rect x="140" y="78" width="380" height="26" rx="5" fill="#e2e4f2" stroke="#3c4a86"/><rect x="520" y="78" width="150" height="26" rx="5" fill="#f4dde3" stroke="#9c3d54"/>
+      <text x="330" y="95" font-size="10" text-anchor="middle">lethal dose</text><text x="595" y="95" font-size="9.5" text-anchor="middle" font-weight="600">+30 to 50% cushion</text>
+      <text x="405" y="134" font-size="10.5" text-anchor="middle" fill="#5d6b62">The extra drug guarantees a humane death when given correctly. It is not waste.</text>
+    </svg>
+    <figcaption>The commercial label dose runs 30 to 50% above the true lethal dose as a safety cushion. Source: your notes.</figcaption>
+  </figure>
+
+  <h3>Phenytoin combination and DEA scheduling <span class="bdg corr">corrected</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Sodium pentobarbital is DEA-controlled; strict record-keeping and security are required whether access is direct or through a veterinarian.</li>
+      <li>Some formulations add <b>phenytoin</b>, a cardiotoxic adjunct that hastens cardiac arrest.</li>
+      <li>The <b>combination product</b> (for example Beuthanasia-D Special, Euthasol) is classified <b>DEA Schedule III</b>, whereas pentobarbital alone is <b>Schedule II</b>. Schedule III status makes it easier for shelters to secure, store, and log.</li>
+    </ul>
+    <div class="corrbox"><b>Correction</b>Your notes say phenytoin "denatures" the pentobarbital to change its schedule. That wording is imprecise. Phenytoin's pharmacologic role is to <b>speed cardiac arrest</b>; the Schedule II to III change is a function of the <b>combination formulation</b> reducing abuse potential, not chemical denaturing of the pentobarbital molecule.</div>
+  </div>
+
+  <h3>T61 and neuromuscular blockers <span class="bdg notes">notes</span><span class="bdg avma">AVMA</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Combining pentobarbital with a <b>neuromuscular blocking agent is unacceptable</b>, because paralysis can precede loss of consciousness.</li>
+      <li><b>T61</b> was a nonbarbiturate, nonnarcotic three-drug mixture (general anesthetic, curariform agent, local anesthetic), no longer commercially available in the United States. The concern was differential absorption and onset, which could produce paralysis and pain before unconsciousness.</li>
+    </ul>
+    <div class="trap"><b>Exam trap</b>A neuromuscular blocker, alone or added to pentobarbital, is never an acceptable euthanasia agent. The animal can be paralyzed yet conscious and in distress.</div>
+  </div>
+
+  <h3>Pre-euthanasia sedation and chemical restraint <span class="bdg notes">notes</span></h3>
+  <table class="cmp">
+    <tr><th>Agent</th><th>Key points</th><th>Cautions</th></tr>
+    <tr><td><b>Acepromazine</b><br>(not controlled)</td><td>IM, SC, or oral; calms fractious or frightened animals</td><td class="no">No analgesia; no protection from aggression; can cause paradoxical CNS stimulation or aggression; lowers BP (harder venipuncture); may lower seizure threshold</td></tr>
+    <tr><td><b>Ketamine</b><br>(controlled)</td><td>Best combined, for example with xylazine or ACE. Premixes: 2 mL ACE + 10 mL ketamine (cats 0.05 to 0.1 mL/lb IM); 2 mL xylazine + 10 mL ketamine (0.06 mL/lb IM for dogs, cats, raccoons, opossums, skunks)</td><td>Cost; controlled-substance handling</td></tr>
+    <tr><td><b>Tiletamine-zolazepam</b><br>(controlled)</td><td>Small volume needed; IM; approved for dogs and cats</td><td>May sting; expensive for routine use</td></tr>
+    <tr><td><b>Xylazine</b></td><td>Sedation, often in combination</td><td class="no">Frequently causes vomiting in cats and dogs; lowers BP, making venipuncture difficult and delaying pentobarbital. Fast the animal or combine with ACE or ketamine</td></tr>
+    <tr><td><b>Oral pentobarbital</b></td><td>Pre-euth in food (capsules in meatballs, or powder/liquid in canned food). Oral dose about 3x the IV dose: 1 tsp per 40 lb dog, 1 tbsp per 100 lb. Deep sedation in 15 to 60 minutes</td><td>Wear gloves and a mask when measuring and mixing the powder</td></tr>
+  </table>
+  <div class="clarify"><b>ASV emphasis</b>Sedation prior to euthanasia is recommended in most cases and strongly recommended for distressed, dangerous, and fractious animals.</div>
+</section>
+
+<!-- ============ TAB 3: ROUTES ============ -->
+<section class="panel" id="routes">
+  <h2 class="sec">Routes, Technique &amp; Verification</h2>
+  <p class="lead">Route choice is a welfare decision. IV is the gold standard, IP is the humane fallback for small or fractious animals, IC is permitted only on the unconscious, and several routes are categorically unacceptable. Death must always be verified.</p>
+
+  <h3>Route acceptability <span class="bdg asv">ASV</span><span class="bdg notes">notes</span></h3>
+  <table class="cmp">
+    <tr><th>Route</th><th>Status</th><th>Detail</th></tr>
+    <tr><td><b>IV (intravenous)</b></td><td class="yes">Preferred</td><td>Gold standard for calm, compliant animals. 1 mL per 10 lb. Cephalic, medial saphenous, or jugular vein; 20 to 23G needle. Onset 45 to 90 seconds.</td></tr>
+    <tr><td><b>IP (intraperitoneal)</b></td><td class="yes">Acceptable when IV impractical</td><td>Favored for animals under 10 lb and for feral, fearful, or fractious cats. 3 mL per 10 lb (three times the IV dose). Onset 5 to 15 minutes; smooth transition over 15 to 30 minutes.</td></tr>
+    <tr><td><b>IC (intracardiac)</b></td><td>Conditional</td><td>Only on a heavily sedated, anesthetized, unconscious, or comatose animal. Unacceptable on a conscious animal.</td></tr>
+    <tr><td><b>IH (intrahepatic)</b></td><td class="no">Unacceptable</td><td>The liver capsule has stretch receptors that are exquisitely painful when stimulated.</td></tr>
+    <tr><td><b>SC / IM</b></td><td class="no">Unacceptable</td><td>Painful, with slow and unpredictable absorption and progression through the stages.</td></tr>
+  </table>
+  <div class="clarify"><b>ASV rule</b>Intracardiac injection may be performed only on anesthetized or unconscious animals. This is one of the most tested single facts in the subdomain.</div>
+
+  <h3>Intraperitoneal technique <span class="bdg notes">notes</span></h3>
+  <figure class="fig">
+    <svg viewBox="0 0 700 230" width="100%" role="img" aria-label="Intraperitoneal injection in the right lower quadrant with aspiration">
+      <defs><marker id="arEU4" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0f3d3a"/></marker></defs>
+      <ellipse cx="300" cy="120" rx="150" ry="90" fill="#fbf8f1" stroke="#15514c" stroke-width="1.5"/>
+      <line x1="300" y1="30" x2="300" y2="210" stroke="#d9d0bd" stroke-dasharray="4 3"/>
+      <line x1="150" y1="120" x2="450" y2="120" stroke="#d9d0bd" stroke-dasharray="4 3"/>
+      <text x="225" y="70" font-size="9" text-anchor="middle" fill="#8a8a8a">upper left</text>
+      <text x="375" y="70" font-size="9" text-anchor="middle" fill="#8a8a8a">upper right</text>
+      <text x="225" y="180" font-size="9" text-anchor="middle" fill="#8a8a8a">lower left</text>
+      <circle cx="370" cy="165" r="20" fill="#e9f4ee" stroke="#1f7a4d" stroke-width="2"/><text x="370" y="168" font-size="9" text-anchor="middle" font-weight="600">inject</text>
+      <text x="300" y="20" font-size="10" text-anchor="middle" font-weight="600" fill="#15514c">Ventral abdomen (animal in dorsal recumbency)</text>
+      <line x1="560" y1="120" x2="392" y2="158" stroke="#0f3d3a" stroke-width="1.5" marker-end="url(#arEU4)"/>
+      <text x="600" y="110" font-size="10" text-anchor="middle" font-weight="600" fill="#1f7a4d">Right lower</text><text x="600" y="124" font-size="10" text-anchor="middle" font-weight="600" fill="#1f7a4d">quadrant</text>
+      <text x="600" y="146" font-size="9" text-anchor="middle" fill="#5d6b62">avoid liver,</text><text x="600" y="158" font-size="9" text-anchor="middle" fill="#5d6b62">spleen, kidney</text>
+    </svg>
+    <figcaption>IP injection site and rule. Source: your notes.</figcaption>
+  </figure>
+  <div class="card">
+    <ul class="hy">
+      <li>Inject into the <b>right lower quadrant</b> to avoid the liver, spleen, and kidneys.</li>
+      <li><b>Aspirate before injecting</b> to confirm you are not in a bowel loop or the bladder.</li>
+      <li>Afterward, place the animal in a dark, quiet, confined space to transition without the distress of human touch.</li>
+      <li>IP is not appropriate for dogs or pups over 10 lb, which tend to struggle to right themselves during the involuntary excitement stage, except in rare cases.</li>
+    </ul>
+  </div>
+
+  <h3>Verification of death <span class="bdg avma">AVMA</span><span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Confirm death <b>regardless of method</b>: cardiac auscultation with a <b>stethoscope</b>, loss of the <b>corneal reflex</b> checked with a penlight, and the later presence of rigor mortis.</li>
+      <li><b>Reptiles</b> can mimic death because of their slow metabolism: hold the body in a room-temperature enclosure for <b>24 to 48 hours</b> for observation before disposal.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ TAB 4: ENVIRONMENT ============ -->
+<section class="panel" id="environment">
+  <h2 class="sec">Environment &amp; Handling</h2>
+  <p class="lead">The quality of a death is shaped before the injection: the room, the handling, the verification of identity, and the sanitation between animals all matter. The euthanasia process begins the moment the animal is removed from its cage.</p>
+
+  <h3>The euthanasia room <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Quiet, well-lit, well-ventilated, removed from heavy foot traffic, and soundproofed from daily shelter noise if possible. Easy to clean and free of distractions such as ringing phones or piped-in music.</li>
+      <li>Not overly large, but spacious enough for two technicians and safe maneuvering with a large dog. Lighting that can be dimmed and soothing decor help calm animals and people.</li>
+      <li>Easy access to holding cages and to body storage (walk-in morgue or truck to a crematorium). A secured drug-storage area compliant with DEA and state requirements.</li>
+      <li>Two counter-height surfaces of easily cleaned material, one for paperwork and one for placing animals. A lockable door or an off-limits sign during procedures.</li>
+    </ul>
+  </div>
+
+  <h3>Handling before and during <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>The euthanasia process begins before injection: how the animal is removed, transported, and handled on arrival sets the tone. Do a safety assessment first, then handle gently and reassuringly.</li>
+      <li>Use treats, gentle talking, petting, and positive rewards in the lead-up. For fearful animals, use pre-euth sedation, tranquilization, or anesthesia.</li>
+      <li>Body language matters: remain calm, quiet, and composed, work slowly and deliberately, and <b>avoid leaning over the dog</b>, which is an intimidating, threatening posture. A muzzle may calm some animals.</li>
+      <li>Only staff who can demonstrate proficiency at proper restraint should handle animals for euthanasia.</li>
+    </ul>
+  </div>
+
+  <h3>Preventing the wrong-animal error <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Before any drug is given: double-check the animal's ID against the paperwork, verify proper authorization, search the database and photographs for recent reclaim calls, and scan at least once more for a microchip.</li>
+    </ul>
+    <div class="trap"><b>Exam trap</b>Matching coat color to a breed description, trusting the cage card alone, or asking a bystander to identify the animal are all inadequate. The four-step verification is the standard.</div>
+  </div>
+
+  <h3>Sanitation and witnessing <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Clean all blood, urine, feces, and bodily residue with a <b>neutral deodorizing solution</b> to remove alarm pheromones before the next animal is placed on the surface.</li>
+      <li>An animal should <b>not view the euthanasia of another animal</b>.</li>
+    </ul>
+  </div>
+
+  <h3>Two trained people <span class="bdg asv">ASV</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Administration of injectable euthanasia medications may require <b>two trained people</b> for safe and humane handling.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ TAB 5: CO ============ -->
+<section class="panel" id="co">
+  <h2 class="sec">Carbon Monoxide &amp; Gas Methods</h2>
+  <p class="lead">Carbon monoxide is the classic "unacceptable in shelters" method. Know the position, the mechanism, the specific reasons, and the AVMA contingencies that still do not rescue it for companion-animal shelter use.</p>
+
+  <h3>The position <span class="bdg asv">ASV</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>The ASV considers CO for <b>individual or mass companion-animal euthanasia in shelters unacceptable</b> on humane, operational, and safety grounds. EBI is the preferred shelter method.</li>
+      <li>HSUS and WSPA reach the same conclusion. Even though the AVMA lists contingencies under which CO may be used, it does not recommend CO chambers for routine euthanasia of cats and dogs.</li>
+    </ul>
+  </div>
+
+  <h3>Mechanism <span class="bdg notes">notes</span><span class="bdg asv">ASV</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>CO is an <b>odorless, tasteless</b> gas that binds hemoglobin to form <b>carboxyhemoglobin</b>, blocking red blood cells from taking up and transporting oxygen, producing hypoxia.</li>
+    </ul>
+  </div>
+
+  <h3>Why it is unacceptable <span class="bdg asv">ASV</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Distress:</b> incoordination occurs before unconsciousness; CO stimulates motor centers causing convulsions and spasms; animals have an aversion to CO (agitation, vocalization); chamber odors of previously killed animals add distress.</li>
+      <li><b>Not reliably rapid:</b> death at 6% takes <b>10 to 20 minutes</b>; reaching and maintaining the concentration is often not feasible for shelter equipment.</li>
+      <li><b>Vulnerable animals:</b> those <b>under 16 weeks</b>, geriatric, sick, injured, pregnant, or with reduced respiratory function have delayed CO uptake, prolonging the time to unconsciousness, and shelters may not reliably identify them.</li>
+      <li><b>Operator hazard:</b> highly toxic, <b>explosive above 10%</b>, accumulates in the operator's blood (carboxyhemoglobin monitoring needed), and has killed at least one shelter worker.</li>
+      <li><b>It does not remove engagement:</b> operators still observe animals convulsing and dying and still handle bodies, which can worsen secondary traumatic stress. It is also more expensive than EBI.</li>
+    </ul>
+  </div>
+
+  <h3>AVMA contingencies if CO is used <span class="bdg avma">AVMA</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>CO must be a <b>commercially compressed</b>, purified source (no contaminants).</li>
+      <li>Personnel must be thoroughly instructed in its use, hazards, and limitations.</li>
+      <li>The chamber must be of the <b>highest-quality construction</b> and allow separation of individual animals; do not overload; keep clean.</li>
+      <li>Locate the source and chamber in a <b>well-ventilated environment, preferably outdoors</b>.</li>
+      <li>The chamber must be <b>well lit</b> with view ports for direct observation.</li>
+      <li>Flow rate adequate to rapidly achieve a <b>uniform concentration of at least 6%</b> after animals are placed inside.</li>
+      <li>If the chamber is indoors, <b>CO monitors</b> must warn personnel of hazardous concentrations, with compliance to occupational health and safety regulations.</li>
+    </ul>
+    <div class="trap"><b>Exam trap</b>Meeting every AVMA contingency does not make CO acceptable for shelter companion animals. The ASV position stands regardless: CO is unacceptable for individual or mass companion-animal euthanasia in shelters.</div>
+  </div>
+</section>
+
+<!-- ============ TAB 6: SPECIES ============ -->
+<section class="panel" id="species">
+  <h2 class="sec">Special Populations &amp; Species</h2>
+  <p class="lead">Pediatric exceptions, fetal handling, and species-specific methods are dense and high-yield. Doses for exotics vary by source and should be confirmed against a current formulary in practice.</p>
+
+  <h3>Mothers and neonates <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>An exception to the rule of separating animals during euthanasia. Euthanize the <b>mother first</b> so she is not distressed by separation or by seeing dead offspring, then euthanize the neonates <b>immediately after</b>.</li>
+    </ul>
+  </div>
+
+  <h3>Fetuses <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Preferred method: remove the uterus <b>en bloc, intact and unopened</b>, and wrap it in a towel or surgical paper in a dark place. Inside this closed system the fetuses are bathed in the mother's anesthetic drugs, become hypoxic, and pass away undisturbed.</li>
+      <li>Movements seen before fetal death are <b>subcortical reflexes</b> to hypoxia and hypercapnia, not a welfare concern, provided the fetuses remain in the uterus until dead.</li>
+      <li><b>Opening the uterus is a welfare compromise</b>: exposure to light, air, and thermal change can transition a near-term fetus to air-breathing physiology and a struggle for breath.</li>
+      <li>Alternatives if needed: IP injection of each fetus through the uterus, or open the uterus and euthanize each fetus individually.</li>
+    </ul>
+  </div>
+
+  <h3>Reptiles <span class="bdg txt">textbook</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Freezing is unacceptable.</b></li>
+      <li>Pre-euth anesthesia by IM tiletamine-zolazepam (25 mg/kg) or ketamine (100 mg/kg), about 15 to 20 minutes to take effect, then pentobarbital by IV, IC, or <b>intracoelomic</b> (the IP equivalent).</li>
+      <li>A snake's heart is about <b>one-third of the way from head to tail</b>, located by palpation or Doppler; a lizard's ventral tail vein can also be used.</li>
+      <li>Intracoelomic injection: needle lateral to the ventral midline, caudal third for snakes, abdominal region for lizards. Verify deep sedation or anesthesia before any IC injection.</li>
+      <li>Hold the body in a <b>room-temperature enclosure for 24 to 48 hours</b> to verify death (slow metabolism).</li>
+    </ul>
+  </div>
+
+  <h3>Fish and amphibians <span class="bdg corr">corrected</span><span class="bdg avma">AVMA</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>MS-222</b> (tricaine methanesulfonate; Finquel or Tricaine-S) is the only FDA-approved euthanasia agent for fish, and is also appropriate for amphibians. Administer by immersion in a buffered solution.</li>
+    </ul>
+    <div class="corrbox"><b>Correction</b>Your notes say "MS-22, immerse at 350 ppm for 10 minutes." Two fixes. First, the agent is <b>MS-222</b>. Second, the AVMA 2020 edition revised the immersion time: maintain immersion for <b>at least 30 minutes after opercular (gill) movement ceases</b>, because fish were shown to recover after the older 10-minute exposure, and follow with an <b>adjunctive method</b> (for example decapitation, pithing, or freezing of the already-dead fish) to confirm death. The 350 ppm concentration sits within the acceptable range; the time and the confirmatory step are the corrections.</div>
+  </div>
+
+  <h3>Horses <span class="bdg txt">textbook</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Use <b>two experienced handlers</b>, at least one experienced with equine euthanasia.</li>
+      <li>A pre-euth tranquilizer or combination is recommended in all cases (xylazine, detomidine, acepromazine).</li>
+      <li>IV jugular sodium pentobarbital at <b>1 mL per 10 lb</b>, often 60 to 120 mL total. A captive bolt is an alternative.</li>
+    </ul>
+  </div>
+
+  <h3>Birds <span class="bdg notes">notes</span><span class="bdg avma">AVMA</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>The AVMA lists thoracic compression, decapitation, and cervical dislocation as <b>conditionally acceptable</b> for birds.</li>
+      <li>Your guide advises against them: more humane methods are available, and some veterinary experts consider these physical methods inhumane.</li>
+    </ul>
+  </div>
+
+  <h3>Rabies and reportable disease <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>The <b>head must be removed and submitted</b> for testing; contact the state laboratory responsible for rabies testing to ensure proper handling and submission. For <b>bats</b>, the entire body may be submitted.</li>
+    </ul>
+    <div class="clarify"><b>Technique note</b>Choose a euthanasia method and head-handling approach that preserves the brain for rabies diagnosis, and follow the state laboratory's submission requirements.</div>
+  </div>
+</section>
+
+<!-- ============ TAB 7: HUMAN ============ -->
+<section class="panel" id="human">
+  <h2 class="sec">Human Factors &amp; Compassion Fatigue</h2>
+  <p class="lead">Euthanasia is an emotionally costly task. The exam tests the distinction between burnout and compassion fatigue, the coping mechanisms, and the management strategies that protect staff.</p>
+
+  <h3>Burnout versus compassion fatigue <span class="bdg notes">notes</span></h3>
+  <table class="cmp">
+    <tr><th>Feature</th><th>Burnout</th><th>Compassion fatigue</th></tr>
+    <tr><td><b>Nature</b></td><td>Workplace syndrome</td><td>Secondary traumatic stress, the "cost of caring"</td></tr>
+    <tr><td><b>Core features</b></td><td>Emotional exhaustion, depersonalization, reduced personal accomplishment</td><td>Feeling powerless, scared and paranoid, guilty; intrusive thoughts, rage, depression, hypersensitivity, sleep disturbance</td></tr>
+    <tr><td><b>Drivers</b></td><td>Environmental: too many tasks, too little time, repetitive work, loneliness, too little training or equipment</td><td>The emotional toll of caregiving and repeated exposure to suffering and death</td></tr>
+    <tr><td><b>Physical signs</b></td><td>Worn out</td><td>Lethargy, stomach ulcers, high blood pressure, back pain</td></tr>
+  </table>
+
+  <h3>Coping mechanisms <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <h4>Negative / immature defenses</h4>
+    <p style="font-size:14px;margin:4px 0 0">Displacing guilt and frustration onto the surrendering public, absenteeism, belligerence, carelessness, callous handling of animals, substance abuse, withdrawal, denial, passive-aggressive behavior, acting out, fantasy, and chronic or severe depression.</p>
+    <h4>Positive / mature defenses</h4>
+    <p style="font-size:14px;margin:4px 0 0">Altruism, sublimation, anticipation, and humor. Supportive habits include regular exercise, adopting at-risk shelter animals into a caring home, talking openly with people who understand the issues, and speaking with counsellors.</p>
+  </div>
+
+  <h3>Sources of distress <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Deciding which animals must be euthanized, often on resource factors unrelated to the animal.</li>
+      <li>Conflict over a particular decision (managers, employees, volunteers, foster caregivers).</li>
+      <li>Performing the act itself.</li>
+      <li>Confrontations with the public, media, or family who do not understand the need for euthanasia.</li>
+      <li>Providing final care, including disposal of the body.</li>
+    </ul>
+  </div>
+
+  <h3>Management strategies <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Rotate</b> euthanasia duties among trained personnel to minimize any one person's exposure.</li>
+      <li>Let technicians work with trusted coworkers, and let them <b>opt out</b> of euthanizing animals they have become attached to.</li>
+      <li>Provide regular training; supervisors should listen to concerns and be trained to <b>recognize compassion fatigue, distress, and burnout</b> and offer resources.</li>
+      <li>Only people who can deliver a fear-free and distress-free death should perform euthanasia. Those who are callous or indifferent, or who cannot provide a humane death after training, must be removed from the task.</li>
+    </ul>
+    <div class="clarify"><b>Sensitive topic</b>This section covers staff mental health, including severe depression as a documented symptom of compassion fatigue. It is included as exam content on workforce wellbeing. If any of this resonates personally, reaching out to a trusted person or a mental-health professional is worthwhile.</div>
+  </div>
+</section>
+
+<!-- ============ MCQ ============ -->
+<section class="panel" id="mcq">
+  <h2 class="sec">MCQ Test Bank</h2>
+  <p class="lead">Filter by topic. Click an option to lock your answer and reveal the one-line rationale. Source badge on each item shows where the answer is anchored. Corrected items carry the green badge.</p>
+  <div class="mcqbar">
+    <div class="filters">
+      <button class="on" data-f="all">All</button>
+      <button data-f="law">Law &amp; Policy</button>
+      <button data-f="agents">Agents</button>
+      <button data-f="routes">Routes</button>
+      <button data-f="environment">Environment</button>
+      <button data-f="co">CO &amp; Gas</button>
+      <button data-f="species">Species</button>
+      <button data-f="human">Human Factors</button>
+    </div>
+    <div class="score"><span id="scoreTxt">0 / 0 correct</span><button class="reset" id="resetBtn">Reset</button></div>
+  </div>
+  <div id="qhost"></div>
+</section>
+
+</div></main>
+
+<footer><div class="wrap">
+  Euthanasia Subdomain Hub &middot; ABVP Shelter Medicine Practice RVS prep. Sources badged inline: your euthanasia notes; ASV Euthanasia of Shelter Animals (2020), Carbon Monoxide Inhalation (2019), and Depopulation (2020) position statements; AVMA Guidelines for the Euthanasia of Animals (2020); and Shelter Medicine for Veterinarians and Staff plus standard references. Built to merge with the Infectious Disease, Sanitation, and Facility hubs.
+</div></footer>
+
+<script>
+const tabrow=document.getElementById('tabrow');
+tabrow.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.disabled)return;
+  [...tabrow.children].forEach(x=>x.classList.remove('active'));b.classList.add('active');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('show'));
+  document.getElementById(b.dataset.p).classList.add('show');window.scrollTo({top:0,behavior:'smooth'});});
+
+/* Shared euthanasia MCQ bank.
+   t = topic tag (drives filter chip + label)
+   f = source/flag badge: notes | asv | avma | txt | corr  (optional)
+   q = stem, o = options, a = correct index, e = one-line rationale */
+const Q=[
+{"t":"law","f":"notes","q":"A stray dog presents with a compound femoral fracture and severe internal hemorrhage, wearing a collar with a rabies tag and a legible microchip. The legal stray hold is 5 days. What is the correct protocol?","o":["Euthanize immediately without documentation to save costs","Provide palliative stabilization, attempt to contact the owner, and perform immediate humane euthanasia only if a licensed vet documents irremediable suffering in writing and with photos","Wait out the 5-day hold with no analgesia to preserve bloodwork","Move the dog to the adoption floor for 2 hours to see if a rescue claims it"],"a":1,"e":"A vet must document irremediable suffering in writing (photos advisable) to euthanize before the hold; ID triggers owner tracking and interim palliative care."},
+{"t":"agents","f":"corr","q":"Why do manufacturers add phenytoin to sodium pentobarbital in some euthanasia formulations?","o":["It acts as a local anesthetic to prevent stinging during SC injection","It causes skeletal muscle paralysis before loss of consciousness","It speeds cardiac arrest and, as a combination product, is DEA Schedule III rather than Schedule II, increasing shelter accessibility","It neutralizes the drug's toxicity on human skin contact"],"a":2,"e":"Phenytoin is a cardiotoxic adjunct; the combination product is Schedule III (vs Schedule II for pentobarbital alone), which improves shelter access."},
+{"t":"agents","f":"notes","q":"Giving IV sodium pentobarbital to a calm adult dog, what is the operational sequence of stages?","o":["Medullary paralysis, involuntary excitement, surgical anesthesia, voluntary excitement","Sedation, involuntary excitement, light anesthesia, deep anesthesia, apnea then cardiac arrest","Apnea, surgical anesthesia, involuntary excitement, deep sedation","Voluntary excitement, medullary paralysis, light anesthesia, deep sedation"],"a":1,"e":"The operational IV sequence is sedation, involuntary excitement, light anesthesia, deep anesthesia, then apnea followed by cardiac arrest."},
+{"t":"routes","f":"notes","q":"A technician euthanizing feral kittens by IP pentobarbital makes which critical error?","o":["Dosing at 3 mL per 10 lb","Inserting the needle into the upper left quadrant to target the spleen","Aspirating before injection to confirm the needle is not in bladder or bowel","Placing kittens in a dark, quiet space after injection"],"a":1,"e":"IP injection must go into the right lower quadrant to avoid liver, spleen, and kidney; aiming at the spleen is the error."},
+{"t":"human","f":"notes","q":"Which constellation is specifically diagnostic of compassion fatigue (secondary traumatic stress)?","o":["Boredom with tasks, feeling underpaid, and a clean facility","Feeling powerless, intrusive thoughts, guilt, paranoia, sleep disturbance, plus stomach ulcers and high blood pressure","A desire for professional development and extra shifts","Switching from humor to more regular exercise"],"a":1,"e":"Compassion fatigue presents with powerlessness, guilt, intrusive thoughts, paranoia, sleep disturbance, and physical signs like ulcers and high BP."},
+{"t":"agents","f":"notes","q":"A premix of acepromazine and ketamine is used to sedate an aggressive dog. What is a key limitation of acepromazine?","o":["It provides profound analgesia and fully protects the handler","It can cause paradoxical CNS stimulation or aggression and lowers blood pressure, making venipuncture difficult","It converts the compound from Schedule III to Schedule I","It is a neuromuscular blocker causing paralysis while conscious"],"a":1,"e":"Acepromazine gives no analgesia and no protection from aggression, can cause paradoxical stimulation, and lowers BP, complicating venipuncture."},
+{"t":"species","f":"notes","q":"A near-term pregnant dog undergoes a population-control ovariohysterectomy. What is the most humane fetal handling?","o":["Cut the uterus open immediately to expose fetuses to air and light","Remove the uterus en bloc, keep it intact and unopened, and wrap it so the fetuses pass away undisturbed via hypoxia in a closed system","Perform chest compressions on each fetus through the abdominal wall","Submerge the intact uterus in a chilled water bath"],"a":1,"e":"Keeping the uterus intact and wrapped lets fetuses pass undisturbed; opening it can transition a near-term fetus to air-breathing and a struggle to breathe."},
+{"t":"routes","f":"notes","q":"Which pair of tools is used to definitively confirm death in a dog or cat before disposal?","o":["Microchip scanner and calculator","Stethoscope (cardiac arrest) and penlight (loss of corneal reflex)","Pulse oximeter and leather gloves","Thermometer and blood pressure cuff"],"a":1,"e":"Confirm death with cardiac auscultation by stethoscope and loss of the corneal reflex checked with a penlight, regardless of method."},
+{"t":"species","f":"txt","q":"Regarding snake euthanasia, which statement is correct?","o":["Place the snake in a freezer overnight","The heart is about one-third of the distance from head to tail and can be located by palpation or Doppler for IC injection once anesthesia is verified","Pentobarbital can be given SC along the dorsal midline","The body can be disposed of immediately after injection"],"a":1,"e":"Freezing is unacceptable; the snake heart sits about one-third from the head, and IC is used only after verified anesthesia, with a 24 to 48 h observation hold."},
+{"t":"environment","f":"notes","q":"Which layout is recommended for a dedicated euthanasia room?","o":["A large room in a high-traffic hallway with upbeat music","A quiet, well-lit, well-ventilated room away from foot traffic, with a lockable door, counter-height surfaces, and access to body storage","A dark, unventilated closet next to the dog runs","A communal room where up to three animals are euthanized in view of each other"],"a":1,"e":"The euthanasia room should be quiet, well-lit, well-ventilated, low-traffic, lockable, with paperwork and procedure surfaces and morgue access."},
+{"t":"species","f":"txt","q":"Which protocol aligns with standard equine euthanasia?","o":["One person using oral pentobarbital in grain","Two experienced handlers, a pre-euth tranquilizer (eg xylazine or detomidine), then IV jugular pentobarbital at 1 mL per 10 lb (often 60 to 120 mL)","Intrahepatic T61 with no sedation","Rapid cervical dislocation with heavy restraint"],"a":1,"e":"Equine euthanasia uses two experienced handlers, pre-euth tranquilizer, and IV jugular pentobarbital at 1 mL per 10 lb."},
+{"t":"routes","f":"notes","q":"Why is intrahepatic injection of pentobarbital classified as unacceptable?","o":["The liver has no blood vessels, so absorption is impossible","The liver capsule has stretch receptors that are exquisitely painful when stimulated","It instantly denatures pentobarbital into a non-lethal compound","It requires at least 50 mL of solution"],"a":1,"e":"The liver capsule's stretch receptors make intrahepatic injection exquisitely painful, so the route is unacceptable."},
+{"t":"agents","f":"notes","q":"How does the commercial label dose of pentobarbital compare to the true lethal dose?","o":["Exactly equal to the lethal dose","10% lower to preserve stock","30 to 50% higher than the lethal dose, as a safety cushion for a humane death","Five times lower, so technicians must triple the directions"],"a":2,"e":"The label dose runs 30 to 50% above the lethal dose as a cushion to guarantee a humane death when given correctly."},
+{"t":"human","f":"notes","q":"A euthanasia-team member shows belligerence, chronic absenteeism, and callous animal handling. How are these categorized?","o":["Mature defenses to encourage","Negative coping mechanisms or immature defenses from euthanasia-related stress","Operational efficiencies indicating good boundaries","Burnout fully resolved by quieter clippers"],"a":1,"e":"Belligerence, absenteeism, and callous handling are negative or immature defenses arising from euthanasia-related stress."},
+{"t":"human","f":"notes","q":"Which is a positive, mature coping strategy for euthanasia staff?","o":["Displacing frustration onto the surrendering public","Mature defenses such as altruism, sublimation, anticipation, and humor","Withdrawing from peers and denying distress","Increasing length-of-stay metrics"],"a":1,"e":"Altruism, sublimation, anticipation, and humor are the mature defenses; the others are negative coping or unrelated."},
+{"t":"species","f":"corr","q":"A facility must euthanize fish and amphibians. Which agent and protocol is correct per the AVMA 2020 edition?","o":["Oral pentobarbital paste","MS-222 (tricaine methanesulfonate) by immersion, maintained at least 30 minutes after opercular movement ceases, followed by an adjunctive method to confirm death","Carbon monoxide via a sealed aquatic chamber","Acepromazine poured into the holding tank"],"a":1,"e":"MS-222 is the only FDA-approved fish agent; AVMA 2020 raised immersion to at least 30 min after opercular movement stops, plus an adjunctive confirmatory method."},
+{"t":"law","f":"notes","q":"Why is the absence of written euthanasia criteria an operational and emotional hazard?","o":["It raises municipal licensing fees","It burdens staff, lets bias and inconsistency drive decisions, and makes choices look arbitrary to stakeholders","It invalidates the DEA license automatically","It prevents using the IV route"],"a":1,"e":"Without written criteria, decisions become inconsistent and biased, burden staff, and appear arbitrary to stakeholders."},
+{"t":"law","f":"notes","q":"Which statement reflects the national landscape of shelter euthanasia regulation?","o":["Every state requires a vet to press the plunger","Regulations vary; some states allow certified technicians direct access to pentobarbital, others require indirect access or veterinary oversight","Pentobarbital is unregulated in municipal facilities","All states ban pre-euth sedatives"],"a":1,"e":"State rules vary widely on technician access and veterinary oversight of pentobarbital."},
+{"t":"co","f":"asv","q":"Why does the ASV deem CO gas chambers unacceptable for shelter euthanasia?","o":["It cannot be made from commercial cylinders","It poses severe human safety hazards, can explode and leak, and causes inconsistent, prolonged distress, especially in young, old, sick, or pregnant animals","It turns the coat bright red, blocking skin testing","It reacts with pentobarbital to corrode kennels"],"a":1,"e":"CO is unacceptable on humane, operational, and safety grounds: operator hazard, explosion and leak risk, and prolonged distress in vulnerable animals."},
+{"t":"species","f":"notes","q":"A feral queen and her four 3-week-old kittens are presented for euthanasia. How should this unit be processed?","o":["Move kittens away and euthanize them 24 hours apart","Euthanize the mother first so she is not distressed by separation or seeing dead offspring, then the neonates immediately after","Euthanize the kittens first while restraining the mother nearby","Place them in a group room with unfamiliar adult cats first"],"a":1,"e":"The pediatric exception: euthanize the mother first, then the neonates immediately after."},
+{"t":"environment","f":"notes","q":"After euthanizing a dog with sarcoptic mange, what sanitation step is required before the next animal?","o":["Wipe with a dry paper towel to remove fur","Thoroughly clean all blood, urine, feces, and residue with a neutral deodorizing solution to remove alarm pheromones","Leave the table uncleaned for two hours to air-dry","Cover the residue with newspaper"],"a":1,"e":"Clean all residue with a neutral deodorizing solution to remove alarm pheromones before the next animal."},
+{"t":"co","f":"notes","q":"What is the mechanism by which CO induces hypoxia and death?","o":["It is a neuromuscular blocker freezing the intercostals while the animal stays alert","It binds hemoglobin to form carboxyhemoglobin, blocking red cells from taking up and transporting oxygen","It causes medullary paralysis within 2 to 3 seconds of skin contact","It drops gastrointestinal pH and stimulates liver stretch receptors"],"a":1,"e":"CO forms carboxyhemoglobin, blocking oxygen uptake and transport, producing hypoxia."},
+{"t":"agents","f":"notes","q":"A painful dog is sedated with xylazine. What side effect can lower the quality of the euthanasia if the animal is not fasted or combined with other drugs?","o":["It frequently causes vomiting in dogs and cats and lowers blood pressure, making venipuncture difficult","It permanently expands the liver capsule","It completely blocks pentobarbital at the brain","It converts the barbiturate into a Schedule I hallucinogen"],"a":0,"e":"Xylazine often causes vomiting and lowers BP (harder venipuncture, delayed pentobarbital); fast the animal or combine with ACE or ketamine."},
+{"t":"environment","f":"notes","q":"How should a technician manage body language and voice with a fearful dog?","o":["Shout commands and lean over the dog's head","Remain calm, quiet, and composed, work slowly, and avoid leaning over the dog, which is a threatening posture","Move fast without speaking, using maximum control-pole pressure","Let the public and media in to create a distracting crowd"],"a":1,"e":"Stay calm and slow and avoid leaning over the dog, which is intimidating and heightens fear."},
+{"t":"human","f":"notes","q":"Which scheduling strategy mitigates burnout and compassion fatigue on the euthanasia team?","o":["Assign one technician to all euthanasia permanently","Rotate duties among trained staff and let technicians choose trusted coworkers or decline animals they are attached to","Restrict euthanasia to the final 10 minutes of a 12-hour shift, alone","Eliminate regular training"],"a":1,"e":"Rotate duties, allow trusted teammates, and let staff opt out of animals they are attached to."},
+{"t":"species","f":"notes","q":"Physical avian methods (thoracic compression, decapitation, cervical dislocation) are conditionally acceptable. Why does the guide advise against them?","o":["They need gas chambers banned in 50 states","More humane methods exist and several experts consider these physical methods inhumane","They cause chemical explosions endangering staff","They prevent verifying death via corneal reflexes"],"a":1,"e":"They are discouraged because more humane methods are available and some experts consider them inhumane."},
+{"t":"agents","f":"notes","q":"What is the primary site of action of IV pentobarbital, and how long to cross into it?","o":["The liver capsule; 15 to 30 minutes","The brain; 45 to 90 seconds","The renal cortex; 5 to 15 minutes","The myocardium; exactly 4 minutes"],"a":1,"e":"Pentobarbital acts primarily on the brain, crossing in about 45 to 90 seconds after IV injection."},
+{"t":"routes","f":"notes","q":"Why is the IP route favored in shelters for a 4-pound stray kitten?","o":["It bypasses the brain and stops the heart in 2 seconds","It gives a humane, smooth death for fearful, feral, or small animals under 10 lb when IV access is impractical and chemical restraint is limited","It needs only 10% of the IV dose volume","It triggers voluntary excitement that clears the room of virus"],"a":1,"e":"IP is humane for small (<10 lb), feral, or fearful animals when IV is impractical and sedation options are limited."},
+{"t":"law","f":"notes","q":"In progressive shelter legislation and organizational mandates, what does EBI stand for?","o":["External Body Inspection","Euthanasia By Injection","Emergency Barbiturate Intake","Environmental Biosecurity Isolation"],"a":1,"e":"EBI is euthanasia by injection, the preferred shelter method; AHA, HSUS, and NACA offer EBI training."},
+{"t":"environment","f":"notes","q":"To avoid euthanizing the wrong animal, what verification sequence is required before injecting?","o":["Double-check ID against paperwork, verify authorization, search the database and photos for recent reclaim calls, and re-scan for a microchip","Ask a volunteer in the hallway if they recognize the animal","Check only the cage card, assuming it is accurate","Proceed if the coat color matches a breed description"],"a":0,"e":"Confirm ID against paperwork, verify authorization, check for reclaim calls, and re-scan the microchip before any injection."},
+{"t":"co","f":"asv","q":"If CO is used despite ASV opposition, the AVMA contingencies require which gas concentration target?","o":["A uniform concentration of at least 6% after animals are placed in the chamber","A maximum of 2% to keep animals calm","Exactly 12% to ensure an explosion-free margin","Any concentration as long as the chamber is indoors"],"a":0,"e":"The AVMA contingency is a flow rate adequate to rapidly reach a uniform concentration of at least 6% after loading; death still takes 10 to 20 minutes."},
+{"t":"co","f":"asv","q":"Which animals are most likely to have delayed CO uptake, prolonging time to death?","o":["Only large adult dogs","Animals under 16 weeks, geriatric, sick, injured, or pregnant","Only animals over 10 years","None; CO acts uniformly across all animals"],"a":1,"e":"Animals under 16 weeks, geriatric, sick, injured, or pregnant have delayed CO uptake; CO is also explosive above 10%."},
+{"t":"law","f":"asv","q":"How does depopulation differ from euthanasia in the shelter context?","o":["They are identical terms","Depopulation is the rapid destruction of a whole population in extraordinary emergencies and is a last resort, not a routine outbreak response; EBI per AVMA 2020 is preferred when feasible","Depopulation only applies to healthy animals","Euthanasia is for populations and depopulation is for individuals"],"a":1,"e":"Depopulation is population-scale and emergency-driven, a last resort; in shelters EBI per AVMA 2020 is preferred over depopulation methods when feasible."},
+{"t":"routes","f":"asv","q":"Under what condition may an intracardiac injection be performed?","o":["On any conscious animal if performed quickly","Only on a heavily sedated, anesthetized, unconscious, or comatose animal","On conscious cats but not dogs","Only when IV access has failed twice"],"a":1,"e":"Per ASV, IC injection may be performed only on anesthetized or unconscious animals; on a conscious animal it is unacceptable."},
+{"t":"environment","f":"asv","q":"What does the ASV say about staffing for administering injectable euthanasia?","o":["A single person should always work alone for consistency","Administration may require two trained people for safe and humane handling","Only a licensed veterinarian may be present","No training is needed if pentobarbital is pre-measured"],"a":1,"e":"The ASV notes that injectable euthanasia may require two trained people for safe and humane handling."}
+];
+
+const host=document.getElementById('qhost');
+const scoreTxt=document.getElementById('scoreTxt');
+let answered=0, correct=0, filter='all';
+const DLABEL={law:"Law & Policy",agents:"Agents",routes:"Routes",environment:"Environment",co:"CO & Gas",species:"Species",human:"Human Factors"};
+function tagLabel(t){return DLABEL[t]||t.toUpperCase();}
+function flagBadge(f){
+  if(f==='corr')return '<span class="bdg corr">corrected</span>';
+  if(f==='notes')return '<span class="bdg notes">your notes</span>';
+  if(f==='asv')return '<span class="bdg asv">ASV</span>';
+  if(f==='avma')return '<span class="bdg avma">AVMA 2020</span>';
+  if(f==='txt')return '<span class="bdg txt">textbook</span>';
+  return '';
+}
+function render(){
+  host.innerHTML='';answered=0;correct=0;updateScore();
+  Q.forEach((item,i)=>{
+    if(filter!=='all' && item.t!==filter) return;
+    const card=document.createElement('div');card.className='q';
+    card.innerHTML=`<div class="meta"><span class="num">#${i+1}</span><span class="tag">&#9670; ${tagLabel(item.t)}</span>${flagBadge(item.f)}</div><div class="stem">${item.q}</div>`;
+    const opts=document.createElement('div');
+    item.o.forEach((txt,oi)=>{
+      const btn=document.createElement('button');btn.className='opt';
+      btn.innerHTML=`<span class="k">${String.fromCharCode(65+oi)}</span>${txt}`;
+      btn.onclick=()=>choose(card,opts,item,oi);opts.appendChild(btn);
+    });
+    card.appendChild(opts);
+    const ex=document.createElement('div');ex.className='expl';
+    ex.innerHTML=`<b class="cor">Correct: ${String.fromCharCode(65+item.a)}.</b> ${item.e}`;
+    card.appendChild(ex);host.appendChild(card);
+  });
+}
+function choose(card,opts,item,oi){
+  if(card.dataset.done)return;card.dataset.done='1';answered++;
+  [...opts.children].forEach((b,bi)=>{b.classList.add('locked');
+    if(bi===item.a)b.classList.add('correct');
+    if(bi===oi && oi!==item.a)b.classList.add('wrong');});
+  if(oi===item.a)correct++;
+  card.querySelector('.expl').classList.add('show');updateScore();
+}
+function updateScore(){scoreTxt.textContent=`${correct} / ${answered} correct`;}
+document.querySelector('.filters').addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  document.querySelectorAll('.filters button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');filter=b.dataset.f;render();});
+document.getElementById('resetBtn').onclick=render;
+render();
+</script>
+</body>
+</html>

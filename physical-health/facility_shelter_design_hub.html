@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Facility &amp; Shelter Design Subdomain Hub | ABVP Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0f3d3a;--ink2:#15514c;--paper:#f4efe4;--paper2:#fbf8f1;
+    --line:#d9d0bd;--muted:#5d6b62;
+    --id:#3c4a86;--id-soft:#e2e4f2;            /* physical health blue = ASV */
+    --good:#1f7a4d;--bad:#b23b3b;
+    --notes:#7a4fb5;--notes-soft:#ece3f7;       /* your design notes */
+    --smvs:#8a6d1f;--smvs-soft:#f3ebcf;         /* Shelter Medicine textbook */
+    --ref:#b5651d;--ref-soft:#f6e7d4;           /* standard reference / research */
+    --warn:#a8641a;--warn-soft:#f7e6cd;         /* exam trap amber */
+    --shadow:0 1px 2px rgba(15,61,58,.08),0 8px 24px rgba(15,61,58,.06);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;
+    background-image:radial-gradient(circle at 1px 1px,rgba(15,61,58,.04) 1px,transparent 0);background-size:22px 22px;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+  header.top{background:var(--ink);color:var(--paper2);padding:26px 0 22px;border-bottom:4px solid var(--id)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#9ec9c2;margin:0 0 6px}
+  header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(26px,4.5vw,40px);margin:0;line-height:1.05}
+  header.top p.sub{margin:8px 0 0;color:#cfe3df;font-size:14px;max-width:74ch}
+  .legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}
+  .legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.25);color:#eaf4f1;display:flex;align-items:center;gap:6px}
+  .legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--paper2);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button:hover{background:var(--paper);color:var(--ink)}
+  .tabrow button.active{background:var(--ink);color:var(--paper2)}
+  .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--id)}
+  main{padding:30px 0 80px}
+  .panel{display:none;animation:fade .35s ease}
+  .panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;letter-spacing:-.01em}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:80ch}
+  h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:30px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;scroll-margin-top:64px}
+  h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;color:var(--ink2);text-transform:uppercase;letter-spacing:.03em}
+  .card{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}
+  p.note{font-size:14px;margin:0 0 6px}
+  ul.hy{margin:8px 0;padding-left:0;list-style:none}
+  ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed #e6ddca;font-size:14px}
+  ul.hy li:last-child{border-bottom:0}
+  ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;border-radius:2px;background:var(--id);transform:rotate(45deg)}
+  .trap{background:var(--warn-soft);border:1px solid #e6cfa6;border-left:4px solid var(--warn);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .trap b{color:var(--warn);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .corrbox{background:#e9f4ee;border:1px solid #bfe0cc;border-left:4px solid var(--good);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .corrbox b{color:var(--good);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .clarify{background:var(--id-soft);border:1px solid #c6cbe6;border-left:4px solid var(--id);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .clarify b{color:var(--id);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:var(--paper2);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp th{background:var(--ink);color:var(--paper2);font-weight:600;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase}
+  table.cmp tr:last-child td{border-bottom:0}
+  table.cmp td b{color:var(--ink)}
+  .yes{color:var(--good);font-weight:700}
+  .no{color:var(--bad);font-weight:700}
+  .fig{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0;box-shadow:var(--shadow)}
+  .fig figcaption{font-size:12.5px;color:var(--muted);margin-top:8px;font-style:italic}
+  /* source badges */
+  .bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+  .bdg.notes{background:var(--notes-soft);color:var(--notes)}
+  .bdg.asv{background:var(--id-soft);color:var(--id)}
+  .bdg.smvs{background:var(--smvs-soft);color:var(--smvs)}
+  .bdg.ref{background:var(--ref-soft);color:var(--ref)}
+  .bdg.corr{background:var(--good);color:#fff}
+  /* mcq */
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--ink);color:var(--paper2);border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:54px;z-index:10}
+  .mcqbar .filters{display:flex;gap:6px;flex-wrap:wrap}
+  .mcqbar .filters button{font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#d6e7e3;padding:6px 11px;border-radius:999px;cursor:pointer}
+  .mcqbar .filters button.on{background:var(--id);border-color:var(--id);color:#fff}
+  .score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}
+  .score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;color:#d6e7e3;padding:5px 10px;border-radius:8px;font-size:11px}
+  .q{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
+  .q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+  .q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--id-soft);color:var(--id)}
+  .q .stem{font-weight:600;font-size:15px;margin-bottom:10px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;font-family:"Public Sans";transition:background .15s,border-color .15s}
+  .opt:hover{border-color:var(--ink)}
+  .opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}
+  .opt.correct{background:#e8f5ec;border-color:var(--good);color:#0d3d24}
+  .opt.wrong{background:#fbe9e9;border-color:var(--bad);color:#5e1d1d}
+  .opt.locked{cursor:default}
+  .expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:#f3efe3;border:1px solid var(--line);font-size:13.5px}
+  .expl.show{display:block}
+  .expl b.cor{color:var(--good)}
+  footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
+  @media(max-width:640px){.mcqbar{top:50px}.score{font-size:12px}}
+</style>
+</head>
+<body>
+<nav style="background:#0f3d3a;padding:9px 18px;display:flex;align-items:center;gap:10px;font-family:'Public Sans',system-ui,sans-serif;font-size:13px;font-weight:500;border-bottom:2px solid #1f5c4e"><a href="../index.html" style="color:#9ec9c2;text-decoration:none;display:flex;align-items:center;gap:5px"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span style="color:#4a7a6e;font-size:11px">›</span><span style="color:#cfe3df">Physical Health of Animals</span></nav>
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">ABVP Shelter Medicine Practice RVS &middot; Physical Health of Animal</p>
+    <h1>Facility &amp; Shelter Design Subdomain Hub</h1>
+    <p class="sub">Exam-depth study tool for the Facility and Shelter Design subdomain, part of the Physical Health of Animal domain (about 29% of the exam). Five tabs cover planning and needs assessment, space planning and flow, primary enclosures and housing, cohousing, and environment and engineering. The MCQ Test Bank is shared and filterable by topic. Every claim is badged by source. Numbers attributable to ASV are verified against the ASV Standards of Care, 2nd Edition, December 2022.</p>
+    <div class="legend">
+      <span><i style="background:var(--notes)"></i>Your design notes</span>
+      <span><i style="background:var(--id)"></i>ASV Standards of Care 2022</span>
+      <span><i style="background:var(--smvs)"></i>Shelter Medicine textbook</span>
+      <span><i style="background:var(--ref)"></i>Standard reference / research</span>
+      <span><i style="background:var(--good)"></i>Corrected</span>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="planning"><span class="dot"></span>Planning &amp; Needs</button>
+  <button data-p="flow"><span class="dot"></span>Space Planning &amp; Flow</button>
+  <button data-p="enclosures"><span class="dot"></span>Primary Enclosures &amp; Housing</button>
+  <button data-p="cohousing"><span class="dot"></span>Cohousing</button>
+  <button data-p="environment"><span class="dot"></span>Environment &amp; Engineering</button>
+  <button data-p="mcq"><span class="dot" style="background:#0f3d3a"></span>MCQ Test Bank</button>
+</div></div></nav>
+
+<main><div class="wrap">
+
+<!-- ============ TAB 1: PLANNING ============ -->
+<section class="panel show" id="planning">
+  <h2 class="sec">Planning &amp; Needs Assessment</h2>
+  <p class="lead">Good shelters are planned, not just built. Needs assessment matches the building to the population it will actually serve so the facility supports Capacity for Care (C4C) rather than driving overcrowding or overbuilding. This tab covers the planning sequence, the space-usage mix, retrofit and sustainability guidance, and drop-box infrastructure.</p>
+
+  <h3>The animal intake profile (planning Step 3) <span class="bdg smvs">textbook</span><span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Within the textbook's multi-step needs-assessment process, your notes detail Step 3, developing the animal intake profile. This is the step that anchors how much and what kind of housing to build.</li>
+      <li><b>What it requires:</b> designate intake by mode of entry (for example owner surrender, stray, transfer, seizure) and by animal type, recorded <b>monthly for a minimum of 2 years.</b></li>
+      <li><b>Why 2 years:</b> two full annual cycles capture seasonality (kitten season, holiday surges) so the design is sized to real demand, not to a single busy or quiet month.</li>
+      <li><b>The goal:</b> optimize Capacity for Care and prevent both overcrowding (too little housing or flow) and overbuilding (capital wasted on space that sits empty).</li>
+    </ul>
+    <div class="clarify"><b>Disclosure</b>Your notes detail Step 3 explicitly. The full numbered sequence is part of the Shelter Medicine textbook process; only Step 3 is reproduced here because that is what your notes documented. Other steps are not invented in this hub.</div>
+  </div>
+
+  <h3>Capacity for Care and key metrics <span class="bdg ref">std ref</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Capacity for Care (C4C):</b> the maximum number of animals a shelter can house while still meeting each animal's full standard of care (housing, medical, behavioral, and daily husbandry time). It is a welfare ceiling, not a physical cage count.</li>
+      <li><b>Live Release Rate (LRR):</b> the proportion of animals leaving alive (adoption, transfer, return to owner or field) out of total outcomes. A common operational outcome metric, distinct from C4C.</li>
+      <li>The intake profile feeds C4C: knowing predicted intake and length of stay lets you calculate the housing and staffing the building must support.</li>
+    </ul>
+    <div class="clarify"><b>Source note</b>C4C and LRR are standard shelter-medicine terms used across the field. They are included for board fluency and badged as standard reference, not as ASV 2022 text.</div>
+  </div>
+
+  <h3>Space-usage mix of the facility <span class="bdg smvs">textbook</span></h3>
+  <figure class="fig">
+    <svg viewBox="0 0 720 230" width="100%" role="img" aria-label="Facility space usage split into animal areas 65 percent and public support 35 percent">
+      <defs><marker id="arSD1" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0f3d3a"/></marker></defs>
+      <text x="14" y="26" font-size="13" font-weight="700" fill="#15514c">Tier 1: macro split</text>
+      <rect x="14" y="36" width="455" height="34" rx="6" fill="#e2e4f2" stroke="#3c4a86"/><text x="241" y="58" font-size="12.5" text-anchor="middle" font-weight="600">Animal Areas: 65%</text>
+      <rect x="479" y="36" width="227" height="34" rx="6" fill="#f3ebcf" stroke="#8a6d1f"/><text x="592" y="58" font-size="12" text-anchor="middle" font-weight="600">Public / Support: 35%</text>
+      <text x="14" y="104" font-size="13" font-weight="700" fill="#15514c">Tier 2: sub-segments</text>
+      <rect x="14" y="114" width="315" height="30" rx="5" fill="#cdd2ee" stroke="#3c4a86"/><text x="171" y="133" font-size="11.5" text-anchor="middle" font-weight="600">Animal Housing: 45% (largest)</text>
+      <rect x="334" y="114" width="105" height="30" rx="5" fill="#e2e4f2" stroke="#3c4a86"/><text x="386" y="133" font-size="10.5" text-anchor="middle">Training 15%</text>
+      <rect x="444" y="114" width="35" height="30" rx="5" fill="#eef0f8" stroke="#3c4a86"/><text x="461" y="133" font-size="9" text-anchor="middle">Med 5%</text>
+      <rect x="479" y="114" width="77" height="30" rx="5" fill="#f3ebcf" stroke="#8a6d1f"/><text x="517" y="133" font-size="9.5" text-anchor="middle">Lobby 11%</text>
+      <rect x="556" y="114" width="70" height="30" rx="5" fill="#f6efd9" stroke="#8a6d1f"/><text x="591" y="133" font-size="9.5" text-anchor="middle">Admin 10%</text>
+      <rect x="626" y="114" width="45" height="30" rx="5" fill="#faf4e3" stroke="#8a6d1f"/><text x="648" y="129" font-size="8.5" text-anchor="middle">Comm</text><text x="648" y="139" font-size="8.5" text-anchor="middle">7%</text>
+      <rect x="671" y="114" width="35" height="30" rx="5" fill="#faf4e3" stroke="#8a6d1f"/><text x="688" y="129" font-size="8.5" text-anchor="middle">Sup</text><text x="688" y="139" font-size="8.5" text-anchor="middle">7%</text>
+      <text x="360" y="178" font-size="11.5" text-anchor="middle" fill="#5d6b62">Animal housing is the single largest share of the building at 45% of total floor area.</text>
+      <text x="360" y="200" font-size="11" text-anchor="middle" fill="#b23b3b" font-weight="600">These are planning guides, not regulatory minimums.</text>
+    </svg>
+    <figcaption>Facility space-usage mix (your Figure 3.1). Animal Areas 65% (animal housing 45%, training 15%, medical 5%); Public / Support 35% (lobby and reception 11%, admin 10%, community 7%, support 7%). Source: Shelter Medicine textbook, via your notes.</figcaption>
+  </figure>
+  <div class="clarify"><b>Disclosure</b>The exact sub-percentages were read from your notes and the figure image and could not be independently checked against the original textbook table. Treat the macro split (65 / 35) and "animal housing is largest" as the high-yield takeaways.</div>
+
+  <h3>Retrofit and sustainability guidance <span class="bdg smvs">textbook</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Filtration on a budget:</b> a pleated <b>MERV 6 or 8</b> filter is sufficient for standard HVAC retrofits; full <b>HEPA is cost-prohibitive and reserved for surgery suites,</b> not facility-wide.</li>
+      <li><b>Lighting:</b> limit lighting loads to less than <b>1 watt per square foot;</b> use photosensors to dim or switch off artificial lighting within roughly 15 ft of windows when daylight is sufficient.</li>
+      <li><b>Natural light:</b> retain windows where possible to support circadian rhythm rather than removing them to chase a heat-transfer number.</li>
+    </ul>
+    <div class="clarify"><b>ASV cross-check</b>MERV and HEPA specifics are textbook design guidance, not ASV 2022 text. ASV cautions that air-filtration and purification technologies (for example UVGI) <b>must not be relied on as the sole method</b> of air quality or infectious-disease control. Use filtration as an adjunct to ventilation, not a substitute.</div>
+  </div>
+
+  <h3>Drop boxes <span class="bdg asv">ASV</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Unmonitored "drop boxes" for placing live animals for later intake are <b>unacceptable.</b></li>
+      <li>The harms ASV cites: safety risks for humans and animals, animal suffering, infectious-disease exposure, and death.</li>
+      <li><b>Acceptable alternatives for after-hours need:</b> posted on-call animal-services numbers, drop-off arrangements with police departments, and care agreements with local veterinary emergency clinics.</li>
+    </ul>
+    <div class="trap"><b>Exam trap</b>"24-hour community access" or "reduces intake delays" is a distractor framing. Convenience does not redeem an unmonitored receptacle; drop boxes remain unacceptable regardless of monitoring retrofits.</div>
+  </div>
+</section>
+
+<!-- ============ TAB 2: FLOW ============ -->
+<section class="panel" id="flow">
+  <h2 class="sec">Space Planning &amp; Flow</h2>
+  <p class="lead">How animals, people, air, and equipment move through the building is itself a biosecurity control. Directional workflow, isolation that is structurally separated, and sensible placement of medical and intake spaces break transmission chains that no amount of cleaning can fix afterward.</p>
+
+  <h3>Cleaning and traffic flow <span class="bdg asv">ASV</span></h3>
+  <figure class="fig">
+    <svg viewBox="0 0 720 200" width="100%" role="img" aria-label="Daily workflow from healthiest animals to least healthy, adoption to isolation">
+      <defs><marker id="arSD2" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0f3d3a"/></marker></defs>
+      <rect x="14" y="60" width="150" height="62" rx="10" fill="#e9f4ee" stroke="#1f7a4d"/><text x="89" y="84" font-size="11.5" text-anchor="middle" font-weight="600">Healthy puppies</text><text x="89" y="99" font-size="11.5" text-anchor="middle" font-weight="600">&amp; kittens</text><text x="89" y="114" font-size="9.5" text-anchor="middle">most susceptible</text>
+      <rect x="200" y="60" width="150" height="62" rx="10" fill="#e2e4f2" stroke="#3c4a86"/><text x="275" y="88" font-size="11.5" text-anchor="middle" font-weight="600">Healthy adults</text><text x="275" y="106" font-size="9.5" text-anchor="middle">adoption / general</text>
+      <rect x="386" y="60" width="150" height="62" rx="10" fill="#f3ebcf" stroke="#8a6d1f"/><text x="461" y="88" font-size="11.5" text-anchor="middle" font-weight="600">Intake</text><text x="461" y="106" font-size="9.5" text-anchor="middle">status uncertain</text>
+      <rect x="572" y="60" width="134" height="62" rx="10" fill="#fbe9e9" stroke="#b23b3b"/><text x="639" y="84" font-size="11.5" text-anchor="middle" font-weight="600">Sick / isolation</text><text x="639" y="102" font-size="9.5" text-anchor="middle">most likely shedding</text>
+      <line x1="164" y1="91" x2="196" y2="91" stroke="#0f3d3a" stroke-width="1.6" marker-end="url(#arSD2)"/>
+      <line x1="350" y1="91" x2="382" y2="91" stroke="#0f3d3a" stroke-width="1.6" marker-end="url(#arSD2)"/>
+      <line x1="536" y1="91" x2="568" y2="91" stroke="#0f3d3a" stroke-width="1.6" marker-end="url(#arSD2)"/>
+      <text x="360" y="40" font-size="12.5" text-anchor="middle" font-weight="700" fill="#15514c">Begin with the healthiest, finish with the least healthy</text>
+      <text x="360" y="160" font-size="11" text-anchor="middle" fill="#5d6b62">Change outer clothing and gloves and wash hands before moving between areas.</text>
+    </svg>
+    <figcaption>Directional daily workflow moves from least likely to shed toward most likely, protecting the most susceptible. Source: your notes and ASV 2022 (workflow and PPE between areas).</figcaption>
+  </figure>
+  <div class="clarify"><b>Why direction matters</b>Staff are the most likely vector to move pathogens during daily care because they contact many animals. A fixed direction plus PPE and hand hygiene between zones is a primary fomite control, not a nicety.</div>
+
+  <h3>Isolation placement and design <span class="bdg asv">ASV</span><span class="bdg smvs">textbook</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Isolation rooms <b>must not open directly into another animal-housing area.</b> Use a corridor or vestibule, which also serves as the space to don and doff PPE.</li>
+      <li>Provide a handwashing sink and space for treatments, exams, and dedicated supplies. Label rooms with current use and precautions. Windows allow observation without repeatedly entering.</li>
+      <li><b>Different species must not share an isolation room.</b> Provide <b>separate areas for different highly contagious diseases</b> to prevent coinfection (for example parvovirus dogs apart from infectious respiratory dogs).</li>
+      <li><b>Textbook operationalization:</b> larger shelters benefit from separate isolation or quarantine rooms grouped by syndrome, for example dermatology, respiratory, and gastrointestinal cases.</li>
+      <li><b>Makeshift fallback when no isolation exists:</b> house contagious dogs <b>at least 25 ft (7.6 m)</b> from unaffected dog enclosures and cover enclosure doors. This is less effective than true isolation.</li>
+    </ul>
+    <div class="clarify"><b>Feline nuance</b>Air from canine isolation should be exhausted outside and not recirculated. Separate air exchanges for feline isolation are a lower priority because cats do not readily transmit respiratory pathogens through the air over distance; droplet spacing matters more for cats.</div>
+  </div>
+
+  <h3>Medical and surgery placement <span class="bdg smvs">textbook</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Surgery and recovery should be located <b>at a distance from isolation areas</b> that house sick and injured animals, yet <b>close to animal housing</b> to minimize patient movement through the building.</li>
+      <li>This balances infection control (away from sick animals) against stress and logistics (short transport for surgical patients).</li>
+    </ul>
+  </div>
+
+  <h3>Designing around feline upper respiratory infection <span class="bdg notes">notes</span><span class="bdg asv">ASV</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>FURI is better controlled through <b>proper shelter design and air systems coupled with appropriate management policies,</b> even when the absolute number of isolation rooms is low.</li>
+      <li>Design levers: droplet spacing of cat housing, ventilation, stress reduction (spot cleaning, hiding places), and population management.</li>
+    </ul>
+    <div class="trap"><b>Exam trap</b>"Increase group-room capacity to build herd immunity" and "convert to outdoor wire cages for airflow" are distractors. Crowding and exposure worsen FURI; design plus management controls it.</div>
+  </div>
+</section>
+
+<!-- ============ TAB 3: ENCLOSURES ============ -->
+<section class="panel" id="enclosures">
+  <h2 class="sec">Primary Enclosures &amp; Housing</h2>
+  <p class="lead">The primary enclosure is where an animal spends most of its time, so its size, set-up, and materials drive both disease management and welfare. ASV anchors this with the postural-adjustment standard and specific minimums; the textbook adds practical dimensions and the "unacceptables" that are heavily tested.</p>
+
+  <h3>Minimum size and the postural-adjustment standard <span class="bdg asv">ASV</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Postural adjustments (ASV core rule):</b> animals must be able to stand and walk several steps, sit normally, lie down at full body length, and hold the tail completely erect, all within the primary enclosure.</li>
+      <li><b>Individual adult cat:</b> less than <b>8 ft&sup2; (0.75 m&sup2;)</b> of floor space is unacceptable; <b>11 ft&sup2; (1.0 m&sup2;)</b> or more is ideal. Your notes add a volumetric target of roughly a 2.5 ft cube per cat.</li>
+      <li><b>Dogs:</b> minimum kennel dimensions vary widely by body size. Aim for housing <b>wider than 4 ft</b> so a dog's nose and tail do not hit the side walls when turning.</li>
+      <li><b>Larger pens help behavior:</b> dogs given <b>9 m&sup2;</b> or larger showed increased general activity and visual exploration, less time in stereotypies, and more positive interactions, versus dogs in pens half that size.</li>
+    </ul>
+  </div>
+  <table class="cmp">
+    <tr><th>Feature</th><th>Single-compartment</th><th>Double / multi-compartment</th></tr>
+    <tr><td><b>Separation of rest and elimination</b></td><td class="no">No</td><td class="yes">Yes (sit, sleep, eat away from waste)</td></tr>
+    <tr><td><b>Spot cleaning without removing animal</b></td><td class="no">Limited</td><td class="yes">Yes</td></tr>
+    <tr><td><b>Touch-free daily care for fractious animals</b></td><td class="no">No</td><td class="yes">Yes</td></tr>
+    <tr><td><b>Fomite transmission and staff risk</b></td><td>Higher</td><td>Lower</td></tr>
+    <tr><td><b>ASV preference</b></td><td>Only for specific medical needs</td><td class="yes">Provide for the majority of animals</td></tr>
+  </table>
+  <div class="clarify"><b>Note</b>Single-compartment housing may be necessary for specific medical conditions, which raises the importance of in-kennel enrichment and supervised out-of-kennel time.</div>
+
+  <h3>The "unacceptables" <span class="bdg asv">ASV</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Housing in an enclosure that would require <b>forceful animal-handling equipment</b> (catch poles, squeeze gates) for daily cleaning and care. Fractious animals need multi-compartment, touch-free care instead.</li>
+      <li>Housing in spaces <b>not intended for animal housing</b> (bathrooms, hallways), except for a brief emergency. Planned multi-use spaces (for example an office set up for housing) are different from improvised kennels in unequipped areas.</li>
+      <li><b>Tethering</b> as a method of confinement for any animal, even briefly during cleaning.</li>
+      <li><b>Wire-mesh or slatted floors,</b> and enclosure sides that are entirely wire or chain-link (injury, stress, disease risk). Solid barriers are recommended where contact can occur.</li>
+      <li>Using <b>airline crates, transport carriers, or live traps</b> as primary enclosures.</li>
+      <li>Stacking or arranging enclosures so that stress increases, ventilation is compromised, or waste contaminates units below.</li>
+    </ul>
+    <div class="trap"><b>Exam trap</b>"Acceptable if length of stay is under 7 days" and "acceptable with the right PPE" are classic distractors on the forceful-handling item. These are categorical welfare violations, not time-limited or PPE-fixable.</div>
+  </div>
+
+  <h3>Feline primary enclosure set-up <span class="bdg asv">ASV</span></h3>
+  <figure class="fig">
+    <svg viewBox="0 0 720 270" width="100%" role="img" aria-label="Feline double-compartment enclosure with living side and bathroom side">
+      <defs><marker id="arSD3" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0f3d3a"/></marker></defs>
+      <rect x="40" y="40" width="280" height="170" rx="10" fill="#fbf8f1" stroke="#3c4a86" stroke-width="1.5"/>
+      <rect x="400" y="40" width="280" height="170" rx="10" fill="#fbf8f1" stroke="#8a6d1f" stroke-width="1.5"/>
+      <text x="180" y="32" font-size="12" text-anchor="middle" font-weight="700" fill="#3c4a86">"Living" side</text>
+      <text x="540" y="32" font-size="12" text-anchor="middle" font-weight="700" fill="#8a6d1f">"Bathroom" side</text>
+      <!-- living side items -->
+      <rect x="60" y="150" width="70" height="40" rx="6" fill="#e2e4f2" stroke="#3c4a86"/><text x="95" y="174" font-size="9.5" text-anchor="middle">Bed / box</text>
+      <rect x="150" y="150" width="60" height="40" rx="6" fill="#ece3f7" stroke="#7a4fb5"/><text x="180" y="174" font-size="9.5" text-anchor="middle">Food/water</text>
+      <rect x="230" y="60" width="70" height="34" rx="6" fill="#e9f4ee" stroke="#1f7a4d"/><text x="265" y="81" font-size="9" text-anchor="middle">Perch</text>
+      <rect x="60" y="60" width="70" height="34" rx="6" fill="#e9f4ee" stroke="#1f7a4d"/><text x="95" y="81" font-size="9" text-anchor="middle">Hide / den</text>
+      <text x="180" y="120" font-size="9" text-anchor="middle" fill="#5d6b62">draped towel, toys, scratch material</text>
+      <!-- bathroom side items -->
+      <rect x="470" y="150" width="120" height="40" rx="6" fill="#f3ebcf" stroke="#8a6d1f"/><text x="530" y="174" font-size="9.5" text-anchor="middle">Full-body litter box</text>
+      <text x="540" y="80" font-size="9.5" text-anchor="middle" fill="#5d6b62">space to move about</text>
+      <text x="540" y="98" font-size="9" text-anchor="middle" fill="#5d6b62">retreat space, interaction choice</text>
+      <!-- portal -->
+      <rect x="320" y="105" width="80" height="40" rx="6" fill="#fff" stroke="#15514c" stroke-dasharray="4 3"/><text x="360" y="122" font-size="9" text-anchor="middle">portal /</text><text x="360" y="135" font-size="9" text-anchor="middle">quiet latch</text>
+      <line x1="300" y1="125" x2="318" y2="125" stroke="#0f3d3a" stroke-width="1.4" marker-end="url(#arSD3)"/>
+      <line x1="402" y1="125" x2="420" y2="125" stroke="#0f3d3a" stroke-width="1.4" marker-end="url(#arSD3)"/>
+      <text x="360" y="240" font-size="10.5" text-anchor="middle" fill="#15514c" font-weight="600">Open bars for ventilation and interaction; partial visual barrier for retreat; elevated off floor at human eye level.</text>
+    </svg>
+    <figcaption>Feline double-compartment set-up (your Figure 4.2). Living side: bed, food and water, hiding place, perch, toys, draped towel, scratching material. Bathroom side: full-body litter box and space to move. Connected by a portal with quiet latches. Source: ASV 2022, Figure 4.2.</figcaption>
+  </figure>
+  <div class="card">
+    <ul class="hy">
+      <li>Cats prefer raised surfaces; house units <b>elevated off the floor,</b> ideally at human eye level, which lowers stress and eases monitoring and positive interactions.</li>
+      <li>All cats must have a <b>hiding place</b> (feral cat den, covered perch, box, or partial door covering). Cats with hiding places hide less and approach adopters more.</li>
+      <li>The <b>litter box must fit the cat's entire body</b> and allow proper posturing; a box that is too small harms welfare and can cause house soiling.</li>
+      <li>Enclosures must allow <b>scratching, climbing, and perching.</b></li>
+    </ul>
+  </div>
+
+  <h3>Canine primary enclosure set-up <span class="bdg asv">ASV</span><span class="bdg smvs">textbook</span></h3>
+  <figure class="fig">
+    <svg viewBox="0 0 720 250" width="100%" role="img" aria-label="Canine double-compartment enclosure with living side and bathroom side and slope to drain">
+      <defs><marker id="arSD4" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0f3d3a"/></marker></defs>
+      <rect x="40" y="40" width="280" height="160" rx="10" fill="#fbf8f1" stroke="#3c4a86" stroke-width="1.5"/>
+      <rect x="400" y="40" width="280" height="160" rx="10" fill="#fbf8f1" stroke="#8a6d1f" stroke-width="1.5"/>
+      <text x="180" y="32" font-size="12" text-anchor="middle" font-weight="700" fill="#3c4a86">"Living" side</text>
+      <text x="540" y="32" font-size="12" text-anchor="middle" font-weight="700" fill="#8a6d1f">"Bathroom" side</text>
+      <rect x="70" y="120" width="90" height="44" rx="6" fill="#e2e4f2" stroke="#3c4a86"/><text x="115" y="140" font-size="9.5" text-anchor="middle">Bed / crate</text><text x="115" y="153" font-size="8.5" text-anchor="middle">den (hide)</text>
+      <rect x="180" y="120" width="80" height="44" rx="6" fill="#ece3f7" stroke="#7a4fb5"/><text x="220" y="146" font-size="9.5" text-anchor="middle">Food/water</text>
+      <text x="180" y="80" font-size="9" text-anchor="middle" fill="#5d6b62">partial visual barrier, soft elevated rest</text>
+      <!-- slope to off-center drain -->
+      <line x1="420" y1="178" x2="660" y2="186" stroke="#8a6d1f" stroke-width="2"/>
+      <circle cx="640" cy="186" r="7" fill="#fff" stroke="#15514c"/><text x="640" y="205" font-size="8.5" text-anchor="middle">drain</text>
+      <text x="500" y="100" font-size="9.5" text-anchor="middle" fill="#5d6b62">space to move; floor slopes to</text>
+      <text x="500" y="114" font-size="9.5" text-anchor="middle" fill="#5d6b62">an off-centre drain (dry rest area)</text>
+      <!-- guillotine -->
+      <rect x="320" y="95" width="80" height="50" rx="6" fill="#fff" stroke="#15514c" stroke-dasharray="4 3"/><text x="360" y="116" font-size="9" text-anchor="middle">guillotine</text><text x="360" y="129" font-size="9" text-anchor="middle">door</text>
+      <line x1="300" y1="120" x2="318" y2="120" stroke="#0f3d3a" stroke-width="1.4" marker-end="url(#arSD4)"/>
+      <line x1="402" y1="120" x2="420" y2="120" stroke="#0f3d3a" stroke-width="1.4" marker-end="url(#arSD4)"/>
+      <text x="360" y="232" font-size="10.5" text-anchor="middle" fill="#15514c" font-weight="600">Open bars (ventilation + interaction); guillotine door for touch-free care and staff safety.</text>
+    </svg>
+    <figcaption>Canine double-compartment set-up (your Figure 4.1). Living side: hiding option, soft elevated resting place, food and water. Bathroom side: space to move with the floor sloped to an off-centre drain so a dry resting area remains. Connected by a guillotine door. Source: ASV 2022, Figure 4.1, with off-centre drain rationale from your notes.</figcaption>
+  </figure>
+  <div class="card">
+    <ul class="hy">
+      <li>All dogs need a <b>hiding option</b> (covered crate inside the enclosure or a visual barrier over part of the kennel front), especially young, small, fearful, or anxious dogs.</li>
+      <li>Provide a <b>soft resting place elevated off the floor</b> for comfort, dryness, and thermoregulation.</li>
+      <li><b>Off-centre drains:</b> placing the drain off-centre keeps a dry space for the dog to rest while the floor finishes drying after wash-down.</li>
+      <li><b>Indoor-outdoor units</b> are ideal for welfare but are costly to build, waste energy, can freeze shut at the guillotine door in cold climates, and trap humidity and promote mold in hot, humid climates.</li>
+    </ul>
+  </div>
+
+  <h3>Handling and transferring fearful cats <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Transport fearful cats in <b>covered carriers or traps</b> so they feel hidden and secure.</li>
+      <li>Transfer them as soon as possible to the <b>highest available accessible holding cage,</b> consistent with the feline preference for elevation.</li>
+    </ul>
+  </div>
+
+  <h3>Rabbit housing <span class="bdg notes">notes pending</span></h3>
+  <div class="card">
+    <div class="clarify"><b>Placeholder</b>A rabbit-housing section will be added here. ASV has released a dedicated rabbit-housing guideline, and your rabbit notes are still in progress. This subsection is reserved so the rest of the enclosures tab can be finalized now and rabbits slotted in without restructuring.</div>
+  </div>
+</section>
+
+<!-- ============ TAB 4: COHOUSING ============ -->
+<section class="panel" id="cohousing">
+  <h2 class="sec">Cohousing</h2>
+  <p class="lead">Cohousing can improve welfare through species-appropriate social contact, but only with deliberate selection, sizing, and monitoring. Random group housing is unacceptable. The numbers here are ASV-anchored and frequently tested.</p>
+
+  <h3>Group size caps <span class="bdg asv">ASV</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Cats:</b> regardless of enclosure size, <b>no more than six adult cats</b> per primary enclosure.</li>
+      <li><b>Dogs:</b> <b>two to four adult dogs</b> per primary enclosure, with <b>pairs preferred</b> for safety and biosecurity.</li>
+      <li>Cohouse the <b>minimum number</b> needed to achieve a social benefit; larger groups are harder to monitor and raise conflict and disease risk.</li>
+    </ul>
+    <div class="corrbox"><b>Correction</b>Your notes and draft MCQ key listed a feline group cap of "6 to 8 cats per room." ASV 2022 sets a firm ceiling of <b>no more than six adult cats</b> per cohousing enclosure, irrespective of room size. The board-defensible cap is <b>6.</b> The MCQ in this hub has been corrected accordingly.</div>
+  </div>
+
+  <h3>Space per animal <span class="bdg asv">ASV</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Provide a minimum of <b>18 ft&sup2; (1.7 m&sup2;) of floor space per adult cat</b> for cohousing. This is more than the individual-housing minimum because cohoused animals need to maintain distance from roommates by choice.</li>
+      <li>Maximize functional space by spreading resources out, and provide a <b>variety of elevated resting perches and hiding places</b> for cohoused cats.</li>
+      <li>Provide enough resources (food, water, bedding, litter boxes, toys) spaced out to minimize competition and resource guarding.</li>
+    </ul>
+  </div>
+
+  <h3>Selecting animals for cohousing <span class="bdg asv">ASV</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Random cohousing is unacceptable.</b> Unfamiliar animals must not be cohoused until health and behavior are assessed.</li>
+      <li>Match intentionally for <b>age, sex, health, and behavioral compatibility.</b></li>
+      <li><b>Feline prerequisites:</b> individual health and behavior assessment, freedom from signs of contagious disease, a confirmed <b>negative FeLV and FIV</b> status, and adequate time to mount an immune response to vaccines before group entry.</li>
+      <li><b>Pediatrics:</b> puppies and kittens <b>under 20 weeks</b> must not be cohoused with unfamiliar animals unless the benefits outweigh the risks for all animals involved (for example pairing a single orphan with a surrogate).</li>
+    </ul>
+    <div class="corrbox"><b>Correction</b>Your notes used both "under 5 months" and "under 20 weeks" for the pediatric cohousing rule. ASV uses <b>under 20 weeks.</b> Since 20 weeks is about 4.6 months, "5 months" is a loose rounding; memorize and answer with <b>20 weeks.</b></div>
+  </div>
+
+  <h3>Introductions and monitoring <span class="bdg asv">ASV</span><span class="bdg ref">research</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Dogs are introduced outside</b> their primary enclosures, in pairs or groups, to test compatibility before cohousing.</li>
+      <li>Monitor individuals and group dynamics, <b>especially after a new animal is introduced and at feeding time;</b> include regular physical exams and body-weight checks to catch unrecognized social conflict.</li>
+      <li><b>Minimize turnover</b> within groups to reduce stress, conflict, and disease exposure.</li>
+      <li>Cats that <b>fight at the time of initial introduction are nearly 40 times more likely</b> to keep fighting in the following weeks and months, so early conflict is a strong signal to separate.</li>
+      <li><b>Cohousing animals that fight one another is unacceptable.</b> Provide individual enriched housing for animals that are fearful, aggressive to others, stressed by company, need individual monitoring, or are ill.</li>
+    </ul>
+    <div class="trap"><b>Exam trap</b>The "40 times" figure is the high-yield distractor target. Watch for swapped values (10x, 50x) or the wrong outcome (vaccine failure, reduced length of stay). The claim is specifically about continued fighting.</div>
+  </div>
+  <table class="cmp">
+    <tr><th>Rule</th><th>Cats</th><th>Dogs</th></tr>
+    <tr><td><b>Maximum per enclosure</b></td><td>6 adults</td><td>2 to 4 adults</td></tr>
+    <tr><td><b>Preferred grouping</b></td><td>Small, stable groups</td><td>Pairs</td></tr>
+    <tr><td><b>Floor space</b></td><td>&ge; 18 ft&sup2; (1.7 m&sup2;) per cat</td><td>Varies by body size; more than individual housing</td></tr>
+    <tr><td><b>Introduction method</b></td><td>Assess, match, monitor closely after entry</td><td>Introduce outside the enclosure first</td></tr>
+    <tr><td><b>Pre-entry testing</b></td><td class="yes">Negative FeLV and FIV</td><td>Health and behavior assessment</td></tr>
+  </table>
+
+  <h3>All-in / all-out advantage <span class="bdg asv">ASV</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Smaller cohousing spaces support an <b>all-in / all-out</b> approach: all animals leave before new ones are added.</li>
+      <li>This lets the enclosure be <b>completely sanitized between groups</b> and eliminates the stress and disease risk of repeatedly introducing new animals to an established group.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ TAB 5: ENVIRONMENT ============ -->
+<section class="panel" id="environment">
+  <h2 class="sec">Environment &amp; Engineering</h2>
+  <p class="lead">Air, temperature, humidity, light, sound, and surfaces are the engineering controls that keep a population healthy. Several of these carry exact ASV numbers that are prime exam targets, and your notes contained a temperature-conversion error corrected below.</p>
+
+  <h3>Ventilation and air quality <span class="bdg asv">ASV</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Ventilation standard:</b> between <b>10 and 20 room air exchanges per hour with fresh air.</b> Rates may need to rise at full capacity, since animals add heat, humidity, and carbon dioxide.</li>
+      <li><b>Isolation air:</b> air from canine isolation should be <b>exhausted outside and not recirculated.</b> Separate feline-isolation air exchanges are a lower priority.</li>
+      <li><b>Doors:</b> barred enclosure doors are recommended over plexiglass or fully enclosed units because they improve airflow and allow interaction; fully enclosed units require individual-unit mechanical ventilation.</li>
+      <li><b>Adjuncts only:</b> UVGI and other air-purification technologies may assist but must not be relied on as the sole method of air quality or disease control. CO&#8322; monitors can help verify ventilation performance.</li>
+    </ul>
+    <div class="corrbox"><b>Correction</b>Your notes listed a baseline of "10 to 14 ACH" alongside the ASV figure. For the exam, the ASV standard is <b>10 to 20 room air exchanges per hour with fresh (non-recirculated) air.</b> The 10 to 14 figure is a general engineering baseline, not the ASV standard.</div>
+    <div class="clarify"><b>Filtration cross-check</b>MERV 6 to 8 for retrofits and HEPA limited to surgery are textbook design points, not ASV figures. ASV's position is that filtration and purification are adjuncts, never the sole control.</div>
+  </div>
+
+  <h3>Temperature and humidity <span class="bdg asv">ASV</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Ambient temperature:</b> maintain between <b>64&deg;F (18&deg;C) and 80&deg;F (26.6&deg;C).</b> Breed, body condition, health, haircoat, facial conformation, and age all affect thermoregulation, so monitor individuals.</li>
+      <li><b>Relative humidity:</b> maintain between <b>30 and 70%.</b></li>
+      <li>If an animal cannot be kept comfortable by adjusting the thermostat and airflow, take additional measures (extra bedding, frozen treats or ice, or relocation).</li>
+    </ul>
+    <div class="corrbox"><b>Correction</b>Two errors in your notes are fixed here. First, a unit-conversion error: 80&deg;F equals <b>26.6&deg;C, not 36.6&deg;C</b> (36.6&deg;C is about 98&deg;F, near body temperature). Second, an internal contradiction: your notes gave both "60 to 80&deg;F" and "65 to 80&deg;F." The ASV figure is a single range, <b>64&deg;F (18&deg;C) to 80&deg;F (26.6&deg;C).</b></div>
+  </div>
+
+  <h3>Exhaust vent placement <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Locate exhaust vents at the <b>rear of individual cat units</b> to help prevent cross-contamination of air between animals.</li>
+      <li>For dogs, position exhaust <b>low, near floor drains.</b></li>
+    </ul>
+    <div class="clarify"><b>Source note</b>These specific vent placements come from your notes and standard design practice rather than explicit ASV 2022 text. ASV requires effective ventilation and non-recirculated isolation air but does not prescribe these exact vent positions.</div>
+  </div>
+
+  <h3>Noise control <span class="bdg asv">ASV</span><span class="bdg smvs">textbook</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Noise must be minimized; cat and dog hearing is sensitive, and levels uncomfortable for humans are likely very uncomfortable for animals.</li>
+      <li>Locate noise- and vibration-producing equipment as far from animal housing as possible. Manage cage arrangement, materials, and <b>quiet latches</b> to reduce sudden sounds.</li>
+      <li>Barking is multifactorial; <b>preventing visual contact between dogs should not be the sole strategy</b> to reduce it.</li>
+      <li>Acoustic design option: completely enclosed individual rooms with walls continuous to the ceiling and doors with laminated glass plus a small sniff hole lower noise transmission.</li>
+    </ul>
+    <div class="clarify"><b>Tradeoff to know</b>The enclosed-room acoustic design conflicts with ASV's ventilation preference for barred doors. Fully enclosed units cut noise but <b>require individual-unit mechanical ventilation.</b> Expect this as a "best answer" tension on the exam.</div>
+  </div>
+
+  <h3>Lighting <span class="bdg asv">ASV</span><span class="bdg smvs">textbook</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Lighting should support a safe working environment and animal circadian rhythms; provide natural light where possible.</li>
+      <li><b>Efficiency target:</b> limit lighting loads to less than <b>1 watt per square foot</b> and use photosensors to dim or switch off artificial light within roughly 15 ft of windows when daylight suffices.</li>
+    </ul>
+    <div class="trap"><b>Exam trap</b>"Lights on 24 hours to prevent shedding" and "remove all windows to stabilize heat transfer" are welfare-violating distractors. Circadian rhythm and natural light are protected goals.</div>
+  </div>
+
+  <h3>Surfaces, flooring, and walls <span class="bdg asv">ASV</span><span class="bdg notes">notes</span></h3>
+  <table class="cmp">
+    <tr><th>Element</th><th>Gold standard / acceptable</th><th>Unacceptable</th></tr>
+    <tr><td><b>Floors</b></td><td>Resinous epoxy or resinous urethane (sealed, impermeable). Linoleum or tile only in low-risk areas.</td><td class="no">Paint, epoxy paint, wood, vinyl</td></tr>
+    <tr><td><b>Walls</b></td><td>Solid surfaces and glass; sealed hard surfaces</td><td class="no">Wood, painted wallboard, vinyl wall coverings, standard concrete block</td></tr>
+    <tr><td><b>Wall-to-floor junction</b></td><td>Sealed (coved) to block water and pathogen accumulation</td><td class="no">Open seams and gaps</td></tr>
+    <tr><td><b>Drainage</b></td><td>Floors gently sloped to drains; covers safe and removable; prevent standing water and cross-contamination</td><td class="no">Flat floors, shared drainage between units</td></tr>
+  </table>
+  <p class="note" style="color:var(--muted);font-size:12.5px">Floors and high-traffic areas must withstand repeated sanitation. Where walls meet floors, seal the junction regardless of flooring type. Outdoor portions of enclosures must have nonporous, durable, drainable floors.</p>
+  <div class="clarify"><b>Source note</b>Resinous epoxy or urethane flooring and sealed wall-floor junctions are ASV 2022. The specific unacceptable-materials lists (paint, wood, vinyl, painted wallboard, standard concrete block) come from your notes and the design textbook.</div>
+</section>
+
+<!-- ============ MCQ ============ -->
+<section class="panel" id="mcq">
+  <h2 class="sec">MCQ Test Bank</h2>
+  <p class="lead">Filter by topic. Click an option to lock your answer and reveal the one-line rationale. Source badge on each item shows where the answer is anchored. Corrected items carry the green badge.</p>
+  <div class="mcqbar">
+    <div class="filters">
+      <button class="on" data-f="all">All</button>
+      <button data-f="planning">Planning</button>
+      <button data-f="flow">Space &amp; Flow</button>
+      <button data-f="enclosures">Enclosures</button>
+      <button data-f="cohousing">Cohousing</button>
+      <button data-f="environment">Environment</button>
+    </div>
+    <div class="score"><span id="scoreTxt">0 / 0 correct</span><button class="reset" id="resetBtn">Reset</button></div>
+  </div>
+  <div id="qhost"></div>
+</section>
+
+</div></main>
+
+<footer><div class="wrap">
+  Facility &amp; Shelter Design Subdomain Hub &middot; ABVP Shelter Medicine Practice RVS prep. Sources badged inline: your design notes, ASV Standards of Care 2nd Edition (December 2022), Shelter Medicine for Veterinarians and Staff, and standard references. Built to merge with the Infectious Disease and Sanitation hubs.
+</div></footer>
+
+<script>
+const tabrow=document.getElementById('tabrow');
+tabrow.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.disabled)return;
+  [...tabrow.children].forEach(x=>x.classList.remove('active'));b.classList.add('active');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('show'));
+  document.getElementById(b.dataset.p).classList.add('show');window.scrollTo({top:0,behavior:'smooth'});});
+
+/* Shared facility / shelter-design MCQ bank.
+   t = topic tag (drives the filter chip + label)
+   f = source/flag badge: notes | asv | smvs | ref | corr  (optional)
+   q = stem, o = options, a = correct index, e = one-line rationale */
+const Q=[
+{"t":"environment","f":"asv","q":"A new feline holding wing is comparing ventilation targets. What is the ASV standard for room air exchange and composition in animal housing?","o":["8 to 12 ACH with up to 30% recirculated air","10 to 20 room air exchanges per hour with fresh air","20 to 25 ACH with mandatory facility-wide HEPA","5 to 10 ACH with industrial ozone generators"],"a":1,"e":"ASV 2022 sets 10 to 20 room air exchanges per hour with fresh, non-recirculated air."},
+{"t":"enclosures","f":"asv","q":"Fractious cats are housed so staff must use squeeze boards and feral dens forcefully every morning to clean. How is this categorized?","o":["Acceptable if length of stay is under 7 days","Conditionally acceptable with Level 2 PPE","Unacceptable to house animals where daily care requires forceful handling equipment","Recommended, as it optimizes biosecurity"],"a":2,"e":"ASV: it is unacceptable to house animals in enclosures that require forceful handling equipment for daily care; use multi-compartment touch-free housing."},
+{"t":"enclosures","f":"asv","q":"During a surge, staff house four friendly healthy dogs in an admin hallway and a restroom. Which is true?","o":["Acceptable because the dogs are friendly and low risk","Unacceptable; except for a brief emergency, housing in spaces not intended for housing is forbidden","Acceptable if vaccinated and dewormed within 2 hours","Acceptable with a temporary visual barrier"],"a":1,"e":"ASV: except for brief emergencies, housing animals in spaces not intended for housing (bathrooms, hallways) is unacceptable."},
+{"t":"enclosures","f":"asv","q":"What are the minimum and ideal individual floor-space figures for an adult cat?","o":["Under 6 sq ft is fine for short stays","Under 8 sq ft (0.75 sq m) is unacceptable; 11 sq ft (1.0 sq m) or more is ideal","Exactly 4 sq ft regardless of stay","16 to 18 sq ft minimum for any individual cat"],"a":1,"e":"ASV: individual adult cat housing under 8 sq ft (0.75 sq m) is unacceptable; 11 sq ft (1.0 sq m) or more is ideal."},
+{"t":"cohousing","f":"corr","q":"For a group cohousing room of healthy adult cats, what is the minimum floor space per cat and the maximum number of adult cats?","o":["8 sq ft per cat; maximum 12 cats","12 sq ft per cat; maximum 10 cats","18 sq ft (1.7 sq m) per cat; maximum 6 adult cats","25 sq ft per cat; maximum 4 cats"],"a":2,"e":"ASV: minimum 18 sq ft (1.7 sq m) per adult cat, and no more than six adult cats per enclosure (corrected from a draft 6 to 8)."},
+{"t":"enclosures","f":"notes","q":"A row of single-sided kennels holds alert, healthy dogs. Which practice is a critical welfare violation that must be halted?","o":["Walking the dogs out during cleaning","Placing a dog on a secure tie-out in front of its pen while scrubbing","Hosing the kennel floors and walls while dogs remain inside","Restocking cleaning supplies weekly from central storage"],"a":2,"e":"Dogs must never be hosed down while inside the enclosure; remove animals from areas where overspray and stress occur."},
+{"t":"enclosures","f":"asv","q":"To prevent droplet transmission when cats sneeze, what is the minimum spacing required between opposing rows of cat cages that face each other?","o":["Greater than 2 ft (0.6 m)","Greater than 3 ft (0.9 m)","Greater than 4 ft (1.2 m)","Greater than 6 ft (1.8 m)"],"a":2,"e":"ASV: cat cages should face away or be spaced more than 4 ft (1.2 m) apart to prevent respiratory droplet transmission."},
+{"t":"enclosures","f":"smvs","q":"A draft proposes 4 ft wide by 16 ft long dog runs; the consultant recommends 8 ft by 8 ft. What metric supports housing wider than 4 ft?","o":["It raises room temperature from 60 to 80 F automatically","It maximizes ceiling-vent air velocity","It minimizes a dog's nose and tail hitting the side walls when turning","It removes the need for a double-compartment door"],"a":2,"e":"Design guidance: housing wider than 4 ft prevents the nose and tail from hitting walls as the dog turns."},
+{"t":"flow","f":"smvs","q":"How should a large shelter structurally segregate its isolation wing to avoid coinfections?","o":["One open ward with a central exhaust pulling air across all species","Separate isolation areas by syndrome and species (for example dermatology, respiratory, gastrointestinal)","Housing contagious animals in admin offices for observation","Shared indoor/outdoor runs with interconnected drainage"],"a":1,"e":"ASV requires species separation and separate areas for different contagious diseases; the textbook operationalizes this as syndrome-grouped rooms."},
+{"t":"planning","f":"asv","q":"A shelter weighs reactivating overnight public drop boxes. How are drop boxes classified?","o":["Highly recommended for 24-hour access","Conditionally acceptable with internal video monitoring","Entirely unacceptable due to safety risks, suffering, pathogen exposure, or death","Acceptable for adult cats if kept at 65 to 80 F"],"a":2,"e":"ASV: unmonitored drop boxes are unacceptable; use on-call numbers, police drop-off, or vet ER agreements instead."},
+{"t":"environment","f":"notes","q":"Which design choice best reduces chronic stress, frustration, and barking in a canine adoption ward?","o":["Direct face-to-face room alignment for constant visual stimulation","Open warehouse housing with chain-link throughout","Enclosed individual rooms, walls continuous to the ceiling, laminated glass doors with a sniff hole","Plexiglass doors with no openings to isolate dogs from airflow cues"],"a":2,"e":"Enclosed rooms with continuous walls and laminated glass plus a sniff hole reduce noise transmission; note they then need mechanical ventilation."},
+{"t":"cohousing","f":"asv","q":"What are the absolute prerequisites for a cat before entering a cohousing group?","o":["Length of stay over 14 days and an indoor-only history","Individual health and behavior assessment, free of contagious disease signs, and negative FeLV and FIV","Mandatory 30-day quarantine regardless of exam","Documentation that the cat is over 10 years old"],"a":1,"e":"ASV: assess health and behavior, confirm freedom from contagious disease, and require negative FeLV and FIV before group entry."},
+{"t":"environment","f":"notes","q":"For a heavy-duty wash-down run with daily heated water and disinfectants, which flooring is explicitly unacceptable?","o":["Fluid-applied resinous epoxy or urethane","Polished sealed concrete","Paint, epoxy paint, wood, or vinyl","Slip-resistant porcelain tile with minimal grout"],"a":2,"e":"Paint, epoxy paint, wood, and vinyl cannot withstand industrial sanitation and are unacceptable for shelter floors."},
+{"t":"enclosures","f":"smvs","q":"What are the primary drawbacks of indoor/outdoor kennel units with guillotine doors?","o":["Banned outright under ASV guidelines","Costly to build, waste energy, can freeze shut in cold climates, and trap humidity and mold in hot humid climates","They increase stereotypies versus small single rooms","They prevent any fresh-air ventilation system"],"a":1,"e":"Indoor/outdoor units are ideal for welfare but costly, energy-hungry, prone to freezing shut, and to humidity and mold in hot climates."},
+{"t":"flow","f":"asv","q":"What is the correct directional workflow for daily cleaning and husbandry to limit fomite transmission?","o":["Least healthy to healthiest (isolation to intake to adoption)","Storage to isolation to public lobby","Healthiest to least healthy (adoption to intake to isolation)","All dog pods first, felines left until evening"],"a":2,"e":"Begin with the healthiest and most susceptible and finish with the least healthy: adoption toward isolation."},
+{"t":"environment","f":"smvs","q":"On a restricted budget, which lighting strategy meets sustainability goals without harming circadian welfare?","o":["High-intensity lights on 24 hours to prevent shedding","Removing all windows to stabilize heat transfer","Limit loads to under 1 watt per sq ft and use photosensors to dim lights near windows when daylight suffices","Legacy un-ballasted fluorescent fixtures only"],"a":2,"e":"Keep lighting under 1 W per sq ft and use photosensors near windows; preserve natural light for circadian rhythm."},
+{"t":"planning","f":"smvs","q":"In the needs-assessment process, what is the objective of developing the animal intake profile (Step 3)?","o":["Track the volunteer-to-staff payroll ratio","Designate intake by mode of entry and animal type monthly for at least 2 years to optimize C4C and prevent over- or under-building","Map the ratio of urethane to tile grout","Eliminate all double-compartment enclosures"],"a":1,"e":"Step 3 records intake by mode and type monthly for at least 2 years to size housing to real demand and protect Capacity for Care."},
+{"t":"cohousing","f":"asv","q":"Can a litter of four 8-week-old puppies be cohoused with three unrelated 10-week-old strays?","o":["Yes, mixing unrelated puppies under 5 months maximizes socialization","Yes, with a prophylactic NSAID protocol","No; puppies and kittens under 20 weeks should not be cohoused with unfamiliar animals unless benefits clearly outweigh risks","No; pediatrics cannot be cohoused until spayed or neutered"],"a":2,"e":"ASV: under 20 weeks, do not cohouse with unfamiliar animals unless benefits outweigh risks due to infectious-disease susceptibility."},
+{"t":"flow","f":"notes","q":"How is feline upper respiratory infection most effectively managed through infrastructure?","o":["Convert feline rooms to outdoor wire cages for airflow","Through proper shelter design and air systems plus appropriate management, even with few isolation rooms","Lower exhaust vents to floor level by the public entrance","Increase group rooms to over 12 cats for herd immunity"],"a":1,"e":"FURI is best controlled by design, air systems, and management policies, not by crowding or exposure-increasing fixes."},
+{"t":"environment","f":"notes","q":"Where should exhaust vents be positioned in a feline intake ward to minimize air cross-contamination?","o":["Centrally on the ceiling over the hallway","At the rear of individual cat units","Low to the floor by the room's front door","Omitted to preserve a tight humidity zone"],"a":1,"e":"Place exhaust at the rear of individual cat units to reduce air cross-contamination between animals."},
+{"t":"planning","f":"smvs","q":"In the facility space-usage mix, what share goes to Animal Areas, and which sub-category is largest?","o":["Public/Support 35%; Lobby 11% largest","Animal Areas 65%; Animal Housing 45% largest","Animal Areas 65%; Training 15% largest","Medical 5%; Support 7% largest"],"a":1,"e":"Animal Areas are about 65% of the building, with Animal Housing the single largest share at about 45%."},
+{"t":"enclosures","f":"smvs","q":"Why are off-centre drains recommended in a primary canine enclosure floor?","o":["They raise ventilation from 10 to 20 ACH","They keep a dry space for the dog to rest while the floor finishes drying","They enable continuous pacing without wet paws","They remove the need for coved wall-floor junctions"],"a":1,"e":"Off-centre drains leave a dry resting area for the dog while wash-down water drains away."},
+{"t":"environment","f":"smvs","q":"On a tight retrofit budget, which filtration standard is sufficient for standard shelter HVAC units?","o":["Industrial HEPA across all spaces","A pleated MERV 6 or 8 filter","Remove all filters if using barred doors","Activated carbon beds in feline zones only"],"a":1,"e":"MERV 6 or 8 pleated filters suffice for retrofits; HEPA is reserved for surgery. Filtration is an adjunct, not the sole control."},
+{"t":"enclosures","f":"notes","q":"How should a highly fearful stray cat be transported and placed to optimize security?","o":["Open wire crate at floor level past dog runs","Hand-carried by several volunteers for fast acclimation","Covered carrier or trap so it feels hidden, then transferred quickly to the highest available cage","Straight into a group room with 6 to 8 cats"],"a":2,"e":"Use covered carriers or traps and transfer to the highest available cage, consistent with the feline preference for elevation."},
+{"t":"environment","f":"notes","q":"Which materials are explicitly unacceptable for shelter walls in a high-moisture, high-impact zone?","o":["Solid surfaces and laminated glass","Sealed hard-trowelled cement plaster","Wood, painted wallboard, vinyl wall coverings, and standard concrete block","Polished-face block or large porcelain tile"],"a":2,"e":"Unacceptable walls: wood, painted wallboard, vinyl wall coverings, and standard concrete block."},
+{"t":"cohousing","f":"asv","q":"What is the maximum number of adult dogs cohoused in one primary enclosure, and the preferred arrangement?","o":["No more than 2 dogs under any circumstance","No more than 4 adult dogs, ideally paired","Up to 6 if all under 20 weeks from different sources","Up to 8 if fed from one communal bowl"],"a":1,"e":"ASV: two to four adult dogs per enclosure, with pairs preferred for safety and biosecurity."},
+{"t":"enclosures","f":"ref","q":"What behavioral changes were documented when shelter dogs were given 9 sq m or larger pens?","o":["More fence-pacing and vocalization","Increased general activity and visual exploration, less stereotypy, and more positive interactions","Ceased all vocalization and needed no walks","Preferred single-compartment stainless housing"],"a":1,"e":"Dogs in 9 sq m or larger pens showed more activity and exploration, less stereotypy, and more positive interactions."},
+{"t":"flow","f":"smvs","q":"Where should surgery and recovery rooms sit relative to other zones?","o":["Inside the public lobby to showcase operations","At a distance from isolation areas but close to animal housing to minimize patient movement","Connected to the intake sally port to save space","Inside the feline cohousing room for a home-like recovery"],"a":1,"e":"Place surgery and recovery away from isolation yet near housing to minimize transport of surgical patients."},
+{"t":"enclosures","f":"asv","q":"Why must a feline litter box accommodate the cat's entire body?","o":["So 4 kittens from different litters can share it","To help the HVAC reach 10 to 20 ACH","Because a too-small box harms welfare and can cause house soiling","To remove the need for a connecting portal"],"a":2,"e":"ASV: the litter box must fit the whole body and allow posturing; too small harms welfare and risks house soiling."},
+{"t":"cohousing","f":"ref","q":"For cats that fight at the moment of initial introduction, what is the documented long-term risk?","o":["10 times more likely to have panleukopenia vaccine failure","Nearly 40 times more likely to keep fighting in following weeks and months","Automatically a length of stay under 5 days","50 times more likely to guard elevated perches"],"a":1,"e":"Cats that fight at introduction are nearly 40 times more likely to continue fighting later, a strong signal to separate."},
+{"t":"planning","f":"asv","q":"ASV cautions that attention to ventilation and air quality will NOT overcome which problems?","o":["Inadequate housing, poor sanitation, or lax population management","Seasonal shedding and coat changes","Staff scheduling conflicts","High adoption demand"],"a":0,"e":"ASV: good air quality cannot compensate for inadequate housing, poor sanitation, or lax population management."},
+{"t":"planning","f":"ref","q":"Capacity for Care (C4C) is best described as:","o":["The number of cages physically present in the building","The maximum animals a shelter can house while still meeting each animal's full standard of care","The annual live release rate","The square footage of the medical suite"],"a":1,"e":"C4C is a welfare ceiling: the most animals that can be housed while still meeting the full standard of care, not a raw cage count."},
+{"t":"flow","f":"asv","q":"How must isolation rooms relate to the rest of the housing, and what supports PPE use?","o":["Open directly into the nearest ward for quick access","Not open directly into another housing area; use a corridor or vestibule that also serves for donning and doffing PPE","Share an open doorway with intake to speed transfers","Connect to the lobby for public viewing"],"a":1,"e":"ASV: isolation must not open directly into another housing area; a corridor or vestibule provides separation and a PPE space."},
+{"t":"flow","f":"asv","q":"Where should animal intake occur within the facility?","o":["In the busiest part of the public lobby","In a designated quiet space away from the main foot traffic, with elevated surfaces for carriers","In the surgery suite to centralize handling","In the isolation corridor"],"a":1,"e":"ASV: intake should occur in a quiet space away from foot traffic, with elevated surfaces to keep carriers off the floor."},
+{"t":"cohousing","f":"asv","q":"Why are smaller cohousing spaces that allow an all-in/all-out approach advantageous?","o":["They permit constant addition of new animals","They let enclosures be fully sanitized between groups and eliminate repeated new-introduction risk","They remove the need for monitoring","They allow more than six cats safely"],"a":1,"e":"All-in/all-out lets the space be sanitized between groups and avoids the stress and disease risk of repeated introductions."}
+];
+
+const host=document.getElementById('qhost');
+const scoreTxt=document.getElementById('scoreTxt');
+let answered=0, correct=0, filter='all';
+const DLABEL={planning:"Planning",flow:"Space & Flow",enclosures:"Enclosures",cohousing:"Cohousing",environment:"Environment"};
+function tagLabel(t){return DLABEL[t]||t.toUpperCase();}
+function flagBadge(f){
+  if(f==='corr')return '<span class="bdg corr">corrected</span>';
+  if(f==='notes')return '<span class="bdg notes">your notes</span>';
+  if(f==='asv')return '<span class="bdg asv">ASV</span>';
+  if(f==='smvs')return '<span class="bdg smvs">textbook</span>';
+  if(f==='ref')return '<span class="bdg ref">std ref</span>';
+  return '';
+}
+function render(){
+  host.innerHTML='';answered=0;correct=0;updateScore();
+  Q.forEach((item,i)=>{
+    if(filter!=='all' && item.t!==filter) return;
+    const card=document.createElement('div');card.className='q';
+    card.innerHTML=`<div class="meta"><span class="num">#${i+1}</span><span class="tag">&#9670; ${tagLabel(item.t)}</span>${flagBadge(item.f)}</div><div class="stem">${item.q}</div>`;
+    const opts=document.createElement('div');
+    item.o.forEach((txt,oi)=>{
+      const btn=document.createElement('button');btn.className='opt';
+      btn.innerHTML=`<span class="k">${String.fromCharCode(65+oi)}</span>${txt}`;
+      btn.onclick=()=>choose(card,opts,item,oi);opts.appendChild(btn);
+    });
+    card.appendChild(opts);
+    const ex=document.createElement('div');ex.className='expl';
+    ex.innerHTML=`<b class="cor">Correct: ${String.fromCharCode(65+item.a)}.</b> ${item.e}`;
+    card.appendChild(ex);host.appendChild(card);
+  });
+}
+function choose(card,opts,item,oi){
+  if(card.dataset.done)return;card.dataset.done='1';answered++;
+  [...opts.children].forEach((b,bi)=>{b.classList.add('locked');
+    if(bi===item.a)b.classList.add('correct');
+    if(bi===oi && oi!==item.a)b.classList.add('wrong');});
+  if(oi===item.a)correct++;
+  card.querySelector('.expl').classList.add('show');updateScore();
+}
+function updateScore(){scoreTxt.textContent=`${correct} / ${answered} correct`;}
+document.querySelector('.filters').addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  document.querySelectorAll('.filters button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');filter=b.dataset.f;render();});
+document.getElementById('resetBtn').onclick=render;
+render();
+</script>
+</body>
+</html>

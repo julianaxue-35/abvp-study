@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vaccination Subdomain Hub | ABVP Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0f3d3a;--ink2:#15514c;--paper:#f4efe4;--paper2:#fbf8f1;
+    --line:#d9d0bd;--muted:#5d6b62;
+    --id:#3c4a86;--id-soft:#e2e4f2;            /* physical health blue */
+    --good:#1f7a4d;--bad:#b23b3b;
+    --notes:#7a4fb5;--notes-soft:#ece3f7;       /* your sanitation notes */
+    --lit:#1f6f8b;--lit-soft:#dcedf2;           /* reserved */
+    --aspca:#8a6d1f;--aspca-soft:#f3ebcf;       /* ASPCA Pro poster */
+    --ref:#b5651d;--ref-soft:#f6e7d4;           /* standard veterinary references */
+    --shadow:0 1px 2px rgba(15,61,58,.08),0 8px 24px rgba(15,61,58,.06);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;
+    background-image:radial-gradient(circle at 1px 1px,rgba(15,61,58,.04) 1px,transparent 0);background-size:22px 22px;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+  header.top{background:var(--ink);color:var(--paper2);padding:26px 0 22px;border-bottom:4px solid var(--id)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#9ec9c2;margin:0 0 6px}
+  header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(26px,4.5vw,40px);margin:0;line-height:1.05}
+  header.top p.sub{margin:8px 0 0;color:#cfe3df;font-size:14px;max-width:70ch}
+  .legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}
+  .legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.25);color:#eaf4f1;display:flex;align-items:center;gap:6px}
+  .legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--paper2);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button:hover{background:var(--paper);color:var(--ink)}
+  .tabrow button.active{background:var(--ink);color:var(--paper2)}
+  .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--id)}
+  main{padding:30px 0 80px}
+  .panel{display:none;animation:fade .35s ease}
+  .panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;letter-spacing:-.01em}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:78ch}
+  h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:30px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;scroll-margin-top:64px}
+  h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;color:var(--ink2);text-transform:uppercase;letter-spacing:.03em}
+  .card{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}
+  p.note{font-size:14px;margin:0 0 6px}
+  ul.hy{margin:8px 0;padding-left:0;list-style:none}
+  ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed #e6ddca;font-size:14px}
+  ul.hy li:last-child{border-bottom:0}
+  ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;border-radius:2px;background:var(--id);transform:rotate(45deg)}
+  .trap{background:#eef0f8;border:1px solid #c6cbe6;border-left:4px solid var(--id);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .trap b{color:var(--id);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .corrbox{background:#e9f4ee;border:1px solid #bfe0cc;border-left:4px solid var(--good);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .corrbox b{color:var(--good);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .verifybox{background:#fdf5e6;border:1px solid #ecd9a8;border-left:4px solid var(--aspca);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .verifybox b{color:var(--aspca);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:var(--paper2);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp th{background:var(--ink);color:var(--paper2);font-weight:600;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase}
+  table.cmp tr:last-child td{border-bottom:0}
+  table.cmp td b{color:var(--ink)}
+  .yes{color:var(--good);font-weight:700}
+  .no{color:var(--bad);font-weight:700}
+  .fig{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0;box-shadow:var(--shadow)}
+  .fig figcaption{font-size:12.5px;color:var(--muted);margin-top:8px;font-style:italic}
+  /* source badges */
+  .bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+  .bdg.notes{background:var(--notes-soft);color:var(--notes)}
+  .bdg.asv{background:var(--id-soft);color:var(--id)}
+  .bdg.aspca{background:var(--aspca-soft);color:var(--aspca)}
+  .bdg.ref{background:var(--ref-soft);color:var(--ref)}
+  .bdg.corr{background:var(--good);color:#fff}
+  /* mcq */
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--ink);color:var(--paper2);border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:54px;z-index:10}
+  .mcqbar .filters{display:flex;gap:6px;flex-wrap:wrap}
+  .mcqbar .filters button{font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#d6e7e3;padding:6px 11px;border-radius:999px;cursor:pointer}
+  .mcqbar .filters button.on{background:var(--id);border-color:var(--id);color:#fff}
+  .score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}
+  .score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;color:#d6e7e3;padding:5px 10px;border-radius:8px;font-size:11px}
+  .q{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
+  .q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+  .q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--id-soft);color:var(--id)}
+  .q .stem{font-weight:600;font-size:15px;margin-bottom:10px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;font-family:"Public Sans";transition:background .15s,border-color .15s}
+  .opt:hover{border-color:var(--ink)}
+  .opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}
+  .opt.correct{background:#e8f5ec;border-color:var(--good);color:#0d3d24}
+  .opt.wrong{background:#fbe9e9;border-color:var(--bad);color:#5e1d1d}
+  .opt.locked{cursor:default}
+  .expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:#f3efe3;border:1px solid var(--line);font-size:13.5px}
+  .expl.show{display:block}
+  .expl b.cor{color:var(--good)}
+  footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
+  @media(max-width:640px){.mcqbar{top:50px}.score{font-size:12px}}
+
+</style>
+</head>
+<body>
+<nav style="background:#0f3d3a;padding:9px 18px;display:flex;align-items:center;gap:10px;font-family:'Public Sans',system-ui,sans-serif;font-size:13px;font-weight:500;border-bottom:2px solid #1f5c4e"><a href="../index.html" style="color:#9ec9c2;text-decoration:none;display:flex;align-items:center;gap:5px"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span style="color:#4a7a6e;font-size:11px">›</span><span style="color:#cfe3df">Physical Health of Animals</span></nav>
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">ABVP Shelter Medicine Practice RVS &middot; Physical Health of Animal</p>
+    <h1>Vaccination Subdomain Hub</h1>
+    <p class="sub">Exam-depth study tool for the Vaccination subdomain (12% of the Physical Health of Animal domain, which is 29% of the exam, so roughly 12 of 350 questions). Six tabs cover immunology and vaccine types, maternal antibody, canine vaccination, feline vaccination, rabies, and titers with diagnostics and special situations. The MCQ Test Bank is shared and filterable by topic. Built from your vaccine and immunology notes.</p>
+    <div class="legend">
+      <span><i style="background:var(--notes)"></i>Your vaccine and immunology notes</span>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="principles"><span class="dot"></span>Immunology &amp; Types</button>
+  <button data-p="mda"><span class="dot"></span>Maternal Antibody</button>
+  <button data-p="canine"><span class="dot"></span>Canine</button>
+  <button data-p="feline"><span class="dot"></span>Feline</button>
+  <button data-p="rabies"><span class="dot"></span>Rabies</button>
+  <button data-p="titers"><span class="dot"></span>Titers &amp; Special</button>
+  <button data-p="mcq"><span class="dot" style="background:#0f3d3a"></span>MCQ Test Bank</button>
+</div></div></nav>
+
+<main><div class="wrap">
+
+<section class="panel show" id="principles">
+  <h2 class="sec">Immunology &amp; Vaccine Types</h2>
+  <p class="lead">The framework the rest of the subdomain hangs on: who is protected on intake, what each vaccine platform can and cannot do, and how shelter goals differ from owned-pet practice. All claims from your notes.</p>
+
+  <div class="card">
+    <h4>Blueprint placement</h4>
+    <ul class="hy">
+      <li>Physical Health of Animal = <b>29%</b> of the exam. Vaccination = <b>12%</b> of that domain, so roughly <b>12 of 350</b> exam questions.</li>
+    </ul>
+  </div>
+
+  <h3>Immune status on intake <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Naive and susceptible:</b> roughly 50% (plus or minus 20%) of dogs are naive for CDV and about 30% (plus or minus 15%) for CPV-2; about 64.5% are unprotected against CPV-2, CDV or both on intake. Around 50% of cats are naive for FPV, while over 75% already have antibody to FCV and FHV.</li>
+      <li><b>Already immune</b> by natural infection or prior vaccination.</li>
+      <li><b>Already infected:</b> may show signs, or incubate and shed, infecting other susceptible animals.</li>
+      <li>A vaccine can never be expected to produce more effective or longer-lasting protection than natural infection.</li>
+    </ul>
+  </div>
+
+  <h3>What core vaccines can and cannot do <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Properly administered MLV core vaccines (CDV, CPV-2, CAV-2, FPV) can completely prevent infection and clinical disease when given an adequate time before exposure.</li>
+      <li>Vaccines cannot prevent the multifactorial respiratory complexes (FURI, CIRD); together with good husbandry they reduce severity and duration in some, not all, animals.</li>
+      <li>Vaccinating an already infected animal (for example CPV) may not protect it, but it will not make disease worse.</li>
+    </ul>
+  </div>
+
+  <h3>Vaccine platforms <span class="bdg notes">notes</span></h3>
+  <table class="cmp">
+    <tr><th>Platform</th><th>Behavior</th><th>Shelter relevance</th></tr>
+    <tr><td><b>MLV (modified live)</b></td><td>Replicates in host, mimics natural infection, rapid onset, a single dose can suffice without MDA; partial immunity from a single attenuated FPV dose within hours.</td><td>Preferred core platform for rapid immunity (CDV, CPV-2, FPV).</td></tr>
+    <tr><td><b>Killed (inactivated)</b></td><td>Cannot revert; needs at least 2 doses, with the second within 6 weeks or the series restarts; full protection 2 to 3 weeks after the last dose; often adjuvanted and more reactogenic; safer in pregnancy and immunosuppression.</td><td>Generally not used in shelters (delayed protection), except rabies.</td></tr>
+    <tr><td><b>Recombinant (vectored)</b></td><td>Expresses target antigen without replicating the pathogen; rapid onset; may work better through MDA; no adjuvant, so reduced injection-site sarcoma risk.</td><td>Rabies and FeLV in cats; useful where MDA or reactivity is a concern.</td></tr>
+    <tr><td><b>Mucosal (intranasal, oral)</b></td><td>Local humoral and cellular URT immunity in 3 to 7 days; previously immune animals mount an anamnestic response shortly after.</td><td>Recommended for respiratory pathogens, especially in naive animals.</td></tr>
+  </table>
+
+  <h3>Shelter strategy and combination rules <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Owned-pet vaccination is tailored to the individual's age, environment and lifestyle. The shelter goal is different: prevent the diseases most likely to be contracted or transmitted within the shelter, favoring vaccines with a rapid, effective response.</li>
+      <li>Combination products to prevent or reduce disease in shelters should contain <b>only MLV core</b> components. Rabies is a monovalent killed product and is not mixed with other core vaccines.</li>
+      <li>Core combinations should not routinely contain <i>Chlamydia felis</i>, feline or canine <i>Bordetella</i>, <i>Leptospira</i> serovars, canine coronavirus, or Lyme components.</li>
+      <li>Short-term non-core use can be warranted with diagnostic confirmation (for example feline <i>Bordetella</i> in a documented outbreak). When used, give non-core vaccines separately (different time and site). Never combine vaccines in ways the manufacturer did not intend.</li>
+    </ul>
+  </div>
+
+  <h3>Response, efficacy and failure <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Vaccine efficacy is expressed as the <b>preventable fraction</b>: the proportion of vaccinated animals that do not develop disease after challenge compared with unvaccinated animals that do.</li>
+      <li>Factors reducing an individual's response: MDA interference, congenital or acquired immunodeficiency, concurrent disease, poor nutrition, chronic stress, and very young or old age. Do not rely on vaccination alone; reduce exposure too.</li>
+      <li>Causes of vaccine failure: failure to mount an adequate response, exposure before full immunization, MDA interference, improper storage or handling, waning immunity, and manufacturing errors (instability, expiry, potency loss).</li>
+      <li>DOI (duration of immunity) for core vaccines is years; DOI is not required for USDA licensure, but efficacy is.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="panel" id="mda">
+  <h2 class="sec">Maternal Antibody</h2>
+  <p class="lead">The single most tested immunology concept in shelter vaccination: why juveniles get serial boosters, why the window of vulnerability exists, and how to protect neonates that cannot yet be immunized. All claims from your notes.</p>
+
+  <h3>The window of vulnerability <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>A virulent virus overcomes MDA better than vaccine virus does. There is a period when MDA has fallen low enough to allow field infection but remains high enough to block active immunization from vaccine. That gap is the window of vulnerability.</li>
+      <li>The window may persist as long as 12 weeks; with very high MDA, some puppies are not immunizable until 20 to 22 weeks. With current MLV CPV-2 and FPV vaccines the window per species rarely exceeds 2 to 4 weeks.</li>
+      <li>When the last core dose is given at 18 to 20 weeks, few if any animals still have MDA high enough to block the response.</li>
+      <li>Persistence of MDA is one of the most common reasons for vaccine failure, and MDA level cannot be predicted (it depends on the dam's titer and colostrum intake).</li>
+    </ul>
+  </div>
+
+  <figure class="fig">
+    <svg viewBox="0 0 720 250" width="100%" role="img" aria-label="Maternal antibody decline and the window of vulnerability">
+      <defs><marker id="arA" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0f3d3a"/></marker></defs>
+      <line x1="60" y1="200" x2="690" y2="200" stroke="#0f3d3a" stroke-width="1.4" marker-end="url(#arA)"/>
+      <line x1="60" y1="200" x2="60" y2="30" stroke="#0f3d3a" stroke-width="1.4" marker-end="url(#arA)"/>
+      <text x="375" y="232" font-size="11" text-anchor="middle" fill="#5d6b62">Age (weeks): 4 to 6 start, serial boosters every 2 to 4 weeks, last dose 18 to 20</text>
+      <text x="20" y="115" font-size="11" text-anchor="middle" fill="#5d6b62" transform="rotate(-90 20 115)">Antibody level</text>
+      <path d="M70,55 C 200,70 320,150 470,185 C 540,196 620,199 680,200" fill="none" stroke="#7a4fb5" stroke-width="2.4"/>
+      <text x="150" y="60" font-size="10.5" fill="#7a4fb5">Maternal antibody declining</text>
+      <line x1="300" y1="40" x2="300" y2="200" stroke="#b23b3b" stroke-width="1" stroke-dasharray="4 3"/>
+      <line x1="430" y1="40" x2="430" y2="200" stroke="#b23b3b" stroke-width="1" stroke-dasharray="4 3"/>
+      <rect x="300" y="40" width="130" height="160" fill="#b23b3b" opacity="0.08"/>
+      <text x="365" y="120" font-size="11" text-anchor="middle" fill="#b23b3b" font-weight="600">Window of</text>
+      <text x="365" y="135" font-size="11" text-anchor="middle" fill="#b23b3b" font-weight="600">vulnerability</text>
+      <text x="365" y="152" font-size="9" text-anchor="middle" fill="#b23b3b">too low to protect,</text>
+      <text x="365" y="163" font-size="9" text-anchor="middle" fill="#b23b3b">too high to immunize</text>
+      <text x="200" y="190" font-size="9.5" fill="#1f7a4d">MDA protects</text>
+      <text x="520" y="175" font-size="9.5" fill="#1f7a4d">vaccine now immunizes</text>
+    </svg>
+    <figcaption>Serial boosting every 2 to 4 weeks ensures a dose lands as soon as each individual's MDA falls to a permissive level. Source: your notes.</figcaption>
+  </figure>
+
+  <h3>Killed vaccines and MDA <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Killed vaccines can also be blocked by MDA (rabies excepted). If the first dose is blocked, the second only primes and a third is needed to immunize. If the second is also blocked, a fourth is required (the third primes, the fourth immunizes).</li>
+      <li>A single MLV dose, when MDA is absent or low enough not to block, gives complete immunity against CDV, CPV and FPV.</li>
+      <li>MDA can prolong infection within a litter: some pups are infected and die while higher-MDA littermates stay protected, then become infected later if not immunized in time.</li>
+    </ul>
+  </div>
+
+  <h3>Neonates, colostrum and passive transfer <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Neither MLV nor killed vaccine should be given in the first 2 weeks of life: the immune system cannot respond effectively and vaccine virus can cause disease and death at that age.</li>
+      <li>Colostral IgG blocks active immunity during the first 3 days after birth. Nursing longer does not add protection, and juveniles get no protection from vaccinating the nursing mother.</li>
+      <li>Failure of passive transfer leaves neonates at very high risk in the first 4 weeks; it likely drives much orphan mortality. MDA also protects against bacterial sepsis, not only viruses.</li>
+      <li><b>Do not delay vaccination to conserve MDA.</b> Vaccinating while MDA is present does not make it decline faster.</li>
+      <li>Feline timing: MDA is lowest around 3 to 4 weeks, with IgG and IgA rising at 5 to 7 weeks; kittens may be susceptible at about one month, roughly 2 weeks earlier than puppies.</li>
+    </ul>
+  </div>
+
+  <h3>Colostrum replacement and hyperimmune serum <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Replacement colostrum must be provided within 72 hours of birth and before other proteins are ingested. Donor serum should come from healthy, well-immunized animals with robust quantitative titers to CPV-2, CDV and FPV; donor cats must be FeLV and FIV negative; serum can be frozen at minus 20 C.</li>
+      <li>Parenteral (SQ, preferably, or IP) serum extends the window for passive transfer because it does not depend on gut absorption (often 3 doses: at birth, 12 hours, and 24 hours).</li>
+      <li>Hyperimmune serum can prevent infection in naive animals exposed to CDV, CPV-2, CAV-1 and CHV-1 (and FPV in cats) when given before or at exposure, but cost and availability mean it is rarely used today.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="panel" id="canine">
+  <h2 class="sec">Canine Vaccination</h2>
+  <p class="lead">Core protocol for shelter dogs and the disease-by-disease detail behind it. All claims from your notes (2022 AAHA canine guidelines and shelter materials).</p>
+
+  <h3>Core vaccines and shelter schedule <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Core for shelter dogs: <b>MLV DA2PP</b> (distemper, adenovirus-2, parvovirus, parainfluenza), <b>intranasal Bordetella and CPIV</b> (with or without CAV-2), and <b>parenteral rabies</b>.</li>
+      <li>All dogs and pups 4 weeks and older receive MLV DA2PP at or before entry, with boosters every 2 to 3 weeks until 18 to 20 weeks. Prioritize foster placement or return for animals over 18 to 20 weeks.</li>
+      <li>Dogs over 18 to 20 weeks get an initial MLV DA2PP dose followed by a booster 2 to 3 weeks later.</li>
+      <li>All dogs, unless too ill to be housed in the shelter, should be vaccinated on entry with MLV for rapid onset. Pregnancy and mild illness or injury are not contraindications.</li>
+    </ul>
+  </div>
+  <table class="cmp">
+    <tr><th>Core vaccine</th><th>Route</th><th>Starting age</th><th>Schedule</th></tr>
+    <tr><td><b>MLV DA2PP</b></td><td>SQ</td><td>4 weeks</td><td>At intake, boost every 2 to 3 weeks to 18 to 20 weeks; adults need a booster 2 to 3 weeks after intake</td></tr>
+    <tr><td><b>Bordetella + CPIV</b></td><td>Intranasal</td><td>3 weeks</td><td>Single dose at or before entry (with or without CAV-2)</td></tr>
+    <tr><td><b>Rabies</b></td><td>SQ</td><td>over 12 weeks</td><td>Single dose before release (on entry if long stay anticipated)</td></tr>
+  </table>
+
+  <h3>Respiratory vaccines and routes <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Intranasal Bordetella and CPIV stimulate a rapid local innate response and mucosal IgA and avoid MDA interference, so they can be given early.</li>
+      <li>Avoid an intranasal Bordetella-only product: a dog at risk for Bordetella is also at risk for CPIV, so use the two-way product.</li>
+      <li>Injectable Bordetella should be avoided in shelters because of delayed onset and little local URT immunity; oral or injectable routes are only for when a two-way intranasal product cannot be used.</li>
+      <li>Intranasal and oral canine respiratory vaccines are live attenuated, not interfered with by MDA, and can be given at 4 to 8 weeks with no revaccination usually required.</li>
+    </ul>
+  </div>
+
+  <h3>Disease detail <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <h4>CDV (distemper)</h4>
+    <ul class="hy">
+      <li>MLV and recombinant canarypox-vectored products give equivalent, highly effective immunity; minimum age 6 to 8 weeks; MDA usually absent by 12 to 14 weeks.</li>
+      <li>Almost immediate immunity after a single dose if not MDA-blocked; ideally vaccinate 2 to 3 days before exposure. Early partial immunity is possible (unique to CDV). Protect pups under 5 months by separation.</li>
+    </ul>
+    <h4>CPV (parvovirus)</h4>
+    <ul class="hy">
+      <li>Most common cause of canine viral enteritis; very stable in the environment; variants 2a, 2b, 2c are about 99% similar and the vaccine protects against all three.</li>
+      <li>Maternal antibody can persist 13 to 15 weeks, so <b>all pups under 18 to 20 weeks should be considered susceptible regardless of vaccines received.</b> Parvovirus immunity is complete or non-existent, unlike the early partial immunity of CDV.</li>
+    </ul>
+    <h4>CAV-2</h4>
+    <ul class="hy">
+      <li>Cross-protects against CAV-1 (DOI for CAV-1 is lifelong, for CAV-2 about 3 years). MLV CAV-2 can be given intranasally to pups as young as 3 weeks because mucosal immunity is not MDA-blocked.</li>
+    </ul>
+  </div>
+
+  <div class="trap"><b>Exam trap &middot; rabies timing in dogs</b>Rabies is not required on shelter entry because in-shelter exposure risk is low, but a single parenteral dose must be given to all dogs over 12 weeks before release for the public-health benefit. If a long stay is anticipated, give it on entry with the other core vaccines.</div>
+
+  <h3>Non-core in the shelter <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Leptospirosis, canine influenza and Lyme are not recommended in the shelter; they generally pose minimal in-shelter risk.</li>
+      <li>CIV (H3N8, H3N2) vaccines are killed, not core, with little cross-protection, and routine use in all dogs is not recommended.</li>
+      <li>Reduce the number of vaccines per visit (especially small dogs), allow about 2 weeks between vaccines, and do not reduce the labeled volume.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="panel" id="feline">
+  <h2 class="sec">Feline Vaccination</h2>
+  <p class="lead">Core protocol for shelter cats, the FVRCP components, retroviral and respiratory non-core vaccines, and injection-site sarcoma safety. All claims from your notes (2020 AAHA/AAFP feline guidelines and shelter materials).</p>
+
+  <h3>Core vaccines and shelter schedule <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Core: <b>FVRCP</b> (FHV-1, FCV, FPV), <b>rabies</b>, and <b>FeLV for cats under 1 year</b>.</li>
+      <li>Shelter cats: a single FVRCP dose at intake as early as 4 weeks, then boost every 2 weeks until 16 to 20 weeks. Cats over 16 weeks get a single dose at intake (or one week before entry) then a second 2 weeks later.</li>
+      <li>For FPV the last dose must be at 18 to 20 weeks, then a booster 1 year later, then no more often than every 3 years. Because up to one third of kittens fail the final 16-week dose, WSAVA recommends replacing the 1-year booster with revaccination at 6 months.</li>
+    </ul>
+  </div>
+
+  <h3>FVRCP components <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>FPV:</b> rapid, long-lasting immunity; protection can be immediate in susceptible kittens, though oral or intranasal challenge needs vaccination at least 3 days before. Do not use killed or intranasal MLV FPV in shelters (less effective than parenteral MLV). Parenteral MLV FPV also prevents CPV-2, which can cause a panleukopenia-like disease in cats.</li>
+      <li><b>FCV:</b> immunity develops in about 7 days, fuller after a second dose; DOI at least 3 years. It does <b>not</b> prevent infection, but reduces disease severity.</li>
+      <li><b>FHV-1 (FVR):</b> immunity in about 7 days; DOI at least 3 years; never complete; nearly all infected cats become latently infected and can be reinfected. Vaccinated cats are more likely to be protected from severe disease.</li>
+      <li>Intranasal FCV plus FHV-1 combos give faster local immunity and work at an earlier age with MDA present; they have no advantage for FPV.</li>
+    </ul>
+  </div>
+
+  <h3>Retroviral and respiratory non-core <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>FeLV:</b> recombinant non-adjuvanted product; test FeLV status before vaccinating (ideally vaccinate only negatives, though it will not harm a positive cat). Give 2 doses 3 to 4 weeks apart (this interval is required); a single dose gives no protection. Revaccinate at 1 year if still high-risk, then not necessary.</li>
+      <li><b>FIV:</b> not recommended for shelter cats; the immune response is indistinguishable from natural infection on current tests; requires at least 3 doses.</li>
+      <li><b>Bordetella bronchiseptica and Chlamydia felis:</b> not recommended for shelter cats unless lab-confirmed as outbreak contributors.</li>
+      <li><b>FIP:</b> labeled from 16 weeks but generally not recommended; insufficient evidence of clinically relevant protection.</li>
+    </ul>
+  </div>
+
+  <h3>Injection-site sarcoma (FISS) safety <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Recombinant non-adjuvanted products are associated with reduced injection-site sarcoma risk.</li>
+      <li>Site mapping (AAFP): FVRCP in the right forelimb, rabies in the right hind limb, FeLV in the left hind limb. Interscapular (scruff) injection is no longer recommended; placing vaccines distally on a limb or in the tail allows complete surgical margins by amputation if a sarcoma develops.</li>
+      <li><b>The 1-2-3 rule:</b> biopsy a post-vaccinal mass if it persists for 3 months or more, is 2 cm or larger, or is still increasing 1 month after injection.</li>
+    </ul>
+    <div class="trap"><b>Exam trap &middot; pregnant queen and FPV</b>MLV FPV vaccine in a pregnant queen risks fetal cerebellar hypoplasia (intention tremors, ataxia). In a shelter panleukopenia outbreak the risk of abortion and maternal and kitten death generally outweighs that concern, but where immunization cannot be deferred a killed product is the safer choice in pregnancy.</div>
+  </div>
+
+  <h3>Feline adverse reactions <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Adverse reactions within 30 days occur in about 0.52% of vaccinated cats: lethargy, anorexia, fever, or local inflammation. Risk is greatest around 1 year of age and rises with the total volume and number of vaccines given at once.</li>
+      <li>Type I hypersensitivity signs: vomiting, diarrhea, respiratory distress, facial or generalized pruritus, facial swelling, collapse.</li>
+      <li>After a prior reaction, use a different formulation and pretreat with an antihistamine and glucocorticoid 20 to 30 minutes before, then observe for a few hours.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="panel" id="rabies">
+  <h2 class="sec">Rabies</h2>
+  <p class="lead">A killed, monovalent, public-health-driven vaccine with its own legal rules and timing. All claims from your notes.</p>
+
+  <h3>Product and immunity <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Rabies vaccine is killed and adjuvanted (canine products are all inactivated; cats also have a non-adjuvanted 1-year recombinant option). Immunity is induced as early as 2 to 3 weeks after vaccination.</li>
+      <li>DOI is a minimum of 3 years for most products, and up to 4 years for one feline vaccine.</li>
+      <li>Best shelter choice is a 1-year or 3-year product; the 3-year is as safe or safer and is recommended, especially in shelters. The 3-year is acceptable for cats, as is the non-adjuvanted 1-year recombinant feline product.</li>
+    </ul>
+  </div>
+
+  <h3>Timing, intervals and the law <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Rabies is not necessarily recommended on intake because in-shelter spread is unlikely, but it is recommended for long-stay animals and before adoption or release for public-health reasons. In dogs, give a single parenteral dose to all over 12 weeks before release.</li>
+      <li>Core vaccines should not be given at intervals under 2 weeks, but rabies is an acceptable exception to that spacing.</li>
+      <li>Rabies is also the exception to the killed 2-doses-within-6-weeks rule: most animals over 3 months are protected by a single injection, with the legally recommended second dose given 1 year later.</li>
+      <li>Animals with no history of prior rabies vaccination must legally be revaccinated within the year in most communities, regardless of whether a 1-year or 3-year product was used first. If not revaccinated after the first dose, a 3-year product may give a longer DOI than some 1-year products.</li>
+      <li>The age for the first dose varies by jurisdiction but is often over 3 months. Many jurisdictions require a licensed veterinarian to administer it. Antibody titers are not a substitute for vaccination, and exemptions should be documented.</li>
+    </ul>
+  </div>
+
+  <div class="trap"><b>Exam trap &middot; rabies is the exception</b>Whenever a question contrasts rabies with the other core vaccines, rabies usually breaks the rule: it is killed yet protective after a single dose, it may be given at an interval under 2 weeks from other cores, and it is timed to release rather than intake. Communicate the legal 1-year revaccination need to adopters.</div>
+</section>
+
+<section class="panel" id="titers">
+  <h2 class="sec">Titers, Diagnostics &amp; Special Situations</h2>
+  <p class="lead">Serologic risk assessment for outbreak management, how recent vaccination confounds diagnostic tests, and the rules for sick, pregnant, repeat-admission animals plus cold-chain and records. All claims from your notes.</p>
+
+  <h3>Serologic risk assessment (CDV, CPV, FPV) <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Antibody correlates with protection for these three diseases, so a healthy animal with a protective titer is very unlikely to become infected or ill even if exposed. It helps minimize euthanasia and lockdown during outbreaks and should sit within overall risk assessment.</li>
+      <li>Serology for risk assessment is only interpretable in animals completely free of clinical signs; a positive titer in a symptomatic or recently recovered animal may reflect active or recent infection, and such animals may still shed (especially CDV).</li>
+      <li>Lab testing is quantitative (numerical); in-house kits are qualitative (positive or negative).</li>
+    </ul>
+  </div>
+  <table class="cmp">
+    <tr><th>Risk group</th><th>Defining features</th><th>Action</th></tr>
+    <tr><td><b>High</b></td><td>No antibody on titer testing regardless of age; or exposed with no vaccination history; or clinical signs present.</td><td>Remove from the general population immediately.</td></tr>
+    <tr><td><b>Indeterminate</b></td><td>Puppies and kittens under 5 months with antibody present and no clinical signs (may be maternal).</td><td>Move through the system quickly; consider repeat quantitative testing.</td></tr>
+    <tr><td><b>Low</b></td><td>Animals over 5 months with antibody; or known vaccination at over 16 weeks; and no clinical signs.</td><td>Can remain in the general population and be adopted (low risk is not no risk).</td></tr>
+  </table>
+  <div class="card">
+    <ul class="hy">
+      <li>In juveniles a qualitative kit cannot reliably separate active immunity from passive maternal antibody, so <b>quantitative titer testing is the better (gold-standard) option in puppies and kittens.</b> Passive titers degrade over weeks, so a juvenile's low-risk status can change rapidly as MDA wanes.</li>
+    </ul>
+  </div>
+
+  <h3>Vaccine effects on diagnostic tests <span class="bdg notes">notes</span></h3>
+  <table class="cmp">
+    <tr><th>Test</th><th>Effect of recent vaccination</th></tr>
+    <tr><td><b>FeLV (antigen)</b></td><td>Vaccination does not affect results; the test detects viral antigen.</td></tr>
+    <tr><td><b>FIV (antibody)</b></td><td>Vaccine antibody is indistinguishable from infection on common point-of-care tests; PCR may help.</td></tr>
+    <tr><td><b>CPV-2 / FPV (fecal)</b></td><td>True vaccine positives are extremely rare (IDEXX SNAP gives the fewest); a positive PCR within about 2 weeks of vaccination may be vaccine or true infection, so negative PCR is meaningful and a positive HA/VI most likely means virulent infection.</td></tr>
+    <tr><td><b>CDV</b></td><td>MLV vaccine may interfere for up to 2 weeks (PCR, VI, FA, IHC); the canarypox-vectored rCDV does not contain infectious CDV and is unlikely to interfere with PCR.</td></tr>
+    <tr><td><b>FHV-1 / FCV</b></td><td>Intranasal MLV virus can be shed for up to 2 weeks (most in the first 3 to 7 days) and interferes with VI and PCR.</td></tr>
+    <tr><td><b>Lyme (4Dx)</b></td><td>Vaccination does not interfere with the IDEXX 4Dx.</td></tr>
+  </table>
+
+  <h3>Sick, pregnant and repeat-admission animals <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Sick or injured:</b> vaccines are unlikely to harm, whereas exposure to a virulent virus is far more dangerous. Vaccinate mild to moderately ill animals, then repeat no less than 2 weeks after recovery. If an animal is too ill to vaccinate safely, it should not remain in the shelter unless it can be cared for in a separate isolation area.</li>
+      <li><b>Pregnant or nursing:</b> vaccine virus may risk the fetus, but virulent infection is usually the greater danger. In legal cases, seek permission to vaccinate or confirm valid records; weigh each component of a combination product against the immediate viral risk.</li>
+      <li><b>Repeat admissions:</b> do not routinely revaccinate. Waive vaccination if the previous dose was given within the timeframe the vaccine is labeled to protect.</li>
+    </ul>
+  </div>
+
+  <h3>Cold chain and records <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Store refrigerated vaccines at 2 to 8 C (36 to 46 F), thermostat around 5 C, in a pharmaceutical-grade or stand-alone household fridge with a thermometer in the center, 2 to 3 inches from walls and doors, in original packaging.</li>
+      <li>Never freeze before or after reconstitution. Use reconstituted vaccine within 2 hours; if left at room temperature (about 21 C) for over an hour, discard it. Killed vaccines are more stable but should be used within 4 hours out of the fridge.</li>
+      <li>Record the batch and serial number for rabies and other vaccines (ASV) to support adverse-reaction, recall and failure tracking; also record name, serial, expiry, manufacturer, date, administrator, site and route (AAFP).</li>
+    </ul>
+  </div>
+</section>
+
+<section class="panel" id="mcq">
+  <h2 class="sec">MCQ Test Bank</h2>
+  <p class="lead">Shared bank for the Vaccination subdomain (about 12 of 350 live exam questions). The 33 items here are filterable by topic. Use the chips to focus or review the whole subdomain.</p>
+  <div class="mcqbar">
+    <div class="filters">
+      <button class="on" data-f="all">All</button>
+      <button data-f="principles">&#9670; Immunology &amp; Types</button>
+      <button data-f="mda">&#9670; Maternal Ab</button>
+      <button data-f="canine">&#9670; Canine</button>
+      <button data-f="feline">&#9670; Feline</button>
+      <button data-f="rabies">&#9670; Rabies</button>
+      <button data-f="titers">&#9670; Titers &amp; Special</button>
+    </div>
+    <div class="score"><span id="scoreTxt">0 / 0 correct</span><button class="reset" id="resetBtn">Reset</button></div>
+  </div>
+  <div id="qhost"></div>
+</section>
+
+</div></main>
+<footer><div class="wrap">
+  <p>Vaccination subdomain (Physical Health of Animal, ABVP Shelter Medicine Practice RVS). Built from your uploaded vaccine and immunology notes (shelter infectious disease textbook, 2022 AAHA canine and 2020 AAHA/AAFP feline vaccination guidelines, rabies, maternal antibody, and serologic risk-assessment notes) and presented without independent re-verification at your request. The MCQ bank holds 33 questions, filterable by topic.</p>
+</div></footer>
+
+<script>
+const tabrow=document.getElementById('tabrow');
+tabrow.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.disabled)return;
+  [...tabrow.children].forEach(x=>x.classList.remove('active'));b.classList.add('active');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('show'));
+  document.getElementById(b.dataset.p).classList.add('show');window.scrollTo({top:0,behavior:'smooth'});});
+
+/* Vaccination MCQ bank.
+   t = topic tag (principles | mda | canine | feline | rabies | titers)
+   f = source/flag badge: notes | ref | corr  (optional)
+   q = stem, o = options, a = correct index, e = explanation */
+const Q=[{"t": "principles", "f": "notes", "q": "What is the primary operational advantage of an MLV core vaccine over a killed vaccine in a congregate shelter?", "o": ["MLV is stable at room temperature for months", "MLV gives a faster onset of protective immunity (hours to days), whereas killed needs a booster 2 to 4 weeks later to protect", "MLV can be mixed in one syringe with antibiotics", "MLV faces no maternal antibody interference"], "a": 1, "e": "MLV replicates in the host for rapid immunity; killed vaccines need a primary plus booster to protect, which is too slow for shelter disease control."}, {"t": "principles", "f": "notes", "q": "A shelter core combination product should contain:", "o": ["Only MLV core components", "Core plus Leptospira and Bordetella for broad cover", "Whatever the manufacturer will combine on request", "Rabies mixed with the core MLV"], "a": 0, "e": "Shelter core combos should be MLV core only; rabies is monovalent killed and not mixed, and non-core agents are not routinely included."}, {"t": "principles", "f": "notes", "q": "Roughly what proportion of dogs are unprotected against CPV-2, CDV or both on shelter intake?", "o": ["About 10%", "About 30%", "About 64.5%", "Over 95%"], "a": 2, "e": "About 64.5% of dogs are unprotected against CPV-2, CDV or both on intake, which is why vaccinating at entry matters."}, {"t": "principles", "f": "notes", "q": "Mucosal (intranasal or oral) vaccines are recommended for respiratory pathogens because they:", "o": ["Produce systemic IgG only, lasting years", "Develop local URT humoral and cellular immunity within 3 to 7 days", "Cannot be given to naive animals", "Are always killed products"], "a": 1, "e": "Mucosal products generate rapid local respiratory-tract immunity (3 to 7 days), useful against respiratory pathogens, especially in naive animals."}, {"t": "principles", "f": "notes", "q": "A distinct advantage of recombinant (vectored) vaccines is that they:", "o": ["Replicate fully in the host like MLV", "Express the target antigen without replicating the pathogen, may work better through MDA, and (being non-adjuvanted) carry reduced injection-site sarcoma risk", "Require no cold chain", "Provide lifelong immunity after one dose for all diseases"], "a": 1, "e": "Recombinant vaccines present antigen without pathogen replication, can perform better against MDA, and avoid adjuvant-related sarcoma risk in cats."}, {"t": "principles", "f": "notes", "q": "Which is a recognized cause of vaccine failure?", "o": ["Administering MLV core on intake", "Maternal antibody interference, improper storage or handling, exposure before full immunization, or waning immunity", "Using the labeled volume", "Vaccinating a healthy adult"], "a": 1, "e": "Failure stems from host non-response, pre-immunization exposure, MDA, cold-chain or handling errors, waning immunity, and manufacturing faults."}, {"t": "mda", "f": "notes", "q": "A 5-week-old stray puppy enters during a parvovirus outbreak. The correct core schedule while in the shelter is:", "o": ["A single MLV dose at intake, then boosters every 6 months", "An MLV core vaccine at intake, repeated every 3 to 4 weeks until 16 to 20 weeks of age", "Wait until 12 weeks so maternal antibody clears, then vaccinate once", "Two killed doses 14 days apart, then stop"], "a": 1, "e": "Serial MLV boosting every 3 to 4 weeks to 16 to 20 weeks closes the window of vulnerability as maternal antibody wanes."}, {"t": "mda", "f": "notes", "q": "Why are juveniles revaccinated at short intervals until 16 to 20 weeks?", "o": ["To exhaust the bone marrow of inflammatory cells", "So that as soon as maternal antibody falls below the blocking threshold in an individual, the next dose can immunize", "Because juveniles clear vaccine antigen within 48 hours", "To prevent lifelong environmental allergies"], "a": 1, "e": "Maternal antibody declines at individual rates; frequent dosing ensures a dose lands once the animal becomes immunizable."}, {"t": "mda", "f": "notes", "q": "The window of vulnerability is best defined as the period when maternal antibody is:", "o": ["High enough to protect and to allow immunization", "Too low to protect against virulent virus but still high enough to block vaccine immunization", "Absent, so the animal is fully protected", "Only relevant to killed vaccines"], "a": 1, "e": "A virulent virus overcomes maternal antibody more readily than vaccine virus, creating a gap where the animal is susceptible yet not immunizable."}, {"t": "mda", "f": "notes", "q": "Regarding vaccination of very young neonates:", "o": ["MLV should be given on day 1 of life", "Neither MLV nor killed vaccine should be given in the first 2 weeks of life", "Killed vaccine is safe from birth", "Colostrum has no effect on early vaccine response"], "a": 1, "e": "Before 2 weeks the immune system cannot respond well and vaccine virus can cause disease; colostral IgG also blocks active immunity in the first days."}, {"t": "mda", "f": "notes", "q": "To conserve maternal antibody, a shelter considers delaying puppy vaccination. The correct guidance is:", "o": ["Delay until 16 weeks to preserve passive immunity", "Do not delay vaccination to conserve maternal antibody; vaccinating while it is present does not speed its decline", "Vaccinate the nursing dam instead to protect the litter", "Give a single dose and skip boosters"], "a": 1, "e": "Vaccination should not be delayed to spare maternal antibody, and vaccinating the dam does not protect nursing juveniles."}, {"t": "canine", "f": "notes", "q": "The canine core vaccines for a shelter are:", "o": ["Leptospira, Borrelia and rattlesnake toxoid", "Canine parvovirus, distemper, adenovirus-2 and rabies", "Microsporum canis, Giardia and Malassezia", "Tetanus toxoid, Streptococcus equi and CIV"], "a": 1, "e": "Core protects against the severe, contagious pathogens (CPV, CDV, CAV-2 and rabies); the others are non-core or not vaccine targets."}, {"t": "canine", "f": "notes", "q": "The shelter MLV DA2PP schedule for pups is:", "o": ["A single dose at 12 weeks only", "At or before entry from 4 weeks, with boosters every 2 to 3 weeks until 18 to 20 weeks", "One dose at intake and one at 1 year", "Killed product every 6 weeks"], "a": 1, "e": "MLV DA2PP starts at 4 weeks at intake and boosts every 2 to 3 weeks to 18 to 20 weeks; adults get an intake dose plus a 2 to 3 week booster."}, {"t": "canine", "f": "notes", "q": "Rabies vaccination of shelter dogs should be given:", "o": ["To every dog on intake regardless of age", "As a single parenteral dose to all dogs over 12 weeks before release (on entry only if a long stay is anticipated)", "Only if the dog shows respiratory signs", "Mixed into the DA2PP syringe"], "a": 1, "e": "In-shelter rabies exposure is low, so it is timed to release for public health, given to dogs over 12 weeks, and not combined with core MLV."}, {"t": "canine", "f": "notes", "q": "Why is an intranasal Bordetella-only product discouraged in favor of a two-way intranasal Bordetella and CPIV vaccine?", "o": ["Bordetella-only products are not refrigerated", "A dog at risk for Bordetella is also at risk for CPIV, so both should be covered", "Intranasal routes are blocked by maternal antibody", "CPIV is not a shelter concern"], "a": 1, "e": "Risk overlaps, and intranasal products avoid maternal antibody interference while giving rapid local immunity, so the two-way product is preferred."}, {"t": "canine", "f": "notes", "q": "Regarding parvovirus susceptibility in puppies, which statement is correct?", "o": ["All pups are protected once they receive any single dose", "Maternal antibody can persist 13 to 15 weeks, so all pups under 18 to 20 weeks should be considered susceptible regardless of vaccines received", "Parvovirus immunity is always partial like distemper", "Pups over 8 weeks need no further doses"], "a": 1, "e": "Maternal antibody can block vaccine for 13 to 15 weeks; parvovirus immunity is all-or-none, so young pups remain potentially susceptible until 18 to 20 weeks."}, {"t": "canine", "f": "notes", "q": "Which vaccines are generally NOT recommended for routine shelter use?", "o": ["MLV DA2PP and rabies", "Leptospira, canine influenza and Lyme", "Intranasal Bordetella and CPIV", "Parenteral rabies"], "a": 1, "e": "Leptospirosis, canine influenza and Lyme pose minimal in-shelter risk and are not part of the routine shelter program."}, {"t": "feline", "f": "notes", "q": "Why is a standard MLV FPV vaccine contraindicated in a pregnant queen?", "o": ["It causes anaphylaxis in most pregnant cats", "The live virus can cross the placenta and damage the fetal cerebellum, causing cerebellar hypoplasia", "It permanently stops colostrum production", "It turns the coat white"], "a": 1, "e": "MLV panleukopenia virus targets rapidly dividing fetal cerebellar cells; in an outbreak the maternal and litter risk may still outweigh this, but a killed product is safer in pregnancy."}, {"t": "feline", "f": "notes", "q": "To mitigate injection-site sarcoma consequences, feline vaccines should be given:", "o": ["Into the interscapular scruff for comfort", "Into the flank midway between ribs and hip", "As distally on a limb as possible, or in the tail, to allow complete surgical margins if a sarcoma develops", "Into the jugular furrow"], "a": 2, "e": "Distal-limb or tail placement permits curative amputation with clean margins; scruff and flank are no longer recommended."}, {"t": "feline", "f": "notes", "q": "A 2.5 cm firm nodule is found at a rabies vaccine site 6 weeks after injection. By the 1-2-3 rule the next step is:", "o": ["Re-check in 6 months with warm compresses", "Biopsy or aspirate now, because the mass is 2 cm or larger", "Massage with isopropyl alcohol", "Start oral corticosteroids and assume it is benign"], "a": 1, "e": "The 1-2-3 rule triggers biopsy if a post-vaccinal mass is 2 cm or larger, persists 3 months, or is still growing at 1 month; 2.5 cm meets the size criterion."}, {"t": "feline", "f": "notes", "q": "The shelter FVRCP schedule for kittens is:", "o": ["A single dose at 8 weeks only", "A dose at intake as early as 4 weeks, then boosters every 2 weeks until 16 to 20 weeks", "Killed FVRCP every 6 months", "Intranasal FPV preferred over parenteral"], "a": 1, "e": "Kittens get FVRCP from 4 weeks at intake with boosters every 2 weeks to 16 to 20 weeks; intranasal FPV is not preferred for panleukopenia protection."}, {"t": "feline", "f": "notes", "q": "Which statement about FCV and FHV-1 vaccination is correct?", "o": ["It prevents infection completely", "Immunity develops in about 7 days, but vaccination does not prevent infection and instead reduces disease severity", "It eliminates latent FHV-1 infection", "It is a core vaccine only for cats over 5 years"], "a": 1, "e": "Respiratory core immunity is partial: it lessens severity but does not prevent infection, and FHV-1 latency persists."}, {"t": "feline", "f": "notes", "q": "Correct use of the feline FeLV vaccine includes:", "o": ["A single dose gives full protection", "Testing FeLV status first and giving 2 doses 3 to 4 weeks apart, since a single dose provides no protection", "Giving it only to FeLV-positive cats", "Mixing it with FVRCP in one syringe"], "a": 1, "e": "FeLV status is checked first; two doses 3 to 4 weeks apart are required because a single dose does not protect (it is core for cats under 1 year)."}, {"t": "rabies", "f": "notes", "q": "After rabies vaccination, protective immunity is induced and lasts:", "o": ["Within hours, lasting 6 months", "As early as 2 to 3 weeks, with a minimum DOI of 3 years for most products", "Only after three doses, lasting 1 year", "Immediately, lasting 10 years"], "a": 1, "e": "Killed adjuvanted rabies vaccine induces immunity in 2 to 3 weeks with a minimum 3-year DOI (up to 4 years for one feline product)."}, {"t": "rabies", "f": "notes", "q": "Comparing 1-year and 3-year rabies products in shelters:", "o": ["The 1-year product is always safer", "The 3-year product is as safe or safer and is recommended, especially in shelters", "Only the 1-year product is legal", "They cannot be used in cats"], "a": 1, "e": "The 3-year product is as safe or safer and is preferred; it is acceptable for cats, as is the non-adjuvanted 1-year recombinant feline vaccine."}, {"t": "rabies", "f": "notes", "q": "For shelter dogs, rabies vaccine should be administered:", "o": ["To all dogs on intake regardless of age", "As a single parenteral dose to all dogs over 12 weeks before release", "Only to dogs staying under 48 hours", "By any volunteer"], "a": 1, "e": "Because in-shelter exposure is limited, rabies is timed to release for dogs over 12 weeks, with on-entry use only for long stays."}, {"t": "rabies", "f": "notes", "q": "An adult dog with no prior rabies history receives its first rabies dose at the shelter. Legally it must be:", "o": ["Never revaccinated if a 3-year product was used", "Revaccinated within the year in most communities, regardless of whether a 1-year or 3-year product was used", "Titer-tested instead of revaccinated", "Revaccinated only if it bites someone"], "a": 1, "e": "Animals without prior rabies vaccination must be revaccinated within a year in most jurisdictions; staff should communicate this to adopters."}, {"t": "rabies", "f": "notes", "q": "Rabies is an exception to which general core-vaccine rule?", "o": ["It must be MLV", "Although killed, it protects after a single dose and may be given at an interval under 2 weeks from other cores", "It must be given on intake", "It cannot be given to cats"], "a": 1, "e": "Rabies breaks the killed 2-dose-within-6-weeks rule and the 2-week minimum spacing, protecting most animals over 3 months after one dose."}, {"t": "titers", "f": "notes", "q": "A box of MLV FVRCP was left on a counter at room temperature for about 36 hours. The correct action is:", "o": ["Refrigerate and use as normal", "Discard it, because live attenuated virus degrades out of the cold chain and the vaccine is now ineffective", "Combine two doses per syringe to compensate", "Autoclave and use as a killed product in pregnancy"], "a": 1, "e": "MLV is heat-sensitive; reconstituted or warmed product out of the cold chain (over an hour at room temperature) must be discarded."}, {"t": "titers", "f": "notes", "q": "A healthy dog with no clinical signs has a negative CDV and CPV titer during an outbreak. It should be classified and managed as:", "o": ["Low risk, kept in the general population", "High risk, removed from the general population immediately", "Indeterminate, no action needed", "Immune, adopted at once"], "a": 1, "e": "A negative titer with no signs means likely susceptibility, so the animal is high risk and is separated from the population."}, {"t": "titers", "f": "notes", "q": "For risk assessment in puppies and kittens, the better testing approach is:", "o": ["A qualitative in-house kit, because the cut-off is set for juveniles", "Quantitative (lab) titer testing, because it can distinguish active immunity from passive maternal antibody", "No testing, since juveniles are always low risk", "Antigen testing rather than antibody testing"], "a": 1, "e": "Qualitative kits cannot separate active from passive immunity in juveniles, so quantitative titers are the gold standard, and passive low-risk status can change as maternal antibody wanes."}, {"t": "titers", "f": "notes", "q": "How does recent vaccination affect FeLV versus FIV point-of-care testing?", "o": ["Both become unreliable for 2 weeks", "FeLV antigen testing is unaffected, but FIV antibody testing cannot reliably distinguish vaccine from infection", "FIV testing is unaffected, but FeLV becomes falsely positive", "Neither test is ever affected by vaccination"], "a": 1, "e": "FeLV tests detect antigen and are unaffected, while FIV tests detect antibody that vaccination also produces, so vaccinated and infected cats are hard to distinguish (PCR may help)."}, {"t": "titers", "f": "notes", "q": "A mild to moderately ill but stable dog needs core vaccination on intake. The guidance is:", "o": ["Never vaccinate any ill animal", "Vaccinate now, since vaccines are unlikely to harm while virulent exposure is the greater danger, and repeat no less than 2 weeks after recovery", "Wait 8 weeks regardless of recovery", "Vaccinate only after a full chemistry panel"], "a": 1, "e": "For mild to moderate illness, vaccinate on intake (virulent exposure is the bigger risk) and repeat at least 2 weeks after recovery; only animals too ill to vaccinate safely are handled separately in isolation."}];
+
+const host=document.getElementById('qhost');
+const scoreTxt=document.getElementById('scoreTxt');
+let answered=0, correct=0, filter='all';
+const DLABEL={principles:"Immunology & Types",mda:"Maternal Ab",canine:"Canine",feline:"Feline",rabies:"Rabies",titers:"Titers & Special"};
+function tagLabel(t){return DLABEL[t]||t.toUpperCase();}
+function flagBadge(f){
+  if(f==='corr')return '<span class="bdg corr">corrected</span>';
+  if(f==='notes')return '<span class="bdg notes">your notes</span>';
+  if(f==='ref')return '<span class="bdg ref">std ref</span>';
+  return '';
+}
+function render(){
+  host.innerHTML='';answered=0;correct=0;updateScore();
+  Q.forEach((item,i)=>{
+    if(filter!=='all' && item.t!==filter) return;
+    const card=document.createElement('div');card.className='q';
+    card.innerHTML=`<div class="meta"><span class="num">#${i+1}</span><span class="tag">&#9670; ${tagLabel(item.t)}</span>${flagBadge(item.f)}</div><div class="stem">${item.q}</div>`;
+    const opts=document.createElement('div');
+    item.o.forEach((txt,oi)=>{
+      const btn=document.createElement('button');btn.className='opt';
+      btn.innerHTML=`<span class="k">${String.fromCharCode(65+oi)}</span>${txt}`;
+      btn.onclick=()=>choose(card,opts,item,oi);opts.appendChild(btn);
+    });
+    card.appendChild(opts);
+    const ex=document.createElement('div');ex.className='expl';
+    ex.innerHTML=`<b class="cor">Correct: ${String.fromCharCode(65+item.a)}.</b> ${item.e}`;
+    card.appendChild(ex);host.appendChild(card);
+  });
+}
+function choose(card,opts,item,oi){
+  if(card.dataset.done)return;card.dataset.done='1';answered++;
+  [...opts.children].forEach((b,bi)=>{b.classList.add('locked');
+    if(bi===item.a)b.classList.add('correct');
+    if(bi===oi && oi!==item.a)b.classList.add('wrong');});
+  if(oi===item.a)correct++;
+  card.querySelector('.expl').classList.add('show');updateScore();
+}
+function updateScore(){scoreTxt.textContent=`${correct} / ${answered} correct`;}
+document.querySelector('.filters').addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  document.querySelectorAll('.filters button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');filter=b.dataset.f;render();});
+document.getElementById('resetBtn').onclick=render;
+render();
+</script>
+</body>
+</html>

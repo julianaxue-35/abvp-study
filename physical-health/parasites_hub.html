@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parasites Subdomain Hub | ABVP Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0f3d3a;--ink2:#15514c;--paper:#f4efe4;--paper2:#fbf8f1;
+    --line:#d9d0bd;--muted:#5d6b62;
+    --ac:#2c7a6f;--ac-soft:#d4ebe6;             /* hub accent (pine) */
+    --id:#3c4a86;--id-soft:#e2e4f2;             /* ASV blue */
+    --ahs:#b5364c;--ahs-soft:#f6dbe0;           /* American Heartworm Society */
+    --good:#1f7a4d;--bad:#b23b3b;
+    --notes:#7a4fb5;--notes-soft:#ece3f7;        /* your notes */
+    --txt:#8a6d1f;--txt-soft:#f3ebcf;            /* textbook / CAPC / standard reference */
+    --warn:#a8641a;--warn-soft:#f7e6cd;          /* exam trap amber */
+    --shadow:0 1px 2px rgba(15,61,58,.08),0 8px 24px rgba(15,61,58,.06);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;
+    background-image:radial-gradient(circle at 1px 1px,rgba(15,61,58,.04) 1px,transparent 0);background-size:22px 22px;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+  header.top{background:var(--ink);color:var(--paper2);padding:26px 0 22px;border-bottom:4px solid var(--ac)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#9ec9c2;margin:0 0 6px}
+  header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(26px,4.5vw,40px);margin:0;line-height:1.05}
+  header.top p.sub{margin:8px 0 0;color:#cfe3df;font-size:14px;max-width:80ch}
+  .legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}
+  .legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.25);color:#eaf4f1;display:flex;align-items:center;gap:6px}
+  .legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--paper2);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button:hover{background:var(--paper);color:var(--ink)}
+  .tabrow button.active{background:var(--ink);color:var(--paper2)}
+  .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--ac)}
+  main{padding:30px 0 80px}
+  .panel{display:none;animation:fade .35s ease}
+  .panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;letter-spacing:-.01em}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:80ch}
+  h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:30px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;scroll-margin-top:64px}
+  h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;color:var(--ink2);text-transform:uppercase;letter-spacing:.03em}
+  .card{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}
+  ul.hy{margin:8px 0;padding-left:0;list-style:none}
+  ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed #e6ddca;font-size:14px}
+  ul.hy li:last-child{border-bottom:0}
+  ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;border-radius:2px;background:var(--ac);transform:rotate(45deg)}
+  .trap{background:var(--warn-soft);border:1px solid #e6cfa6;border-left:4px solid var(--warn);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .trap b{color:var(--warn);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .corrbox{background:#e9f4ee;border:1px solid #bfe0cc;border-left:4px solid var(--good);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .corrbox b{color:var(--good);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .clarify{background:var(--ac-soft);border:1px solid #b3d6cf;border-left:4px solid var(--ac);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .clarify b{color:var(--ac);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:var(--paper2);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp th{background:var(--ink);color:var(--paper2);font-weight:600;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase}
+  table.cmp tr:last-child td{border-bottom:0}
+  table.cmp td b{color:var(--ink)}
+  .yes{color:var(--good);font-weight:700}
+  .no{color:var(--bad);font-weight:700}
+  .fig{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0;box-shadow:var(--shadow)}
+  .fig figcaption{font-size:12.5px;color:var(--muted);margin-top:8px;font-style:italic}
+  .bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+  .bdg.notes{background:var(--notes-soft);color:var(--notes)}
+  .bdg.asv{background:var(--id-soft);color:var(--id)}
+  .bdg.ahs{background:var(--ahs-soft);color:var(--ahs)}
+  .bdg.txt{background:var(--txt-soft);color:var(--txt)}
+  .bdg.corr{background:var(--good);color:#fff}
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--ink);color:var(--paper2);border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:54px;z-index:10}
+  .mcqbar .filters{display:flex;gap:6px;flex-wrap:wrap}
+  .mcqbar .filters button{font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#d6e7e3;padding:6px 11px;border-radius:999px;cursor:pointer}
+  .mcqbar .filters button.on{background:var(--ac);border-color:var(--ac);color:#fff}
+  .score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}
+  .score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;color:#d6e7e3;padding:5px 10px;border-radius:8px;font-size:11px}
+  .q{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
+  .q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+  .q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--ac-soft);color:var(--ac)}
+  .q .stem{font-weight:600;font-size:15px;margin-bottom:10px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;font-family:"Public Sans";transition:background .15s,border-color .15s}
+  .opt:hover{border-color:var(--ink)}
+  .opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}
+  .opt.correct{background:#e8f5ec;border-color:var(--good);color:#0d3d24}
+  .opt.wrong{background:#fbe9e9;border-color:var(--bad);color:#5e1d1d}
+  .opt.locked{cursor:default}
+  .expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:#f3efe3;border:1px solid var(--line);font-size:13.5px}
+  .expl.show{display:block}
+  .expl b.cor{color:var(--good)}
+  footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
+  @media(max-width:640px){.mcqbar{top:50px}.score{font-size:12px}}
+</style>
+</head>
+<body>
+<nav style="background:#0f3d3a;padding:9px 18px;display:flex;align-items:center;gap:10px;font-family:'Public Sans',system-ui,sans-serif;font-size:13px;font-weight:500;border-bottom:2px solid #1f5c4e"><a href="../index.html" style="color:#9ec9c2;text-decoration:none;display:flex;align-items:center;gap:5px"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span style="color:#4a7a6e;font-size:11px">›</span><span style="color:#cfe3df">Physical Health of Animals</span></nav>
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">ABVP Shelter Medicine Practice RVS &middot; Physical Health of Animal</p>
+    <h1>Parasites Subdomain Hub</h1>
+    <p class="sub">Exam-depth study tool for the Parasites subdomain: control principles and transmission, intestinal endoparasites, heartworm disease, ectoparasites, and vector-borne and zoonotic disease. Five tabs plus a shared, filterable MCQ bank, with six in-house SVG diagrams. Heartworm content is verified against the ASV Heartworm Management position statement (10/2024) and the American Heartworm Society guidelines; the rest against the ASV Standards of Care, CAPC, and standard parasitology references.</p>
+    <div class="legend">
+      <span><i style="background:var(--notes)"></i>Your notes</span>
+      <span><i style="background:var(--id)"></i>ASV (Standards + Heartworm PS 2024)</span>
+      <span><i style="background:var(--ahs)"></i>American Heartworm Society</span>
+      <span><i style="background:var(--txt)"></i>Textbook / CAPC / standard reference</span>
+      <span><i style="background:var(--good)"></i>Corrected</span>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="control"><span class="dot"></span>Control &amp; Transmission</button>
+  <button data-p="endo"><span class="dot"></span>Endoparasites</button>
+  <button data-p="hw"><span class="dot"></span>Heartworm Disease</button>
+  <button data-p="ecto"><span class="dot"></span>Ectoparasites</button>
+  <button data-p="vector"><span class="dot"></span>Vector-Borne &amp; Zoonotic</button>
+  <button data-p="mcq"><span class="dot" style="background:#0f3d3a"></span>MCQ Test Bank</button>
+</div></div></nav>
+
+<main><div class="wrap">
+
+<!-- ============ TAB 1: CONTROL ============ -->
+<section class="panel show" id="control">
+  <h2 class="sec">Control Principles &amp; Transmission</h2>
+  <p class="lead">Parasite management in shelters protects the population, the public, and the adoptability of each animal. The core levers are a default intake deworming protocol, understanding which parasites can establish in a congregate setting, and rigorous sanitation against environmentally resistant stages.</p>
+
+  <h3>The three shelter concerns and the intake mandate <span class="bdg notes">notes</span><span class="bdg asv">ASV</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Three concerns:</b> protect the individual animal and the population (and limit environmental contamination); protect staff, visitors, and adopters from zoonotic agents; and ensure untreated parasites do not reduce adoptability or burden new owners.</li>
+      <li><b>ASV intake mandate:</b> all dogs and cats must be treated for <b>roundworms and hookworms at intake, starting at 2 weeks of age</b>, because of the zoonotic risk. Whipworm and tapeworm treatment at intake is often cost-prohibitive and targeted instead.</li>
+      <li>At minimum, every dog should leave the shelter having received a product effective against hookworms and roundworms.</li>
+      <li><b>Broad-spectrum heartworm and flea spot-ons should not replace a primary dewormer.</b> Choose products by availability, price, and required spectrum, as determined by the attending veterinarian.</li>
+    </ul>
+  </div>
+
+  <h3>Deworming schedule <span class="bdg notes">notes</span></h3>
+  <figure class="fig">
+    <svg viewBox="0 0 720 170" width="100%" role="img" aria-label="Deworming schedule for puppies and kittens">
+      <defs><marker id="arPA3" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0f3d3a"/></marker></defs>
+      <text x="60" y="40" font-size="11" font-weight="700" fill="#15514c">Puppies</text>
+      <line x1="120" y1="36" x2="690" y2="36" stroke="#d9d0bd" stroke-width="2"/>
+      <circle cx="150" cy="36" r="5" fill="#2c7a6f"/><text x="150" y="22" font-size="8.5" text-anchor="middle">2 wk start</text>
+      <text x="320" y="22" font-size="8.5" text-anchor="middle">every 2 weeks</text>
+      <circle cx="470" cy="36" r="5" fill="#2c7a6f"/><text x="470" y="22" font-size="8.5" text-anchor="middle">to 12 wk</text>
+      <text x="585" y="22" font-size="8.5" text-anchor="middle">then monthly</text>
+      <circle cx="670" cy="36" r="5" fill="#1f7a4d"/><text x="670" y="22" font-size="8.5" text-anchor="middle">to 6 mo</text>
+      <line x1="156" y1="36" x2="462" y2="36" stroke="#0f3d3a" stroke-width="1.2" marker-end="url(#arPA3)"/>
+      <line x1="478" y1="36" x2="662" y2="36" stroke="#0f3d3a" stroke-width="1.2" marker-end="url(#arPA3)"/>
+      <text x="60" y="104" font-size="11" font-weight="700" fill="#15514c">Kittens</text>
+      <line x1="120" y1="100" x2="690" y2="100" stroke="#d9d0bd" stroke-width="2"/>
+      <circle cx="150" cy="100" r="5" fill="#2c7a6f"/><text x="150" y="86" font-size="8.5" text-anchor="middle">3 wk start</text>
+      <text x="320" y="86" font-size="8.5" text-anchor="middle">every 2 weeks</text>
+      <circle cx="470" cy="100" r="5" fill="#2c7a6f"/><text x="470" y="86" font-size="8.5" text-anchor="middle">to 12 wk</text>
+      <text x="585" y="86" font-size="8.5" text-anchor="middle">then monthly</text>
+      <circle cx="670" cy="100" r="5" fill="#1f7a4d"/><text x="670" y="86" font-size="8.5" text-anchor="middle">to 6 mo</text>
+      <line x1="156" y1="100" x2="462" y2="100" stroke="#0f3d3a" stroke-width="1.2" marker-end="url(#arPA3)"/>
+      <line x1="478" y1="100" x2="662" y2="100" stroke="#0f3d3a" stroke-width="1.2" marker-end="url(#arPA3)"/>
+      <text x="365" y="146" font-size="10" text-anchor="middle" fill="#5d6b62">Puppies start deworming at 2 weeks, kittens at 3 weeks; pregnant and nursing dams are also treated.</text>
+    </svg>
+    <figcaption>Pediatric deworming cadence. Source: your notes (consistent with CAPC).</figcaption>
+  </figure>
+  <table class="cmp">
+    <tr><th>Product</th><th>Spectrum</th><th>Notes</th></tr>
+    <tr><td><b>Pyrantel pamoate</b></td><td>Hookworms, roundworms</td><td>Most cost-effective for cats at 10 mg/kg; retreat in 2 weeks, then monthly. Safe and a shelter mainstay.</td></tr>
+    <tr><td><b>Fenbendazole</b></td><td>Hookworms, roundworms, whipworms, Giardia, most tapeworms</td><td>50 mg/kg PO once daily for 3 to 5 days. Does not cover Dipylidium or Echinococcus.</td></tr>
+    <tr><td><b>Praziquantel</b></td><td>Tapeworms (including Dipylidium)</td><td>5 to 7.5 mg/kg oral or injectable.</td></tr>
+    <tr><td><b>Milbemycin oxime</b></td><td>Hookworms, roundworms, whipworms, plus heartworm prevention</td><td>Macrocyclic lactone; preventive dosing.</td></tr>
+    <tr><td><b>Combinations</b> (Drontal Plus, Profender)</td><td>Broadest internal coverage</td><td>Pyrantel + febantel + praziquantel (Drontal Plus); emodepside + praziquantel (Profender, feline).</td></tr>
+  </table>
+
+  <h3>Direct versus indirect transmission <span class="bdg notes">notes</span></h3>
+  <figure class="fig">
+    <svg viewBox="0 0 720 220" width="100%" role="img" aria-label="Direct versus indirect transmission of shelter parasites">
+      <defs><marker id="arPA4" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0f3d3a"/></marker></defs>
+      <rect x="14" y="20" width="340" height="180" rx="10" fill="#d4ebe6" stroke="#2c7a6f"/>
+      <text x="184" y="42" font-size="12" text-anchor="middle" font-weight="700" fill="#15514c">Direct (single host)</text>
+      <text x="184" y="64" font-size="9.5" text-anchor="middle" fill="#1f7a4d" font-weight="600">Immediately infective when shed</text>
+      <text x="184" y="80" font-size="9.5" text-anchor="middle">Giardia, Cryptosporidium, Trichomonads</text>
+      <text x="184" y="108" font-size="9.5" text-anchor="middle" fill="#a8641a" font-weight="600">Need environmental development first</text>
+      <text x="184" y="124" font-size="9.5" text-anchor="middle">Toxocara, Ancylostoma, Strongyloides,</text>
+      <text x="184" y="138" font-size="9.5" text-anchor="middle">Trichuris, coccidia, Toxoplasma</text>
+      <text x="184" y="170" font-size="9" text-anchor="middle" fill="#5d6b62">Establish readily in a congregate</text>
+      <text x="184" y="183" font-size="9" text-anchor="middle" fill="#5d6b62">shelter; sanitation is critical</text>
+      <rect x="366" y="20" width="340" height="180" rx="10" fill="#f3ebcf" stroke="#8a6d1f"/>
+      <text x="536" y="42" font-size="12" text-anchor="middle" font-weight="700" fill="#15514c">Indirect (2 or more hosts)</text>
+      <text x="536" y="70" font-size="9.5" text-anchor="middle">Dipylidium (flea intermediate host)</text>
+      <text x="536" y="88" font-size="9.5" text-anchor="middle">Heartworm (mosquito), Taenia (prey)</text>
+      <text x="536" y="120" font-size="9.5" text-anchor="middle" fill="#b23b3b" font-weight="600">Cannot establish facility-wide</text>
+      <text x="536" y="134" font-size="9.5" text-anchor="middle" fill="#b23b3b" font-weight="600">without the vector or intermediate host</text>
+      <text x="536" y="166" font-size="9" text-anchor="middle" fill="#5d6b62">Control the vector (fleas, mosquitoes)</text>
+      <text x="536" y="179" font-size="9" text-anchor="middle" fill="#5d6b62">to control the parasite</text>
+      <line x1="500" y1="60" x2="470" y2="60" stroke="#0f3d3a" stroke-width="1.2" marker-end="url(#arPA4)"/>
+    </svg>
+    <figcaption>Transmission complexity drives shelter risk. Source: your notes.</figcaption>
+  </figure>
+  <div class="trap"><b>Exam trap</b>Giardia and Cryptosporidium are shed in an immediately infective form, so daily sanitation must be impeccable. Ascarids, hookworms, whipworms, and coccidia are shed in a non-infective form that needs environmental development, so infected animals do not need isolation, but post-treatment fecal output is heavily contaminating and demands prompt cleanup.</div>
+
+  <h3>Environmental persistence <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Ascarid (roundworm) eggs</b> are extremely resistant; on hard surfaces, heat and disinfectants such as bleach or ammonia work mainly by disrupting the outer coat to increase desiccation. Once in soil, they are nearly impossible to destroy.</li>
+      <li><b>Hookworm eggs</b> are less hardy and are killed fairly rapidly by desiccation on dry surfaces. <b>Whipworm eggs</b> are hardy but their polar plugs may make them slightly more susceptible to bleach than ascarid eggs.</li>
+      <li>Because eggs are not immediately infective, there is no need to isolate or quarantine infected animals; the priority is prompt, thorough sanitation after treatment.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ TAB 2: ENDOPARASITES ============ -->
+<section class="panel" id="endo">
+  <h2 class="sec">Intestinal Endoparasites</h2>
+  <p class="lead">The shelter-relevant intestinal worms (hookworms, ascarids, whipworms, tapeworms) and protozoa each have a characteristic transmission route, prepatent period, and zoonotic profile. Diagnosis centers on zinc-sulfate centrifugation.</p>
+
+  <h3>Nematodes at a glance <span class="bdg notes">notes</span></h3>
+  <table class="cmp">
+    <tr><th>Worm</th><th>Key transmission</th><th>Prepatent / dx</th><th>Zoonosis</th></tr>
+    <tr><td><b>Hookworm</b> (Ancylostoma caninum)</td><td>Percutaneous, oral, paratenic hosts, and transmammary (A. caninum only)</td><td>~2 weeks; zinc sulfate centrifugation</td><td>A. braziliense causes most cutaneous larva migrans in the US</td></tr>
+    <tr><td><b>Roundworm</b> (Toxocara canis, T. cati, Toxascaris leonina)</td><td>Egg ingestion, transplacental (T. canis), transmammary, paratenic hosts</td><td>T. canis ~5 weeks (pups infected in utero shed by ~3 weeks)</td><td>T. canis is the leading cause of visceral and ocular larva migrans</td></tr>
+    <tr><td><b>Baylisascaris procyonis</b></td><td>Raccoon ascarid; occasional in dogs</td><td>~8 weeks in dogs</td><td class="no">Deadliest: severe and fatal neural larva migrans in humans</td></tr>
+    <tr><td><b>Whipworm</b> (Trichuris vulpis)</td><td>Egg ingestion from soil; cecum and colon</td><td>~3 months; barrel-shaped egg with bipolar plugs</td><td>Low (human whipworm is a separate species)</td></tr>
+  </table>
+  <div class="clarify"><b>Diagnosis</b>The test of choice for nematode eggs is a <b>zinc sulfate centrifugation</b> fecal examination. Because shedding is intermittent and prepatent periods are long, a single negative does not rule out infection; fecal antigen ELISA or empiric treatment may be warranted in a compatible case.</div>
+
+  <h3>Hookworm and roundworm specifics <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Transmammary A. caninum:</b> larvae in the bitch's milk infect nursing puppies, and with a roughly 2-week prepatent period, puppies can shed eggs and develop life-threatening regenerative anemia and melena by about 14 days of age. This milk route is unique to A. caninum among the hookworms.</li>
+      <li><b>A. braziliense</b> spends more time in the dermis, which is why it causes the majority of human cutaneous larva migrans cases.</li>
+      <li><b>T. canis</b> can be minimized in puppies by treating the pregnant bitch with ivermectin or doramectin around day 40 to 50 of gestation, which greatly reduces, but does not eliminate, environmental contamination.</li>
+      <li><b>Recommended regimen:</b> deworm puppies every 2 weeks from week 2 of life and kittens from week 3, then monthly to 6 months; treat pregnant and nursing animals too.</li>
+    </ul>
+  </div>
+
+  <h3>Tapeworms and protozoa <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Dipylidium caninum</b> uses the flea as its intermediate host, so a sound flea-control program controls it. Visible tapeworm segments are an indication that flea control needs review.</li>
+      <li><b>Taenia</b> species use prey (intermediate hosts), so they are unlikely to cycle within a shelter. <b>Echinococcus</b> is a significant zoonosis and is not covered by fenbendazole; praziquantel is the tapeworm drug.</li>
+      <li><b>Protozoa:</b> Giardia, Cystoisospora (coccidia), Cryptosporidium, and Tritrichomonas cause diarrhea. Work up feline diarrhea with fecal flotation, direct smear and cytology, and a Giardia ELISA as needed; if negative, treat empirically with a broad-spectrum anthelmintic.</li>
+    </ul>
+    <div class="trap"><b>Exam trap</b>Fenbendazole covers a broad range (hookworms, roundworms, whipworms, Giardia, and most tapeworms) but <b>not</b> Dipylidium or Echinococcus. For those, reach for praziquantel.</div>
+  </div>
+</section>
+
+<!-- ============ TAB 3: HEARTWORM ============ -->
+<section class="panel" id="hw">
+  <h2 class="sec">Heartworm Disease</h2>
+  <p class="lead">Dirofilaria immitis is largely clinically invisible, slow, and expensive to treat, which makes shelter protocols a balance of testing, prevention, and selective treatment. The ASV endorses the AHS guidelines, adapted for shelter resources.</p>
+
+  <h3>Life cycle <span class="bdg notes">notes</span><span class="bdg ahs">AHS</span></h3>
+  <figure class="fig">
+    <svg viewBox="0 0 720 230" width="100%" role="img" aria-label="Dirofilaria immitis two-host life cycle">
+      <defs><marker id="arPA1" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0f3d3a"/></marker></defs>
+      <rect x="20" y="60" width="300" height="110" rx="12" fill="#f6dbe0" stroke="#b5364c"/>
+      <text x="170" y="84" font-size="12" text-anchor="middle" font-weight="700" fill="#15514c">Mosquito (intermediate host)</text>
+      <text x="170" y="108" font-size="9.5" text-anchor="middle">Picks up microfilariae in a blood meal</text>
+      <text x="170" y="126" font-size="9.5" text-anchor="middle">Microfilariae mature to infective L3</text>
+      <text x="170" y="144" font-size="9.5" text-anchor="middle" font-weight="600">over 10 to 14 days</text>
+      <rect x="400" y="60" width="300" height="110" rx="12" fill="#d4ebe6" stroke="#2c7a6f"/>
+      <text x="550" y="84" font-size="12" text-anchor="middle" font-weight="700" fill="#15514c">Dog (definitive host)</text>
+      <text x="550" y="106" font-size="9.5" text-anchor="middle">L3 enters at the bite, matures L3 to L4</text>
+      <text x="550" y="122" font-size="9.5" text-anchor="middle">to adult in the pulmonary arteries</text>
+      <text x="550" y="140" font-size="9.5" text-anchor="middle" font-weight="600">prepatent ~6 months; adults produce microfilariae</text>
+      <line x1="320" y1="95" x2="398" y2="95" stroke="#0f3d3a" stroke-width="1.6" marker-end="url(#arPA1)"/>
+      <text x="360" y="86" font-size="8.5" text-anchor="middle" fill="#5d6b62">infective L3</text>
+      <line x1="398" y1="140" x2="320" y2="140" stroke="#0f3d3a" stroke-width="1.6" marker-end="url(#arPA1)"/>
+      <text x="360" y="156" font-size="8.5" text-anchor="middle" fill="#5d6b62">microfilariae</text>
+      <text x="360" y="200" font-size="10" text-anchor="middle" fill="#5d6b62">A dog can be its own reservoir; cats and ferrets cannot. Microfilariae cannot mature without passing through a mosquito.</text>
+    </svg>
+    <figcaption>Two-host life cycle of D. immitis. Source: your notes and AHS.</figcaption>
+  </figure>
+
+  <h3>Diagnosis <span class="bdg corr">corrected</span><span class="bdg ahs">AHS</span></h3>
+  <figure class="fig">
+    <svg viewBox="0 0 720 210" width="100%" role="img" aria-label="Canine heartworm diagnostic decision flow">
+      <defs><marker id="arPA5" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0f3d3a"/></marker></defs>
+      <rect x="14" y="80" width="150" height="48" rx="9" fill="#e2e4f2" stroke="#3c4a86"/><text x="89" y="100" font-size="10" text-anchor="middle" font-weight="600">Dog over 7 months</text><text x="89" y="116" font-size="9" text-anchor="middle">at risk</text>
+      <rect x="200" y="80" width="170" height="48" rx="9" fill="#d4ebe6" stroke="#2c7a6f"/><text x="285" y="100" font-size="10" text-anchor="middle" font-weight="600">Run antigen test</text><text x="285" y="116" font-size="8.5" text-anchor="middle">AND microfilaria test</text>
+      <rect x="406" y="40" width="150" height="44" rx="9" fill="#f6dbe0" stroke="#b5364c"/><text x="481" y="60" font-size="10" text-anchor="middle" font-weight="600">Antigen positive</text><text x="481" y="75" font-size="8.5" text-anchor="middle">confirm before treating</text>
+      <rect x="406" y="120" width="150" height="44" rx="9" fill="#f3efe3" stroke="#8a6d1f"/><text x="481" y="140" font-size="10" text-anchor="middle" font-weight="600">No antigen detected</text><text x="481" y="155" font-size="8.5" text-anchor="middle">not a guarantee of freedom</text>
+      <rect x="592" y="80" width="116" height="48" rx="9" fill="#e9f4ee" stroke="#1f7a4d"/><text x="650" y="100" font-size="10" text-anchor="middle" font-weight="600">Treat or</text><text x="650" y="116" font-size="9" text-anchor="middle">prevent + retest</text>
+      <line x1="164" y1="104" x2="198" y2="104" stroke="#0f3d3a" stroke-width="1.4" marker-end="url(#arPA5)"/>
+      <line x1="370" y1="96" x2="404" y2="68" stroke="#0f3d3a" stroke-width="1.4" marker-end="url(#arPA5)"/>
+      <line x1="370" y1="112" x2="404" y2="138" stroke="#0f3d3a" stroke-width="1.4" marker-end="url(#arPA5)"/>
+      <line x1="556" y1="62" x2="600" y2="92" stroke="#0f3d3a" stroke-width="1.4" marker-end="url(#arPA5)"/>
+      <line x1="556" y1="142" x2="600" y2="116" stroke="#0f3d3a" stroke-width="1.4" marker-end="url(#arPA5)"/>
+      <text x="360" y="196" font-size="10" text-anchor="middle" fill="#5d6b62">AHS recommends running antigen and microfilaria tests together; positives are confirmed before adulticidal therapy.</text>
+    </svg>
+    <figcaption>Canine heartworm screening logic. Source: AHS, adapted for shelters by the ASV position statement (2024).</figcaption>
+  </figure>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Antigen tests detect circulating antigen of adult female worms.</b> They are the primary screening test. Microfilariae are detected separately by concentration tests (Modified Knott).</li>
+      <li>Run both antigen and microfilaria tests, because a small fraction of infected dogs are antigen-negative and microfilaria-positive. Do not test before about 7 months of age, since the prepatent period is roughly 6 months.</li>
+      <li>Dogs on preventives may have a <b>false-negative antigen test</b> from antigen-antibody complex formation; <b>heat treatment of serum</b> can unmask antigen by breaking those complexes.</li>
+      <li>A "no antigen detected" result does not confirm freedom from infection; all positive antigen tests should be confirmed before any adulticidal therapy.</li>
+    </ul>
+    <div class="corrbox"><b>Correction</b>Your notes stated the antigen test detects "circulating microfilaria." Antigen tests detect <b>adult female worm antigen</b>, not microfilariae. Microfilariae are found by concentration tests such as the Modified Knott. This distinction is exactly why AHS recommends running both tests.</div>
+  </div>
+
+  <h3>Treatment: the AHS protocol <span class="bdg ahs">AHS</span><span class="bdg notes">notes</span></h3>
+  <figure class="fig">
+    <svg viewBox="0 0 720 175" width="100%" role="img" aria-label="Heartworm treatment timeline with doxycycline and three-dose melarsomine">
+      <defs><marker id="arPA2" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0f3d3a"/></marker></defs>
+      <line x1="40" y1="70" x2="690" y2="70" stroke="#d9d0bd" stroke-width="2"/>
+      <circle cx="95" cy="70" r="6" fill="#2c7a6f"/><text x="95" y="48" font-size="9.5" text-anchor="middle" font-weight="700">Day 0</text><text x="95" y="92" font-size="8.5" text-anchor="middle">macrocyclic lactone +</text><text x="95" y="103" font-size="8.5" text-anchor="middle">doxycycline 10 mg/kg</text><text x="95" y="114" font-size="8.5" text-anchor="middle">BID x 28 days</text>
+      <circle cx="350" cy="70" r="6" fill="#b5364c"/><text x="350" y="48" font-size="9.5" text-anchor="middle" font-weight="700">~Day 60</text><text x="350" y="92" font-size="8.5" text-anchor="middle">melarsomine dose 1</text><text x="350" y="103" font-size="8.5" text-anchor="middle">2.5 mg/kg deep IM (L3 to L5)</text>
+      <circle cx="560" cy="70" r="6" fill="#b5364c"/><text x="560" y="48" font-size="9.5" text-anchor="middle" font-weight="700">~Day 90</text><text x="560" y="92" font-size="8.5" text-anchor="middle">doses 2 and 3,</text><text x="560" y="103" font-size="8.5" text-anchor="middle">24 hours apart</text>
+      <circle cx="668" cy="70" r="6" fill="#1f7a4d"/><text x="668" y="48" font-size="9.5" text-anchor="middle" font-weight="700">+9 mo</text><text x="668" y="92" font-size="8.5" text-anchor="middle">retest</text>
+      <line x1="101" y1="70" x2="342" y2="70" stroke="#0f3d3a" stroke-width="1.3" marker-end="url(#arPA2)"/>
+      <line x1="358" y1="70" x2="552" y2="70" stroke="#0f3d3a" stroke-width="1.3" marker-end="url(#arPA2)"/>
+      <line x1="568" y1="70" x2="660" y2="70" stroke="#0f3d3a" stroke-width="1.3" marker-end="url(#arPA2)"/>
+      <text x="365" y="150" font-size="10" text-anchor="middle" fill="#b23b3b" font-weight="600">Strict exercise restriction throughout. The 3-dose protocol is the safest and most effective (about 99% versus 90.8%).</text>
+    </svg>
+    <figcaption>AHS three-dose melarsomine protocol with doxycycline pretreatment. Source: AHS and your notes.</figcaption>
+  </figure>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Melarsomine</b> is the only FDA-approved adulticide, effective against worms aged 120 days and older, given by deep IM injection into the epaxial lumbar muscles (L3 to L5).</li>
+      <li><b>Wolbachia and doxycycline:</b> Wolbachia is a gram-negative intracellular endosymbiont essential to heartworm development and reproduction, transmitted vertically from adult female to microfilariae. Doxycycline at 10 mg/kg twice daily for 28 days suppresses Wolbachia, reduces post-treatment pulmonary pathology, lowers microfilarial counts, and renders microfilariae non-infective to mosquitoes (limiting spread).</li>
+      <li><b>Slow-kill (macrocyclic-lactone-only)</b> adulticide is <b>not recommended</b> except in specific situations (a prior anaphylactic reaction to melarsomine, a grave non-heartworm prognosis); it is contraindicated in performance dogs or dogs that cannot be exercise-restricted, and where ML-resistance is suspected.</li>
+      <li><b>Caval syndrome:</b> heavy worm burdens partially obstruct the tricuspid valve, develop acutely, and are usually fatal within about 2 days unless worms are surgically extracted.</li>
+    </ul>
+  </div>
+
+  <h3>Feline and ferret heartworm <span class="bdg corr">corrected</span><span class="bdg ahs">AHS</span></h3>
+  <table class="cmp">
+    <tr><th>Species</th><th>Key points</th></tr>
+    <tr><td><b>Cat</b></td><td>Low worm burdens; an infected cat poses no transmission risk to other cats. Melarsomine is <b>not recommended</b> (high risk). Management is supportive, with prednisolone for respiratory signs and maintained prevention.</td></tr>
+    <tr><td><b>Ferret</b></td><td>Highly susceptible; even a single worm can cause catastrophic obstruction given the tiny heart. Microfilaremia is transient and antigen tests are frequently false-negative (low burden or single-sex male infections). <b>Bilirubinuria</b> is the clinicopathologic change most consistently reported.</td></tr>
+  </table>
+  <div class="corrbox"><b>Correction</b>A draft statement said most feline infections "resolve spontaneously without shortening lifespan." That overstates safety. Many feline infections are self-limiting, but feline heartworm (HARD) can cause sudden death, and the death of even a single worm can trigger a fatal acute pulmonary reaction. The correct framing: no adulticide in cats, supportive management, and counsel adopters about the real risk of acute decompensation.</div>
+
+  <h3>Shelter strategy and prevention <span class="bdg asv">ASV PS</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>The ASV endorses the AHS guidelines and urges <b>year-round prevention for dogs, cats, and ferrets</b>, since some transmission risk exists everywhere. Screen at-risk dogs; provide prevention even when screening is not done; treat infected dogs promptly to reduce pathology and limit transmission.</li>
+      <li>Heartworm management should not divert resources from the care of other animals. A shelter without treatment capacity may <b>transfer infected dogs to a partner with capacity, or release to an informed adopter</b> with clear follow-up expectations.</li>
+      <li>In high-prevalence areas it is more cost-effective to screen dogs by microfilaria first; in low-prevalence areas, antigen-test first. A treated dog is not considered heartworm-free until two antigen tests 6 months apart are negative.</li>
+      <li>Macrocyclic lactones (ivermectin, selamectin, milbemycin, moxidectin) are reliable preventives only against worms present 30 days or less; DEET is unsafe in dogs, cats, and ferrets.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ TAB 4: ECTOPARASITES ============ -->
+<section class="panel" id="ecto">
+  <h2 class="sec">Ectoparasites</h2>
+  <p class="lead">External parasites are all arthropods. Most can feed on any host; only lice and Demodex are strictly host-specific. The management split is between parasites that live entirely on the host and those (fleas, myiasis) with environmental stages.</p>
+
+  <h3>Host specificity and lice <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Only lice and Demodex mites are strictly host-specific</b> and do not infest a different species. All other arthropods are opportunistic feeders.</li>
+      <li><b>Lice:</b> sucking lice (Anoplura) have a head about as wide as the thorax and feed on blood; chewing lice (Mallophaga) have a head wider than the thorax and eat skin debris. Cats carry one louse (Felicola subrostratus). Transmission is mainly by direct contact; lice survive only days off the host.</li>
+      <li><b>Nits are not killed by insecticides</b>, so a population persists unless nits are mechanically removed; treat at least twice, one week apart, and separate infested animals.</li>
+    </ul>
+  </div>
+
+  <h3>Mites <span class="bdg notes">notes</span></h3>
+  <table class="cmp">
+    <tr><th>Mite</th><th>Contagious / zoonotic</th><th>Hallmarks and treatment</th></tr>
+    <tr><td><b>Sarcoptes scabiei var. canis</b></td><td class="no">Highly contagious; zoonotic (transient in humans)</td><td>Intense pruritus, pinnae, elbows, ventrum; positive pinnal-pedal reflex; isolate and use PPE for the first 3 to 5 days of treatment. Macrocyclic lactones, amitraz, lime sulfur, fipronil, isoxazolines.</td></tr>
+    <tr><td><b>Notoedres cati</b> (feline scabies)</td><td class="no">Highly contagious among cats; zoonotic</td><td>Intense pruritus starting on the head, face, and ear margins; treat infested and in-contact cats (for example ivermectin SC, selamectin, or imidacloprid-moxidectin).</td></tr>
+    <tr><td><b>Demodex</b> (canis, gatoi, others)</td><td class="yes">Not contagious (except D. gatoi in cats)</td><td>Acquired from the dam while nursing. Generalized demodicosis signals immunosuppression and is heritable (neuter affected dogs). Amitraz is the only FDA-approved drug, but isoxazolines are now usually the treatment of choice.</td></tr>
+    <tr><td><b>Cheyletiella</b> ("walking dandruff")</td><td class="no">Contagious, low host-specificity; transient on humans</td><td>Dorsal scaling and dandruff; among the hardiest mites, surviving up to 10 days off-host; susceptible to flea-control agents and macrocyclic lactones.</td></tr>
+    <tr><td><b>Otodectes cynotis</b> (ear mites)</td><td>Direct contact and fomites</td><td>Coffee-ground aural debris, pruritus, possible aural hematoma. Treat the whole litter or group rather than isolating; clean the canal and repeat treatment.</td></tr>
+  </table>
+
+  <h3>Fleas <span class="bdg notes">notes</span></h3>
+  <figure class="fig">
+    <svg viewBox="0 0 720 180" width="100%" role="img" aria-label="Cat flea life cycle">
+      <defs><marker id="arPA6" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0f3d3a"/></marker></defs>
+      <rect x="20" y="70" width="120" height="44" rx="9" fill="#d4ebe6" stroke="#2c7a6f"/><text x="80" y="90" font-size="10" text-anchor="middle" font-weight="600">Egg</text><text x="80" y="105" font-size="8.5" text-anchor="middle">rolls off host</text>
+      <rect x="180" y="70" width="120" height="44" rx="9" fill="#d4ebe6" stroke="#2c7a6f"/><text x="240" y="90" font-size="10" text-anchor="middle" font-weight="600">Larva</text><text x="240" y="105" font-size="8.5" text-anchor="middle">3 stages, in environment</text>
+      <rect x="340" y="70" width="120" height="44" rx="9" fill="#f3ebcf" stroke="#8a6d1f"/><text x="400" y="90" font-size="10" text-anchor="middle" font-weight="600">Pupa</text><text x="400" y="105" font-size="8.5" text-anchor="middle">hardiest, lasts months</text>
+      <rect x="500" y="70" width="130" height="44" rx="9" fill="#f6dbe0" stroke="#b5364c"/><text x="565" y="88" font-size="10" text-anchor="middle" font-weight="600">Adult on host</text><text x="565" y="103" font-size="8.5" text-anchor="middle">eclose on heat/CO2/vibration</text>
+      <line x1="140" y1="92" x2="178" y2="92" stroke="#0f3d3a" stroke-width="1.3" marker-end="url(#arPA6)"/>
+      <line x1="300" y1="92" x2="338" y2="92" stroke="#0f3d3a" stroke-width="1.3" marker-end="url(#arPA6)"/>
+      <line x1="460" y1="92" x2="498" y2="92" stroke="#0f3d3a" stroke-width="1.3" marker-end="url(#arPA6)"/>
+      <path d="M565,116 C565,150 80,150 80,116" fill="none" stroke="#0f3d3a" stroke-width="1.3" stroke-dasharray="4 3" marker-end="url(#arPA6)"/>
+      <text x="320" y="145" font-size="8.5" text-anchor="middle" fill="#5d6b62">adult lays eggs</text>
+      <text x="365" y="172" font-size="9.5" text-anchor="middle" fill="#5d6b62">Animals acquire fleas from the environment, not by fleas jumping host-to-host. Ctenocephalides felis is the intermediate host of Dipylidium.</text>
+    </svg>
+    <figcaption>Cat flea (Ctenocephalides felis) life cycle. Source: your notes.</figcaption>
+  </figure>
+  <div class="card">
+    <ul class="hy">
+      <li>Adults take blood (flea-bite anemia in the young, old, or debilitated) and cause flea-allergy dermatitis with lumbosacral and tail-base alopecia. C. felis transmits Dipylidium, Bartonella, Rickettsia, hemoplasmas, and Francisella tularensis.</li>
+      <li>Treat with an adulticide plus environmental control (washing and vacuuming). For an obvious infestation at admission, <b>nitenpyram</b> kills adult fleas immediately, alongside a product effective against developing stages.</li>
+    </ul>
+  </div>
+
+  <h3>Myiasis and isoxazolines <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Primary myiasis</b> requires living tissue (the screwworm Cochliomyia hominivorax is a reportable disease). <b>Secondary myiasis</b> is opportunistic invasion of devitalized tissue on soiled, matted, or wounded animals; forensic entomology can estimate the duration of neglect or time since death.</li>
+      <li>The <b>isoxazolines</b> (afoxolaner, fluralaner, lotilaner, sarolaner) are highly effective against sarcoptes, demodex, otodectes, and lynxacarus, and are often the treatment of choice for generalized demodicosis given ease of dosing, short course, and safety.</li>
+    </ul>
+    <div class="trap"><b>Exam trap</b>Fleas do not commonly jump from host to host; animals acquire fleas from a contaminated environment, and the pupa is the hardiest stage, persisting for months. Environmental control is therefore as important as treating the animal.</div>
+  </div>
+</section>
+
+<!-- ============ TAB 5: VECTOR-BORNE ============ -->
+<section class="panel" id="vector">
+  <h2 class="sec">Vector-Borne &amp; Zoonotic Disease</h2>
+  <p class="lead">Arthropod vectors carry pathogens of concern to both animals and people. Knowing the vector for each pathogen drives both treatment and the shelter's environmental control strategy.</p>
+
+  <h3>Pathogen and vector table <span class="bdg notes">notes</span></h3>
+  <table class="cmp">
+    <tr><th>Pathogen</th><th>Vector / route</th></tr>
+    <tr><td>Anaplasma phagocytophilum</td><td>Ticks (Ixodes scapularis or I. pacificus)</td></tr>
+    <tr><td>Ehrlichia canis, E. chaffeensis, E. ewingii</td><td>Ticks (including Rhipicephalus sanguineus)</td></tr>
+    <tr><td>Borrelia burgdorferi (Lyme)</td><td>Ticks (Ixodes)</td></tr>
+    <tr><td>Rickettsia rickettsii (Rocky Mountain spotted fever)</td><td>Ticks</td></tr>
+    <tr><td>Bartonella spp. (cat scratch fever)</td><td>Fleas, plus bites or scratches</td></tr>
+    <tr><td>Rickettsia felis and R. typhi (typhus)</td><td>Fleas</td></tr>
+    <tr><td>Yersinia pestis (plague)</td><td>Fleas, aerosol</td></tr>
+    <tr><td>Francisella tularensis (tularemia)</td><td>Direct skin contact with infected tissue, ticks, fleas</td></tr>
+    <tr><td>Leishmania spp.</td><td>Sandfly</td></tr>
+    <tr><td>Trypanosoma cruzi (Chagas disease)</td><td>Triatomine (kissing) bugs</td></tr>
+  </table>
+
+  <h3>Chagas disease <span class="bdg corr">corrected</span><span class="bdg txt">standard ref</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Trypanosoma cruzi</b> is endemic in the southern United States and along the Mexican border. It is transmitted by <b>triatomine (kissing) bugs</b>, which deposit infective stages in their feces near the bite wound, or it is acquired when a dog ingests the bug. Signs can include acute myocarditis and right-sided cardiomegaly.</li>
+    </ul>
+    <div class="corrbox"><b>Correction</b>Draft figures cited "20.3% prevalence in Texas" alongside "8.8% of shelter dogs," which are inconsistent and not reliably sourced. Reported Texas shelter-dog seroprevalence is commonly around 8 to 9% (higher in some regions). The testable point is the vector and the stercorarian (fecal) transmission route, which are correct.</div>
+  </div>
+
+  <h3>Babesia gibsoni <span class="bdg txt">standard ref</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>A tick-borne (and bite-transmitted) intracellular protozoan causing hemolytic anemia, with notable spread among <b>Pit Bull-type dogs</b> through bite wounds.</li>
+      <li>Therapy reduces parasitemia and clinical signs but rarely achieves complete clearance, so treated dogs are <b>permanent subclinical carriers</b> at risk of relapse and need lifelong tick prevention.</li>
+      <li><b>Atovaquone plus azithromycin</b> is the more effective protocol; the older triple therapy (clindamycin, metronidazole, doxycycline) reduces but does not clear infection.</li>
+    </ul>
+    <div class="clarify"><b>Adoption counseling</b>These dogs can ethically be adopted out with full disclosure of permanent carrier status, relapse potential, and the need for routine tick prevention. Note that bite transmission, not only ticks, is a major route in fighting-breed dogs.</div>
+  </div>
+
+  <h3>Personnel safety <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>For sarcoptic and notoedric mange, staff handling affected animals during the first 3 to 5 days of treatment should wear gloves and arm- and leg-covering clothing, and clean leashes, collars, and grooming equipment.</li>
+      <li>Reduce environmental hazards around the shelter: remove standing water, garbage, decaying organic matter, and long grass to limit vector breeding.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ MCQ ============ -->
+<section class="panel" id="mcq">
+  <h2 class="sec">MCQ Test Bank</h2>
+  <p class="lead">Filter by topic. Click an option to lock your answer and reveal the one-line rationale. Source badge on each item shows where the answer is anchored. Corrected items carry the green badge.</p>
+  <div class="mcqbar">
+    <div class="filters">
+      <button class="on" data-f="all">All</button>
+      <button data-f="control">Control</button>
+      <button data-f="endo">Endoparasites</button>
+      <button data-f="hw">Heartworm</button>
+      <button data-f="ecto">Ectoparasites</button>
+      <button data-f="vector">Vector-Borne</button>
+    </div>
+    <div class="score"><span id="scoreTxt">0 / 0 correct</span><button class="reset" id="resetBtn">Reset</button></div>
+  </div>
+  <div id="qhost"></div>
+</section>
+
+</div></main>
+
+<footer><div class="wrap">
+  Parasites Subdomain Hub &middot; ABVP Shelter Medicine Practice RVS prep. Sources badged inline: your notes; ASV Standards of Care and ASV Heartworm Management position statement (10/2024); American Heartworm Society canine (2024) and feline (2020) guidelines; and Shelter Medicine for Veterinarians and Staff, CAPC, and standard parasitology and toxicology references. Built to merge with the Infectious Disease, Sanitation, Facility, Euthanasia, Medical Health, and Nutrition &amp; Husbandry hubs.
+</div></footer>
+
+<script>
+const tabrow=document.getElementById('tabrow');
+tabrow.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.disabled)return;
+  [...tabrow.children].forEach(x=>x.classList.remove('active'));b.classList.add('active');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('show'));
+  document.getElementById(b.dataset.p).classList.add('show');window.scrollTo({top:0,behavior:'smooth'});});
+
+/* Shared parasites MCQ bank.
+   t = topic tag (drives filter chip + label)
+   f = source/flag badge: notes | asv | ahs | txt | corr  (optional)
+   q = stem, o = options, a = correct index, e = one-line rationale */
+const Q=[
+{"t":"control","f":"notes","q":"A Gulf Coast shelter intakes 14 feral cats. Which statement correctly differentiates endoparasite transmission dynamics in the shelter?","o":["Dirofilaria immitis spreads cage-to-cage via aerosolized respiratory droplets","Direct-transmission parasites like Giardia and Cryptosporidium are immediately infective when shed, enabling rapid fomite spread","Toxocara and coccidia are instantly infective on excretion, so sanitation cannot help","Indirect parasites cause widespread outbreaks even without their vector"],"a":1,"e":"Giardia and Cryptosporidium are shed already infective; Toxocara/coccidia need environmental development; indirect parasites need their vector."},
+{"t":"hw","f":"corr","q":"An asymptomatic 2-year-old cat is heartworm antigen-positive at intake. What is the most appropriate action?","o":["Start the canine three-dose melarsomine protocol","Surgically extract worms via the jugular as first-line for all positive cats","Avoid adulticide (melarsomine is unsafe in cats), manage supportively and monitor, and counsel adopters about the real risk of acute decompensation","Permanently isolate the cat from other cats to prevent direct cat-to-cat worm transmission"],"a":2,"e":"Melarsomine is not recommended in cats; manage supportively. Feline heartworm can cause sudden death, so adopters need honest counseling."},
+{"t":"hw","f":"ahs","q":"A Midwest ferret has lethargy, open-mouth breathing, muddy-blue mucous membranes, and bilirubinuria. Most likely diagnosis?","o":["Sarcoptes scabiei anaphylaxis","Heartworm disease, even with a low adult worm burden","Quaternary ammonium disinfectant toxicosis","Trichodectes canis-induced anemia"],"a":1,"e":"Ferrets are exquisitely susceptible; even one worm can obstruct the tiny heart, and bilirubinuria is the most consistently reported clinicopathologic change."},
+{"t":"hw","f":"ahs","q":"Why is a heartworm antigen test prone to false-negatives in a ferret with clear right-sided heart failure?","o":["Ferrets cannot make antibodies against microfilariae","Ferret red cells denature heartworm antigens within 2 hours","Ferrets often harbor very low burdens or single-sex (male) infections, so antigen falls below detection","Antigen tests cross-react with Demodex proteins"],"a":2,"e":"Antigen tests detect adult female antigen; low burdens or male-only infections drop the antigenic load below the detection threshold."},
+{"t":"ecto","f":"notes","q":"A 3-week-old orphan puppy has a heavy flea infestation and is too young for most systemic products. Safest validated plan?","o":["Concentrated organophosphate garden-insecticide dip","Fipronil-based spray (noted safe for neonatal kittens and puppies), with mechanical flea combing and warmth as adjuncts","High-dose oral ivermectin plus a sulfur dip","A 45% permethrin spot-on for extra-large dogs at a micro-dose"],"a":1,"e":"Fipronil spray is the safe, validated option for neonates; mechanical removal and warmth matter, and the other options risk fatal neurotoxicity."},
+{"t":"ecto","f":"notes","q":"Twelve dogs in a hoarding case have pruritus and hyperkeratosis on the ventrum, pinnae, and elbows; scraping confirms Sarcoptes scabiei var. canis. Required measure?","o":["No isolation, since Sarcoptes is strictly host-specific","Immediate isolation and PPE due to high cross-contagion and zoonotic potential for staff","House affected dogs in the feline ward","Bathe in cow's milk and withhold macrocyclic lactones until age 2"],"a":1,"e":"Canine scabies is highly contagious and zoonotic; isolate and use PPE for the first 3 to 5 days of treatment."},
+{"t":"vector","f":"txt","q":"An asymptomatic Pit Bull mix is PCR-positive for Babesia gibsoni and completes triple antibiotic therapy. What must adopters be told?","o":["The dog is fully cured and needs no preventives","Therapy reduces parasitemia but does not clear the organism; the dog is a permanent subclinical carrier needing lifelong tick prevention","The dog is contagious to humans via saliva and must be euthanized","The dog will develop right-sided heart failure if it meets a cat"],"a":1,"e":"B. gibsoni is rarely cleared; treated dogs remain carriers at risk of relapse and need lifelong tick prevention (atovaquone-azithromycin is the more effective protocol)."},
+{"t":"endo","f":"notes","q":"An 11-day-old stray-litter puppy has mucosal pallor, lethargy, and tarry feces, with high hookworm egg counts on flotation. How did patent infection arise so early?","o":["Percutaneous L3 penetration 24 hours earlier","Transmammary transmission of A. caninum via milk, with a ~2-week prepatent period allowing egg shedding and anemia by 14 days","Ingestion of an infected rodent in the whelping box","Mutation of gut flora into hookworm oocysts"],"a":1,"e":"A. caninum is transmitted in the bitch's milk; its ~2-week prepatent period lets neonates shed eggs and become anemic by ~14 days."},
+{"t":"vector","f":"corr","q":"Dogs in a Texas outdoor pen develop acute myocarditis and right-sided cardiomegaly. Which vector and mechanism should biosecurity target?","o":["Ixodes ticks injecting the pathogen in saliva","Triatomine (kissing) bugs depositing infective stages in feces near the bite, or being ingested by the dog","Anopheles mosquitoes transmitting microfilariae","Rodent nests aerosolizing Francisella tularensis"],"a":1,"e":"Trypanosoma cruzi (Chagas) is spread by triatomine bugs via fecal (stercorarian) contamination of the bite or by ingestion of the bug."},
+{"t":"ecto","f":"notes","q":"A feline-only shelter has juvenile cats with intense pruritus and scaling on heads and faces; scraping shows a sarcoptid mite. Organism and transmissibility?","o":["Demodex gatoi, strictly non-contagious, no zoonotic risk","Notoedres cati, highly contagious among cats with zoonotic potential for staff","Linognathus setosus, a sucking louse of dogs only","Cheyletiella, which only infests rabbits"],"a":1,"e":"Notoedres cati (feline scabies) starts on the head and face, is highly contagious among cats, and is zoonotic."},
+{"t":"control","f":"asv","q":"What is the ASV intake mandate for intestinal parasites in dogs and cats?","o":["Treat only animals with diarrhea","Treat all dogs and cats for roundworms and hookworms at intake, starting at 2 weeks of age, because of zoonotic risk","Treat for whipworms and tapeworms first, since they are most dangerous","Delay all deworming until after the stray hold"],"a":1,"e":"All dogs and cats must be treated for roundworms and hookworms at intake from 2 weeks of age due to the zoonotic risk."},
+{"t":"control","f":"notes","q":"Why should a broad-spectrum heartworm and flea spot-on not replace a primary dewormer at intake?","o":["Spot-ons are more expensive than tablets","They should not be used in place of a primary deworming product effective against hookworms and roundworms","They are illegal in shelters","They only work on cats"],"a":1,"e":"Broad-spectrum parasiticide spot-ons should not substitute for a primary hookworm-and-roundworm dewormer."},
+{"t":"control","f":"notes","q":"Which drug covers hookworms, roundworms, whipworms, and Giardia, but NOT Dipylidium or Echinococcus?","o":["Praziquantel","Fenbendazole","Pyrantel pamoate alone","Selamectin"],"a":1,"e":"Fenbendazole (50 mg/kg PO for 3 to 5 days) is broad but misses Dipylidium and Echinococcus; praziquantel is used for those."},
+{"t":"control","f":"notes","q":"Which statement about parasite egg environmental persistence is correct?","o":["Hookworm eggs are the hardiest and survive years on dry surfaces","Ascarid eggs are extremely resistant and become nearly impossible to destroy once in soil, whereas hookworm eggs are killed fairly rapidly by desiccation","All parasite eggs are killed instantly by routine disinfectants","Whipworm eggs cannot survive outside the host"],"a":1,"e":"Ascarid eggs are highly resistant (impossible to clear from soil); hookworm eggs are fragile and desiccate readily on dry surfaces."},
+{"t":"control","f":"notes","q":"For nematode infections detected at intake, what is the recommended approach to isolation?","o":["Strict isolation of all infected animals for 30 days","No need to isolate or quarantine, because the eggs are not immediately infective; prioritize prompt post-treatment sanitation","Euthanize to prevent environmental contamination","Quarantine only the cats"],"a":1,"e":"Ascarid/hookworm/whipworm eggs are not immediately infective, so no isolation is needed; thorough post-treatment cleanup is the priority."},
+{"t":"endo","f":"notes","q":"Which roundworm is the deadliest zoonotic agent, causing fatal neural larva migrans in humans?","o":["Toxocara canis","Toxascaris leonina","Baylisascaris procyonis","Toxocara cati"],"a":2,"e":"Baylisascaris procyonis (raccoon ascarid) causes severe, often fatal neural larva migrans; T. canis is the most common cause of larva migrans overall."},
+{"t":"endo","f":"notes","q":"Which hookworm species causes the majority of cutaneous larva migrans cases in the US?","o":["Ancylostoma caninum","Ancylostoma braziliense","Uncinaria stenocephala","Ancylostoma tubaeforme"],"a":1,"e":"A. braziliense lingers in the dermis and causes most human cutaneous larva migrans cases."},
+{"t":"endo","f":"notes","q":"What is the diagnostic test of choice for intestinal nematode eggs?","o":["Direct saline smear only","Zinc sulfate centrifugation fecal examination","Blood antigen test","Urine sediment cytology"],"a":1,"e":"Zinc sulfate centrifugation is the test of choice; intermittent shedding means a single negative does not rule out infection."},
+{"t":"endo","f":"notes","q":"How is Dipylidium caninum most effectively controlled in a shelter?","o":["Strict isolation of infected animals","A robust flea-control program, since the flea is its intermediate host","Routine fenbendazole for all animals","Environmental bleach alone"],"a":1,"e":"Dipylidium uses the flea as its intermediate host, so good flea control prevents it; visible segments mean flea control needs review."},
+{"t":"endo","f":"notes","q":"For Toxocara canis, which transmission route allows puppies to be infected before birth?","o":["Percutaneous only","Transplacental (in utero) transmission, so pups can shed eggs by about 3 weeks of age","Fomite transmission via bedding","There is no vertical transmission of T. canis"],"a":1,"e":"T. canis crosses the placenta; in-utero-infected pups can shed eggs by ~3 weeks despite a ~5-week prepatent period after egg ingestion."},
+{"t":"endo","f":"notes","q":"Which best characterizes whipworm (Trichuris vulpis)?","o":["A flea-borne tapeworm with high zoonotic risk","A direct-life-cycle nematode of the cecum and colon with a ~3-month prepatent period and a barrel-shaped bipolar-plugged egg","An obligate intermediate-host parasite","A protozoan diagnosed by ELISA only"],"a":1,"e":"Trichuris vulpis has a direct cycle, ~3-month prepatent period, lives in cecum/colon, and has a hardy barrel-shaped bipolar-plugged egg."},
+{"t":"endo","f":"notes","q":"After deworming a heavily infected dog, why is prompt sanitation critical?","o":["The dewormer makes the dog contagious by air","The feces will contain massive numbers of eggs that can contaminate the environment","The dog must be isolated for 30 days","Eggs become airborne after treatment"],"a":1,"e":"Post-treatment feces shed huge egg numbers; prompt, thorough cleanup prevents environmental contamination."},
+{"t":"endo","f":"notes","q":"A cat presents with diarrhea. What is the appropriate diagnostic sequence before empiric treatment?","o":["Immediate euthanasia","Fecal flotation, direct smear and cytology, and a Giardia ELISA as needed; if negative, treat with a broad-spectrum anthelmintic","Blood heartworm antigen test only","Skin scrape"],"a":1,"e":"Work up feline diarrhea with flotation, direct smear/cytology, and Giardia ELISA; treat empirically with a broad-spectrum dewormer if negative."},
+{"t":"hw","f":"corr","q":"What does a commercial heartworm antigen test actually detect, and how are microfilariae detected?","o":["It detects microfilariae directly; adults are found by ELISA","It detects circulating antigen of adult female worms; microfilariae are detected by concentration tests such as the Modified Knott","It detects larval L3 in the skin; adults are found on radiographs","It detects Wolbachia DNA; microfilariae are found by antigen test"],"a":1,"e":"Antigen tests detect adult female worm antigen; microfilariae are found by concentration tests (Modified Knott), which is why both tests are run."},
+{"t":"hw","f":"ahs","q":"At what minimum age should dogs be screened for heartworm, and why?","o":["6 weeks, because larvae are present at birth","About 7 months, because the prepatent period is roughly 6 months","12 months, because antigen appears only in adults over a year old","Any age, since tests detect L3 immediately"],"a":1,"e":"Do not test before about 7 months; the ~6-month prepatent period means earlier testing wastes resources."},
+{"t":"hw","f":"notes","q":"A dog on preventives is antigen-negative but heartworm is strongly suspected. What technique can unmask antigen?","o":["Repeating the same in-clinic test twice","Heat treatment of the serum sample to break antigen-antibody complexes","Switching to a microfilaria smear only","Waiting 2 years and retesting"],"a":1,"e":"Heat treatment of serum breaks antigen-antibody complexes and can convert a false-negative to a true positive."},
+{"t":"hw","f":"ahs","q":"Which describes the AHS-preferred adulticidal protocol?","o":["Macrocyclic-lactone-only slow kill for all dogs","Doxycycline plus a macrocyclic lactone, then the three-dose melarsomine protocol (one dose, then two doses 24 hours apart about a month later)","A single melarsomine injection with no doxycycline","Surgical extraction as the routine first-line treatment"],"a":1,"e":"AHS recommends doxycycline and an ML, then three-dose melarsomine; the three-dose protocol is safest and ~99% effective."},
+{"t":"hw","f":"ahs","q":"What is the role of doxycycline in heartworm treatment?","o":["It is the adulticide of choice","It suppresses Wolbachia, reduces post-treatment pulmonary pathology and microfilarial counts, and renders microfilariae non-infective to mosquitoes","It replaces the need for exercise restriction","It is given only to cats"],"a":1,"e":"Doxycycline (10 mg/kg BID x 28 days) targets the Wolbachia endosymbiont, cutting pathology and transmission."},
+{"t":"hw","f":"ahs","q":"When is a macrocyclic-lactone-only 'slow-kill' approach appropriate?","o":["As the routine first choice for all shelter dogs","Only when melarsomine is contraindicated or unavailable (for example anaphylaxis to melarsomine or a grave non-heartworm prognosis), and not in dogs that cannot be exercise-restricted","Whenever the dog has caval syndrome","For performance dogs to keep them working"],"a":1,"e":"Slow-kill is not recommended except in specific situations; it is contraindicated in performance dogs and those that cannot be activity-restricted."},
+{"t":"hw","f":"notes","q":"A heavily infected dog acutely develops collapse from worms obstructing the tricuspid valve. What is this, and the prognosis?","o":["Caval syndrome, usually fatal within about 2 days unless worms are surgically extracted","Simple pulmonary hypertension, resolves with rest","Anaphylaxis to doxycycline, self-limiting","Microfilarial dermatitis, treated topically"],"a":0,"e":"Caval syndrome is acute tricuspid obstruction by worms, usually fatal within ~2 days without prompt surgical extraction."},
+{"t":"hw","f":"asv","q":"What does the ASV Heartworm Management position statement (2024) recommend for shelter prevention?","o":["Prevention only during summer in endemic states","Year-round heartworm prevention for dogs, cats, and ferrets, since some transmission risk exists everywhere","Prevention only for dogs that test positive","No prevention until adoption"],"a":1,"e":"The ASV urges year-round prevention for dogs, cats, and ferrets because transmission risk exists year-round regardless of geography."},
+{"t":"hw","f":"asv","q":"A shelter cannot afford to treat a heartworm-positive dog. What does the ASV position statement support?","o":["Mandatory euthanasia of all positive dogs","Transfer to a partner with treatment capacity, or release to an informed adopter with clear follow-up expectations","Indefinite housing without prevention","Withholding the diagnosis from adopters"],"a":1,"e":"The ASV supports transfer to a capable partner or informed-adopter release with follow-up, and notes resources should not be diverted from other animals."},
+{"t":"ecto","f":"notes","q":"How do sucking lice (Anoplura) differ structurally from chewing lice (Mallophaga)?","o":["Sucking lice have a head wider than the thorax","Sucking lice have a head about as wide as the thorax and feed on blood, while chewing lice have a head wider than the thorax and eat skin debris","They are indistinguishable without PCR","Chewing lice suck blood; sucking lice eat debris"],"a":1,"e":"Anoplura (blood-sucking) have a head about as wide as the thorax; Mallophaga (chewing) have a head wider than the thorax."},
+{"t":"ecto","f":"notes","q":"Which statement about Demodex is correct?","o":["All Demodex species are highly contagious between dogs and cats","Demodex is generally non-contagious (acquired from the dam while nursing); generalized demodicosis reflects immunosuppression and is heritable, and isoxazolines are often the treatment of choice","Demodex has no host specificity","Amitraz is the only effective option and isoxazolines do not work"],"a":1,"e":"Demodex is host-specific and generally non-contagious; generalized disease signals immunosuppression, is heritable, and isoxazolines are now often preferred."},
+{"t":"ecto","f":"notes","q":"How are fleas most commonly acquired, and which stage is hardiest?","o":["Adult fleas jumping directly from one animal to another; the egg is hardiest","From a contaminated environment where eggs, larvae, and pupae have developed; the pupa is the hardiest stage and persists for months","Only by ingestion of infected prey; the larva is hardiest","By aerosol; the adult is hardiest"],"a":1,"e":"Animals pick up fleas from the environment, not host-to-host; the pupa is the hardiest stage, persisting for months awaiting a host."},
+{"t":"ecto","f":"notes","q":"What distinguishes primary from secondary myiasis?","o":["Primary myiasis only affects cats","Primary myiasis (for example the reportable screwworm Cochliomyia hominivorax) requires living tissue, whereas secondary myiasis is opportunistic invasion of devitalized tissue on soiled or wounded animals","Secondary myiasis is always fatal","They are the same condition"],"a":1,"e":"Primary myiasis needs living tissue (screwworm is reportable); secondary myiasis is opportunistic on devitalized tissue of debilitated animals."},
+{"t":"vector","f":"notes","q":"Which pathogen is correctly paired with its vector?","o":["Borrelia burgdorferi (Lyme) transmitted by fleas","Bartonella spp. transmitted by ticks only","Rickettsia rickettsii (Rocky Mountain spotted fever) transmitted by ticks","Yersinia pestis (plague) transmitted by sandflies"],"a":2,"e":"Rocky Mountain spotted fever (R. rickettsii) is tick-borne; Lyme is tick-borne, Bartonella is flea-associated, and plague is flea/aerosol."},
+{"t":"vector","f":"notes","q":"Which arthropods have strict host specificity and so cannot establish infestation across different host species?","o":["Fleas and ticks","Only lice and Demodex mites","Mosquitoes and sandflies","All mites and all lice"],"a":1,"e":"Only lice and Demodex mites are strictly host-specific; all other arthropods of concern are opportunistic feeders."},
+{"t":"vector","f":"notes","q":"A shelter wants to reduce environmental vector burden. Which measure is most appropriate?","o":["Routinely use footbaths as the primary control","Remove standing water, garbage, decaying organic matter, and long grass to limit vector breeding","House all animals outdoors to dilute exposure","Stop tick prevention to avoid resistance"],"a":1,"e":"Eliminating standing water, refuse, decaying matter, and long grass reduces vector breeding sites around the shelter."}
+];
+
+const host=document.getElementById('qhost');
+const scoreTxt=document.getElementById('scoreTxt');
+let answered=0, correct=0, filter='all';
+const DLABEL={control:"Control & Transmission",endo:"Endoparasites",hw:"Heartworm",ecto:"Ectoparasites",vector:"Vector-Borne"};
+function tagLabel(t){return DLABEL[t]||t.toUpperCase();}
+function flagBadge(f){
+  if(f==='corr')return '<span class="bdg corr">corrected</span>';
+  if(f==='notes')return '<span class="bdg notes">your notes</span>';
+  if(f==='asv')return '<span class="bdg asv">ASV</span>';
+  if(f==='ahs')return '<span class="bdg ahs">AHS</span>';
+  if(f==='txt')return '<span class="bdg txt">textbook</span>';
+  return '';
+}
+function render(){
+  host.innerHTML='';answered=0;correct=0;updateScore();
+  Q.forEach((item,i)=>{
+    if(filter!=='all' && item.t!==filter) return;
+    const card=document.createElement('div');card.className='q';
+    card.innerHTML=`<div class="meta"><span class="num">#${i+1}</span><span class="tag">&#9670; ${tagLabel(item.t)}</span>${flagBadge(item.f)}</div><div class="stem">${item.q}</div>`;
+    const opts=document.createElement('div');
+    item.o.forEach((txt,oi)=>{
+      const btn=document.createElement('button');btn.className='opt';
+      btn.innerHTML=`<span class="k">${String.fromCharCode(65+oi)}</span>${txt}`;
+      btn.onclick=()=>choose(card,opts,item,oi);opts.appendChild(btn);
+    });
+    card.appendChild(opts);
+    const ex=document.createElement('div');ex.className='expl';
+    ex.innerHTML=`<b class="cor">Correct: ${String.fromCharCode(65+item.a)}.</b> ${item.e}`;
+    card.appendChild(ex);host.appendChild(card);
+  });
+}
+function choose(card,opts,item,oi){
+  if(card.dataset.done)return;card.dataset.done='1';answered++;
+  [...opts.children].forEach((b,bi)=>{b.classList.add('locked');
+    if(bi===item.a)b.classList.add('correct');
+    if(bi===oi && oi!==item.a)b.classList.add('wrong');});
+  if(oi===item.a)correct++;
+  card.querySelector('.expl').classList.add('show');updateScore();
+}
+function updateScore(){scoreTxt.textContent=`${correct} / ${answered} correct`;}
+document.querySelector('.filters').addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  document.querySelectorAll('.filters button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');filter=b.dataset.f;render();});
+document.getElementById('resetBtn').onclick=render;
+render();
+</script>
+</body>
+</html>

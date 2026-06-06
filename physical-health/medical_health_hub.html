@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medical Health Subdomain Hub | ABVP Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0f3d3a;--ink2:#15514c;--paper:#f4efe4;--paper2:#fbf8f1;
+    --line:#d9d0bd;--muted:#5d6b62;
+    --id:#3c4a86;--id-soft:#e2e4f2;            /* ASV blue (accent + ASV badge) */
+    --good:#1f7a4d;--bad:#b23b3b;
+    --notes:#7a4fb5;--notes-soft:#ece3f7;       /* your medical notes */
+    --txt:#8a6d1f;--txt-soft:#f3ebcf;           /* textbook / standard reference */
+    --warn:#a8641a;--warn-soft:#f7e6cd;         /* exam trap amber */
+    --shadow:0 1px 2px rgba(15,61,58,.08),0 8px 24px rgba(15,61,58,.06);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;
+    background-image:radial-gradient(circle at 1px 1px,rgba(15,61,58,.04) 1px,transparent 0);background-size:22px 22px;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+  header.top{background:var(--ink);color:var(--paper2);padding:26px 0 22px;border-bottom:4px solid var(--id)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#9ec9c2;margin:0 0 6px}
+  header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(26px,4.5vw,40px);margin:0;line-height:1.05}
+  header.top p.sub{margin:8px 0 0;color:#cfe3df;font-size:14px;max-width:80ch}
+  .legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}
+  .legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.25);color:#eaf4f1;display:flex;align-items:center;gap:6px}
+  .legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--paper2);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button:hover{background:var(--paper);color:var(--ink)}
+  .tabrow button.active{background:var(--ink);color:var(--paper2)}
+  .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--id)}
+  main{padding:30px 0 80px}
+  .panel{display:none;animation:fade .35s ease}
+  .panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;letter-spacing:-.01em}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:80ch}
+  h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:30px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;scroll-margin-top:64px}
+  h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;color:var(--ink2);text-transform:uppercase;letter-spacing:.03em}
+  .card{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}
+  ul.hy{margin:8px 0;padding-left:0;list-style:none}
+  ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed #e6ddca;font-size:14px}
+  ul.hy li:last-child{border-bottom:0}
+  ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;border-radius:2px;background:var(--id);transform:rotate(45deg)}
+  .trap{background:var(--warn-soft);border:1px solid #e6cfa6;border-left:4px solid var(--warn);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .trap b{color:var(--warn);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .corrbox{background:#e9f4ee;border:1px solid #bfe0cc;border-left:4px solid var(--good);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .corrbox b{color:var(--good);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .clarify{background:var(--id-soft);border:1px solid #c6cbe6;border-left:4px solid var(--id);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .clarify b{color:var(--id);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:var(--paper2);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp th{background:var(--ink);color:var(--paper2);font-weight:600;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase}
+  table.cmp tr:last-child td{border-bottom:0}
+  table.cmp td b{color:var(--ink)}
+  .yes{color:var(--good);font-weight:700}
+  .no{color:var(--bad);font-weight:700}
+  .fig{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0;box-shadow:var(--shadow)}
+  .fig figcaption{font-size:12.5px;color:var(--muted);margin-top:8px;font-style:italic}
+  .bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+  .bdg.notes{background:var(--notes-soft);color:var(--notes)}
+  .bdg.asv{background:var(--id-soft);color:var(--id)}
+  .bdg.txt{background:var(--txt-soft);color:var(--txt)}
+  .bdg.corr{background:var(--good);color:#fff}
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--ink);color:var(--paper2);border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:54px;z-index:10}
+  .mcqbar .filters{display:flex;gap:6px;flex-wrap:wrap}
+  .mcqbar .filters button{font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#d6e7e3;padding:6px 11px;border-radius:999px;cursor:pointer}
+  .mcqbar .filters button.on{background:var(--id);border-color:var(--id);color:#fff}
+  .score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}
+  .score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;color:#d6e7e3;padding:5px 10px;border-radius:8px;font-size:11px}
+  .q{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
+  .q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+  .q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--id-soft);color:var(--id)}
+  .q .stem{font-weight:600;font-size:15px;margin-bottom:10px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;font-family:"Public Sans";transition:background .15s,border-color .15s}
+  .opt:hover{border-color:var(--ink)}
+  .opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}
+  .opt.correct{background:#e8f5ec;border-color:var(--good);color:#0d3d24}
+  .opt.wrong{background:#fbe9e9;border-color:var(--bad);color:#5e1d1d}
+  .opt.locked{cursor:default}
+  .expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:#f3efe3;border:1px solid var(--line);font-size:13.5px}
+  .expl.show{display:block}
+  .expl b.cor{color:var(--good)}
+  footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
+  @media(max-width:640px){.mcqbar{top:50px}.score{font-size:12px}}
+</style>
+</head>
+<body>
+<nav style="background:#0f3d3a;padding:9px 18px;display:flex;align-items:center;gap:10px;font-family:'Public Sans',system-ui,sans-serif;font-size:13px;font-weight:500;border-bottom:2px solid #1f5c4e"><a href="../index.html" style="color:#9ec9c2;text-decoration:none;display:flex;align-items:center;gap:5px"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span style="color:#4a7a6e;font-size:11px">›</span><span style="color:#cfe3df">Physical Health of Animals</span></nav>
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">ABVP Shelter Medicine Practice RVS &middot; Physical Health of Animal</p>
+    <h1>Medical Health Subdomain Hub</h1>
+    <p class="sub">Exam-depth study tool for the Medical Health subdomain, focused on infrastructure, oversight, monitoring, pain, and response. Five tabs plus a shared, filterable MCQ bank. Vaccination, parasites, and nutrition are covered in their own subdomains and are not duplicated here. Claims are badged by source; ASV claims are verified against the ASV Standards of Care 2022 (Medical Health chapter) and the ASV Veterinary Supervision (2021), Telemedicine (2021), Medical Treatment of Animals Held for Legal Reasons (2021), and FeLV and FIV Testing (2020) position statements. The Emergency tab adds triage and emergency pharmacology from standard emergency references.</p>
+    <div class="legend">
+      <span><i style="background:var(--notes)"></i>Your medical notes</span>
+      <span><i style="background:var(--id)"></i>ASV (Standards of Care + position statements)</span>
+      <span><i style="background:var(--txt)"></i>Textbook / standard reference</span>
+      <span><i style="background:var(--good)"></i>Corrected</span>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="foundations"><span class="dot"></span>Foundations &amp; Capacity</button>
+  <button data-p="oversight"><span class="dot"></span>Oversight, Records &amp; Stewardship</button>
+  <button data-p="monitoring"><span class="dot"></span>Monitoring &amp; Examination</button>
+  <button data-p="pain"><span class="dot"></span>Pain Management</button>
+  <button data-p="emergency"><span class="dot"></span>Emergency &amp; Response</button>
+  <button data-p="mcq"><span class="dot" style="background:#0f3d3a"></span>MCQ Test Bank</button>
+</div></div></nav>
+
+<main><div class="wrap">
+
+<!-- ============ TAB 1: FOUNDATIONS ============ -->
+<section class="panel show" id="foundations">
+  <h2 class="sec">Foundations &amp; Capacity</h2>
+  <p class="lead">Medical care in a shelter is proactive and population-aware: it starts at or before intake, balances the individual against the group, and is bounded by a defined capacity to provide care. These foundations frame every decision in the rest of the subdomain.</p>
+
+  <h3>The health mandate and care timeline <span class="bdg asv">ASV</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Health</b> is defined (after the World Health Organization) as a state of complete physical, mental, and social well-being, not merely the absence of disease or infirmity.</li>
+      <li>Shelter medical care must <b>begin at or before intake</b> and continue throughout the stay. When a shelter admits an animal, it becomes responsible for all needed medical and wellness care, or for promptly finding an outcome that meets those needs.</li>
+      <li><b>Preventive pillars:</b> vaccination, parasite control, good nutrition, and appropriate handling and housing location. (These have their own subdomains; here they are named as the framework, not detailed.)</li>
+    </ul>
+  </div>
+
+  <h3>Capacity to provide medical care <span class="bdg asv">ASV</span></h3>
+  <figure class="fig">
+    <svg viewBox="0 0 720 280" width="100%" role="img" aria-label="Six capacity factors feeding a treat versus cannot-treat decision">
+      <defs><marker id="arMH1" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0f3d3a"/></marker></defs>
+      <text x="120" y="20" font-size="11" text-anchor="middle" font-weight="700" fill="#15514c">Six capacity factors</text>
+      <rect x="14" y="30" width="212" height="26" rx="5" fill="#e2e4f2" stroke="#3c4a86"/><text x="120" y="47" font-size="9.5" text-anchor="middle">Resource availability</text>
+      <rect x="14" y="62" width="212" height="26" rx="5" fill="#e2e4f2" stroke="#3c4a86"/><text x="120" y="79" font-size="9.5" text-anchor="middle">Duration of care</text>
+      <rect x="14" y="94" width="212" height="26" rx="5" fill="#e2e4f2" stroke="#3c4a86"/><text x="120" y="111" font-size="9.5" text-anchor="middle">Number of animals needing treatment</text>
+      <rect x="14" y="126" width="212" height="26" rx="5" fill="#e2e4f2" stroke="#3c4a86"/><text x="120" y="143" font-size="9.5" text-anchor="middle">Transmission likelihood + consequences</text>
+      <rect x="14" y="158" width="212" height="26" rx="5" fill="#e2e4f2" stroke="#3c4a86"/><text x="120" y="175" font-size="9.5" text-anchor="middle">Likelihood of recovery</text>
+      <rect x="14" y="190" width="212" height="26" rx="5" fill="#e2e4f2" stroke="#3c4a86"/><text x="120" y="207" font-size="9.5" text-anchor="middle">Potential for a live outcome</text>
+      <polygon points="370,80 470,123 370,166 270,123" fill="#f3ebcf" stroke="#8a6d1f"/><text x="370" y="118" font-size="10" text-anchor="middle" font-weight="600">Capacity</text><text x="370" y="132" font-size="10" text-anchor="middle" font-weight="600">to treat?</text>
+      <line x1="226" y1="123" x2="268" y2="123" stroke="#0f3d3a" stroke-width="1.5" marker-end="url(#arMH1)"/>
+      <rect x="510" y="62" width="196" height="44" rx="9" fill="#e9f4ee" stroke="#1f7a4d"/><text x="608" y="80" font-size="10" text-anchor="middle" font-weight="600">Treat</text><text x="608" y="96" font-size="9" text-anchor="middle">per written protocol</text>
+      <rect x="510" y="140" width="196" height="56" rx="9" fill="#fbe9e9" stroke="#b23b3b"/><text x="608" y="160" font-size="10" text-anchor="middle" font-weight="600">Cannot treat</text><text x="608" y="176" font-size="9" text-anchor="middle">seek alternative placement</text><text x="608" y="189" font-size="9" text-anchor="middle">or humane outcome</text>
+      <line x1="470" y1="110" x2="508" y2="92" stroke="#0f3d3a" stroke-width="1.5" marker-end="url(#arMH1)"/>
+      <line x1="470" y1="136" x2="508" y2="158" stroke="#0f3d3a" stroke-width="1.5" marker-end="url(#arMH1)"/>
+      <text x="360" y="246" font-size="11" text-anchor="middle" fill="#5d6b62">Shelters should have a pre-set protocol for which animals and conditions they can and cannot treat.</text>
+      <text x="360" y="266" font-size="10.5" text-anchor="middle" fill="#5d6b62">Capacity is dynamic: it shifts with intake volume, resources, and population pressure.</text>
+    </svg>
+    <figcaption>Capacity for Care decision logic. Source: ASV Standards of Care 2022, Medical Health chapter.</figcaption>
+  </figure>
+  <div class="clarify"><b>Population versus individual</b>Individual care is balanced against population health. Population health suffers when disease spread is likely, when long lengths of stay push the shelter over its capacity for care, and when one animal's treatment costs drain the resources available to others.</div>
+</section>
+
+<!-- ============ TAB 2: OVERSIGHT ============ -->
+<section class="panel" id="oversight">
+  <h2 class="sec">Oversight, Records &amp; Stewardship</h2>
+  <p class="lead">A shelter's medical program runs on a formal veterinary relationship, written evidence-based protocols, disciplined prescribing, and complete records. This tab also covers the supervision definitions and telemedicine, which determine who may do what, and where.</p>
+
+  <h3>Veterinary supervision <span class="bdg asv">ASV PS</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Every shelter should have a <b>formal relationship with a veterinarian who has direct knowledge</b> of the organization, its population, and its facilities.</li>
+      <li>Preventive protocols are developed in consultation with this veterinarian and may be implemented by trained staff under <b>indirect supervision</b>. Treatment of common conditions by trained staff may also occur under indirect supervision per written protocol, or by telephonic or written instruction.</li>
+    </ul>
+  </div>
+  <table class="cmp">
+    <tr><th>Term</th><th>Definition</th></tr>
+    <tr><td><b>Direct supervision</b></td><td>A licensed veterinarian is readily available <b>on the premises</b> and has assumed responsibility for the care given.</td></tr>
+    <tr><td><b>Indirect supervision</b></td><td>The veterinarian <b>need not be on the premises</b>, has given written or oral instructions, is readily available by phone or immediate communication, and has assumed responsibility.</td></tr>
+    <tr><td><b>Direct knowledge</b></td><td>The veterinarian <b>regularly visits and examines</b> the shelter population in person.</td></tr>
+    <tr><td><b>Written protocol</b></td><td>A document detailing standard care for a condition or procedure (policy, disease recognition, dose and route, diagnostics, environmental risk, adverse-effect response, storage and handling, documentation).</td></tr>
+  </table>
+  <div class="clarify"><b>Where this comes from</b>These definitions track the 2019 AVMA Model Practice Act, cited by the ASV Veterinary Supervision position statement (2021). Most preventive and common-condition care in shelters runs under indirect supervision.</div>
+
+  <h3>Telemedicine and the VCPR <span class="bdg asv">ASV PS</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Telemedicine</b> is the use of remote communication technology to provide medical examination and treatment. It broadens access, removes geographic barriers, reduces travel stress, and supports biosecurity.</li>
+      <li>Veterinarians use professional discretion to decide whether telemedicine is appropriate for a given diagnosis or judgment.</li>
+      <li>The ASV supports legislation allowing a <b>veterinarian-client-patient relationship (VCPR)</b> to be created through telephone, digital, or electronic communication, and allowing prescribing through such a VCPR.</li>
+      <li>Keep medical records for each encounter, ensure follow-up, and respect the jurisdictional limits of veterinary licenses.</li>
+    </ul>
+  </div>
+
+  <h3>Evidence-based protocols and the prescribing standard <span class="bdg asv">ASV</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Evidence-based protocols are essential and must be developed in consultation with the shelter's veterinarian. Ensuring compliance, at population and individual level, is part of veterinary oversight.</li>
+      <li>Protocols include six areas: <b>diagnosis, treatment, animal housing, sanitation, decision-making, and communication.</b> When a concern falls outside standard protocols or does not respond as expected, the veterinarian must be consulted.</li>
+      <li><b>Prescribing standard:</b> medications only by prescription or written protocol, requiring a reasonable presumptive diagnosis, the ability to administer as directed, and a plan to monitor so success or failure can be judged.</li>
+      <li><b>Antibiotic stewardship:</b> giving medications when not needed, such as antibiotics to prevent a viral infection, causes harmful side effects and promotes antibiotic resistance.</li>
+      <li>Drug use and dispensing must follow federal and state regulations, which may limit off-label and compounded drugs.</li>
+    </ul>
+  </div>
+
+  <h3>Records and the prescription label <span class="bdg asv">ASV</span><span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Medical records</b> include identifying information; signalment (age, sex, species, reproductive status); and a dated list of exam findings, vaccinations, diagnostic results, procedures, and treatments (with drug dose and route). A copy must be provided when the animal leaves the shelter's care.</li>
+      <li><b>Prescription drug label,</b> seven components: name of the prescribing veterinarian; clinic or shelter name, phone, and address; patient ID and species; date dispensed and expiration date; drug name, form, and amount; directions for use; and cautionary statements.</li>
+    </ul>
+  </div>
+
+  <h3>Program quality and surveillance <span class="bdg asv">ASV</span><span class="bdg corr">corrected</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Track disease rates and outcomes to measure population health. <b>Deficiency indicators:</b> a decline in animal health and welfare after intake; sick or injured animals held without prompt treatment; <b>wide-scale disease outbreaks</b>; animals dying or euthanized from shelter-acquired disease or injury; and chronically high disease rates.</li>
+      <li><b>Population health surveillance:</b> track morbidity and mortality trends and develop targeted strategies; individual and population health monitoring cannot exist without each other.</li>
+    </ul>
+    <div class="corrbox"><b>Correction</b>Your notes list "side scale disease outbreaks." The ASV term is <b>wide-scale disease outbreaks</b>. It is a typo, but a key term, so it is corrected here.</div>
+  </div>
+</section>
+
+<!-- ============ TAB 3: MONITORING ============ -->
+<section class="panel" id="monitoring">
+  <h2 class="sec">Monitoring &amp; Examination</h2>
+  <p class="lead">From intake onward, every animal is assessed on a defined cadence. Knowing the exact intervals (intake, daily, monthly, six-monthly) and the FeLV/FIV testing logic is high-yield.</p>
+
+  <h3>The monitoring cadence <span class="bdg asv">ASV</span><span class="bdg notes">notes</span></h3>
+  <figure class="fig">
+    <svg viewBox="0 0 720 160" width="100%" role="img" aria-label="Monitoring cadence timeline from intake to six months">
+      <defs><marker id="arMH2" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0f3d3a"/></marker></defs>
+      <line x1="40" y1="70" x2="690" y2="70" stroke="#d9d0bd" stroke-width="2"/>
+      <circle cx="90" cy="70" r="7" fill="#3c4a86"/><text x="90" y="46" font-size="10.5" text-anchor="middle" font-weight="700" fill="#15514c">Intake</text><text x="90" y="98" font-size="9" text-anchor="middle">cursory check;</text><text x="90" y="110" font-size="9" text-anchor="middle">comprehensive exam</text><text x="90" y="121" font-size="9" text-anchor="middle">ideally within 24 h</text>
+      <circle cx="270" cy="70" r="7" fill="#3c4a86"/><text x="270" y="46" font-size="10.5" text-anchor="middle" font-weight="700" fill="#15514c">Daily</text><text x="270" y="98" font-size="9" text-anchor="middle">visual health check</text><text x="270" y="110" font-size="9" text-anchor="middle">at least every 24 h</text><text x="270" y="121" font-size="9" text-anchor="middle">(ideally before cleaning)</text>
+      <circle cx="460" cy="70" r="7" fill="#3c4a86"/><text x="460" y="46" font-size="10.5" text-anchor="middle" font-weight="700" fill="#15514c">Monthly</text><text x="460" y="98" font-size="9" text-anchor="middle">reweigh + body</text><text x="460" y="110" font-size="9" text-anchor="middle">condition score</text>
+      <circle cx="650" cy="70" r="7" fill="#b23b3b"/><text x="650" y="46" font-size="10.5" text-anchor="middle" font-weight="700" fill="#15514c">Every 6 months</text><text x="650" y="98" font-size="9" text-anchor="middle">comprehensive exam</text><text x="650" y="110" font-size="9" text-anchor="middle">including foster</text>
+      <line x1="98" y1="70" x2="260" y2="70" stroke="#0f3d3a" stroke-width="1.4" marker-end="url(#arMH2)"/>
+      <line x1="278" y1="70" x2="450" y2="70" stroke="#0f3d3a" stroke-width="1.4" marker-end="url(#arMH2)"/>
+      <line x1="468" y1="70" x2="640" y2="70" stroke="#0f3d3a" stroke-width="1.4" marker-end="url(#arMH2)"/>
+      <text x="365" y="146" font-size="10" text-anchor="middle" fill="#5d6b62">More frequent exams are needed for chronic conditions and whenever new concerns appear.</text>
+    </svg>
+    <figcaption>Minimum monitoring intervals. Source: ASV Standards of Care 2022 and your notes.</figcaption>
+  </figure>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Intake:</b> every animal gets at least a cursory health assessment by trained personnel (confirm age, sex, description, identification, microchip); a comprehensive physical exam is ideally performed <b>within 24 hours of intake</b>. Animals with signs of infectious disease are isolated until determined low-risk.</li>
+      <li><b>Daily:</b> trained personnel must visually observe every animal at least once every 24 hours, ideally before cleaning, noting food intake and enclosure condition (feces, urine, vomit).</li>
+      <li><b>Monthly:</b> reweigh and repeat body condition score.</li>
+      <li><b>Every 6 months:</b> a comprehensive exam for long-term residents, including those in foster.</li>
+    </ul>
+  </div>
+
+  <h3>FeLV and FIV testing policy <span class="bdg asv">ASV PS</span></h3>
+  <table class="cmp">
+    <tr><th>Cat scenario</th><th>Testing guidance</th></tr>
+    <tr><td><b>General principle</b></td><td>Assess each cat individually; in general, screen all cats for retroviruses to optimize individual and population health.</td></tr>
+    <tr><td><b>High-risk (entering group housing, or ill)</b></td><td class="yes">Should be tested.</td></tr>
+    <tr><td><b>Individually-housed, low-risk, healthy</b></td><td>Weigh transmission risk against financial and management implications.</td></tr>
+    <tr><td><b>Healthy feral cats in TNR</b></td><td class="no">Testing is not recommended.</td></tr>
+    <tr><td><b>Healthy cat, single positive result</b></td><td>Do not euthanize on a single positive; confirm per AAFP guidelines and seek informed placement.</td></tr>
+  </table>
+  <div class="trap"><b>Exam trap</b>The ASV does not recommend euthanasia of a clinically healthy cat based on a single positive point-of-care retroviral test. Confirmatory testing follows the current AAFP guidelines, and complete history (test date and type) goes with the cat at adoption or transfer.</div>
+
+  <h3>Quarantine versus isolation <span class="bdg asv">ASV</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Isolation</b> separates animals with suspected or confirmed infectious disease until diagnosis or treatment determines them low-risk.</li>
+      <li><b>Quarantine</b> of healthy animals at intake is <b>not generally recommended</b>; it is appropriate only for animals with a history of direct, high-risk infectious-disease exposure. Unnecessary holds increase length of stay and harm welfare.</li>
+    </ul>
+    <div class="trap"><b>Exam trap</b>Blanket intake quarantine of healthy animals is a distractor. It lengthens stays without benefit. Reserve quarantine for documented high-risk exposure.</div>
+  </div>
+</section>
+
+<!-- ============ TAB 4: PAIN ============ -->
+<section class="panel" id="pain">
+  <h2 class="sec">Pain Management</h2>
+  <p class="lead">Pain control is mandatory, multimodal, and pre-emptive where possible. Failure to treat pain is explicitly unacceptable, and euthanasia is a legitimate part of treatment when suffering cannot be relieved.</p>
+
+  <h3>Recognizing and treating pain <span class="bdg asv">ASV</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Pain must be recognized and treated to alleviate suffering. <b>Failure to provide treatment for pain is unacceptable.</b> Treatment of pain can include providing <b>euthanasia</b>.</li>
+      <li>Assess pain through behavior and knowledge of causes; <b>if a condition is painful in humans, assume it is painful in animals.</b> Several validated pain scales exist.</li>
+      <li><b>Unrelieved pain</b> is a significant welfare concern and can cause weight loss, muscle breakdown, increased blood pressure, prolonged recovery, and mental and emotional distress.</li>
+    </ul>
+  </div>
+
+  <h3>Pre-emptive, multimodal, and reassessed <span class="bdg asv">ASV</span><span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Pain control must be of an appropriate <b>strength and duration</b> to preempt or relieve pain. When pain can be anticipated, as with surgery, provide control <b>before</b> the painful event.</li>
+      <li>The use of controlled drugs must be supervised by a veterinarian as required by statute.</li>
+      <li><b>Non-pharmacological methods</b> that supplement drugs: the presence of littermates, a quiet environment, massage, physical therapy, heat, and deep bedding. These increase comfort and reduce anxiety.</li>
+      <li>Reassess animals frequently to judge the efficacy of pain relief. When relief is inadequate, <b>emergency medical care must be provided.</b></li>
+    </ul>
+    <div class="clarify"><b>Note</b>Non-pharmacological methods supplement, not replace, analgesia. They are adjuncts to a veterinary pain-control protocol.</div>
+  </div>
+</section>
+
+<!-- ============ TAB 5: EMERGENCY ============ -->
+<section class="panel" id="emergency">
+  <h2 class="sec">Emergency &amp; Health-Concern Response</h2>
+  <p class="lead">Every shelter needs a written plan for timely emergency care, a structured triage method, command of the core emergency drugs, a clear rule for when euthanasia relieves suffering, and the principle that legal status never blocks treatment. Infectious-disease and outbreak response round out the framework.</p>
+
+  <h3>The emergency medical plan <span class="bdg asv">ASV</span><span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Every shelter must have an established, <b>written</b> emergency medical plan to provide appropriate, timely veterinary care for any animal that is injured, in distress, or showing signs of significant illness.</li>
+      <li>The plan must indicate how staff <b>recognize and report</b> conditions needing emergency care, and whether services are <b>on-site or at an outside clinic</b>. Animals in foster or off-site are covered by the same guidance, with clear after-hours instructions.</li>
+      <li><b>Three execution paths</b> guarantee prompt care: on-site stabilization and immediate treatment; immediate transfer to a partnered 24-hour emergency or specialty facility; or prompt, humane euthanasia by qualified personnel (as local law permits) when suffering cannot be alleviated.</li>
+      <li><b>Staff-training mandate:</b> a shelter cannot rely on veterinary presence alone. Non-veterinary care staff must be trained to actively recognize critical conditions so they can trigger the emergency protocol without delay.</li>
+    </ul>
+  </div>
+
+  <h3>Triage: the ABC primary survey <span class="bdg txt">standard ref</span></h3>
+  <p class="lead" style="margin-bottom:8px">Triage is the rapid assessment of animals entering or residing in the facility to determine physiological criticality and prioritize treatment. Work the primary survey in order: Airway, Breathing, Circulation.</p>
+  <figure class="fig">
+    <svg viewBox="0 0 720 200" width="100%" role="img" aria-label="ABC primary survey flow with red-flag findings">
+      <defs><marker id="arMH3" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0f3d3a"/></marker></defs>
+      <rect x="20" y="60" width="170" height="56" rx="10" fill="#e2e4f2" stroke="#3c4a86"/><text x="105" y="84" font-size="12" text-anchor="middle" font-weight="700">A &middot; Airway</text><text x="105" y="102" font-size="8.5" text-anchor="middle">patency, stridor, stertor,</text>
+      <rect x="275" y="60" width="170" height="56" rx="10" fill="#d8ebee" stroke="#2f7d8c"/><text x="360" y="84" font-size="12" text-anchor="middle" font-weight="700">B &middot; Breathing</text><text x="360" y="102" font-size="8.5" text-anchor="middle">effort, auscultate, percuss</text>
+      <rect x="530" y="60" width="170" height="56" rx="10" fill="#f3ebcf" stroke="#8a6d1f"/><text x="615" y="84" font-size="12" text-anchor="middle" font-weight="700">C &middot; Circulation</text><text x="615" y="102" font-size="8.5" text-anchor="middle">MM, CRT, pulse quality</text>
+      <line x1="190" y1="88" x2="273" y2="88" stroke="#0f3d3a" stroke-width="1.6" marker-end="url(#arMH3)"/>
+      <line x1="445" y1="88" x2="528" y2="88" stroke="#0f3d3a" stroke-width="1.6" marker-end="url(#arMH3)"/>
+      <text x="105" y="140" font-size="8.5" text-anchor="middle" fill="#b23b3b">Red flags: cyanosis,</text><text x="105" y="152" font-size="8.5" text-anchor="middle" fill="#b23b3b">open-mouth breathing (cat)</text>
+      <text x="360" y="140" font-size="8.5" text-anchor="middle" fill="#b23b3b">Red flags: orthopnea,</text><text x="360" y="152" font-size="8.5" text-anchor="middle" fill="#b23b3b">dull lung sounds, abdominal push</text>
+      <text x="615" y="140" font-size="8.5" text-anchor="middle" fill="#b23b3b">Red flags: pale/muddy MM,</text><text x="615" y="152" font-size="8.5" text-anchor="middle" fill="#b23b3b">CRT over 2.5 s, weak pulses</text>
+      <text x="360" y="184" font-size="10" text-anchor="middle" fill="#5d6b62">Life-threatening hemorrhage is controlled with direct pressure concurrently with the primary survey.</text>
+    </svg>
+    <figcaption>The ABC primary survey. Source: standard emergency and triage references.</figcaption>
+  </figure>
+  <table class="cmp">
+    <tr><th>Parameter</th><th>What to assess</th><th>Objective red-flag signs</th></tr>
+    <tr><td><b>A &middot; Airway</b></td><td>Physical patency, tracheal auscultation, upper-airway obstruction</td><td>Stridor, stertor, open-mouth breathing in cats, cyanosis</td></tr>
+    <tr><td><b>B &middot; Breathing</b></td><td>Effort, rate, chest-wall expansion, lung-field auscultation, thoracic percussion</td><td>Abdominal push, orthopneic posture (elbows abducted), dull or absent lung sounds ventrally (effusion) or dorsally (pneumothorax)</td></tr>
+    <tr><td><b>C &middot; Circulation</b></td><td>Pulse quality and rate, mucous-membrane color, capillary refill time</td><td>Pale, brick-red, or muddy MM; CRT under 1 s (hyperdynamic) or over 2.5 s (poor perfusion); weak femoral pulses</td></tr>
+  </table>
+  <figure class="fig">
+    <svg viewBox="0 0 720 150" width="100%" role="img" aria-label="Shock spectrum from hyperdynamic to decompensated">
+      <defs><marker id="arMH4" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0f3d3a"/></marker></defs>
+      <rect x="30" y="40" width="300" height="64" rx="10" fill="#fbe9e9" stroke="#b23b3b"/><text x="180" y="62" font-size="11" text-anchor="middle" font-weight="700" fill="#15514c">Hyperdynamic / early</text><text x="180" y="80" font-size="9" text-anchor="middle">brick-red MM, CRT under 1 s,</text><text x="180" y="93" font-size="9" text-anchor="middle">bounding pulses, tachycardia</text>
+      <rect x="390" y="40" width="300" height="64" rx="10" fill="#7a1f1f" stroke="#5e1d1d"/><text x="540" y="62" font-size="11" text-anchor="middle" font-weight="700" fill="#fbe9e9">Decompensatory</text><text x="540" y="80" font-size="9" text-anchor="middle" fill="#f6dada">pale to muddy MM, CRT over 2.5 s,</text><text x="540" y="93" font-size="9" text-anchor="middle" fill="#f6dada">weak pulses, falling blood pressure</text>
+      <line x1="330" y1="72" x2="388" y2="72" stroke="#0f3d3a" stroke-width="1.8" marker-end="url(#arMH4)"/>
+      <text x="360" y="130" font-size="10" text-anchor="middle" fill="#5d6b62">Shock progresses as the body can no longer sustain blood pressure; the circulation findings flip from hyperdynamic to poor-perfusion.</text>
+    </svg>
+    <figcaption>Shock spectrum. Source: standard emergency references.</figcaption>
+  </figure>
+  <div class="trap"><b>Exam trap</b>Brick-red mucous membranes with a very fast CRT and bounding pulses signal the hyperdynamic phase of distributive or septic shock, not hypovolemia. Pale-to-muddy membranes, CRT over 2.5 seconds, and weak pulses mark decompensatory hypovolemic shock.</div>
+
+  <h3>Emergency pharmacology <span class="bdg txt">standard ref</span></h3>
+  <table class="cmp">
+    <tr><th>Drug</th><th>Primary indication</th><th>Mechanism / board fact</th></tr>
+    <tr><td><b>Epinephrine</b></td><td>Asystole, pulseless electrical activity, anaphylaxis</td><td>Adrenergic agonist; profound vasoconstriction and bronchodilation. First drug in asystole during CPR.</td></tr>
+    <tr><td><b>Atropine</b></td><td>Severe or vagally-mediated bradycardia, organophosphate toxicity</td><td>Anticholinergic; blocks acetylcholine to increase SA-node firing.</td></tr>
+    <tr><td><b>Mannitol</b></td><td>Traumatic brain injury, raised intracranial pressure, acute glaucoma</td><td>Osmotic diuretic; pulls interstitial fluid from brain parenchyma into the vasculature. Ensure the patient is volume-resuscitated first.</td></tr>
+    <tr><td><b>Diazepam</b> (then propofol or alfaxalone)</td><td>Active status epilepticus, cluster seizures</td><td>Enhances GABA-mediated CNS inhibition; benzodiazepine first, then an injectable anesthetic to effect if refractory.</td></tr>
+    <tr><td><b>Furosemide</b></td><td>Acute congestive heart failure, cardiogenic pulmonary edema</td><td>Loop diuretic; blocks the cotransporter in the thick ascending limb of the loop of Henle to reduce preload.</td></tr>
+    <tr><td><b>Lidocaine</b></td><td>Ventricular premature complexes, ventricular tachycardia</td><td>Class IB antiarrhythmic; fast sodium-channel blocker stabilizing ventricular membranes.</td></tr>
+    <tr><td><b>Methocarbamol</b></td><td>Acute tremors from toxicosis (for example feline permethrin)</td><td>Centrally-acting skeletal-muscle relaxant; reduces polysynaptic spinal reflexes.</td></tr>
+  </table>
+  <div class="clarify"><b>Pediatric note</b>50% dextrose must be kept on hand for hypoglycemia, but it is hyperosmolar and must be <b>diluted</b> (and given slowly IV or IO) to avoid vein damage. Neonates have minimal glycogen reserves, so check blood glucose early.</div>
+
+  <h3>Minimum database and operational controls <span class="bdg txt">standard ref</span><span class="bdg asv">ASV</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>The "big five" minimum database</b> for a critical case: PCV and total protein (hidden hemorrhage, anemia, dehydration); blood glucose (pediatric and neonatal triage); BUN and creatinine (renal perfusion baseline); urine specific gravity or dipstick (separates pre-renal dehydration from primary renal failure before aggressive fluids); and a thorough physical exam.</li>
+      <li><b>Expired-drug rule:</b> avoid using expired pharmaceuticals. They compromise efficacy and patient safety and undermine the shelter legally by raising questions about the baseline quality of care.</li>
+      <li><b>Equipment acquisition:</b> shelters may legally accept donated capital equipment (fluid pumps, anesthesia machines, forced-air warmers) and unexpired drugs from private practices or human hospitals; verify calibration and log items in inventory.</li>
+      <li><b>Written medical-record mandate:</b> each animal has a distinct, unalterable record with its unique shelter ID and signalment, objective exam findings, a working diagnosis or problem list, and prescribed treatments (exact dose, route, frequency, and administrator initials).</li>
+    </ul>
+  </div>
+
+  <h3>Legal status does not bar treatment <span class="bdg asv">ASV PS</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>The legal status of an animal must <b>never interfere</b> with necessary preventive care or treatment of painful injuries, significant illness, debilitating conditions, or urgent behavioral needs.</li>
+      <li>When a shelter is legally required to hold such an animal (stray, evidence, boarder), it must enact a plan to provide adequate treatment or seek alternative placement.</li>
+      <li>If suffering cannot be alleviated, the shelter should <b>seek permission to euthanize</b>. Agreements with relevant parties can clarify emergency-care expectations in advance.</li>
+    </ul>
+  </div>
+
+  <h3>Infectious disease and outbreak response <span class="bdg asv">ASV</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Animals with suspected infectious disease must be <b>isolated</b> until a veterinarian determines them low-risk. Allowing animals with severe infectious disease to remain in the general population is unacceptable.</li>
+      <li>An <b>outbreak</b> is more than the usual number of affected animals, or an increase in case severity. Response: risk assessment to identify exposed animals, physical separation of sick, exposed, at-risk, and unexposed groups, and possibly halting animal movement or intake.</li>
+      <li>Monitor at-risk animals for disease <b>at least once a day</b>; limit animal handling and foot traffic; avoid returning recovered or exposed animals to the general population while transmission risk remains.</li>
+      <li>Follow reportable-disease laws. <b>Depopulation</b> is a last resort for extraordinary circumstances, not an initial outbreak response (see the Euthanasia hub).</li>
+    </ul>
+    <div class="trap"><b>Exam trap</b>Footbaths often become contaminated and aid transmission rather than control it. Do not treat a footbath as a primary outbreak control.</div>
+  </div>
+</section>
+
+<!-- ============ MCQ ============ -->
+<section class="panel" id="mcq">
+  <h2 class="sec">MCQ Test Bank</h2>
+  <p class="lead">Filter by topic. Click an option to lock your answer and reveal the one-line rationale. Source badge on each item shows where the answer is anchored. Corrected items carry the green badge.</p>
+  <div class="mcqbar">
+    <div class="filters">
+      <button class="on" data-f="all">All</button>
+      <button data-f="foundations">Foundations</button>
+      <button data-f="oversight">Oversight</button>
+      <button data-f="monitoring">Monitoring</button>
+      <button data-f="pain">Pain</button>
+      <button data-f="emergency">Emergency</button>
+    </div>
+    <div class="score"><span id="scoreTxt">0 / 0 correct</span><button class="reset" id="resetBtn">Reset</button></div>
+  </div>
+  <div id="qhost"></div>
+</section>
+
+</div></main>
+
+<footer><div class="wrap">
+  Medical Health Subdomain Hub &middot; ABVP Shelter Medicine Practice RVS prep. Sources badged inline: your medical notes; ASV Standards of Care 2022 (Medical Health chapter); ASV Veterinary Supervision (2021), Telemedicine (2021), Medical Treatment of Animals Held for Legal Reasons (2021), and FeLV and FIV Testing (2020) position statements; plus standard references. Vaccination, parasites, and nutrition are covered in their own subdomain hubs. Built to merge with the Infectious Disease, Sanitation, Facility, and Euthanasia hubs.
+</div></footer>
+
+<script>
+const tabrow=document.getElementById('tabrow');
+tabrow.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.disabled)return;
+  [...tabrow.children].forEach(x=>x.classList.remove('active'));b.classList.add('active');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('show'));
+  document.getElementById(b.dataset.p).classList.add('show');window.scrollTo({top:0,behavior:'smooth'});});
+
+/* Shared medical-health MCQ bank.
+   t = topic tag (drives filter chip + label)
+   f = source/flag badge: notes | asv | txt | corr  (optional)
+   q = stem, o = options, a = correct index, e = one-line rationale */
+const Q=[
+{"t":"oversight","f":"notes","q":"Reviewing baseline data, which finding confirms a healthcare-program deficiency under the explicit ASV indicators?","o":["Disease rates are tracked in manual logs rather than a database","An animal shows a measurable decline in physical, mental, or social welfare after intake","A treatment protocol is set for an animal with low live-outcome potential","The facility runs at 95% of capacity during a summer surge"],"a":1,"e":"A decline in animal health and welfare after intake is a listed deficiency indicator; the others are preferences, decisions, or capacity strain."},
+{"t":"oversight","f":"notes","q":"Which area is NOT an explicitly required core component of shelter medical protocols?","o":["Animal housing and sanitation","Clinical diagnosis and treatment","Public relations, volunteer onboarding, and donor communication","Decision-making and internal communication"],"a":2,"e":"Protocols must include diagnosis, treatment, housing, sanitation, decision-making, and communication; PR, fundraising, and onboarding are not listed."},
+{"t":"oversight","f":"notes","q":"What risk does inappropriate antibiotic use (for example to prevent a viral infection) create?","o":["It invalidates population-level VCPRs","It can cause harmful side effects and promote antibiotic resistance","It causes a rapid drop in body condition score","It forces transfer to an outside emergency plan"],"a":1,"e":"Giving antibiotics when not indicated causes harmful side effects and promotes antibiotic resistance."},
+{"t":"monitoring","f":"notes","q":"A dog has been in the shelter's foster network for 7 months. Which evaluations are overdue?","o":["A daily check by a veterinarian and a weekly CBC","A monthly reweigh and BCS update, and a semi-annual comprehensive exam","An intake capacity assessment and a quarterly behavioral review","A weekly weight check and an annual physical exam"],"a":1,"e":"Monthly reweigh and BCS are required, and a comprehensive exam is due at least every 6 months including foster; at 7 months the exam is overdue."},
+{"t":"monitoring","f":"notes","q":"What is the maximum permissible interval between visual health observations for any individual animal?","o":["At least every 12 hours","At least every 24 hours","At least every 48 hours","At least every 7 days"],"a":1,"e":"Trained personnel must visually observe every animal at least once every 24 hours."},
+{"t":"oversight","f":"notes","q":"Which set must appear on a compliant prescription drug label?","o":["Client income bracket and manufacturer lot code","Prescribing vet, shelter name and address, patient ID and species, drug details, directions, and cautionary statements","Historical BCS and the next exam date","A liability waiver and the emergency clinic phone number"],"a":1,"e":"The seven label components are prescriber, clinic/shelter contact, patient ID and species, dates, drug details, directions, and cautionary statements."},
+{"t":"pain","f":"notes","q":"Which combination of non-pharmacological pain modalities is explicitly approved?","o":["High-protein treats, background music, cold laser, and fluids","Presence of littermates, a quiet environment, massage, physical therapy, heat, and deep bedding","Isolation from conspecifics, outdoor runs, acupuncture, and visual barriers","Increased calories, scent enrichment, and extended exercise"],"a":1,"e":"The approved adjuncts are littermates, a quiet environment, massage, physical therapy, heat, and deep bedding."},
+{"t":"emergency","f":"notes","q":"An after-hours polytrauma case cannot be stabilized and interventions fail to relieve distress. What is the directive?","o":["Place on deep bedding and monitor every 24 hours","Euthanize the animal to relieve suffering","Suspend protocols until the 6-month exam","Apply a prescription label with only the shelter name and phone"],"a":1,"e":"If the emergency plan cannot be implemented or fails to relieve suffering, the animal should be euthanized."},
+{"t":"foundations","f":"notes","q":"Which is NOT one of the six factors that impact a shelter's capacity to provide individual medical care?","o":["The number of animals requiring treatment","The likelihood and consequences of pathogen transmission","The animal's breed, coat length, and pedigree registration","The animal's potential for a live outcome"],"a":2,"e":"The six factors are resources, duration, number needing treatment, transmission likelihood and consequences, recovery likelihood, and live-outcome potential; breed and pedigree are not among them."},
+{"t":"monitoring","f":"notes","q":"During daily visual checks, what must personnel record alongside food intake?","o":["BCS, body weight, and drug expiration date","The prescribing vet's name and treatment protocols","Enclosure conditions, including the presence of feces, urine, or vomit","Handling techniques and the nearest emergency clinic location"],"a":2,"e":"Alongside food intake, note enclosure condition including feces, urine, or vomit."},
+{"t":"foundations","f":"asv","q":"How does the ASV (after the WHO) define health?","o":["The absence of clinical disease on physical exam","A state of complete physical, mental, and social well-being, not merely the absence of disease or infirmity","A passing score on a standardized welfare audit","Normal vital signs and a body condition score of 5 out of 9"],"a":1,"e":"Health is complete physical, mental, and social well-being, not merely the absence of disease or infirmity."},
+{"t":"foundations","f":"asv","q":"When must shelter medical care begin?","o":["After the legal stray hold expires","At or before intake, continuing throughout the stay","Only once an animal shows clinical signs","At the first comprehensive exam at 6 months"],"a":1,"e":"Shelter medical care must begin at or before intake and continue throughout the stay."},
+{"t":"foundations","f":"asv","q":"Population health is most threatened when:","o":["Every animal receives an individual comprehensive exam","Disease spread is likely, long stays push the shelter over capacity for care, and one animal's costs drain resources for others","The shelter tracks morbidity and mortality trends","Animals are vaccinated at intake"],"a":1,"e":"Likely spread, over-capacity from long stays, and resource-draining costs are the population-health threats ASV identifies."},
+{"t":"foundations","f":"asv","q":"What is the purpose of a written treat-versus-cannot-treat protocol?","o":["To guarantee every animal is treated regardless of resources","To pre-define which animals and conditions the shelter can and cannot responsibly treat, supporting consistent, transparent decisions","To replace the need for a veterinarian","To set adoption fees by diagnosis"],"a":1,"e":"A pre-set protocol defines what the shelter can and cannot treat, supporting consistent and transparent decision-making."},
+{"t":"oversight","f":"asv","q":"Under the ASV definitions, what distinguishes indirect from direct veterinary supervision?","o":["Indirect supervision requires the vet to be physically present","In indirect supervision the vet need not be on the premises but gives instructions, is reachable immediately, and has assumed responsibility","Indirect supervision means no veterinarian is involved at all","Direct supervision is performed only by telemedicine"],"a":1,"e":"Indirect supervision: the vet is off-site but has given instructions, is immediately reachable, and has assumed responsibility; direct means readily available on the premises."},
+{"t":"oversight","f":"asv","q":"What does 'direct knowledge' of a shelter population mean in the ASV supervision framework?","o":["The vet has read the shelter's written protocols once","The vet regularly visits and examines the shelter population in person","The vet holds a license in the same state","The vet has telephoned the shelter at least monthly"],"a":1,"e":"Direct knowledge means the veterinarian regularly visits and examines the shelter population in person."},
+{"t":"oversight","f":"asv","q":"What is the ASV position on telemedicine and the VCPR?","o":["A VCPR can never be created remotely","Telemedicine can broaden access, and the ASV supports allowing VCPRs to be created and prescriptions made through electronic communication","Telemedicine replaces all in-person veterinary care","Prescribing through telemedicine is prohibited in all jurisdictions"],"a":1,"e":"The ASV supports creating VCPRs and prescribing through telephone, digital, or electronic communication, within jurisdictional limits."},
+{"t":"oversight","f":"asv","q":"Before a medication is prescribed, the ASV prescribing standard requires:","o":["Only that the drug is in stock","A reasonable presumptive diagnosis, the ability to administer as directed, and a plan to monitor the course","Approval from the board of directors","That the animal has been in care at least 30 days"],"a":1,"e":"Prescribe only with a reasonable presumptive diagnosis, ability to administer as directed, and a monitoring plan."},
+{"t":"monitoring","f":"asv","q":"When should a comprehensive physical examination ideally be performed at intake?","o":["Within 24 hours of intake","Only at the 6-month mark","After the stray hold expires","Within 7 days of intake"],"a":0,"e":"A comprehensive physical exam is ideally performed within 24 hours of intake, after at least a cursory assessment on arrival."},
+{"t":"monitoring","f":"asv","q":"What is the ASV general recommendation on FeLV and FIV screening?","o":["Never test any shelter cat","In general, screen all cats for retroviruses, while assessing each cat's individual risk","Test only cats over 10 years old","Test only cats that are being euthanized"],"a":1,"e":"In general all cats should be screened for retroviruses, with individual risk assessment guiding decisions."},
+{"t":"monitoring","f":"asv","q":"Which cats should be tested for FeLV and FIV per the ASV position statement?","o":["Healthy feral cats in TNR programs","High-risk cats, including those entering group housing and those who are ill","Only cats already confirmed positive","No cats, since testing is never cost-effective"],"a":1,"e":"High-risk cats, including those entering group housing and ill cats, should be tested; healthy feral TNR cats are not recommended for testing."},
+{"t":"monitoring","f":"asv","q":"A clinically healthy shelter cat has a single positive point-of-care FeLV test. What does the ASV recommend?","o":["Immediate euthanasia","Do not euthanize on a single positive; confirm per AAFP guidelines and seek informed placement","Release without any record of the result","Place directly into group housing"],"a":1,"e":"The ASV does not recommend euthanizing a clinically healthy cat on a single positive; confirm per AAFP guidelines and seek informed placement."},
+{"t":"monitoring","f":"asv","q":"What is the ASV stance on quarantining healthy animals at intake?","o":["It is mandatory for every animal for 30 days","It is not generally recommended; reserve quarantine for animals with high-risk infectious-disease exposure","It replaces the need for isolation","It is required only for cats"],"a":1,"e":"Quarantining healthy animals at intake is not generally recommended; unnecessary holds lengthen stays and harm welfare."},
+{"t":"pain","f":"asv","q":"What is the ASV stance when pain cannot be adequately relieved?","o":["Withhold all analgesia to avoid masking signs","Failure to treat pain is unacceptable, and euthanasia is a legitimate part of treatment when suffering cannot be relieved","Pain is acceptable if the animal is adoptable","Defer treatment until the 6-month exam"],"a":1,"e":"Failure to treat pain is unacceptable; treatment of pain can include euthanasia when suffering cannot be relieved."},
+{"t":"pain","f":"asv","q":"When pain can be anticipated, such as before surgery, when should analgesia be given?","o":["Only after the animal shows overt pain","Before the painful event (pre-emptive), at an appropriate strength and duration","Never, to avoid drug interactions","Only if the animal is over 6 months old"],"a":1,"e":"Provide pain control before an anticipated painful event, at an appropriate strength and duration."},
+{"t":"pain","f":"asv","q":"Which is a documented consequence of unrelieved pain?","o":["Improved appetite and faster adoption","Weight loss, muscle breakdown, increased blood pressure, and prolonged recovery","Increased resistance to infectious disease","A lower body temperature with no welfare impact"],"a":1,"e":"Unrelieved pain can cause weight loss, muscle breakdown, increased blood pressure, prolonged recovery, and distress."},
+{"t":"emergency","f":"asv","q":"How does the ASV say an animal's legal status affects medical treatment?","o":["Legal-hold animals may not be treated until released","Legal status must never interfere with necessary care or treatment of painful or significant conditions","Only the court can authorize analgesia","Evidence animals receive no preventive care"],"a":1,"e":"Legal status must never interfere with necessary preventive care or treatment of painful injuries, illness, debilitating conditions, or urgent behavioral needs."},
+{"t":"emergency","f":"asv","q":"A shelter is legally required to hold an injured animal whose suffering cannot be alleviated. What does the ASV advise?","o":["Continue the hold without treatment until the case closes","Seek permission to euthanize the animal","Transfer the animal to adoption immediately","Withhold analgesia to preserve evidence"],"a":1,"e":"If suffering cannot be alleviated, the shelter should seek permission to euthanize the legally held animal."},
+{"t":"emergency","f":"asv","q":"What defines a disease outbreak in a shelter?","o":["Any single sick animal","More than the usual number of animals affected, or an increase in case severity","Only laboratory-confirmed zoonoses","A failed sanitation audit"],"a":1,"e":"An outbreak is more than the usual number of affected animals, or an increase in the severity of cases."},
+{"t":"emergency","f":"asv","q":"How should an animal with suspected infectious disease be managed on arrival?","o":["Placed directly into the general adoption ward","Isolated until a veterinarian or treatment determines it low-risk to the population","Returned to the community immediately","Cohoused with other sick animals of any species"],"a":1,"e":"Isolate suspected infectious animals until determined low-risk; leaving severe infectious disease in the general population is unacceptable."},
+{"t":"emergency","f":"asv","q":"Which is a mandatory component of a shelter's emergency medical plan under the ASV guidelines?","o":["A staff veterinarian must be physically on-site 24 hours a day","Non-veterinary staff must be trained to recognize distress, injury, or significant illness so they can initiate prompt care or humane euthanasia","All emergencies must be treated on-site to minimize transfer costs","Expired emergency drugs may be used within 6 months of the stamped date"],"a":1,"e":"The ASV requires care staff to be trained to recognize emergencies so timely care or humane euthanasia can be enacted without delay."},
+{"t":"emergency","f":"txt","q":"A 3-week-old orphaned puppy is obtunded, hypothermic, and weak. After stabilizing core temperature, what is the highest-priority diagnostic and treatment pairing?","o":["Run a urine dipstick and give IV furosemide","Check blood glucose; if low, give a diluted 50% dextrose solution IV or IO","Check PCV and give IM methocarbamol","Percuss the chest and start a lidocaine infusion"],"a":1,"e":"Neonates have minimal glycogen reserves; check blood glucose and correct hypoglycemia with diluted dextrose (rewarm before feeding)."},
+{"t":"emergency","f":"txt","q":"A dyspneic cat has an orthopneic posture, open-mouth breathing, and dull or absent lung sounds ventrally. How is this prioritized and interpreted?","o":["Upper-airway stridor; prepare an emergency tracheostomy","Severe diaphragmatic hernia requiring abdominal palpation","Pleural effusion; give oxygen and prepare for thoracocentesis","Normal feline compensation for a high-stress environment"],"a":2,"e":"Muffled or absent ventral lung sounds in a dyspneic cat suggest pleural effusion; provide oxygen and prepare thoracocentesis."},
+{"t":"emergency","f":"txt","q":"A hit-by-car dog has pale-to-muddy mucous membranes, a CRT over 2.5 seconds, and weak peripheral pulses. Which state is this?","o":["Hyperdynamic phase of distributive shock","Decompensatory hypovolemic shock","Normal post-exercise physiology","Increased intracranial pressure"],"a":1,"e":"Pale/muddy MM, prolonged CRT, and weak pulses indicate decompensatory hypovolemic shock as blood pressure can no longer be sustained."},
+{"t":"emergency","f":"txt","q":"A stray cat is in active generalized status epilepticus. Which sequence is the standard of care to halt the seizure?","o":["IV mannitol then atropine","IV or rectal diazepam; if seizures persist, an induction agent such as propofol or alfaxalone to effect","IM methocarbamol with SC dexamethasone","Hypertonic saline bolus then oral phenobarbital"],"a":1,"e":"Benzodiazepines are first-line to stop active seizures, followed by an injectable anesthetic if refractory."},
+{"t":"emergency","f":"txt","q":"A cat with massive topical permethrin exposure has severe continuous muscle tremors. Which drug specifically addresses the tremors?","o":["Epinephrine","Furosemide","Methocarbamol","Atropine"],"a":2,"e":"Methocarbamol is a centrally-acting muscle relaxant used to control the tremors of feline permethrin toxicosis."},
+{"t":"emergency","f":"txt","q":"A dog with head trauma is stuporous with asymmetric pupils, bradycardia, and rising blood pressure (Cushing reflex). Which drug is indicated for the suspected raised intracranial pressure?","o":["Lidocaine","Mannitol","Dopamine","Apomorphine"],"a":1,"e":"Mannitol is an osmotic diuretic that draws fluid from the cerebral interstitium into the vasculature, lowering intracranial pressure."},
+{"t":"emergency","f":"txt","q":"A shelter dog arrests during stabilization and the ECG shows asystole. Which drug is given first in advanced life support?","o":["Lidocaine","Atropine","Epinephrine","Diazepam"],"a":2,"e":"Epinephrine is the first drug for asystole, causing vasoconstriction to direct blood to the coronary and cerebral circulation during CPR."}
+];
+
+const host=document.getElementById('qhost');
+const scoreTxt=document.getElementById('scoreTxt');
+let answered=0, correct=0, filter='all';
+const DLABEL={foundations:"Foundations",oversight:"Oversight",monitoring:"Monitoring",pain:"Pain",emergency:"Emergency"};
+function tagLabel(t){return DLABEL[t]||t.toUpperCase();}
+function flagBadge(f){
+  if(f==='corr')return '<span class="bdg corr">corrected</span>';
+  if(f==='notes')return '<span class="bdg notes">your notes</span>';
+  if(f==='asv')return '<span class="bdg asv">ASV</span>';
+  if(f==='txt')return '<span class="bdg txt">textbook</span>';
+  return '';
+}
+function render(){
+  host.innerHTML='';answered=0;correct=0;updateScore();
+  Q.forEach((item,i)=>{
+    if(filter!=='all' && item.t!==filter) return;
+    const card=document.createElement('div');card.className='q';
+    card.innerHTML=`<div class="meta"><span class="num">#${i+1}</span><span class="tag">&#9670; ${tagLabel(item.t)}</span>${flagBadge(item.f)}</div><div class="stem">${item.q}</div>`;
+    const opts=document.createElement('div');
+    item.o.forEach((txt,oi)=>{
+      const btn=document.createElement('button');btn.className='opt';
+      btn.innerHTML=`<span class="k">${String.fromCharCode(65+oi)}</span>${txt}`;
+      btn.onclick=()=>choose(card,opts,item,oi);opts.appendChild(btn);
+    });
+    card.appendChild(opts);
+    const ex=document.createElement('div');ex.className='expl';
+    ex.innerHTML=`<b class="cor">Correct: ${String.fromCharCode(65+item.a)}.</b> ${item.e}`;
+    card.appendChild(ex);host.appendChild(card);
+  });
+}
+function choose(card,opts,item,oi){
+  if(card.dataset.done)return;card.dataset.done='1';answered++;
+  [...opts.children].forEach((b,bi)=>{b.classList.add('locked');
+    if(bi===item.a)b.classList.add('correct');
+    if(bi===oi && oi!==item.a)b.classList.add('wrong');});
+  if(oi===item.a)correct++;
+  card.querySelector('.expl').classList.add('show');updateScore();
+}
+function updateScore(){scoreTxt.textContent=`${correct} / ${answered} correct`;}
+document.querySelector('.filters').addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  document.querySelectorAll('.filters button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');filter=b.dataset.f;render();});
+document.getElementById('resetBtn').onclick=render;
+render();
+</script>
+</body>
+</html>

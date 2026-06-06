@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shelter Medicine RVS Study Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Spline+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F6F2E9; --paper2:#EFEADD; --ink:#21201B; --soft:#5B584F; --faint:#8C887C;
+    --card:#FFFDF8; --line:rgba(33,32,27,0.12); --line2:rgba(33,32,27,0.2);
+    --ok:#0F6E56; --okbg:#E1F5EE; --no:#9A3B23; --nobg:#FAECE7;
+    --serif:"Fraunces",Georgia,serif; --sans:"Spline Sans",-apple-system,sans-serif;
+    --r:12px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:980px;margin:0 auto;padding:0 20px 80px}
+  header.bar{position:sticky;top:0;z-index:20;background:rgba(246,242,233,0.92);backdrop-filter:blur(8px);border-bottom:0.5px solid var(--line)}
+  .bar .wrap{padding-top:14px;padding-bottom:14px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .brand{font-family:var(--serif);font-weight:600;font-size:19px;letter-spacing:-0.01em;cursor:pointer;line-height:1.1}
+  .brand small{display:block;font-family:var(--sans);font-weight:400;font-size:11.5px;color:var(--faint);letter-spacing:0.04em;text-transform:uppercase;margin-top:3px}
+  .chip{font-size:12.5px;color:var(--soft);border:0.5px solid var(--line2);border-radius:999px;padding:5px 12px;white-space:nowrap}
+  .crumb{font-size:13px;color:var(--soft);margin:22px 0 6px;display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+  .crumb a{cursor:pointer;color:var(--soft);text-decoration:none;border-bottom:1px solid transparent}
+  .crumb a:hover{border-bottom-color:var(--line2);color:var(--ink)}
+  .crumb .sep{color:var(--faint)}
+  h1.page{font-family:var(--serif);font-weight:600;font-size:30px;letter-spacing:-0.015em;margin:4px 0 6px;line-height:1.1}
+  .lede{color:var(--soft);max-width:62ch;margin:0 0 26px}
+  .stats{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 28px}
+  .stat{background:var(--paper2);border-radius:10px;padding:11px 16px;min-width:110px}
+  .stat b{display:block;font-family:var(--serif);font-size:22px;font-weight:600;line-height:1}
+  .stat span{font-size:12px;color:var(--soft)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+  .dcard{position:relative;background:var(--card);border:0.5px solid var(--line);border-radius:var(--r);padding:18px 18px 16px;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease;overflow:hidden}
+  .dcard:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(33,32,27,0.08)}
+  .dcard .top{height:4px;position:absolute;left:0;top:0;right:0}
+  .dcard .wt{font-family:var(--serif);font-size:13px;font-weight:600;color:var(--soft)}
+  .dcard h3{font-family:var(--serif);font-weight:600;font-size:18.5px;letter-spacing:-0.01em;margin:8px 0 4px;line-height:1.15}
+  .dcard .meta{font-size:12.5px;color:var(--faint);margin-bottom:12px}
+  .prog{height:6px;border-radius:999px;background:var(--paper2);overflow:hidden}
+  .prog i{display:block;height:100%;border-radius:999px}
+  .dcard .pl{font-size:11.5px;color:var(--faint);margin-top:6px}
+  .domhead{border-radius:var(--r);padding:18px 20px;margin:6px 0 22px;border:0.5px solid var(--line)}
+  .domhead h1{font-family:var(--serif);font-weight:600;font-size:26px;margin:0;letter-spacing:-0.015em}
+  .domhead p{margin:6px 0 0;font-size:13.5px;color:var(--soft)}
+  .sub{background:var(--card);border:0.5px solid var(--line);border-radius:var(--r);padding:4px 4px;margin-bottom:14px}
+  .srow{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 16px;border-radius:9px;cursor:pointer;transition:background .12s}
+  .srow:hover{background:var(--paper2)}
+  .srow .nm{font-weight:500}
+  .srow .nm small{display:block;font-weight:400;font-size:12.5px;color:var(--faint);margin-top:2px}
+  .srow .rt{display:flex;align-items:center;gap:12px}
+  .wbadge{font-family:var(--serif);font-weight:600;font-size:13px;color:var(--soft);min-width:34px;text-align:right}
+  .arrow{color:var(--faint);font-size:18px}
+  .topics{display:flex;flex-wrap:wrap;gap:8px;padding:2px 16px 14px}
+  .tchip{font-size:13px;border:0.5px solid var(--line2);border-radius:999px;padding:6px 13px;cursor:pointer;background:var(--paper);transition:all .12s;display:inline-flex;align-items:center;gap:7px}
+  .tchip:hover{background:var(--paper2)}
+  .tchip.ready{border-color:var(--ok);color:var(--ok)}
+  .tchip .dot{width:7px;height:7px;border-radius:50%}
+  .tabs{display:flex;gap:4px;border-bottom:0.5px solid var(--line);margin:18px 0 0}
+  .tab{padding:10px 16px;cursor:pointer;font-weight:500;font-size:14.5px;color:var(--soft);border-bottom:2px solid transparent;margin-bottom:-1px}
+  .tab.on{color:var(--ink);border-bottom-color:var(--ink)}
+  .panel{padding:22px 0 0}
+  .status{display:inline-block;font-size:11.5px;font-weight:500;letter-spacing:0.03em;text-transform:uppercase;padding:4px 10px;border-radius:999px}
+  .status.ready{background:var(--okbg);color:var(--ok)}
+  .status.todo{background:var(--paper2);color:var(--soft)}
+  .doc h2{font-family:var(--serif);font-weight:600;font-size:20px;letter-spacing:-0.01em;margin:26px 0 8px}
+  .doc h2:first-child{margin-top:0}
+  .doc p{margin:0 0 10px}
+  .doc ul{margin:0 0 12px;padding-left:20px}
+  .doc li{margin:0 0 5px}
+  .doc strong{font-weight:500}
+  .doc .src{font-size:12.5px;color:var(--faint);border-top:0.5px solid var(--line);padding-top:10px;margin-top:22px}
+  table.cmp{width:100%;border-collapse:collapse;margin:6px 0 14px;font-size:14px}
+  table.cmp th,table.cmp td{text-align:left;padding:9px 12px;border-bottom:0.5px solid var(--line);vertical-align:top}
+  table.cmp th{font-weight:500;color:var(--soft);font-size:12.5px}
+  table.cmp td:first-child{color:var(--soft);width:30%}
+  .pill{display:inline-block;font-weight:500;font-size:12.5px;padding:3px 11px;border-radius:8px}
+  .pill.felv{background:var(--nobg);color:var(--no)}
+  .pill.fiv{background:#E7EFF8;color:#1F5C9E}
+  .key{background:var(--paper2);border-radius:var(--r);padding:14px 18px;margin:14px 0}
+  .key h3{font-family:var(--serif);font-size:16px;font-weight:600;margin:0 0 8px}
+  .key ul{margin:0;padding-left:18px}
+  svg.dia{width:100%;height:auto;display:block;background:var(--card);border:0.5px solid var(--line);border-radius:var(--r);padding:10px}
+  .diacap{font-size:13px;color:var(--soft);margin:10px 0 26px;line-height:1.5}
+  .qhead{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;background:var(--paper2);border-radius:var(--r);padding:13px 18px;margin-bottom:18px}
+  .qscore{font-family:var(--serif);font-weight:600;font-size:17px}
+  .qscore span{color:var(--soft);font-family:var(--sans);font-weight:400;font-size:13px}
+  .btn{font-family:var(--sans);font-size:13.5px;font-weight:500;border:0.5px solid var(--line2);background:var(--card);border-radius:9px;padding:8px 15px;cursor:pointer;transition:background .12s}
+  .btn:hover{background:var(--paper)}
+  .q{background:var(--card);border:0.5px solid var(--line);border-radius:var(--r);padding:18px 20px;margin-bottom:16px}
+  .q .stem{font-weight:500;margin-bottom:12px;line-height:1.45}
+  .q .stem b{font-family:var(--serif);color:var(--soft);margin-right:8px;font-weight:600}
+  .opt{display:block;width:100%;text-align:left;border:0.5px solid var(--line2);background:var(--paper);border-radius:9px;padding:11px 14px;margin-bottom:8px;cursor:pointer;font:inherit;transition:all .12s;line-height:1.4}
+  .opt:hover:not(:disabled){background:var(--paper2)}
+  .opt:disabled{cursor:default}
+  .opt.correct{background:var(--okbg);border-color:var(--ok);color:#0b4d3d}
+  .opt.wrong{background:var(--nobg);border-color:var(--no);color:#6e2a18}
+  .opt .mk{float:right;font-weight:600}
+  .rat{font-size:13.5px;color:var(--soft);background:var(--paper2);border-radius:9px;padding:11px 14px;margin-top:4px;line-height:1.5}
+  .rat b{color:var(--ink);font-weight:500}
+  .placeholder{background:var(--card);border:0.5px dashed var(--line2);border-radius:var(--r);padding:30px 24px;text-align:center;color:var(--soft)}
+  .placeholder h3{font-family:var(--serif);font-size:18px;color:var(--ink);margin:0 0 8px}
+  .placeholder p{max-width:48ch;margin:0 auto 4px}
+  .foot{margin-top:36px;font-size:12px;color:var(--faint);line-height:1.6}
+  @media(max-width:600px){h1.page{font-size:25px}.stat{flex:1}}
+</style>
+</head>
+<body>
+<header class="bar"><div class="wrap">
+  <div class="brand" onclick="nav('home')">Shelter Medicine RVS Study Hub<small>ABVP Combined Exam &middot; November 2026</small></div>
+  <div class="chip" id="hdrchip">7 domains</div>
+</div></header>
+<div class="wrap" id="app"></div>
+<script>
+/* ---------- DATA ---------- */
+var DOMAINS = [
+ {id:"phys",name:"Physical Health of Animal",weight:29,color:"#0F6E56",
+  subs:[
+   {name:"Infectious Disease / Outbreaks",w:12,url:"physical-health/infectious_disease_hub.html",topics:["felv-fiv","cpv","cdv","fpv","cird","furi","ringworm"]},
+   {name:"Sanitation and Biosecurity",w:12,url:"physical-health/sanitation_biosecurity_hub.html"},
+   {name:"Surgery and Anesthesia",w:12,url:"physical-health/surgery_anesthesia_hub.html"},
+   {name:"Vaccination",w:12,url:"physical-health/vaccination_hub.html"},
+   {name:"Facility / Environment",w:11,url:"physical-health/facility_shelter_design_hub.html"},
+   {name:"Euthanasia",w:11,url:"physical-health/euthanasia_hub.html"},
+   {name:"Medical (Non-Infectious)",w:10,url:"physical-health/medical_health_hub.html"},
+   {name:"Nutrition and Husbandry",w:10,url:"physical-health/nutrition_husbandry_hub.html"},
+   {name:"Parasites",w:10,url:"physical-health/parasites_hub.html"}
+  ]},
+ {id:"mgmt",name:"Shelter Management",weight:18,color:"#1F5C9E",
+  subs:[
+   {name:"Population Management",w:14},
+   {name:"Animal ID, Tracking, Intake/Outcome Stats",w:12},
+   {name:"Management and Leadership",w:12},
+   {name:"Record Keeping",w:12},
+   {name:"Data and Analysis",w:11},
+   {name:"Regulatory",w:11},
+   {name:"Mental Health, Resiliency and Self-Care",w:11},
+   {name:"Resource Allocation, Funding, Grants",w:9},
+   {name:"Liability",w:8}
+  ]},
+ {id:"behav",name:"Behavioral Health",weight:16,color:"#6A4AA8",
+  subs:[
+   {name:"QOL and Needs Assessment",w:14},
+   {name:"Animal Handling",w:13},
+   {name:"Assessment and Decision Making",w:13},
+   {name:"Body Language",w:13},
+   {name:"Common Behavior Problems",w:13},
+   {name:"Stress",w:13},
+   {name:"Facility / Environment",w:12},
+   {name:"Learning Theory",w:9}
+  ]},
+ {id:"home",name:"Companion Animal Homelessness",weight:12,color:"#B4532A",
+  subs:[
+   {name:"Spay-Neuter",w:16},
+   {name:"Shelter Diversion Programs",w:14},
+   {name:"Adoption and Placement",w:13},
+   {name:"Epidemiology of Homelessness / At-Risk",w:13},
+   {name:"Transfer Programs",w:13},
+   {name:"Disaster",w:12},
+   {name:"Reunification",w:12},
+   {name:"Non-Surgical Sterilization",w:7}
+  ]},
+ {id:"pubh",name:"Community and Public Health",weight:11,color:"#9A6B12",
+  subs:[
+   {name:"Animal Cruelty",w:21},
+   {name:"Zoonotic Disease",w:21},
+   {name:"Animals and Public Safety",w:20},
+   {name:"Rabies",w:20},
+   {name:"Reportable and Emerging Disease",w:18}
+  ]},
+ {id:"policy",name:"Animals and Public Policy",weight:7,color:"#3F6B1E",
+  subs:[
+   {name:"Ethics",w:28},
+   {name:"Regulatory",w:27},
+   {name:"Legislation",w:25},
+   {name:"Animal Shelter History",w:20}
+  ]},
+ {id:"research",name:"Research and Biostats",weight:6,color:"#8A3A52",
+  subs:[
+   {name:"Epidemiology and Biostats",w:54},
+   {name:"Study Design",w:46}
+  ]}
+];
+
+/* SVG diagram for FeLV outcomes (self-contained) */
+var FELV_SVG = '<svg class="dia" viewBox="0 0 680 280" role="img" aria-label="FeLV infection outcomes and test result patterns">'
++'<defs><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M2 1L8 5L2 9" fill="none" stroke="#5B584F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>'
++'<g font-family="Spline Sans, sans-serif">'
++'<rect x="250" y="30" width="180" height="44" rx="8" fill="#FFFDF8" stroke="#B4B2A9" stroke-width="0.7"/><text x="340" y="56" text-anchor="middle" font-size="14" font-weight="500" fill="#21201B">FeLV exposure</text>'
++'<line x1="340" y1="74" x2="137" y2="108" stroke="#5B584F" stroke-width="1.3" marker-end="url(#ar)"/>'
++'<line x1="340" y1="74" x2="340" y2="108" stroke="#5B584F" stroke-width="1.3" marker-end="url(#ar)"/>'
++'<line x1="340" y1="74" x2="543" y2="108" stroke="#5B584F" stroke-width="1.3" marker-end="url(#ar)"/>'
++'<rect x="44" y="118" width="186" height="60" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.7"/><text x="137" y="145" text-anchor="middle" font-size="14" font-weight="500" fill="#085041">Abortive</text><text x="137" y="165" text-anchor="middle" font-size="12" fill="#0F6E56">cleared, ~20-30%</text>'
++'<rect x="247" y="118" width="186" height="60" rx="8" fill="#FAEEDA" stroke="#BA7517" stroke-width="0.7"/><text x="340" y="145" text-anchor="middle" font-size="14" font-weight="500" fill="#633806">Regressive</text><text x="340" y="165" text-anchor="middle" font-size="12" fill="#854F0B">latent in marrow, ~30-40%</text>'
++'<rect x="450" y="118" width="186" height="60" rx="8" fill="#FAECE7" stroke="#993C1D" stroke-width="0.7"/><text x="543" y="145" text-anchor="middle" font-size="14" font-weight="500" fill="#712B13">Progressive</text><text x="543" y="165" text-anchor="middle" font-size="12" fill="#993C1D">persistent viremia, ~30-40%</text>'
++'<line x1="137" y1="180" x2="137" y2="198" stroke="#5B584F" stroke-width="1.3" marker-end="url(#ar)"/>'
++'<line x1="340" y1="180" x2="340" y2="198" stroke="#5B584F" stroke-width="1.3" marker-end="url(#ar)"/>'
++'<line x1="543" y1="180" x2="543" y2="198" stroke="#5B584F" stroke-width="1.3" marker-end="url(#ar)"/>'
++'<rect x="44" y="200" width="186" height="34" rx="6" fill="#F1EFE8" stroke="#B4B2A9" stroke-width="0.7"/><text x="137" y="221" text-anchor="middle" font-size="12.5" fill="#444441">Ag \u2212&#160;&#160;IFA \u2212&#160;&#160;PCR \u2212</text>'
++'<rect x="247" y="200" width="186" height="34" rx="6" fill="#F1EFE8" stroke="#B4B2A9" stroke-width="0.7"/><text x="340" y="221" text-anchor="middle" font-size="12.5" fill="#444441">Ag \u2212&#160;&#160;IFA \u2212&#160;&#160;PCR low+</text>'
++'<rect x="450" y="200" width="186" height="34" rx="6" fill="#F1EFE8" stroke="#B4B2A9" stroke-width="0.7"/><text x="543" y="221" text-anchor="middle" font-size="12.5" fill="#444441">Ag +&#160;&#160;IFA +&#160;&#160;PCR high+</text>'
++'<text x="340" y="260" text-anchor="middle" font-size="12" fill="#8C887C">Fill colour = transmission risk (teal low, amber intermediate, coral high)</text>'
++'</g></svg>'
++'<p class="diacap">FeLV infection outcomes after exposure with the test pattern for each. The regressive (middle) column is the diagnostic trap: negative on routine antigen and IFA, positive only on low-copy PCR.</p>';
+
+var FELV_SUMMARY = ''
++'<h2>Snapshot</h2><ul>'
++'<li>Both in family <strong>Retroviridae</strong>. FeLV = gammaretrovirus (oncornavirus); FIV = lentivirus. Host is the cat. <strong>Neither is zoonotic.</strong></li>'
++'<li>Both cause chronic infection with low transmission rate, so shelter <strong>outbreaks are not expected</strong>.</li>'
++'<li>Higher seroprevalence in males, ill cats, outdoor/roaming cats, fighters and hoarding-origin cats. Indoor lifestyle and sterilisation lower risk.</li></ul>'
++'<h2>Transmission</h2><ul>'
++'<li><strong>FeLV (friendly):</strong> saliva via nursing, mutual grooming, shared bowls, and bites. Major route is queen to kitten (in utero or nursing/grooming).</li>'
++'<li><strong>FIV (unfriendly):</strong> mainly bite wounds from fighting. Queen-to-kitten is uncommon in nature; FIV antibody in milk protects most nursing kittens. Sexual transmission is not a meaningful threat. FIV-positive cats can co-house with negatives if there is no fighting.</li>'
++'<li>Both transmit efficiently via contaminated instruments and blood transfusion.</li></ul>'
++'<h2>FeLV outcomes after exposure</h2><ul>'
++'<li><strong>Abortive (~20-30%):</strong> robust immune clearance. Antigen, IFA and PCR all negative.</li>'
++'<li><strong>Regressive (~30-40%):</strong> early viremia suppressed but provirus integrates into marrow. Antigen negative, IFA negative, low proviral copy number on PCR. Low shedding, low disease risk, but can reactivate years later. This is the diagnostic trap (see the Diagram tab).</li>'
++'<li><strong>Progressive (~30-40%):</strong> viremia not contained, virus disseminates and sheds in secretions. Antigen positive, IFA positive, high proviral load. Continuously infectious, at risk of FeLV-associated disease.</li>'
++'<li><strong>Focal / atypical (uncommon):</strong> intermittent or weak antigenaemia with virus restricted to a tissue (e.g. mammary gland, eye). Worth knowing for a specialty exam.</li></ul>'
++'<h2>FIV course (three stages)</h2><ul>'
++'<li><strong>Acute:</strong> transient fever and lymphadenopathy over roughly 1-3 months, often unnoticed.</li>'
++'<li><strong>Asymptomatic / latent:</strong> frequently years, often lifelong, with continuous virus shedding.</li>'
++'<li><strong>Progressive / terminal:</strong> immunodeficiency with opportunistic infection, stomatitis and neoplasia.</li></ul>'
++'<h2>Diagnosis</h2><ul>'
++'<li><strong>Point-of-care combo:</strong> detects FeLV antigen (p27 core protein) and FIV antibody. Antigen positive = active infection now; antibody positive = exposure/infection or prior vaccination.</li>'
++'<li><strong>IFA (FeLV):</strong> detects p27 in leukocyte/platelet cytoplasm, i.e. marrow infection. Negative in regressive, positive in progressive once marrow is involved.</li>'
++'<li><strong>PCR:</strong> detects provirus (and RNA). Low proviral copy number marks regressive infection and longer survival; high copy number marks progressive. FIV PCR confirms most field cases, though some strains escape detection.</li>'
++'<li><strong>Western blot:</strong> largely replaced by PCR for follow-up in shelters.</li>'
++'<li><strong>Predictive value:</strong> positive predictive value falls as prevalence falls, so confirm positives in healthy, low-risk cats before acting.</li>'
++'<li><strong>Retest windows:</strong> FeLV ~30 days post-exposure; FIV ~60 days (antibody seroconversion lag).</li>'
++'<li><strong>Kittens:</strong> maternal antibody can cause false-positive FIV (retest ~5-6 months). About half of neonates initially antigen-positive for FeLV revert by adoption age, so retest at adoption age.</li></ul>'
++'<h2>FeLV vs FIV at a glance</h2>'
++'<table class="cmp"><tr><th></th><th><span class="pill felv">FeLV</span></th><th><span class="pill fiv">FIV</span></th></tr>'
++'<tr><td>Screening detects</td><td>Antigen (p27)</td><td>Antibody</td></tr>'
++'<tr><td>Positive screen means</td><td>Active infection now</td><td>Exposure/infection, or vaccination</td></tr>'
++'<tr><td>Confirm with</td><td>Quantitative PCR; IFA</td><td>PCR</td></tr>'
++'<tr><td>Lifelong?</td><td>Abortive clears; regressive latent; progressive lifelong</td><td>Yes, lifelong</td></tr>'
++'<tr><td>Lifespan</td><td>Often shortened</td><td>Often normal if managed</td></tr>'
++'<tr><td>Co-housing</td><td>Separate positives from negatives</td><td>Can co-house if no fighting</td></tr></table>'
++'<h2>Prevention and management</h2><ul>'
++'<li><strong>Housing:</strong> house FeLV-positive cats separately by status. Both viruses are enveloped and labile, not spread by air or casual handling, so no special sanitation is needed beyond routine disinfection.</li>'
++'<li><strong>FeLV vaccine:</strong> non-core. AAFP recommends vaccinating all kittens and at-risk adults. It induces envelope antibody and does <strong>not</strong> cause p27 antigenaemia, so it does not interfere with antigen testing.</li>'
++'<li><strong>FIV vaccine:</strong> for the ABVP (US) exam, treat as discontinued and not recommended; antibody vaccination confounds serology. (Note: still available in Australia with intermittent supply, efficacy near 50%.)</li>'
++'<li><strong>Outcome:</strong> a positive retrovirus test is not a reason for euthanasia. Care is supportive (treat secondary infection, dental disease, nutrition, stress reduction). Both FeLV+ and FIV+ cats are adoptable.</li></ul>'
++'<div class="key"><h3>Exam high-yield traps</h3><ul>'
++'<li>Regressive FeLV reads negative on routine antigen/IFA but is PCR low-positive. This is why blood donors need PCR, not just antigen screening.</li>'
++'<li>Antigen = current infection. Antibody = exposure or vaccine. Do not confuse the two test logics.</li>'
++'<li>Never euthanise or group-house on a single screening result, especially in kittens and low-prevalence populations.</li>'
++'<li>Pooling samples or testing one cat as a proxy for a group is not acceptable (reduces sensitivity).</li></ul></div>'
++'<p class="src">Sources: AAFP Feline Retrovirus Management Guidelines; AAFP Vaccination Guidelines (2020); Infectious Disease Management in Animal Shelters (Miller, Hurley, Janeczko); ASV Guidelines for Standards of Care. Note: regional prevalence figures and the whole-blood vs serum/plasma sensitivity point in the source notes are pending verification.</p>';
+
+var FELV_QUIZ = [
+ {stem:"A motherless 8-week-old kitten tests antigen-positive for FeLV on a point-of-care test at intake. The most appropriate action is to:",
+  opts:["euthanise based on the positive result","retest at adoption age, as a substantial proportion of neonates revert to negative","place immediately into group kitten housing"],ans:1,
+  rat:"Roughly half of antigen-positive neonates revert by adoption age. Never euthanise or group-house on a single screen."},
+ {stem:"An asymptomatic adult cat in a low-prevalence healthy population has a single antibody-positive FIV point-of-care result. The best interpretation is:",
+  opts:["confirmed lifelong FIV infection","positive predictive value is relatively low here, so confirm before acting on it","evidence of recent FIV vaccination only"],ans:1,
+  rat:"Positive predictive value tracks prevalence. In low-risk, healthy cats a single positive carries a higher false-positive chance, so confirm with PCR."},
+ {stem:"Which result pattern best fits regressive FeLV infection?",
+  opts:["antigen positive, IFA positive, high proviral load","antigen negative, IFA negative, low proviral DNA by PCR","antigen positive, IFA negative, no detectable provirus"],ans:1,
+  rat:"Regressive is the antigen-negative, IFA-negative, low-proviral-PCR pattern. It is the trap because routine screening reads negative."},
+ {stem:"After a confirmed FeLV-positive cat is removed from a ward, the appropriate disinfection approach is:",
+  opts:["routine cleaning and disinfection, as both retroviruses are labile and enveloped","accelerated hydrogen peroxide with extended contact time for a non-enveloped virus","ward closure and fumigation due to environmental persistence"],ans:0,
+  rat:"Both retroviruses are enveloped and labile. Routine disinfection suffices. The non-enveloped virus needing special agents is parvovirus."},
+ {stem:"A friendly FIV-positive adult cat is in your shelter. The most appropriate outcome guidance is:",
+  opts:["not adoptable, euthanise","adoptable, can live with other cats if there is no fighting, and a normal lifespan is possible","adoptable only to an outdoor/barn placement"],ans:1,
+  rat:"A positive retrovirus test is not grounds for euthanasia. FIV-positive cats can co-house without fighting and often have normal lifespans."},
+ {stem:"For the purposes of the ABVP exam, the FIV vaccine should be regarded as:",
+  opts:["a core vaccine for all cats","no longer commercially available in the US and not recommended, with antibody vaccination confounding serologic testing","recommended for all shelter cats at intake"],ans:1,
+  rat:"Discontinued in the US and not recommended; the antibody response confounds testing. (Your Australian context differs, as it remains available there.)"}
+];
+
+var TOPICS = {
+ "felv-fiv":{name:"FeLV and FIV",status:"ready",summary:FELV_SUMMARY,diagram:FELV_SVG,quiz:FELV_QUIZ},
+ "cpv":{name:"Canine parvovirus (CPV)",status:"todo"},
+ "cdv":{name:"Canine distemper (CDV)",status:"todo"},
+ "fpv":{name:"Feline panleukopenia (FPV)",status:"todo"},
+ "cird":{name:"Canine infectious respiratory disease (CIRD)",status:"todo"},
+ "furi":{name:"Feline upper respiratory infection (FURI)",status:"todo"},
+ "ringworm":{name:"Dermatophytosis (ringworm)",status:"todo"}
+};
+
+/* ---------- STATE + RENDER ---------- */
+var S={view:"home"};
+var quizState={};
+
+function topicReady(id){return TOPICS[id]&&TOPICS[id].status==="ready";}
+function domainCounts(d){
+  var total=0,ready=0;
+  d.subs.forEach(function(s){
+    if(s.topics){
+      s.topics.forEach(function(t){total++;if(topicReady(t))ready++;});
+      if(s.url){total++;ready++;}
+    }else{
+      total++;
+      if(s.url)ready++;
+    }
+  });
+  return {total:total,ready:ready};
+}
+function allCounts(){var t=0,r=0;DOMAINS.forEach(function(d){var c=domainCounts(d);t+=c.total;r+=c.ready;});return{t:t,r:r};}
+
+function nav(view,a,b){S.view=view;S.dom=a;S.sub=b;if(view==="topic"){quizState={};}window.scrollTo(0,0);render();}
+
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+
+function render(){
+  var app=document.getElementById("app");
+  if(S.view==="home")app.innerHTML=renderHome();
+  else if(S.view==="domain")app.innerHTML=renderDomain(S.dom);
+  else if(S.view==="topic")app.innerHTML=renderTopic(S.dom);
+  document.getElementById("hdrchip").textContent=(S.view==="home")?("7 domains"):"";
+}
+
+function renderHome(){
+  var c=allCounts();
+  var h='<div class="crumb">&nbsp;</div>';
+  h+='<h1 class="page">Build your exam coverage, one topic at a time</h1>';
+  h+='<p class="lede">Pick a domain to drill into its subdomains and topics. Each ready topic gives you a summary, a visual diagram, and an interactive scored quiz. Empty topics fill in as you send notes.</p>';
+  h+='<div class="stats"><div class="stat"><b>7</b><span>domains</span></div><div class="stat"><b>'+c.t+'</b><span>topics mapped</span></div><div class="stat"><b>'+c.r+'</b><span>ready to study</span></div><div class="stat"><b>350</b><span>exam items</span></div></div>';
+  h+='<div class="grid">';
+  DOMAINS.forEach(function(d){
+    var cc=domainCounts(d);
+    var pct=cc.total?Math.round(cc.ready/cc.total*100):0;
+    h+='<div class="dcard" onclick="nav(\''+'domain\',\''+d.id+'\')">';
+    h+='<div class="top" style="background:'+d.color+'"></div>';
+    h+='<div class="wt" style="color:'+d.color+'">'+d.weight+'% of exam</div>';
+    h+='<h3>'+d.name+'</h3>';
+    h+='<div class="meta">'+d.subs.length+' subdomains</div>';
+    h+='<div class="prog"><i style="width:'+pct+'%;background:'+d.color+'"></i></div>';
+    h+='<div class="pl">'+cc.ready+' of '+cc.total+' topics ready</div>';
+    h+='</div>';
+  });
+  h+='</div>';
+  h+='<div class="foot">Standalone study aid built from your notes. Save this file to keep it. Content is baked in, so nothing is lost if it is rebuilt. Not a substitute for the primary ABVP sources.</div>';
+  return h;
+}
+
+function renderDomain(id){
+  var d=DOMAINS.filter(function(x){return x.id===id;})[0];
+  var h='<div class="crumb"><a onclick="nav(\'home\')">Home</a><span class="sep">/</span><span>'+d.name+'</span></div>';
+  h+='<div class="domhead" style="background:'+d.color+'14;border-color:'+d.color+'33"><h1>'+d.name+'</h1><p>'+d.weight+'% of the exam &middot; '+d.subs.length+' subdomains. Percentages below are share of this domain.</p></div>';
+  d.subs.forEach(function(s,i){
+    h+='<div class="sub">';
+    if(s.topics){
+      h+='<div class="srow" style="cursor:default"><div class="nm">'+s.name+'</div><div class="rt"><span class="wbadge">'+s.w+'%</span></div></div>';
+      h+='<div class="topics">';
+      s.topics.forEach(function(t){
+        var ready=topicReady(t);
+        h+='<span class="tchip '+(ready?'ready':'')+'" onclick="nav(\'topic\',\''+t+'\')"><span class="dot" style="background:'+(ready?'#0F6E56':'#B4B2A9')+'"></span>'+TOPICS[t].name+'</span>';
+      });
+      if(s.url){
+        h+='<a class="tchip ready" href="'+s.url+'" style="text-decoration:none"><span class="dot" style="background:#0F6E56"></span>Full subdomain hub &rsaquo;</a>';
+      }
+      h+='</div>';
+    }else if(s.url){
+      h+='<a class="srow" href="'+s.url+'" style="text-decoration:none"><div class="nm">'+s.name+'<small>hub page ready</small></div><div class="rt"><span class="wbadge">'+s.w+'%</span><span class="arrow">&rsaquo;</span></div></a>';
+    }else{
+      h+='<div class="srow" onclick="alert(\'No topic content yet for this subdomain. Send notes and it will be built here.\')"><div class="nm">'+s.name+'<small>no topics yet</small></div><div class="rt"><span class="wbadge">'+s.w+'%</span><span class="arrow">&rsaquo;</span></div></div>';
+    }
+    h+='</div>';
+  });
+  return h;
+}
+
+function findDomainOfTopic(tid){
+  for(var i=0;i<DOMAINS.length;i++){var d=DOMAINS[i];for(var j=0;j<d.subs.length;j++){if(d.subs[j].topics&&d.subs[j].topics.indexOf(tid)>=0)return d;}}
+  return null;
+}
+
+function renderTopic(tid){
+  var t=TOPICS[tid];var d=findDomainOfTopic(tid);
+  var h='<div class="crumb"><a onclick="nav(\'home\')">Home</a><span class="sep">/</span>';
+  if(d)h+='<a onclick="nav(\'domain\',\''+d.id+'\')">'+d.name+'</a><span class="sep">/</span>';
+  h+='<span>'+t.name+'</span></div>';
+  h+='<h1 class="page">'+t.name+' <span class="status '+(t.status==="ready"?"ready":"todo")+'">'+(t.status==="ready"?"ready":"to do")+'</span></h1>';
+  if(t.status!=="ready"){
+    h+='<div class="placeholder"><h3>Not built yet</h3><p>This topic is on the map but has no content. Send me your notes for it and I will add a summary, a diagram, and an interactive quiz here.</p></div>';
+    return h;
+  }
+  if(!S.tab)S.tab="summary";
+  h+='<div class="tabs">';
+  h+='<div class="tab '+(S.tab==="summary"?"on":"")+'" onclick="setTab(\'summary\')">Summary</div>';
+  h+='<div class="tab '+(S.tab==="diagram"?"on":"")+'" onclick="setTab(\'diagram\')">Diagram</div>';
+  h+='<div class="tab '+(S.tab==="quiz"?"on":"")+'" onclick="setTab(\'quiz\')">Quiz</div>';
+  h+='</div><div class="panel" id="panel">'+panelHTML(t)+'</div>';
+  return h;
+}
+function setTab(tb){S.tab=tb;if(tb==="quiz")quizState={};document.getElementById("panel").innerHTML=panelHTML(TOPICS[S.dom]);}
+function panelHTML(t){
+  if(S.tab==="summary")return '<div class="doc">'+t.summary+'</div>';
+  if(S.tab==="diagram")return t.diagram+'<p style="font-size:13px;color:var(--soft);margin-top:12px">FeLV infection outcomes after exposure with the test pattern for each. The middle (regressive) column is the diagnostic trap: negative on routine antigen and IFA, positive only on low-copy PCR.</p>';
+  return quizHTML(t);
+}
+
+function quizHTML(t){
+  var answered=Object.keys(quizState).length,correct=0;
+  Object.keys(quizState).forEach(function(k){if(quizState[k]===t.quiz[k].ans)correct++;});
+  var done=answered===t.quiz.length;
+  var h='<div class="qhead"><div class="qscore">'+correct+' / '+t.quiz.length+' correct <span>('+answered+' answered'+(done?', '+Math.round(correct/t.quiz.length*100)+'%':'')+')</span></div><button class="btn" onclick="resetQuiz()">Reset</button></div>';
+  t.quiz.forEach(function(q,qi){
+    var picked=quizState.hasOwnProperty(qi)?quizState[qi]:null;
+    h+='<div class="q"><div class="stem"><b>Q'+(qi+1)+'</b>'+esc(q.stem)+'</div>';
+    q.opts.forEach(function(o,oi){
+      var cls="opt",mk="",dis="";
+      if(picked!==null){
+        dis="disabled";
+        if(oi===q.ans){cls+=" correct";mk='<span class="mk">&#10003;</span>';}
+        else if(oi===picked){cls+=" wrong";mk='<span class="mk">&#10007;</span>';}
+      }
+      h+='<button class="'+cls+'" '+dis+' onclick="answer('+qi+','+oi+')">'+String.fromCharCode(97+oi)+'. '+esc(o)+mk+'</button>';
+    });
+    if(picked!==null)h+='<div class="rat"><b>'+(picked===q.ans?"Correct.":"Answer: "+String.fromCharCode(97+q.ans)+".")+'</b> '+esc(q.rat)+'</div>';
+    h+='</div>';
+  });
+  return h;
+}
+function answer(qi,oi){if(quizState.hasOwnProperty(qi))return;quizState[qi]=oi;document.getElementById("panel").innerHTML=panelHTML(TOPICS[S.dom]);}
+function resetQuiz(){quizState={};document.getElementById("panel").innerHTML=panelHTML(TOPICS[S.dom]);}
+
+render();
+</script>
+</body>
+</html>
