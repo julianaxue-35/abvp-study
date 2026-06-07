@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<title>Behaviour &amp; Relinquishment Subdomain Hub | ABVP Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme:light dark;
+    --bg:#eef2f7;--surface:#fbfdff;--surface2:#e8edf4;
+    --chrome:#1c3a5e;--chrome2:#264f78;          /* behavioural health blue chrome */
+    --text:#16273a;--onChrome:#e9f0f8;--muted:#586a7d;
+    --line:#ccd6e2;
+    --accent:#b1466f;--accent-soft:#f3e0ea;       /* behavioural health rose accent */
+    --good:#1f7a4d;--good-soft:#e3f2ea;--bad:#b23b3b;
+    --notes:#7a4fb5;--notes-soft:#ece3f7;          /* your relinquishment notes (PDF) */
+    --asv:#1f6f86;--asv-soft:#dcecf2;              /* ASV Standards of Care / position statements */
+    --ref:#b5651d;--ref-soft:#f6e7d4;              /* behaviour / shelter-medicine reference */
+    --dot:rgba(28,58,94,.05);
+    --shadow:0 1px 2px rgba(20,40,70,.08),0 8px 24px rgba(20,40,70,.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0e1622;--surface:#16212f;--surface2:#1b2735;
+      --chrome:#122236;--chrome2:#1b3450;
+      --text:#dde6f1;--onChrome:#e9f0f8;--muted:#9aacbf;
+      --line:#2a3a4d;
+      --accent:#d3789c;--accent-soft:rgba(211,120,156,.16);
+      --good:#51b184;--good-soft:rgba(40,140,90,.18);--bad:#e08585;
+      --notes:#c0a4ec;--notes-soft:rgba(150,110,210,.20);
+      --asv:#66c0d6;--asv-soft:rgba(40,150,175,.18);
+      --ref:#e0a766;--ref-soft:rgba(200,130,50,.18);
+      --dot:rgba(255,255,255,.035);
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.3);
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--text);
+    font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;
+    background-image:radial-gradient(circle at 1px 1px,var(--dot) 1px,transparent 0);background-size:22px 22px;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+  .crumb{background:var(--chrome);padding:9px 18px;display:flex;align-items:center;gap:10px;font-size:13px;font-weight:500;border-bottom:2px solid var(--chrome2)}
+  .crumb a{color:#9fc0dc;text-decoration:none;display:flex;align-items:center;gap:5px}
+  .crumb .sep{color:#5f82a3;font-size:11px}
+  .crumb .here{color:#cfe0f1}
+  header.top{background:var(--chrome);color:var(--onChrome);padding:26px 0 22px;border-bottom:4px solid var(--accent)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#9fc0dc;margin:0 0 6px}
+  header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(26px,4.5vw,40px);margin:0;line-height:1.05}
+  header.top p.sub{margin:8px 0 0;color:#cfe0f1;font-size:14px;max-width:78ch}
+  .legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}
+  .legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.22);color:#eaf2fb;display:flex;align-items:center;gap:6px}
+  .legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--surface);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button:hover{background:var(--bg);color:var(--text)}
+  .tabrow button.active{background:var(--chrome);color:var(--onChrome)}
+  .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+  main{padding:30px 0 80px}
+  .panel{display:none;animation:fade .35s ease}
+  .panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;letter-spacing:-.01em;color:var(--text)}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:80ch}
+  h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:30px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;scroll-margin-top:64px;color:var(--text)}
+  h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;color:var(--text);text-transform:uppercase;letter-spacing:.03em}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}
+  p.note{font-size:14px;margin:0 0 6px}
+  ul.hy{margin:8px 0;padding-left:0;list-style:none}
+  ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed var(--line);font-size:14px}
+  ul.hy li:last-child{border-bottom:0}
+  ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;border-radius:2px;background:var(--accent);transform:rotate(45deg)}
+  .trap{background:var(--accent-soft);border:1px solid var(--accent);border-left:4px solid var(--accent);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .trap b{color:var(--accent);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .corrbox{background:var(--good-soft);border:1px solid var(--good);border-left:4px solid var(--good);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .corrbox b{color:var(--good);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .verifybox{background:var(--asv-soft);border:1px solid var(--asv);border-left:4px solid var(--asv);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .verifybox b{color:var(--asv);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp th{background:var(--chrome);color:var(--onChrome);font-weight:600;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase}
+  table.cmp tr:last-child td{border-bottom:0}
+  table.cmp td b{color:var(--text)}
+  .fig{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0;box-shadow:var(--shadow)}
+  .fig figcaption{font-size:12.5px;color:var(--muted);margin-top:8px;font-style:italic}
+  /* svg helpers (use vars so diagrams adapt to dark mode) */
+  .sgbox{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1}
+  .sgbox2{fill:var(--asv-soft);stroke:var(--asv);stroke-width:1}
+  .sgtxt{fill:var(--text);font-family:"Public Sans",sans-serif}
+  .sgmut{fill:var(--muted);font-family:"Public Sans",sans-serif}
+  .sgmono{fill:var(--accent);font-family:"JetBrains Mono",monospace}
+  .sgline{stroke:var(--accent);stroke-width:2;fill:none}
+  .sgaxis{stroke:var(--line);stroke-width:1.5}
+  .sgarrow{fill:var(--accent)}
+  /* source badges */
+  .bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+  .bdg.notes{background:var(--notes-soft);color:var(--notes)}
+  .bdg.asv{background:var(--asv-soft);color:var(--asv)}
+  .bdg.ref{background:var(--ref-soft);color:var(--ref)}
+  .bdg.corr{background:var(--good);color:#fff}
+  /* mcq */
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--chrome);color:var(--onChrome);border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:54px;z-index:10}
+  .mcqbar .label{font-family:"JetBrains Mono",monospace;font-size:12px;color:#cfe0f1;display:flex;align-items:center;gap:8px}
+  .mcqbar .label .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);display:inline-block}
+  .score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}
+  .score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;color:#cfe0f1;padding:5px 10px;border-radius:8px;font-size:11px}
+  .q{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
+  .q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+  .q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+  .q .stem{font-weight:600;font-size:15px;margin-bottom:10px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:var(--surface2);border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;font-family:"Public Sans";color:var(--text);transition:background .15s,border-color .15s}
+  .opt:hover{border-color:var(--accent)}
+  .opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}
+  .opt.correct{background:var(--good-soft);border-color:var(--good)}
+  .opt.wrong{background:rgba(178,59,59,.14);border-color:var(--bad)}
+  .opt.locked{cursor:default}
+  .expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:var(--surface2);border:1px solid var(--line);font-size:13.5px}
+  .expl.show{display:block}
+  .expl b.cor{color:var(--good)}
+  footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
+  @media(max-width:640px){.mcqbar{top:50px}.score{font-size:12px}}
+</style>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span class="sep">&rsaquo;</span><a href="../index.html#domain-behav">Behavioural Health</a><span class="sep">&rsaquo;</span><span class="here">Behaviour Relinquishment</span></nav>
+<div style="background:#f6e7d4;border-left:4px solid #b5651d;padding:8px 18px;font-size:12.5px;color:#7a3a0a;font-family:'Public Sans',sans-serif"><strong>Supplemental topic</strong> — This subdomain may not be directly examined in the ABVP SMP RVS specialty exam but provides useful clinical context.</div>
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">ABVP Shelter Medicine Practice RVS &middot; Behavioural Health</p>
+    <h1>Behaviour &amp; Relinquishment Subdomain Hub</h1>
+    <p class="sub">Exam-depth study tool covering canine behaviour and relinquishment risk, behavioural hygiene in kennels, feline community impact and field dynamics, community cats in the shelter, and the Tiny Spirit kitten programme. The MCQ Test Bank holds all 30 questions in one set. Every claim is badged by source.</p>
+    <div class="legend">
+      <span><i style="background:var(--notes)"></i>Your relinquishment notes (PDF)</span>
+      <span><i style="background:var(--asv)"></i>ASV Standards of Care / position statements</span>
+      <span><i style="background:var(--ref)"></i>Standard shelter-medicine / behaviour reference</span>
+    </div>
+  </div>
+</header>
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="can"><span class="dot"></span>Canine &amp; Relinquishment</button>
+  <button data-p="hyg"><span class="dot"></span>Behavioural Hygiene</button>
+  <button data-p="fel"><span class="dot"></span>Feline Community Impact</button>
+  <button data-p="com"><span class="dot"></span>Community Cats in Shelter</button>
+  <button data-p="tiny"><span class="dot"></span>Tiny Spirit Programme</button>
+  <button data-p="welf"><span class="dot"></span>Behavioural Welfare</button>
+  <button data-p="mcq"><span class="dot" style="background:var(--chrome2)"></span>MCQ Test Bank</button>
+</div></div></nav>
+<main><div class="wrap">
+
+<!-- ============ PANEL 1: CANINE & RELINQUISHMENT ============ -->
+<section class="panel show" id="can">
+  <h2 class="sec">Canine Behaviour &amp; Relinquishment</h2>
+  <p class="lead">The link between a named behaviour and surrender risk is far weaker and less certain than raw surrender statistics suggest. The central methodological problem is that a behaviour cited as a reason for relinquishment tells you nothing about risk unless you also know how common that behaviour is among dogs living successfully in homes.</p>
+
+  <div class="card">
+    <h4>The prevalence (denominator) problem</h4>
+    <p class="note"><b>Baseline rule.</b> To claim a behaviour raises relinquishment risk, you must know its prevalence in the retained pet population. If the trait is just as common in dogs living successfully in homes as in surrendered dogs, there is no basis to call it an elevated risk, even if owners frequently state it as a reason. <span class="bdg notes">your notes</span></p>
+    <ul class="hy">
+      <li><b>The 86% finding.</b> A Japanese pet-supply company survey found no less than 86% of owners reported at least one troublesome behaviour in dogs living successfully at home, with barking and pica causing the most concern. Fear and anxiety were the most common problems and overlapped heavily with aggression. <span class="bdg notes">your notes</span></li>
+      <li><b>The gift myth.</b> Receiving a dog as a gift was not a risk factor: only 2.9% of relinquishers cited it, versus 4.5% of dog-owning households reporting they had received a dog as a gift. <span class="bdg notes">your notes</span></li>
+      <li><b>Stated reasons.</b> Behavioural issues were cited in up to 48% of surrenders, and human or personal issues including moving in up to 69.1%. The relative weight of reasons varies by geography, socioeconomic status, and over time (for example, changing sterilisation norms and the rising cost of veterinary care). <span class="bdg notes">your notes</span></li>
+    </ul>
+  </div>
+
+  <div class="trap">
+    <b>Exam trap</b> Unadjusted odds ratios and raw percentages are misleading. In one single-shelter Indiana study, multivariate analysis controlling for dog training, veterinary visits, sterilisation, and work expectations reduced the odds ratio for daily or weekly inappropriate elimination by about 50% and rendered other behavioural variables not statistically significant. Always ask which confounders were controlled, which reference categories and definitions were used, and how the behaviour was measured. <span class="bdg notes">your notes</span></div>
+
+  <div class="card">
+    <h4>Predictive value of owner reports</h4>
+    <p class="note">A relinquishing owner's account of their dog's behaviour problems has poor predictive value for how that dog behaves in a new adoptive home. It remains unresolved whether this is because dogs do not consistently express behaviours across different environments and husbandry, or because owners differ in how they perceive and define a behaviour (for example, the threshold for calling something "aggression" varies widely). <span class="bdg notes">your notes</span></p>
+    <p class="note"><b>The core unknown.</b> The literature cannot yet say which, if any, behaviours put a dog at elevated risk. It is unknown whether surrendered dogs display unwanted behaviours more frequently or intensely than retained dogs, or whether relinquishing owners simply have a lower tolerance for, or less capacity to manage, the same behaviour. <span class="bdg notes">your notes</span></p>
+  </div>
+
+  <div class="fig">
+    <svg viewBox="0 0 700 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bar comparison of behaviour prevalence in retained homes versus citation at relinquishment">
+      <defs><marker id="arDR1" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path class="sgarrow" d="M0,0 L7,3 L0,6 Z"/></marker></defs>
+      <line class="sgaxis" x1="70" y1="30" x2="70" y2="200"/>
+      <line class="sgaxis" x1="70" y1="200" x2="640" y2="200"/>
+      <text class="sgmut" x="20" y="40" font-size="11">100%</text>
+      <text class="sgmut" x="28" y="120" font-size="11">50%</text>
+      <text class="sgmut" x="40" y="203" font-size="11">0%</text>
+      <rect class="sgbox2" x="150" y="55" width="120" height="145"/>
+      <text class="sgtxt" x="210" y="48" font-size="12" text-anchor="middle" font-weight="600">86%</text>
+      <text class="sgmut" x="210" y="220" font-size="11.5" text-anchor="middle">Troublesome behaviour</text>
+      <text class="sgmut" x="210" y="235" font-size="11.5" text-anchor="middle">in retained homes</text>
+      <rect class="sgbox" x="430" y="120" width="120" height="80"/>
+      <text class="sgtxt" x="490" y="113" font-size="12" text-anchor="middle" font-weight="600">48%</text>
+      <text class="sgmut" x="490" y="220" font-size="11.5" text-anchor="middle">Behaviour cited</text>
+      <text class="sgmut" x="490" y="235" font-size="11.5" text-anchor="middle">at relinquishment</text>
+      <text class="sgmono" x="350" y="95" font-size="11" text-anchor="middle">no demonstrated</text>
+      <text class="sgmono" x="350" y="110" font-size="11" text-anchor="middle">elevated risk</text>
+    </svg>
+    <figcaption>Original didactic construction. A reason cited at surrender (right) cannot establish elevated risk when the behaviour is at least as common among dogs that stay in their homes (left). Figures are illustrative of the two reported statistics in your notes, not a paired measurement of one behaviour.</figcaption>
+  </div>
+
+  <h3>Adopter behaviour and what promotes adoption</h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Initial choice.</b> Morphological (physical) preferences are the major factor determining which dogs an adopter interacts with beyond a cursory glance. Approaching the front of pen or making eye contact with visitors has little effect on adopter behaviour or length of stay (LOS). <span class="bdg notes">your notes</span></li>
+      <li><b>Interaction matters.</b> Once interacting, maintaining proximity to the person and engaging in play (fetch or tug) when invited increased the likelihood of adoption. <span class="bdg notes">your notes</span></li>
+      <li><b>Toy-audition method.</b> Experimenters auditioned dogs for toy preferences, supplied the preferred toy to the prospective adopter during the session, and gave the adopter the leash to hold to maintain proximity. <span class="bdg notes">your notes</span></li>
+      <li><b>Building the association.</b> Deliver high-value treats whenever the dog approaches a novel person and continue while the dog stays within a set distance. Once a pleasant association forms, the social contact itself becomes reinforcing without food. <span class="bdg notes">your notes</span></li>
+    </ul>
+  </div>
+
+  <h3>Four windows for behavioural prevention</h3>
+  <div class="fig">
+    <svg viewBox="0 0 700 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Timeline of four behavioural prevention points">
+      <defs><marker id="arDR3" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path class="sgarrow" d="M0,0 L7,3 L0,6 Z"/></marker></defs>
+      <line class="sgline" x1="60" y1="70" x2="630" y2="70" marker-end="url(#arDR3)"/>
+      <circle cx="90" cy="70" r="9" class="sgbox"/><text class="sgtxt" x="90" y="40" font-size="11.5" text-anchor="middle" font-weight="600">Before intake</text><text class="sgmut" x="90" y="100" font-size="10.5" text-anchor="middle">highest yield,</text><text class="sgmut" x="90" y="113" font-size="10.5" text-anchor="middle">least feasible</text>
+      <circle cx="270" cy="70" r="9" class="sgbox"/><text class="sgtxt" x="270" y="40" font-size="11.5" text-anchor="middle" font-weight="600">At intake</text><text class="sgmut" x="270" y="100" font-size="10.5" text-anchor="middle">vet care,</text><text class="sgmut" x="270" y="113" font-size="10.5" text-anchor="middle">temporary foster</text>
+      <circle cx="450" cy="70" r="9" class="sgbox"/><text class="sgtxt" x="450" y="40" font-size="11.5" text-anchor="middle" font-weight="600">At adoption</text><text class="sgmut" x="450" y="100" font-size="10.5" text-anchor="middle">counselling,</text><text class="sgmut" x="450" y="113" font-size="10.5" text-anchor="middle">expectations</text>
+      <circle cx="600" cy="70" r="9" class="sgbox"/><text class="sgtxt" x="600" y="40" font-size="11.5" text-anchor="middle" font-weight="600">After adoption</text><text class="sgmut" x="600" y="100" font-size="10.5" text-anchor="middle">support when</text><text class="sgmut" x="600" y="113" font-size="10.5" text-anchor="middle">rehoming is weighed</text>
+    </svg>
+    <figcaption>Original didactic construction from your notes. Most owners live with problem behaviours without ending the relationship, so the most efficacious moment to intervene may be when an owner or new adopter first begins to consider rehoming.</figcaption>
+  </div>
+  <table class="cmp">
+    <tr><th>Window</th><th>Intervention</th><th>Practical note</th></tr>
+    <tr><td><b>Before intake</b></td><td>Behaviour consult to prevent surrender</td><td>Most productive, but labour and time intensive and hard to reach the target owners</td></tr>
+    <tr><td><b>At intake</b></td><td>Veterinary care and temporary foster care</td><td>Foster time has a stress-reducing effect that can improve kennel presentation and behaviour</td></tr>
+    <tr><td><b>At adoption</b></td><td>Counselling, matching, expectation setting</td><td>We cannot reliably predict which behaviours will be deal-breakers for adopters as a group</td></tr>
+    <tr><td><b>After adoption</b></td><td>Support to prevent returns</td><td>Returned dogs were re-adopted faster than the general population in one shelter</td></tr>
+  </table>
+  <p class="note" style="font-size:13px;color:var(--muted)">Fearful dogs given a home-like room and quiet interaction for even 15 minutes a day over 2 to 3 days markedly increased their likelihood of passing a behaviour assessment used for adoptability versus euthanasia decisions, and changed behaviour enough that staff were comfortable placing them on the adoption floor. <span class="bdg notes">your notes</span></p>
+</section>
+
+<!-- ============ PANEL 2: BEHAVIOURAL HYGIENE ============ -->
+<section class="panel" id="hyg">
+  <h2 class="sec">Behavioural Hygiene in Kennels</h2>
+  <p class="lead">Routine shelter housing and care can inadvertently elicit and reinforce the very behaviours that impede adoption. Many dogs arrive with a reinforcement history already in place, and standard kennel routines can strengthen it further. The mechanisms below are operant; the formal learning theory belongs to the Learning Theory subdomain.</p>
+
+  <div class="trap">
+    <b>Exam trap</b> "We always ignore the jumping, yet it persists." Ignoring does not extinguish the behaviour when the behaviour is paired with the most exciting event of the dog's day, which is being taken out of the kennel. That outing is the reinforcer, not the handler's attention. <span class="bdg notes">your notes</span></div>
+
+  <div class="fig">
+    <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Negative reinforcement loop for barking and lunging at the kennel barrier">
+      <defs><marker id="arDR2" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path class="sgarrow" d="M0,0 L7,3 L0,6 Z"/></marker></defs>
+      <rect class="sgbox" x="270" y="20" width="160" height="44" rx="8"/><text class="sgtxt" x="350" y="40" font-size="12" text-anchor="middle" font-weight="600">Dog or person</text><text class="sgtxt" x="350" y="56" font-size="12" text-anchor="middle">passes the kennel</text>
+      <rect class="sgbox" x="500" y="118" width="170" height="44" rx="8"/><text class="sgtxt" x="585" y="138" font-size="12" text-anchor="middle" font-weight="600">Arousal + frustration</text><text class="sgmut" x="585" y="154" font-size="11" text-anchor="middle">(barrier blocks access)</text>
+      <rect class="sgbox" x="270" y="216" width="160" height="44" rx="8"/><text class="sgtxt" x="350" y="236" font-size="12" text-anchor="middle" font-weight="600">Bark and lunge</text><text class="sgmut" x="350" y="252" font-size="11" text-anchor="middle">at the barrier</text>
+      <rect class="sgbox2" x="30" y="118" width="170" height="44" rx="8"/><text class="sgtxt" x="115" y="138" font-size="12" text-anchor="middle" font-weight="600">Stimulus moves away</text><text class="sgmut" x="115" y="154" font-size="11" text-anchor="middle">relief = reinforcement</text>
+      <path class="sgline" d="M430,52 C480,70 500,95 560,114" marker-end="url(#arDR2)"/>
+      <path class="sgline" d="M560,162 C500,190 470,205 430,224" marker-end="url(#arDR2)"/>
+      <path class="sgline" d="M270,238 C190,220 150,200 120,166" marker-end="url(#arDR2)"/>
+      <path class="sgline" d="M120,118 C150,85 190,62 270,46" marker-end="url(#arDR2)"/>
+      <text class="sgmono" x="350" y="150" font-size="11" text-anchor="middle">negative</text>
+      <text class="sgmono" x="350" y="165" font-size="11" text-anchor="middle">reinforcement loop</text>
+    </svg>
+    <figcaption>Original didactic construction from your notes. The passing stimulus inevitably leaves, which relieves the dog's frustration and reinforces the display through negative reinforcement. Each repetition strengthens it and can generalise into an aversive response to dogs or people overall.</figcaption>
+  </div>
+
+  <h3>Three husbandry-induced problems</h3>
+  <table class="cmp">
+    <tr><th>Problem</th><th>How the kennel creates or strengthens it</th><th>Prevention</th></tr>
+    <tr><td><b>Indoor elimination</b></td><td>Limited space and time out of the kennel cause habituation, so the dog loses its natural aversion to eliminating near eating and sleeping areas, erasing prior house-training</td><td>Protected, non-frightening outdoor space with both dirt and concrete; brief walks first thing, after meals, and last thing at night; reinforce lavishly when the dog eliminates outside</td></tr>
+    <tr><td><b>Jumping and mouthing</b></td><td>An affiliative, excited greeting reinforced by the ultimate daily reward of leaving the kennel, even when handlers try to ignore it</td><td>Teach an alternative greeting: the walker leaves and goes out of sight for 10 to 15 seconds at trigger points; keeping feet off the person is what earns the leash and the outing; apply consistently</td></tr>
+    <tr><td><b>Barking and lunging</b></td><td>Frustration at constantly seeing but never accessing passing dogs; reinforced as each passing dog walks away (negative reinforcement)</td><td>Best addressed indirectly through passive interventions: visual barriers, plus normal positive intraspecies activity via playgroups and group social walks</td></tr>
+  </table>
+
+  <div class="card">
+    <h4>Substrate and the outdoor elimination space</h4>
+    <p class="note">Dogs form strong associations with the substrate available in their previous elimination areas, so an outdoor space that offers both dirt and concrete supports successful outdoor elimination. At minimum the outdoor area must be obviously different from the indoor space. Forcing a dog to eliminate in its sleeping and eating space is unacceptable. <span class="bdg notes">your notes</span></p>
+    <h4>Leash pulling</h4>
+    <p class="note">Pulling against restraint is effective for the dog whenever it results in moving toward a goal, so it self-reinforces. Use a harness, and allow the dog to move from scent to scent, which helps deplete the motivation that drove the pulling. <span class="bdg notes">your notes</span></p>
+    <h4>Urgent foster need</h4>
+    <p class="note">Dogs with strong, persistent undesirable behaviours may be in the most urgent need of foster placement, where normal pet-dog behaviour interventions can be implemented with fewer time constraints. <span class="bdg notes">your notes</span></p>
+  </div>
+</section>
+
+<!-- ============ PANEL 3: FELINE COMMUNITY IMPACT ============ -->
+<section class="panel" id="fel">
+  <h2 class="sec">Feline Community Impact &amp; Field Dynamics</h2>
+  <p class="lead">Free-roaming cats are opportunistic predators, and their management sits at the intersection of conservation biology, ethics, and policy. Decisions about lethal versus non-lethal control have predictable ecological consequences that can backfire when applied without coordination.</p>
+
+  <div class="card">
+    <h4>Predation and environment</h4>
+    <ul class="hy">
+      <li><b>Invasiveness fallacy.</b> Drawing on philosophy, being an invasive species does not by itself confirm harm to the environment or native species, nor does it justify aggressive lethal management over adaptive, non-lethal options. <span class="bdg notes">your notes</span></li>
+      <li><b>Hunting style.</b> Cats are opportunistic and hunt or eat what is available. In urban settings they commonly use a stalk, pounce, bite sequence, and can be creative elsewhere (for example, using a paw to fish). <span class="bdg notes">your notes</span></li>
+      <li><b>Nocturnal shift.</b> Across habitats, taxa, and types of human activity, mammals tend to increase nocturnal activity where human disturbance is high. <span class="bdg ref">std ref</span></li>
+      <li><b>Collar-camera findings (as reported in your notes).</b> 62% of cats killed prey, averaging about 6 kills per 24 hours (3 cats killed more than 12 in one day), with an average success rate near 44%. Cats were least successful at killing birds (17%). 73% of hunting occurred between dusk and dawn. Females, night hunters, and cats nearer undeveloped habitats were most successful. Camera weight should be under 2% of the cat's body weight. <span class="bdg notes">your notes</span></li>
+    </ul>
+  </div>
+
+  <div class="verifybox">
+    <b>Verify against primary source</b> These predation figures do not match the most-cited collar-camera study (Loyd et al. 2013, Athens-Clarke County, Georgia), which reported roughly 30% of sampled cats successfully killing prey and an average of about 2.1 kills per week (one kill per 17 hours outdoors). The "44% success, 17% on birds, dusk-to-dawn, females and night-hunters more successful" pattern is consistent with a different study, possibly a feral-cat camera study, so your notes may be combining sources. Treat the exact figures as unconfirmed until the original citation is checked.</div>
+
+  <h3>Consequences of lethal control</h3>
+  <table class="cmp">
+    <tr><th>Effect</th><th>Mechanism</th><th>Result</th></tr>
+    <tr><td><b>Mesopredator release</b></td><td>Removing cats (a predator) releases lower prey species from predation pressure</td><td>Dramatic increase in rats, mice, or rabbits, which can paradoxically worsen survival pressure on native birds</td></tr>
+    <tr><td><b>Compensatory migration</b></td><td>Removal vacates territory while food and shelter remain</td><td>Surrounding cats move in to exploit the remaining resources</td></tr>
+  </table>
+  <p class="note" style="font-size:13px">Short-term, uncoordinated, or pulsed lethal control is likely ineffective. Only sustained, long-term efforts have actually benefited native species, and lethal control should be weighed carefully against these unintended consequences. <span class="bdg notes">your notes</span></p>
+  <div class="card">
+    <h4>Cats and birds</h4>
+    <p class="note">Removal of cats has not consistently improved bird survival in studies; the environment (for example pastures versus semi-desert) altered the effect of cat removal on birds as well as on rat, rabbit, and mouse activity. Concern is greatest where bird species are already under serious survival pressure from multiple factors. <span class="bdg notes">your notes</span></p>
+  </div>
+
+  <h3>Home range, density, and activity</h3>
+  <div class="fig">
+    <svg viewBox="0 0 700 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Gradient of cat home range and density from near houses to away from housing">
+      <defs><marker id="arDR4" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path class="sgarrow" d="M0,0 L7,3 L0,6 Z"/></marker></defs>
+      <line class="sgline" x1="60" y1="190" x2="640" y2="190" marker-end="url(#arDR4)"/>
+      <text class="sgmut" x="60" y="212" font-size="11">near houses</text>
+      <text class="sgmut" x="560" y="212" font-size="11">away from housing</text>
+      <circle cx="140" cy="120" r="22" class="sgbox"/><text class="sgtxt" x="140" y="65" font-size="11.5" text-anchor="middle" font-weight="600">Owned, outdoor</text><text class="sgmut" x="140" y="80" font-size="10.5" text-anchor="middle">small range</text><text class="sgmut" x="140" y="93" font-size="10.5" text-anchor="middle">high density, crepuscular</text>
+      <circle cx="350" cy="120" r="38" class="sgbox"/><text class="sgtxt" x="350" y="55" font-size="11.5" text-anchor="middle" font-weight="600">Managed / TNR</text><text class="sgmut" x="350" y="70" font-size="10.5" text-anchor="middle">moderate range</text><text class="sgmut" x="350" y="83" font-size="10.5" text-anchor="middle">fed and/or sterilised</text>
+      <circle cx="570" cy="120" r="55" class="sgbox"/><text class="sgtxt" x="570" y="45" font-size="11.5" text-anchor="middle" font-weight="600">Feral / unmanaged</text><text class="sgmut" x="570" y="60" font-size="10.5" text-anchor="middle">largest range</text><text class="sgmut" x="570" y="73" font-size="10.5" text-anchor="middle">nocturnal, lowest density</text>
+    </svg>
+    <figcaption>Original didactic construction from your notes. Circle size represents relative home-range size. Patterns of high disease prevalence did not always track density or feeding and were sometimes related only to the sex of the cat; if TNR increases movement and recruitment, it could increase disease exposure.</figcaption>
+  </div>
+  <table class="cmp">
+    <tr><th>Group</th><th>Home range</th><th>Activity and density</th></tr>
+    <tr><td><b>Near houses</b></td><td>Smallest</td><td>Crepuscular, highest density; many thought to be owned cats let outside by day</td></tr>
+    <tr><td><b>Moderate range</b></td><td>Moderate</td><td>Hypothesised to be cats that are fed and/or have undergone TNR</td></tr>
+    <tr><td><b>Smallest groups</b></td><td>Largest</td><td>More nocturnal, found farthest from human housing</td></tr>
+  </table>
+  <p class="note" style="font-size:13px">Female cats had smaller ranges in well-vegetated landscapes with little seasonal variation; ranges expanded and became harder to predict as seasonal vegetation variability increased. <span class="bdg notes">your notes</span></p>
+
+  <div class="card">
+    <h4>Feeding dynamics</h4>
+    <p class="note">Cats ate more and stayed longer when the feeder was present (about 4 minutes on average) than when absent (about 12 seconds), and they kept a preferred spatial organisation around feeding sites. A fixed feeding schedule with the caretaker staying present increases prompt eating and decreases the risk of attracting pest species to the feeding area. <span class="bdg notes">your notes</span></p>
+    <h4>Effects of sterilisation in colony cats</h4>
+    <p class="note">After sterilisation, some of the more dominant cats were most likely to show less aggression and more affiliative behaviour, while the overall colony hierarchy stayed similar before and after. Urine spraying was confirmed to stop or decrease dramatically in frequency. <span class="bdg ref">std ref</span></p>
+  </div>
+</section>
+
+<!-- ============ PANEL 4: COMMUNITY CATS IN SHELTER ============ -->
+<section class="panel" id="com">
+  <h2 class="sec">Community Cats in the Shelter</h2>
+  <p class="lead">Not every free-roaming cat belongs in a shelter. The first questions are whether the cat is thriving where it is and whether sheltering would actually improve its outcome, set against the local legal and policy context.</p>
+
+  <div class="card">
+    <h4>Keeping community cats out of the shelter</h4>
+    <p class="note">Community cats who are thriving where they are, who are not in danger from unusual events (such as a building being demolished), and who are not in habitats where their activity substantially impacts wildlife may not belong in an animal shelter. A first step is reviewing policies, ordinances, or laws affecting cats, some of which are antiquated and out of step with public opinion. <span class="bdg asv">ASV</span></p>
+  </div>
+
+  <div class="verifybox">
+    <b>Clarification</b> FSA refers to the Feline Spectrum Assessment, a validated tool used to place a cat along the socialisation spectrum so the shelter can identify adult cats likely to be socialised to people. Even well-socialised cats can be stressed or afraid on arrival, so stress reduction is needed before assessing. <span class="bdg ref">std ref</span></div>
+
+  <div class="card">
+    <h4>Community cats once admitted</h4>
+    <ul class="hy">
+      <li>Cats span a socialisation spectrum from feral (rarely seeing a human) to well accustomed to people. Decreasing stress and using a validated assessment like the FSA is strongly recommended to accurately identify socialised adults. <span class="bdg notes">your notes</span></li>
+      <li>Consider placing some less-socialised cats as working or barn cats. <span class="bdg notes">your notes</span></li>
+      <li>Offensively aggressive cats are not candidates for adoption. <span class="bdg notes">your notes</span></li>
+      <li>For adoptable but undersocialised cats, the keys are decreasing stress, setting adopter expectations, and creative marketing. <span class="bdg notes">your notes</span></li>
+      <li>Reduce stress via group housing, foster or office housing, hiding places (carriers alone can serve), and foster-to-adopt programmes. <span class="bdg notes">your notes</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ PANEL 5: TINY SPIRIT PROGRAMME ============ -->
+<section class="panel" id="tiny">
+  <h2 class="sec">The Tiny Spirit Kitten Programme</h2>
+  <p class="lead">A programme designed for undersocialised kittens (about 2 lb, about 2 months old) that show defensive aggression (hissing and spitting), do well in foster, but regress to unsocialised behaviour back in the shelter and so stall under standard paradigms. The strategy is to adopt them out promptly, still a little hissy, rather than tie up foster homes. A reported 85% were adopted successfully. <span class="bdg notes">your notes</span></p>
+
+  <div class="card">
+    <h4>Three requirements for success</h4>
+    <ul class="hy">
+      <li>Properly locate and house the kittens for interaction while in the shelter. <span class="bdg notes">your notes</span></li>
+      <li>Manage them for health and wellbeing. <span class="bdg notes">your notes</span></li>
+      <li>Get the marketing right and set adopter expectations. <span class="bdg notes">your notes</span></li>
+    </ul>
+  </div>
+
+  <h3>Micro-environment</h3>
+  <div class="card">
+    <ul class="hy">
+      <li>House individually in a small kennel during the day, preferably off the ground at eye level so they are easy to interact with. <span class="bdg notes">your notes</span></li>
+      <li>Place kennels in the busiest public part of the facility: stressful short term, but it speeds habituation and movement into homes, and keeps kittens visible to adopters and accessible to staff. <span class="bdg notes">your notes</span></li>
+      <li>Provide a hiding box about 2 inches high, plus toys. <span class="bdg notes">your notes</span></li>
+    </ul>
+  </div>
+  <div class="verifybox">
+    <b>Clarification</b> A box only about 2 inches high cannot fully conceal a kitten. The low height appears intentional: it gives partial concealment to manage stress while keeping the kitten visible and accessible, consistent with the stated goal of balancing stress control against exposure and accessibility. Confirm the exact dimension against the original programme description if you want to quote it precisely.</div>
+
+  <h3>Protocol timeline</h3>
+  <div class="fig">
+    <svg viewBox="0 0 700 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Tiny Spirit programme timeline from intake to adoption">
+      <defs><marker id="arDR5" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path class="sgarrow" d="M0,0 L7,3 L0,6 Z"/></marker></defs>
+      <line class="sgline" x1="60" y1="80" x2="630" y2="80" marker-end="url(#arDR5)"/>
+      <circle cx="110" cy="80" r="9" class="sgbox"/><text class="sgtxt" x="110" y="52" font-size="11.5" text-anchor="middle" font-weight="600">First 48 hours</text><text class="sgmut" x="110" y="108" font-size="10.5" text-anchor="middle">doors locked except</text><text class="sgmut" x="110" y="121" font-size="10.5" text-anchor="middle">cleaning; toothbrush</text><text class="sgmut" x="110" y="134" font-size="10.5" text-anchor="middle">10x/day, 1 min</text>
+      <circle cx="350" cy="80" r="9" class="sgbox"/><text class="sgtxt" x="350" y="52" font-size="11.5" text-anchor="middle" font-weight="600">After 48 hours</text><text class="sgmut" x="350" y="108" font-size="10.5" text-anchor="middle">open to many people;</text><text class="sgmut" x="350" y="121" font-size="10.5" text-anchor="middle">talk, pet, pick up</text><text class="sgmut" x="350" y="134" font-size="10.5" text-anchor="middle">as the kitten allows</text>
+      <circle cx="590" cy="80" r="9" class="sgbox2"/><text class="sgtxt" x="590" y="52" font-size="11.5" text-anchor="middle" font-weight="600">Within 1 to 2 weeks</text><text class="sgmut" x="590" y="108" font-size="10.5" text-anchor="middle">adopt with counsellor</text><text class="sgmut" x="590" y="121" font-size="10.5" text-anchor="middle">and signage, OR</text><text class="sgmut" x="590" y="134" font-size="10.5" text-anchor="middle">sterilise + return</text>
+      <text class="sgmono" x="590" y="170" font-size="10" text-anchor="middle">no progress at 48h</text>
+      <text class="sgmono" x="590" y="183" font-size="10" text-anchor="middle">= re-evaluate for programme</text>
+    </svg>
+    <figcaption>Original didactic construction from your notes. Positive reinforcement is applied by leaving the kitten alone immediately after it relaxes. Signs of progress include moving toward the front of the kennel, slow blinking, and a more relaxed body position, even while still vocalising.</figcaption>
+  </div>
+
+  <div class="card">
+    <h4>Interaction method (first 48 hours)</h4>
+    <p class="note">Staff interact using a toothbrush on a tongue depressor, 1 minute at a time, 10 times each day. They also burrito-wrap the kittens, carry them around or to short meetings, and stroke their cheeks. After 48 hours, as many people as possible interact, talking to, petting, and picking the kittens up, in towels or not as the kitten indicates. <span class="bdg notes">your notes</span></p>
+    <h4>Adoption and expectations</h4>
+    <p class="note">Adopters work with an adoption counsellor and with the staff who handled the kittens. Tell adopters this cat's first bond with a human will be with them. Post an information sheet on the kennel that begins, "this kitten is not for everyone and here is why," explaining likely behaviour with other cats and the investment required, and send home instructions to contain the kitten in a small space and interact safely, as for a foster situation. <span class="bdg notes">your notes</span></p>
+    <h4>Success metrics</h4>
+    <ul class="hy">
+      <li>Nearly all kittens adopted within one week. <span class="bdg notes">your notes</span></li>
+      <li>Very few humans bitten or scratched. <span class="bdg notes">your notes</span></li>
+      <li>Kittens stay healthy and grow well. <span class="bdg notes">your notes</span></li>
+      <li>The shelter does not accumulate more kittens than it can care for. <span class="bdg notes">your notes</span></li>
+      <li>Adopter follow-up shows kittens doing well and adopters satisfied (reported follow-up: 91% behaving like a normal cat, 98% still in the home, 88% found the information helpful). <span class="bdg notes">your notes</span></li>
+    </ul>
+    <p class="note">If kittens do not make clear behavioural progress after the first 48 hours, re-evaluate them for the programme. Kittens should be adopted within 2 weeks, or sterilised and returned to their original location. <span class="bdg notes">your notes</span></p>
+  </div>
+</section>
+
+<!-- ============ PANEL 6: BEHAVIOURAL WELFARE (added) ============ -->
+<section class="panel" id="welf">
+  <h2 class="sec">Behavioural Welfare in Shelters</h2>
+  <p class="lead">Your notes end at an empty "Behaviour work in shelters" heading, so this tab is supplied entirely from standard references to fill that gap. It is not drawn from your PDF. Treat it as orienting context and confirm against your primary texts before relying on it for exam wording.</p>
+
+  <div class="card">
+    <h4>Behavioural welfare as a standard of care</h4>
+    <p class="note">The ASV Guidelines for Standards of Care in Animal Shelters treat behavioural wellbeing as a required component of care, not an optional add-on. Animals have behavioural needs alongside physical ones, and meeting them (social contact, mental stimulation, the ability to perform normal behaviours, and the ability to exercise some control over the environment) is part of humane sheltering. <span class="bdg asv">ASV</span></p>
+    <h4>The Five Domains framework</h4>
+    <p class="note">Contemporary welfare assessment uses the Five Domains model: nutrition, environment, health, and behavioural interaction, which together feed the fifth domain, the animal's resulting mental or affective state. The behavioural domain emphasises that promoting positive experiences (choice, agency, and enrichment) matters, not only the avoidance of negative states. <span class="bdg ref">std ref</span></p>
+    <h4>Enrichment and stress reduction</h4>
+    <p class="note">Enrichment, predictable routines, hiding opportunities for cats, and minimising fear, anxiety, and stress during handling and housing are recognised methods of supporting behavioural welfare and reducing the development of stress-related and barrier-related behaviours that lengthen stay and reduce adoptability. <span class="bdg ref">std ref</span></p>
+  </div>
+</section>
+
+<!-- ============ PANEL 7: MCQ ============ -->
+<section class="panel" id="mcq">
+  <h2 class="sec">MCQ Test Bank</h2>
+  <p class="lead">All 30 questions for this subdomain in a single set, drawn from your uploaded MCQs. Tap an option to lock it in and reveal the explanation. The per-question tag shows the topic, and the source badge shows whether the rationale rests on your notes, an ASV-aligned position, or a standard reference. Answer letters were redistributed from the original key (which clustered 24 of 30 on option B); option content is unchanged.</p>
+  <div class="mcqbar">
+    <div class="label"><span class="dot"></span>30 questions &middot; Behaviour &amp; Relinquishment</div>
+    <div class="score"><span id="scoreTxt">0 / 0 correct</span><button class="reset" id="resetBtn">Reset</button></div>
+  </div>
+  <div id="qhost"></div>
+</section>
+
+</div></main>
+
+<footer><div class="wrap">
+  Behaviour &amp; Relinquishment subdomain hub &middot; Behavioural Health domain &middot; ABVP Shelter Medicine Practice RVS, November 2026. Content badged by source: your uploaded notes, ASV-aligned positions, and standard shelter-medicine or behaviour references. In-house SVG schematics are original didactic constructions built from the notes. The Behavioural Welfare tab is supplied from standard references to fill an empty heading in the source. Collar-camera predation figures are flagged for verification against the primary source.
+</div></footer>
+
+<script>
+const tabrow=document.getElementById('tabrow');
+tabrow.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.disabled)return;
+  [...tabrow.children].forEach(x=>x.classList.remove('active'));b.classList.add('active');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('show'));
+  document.getElementById(b.dataset.p).classList.add('show');window.scrollTo({top:0,behavior:'smooth'});});
+
+/* Behaviour & Relinquishment MCQ bank (30 items, single set).
+   t = topic tag: can | hyg | fel | com | tiny
+   f = source/flag badge: notes | asv | ref | corr
+   q = stem, o = options, a = correct index, e = explanation
+   Answer letters redistributed to 8 A / 7 B / 8 C / 7 D; option content unchanged. */
+const Q=[
+ {t:"can",f:"notes",q:"Why are published studies currently unable to identify definitive behavioural risk factors for dog surrender?",o:["Unwanted behaviours occur just as commonly in dogs living successfully in homes as in those being surrendered, so the baseline prevalence in the general pet population is often ignored","Most shelters do not track behavioural data at the time of intake","Behavioural traits are entirely dependent on whether the animal was received as a gift","Dogs consistently express identical behavioural profiles regardless of husbandry changes or new environments"],a:0,e:"Without knowing prevalence in retained homes, you cannot tell whether a behaviour raises surrender risk or is simply common across all pet dogs."},
+ {t:"can",f:"notes",q:"A Japanese pet-supply company survey revealed what unexpected reality about pet dog behaviour in successful homes?",o:["Fewer than 5% of owners reported any issues with their dogs","Exactly 48% of owners reported severe, unprovoked aggression","No less than 86% of respondents reported at least one troublesome behaviour, with barking and pica causing the most concern","Dogs obtained as gifts displayed zero troublesome behaviours compared with those from breeders"],a:2,e:"The survey showed 86% of successful owners navigate troublesome behaviours (often barking and pica) without ending the relationship."},
+ {t:"can",f:"notes",q:"What happens to the odds ratio for daily or weekly inappropriate elimination once a multivariate analysis controls for training, veterinary visits, sterilisation, and work expectations?",o:["The risk increases by 200%, proving it is an isolated behavioural issue","The odds ratio is reduced by about 50%, and other behavioural variables become not statistically significant","The variable shifts to predict future inter-cat aggression","The statistical significance remains completely unaltered"],a:1,e:"Adjusting for human and care variables cut the relative risk by about half, showing how confounders distort raw behavioural statistics."},
+ {t:"can",f:"notes",q:"What is the predictive value of a relinquishing owner's report of their dog's behaviour for how the dog behaves in a new adoptive home?",o:["Excellent predictive value, matching subsequent accounts over 95% of the time","High predictive value, but only for intact male dogs under one year of age","Accurate for house-soiling but completely invalid for barking","Poor predictive value, leaving open whether dogs change behaviour across environments or owners simply vary in perception and definition"],a:3,e:"Owner reports predict poorly because behaviour shifts across environments and definitions of a problem behaviour vary between people."},
+ {t:"can",f:"notes",q:"Which parameter was found to significantly increase a shelter dog's likelihood of adoption?",o:["Maintaining proximity to the person and engaging in play (fetch or tug) when invited","Approaching the front of the kennel or making direct eye contact with visitors","Vocalising or barking loudly as a release for excitement and frustration","Remaining completely motionless at the back of the enclosure"],a:0,e:"Physical appearance drives initial choice, but proximity and play with the adopter are what statistically boost adoption."},
+ {t:"can",f:"notes",q:"During a meet-and-greet, how did experimenters actively promote proximity between a prospective adopter and a shelter dog?",o:["They withheld food for 24 hours before the interaction","They placed a visual barrier between dog and adopter for the first 15 minutes","They auditioned dogs for toy preferences, supplied the preferred toy to the adopter, and gave them the leash to hold","They left the adopter alone in an outdoor elimination space with no instructions"],a:2,e:"Auditioning toy preference, supplying the toy, and handing over the leash kept the adopter and dog in close contact."},
+ {t:"hyg",f:"notes",q:"What is the primary mechanism behind chronic indoor elimination developing within a shelter kennel?",o:["A rapid increase in territorial behaviour caused by sterilisation","Limited space and lack of outdoor time cause habituation, so the dog loses its natural aversion to eliminating near eating and sleeping areas","Frustration-driven negative reinforcement from passing kennel walkers","Severe intraspecies social deprivation triggering a drop in caloric intake"],a:1,e:"Confinement and inadequate turnout force soiling of the immediate living space, breaking down natural cleanliness and erasing prior training."},
+ {t:"hyg",f:"notes",q:"A kennelled dog barks and lunges whenever other dogs walk past. Through what learning mechanism is this strengthened?",o:["Positive reinforcement via a high-value treat schedule","Habituation to the concrete and dirt substrates of the kennel","Classical conditioning linked to a hiding box","Negative reinforcement, because the passing dog continues away, relieving the dog's frustration and rewarding the display"],a:3,e:"The passing stimulus inevitably leaves, relieving frustration and reinforcing the barking through negative reinforcement."},
+ {t:"hyg",f:"notes",q:"How is barking and lunging at passing dogs in a kennel ward best addressed?",o:["Visual barriers to prevent exposure that cannot lead to social interaction, plus playgroups or group social walks","Opening all kennel grates to allow maximum face-to-face visual exposure","Confining the dogs in small crates inside a completely silent room","Hand-delivering high-value rewards only when the dog jumps and mouths the gate"],a:0,e:"Passive interventions (visual barriers) stop the frustration trigger, while playgroups and social walks meet the dog's social needs."},
+ {t:"hyg",f:"notes",q:"A volunteer always ignores a dog that jumps and mouths during greetings, yet the behaviour persists. Why does it remain reinforced?",o:["The dog is expressing an involuntary skeletal reflex caused by ambient noise","The behaviour is driven by a lack of access to preferred plush toys","Even when ignored, the dog is still rewarded with the most exciting event of its day: being taken out of the kennel","The walker is accidentally changing substrates from concrete to dirt too quickly"],a:2,e:"The outing itself is the reinforcer, so ignoring the jump does not remove the reward that maintains it."},
+ {t:"hyg",f:"notes",q:"When training a dog to stop jumping by walking out of sight for 10 to 15 seconds, what determines the speed of learning?",o:["Giving a low-dose behaviour medication before the walker appears","The contingency must be applied consistently; every exception requires more trials to regain lost ground","Maintaining close eye contact with the dog while exiting","Applying the protocol only first thing in the morning"],a:1,e:"Consistency is essential; allowing exceptions reverts the dog to an intermittent schedule and erases progress."},
+ {t:"hyg",f:"notes",q:"What substrate should an outdoor elimination space for shelter dogs provide?",o:["Identical concrete flooring to the indoor kennel to promote habituation","Open wire-mesh to maximise visual contact with passing dogs","A single elevated plastic perch","Both dirt and concrete, because dogs form strong associations with the substrate from their previous homes"],a:3,e:"Offering both dirt and concrete matches whatever substrate the dog associates with elimination and supports outdoor success."},
+ {t:"fel",f:"ref",q:"In environments with high human disturbance, mammals generally show what behavioural shift?",o:["A general tendency to increase nocturnal activity across habitats, taxa, and types of human activity","A significant increase in daytime exploratory and predatory behaviour","A complete deactivation of sympathetic nervous system feedback loops","An expansion of home ranges to remain closer to high-volume urban traffic"],a:0,e:"Broad multi-taxa data show that high human disturbance pushes mammals toward nocturnal activity."},
+ {t:"fel",f:"notes",q:"A collar-mounted camera study (as reported in your notes) found what about hunting habits and success?",o:["Cats achieved a 100% success rate when targeting adult birds","Cats killed an average of 45 animals per 24 hours regardless of habitat","73% of hunting occurred between dusk and dawn, and females and night-hunting cats were more successful at killing prey","Hunting occurred exclusively during peak daylight near human housing"],a:2,e:"Per your notes, most hunting was dusk to dawn, with females and night hunters more successful. Note the figures are flagged for verification against the primary source."},
+ {t:"fel",f:"notes",q:"Which subset of outdoor cats achieved the lowest hunting success rate?",o:["Cats hunting mice and rats in semi-desert landscapes","Cats attempting to kill birds, succeeding only 17% of the time","Cats hunting at night near undeveloped habitats","Spayed female cats operating around structured feeding stations"],a:1,e:"Cats were least successful on birds (about 17%); night hunting near undeveloped habitat was actually the more successful pattern."},
+ {t:"fel",f:"notes",q:"What is an unintended consequence of uncoordinated, pulsed, or short-term lethal control of community cats?",o:["An immediate and permanent collapse of local rodent populations","A dramatic reduction in seasonal vegetation variation","An immediate shift in feline activity from nocturnal to crepuscular","Compensatory migration, where removal lets new animals move into the vacated area while resources remain"],a:3,e:"Removal vacates territory while food and shelter persist, so nearby cats migrate in (compensatory migration)."},
+ {t:"fel",f:"notes",q:"Removing community cats can trigger a mesopredator release. What does this imply for native birds?",o:["Cat removal can cause a spike in prey species (rats, mice, rabbits) that may worsen survival pressure on native birds","Bird survival immediately doubles due to the absence of mammalian predators","Surviving birds shift to nesting exclusively on concrete substrates","Local predators stop hunting entirely due to reduced resource competition"],a:0,e:"Releasing lower prey species from predation can increase rodents and paradoxically harm the very birds the cull intended to protect."},
+ {t:"fel",f:"notes",q:"Which group of outdoor cats had the smallest home ranges and the highest population densities?",o:["Managed community cats that underwent TNR and were fed on a schedule","Cats far from human housing that were highly nocturnal and lived in small groups","Cats found near houses, crepuscular, largely thought to be owned cats allowed outside during the day","Intact female cats in heavily vegetated landscapes with zero seasonal variation"],a:2,e:"Owned cats let out by day stayed close to structures, giving small ranges and high densities near homes."},
+ {t:"fel",f:"notes",q:"What spatial and activity profile was observed in the smallest groups of outdoor cats?",o:["The smallest home ranges and high activity during peak daylight","They had the largest home ranges, were more nocturnal, and were found farther from human housing","Clustered exclusively near houses on strictly crepuscular schedules","They ceased all hunting and relied entirely on human feeders"],a:1,e:"The smallest, unmanaged groups adapted with the largest ranges, nocturnal activity, and avoidance of human housing."},
+ {t:"fel",f:"notes",q:"How does the physical presence of the human caretaker affect feline feeding dynamics?",o:["Cats flee immediately and refuse to eat for an average of 12 minutes","Feline aggression spikes, disrupting the established colony hierarchy","The cats completely alter their preferred spatial organisation around the station","Cats eat more and stay longer when the person is present (about 4 minutes) than when absent (about 12 seconds)"],a:3,e:"A present feeder is associated with longer, larger feeding bouts (4 minutes vs 12 seconds), changing spatial behaviour at the site."},
+ {t:"fel",f:"notes",q:"Why should community-cat caretakers set a fixed feeding schedule and remain present while cats eat?",o:["It increases the likelihood that cats eat promptly, decreasing the risk of attracting pest species to the feeding area","It expands the cats' home range away from human housing","It induces disinhibition that makes the cats easier to trap for research","It causes an immediate cessation of nocturnal hunting"],a:0,e:"Staying present ensures prompt eating and leaves no scraps to draw rodents or other pests."},
+ {t:"fel",f:"ref",q:"What behavioural change was confirmed in dominant community cats after successful sterilisation?",o:["They completely lost their hierarchy position and the colony collapsed","They shifted from crepuscular activity to strictly diurnal schedules","They were more likely to show less aggression and more affiliative behaviour, and urine spraying decreased dramatically or stopped","They increased their daily distances travelled to expand the colony's range"],a:2,e:"Sterilisation reduced aggression and spraying and increased affiliative behaviour while the overall hierarchy stayed similar."},
+ {t:"com",f:"asv",q:"Which community cat should generally NOT be admitted into an animal shelter enclosure?",o:["A well-socialised pet cat whose outdoor habitat was destroyed by an emergency demolition","Community cats thriving where they are, not in danger from unusual events, and not impacting vulnerable wildlife","An offensively aggressive adult cat that needs immediate medical triage for a severe injury","A kitten under two months of age meeting the criteria for a socialisation programme"],a:1,e:"Thriving, healthy community cats facing no immediate threat do not belong in a shelter; admitting them strains resources without improving their outcome."},
+ {t:"tiny",f:"notes",q:"The Tiny Spirit programme was designed to address what operational challenge?",o:["Managing older cats that develop acute hepatic necrosis from oral medication","Senior kennelled dogs that develop barrier frustration and tail-chasing","Preventing compensatory migration among free-roaming cats near undeveloped habitats","Kittens (about 2 lb, about 2 months) that show aggression, do well in foster, but regress to defensive, unsocialised behaviour back in the shelter"],a:3,e:"The programme targets undersocialised kittens that plateau and regress when returned to a standard shelter environment."},
+ {t:"tiny",f:"notes",q:"Where does the Tiny Spirit programme place undersocialised kitten kennels to speed habituation and maximise visibility?",o:["In the busiest public part of the facility, positioned off the ground at eye level","In an isolated, low-traffic basement ward with minimal lighting","Hand-carried continuously by a single foster volunteer for 14 consecutive days","Directly adjacent to a high-volume canine runway for interspecies habituation"],a:0,e:"Eye-level placement in the busiest area gives continuous passive exposure to people, forcing rapid habituation."},
+ {t:"tiny",f:"notes",q:"What micro-environmental feature is provided inside a Tiny Spirit kitten's enclosure to balance exposure with stress management?",o:["A completely transparent glass door left unlocked 24 hours a day","A wire-mesh sub-floor elevated above a concrete drainage canal","A small hiding box about 2 inches high","A device playing continuous loud music at 120 dB"],a:2,e:"A low hiding box lets the kitten conceal itself to manage stress while staying low enough to remain visible and accessible."},
+ {t:"tiny",f:"notes",q:"During the first 48 hours of the Tiny Spirit protocol, what rule governs human access and cage doors?",o:["Kennel doors are left wide open to encourage exploration of the facility","Kennel doors are locked except for cleaning and structured staff interaction","The kittens are housed in large communal rooms","Adopters are encouraged to handle the kittens without counsellor supervision"],a:1,e:"Locked doors for the first 48 hours give a controlled environment, protecting the kitten from random disruption during early socialisation."},
+ {t:"tiny",f:"notes",q:"What interaction method is used to socialise defensive kittens during the initial 48 hours?",o:["Delivering treats via an automated dispenser every 30 seconds","Ignoring all activity until the kitten stops hissing for a full 24-hour cycle","Placing the kitten inside an active playgroup with adult unsterilised cats","A toothbrush on a tongue depressor, 1 minute at a time, 10 times a day, plus burrito wrapping and cheek stroking"],a:3,e:"High-frequency, low-intensity sessions with a toothbrush, plus gentle wrapping and handling, build safe contact."},
+ {t:"tiny",f:"notes",q:"How is positive reinforcement applied during Tiny Spirit socialisation sessions?",o:["Handlers deliver a piece of raw meat immediately after the kitten vocalises","Handlers play an audiobook at conversational volume for 15 minutes","Handlers leave the kitten alone immediately after it relaxes","Handlers transfer the kitten directly into an outdoor dirt elimination space"],a:2,e:"Removing the interaction the moment the kitten relaxes uses relief as the reinforcer for calmer behaviour."},
+ {t:"tiny",f:"notes",q:"If a Tiny Spirit kitten makes no clear progress after the first 48 hours, what action is required?",o:["Re-evaluate the kitten for the programme, aiming to adopt out, or sterilise and return, within 2 weeks","Double the daily toothbrushing trials to 20 per day indefinitely","Confine the kitten permanently in an isolated wire kennel with zero human access","Move the kennel onto the floor of a high-volume canine housing ward"],a:0,e:"Kittens that stall are re-evaluated promptly to ensure adoption, or sterilisation and return, within a strict 2-week window."}
+];
+
+const host=document.getElementById('qhost');
+const scoreTxt=document.getElementById('scoreTxt');
+let answered=0, correct=0;
+const DLABEL={can:"Canine & Relinquishment",hyg:"Behavioural Hygiene",fel:"Feline Community Impact",com:"Community Cats",tiny:"Tiny Spirit Programme"};
+function tagLabel(t){return DLABEL[t]||t.toUpperCase();}
+function flagBadge(f){
+  if(f==='corr')return '<span class="bdg corr">corrected</span>';
+  if(f==='notes')return '<span class="bdg notes">your notes</span>';
+  if(f==='asv')return '<span class="bdg asv">ASV</span>';
+  if(f==='ref')return '<span class="bdg ref">std ref</span>';
+  return '';
+}
+function render(){
+  host.innerHTML='';answered=0;correct=0;updateScore();
+  Q.forEach((item,i)=>{
+    const card=document.createElement('div');card.className='q';
+    card.innerHTML=`<div class="meta"><span class="num">#${i+1}</span><span class="tag">&#9670; ${tagLabel(item.t)}</span>${flagBadge(item.f)}</div><div class="stem">${item.q}</div>`;
+    const opts=document.createElement('div');
+    item.o.forEach((txt,oi)=>{
+      const btn=document.createElement('button');btn.className='opt';
+      btn.innerHTML=`<span class="k">${String.fromCharCode(65+oi)}</span>${txt}`;
+      btn.onclick=()=>choose(card,opts,item,oi);opts.appendChild(btn);
+    });
+    card.appendChild(opts);
+    const ex=document.createElement('div');ex.className='expl';
+    ex.innerHTML=`<b class="cor">Correct: ${String.fromCharCode(65+item.a)}.</b> ${item.e}`;
+    card.appendChild(ex);host.appendChild(card);
+  });
+}
+function choose(card,opts,item,oi){
+  if(card.dataset.done)return;card.dataset.done='1';answered++;
+  [...opts.children].forEach((b,bi)=>{b.classList.add('locked');
+    if(bi===item.a)b.classList.add('correct');
+    if(bi===oi && oi!==item.a)b.classList.add('wrong');});
+  if(oi===item.a)correct++;
+  card.querySelector('.expl').classList.add('show');updateScore();
+}
+function updateScore(){scoreTxt.textContent=`${correct} / ${answered} correct`;}
+document.getElementById('resetBtn').onclick=render;
+render();
+</script>
+</body>
+</html>

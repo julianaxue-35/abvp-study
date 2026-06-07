@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<title>Animal Handling Subdomain Hub | ABVP Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme:light dark;
+    --bg:#eef2f7;--surface:#fbfdff;--surface2:#e8edf4;
+    --chrome:#1c3a5e;--chrome2:#264f78;          /* behavioural health blue chrome */
+    --text:#16273a;--onChrome:#e9f0f8;--muted:#586a7d;
+    --line:#ccd6e2;
+    --accent:#b1466f;--accent-soft:#f3e0ea;       /* behavioural health rose accent */
+    --good:#1f7a4d;--good-soft:#e3f2ea;--bad:#b23b3b;
+    --notes:#7a4fb5;--notes-soft:#ece3f7;          /* your Animal handling notes (PDF) */
+    --asv:#1f6f86;--asv-soft:#dcecf2;              /* ASV Standards of Care */
+    --ref:#b5651d;--ref-soft:#f6e7d4;              /* behaviour textbook / published refs */
+    --dot:rgba(28,58,94,.05);
+    --shadow:0 1px 2px rgba(20,40,70,.08),0 8px 24px rgba(20,40,70,.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0e1622;--surface:#16212f;--surface2:#1b2735;
+      --chrome:#122236;--chrome2:#1b3450;
+      --text:#dde6f1;--onChrome:#e9f0f8;--muted:#9aacbf;
+      --line:#2a3a4d;
+      --accent:#d3789c;--accent-soft:rgba(211,120,156,.16);
+      --good:#51b184;--good-soft:rgba(40,140,90,.18);--bad:#e08585;
+      --notes:#c0a4ec;--notes-soft:rgba(150,110,210,.20);
+      --asv:#66c0d6;--asv-soft:rgba(40,150,175,.18);
+      --ref:#e0a766;--ref-soft:rgba(200,130,50,.18);
+      --dot:rgba(255,255,255,.035);
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.3);
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--text);
+    font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;
+    background-image:radial-gradient(circle at 1px 1px,var(--dot) 1px,transparent 0);background-size:22px 22px;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+  .crumb{background:var(--chrome);padding:9px 18px;display:flex;align-items:center;gap:10px;font-size:13px;font-weight:500;border-bottom:2px solid var(--chrome2)}
+  .crumb a{color:#9fc0dc;text-decoration:none;display:flex;align-items:center;gap:5px}
+  .crumb .sep{color:#5f82a3;font-size:11px}
+  .crumb .here{color:#cfe0f1}
+  header.top{background:var(--chrome);color:var(--onChrome);padding:26px 0 22px;border-bottom:4px solid var(--accent)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#9fc0dc;margin:0 0 6px}
+  header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(26px,4.5vw,40px);margin:0;line-height:1.05}
+  header.top p.sub{margin:8px 0 0;color:#cfe0f1;font-size:14px;max-width:78ch}
+  .legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}
+  .legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.22);color:#eaf2fb;display:flex;align-items:center;gap:6px}
+  .legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--surface);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button:hover{background:var(--bg);color:var(--text)}
+  .tabrow button.active{background:var(--chrome);color:var(--onChrome)}
+  .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+  main{padding:30px 0 80px}
+  .panel{display:none;animation:fade .35s ease}
+  .panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;letter-spacing:-.01em;color:var(--text)}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:80ch}
+  h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:30px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;scroll-margin-top:64px;color:var(--text)}
+  h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;color:var(--text);text-transform:uppercase;letter-spacing:.03em}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}
+  p.note{font-size:14px;margin:0 0 6px}
+  ul.hy{margin:8px 0;padding-left:0;list-style:none}
+  ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed var(--line);font-size:14px}
+  ul.hy li:last-child{border-bottom:0}
+  ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;border-radius:2px;background:var(--accent);transform:rotate(45deg)}
+  .trap{background:var(--accent-soft);border:1px solid var(--accent);border-left:4px solid var(--accent);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .trap b{color:var(--accent);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .corrbox{background:var(--good-soft);border:1px solid var(--good);border-left:4px solid var(--good);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .corrbox b{color:var(--good);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .verifybox{background:var(--asv-soft);border:1px solid var(--asv);border-left:4px solid var(--asv);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .verifybox b{color:var(--asv);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp th{background:var(--chrome);color:var(--onChrome);font-weight:600;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase}
+  table.cmp tr:last-child td{border-bottom:0}
+  table.cmp td b{color:var(--text)}
+  .fig{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0;box-shadow:var(--shadow)}
+  .fig figcaption{font-size:12.5px;color:var(--muted);margin-top:8px;font-style:italic}
+  /* svg helpers (use vars so diagrams adapt to dark mode) */
+  .sgbox{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1}
+  .sgbox2{fill:var(--asv-soft);stroke:var(--asv);stroke-width:1}
+  .sgtxt{fill:var(--text);font-family:"Public Sans",sans-serif}
+  .sgmut{fill:var(--muted);font-family:"Public Sans",sans-serif}
+  .sgmono{fill:var(--accent);font-family:"JetBrains Mono",monospace}
+  .sgline{stroke:var(--accent);stroke-width:2;fill:none}
+  .sgaxis{stroke:var(--line);stroke-width:1.5}
+  .sgarrow{fill:var(--accent)}
+  /* source badges */
+  .bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+  .bdg.notes{background:var(--notes-soft);color:var(--notes)}
+  .bdg.asv{background:var(--asv-soft);color:var(--asv)}
+  .bdg.ref{background:var(--ref-soft);color:var(--ref)}
+  .bdg.corr{background:var(--good);color:#fff}
+  /* mcq */
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--chrome);color:var(--onChrome);border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:54px;z-index:10}
+  .mcqbar .label{font-family:"JetBrains Mono",monospace;font-size:12px;color:#cfe0f1;display:flex;align-items:center;gap:8px}
+  .mcqbar .label .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);display:inline-block}
+  .score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}
+  .score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;color:#cfe0f1;padding:5px 10px;border-radius:8px;font-size:11px}
+  .q{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
+  .q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+  .q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+  .q .stem{font-weight:600;font-size:15px;margin-bottom:10px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:var(--surface2);border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;font-family:"Public Sans";color:var(--text);transition:background .15s,border-color .15s}
+  .opt:hover{border-color:var(--accent)}
+  .opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}
+  .opt.correct{background:var(--good-soft);border-color:var(--good)}
+  .opt.wrong{background:rgba(178,59,59,.14);border-color:var(--bad)}
+  .opt.locked{cursor:default}
+  .expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:var(--surface2);border:1px solid var(--line);font-size:13.5px}
+  .expl.show{display:block}
+  .expl b.cor{color:var(--good)}
+  footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
+  @media(max-width:640px){.mcqbar{top:50px}.score{font-size:12px}}
+</style>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span class="sep">&rsaquo;</span><a href="../index.html#domain-behav">Behavioural Health</a><span class="sep">&rsaquo;</span><span class="here">Animal Handling</span></nav>
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">ABVP Shelter Medicine Practice RVS &middot; Behavioural Health</p>
+    <h1>Animal Handling Subdomain Hub</h1>
+    <p class="sub">Exam-depth study tool for the Animal Handling subdomain. Low-stress and defensive handling of dogs and cats, aggression and dogfight intervention, equipment, and the evidence base for stress reduction. The MCQ Test Bank holds all 30 questions in one set. Every claim is badged by source.</p>
+    <div class="legend">
+      <span><i style="background:var(--notes)"></i>Your Animal handling notes (PDF)</span>
+      <span><i style="background:var(--asv)"></i>ASV Standards of Care</span>
+      <span><i style="background:var(--ref)"></i>Standard handling / behaviour reference</span>
+    </div>
+  </div>
+</header>
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="lsd"><span class="dot"></span>Low-Stress Dog Handling</button>
+  <button data-p="proc"><span class="dot"></span>Handling for Procedures</button>
+  <button data-p="agg"><span class="dot"></span>Aggression &amp; Dogfights</button>
+  <button data-p="equip"><span class="dot"></span>Equipment &amp; Defensive Handling</button>
+  <button data-p="cat"><span class="dot"></span>Cat &amp; Feral Handling</button>
+  <button data-p="evid"><span class="dot"></span>Stress-Reduction Evidence</button>
+  <button data-p="mcq"><span class="dot" style="background:var(--chrome2)"></span>MCQ Test Bank</button>
+</div></div></nav>
+<main><div class="wrap">
+
+<!-- ============ PANEL 1: LOW-STRESS DOG HANDLING ============ -->
+<section class="panel show" id="lsd">
+  <h2 class="sec">Low-Stress Dog Handling</h2>
+  <p class="lead">Low-stress handling is any process that reduces stress in the animal being handled. It improves welfare and safety, reduces the chance of forming negative handling associations, and keeps staff safe from bites and injury. It depends first on reading canine body language so the handler can judge the dog's emotional state and adjust in real time.</p>
+
+  <div class="card">
+    <h4>Getting difficult dogs out of kennels</h4>
+    <ul class="hy">
+      <li>Show the dog the leash and speak kindly, using a familiar cue such as "wanna go for a walk?" to change her emotional state before the door opens. <span class="bdg notes">your notes</span></li>
+      <li>Crack the kennel front open and brace it with a foot so the dog cannot burst out. <span class="bdg notes">your notes</span></li>
+      <li>Slide a long sausage treat through the door from the outside so the dog puts her own head into the loop of the slip lead, rather than reaching in to throw the lead over her head. <span class="bdg notes">your notes</span></li>
+      <li>For fear-aggressive or shut-down dogs, keep a treat bucket outside the kennel or toss a treat every time someone walks past (Pavlovian conditioning). <span class="bdg notes">your notes</span></li>
+      <li>If a fearful dog is confirmed dog-social, consider co-kenneling with a more outgoing companion. Feed separately to prevent food guarding. If co-kenneling is not possible, consider play sessions. <span class="bdg notes">your notes</span></li>
+      <li>For fearful dogs use slip leads, with two handlers (one leash each, one on each side). A control pole is acceptable only at the moment of a dangerous event; the leash stays the main tool to direct and lead. <span class="bdg notes">your notes</span></li>
+    </ul>
+  </div>
+
+  <div class="trap">
+    <b>Exam trap: slip-lead geometry</b>
+    Placing the lead "high up behind the ears" is only half the rule. The lead must then run straight up behind the head to the handler, which maximises control and reduces slipping. Be ready for a stem that gives the high placement but tests the straight-up direction. <span class="bdg notes">your notes</span>
+  </div>
+
+  <div class="card">
+    <h4>Walking dogs down the pod</h4>
+    <ul class="hy">
+      <li>Avoid having walked dogs face kenneled dogs. If unavoidable, the handler stands farthest from the kenneled dogs to take any redirected bite away from the dog and onto controllable space. <span class="bdg notes">your notes</span></li>
+      <li>If kenneled dogs are on both sides, keep the greatest distance possible and keep the walked dog in the centre of the aisle. <span class="bdg notes">your notes</span></li>
+      <li>Consider rolling cages to move dogs, or carry or towel-wrap smaller dogs. <span class="bdg notes">your notes</span></li>
+    </ul>
+  </div>
+
+  <figure class="fig">
+    <svg viewBox="0 0 520 150" width="100%" role="img" aria-label="Top-down schematic of walking a dog down a double-sided kennel pod">
+      <defs><marker id="arBH1" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path class="sgarrow" d="M0,0 L7,3 L0,6 Z"/></marker></defs>
+      <rect x="10" y="10" width="500" height="30" class="sgbox"/>
+      <rect x="10" y="110" width="500" height="30" class="sgbox"/>
+      <text x="20" y="29" font-family="JetBrains Mono, monospace" font-size="11" class="sgmut">Kennels (left side)</text>
+      <text x="20" y="129" font-family="JetBrains Mono, monospace" font-size="11" class="sgmut">Kennels (right side)</text>
+      <circle cx="250" cy="75" r="11" style="fill:var(--accent)"/>
+      <text x="238" y="79" font-family="JetBrains Mono, monospace" font-size="10" style="fill:var(--bg)">D</text>
+      <circle cx="285" cy="75" r="11" style="fill:var(--text)"/>
+      <text x="275" y="79" font-family="JetBrains Mono, monospace" font-size="10" style="fill:var(--bg)">H</text>
+      <line x1="261" y1="75" x2="274" y2="75" class="sgline"/>
+      <line x1="120" y1="75" x2="230" y2="75" class="sgline" stroke-dasharray="4 4" marker-end="url(#arBH1)"/>
+      <text x="120" y="68" font-family="Public Sans, sans-serif" font-size="11" class="sgmut">direction of travel</text>
+      <text x="320" y="79" font-family="Public Sans, sans-serif" font-size="11" class="sgmut">D dog centred, H handler outermost</text>
+    </svg>
+    <figcaption>Schematic of the centre-of-aisle walking position described in your notes: the dog (D) is kept central and the handler (H) takes the outer line so any redirected bite lands away from the dog. Original didactic schematic built from the notes, not a reproduced figure.</figcaption>
+  </figure>
+
+  <div class="card">
+    <h4>Handler and the dog: building trust</h4>
+    <ul class="hy">
+      <li>Let the dog approach at her own pace and give her more control. Limit early contact to 10 to 15 minutes so the dog is not overwhelmed; some need shorter sessions or drive-by treats to start. <span class="bdg notes">your notes</span></li>
+      <li>Turn sideways, crouch if safe, and gently toss high-value treats toward the dog. Avoid sudden moves, avoid direct eye contact, and talk quietly in a welcoming tone. <span class="bdg notes">your notes</span></li>
+      <li>As confidence grows, toss treats closer to the handler. Allow plenty of sniffing time and continue to ignore the dog until she solicits contact (leaning, pawing, pushing her head under the hand). <span class="bdg notes">your notes</span></li>
+      <li>With a shy or unknown dog, avoid reaching over the head. Pet gently on the side of the shoulder or neck. <span class="bdg notes">your notes</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h4>Returning dogs to the kennel</h4>
+    <ul class="hy">
+      <li>Toss treats into the corner of the kennel; if resources allow, give a food-stuffed toy. <span class="bdg notes">your notes</span></li>
+      <li>Recognise the limit: even high-value food sometimes will not overcome a dog's desire to avoid the kennel or stay with people. <span class="bdg notes">your notes</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ PANEL 2: HANDLING FOR PROCEDURES ============ -->
+<section class="panel" id="proc">
+  <h2 class="sec">Handling for Procedures</h2>
+  <p class="lead">For examinations and procedures, give the dog as much choice as is safe, escalate contact gradually, and use food to maintain a positive emotional state rather than only to manage an already fearful animal.</p>
+
+  <div class="card">
+    <h4>Giving the dog choice</h4>
+    <ul class="hy">
+      <li>Let the dog choose the location of the exam (floor versus table) and the stance of examination where practical. <span class="bdg notes">your notes</span></li>
+      <li>Approach from the side, not from behind or head-on. <span class="bdg notes">your notes</span></li>
+    </ul>
+  </div>
+
+  <h3>The touch gradient <span class="bdg ref">std ref</span></h3>
+  <p class="note">The touch gradient (Fear Free) means touching the animal lightly first, then continuing the exam with gradually escalating intensity of touch. Throughout, the handler maintains constant contact with at least one hand on the dog.</p>
+
+  <figure class="fig">
+    <svg viewBox="0 0 520 130" width="100%" role="img" aria-label="Touch gradient escalation from pet to tap to pinch to inject">
+      <defs><marker id="arBH2" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path class="sgarrow" d="M0,0 L7,3 L0,6 Z"/></marker></defs>
+      <g font-size="12" text-anchor="middle">
+        <rect x="20" y="40" width="90" height="34" rx="8" class="sgbox"/><text x="65" y="61" class="sgtxt">Pet</text>
+        <rect x="150" y="40" width="90" height="34" rx="8" class="sgbox"/><text x="195" y="61" class="sgtxt">Tap</text>
+        <rect x="280" y="40" width="90" height="34" rx="8" class="sgbox"/><text x="325" y="61" class="sgtxt">Pinch</text>
+        <rect x="410" y="40" width="90" height="34" rx="8" class="sgbox"/><text x="455" y="61" class="sgtxt">Inject</text>
+      </g>
+      <line x1="110" y1="57" x2="146" y2="57" class="sgline" marker-end="url(#arBH2)"/>
+      <line x1="240" y1="57" x2="276" y2="57" class="sgline" marker-end="url(#arBH2)"/>
+      <line x1="370" y1="57" x2="406" y2="57" class="sgline" marker-end="url(#arBH2)"/>
+      <text x="260" y="100" text-anchor="middle" font-family="Public Sans, sans-serif" font-size="12" class="sgmut">Maintain constant contact with at least one hand throughout. Approach from the side.</text>
+    </svg>
+    <figcaption>Escalating-intensity touch gradient as described in your notes (concept attributed to the Fear Free textbook). Original didactic schematic, not a reproduced figure.</figcaption>
+  </figure>
+
+  <div class="card">
+    <h4>Food as part of handling</h4>
+    <ul class="hy">
+      <li>Use food as a distraction: peanut butter, tuna, dog food, baby food, squeeze cheese, freeze-dried real meat. <span class="bdg notes">your notes</span></li>
+      <li>Offer food even to calm dogs to maintain their positive emotional state and reduce fear, not only to manage dogs that are already fearful. <span class="bdg notes">your notes</span></li>
+    </ul>
+  </div>
+
+  <h3>Muzzle and room conditioning</h3>
+  <p class="note">Conditioning builds a positive emotional response to specific locations, so that a room which may host one aversive event also accumulates many positive ones. <span class="bdg notes">your notes</span></p>
+  <ul class="hy">
+    <li>Let the dog investigate and sniff the room at her own pace. <span class="bdg notes">your notes</span></li>
+    <li>Toss high-value treats on the ground or offer them by hand; scattering food encourages exploration. <span class="bdg notes">your notes</span></li>
+    <li>Ignore attention-seeking behaviour; once the dog is calm and comfortable, begin interaction and take measures to keep her comfortable. <span class="bdg notes">your notes</span></li>
+  </ul>
+  <div class="trap">
+    <b>Cross-reference</b>
+    Handling for euthanasia is intentionally covered in the Euthanasia hub, not here, to keep that protocol in one place. <span class="bdg notes">your notes</span>
+  </div>
+</section>
+
+<!-- ============ PANEL 3: AGGRESSION & DOGFIGHTS ============ -->
+<section class="panel" id="agg">
+  <h2 class="sec">Aggression and Dogfight Intervention</h2>
+  <p class="lead">This panel covers the highest-risk handling scenarios: redirected aggression, highly aroused dogs, off-leash bites, and breaking up dog fights. Many of the exam points here are exact sequences and absolute prohibitions.</p>
+
+  <div class="card">
+    <h4>Common scenarios</h4>
+    <ul class="hy">
+      <li><b>Redirected aggression:</b> prevent it with good leash handling and body position. Straighten the leash arm to hold the dog away. Walk a known redirector on a head halter, a muzzle, or both. <span class="bdg notes">your notes</span></li>
+      <li><b>Highly aroused dogs:</b> provide social time, allow feeding and chewing enrichment in the kennel, consider co-kenneling (especially dog-social, mouthy adolescents), and consider foster, even for a single night. <span class="bdg notes">your notes</span></li>
+      <li><b>Leash grabbing:</b> spray a bad-tasting substance (vinegar or bitter spray) on the lead, use a chain leash or cover the lead with PVC pipe, offer a toy or rope to carry, fit the slip lead high behind the ears running straight up to the handler, and straighten the arms to hold the dog away if she grabs sleeves or body. <span class="bdg notes">your notes</span></li>
+    </ul>
+  </div>
+
+  <h3>Off-leash dog that tries to bite</h3>
+  <ul class="hy">
+    <li>First, avoid confrontational body language: slow movements, no direct eye contact, back away slowly. <span class="bdg notes">your notes</span></li>
+    <li>If needed, place yourself in a kennel run or climb on or over a table, fence, or vehicle. As a last resort, put your back to a wall or into a corner so the dog cannot pull you down. <span class="bdg notes">your notes</span></li>
+    <li>If the dog grips clothing or a body part and is shaking her head, grab the collar, scruff, or sides of her head to minimise head movement. <span class="bdg notes">your notes</span></li>
+    <li>If a dangerous dog pulls you down, curl into a ball and play dead, using your hands to cover your neck. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <h3>Bite-release hierarchy</h3>
+  <figure class="fig">
+    <svg viewBox="0 0 520 230" width="100%" role="img" aria-label="Escalating bite-release options from least to most invasive">
+      <defs><marker id="arBH3" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path class="sgarrow" d="M0,0 L7,3 L0,6 Z"/></marker></defs>
+      <g font-size="12">
+        <rect x="40" y="14" width="440" height="30" rx="8" class="sgbox"/><text x="52" y="33" class="sgtxt">Control the head: grab collar / scruff / sides of head to stop shaking</text>
+        <rect x="40" y="58" width="440" height="30" rx="8" class="sgbox"/><text x="52" y="77" class="sgtxt">Bite stick or noise interrupter</text>
+        <rect x="40" y="102" width="440" height="30" rx="8" class="sgbox"/><text x="52" y="121" class="sgtxt">Feed the bite: push the dog forward into the victim so she recoils</text>
+        <rect x="40" y="146" width="440" height="30" rx="8" class="sgbox"/><text x="52" y="165" class="sgtxt">Water up nose / mouth, IM injection, choke for air, or taser</text>
+        <rect x="40" y="190" width="440" height="30" rx="8" style="fill:rgba(178,59,59,.14);stroke:var(--bad)"/><text x="52" y="209" style="fill:var(--bad)">Once released, immediately put the dog in a control position</text>
+      </g>
+      <line x1="260" y1="44" x2="260" y2="56" class="sgline" marker-end="url(#arBH3)"/>
+      <line x1="260" y1="88" x2="260" y2="100" class="sgline" marker-end="url(#arBH3)"/>
+      <line x1="260" y1="132" x2="260" y2="144" class="sgline" marker-end="url(#arBH3)"/>
+      <line x1="260" y1="176" x2="260" y2="188" class="sgline" marker-end="url(#arBH3)"/>
+    </svg>
+    <figcaption>Escalating bite-release options compiled from your notes, ordered least to most invasive. Original didactic schematic, not a reproduced figure.</figcaption>
+  </figure>
+  <div class="trap">
+    <b>Exam trap: feeding the bite and water release</b>
+    "Feeding the bite" means pushing the biting dog forward into the victim, which triggers a recoil-and-release reflex (not pulling the victim away). If water is used up the nose, the dog becomes harder to handle when wet and slippery, and someone must already have the dog in a control position before release to prevent redirected aggression. The most extreme options (choke for air, taser, IM injection) are last resorts only. <span class="bdg notes">your notes</span>
+  </div>
+
+  <h3>Breaking up a dog fight</h3>
+  <div class="trap">
+    <b>Absolute prohibition: the four nevers</b>
+    When breaking up a fight, do NOT grab their collars, punch, kick, or pry mouths apart. Expect a stem asking you to identify all four forbidden actions. <span class="bdg notes">your notes</span>
+  </div>
+  <ul class="hy">
+    <li><b>Assess first:</b> where are the tools, who else is around, and which dog is the aggressor (that is the one removed first). Use a loud alarm such as an air horn or walkie-talkie. <span class="bdg notes">your notes</span></li>
+    <li><b>Non-combatant dogs:</b> other handlers quickly move them to safety or clip them to the fence with a carabiner. <span class="bdg notes">your notes</span></li>
+    <li><b>Least invasive method:</b> pick up each dog's drag leash and walk in opposite directions. This does NOT work on a gripping fight and can increase damage if attempted. <span class="bdg notes">your notes</span></li>
+    <li><b>Hands-on methods (higher bite risk):</b> wheelbarrow (only if not gripping), feeding the bite, and break stick. <span class="bdg notes">your notes</span></li>
+    <li><b>Other tools:</b> pig board, trash can, folding table or chair brought between the dogs, then remove the aggressor; or a blanket, towel, or jacket over the heads to make them "go dark" and pause. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <h4>When there is usually time, and when there is not</h4>
+  <table class="cmp">
+    <tr><th>Type of fight</th><th>Description</th><th>Implication</th></tr>
+    <tr><td><b>Slash and dash</b></td><td>Biting or snapping and releasing</td><td>Drag-leash separation can work</td></tr>
+    <tr><td><b>Gripping fight</b></td><td>One or both dogs hold on, often shaking the head</td><td>Drag-leash pulls increase damage; need a break stick</td></tr>
+  </table>
+  <p class="note">Dogs can fight from minutes to hours, so there is usually time to get tools, EXCEPT in these emergencies: large versus small dog, blocked airway, or blocked blood flow (a tight neck grip with the victim losing consciousness). <span class="bdg notes">your notes</span></p>
+
+  <h4>Break stick technique</h4>
+  <ul class="hy">
+    <li>Start by grabbing the collar right at the base of the skull so the dog cannot redirect onto you (use a leash or scruff if there is no collar). <span class="bdg notes">your notes</span></li>
+    <li>Hold the break stick parallel to the jaw and work it into the mouth right behind the canine teeth, about 1 inch in. <span class="bdg notes">your notes</span></li>
+    <li>Twist the handle, rotating the stick until the grip breaks, then remove the aggressor. Large dogs may need two sticks and two handlers, one on each side. <span class="bdg notes">your notes</span></li>
+    <li>Caution: this can fracture teeth, so use discretion. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <h4>Fight kit</h4>
+  <table class="cmp">
+    <tr><th>Item</th><th>Use note</th></tr>
+    <tr><td><b>Extra slip leads</b></td><td>Containment and drag-leash separation</td></tr>
+    <tr><td><b>Squirt bottle with water</b></td><td>Last-resort release aid</td></tr>
+    <tr><td><b>Citronella spray</b></td><td>Spray into nose or mouth to break off or release a grip</td></tr>
+    <tr><td><b>Compressed air</b></td><td>Emit fairly close to the head, but not so close the dog can redirect onto the handler</td></tr>
+    <tr><td><b>Air horn</b></td><td>Last resort to disrupt a fight, or an emergency call for help</td></tr>
+    <tr><td><b>Break sticks</b></td><td>For gripping fights, per the technique above</td></tr>
+  </table>
+  <div class="trap">
+    <b>Exam trap: fight-kit logistics</b>
+    Inventory fight kits at least every 2 months. Check spray devices the way you would a fire extinguisher (still pressurised and full), and check the condition and function of control poles at the same time. <span class="bdg notes">your notes</span>
+  </div>
+</section>
+
+<!-- ============ PANEL 4: EQUIPMENT & DEFENSIVE HANDLING ============ -->
+<section class="panel" id="equip">
+  <h2 class="sec">Equipment and Defensive Handling</h2>
+  <p class="lead">Defensive handling is a set of skills and techniques to keep the handler safe: reading body language, using the leash and tools at hand, and handling gently and calmly to minimise fear and reduce the risk of aggression.</p>
+
+  <div class="card">
+    <h4>Leashes and head gear</h4>
+    <ul class="hy">
+      <li>Slip lead (5 to 6 ft slip leads), harness, collar (martingale collar), and head halters. <span class="bdg notes">your notes</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h4>Balance and body awareness</h4>
+    <ul class="hy">
+      <li>With dogs that panic or aggress, stay balanced and ready to counteract the dog's movements so you are not pulled off your feet or lose control. Wear safe, practical clothing. <span class="bdg notes">your notes</span></li>
+      <li>Stay standing, keep hands low (around belly-button height) and close to the body to increase safety and strength. <span class="bdg notes">your notes</span></li>
+    </ul>
+  </div>
+  <div class="trap">
+    <b>Heuristic, not a measured constant</b>
+    "Belly-button height" and "10 to 15 minute" contact limits are practical training heuristics for keeping a low centre of gravity and avoiding overwhelm. They are useful and worth memorising for the exam, but they are not validated physiological thresholds. <span class="bdg ref">std ref</span>
+  </div>
+
+  <h3>Control poles (catch or rabies poles)</h3>
+  <div class="verifybox">
+    <b>ASV-aligned position</b>
+    Control poles are designed to keep a dog's head at a safe distance from the handler. They are not meant to lift, push, or pull a dog and are not appropriate for routine use. They can cause significant injury or death and are not suitable for cats or small dogs. This matches the ASV emphasis on minimising fear, anxiety and stress and avoiding forceful handling except in emergencies. <span class="bdg asv">ASV</span>
+  </div>
+  <ul class="hy">
+    <li>Every ward should have a control pole near the fight kit. <span class="bdg notes">your notes</span></li>
+    <li>Never store it by hanging it by the wire noose or by propping the noose on the ground; this kinks the line and makes it hard to tighten and loosen. Hang it using attachments to the pole handle and check it regularly for wear. <span class="bdg notes">your notes</span></li>
+    <li>Position the pole at the top of the dog's neck and avoid twisting the wire. Practise tightening and loosening the noose on a stuffed dog or similar object. <span class="bdg notes">your notes</span></li>
+    <li>Do NOT pull too tight (serious injury or death), and NEVER use the pole to drag a dog behind you or to lift the dog onto an elevated surface. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <h3>Equipment for cats and difficult animals</h3>
+  <table class="cmp">
+    <tr><th>Equipment</th><th>Equipment</th></tr>
+    <tr><td>Control pole (not for cats or small dogs)</td><td>Live trap</td></tr>
+    <tr><td>Trap divider</td><td>Transport carrier and cat den</td></tr>
+    <tr><td>Towel or blanket</td><td>Rolling transport kennel</td></tr>
+    <tr><td>Capture net</td><td>Squeeze cage</td></tr>
+    <tr><td>Purpose-designed protective gloves</td><td>Flexible snare</td></tr>
+    <tr><td>Muzzle</td><td>Press gate, panel, or cage shield</td></tr>
+    <tr><td>Vision-blocking device</td><td>Syringe pole</td></tr>
+  </table>
+  <p class="note" style="margin-top:10px"><span class="bdg notes">your notes</span> Equipment list compiled from your handling notes.</p>
+</section>
+
+<!-- ============ PANEL 5: CAT & FERAL HANDLING ============ -->
+<section class="panel" id="cat">
+  <h2 class="sec">Cat and Feral Handling</h2>
+  <p class="lead">Use minimal, gentle restraint for tractable cats. Gentle human contact can blunt the adverse effects of unpleasant stimuli, eliminate fear responses, and ease signs of pain. Cats escalate from stress to aggression very quickly, so the handler reads body language continuously and stops early.</p>
+
+  <div class="card">
+    <h4>Core techniques</h4>
+    <ul class="hy">
+      <li>Let cats hide their faces under a towel or in the nook of a caregiver's arm. <span class="bdg notes">your notes</span></li>
+      <li>Diversion techniques (gentle tapping or rocking) can redirect focus during a procedure. <span class="bdg notes">your notes</span></li>
+      <li>Give cats time to acclimate to new surroundings before handling, which avoids escapes and recapture. <span class="bdg notes">your notes</span></li>
+      <li>Easing restraint can let a cat keep coping rather than escalate to escape or defence. Chemical restraint may be needed in some situations (and tools such as nets or squeeze devices). <span class="bdg notes">your notes</span></li>
+      <li>Feral cats: use equipment and injectable medications rather than hands-on restraint. <span class="bdg notes">your notes</span></li>
+    </ul>
+  </div>
+
+  <h3>Pre-handling assessment</h3>
+  <p class="note">Before handling any cat, pause and assess the cat, the environment, and yourself. <span class="bdg notes">your notes</span></p>
+  <table class="cmp">
+    <tr><th>Assess the cat</th><th>Assess the environment</th><th>Assess yourself</th></tr>
+    <tr>
+      <td>Where is she and what is she doing? What is she communicating? Are there signs of stress or fear, and what is triggering them? Is it safe to proceed?</td>
+      <td>Are you in a safe location? Can the cat escape or retreat? Are there stressful stimuli, noises, or activities you can mitigate? Do you have everything you need?</td>
+      <td>Do you feel comfortable handling this cat now? What do you need to feel comfortable? Do you need to ask for help?</td>
+    </tr>
+  </table>
+
+  <h3>Approach and the finger-nose technique</h3>
+  <ul class="hy">
+    <li>Move slowly and smoothly; avoid reaching or leaning over the cat. <span class="bdg notes">your notes</span></li>
+    <li>Offer a tasty treat within easy reach as an icebreaker; talk in a calm, friendly tone (silence suits some cats better). <span class="bdg notes">your notes</span></li>
+    <li>Offer a hand and allow a moment to sniff, then rub and scratch the sides of the face and neck, where most cats enjoy being petted. <span class="bdg notes">your notes</span></li>
+    <li>Aim to maintain continuous contact rather than lifting the hand on and off repeatedly. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <figure class="fig">
+    <svg viewBox="0 0 520 150" width="100%" role="img" aria-label="Finger-nose technique sequence and the two-second rule loop">
+      <defs><marker id="arBH4" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path class="sgarrow" d="M0,0 L7,3 L0,6 Z"/></marker></defs>
+      <g font-size="11.5" text-anchor="middle">
+        <rect x="14" y="20" width="150" height="36" rx="8" class="sgbox"/><text x="89" y="35" class="sgtxt">Advance outstretched</text><text x="89" y="49" class="sgtxt">index finger, hold still</text>
+        <rect x="190" y="20" width="150" height="36" rx="8" class="sgbox"/><text x="265" y="35" class="sgtxt">Cat initiates by</text><text x="265" y="49" class="sgtxt">rubbing the finger</text>
+        <rect x="366" y="20" width="150" height="36" rx="8" class="sgbox"/><text x="441" y="35" class="sgtxt">Steady pressure on</text><text x="441" y="49" class="sgtxt">face, chin, neck</text>
+      </g>
+      <line x1="164" y1="38" x2="186" y2="38" class="sgline" marker-end="url(#arBH4)"/>
+      <line x1="340" y1="38" x2="362" y2="38" class="sgline" marker-end="url(#arBH4)"/>
+      <g font-size="11.5" text-anchor="middle">
+        <rect x="80" y="95" width="120" height="34" rx="8" class="sgbox2"/><text x="140" y="116" class="sgtxt">Observe and assess</text>
+        <rect x="320" y="95" width="120" height="34" rx="8" class="sgbox2"/><text x="380" y="116" class="sgtxt">If resisting, stop</text>
+      </g>
+      <line x1="200" y1="112" x2="316" y2="112" class="sgline" marker-end="url(#arBH4)"/>
+      <text x="260" y="106" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" style="fill:var(--asv)">2-second rule</text>
+    </svg>
+    <figcaption>Finger-nose sequence (top) and the observe, assess, adjust loop with the 2-second rule (bottom), built from your notes. Original didactic schematic, not a reproduced figure.</figcaption>
+  </figure>
+
+  <div class="trap">
+    <b>Exam trap: the 2-second rule</b>
+    When handling cats, never let a resisting cat struggle for more than a couple of seconds before stopping for a break, because cats escalate from stress to aggression very rapidly and can stay agitated for some time. Treat this as an operational teaching rule rather than a measured constant. <span class="bdg notes">your notes</span>
+  </div>
+
+  <h3>Humane handling principles</h3>
+  <ul class="hy">
+    <li>Ongoing observation and assessment of behaviour, with adjustments to the handling plan as needed. <span class="bdg notes">your notes</span></li>
+    <li>Appropriate choice and management of the environment; enough trained personnel; suitable equipment in good working condition. <span class="bdg notes">your notes</span></li>
+    <li>Use anxiolytic medication when needed to minimise fear, anxiety, and stress and to improve safety. <span class="bdg notes">your notes</span></li>
+    <li>Ensure cats keep a sense of control and perceive that escape or hiding is possible; minimise physical restraint. <span class="bdg asv">ASV</span></li>
+  </ul>
+  <div class="verifybox">
+    <b>ASV-aligned position: forceful handling</b>
+    Forceful handling (for example scruffing cats or pinning dogs to the ground) should NOT be used except in extraordinary circumstances, when a human or animal is in immediate danger and other low-stress options, sedation, or delays are not possible. Lower-stress techniques include allowing hiding, slow introductions, covering a surface for traction, keeping voices low, gentle consistent touch, and treats or toys. <span class="bdg asv">ASV</span>
+  </div>
+</section>
+
+<!-- ============ PANEL 6: STRESS-REDUCTION EVIDENCE ============ -->
+<section class="panel" id="evid">
+  <h2 class="sec">Stress-Reduction Evidence</h2>
+  <p class="lead">Handling is not only about safety; structured human interaction measurably reduces stress in shelter dogs. The exam can test the direction of these findings and the fact that benefits do not require a familiar person.</p>
+
+  <div class="card">
+    <h4>What reduces stress</h4>
+    <ul class="hy">
+      <li>Petting and personal interaction reduce stress in shelter dogs. About 15 minutes of petting produced decreased signs of stress, even when the volunteer was unfamiliar to the dog. <span class="bdg ref">std ref</span></li>
+      <li>This may have a strong impact in social dogs and can help mitigate an aversive experience such as a medical procedure. <span class="bdg notes">your notes</span></li>
+      <li>Play and the passive (non-interactive) presence of a human also decrease cortisol. <span class="bdg ref">std ref</span></li>
+      <li>Implication: shelters need not treat petting as the only lever. Time spent together in other ways, such as play or walking, is also likely beneficial. <span class="bdg notes">your notes</span></li>
+    </ul>
+  </div>
+
+  <div class="verifybox">
+    <b>Evidence note and confidence</b>
+    The direction of these findings (human interaction, play, and even passive presence lower cortisol in shelter dogs, including from unfamiliar handlers) is consistent with the published literature. The specific "15 minute" figure is the value stated in your notes and is best treated as source-specific rather than a universal threshold. This corroboration is from standard behaviour references and was not verified against an uploaded textbook. <span class="bdg ref">std ref</span>
+  </div>
+</section>
+
+<!-- ============ PANEL 7: MCQ TEST BANK ============ -->
+<section class="panel" id="mcq">
+  <h2 class="sec">MCQ Test Bank</h2>
+  <p class="lead">All 30 questions for the Animal Handling subdomain in a single set, drawn from your uploaded MCQs. Tap an option to lock it in and reveal the explanation. Source badges show whether the rationale rests on your notes, an ASV-aligned position, or a standard reference.</p>
+  <div class="mcqbar">
+    <div class="label"><span class="dot"></span>30 questions &middot; Animal Handling</div>
+    <div class="score"><span id="scoreTxt">0 / 0 correct</span><button class="reset" id="resetBtn">Reset</button></div>
+  </div>
+  <div id="qhost"></div>
+</section>
+
+</div></main>
+
+<footer><div class="wrap">
+  Animal Handling subdomain hub &middot; Behavioural Health domain &middot; ABVP Shelter Medicine Practice RVS, November 2026. Content badged by source: your uploaded notes, ASV-aligned positions, and standard handling or behaviour references. In-house SVG schematics are original didactic constructions built from the notes.
+</div></footer>
+
+<script>
+const tabrow=document.getElementById('tabrow');
+tabrow.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.disabled)return;
+  [...tabrow.children].forEach(x=>x.classList.remove('active'));b.classList.add('active');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('show'));
+  document.getElementById(b.dataset.p).classList.add('show');window.scrollTo({top:0,behavior:'smooth'});});
+
+/* Animal Handling MCQ bank (30 items, single set).
+   t = topic tag (all 'ah' for this single-set subdomain)
+   f = source/flag badge: notes | asv | ref | corr
+   q = stem, o = options, a = correct index, e = explanation */
+const Q=[
+ {t:"ah",f:"notes",q:"When extracting a fearful or difficult dog from a kennel using a long slip lead, which mechanical action avoids throwing the lead over the dog's head?",o:["Position a bite stick between the door frame and the dog's maxilla","Slide a long sausage treat through the door from the outside to let the dog put her head into the loop","Use a press gate to force the dog's pelvic limbs against the back wall","Apply a flexible snare over the ears while the door is fully open"],a:1,e:"Sliding a treat through the door lets the dog place her own head into the loop, avoiding a stressful over-the-head reach."},
+ {t:"ah",f:"notes",q:"If a fearful shelter dog is confirmed dog-social, which housing modification is recommended, and what is its main constraint?",o:["Group housing in groups of 6 or more, supervised 24/7","Co-kenneling with a more outgoing companion; feed separately to prevent food guarding","Offsite foster only on fixed cycles","Placement next to a predatory species ward with visual blocks"],a:1,e:"Co-kenneling a dog-social fearful dog with an outgoing companion can change her emotional state; feed separately to avoid resource guarding."},
+ {t:"ah",f:"notes",q:"When a fearful dog needs two handlers with separate slip leads, how should a control pole be used if introduced?",o:["As the main tool to direct and lead the dog forward","Only at the time of a dangerous event, while the leashes remain the main tools to direct and lead","Wrapped in a towel to simulate a touch gradient","Applied to the lower lumbar spine for a low centre of gravity"],a:1,e:"The leashes do the directing; the control pole is reserved for the moment of a dangerous event only."},
+ {t:"ah",f:"notes",q:"Walking a dog down a kennel pod with dogs on both sides, how should the handler position the pair?",o:["Dog on a short leash on the right flank, facing the kennels","Maintain the greatest distance possible by keeping the dog in the centre of the aisle","Walk fast while spraying bitter spray into the air","Force the dog to walk backwards with direct eye contact"],a:1,e:"Centring the dog and maximising distance from both rows reduces arousal and bite risk."},
+ {t:"ah",f:"notes",q:"If a walked dog must face kenneled dogs in a narrow pod, what defensive measure does the handler take?",o:["Execute a wheelbarrow technique to speed up","Stand farthest from the kenneled dogs to prevent a redirected bite to the handler","Pick up the drag leash and pull the dog toward the ceiling","Place a vision-blocking device over the handler's own eyes"],a:1,e:"Standing farthest from the kenneled dogs positions the handler away from the likely redirected bite."},
+ {t:"ah",f:"notes",q:"When initiating contact with a shy or unknown dog, what is the correct orientation and progression?",o:["Approach head-on, crouch, and reach over the head to assert control","Turn sideways, crouch if safe, gently toss high-value treats, avoid sudden moves and direct eye contact","Stand fully upright, hands at shoulder height, and talk loudly","Use a syringe pole to inject before any contact"],a:1,e:"A sideways, low, non-confrontational approach with tossed treats lets the dog choose to engage."},
+ {t:"ah",f:"notes",q:"Once a shy dog solicits contact (leaning or pawing), where should the handler pet?",o:["Directly over the top of the head and muzzle","Gently on the side of the shoulder or neck, avoiding reaching over the head","On the hindquarters near the tail base","On the ventral abdomen after rolling the dog over"],a:1,e:"Avoid reaching over the head of a shy dog; pet the side of the shoulder or neck."},
+ {t:"ah",f:"ref",q:"The touch gradient requires which physical mechanic during an examination?",o:["Lifting and lowering the hand on and off the dog to test startle","Moving straight to a pinch or injection with no initial light contact","Touching lightly first and escalating intensity gradually (pet, tap, pinch, inject) while keeping at least one hand in constant contact","Approaching strictly from behind on a taut, short leash"],a:2,e:"The touch gradient (Fear Free) escalates intensity gradually with constant one-hand contact, approaching from the side."},
+ {t:"ah",f:"notes",q:"How should the team approach an aggressive or fearful dog for a medical procedure?",o:["Head-on, reaching over the cranium","From behind, with a snare around the caudal abdomen","From the side, rather than behind or head-on","By lifting straight onto a high table to remove traction"],a:2,e:"Side approach is least threatening and safest for a fearful or aggressive dog."},
+ {t:"ah",f:"notes",q:"For highly aroused, mouthy, adolescent dogs, which intervention is specifically highlighted to reduce kennel arousal?",o:["Long-term containment with zero human contact for 14 days","Standardised doll testing every morning","Sending them to foster care, even for a single night","Mandatory isolation with twice-daily catch-pole conditioning"],a:2,e:"Short foster stays, even one night, help dissipate arousal in mouthy adolescent dogs. (Note: option D was added to complete this item to four options; replace if you prefer.)"},
+ {t:"ah",f:"notes",q:"To keep leverage and balance with a panicking or aggressive dog, where should the hands be?",o:["At shoulder height, fully extended away from the body","Low, around belly-button height, and close to the body","Inside the pockets of loose clothing","On the handler's hips to widen the stance"],a:1,e:"Low hands near belly-button height keep a low centre of gravity so the handler is not pulled over. This is a practical heuristic, not a measured constant."},
+ {t:"ah",f:"notes",q:"Walking a dog known for redirected aggression, which equipment and leash adjustment are used?",o:["A flat collar held with a bent elbow near the face","A head halter, a muzzle, or both, while straightening the leash arm to hold the dog away","A flexible snare and a towel wrap around the chest","A chain leash held at shoulder height with crossed hands"],a:1,e:"Head halter and/or muzzle plus a straight leash arm holds a known redirector away from the handler."},
+ {t:"ah",f:"notes",q:"Which list gives the four actions a handler must NEVER perform when breaking up a dog fight?",o:["Use an air horn, deploy a pig board, toss a blanket, scruff the dog","Grab their collars, punch, kick, or pry their mouths apart","Pick up drag leashes, use citronella, blow a whistle, use a break stick","Push objects between them, call for help, use compressed air, turn off lights"],a:1,e:"The four nevers: do not grab collars, punch, kick, or pry mouths apart."},
+ {t:"ah",f:"notes",q:"During a two-dog fight with non-combatant dogs present, what should secondary handlers do?",o:["Deploy break sticks on the non-combatants","Quickly remove the non-combatant dogs to safety, or clip them to the fence with a carabiner","Wheelbarrow all dogs at once","Spray all non-combatants in the eyes with bitter spray"],a:1,e:"Rapidly secure non-combatant dogs (move them to safety or carabiner to the fence) before managing the combatants."},
+ {t:"ah",f:"notes",q:"What are the inventory and device-check requirements for shelter fight kits?",o:["Every 6 months; sprays checked by shaking once","At least every 2 months; sprays checked like a fire extinguisher to confirm they are pressurised and full","Only after a deep gripping fight","Daily, at the end of each lighting cycle"],a:1,e:"Inventory at least every 2 months and verify spray pressure as you would a fire extinguisher; check control poles at the same time."},
+ {t:"ah",f:"notes",q:"What is the precise sequence for using a break stick on a gripping fight?",o:["Grab the tail, insert between molars, pull back with a jerk","Grab the collar at the base of the skull, work the stick parallel to the jaw behind the canine teeth (about 1 inch in), and twist the handle","Position the stick perpendicular to the maxilla, slide down the esophagus, push forward","Scruff the flank, slide under the tongue, and lift the dog up"],a:1,e:"Control the head at the base of the skull, insert about 1 inch behind the canines parallel to the jaw, then twist to break the grip."},
+ {t:"ah",f:"notes",q:"Under which conditions is the usual time to gather fight tools overridden, forcing immediate hands-on intervention?",o:["Slash-and-dash fights over 15 minutes","Two equal-size aroused adolescents","Large versus small dogs, a blocked airway, or blocked blood flow (tight neck grip with the victim losing consciousness)","A fight during a scheduled scan sample"],a:2,e:"Large versus small, blocked airway, or blocked blood flow are emergencies that remove the usual time buffer."},
+ {t:"ah",f:"notes",q:"Why is picking up each dog's drag leash and walking apart contraindicated in a gripping fight?",o:["It costs the handler their centre of gravity","It triggers redirected aggression onto non-combatants","It does not work on a gripping fight and can increase tissue damage","It invalidates later sedation"],a:2,e:"Opposing pulls on a gripping fight tear tissue and do not separate the dogs."},
+ {t:"ah",f:"notes",q:"If an off-leash dog grips clothing or a body part and shakes her head, what should the handler do?",o:["Push the dog away and pry the jaws with bare fingers","Grab the collar, scruff, or sides of the head to minimise head movement","Immediately curl up and play dead","Swing the dog by its tail"],a:1,e:"Controlling the head (collar, scruff, or sides of the head) limits the damaging shake."},
+ {t:"ah",f:"notes",q:"The 'feeding the bite' technique relies on which mechanical action to force a release?",o:["Pulling the victim backward suddenly","Pushing the biting dog forward into the victim, causing recoil and release","Spraying vinegar into the handler's own sleeves","Rotating a break stick against the belly button"],a:1,e:"Pushing the dog forward into the victim triggers a recoil-and-release reflex (do not pull the victim away)."},
+ {t:"ah",f:"notes",q:"If a dangerous dog pulls a handler to the ground, what is the safest posture?",o:["Stand up, scruff the dog, and wheelbarrow it","Curl into a ball, play dead, and cover the neck with the hands","Lie flat on the back, extend the limbs, and scream","Grab a control pole and kink the noose under the body"],a:1,e:"Curling into a ball and covering the neck protects vital structures when downed."},
+ {t:"ah",f:"asv",q:"Which statement correctly identifies an absolute restriction for control poles?",o:["Appropriate for routine use on all incoming small dogs and cats","Never used on a small dog or cat, as severe injury or death may result","Stored by hanging directly by the wire noose to keep tension","Designed mainly to lift large dogs onto tables"],a:1,e:"Control poles are never appropriate for cats or small dogs and are not for routine use, lifting, pushing, or pulling. This aligns with ASV guidance to minimise fear, anxiety and stress and avoid forceful handling."},
+ {t:"ah",f:"notes",q:"What is the correct way to store a control pole to prevent operational failure?",o:["Prop the noose end on the ground by the cleaning charts","Hang it by the wire noose from a high wall to let it stretch","Never hang it by the wire noose or prop the noose on the ground (this kinks the line); hang it by attachments to the pole handle","Lock it inside the fight-kit box under the slip leads"],a:2,e:"Hanging by the noose or propping it on the ground kinks the line; hang by the handle attachments and check regularly."},
+ {t:"ah",f:"notes",q:"When using an air horn or compressed air to disrupt a fight, what precaution applies?",o:["Emit the sound inside the victim's ear canal","Use it as a first resort before checking for drag leashes","Emit compressed air fairly close to the head, but not so close the dog can redirect onto the handler","Hold the air horn at shoulder height facing away"],a:2,e:"Keep compressed air close enough to be effective but not so close the dog can redirect a bite onto the handler."},
+ {t:"ah",f:"asv",q:"What criteria define when forceful handling (scruffing cats, pinning dogs) is acceptable?",o:["When a trainer is unavailable for a scheduled intake exam","Only in extraordinary circumstances, when a human or animal is in immediate danger and other options, sedation, or delays are not possible","Whenever an animal refuses treats during a 15-minute session","To speed operations and reduce length of stay"],a:1,e:"Forceful handling is an emergency last resort only, consistent with ASV guidance against routine forceful restraint."},
+ {t:"ah",f:"asv",q:"Which housing or handling feature must be preserved to reduce stress for an incoming cat?",o:["The cat maintains a sense of control and perceives that escape or hiding is possible","Constant visual contact with predatory canine species","Maximum restraint with a squeeze cage for 48 hours","Repeatedly lifting the hand on and off during care"],a:0,e:"Cats cope better when they retain control and the option to hide, consistent with ASV welfare guidance."},
+ {t:"ah",f:"notes",q:"What is the correct sequence of the finger-nose technique for socialised cats?",o:["Extend a clenched fist rapidly toward the maxilla, then withdraw","Slowly advance an outstretched index finger, hold it in front of the face, let the cat initiate by rubbing, then apply steady pressure to the sides of the face and neck","Slide a finger through a den port to touch the caudal flank","Place a treat on the fingertip and force it into the mouth"],a:1,e:"Advance an outstretched finger, let the cat rub to initiate, then use calm steady pressure on the face, chin, or neck."},
+ {t:"ah",f:"ref",q:"What was verified about petting sessions for shelter dog stress?",o:["Only an intimately familiar owner can change cortisol","About 15 minutes of petting decreased signs of stress even when the volunteer was unfamiliar to the dog","Petting must be on the ventral abdomen with a touch-gradient pinch","Petting is the only effective method; play and passive presence do nothing"],a:1,e:"Roughly 15 minutes of petting reduced stress signs even from an unfamiliar volunteer; play and passive human presence also lower cortisol."},
+ {t:"ah",f:"notes",q:"For severe leash-grabbing on walks, which is a recommended defensive method?",o:["Pull the leash up with both hands until the forelimbs leave the ground","Use a chain leash or cover the lead with PVC pipe, or spray a bad-tasting substance (vinegar or bitter spray) on the lead","Apply a control pole to the base of the skull before leaving the kennel","Use physical force to set handling boundaries"],a:1,e:"PVC-covered or chain leads and a bitter-tasting spray make the lead unrewarding to grab; offering a toy to carry also helps."},
+ {t:"ah",f:"notes",q:"When returning a dog that wants to stay with people and avoids the kennel, what sequence is used?",o:["Drag the dog in with a straight arm and latch the door","Push the hindquarters with a control pole from outside","Toss treats into the corner, or give a food-stuffed toy if resources allow, recognising that high-value food may still not be enough","Stop all walks and switch to passive presence only"],a:2,e:"Toss treats into the corner and offer a food-stuffed toy, while accepting that food alone may not always overcome the dog's preference for people."}
+];
+
+const host=document.getElementById('qhost');
+const scoreTxt=document.getElementById('scoreTxt');
+let answered=0, correct=0;
+const DLABEL={ah:"Animal Handling"};
+function tagLabel(t){return DLABEL[t]||t.toUpperCase();}
+function flagBadge(f){
+  if(f==='corr')return '<span class="bdg corr">corrected</span>';
+  if(f==='notes')return '<span class="bdg notes">your notes</span>';
+  if(f==='asv')return '<span class="bdg asv">ASV</span>';
+  if(f==='ref')return '<span class="bdg ref">std ref</span>';
+  return '';
+}
+function render(){
+  host.innerHTML='';answered=0;correct=0;updateScore();
+  Q.forEach((item,i)=>{
+    const card=document.createElement('div');card.className='q';
+    card.innerHTML=`<div class="meta"><span class="num">#${i+1}</span><span class="tag">&#9670; ${tagLabel(item.t)}</span>${flagBadge(item.f)}</div><div class="stem">${item.q}</div>`;
+    const opts=document.createElement('div');
+    item.o.forEach((txt,oi)=>{
+      const btn=document.createElement('button');btn.className='opt';
+      btn.innerHTML=`<span class="k">${String.fromCharCode(65+oi)}</span>${txt}`;
+      btn.onclick=()=>choose(card,opts,item,oi);opts.appendChild(btn);
+    });
+    card.appendChild(opts);
+    const ex=document.createElement('div');ex.className='expl';
+    ex.innerHTML=`<b class="cor">Correct: ${String.fromCharCode(65+item.a)}.</b> ${item.e}`;
+    card.appendChild(ex);host.appendChild(card);
+  });
+}
+function choose(card,opts,item,oi){
+  if(card.dataset.done)return;card.dataset.done='1';answered++;
+  [...opts.children].forEach((b,bi)=>{b.classList.add('locked');
+    if(bi===item.a)b.classList.add('correct');
+    if(bi===oi && oi!==item.a)b.classList.add('wrong');});
+  if(oi===item.a)correct++;
+  card.querySelector('.expl').classList.add('show');updateScore();
+}
+function updateScore(){scoreTxt.textContent=`${correct} / ${answered} correct`;}
+document.getElementById('resetBtn').onclick=render;
+render();
+</script>
+</body>
+</html>

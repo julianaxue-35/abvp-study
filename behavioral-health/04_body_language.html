@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<title>Body Language Subdomain Hub | ABVP Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme:light dark;
+    --bg:#eef2f7;--surface:#fbfdff;--surface2:#e8edf4;
+    --chrome:#1c3a5e;--chrome2:#264f78;          /* behavioural health blue chrome */
+    --text:#16273a;--onChrome:#e9f0f8;--muted:#586a7d;
+    --line:#ccd6e2;
+    --accent:#b1466f;--accent-soft:#f3e0ea;       /* behavioural health rose accent */
+    --good:#1f7a4d;--good-soft:#e3f2ea;--bad:#b23b3b;
+    --notes:#7a4fb5;--notes-soft:#ece3f7;          /* your Body language notes (PDF) */
+    --asv:#1f6f86;--asv-soft:#dcecf2;              /* ASV principle */
+    --ref:#b5651d;--ref-soft:#f6e7d4;              /* behaviour textbook / published refs */
+    --dot:rgba(28,58,94,.05);
+    --shadow:0 1px 2px rgba(20,40,70,.08),0 8px 24px rgba(20,40,70,.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0e1622;--surface:#16212f;--surface2:#1b2735;
+      --chrome:#122236;--chrome2:#1b3450;
+      --text:#dde6f1;--onChrome:#e9f0f8;--muted:#9aacbf;
+      --line:#2a3a4d;
+      --accent:#d3789c;--accent-soft:rgba(211,120,156,.16);
+      --good:#51b184;--good-soft:rgba(40,140,90,.18);--bad:#e08585;
+      --notes:#c0a4ec;--notes-soft:rgba(150,110,210,.20);
+      --asv:#66c0d6;--asv-soft:rgba(40,150,175,.18);
+      --ref:#e0a766;--ref-soft:rgba(200,130,50,.18);
+      --dot:rgba(255,255,255,.035);
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.3);
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--text);
+    font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;
+    background-image:radial-gradient(circle at 1px 1px,var(--dot) 1px,transparent 0);background-size:22px 22px;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+  .crumb{background:var(--chrome);padding:9px 18px;display:flex;align-items:center;gap:10px;font-size:13px;font-weight:500;border-bottom:2px solid var(--chrome2)}
+  .crumb a{color:#9fc0dc;text-decoration:none;display:flex;align-items:center;gap:5px}
+  .crumb .sep{color:#5f82a3;font-size:11px}
+  .crumb .here{color:#cfe0f1}
+  header.top{background:var(--chrome);color:var(--onChrome);padding:26px 0 22px;border-bottom:4px solid var(--accent)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#9fc0dc;margin:0 0 6px}
+  header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(26px,4.5vw,40px);margin:0;line-height:1.05}
+  header.top p.sub{margin:8px 0 0;color:#cfe0f1;font-size:14px;max-width:78ch}
+  .legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}
+  .legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.22);color:#eaf2fb;display:flex;align-items:center;gap:6px}
+  .legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--surface);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button:hover{background:var(--bg);color:var(--text)}
+  .tabrow button.active{background:var(--chrome);color:var(--onChrome)}
+  .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+  main{padding:30px 0 80px}
+  .panel{display:none;animation:fade .35s ease}
+  .panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;letter-spacing:-.01em;color:var(--text)}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:80ch}
+  h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:30px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;scroll-margin-top:64px;color:var(--text)}
+  h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;color:var(--text);text-transform:uppercase;letter-spacing:.03em}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}
+  p.note{font-size:14px;margin:0 0 6px}
+  ul.hy{margin:8px 0;padding-left:0;list-style:none}
+  ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed var(--line);font-size:14px}
+  ul.hy li:last-child{border-bottom:0}
+  ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;border-radius:2px;background:var(--accent);transform:rotate(45deg)}
+  .trap{background:var(--accent-soft);border:1px solid var(--accent);border-left:4px solid var(--accent);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .trap b{color:var(--accent);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .corrbox{background:var(--good-soft);border:1px solid var(--good);border-left:4px solid var(--good);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .corrbox b{color:var(--good);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .verifybox{background:var(--asv-soft);border:1px solid var(--asv);border-left:4px solid var(--asv);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .verifybox b{color:var(--asv);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp th{background:var(--chrome);color:var(--onChrome);font-weight:600;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase}
+  table.cmp tr:last-child td{border-bottom:0}
+  table.cmp td b{color:var(--text)}
+  .fig{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0;box-shadow:var(--shadow)}
+  .fig figcaption{font-size:12.5px;color:var(--muted);margin-top:8px;font-style:italic}
+  /* svg helpers (use vars so diagrams adapt to dark mode) */
+  .sgbox{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1}
+  .sgbox2{fill:var(--asv-soft);stroke:var(--asv);stroke-width:1}
+  .sgtxt{fill:var(--text);font-family:"Public Sans",sans-serif}
+  .sgmut{fill:var(--muted);font-family:"Public Sans",sans-serif}
+  .sgmono{fill:var(--accent);font-family:"JetBrains Mono",monospace}
+  .sgline{stroke:var(--accent);stroke-width:2;fill:none}
+  .sgaxis{stroke:var(--line);stroke-width:1.5}
+  .sgarrow{fill:var(--accent)}
+  /* source badges */
+  .bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+  .bdg.notes{background:var(--notes-soft);color:var(--notes)}
+  .bdg.asv{background:var(--asv-soft);color:var(--asv)}
+  .bdg.ref{background:var(--ref-soft);color:var(--ref)}
+  .bdg.corr{background:var(--good);color:#fff}
+  /* mcq */
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--chrome);color:var(--onChrome);border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:54px;z-index:10}
+  .mcqbar .label{font-family:"JetBrains Mono",monospace;font-size:12px;color:#cfe0f1;display:flex;align-items:center;gap:8px}
+  .mcqbar .label .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);display:inline-block}
+  .score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}
+  .score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;color:#cfe0f1;padding:5px 10px;border-radius:8px;font-size:11px}
+  .q{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
+  .q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+  .q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+  .q .stem{font-weight:600;font-size:15px;margin-bottom:10px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:var(--surface2);border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;font-family:"Public Sans";color:var(--text);transition:background .15s,border-color .15s}
+  .opt:hover{border-color:var(--accent)}
+  .opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}
+  .opt.correct{background:var(--good-soft);border-color:var(--good)}
+  .opt.wrong{background:rgba(178,59,59,.14);border-color:var(--bad)}
+  .opt.locked{cursor:default}
+  .expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:var(--surface2);border:1px solid var(--line);font-size:13.5px}
+  .expl.show{display:block}
+  .expl b.cor{color:var(--good)}
+  footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
+  @media(max-width:640px){.mcqbar{top:50px}.score{font-size:12px}}
+</style>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span class="sep">&rsaquo;</span><a href="../index.html#domain-behav">Behavioural Health</a><span class="sep">&rsaquo;</span><span class="here">Body Language</span></nav>
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">ABVP Shelter Medicine Practice RVS &middot; Behavioural Health</p>
+    <h1>Body Language Subdomain Hub</h1>
+    <p class="sub">Exam-depth study tool for canine and feline body language and the developmental periods that shape it: developmental windows and fear periods, visual, acoustic, and olfactory signalling, and the emotional state clusters used to interpret what an animal is telling you. The MCQ Test Bank holds all 30 questions in one set.</p>
+    <div class="legend">
+      <span><i style="background:var(--notes)"></i>Your Body language notes (PDF)</span>
+      <span><i style="background:var(--asv)"></i>ASV principle</span>
+      <span><i style="background:var(--ref)"></i>Textbook / published reference</span>
+    </div>
+  </div>
+</header>
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="cdev"><span class="dot"></span>Canine Development</button>
+  <button data-p="ccom"><span class="dot"></span>Canine Communication</button>
+  <button data-p="fdev"><span class="dot"></span>Feline Development</button>
+  <button data-p="fcom"><span class="dot"></span>Feline Communication</button>
+  <button data-p="mcq"><span class="dot" style="background:var(--chrome2)"></span>MCQ Test Bank</button>
+</div></div></nav>
+<main><div class="wrap">
+<section class="panel show" id="cdev">
+  <h2 class="sec">Canine Development</h2>
+  <p class="lead">Behaviour starts before birth and is shaped through windows that close. The exam tests the sequence (prenatal, neonatal, transition, socialisation, juvenile, senior), the peak sensitivities and fear periods, and the consequences of getting the windows wrong.</p>
+
+  <figure class="fig">
+    <svg viewBox="0 0 520 220" width="100%" role="img" aria-label="Canine developmental timeline with key windows and milestones">
+      <defs><marker id="arBL1" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path class="sgarrow" d="M0,0 L7,3 L0,6 Z"/></marker></defs>
+      <line x1="30" y1="120" x2="500" y2="120" class="sgaxis"/>
+      <line x1="30" y1="120" x2="495" y2="120" class="sgline" marker-end="url(#arBL1)"/>
+      <g font-size="10" class="sgmut" text-anchor="middle">
+        <text x="40" y="138">birth</text>
+        <text x="110" y="138">2 wk</text>
+        <text x="160" y="138">3 wk</text>
+        <text x="260" y="138">8 wk</text>
+        <text x="320" y="138">12 wk</text>
+        <text x="395" y="138">7 mo</text>
+        <text x="455" y="138">18 mo</text>
+        <text x="490" y="138">2 yr</text>
+      </g>
+      <g font-size="10.5">
+        <rect x="40" y="86" width="70" height="22" rx="6" class="sgbox"/><text x="75" y="101" text-anchor="middle" class="sgtxt">Neonatal</text>
+        <rect x="112" y="86" width="46" height="22" rx="6" class="sgbox"/><text x="135" y="101" text-anchor="middle" class="sgtxt">Trans.</text>
+        <rect x="160" y="86" width="160" height="22" rx="6" class="sgbox"/><text x="240" y="101" text-anchor="middle" class="sgtxt">Socialisation (3 to 12 wk)</text>
+        <rect x="322" y="86" width="170" height="22" rx="6" class="sgbox"/><text x="407" y="101" text-anchor="middle" class="sgtxt">Juvenile</text>
+        <rect x="200" y="52" width="80" height="20" rx="6" class="sgbox2"/><text x="240" y="66" text-anchor="middle" class="sgtxt">Peak 6 to 8 wk</text>
+        <rect x="255" y="22" width="100" height="20" rx="6" style="fill:rgba(178,59,59,.14);stroke:var(--bad)"/><text x="305" y="36" text-anchor="middle" style="fill:var(--bad)">First fear 8 to 10 wk</text>
+      </g>
+      <g font-size="9.5" class="sgmut">
+        <text x="40" y="170">handling helps</text>
+        <text x="40" y="184">HPA resilience</text>
+        <text x="200" y="170">approach novel</text>
+        <text x="200" y="184">then wary at 5 wk</text>
+        <text x="370" y="170">predatory motor</text>
+        <text x="370" y="184">patterns ~ 7 mo</text>
+        <text x="445" y="170">socially mature</text>
+        <text x="445" y="184">18 mo, fully 2 yr</text>
+      </g>
+    </svg>
+    <figcaption>Canine developmental timeline with the windows, the peak sensitivity for socialisation (6 to 8 weeks), the first fear period (8 to 10 weeks), and the milestones that follow. Original didactic schematic built from your notes.</figcaption>
+  </figure>
+
+  <h3>The periods</h3>
+  <table class="cmp">
+    <tr><th>Period</th><th>Age</th><th>Key points</th></tr>
+    <tr><td><b>Prenatal</b></td><td>in utero</td><td>Neurons generated and basic patterns develop; maternal stress raises fetal corticosteroid load and produces more reactive pups; intrauterine androgens promote masculine traits in female offspring (rodent data); gustatory receptors develop before birth and shape food preferences. Keep the dam in a low-stress environment on varied, nutritious food.</td></tr>
+    <tr><td><b>Neonatal</b></td><td>0 to 2 wk</td><td>Touch, smell, and taste only; daily 3 minute handling with mild stressors (cool surface, gentle rocking) produces lifelong HPA-axis adaptation, better stress resilience, and easier learning.</td></tr>
+    <tr><td><b>Transition</b></td><td>10 to 16 days for about a week</td><td>Rapid shift from neonatal to mature patterns; motor skills appear; some early human memories may form.</td></tr>
+    <tr><td><b>Socialisation</b></td><td>3 to 12 wk; peak 6 to 8 wk</td><td>Hearing and sight come in at 2 to 5 wk with cortical myelinisation; pups actively approach novel objects until about 5 wk and become wary after, with wariness peaking at 12 to 14 wk. First fear period at 8 to 10 wk. About 20 minutes per week of varied, controlled exposure is enough.</td></tr>
+    <tr><td><b>Juvenile</b></td><td>12 wk to sexual maturity</td><td>Less tolerant of change but socialisation must continue; predatory motor patterns (eye, stalk, chase, bite) appear about 7 months in most breeds, as early as 8 weeks in Border Collies; puberty 6 to 18 months with a testosterone surge in males around 6 to 8 months. Dogs are socially mature about 18 months and fully mature about 2 years.</td></tr>
+    <tr><td><b>Older</b></td><td>geriatric</td><td>Reduced social interaction and reduced learning and memory.</td></tr>
+  </table>
+
+  <div class="trap">
+    <b>Exam trap: what is learned in the socialisation window</b>
+    Attention, care-soliciting, bite inhibition, and primary social attachment are all learned here. A pup not socialised in this window is socially handicapped for life and can become neophobic. Livestock guarding dogs housed with sheep in this period form a lifelong social bond with sheep. <span class="bdg notes">your notes</span>
+  </div>
+
+  <div class="card">
+    <h4>Fear periods, play, and bullying</h4>
+    <ul class="hy">
+      <li>During fear periods, reduce novel exposure to a level the pup can recover from quickly, and avoid scheduling traumatic events (adoption, vaccination) inside them. <span class="bdg notes">your notes</span></li>
+      <li>Puppy play needs supervision: a pup bullied even a few times can become fearful, and a pup that bullies successfully can learn to bully more efficiently. <span class="bdg notes">your notes</span></li>
+      <li>Early weaning is linked to destructive behaviour, possessiveness, excessive barking, and fearfulness later. <span class="bdg notes">your notes</span></li>
+    </ul>
+  </div>
+
+  <div class="verifybox">
+    <b>AVSAB: socialisation before 12 weeks takes precedence over completing the vaccine series</b>
+    The AVSAB position statement (often tested on the ABVP) is that the benefits of careful socialisation in controlled, low-risk environments before 12 weeks outweigh the small infectious-disease risk of attending well-run puppy classes before the vaccine series is complete. <span class="bdg ref">std ref</span>
+  </div>
+
+  <div class="corrbox">
+    <b>Flagged for your approval: minimum age at adoption</b>
+    Your notes read "5 wk start handling, 6 wk OK to adopt out, 8 to 12 wk wider exposure." Current AVSAB and US best-practice guidance is to keep puppies with the dam and littermates until at least 7 to 8 weeks, to preserve bite inhibition and littermate-mediated social learning (many US states set the legal minimum at 8 weeks). Confirm and I will update the text to read "8 weeks minimum." <span class="bdg corr">flagged</span>
+  </div>
+
+  <h3>Older dogs and Canine Cognitive Dysfunction Syndrome</h3>
+  <p class="note">Use the DISHA acronym for cognitive decline. Early intervention with diet and enrichment is the standard approach. <span class="bdg notes">your notes</span></p>
+  <table class="cmp">
+    <tr><th>Letter</th><th>Sign</th></tr>
+    <tr><td><b>D</b></td><td>Disorientation</td></tr>
+    <tr><td><b>I</b></td><td>Altered Interaction with people and other pets</td></tr>
+    <tr><td><b>S</b></td><td>Sleep-wake cycle alteration</td></tr>
+    <tr><td><b>H</b></td><td>House soiling</td></tr>
+    <tr><td><b>A</b></td><td>Altered Activity level</td></tr>
+  </table>
+</section><section class="panel" id="ccom">
+  <h2 class="sec">Canine Communication and Body Language</h2>
+  <p class="lead">Read the dog in clusters, not in single signs. The exam tests whether you can tell offensive aggression from defensive aggression and submission from a submissive grin, and whether you know the autonomic correlates of "hard eyes" and tail lateralisation.</p>
+
+  <h3>Visual signals</h3>
+  <table class="cmp">
+    <tr><th>Channel</th><th>What to read</th></tr>
+    <tr><td><b>Posture</b></td><td>Lean forward shifts weight onto the front, signalling offensive intent; lean back unloads the front and signals defensive intent. Limbs and weight distribution drive movement.</td></tr>
+    <tr><td><b>Piloerection</b></td><td>Hackles up anywhere on the body indicates AROUSAL, not a fixed emotion; can occur in play, conflict, or fear.</td></tr>
+    <tr><td><b>Tail height</b></td><td>High tail signals arousal or excitement; low tail signals fear, submission, appeasement, or affiliation.</td></tr>
+    <tr><td><b>Tail movement</b></td><td>Long and wagging is engaged; long and still is absent of communication; short tail length adds little.</td></tr>
+    <tr><td><b>Tail speed</b></td><td>Loose side-to-side is greeting and excitement; low and quick suggests nervousness or timidity; high and fast signals arousal (excitement, interest, or aggression).</td></tr>
+    <tr><td><b>Tail-side lateralisation</b></td><td>Wagging more to the dog's RIGHT side reflects positive valence (processed in the left hemisphere); more to the LEFT side reflects negative valence or withdrawal (right hemisphere).</td></tr>
+    <tr><td><b>Mouth</b></td><td>Open relaxed mouth is comfortable; tight mouth is emotional or physical discomfort; yawns can be soporific or stress-related.</td></tr>
+    <tr><td><b>Commissure</b></td><td>"Long lip" pulled back signals fear, distress, or appeasement. "Short lip" pushed forward with a C-shaped mouth and wrinkled muzzle signals aggression.</td></tr>
+    <tr><td><b>Submissive grin</b></td><td>Lips retracted, teeth visible, eyes squinty, forehead smooth, ears pulled back. A subthreshold appeasement gesture, NOT aggression.</td></tr>
+    <tr><td><b>Eyes</b></td><td>Hard eye (direct, prolonged gaze with dilated pupils) activates the sympathetic nervous system and signals threat and arousal. Whale eye (sclera visible) signals discomfort or nervousness.</td></tr>
+    <tr><td><b>Ears</b></td><td>Read the BASE: pressed back means fear, submission, defensive, or aggression depending on the rest of the cluster; forward means interest, attention, or approach.</td></tr>
+  </table>
+
+  <figure class="fig">
+    <svg viewBox="0 0 520 160" width="100%" role="img" aria-label="Right-versus-left tail lateralisation in dogs">
+      <defs><marker id="arBL2" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path class="sgarrow" d="M0,0 L7,3 L0,6 Z"/></marker></defs>
+      <g font-size="11">
+        <rect x="20" y="20" width="220" height="120" rx="12" class="sgbox"/>
+        <text x="130" y="44" text-anchor="middle" font-size="12.5" class="sgtxt">Wags MORE to its RIGHT</text>
+        <text x="130" y="62" text-anchor="middle" class="sgmut">positive valence</text>
+        <text x="130" y="78" text-anchor="middle" class="sgmut">left hemisphere processing</text>
+        <line x1="130" y1="92" x2="190" y2="116" class="sgline" marker-end="url(#arBL2)"/>
+        <text x="190" y="132" text-anchor="middle" class="sgtxt">approach, friendly</text>
+        <rect x="280" y="20" width="220" height="120" rx="12" style="fill:rgba(178,59,59,.14);stroke:var(--bad)"/>
+        <text x="390" y="44" text-anchor="middle" font-size="12.5" style="fill:var(--bad)">Wags MORE to its LEFT</text>
+        <text x="390" y="62" text-anchor="middle" class="sgmut">negative valence or withdrawal</text>
+        <text x="390" y="78" text-anchor="middle" class="sgmut">right hemisphere processing</text>
+        <line x1="390" y1="92" x2="330" y2="116" class="sgline" marker-end="url(#arBL2)"/>
+        <text x="330" y="132" text-anchor="middle" class="sgtxt">retreat, unfriendly</text>
+      </g>
+    </svg>
+    <figcaption>Tail-wag lateralisation: more to the dog's own right reflects positive valence, more to the left reflects negative valence or withdrawal. Original didactic schematic built from your notes plus the lateralisation literature.</figcaption>
+  </figure>
+
+  <h3>Emotional state clusters</h3>
+  <table class="cmp">
+    <tr><th>State</th><th>Cluster (read together, not in isolation)</th></tr>
+    <tr><td><b>Offensive aggression</b></td><td>Lean forward; fixed hard eye; raised tail; stiff or frozen; closed mouth; offensive pucker (short lip, C-shape, wrinkled muzzle)</td></tr>
+    <tr><td><b>Defensive aggression</b></td><td>Posture pulled back; ears back; tail tucked; increasing distance</td></tr>
+    <tr><td><b>Timidity / fearfulness</b></td><td>Low tail (may wag low and quick); tight mouth or yawns; panting or whining; long-lip commissure; whale eye; ears back; trembling; lowered body; cowering or hiding; barking, howling</td></tr>
+    <tr><td><b>Alert / attention</b></td><td>Ears forward; tail down but not tucked; prolonged focus on the person or object</td></tr>
+    <tr><td><b>Arousal</b></td><td>Piloerection; tail high and fast (often left-biased); tight mouth and short-lip commissure; panting with hard eyes locked; ears back</td></tr>
+  </table>
+
+  <div class="trap">
+    <b>Exam trap: submissive grin versus offensive pucker</b>
+    A submissive grin is teeth-visible but with SQUINTY eyes, smooth forehead, and ears back. An offensive pucker is teeth-visible with a wrinkled muzzle, C-shaped mouth, and HARD open eyes. The eyes and the muzzle settle the question. <span class="bdg notes">your notes</span>
+  </div>
+
+  <h3>Acoustic</h3>
+  <ul class="hy">
+    <li>Whine, yelp, growl, howl, bark. Barks are short-range communication and meaning varies with context. <span class="bdg notes">your notes</span></li>
+    <li>Low-pitched, harsh, low-amplitude barks signal aggression (low frequencies are distance-increasing across mammals). <span class="bdg notes">your notes</span></li>
+    <li>High-pitched barks signal fear or desperation. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <h3>Olfactory and the vomeronasal organ</h3>
+  <ul class="hy">
+    <li>The vomeronasal organ (VNO) sits below the nasal cavity and is a chemosensory organ specialised for pheromones in faeces, urine, and saliva. Dogs collect samples via the head or anogenital area and route them through the VNO to the olfactory bulb. <span class="bdg notes">your notes</span></li>
+  </ul>
+</section><section class="panel" id="fdev">
+  <h2 class="sec">Feline Development</h2>
+  <p class="lead">The feline socialisation window closes early (2 to 7 weeks), which is the single highest-yield fact in this tab. Genetics, queen nutrition, and queen handling all leave permanent imprints.</p>
+
+  <h3>Genetics</h3>
+  <ul class="hy">
+    <li>Genetics influence neurodevelopment and neurotransmitter systems, shaping emotional and motivational states. <span class="bdg notes">your notes</span></li>
+    <li>Personality is a confluence of environment and genetics, but the SIRE'S personality is a strong independent predictor: kittens sired by outgoing, friendly toms show more approach and affiliative behaviour with people, less stress around strangers, and more exploration of novel objects. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <h3>Prenatal (gestation 63 days)</h3>
+  <ul class="hy">
+    <li>Kittens show preferences for flavours fed to the queen in pregnancy. <span class="bdg notes">your notes</span></li>
+    <li>Protein and calorie restriction (even in the second half of gestation) produces offspring with elevated emotional reactivity and impairments in social interaction, environmental exploration, and learning. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <h3>Neonatal (0 to 14 days)</h3>
+  <ul class="hy">
+    <li>Kittens suckle within an hour of birth; they suckle and sleep. They cannot thermoregulate. <span class="bdg notes">your notes</span></li>
+    <li>With eyes and ears closed, kittens orient to the queen and littermates by TACTILE, THERMAL, and OLFACTORY cues. Forelimb paddling predominates; hindlimbs are weak. <span class="bdg notes">your notes</span></li>
+    <li>Hearing comes in by about day 5; eyes open in week 2 (earlier in kittens born to young queens, and earlier in females than males). <span class="bdg notes">your notes</span></li>
+    <li>Kittens hand-reared from 2 weeks (separated from queen and littermates) are more fearful and aggressive toward people and cats, more sensitive to novel stimuli, with poor social and parenting skills and poorer learning. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <h3>Socialisation (2 to 7 weeks)</h3>
+  <div class="trap">
+    <b>Exam trap: the feline socialisation window closes at 7 weeks</b>
+    Kittens handled by humans between 3 and 14 weeks were more likely to approach humans and accept handling for longer than kittens handled only after 7 weeks or not at all before 14 weeks. Exposure to human handling by 7 weeks is critical for a cat to enjoy human interaction in the future. <span class="bdg notes">your notes</span>
+  </div>
+  <ul class="hy">
+    <li>Shelter-born kittens handled for more than 5 minutes per day were more likely to approach novel toys and unfamiliar people than kittens not handled. <span class="bdg notes">your notes</span></li>
+    <li>Full motor coordination is reached by 7 weeks. <span class="bdg notes">your notes</span></li>
+    <li>Kittens have ultrasonic vocalisations; pitch falls with age. <span class="bdg notes">your notes</span></li>
+    <li>Visual acuity and binocular vision continue to develop into this period. <span class="bdg notes">your notes</span></li>
+  </ul>
+</section><section class="panel" id="fcom">
+  <h2 class="sec">Feline Communication and Body Language</h2>
+  <p class="lead">Cats use vocal, scent, and visual channels and signal differently to humans than to each other. The clusters worth knowing: amicable approach, distress, and the "polite decline" of the wrapped tail.</p>
+
+  <h3>Vocalisation</h3>
+  <ul class="hy">
+    <li>Used for agonistic, sexual, and queen-kitten encounters, and cats vocalise much more to humans than to other cats. <span class="bdg notes">your notes</span></li>
+    <li>Purr: a care-soliciting behaviour heard in kittens at the nipple, in friendly interactions, AND in mildly anxious or ill cats. The dual meaning matters clinically. <span class="bdg notes">your notes</span></li>
+    <li>Chirr or trill: a closed-mouth meow used as a friendly greeting (often to preferred associates). <span class="bdg notes">your notes</span></li>
+    <li>Agonistic communication is usually OPEN-mouth: hiss, spit, growl, snarl, yowl, shriek. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <h3>Scent</h3>
+  <ul class="hy">
+    <li>Urination, defaecation, and scratching deposit chemical information. <span class="bdg notes">your notes</span></li>
+    <li>Sebaceous glands on the head, perianal area, and between the digits leave rich information. Head rubbing (allorubbing) of objects or social targets uses the glands on the temporal head, under the chin, and around the lips. <span class="bdg notes">your notes</span></li>
+  </ul>
+  <div class="verifybox">
+    <b>Social terms worth knowing</b>
+    Allorubbing (rubbing one cat's body or head against another, including humans), allogrooming (grooming another cat), and preferred associates (cats that consistently exchange these affiliative behaviours and rest near each other) are the formal terms used when assessing multi-cat household tension. <span class="bdg ref">std ref</span>
+  </div>
+  <div class="trap">
+    <b>Exam trap: marking versus normal voiding</b>
+    Stress-related urine MARKING is usually a VERTICAL surface, in a standing posture, with a quivering tail and little to no scratching. Normal voiding is in a HORIZONTAL squat with substrate scratching afterwards. <span class="bdg ref">std ref</span>
+  </div>
+
+  <h3>Visual signals: tail positions</h3>
+  <figure class="fig">
+    <svg viewBox="0 0 520 170" width="100%" role="img" aria-label="Four feline tail positions and their meaning">
+      <g font-size="11" text-anchor="middle">
+        <rect x="14" y="20" width="118" height="130" rx="10" class="sgbox"/>
+        <text x="73" y="44" font-size="12.5" class="sgtxt">Vertical UP</text>
+        <text x="73" y="62" class="sgmut">amicable</text>
+        <text x="73" y="78" class="sgmut">desire to interact</text>
+        <text x="73" y="100" class="sgmut">may approach,</text>
+        <text x="73" y="114" class="sgmut">nose touch,</text>
+        <text x="73" y="128" class="sgmut">head and body rub,</text>
+        <text x="73" y="142" class="sgmut">tail twining</text>
+        <rect x="138" y="20" width="118" height="130" rx="10" class="sgbox2"/>
+        <text x="197" y="44" font-size="12.5" class="sgtxt">Wrapped around</text>
+        <text x="197" y="58" font-size="12.5" class="sgtxt">a sitting body</text>
+        <text x="197" y="80" class="sgmut">unlikely to show</text>
+        <text x="197" y="94" class="sgmut">aggression but</text>
+        <text x="197" y="108" class="sgmut">NOT enthusiastic</text>
+        <text x="197" y="126" class="sgmut">about interacting</text>
+        <text x="197" y="142" class="sgmut">("polite decline")</text>
+        <rect x="262" y="20" width="118" height="130" rx="10" style="fill:rgba(178,59,59,.14);stroke:var(--bad)"/>
+        <text x="321" y="44" font-size="12.5" style="fill:var(--bad)">Stiff, lashing</text>
+        <text x="321" y="62" class="sgmut">aggression</text>
+        <text x="321" y="84" class="sgmut">often paired with</text>
+        <text x="321" y="98" class="sgmut">open-mouth</text>
+        <text x="321" y="112" class="sgmut">vocalisation</text>
+        <rect x="386" y="20" width="118" height="130" rx="10" class="sgbox"/>
+        <text x="445" y="44" font-size="12.5" class="sgtxt">Tucked</text>
+        <text x="445" y="62" class="sgmut">fear</text>
+        <text x="445" y="84" class="sgmut">often with</text>
+        <text x="445" y="98" class="sgmut">compact body</text>
+        <text x="445" y="112" class="sgmut">and flattened ears</text>
+      </g>
+    </svg>
+    <figcaption>Four feline tail positions and what they mean. Piloerection with an upright or arched body, with the tail erect or low, signals strong arousal regardless of which of these positions the tail is in. Original didactic schematic built from your notes.</figcaption>
+  </figure>
+
+  <h3>Facial expression and posture</h3>
+  <table class="cmp">
+    <tr><th>State</th><th>Signs</th></tr>
+    <tr><td><b>Distress</b></td><td>Dilated pupils; frequent blink; ears LOWERED or flattened to the head; whiskers moved FORWARD; usually paired with hissing or other defensive vocalisation</td></tr>
+    <tr><td><b>Relaxed</b></td><td>Lying lateral; eyes, pupils, and ears in a neutral position</td></tr>
+    <tr><td><b>Anxious or hypervigilant</b></td><td>Sitting sternal; tail wrapped tightly around the body</td></tr>
+  </table>
+</section><section class="panel" id="mcq">
+  <h2 class="sec">MCQ Test Bank</h2>
+  <p class="lead">All 30 questions are body-language only, taken from your uploaded set. The 5 ASV welfare and housing items in your docx (Q31 to Q35: Five Domains, cat-dog separation, group-housing resources, dog-on-cat predatory testing) were on welfare and assessment topics rather than body language, so they are excluded here and flagged for relocation. Correct-answer positions are redistributed across A to D with content unchanged.</p>
+  <div class="mcqbar">
+    <div class="label"><span class="dot"></span>30 questions &middot; Body Language</div>
+    <div class="score"><span id="scoreTxt">0 / 0 correct</span><button class="reset" id="resetBtn">Reset</button></div>
+  </div>
+  <div id="qhost"></div>
+</section>
+</div></main>
+<footer><div class="wrap">
+  Body Language subdomain hub &middot; Behavioural Health domain &middot; ABVP Shelter Medicine Practice RVS, November 2026. Content badged by source: your uploaded notes and textbook or published references (AVSAB position, tail-lateralisation literature, allorubbing terms). In-house SVG schematics are original didactic constructions. Supports light and dark mode.
+</div></footer>
+<script>
+const tabrow=document.getElementById('tabrow');
+tabrow.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.disabled)return;
+  [...tabrow.children].forEach(x=>x.classList.remove('active'));b.classList.add('active');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('show'));
+  document.getElementById(b.dataset.p).classList.add('show');window.scrollTo({top:0,behavior:'smooth'});});
+const Q=[
+{t:"bl",f:"notes",q:"A puppy isolated at a young age from maternal and littermate contact develops persistent care-soliciting behaviour and a high-pitched, high-frequency alone bark. Which early-life management error is most consistent with this picture?",o:["Isolation from maternal and littermate contact at a young age","Early weaning onto an all-dry kibble diet","Exposure to mild tactile stressors during the first two weeks of life","Lack of exposure to a veterinary clinic between 8 and 12 weeks"],a:0,e:"Early isolation deprives pups of tactile and social feedback and produces high-frequency isolation vocalisations and care-soliciting pathology."},
+{t:"bl",f:"notes",q:"What physiological benefit comes from brief handling and mild stressors in puppies from birth to 5 weeks?",o:["Complete suppression of the sympathetic nervous system","Permanent downregulation of the gustatory receptors","Adaptations in the pituitary-adrenocortical (HPA) system that improve lifelong stress resilience and learning","Accelerated closure of the vomeronasal organ"],a:2,e:"Mild neonatal stressors act as a positive neuroendocrine challenge and produce more stable HPA-axis function and easier learning."},
+{t:"bl",f:"notes",q:"At what age do canine puppies typically shift from actively approaching novel objects to displaying wariness?",o:["2 to 3 weeks","7 months","18 months","About 5 weeks, with wariness peaking at 12 to 14 weeks"],a:3,e:"Pups actively approach novel until about 5 weeks; wariness escalates and peaks at 12 to 14 weeks."},
+{t:"bl",f:"notes",q:"To produce a lifelong social bond with sheep, a livestock guarding puppy must be housed with sheep during which window?",o:["The prenatal period","The socialisation period (3 to 12 weeks)","The neonatal period (0 to 2 weeks)","The late juvenile period (after 7 months)"],a:1,e:"Primary interspecies social attachment is formed during the canine socialisation window (3 to 12 weeks)."},
+{t:"bl",f:"notes",q:"What is the recommended minimum duration and frequency of controlled exposure for adequate puppy socialisation during the 8 to 12 week window?",o:["About 20 minutes per week","3 minutes daily","1 hour every other day","5 hours distributed across the juvenile period"],a:0,e:"Short, repeated, varied exposures totalling about 20 minutes per week are enough to achieve baseline canine socialisation."},
+{t:"bl",f:"notes",q:"Early weaning is most associated with which set of later behavioural problems?",o:["Disorientation, sleep-wake alteration, and house soiling","Tonic immobility, predatory stalking, and right-sided tail wagging","Destructive behaviour, possessiveness, excessive barking, and fearfulness","Loss of interest in food and absolute loss of social play"],a:2,e:"Early removal from dam and litter disrupts core frustration-tolerance training and bite inhibition, producing later destructive, possessive, vocal, and fearful behaviour."},
+{t:"bl",f:"notes",q:"At what age do predatory motor patterns (eye, stalk, chase, bite) typically appear in most breeds, and how does this compare to Border Collies?",o:["2 weeks in most breeds; 12 weeks in Border Collies","3 to 5 weeks in most breeds; 6 months in Border Collies","18 months in most breeds; 2 years in Border Collies","7 months in most breeds; as early as 8 weeks in Border Collies"],a:3,e:"Most breeds show predatory motor patterns at about 7 months; herding selection brings them on as early as 8 weeks in Border Collies."},
+{t:"bl",f:"notes",q:"A male dog enters a phase of erratic, energetic behaviour and reduced impulse control linked to a testosterone surge. When does this typically occur?",o:["2 to 3 weeks","6 to 8 months, around puberty at about 7 months","3 to 5 weeks","18 to 24 months"],a:1,e:"The testosterone surge of canine puberty (around 6 to 8 months, puberty at about 7 months) drives the energetic and erratic juvenile phase."},
+{t:"bl",f:"notes",q:"At what ages is a dog generally considered socially mature, and when fully mature?",o:["18 months socially, 2 years fully","12 weeks and 6 months","7 months and 12 months","3 years socially, 5 years fully"],a:0,e:"Behavioural maturity lags sexual maturity: about 18 months socially and about 2 years fully."},
+{t:"bl",f:"notes",q:"Using DISHA to screen for Canine Cognitive Dysfunction Syndrome, what does the S stand for?",o:["Socialisation deficit","Symmetric piloerection","Sleep-wake cycle alteration","Submissive grinning"],a:2,e:"DISHA = Disorientation, Interactions, Sleep-wake cycle, House soiling, Activity changes."},
+{t:"bl",f:"notes",q:"A dog shows piloerection across its hackles. What does this signal?",o:["A positive emotional valence and a desire to play","Structural submission and fear-based appeasement","Complete predatory focus with no sympathetic involvement","General physiological arousal, which can occur across multiple contexts"],a:3,e:"Piloerection is an involuntary sympathetic sign of arousal; it is context-dependent and not exclusively aggression."},
+{t:"bl",f:"notes",q:"A dog wags its tail fast and high, biased predominantly to its OWN LEFT side. How should this be interpreted?",o:["A positive-valence greeting indicating safety","An unknown or unfriendly dog with high arousal and negative valence","A submissive, fearful appeasement gesture","A soporific, deeply relaxed state"],a:1,e:"Right-biased wagging reflects positive valence; left-biased wagging reflects negative or withdrawal valence (right-hemisphere processing)."},
+{t:"bl",f:"notes",q:"Which set of features describes a canine SUBMISSIVE GRIN rather than offensive aggression?",o:["Lips retracted vertically, teeth visible, eyes squinty, forehead smooth, ears pulled back","Wrinkled muzzle, C-shape mouth, short lip, and hard open eyes","Open-mouth panting, relaxed commissures, hard eyes locked on a target","Tight mouth pushed forward, dilated pupils, ears forward"],a:0,e:"The submissive grin shows teeth but with squinty eyes, smooth forehead, and back ears, distinguishing it from the wrinkled-muzzle, hard-eyed offensive pucker."},
+{t:"bl",f:"notes",q:"\"Hard eyes\" (direct prolonged gaze with dilated pupils) signal which autonomic state, and what does it mean?",o:["Parasympathetic activation; deep relaxation","HPA-axis activation; preference for sweet flavours","Sympathetic activation; high arousal and a threat","Vomeronasal activation; active pheromone collection"],a:2,e:"A hard direct gaze drives sympathetic arousal and signals an offensive or defensive spatial challenge."},
+{t:"bl",f:"notes",q:"A dog shows a forward-leaning posture with a short-lip, C-shape muzzle pucker and a wrinkled muzzle. This indicates:",o:["Defensive aggression","Timidity and fearfulness","Alert, attentive greeting","Offensive (aggressive) aggression"],a:3,e:"Forward weight plus a wrinkled, C-shape, short-lip pucker is the offensive aggression cluster."},
+{t:"bl",f:"notes",q:"Which combination best describes canine TIMIDITY or DEFENSIVE fearfulness?",o:["Lean forward, hard eye, raised tail, offensive pucker","Posture pulled back, ears back, tail tucked, whale eye, long-lip commissure, trembling","Ears forward, tail down but not tucked, prolonged focus","Tail high and fast to the right, loose side-to-side wag, open relaxed mouth"],a:1,e:"Pulled-back posture, back ears, tucked tail, whale eye, long-lip commissure, and trembling form the defensive or fearful cluster."},
+{t:"bl",f:"notes",q:"A dog gives a low-pitched bark that is harsh with little amplitude. In short-range communication, what does this most likely signal?",o:["Aggression","Fear or desperation","Play solicitation or greeting","Care-soliciting anxiety"],a:0,e:"Low-frequency, harsh, low-amplitude vocalisations are distance-increasing across mammals and signal aggression."},
+{t:"bl",f:"notes",q:"How do dogs gather pheromones from urine, faeces, and saliva and route them to the olfactory bulb?",o:["By rapid panting through an open relaxed mouth","By tactile scratching with sebaceous glands of the paws","Through the vomeronasal organ (VNO), which sits below the nasal cavity","By giving a submissive grin to clear the nasal passages"],a:2,e:"The VNO is a dedicated chemosensory organ under the nasal cavity that routes pheromone signals to the olfactory bulb."},
+{t:"bl",f:"notes",q:"How long is the feline gestation period, and how does maternal protein or calorie restriction in late pregnancy affect kittens?",o:["45 days; advanced learning and early eye opening","75 days; obligate right-sided tail wagging","90 days; permanent destruction of the VNO","63 days; elevated emotional reactivity and impaired social interaction, exploration, and learning"],a:3,e:"Feline gestation is 63 days; late-pregnancy nutritional restriction produces lasting emotional reactivity and learning impairments in the offspring."},
+{t:"bl",f:"notes",q:"In the feline neonatal stage (0 to 14 days), kittens cannot thermoregulate and navigate using which sensory modalities?",o:["Visual and acoustic stimuli","Tactile, thermal, and olfactory stimuli","High-frequency echolocation and taste","Purely gustatory receptors"],a:1,e:"Eyes and ears are closed; kittens rely on tactile, thermal, and olfactory cues to find the queen's nipple."},
+{t:"bl",f:"notes",q:"Which factor is associated with EARLIER eye opening in kittens?",o:["Being a female kitten, or being born to a young mother","Being born to a protein-restricted queen","Being a male kitten born to an older queen","Hand-rearing from birth"],a:0,e:"Female kittens and kittens of young queens tend to open their eyes earlier."},
+{t:"bl",f:"notes",q:"Kittens hand-reared from 2 weeks without a queen or littermates are most at risk of which long-term deficits?",o:["Hyper-dependence on right-sided tail wagging and loss of hunting drive","Precocious motor development and early social maturity at 6 months","Increased fear and aggression toward people and cats, poor social skills, and learning impairments","Complete loss of vocalisation, including purring and hissing"],a:2,e:"Without maternal correction and littermate play, hand-reared kittens become more fearful and aggressive, learn less well, and have poor social and parenting skills."},
+{t:"bl",f:"notes",q:"What is the sensitive socialisation window in kittens during which human handling is critical for adult comfort with humans?",o:["0 to 2 weeks","8 to 12 weeks","3 to 14 months","2 to 7 weeks"],a:3,e:"The feline socialisation window is 2 to 7 weeks; handling by 7 weeks is critical for adult enjoyment of human contact."},
+{t:"bl",f:"notes",q:"Which parental factor is most strongly associated with kittens that are friendly, outgoing, and exploratory?",o:["A queen who exhibits predatory stalking during pregnancy","A tom (sire) with an outgoing, friendly personality","A sire that vocalises frequently with open-mouth hisses","A queen who nurses for less than an hour after birth"],a:1,e:"Paternal personality is highly heritable in cats and independently predicts kitten boldness, friendliness, and exploration."},
+{t:"bl",f:"notes",q:"A cat purrs during a veterinary examination. How should this be interpreted?",o:["A care-soliciting behaviour that can mean a friendly interaction, but also mild anxiety or illness","An exclusive indicator of joy, comfort, and safety","An offensive open-mouth agonistic threat","A closed-mouth greeting strictly used during courtship"],a:0,e:"Purring is a care-soliciting behaviour with a dual meaning; it can signal friendliness OR mild anxiety or illness."},
+{t:"bl",f:"notes",q:"Which feline vocalisation is described as a closed-mouth meow used as a friendly greeting?",o:["Purr","Yowl or shriek","Chirr or trill","Hiss or spit"],a:2,e:"The chirr or trill is a closed-mouth greeting used between preferred associates, human or feline."},
+{t:"bl",f:"notes",q:"Where are the primary sebaceous glands that deposit chemical information during head rubbing on objects or people?",o:["Strictly between the digits of the hind paws","Along the length of the tail-base only","Inside the auditory cortex","Temporal region of the head, under the chin, and around the lips"],a:3,e:"The temporal head, sub-mental (chin), and perioral sebaceous glands deposit sebum during allorubbing of objects and social targets."},
+{t:"bl",f:"notes",q:"A cat approaches you with its tail held perfectly vertical and upright. What does this signal?",o:["An active open-mouth offensive threat","A desire to interact amicably, often followed by head rubbing or tail twining","Extreme terror and impending defensive hysteria","Hypervigilance requiring confinement"],a:1,e:"A vertical tail-up approach is an unambiguous invitation to amicable contact, often followed by nose touch, body rubbing, and tail twining."},
+{t:"bl",f:"notes",q:"A cat sits sternal with the tail wrapped tightly around the body, pupils dilated, blinking, whiskers forward, ears flattened. What is the most likely emotional state?",o:["Anxious, hypervigilant, or distressed","Relaxed and neutral","Confident offensive aggression","A soporific state before deep sleep"],a:0,e:"Defensive flattening of features with compact body positioning signals anxiety, hypervigilance, or distress."},
+{t:"bl",f:"notes",q:"A cat sits with its tail wrapped entirely around its body. Regarding aggression, what does this suggest?",o:["Highly likely to engage in offensive aggression within seconds","An absolute dominance display over nearby cats","Unlikely to show aggression but not enthusiastic about interaction","Soliciting immediate grooming"],a:2,e:"The wrapped tail forms a defensive perimeter and signals a preference to be left alone, not an aggressive threat."}
+];
+const host=document.getElementById('qhost');
+const scoreTxt=document.getElementById('scoreTxt');
+let answered=0, correct=0;
+const DLABEL={bl:"Body Language"};
+function tagLabel(t){return DLABEL[t]||t.toUpperCase();}
+function flagBadge(f){
+  if(f==='corr')return '<span class="bdg corr">corrected</span>';
+  if(f==='notes')return '<span class="bdg notes">your notes</span>';
+  if(f==='asv')return '<span class="bdg asv">ASV</span>';
+  if(f==='ref')return '<span class="bdg ref">std ref</span>';
+  return '';
+}
+function render(){
+  host.innerHTML='';answered=0;correct=0;updateScore();
+  Q.forEach((item,i)=>{
+    const card=document.createElement('div');card.className='q';
+    card.innerHTML=`<div class="meta"><span class="num">#${i+1}</span><span class="tag">&#9670; ${tagLabel(item.t)}</span>${flagBadge(item.f)}</div><div class="stem">${item.q}</div>`;
+    const opts=document.createElement('div');
+    item.o.forEach((txt,oi)=>{
+      const btn=document.createElement('button');btn.className='opt';
+      btn.innerHTML=`<span class="k">${String.fromCharCode(65+oi)}</span>${txt}`;
+      btn.onclick=()=>choose(card,opts,item,oi);opts.appendChild(btn);
+    });
+    card.appendChild(opts);
+    const ex=document.createElement('div');ex.className='expl';
+    ex.innerHTML=`<b class="cor">Correct: ${String.fromCharCode(65+item.a)}.</b> ${item.e}`;
+    card.appendChild(ex);host.appendChild(card);
+  });
+}
+function choose(card,opts,item,oi){
+  if(card.dataset.done)return;card.dataset.done='1';answered++;
+  [...opts.children].forEach((b,bi)=>{b.classList.add('locked');
+    if(bi===item.a)b.classList.add('correct');
+    if(bi===oi && oi!==item.a)b.classList.add('wrong');});
+  if(oi===item.a)correct++;
+  card.querySelector('.expl').classList.add('show');updateScore();
+}
+function updateScore(){scoreTxt.textContent=`${correct} / ${answered} correct`;}
+document.getElementById('resetBtn').onclick=render;
+render();
+</script>
+</body>
+</html>

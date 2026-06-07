@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<title>Canine Enrichment Subdomain Hub | ABVP Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme:light dark;
+    --bg:#eef2f7;--surface:#fbfdff;--surface2:#e8edf4;
+    --chrome:#1c3a5e;--chrome2:#264f78;          /* behavioural health blue chrome */
+    --text:#16273a;--onChrome:#e9f0f8;--muted:#586a7d;
+    --line:#ccd6e2;
+    --accent:#b1466f;--accent-soft:#f3e0ea;       /* behavioural health rose accent */
+    --good:#1f7a4d;--good-soft:#e3f2ea;--bad:#b23b3b;
+    --notes:#7a4fb5;--notes-soft:#ece3f7;          /* your Canine enrichment notes (PDF) */
+    --asv:#1f6f86;--asv-soft:#dcecf2;              /* ASV principle */
+    --ref:#b5651d;--ref-soft:#f6e7d4;              /* behaviour textbook / published refs */
+    --dot:rgba(28,58,94,.05);
+    --shadow:0 1px 2px rgba(20,40,70,.08),0 8px 24px rgba(20,40,70,.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0e1622;--surface:#16212f;--surface2:#1b2735;
+      --chrome:#122236;--chrome2:#1b3450;
+      --text:#dde6f1;--onChrome:#e9f0f8;--muted:#9aacbf;
+      --line:#2a3a4d;
+      --accent:#d3789c;--accent-soft:rgba(211,120,156,.16);
+      --good:#51b184;--good-soft:rgba(40,140,90,.18);--bad:#e08585;
+      --notes:#c0a4ec;--notes-soft:rgba(150,110,210,.20);
+      --asv:#66c0d6;--asv-soft:rgba(40,150,175,.18);
+      --ref:#e0a766;--ref-soft:rgba(200,130,50,.18);
+      --dot:rgba(255,255,255,.035);
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.3);
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--text);
+    font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;
+    background-image:radial-gradient(circle at 1px 1px,var(--dot) 1px,transparent 0);background-size:22px 22px;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+  .crumb{background:var(--chrome);padding:9px 18px;display:flex;align-items:center;gap:10px;font-size:13px;font-weight:500;border-bottom:2px solid var(--chrome2)}
+  .crumb a{color:#9fc0dc;text-decoration:none;display:flex;align-items:center;gap:5px}
+  .crumb .sep{color:#5f82a3;font-size:11px}
+  .crumb .here{color:#cfe0f1}
+  header.top{background:var(--chrome);color:var(--onChrome);padding:26px 0 22px;border-bottom:4px solid var(--accent)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#9fc0dc;margin:0 0 6px}
+  header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(26px,4.5vw,40px);margin:0;line-height:1.05}
+  header.top p.sub{margin:8px 0 0;color:#cfe0f1;font-size:14px;max-width:78ch}
+  .legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}
+  .legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.22);color:#eaf2fb;display:flex;align-items:center;gap:6px}
+  .legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--surface);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button:hover{background:var(--bg);color:var(--text)}
+  .tabrow button.active{background:var(--chrome);color:var(--onChrome)}
+  .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+  main{padding:30px 0 80px}
+  .panel{display:none;animation:fade .35s ease}
+  .panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;letter-spacing:-.01em;color:var(--text)}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:80ch}
+  h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:30px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;scroll-margin-top:64px;color:var(--text)}
+  h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;color:var(--text);text-transform:uppercase;letter-spacing:.03em}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}
+  p.note{font-size:14px;margin:0 0 6px}
+  ul.hy{margin:8px 0;padding-left:0;list-style:none}
+  ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed var(--line);font-size:14px}
+  ul.hy li:last-child{border-bottom:0}
+  ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;border-radius:2px;background:var(--accent);transform:rotate(45deg)}
+  .trap{background:var(--accent-soft);border:1px solid var(--accent);border-left:4px solid var(--accent);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .trap b{color:var(--accent);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .corrbox{background:var(--good-soft);border:1px solid var(--good);border-left:4px solid var(--good);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .corrbox b{color:var(--good);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .verifybox{background:var(--asv-soft);border:1px solid var(--asv);border-left:4px solid var(--asv);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .verifybox b{color:var(--asv);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp th{background:var(--chrome);color:var(--onChrome);font-weight:600;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase}
+  table.cmp tr:last-child td{border-bottom:0}
+  table.cmp td b{color:var(--text)}
+  .fig{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0;box-shadow:var(--shadow)}
+  .fig figcaption{font-size:12.5px;color:var(--muted);margin-top:8px;font-style:italic}
+  /* svg helpers (use vars so diagrams adapt to dark mode) */
+  .sgbox{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1}
+  .sgbox2{fill:var(--asv-soft);stroke:var(--asv);stroke-width:1}
+  .sgtxt{fill:var(--text);font-family:"Public Sans",sans-serif}
+  .sgmut{fill:var(--muted);font-family:"Public Sans",sans-serif}
+  .sgmono{fill:var(--accent);font-family:"JetBrains Mono",monospace}
+  .sgline{stroke:var(--accent);stroke-width:2;fill:none}
+  .sgaxis{stroke:var(--line);stroke-width:1.5}
+  .sgarrow{fill:var(--accent)}
+  /* source badges */
+  .bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+  .bdg.notes{background:var(--notes-soft);color:var(--notes)}
+  .bdg.asv{background:var(--asv-soft);color:var(--asv)}
+  .bdg.ref{background:var(--ref-soft);color:var(--ref)}
+  .bdg.corr{background:var(--good);color:#fff}
+  /* mcq */
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--chrome);color:var(--onChrome);border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:54px;z-index:10}
+  .mcqbar .label{font-family:"JetBrains Mono",monospace;font-size:12px;color:#cfe0f1;display:flex;align-items:center;gap:8px}
+  .mcqbar .label .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);display:inline-block}
+  .score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}
+  .score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;color:#cfe0f1;padding:5px 10px;border-radius:8px;font-size:11px}
+  .q{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
+  .q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+  .q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+  .q .stem{font-weight:600;font-size:15px;margin-bottom:10px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:var(--surface2);border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;font-family:"Public Sans";color:var(--text);transition:background .15s,border-color .15s}
+  .opt:hover{border-color:var(--accent)}
+  .opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}
+  .opt.correct{background:var(--good-soft);border-color:var(--good)}
+  .opt.wrong{background:rgba(178,59,59,.14);border-color:var(--bad)}
+  .opt.locked{cursor:default}
+  .expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:var(--surface2);border:1px solid var(--line);font-size:13.5px}
+  .expl.show{display:block}
+  .expl b.cor{color:var(--good)}
+  footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
+  @media(max-width:640px){.mcqbar{top:50px}.score{font-size:12px}}
+</style>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span class="sep">&rsaquo;</span><a href="../index.html#domain-behav">Behavioural Health</a><span class="sep">&rsaquo;</span><span class="here">Canine Enrichment</span></nav>
+<div style="background:#f6e7d4;border-left:4px solid #b5651d;padding:8px 18px;font-size:12.5px;color:#7a3a0a;font-family:'Public Sans',sans-serif"><strong>Supplemental topic</strong> — This subdomain may not be directly examined in the ABVP SMP RVS specialty exam but provides useful clinical context.</div>
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">ABVP Shelter Medicine Practice RVS &middot; Behavioural Health</p>
+    <h1>Canine Enrichment Subdomain Hub</h1>
+    <p class="sub">Exam-depth study tool for canine enrichment in the shelter: human social interaction and foster effects, conspecific housing, object preferences, auditory, olfactory, and visual interventions, and how to assess and implement an enrichment program. The MCQ Test Bank holds all 30 questions in one set.</p>
+    <div class="legend">
+      <span><i style="background:var(--notes)"></i>Your Canine enrichment notes (PDF)</span>
+      <span><i style="background:var(--asv)"></i>ASV principle</span>
+      <span><i style="background:var(--ref)"></i>Textbook / published reference</span>
+    </div>
+  </div>
+</header>
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="human"><span class="dot"></span>Human Interaction</button>
+  <button data-p="social"><span class="dot"></span>Conspecific Social</button>
+  <button data-p="object"><span class="dot"></span>Object Enrichment</button>
+  <button data-p="sensory"><span class="dot"></span>Sensory Enrichment</button>
+  <button data-p="measure"><span class="dot"></span>Assessment &amp; Measurement</button>
+  <button data-p="mcq"><span class="dot" style="background:var(--chrome2)"></span>MCQ Test Bank</button>
+</div></div></nav>
+<main><div class="wrap">
+<section class="panel show" id="human">
+  <h2 class="sec">Human Social Interaction</h2>
+  <p class="lead">Short human contact gives a real but transient cortisol benefit. The behavioural benefits are bigger and last longer than the physiological ones, and foster is the strongest single intervention.</p>
+
+  <figure class="fig">
+    <svg viewBox="0 0 520 170" width="100%" role="img" aria-label="Cortisol time course during and after a 30 minute petting or play session">
+      <defs><marker id="arCE1" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path class="sgarrow" d="M0,0 L7,3 L0,6 Z"/></marker></defs>
+      <line x1="50" y1="130" x2="490" y2="130" class="sgaxis"/>
+      <line x1="50" y1="130" x2="50" y2="30" class="sgaxis"/>
+      <text x="48" y="22" text-anchor="end" font-size="10" class="sgmut">cortisol</text>
+      <text x="44" y="40" text-anchor="end" font-size="9.5" class="sgmut">high</text>
+      <text x="44" y="120" text-anchor="end" font-size="9.5" class="sgmut">low</text>
+      <g font-size="9.5" class="sgmut" text-anchor="middle">
+        <text x="90" y="148">baseline</text>
+        <text x="220" y="148">during 20 to 30 min</text>
+        <text x="220" y="160">interaction</text>
+        <text x="370" y="148">immediately</text>
+        <text x="370" y="160">after</text>
+        <text x="465" y="148">1 hour</text>
+        <text x="465" y="160">later</text>
+      </g>
+      <polyline points="90,55 150,55 220,98 290,92 370,72 465,55" class="sgline" style="fill:none;stroke-width:2"/>
+      <circle cx="90" cy="55" r="3.5" class="sgarrow"/><circle cx="220" cy="98" r="3.5" class="sgarrow"/><circle cx="370" cy="72" r="3.5" class="sgarrow"/><circle cx="465" cy="55" r="3.5" class="sgarrow"/>
+      <text x="220" y="92" text-anchor="middle" font-size="10" class="sgtxt">drop</text>
+      <text x="465" y="48" text-anchor="middle" font-size="10" style="fill:var(--bad)">returns to baseline</text>
+    </svg>
+    <figcaption>Cortisol drops during a 20 to 30 minute petting or play session but does not persist an hour later, and multiple sessions in a day yield no added cumulative benefit. Original didactic schematic built from your notes.</figcaption>
+  </figure>
+
+  <h3>Short petting and play sessions</h3>
+  <ul class="hy">
+    <li>Cortisol falls during 20 to 30 minutes of petting or play, then does not persist an hour later; stacking multiple sessions in the same day adds no further benefit. <span class="bdg notes">your notes</span></li>
+    <li>Sex of the human can matter: women tend to produce greater cortisol reduction than men in some studies. Dogs alone in a novel enclosure vocalise much more than when petted, played with, or just sharing space with a passive stranger. <span class="bdg notes">your notes</span></li>
+    <li>15 minutes with a person lowers heart rate, raises heart-rate variability, and reduces standing during the interaction. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <div class="trap">
+    <b>Exam trap: cortisol drop only in strays</b>
+    A 15 minute petting session lowered cortisol ONLY in dogs admitted as STRAYS, not in owner-relinquished dogs. This subpopulation split is high-yield. <span class="bdg notes">your notes</span>
+  </div>
+
+  <h3>Reading versus exercise (both 15 minutes daily)</h3>
+  <ul class="hy">
+    <li>Both events produced more back-and-forth motion afterward. Exercise gave a greater reduction in door jumping. Reading gave a larger overall reduction in undesired behaviours, both jumping AND barking. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <h3>Sustained programs</h3>
+  <table class="cmp">
+    <tr><th>Program</th><th>Outcome</th></tr>
+    <tr><td><b>3 times a week for 8 weeks</b><br>(walks, play with a person or toy, grooming, training, food, praise, petting)</td><td>Did NOT reduce baseline cortisol. DID increase sociability: dogs were more likely to approach the experimenter and initiate interaction in the kennel before a leashed walk.</td></tr>
+    <tr><td><b>Every other day for 2 months</b><br>(play, training, petting)</td><td>Improved obedience, docility, and sociability versus unenriched controls.</td></tr>
+  </table>
+
+  <h3>Foster effects</h3>
+  <ul class="hy">
+    <li>Dogs returning from foster were more obedient, sought social interaction with handlers, responded more readily to cues, jumped on strangers and barked less, and yawned more. Cortisol was relatively unaffected. The case for foster rests on the behavioural changes, not the cortisol. <span class="bdg notes">your notes</span></li>
+    <li>A 1 to 2 night foster stay produced cortisol BELOW the standard shelter baseline. Cortisol rose on return to the shelter, but did NOT exceed the pre-foster shelter baseline. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <h3>Limiting visitors</h3>
+  <ul class="hy">
+    <li>During high-visitor times, dogs spend more time at the front of pen (FOP), standing and barking. A 2014 study that blocked adopter access in the afternoons documented noise levels more than 12 dB lower than pre-intervention. Sedentary behaviour rose in the morning before opening and in the afternoon during the intervention, locomotor activity fell, and the frequency and duration of repetitive behaviours fell in the afternoon. <span class="bdg notes">your notes</span></li>
+    <li>Trade-off: visitor restrictions reduce kennel stress but can lengthen stay and reduce adoptions, so dose them carefully. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <h3>Training and counter-conditioning</h3>
+  <ul class="hy">
+    <li>In-kennel training: more sitting, lying down, and quiet behaviour, and less jumping in the kennel. <span class="bdg notes">your notes</span></li>
+    <li>Out-of-kennel training: reduced aggression. <span class="bdg notes">your notes</span></li>
+    <li>Consistency is the rule: once training ceased for 1 week, aggression toward other dogs returned to pre-intervention levels. <span class="bdg notes">your notes</span></li>
+    <li>Counter-conditioning (CC) takes about 20 seconds per dog; operant conditioning takes about 2 minutes per dog. Daily pairings of a door chime with food (3 to 5 times a week for 3 weeks) reduced kennel noise by 15 dB by attenuating the response to an established environmental stressor. <span class="bdg notes">your notes</span></li>
+    <li>Tailor interactions to the individual dog and, where possible, run them OUT of the kennel away from environmental stressors, or in a foster home. <span class="bdg notes">your notes</span></li>
+  </ul>
+</section><section class="panel" id="social">
+  <h2 class="sec">Conspecific Social Interaction</h2>
+  <p class="lead">Group housing is the under-used welfare lever. Solo housing drives isolation vocalisations and front-of-pen aggression, and breaking a co-housed pair has measurable knock-on effects on the dog left behind.</p>
+
+  <h3>Solo versus group housing</h3>
+  <table class="cmp">
+    <tr><th>Solo-housed</th><th>Pair or group-housed</th></tr>
+    <tr><td>Bark, whimper, and howl more</td><td>Less noisy, better behaved overall</td></tr>
+    <tr><td>More likely to show aggression at the kennel front toward other dogs</td><td>Reduced front-of-pen aggression</td></tr>
+    <tr><td>10% of solo-housed dogs displayed stereotypies in a 3-month study</td><td>0% of group-housed dogs displayed stereotypies</td></tr>
+    <tr><td>More trotting, walking, and standing</td><td>More lying down (pair-housed dogs spent more time resting)</td></tr>
+  </table>
+
+  <div class="verifybox">
+    <b>Safety data for group housing</b>
+    In a 3-month study of 211 dogs in group housing, only 5 incidents occurred, classified by the researchers as light wounds. Group housing is safer than commonly assumed and abolishes stereotypy in this dataset. <span class="bdg notes">your notes</span>
+  </div>
+
+  <h3>Pair separation effects</h3>
+  <ul class="hy">
+    <li>When one dog was removed from a co-housed pair, the remaining dog's running, posture changes, stretching, circling, and figures-of-eight all increased, signalling restlessness. <span class="bdg notes">your notes</span></li>
+    <li>Many of these behaviours declined over the 6 day post-separation period, but play stayed reduced. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <h3>Visual contact without interaction</h3>
+  <p class="note">Solo housing with nearby visual conspecific contact but no social interaction may have more complex welfare effects than is currently understood, and further empirical work is needed before this very common shelter arrangement can be called optimal. <span class="bdg notes">your notes</span></p>
+
+  <h3>Cortisol nuance</h3>
+  <p class="note">No main effects of housing or social contact were found on cortisol values. Cortisol was HIGHEST in dogs in NOVEL housing receiving no social contact, and LOWEST in dogs in TRADITIONAL kennels receiving no social contact. <span class="bdg notes">your notes</span></p>
+
+  <h3>Playgroup eligibility</h3>
+  <div class="trap">
+    <b>Exam trap: less than one third</b>
+    In typical shelters, fewer than 1/3 of resident dogs are suitable and available for daily off-leash interaction with other dogs. Playgroups are useful but cannot be the primary social plan for the whole population. <span class="bdg notes">your notes</span>
+  </div>
+</section><section class="panel" id="object">
+  <h2 class="sec">Object Enrichment</h2>
+  <p class="lead">Toys have varying functional value to the species AND to the individual. Choose by the dog's history and preferences, and rotate to avoid habituation.</p>
+
+  <h3>What dogs actually use</h3>
+  <table class="cmp">
+    <tr><th>Toy type</th><th>What the data show</th></tr>
+    <tr><td><b>Nylabone</b></td><td>Preferred over other in-kennel toys in a kennel-preference study</td></tr>
+    <tr><td><b>Robust toys</b> (Nylabone, hard rubber)</td><td>Only about 35% of shelter dogs interacted with robust toys, for an average of about 2 minutes</td></tr>
+    <tr><td><b>Rope toy</b></td><td>Dogs interacted longest among the robust selections</td></tr>
+    <tr><td><b>Soft, destructible toys</b> (squeaky bone, plush)</td><td>More than 3/4 of dogs spent 25% of a 15 minute session interacting with them, mostly ignoring robust options</td></tr>
+    <tr><td><b>Tennis ball</b></td><td>Of the soft selections, the LEAST interaction time</td></tr>
+  </table>
+
+  <div class="trap">
+    <b>Exam trap: soft beats robust for engagement</b>
+    Shelter dogs largely IGNORE robust selections in favour of soft, destructible toys, with the longest engagement on squeaky bones and plush toys. Rotate items if usage drops, since habituation is likely. <span class="bdg notes">your notes</span>
+  </div>
+</section><section class="panel" id="sensory">
+  <h2 class="sec">Sensory Enrichment</h2>
+  <p class="lead">Auditory, olfactory, and visual interventions have small to moderate effects, with one big exam trap: barking spikes when music stops.</p>
+
+  <h3>Auditory</h3>
+  <ul class="hy">
+    <li>Classical music: more resting, less standing, more quiet behaviour in the kennel, compared with other genres, human conversation, or no auditory enrichment. <span class="bdg notes">your notes</span></li>
+    <li>Heavy metal: increased body shaking, increased barking, less time resting. <span class="bdg notes">your notes</span></li>
+    <li>Audiobooks: dogs spent more time resting and less time walking, sitting, or standing; promising for variety in the rotation. <span class="bdg notes">your notes</span></li>
+    <li>Habituation is rapid: rotate multiple classical compilations daily, and integrate audiobooks, to keep effects fresh. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <figure class="fig">
+    <svg viewBox="0 0 520 160" width="100%" role="img" aria-label="Music playing reduces standing but barking spikes 142 times when music stops, Bowman 2017">
+      <defs><marker id="arCE2" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path class="sgarrow" d="M0,0 L7,3 L0,6 Z"/></marker></defs>
+      <line x1="40" y1="130" x2="500" y2="130" class="sgaxis"/>
+      <g font-size="10.5" text-anchor="middle">
+        <rect x="55" y="44" width="160" height="60" rx="10" class="sgbox"/>
+        <text x="135" y="64" font-size="11.5" class="sgtxt">During music (any genre)</text>
+        <text x="135" y="80" class="sgmut">more lying down,</text>
+        <text x="135" y="94" class="sgmut">less standing</text>
+        <rect x="305" y="22" width="180" height="90" rx="10" style="fill:rgba(178,59,59,.14);stroke:var(--bad)"/>
+        <text x="395" y="42" font-size="11.5" style="fill:var(--bad)">When the music STOPS</text>
+        <text x="395" y="62" class="sgmut">dogs were 142 TIMES</text>
+        <text x="395" y="76" class="sgmut">more likely to bark</text>
+        <text x="395" y="92" class="sgmut">(any of 5 genres tested:</text>
+        <text x="395" y="104" class="sgmut">classical, pop, soft rock, reggae, Motown)</text>
+        <line x1="215" y1="74" x2="300" y2="62" class="sgline" marker-end="url(#arCE2)"/>
+      </g>
+      <text x="270" y="148" text-anchor="middle" font-size="10" class="sgmut">Bowman et al. 2017</text>
+    </svg>
+    <figcaption>The Bowman 2017 five-genre study: ALL genres increased lying down during playback, but a 142-fold spike in barking immediately followed the music stopping. Original didactic schematic built from your notes.</figcaption>
+  </figure>
+
+  <h3>Olfactory</h3>
+  <table class="cmp">
+    <tr><th>Scent</th><th>Effect (scented-cloth studies)</th></tr>
+    <tr><td><b>Lavender, chamomile</b></td><td>Increased resting; decreased movement and vocalisation</td></tr>
+    <tr><td><b>Coconut, ginger</b></td><td>Decreased vocalisation and movement; more resting with eyes closed (versus no-cloth control)</td></tr>
+    <tr><td><b>Rosemary, peppermint</b></td><td>Less resting; more standing, moving, and vocalising</td></tr>
+  </table>
+
+  <div class="card">
+    <h4>Dog appeasing pheromone (DAP)</h4>
+    <ul class="hy">
+      <li>Produced by lactating queens shortly after birth, processed through the canine vomeronasal organ as a non-volatile chemosignal. <span class="bdg notes">your notes</span></li>
+      <li>Average barking AMPLITUDE was lowered by about 30% in the DAP group versus placebo, but PEAK barking amplitude did not differ between groups, and barking frequency and behaviour did not differ either. DAP softens the noise floor without preventing loud peaks. <span class="bdg notes">your notes</span></li>
+    </ul>
+  </div>
+
+  <div class="corrbox">
+    <b>Flagged for your approval: ginger and valerian classification</b>
+    Your notes describe ginger TWO ways on adjacent pages. The study data on page 4 places coconut and ginger in the SEDATING group with lavender and chamomile (less vocalisation and movement, more resting with eyes closed). The next paragraph on page 5 then reads "stimulating pheromones such as peppermint, ginger and valerian may be better suited for out-of-kennel interactions," which contradicts the data above and is also inconsistent with valerian's classically sedating effect in the herbal literature. The page 5 phrasing appears to be a transcription error. The MCQ bank reflects this: Q19 treats ginger as sedating (matches the study data); Q21 inherits the page 5 phrasing. Confirm and I will rewrite Q21 to remove ginger and valerian from the stimulating list, leaving peppermint (and rosemary) as the stimulating scents. <span class="bdg corr">flagged</span>
+  </div>
+
+  <h3>Visual</h3>
+  <ul class="hy">
+    <li>Televisions: regardless of image type, vocalising and movement decreased, with more time at the front of pen. But dogs spent only about 10% of their time looking at the monitor, and interest waned over time. <span class="bdg notes">your notes</span></li>
+  </ul>
+</section><section class="panel" id="measure">
+  <h2 class="sec">Assessment and Measurement</h2>
+  <p class="lead">An enrichment program without measurement is just a hope. The exam tests the timeline rules and the practical measurement methods, not theoretical perfection.</p>
+
+  <h3>How to assess enrichment</h3>
+  <ul class="hy">
+    <li><b>Population level:</b> What percentage of dogs engage with the enrichment? <span class="bdg notes">your notes</span></li>
+    <li><b>Individual level:</b> Does this particular dog engage, and does the enrichment shift behaviours that matter for that dog (more resting, less barking)? <span class="bdg notes">your notes</span></li>
+    <li><b>How and how long?</b> The duration and quality of engagement determine whether to continue or modify the enrichment. <span class="bdg notes">your notes</span></li>
+    <li>Observe from a distance, or have a staff member to whom the dog is habituated record the behaviour. Use paper or electronic records. <span class="bdg notes">your notes</span></li>
+    <li>Evaluate by measuring behaviours BEFORE the enrichment and again AFTER, either shelter-wide (kennel noise) or per individual (barking frequency and duration). <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <figure class="fig">
+    <svg viewBox="0 0 520 170" width="100%" role="img" aria-label="Enrichment evaluation timeline">
+      <defs><marker id="arCE3" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path class="sgarrow" d="M0,0 L7,3 L0,6 Z"/></marker></defs>
+      <g font-size="11" text-anchor="middle">
+        <rect x="20" y="20" width="160" height="60" rx="10" class="sgbox"/>
+        <text x="100" y="44" font-size="11.5" class="sgtxt">Individual dog</text>
+        <text x="100" y="62" class="sgmut">no engagement after</text>
+        <text x="100" y="76" class="sgmut">2 days</text>
+        <rect x="200" y="20" width="160" height="60" rx="10" class="sgbox2"/>
+        <text x="280" y="44" font-size="11.5" class="sgtxt">Whole program</text>
+        <text x="280" y="62" class="sgmut">no positive change</text>
+        <text x="280" y="76" class="sgmut">within 1 week at most</text>
+        <rect x="115" y="110" width="290" height="40" rx="10" style="fill:rgba(178,59,59,.14);stroke:var(--bad)"/>
+        <text x="260" y="135" style="fill:var(--bad)">change the enrichment type or strategy</text>
+        <line x1="100" y1="82" x2="230" y2="108" class="sgline" marker-end="url(#arCE3)"/>
+        <line x1="280" y1="82" x2="280" y2="108" class="sgline" marker-end="url(#arCE3)"/>
+      </g>
+    </svg>
+    <figcaption>The two stop-rules. Individual non-engagement triggers a change at 2 days; lack of program-wide behavioural change triggers a strategy modification at 1 week. Original didactic schematic built from your notes.</figcaption>
+  </figure>
+
+  <div class="trap">
+    <b>Exam trap: 2 days and 1 week</b>
+    Two stop-rules. If an individual dog shows no direct engagement with a specific item after 2 days, change the type of enrichment. If the broader program produces no positive behavioural change within 1 week at most, modify the strategy. <span class="bdg notes">your notes</span>
+  </div>
+
+  <h3>Measurement methods</h3>
+  <table class="cmp">
+    <tr><th>Method</th><th>What it is</th><th>Practicality</th></tr>
+    <tr><td><b>Continuous</b></td><td>All instances of the behaviour and their duration are recorded</td><td>Usually unrealistic in shelters</td></tr>
+    <tr><td><b>Focal animal sampling</b></td><td>Observer focuses on a single animal for a defined period</td><td>Detailed; labour-intensive</td></tr>
+    <tr><td><b>Instantaneous scan sampling (ISS)</b></td><td>Observer notes what one dog is doing in that INSTANT, then immediately moves to the next dog</td><td>Fast across many animals; very useful in sheltering</td></tr>
+    <tr><td><b>Interval recording</b></td><td>Behaviours are recorded as present or absent within fixed time intervals</td><td>Moderate effort</td></tr>
+    <tr><td><b>Momentary time sampling (MTS)</b></td><td>A blend of ISS and interval recording: observe one animal for an INSTANT, then observe the SAME animal again after a set INTERVAL</td><td>Practical and informative for individual dogs</td></tr>
+    <tr><td><b>Permanent products</b></td><td>The tangible result of a behaviour acts as a proxy (faeces or urine in the kennel, KONGs emptied, chew marks or strings pulled from a rope toy, an object moved from the kennel)</td><td>Most practical: the observer does not need to be present when the behaviour occurs</td></tr>
+  </table>
+
+  <div class="verifybox">
+    <b>When permanent products work</b>
+    Only when the behaviour leaves a tangible trace. A KONG that has been emptied tells you the dog engaged; a chewed rope tells you it was used. Subtle behaviours like quiet resting do not leave a permanent product. <span class="bdg notes">your notes</span>
+  </div>
+
+  <h3>Ensuring programs reach goals</h3>
+  <table class="cmp">
+    <tr><th>Lever</th><th>Practical implementation</th></tr>
+    <tr><td><b>Train the people</b></td><td>A simple written task list with visual aids and a short video. More training only for complex behaviours.</td></tr>
+    <tr><td><b>Arrange the environment</b></td><td>Map a typical day of the staff and volunteers involved, identify opportunities and constraints, and talk to the people delivering enrichment for creative fixes.</td></tr>
+    <tr><td><b>Arrange consequences</b></td><td>Know each DOG'S reinforcer (food, praise, social stimulation). Use reinforcement contingencies for STAFF and VOLUNTEERS too: a $2 store voucher after prepping 50 kibble-filled toilet rolls, an extra lunch break for hitting a target, or shirts and goodies for milestones.</td></tr>
+    <tr><td><b>Engage the public</b></td><td>School programs, walking programs, in-kennel reading programs, rope-toy braiding, and snuffle-mat building tap volunteer capacity and raise public profile.</td></tr>
+    <tr><td><b>Record into the dog's file</b></td><td>Enter enrichment delivery and engagement into the individual dog's record so decisions are data-based and continuity is preserved across staff.</td></tr>
+  </table>
+</section><section class="panel" id="mcq">
+  <h2 class="sec">MCQ Test Bank</h2>
+  <p class="lead">All 30 questions from your uploaded set. Correct-answer positions are redistributed across A to D with content unchanged. Q21 retains your original stem (ginger and valerian listed as stimulating) pending your decision on the ginger and valerian classification flag in the Sensory Enrichment tab.</p>
+  <div class="mcqbar">
+    <div class="label"><span class="dot"></span>30 questions &middot; Canine Enrichment</div>
+    <div class="score"><span id="scoreTxt">0 / 0 correct</span><button class="reset" id="resetBtn">Reset</button></div>
+  </div>
+  <div id="qhost"></div>
+</section>
+</div></main>
+<footer><div class="wrap">
+  Canine Enrichment subdomain hub &middot; Behavioural Health domain &middot; ABVP Shelter Medicine Practice RVS, November 2026. Content badged by source: your uploaded notes (PDF). Specific study findings (Bowman 2017 five-genre music study, DAP barking amplitude data, less-than-one-third playgroup eligibility, Nylabone preference data) are reproduced as your notes record them and have not been independently re-verified against the primary literature. In-house SVG schematics are original didactic constructions. Supports light and dark mode.
+</div></footer>
+<script>
+const tabrow=document.getElementById('tabrow');
+tabrow.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.disabled)return;
+  [...tabrow.children].forEach(x=>x.classList.remove('active'));b.classList.add('active');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('show'));
+  document.getElementById(b.dataset.p).classList.add('show');window.scrollTo({top:0,behavior:'smooth'});});
+const Q=[
+{t:"ce",f:"notes",q:"A shelter clinician evaluates one-time 20 to 30 minute petting or play sessions to mitigate acute shelter stress. What is the physiological limitation of these short sessions?",o:["Cortisol reductions occur during the session but do not persist an hour later, and multiple sessions add no further benefit","They trigger an immediate, dangerous surge in baseline heart rate","They induce permanent structural changes in the vomeronasal organ","Cortisol remains unaltered unless the volunteer is also reading aloud"],a:0,e:"The cortisol benefit of a short petting session is temporary (does not persist an hour later) and does not stack across multiple sessions."},
+{t:"ce",f:"notes",q:"A 15 minute petting session is implemented for newly admitted dogs. Which subpopulation will see a significant cortisol reduction from this single intervention?",o:["Dogs surrendered directly by their owners","Dogs undergoing a 5-week medication washout","Dogs brought into the shelter as strays","Female dogs in novel pair housing"],a:2,e:"A 15 minute petting session lowered cortisol only in dogs admitted as strays, not in owner-relinquished dogs."},
+{t:"ce",f:"notes",q:"Daily 15 minute exercise versus in-kennel reading sessions were compared. Which behavioural pattern was documented?",o:["Reading increased kennel-front lunging; exercise eliminated pica","Both events caused dogs to decrease back-and-forth motion","Exercise suppressed barking completely; reading had no impact","Exercise gave a greater reduction in door jumping; reading produced an overall larger decrease in undesired behaviours, jumping AND barking"],a:3,e:"Both produced more back-and-forth motion after; exercise reduced door jumping more, while reading reduced both jumping and barking overall."},
+{t:"ce",f:"notes",q:"A 3-times-a-week, 8-week structured human interaction program (walks, grooming, play, training) did NOT reduce baseline cortisol. What behavioural change WAS confirmed?",o:["Immediate cessation of stereotypic circling and figure-of-eight movements","Increased sociability: dogs were more likely to approach the experimenter and initiate interaction in the kennel before a leashed walk","Complete habituation to heavy metal music","A 30% drop in peak barking amplitude across the ward"],a:1,e:"Even without lowering cortisol, the program improved sociability: dogs more readily approached and initiated interaction."},
+{t:"ce",f:"notes",q:"What does the text state about cortisol when foster dogs return to the shelter?",o:["Cortisol rises on return but does NOT exceed the pre-foster shelter baseline","Cortisol drops to zero for the first 24 hours after return","Cortisol spikes to three times the original shelter baseline","Cortisol is completely static across all phases of the foster transition"],a:0,e:"Cortisol rises on return to the shelter but does not exceed the pre-foster shelter baseline."},
+{t:"ce",f:"notes",q:"Which behavioural pattern in dogs returning from short foster stays is cited as cautiously optimistic evidence for foster?",o:["More sedentary, avoided social contact, stopped yawning","Increased pica and stereotypic kennel pacing","More obedient, sought social interaction with handlers, responded readily to cues, jumped on strangers and barked less, yawned more","Elevated aggression at the kennel front toward unfamiliar dogs"],a:2,e:"Post-foster dogs showed improved obedience, more social initiative, fewer jumps on strangers, less barking, and more yawning."},
+{t:"ce",f:"notes",q:"A shelter blocks adopter access in the afternoons to create a quiet period. What changes were documented?",o:["Noise levels rose by 15 dB due to restriction frustration","Dogs spent more time standing and barking at the kennel front","Repetitive behaviours increased only in the mornings","Noise levels fell by more than 12 dB, sedentary behaviour rose in the morning AND afternoon, locomotor activity fell, and repetitive behaviours fell in the afternoon"],a:3,e:"Blocking afternoon visitor access dropped noise by over 12 dB, increased sedentary behaviour, reduced locomotor activity, and reduced repetitive behaviours in the afternoon."},
+{t:"ce",f:"notes",q:"In-kennel and out-of-kennel training programs were evaluated. What benefits and what consistency rule emerged?",o:["Reduces pica; if training stops for 24 hours, door jumping returns to baseline","In-kennel training increases sitting, lying down, and quiet behaviour; out-of-kennel training reduces aggression. If training stops for 1 week, aggression returns to pre-intervention levels","Reduces barking by 142 times, but only via classical conditioning","Decreases locomotor activity only if performed for exactly 20 seconds"],a:1,e:"Training works in both contexts but is consistency-dependent; aggression rebounds after just 1 week of cessation."},
+{t:"ce",f:"notes",q:"Pairing a daily door chime with food (3 to 5 times per week for 3 weeks) was used as counter-conditioning (CC). What was the efficiency and outcome compared to operant conditioning?",o:["CC took about 20 seconds per dog (operant about 2 minutes) and reduced kennel noise by 15 dB by attenuating an established environmental stressor","CC took 2 minutes per dog and caused a 12 dB rise in noise","CC took 8 weeks and only worked for owner-relinquished animals","CC took 15 minutes per session and eliminated stereotypic circling"],a:0,e:"CC is highly efficient (about 20 seconds per dog versus 2 minutes for operant) and cut kennel noise by 15 dB."},
+{t:"ce",f:"notes",q:"How do singly-housed dogs compare to group-housed or pair-housed dogs?",o:["Solo dogs spend significantly more time resting and lying down","Solo dogs show a 30% reduction in average barking amplitude","Solo dogs bark, whimper, and howl more, and are more likely to display aggressive behaviour at the kennel front toward other dogs","Solo dogs exhibit zero stereotypies because group conflict is absent"],a:2,e:"Solo dogs vocalise more (bark, whimper, howl) and show more kennel-front aggression toward other dogs."},
+{t:"ce",f:"notes",q:"In a 3-month, 211-dog group-housing study, what were the conflict and stereotypy outcomes?",o:["Conflicts occurred daily and increased length of stay by 50%","Group housing caused a massive cortisol rise compared with novel solo housing","Stereotypies occurred at identical rates (10%) across solo and group housing","Only 5 incidents (light wounds) occurred; 10% of singly-housed dogs showed stereotypies while no group-housed dogs did"],a:3,e:"Group housing was safe (5 minor incidents over 3 months) and suppressed stereotypies (0% versus 10% in solo)."},
+{t:"ce",f:"notes",q:"A dog is abruptly separated from its co-housed pair-mate. Which behaviours signal restlessness in the remaining dog?",o:["Immediate increase in lying down and sleeping","Increased running, posture changes, stretching, circling, and figures-of-eight; play remains reduced","Complete cessation of barking and vocalisation","Direct engagement with robust nylon toys rises by 25%"],a:1,e:"Pair separation increases locomotor restlessness indicators and reduces play in the remaining dog."},
+{t:"ce",f:"notes",q:"What fraction of a typical shelter dog population is generally suitable and available for daily off-leash interaction with other dogs?",o:["Less than 1/3","More than 90% of the population","Exactly half","Only dogs in foster for 8 weeks"],a:0,e:"Fewer than one-third of typical shelter dogs are suitable and available for off-leash daily group interaction."},
+{t:"ce",f:"notes",q:"Which object did kenneled shelter dogs prefer over other in-kennel toy options?",o:["A standard tennis ball","A soft squeaky plush bone","A robust Nylabone","A braided rope toy"],a:2,e:"In the kennel-toy preference study, dogs showed greater preference for the Nylabone over the other options."},
+{t:"ce",f:"notes",q:"When given a choice between robust and soft destructible toys, how did shelter dogs interact?",o:["100% interacted exclusively with robust toys for the whole session","Dogs spent the longest with a tennis ball and least with the squeaky bone","Robust toys completely prevented stereotypic pacing","Only about 35% interacted with the robust selections (averaging 2 minutes); more than 3/4 of dogs spent 25% of the 15 minute session on soft destructible toys, most time on squeaky bones and plushy toys, least time on the tennis ball"],a:3,e:"Most dogs preferred soft, destructible options (squeaky bone, plush) over robust toys, and the tennis ball was the least engaging soft option."},
+{t:"ce",f:"notes",q:"How did classical music compare with heavy metal in kenneled dogs?",o:["Classical increased standing and vocalisation; heavy metal increased resting","Classical led to more resting, less standing, and more quiet behaviour; heavy metal increased body shaking, barking, and reduced resting","Heavy metal decreased barking frequency by 12 dB","Both genres produced an identical 30% drop in average barking amplitude"],a:1,e:"Classical functions as an acoustic sedative; heavy metal triggers shaking and barking and reduces rest."},
+{t:"ce",f:"notes",q:"A 2017 study tested five genres (classical, pop, soft rock, reggae, Motown) with shelter dogs. What happened during music and what happened immediately after it stopped?",o:["Regardless of genre, dogs spent more time lying down and less time standing; however, dogs were 142 times more likely to bark after the music stopped","Dogs barked continuously during music but slept once it stopped","Reggae and Motown increased standing; classical and pop increased pacing","Barking frequency dropped during music and stayed low for an hour after"],a:0,e:"The Bowman 2017 five-genre study found all genres increased lying down during play, but a 142-fold spike in barking immediately followed the music stopping."},
+{t:"ce",f:"notes",q:"What is the recommended operational counter to rapid canine habituation to in-kennel classical music?",o:["Increase the volume by 12 dB every afternoon","Switch exclusively to heavy metal after 2 days","At a minimum, rotate multiple classical compilations daily, and consider integrating audiobooks","Play music continuously for 24 hours without a break"],a:2,e:"Rotate multiple classical compilations daily and integrate audiobooks to keep effects fresh."},
+{t:"ce",f:"notes",q:"Which essential oil scents are sedating, and which are stimulating, in scented-cloth studies?",o:["Peppermint and rosemary are sedating; lavender and chamomile are stimulating","Valerian and ginger are stimulating; coconut and peppermint are sedating","All scents increase resting equally compared with a no-cloth control","Lavender, chamomile, coconut, and ginger are sedating; rosemary and peppermint are stimulating"],a:3,e:"Per the scented-cloth study data, lavender, chamomile, coconut, and ginger are sedating; rosemary and peppermint are stimulating."},
+{t:"ce",f:"notes",q:"A behaviour department installs DAP (dog appeasing pheromone) diffusers. What specific impact on barking is documented?",o:["DAP eliminates peak barking amplitude entirely","DAP reduced average barking AMPLITUDE by about 30%; barking FREQUENCY and PEAK amplitude did not differ from placebo","DAP made dogs 142 times less likely to bark after environmental noise","DAP increased barking frequency but lowered heart rate"],a:1,e:"DAP cuts the average loudness by about 30% but does not reduce peak amplitude or barking frequency."},
+{t:"ce",f:"notes",q:"Where should STIMULATING scents (such as peppermint) be deployed for maximum value?",o:["During out-of-kennel interactions, where dogs can actively engage with them","Permanently attached to the front of a solo kennel grate","Inside a 2 inch hiding box in the public viewing ward","Exclusively inside a foster home during the first 48 hours"],a:0,e:"Stimulating scents are inappropriate for confined kennels where movement is restricted, and are better used during out-of-kennel interactions. Note: your notes list ginger and valerian as stimulating in this paragraph, which contradicts the page-4 study data flagged for your approval."},
+{t:"ce",f:"notes",q:"Televisions were placed in front of canine enclosures. What was documented?",o:["Vocalising and movement increased with more time at the back of the kennel","Dogs spent 73% of their day staring at the screens and stereotypies disappeared","Regardless of image type, vocalising and movement decreased and dogs spent more time at the front of pen, but dogs spent only about 10% of their time looking at the monitors and interest waned over time","Monitors caused a 15 dB drop in kennel noise within 20 seconds"],a:2,e:"TV reduced vocalising and movement but viewing time was about 10% and interest waned, so it is a modest addition rather than a primary intervention."},
+{t:"ce",f:"notes",q:"At the POPULATION level, what is the primary metric to track when assessing an enrichment program?",o:["The financial cost of a $2 store voucher","The frequency of yawning during an 8 week walking program","The change in peak barking amplitude during afternoon quiet hours","The percentage of dogs that directly engage with the enrichment item"],a:3,e:"Population-level enrichment success is measured first by what fraction of dogs directly engage with the item."},
+{t:"ce",f:"notes",q:"What operational rule determines whether to MODIFY a broader enrichment STRATEGY?",o:["Wait exactly 2 months before any programmatic changes","If no positive behavioural change occurs within 1 week at most, modify the strategy","Modify the strategy every 15 minutes to prevent rapid habituation","Modify only if peak barking amplitude rises by 12 dB"],a:1,e:"If the strategy fails to produce positive behavioural change within 1 week at most, modify it."},
+{t:"ce",f:"notes",q:"If an INDIVIDUAL dog shows zero engagement with a specific enrichment item, what is the maximum recommended time before changing TYPES?",o:["2 days","20 seconds","5 weeks","2 months"],a:0,e:"After 2 days of no engagement by an individual dog, change to a different enrichment type."},
+{t:"ce",f:"notes",q:"Which measurement method involves quickly assessing many animals by focusing on one dog for an instant, recording what it is doing in that moment, then immediately shifting to the next dog?",o:["Continuous measurement","Permanent products","Instantaneous scan sampling (ISS)","Interval recording"],a:2,e:"ISS lets one observer cover many dogs by recording behaviour for an instant per animal and then moving on."},
+{t:"ce",f:"notes",q:"What is momentary time sampling (MTS), and how does it function?",o:["A continuous log of every instance of door jumping over a 24 hour cycle","A method that tracks the tangible results of a behaviour at the staff's convenience","A sampling style restricted purely to tracking KONG consumption","A blend of ISS and interval recording: observe one animal for an instant, then observe the SAME animal again after a set interval"],a:3,e:"MTS samples an individual animal's behaviour at instants spaced by a set interval, combining ISS with interval recording."},
+{t:"ce",f:"notes",q:"What is the principal operational benefit of the PERMANENT PRODUCTS method?",o:["Real-time precise data on canine heart-rate variability","The observer can record tangible outcomes (chewed toys, urine and faeces, emptied KONGs) at their convenience, without being present when the behaviour occurs","It removes the need to rotate classical music compilations","It is the only method that captures subtle changes in peak barking amplitude"],a:1,e:"Permanent products allow asynchronous recording of tangible behavioural traces, which is operationally practical for staff."},
+{t:"ce",f:"notes",q:"What materials are recommended to train staff and volunteers to deliver an enrichment program correctly?",o:["A simple written task list with visual aids and a short video","A 5 week theoretical textbook on vomeronasal anatomy","A data-based spreadsheet of unadjusted odds ratios","An oral presentation delivered only during afternoon quiet hours"],a:0,e:"A simple written task list with visual aids and a short video is recommended; more training only when the behaviour itself is complex."},
+{t:"ce",f:"notes",q:"Which example matches the reinforcement contingencies described for staff and volunteers?",o:["Forcing volunteers to complete 8 weeks of training before touching a dog","Allowing staff a night off if kennel noise falls by 15 dB","Volunteers earn a $2 store voucher after prepping 50 kibble-filled toilet rolls, or earn shirts and goodies for completing milestones","Providing continuous classical music only after a volunteer has read for 15 minutes"],a:2,e:"Concrete, milestone-linked rewards (vouchers, gear, lunch breaks) keep volunteer engagement and program consistency."}
+];
+const host=document.getElementById('qhost');
+const scoreTxt=document.getElementById('scoreTxt');
+let answered=0, correct=0;
+const DLABEL={ce:"Canine Enrichment"};
+function tagLabel(t){return DLABEL[t]||t.toUpperCase();}
+function flagBadge(f){
+  if(f==='corr')return '<span class="bdg corr">corrected</span>';
+  if(f==='notes')return '<span class="bdg notes">your notes</span>';
+  if(f==='asv')return '<span class="bdg asv">ASV</span>';
+  if(f==='ref')return '<span class="bdg ref">std ref</span>';
+  return '';
+}
+function render(){
+  host.innerHTML='';answered=0;correct=0;updateScore();
+  Q.forEach((item,i)=>{
+    const card=document.createElement('div');card.className='q';
+    card.innerHTML=`<div class="meta"><span class="num">#${i+1}</span><span class="tag">&#9670; ${tagLabel(item.t)}</span>${flagBadge(item.f)}</div><div class="stem">${item.q}</div>`;
+    const opts=document.createElement('div');
+    item.o.forEach((txt,oi)=>{
+      const btn=document.createElement('button');btn.className='opt';
+      btn.innerHTML=`<span class="k">${String.fromCharCode(65+oi)}</span>${txt}`;
+      btn.onclick=()=>choose(card,opts,item,oi);opts.appendChild(btn);
+    });
+    card.appendChild(opts);
+    const ex=document.createElement('div');ex.className='expl';
+    ex.innerHTML=`<b class="cor">Correct: ${String.fromCharCode(65+item.a)}.</b> ${item.e}`;
+    card.appendChild(ex);host.appendChild(card);
+  });
+}
+function choose(card,opts,item,oi){
+  if(card.dataset.done)return;card.dataset.done='1';answered++;
+  [...opts.children].forEach((b,bi)=>{b.classList.add('locked');
+    if(bi===item.a)b.classList.add('correct');
+    if(bi===oi && oi!==item.a)b.classList.add('wrong');});
+  if(oi===item.a)correct++;
+  card.querySelector('.expl').classList.add('show');updateScore();
+}
+function updateScore(){scoreTxt.textContent=`${correct} / ${answered} correct`;}
+document.getElementById('resetBtn').onclick=render;
+render();
+</script>
+</body>
+</html>

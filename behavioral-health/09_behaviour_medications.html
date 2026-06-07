@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<title>Behaviour Medications Subdomain Hub | ABVP Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme:light dark;
+    --bg:#eef2f7;--surface:#fbfdff;--surface2:#e8edf4;
+    --chrome:#1c3a5e;--chrome2:#264f78;          /* behavioural health blue chrome */
+    --text:#16273a;--onChrome:#e9f0f8;--muted:#586a7d;
+    --line:#ccd6e2;
+    --accent:#b1466f;--accent-soft:#f3e0ea;       /* behavioural health rose accent */
+    --good:#1f7a4d;--good-soft:#e3f2ea;--bad:#b23b3b;
+    --notes:#7a4fb5;--notes-soft:#ece3f7;          /* your Behaviour medications notes (PDF) */
+    --asv:#1f6f86;--asv-soft:#dcecf2;              /* ASV principle */
+    --ref:#b5651d;--ref-soft:#f6e7d4;              /* behaviour textbook / published refs */
+    --dot:rgba(28,58,94,.05);
+    --shadow:0 1px 2px rgba(20,40,70,.08),0 8px 24px rgba(20,40,70,.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0e1622;--surface:#16212f;--surface2:#1b2735;
+      --chrome:#122236;--chrome2:#1b3450;
+      --text:#dde6f1;--onChrome:#e9f0f8;--muted:#9aacbf;
+      --line:#2a3a4d;
+      --accent:#d3789c;--accent-soft:rgba(211,120,156,.16);
+      --good:#51b184;--good-soft:rgba(40,140,90,.18);--bad:#e08585;
+      --notes:#c0a4ec;--notes-soft:rgba(150,110,210,.20);
+      --asv:#66c0d6;--asv-soft:rgba(40,150,175,.18);
+      --ref:#e0a766;--ref-soft:rgba(200,130,50,.18);
+      --dot:rgba(255,255,255,.035);
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.3);
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--text);
+    font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;
+    background-image:radial-gradient(circle at 1px 1px,var(--dot) 1px,transparent 0);background-size:22px 22px;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+  .crumb{background:var(--chrome);padding:9px 18px;display:flex;align-items:center;gap:10px;font-size:13px;font-weight:500;border-bottom:2px solid var(--chrome2)}
+  .crumb a{color:#9fc0dc;text-decoration:none;display:flex;align-items:center;gap:5px}
+  .crumb .sep{color:#5f82a3;font-size:11px}
+  .crumb .here{color:#cfe0f1}
+  header.top{background:var(--chrome);color:var(--onChrome);padding:26px 0 22px;border-bottom:4px solid var(--accent)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#9fc0dc;margin:0 0 6px}
+  header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(26px,4.5vw,40px);margin:0;line-height:1.05}
+  header.top p.sub{margin:8px 0 0;color:#cfe0f1;font-size:14px;max-width:78ch}
+  .legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}
+  .legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.22);color:#eaf2fb;display:flex;align-items:center;gap:6px}
+  .legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--surface);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button:hover{background:var(--bg);color:var(--text)}
+  .tabrow button.active{background:var(--chrome);color:var(--onChrome)}
+  .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+  main{padding:30px 0 80px}
+  .panel{display:none;animation:fade .35s ease}
+  .panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;letter-spacing:-.01em;color:var(--text)}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:80ch}
+  h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:30px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;scroll-margin-top:64px;color:var(--text)}
+  h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;color:var(--text);text-transform:uppercase;letter-spacing:.03em}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}
+  p.note{font-size:14px;margin:0 0 6px}
+  ul.hy{margin:8px 0;padding-left:0;list-style:none}
+  ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed var(--line);font-size:14px}
+  ul.hy li:last-child{border-bottom:0}
+  ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;border-radius:2px;background:var(--accent);transform:rotate(45deg)}
+  .trap{background:var(--accent-soft);border:1px solid var(--accent);border-left:4px solid var(--accent);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .trap b{color:var(--accent);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .corrbox{background:var(--good-soft);border:1px solid var(--good);border-left:4px solid var(--good);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .corrbox b{color:var(--good);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .verifybox{background:var(--asv-soft);border:1px solid var(--asv);border-left:4px solid var(--asv);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .verifybox b{color:var(--asv);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp th{background:var(--chrome);color:var(--onChrome);font-weight:600;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase}
+  table.cmp tr:last-child td{border-bottom:0}
+  table.cmp td b{color:var(--text)}
+  .fig{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0;box-shadow:var(--shadow)}
+  .fig figcaption{font-size:12.5px;color:var(--muted);margin-top:8px;font-style:italic}
+  /* svg helpers (use vars so diagrams adapt to dark mode) */
+  .sgbox{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1}
+  .sgbox2{fill:var(--asv-soft);stroke:var(--asv);stroke-width:1}
+  .sgtxt{fill:var(--text);font-family:"Public Sans",sans-serif}
+  .sgmut{fill:var(--muted);font-family:"Public Sans",sans-serif}
+  .sgmono{fill:var(--accent);font-family:"JetBrains Mono",monospace}
+  .sgline{stroke:var(--accent);stroke-width:2;fill:none}
+  .sgaxis{stroke:var(--line);stroke-width:1.5}
+  .sgarrow{fill:var(--accent)}
+  /* source badges */
+  .bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+  .bdg.notes{background:var(--notes-soft);color:var(--notes)}
+  .bdg.asv{background:var(--asv-soft);color:var(--asv)}
+  .bdg.ref{background:var(--ref-soft);color:var(--ref)}
+  .bdg.corr{background:var(--good);color:#fff}
+  /* mcq */
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--chrome);color:var(--onChrome);border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:54px;z-index:10}
+  .mcqbar .label{font-family:"JetBrains Mono",monospace;font-size:12px;color:#cfe0f1;display:flex;align-items:center;gap:8px}
+  .mcqbar .label .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);display:inline-block}
+  .score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}
+  .score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;color:#cfe0f1;padding:5px 10px;border-radius:8px;font-size:11px}
+  .q{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
+  .q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+  .q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+  .q .stem{font-weight:600;font-size:15px;margin-bottom:10px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:var(--surface2);border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;font-family:"Public Sans";color:var(--text);transition:background .15s,border-color .15s}
+  .opt:hover{border-color:var(--accent)}
+  .opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}
+  .opt.correct{background:var(--good-soft);border-color:var(--good)}
+  .opt.wrong{background:rgba(178,59,59,.14);border-color:var(--bad)}
+  .opt.locked{cursor:default}
+  .expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:var(--surface2);border:1px solid var(--line);font-size:13.5px}
+  .expl.show{display:block}
+  .expl b.cor{color:var(--good)}
+  footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
+  @media(max-width:640px){.mcqbar{top:50px}.score{font-size:12px}}
+</style>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span class="sep">&rsaquo;</span><a href="../index.html#domain-behav">Behavioural Health</a><span class="sep">&rsaquo;</span><span class="here">Behaviour Medications</span></nav>
+<div style="background:#f6e7d4;border-left:4px solid #b5651d;padding:8px 18px;font-size:12.5px;color:#7a3a0a;font-family:'Public Sans',sans-serif"><strong>Supplemental topic</strong> — This subdomain may not be directly examined in the ABVP SMP RVS specialty exam but provides useful clinical context.</div>
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">ABVP Shelter Medicine Practice RVS &middot; Behavioural Health</p>
+    <h1>Behaviour Medications Subdomain Hub</h1>
+    <p class="sub">Exam-depth study tool for behavioural pharmacology in the shelter: when to treat, the disorders and their first-line drugs, neurotransmitter mechanisms, the core and secondary drug classes, serotonin syndrome, and administered non-pharmaceutical adjuncts. The MCQ Test Bank holds all 30 questions in one set. Every claim is badged by source.</p>
+    <div class="legend">
+      <span><i style="background:var(--notes)"></i>Your Behaviour medications notes (PDF)</span>
+      <span><i style="background:var(--asv)"></i>ASV principle</span>
+      <span><i style="background:var(--ref)"></i>Textbook / published reference</span>
+    </div>
+  </div>
+</header>
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="princ"><span class="dot"></span>Principles &amp; When to Treat</button>
+  <button data-p="disorders"><span class="dot"></span>Disorders &amp; First-Line Tx</button>
+  <button data-p="nt"><span class="dot"></span>Neurotransmitters</button>
+  <button data-p="core"><span class="dot"></span>Core Drug Classes</button>
+  <button data-p="other"><span class="dot"></span>Other Agents &amp; Serotonin Syndrome</button>
+  <button data-p="adjunct"><span class="dot"></span>Adjuncts</button>
+  <button data-p="mcq"><span class="dot" style="background:var(--chrome2)"></span>MCQ Test Bank</button>
+</div></div></nav>
+<main><div class="wrap">
+<section class="panel show" id="princ">
+  <h2 class="sec">Principles and When to Treat</h2>
+  <p class="lead">Before reaching for a drug, the shelter veterinarian makes a behavioural diagnosis and plans the whole package: medication is never a substitute for behaviour modification, enrichment, and good housing.</p>
+  <div class="card">
+    <h4>Pre-drug checklist</h4>
+    <ul class="hy">
+      <li>Make a behavioural diagnosis; know the indications, doses, side effects, and contraindications of the likely drugs. <span class="bdg notes">your notes</span></li>
+      <li>Prescribe a concurrent behaviour modification (BMOD) program and train staff to administer therapy. <span class="bdg notes">your notes</span></li>
+      <li>Plan to monitor for effect and side effects (inappetence, vomiting, diarrhoea, ataxia, sedation, increased aggression, serotonin syndrome). <span class="bdg notes">your notes</span></li>
+      <li>Account for expense, and plan adoption and follow-up. <span class="bdg notes">your notes</span></li>
+    </ul>
+  </div>
+  <div class="verifybox">
+    <b>ASV: medication is never used in isolation</b>
+    Psychotropic medication must always be paired with a structured BMOD program, enrichment, and environmental modification. Prescribing drugs as a standalone fix for poor design or missing enrichment does not meet welfare standards. <span class="bdg asv">ASV</span>
+  </div>
+  <div class="card">
+    <h4>When drug therapy should be considered</h4>
+    <ul class="hy">
+      <li>When wellbeing is compromised by shelter life and enrichment (exercise, companionship, training) has not improved the animal's state. <span class="bdg notes">your notes</span></li>
+      <li>Anxious or fearful animals still hiding or trembling after 2 to 3 days and not eating, eliminating, or grooming, or that are overactive or compulsive. <span class="bdg notes">your notes</span></li>
+      <li>Dogs with separation-related problems (SRP) do not show signs in the shelter but still benefit from a behaviour program plus drug therapy. Urine marking is also reduced. <span class="bdg notes">your notes</span></li>
+    </ul>
+  </div>
+  <h3>The three P's and the working diagnosis</h3>
+  <p class="note">Behavioural pharmacology aims to address neurotransmitter alterations, decrease anxiety, fear, and arousal, and make behavioural and environmental modification easier. The trigger is assessed by Provocation (what is the trigger), Proportion (intensity of the reaction), and Persistence (ability to recover). <span class="bdg notes">your notes</span></p>
+  <figure class="fig">
+    <svg viewBox="0 0 520 150" width="100%" role="img" aria-label="The three P's of a behavioural reaction to a trigger">
+      <defs><marker id="arBM2" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path class="sgarrow" d="M0,0 L7,3 L0,6 Z"/></marker></defs>
+      <rect x="200" y="12" width="120" height="32" rx="9" class="sgbox2"/><text x="260" y="32" text-anchor="middle" font-size="12" class="sgtxt">Trigger</text>
+      <g font-size="11.5" text-anchor="middle">
+        <rect x="20" y="92" width="140" height="42" rx="9" class="sgbox"/><text x="90" y="111" class="sgtxt">Provocation</text><text x="90" y="126" class="sgmut">what is the trigger</text>
+        <rect x="190" y="92" width="140" height="42" rx="9" class="sgbox"/><text x="260" y="111" class="sgtxt">Proportion</text><text x="260" y="126" class="sgmut">intensity of reaction</text>
+        <rect x="360" y="92" width="140" height="42" rx="9" class="sgbox"/><text x="430" y="111" class="sgtxt">Persistence</text><text x="430" y="126" class="sgmut">ability to recover</text>
+      </g>
+      <line x1="240" y1="44" x2="110" y2="90" class="sgline" marker-end="url(#arBM2)"/>
+      <line x1="260" y1="44" x2="260" y2="90" class="sgline" marker-end="url(#arBM2)"/>
+      <line x1="280" y1="44" x2="410" y2="90" class="sgline" marker-end="url(#arBM2)"/>
+    </svg>
+    <figcaption>The three P's used to judge whether a reaction is abnormal. A normal dog recovers from a mild to moderate stressor within a couple of minutes. Original didactic schematic built from your notes.</figcaption>
+  </figure>
+  <div class="trap">
+    <b>Exam trap: recovery time and what we are changing</b>
+    A behaviourally normal, resilient dog should recover from a mild to moderately stressful event within a couple of minutes at most; longer recovery suggests an abnormal pattern or compromised welfare. Medication alters the negative emotional state underlying the behaviour, not the behaviour itself. <span class="bdg notes">your notes</span>
+  </div>
+  <div class="card">
+    <h4>Working diagnosis and arousal</h4>
+    <ul class="hy">
+      <li>Identify the behaviour, trigger, target, and motivation; recognising motivation informs the choice of fast versus short-acting and long versus short-term medication. <span class="bdg notes">your notes</span></li>
+      <li>High physiologic arousal (hackles up, dilated pupils, hard panting, heavy salivation, poor recovery) may respond better to clonidine than to trazodone. <span class="bdg notes">your notes</span></li>
+    </ul>
+  </div>
+  <h3>Risk assessment before any outcome or treatment decision</h3>
+  <table class="cmp">
+    <tr><th>Domain</th><th>Question</th></tr>
+    <tr><td><b>Safety</b></td><td>Risk to the patient, other animals, and the community</td></tr>
+    <tr><td><b>Emotional risk</b></td><td>To an adopter asked to take on the problem long term</td></tr>
+    <tr><td><b>QOL</b></td><td>The animal's quality of life and the adopter's</td></tr>
+    <tr><td><b>Deterioration risk</b></td><td>Likelihood of decline without intervention (try environment and BMOD first)</td></tr>
+    <tr><td><b>Shelter resources</b></td><td>Can the shelter support the plan</td></tr>
+    <tr><td><b>Community</b></td><td>Are there people equipped and willing to manage the problem</td></tr>
+  </table>
+  <div class="card">
+    <h4>Medication choice and monitoring</h4>
+    <ul class="hy">
+      <li>Weigh administration, cost, availability, abuse potential, and legal requirements. A short-term agent is ideal, but an underlying disorder, a long stay, or anticipated future problems may favour a long-term baseline drug. <span class="bdg notes">your notes</span></li>
+      <li>Assign someone to monitor frequency, duration, and intensity of the behaviours of interest, and plan for the animal going home. <span class="bdg notes">your notes</span></li>
+      <li>A written management and education plan accompanies verbal instructions: treatment goals, how to give the drug, side effects to watch for, and who to follow up with. <span class="bdg notes">your notes</span></li>
+    </ul>
+  </div>
+</section><section class="panel" id="disorders">
+  <h2 class="sec">Disorders and First-Line Treatment</h2>
+  <p class="lead">Match the drug to the disorder, always alongside behaviour modification and enrichment.</p>
+  <table class="cmp">
+    <tr><th>Disorder</th><th>First-line approach</th></tr>
+    <tr><td><b>Anxiety (cat)</b></td><td>Enrichment, alternative housing, or foster first; if a fearful cat keeps hiding (even in the litter box) despite hide and perch boxes, a benzodiazepine, with alprazolam preferred at 0.125 mg per cat once or twice daily</td></tr>
+    <tr><td><b>Anxiety (dog)</b></td><td>Fluoxetine or paroxetine once daily</td></tr>
+    <tr><td><b>Compulsive disorder</b></td><td>Clomipramine or fluoxetine, plus BMOD stressing consistency and activity</td></tr>
+    <tr><td><b>SRP</b></td><td>Short-departure program plus fluoxetine or clomipramine</td></tr>
+    <tr><td><b>Urine marking</b></td><td>Fluoxetine (dogs and cats); buspirone gives about a 50% reduction in cats</td></tr>
+  </table>
+  <div class="card">
+    <h4>Compulsive disorder detail</h4>
+    <ul class="hy">
+      <li>Repetitive, sustained, out-of-context behaviour: tail chasing, pacing, weaving, self-licking, leg or foot chewing, self-directed aggression, cage licking, persistent barking; in cats, tail chasing or chewing and overgrooming. <span class="bdg notes">your notes</span></li>
+      <li>Genetic predisposition exists (German Shepherd and Staffordshire to tail chase, Doberman to flank suck), and signs appear with prolonged confinement and during transitions. <span class="bdg notes">your notes</span></li>
+    </ul>
+  </div>
+  <div class="trap">
+    <b>Exam trap: duration and weaning for compulsive disorder</b>
+    Continue drug therapy for at least 3 weeks after a satisfactory reduction is seen, then wean gradually over 3 to 4 weeks while continuing behaviour modification. <span class="bdg notes">your notes</span>
+  </div>
+  <p class="note">Pheromone therapy (Feliway, Adaptil) is a useful adjunct; details are in the Adjuncts tab. <span class="bdg notes">your notes</span></p>
+</section><section class="panel" id="nt">
+  <h2 class="sec">Neurotransmitters</h2>
+  <p class="lead">Most behaviour drugs act on one of a handful of neurotransmitter systems. Knowing the system explains the indication, the side effects, and the dangerous combinations.</p>
+  <figure class="fig">
+    <svg viewBox="0 0 520 180" width="100%" role="img" aria-label="SSRI blocking serotonin reuptake increases serotonin in the synaptic cleft">
+      <defs><marker id="arBM1" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path class="sgarrow" d="M0,0 L7,3 L0,6 Z"/></marker></defs>
+      <rect x="20" y="20" width="200" height="60" rx="12" class="sgbox"/><text x="120" y="46" text-anchor="middle" font-size="12" class="sgtxt">Presynaptic neuron</text><text x="120" y="64" text-anchor="middle" font-size="10.5" class="sgmut">releases 5-HT, reuptakes via SERT</text>
+      <rect x="300" y="20" width="200" height="60" rx="12" class="sgbox"/><text x="400" y="46" text-anchor="middle" font-size="12" class="sgtxt">Postsynaptic neuron</text><text x="400" y="64" text-anchor="middle" font-size="10.5" class="sgmut">5-HT receptors stimulated</text>
+      <line x1="220" y1="40" x2="298" y2="40" class="sgline" marker-end="url(#arBM1)"/>
+      <text x="260" y="33" text-anchor="middle" font-size="10" class="sgmut">5-HT</text>
+      <line x1="300" y1="62" x2="222" y2="62" class="sgline" stroke-dasharray="4 4"/>
+      <text x="262" y="76" text-anchor="middle" font-size="10" class="sgmut">reuptake (SERT)</text>
+      <rect x="150" y="120" width="220" height="40" rx="10" style="fill:rgba(178,59,59,.14);stroke:var(--bad)"/><text x="260" y="138" text-anchor="middle" font-size="11.5" style="fill:var(--bad)">SSRI blocks SERT</text><text x="260" y="153" text-anchor="middle" font-size="10.5" class="sgmut">net increase in synaptic serotonin over 4 to 8 weeks</text>
+      <line x1="248" y1="68" x2="235" y2="118" class="sgline" marker-end="url(#arBM1)"/>
+    </svg>
+    <figcaption>How an SSRI raises synaptic serotonin: blocking reuptake leaves more 5-HT in the cleft, and autoreceptor desensitisation over weeks gives the net rise in transmission. Original didactic schematic built from your notes.</figcaption>
+  </figure>
+  <div class="card">
+    <h4>The systems</h4>
+    <ul class="hy">
+      <li><b>Glutamate:</b> the primary excitatory transmitter; NMDA is one receptor type. NMDA blockers (ketamine, memantine) give analgesia and address pain-associated anxiety; high doses cause a dissociative or cataleptic state. <span class="bdg notes">your notes</span></li>
+      <li><b>GABA:</b> synthesised from glutamate; the major inhibitory transmitter; increasing GABA is sedating and controls vigilance, anxiety, muscle tension, seizures, and memory. Benzodiazepines act here; flumazenil reverses them. <span class="bdg notes">your notes</span></li>
+      <li><b>Dopamine:</b> reward, motivation, bonding, attention, voluntary movement. Excess gives stereotypy and compulsion; deficiency gives reduced alertness, anxiety, depression, and parkinsonian signs. <span class="bdg notes">your notes</span></li>
+      <li><b>Noradrenaline (NE):</b> from dopamine; mood and arousal. Alpha-2 agonists (clonidine, dexmedetomidine, xylazine) inhibit NE release for sedation, analgesia, and (at low doses) anxiolysis. <span class="bdg notes">your notes</span></li>
+      <li><b>Adrenaline (epinephrine):</b> the acute stress response. Beta-blockers (propranolol) block the physical signs of fear; alpha-2 agonists reduce fear by blocking NE. <span class="bdg notes">your notes</span></li>
+      <li><b>Serotonin (5-HT):</b> from tryptophan; controls mood, impulsivity, anxiety, panic, satiety, nausea, cognition, aggression, sleep, pain, and thermoregulation. Low serotonin gives depression, anxiety, and aggression. <span class="bdg notes">your notes</span></li>
+      <li><b>Acetylcholine:</b> the only transmitter not made from an amino acid (choline plus acetyl-CoA); supports memory, arousal, and attention. TCA anticholinergic effects give dry mouth, dry eyes, urine retention, constipation, mydriasis, and increased heart rate. <span class="bdg notes">your notes</span></li>
+    </ul>
+  </div>
+  <h3>Neurotransmitter and behaviour matrix</h3>
+  <p class="note">Direction of the underlying neurotransmitter change associated with each state (up arrow increased, down arrow decreased, X not a primary feature). <span class="bdg notes">your notes</span></p>
+  <table class="cmp">
+    <tr><th>State</th><th>5-HT</th><th>NE</th><th>DA</th><th>GLU</th><th>GABA</th><th>HIS</th></tr>
+    <tr><td><b>Anxiety</b></td><td>&darr;</td><td>&uarr;</td><td>&uarr;</td><td>&uarr;</td><td>X</td><td>X</td></tr>
+    <tr><td><b>Panic</b></td><td>X</td><td>&uarr;</td><td>&uarr;</td><td>&uarr;</td><td>&darr;</td><td>&uarr;</td></tr>
+    <tr><td><b>Hyperarousal</b></td><td>&darr;</td><td>&uarr;</td><td>&uarr;</td><td>&uarr;</td><td>&darr;</td><td>X</td></tr>
+    <tr><td><b>Impulsivity</b></td><td>&darr;</td><td>&uarr;</td><td>&uarr;</td><td>&uarr;</td><td>&darr;</td><td>X</td></tr>
+    <tr><td><b>Compulsive</b></td><td>&darr;</td><td>&uarr;</td><td>&uarr;</td><td>&uarr;</td><td>X</td><td>X</td></tr>
+    <tr><td><b>Shut down</b></td><td>&darr;</td><td>&darr;</td><td>&darr;</td><td>&darr;</td><td>&uarr;</td><td>X</td></tr>
+    <tr><td><b>Insomnia</b></td><td>&darr;</td><td>&uarr;</td><td>&uarr;</td><td>&uarr;</td><td>X</td><td>&uarr;</td></tr>
+  </table>
+  <p class="note">Mapping drugs onto the systems: SSRI (fluoxetine), SARI (trazodone), and TCAs (clomipramine, amitriptyline, doxepin) raise serotonin; alpha-2 agonists (clonidine) lower NE; gabapentin lowers glutamate; benzodiazepines (alprazolam) raise GABA. <span class="bdg notes">your notes</span></p>
+</section><section class="panel" id="core">
+  <h2 class="sec">Core Drug Classes</h2>
+  <p class="lead">The five classes you will be tested on most: baseline SSRIs and TCAs, and the situational benzodiazepines, alpha-2 agonists, and trazodone.</p>
+  <figure class="fig">
+    <svg viewBox="0 0 520 130" width="100%" role="img" aria-label="Baseline versus situational medication">
+      <g font-size="12" text-anchor="middle">
+        <rect x="20" y="20" width="220" height="90" rx="12" class="sgbox"/>
+        <text x="130" y="44" class="sgtxt">Baseline (long-term)</text>
+        <text x="130" y="64" font-size="10.5" class="sgmut">daily; weeks to effect</text>
+        <text x="130" y="82" font-size="10.5" class="sgmut">SSRIs, TCAs, MAOIs</text>
+        <text x="130" y="100" font-size="10.5" class="sgmut">chronic or unpredictable problems</text>
+        <rect x="280" y="20" width="220" height="90" rx="12" class="sgbox2"/>
+        <text x="390" y="44" class="sgtxt">Situational (PRN)</text>
+        <text x="390" y="64" font-size="10.5" class="sgmut">rapid; short term</text>
+        <text x="390" y="82" font-size="10.5" class="sgmut">benzodiazepines, alpha-2, trazodone, gabapentin</text>
+        <text x="390" y="100" font-size="10.5" class="sgmut">predictable events, bridging</text>
+      </g>
+    </svg>
+    <figcaption>Baseline versus situational categories from the shelter behavioural formulary, built from your notes. Original didactic schematic.</figcaption>
+  </figure>
+  <h3>SSRIs</h3>
+  <ul class="hy">
+    <li>Fluoxetine, paroxetine, sertraline, citalopram, escitalopram. They block serotonin reuptake; full effect takes 4 to 8 weeks. Fewer cardiac effects and may be safer in seizure-prone pets, but can reduce thyroid hormone. <span class="bdg notes">your notes</span></li>
+    <li>Indications: sertraline (panic, generalised anxiety, compulsive); fluvoxamine and fluoxetine (hyperactivity, aggression, compulsive); paroxetine (impulsivity, aggression, ritualistic). <span class="bdg notes">your notes</span></li>
+    <li>Fluoxetine: separation anxiety, aggression, feline urine marking, compulsive disorder; dogs 1 to 2 mg/kg SID, cats 0.5 to 1 mg/kg SID; can alter blood glucose (caution in diabetics); wean if used over 4 weeks. <span class="bdg notes">your notes</span></li>
+  </ul>
+  <div class="trap">
+    <b>Exam trap: the fluoxetine washout</b>
+    Fluoxetine has a very long half-life in dogs (at least 5 days), so switching from fluoxetine to an MAOI (selegiline) needs a 5-week washout to avoid serotonin syndrome. <span class="bdg notes">your notes</span>
+  </div>
+  <h3>TCAs</h3>
+  <ul class="hy">
+    <li>Clomipramine, amitriptyline, doxepin. They inhibit NE and serotonin reuptake and carry anticholinergic, antihistaminic, and alpha-1 effects, so side effects are broader; they also lower the seizure threshold and are contraindicated in seizure disorders. <span class="bdg notes">your notes</span></li>
+    <li>Clomipramine (Clomicalm): the strongest serotonergic TCA; licensed for canine separation anxiety with a behaviour plan; 2 to 4 mg/kg q24h (q12h may work better); a 2-week washout when switching to an MAOI; ineffective for owner-related aggression. <span class="bdg notes">your notes</span></li>
+    <li>Amitriptyline: traditionally used for cats urinating outside the box (cost and familiarity) and may help feline interstitial cystitis via NE-mediated pain reduction. Doxepin: high antihistaminic effect, used mainly for pruritus. <span class="bdg notes">your notes</span></li>
+  </ul>
+  <h3>Benzodiazepines</h3>
+  <ul class="hy">
+    <li>Act on GABA-A; onset 1 to 2 hours, lasting a few hours up to 8 to 10. Mild sedative at low doses, anxiolytic at moderate, hypnotic at high. Indicated for intense anxiety or panic (storms, noise phobia, separation, car rides, feline spraying). About 67% effective for anxiety cases. <span class="bdg notes">your notes</span></li>
+    <li>Specific agents: alprazolam for acute fear and panic (and with clomipramine for noise phobia); clonazepam and clorazepate for chronic generalised anxiety; oxazepam as a feline appetite stimulant; chlordiazepoxide for feline urine spraying. <span class="bdg notes">your notes</span></li>
+    <li>Drug-specific doses from your formulary: alprazolam 0.02 to 0.1 mg/kg PO PRN or q8 to 12h (cat 0.125 to 0.25 mg per cat PO q12h); lorazepam 0.02 to 0.1 mg/kg PO PRN or q8 to 24h (cat 0.25 mg per cat PO PRN). Oral diazepam is generally avoided in cats because of the rare risk of fatal acute hepatic necrosis. <span class="bdg notes">your notes</span></li>
+    <li>Disinhibition can increase exploration and appetite and reduce avoidance, but can also increase aggression, so use caution and basket-muzzle or crate training in animals with an aggression history. Paradoxical excitation is best discovered with owners present. <span class="bdg notes">your notes</span></li>
+    <li>Rare acute hepatic necrosis can occur in cats after oral diazepam, so screen liver function at baseline and recheck 3 to 5 days after starting. Always wean (10 to 25% per week) to avoid anxiety, anorexia, tremors, or seizures. <span class="bdg notes">your notes</span></li>
+  </ul>
+  <h3>Alpha-2 agonists</h3>
+  <ul class="hy">
+    <li>Clonidine, dexmedetomidine, detomidine. They inhibit NE release in the locus ceruleus; anxiolysis can occur at doses below those needed for sedation. Clonidine is given 1.5 to 2 hours before an event, up to twice daily; reversible with atipamezole. <span class="bdg notes">your notes</span></li>
+    <li>Dexmedetomidine oromucosal gel (Sileo) is labelled for canine noise aversion and still helps once fear has begun (onset at least 30 minutes, more like 1 to 2 hours); useful for poor intake coping and noisy transport. <span class="bdg notes">your notes</span></li>
+    <li>It is not suitable for severe fear with handling because it must be given oromucosally; the site goes pale from vasoconstriction, and if swallowed, high first-pass metabolism makes the effect low and the overdose risk low. Contraindicated with cardiac disease or NE-raising drugs. <span class="bdg notes">your notes</span></li>
+  </ul>
+  <h3>Trazodone (SARI)</h3>
+  <ul class="hy">
+    <li>A serotonin 2A antagonist and reuptake inhibitor that also blocks histamine and alpha-1; a fast-acting situational drug and a bridge while a baseline takes effect. Used for generalised and separation anxiety, storm phobia, and calming hospitalised pets. <span class="bdg notes">your notes</span></li>
+    <li>Avoid before a neurologic examination, and use caution with impaired primary haemostasis (it decreases platelet aggregation). Dog 2 to 5 mg/kg PRN or q12h (3 to 4 mg/kg q12h for kennel stress, generally under 10 mg/kg daily); cats 12.5 to 50 mg per cat (onset about 3 hours in cats versus 1 to 2 in dogs, so trial the dose first). <span class="bdg notes">your notes</span></li>
+    <li>Low-dose intake trazodone in the first 48 hours has been associated with lower respiratory illness, shorter stays, and higher adoption. <span class="bdg ref">std ref</span></li>
+  </ul>
+  <div class="trap">
+    <b>Exam trap: trazodone is dose-dependent</b>
+    Trazodone gives targeted anxiety reduction at the lower end of its range. At higher doses the effect at serotonin receptors becomes less specific, so sedation, hypnotic effect, and side effects increase. Do not just raise the dose to chase the hypnotic effect. <span class="bdg notes">your notes</span>
+  </div>
+</section><section class="panel" id="other">
+  <h2 class="sec">Other Agents and Serotonin Syndrome</h2>
+  <p class="lead">The secondary agents, the hormonal and lithium options, and the one toxicity you must recognise instantly.</p>
+  <h3>Buspirone (azapirone)</h3>
+  <ul class="hy">
+    <li>A partial serotonin 5-HT1A agonist; a mild anxiolytic for taking the edge off and building the confidence of an overly fearful pet, useful alongside an SSRI or clomipramine. <span class="bdg notes">your notes</span></li>
+    <li>It does NOT impair motor function or cognition (a good first choice for mild chronic fear), gives about a 50% reduction in feline urine marking, but can disinhibit and increase aggression. Dose about 0.5 to 1 mg/kg BID (2 mg/kg for pretravel); weeks to effect. <span class="bdg notes">your notes</span></li>
+  </ul>
+  <div class="trap">
+    <b>Exam trap: where buspirone fails</b>
+    Buspirone is NOT indicated for panic disorders and is not proven for intense fear, phobias, compulsive disorders, or canine aggression. <span class="bdg notes">your notes</span>
+  </div>
+  <h3>Gabapentin</h3>
+  <ul class="hy">
+    <li>An alpha-2-delta-1 ligand that reduces release of glutamate, NE, and substance P. It is structurally similar to GABA but does NOT act at the GABA receptor. Used for neuropathic pain and seizures, with anxiolytic properties; dog 10 to 30 mg/kg PRN or TID; sedation usually resolves. <span class="bdg notes">your notes</span></li>
+    <li>Effective for feline fear and anxiety before transport or vet visits. <span class="bdg notes">your notes</span></li>
+  </ul>
+  <div class="trap">
+    <b>Exam trap: xylitol in human gabapentin</b>
+    Human oral liquid gabapentin commonly contains xylitol, which is toxic to dogs. Always use a xylitol-free suspension for canine patients. <span class="bdg notes">your notes</span>
+  </div>
+  <h3>MAOIs and selegiline</h3>
+  <ul class="hy">
+    <li>MAOIs prevent breakdown of NE, dopamine, and serotonin. Selegiline selectively inhibits MAO-B in the dog, used for canine cognitive dysfunction, some pituitary-dependent hyperadrenocorticism, and fearful dogs with strong behavioural inhibition; dog 0.5 to 1 mg/kg SID in the morning. <span class="bdg notes">your notes</span></li>
+    <li>Mandatory washout before an MAOI: 5 weeks from fluoxetine, 2 weeks from clomipramine, and avoid all other serotonergic agents. <span class="bdg notes">your notes</span></li>
+  </ul>
+  <h3>Mirtazapine</h3>
+  <ul class="hy">
+    <li>A post-synaptic tetracyclic that enhances NE and 5-HT1A serotonergic transmission via alpha-2 antagonism; a serotonin receptor antagonist, so less likely to cause serotonin syndrome. Antiemetic and appetite-stimulating. <span class="bdg notes">your notes</span></li>
+    <li>Cats 1.88 to 3.75 mg per cat q72h; dogs about 0.6 to 1.3 mg/kg q24h, equivalent to 3.75 mg (under 10 kg) up to 15 mg (over 35 kg), to a maximum of 30 mg total daily. <span class="bdg notes">your notes</span></li>
+  </ul>
+  <div class="corrbox">
+    <b>Corrected per your approval: mirtazapine maximum</b>
+    Your notes read "0.6 mg/kg up to a max of 30 mg/kg." The maximum is 30 mg TOTAL daily, not per kilogram; the per-kg figure was a transcription error (verified against veterinary dosing references, where the canine dose is about 0.6 to 1.3 mg/kg q24h to a maximum of 30 mg daily). The dog tablet range of 3.75 to 15 mg is consistent with this cap. <span class="bdg corr">corrected</span>
+  </div>
+  <h3>Antihistamines, hormonal therapy, lithium</h3>
+  <ul class="hy">
+    <li>Antihistamines (hydroxyzine, diphenhydramine, others) for mild anxiety, overactivity, or sleep; anticholinergic, so dry mouth and constipation, contraindicated with glaucoma, urine retention, or hyperthyroidism. Cyproheptadine is an antihistamine with antiserotonergic effects and is an appetite stimulant. <span class="bdg notes">your notes</span></li>
+    <li>Hormonal therapy (progestins) for feline inappropriate urination and some anxiety or aggression, but serious side effects (diabetes mellitus, adrenocortical and bone-marrow suppression, mammary disease). <span class="bdg notes">your notes</span></li>
+    <li>Lithium for some forms of severe unpredictable aggression; highly toxic with a narrow window (therapeutic 0.8 to 1.2 mEq/L). <span class="bdg notes">your notes</span></li>
+  </ul>
+  <h3>Serotonin syndrome</h3>
+  <figure class="fig">
+    <svg viewBox="0 0 520 180" width="100%" role="img" aria-label="Serotonin syndrome escalating from mild to fatal">
+      <defs><marker id="arBM4" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path class="sgarrow" d="M0,0 L7,3 L0,6 Z"/></marker></defs>
+      <g font-size="11.5">
+        <rect x="40" y="14" width="440" height="28" rx="8" class="sgbox"/><text x="52" y="32" class="sgtxt">Agitation, confusion, anxiety, restlessness, tremors</text>
+        <rect x="40" y="56" width="440" height="28" rx="8" class="sgbox"/><text x="52" y="74" class="sgtxt">Increased heart rate, vomiting, diarrhoea</text>
+        <rect x="40" y="98" width="440" height="28" rx="8" style="fill:rgba(178,59,59,.14);stroke:var(--bad)"/><text x="52" y="116" style="fill:var(--bad)">Seizures, hyperthermia, blood-pressure changes, coma, death</text>
+        <rect x="40" y="140" width="440" height="28" rx="8" class="sgbox2"/><text x="52" y="158" class="sgtxt">Treat: halve or stop the drug; cyproheptadine 1.1 mg/kg q1 to 4h; diazepam; IVFT</text>
+      </g>
+      <line x1="260" y1="42" x2="260" y2="54" class="sgline" marker-end="url(#arBM4)"/>
+      <line x1="260" y1="84" x2="260" y2="96" class="sgline" marker-end="url(#arBM4)"/>
+      <line x1="260" y1="126" x2="260" y2="138" class="sgline" marker-end="url(#arBM4)"/>
+    </svg>
+    <figcaption>Serotonin syndrome escalation and treatment, built from your notes. Original didactic schematic.</figcaption>
+  </figure>
+  <div class="trap">
+    <b>Exam trap: serotonin syndrome triggers and antidote</b>
+    It occurs when serotonergic drugs stack (SSRI plus TCA plus MAOI, or with tramadol, amitraz, St John's wort, buspirone, and others). Signs resolve within 48 hours if the dose is halved or stopped; the specific antagonist is cyproheptadine (1.1 mg/kg every 1 to 4 hours), with diazepam for seizures and IV fluids for cardiovascular support. <span class="bdg notes">your notes</span>
+  </div>
+</section><section class="panel" id="adjunct">
+  <h2 class="sec">Adjuncts (Administered Non-Pharmaceutical Agents)</h2>
+  <p class="lead">Lower-risk agents that are given to the animal to support, and sometimes substitute for, drug therapy.</p>
+  <table class="cmp">
+    <tr><th>Intervention</th><th>Key points</th></tr>
+    <tr><td><b>Pheromones</b></td><td>Act via the vomeronasal organ; cat F3 (cheek) and F4 (appeasing) and dog-appeasing pheromone, with weak to moderate evidence. Spray lasts about 6 hours, a diffuser covers 50 to 70 square metres for 30 days; good for small shelter rooms with negative-pressure airflow</td></tr>
+    <tr><td><b>Milk protein (alpha-casozepine; Zylkene)</b></td><td>Similar structure to GABA; 15 to 30 mg/kg daily, started 1 to 2 days before a stressor; the dietary form is helpful mainly in cats, since large dogs would need too much</td></tr>
+    <tr><td><b>L-theanine</b></td><td>Green tea derivative; reduces glutamate and raises GABA and dopamine; used for chronic anxiety; mild GI upset or drowsiness</td></tr>
+    <tr><td><b>Probiotics</b></td><td>Gut-brain axis; a novel strain improved anxiety behaviours, heart-rate variability, and cortisol; costly</td></tr>
+  </table>
+  <p class="note">Environmental enrichment (olfactory scent programs, music, and audio-volume guidance) overlaps the welfare and enrichment material and is kept in that subdomain rather than here. <span class="bdg ref">scope note</span></p>
+</section><section class="panel" id="mcq">
+  <h2 class="sec">MCQ Test Bank</h2>
+  <p class="lead">All 30 questions are behaviour-medication only. The off-topic stress and welfare questions from the upload were removed. Questions 1 to 15 are your original pharmacology questions; questions 16 to 30 were drafted from your Behaviour Medications notes to refill the bank. Correct-answer positions are redistributed across A to D, with content unchanged.</p>
+  <div class="mcqbar">
+    <div class="label"><span class="dot"></span>30 questions &middot; Behaviour Medications</div>
+    <div class="score"><span id="scoreTxt">0 / 0 correct</span><button class="reset" id="resetBtn">Reset</button></div>
+  </div>
+  <div id="qhost"></div>
+</section>
+</div></main>
+<footer><div class="wrap">
+  Behaviour Medications subdomain hub &middot; Behavioural Health domain &middot; ABVP Shelter Medicine Practice RVS, November 2026. Content badged by source: your uploaded notes, ASV principles, and textbook or published references. MCQ items 16 to 30 were drafted from your notes. In-house SVG schematics are original didactic constructions. Supports light and dark mode.
+</div></footer>
+<script>
+const tabrow=document.getElementById('tabrow');
+tabrow.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.disabled)return;
+  [...tabrow.children].forEach(x=>x.classList.remove('active'));b.classList.add('active');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('show'));
+  document.getElementById(b.dataset.p).classList.add('show');window.scrollTo({top:0,behavior:'smooth'});});
+const Q=[
+{t:"bm",f:"notes",q:"An owner-surrendered 2-year-old German Shepherd shows severe, out-of-context tail chasing and spinning within 48 hours of intake. This repetitive, out-of-context pattern is categorised as a:",o:["Compulsive or stereotypic behaviour, typically worsened by confinement and transitional stress","Normal exploratory coping sequence expected in adult herding breeds","A state of good stress that enhances immediate memory and visual cognition","Direct clinical sign of acute acetylcholine depletion at the neuromuscular junction"],a:0,e:"Repetitive, out-of-context behaviours like tail chasing and spinning are compulsive or stereotypic and emerge with confinement and transitional stress."},
+{t:"bm",f:"asv",q:"A shelter veterinarian starts daily fluoxetine for an anxious dog still trembling and hiding 3 days after intake. Which condition must be met to satisfy clinical and ASV standards?",o:["The medication is given as a standalone treatment with no change to enrichment or housing","Fluoxetine is combined immediately with an MAOI on day one to speed onset","It is combined with a concurrent BMOD program, staff trained to monitor side effects, and a clear follow-up plan","Behavioural medication is used only once the animal is already well adjusted to shelter life"],a:2,e:"Psychotropic medication must be paired with BMOD, trained monitoring, and a follow-up plan; it is never a standalone fix."},
+{t:"bm",f:"notes",q:"A Doberman on baseline clomipramine for flank-sucking is transitioned to the MAOI selegiline. What protocol prevents severe neurovascular toxicity?",o:["Start selegiline at ten times the label dose to override clomipramine","Switch directly with zero washout interval","Give high-dose intravenous amitraz during the transition","Observe a strict 2-week washout when switching from a TCA to an MAOI"],a:3,e:"A 2-week washout is required when moving from a TCA like clomipramine to an MAOI to avoid serotonin syndrome."},
+{t:"bm",f:"notes",q:"A dog with a history of fear-related defensive snapping is given alprazolam before a medical exam. What side effect must the handler anticipate from the mechanism of action?",o:["Permanent loss of appetite and rapid weight loss","Behavioural disinhibition, which reduces conscious inhibition and can increase the display of aggression","Idiosyncratic acute renal failure with profound polyuria","Instant hypertrophy of the thyroid gland"],a:1,e:"Benzodiazepines can cause disinhibition by reducing conscious executive control, which can increase aggression."},
+{t:"bm",f:"notes",q:"A dog receives a double dose of fluoxetine plus trazodone and tramadol, then develops agitation, tremors, confusion, tachycardia, diarrhoea, and hyperthermia. This is most consistent with:",o:["Serotonin syndrome from combining multiple drugs that enhance serotonin","Acute acetylcholine toxicosis from muscarinic receptor degradation","Paradoxical alpha-2 adrenergic autoreceptor exhaustion","Normal behavioural habituation to a fixed schedule"],a:0,e:"Serotonin syndrome is caused by stacking serotonergic drugs such as an SSRI, a SARI, and tramadol."},
+{t:"bm",f:"notes",q:"A dog on trazodone 3 mg/kg q12h for kennel stress needs a higher dose for transport. What pharmacological concept matters most?",o:["Trazodone is a pure irreversible MAO-A inhibitor at all doses","High doses eliminate serotonin syndrome risk when mixed with fluoxetine","It reduces anxiety at the lower end of the range; at higher doses the effect is less specific and hypnotic effects and side effects increase","If swallowed rather than absorbed oromucosally it becomes 500 times more potent"],a:2,e:"Trazodone is dose-dependent: targeted anxiolysis at low doses, less specificity and more sedation and side effects at high doses."},
+{t:"bm",f:"notes",q:"A canine plan uses human oral liquid gabapentin for fear-related arousal on walks. What label warning must be checked?",o:["Ensure it contains at least 50% ethanol for tranquillisation","Verify alpha-casozepine for NMDA binding","Confirm artificial dyes for low-light stability","Avoid formulations containing xylitol, a common ingredient in human liquid gabapentin that is toxic to dogs"],a:3,e:"Human liquid gabapentin often contains xylitol, which is toxic to dogs, so a xylitol-free product is required."},
+{t:"bm",f:"notes",q:"Which medication is the primary specific serotonin-receptor antagonist used to treat severe serotonin toxicity?",o:["Diazepam","Cyproheptadine","Atipamezole","Flumazenil"],a:1,e:"Cyproheptadine is the specific serotonin antagonist used for severe serotonin syndrome."},
+{t:"bm",f:"notes",q:"A cat on the SSRI fluoxetine for 4 weeks must switch to selegiline. What is the mandatory washout window?",o:["A strict 5-week washout, because fluoxetine has a long half-life","No washout, since fluoxetine clears within 12 hours","Exactly 48 hours if IV fluids are given","A 1-week washout only if the cat is unsterilised"],a:0,e:"Fluoxetine's long half-life requires a 5-week washout before starting an MAOI."},
+{t:"bm",f:"notes",q:"A cat is prescribed oral diazepam for territorial anxiety and spraying. What rare organ toxicosis must be screened for before and 3 to 5 days after starting?",o:["Idiopathic acute pulmonary emphysema","Bilateral cataracts from raised intraocular pressure","Acute hepatic necrosis (fatal liver failure)","Bone marrow suppression with panleukopenia"],a:2,e:"Oral diazepam can cause rare idiosyncratic acute hepatic necrosis in cats, so baseline and recheck liver panels are advised."},
+{t:"bm",f:"notes",q:"Which side-effect profile reflects the potent anticholinergic activity of TCAs like clomipramine?",o:["Profuse salivation, severe diarrhoea, miosis, bradycardia","Severe hypoglycaemia with loss of peripheral white cells","Brain atrophy restricted to the cerebellum","Dry mouth, urine retention, constipation, mydriasis, and increased heart rate"],a:3,e:"Anticholinergic effects give dry mouth, urine retention, constipation, mydriasis, and tachycardia."},
+{t:"bm",f:"notes",q:"An oromucosal dexmedetomidine gel is chosen for noise aversion. What directive must handlers follow?",o:["Mix it into a large volume of canned food and have the dog swallow it","Apply it to the oral mucosa; if swallowed, the effect is much lower due to high first-pass metabolism","Apply it to the external ear canal for systemic vasodilation","Dose it 24 hours after the noise event has ended"],a:1,e:"The gel must absorb across the oral mucosa; swallowing it triggers first-pass metabolism and reduces efficacy."},
+{t:"bm",f:"notes",q:"Which option correctly matches a neurotransmitter with its role?",o:["Glutamate is the primary excitatory transmitter, and its NMDA receptors can be blocked by ketamine for pain-associated anxiety","GABA is the primary excitatory transmitter that makes neurons fire","Acetylcholine is an amino-acid derivative used only to synthesise epinephrine","Dopamine is the primary inhibitory transmitter that prevents seizures"],a:0,e:"Glutamate is the primary excitatory transmitter; NMDA blockers like ketamine address pain-associated anxiety."},
+{t:"bm",f:"notes",q:"An animal's reaction is defined by Provocation, Proportion, and Persistence. Within what timeframe should a normal, resilient dog recover from a mild to moderate stressor?",o:["At least 90 to 120 minutes of continuous panting and pacing","Exactly 5 days, matching fluoxetine's half-life","Within a couple of minutes at most; longer suggests an abnormal pattern or compromised welfare","It should remain hyper-aroused indefinitely"],a:2,e:"A normal dog recovers within a couple of minutes; prolonged arousal suggests abnormality or a welfare problem."},
+{t:"bm",f:"notes",q:"Buspirone (an azapirone) is considered for a fearful cat. What is its mechanism, and what is it not indicated for?",o:["An irreversible NMDA blocker, contraindicated for confidence building","A potent alpha-1 antagonist, contraindicated for feline urine marking","A massive acetylcholine releaser, contraindicated for seniors","A partial serotonin 5-HT1A agonist, not indicated for intense panic, severe phobias, or compulsive conditions"],a:3,e:"Buspirone is a partial 5-HT1A agonist for mild anxiety and confidence building, ineffective for panic, phobias, and compulsion."},
+{t:"bm",f:"notes",q:"Which statement correctly describes GABA and the drugs that act on it?",o:["GABA is the main excitatory transmitter and is blocked by benzodiazepines","GABA is the major inhibitory transmitter; benzodiazepines enhance it at the GABA-A receptor, and flumazenil reverses them","GABA is synthesised from serotonin and controls platelet aggregation","Increasing GABA activity is stimulant and raises locomotor activity"],a:1,e:"GABA is the major inhibitory transmitter; benzodiazepines act at GABA-A and flumazenil is the reversal agent."},
+{t:"bm",f:"notes",q:"A dog is started on fluoxetine for separation anxiety. Which dosing and onset statement is correct?",o:["Dogs are dosed about 1 to 2 mg/kg once daily (cats 0.5 to 1 mg/kg), with full effect taking 4 to 8 weeks","The effect is immediate, within hours of the first dose","It is dosed three times daily and acts within 30 minutes","It is used only on an as-needed basis before stress events"],a:0,e:"Fluoxetine is a baseline SSRI: dogs 1 to 2 mg/kg SID (cats 0.5 to 1 mg/kg SID), full effect in 4 to 8 weeks, not situational."},
+{t:"bm",f:"notes",q:"Clomipramine (Clomicalm) is being considered for a dog. Which statement is accurate?",o:["It is the drug of choice for owner-related aggression","It has no serotonergic activity and acts only on histamine","It is licensed for canine separation anxiety with a behaviour plan but is ineffective for owner-related aggression","It works within minutes and needs no behaviour plan"],a:2,e:"Clomipramine is licensed for canine separation anxiety with a behaviour plan, is the most serotonergic TCA, and is ineffective for owner-related aggression."},
+{t:"bm",f:"notes",q:"Which benzodiazepine and pairing is most useful for acute fears, panic, and canine noise phobia?",o:["Oxazepam, because it is the longest-acting appetite stimulant","Chlordiazepoxide, the first choice for chronic generalised anxiety","Clorazepate, given only as a single lifetime dose","Alprazolam, which suits acute fears and panic and works well with clomipramine for noise phobia"],a:3,e:"Alprazolam, short-acting and potent, is most useful for acute fear and panic and pairs with clomipramine for noise phobia."},
+{t:"bm",f:"notes",q:"A cat has been on a benzodiazepine for several weeks and the drug is to be stopped. What is correct?",o:["Stop abruptly, since benzodiazepines have no withdrawal","Wean gradually (about 10 to 25% per week) to avoid rebound anxiety, anorexia, tremors, or seizures","Double the dose for one day, then stop","Switch directly to an MAOI with no washout"],a:1,e:"Benzodiazepines must always be weaned (about 10 to 25% per week) to avoid withdrawal anxiety, anorexia, tremors, and seizures."},
+{t:"bm",f:"notes",q:"An alpha-2 agonist (clonidine or dexmedetomidine) causes excessive sedation and hypotension. What is true of this class?",o:["It inhibits NE release in the locus ceruleus and can be reversed with atipamezole","It stimulates NE release in the locus ceruleus to raise arousal","It has no cardiovascular effects and needs no monitoring","It is a serotonin reuptake inhibitor reversed by flumazenil"],a:0,e:"Alpha-2 agonists inhibit NE release in the locus ceruleus (sedation, analgesia, anxiolysis) and are reversed with atipamezole."},
+{t:"bm",f:"notes",q:"Which drug blocks the physical signs of fear by blocking the effects of adrenaline (epinephrine)?",o:["Cyproheptadine, a serotonin agonist","Selegiline, which increases epinephrine breakdown","Propranolol, a beta-blocker that blocks epinephrine at beta-receptors","Gabapentin, which binds the NMDA receptor"],a:2,e:"Propranolol is a beta-blocker that blocks epinephrine at beta-receptors, reducing the physical signs of fear."},
+{t:"bm",f:"notes",q:"A shelter dog needs an appetite-stimulating behavioural agent less likely to cause serotonin syndrome. Which statement about mirtazapine is correct?",o:["It is an SSRI dosed at 30 mg/kg daily","It must never be used when appetite is a concern","It is a benzodiazepine reversed by atipamezole","It is a serotonin receptor antagonist with antiemetic and appetite-stimulating effects, dosed up to a maximum of 30 mg total daily in dogs"],a:3,e:"Mirtazapine is a tetracyclic serotonin receptor antagonist (lower serotonin-syndrome risk) with antiemetic and appetite effects; the canine dose is about 0.6 to 1.3 mg/kg q24h to a maximum of 30 mg total daily (not 30 mg/kg)."},
+{t:"bm",f:"notes",q:"Selegiline is selected for an aging dog with cognitive decline. Which statement is accurate?",o:["It is a benzodiazepine that acts within minutes","It selectively inhibits MAO-B and is used for canine cognitive dysfunction, with a required washout from serotonergic drugs","It is an SSRI safe to combine with fluoxetine immediately","It is an alpha-2 agonist reversed by atipamezole"],a:1,e:"Selegiline selectively inhibits MAO-B and is used for canine cognitive dysfunction; serotonergic drugs need a washout (5 weeks from fluoxetine, 2 weeks from clomipramine) first."},
+{t:"bm",f:"notes",q:"How do pheromone products (cat F3 and F4 or dog-appeasing pheromone) act, and how strong is the evidence?",o:["Through the vomeronasal organ, with weak to moderate evidence for reducing anxiety in some settings","Through the main olfactory epithelium, with strong proven efficacy","By systemic absorption after ingestion, acting like a benzodiazepine","Only in dogs, never in cats"],a:0,e:"Pheromones act mainly via the vomeronasal organ, with weak to moderate evidence for reducing anxiety."},
+{t:"bm",f:"notes",q:"Alpha-casozepine (a milk protein derivative such as Zylkene) is considered. Which statement is correct?",o:["The dietary formulation works equally well in large dogs and cats","It is contraindicated in all cats","It is structurally similar to GABA, and the dietary form is helpful mainly in cats because large dogs would need too much","It is a controlled benzodiazepine requiring weaning"],a:2,e:"Alpha-casozepine is structurally similar to GABA; the dietary form is useful mainly in cats, since large dogs would need an impractical amount."},
+{t:"bm",f:"notes",q:"L-theanine is offered as a calming supplement. What is its proposed action?",o:["It increases glutamate and decreases GABA","It is a potent irreversible MAOI","It blocks the GABA-A receptor like flumazenil","It reduces the effect of glutamate and increases GABA and dopamine"],a:3,e:"L-theanine, a green tea derivative, reduces glutamate effect and increases GABA and dopamine, and is used for chronic anxiety."},
+{t:"bm",f:"notes",q:"Lithium is considered for a dog with severe unpredictable aggression. What must be remembered?",o:["It is very safe with a wide therapeutic margin","It is highly toxic with a narrow therapeutic window (about 0.8 to 1.2 mEq/L) and needs blood-level monitoring","It is a first-line situational anxiolytic","It has no renal or gastrointestinal effects"],a:1,e:"Lithium is highly toxic with a narrow therapeutic window (about 0.8 to 1.2 mEq/L), so blood levels must be monitored."},
+{t:"bm",f:"notes",q:"A dog on clomipramine for a compulsive disorder has improved substantially. How should therapy be managed?",o:["Continue at least 3 weeks after a satisfactory reduction, then wean over 3 to 4 weeks while continuing behaviour modification","Stop the drug immediately once any improvement is seen","Increase to the maximum dose indefinitely","Switch straight to an MAOI with no washout"],a:0,e:"For compulsive disorders, continue at least 3 weeks after a satisfactory reduction, then wean over 3 to 4 weeks with ongoing behaviour modification."},
+{t:"bm",f:"notes",q:"A dog shows high physiologic arousal (hackles up, dilated pupils, hard panting, heavy salivation, poor recovery). Which agent may suit better?",o:["Trazodone, because arousal always responds best to a SARI","Buspirone, the drug of choice for panic","Clonidine may be better than trazodone for this high-arousal, poor-recovery picture","An antihistamine, which is contraindicated in arousal"],a:2,e:"For marked physiologic arousal with poor recovery, clonidine (an alpha-2 agonist) may work better than trazodone."}
+];
+const host=document.getElementById('qhost');
+const scoreTxt=document.getElementById('scoreTxt');
+let answered=0, correct=0;
+const DLABEL={bm:"Behaviour Medications"};
+function tagLabel(t){return DLABEL[t]||t.toUpperCase();}
+function flagBadge(f){
+  if(f==='corr')return '<span class="bdg corr">corrected</span>';
+  if(f==='notes')return '<span class="bdg notes">your notes</span>';
+  if(f==='asv')return '<span class="bdg asv">ASV</span>';
+  if(f==='ref')return '<span class="bdg ref">std ref</span>';
+  return '';
+}
+function render(){
+  host.innerHTML='';answered=0;correct=0;updateScore();
+  Q.forEach((item,i)=>{
+    const card=document.createElement('div');card.className='q';
+    card.innerHTML=`<div class="meta"><span class="num">#${i+1}</span><span class="tag">&#9670; ${tagLabel(item.t)}</span>${flagBadge(item.f)}</div><div class="stem">${item.q}</div>`;
+    const opts=document.createElement('div');
+    item.o.forEach((txt,oi)=>{
+      const btn=document.createElement('button');btn.className='opt';
+      btn.innerHTML=`<span class="k">${String.fromCharCode(65+oi)}</span>${txt}`;
+      btn.onclick=()=>choose(card,opts,item,oi);opts.appendChild(btn);
+    });
+    card.appendChild(opts);
+    const ex=document.createElement('div');ex.className='expl';
+    ex.innerHTML=`<b class="cor">Correct: ${String.fromCharCode(65+item.a)}.</b> ${item.e}`;
+    card.appendChild(ex);host.appendChild(card);
+  });
+}
+function choose(card,opts,item,oi){
+  if(card.dataset.done)return;card.dataset.done='1';answered++;
+  [...opts.children].forEach((b,bi)=>{b.classList.add('locked');
+    if(bi===item.a)b.classList.add('correct');
+    if(bi===oi && oi!==item.a)b.classList.add('wrong');});
+  if(oi===item.a)correct++;
+  card.querySelector('.expl').classList.add('show');updateScore();
+}
+function updateScore(){scoreTxt.textContent=`${correct} / ${answered} correct`;}
+document.getElementById('resetBtn').onclick=render;
+render();
+</script>
+</body>
+</html>

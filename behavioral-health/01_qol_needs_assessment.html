@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<title>QOL and Needs Assessment Subdomain Hub | ABVP Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme:light dark;
+    --bg:#eef2f7;--surface:#fbfdff;--surface2:#e8edf4;
+    --chrome:#1c3a5e;--chrome2:#264f78;
+    --text:#16273a;--onChrome:#e9f0f8;--muted:#586a7d;
+    --line:#ccd6e2;
+    --accent:#b1466f;--accent-soft:#f3e0ea;
+    --good:#1f7a4d;--good-soft:#e3f2ea;--bad:#b23b3b;
+    --notes:#7a4fb5;--notes-soft:#ece3f7;
+    --asv:#1f6f86;--asv-soft:#dcecf2;
+    --ref:#b5651d;--ref-soft:#f6e7d4;
+    --dot:rgba(28,58,94,.05);
+    --shadow:0 1px 2px rgba(20,40,70,.08),0 8px 24px rgba(20,40,70,.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0e1622;--surface:#16212f;--surface2:#1b2735;
+      --chrome:#122236;--chrome2:#1b3450;
+      --text:#dde6f1;--onChrome:#e9f0f8;--muted:#9aacbf;
+      --line:#2a3a4d;
+      --accent:#d3789c;--accent-soft:rgba(211,120,156,.16);
+      --good:#51b184;--good-soft:rgba(40,140,90,.18);--bad:#e08585;
+      --notes:#c0a4ec;--notes-soft:rgba(150,110,210,.20);
+      --asv:#66c0d6;--asv-soft:rgba(40,150,175,.18);
+      --ref:#e0a766;--ref-soft:rgba(200,130,50,.18);
+      --dot:rgba(255,255,255,.035);
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.3);
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--text);
+    font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;
+    background-image:radial-gradient(circle at 1px 1px,var(--dot) 1px,transparent 0);background-size:22px 22px;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+  .crumb{background:var(--chrome);padding:9px 18px;display:flex;align-items:center;gap:10px;font-size:13px;font-weight:500;border-bottom:2px solid var(--chrome2)}
+  .crumb a{color:#9fc0dc;text-decoration:none;display:flex;align-items:center;gap:5px}
+  .crumb .sep{color:#5f82a3;font-size:11px}
+  .crumb .here{color:#cfe0f1}
+  header.top{background:var(--chrome);color:var(--onChrome);padding:26px 0 22px;border-bottom:4px solid var(--accent)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#9fc0dc;margin:0 0 6px}
+  header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(26px,4.5vw,40px);margin:0;line-height:1.05}
+  header.top p.sub{margin:8px 0 0;color:#cfe0f1;font-size:14px;max-width:78ch}
+  .legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}
+  .legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.22);color:#eaf2fb;display:flex;align-items:center;gap:6px}
+  .legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--surface);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button:hover{background:var(--bg);color:var(--text)}
+  .tabrow button.active{background:var(--chrome);color:var(--onChrome)}
+  .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+  main{padding:30px 0 80px}
+  .panel{display:none;animation:fade .35s ease}
+  .panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;letter-spacing:-.01em;color:var(--text)}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:80ch}
+  h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:30px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;scroll-margin-top:64px;color:var(--text)}
+  h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;color:var(--text);text-transform:uppercase;letter-spacing:.03em}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}
+  p.note{font-size:14px;margin:0 0 6px}
+  ul.hy{margin:8px 0;padding-left:0;list-style:none}
+  ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed var(--line);font-size:14px}
+  ul.hy li:last-child{border-bottom:0}
+  ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;border-radius:2px;background:var(--accent);transform:rotate(45deg)}
+  .trap{background:var(--accent-soft);border:1px solid var(--accent);border-left:4px solid var(--accent);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .trap b{color:var(--accent);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .corrbox{background:var(--good-soft);border:1px solid var(--good);border-left:4px solid var(--good);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .corrbox b{color:var(--good);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .verifybox{background:var(--asv-soft);border:1px solid var(--asv);border-left:4px solid var(--asv);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .verifybox b{color:var(--asv);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp th{background:var(--chrome);color:var(--onChrome);font-weight:600;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase}
+  table.cmp tr:last-child td{border-bottom:0}
+  table.cmp td b{color:var(--text)}
+  .fig{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0;box-shadow:var(--shadow)}
+  .fig figcaption{font-size:12.5px;color:var(--muted);margin-top:8px;font-style:italic}
+  .sgbox{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1}
+  .sgbox2{fill:var(--asv-soft);stroke:var(--asv);stroke-width:1}
+  .sgtxt{fill:var(--text);font-family:"Public Sans",sans-serif}
+  .sgmut{fill:var(--muted);font-family:"Public Sans",sans-serif}
+  .sgmono{fill:var(--accent);font-family:"JetBrains Mono",monospace}
+  .sgline{stroke:var(--accent);stroke-width:2;fill:none}
+  .sgaxis{stroke:var(--line);stroke-width:1.5}
+  .sgarrow{fill:var(--accent)}
+  .bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+  .bdg.notes{background:var(--notes-soft);color:var(--notes)}
+  .bdg.asv{background:var(--asv-soft);color:var(--asv)}
+  .bdg.ref{background:var(--ref-soft);color:var(--ref)}
+  .bdg.corr{background:var(--good);color:#fff}
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--chrome);color:var(--onChrome);border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:54px;z-index:10}
+  .mcqbar .label{font-family:"JetBrains Mono",monospace;font-size:12px;color:#cfe0f1;display:flex;align-items:center;gap:8px}
+  .mcqbar .label .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);display:inline-block}
+  .score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}
+  .score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;color:#cfe0f1;padding:5px 10px;border-radius:8px;font-size:11px}
+  .q{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
+  .q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+  .q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+  .q .stem{font-weight:600;font-size:15px;margin-bottom:10px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:var(--surface2);border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;font-family:"Public Sans";color:var(--text);transition:background .15s,border-color .15s}
+  .opt:hover{border-color:var(--accent)}
+  .opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}
+  .opt.correct{background:var(--good-soft);border-color:var(--good)}
+  .opt.wrong{background:rgba(178,59,59,.14);border-color:var(--bad)}
+  .opt.locked{cursor:default}
+  .expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:var(--surface2);border:1px solid var(--line);font-size:13.5px}
+  .expl.show{display:block}
+  .expl b.cor{color:var(--good)}
+  footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
+  @media(max-width:640px){.mcqbar{top:50px}.score{font-size:12px}}
+</style>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span class="sep">&rsaquo;</span><a href="../index.html#domain-behav">Behavioural Health</a><span class="sep">&rsaquo;</span><span class="here">QOL & Needs Assessment</span></nav>
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">ABVP Shelter Medicine Practice RVS &middot; Behavioural Health</p>
+    <h1>QOL and Needs Assessment Subdomain Hub</h1>
+    <p class="sub">Exam-depth study tool for quality of life and needs assessment in the shelter: the determinants of emotional and behavioural needs, the bidirectional link between physical and emotional health, the welfare frameworks (Five Freedoms and Five Domains), and how shelters assess needs and QOL. Foundations are from your notes; the welfare frameworks and assessment definitions are grounded in the ASV Standards of Care 2022.</p>
+    <div class="legend">
+      <span><i style="background:var(--notes)"></i>Your QOL notes (PDF)</span>
+      <span><i style="background:var(--asv)"></i>ASV Standards of Care 2022</span>
+      <span><i style="background:var(--ref)"></i>Welfare / QOL reference</span>
+    </div>
+  </div>
+</header>
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="foundations"><span class="dot"></span>QOL Foundations</button>
+  <button data-p="frameworks"><span class="dot"></span>Welfare Frameworks</button>
+  <button data-p="assess"><span class="dot"></span>Assessing Needs &amp; QOL</button>
+  <button data-p="mcq"><span class="dot" style="background:var(--chrome2)"></span>MCQ Test Bank</button>
+</div></div></nav>
+<main><div class="wrap">
+
+<section class="panel show" id="foundations">
+  <h2 class="sec">QOL and Welfare Foundations</h2>
+  <p class="lead">Quality of life is broad, complex, and deeply individual. The shelter mandate is to make every attempt to sustain it, which means understanding what shapes each animal's needs and recognising that physical and emotional health move together.</p>
+
+  <h3>The six determinants of emotional and behavioural needs</h3>
+  <ul class="hy">
+    <li>Emotional and behavioural needs are determined by <b>environment, species, genetics, personality, prior socialisation, and life experiences</b>. <span class="bdg notes">your notes</span></li>
+    <li>These overlap and are non-hierarchical: a deficit in one (for example poor prior socialisation or genetics) changes how the animal responds to the others (for example its environment). <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <h3>Physical and emotional health are bidirectional</h3>
+  <p class="note">Emotional and behavioural health affect physical health, and physical health affects emotional health. A decline in physical welfare, such as undiagnosed chronic pain or disease, degrades affective states, while chronic negative emotional states, such as shelter-induced distress, impair immune function and slow medical recovery. <span class="bdg notes">your notes</span></p>
+
+  <h3>What quality of life is</h3>
+  <ul class="hy">
+    <li>Every attempt must be made to sustain QOL for shelter animals, even though QOL, like happiness, remains difficult to define universally. <span class="bdg notes">your notes</span></li>
+    <li>Both physical and emotional factors contribute to QOL, wellbeing, or welfare; these factors are broad, complex, and very individual. <span class="bdg notes">your notes</span></li>
+    <li>QOL is comprised of an array of affective states, broadly classified as comfort-discomfort and pleasure states. In general, the greater the pleasant and the lesser the unpleasant effects, the higher the QOL. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <figure class="fig">
+    <svg viewBox="0 0 520 150" width="100%" role="img" aria-label="Affective balance: more pleasant and less unpleasant states raise quality of life">
+      <line x1="30" y1="118" x2="490" y2="118" class="sgaxis"/>
+      <rect x="40" y="60" width="250" height="40" rx="8" style="fill:var(--good-soft);stroke:var(--good);stroke-width:1.1"/>
+      <text x="165" y="84" text-anchor="middle" font-size="12" class="sgtxt">Pleasant and comfort states</text>
+      <rect x="40" y="100" width="110" height="14" rx="6" style="fill:var(--accent-soft);stroke:var(--accent);stroke-width:1"/>
+      <text x="300" y="112" font-size="11" class="sgmut">unpleasant and discomfort states</text>
+      <text x="430" y="55" text-anchor="middle" font-size="13" style="fill:var(--good)">higher QOL</text>
+      <text x="430" y="72" text-anchor="middle" font-size="9.5" class="sgmut">when pleasant</text>
+      <text x="430" y="84" text-anchor="middle" font-size="9.5" class="sgmut">outweighs unpleasant</text>
+    </svg>
+    <figcaption>QOL rises as pleasant and comfort states grow and unpleasant and discomfort states shrink. The relationship is a general principle, not a precise formula. Original didactic schematic built from your notes.</figcaption>
+  </figure>
+  <div class="verifybox">
+    <b>Why QOL is individual</b>
+    Because needs are individual, an environment that produces pleasure in one animal may produce fear or discomfort in another. Assess the individual in front of you, not the species average. <span class="bdg notes">your notes</span>
+  </div>
+
+  <h3>Staff competency: the three pillars</h3>
+  <ul class="hy">
+    <li><b>Read</b> animal body language. <span class="bdg notes">your notes</span></li>
+    <li><b>Describe</b> behaviour objectively, using factual, non-anthropomorphic terminology. <span class="bdg notes">your notes</span></li>
+    <li><b>Interpret and respond</b> to body language and behaviour, adjusting the animal's care plan or handling. All relevant personnel must be trained, not only behaviour staff, so that every interaction protects QOL. <span class="bdg notes">your notes</span></li>
+  </ul>
+  <div class="trap">
+    <b>Exam trap: objective versus anthropomorphic</b>
+    Objective: the dog is cowering in the back corner with its tail tucked below the pelvic midline. Anthropomorphic and unacceptable for the record: the dog is spiteful, the cat is furious, the kitten is sad. <span class="bdg notes">your notes</span>
+  </div>
+</section><section class="panel" id="frameworks">
+  <h2 class="sec">Welfare Frameworks</h2>
+  <p class="lead">The notes point to the Five Freedoms. The ASV actually frames shelter welfare through the Five Domains, which is derived from the Five Freedoms and, crucially, adds positive welfare states, matching the notes' emphasis on pleasure as well as comfort.</p>
+
+  <h3>The Five Freedoms</h3>
+  <ul class="hy">
+    <li>Freedom from hunger and thirst; freedom from discomfort; freedom from pain, injury, or disease; freedom to express normal behaviour; and freedom from fear and distress. <span class="bdg asv">ASV</span></li>
+    <li>These define essential welfare but focus on avoiding negative experiences. Positive experiences are also needed for a life worth living, which is why the framework was extended. <span class="bdg asv">ASV</span></li>
+  </ul>
+
+  <h3>The Five Domains</h3>
+  <figure class="fig">
+    <svg viewBox="0 0 700 230" width="100%" role="img" aria-label="The Five Domains: four functional domains inform mental state, which informs welfare">
+      <defs><marker id="arQOL1" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path class="sgarrow" d="M0,0 L7,3 L0,6 Z"/></marker></defs>
+      <g font-size="11" text-anchor="middle">
+        <rect x="20" y="14" width="150" height="34" rx="8" class="sgbox"/><text x="95" y="36" class="sgtxt">1. Nutrition</text>
+        <rect x="20" y="62" width="150" height="34" rx="8" class="sgbox"/><text x="95" y="84" class="sgtxt">2. Environment</text>
+        <rect x="20" y="110" width="150" height="34" rx="8" class="sgbox"/><text x="95" y="132" class="sgtxt">3. Health</text>
+        <rect x="20" y="158" width="150" height="34" rx="8" class="sgbox"/><text x="95" y="178" class="sgtxt">4. Opportunity</text><text x="95" y="190" class="sgmut" font-size="9">(agency)</text>
+        <rect x="300" y="80" width="150" height="64" rx="10" class="sgbox2"/><text x="375" y="108" class="sgtxt" font-size="12">5. Mental state</text><text x="375" y="126" class="sgmut" font-size="9.5">affective experience</text>
+        <rect x="530" y="86" width="150" height="52" rx="10" style="fill:var(--good-soft);stroke:var(--good);stroke-width:1.2"/><text x="605" y="116" class="sgtxt" font-size="12">Welfare state</text>
+        <line x1="170" y1="31" x2="298" y2="100" class="sgline" marker-end="url(#arQOL1)"/>
+        <line x1="170" y1="79" x2="298" y2="108" class="sgline" marker-end="url(#arQOL1)"/>
+        <line x1="170" y1="127" x2="298" y2="118" class="sgline" marker-end="url(#arQOL1)"/>
+        <line x1="170" y1="175" x2="298" y2="126" class="sgline" marker-end="url(#arQOL1)"/>
+        <line x1="450" y1="112" x2="528" y2="112" class="sgline" marker-end="url(#arQOL1)"/>
+      </g>
+    </svg>
+    <figcaption>The four functional domains (nutrition, environment, health, and opportunity or agency) inform the fifth, mental state, which in turn determines overall welfare. Original didactic schematic adapted from the ASV Five Domains figure (after Mellor).</figcaption>
+  </figure>
+  <p class="note">The Five Domains model is derived from the Five Freedoms and does two new things. First, it gives a spectrum for each domain, including not just the absence of pain but the presence of comfort, fitness, and other positive experiences. Second, it shows that a positive welfare state can occur even when a need is not fully met, and that a negative state can result from a single unmet need. <span class="bdg asv">ASV</span></p>
+
+  <table class="cmp">
+    <tr><th>Domain</th><th>Positive experiences</th><th>Negative experiences</th></tr>
+    <tr><td><b>1. Nutrition</b></td><td>Enough fresh water and balanced, varied food</td><td>Restricted or poor-quality, monotonous food and water</td></tr>
+    <tr><td><b>2. Environment</b></td><td>Comfortable, temperate, clean, routine, with interest and variety</td><td>Too hot or cold, too bright or dark, too loud or quiet, unpredictable, soiled, monotonous</td></tr>
+    <tr><td><b>3. Health</b></td><td>Physical health, good function and body condition, restful sleep</td><td>Disease, pain, body dysfunction or impairment, poor fitness</td></tr>
+    <tr><td><b>4. Opportunity</b></td><td>Choice of environment and interaction, behavioural variety (play, forage, rest), novelty</td><td>Barren cage, confined space, restraint, separation from people or species, unavoidable sensory inputs</td></tr>
+    <tr><td><b>5. Mental state</b></td><td>Satisfied, engaged, comfortable, playful, confident, calm</td><td>Fearful or anxious, frustrated, bored, lonely, exhausted, in pain or discomfort</td></tr>
+  </table>
+
+  <div class="verifybox">
+    <b>The two ASV worked examples</b>
+    A stray cat on cage rest with a healing pelvic fracture (restricted agency and pain) can still have an overall positive welfare state when appropriately treated and housed in an enriched foster home. Conversely, a well-fed, physically healthy dog confined long-term to a kennel (restricted agency) may have profound distress and overall negative welfare. A single unmet need can drive welfare either way. <span class="bdg asv">ASV</span>
+  </div>
+
+  <h3>How the ASV ranks its statements</h3>
+  <ul class="hy">
+    <li><b>Unacceptable:</b> avoid or prevent without exception. <b>Must:</b> necessary to ensure humane care. <b>Should:</b> strongly recommended, expected in most circumstances. <b>Ideal:</b> implemented when resources allow. <span class="bdg asv">ASV</span></li>
+  </ul>
+</section><section class="panel" id="assess">
+  <h2 class="sec">Assessing Needs and QOL</h2>
+  <p class="lead">Needs and QOL are read through ongoing, objective behavioural observation, set against the Five Domains and the shelter's capacity for care. When QOL is profoundly and unresolvably compromised, the outcome pathway must be reconsidered.</p>
+
+  <h3>Assessment versus evaluation</h3>
+  <table class="cmp">
+    <tr><th>Term</th><th>What it is</th></tr>
+    <tr><td><b>Behaviour assessment</b></td><td>An ongoing process of observing and interpreting an individual animal's behaviour throughout its shelter stay, to understand its needs, address welfare concerns, and guide handling, outcome, and placement decisions</td></tr>
+    <tr><td><b>Behaviour evaluation</b></td><td>A structured procedure or test in which responses to a series of subtests are observed one after another (for example SAFER, Assess-a-Pet, Match-up II)</td></tr>
+  </table>
+  <div class="verifybox">
+    <b>Timing</b>
+    Behavioural information is most reliable once acute intake stress has settled, rather than in the first 24 to 48 hours, when arousal distorts behaviour. This connects to the Assessment and Decision Making and Learning Theory hubs. <span class="bdg asv">ASV</span>
+  </div>
+
+  <h3>Objective description protects the record</h3>
+  <p class="note">All relevant personnel must record behaviour with factual, observable terms (body position, posture, distance, specific actions) rather than anthropomorphic labels. Objective data lets the next staff member interpret and respond consistently, which is the point of training everyone, not just behaviour specialists. <span class="bdg asv">ASV</span></p>
+
+  <h3>Capacity for Care, defined by the Five Domains</h3>
+  <p class="note">Capacity for Care is the total resources (humane housing, trained personnel, medical care, and appropriate outcomes) required to promote positive welfare, as described by the Five Domains, for all the animals in or coming into the shelter's care. Exceeding capacity for care degrades welfare across the population. <span class="bdg asv">ASV</span></p>
+
+  <h3>QOL assessment tools</h3>
+  <table class="cmp">
+    <tr><th>Tool</th><th>What it is and where it fits</th></tr>
+    <tr><td><b>HHHHHMM (Villalobos Pawspice scale)</b></td><td>An end-of-life QOL scale scoring Hurt, Hunger, Hydration, Hygiene, Happiness, Mobility, and More good days than bad, each out of 10 <span class="bdg ref">std ref</span></td></tr>
+    <tr><td><b>McMillan mental-wellness framework</b></td><td>A broader model of mental wellbeing across an animal's life, not specific to end of life <span class="bdg ref">std ref</span></td></tr>
+    <tr><td><b>Kiddie and Collins / Lamon shelter-dog tools</b></td><td>Validated and reviewed QOL and welfare assessment instruments for kennelled shelter dogs <span class="bdg ref">std ref</span></td></tr>
+  </table>
+  <p class="note">The HHHHHMM (Villalobos) end-of-life scale and McMillan's broader framework are distinct tools; this distinction is also flagged in the Nutrition and Husbandry hub. <span class="bdg ref">std ref</span></p>
+
+  <h3>When QOL is profoundly compromised</h3>
+  <div class="trap">
+    <b>Outcome implication</b>
+    A prolonged, severe negative emotional state that cannot be mitigated means QOL is profoundly compromised, and the animal's care or outcome pathway must be re-evaluated. Euthanasia may be the appropriate outcome to prevent unresolvable suffering. This connects to the euthanasia position statements. <span class="bdg asv">ASV</span>
+  </div>
+</section><section class="panel" id="mcq">
+  <h2 class="sec">MCQ Test Bank</h2>
+  <p class="lead">Thirty questions across the subdomain. The draft set you provided was highly repetitive (it tested about six facts with reworded stems and clustered the key on option B), so it was deduplicated and rebalanced, and broadened with the welfare frameworks and assessment content your notes point to. Items are badged by source and answer positions are spread across A to D. Tap an option to lock it in and reveal the explanation.</p>
+  <div class="mcqbar">
+    <div class="label"><span class="dot"></span>30 questions &middot; QOL and Needs Assessment</div>
+    <div class="score"><span id="scoreTxt">0 / 0 correct</span><button class="reset" id="resetBtn">Reset</button></div>
+  </div>
+  <div id="qhost"></div>
+</section>
+</div></main>
+<footer><div class="wrap">
+  QOL and Needs Assessment subdomain hub &middot; Behavioural Health domain &middot; ABVP Shelter Medicine Practice RVS, November 2026. Your QOL notes (one page) supplied the foundations. The Five Freedoms, the Five Domains and Table 1 (adapted from Mellor), the ranking format, Capacity for Care, and the behaviour assessment versus evaluation definitions are from the ASV Standards of Care 2022 (Introduction, Behavior, and glossary) and are badged ASV. The QOL scales (HHHHHMM or Villalobos Pawspice, McMillan, Kiddie and Collins, Lamon) are standard references and are badged ref; the HHHHHMM components are reproduced as commonly published and not independently re-verified. The repetitive draft MCQ set was deduplicated and rebalanced. In-house SVG schematics are original didactic constructions. Supports light and dark mode.
+</div></footer>
+<script>
+const tabrow=document.getElementById('tabrow');
+tabrow.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.disabled)return;
+  [...tabrow.children].forEach(x=>x.classList.remove('active'));b.classList.add('active');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('show'));
+  document.getElementById(b.dataset.p).classList.add('show');window.scrollTo({top:0,behavior:'smooth'});});
+const Q=[
+{t:"fnd",f:"notes",q:"According to the ASV-based notes, an animal's emotional and behavioural needs are determined by which combination of factors?",o:["Environment, species, genetics, personality, prior socialisation, and life experiences","Body condition score, caloric intake, and kennel temperature","Length of stay, adoption demand, and population manager presence","Baseline cortisol, plasma volume, and leukocyte counts"],a:0,e:"The six determinants are environment, species, genetics, personality, prior socialisation, and life experiences, treated as an overlapping, non-hierarchical set."},
+{t:"fnd",f:"notes",q:"Which statement best captures the relationship between physical and emotional health?",o:["Behavioural health is independent of physical disease","Emotional and behavioural health affect physical health, and vice versa","Physical health dictates welfare and renders genetics irrelevant","Emotional factors only matter once disease is resolved"],a:1,e:"Physical and emotional health are bidirectional: each can degrade or support the other."},
+{t:"fnd",f:"notes",q:"QOL is described as an array of affective states. How are these broadly classified?",o:["Active-arousal and passive-avoidance states","Fight-or-flight vectors and somatosensory inputs","Comfort-discomfort and pleasure states","Socially desirable tendencies and predatory drives"],a:2,e:"Affective states are broadly classified along comfort-discomfort and pleasure axes."},
+{t:"fnd",f:"notes",q:"What general principle determines whether an animal has a higher quality of life?",o:["Eliminating all species-typical behaviours in the enclosure","A static baseline cortisol for 17 consecutive days","Relying only on passive human-presence scans","The greater the pleasant and the lesser the unpleasant effects, the higher the QOL"],a:3,e:"More pleasant and fewer unpleasant affective states mean higher QOL; it is a general principle, not a precise formula."},
+{t:"fnd",f:"notes",q:"Why does the text describe welfare factors as very individual?",o:["Because animals of one breed always respond identically to stress","Because an environment that gives one animal pleasure may cause another fear or discomfort","Because behaviour can only be measured by qualitative analysis","Because personality always overrides species traits"],a:1,e:"Needs are individual, so the same environment can be pleasant for one animal and distressing for another."},
+{t:"fnd",f:"notes",q:"What are the three pillars of staff competency required of all relevant personnel?",o:["Read body language, describe behaviour objectively, and interpret and respond to it","Squeeze-cage mechanics, control-pole maintenance, and fight-kit inventory","Psychopharmacological dosing, body condition scoring, and intake scheduling","Open-ended questioning, active listening, and social-desirability management"],a:0,e:"Personnel must read body language, describe it objectively, and interpret and respond to modify care or handling."},
+{t:"fnd",f:"notes",q:"Which is an objective behavioural description rather than an anthropomorphic label?",o:["The dog is acting spiteful because it missed its walk","The cat is furious and planning to attack the next handler","The dog is cowering in the back corner with its tail tucked below the pelvic midline","The kitten is feeling sad about its environment"],a:2,e:"Objective notes describe observable posture and action; spiteful, furious, and sad are anthropomorphic interpretations."},
+{t:"fnd",f:"notes",q:"Why must all relevant personnel, not only behaviour specialists, be trained to interpret and respond to behaviour?",o:["So daily routines can be disrupted randomly without stress","To let care volunteers administer behaviour medications","To remove the need for objective behaviour records","So that every interaction any staff member has with an animal protects its QOL"],a:3,e:"Welfare is protected only if every interaction, by any staff member, is informed by accurate reading and response."},
+{t:"fnd",f:"notes",q:"A shelter dog has undiagnosed chronic pain. How does this physical state affect its behavioural or emotional health?",o:["No effect, since emotional health depends only on enrichment","It degrades its affective state, because physical and emotional health are interconnected","It freezes its personality until a training hierarchy is applied","It improves pleasure states by prompting more human contact"],a:1,e:"Through the bidirectional link, chronic pain degrades affective state and overall welfare."},
+{t:"fnd",f:"notes",q:"What operational standard does the text set for QOL, despite QOL being hard to define?",o:["Every attempt must be made to sustain QOL for shelter animals","QOL is optional and subordinate to medical treatment","QOL monitoring stops after a two-week stay","QOL is assessed only by outside consultants"],a:0,e:"Sustaining QOL is a non-negotiable mandate even though QOL, like happiness, is hard to define universally."},
+{t:"frm",f:"asv",q:"Which set correctly lists the Five Freedoms?",o:["Nutrition, environment, health, opportunity, and mental state","The freedoms to hunt, roam, breed, socialise, and rest","Freedom from hunger and thirst; from discomfort; from pain, injury, or disease; to express normal behaviour; and from fear and distress","Unacceptable, must, should, ideal, and exemplary"],a:2,e:"The Five Freedoms are from hunger and thirst, from discomfort, from pain, injury, or disease, to express normal behaviour, and from fear and distress."},
+{t:"frm",f:"asv",q:"What is the main limitation of the Five Freedoms that prompted a newer model?",o:["They apply only to dogs","They require expensive equipment to measure","They are too numerous to remember","They focus on avoiding negative experiences, so positive welfare is also needed for a life worth living"],a:3,e:"The Five Freedoms emphasise avoiding harm; promoting positive experiences is also essential, which the Five Domains addresses."},
+{t:"frm",f:"asv",q:"What are the five domains in the Five Domains model?",o:["Nutrition, Environment, Health, Opportunity, and Mental State","Hunger, Hydration, Hygiene, Happiness, and Mobility","Genetics, Species, Personality, Socialisation, and Experience","Intake, Housing, Medical, Behaviour, and Outcome"],a:0,e:"The domains are Nutrition, Environment, Health, Opportunity (agency), and Mental State."},
+{t:"frm",f:"asv",q:"How are the domains structured in the Five Domains model?",o:["All five domains are independent and equally weighted","The four functional domains (nutrition, environment, health, opportunity) inform the mental-state domain, which determines overall welfare","Mental state is irrelevant once the physical domains are met","Welfare is the average of the first four domains only"],a:1,e:"The functional domains feed into mental state, and mental state determines the overall welfare status."},
+{t:"frm",f:"asv",q:"What two things does the Five Domains model add beyond the Five Freedoms?",o:["A legal mandate and a fixed scoring rubric","A species list and an age cutoff","A spectrum per domain (including positive experiences), and the insight that positive welfare can exist with an unmet need while negative welfare can arise from a single unmet need","A requirement for daily cortisol sampling"],a:2,e:"It adds a positive-to-negative spectrum per domain and shows welfare can tip either way from a single domain."},
+{t:"frm",f:"asv",q:"Which scenario is the ASV example of net-positive welfare despite an unmet need?",o:["A dog left in a barren kennel with food only","A cat denied any veterinary care","A group of cats in a chaotic, unpredictable ward","A stray cat on cage rest with a healing pelvic fracture that is appropriately treated and housed in an enriched foster home"],a:3,e:"Despite restricted agency and pain, appropriate treatment and an enriched foster can yield net-positive welfare."},
+{t:"frm",f:"asv",q:"Which scenario is the ASV example of net-negative welfare from a single unmet need?",o:["A well-fed, physically healthy dog confined long-term to a kennel with restricted agency","A cat with daily enrichment and choice","A dog in a well-run playgroup","A kitten socialised with its littermates"],a:0,e:"Restricted agency alone, in long-term kennelling, can produce profound distress and net-negative welfare."},
+{t:"frm",f:"asv",q:"What does the Opportunity domain primarily capture?",o:["Caloric intake and hydration","Disinfectant choice and contact times","Choice of environment and interaction, behavioural variety such as play and foraging, and novelty, reflecting agency","Staff scheduling and rounds order"],a:2,e:"Opportunity is about agency: choice, behavioural variety, and novelty."},
+{t:"frm",f:"asv",q:"What is the ASV ranking format for its key statements?",o:["Low, medium, high, critical","Unacceptable, must, should, ideal","Optional, preferred, mandatory, legal","Bronze, silver, gold, platinum"],a:1,e:"ASV statements are ranked unacceptable, must, should, and ideal."},
+{t:"frm",f:"asv",q:"How do the ASV terms must and should differ?",o:["Must applies to cats and should to dogs","They are interchangeable","Must means optional; should means required by law","Must is necessary for humane care; should is strongly recommended and expected in most circumstances"],a:3,e:"Must is required for humane care; should is strongly recommended with expected compliance in most situations."},
+{t:"ass",f:"asv",q:"How does a behaviour assessment differ from a behaviour evaluation?",o:["Assessment is ongoing observation and interpretation across the stay; evaluation is a structured test battery of subtests (for example SAFER)","They are the same process","Assessment is a one-time test; evaluation is continuous","Evaluation is done only by volunteers; assessment only by veterinarians"],a:0,e:"Assessment is the ongoing, interpretive process; evaluation is a formal, structured subtest battery."},
+{t:"ass",f:"asv",q:"When is behavioural information about a newly admitted animal most reliable?",o:["Within the first hour of arrival","Only during sleep","After acute intake stress has settled, rather than in the first 24 to 48 hours","Never, as shelter behaviour is meaningless"],a:2,e:"Acute intake stress distorts behaviour, so early testing in the first 24 to 48 hours is unreliable."},
+{t:"ass",f:"asv",q:"How is Capacity for Care defined?",o:["The maximum number of cages a building can physically hold","The total resources needed to promote positive welfare, as described by the Five Domains, for all animals in or coming into care","The number of staff on the daily rounds team","The square footage of the adoption floor"],a:1,e:"Capacity for Care is resource-based and welfare-based, defined through the Five Domains for the whole population."},
+{t:"ass",f:"ref",q:"What does the HHHHHMM (Villalobos Pawspice) scale assess?",o:["Intake throughput and length of stay","Disinfectant efficacy across surfaces","Genetic predisposition to disease","End-of-life quality of life, scoring Hurt, Hunger, Hydration, Hygiene, Happiness, Mobility, and More good days than bad"],a:3,e:"HHHHHMM is an end-of-life QOL scale scoring those seven items, each out of 10."},
+{t:"ass",f:"asv",q:"An animal shows a prolonged, severe negative emotional state that cannot be mitigated. What does the mandate to sustain QOL imply?",o:["The care or outcome pathway must be re-evaluated, and euthanasia may be appropriate to prevent unresolvable suffering","The shelter is meeting guidelines simply by continuing to house the animal","Staff should stop recording objective behaviour to reduce distress","The animal should be co-housed with an aggressive companion"],a:0,e:"Unresolvable, profound compromise of QOL requires reconsidering the outcome pathway, including euthanasia to prevent suffering."},
+{t:"ass",f:"ref",q:"Which QOL tool is the end-of-life scale, and how does it relate to McMillan's work?",o:["McMillan is the end-of-life scale; HHHHHMM is unrelated","Both are identical end-of-life scales","HHHHHMM (Villalobos) is the end-of-life scale, distinct from McMillan's broader mental-wellness framework","Neither is used for animals"],a:2,e:"HHHHHMM (Villalobos) targets end-of-life QOL; McMillan's framework is a broader mental-wellness model."},
+{t:"ass",f:"asv",q:"Why must shelter staff record behaviour objectively rather than with anthropomorphic labels?",o:["To make the records longer","So that observations can be interpreted and acted on consistently by anyone reading the record","Because subjective labels are faster to write","To avoid training staff at all"],a:1,e:"Objective, factual descriptions preserve data integrity so any team member can interpret and respond consistently."},
+{t:"ass",f:"asv",q:"Why is the absence of physical disease insufficient to judge an animal's welfare?",o:["Because disease has no effect on behaviour","Because welfare is broad, complex, and heavily comprised of emotional and affective factors","Because the Five Domains exclude physical health","Because emotional factors are purely genetic"],a:2,e:"Welfare includes affective experience; a disease-free animal can still have poor welfare."},
+{t:"ass",f:"asv",q:"In which additional context is the Five Domains model now applied?",o:["As a framework for assessment in animal cruelty and neglect legal cases","As a vaccine scheduling tool","As a disinfectant selection chart","As a transport route planner"],a:0,e:"The Five Domains model is increasingly used as a welfare-assessment framework in animal legal cases."},
+{t:"ass",f:"ref",q:"Why are pleasure states, not just the absence of discomfort, considered necessary for QOL?",o:["Because pleasure states reduce length of stay automatically","Because they are the only measurable metric","Because they prevent physical disease directly","Because the mere absence of discomfort is insufficient for an optimal mental state"],a:3,e:"A life worth living requires positive experiences, not just the removal of negatives, which is the core advance of the Five Domains."}
+];
+const host=document.getElementById('qhost');
+const scoreTxt=document.getElementById('scoreTxt');
+let answered=0, correct=0;
+const DLABEL={fnd:"QOL Foundations",frm:"Welfare Frameworks",ass:"Assessment & Tools"};
+function tagLabel(t){return DLABEL[t]||t.toUpperCase();}
+function flagBadge(f){
+  if(f==='corr')return '<span class="bdg corr">corrected</span>';
+  if(f==='notes')return '<span class="bdg notes">your notes</span>';
+  if(f==='asv')return '<span class="bdg asv">ASV</span>';
+  if(f==='ref')return '<span class="bdg ref">std ref</span>';
+  return '';
+}
+function render(){
+  host.innerHTML='';answered=0;correct=0;updateScore();
+  Q.forEach((item,i)=>{
+    const card=document.createElement('div');card.className='q';
+    card.innerHTML=`<div class="meta"><span class="num">#${i+1}</span><span class="tag">&#9670; ${tagLabel(item.t)}</span>${flagBadge(item.f)}</div><div class="stem">${item.q}</div>`;
+    const opts=document.createElement('div');
+    item.o.forEach((txt,oi)=>{
+      const btn=document.createElement('button');btn.className='opt';
+      btn.innerHTML=`<span class="k">${String.fromCharCode(65+oi)}</span>${txt}`;
+      btn.onclick=()=>choose(card,opts,item,oi);opts.appendChild(btn);
+    });
+    card.appendChild(opts);
+    const ex=document.createElement('div');ex.className='expl';
+    ex.innerHTML=`<b class="cor">Correct: ${String.fromCharCode(65+item.a)}.</b> ${item.e}`;
+    card.appendChild(ex);host.appendChild(card);
+  });
+}
+function choose(card,opts,item,oi){
+  if(card.dataset.done)return;card.dataset.done='1';answered++;
+  [...opts.children].forEach((b,bi)=>{b.classList.add('locked');
+    if(bi===item.a)b.classList.add('correct');
+    if(bi===oi && oi!==item.a)b.classList.add('wrong');});
+  if(oi===item.a)correct++;
+  card.querySelector('.expl').classList.add('show');updateScore();
+}
+function updateScore(){scoreTxt.textContent=`${correct} / ${answered} correct`;}
+document.getElementById('resetBtn').onclick=render;
+render();
+</script>
+</body>
+</html>

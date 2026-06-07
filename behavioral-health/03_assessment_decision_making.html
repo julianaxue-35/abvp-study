@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<title>Assessment and Decision Making Subdomain Hub | ABVP Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme:light dark;
+    --bg:#eef2f7;--surface:#fbfdff;--surface2:#e8edf4;
+    --chrome:#1c3a5e;--chrome2:#264f78;          /* behavioural health blue chrome */
+    --text:#16273a;--onChrome:#e9f0f8;--muted:#586a7d;
+    --line:#ccd6e2;
+    --accent:#b1466f;--accent-soft:#f3e0ea;       /* behavioural health rose accent */
+    --good:#1f7a4d;--good-soft:#e3f2ea;--bad:#b23b3b;
+    --notes:#7a4fb5;--notes-soft:#ece3f7;          /* your Assessment notes (PDF) */
+    --asv:#1f6f86;--asv-soft:#dcecf2;              /* ASV Guideline section */
+    --ref:#b5651d;--ref-soft:#f6e7d4;              /* behaviour textbook / published refs */
+    --dot:rgba(28,58,94,.05);
+    --shadow:0 1px 2px rgba(20,40,70,.08),0 8px 24px rgba(20,40,70,.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0e1622;--surface:#16212f;--surface2:#1b2735;
+      --chrome:#122236;--chrome2:#1b3450;
+      --text:#dde6f1;--onChrome:#e9f0f8;--muted:#9aacbf;
+      --line:#2a3a4d;
+      --accent:#d3789c;--accent-soft:rgba(211,120,156,.16);
+      --good:#51b184;--good-soft:rgba(40,140,90,.18);--bad:#e08585;
+      --notes:#c0a4ec;--notes-soft:rgba(150,110,210,.20);
+      --asv:#66c0d6;--asv-soft:rgba(40,150,175,.18);
+      --ref:#e0a766;--ref-soft:rgba(200,130,50,.18);
+      --dot:rgba(255,255,255,.035);
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.3);
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--text);
+    font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;
+    background-image:radial-gradient(circle at 1px 1px,var(--dot) 1px,transparent 0);background-size:22px 22px;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+  .crumb{background:var(--chrome);padding:9px 18px;display:flex;align-items:center;gap:10px;font-size:13px;font-weight:500;border-bottom:2px solid var(--chrome2)}
+  .crumb a{color:#9fc0dc;text-decoration:none;display:flex;align-items:center;gap:5px}
+  .crumb .sep{color:#5f82a3;font-size:11px}
+  .crumb .here{color:#cfe0f1}
+  header.top{background:var(--chrome);color:var(--onChrome);padding:26px 0 22px;border-bottom:4px solid var(--accent)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#9fc0dc;margin:0 0 6px}
+  header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(26px,4.5vw,40px);margin:0;line-height:1.05}
+  header.top p.sub{margin:8px 0 0;color:#cfe0f1;font-size:14px;max-width:78ch}
+  .legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}
+  .legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.22);color:#eaf2fb;display:flex;align-items:center;gap:6px}
+  .legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--surface);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button:hover{background:var(--bg);color:var(--text)}
+  .tabrow button.active{background:var(--chrome);color:var(--onChrome)}
+  .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+  main{padding:30px 0 80px}
+  .panel{display:none;animation:fade .35s ease}
+  .panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;letter-spacing:-.01em;color:var(--text)}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:80ch}
+  h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:30px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;scroll-margin-top:64px;color:var(--text)}
+  h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;color:var(--text);text-transform:uppercase;letter-spacing:.03em}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}
+  p.note{font-size:14px;margin:0 0 6px}
+  ul.hy{margin:8px 0;padding-left:0;list-style:none}
+  ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed var(--line);font-size:14px}
+  ul.hy li:last-child{border-bottom:0}
+  ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;border-radius:2px;background:var(--accent);transform:rotate(45deg)}
+  .trap{background:var(--accent-soft);border:1px solid var(--accent);border-left:4px solid var(--accent);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .trap b{color:var(--accent);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .corrbox{background:var(--good-soft);border:1px solid var(--good);border-left:4px solid var(--good);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .corrbox b{color:var(--good);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .verifybox{background:var(--asv-soft);border:1px solid var(--asv);border-left:4px solid var(--asv);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .verifybox b{color:var(--asv);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp th{background:var(--chrome);color:var(--onChrome);font-weight:600;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase}
+  table.cmp tr:last-child td{border-bottom:0}
+  table.cmp td b{color:var(--text)}
+  .fig{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0;box-shadow:var(--shadow)}
+  .fig figcaption{font-size:12.5px;color:var(--muted);margin-top:8px;font-style:italic}
+  /* svg helpers (use vars so diagrams adapt to dark mode) */
+  .sgbox{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1}
+  .sgbox2{fill:var(--asv-soft);stroke:var(--asv);stroke-width:1}
+  .sgtxt{fill:var(--text);font-family:"Public Sans",sans-serif}
+  .sgmut{fill:var(--muted);font-family:"Public Sans",sans-serif}
+  .sgmono{fill:var(--accent);font-family:"JetBrains Mono",monospace}
+  .sgline{stroke:var(--accent);stroke-width:2;fill:none}
+  .sgaxis{stroke:var(--line);stroke-width:1.5}
+  .sgarrow{fill:var(--accent)}
+  /* source badges */
+  .bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+  .bdg.notes{background:var(--notes-soft);color:var(--notes)}
+  .bdg.asv{background:var(--asv-soft);color:var(--asv)}
+  .bdg.ref{background:var(--ref-soft);color:var(--ref)}
+  .bdg.corr{background:var(--good);color:#fff}
+  /* mcq */
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--chrome);color:var(--onChrome);border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:54px;z-index:10}
+  .mcqbar .label{font-family:"JetBrains Mono",monospace;font-size:12px;color:#cfe0f1;display:flex;align-items:center;gap:8px}
+  .mcqbar .label .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);display:inline-block}
+  .score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}
+  .score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;color:#cfe0f1;padding:5px 10px;border-radius:8px;font-size:11px}
+  .q{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
+  .q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+  .q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+  .q .stem{font-weight:600;font-size:15px;margin-bottom:10px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:var(--surface2);border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;font-family:"Public Sans";color:var(--text);transition:background .15s,border-color .15s}
+  .opt:hover{border-color:var(--accent)}
+  .opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}
+  .opt.correct{background:var(--good-soft);border-color:var(--good)}
+  .opt.wrong{background:rgba(178,59,59,.14);border-color:var(--bad)}
+  .opt.locked{cursor:default}
+  .expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:var(--surface2);border:1px solid var(--line);font-size:13.5px}
+  .expl.show{display:block}
+  .expl b.cor{color:var(--good)}
+  footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
+  @media(max-width:640px){.mcqbar{top:50px}.score{font-size:12px}}
+</style>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span class="sep">&rsaquo;</span><a href="../index.html#domain-behav">Behavioural Health</a><span class="sep">&rsaquo;</span><span class="here">Assessment & Decision Making</span></nav>
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">ABVP Shelter Medicine Practice RVS &middot; Behavioural Health</p>
+    <h1>Assessment and Decision Making Subdomain Hub</h1>
+    <p class="sub">Exam-depth study tool for behaviour assessment and outcome decision making in shelters: intake and environment, dog and cat behaviour assessment, the science of behaviour evaluation, risk assessment, welfare frameworks, and ethical decision making. The MCQ Test Bank holds all 30 questions in one set. Every claim is badged by source.</p>
+    <div class="legend">
+      <span><i style="background:var(--notes)"></i>Your Assessment notes (PDF)</span>
+      <span><i style="background:var(--asv)"></i>ASV Guideline section</span>
+      <span><i style="background:var(--ref)"></i>Behaviour textbook / published reference</span>
+    </div>
+  </div>
+</header>
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="intake"><span class="dot"></span>Intake, Environment &amp; Housing</button>
+  <button data-p="dogba"><span class="dot"></span>Dog Behaviour Assessment</button>
+  <button data-p="evalsci"><span class="dot"></span>Behaviour Evaluation Science</button>
+  <button data-p="catba"><span class="dot"></span>Cat Behaviour Assessment</button>
+  <button data-p="risk"><span class="dot"></span>Risk, BMod &amp; Outcomes</button>
+  <button data-p="welfare"><span class="dot"></span>Welfare &amp; Ethics</button>
+  <button data-p="mcq"><span class="dot" style="background:var(--chrome2)"></span>MCQ Test Bank</button>
+</div></div></nav>
+<main><div class="wrap">
+
+<!-- ============ PANEL 1: INTAKE, ENVIRONMENT & HOUSING ============ -->
+<section class="panel show" id="intake">
+  <h2 class="sec">Intake, Environment and Housing</h2>
+  <p class="lead">The ASV Guidelines frame assessment as a continuous process that begins before admission and runs through the whole stay: collect history, manage the environment to minimise fear and stress, house appropriately, keep routines predictable, and treat enrichment as essential, not optional.</p>
+
+  <div class="verifybox">
+    <b>ASV: intake</b>
+    Collecting information before admission lets the shelter offer services that may prevent intake (outpatient behavioural care, rehoming resources, spay-neuter, return to field). Personnel must collect a thorough behavioural history at or near intake, for every animal regardless of source, including the reasons for surrender and previously observed behaviour. Available information about aggression must be recorded with an objective description of the actions and circumstances. <span class="bdg asv">ASV</span>
+  </div>
+  <div class="trap">
+    <b>Exam trap: intake communication</b>
+    Intake staff should be trained in communication techniques that reduce social desirability bias: asking open-ended questions, using objective language, and active listening. Expect a stem testing the open-ended plus objective-language pairing. <span class="bdg asv">ASV</span>
+  </div>
+
+  <div class="card">
+    <h4>Environmental management and housing</h4>
+    <ul class="hy">
+      <li>Create an environment that minimises stimuli that induce fear, stress, and frustration; shelters must have written policies supporting mental wellbeing. <span class="bdg asv">ASV</span></li>
+      <li>Housing has a large impact on welfare; novel environments are especially stressful for shy, under-socialised, or geriatric cats and dogs. <span class="bdg asv">ASV</span></li>
+      <li>Prey species must be housed away from predatory species at all times (olfactory, auditory, and visual separation). Note that cats are predators but may also be prey to dogs. <span class="bdg asv">ASV</span></li>
+    </ul>
+  </div>
+
+  <h3>Daily routine and predictability</h3>
+  <p class="note">A consistent, structured environment that minimises reassignment of enclosures, caregivers, and schedules protects against chronic fear and anxiety. <span class="bdg asv">ASV</span></p>
+  <div class="trap">
+    <b>Exam trap: drivers of unpredictability</b>
+    The three named sources are lack of routine in daily care, frequent disruption of enclosure set-up, and irregular patterns of continuous light or darkness. The light or darkness item is the one most often omitted. <span class="bdg asv">ASV</span>
+  </div>
+
+  <div class="card">
+    <h4>Enrichment and socialisation</h4>
+    <p class="note">Enrichment provides social interaction, physical and mental stimulation, opportunities for species-typical behaviour, and choice and control over the environment. <span class="bdg asv">ASV</span></p>
+    <ul class="hy">
+      <li>Successful programs promote emotional wellbeing and reduce undesirable behaviours. <span class="bdg asv">ASV</span></li>
+      <li>Enrichment must be given the same significance as nutrition and medical care, and is never optional. <span class="bdg asv">ASV</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ PANEL 2: DOG BEHAVIOUR ASSESSMENT ============ -->
+<section class="panel" id="dogba">
+  <h2 class="sec">Dog Behaviour Assessment and Information Sources</h2>
+  <p class="lead">Behaviour assessment is the process of collecting information about an individual animal's behaviour to understand its needs, address welfare concerns, and match it to the right outcome. Over the past two decades, formal evaluation tests have been shown to predict future behaviour poorly, so the current recommendation is a mixed, longitudinal model: objective history plus objective observation across many contexts.</p>
+
+  <div class="verifybox">
+    <b>Why formal testing for every animal is no longer recommended</b>
+    Behaviour evaluation tests fail to reliably predict future behaviour, particularly aggression, in a new home. Running one stressful subtest after another can worsen results and harm welfare, and formal testing consumes time and resources and can raise length of stay. Named test batteries: SAFER, Assess-a-Pet, Match-up II. <span class="bdg notes">your notes</span>
+  </div>
+
+  <figure class="fig">
+    <svg viewBox="0 0 520 210" width="100%" role="img" aria-label="Mixed longitudinal assessment model with multiple information sources feeding a decision">
+      <defs><marker id="arAD1" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path class="sgarrow" d="M0,0 L7,3 L0,6 Z"/></marker></defs>
+      <rect x="200" y="86" width="120" height="38" rx="9" class="sgbox2"/>
+      <text x="260" y="103" text-anchor="middle" font-size="12" class="sgtxt">Outcome and</text>
+      <text x="260" y="118" text-anchor="middle" font-size="12" class="sgtxt">matching decision</text>
+      <g font-size="11" text-anchor="middle">
+        <rect x="10" y="10" width="150" height="30" rx="8" class="sgbox"/><text x="85" y="29" class="sgtxt">Owner history (C-BARQ)</text>
+        <rect x="185" y="10" width="150" height="30" rx="8" class="sgbox"/><text x="260" y="29" class="sgtxt">Medical exam observation</text>
+        <rect x="360" y="10" width="150" height="30" rx="8" class="sgbox"/><text x="435" y="29" class="sgtxt">Daily care and walks</text>
+        <rect x="10" y="170" width="150" height="30" rx="8" class="sgbox"/><text x="85" y="189" class="sgtxt">Playgroups</text>
+        <rect x="185" y="170" width="150" height="30" rx="8" class="sgbox"/><text x="260" y="189" class="sgtxt">Foster and returns</text>
+        <rect x="360" y="170" width="150" height="30" rx="8" class="sgbox"/><text x="435" y="189" class="sgtxt">Standardised evaluation</text>
+      </g>
+      <line x1="85" y1="40" x2="225" y2="86" class="sgline" marker-end="url(#arAD1)"/>
+      <line x1="260" y1="40" x2="260" y2="84" class="sgline" marker-end="url(#arAD1)"/>
+      <line x1="435" y1="40" x2="295" y2="86" class="sgline" marker-end="url(#arAD1)"/>
+      <line x1="85" y1="170" x2="225" y2="124" class="sgline" marker-end="url(#arAD1)"/>
+      <line x1="260" y1="170" x2="260" y2="126" class="sgline" marker-end="url(#arAD1)"/>
+      <line x1="435" y1="170" x2="295" y2="124" class="sgline" marker-end="url(#arAD1)"/>
+    </svg>
+    <figcaption>The mixed, longitudinal model: many information sources, gathered across contexts, feed the outcome decision rather than a single snapshot. Original didactic schematic built from your notes.</figcaption>
+  </figure>
+
+  <h3>History from the owner</h3>
+  <table class="cmp">
+    <tr><th>Finding</th><th>Detail</th></tr>
+    <tr><td><b>Confidentiality (103-item C-BARQ)</b></td><td>When told responses were confidential, owners more readily disclosed aggression toward family members and fear of strangers. No difference for stranger-directed aggression, dog-directed aggression or fear, non-social fear, separation-related, or attachment behaviours.</td></tr>
+    <tr><td><b>Confidentiality (42-item C-BARQ)</b></td><td>No difference between confidential and non-confidential groups. Self-administered questionnaires may reduce social desirability bias, but more research is needed.</td></tr>
+    <tr><td><b>Surrender at intake</b></td><td>Owners told their information would inform adoption decisions were less forthcoming about owner-directed aggression and stranger-directed fear.</td></tr>
+  </table>
+  <div class="trap">
+    <b>Exam trap: post-adoption correlations over time</b>
+    At 2 weeks, surrender reports correlate with aggression toward unfamiliar people, urination when left alone, and destructive chewing. At 6 weeks there are fewer correlations overall. Dogs reported by owners NOT to guard resources were similarly unlikely to guard at home. <span class="bdg notes">your notes</span>
+  </div>
+
+  <h3>Observation across contexts</h3>
+  <div class="card">
+    <h4>Medical examination</h4>
+    <ul class="hy">
+      <li>Vet exams are stressful for most dogs: close to 80% of owned dogs show fear during a standardised exam, and dogs without their owners are significantly more stressed. <span class="bdg notes">your notes</span></li>
+      <li>A dog reported fearful at the vet (55%) is also likely to show fear in new situations (68%), pain or touch sensitivity (35%), and non-social fear (37%). <span class="bdg notes">your notes</span></li>
+      <li>Exam observation is most useful for learning how the dog responds to stress and for building a handling or behaviour-modification plan, interpreted alongside other contexts. <span class="bdg notes">your notes</span></li>
+    </ul>
+  </div>
+  <div class="card">
+    <h4>Daily care staff and volunteers</h4>
+    <ul class="hy">
+      <li>Untrained daily-care observation can be inaccurate: staff correctly predicted only about one third of problems later reported by adopters, while behavioural tests predicted almost 75%. <span class="bdg notes">your notes</span></li>
+      <li>A likely reason is reluctance to disclose negative information that could hurt a dog's adoption chances. <span class="bdg notes">your notes</span></li>
+      <li>Close to half of staff mistook aggression for excitement or frustration, but rarely the reverse, so people tend to judge dogs positively. Fearful dogs were recognised well by experts and non-experts alike. <span class="bdg notes">your notes</span></li>
+      <li>Experts and non-experts were equally poor at telling play from aggression. Non-experts focus on the head; trainers attend to the body and read motivation and emotion better. Training improves non-expert proficiency, and video improves learning more than photos and text. <span class="bdg notes">your notes</span></li>
+    </ul>
+  </div>
+  <div class="card">
+    <h4>Walks, socialisation, in-kennel, playgroups, foster</h4>
+    <ul class="hy">
+      <li>Walks and field trips reveal kennel-exit enthusiasm, leash and harness tolerance, interest in handlers and environment, and reactions to passers-by, children, joggers, cyclists, and skateboarders. <span class="bdg notes">your notes</span></li>
+      <li>In-kennel: even friendly dogs may show aggression when confined. Aggression toward people is HIGHEST when the dog is in its kennel; aggression toward dogs tends to be lowest there. Monitoring in-kennel behaviour gives early warning. <span class="bdg notes">your notes</span></li>
+      <li>Playgroups: dogs that joined a playgroup before evaluation reacted more positively to a stimulus dog, and regular adult interactions reduced aggression in evaluation. <span class="bdg notes">your notes</span></li>
+      <li>Foster and returns are the most accurate reflection of home behaviour. Dogs returning from foster were about 20 times more likely to be adopted or transferred, and about 85% of dogs returned within 30 days were quickly re-adopted. Sleepovers reveal little, since most dogs just sleep. <span class="bdg notes">your notes</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ PANEL 3: BEHAVIOUR EVALUATION SCIENCE ============ -->
+<section class="panel" id="evalsci">
+  <h2 class="sec">Behaviour Evaluation Science</h2>
+  <p class="lead">If a shelter chooses to use a standardised evaluation, it should fare well on feasibility, reliability, and validity, and the results must be read against the prevalence of the behaviour of concern. The mathematics of low-prevalence testing is the single most testable idea in this section.</p>
+
+  <h3>Three criteria of a good evaluation</h3>
+  <table class="cmp">
+    <tr><th>Criterion</th><th>What it means</th></tr>
+    <tr><td><b>Feasibility</b></td><td>Balance information against throughput: no longer than 30 minutes, no more than 2 handlers and a stimulus dog, a documented step-by-step protocol, and an easy scoring system.</td></tr>
+    <tr><td><b>Reliability</b></td><td>Intra-rater, inter-rater (IRR), test-retest, and internal consistency. Good IRR implies good intra-rater reliability. Evaluator sex and position (standing, kneeling, sitting) change the dog's response.</td></tr>
+    <tr><td><b>Validity</b></td><td>Sensitivity, specificity, and positive and negative predictive values, all of which depend on prevalence in the tested population.</td></tr>
+  </table>
+
+  <div class="trap">
+    <b>Exam trap: choosing predictive value by cost of error</b>
+    For aggression, favour a test with higher NEGATIVE predictive value, because adopting out a missed aggressive dog is unacceptable. For low-cost problems (mild fear, mouthiness), balance positive and negative predictive value. At low prevalence most errors are false positives; at high prevalence most are false negatives. <span class="bdg notes">your notes</span>
+  </div>
+
+  <figure class="fig">
+    <svg viewBox="0 0 520 180" width="100%" role="img" aria-label="Low prevalence inflates false positives among positive test results">
+      <defs><marker id="arAD2" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path class="sgarrow" d="M0,0 L7,3 L0,6 Z"/></marker></defs>
+      <text x="10" y="22" font-size="12" class="sgmut">Population of 100 dogs, prevalence 16%, sensitivity 85%, specificity 85%</text>
+      <rect x="10" y="40" width="60" height="44" class="sgbox"/>
+      <text x="40" y="60" text-anchor="middle" font-size="12" class="sgtxt">14</text>
+      <text x="40" y="76" text-anchor="middle" font-size="9.5" class="sgmut">true pos</text>
+      <rect x="74" y="40" width="54" height="44" class="sgbox2"/>
+      <text x="101" y="60" text-anchor="middle" font-size="12" class="sgtxt">13</text>
+      <text x="101" y="76" text-anchor="middle" font-size="9.5" class="sgmut">false pos</text>
+      <line x1="150" y1="62" x2="200" y2="62" class="sgline" marker-end="url(#arAD2)"/>
+      <rect x="210" y="40" width="290" height="44" rx="9" class="sgbox"/>
+      <text x="355" y="58" text-anchor="middle" font-size="12" class="sgtxt">Of every 27 positive flags, about 13 are false</text>
+      <text x="355" y="74" text-anchor="middle" font-size="12.5" class="sgmono">false-positive share = 48%</text>
+      <text x="10" y="120" font-size="12" class="sgmut">Patronek and Bradley, "no better than flipping a coin": even at an</text>
+      <text x="10" y="138" font-size="12" class="sgmut">improbably good 85% / 85%, low prevalence keeps the false-positive share near half.</text>
+      <text x="10" y="160" font-size="12" class="sgmut">Human-directed aggression is present in no more than 16% of the general dog population.</text>
+    </svg>
+    <figcaption>Why a standardised evaluation can run near coin-flip accuracy for aggression: at 16% prevalence even 85% sensitivity and specificity leave roughly half of positive flags false. Original didactic schematic built from your notes; the arithmetic is internally consistent.</figcaption>
+  </figure>
+  <div class="verifybox">
+    <b>Reference: the coin-flip paper</b>
+    Patronek and Bradley simulated that as many as 78% of dogs flagged aggressive on an evaluation are likely false positives, and even at 85% sensitivity and specificity the false-positive share is about 48%. The paper recommends discontinuing standardised behaviour evaluations and underlines that aggression must be safely corroborated in additional contexts. <span class="bdg ref">std ref</span>
+  </div>
+
+  <h3>Named test metrics</h3>
+  <table class="cmp">
+    <tr><th>Test</th><th>Metric</th><th>Note</th></tr>
+    <tr><td><b>SAFER (ASPCA)</b></td><td>Sensitivity 60%, specificity 50%</td><td>Differentiates none/mild from severe aggression but misses MODERATE aggression</td></tr>
+    <tr><td><b>mAAP</b></td><td>Sensitivity 73%, specificity 59%</td><td>Strong at correlating evaluation aggression with owner reports</td></tr>
+    <tr><td><b>Shelter evaluation vs home</b></td><td>82% of human-directed aggression identified (PPV 59%); 86% of conspecific aggression (PPV 52%)</td><td>Identifies absence better than presence</td></tr>
+  </table>
+
+  <h3>Subtests</h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Handling:</b> no procedure proven superior. Begin with friendly, non-invasive touch (shoulders, side, rump), then advance to less pleasant contact (paw lift, toe-webbing pinch, muzzle hold, mouth open, thigh pinch) to mimic grooming or a vet visit. <span class="bdg notes">your notes</span></li>
+      <li><b>Play:</b> short bursts of tag or tug reveal whether arousal becomes unruly play, mouthiness, sexual behaviour, or aggression. Dogs never kept as pets may not know how to play. <span class="bdg notes">your notes</span></li>
+      <li><b>Food guarding (assess-a-hand):</b> controversial. The test predicts ABSENCE better, with 78% of non-guarders in the test also non-guarding at home. Many shelter food-guarders did not guard in the home, adopters cared little, and suspending the test did not change the roughly 9% return rate. <span class="bdg notes">your notes</span></li>
+      <li><b>Doll test:</b> a toddler-sized doll simulates a child approaching. Controversial; mimics tethering and child bites. <span class="bdg notes">your notes</span></li>
+      <li><b>Threatening stranger:</b> sensitive to tester sex, and most informative with a MALE tester, since dogs tend to be more reactive to men. <span class="bdg notes">your notes</span></li>
+      <li><b>Dog-dog:</b> the stimulus dog must be moderately social and tolerant; watch for a friendly stimulus dog turning defensive after repeated tests. <span class="bdg notes">your notes</span></li>
+      <li><b>Model (fake) dog:</b> good agreement for friendliness, moderate for fearfulness, POOR for aggressiveness. Useful as an initial screen, not a sole predictor. <span class="bdg notes">your notes</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ PANEL 4: CAT BEHAVIOUR ASSESSMENT ============ -->
+<section class="panel" id="catba">
+  <h2 class="sec">Cat Behaviour Assessment</h2>
+  <p class="lead">For cats the first problem is telling a frightened pet cat from an unsocialised one, then predicting how a socialised cat will behave at home. Several frameworks exist, each with trade-offs between data quality and resource cost.</p>
+
+  <div class="card">
+    <h4>The discrimination problem</h4>
+    <ul class="hy">
+      <li>Minimum hold times to decide feral versus frightened range from 1 day to more than 7 days, with potential euthanasia for feral cats after the hold. <span class="bdg notes">your notes</span></li>
+      <li>A good predictive assessment could cut animal-care days, improve welfare, and raise live-release rates. <span class="bdg notes">your notes</span></li>
+    </ul>
+  </div>
+
+  <h3>Assessment frameworks</h3>
+  <table class="cmp">
+    <tr><th>Framework</th><th>What it is</th><th>Trade-off</th></tr>
+    <tr><td><b>Structured behavioural test</b></td><td>Controlled exposure to stimuli over a set time, rating severity (1 to 5), frequency, duration, proportion, and latency</td><td>Quantitative and aids decisions, but resource heavy and prone to trigger stacking and poor generalisation</td></tr>
+    <tr><td><b>Scan samples</b></td><td>Presence or absence of behaviours recorded at multiple scheduled time points</td><td>Cheap and not provoked, best for chronic problems (fear), not specific events like petting-induced aggression</td></tr>
+    <tr><td><b>Ad libitum observation</b></td><td>Unstructured notes during intake, exams, volunteer contact</td><td>No extra time, but unstandardised and hard to interpret</td></tr>
+    <tr><td><b>Trait rating</b></td><td>Experienced raters score traits (agreeableness, neuroticism) on a scale</td><td>Captures subtle behaviour, but needs long familiarity and is subjective</td></tr>
+    <tr><td><b>Qualitative behaviour history</b></td><td>Free-text descriptions from someone who knows the animal (surrender history)</td><td>Rich but biased by emotion and owner inexperience</td></tr>
+  </table>
+
+  <div class="trap">
+    <b>Exam trap: structured feline test metrics</b>
+    A structured test yields a rating of severity (1 to 5), frequency, duration, proportion, and latency (for example, meowed 4 times, hid in the box for 60% of the period, approached after 37 seconds). <span class="bdg notes">your notes</span>
+  </div>
+
+  <h3>Named feline tools</h3>
+  <table class="cmp">
+    <tr><th>Tool</th><th>Key point</th></tr>
+    <tr><td><b>Feline Temperament Profile (FTP)</b></td><td>10 sequential mini-tests of increasing contact with an unfamiliar person; valid and consistent, but NOT designed to identify specific undesirable behaviours</td></tr>
+    <tr><td><b>ASPCA Meet Your Match</b></td><td>May not suit short-LOS shelters; needs an owner, intake profiles, a records repository, a flagging method, and ideally a daily indicator record</td></tr>
+    <tr><td><b>Feline-ality</b></td><td>Assessed within first 48 hours, 8 items in a novel room; scored on the Independent-Gregarious and Valiance scales into nine categories; linked to more adoptions and fewer returns and euthanasia</td></tr>
+    <tr><td><b>CSS (cat stress score)</b></td><td>Used to monitor wellbeing, but reliability and validity in shelters are not yet established</td></tr>
+  </table>
+  <div class="trap">
+    <b>Exam trap: Feline-ality validity</b>
+    Despite its operational benefits, the caveat is that as of yet no studies have evaluated the reliability or validity of the Feline-ality scales in shelters. <span class="bdg notes">your notes</span>
+  </div>
+  <div class="card">
+    <h4>Hiding box</h4>
+    <p class="note">Providing a hiding box facilitated a quicker reduction in stress after arrival; cats with boxes were more likely to approach the cage front and spent less time behind the litter box. Optimising shelter conditions is one of the most impactful ways to improve cat wellbeing. <span class="bdg notes">your notes</span></p>
+  </div>
+</section>
+
+<!-- ============ PANEL 5: RISK, BMOD & OUTCOMES ============ -->
+<section class="panel" id="risk">
+  <h2 class="sec">Risk, Behaviour Modification and Outcomes</h2>
+  <p class="lead">When behaviour or welfare concerns arise, shelters develop an individualised plan, provide behavioural support, and make timely outcome decisions. Training and modification must follow least-intrusive, minimally-aversive principles, and risk to people must be addressed promptly.</p>
+
+  <div class="verifybox">
+    <b>ASV: training and behaviour modification</b>
+    Training MUST follow Least Intrusive, Minimally Aversive (LIMA) principles and the Humane Hierarchy of Behaviour Change. Positive reinforcement improves health, welfare, and adoptability; punishment-based methods can increase fear, anxiety, and aggression and compromise safety and welfare. It is unacceptable to use physical force as punishment. <span class="bdg asv">ASV</span>
+  </div>
+
+  <div class="card">
+    <h4>Behaviour medication</h4>
+    <ul class="hy">
+      <li>Must be strongly considered for emotional-health welfare concerns, for immediate intake or housing stress, or for long-term problems (separation-related, fear of people, chronic shelter stress). <span class="bdg asv">ASV</span></li>
+      <li>Concerns must be objectively assessed and diagnosed, with clear treatment goals, under veterinary advice or written protocols, and dispensed per regulation. <span class="bdg asv">ASV</span></li>
+      <li>Goal: improve welfare, reduce stress and anxiety, and support the behaviour plan, as part of a comprehensive plan (assessment, environment, routine, foster, enrichment, training, monitoring). <span class="bdg asv">ASV</span></li>
+    </ul>
+  </div>
+
+  <div class="verifybox">
+    <b>ASV: risk assessment of aggression</b>
+    Shelters MUST respond promptly to behaviour posing a significant safety risk and must have protocols to identify and manage animals at high risk of harm. Dogs surrendered with credible reports of severe aggression toward people or other dogs should be euthanised as quickly as legally possible, since there is no benefit to holding them. Euthanasia is the appropriate outcome for animals at high risk of serious harm to people, and legal consultation can help when writing these protocols. <span class="bdg asv">ASV</span>
+  </div>
+  <div class="trap">
+    <b>Exam trap: single-incident euthanasia and thin slicing</b>
+    A euthanasia decision should rest on a single aggression incident only if it is truly egregious (a severe attack on a person or dog); otherwise confirm the behaviour safely in other contexts. Experts can decide accurately from a few observations (thin slicing), but non-experts who thin-slice are prone to error. Fast-track dogs are those with a good surrender report and high sociability to people and dogs. <span class="bdg notes">your notes</span>
+  </div>
+
+  <h3>Most common shelter behaviours</h3>
+  <ul class="hy">
+    <li>Anxiety or fear about unfamiliar people, handling, or other dogs, often shown as avoidance including aggression. <span class="bdg asv">ASV</span></li>
+    <li>Frustration about other dogs, withdrawal of attention or play, or limited activity and stimulation. <span class="bdg asv">ASV</span></li>
+    <li>Anxiety or fear about resources (toys, food) or about separation from people. <span class="bdg asv">ASV</span></li>
+  </ul>
+
+  <h3>Assessment timing</h3>
+  <figure class="fig">
+    <svg viewBox="0 0 520 150" width="100%" role="img" aria-label="When to assess owner-relinquished versus stray dogs">
+      <defs><marker id="arAD3" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path class="sgarrow" d="M0,0 L7,3 L0,6 Z"/></marker></defs>
+      <text x="10" y="22" font-size="12.5" class="sgtxt">Owner-relinquished</text>
+      <rect x="160" y="6" width="200" height="30" rx="8" class="sgbox"/>
+      <text x="260" y="25" text-anchor="middle" font-size="11.5" class="sgtxt">Assess at intake (reduces LOS)</text>
+      <line x1="135" y1="21" x2="156" y2="21" class="sgline" marker-end="url(#arAD3)"/>
+      <text x="10" y="80" font-size="12.5" class="sgtxt">Stray</text>
+      <rect x="160" y="64" width="200" height="30" rx="8" class="sgbox"/>
+      <text x="260" y="83" text-anchor="middle" font-size="11.5" class="sgtxt">Day before end of stray hold</text>
+      <line x1="135" y1="79" x2="156" y2="79" class="sgline" marker-end="url(#arAD3)"/>
+      <rect x="378" y="64" width="132" height="30" rx="8" class="sgbox2"/>
+      <text x="444" y="83" text-anchor="middle" font-size="11" class="sgtxt">if hold over 5 days: after day 3</text>
+      <line x1="360" y1="79" x2="374" y2="79" class="sgline" marker-end="url(#arAD3)"/>
+      <text x="10" y="128" font-size="11.5" class="sgmut">Plasma cortisol is highest in the first 3 days, so most behaviourists advise a 3 day wait before assessing.</text>
+    </svg>
+    <figcaption>Assessment timing by source, built from your notes. Original didactic schematic.</figcaption>
+  </figure>
+
+  <h3>Rehoming, adoption criteria, and follow-up</h3>
+  <ul class="hy">
+    <li>Provide resources and a safe, gradual, controlled introduction to children and resident pets, and communicate any behaviour concerns to reduce returns. <span class="bdg notes">your notes</span></li>
+    <li>Basic adoption criteria: the animal must be desexed; no adoption to anyone with a known history of animal or child abuse, anyone suspected of being intoxicated at application, or for use as a food source. <span class="bdg notes">your notes</span></li>
+    <li>Guiding placement values: the match suits the animal and family, appropriate veterinary care, social and companionship needs met, a liveable environment, and the pet respected and valued. <span class="bdg notes">your notes</span></li>
+    <li>Follow-up: more than one behaviour problem was reported by about 51% of adopters at 1 week and 1 month; house training was the top dog issue and chewing or scratching the top cat issue. Conversation-based adoptions and good interpretation reduce mismatches. <span class="bdg notes">your notes</span></li>
+  </ul>
+</section>
+
+<!-- ============ PANEL 6: WELFARE & ETHICS ============ -->
+<section class="panel" id="welfare">
+  <h2 class="sec">Welfare and Ethical Decision Making</h2>
+  <p class="lead">Welfare is multidimensional and no single measure is a gold standard, so shelters combine input-based and animal-based measures within a recognised framework, monitor over time, and use structured ethical reasoning to make and defend outcome decisions.</p>
+
+  <h3>Three viewpoints of welfare</h3>
+  <figure class="fig">
+    <svg viewBox="0 0 520 150" width="100%" role="img" aria-label="Three viewpoints of welfare assessment">
+      <g font-size="12" text-anchor="middle">
+        <rect x="14" y="40" width="150" height="64" rx="10" class="sgbox"/>
+        <text x="89" y="66" class="sgtxt">Biological</text><text x="89" y="82" class="sgtxt">functioning</text>
+        <text x="89" y="97" font-size="9.5" class="sgmut">BCS, illness, HPA axis</text>
+        <rect x="185" y="40" width="150" height="64" rx="10" class="sgbox"/>
+        <text x="260" y="66" class="sgtxt">Affective or</text><text x="260" y="82" class="sgtxt">emotional state</text>
+        <text x="260" y="97" font-size="9.5" class="sgmut">fear, anhedonia, play</text>
+        <rect x="356" y="40" width="150" height="64" rx="10" class="sgbox"/>
+        <text x="431" y="74" class="sgtxt">Natural state</text>
+        <text x="431" y="92" font-size="9.5" class="sgmut">species-typical behaviour</text>
+      </g>
+      <text x="260" y="22" text-anchor="middle" font-size="12.5" class="sgmut">Welfare is assessed across all three; one dimension cannot fully compensate for another</text>
+    </svg>
+    <figcaption>The three viewpoints of welfare from your behaviour-textbook notes. Original didactic schematic.</figcaption>
+  </figure>
+
+  <table class="cmp">
+    <tr><th>Framework</th><th>Components</th></tr>
+    <tr><td><b>Five Freedoms</b></td><td>From thirst and hunger; from distress and fear; from injury and pain; from physical discomfort; to express normal behaviour</td></tr>
+    <tr><td><b>Welfare Quality (4 principles)</b></td><td>Good feeding, good housing, good health, appropriate behaviour</td></tr>
+    <tr><td><b>Five Domains</b></td><td>Nutrition, environment, health, behaviour, mental state</td></tr>
+  </table>
+  <p class="note"><span class="bdg ref">std ref</span> Input-based measures (sound, air quality, temperature, humidity, housing, resources, management) sit alongside animal-based measures. Qualitative Behaviour Assessment (QBA) rates the expressivity of the whole animal as it engages with its environment and shows high inter-rater agreement.</p>
+
+  <h3>Cortisol and monitoring caveats</h3>
+  <figure class="fig">
+    <svg viewBox="0 0 520 160" width="100%" role="img" aria-label="Plasma cortisol peaks early while urinary cortisol peaks around day 17">
+      <line x1="40" y1="120" x2="500" y2="120" class="sgaxis"/>
+      <text x="40" y="140" font-size="10" class="sgmut">day 0</text>
+      <text x="120" y="140" font-size="10" class="sgmut">day 3</text>
+      <text x="300" y="140" font-size="10" class="sgmut">day 17</text>
+      <path class="sgline" d="M40,118 C70,40 100,40 130,70 C170,105 220,112 300,114"/>
+      <text x="80" y="34" font-size="11" class="sgtxt">Plasma cortisol</text>
+      <text x="80" y="49" font-size="9.5" class="sgmut">highest days 1 to 3</text>
+      <path class="sgline" style="stroke:var(--asv)" d="M40,116 C150,110 230,92 300,52 C340,62 420,96 500,108"/>
+      <text x="330" y="44" font-size="11" class="sgtxt">Urinary cortisol</text>
+      <text x="330" y="59" font-size="9.5" class="sgmut">peaks around day 17</text>
+      <circle cx="300" cy="52" r="3.5" class="sgarrow"/>
+    </svg>
+    <figcaption>Plasma cortisol peaks in the first 3 days then declines, while urinary cortisol peaks near day 17. Original didactic schematic built from your notes; curve shapes are illustrative of timing, not measured values.</figcaption>
+  </figure>
+  <div class="trap">
+    <b>Exam trap: cortisol and behaviour as welfare markers</b>
+    Plasma cortisol is highest in the first 3 days; urinary cortisol peaks around day 17; dogs with prior kenneling experience have LOWER urinary cortisol than naive dogs. A dog's behaviour cannot be used as a sole predictor of stress, since behavioural stress is expressed many ways and correlates poorly with plasma cortisol. Some dogs performing stereotypies had better welfare than those that did not, and stereotypy can persist as a behavioural scar. <span class="bdg notes">your notes</span>
+  </div>
+
+  <h3>Daily rounds</h3>
+  <div class="card">
+    <p class="note">Daily rounds are a systematic monitoring process and one of the most effective tools for protecting welfare, helping create urgency, move animals through the system, reduce LOS, and prevent crowding. <span class="bdg notes">your notes</span></p>
+    <ul class="hy">
+      <li>Team includes shelter operations, medical, and behaviour perspectives, led by a population manager, with protected time. <span class="bdg notes">your notes</span></li>
+      <li>Conduct rounds before cleaning and feeding to catch inappetent animals; for group housing, sometimes during feeding to confirm access. <span class="bdg notes">your notes</span></li>
+      <li>Six questions: Who are you? How are you? Are you where you should be? What can we provide today? Where are you going? Are you meeting the Five Freedoms or domains? <span class="bdg notes">your notes</span></li>
+    </ul>
+  </div>
+
+  <h3>Ethical decision making and welfare threats</h3>
+  <ul class="hy">
+    <li>Respond to welfare threats by addressing fundamental causes (reduce stressors, change the environment) rather than ad-hoc treatment of signs; pharmacology should not replace environmental change. <span class="bdg notes">your notes</span></li>
+    <li>Behavioural restriction is a powerful psychological stressor; increasing an animal's ability to predict and control its environment protects wellbeing. <span class="bdg notes">your notes</span></li>
+    <li>A structured ethical approach makes decisions inclusive, transparent, and evidence-based, and easier to justify to those with opposing views. <span class="bdg notes">your notes</span></li>
+    <li>Moral stress, the stress of being unable to do what one believes is right, can drive medical error, compassion fatigue, and burnout; organisational structures help more than individual resilience techniques alone. <span class="bdg notes">your notes</span></li>
+  </ul>
+</section>
+
+<!-- ============ PANEL 7: MCQ TEST BANK ============ -->
+<section class="panel" id="mcq">
+  <h2 class="sec">MCQ Test Bank</h2>
+  <p class="lead">All 30 questions for the Assessment and Decision Making subdomain in a single set, drawn from your uploaded MCQs. Tap an option to lock it in and reveal the explanation. Badges show whether the rationale rests on your notes, the ASV Guideline section, or a published reference.</p>
+  <div class="mcqbar">
+    <div class="label"><span class="dot"></span>30 questions &middot; Assessment &amp; Decision Making</div>
+    <div class="score"><span id="scoreTxt">0 / 0 correct</span><button class="reset" id="resetBtn">Reset</button></div>
+  </div>
+  <div id="qhost"></div>
+</section>
+
+</div></main>
+
+<footer><div class="wrap">
+  Assessment and Decision Making subdomain hub &middot; Behavioural Health domain &middot; ABVP Shelter Medicine Practice RVS, November 2026. Content badged by source: your uploaded notes, the ASV Guideline section, and behaviour-textbook or published references. In-house SVG schematics are original didactic constructions built from the notes. Supports light and dark mode.
+</div></footer>
+
+<script>
+const tabrow=document.getElementById('tabrow');
+tabrow.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.disabled)return;
+  [...tabrow.children].forEach(x=>x.classList.remove('active'));b.classList.add('active');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('show'));
+  document.getElementById(b.dataset.p).classList.add('show');window.scrollTo({top:0,behavior:'smooth'});});
+
+/* Assessment and Decision Making MCQ bank (30 items, single set).
+   t = topic tag (all 'adm'); f = source badge: notes | asv | ref | corr
+   q = stem, o = options, a = correct index, e = explanation */
+const Q=[
+ {t:"adm",f:"asv",q:"When gathering a behavioural history at intake, which pair of communication skills reduces social desirability bias?",o:["Direct interrogation and closed-ended metrics","Active listening and the use of objective language","Subjective interpretation and passive recording","Validated trait rating and ad-libitum notation"],a:1,e:"Intake staff should ask open-ended questions, use objective language, and apply active listening to get accurate disclosures."},
+ {t:"adm",f:"asv",q:"Which is named as a primary source of environmental unpredictability that drives chronic fear and anxiety?",o:["Using a population manager to lead daily rounds","Irregular patterns of continuous light or darkness","Providing a choice of resources in group housing","Giving fast-acting psychopharmacology before intake"],a:1,e:"The three drivers are lack of routine, frequent disruption of enclosure set-up, and irregular patterns of continuous light or darkness."},
+ {t:"adm",f:"notes",q:"On the 103-item C-BARQ, assuring owners of confidentiality made them more likely to disclose which behaviours?",o:["Separation-related and attachment-seeking behaviours","Aggression toward family members or fear of strangers","Stranger-directed aggression and non-social fear","Dog-directed aggression and resource guarding"],a:1,e:"Confidentiality increased disclosure of family-directed aggression and fear of strangers; other categories showed no difference."},
+ {t:"adm",f:"notes",q:"Using the shorter 42-item C-BARQ, what was the effect of confidentiality assurances on disclosure?",o:["It doubled disclosure of human-directed bites","It eliminated social desirability bias entirely","There was no difference between the confidential and non-confidential groups","Owners became far less forthcoming for fear of euthanasia"],a:2,e:"The 42-item version showed no difference, unlike the 103-item version. Self-administered tools may still reduce bias, but evidence is incomplete."},
+ {t:"adm",f:"notes",q:"At two weeks post-adoption, which behaviours correlate with surrender reports?",o:["Barking, house soiling, and predatory drive","Fear, anxiety, or aggression toward vets, and aggression toward unfamiliar people","Kennel spinning and stereotypic pacing","Tail tucked and food-bowl freezing"],a:1,e:"At 2 weeks, aggression toward unfamiliar people, urination when alone, and destructive chewing correlate with surrender reports."},
+ {t:"adm",f:"notes",q:"How do post-adoption correlations change from the 2-week to the 6-week follow-up?",o:["They increase sharply due to trigger stacking","There are fewer correlations, limited mainly to aggression toward unfamiliar people, urination when alone, and destructive chewing","Resource guarding becomes the single predictor of return","Adopter reports lose all alignment with shelter observations"],a:1,e:"By 6 weeks there are fewer correlations overall, with only a few behaviours still matching surrender reports."},
+ {t:"adm",f:"notes",q:"Close to 80% of dogs are fearful at the vet. For a dog reported fearful at a vet exam, what is the correlated chance of fear in new situations?",o:["35%","37%","55%","68%"],a:3,e:"Dogs fearful at the vet (about 55% by owner report) show fear in new situations about 68% of the time."},
+ {t:"adm",f:"notes",q:"A dog fearful at the veterinarian is statistically prone to which secondary presentations?",o:["35% pain or touch sensitivity and 37% non-social fear","75% human-directed biting and 20% kennel guarding","16% true aggression and 48% separation anxiety","60% food guarding and 50% conspecific reactivity"],a:0,e:"Vet-fearful dogs show pain or touch sensitivity about 35% of the time and non-social fear about 37%."},
+ {t:"adm",f:"notes",q:"Why are untrained daily-care staff observations of behaviour often inaccurate?",o:["They are trained only to monitor BCS and gait","People may be reluctant to disclose negative information that could hurt the dog's adoption chances","The observer effect eliminates their ability to see pacing","They use input-based rather than animal-based measures"],a:1,e:"A key reason is reluctance to report negatives that might jeopardise adoption. Staff predicted only about a third of later-reported problems."},
+ {t:"adm",f:"notes",q:"Close to half of the shelter staff studied made which observational error?",o:["Mistook fearful tracking for a stable trait","Mistook aggressive behaviour for excitement and frustration","Mistook play for chew-bone guarding","Classified non-aggressive behaviour as severe attacks"],a:1,e:"About half mistook aggression for excitement or frustration, but rarely the reverse, so people tend to judge dogs positively."},
+ {t:"adm",f:"notes",q:"What physical focus differentiates trainers from non-experts when reading canine behaviour?",o:["Non-experts watch the tail; trainers time vocalisations","Non-experts focus on the head; trainers attend to the body","Trainers track only HPA-axis parameters","Trainers watch the kennel front; non-experts watch hiding"],a:1,e:"Non-experts focus on the head, while trainers attend to the body and read motivation and emotion better. Training improves non-experts."},
+ {t:"adm",f:"notes",q:"In which situation is a dog's probability of aggression toward people highest?",o:["During offsite walks or field trips","With a moderately social stimulus dog","When confined to a kennel","During a standardised medical intake exam"],a:2,e:"Aggression toward people is highest in the kennel; aggression toward other dogs tends to be lowest there."},
+ {t:"adm",f:"notes",q:"What are the cortisol peak timelines reported in shelter dogs?",o:["Plasma peaks day 17; urine peaks days 1 to 3","Plasma is highest in the first 3 days; urinary peaks at 17 days","Both peak at exactly 5 days","Cortisol does not fluctuate with time"],a:1,e:"Plasma cortisol peaks in the first 3 days then declines; urinary cortisol peaks around day 17."},
+ {t:"adm",f:"notes",q:"How does prior kenneling experience affect urinary cortisol?",o:["It up-regulates the HPA axis and doubles cortisol","Dogs with prior kenneling experience have lower urine cortisol than naive dogs","It linearizes plasma cortisol","There is no correlation"],a:1,e:"Previously kenneled dogs show lower urinary cortisol than dogs with no such experience."},
+ {t:"adm",f:"notes",q:"Why caution against using a dog's movement or body position as the sole marker of welfare?",o:["Movement can only be measured by scan sampling","Behavioural stress is expressed in many ways and correlates poorly with plasma cortisol","Enclosure standards require a static posture","Posture is dictated only by nutrition and BCS"],a:1,e:"Behaviour is a weak sole stress marker because it varies widely and correlates poorly with plasma cortisol."},
+ {t:"adm",f:"notes",q:"What is the primary diagnostic limitation of the ASPCA SAFER assessment?",o:["A 100% false positive rate","It differentiates none/mild from severe aggression but misses MODERATE aggression","It needs over 60 minutes and 4 handlers","It relies on a Likert scale with severe bias"],a:1,e:"SAFER (sensitivity 60%, specificity 50%) misses dogs with moderate aggression."},
+ {t:"adm",f:"notes",q:"The mAAP test (sensitivity 73%, specificity 59%) showed strong utility for which outcome?",o:["Predicting time spent resting in the bed","Correlating evaluation aggression with owner reports","Identifying chew-bone guarding from a doll","Differentiating spinning from anhedonia"],a:1,e:"The mAAP correlated behavioural-assessment aggression well with owner reports."},
+ {t:"adm",f:"notes",q:"What is the verified predictive value of the assess-a-hand food-guarding test for home behaviour?",o:["It accurately predicts presence of severe home guarding","High positive but 0% negative predictive value","It predicts ABSENCE better: 78% of non-guarders in the test also did not guard at home","It correlates perfectly with owner-directed bites at 6 weeks"],a:2,e:"The test identifies non-guarders better than guarders; 78% of test non-guarders also did not guard at home."},
+ {t:"adm",f:"ref",q:"In Patronek and Bradley's simulations, why is the false-positive share still about 48% even at 85% sensitivity and 85% specificity?",o:["85% accuracy cannot calculate negative predictive value","Aggression toward people is low prevalence, present in no more than 16% of dogs","The observer effect inflates urinary cortisol","Handlers fail to use a male tester"],a:1,e:"Low prevalence (16%) means many positives are false; even at 85%/85% the false-positive share stays near half, hence no better than flipping a coin."},
+ {t:"adm",f:"notes",q:"For the threatening stranger test, which variable is controlled to maximise informational output?",o:["Test inside group housing during feeding","The tester should ideally be male, since dogs are more reactive to men","The handler must drop the leash completely","Repeat the subtest 5 times a week with no rest days"],a:1,e:"The test is sensitive to tester sex and is most informative with a male tester."},
+ {t:"adm",f:"notes",q:"Using a model (fake) dog to assess conspecific reactivity, agreement is lowest for which category?",o:["Friendliness","Fearfulness","Playfulness","Aggressiveness"],a:3,e:"Model dogs show good agreement for friendliness, moderate for fearfulness, and poor for aggressiveness."},
+ {t:"adm",f:"notes",q:"What timing does the text recommend for assessing owner-relinquished versus stray dogs?",o:["Both on day 17 to match the urinary cortisol peak","Owner-relinquished at intake; strays the day before the end of the hold (or after day 3 if the hold exceeds 5 days)","Strays within 48 hours before plasma cortisol declines","Never until 2 weeks in foster"],a:1,e:"Assess surrenders at intake (reduces LOS); assess strays the day before hold ends, or after day 3 for holds over 5 days."},
+ {t:"adm",f:"notes",q:"A structured feline behavioural test yields which quantitative metrics?",o:["Agreeableness, extraversion, neuroticism on a Likert matrix","Rating of severity (1 to 5), frequency, duration, proportion, and latency","Presence or absence of tracking across ad-libitum scans","Air quality, temperature, and enclosure size"],a:1,e:"Structured tests rate severity (1 to 5) plus frequency, duration, proportion, and latency of a behaviour."},
+ {t:"adm",f:"notes",q:"What is the primary limitation of the Feline Temperament Profile (FTP)?",o:["Scores change drastically after adoption","It cannot be completed within 30 minutes","It is not designed to identify a propensity for specific undesirable behaviours","It requires invasive plasma sampling"],a:2,e:"The FTP is valid and consistent but is not built to flag specific undesirable behaviours."},
+ {t:"adm",f:"notes",q:"What critical caveat applies to the ASPCA Feline-ality assessment scales?",o:["It increases LOS and raises euthanasia","It needs a behaviourist familiar with the cat","As of yet, no studies have evaluated the reliability or validity of these scales in shelters","It forces food-guarding triggers that cause trigger stacking"],a:2,e:"Despite operational benefits, the reliability and validity of the Feline-ality scales in shelters are not yet established."},
+ {t:"adm",f:"ref",q:"Which framework organises care into Good feeding, Good housing, Good health, and Appropriate behaviour?",o:["The Five Freedoms","The Welfare Quality 4 Principles","The Five Domains Model","The LIMA Humane Hierarchy"],a:1,e:"Those four are the Welfare Quality principles, distinct from the Five Freedoms and Five Domains."},
+ {t:"adm",f:"ref",q:"What does Qualitative Behaviour Assessment (QBA) measure to gauge affective state?",o:["Frequency of stereotypic spinning over 24 hours","The expressivity of the whole animal as it engages with its environment","The ratio of urinary to plasma cortisol","Distance maintained from a hiding box"],a:1,e:"QBA assesses whole-animal expressivity and shows high inter-rater agreement, capturing the affective state better than breaking behaviour into parts."},
+ {t:"adm",f:"notes",q:"Why is a hiding box one of the most impactful modifications for newly admitted cats?",o:["It lets staff do trait ratings without the observer effect","It removes the need for daily cleaning","It facilitates a quicker reduction in stress, so cats approach the cage front more and spend less time behind the litter box","It replaces psychopharmacology"],a:2,e:"Hiding boxes speed stress reduction; box cats approached the cage front more and hid behind the litter box less."},
+ {t:"adm",f:"notes",q:"Who must be on the daily rounds team, and when should rounds ideally occur?",o:["The surrendering owner and a legal consultant, after adoption hours","Representatives from operations, medical, and behaviour, conducted before cleaning and feeding","Certified trainers only, during 17-day cycles","Volunteers and fosterers, during offsite trips"],a:1,e:"Rounds include operations, medical, and behaviour perspectives and are done before cleaning and feeding to catch inappetent animals."},
+ {t:"adm",f:"notes",q:"How should the team respond to stereotypic or repetitive behaviours in the population?",o:["Immediately prescribe long-term medication to mask the signs","Address the fundamental causes by reducing stressors and changing the environment, rather than ad-hoc treatment of signs","Increase standardised testing to force an outcome","Restrict the animal's choice and control to prevent trigger stacking"],a:1,e:"Target the root causes (reduce stressors, change the environment); pharmacology should not replace environmental change."}
+];
+
+const host=document.getElementById('qhost');
+const scoreTxt=document.getElementById('scoreTxt');
+let answered=0, correct=0;
+const DLABEL={adm:"Assessment & Decision Making"};
+function tagLabel(t){return DLABEL[t]||t.toUpperCase();}
+function flagBadge(f){
+  if(f==='corr')return '<span class="bdg corr">corrected</span>';
+  if(f==='notes')return '<span class="bdg notes">your notes</span>';
+  if(f==='asv')return '<span class="bdg asv">ASV</span>';
+  if(f==='ref')return '<span class="bdg ref">std ref</span>';
+  return '';
+}
+function render(){
+  host.innerHTML='';answered=0;correct=0;updateScore();
+  Q.forEach((item,i)=>{
+    const card=document.createElement('div');card.className='q';
+    card.innerHTML=`<div class="meta"><span class="num">#${i+1}</span><span class="tag">&#9670; ${tagLabel(item.t)}</span>${flagBadge(item.f)}</div><div class="stem">${item.q}</div>`;
+    const opts=document.createElement('div');
+    item.o.forEach((txt,oi)=>{
+      const btn=document.createElement('button');btn.className='opt';
+      btn.innerHTML=`<span class="k">${String.fromCharCode(65+oi)}</span>${txt}`;
+      btn.onclick=()=>choose(card,opts,item,oi);opts.appendChild(btn);
+    });
+    card.appendChild(opts);
+    const ex=document.createElement('div');ex.className='expl';
+    ex.innerHTML=`<b class="cor">Correct: ${String.fromCharCode(65+item.a)}.</b> ${item.e}`;
+    card.appendChild(ex);host.appendChild(card);
+  });
+}
+function choose(card,opts,item,oi){
+  if(card.dataset.done)return;card.dataset.done='1';answered++;
+  [...opts.children].forEach((b,bi)=>{b.classList.add('locked');
+    if(bi===item.a)b.classList.add('correct');
+    if(bi===oi && oi!==item.a)b.classList.add('wrong');});
+  if(oi===item.a)correct++;
+  card.querySelector('.expl').classList.add('show');updateScore();
+}
+function updateScore(){scoreTxt.textContent=`${correct} / ${answered} correct`;}
+document.getElementById('resetBtn').onclick=render;
+render();
+</script>
+</body>
+</html>

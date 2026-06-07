@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<title>Facility &amp; Environment Subdomain Hub | ABVP Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme:light dark;
+    --bg:#eef2f7;--surface:#fbfdff;--surface2:#e8edf4;
+    --chrome:#1c3a5e;--chrome2:#264f78;          /* behavioural health blue chrome */
+    --text:#16273a;--onChrome:#e9f0f8;--muted:#586a7d;
+    --line:#ccd6e2;
+    --accent:#b1466f;--accent-soft:#f3e0ea;       /* behavioural health rose accent */
+    --good:#1f7a4d;--good-soft:#e3f2ea;--bad:#b23b3b;
+    --notes:#7a4fb5;--notes-soft:#ece3f7;          /* your facility/environment notes (PDF) */
+    --asv:#1f6f86;--asv-soft:#dcecf2;              /* ASV Standards of Care / position statements */
+    --ref:#b5651d;--ref-soft:#f6e7d4;              /* standard shelter-medicine reference */
+    --dot:rgba(28,58,94,.05);
+    --shadow:0 1px 2px rgba(20,40,70,.08),0 8px 24px rgba(20,40,70,.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0e1622;--surface:#16212f;--surface2:#1b2735;
+      --chrome:#122236;--chrome2:#1b3450;
+      --text:#dde6f1;--onChrome:#e9f0f8;--muted:#9aacbf;
+      --line:#2a3a4d;
+      --accent:#d3789c;--accent-soft:rgba(211,120,156,.16);
+      --good:#51b184;--good-soft:rgba(40,140,90,.18);--bad:#e08585;
+      --notes:#c0a4ec;--notes-soft:rgba(150,110,210,.20);
+      --asv:#66c0d6;--asv-soft:rgba(40,150,175,.18);
+      --ref:#e0a766;--ref-soft:rgba(200,130,50,.18);
+      --dot:rgba(255,255,255,.035);
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.3);
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--text);
+    font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;
+    background-image:radial-gradient(circle at 1px 1px,var(--dot) 1px,transparent 0);background-size:22px 22px;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+  .crumb{background:var(--chrome);padding:9px 18px;display:flex;align-items:center;gap:10px;font-size:13px;font-weight:500;border-bottom:2px solid var(--chrome2)}
+  .crumb a{color:#9fc0dc;text-decoration:none;display:flex;align-items:center;gap:5px}
+  .crumb .sep{color:#5f82a3;font-size:11px}
+  .crumb .here{color:#cfe0f1}
+  header.top{background:var(--chrome);color:var(--onChrome);padding:26px 0 22px;border-bottom:4px solid var(--accent)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#9fc0dc;margin:0 0 6px}
+  header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(26px,4.5vw,40px);margin:0;line-height:1.05}
+  header.top p.sub{margin:8px 0 0;color:#cfe0f1;font-size:14px;max-width:78ch}
+  .legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}
+  .legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.22);color:#eaf2fb;display:flex;align-items:center;gap:6px}
+  .legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--surface);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button:hover{background:var(--bg);color:var(--text)}
+  .tabrow button.active{background:var(--chrome);color:var(--onChrome)}
+  .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+  main{padding:30px 0 80px}
+  .panel{display:none;animation:fade .35s ease}
+  .panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;letter-spacing:-.01em;color:var(--text)}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:80ch}
+  h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:30px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;scroll-margin-top:64px;color:var(--text)}
+  h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;color:var(--text);text-transform:uppercase;letter-spacing:.03em}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}
+  p.note{font-size:14px;margin:0 0 6px}
+  ul.hy{margin:8px 0;padding-left:0;list-style:none}
+  ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed var(--line);font-size:14px}
+  ul.hy li:last-child{border-bottom:0}
+  ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;border-radius:2px;background:var(--accent);transform:rotate(45deg)}
+  .trap{background:var(--accent-soft);border:1px solid var(--accent);border-left:4px solid var(--accent);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .trap b{color:var(--accent);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .corrbox{background:var(--good-soft);border:1px solid var(--good);border-left:4px solid var(--good);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .corrbox b{color:var(--good);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .verifybox{background:var(--asv-soft);border:1px solid var(--asv);border-left:4px solid var(--asv);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .verifybox b{color:var(--asv);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp th{background:var(--chrome);color:var(--onChrome);font-weight:600;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase}
+  table.cmp tr:last-child td{border-bottom:0}
+  table.cmp td b{color:var(--text)}
+  .fig{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0;box-shadow:var(--shadow)}
+  .fig figcaption{font-size:12.5px;color:var(--muted);margin-top:8px;font-style:italic}
+  /* svg helpers (use vars so diagrams adapt to dark mode) */
+  .sgbox{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1}
+  .sgbox2{fill:var(--asv-soft);stroke:var(--asv);stroke-width:1}
+  .sgtxt{fill:var(--text);font-family:"Public Sans",sans-serif}
+  .sgmut{fill:var(--muted);font-family:"Public Sans",sans-serif}
+  .sgmono{fill:var(--accent);font-family:"JetBrains Mono",monospace}
+  .sgline{stroke:var(--accent);stroke-width:2;fill:none}
+  .sgaxis{stroke:var(--line);stroke-width:1.5}
+  .sgarrow{fill:var(--accent)}
+  /* source badges */
+  .bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+  .bdg.notes{background:var(--notes-soft);color:var(--notes)}
+  .bdg.asv{background:var(--asv-soft);color:var(--asv)}
+  .bdg.ref{background:var(--ref-soft);color:var(--ref)}
+  .bdg.corr{background:var(--good);color:#fff}
+  /* mcq */
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--chrome);color:var(--onChrome);border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:54px;z-index:10}
+  .mcqbar .label{font-family:"JetBrains Mono",monospace;font-size:12px;color:#cfe0f1;display:flex;align-items:center;gap:8px}
+  .mcqbar .label .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);display:inline-block}
+  .score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}
+  .score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;color:#cfe0f1;padding:5px 10px;border-radius:8px;font-size:11px}
+  .q{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
+  .q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+  .q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+  .q .stem{font-weight:600;font-size:15px;margin-bottom:10px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:var(--surface2);border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;font-family:"Public Sans";color:var(--text);transition:background .15s,border-color .15s}
+  .opt:hover{border-color:var(--accent)}
+  .opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}
+  .opt.correct{background:var(--good-soft);border-color:var(--good)}
+  .opt.wrong{background:rgba(178,59,59,.14);border-color:var(--bad)}
+  .opt.locked{cursor:default}
+  .expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:var(--surface2);border:1px solid var(--line);font-size:13.5px}
+  .expl.show{display:block}
+  .expl b.cor{color:var(--good)}
+  footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
+  @media(max-width:640px){.mcqbar{top:50px}.score{font-size:12px}}
+</style>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span class="sep">&rsaquo;</span><a href="../index.html#domain-behav">Behavioural Health</a><span class="sep">&rsaquo;</span><span class="here">Facility & Environment</span></nav>
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">ABVP Shelter Medicine Practice RVS &middot; Behavioural Health</p>
+    <h1>Facility &amp; Environment Subdomain Hub</h1>
+    <p class="sub">Exam-depth study tool for the physical and operational shelter environment: environmental management and mental-health policy, species separation and housing, spatial requirements, daily routine and predictability, and the acoustic and lighting engineering of the building. Enrichment and feline behaviour modification are intentionally excluded and live in their own subdomains. Every claim is badged by source.</p>
+    <div class="legend">
+      <span><i style="background:var(--notes)"></i>Your facility/environment notes (PDF)</span>
+      <span><i style="background:var(--asv)"></i>ASV Standards of Care</span>
+      <span><i style="background:var(--ref)"></i>Standard shelter-medicine reference</span>
+    </div>
+  </div>
+</header>
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="env"><span class="dot"></span>Environmental Management</button>
+  <button data-p="hou"><span class="dot"></span>Housing, Separation &amp; Space</button>
+  <button data-p="rou"><span class="dot"></span>Routine &amp; Acoustic Environment</button>
+  <button data-p="mcq"><span class="dot" style="background:var(--chrome2)"></span>MCQ Test Bank</button>
+</div></div></nav>
+<main><div class="wrap">
+
+<!-- ============ PANEL 1: ENVIRONMENTAL MANAGEMENT ============ -->
+<section class="panel show" id="env">
+  <h2 class="sec">Environmental Management &amp; Mental Health</h2>
+  <p class="lead">The shelter must actively engineer its environment to minimise the stimuli that induce fear, stress, and frustration, and to support mental health and wellbeing. This is a required component of care backed by written policy and protocol, not an informal aspiration.</p>
+
+  <div class="card">
+    <h4>The directive</h4>
+    <p class="note">Shelters must have policies and protocols for managing the environment in a manner that supports animal mental health and wellbeing, with the explicit aim of minimising stimuli that induce fear, stress, and frustration. <span class="bdg asv">ASV</span></p>
+    <p class="note">Novel environments are especially stressful for shy, undersocialised, or geriatric dogs and cats. Where possible, foster care placement is the best option for these animals. <span class="bdg notes">your notes</span></p>
+  </div>
+
+  <div class="trap">
+    <b>Exam trap</b> Feral animals must not be housed in the shelter except for a brief period directly related to the delivery of veterinary care. Watch for answer choices that propose long-term sheltering, colony-room placement, or behavioural rehabilitation of a truly feral animal inside the facility. <span class="bdg asv">ASV</span></div>
+
+  <div class="verifybox">
+    <b>Scope note</b> Enrichment (the four pillars, playgroups, cage furnishings, object play, occupational and sensory enrichment) and feline behaviour modification (DSCC, the 1-2-3 rule, territorial and play aggression, the unsocialised kitten, inappropriate elimination) are deliberately not in this hub. They belong to the Enrichment and Feline Behaviour subdomains. This hub keeps only the physical plant and its operation.</div>
+</section>
+
+<!-- ============ PANEL 2: HOUSING, SEPARATION & SPACE ============ -->
+<section class="panel" id="hou">
+  <h2 class="sec">Housing, Species Separation &amp; Space</h2>
+  <p class="lead">How animals are zoned, separated, and given room directly shapes stress and behaviour. Separation rules are absolute, and spatial minimums for cats are specific and testable.</p>
+
+  <h3>Species separation</h3>
+  <table class="cmp">
+    <tr><th>Rule</th><th>Detail</th><th>Note</th></tr>
+    <tr><td><b>Prey from predators</b></td><td>Prey species must be housed away from predatory species at all times</td><td>Absolute, not a preference</td></tr>
+    <tr><td><b>Cats from dogs</b></td><td>Cats must be housed away from dogs</td><td>Out of sight and sound where possible</td></tr>
+    <tr><td><b>Feral animals</b></td><td>Must not be housed in the shelter</td><td>Exception only for a brief period related to veterinary care delivery</td></tr>
+  </table>
+
+  <div class="fig">
+    <svg viewBox="0 0 700 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Zoning schematic separating dog, cat, and prey species housing">
+      <defs><marker id="arFE1" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path class="sgarrow" d="M0,0 L7,3 L0,6 Z"/></marker></defs>
+      <rect class="sgbox" x="40" y="60" width="170" height="90" rx="10"/><text class="sgtxt" x="125" y="100" font-size="13" text-anchor="middle" font-weight="600">Dog ward</text><text class="sgmut" x="125" y="118" font-size="11" text-anchor="middle">predatory</text>
+      <rect class="sgbox" x="265" y="60" width="170" height="90" rx="10"/><text class="sgtxt" x="350" y="100" font-size="13" text-anchor="middle" font-weight="600">Cat ward</text><text class="sgmut" x="350" y="118" font-size="11" text-anchor="middle">away from dogs</text>
+      <rect class="sgbox2" x="490" y="60" width="170" height="90" rx="10"/><text class="sgtxt" x="575" y="100" font-size="13" text-anchor="middle" font-weight="600">Prey / exotic</text><text class="sgmut" x="575" y="118" font-size="11" text-anchor="middle">away from predators</text>
+      <line class="sgaxis" x1="237" y1="50" x2="237" y2="160" stroke-dasharray="5,4"/>
+      <line class="sgaxis" x1="462" y1="50" x2="462" y2="160" stroke-dasharray="5,4"/>
+      <text class="sgmono" x="350" y="195" font-size="11" text-anchor="middle">feral animals: brief veterinary-care stays only</text>
+    </svg>
+    <figcaption>Original didactic construction from your notes. Dashed lines mark the required separation between predatory, feline, and prey housing.</figcaption>
+  </div>
+
+  <h3>Spatial requirements</h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Each animal needs adequate space to stand, lie down, turn around, walk several steps, stretch fully, and retreat from aversive stimuli, with separate areas for eating, drinking, eliminating, and exercise. <span class="bdg notes">your notes</span></li>
+      <li>Forcing a dog to live in its elimination area makes house-training increasingly difficult, and a house-trained dog may hold elimination longer than it should, reducing health and increasing discomfort. <span class="bdg notes">your notes</span></li>
+      <li>Cramped enclosures frustrate locomotory and exploratory behaviour, producing inactivity, pacing, and other abnormal behaviour. <span class="bdg notes">your notes</span></li>
+      <li>Group-housed cats need at least 20 inches between functional areas (feeding, resting, eliminating) and prefer to maintain about 3 feet of personal space. Enclosures that are too small produce aggression and reduced activity. <span class="bdg notes">your notes</span></li>
+    </ul>
+  </div>
+
+  <div class="fig">
+    <svg viewBox="0 0 700 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Feline group-housing room showing functional-area spacing and personal-space zones">
+      <defs><marker id="arFE2" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path class="sgarrow" d="M0,0 L7,3 L0,6 Z"/></marker></defs>
+      <rect x="50" y="30" width="600" height="190" rx="10" fill="none" class="sgaxis"/>
+      <rect class="sgbox2" x="80" y="60" width="70" height="34" rx="6"/><text class="sgtxt" x="115" y="82" font-size="11" text-anchor="middle">feeding</text>
+      <rect class="sgbox2" x="300" y="60" width="70" height="34" rx="6"/><text class="sgtxt" x="335" y="82" font-size="11" text-anchor="middle">water</text>
+      <rect class="sgbox2" x="540" y="60" width="80" height="34" rx="6"/><text class="sgtxt" x="580" y="82" font-size="11" text-anchor="middle">litter</text>
+      <rect class="sgbox2" x="300" y="160" width="70" height="34" rx="6"/><text class="sgtxt" x="335" y="182" font-size="11" text-anchor="middle">perch</text>
+      <line class="sgline" x1="150" y1="77" x2="300" y2="77" marker-start="url(#arFE2)" marker-end="url(#arFE2)"/>
+      <text class="sgmono" x="225" y="68" font-size="10" text-anchor="middle">&#8805; 20 in between functions</text>
+      <circle cx="200" cy="135" r="40" fill="none" stroke="var(--accent)" stroke-dasharray="4,4"/>
+      <text class="sgtxt" x="200" y="139" font-size="11" text-anchor="middle">cat</text>
+      <text class="sgmono" x="200" y="200" font-size="10" text-anchor="middle">&#8805; 3 ft personal space</text>
+    </svg>
+    <figcaption>Original didactic construction from your notes. Functional stations are spaced at least 20 inches apart, and each cat keeps a roughly 3-foot personal-space radius.</figcaption>
+  </div>
+
+  <div class="verifybox">
+    <b>Exam focus: group-housing capacity math</b> Do not size a feline group room by dividing total floor area by a single per-cat figure. A 9 by 12 foot room (108 square feet) only holds a given number of cats if the layout can also fit separate resource stations (feeding, litter, perches) at least 20 inches apart while preserving each cat's roughly 3-foot personal-space zone. Capacity is constrained by resource geometry, not raw square footage. <span class="bdg ref">std ref</span></div>
+</section>
+
+<!-- ============ PANEL 3: ROUTINE & ACOUSTIC ENVIRONMENT ============ -->
+<section class="panel" id="rou">
+  <h2 class="sec">Routine, Predictability &amp; the Acoustic Environment</h2>
+  <p class="lead">Predictability is itself a welfare intervention, and the building's sound and light are engineering problems before they are behavioural ones. The sensory-enrichment uses of sound, scent, and light live in the Enrichment subdomain; this tab covers the physical plant and the daily operation.</p>
+
+  <h3>Daily routine and predictability</h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Provide a consistent, structured environment that minimises reassignment of enclosures, caregivers, and schedules. <span class="bdg asv">ASV</span></li>
+      <li>Unpredictability includes a lack of routine in daily care, frequent disruption of enclosure set-up, and irregular patterns or continuous light or darkness. <span class="bdg notes">your notes</span></li>
+      <li>Animals learn to anticipate positive events in their daily routine, such as feeding, which is protective. <span class="bdg notes">your notes</span></li>
+      <li>A predictable break from stimulation of 1 to 2 hours each afternoon, with public and staff access restricted to the ward, significantly lowers kennel noise. <span class="bdg notes">your notes</span></li>
+    </ul>
+  </div>
+
+  <h3>The acoustic environment</h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Shelter sound levels can regularly exceed 100 dB. OSHA recommends humans wear hearing protection when exposure exceeds 100 dB for 2 hours per day, yet dogs, with more sensitive hearing, are often exposed to these and higher levels for much longer. <span class="bdg notes">your notes</span></li>
+      <li>Barking can result from over- or under-stimulation and is socially facilitated: one dog barking can quickly set off the whole ward. Targeting the dogs that repeatedly initiate is likely to be beneficial. <span class="bdg notes">your notes</span></li>
+      <li>Efficient, consistently scheduled daily care activities help reduce barking. <span class="bdg notes">your notes</span></li>
+      <li>Place more reactive dogs away from doors and heavily trafficked areas. Use partial barriers to reduce visual triggers, but do not fully block visual access, which can increase barking in some dogs. <span class="bdg notes">your notes</span></li>
+      <li>Locate loud machinery and equipment well away from enclosures, use sound-dampening and acoustic panels, and train staff to work quietly, avoiding cage and door slamming especially during cleaning. <span class="bdg notes">your notes</span></li>
+    </ul>
+  </div>
+
+  <div class="fig">
+    <svg viewBox="0 0 700 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Noise mitigation priority from source isolation to behavioural targeting">
+      <defs><marker id="arFE3" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path class="sgarrow" d="M0,0 L7,3 L0,6 Z"/></marker></defs>
+      <rect class="sgbox" x="180" y="30" width="340" height="40" rx="8"/><text class="sgtxt" x="350" y="55" font-size="12.5" text-anchor="middle" font-weight="600">1. Source isolation: equipment away from wards</text>
+      <rect class="sgbox" x="200" y="85" width="300" height="40" rx="8"/><text class="sgtxt" x="350" y="110" font-size="12.5" text-anchor="middle" font-weight="600">2. Structural: acoustic dampening panels</text>
+      <rect class="sgbox" x="220" y="140" width="260" height="40" rx="8"/><text class="sgtxt" x="350" y="165" font-size="12.5" text-anchor="middle" font-weight="600">3. Operational: scheduling, quiet handling</text>
+      <rect class="sgbox2" x="245" y="195" width="210" height="40" rx="8"/><text class="sgtxt" x="350" y="220" font-size="12.5" text-anchor="middle" font-weight="600">4. Behavioural: target initiators</text>
+      <line class="sgline" x1="350" y1="70" x2="350" y2="85" marker-end="url(#arFE3)"/>
+      <line class="sgline" x1="350" y1="125" x2="350" y2="140" marker-end="url(#arFE3)"/>
+      <line class="sgline" x1="350" y1="180" x2="350" y2="195" marker-end="url(#arFE3)"/>
+    </svg>
+    <figcaption>Original didactic construction. Noise is mitigated top-down: physical-plant fixes take priority over behavioural ones.</figcaption>
+  </div>
+
+  <div class="trap">
+    <b>Exam trap</b> When a facility-design question asks how to mitigate excessive ward noise, the strongest answers prioritise source isolation (placing noisy mechanical equipment far from wards) and structural engineering (installing sound-absorbing acoustic panels) over behavioural measures alone. <span class="bdg ref">std ref</span></div>
+
+  <h3>Lighting (physical plant)</h3>
+  <div class="card">
+    <p class="note">Kennel areas should be well lit with natural light, or with artificial light that closely approximates natural light in both duration and intensity. Track the sun's path through the day so individual enclosures are not subjected to excessive sun and possible overheating through windows or skylights. <span class="bdg notes">your notes</span></p>
+  </div>
+
+  <div class="verifybox">
+    <b>Trade-off to remember</b> Restricting visitor access lowered general kennel noise in one study, but it may increase length of stay and reduce chances of adoption. The recommended compromise is the scheduled 1 to 2 hour daily quiet period rather than blanket access restriction. <span class="bdg notes">your notes</span></div>
+</section>
+
+<!-- ============ PANEL 4: MCQ ============ -->
+<section class="panel" id="mcq">
+  <h2 class="sec">MCQ Test Bank</h2>
+  <p class="lead">All 30 questions for the Facility and Environment subdomain in a single set. Five come from your uploaded bank (answer letters redistributed from the original all-B key, option content unchanged). The other 25 were written for this hub from your provided reading, primarily the ASV Standards of Care 2022 in your project knowledge plus your notes, and are badged accordingly. They are authored items, not from your pre-vetted MCQ bank. Tap an option to lock it in and reveal the explanation.</p>
+  <div class="mcqbar">
+    <div class="label"><span class="dot"></span>30 questions &middot; Facility &amp; Environment</div>
+    <div class="score"><span id="scoreTxt">0 / 0 correct</span><button class="reset" id="resetBtn">Reset</button></div>
+  </div>
+  <div id="qhost"></div>
+</section>
+
+</div></main>
+
+<footer><div class="wrap">
+  Facility &amp; Environment subdomain hub &middot; Behavioural Health domain &middot; ABVP Shelter Medicine Practice RVS, November 2026. Content badged by source: your uploaded notes, ASV-aligned standards, and standard shelter-medicine references. In-house SVG schematics are original didactic constructions built from the notes. Enrichment and feline behaviour modification were removed to their own subdomains per scope. Acoustic and lighting content is retained as physical-plant engineering, distinct from the sensory-enrichment use of sound, scent, and light.
+</div></footer>
+
+<script>
+const tabrow=document.getElementById('tabrow');
+tabrow.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.disabled)return;
+  [...tabrow.children].forEach(x=>x.classList.remove('active'));b.classList.add('active');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('show'));
+  document.getElementById(b.dataset.p).classList.add('show');window.scrollTo({top:0,behavior:'smooth'});});
+
+/* Facility & Environment MCQ bank (5 items, single set).
+   t = topic tag: sep | spc | aco
+   f = source/flag badge: notes | asv | ref | corr
+   q = stem, o = options, a = correct index, e = explanation
+   Answers redistributed (orig key clustered on B); option content unchanged. */
+const Q=[
+ {t:"sep",f:"asv",q:"A facility is redesigning its intake wards to minimise environmental stress. Which spatial configuration is explicitly mandated by standard shelter housing guidelines?",o:["Prey species must be housed completely away from predatory species at all times, and cats must be housed away from dogs","Feral cats should be group-housed with social cats to facilitate behavioural modelling","Puppies and kittens under 12 weeks must be housed adjacent to adult quarantine wards to build immunity","Animals should be reassigned to different enclosures daily to maximise exploration"],a:0,e:"Strict predator-prey separation, with cats housed away from dogs, is a core housing standard; daily reassignment and mixed feral housing are both contraindicated."},
+ {t:"aco",f:"notes",q:"A manager wants an operational protocol to reduce afternoon ambient noise and kennel stress. Which routine modification is recommended?",o:["Opening the ward to public walk-throughs for 4 continuous hours to habituate the dogs","Continuously reassigning caregivers throughout the day to prevent single-person attachments","Setting 1 to 2 hours aside each afternoon for a predictable break from stimulation, with public and staff access restricted","Running high-pressure hosing units next to occupied kennels to provide white noise"],a:2,e:"A scheduled afternoon quiet period lowers ward noise; continuous public access, caregiver churn, and added machinery noise all worsen it."},
+ {t:"aco",f:"notes",q:"Ambient sound in a high-intake canine ward is recorded at 102 dB. Which statement reflects the veterinary and regulatory context?",o:["This level is safe for dogs because their ears are less sensitive to high frequencies than human ears","OSHA recommends humans wear protection above 100 dB for 2 hours per day; dogs have more sensitive hearing and are often exposed for much longer in shelters","Commercial calming music is proven to drop kennel levels below 40 dB within one hour","Levels above 100 dB are beneficial because they induce social facilitation that reduces barking"],a:1,e:"Greater than 100 dB exceeds the human OSHA threshold, and dogs with keener hearing endure it far longer, making it a major auditory stressor."},
+ {t:"aco",f:"notes",q:"A kennelled dog shows severe stereotypic pacing, barrier bouncing, and continuous high-intensity barking. Which housing adjustment is most appropriate?",o:["Move the dog to a kennel directly beside the main public entrance and intake doors","Maintain the dog in total isolation under continuous 24-hour high-intensity light","Completely seal the kennel front with solid black plastic to remove all visual access","House the dog away from doors and high-traffic areas and use partial barriers to limit, but not fully block, visual access"],a:3,e:"Reactive dogs do better away from traffic with partial visual barriers; fully blocking vision can paradoxically increase barking, and high-traffic or constant light worsens arousal."},
+ {t:"spc",f:"notes",q:"A new group-housing room is being designed for social, healthy adult cats. What are the minimum personal-space and functional-distance requirements?",o:["Cats require at least 3 feet of personal space, with at least 20 inches between functional areas such as feeding and elimination","Cats require 10 feet of personal space, and litter boxes must be 5 feet apart","A minimum of 100 square feet per cat, with no structures permitted","Personal space is irrelevant to cats because they have a rigid, non-flexible social structure"],a:0,e:"Cats keep about a 3-foot personal-space zone and need at least 20 inches between functional stations to prevent resource monopolisation and tension."},
+ {t:"spc",f:"asv",q:"What is the minimum acceptable floor space for individual adult cat housing under the ASV Standards of Care?",o:["Individual adult cat housing under 8 sq ft is unacceptable, and 11 sq ft or more is ideal","Under 4 sq ft is acceptable if vertical perches are provided","Exactly 18 sq ft is the individual minimum","Floor space is irrelevant if climbing structures exist"],a:0,e:"The ASV sets under 8 sq ft as unacceptable for individual adult cats, with 11 sq ft or more ideal; 18 sq ft is the per-cat cohousing figure."},
+ {t:"spc",f:"asv",q:"When cohousing adult cats, what minimum floor space per cat does the ASV recommend?",o:["At least 8 sq ft per cat","At least 18 sq ft of floor space per adult cat","Exactly 4 sq ft per cat","No minimum applies if perches are added"],a:1,e:"Cohousing requires more space than individual housing: a minimum of 18 sq ft per adult cat."},
+ {t:"spc",f:"asv",q:"An individual primary enclosure must allow which set of normal postural adjustments?",o:["Only enough room to sit and eat","Room to crouch and rotate the head only","Standing and walking several steps, sitting normally, lying at full body length, and holding the tail fully erect","Space to stand only, provided turnout is offered twice weekly"],a:2,e:"The ASV minimum requires all of these normal postural adjustments within the enclosure itself."},
+ {t:"spc",f:"asv",q:"What is the principal welfare and operational benefit of multi-compartment (double-sided) housing?",o:["It lets staff stack more animals per ward","It removes the need for any daily cleaning","It eliminates the need for species separation","It separates resting and eating from elimination, increases choice and control, enables touch-free spot cleaning, reduces fomite transmission, and improves personnel safety"],a:3,e:"For these reasons the ASV recommends multi-compartment enclosures for the majority of sheltered animals."},
+ {t:"spc",f:"asv",q:"Multi-compartment housing is described as particularly important for which animals?",o:["Newly admitted, fractious, quarantined, sick, and juvenile animals","Only geriatric animals on legal hold","Only animals already cleared for adoption","Only animals housed for under 24 hours"],a:0,e:"These groups benefit most, and touch-free daily care is essential where handling poses a welfare or safety risk."},
+ {t:"spc",f:"asv",q:"How does the ASV regard primary enclosures with wire-mesh bottoms or slatted floors?",o:["Preferred, because they improve drainage","Unacceptable, because they can cause pain, discomfort, and injury","Acceptable only for cats","Required for isolation wards"],a:1,e:"Wire-mesh or slatted floors are unacceptable under the ASV Standards of Care."},
+ {t:"spc",f:"asv",q:"What is the ASV position on tethering as a method of confinement?",o:["Acceptable for large dogs during cleaning","Acceptable overnight if bedding is provided","Unacceptable for any animal","Acceptable only in outdoor runs"],a:2,e:"Tethering is unacceptable confinement; alternatives include multi-compartment housing, timed walks, and enclosed exercise areas."},
+ {t:"des",f:"asv",q:"When may animals be housed in spaces not intended for housing, such as bathrooms or hallways?",o:["Whenever the adoption floor is full","During peak intake season","Routinely, provided they are cleaned daily","Only for a brief emergency situation"],a:3,e:"Non-housing spaces may be used only briefly in an emergency, distinct from planned multiuse spaces such as office housing."},
+ {t:"spc",f:"asv",q:"How should feline housing units be positioned within a ward?",o:["Elevated off the floor at roughly human eye level, which lowers stress and eases monitoring","On the floor, to give a sense of security","Stacked four high to save space","Facing each other to encourage social contact"],a:0,e:"Cats prefer raised surfaces; eye-level housing reduces stress and improves interaction and observation."},
+ {t:"env",f:"asv",q:"To limit respiratory droplet transmission between cats, how should cat cages be arranged?",o:["Directly facing one another at any distance","Facing away from each other, or spaced more than 4 ft apart","Touching, to share warmth","Stacked vertically with shared ventilation"],a:1,e:"The ASV recommends cat cages face away or be more than 4 ft (1.2 m) apart to reduce droplet spread during sneezing, coughing, or vocalising."},
+ {t:"spc",f:"asv",q:"What is the documented effect of providing shelter cats with an in-enclosure hiding place?",o:["Cats hide permanently and never socialise","Cats become more aggressive toward staff","Cats spend less time trying to hide and are more likely to approach adopters","Cats stop using the litter box"],a:2,e:"A hide (den, towel-covered perch, box, or partial door cover) gives the choice to be unseen and paradoxically increases approachable behaviour."},
+ {t:"spc",f:"asv",q:"What in-enclosure hiding options does the ASV list for dogs?",o:["A second food bowl","A heat lamp","Open chain-link on all sides","A covered crate within the enclosure or a visual barrier over part of the kennel front"],a:3,e:"All dogs, especially young, small, fearful, or anxious ones, should be able to hide within the enclosure."},
+ {t:"spc",f:"asv",q:"Why must a feline litter box accommodate the cat's entire body and allow proper posturing?",o:["Boxes that are too small impair welfare and can lead to house-soiling behaviour","Larger boxes reduce ventilation","Small boxes prevent climbing","Box size has no welfare relevance"],a:0,e:"An undersized litter box is a welfare and house-soiling risk; the box must fit the whole cat."},
+ {t:"spc",f:"asv",q:"For animals remaining in the shelter long term (more than about 2 weeks), what does the ASV require?",o:["Reduced handling to save resources","Additional space, enrichment, and choice within the enclosure, with foster care particularly valuable","Permanent single-compartment housing","Relocation to a warehouse-style room"],a:1,e:"Enhanced housing and enrichment are required for longer stays, and foster is especially valuable for protracted holds or long-term medical care."},
+ {t:"env",f:"asv",q:"What ambient temperature range does the ASV specify for shelter housing areas?",o:["32 F to 50 F","85 F to 100 F","64 F to 80 F (18 C to 26.6 C)","50 F to 60 F only"],a:2,e:"The ASV range is 64 F to 80 F, with individual monitoring and adjustments as needed."},
+ {t:"env",f:"asv",q:"What relative humidity range does the ASV recommend for animal housing?",o:["Below 20%","Above 90%","Exactly 100%","30% to 70%"],a:3,e:"Relative humidity should be maintained between 30% and 70%."},
+ {t:"env",f:"asv",q:"What is the standard recommended ventilation rate for animal facilities?",o:["10 to 20 fresh-air room air exchanges per hour, adjusted for population density","1 to 2 air exchanges per day","50 air exchanges per minute","Ventilation is unnecessary when barred doors are used"],a:0,e:"The ASV standard is 10 to 20 fresh-air air exchanges per hour; a facility at full capacity may need higher rates because animals add heat, humidity, and carbon dioxide."},
+ {t:"env",f:"asv",q:"How should air from canine isolation areas be handled?",o:["Recirculated through the main ward to save energy","Exhausted outside and not recirculated, while feline isolation air handling is a lower priority","Sealed completely with no air exchange","Vented into the adoption lobby"],a:1,e:"Canine respiratory pathogens spread readily by air, so isolation air is exhausted outdoors; cats transmit airborne pathogens less readily."},
+ {t:"env",f:"asv",q:"Which enclosure door type does the ASV prefer for ventilation, and what is required if units are fully enclosed?",o:["Plexiglass doors, with no extra requirement","Solid doors, which need no ventilation","Barred doors are preferred for airflow and interaction, while fully enclosed units require individual mechanical ventilation","Open-topped doors, which never need ventilation"],a:2,e:"Barred doors aid airflow and allow interaction and training; sealed units must have their own mechanical ventilation."},
+ {t:"env",f:"asv",q:"If lights must remain on after dark for safety or regulation, which fixture does the ASV prefer?",o:["Bright white light at full intensity","Continuous high-intensity blue light","Strobing light to deter intruders","A red-orange light, which creates a darker space for animals and supports more normal sleep"],a:3,e:"Because of how dog and cat eyes function, red-orange light at night appears darker to them and allows more normal sleep."},
+ {t:"env",f:"asv",q:"When natural light is unavailable, how should artificial lighting be designed?",o:["To approximate natural light in duration and intensity to support circadian rhythms","To stay on continuously at maximum brightness","To remain off during all daylight-equivalent hours","To cycle rapidly to stimulate activity"],a:0,e:"Artificial light should mimic natural light in duration and intensity to maintain circadian rhythms."},
+ {t:"aco",f:"asv",q:"Why should preventing visual contact between dogs not be used as the sole strategy to reduce barking?",o:["Because dogs cannot see other dogs anyway","Because barking is multifactorial, so facility design, environmental management, enrichment, and behaviour modification are all needed","Because blocking vision is illegal","Because barking is unrelated to vision in every case"],a:1,e:"The causes and solutions for barking are multifactorial; visual blocking alone is insufficient, and fully blocking vision can even increase barking in some dogs."},
+ {t:"aco",f:"asv",q:"Which kind of shelter noise is singled out as especially stressful, even at otherwise reasonable volumes?",o:["A steady background fan hum","Soft classical music","Sudden or unpredictable sounds such as slamming cage doors or tossing metal bowls","Distant outdoor traffic"],a:2,e:"Sudden, unpredictable noise is particularly stressful, so quiet handling and thoughtful material choices matter."},
+ {t:"des",f:"asv",q:"What ward layout does the ASV recommend when designing shelter housing?",o:["A single large warehouse-style room for efficiency","One enormous open ward with central drainage","Outdoor-only housing in all climates","Avoid warehouse-type rooms and use multiple smaller wards with fewer enclosures each"],a:3,e:"Small wards reduce noise and disease transmission, add flexibility, and allow close individual monitoring."},
+ {t:"des",f:"asv",q:"When no dedicated isolation room exists, what makeshift separation does the ASV describe for contagious dogs?",o:["Housing them in the lobby behind a curtain","Mixing them with healthy dogs to build immunity","Housing them at least 25 ft from unaffected dog enclosures and covering the enclosure doors","Placing them in airline crates in a hallway"],a:2,e:"Makeshift separation of at least 25 ft (7.6 m) plus door covers is less effective than true isolation but better than nothing."}
+];
+
+const host=document.getElementById('qhost');
+const scoreTxt=document.getElementById('scoreTxt');
+let answered=0, correct=0;
+const DLABEL={sep:"Species Separation",spc:"Housing & Space",aco:"Routine & Acoustics",env:"Temp, Air & Light",des:"Facility Design"};
+function tagLabel(t){return DLABEL[t]||t.toUpperCase();}
+function flagBadge(f){
+  if(f==='corr')return '<span class="bdg corr">corrected</span>';
+  if(f==='notes')return '<span class="bdg notes">your notes</span>';
+  if(f==='asv')return '<span class="bdg asv">ASV</span>';
+  if(f==='ref')return '<span class="bdg ref">std ref</span>';
+  return '';
+}
+function render(){
+  host.innerHTML='';answered=0;correct=0;updateScore();
+  Q.forEach((item,i)=>{
+    const card=document.createElement('div');card.className='q';
+    card.innerHTML=`<div class="meta"><span class="num">#${i+1}</span><span class="tag">&#9670; ${tagLabel(item.t)}</span>${flagBadge(item.f)}</div><div class="stem">${item.q}</div>`;
+    const opts=document.createElement('div');
+    item.o.forEach((txt,oi)=>{
+      const btn=document.createElement('button');btn.className='opt';
+      btn.innerHTML=`<span class="k">${String.fromCharCode(65+oi)}</span>${txt}`;
+      btn.onclick=()=>choose(card,opts,item,oi);opts.appendChild(btn);
+    });
+    card.appendChild(opts);
+    const ex=document.createElement('div');ex.className='expl';
+    ex.innerHTML=`<b class="cor">Correct: ${String.fromCharCode(65+item.a)}.</b> ${item.e}`;
+    card.appendChild(ex);host.appendChild(card);
+  });
+}
+function choose(card,opts,item,oi){
+  if(card.dataset.done)return;card.dataset.done='1';answered++;
+  [...opts.children].forEach((b,bi)=>{b.classList.add('locked');
+    if(bi===item.a)b.classList.add('correct');
+    if(bi===oi && oi!==item.a)b.classList.add('wrong');});
+  if(oi===item.a)correct++;
+  card.querySelector('.expl').classList.add('show');updateScore();
+}
+function updateScore(){scoreTxt.textContent=`${correct} / ${answered} correct`;}
+document.getElementById('resetBtn').onclick=render;
+render();
+</script>
+</body>
+</html>

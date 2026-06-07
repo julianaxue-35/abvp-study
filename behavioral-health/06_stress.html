@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<title>Stress Subdomain Hub | ABVP Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{color-scheme:light dark;--bg:#eef2f7;--surface:#fbfdff;--surface2:#e8edf4;--chrome:#1c3a5e;--chrome2:#264f78;--text:#16273a;--onChrome:#e9f0f8;--muted:#586a7d;--line:#ccd6e2;--accent:#b1466f;--accent-soft:#f3e0ea;--good:#1f7a4d;--good-soft:#e3f2ea;--bad:#b23b3b;--notes:#7a4fb5;--notes-soft:#ece3f7;--asv:#1f6f86;--asv-soft:#dcecf2;--ref:#b5651d;--ref-soft:#f6e7d4;--dot:rgba(28,58,94,.05);--shadow:0 1px 2px rgba(20,40,70,.08),0 8px 24px rgba(20,40,70,.06)}
+  @media(prefers-color-scheme:dark){:root{--bg:#0e1622;--surface:#16212f;--surface2:#1b2735;--chrome:#122236;--chrome2:#1b3450;--text:#dde6f1;--onChrome:#e9f0f8;--muted:#9aacbf;--line:#2a3a4d;--accent:#d3789c;--accent-soft:rgba(211,120,156,.16);--good:#51b184;--good-soft:rgba(40,140,90,.18);--bad:#e08585;--notes:#c0a4ec;--notes-soft:rgba(150,110,210,.20);--asv:#66c0d6;--asv-soft:rgba(40,150,175,.18);--ref:#e0a766;--ref-soft:rgba(200,130,50,.18);--dot:rgba(255,255,255,.035);--shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.3)}}
+  *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;background-image:radial-gradient(circle at 1px 1px,var(--dot) 1px,transparent 0);background-size:22px 22px}.wrap{max-width:1040px;margin:0 auto;padding:0 18px}.crumb{background:var(--chrome);padding:9px 18px;display:flex;align-items:center;gap:10px;font-size:13px;font-weight:500;border-bottom:2px solid var(--chrome2)}.crumb a{color:#9fc0dc;text-decoration:none;display:flex;align-items:center;gap:5px}.crumb .sep{color:#5f82a3;font-size:11px}.crumb .here{color:#cfe0f1}header.top{background:var(--chrome);color:var(--onChrome);padding:26px 0 22px;border-bottom:4px solid var(--accent)}.eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#9fc0dc;margin:0 0 6px}header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(26px,4.5vw,40px);margin:0;line-height:1.05}header.top p.sub{margin:8px 0 0;color:#cfe0f1;font-size:14px;max-width:78ch}.legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}.legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.22);color:#eaf2fb;display:flex;align-items:center;gap:6px}.legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}nav.tabs{position:sticky;top:0;z-index:20;background:var(--surface);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}.tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}.tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}.tabrow button:hover{background:var(--bg);color:var(--text)}.tabrow button.active{background:var(--chrome);color:var(--onChrome)}.tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}main{padding:30px 0 80px}.panel{display:none;animation:fade .35s ease}.panel.show{display:block}@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;letter-spacing:-.01em;color:var(--text)}.lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:80ch}h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:30px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;scroll-margin-top:64px;color:var(--text)}h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;color:var(--text);text-transform:uppercase;letter-spacing:.03em}.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}p.note{font-size:14px;margin:0 0 6px}ul.hy{margin:8px 0;padding-left:0;list-style:none}ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed var(--line);font-size:14px}ul.hy li:last-child{border-bottom:0}ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;border-radius:2px;background:var(--accent);transform:rotate(45deg)}.trap{background:var(--accent-soft);border:1px solid var(--accent);border-left:4px solid var(--accent);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}.trap b{color:var(--accent);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}.corrbox{background:var(--good-soft);border:1px solid var(--good);border-left:4px solid var(--good);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}.corrbox b{color:var(--good);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}.verifybox{background:var(--asv-soft);border:1px solid var(--asv);border-left:4px solid var(--asv);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}.verifybox b{color:var(--asv);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}table.cmp th{background:var(--chrome);color:var(--onChrome);font-weight:600;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase}table.cmp tr:last-child td{border-bottom:0}table.cmp td b{color:var(--text)}.fig{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0;box-shadow:var(--shadow)}.fig figcaption{font-size:12.5px;color:var(--muted);margin-top:8px;font-style:italic}.sgbox{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1}.sgbox2{fill:var(--asv-soft);stroke:var(--asv);stroke-width:1}.sgtxt{fill:var(--text);font-family:"Public Sans",sans-serif}.sgmut{fill:var(--muted);font-family:"Public Sans",sans-serif}.sgmono{fill:var(--accent);font-family:"JetBrains Mono",monospace}.sgline{stroke:var(--accent);stroke-width:2;fill:none}.sgaxis{stroke:var(--line);stroke-width:1.5}.sgarrow{fill:var(--accent)}.bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}.bdg.notes{background:var(--notes-soft);color:var(--notes)}.bdg.asv{background:var(--asv-soft);color:var(--asv)}.bdg.ref{background:var(--ref-soft);color:var(--ref)}.bdg.corr{background:var(--good);color:#fff}.mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--chrome);color:var(--onChrome);border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:54px;z-index:10}.mcqbar .label{font-family:"JetBrains Mono",monospace;font-size:12px;color:#cfe0f1;display:flex;align-items:center;gap:8px}.mcqbar .label .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);display:inline-block}.score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}.score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;color:#cfe0f1;padding:5px 10px;border-radius:8px;font-size:11px}.q{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}.q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}.q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}.q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}.q .stem{font-weight:600;font-size:15px;margin-bottom:10px}.opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:var(--surface2);border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;font-family:"Public Sans";color:var(--text);transition:background .15s,border-color .15s}.opt:hover{border-color:var(--accent)}.opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}.opt.correct{background:var(--good-soft);border-color:var(--good)}.opt.wrong{background:rgba(178,59,59,.14);border-color:var(--bad)}.opt.locked{cursor:default}.expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:var(--surface2);border:1px solid var(--line);font-size:13.5px}.expl.show{display:block}.expl b.cor{color:var(--good)}footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}@media(max-width:640px){.mcqbar{top:50px}.score{font-size:12px}}
+</style>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span class="sep">&rsaquo;</span><a href="../index.html#domain-behav">Behavioural Health</a><span class="sep">&rsaquo;</span><span class="here">Stress</span></nav>
+<header class="top"><div class="wrap">
+  <p class="eyebrow">ABVP Shelter Medicine Practice RVS &middot; Behavioural Health</p>
+  <h1>Stress Subdomain Hub</h1>
+  <p class="sub">Exam-depth study tool for shelter stress: the SAM and HPA neuroendocrine pathways, stress taxonomy (good, tolerable, toxic), measurement and identification, feline-specific stress, and shelter adaptation versus behavioural deterioration. Overlapping housing and enrichment detail lives in the Facility and Environment and Enrichment hubs; cross-references are provided.</p>
+  <div class="legend">
+    <span><i style="background:var(--notes)"></i>Your Stress notes (PDF)</span>
+    <span><i style="background:var(--asv)"></i>ASV Standards of Care 2022</span>
+    <span><i style="background:var(--ref)"></i>Behaviour textbook / published reference</span>
+  </div>
+</div></header>
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="physiology"><span class="dot"></span>Stress Physiology</button>
+  <button data-p="taxonomy"><span class="dot"></span>Taxonomy &amp; Dynamics</button>
+  <button data-p="measure"><span class="dot"></span>Measuring &amp; Identifying</button>
+  <button data-p="feline"><span class="dot"></span>Feline Stress</button>
+  <button data-p="manage"><span class="dot"></span>Adaptation &amp; Management</button>
+  <button data-p="mcq"><span class="dot" style="background:var(--chrome2)"></span>MCQ Test Bank</button>
+</div></div></nav>
+<main><div class="wrap">
+
+<section class="panel show" id="physiology">
+  <h2 class="sec">Stress Physiology</h2>
+  <p class="lead">Stress triggers two neuroendocrine cascades: the fast SAM system for immediate fight-or-flight and the slower HPA axis for sustained cortisol release. The exam tests the timeline, the hormones, and the chronic-dysfunction paradox.</p>
+
+  <figure class="fig">
+    <svg viewBox="0 0 700 250" width="100%" role="img" aria-label="SAM versus HPA stress cascade">
+      <defs><marker id="arST1" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path class="sgarrow" d="M0,0 L7,3 L0,6 Z"/></marker></defs>
+      <g font-size="10.5" text-anchor="middle">
+        <rect x="270" y="8" width="160" height="38" rx="9" class="sgbox"/><text x="350" y="32" class="sgtxt" font-size="12">Stressor</text>
+        <line x1="310" y1="46" x2="140" y2="72" class="sgline" marker-end="url(#arST1)"/>
+        <line x1="390" y1="46" x2="540" y2="72" class="sgline" marker-end="url(#arST1)"/>
+        <rect x="40" y="74" width="200" height="36" rx="8" class="sgbox"/><text x="140" y="96" class="sgmono" font-size="10">SAM (fast, seconds)</text>
+        <rect x="440" y="74" width="220" height="36" rx="8" class="sgbox2"/><text x="550" y="96" class="sgmono" font-size="10">HPA (slow, minutes)</text>
+        <line x1="140" y1="110" x2="140" y2="128" class="sgline" marker-end="url(#arST1)"/>
+        <rect x="30" y="130" width="220" height="36" rx="8" class="sgbox"/><text x="140" y="152" class="sgtxt">Adrenal medulla: epi + norepi</text>
+        <line x1="140" y1="166" x2="140" y2="183" class="sgline" marker-end="url(#arST1)"/>
+        <rect x="30" y="186" width="220" height="42" rx="8" style="fill:var(--good-soft);stroke:var(--good)"/><text x="140" y="206" class="sgtxt">Pupil dilation, raised HR, raised RR</text><text x="140" y="220" class="sgmut" font-size="9">immediate fight-or-flight</text>
+        <line x1="550" y1="110" x2="550" y2="128" class="sgline" marker-end="url(#arST1)"/>
+        <rect x="440" y="130" width="220" height="36" rx="8" class="sgbox2"/><text x="550" y="150" class="sgtxt">Hypothalamus: CRH + AVP</text>
+        <line x1="550" y1="166" x2="550" y2="183" class="sgline" marker-end="url(#arST1)"/>
+        <rect x="440" y="186" width="220" height="42" rx="8" class="sgbox2"/><text x="550" y="204" class="sgtxt">Pituitary: ACTH</text><text x="550" y="220" class="sgtxt">Adrenal cortex: glucocorticoids</text>
+      </g>
+    </svg>
+    <figcaption>The two stress cascades. SAM fires in seconds (epinephrine and norepinephrine from the adrenal medulla). HPA fires over minutes (CRH and AVP trigger ACTH, which releases cortisol from the adrenal cortex). Original didactic schematic built from your notes.</figcaption>
+  </figure>
+
+  <h3>Cortisol kinetics</h3>
+  <ul class="hy">
+    <li>Cortisol takes 20 to 30 minutes to peak following a stressor and remains elevated for 90 minutes or more. <span class="bdg notes">your notes</span></li>
+    <li>Low to moderate acute stress is considered beneficial (helps the animal cope). Extreme acute stress or chronic stress has detrimental effects on physical and emotional health. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <h3>Chronic HPA dysregulation</h3>
+  <div class="trap">
+    <b>Exam trap: low cortisol does not equal low stress</b>
+    Chronic stress causes adrenal hypertrophy and increased glucocorticoids, but ACTH remains unchanged. The HPA axis becomes dysregulated and stops responding appropriately, so a normal or low resting cortisol in a long-term resident may indicate a malfunctioning stress-response system, not a relaxed animal. Kennelled dogs in this state still remain responsive to acute stressors such as restraint and venipuncture. Cortisol also depends on when it was collected, neuter status, sampling method, and only indicates activation of stress, not the type (good, tolerable, or toxic). <span class="bdg notes">your notes</span>
+  </div>
+
+  <h3>Systemic effects of stress</h3>
+  <p class="note">Stress increases maladaptive behaviour and displays of aggression, impairs social behaviour, memory, and cognition, increases disease susceptibility, slows healing, and shortens lifespan. The HPA effects include increased energy availability, increased oxygen intake, decreased blood flow to non-critical areas, and inhibition of digestion, growth, immune function, reproduction, and pain perception (memory and sensory functions are enhanced). Acute stress can enhance memory for threatening events. Chronic stress can lead to structural and functional brain changes. <span class="bdg notes">your notes</span></p>
+</section><section class="panel" id="taxonomy">
+  <h2 class="sec">Stress Taxonomy and Dynamics</h2>
+  <p class="lead">Three categories of stress, two types of stressor, and the shelter-specific concepts (trigger stacking, context learning, the first-week rule) that the exam tests.</p>
+
+  <h3>Categories of stress</h3>
+  <table class="cmp">
+    <tr><th>Category</th><th>Definition</th></tr>
+    <tr><td><b>Good stress</b></td><td>The animal faces a challenge and copes successfully with no long-term harm</td></tr>
+    <tr><td><b>Tolerable stress</b></td><td>The challenge is distressing at the time, but the animal can cope and does not suffer long term</td></tr>
+    <tr><td><b>Toxic stress</b></td><td>Distress exceeds the animal's ability to cope, causing long-term consequences to emotional and physical health</td></tr>
+  </table>
+
+  <h3>Types of stressor</h3>
+  <ul class="hy">
+    <li><b>Physical:</b> going for a run, hit by a car, catching a virus, hunger, thirst, pain, extreme temperatures, disease, sleep deprivation. <span class="bdg notes">your notes</span></li>
+    <li><b>Psychological:</b> social or environmental factors with no direct physical perturbation (meeting a new person or dog, being attacked without injury, social isolation, exposure to novelty, unpredictable environments, chronic frustration). <span class="bdg notes">your notes</span></li>
+  </ul>
+  <div class="trap">
+    <b>Exam trap: most potent psychological stressors</b>
+    Novelty, the withholding of an expected reward, and the anticipation of punishment are the most potent psychological stressors. <span class="bdg notes">your notes</span>
+  </div>
+
+  <h3>Trigger stacking and context learning</h3>
+  <ul class="hy">
+    <li><b>Context learning:</b> an aversive experience in a specific environment shapes the animal's future behaviour in that same context. <span class="bdg notes">your notes</span></li>
+    <li><b>Trigger stacking:</b> multiple stressors in rapid succession accumulate with no window to return to baseline, producing an amplified response or a behavioural explosion. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <h3>The first-week rule</h3>
+  <ul class="hy">
+    <li>Stress is highest during the first week. Owner-relinquished dogs show intense psychological stress without adaptation, whereas strays and return dogs show a lower baseline. <span class="bdg notes">your notes</span></li>
+    <li>Defer non-essential stressful activities during the first week to allow adaptation and relationship building. <span class="bdg notes">your notes</span></li>
+    <li>Prior kennelling experience reduces the activated stress response when the dog enters a new kennel. <span class="bdg notes">your notes</span></li>
+    <li>Petting interaction over 15 minutes per day does not change stress levels in owner-relinquished dogs, but it does reduce stress in strays. <span class="bdg notes">your notes</span></li>
+    <li>Research on wild animals shows translocation stress via four routes: capture, captivity, transport, and release. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <h3>Maternal and early-life stress</h3>
+  <p class="note">Experiences during the first weeks of life profoundly affect the animal's ability to cope. Maternal stress during gestation can alter pup behaviour, and offspring often show learning impairment and increased susceptibility to conditioning of fearful responses, especially to auditory stimuli. <span class="bdg notes">your notes</span></p>
+
+  <div class="verifybox">
+    <b>Overlaps with other hubs</b>
+    Conspecific housing (pair and group to reduce ARBs), DAP, classical music, and sound levels (about 85 to 120 dB in shelters) are covered in detail in the <b>Shelter Animal Enrichment</b> and <b>Facility and Environment</b> hubs. The enrichment hub also covers the stray-only petting-cortisol finding and foster rest effects. <span class="bdg notes">your notes</span>
+  </div>
+</section><section class="panel" id="measure">
+  <h2 class="sec">Measuring and Identifying Stress</h2>
+  <p class="lead">Cortisol is the most-tested stress marker but it comes with caveats. The exam also tests the stress leukogram and the sampling-matrix decision.</p>
+
+  <h3>Glucocorticoid measurement</h3>
+  <table class="cmp">
+    <tr><th>Matrix</th><th>Time frame</th><th>Use</th></tr>
+    <tr><td><b>Blood and saliva</b></td><td>Momentary</td><td>Condition of the animal at that moment; confounded by handling and venipuncture stress</td></tr>
+    <tr><td><b>Urine, faeces, and hair</b></td><td>Long-term (days to weeks)</td><td>Population-level welfare audits, housing-design evaluations; non-invasive</td></tr>
+  </table>
+  <div class="trap">
+    <b>Exam trap: sampling decision</b>
+    To evaluate a shelter's housing over months, faecal or hair cortisol metabolites are correct; blood or saliva cortisol would be a diagnostic error due to the acute stress of collection. <span class="bdg notes">your notes</span>
+  </div>
+
+  <h3>Other endocrine and haematological markers</h3>
+  <ul class="hy">
+    <li>ACTH and luteinising-hormone-releasing-hormone stimulation tests measure adrenal and pituitary sensitivities. Increased HPA responsiveness with reduced pituitary sensitivity suggests HPA dysfunction from chronic stress. <span class="bdg notes">your notes</span></li>
+    <li><b>Stress leukogram:</b> decreased peripheral lymphocyte numbers and increased neutrophil counts. In a long-term shelter animal with a normal cortisol, a persistent lymphopenia and neutrophilia on CBC provides evidence of chronic stress and HPA dysregulation. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <h3>Body language and behavioural signs</h3>
+  <table class="cmp">
+    <tr><th>Species</th><th>Common stressors</th><th>Behavioural signs of stress</th></tr>
+    <tr><td><b>Dogs</b></td><td>Separation, loud noises, restraint, unfamiliar handling, confinement, elimination on unfamiliar surfaces, aggressive or stressed conspecifics, altered routines, novel environment</td><td>Trembling, crouching, lip licking, snout licking, swallowing, yawning, restlessness, lowered posture, increased autogrooming, paw lifting, vocalising, repetitive behaviour, coprophagy</td></tr>
+    <tr><td><b>Cats</b></td><td>Unpredictable routines, increased group-housing density, inability to hide</td><td>Decreased food intake and weight loss, reduced play and exploration, more time awake and alert, attempting to hide, behavioural apathy, vocalisation, escape and aggressive behaviours, feigned sleep</td></tr>
+  </table>
+</section><section class="panel" id="feline">
+  <h2 class="sec">Feline Stress</h2>
+  <p class="lead">Cats mask stress with feigned sleep and defensive displays. The five pillars, the FURI link, and the trapped-tame-versus-feral distinction are all high-yield.</p>
+
+  <h3>Signs of stress in cats</h3>
+  <ul class="hy">
+    <li>Hypervigilance, feigned sleep, constant hiding, activity depression, and loss of appetite. <span class="bdg notes">your notes</span></li>
+    <li>Defensive behaviours: front-of-pen aggression, arched back, ears back, dilated pupils, vocalising. <span class="bdg notes">your notes</span></li>
+  </ul>
+  <div class="trap">
+    <b>Exam trap: feigned sleep</b>
+    Feigned sleep is a coping mechanism in highly stressed cats, not evidence of relaxation. Recording "the cat is sleeping and relaxed" is an anthropomorphic error. <span class="bdg notes">your notes</span>
+  </div>
+  <div class="trap">
+    <b>Exam trap: trapped tame versus feral</b>
+    Even the tamest house cat, when trapped and stressed, can exhibit defensive behaviours indistinguishable from truly feral cats. Allow frightened cats to calm before assessing personality. Some cats may never adjust to the shelter. <span class="bdg notes">your notes</span>
+  </div>
+
+  <h3>The five pillars of feline environmental welfare</h3>
+  <ul class="hy">
+    <li>1. A safe place. 2. Multiple and separated key environmental resources. 3. Opportunities for play and predatory behaviour. 4. Positive, consistent, and predictable human-cat interaction. 5. An environment that respects the cat's sense of smell. <span class="bdg ref">std ref</span></li>
+  </ul>
+
+  <h3>Stress, disease, and adaptation</h3>
+  <ul class="hy">
+    <li>High stress score is linked to high rates of FURI. <span class="bdg notes">your notes</span></li>
+    <li>Stress levels generally reduce within the first two weeks, but about 4% of the feline population maintain a high stress level and may not be suited to shelter housing. <span class="bdg notes">your notes</span></li>
+    <li>Feral cats require the same minimum floor space as friendly cats (11 sq ft, per ASV) in short-term housing, though they may use hiding spaces only at night. <span class="bdg asv">ASV</span></li>
+  </ul>
+
+  <div class="verifybox">
+    <b>Overlaps: feline housing as stress mitigation</b>
+    The detailed feline micro and macro environment specifications (8 to 11 sq ft individual floor space, 18 sq ft per cat group minimum, perch 12 inches wide and raised 13 to 14 inches, cages at least 18 inches off the floor, fill top cages first, temperature per ASV 18 to 26.6 C, quiet latches, horizontal bars, colour palette favouring blues, greens, and violets over fluorescing whites, hiding boxes for all cats at entry, group-housing selection and removal criteria) are built in full in the <b>Facility and Environment hub</b>. The key principle here is that each specification is a stress-mitigation tool: hiding lowers Cat Stress Score without increasing length of stay or reducing adoption rates; elevated cages reduce stress and improve monitoring; less cage space directly increases FURI risk and behavioural concerns; and small groups are preferred over warehouse-style rooms for welfare, stress, and disease reasons. <span class="bdg notes">your notes</span>
+  </div>
+  <div class="verifybox">
+    <b>UV vision clarification</b>
+    The notes state cats see in the UVB spectrum. Cats do transmit some short-wavelength and ultraviolet light through their lenses and are dichromatic (sensitive to blue-violet and green-yellow; reds and oranges appear greyish), which is why the practical advice (avoid bright white fluorescing plastics, choose matte blues, greens, and violets) is sound even though the "UVB" label is a simplification. <span class="bdg notes">your notes</span>
+  </div>
+</section><section class="panel" id="manage">
+  <h2 class="sec">Adaptation, Deterioration and Management</h2>
+  <p class="lead">The first three days see cortisol rebalance, but prolonged confinement drives behavioural deterioration. Tracking whether the animal is sensitising, habituating, or developing a depression-like state is the clinical lever.</p>
+
+  <h3>Behavioural adaptation</h3>
+  <ul class="hy">
+    <li>Cortisol decreases during the first three days, likely due to the animal regaining homeostatic balance after transport and introduction to a novel environment. <span class="bdg notes">your notes</span></li>
+    <li>By day six, dogs begin spending more time at the back of the kennel and less time active, which may indicate growing comfort. <span class="bdg notes">your notes</span></li>
+    <li>Dogs transferred to short-term foster rested significantly more than in the shelter, likely an artifact of a less stimulating environment rather than sleep disruption per se. However, when humans were absent, shelter dogs were more active than pet dogs during the latter's least active period. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <h3>Behavioural deterioration</h3>
+  <ul class="hy">
+    <li>Barrier aggression, high arousal, worsening reactivity, increasing fear, and onset of abnormal behaviour are commonly cited examples. Chronic stressors include spatial and social restriction and a lack of agency and predictability. <span class="bdg notes">your notes</span></li>
+    <li>Increased length of stay may produce escape-related behaviours (door scratching, floor digging, whining) and reduced rest. <span class="bdg notes">your notes</span></li>
+    <li>Age differences: younger dogs tend toward bedding chewing and play bouncing; older dogs toward panting and barking. <span class="bdg notes">your notes</span></li>
+    <li>Shelter dogs show less variation in activity than pet dogs (temporal monotony from the fixed schedule). Boredom initially increases activity but over time can lead to wakeful inactivity, fragmented sleep, and a depression-like affective state characterised by loss of responsiveness to opportunities for reward. <span class="bdg notes">your notes</span></li>
+  </ul>
+  <div class="trap">
+    <b>Exam trap: three states to distinguish</b>
+    Track changes from intake to differentiate sensitisation (increased activity), habituation (increased or decreased activity), and depression-like affective states (wakeful inactivity, loss of reward responsiveness). <span class="bdg notes">your notes</span>
+  </div>
+
+  <h3>When you identify a stressed animal</h3>
+  <ul class="hy">
+    <li><b>Stop and reassess:</b> what is causing the stress? What options exist to alleviate it? Is the procedure absolutely necessary right now? Assess needs versus wants and prioritise the need. <span class="bdg notes">your notes</span></li>
+    <li>If stress cannot be avoided: can it wait? Can the dog undergo an anaesthetic event? Is there a different approach? <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <h3>Long-term stays</h3>
+  <ul class="hy">
+    <li>Keep length of stay as short as possible. Animals staying more than a few days require daily enrichment. <span class="bdg notes">your notes</span></li>
+    <li>Chronic stress from prolonged stays reduces coping, increases fear, anxiety, and frustration, and underlies social withdrawal, repetitive behaviours, and aggression, jeopardising placement. <span class="bdg notes">your notes</span></li>
+    <li>Options: increased enrichment, additional space and choice, foster care. <span class="bdg notes">your notes</span></li>
+    <li>Reproductive stress (oestrus, sex drive) increases urine spraying, marking, fighting, and emotional stress; animals housed long term should be spayed and neutered. <span class="bdg notes">your notes</span></li>
+    <li>Long-term confinement without basic care (daily enrichment and exercise) or where basic care induces stress or compromises safety is unacceptable. <span class="bdg asv">ASV</span></li>
+    <li>Feral animals unable to express natural behaviour, play, or form social bonds: euthanasia is humane when a live outcome (return to field) is not possible in a timely manner. <span class="bdg notes">your notes</span></li>
+    <li>Very fearful dogs are less likely to acclimate and are at high risk for deterioration. For pro-social animals, group housing should be seriously considered; concerns about disease and aggression are minimal in well-managed programmes, and behaviour stabilises within one to two days of adding a new dog. <span class="bdg notes">your notes</span></li>
+  </ul>
+  <div class="verifybox">
+    <b>Overlaps: welfare and outcome pathways</b>
+    The welfare framework (Five Domains), the QOL mandate, and the euthanasia principle for animals in unresolvable distress are covered in the <b>QOL and Needs Assessment hub</b>. Alternative placement options (foster, office foster, group housing, transfer, return to owner) connect to the <b>Assessment and Decision Making hub</b>. Feral-cat return-to-field and community cat management connect to the <b>Companion Animal Homelessness</b> domain. <span class="bdg notes">your notes</span>
+  </div>
+</section><section class="panel" id="mcq">
+  <h2 class="sec">MCQ Test Bank</h2>
+  <p class="lead">Thirty questions across the subdomain, from your uploaded set. Answer positions have been redistributed from the original key (which clustered 25 of 30 on option B with zero D) to about 8A / 7B / 8C / 7D; option content is unchanged. Tap an option to lock it in and reveal the explanation.</p>
+  <div class="mcqbar">
+    <div class="label"><span class="dot"></span>30 questions &middot; Stress</div>
+    <div class="score"><span id="scoreTxt">0 / 0 correct</span><button class="reset" id="resetBtn">Reset</button></div>
+  </div>
+  <div id="qhost"></div>
+</section>
+</div></main>
+<footer><div class="wrap">
+  Stress subdomain hub &middot; Behavioural Health domain &middot; ABVP Shelter Medicine Practice RVS, November 2026. Content is from your Stress notes (PDF). Feline housing ergonomics (micro and macro environment, group-housing criteria, perch and cage-height dimensions, colour palette) overlap the Facility and Environment hub and are cross-referenced here rather than reproduced in full. The five pillars of feline environmental welfare (AAFP and ISFM) are badged ref. Temperature range uses ASV (18 to 26.6 C) rather than the notes' 15.5 C lower bound. The "103yo" transcription typo was corrected to "even older or senior dogs." The UVB vision label is a simplification (see verifybox). In-house SVG schematics are original didactic constructions. Supports light and dark mode.
+</div></footer>
+<script>
+const tabrow=document.getElementById('tabrow');
+tabrow.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.disabled)return;[...tabrow.children].forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.panel').forEach(p=>p.classList.remove('show'));document.getElementById(b.dataset.p).classList.add('show');window.scrollTo({top:0,behavior:'smooth'});});
+const Q=[
+{t:"phy",f:"notes",q:"Upon entry to a noisy intake ward, a dog's SAM system is activated. Which systemic change correctly pairs the neuroendocrine origin with its direct physiological effect?",o:["Direct sympathetic stimulation triggers the adrenal medulla to secrete epinephrine and norepinephrine, leading to pupillary dilation, tachycardia, and tachypnoea","Activation of the adrenal cortex releases epinephrine, causing immediate pupillary constriction","The anterior pituitary releases CRH, causing a profound drop in respiratory rate","The hypothalamus secretes glucocorticoids directly, causing a sudden drop in blood pressure"],a:0,e:"SAM fires from the adrenal medulla (epinephrine and norepinephrine), producing the immediate fight-or-flight markers."},
+{t:"phy",f:"notes",q:"A venipuncture is performed on a stray dog 25 minutes after capture. What are the expected plasma cortisol kinetics?",o:["Cortisol peaked and returned to baseline within 5 minutes","Cortisol takes 20 to 30 minutes to peak and remains elevated for 90 minutes or more","Cortisol remains unchanged during acute stress and shifts only after 14 days","Cortisol peaks at 30 seconds and drops to zero within 10 minutes"],a:1,e:"Cortisol is a delayed hormone; peak at 20 to 30 minutes, elevated 90 or more minutes."},
+{t:"phy",f:"notes",q:"A shelter dog of 6 weeks' stay has low-normal resting cortisol yet shows severe stereotypic pacing and wakeful inactivity. The most accurate explanation is:",o:["Low cortisol proves complete acclimation and zero stress","The SAM axis has permanently replaced HPA glucocorticoid production","Chronic stress can dysregulate the HPA axis, so cortisol no longer accurately reflects true stress","Low cortisol indicates the dog has transitioned into good stress"],a:2,e:"Chronic stress causes HPA dysregulation; normal cortisol does not rule out severe distress."},
+{t:"tax",f:"notes",q:"A dog is subjected to noisy transport, immediate microchipping, an intake exam, and placement beside a barking dog, then snaps at the handler. This escalation is best classified as:",o:["Context learning from habituation to microchipping","A normal presentation of good stress","Toxic physical stress from a viral pathogen","Trigger stacking, where rapid sequential stressors leave no window to return to baseline"],a:3,e:"Trigger stacking accumulates stressors with no recovery window, producing an amplified behavioural response."},
+{t:"tax",f:"notes",q:"Which category of dogs experiences the highest psychological stress without adaptation during the first week of shelter confinement?",o:["Owner-relinquished dogs","Stray dogs from urban environments","Dogs returned after a brief adoption trial","Adult dogs with extensive prior kennelling"],a:0,e:"Owner-relinquished dogs experience intense loss of social bonds, making their first week the hardest."},
+{t:"tax",f:"notes",q:"A volunteer spends 20 minutes petting an owner-relinquished dog on its first day. How will this affect the dog's physiological stress?",o:["It will reduce glucocorticoids to zero immediately","It will cause immediate trigger-stacking aggression","For owner-relinquished dogs, petting over 15 minutes per day does not change stress levels during the initial period","It will permanently desensitise the dog to all auditory stressors"],a:2,e:"Petting over 15 minutes per day does not lower stress in newly relinquished dogs, though it does help strays."},
+{t:"tax",f:"notes",q:"A pregnant dog endures severe, continuous toxic stress throughout gestation. What are the documented risks to her offspring?",o:["The offspring will have a hyper-resilient HPA axis immune to novelty","Accelerated growth rates and increased lymphocytes","Zero impact on offspring behaviour","The offspring often show learning impairment and increased susceptibility to fearful responses, especially to auditory stimuli"],a:3,e:"Prenatal maternal stress alters foetal neural development, predisposing pups to learning deficits and auditory-triggered fear."},
+{t:"tax",f:"notes",q:"A dog is hit by a car, suffers soft-tissue injury, and is placed in an unfamiliar medical ward. This challenge is a:",o:["Physical stressor, which includes trauma, hunger, thirst, or catching a virus","Pure psychological stressor with no physical perturbation","Toxic stressor that guarantees permanent brain changes in 5 minutes","Good stressor that enhances cognition"],a:0,e:"Physical stressors include direct physical insults such as trauma, disease, hunger, thirst, and extreme temperatures."},
+{t:"msr",f:"notes",q:"A behaviourist wants to evaluate chronic stress across long-term-stay dogs over 3 months. Which matrix is most appropriate?",o:["Single-point plasma cortisol during morning cleaning","Salivary cortisol after an acute walk","Cortisol metabolites from hair, urine, or faeces","Real-time heart-rate monitoring via a 24-hour halter"],a:2,e:"Plasma and saliva reflect moments; long-term chronic trends need accumulated metabolites in hair, faeces, or urine."},
+{t:"msr",f:"notes",q:"A CBC on an asymptomatic cat hiding constantly since intake 4 days ago reveals a stress leukogram. Which pattern defines this?",o:["Severe decrease in neutrophils with massive increase in lymphocytes","Panleukopenia with absolute monocytosis","Total absence of eosinophils only","Decreased peripheral lymphocytes paired with increased neutrophil counts"],a:3,e:"The stress leukogram is lymphopenia with neutrophilia, evidence of HPA activation even with normal resting cortisol."},
+{t:"msr",f:"notes",q:"An ACTH stimulation test in dogs exposed to prolonged shelter crowding confirms HPA dysfunction. Which response pattern indicates this?",o:["Massive pituitary hypersensitivity with immediate adrenal shrinkage","Increased HPA responsiveness and reduced pituitary sensitivity in the face of chronic stress","Total elimination of glucocorticoids with a 500% lymphocyte spike","The HPA axis becomes identical to a non-stressed pet's within 20 minutes"],a:1,e:"Chronic stress produces increased adrenal responsiveness alongside reduced pituitary sensitivity, confirming dysregulation."},
+{t:"fel",f:"notes",q:"An intake cat lies motionless with eyes shut and ignores food for 12 hours. The supervisor notes it is sleeping and relaxed. How should this be re-evaluated?",o:["This is feigned sleep, a coping mechanism in highly stressed cats, not evidence of relaxation","The assessment is correct; motionless cats are always comfortable","The cat is displaying offensive aggression","This indicates good stress enhancing sensory function"],a:0,e:"Feigned sleep is a profound stress indicator. Recording it as relaxation is an anthropomorphic error."},
+{t:"fel",f:"notes",q:"A clinic designs primary feline holding cages. What are the minimum floor-space and vertical requirements?",o:["Minimum 4 sq ft with perches on the floor","25 sq ft with perches of bright white reflective plastic","Floor-space parameters are optional","Minimum 8 to 11 sq ft of unobstructed floor space; every cat must have a perch at least 12 inches wide and raised 13 to 14 inches off the cage floor"],a:2,e:"The 8 to 11 sq ft minimum ensures separate functional zones; the perch dimensions come from the notes. Full detail is in the Facility hub."},
+{t:"fel",f:"notes",q:"A shelter purchases new cage materials. Given feline vision, which design is correct?",o:["Bright white glossy plastics to maximise stimulation","A pure red and orange palette","Matte black on all surfaces","Avoid bright white fluorescing materials; select matte finishes in light blues, greens, and violets"],a:1,e:"Cats are dichromatic and transmit some UV; fluorescing white is jarring, reds and oranges appear grey. Blues, greens, and violets are preferred."},
+{t:"fel",f:"notes",q:"What minimum spatial density satisfies feline group-housing welfare guidelines?",o:["5 sq ft per cat","Density is irrelevant if cats are unrelated","A maximum of 1 cat per 100 sq ft","A minimum of 18 sq ft of floor space per cat"],a:3,e:"18 sq ft per cat minimises territorial aggression. Selection, monitoring, and resource distribution also matter."},
+{t:"fel",f:"notes",q:"Morning rounds in a communal cat room. Which cat should be removed immediately?",o:["A cat consistently hiding, feigning sleep, failing to eat, or sitting hunched with its back to the group","A cat actively exploring and using a scratching pad","A cat in short play bouts with a paper ball","A cat resting relaxed on a high perch facing the room"],a:0,e:"Persistent hiding, feigned sleep, anorexia, and hunching indicate failure to cope; immediate removal protects welfare."},
+{t:"fel",f:"notes",q:"An owned cat extracted from a trap arches its back, has fully dilated pupils, ears flat, and strikes at the cage door. How should this profile be interpreted?",o:["This is a true genetic feral cat","This is good stress enhancing digestion","Chronic boredom requiring a large colony room","Even the tamest owned cats can exhibit defensive behaviours indistinguishable from feral cats when trapped and highly stressed"],a:2,e:"Acute stress makes tame cats look feral; allow calm-down time before assessing personality."},
+{t:"fel",f:"notes",q:"A shelter houses incoming cats in the same room as canine intake runs. How does this affect feline welfare?",o:["It is beneficial for predatory stimulation","Cats are unaffected because their sound threshold is 10 dB","Wire-mesh floors make the layout acceptable","Proximity to barking dogs impairs feline welfare; cats should be housed as far from dogs as possible"],a:3,e:"Canine noise and odour fields are inescapable sensory threats for cats, directly degrading their welfare."},
+{t:"fel",f:"notes",q:"The guidelines state feral cats confined long-term in the shelter cannot express natural behaviours. If return-to-field is unavailable in a timely manner, what is mandated?",o:["Permanent confinement in a 4 sq ft cage","Humane euthanasia, because long-term shelter confinement of feral cats is unacceptable","Intensive 60-minute daily close-contact petting","Transfer to a canine intake ward"],a:1,e:"Feral cats cannot engage in natural or rewarding behaviour in shelter confinement; euthanasia is humane when RTF is not timely."},
+{t:"fel",f:"notes",q:"A cat turns its litter box upside down, shreds newspaper at night, and crouches behind its bed. This represents:",o:["A high-energy play sequence indicating excellent welfare","An attempt to hide and conceal itself when appropriate hiding options are not provided","Territorial status aggression","An immediate SAM epinephrine collapse"],a:1,e:"Without proper hiding structures, cats improvise concealment by flipping furnishings and crouching behind objects."},
+{t:"fel",f:"notes",q:"A manager claims hiding boxes increase length of stay and reduce adoption visibility. Published data shows:",o:["The manager is correct; hiding delays adoption","Hiding boxes should be banned because they cause aggression","Providing hiding spots had no negative effect on LOS or adoption, and no difference in time to adoption was shown","Hiding is only helpful for dogs"],a:2,e:"Hiding boxes protect welfare without increasing LOS or reducing adoption rates."},
+{t:"mgm",f:"notes",q:"Based on first-week stress timelines, what management policy is most appropriate for a new shelter dog?",o:["Perform all assessments and restraint procedures within the first 24 hours","Defer non-essential stressful activities during the first week to allow adaptation and positive relationship building","Keep lights on for 24 hours continuously during the first week","Avoid all human contact and withhold food for 5 days"],a:1,e:"Deferring non-essential stressors in the first week lets the animal adapt and lets staff build positive associations."},
+{t:"mgm",f:"notes",q:"A long-stay dog shows continuous door scratching, floor digging, whining, and complete loss of interest in food or toys. This is clinically defined as:",o:["Acute tolerable stress resolving in 20 minutes","A normal age-related shift independent of LOS","Status aggression from a hyper-responsive pituitary","Behavioural deterioration secondary to chronic stress and temporal monotony, which can culminate in a depression-like affective state"],a:2,e:"Prolonged spatial and temporal monotony leads to deterioration, escape stereotypies, and eventually wakeful depression."},
+{t:"mgm",f:"notes",q:"When dogs move from a shelter run to a short-term foster stay, accelerometer data shows:",o:["They rest significantly more in the home compared to baseline shelter activity","They stop sleeping entirely from novelty","Plasma cortisol doubles within 90 minutes","Repetitive play bouncing increases regardless of age"],a:0,e:"Rest rebound in foster reflects a less stimulating environment; shelter dogs were more active than pet dogs when humans were absent."},
+{t:"mgm",f:"notes",q:"Why should all long-term resident animals be spayed or neutered, from a stress perspective?",o:["Sterilisation prevents SAM activation during restraint","Intact reproductive status introduces stress from heat and sex drive, decreasing appetite and increasing spraying, marking, fighting, and emotional stress","Neutering instantly stops all play aggression","Sterilisation reduces minimum floor space from 11 to 2 sq ft"],a:3,e:"Hormonal reproductive drives compound confinement stress through appetite loss, urine marking, and fighting."},
+{t:"mgm",f:"notes",q:"A newly confined cat's cortisol decreases significantly by day 3. This kinetic pattern reflects:",o:["Permanent toxic brain atrophy within 72 hours","The cat converting all glucocorticoids into ACTH","Cortisol often decreases in the first 3 days as the animal regains homeostatic balance after transport and novelty","The SAM axis shutting down epinephrine production"],a:1,e:"The initial cortisol drop reflects rebalancing of homeostasis after the acute shock of capture, transport, and placement."},
+{t:"mgm",f:"notes",q:"Stress behaviours in the first 2 weeks differ by age. Which observation matches published data?",o:["Older dogs chew bedding and play bounce while young puppies pant and bark","All ages display identical signs","Dogs that chewed bedding and repeatedly play bounced tended to be younger; dogs that panted and barked tended to be older","Geriatric dogs display zero behavioural signs of stress"],a:2,e:"Younger dogs express stress through displacement chewing and bouncing; older dogs through panting and barking."},
+{t:"mgm",f:"notes",q:"For pro-social dogs facing a long-term hold, which housing model should be prioritised?",o:["Strict single-housing isolation with zero out-of-cage time","Cages less than 2 inches off the ground next to drainage units","A daily high-intensity startle stimulus","Group housing, because disease and aggression concerns are minimal in well-managed programmes"],a:3,e:"Well-managed group housing provides social and sensory outlets with minimal risk; behaviour stabilises within 1 to 2 days of adding a new dog."},
+{t:"mgm",f:"notes",q:"A clinical monitoring tool aims to track activity changes from intake to distinguish emotional states. Which three states should be differentiated?",o:["Sensitisation (increased activity), habituation (increased or decreased activity), or depression-like affective states","Epinephrine depletion, ACTH hypertrophy, or pupillary constriction","Physical trauma, toxic trigger stacking, or good stress","Functional-zone monopolisation, coprophagy, or context-learning deletion"],a:0,e:"Sequential activity tracking distinguishes sensitisation, habituation, and depression-like shutdown."},
+{t:"mgm",f:"notes",q:"A highly stressed dog arrived 48 hours ago. A technician plans an elective, non-emergency grooming. Applying the stop-and-reassess protocol:",o:["Proceed immediately because human preferences take precedence","Apply a severe startle stimulus first","Assess needs versus wants, prioritise the animal's emotional needs, and defer the non-essential procedure","Isolate in a dark room without food for 24 hours"],a:1,e:"Stop-and-reassess means evaluating whether the activity is a need or a want and deferring non-essential stressors."}
+];
+const host=document.getElementById('qhost');const scoreTxt=document.getElementById('scoreTxt');let answered=0,correct=0;
+const DLABEL={phy:"Stress Physiology",tax:"Taxonomy & Dynamics",msr:"Measuring & Identifying",fel:"Feline Stress",mgm:"Adaptation & Management"};
+function tagLabel(t){return DLABEL[t]||t.toUpperCase();}
+function flagBadge(f){if(f==='corr')return'<span class="bdg corr">corrected</span>';if(f==='notes')return'<span class="bdg notes">your notes</span>';if(f==='asv')return'<span class="bdg asv">ASV</span>';if(f==='ref')return'<span class="bdg ref">std ref</span>';return'';}
+function render(){host.innerHTML='';answered=0;correct=0;updateScore();Q.forEach((item,i)=>{const card=document.createElement('div');card.className='q';card.innerHTML=`<div class="meta"><span class="num">#${i+1}</span><span class="tag">&#9670; ${tagLabel(item.t)}</span>${flagBadge(item.f)}</div><div class="stem">${item.q}</div>`;const opts=document.createElement('div');item.o.forEach((txt,oi)=>{const btn=document.createElement('button');btn.className='opt';btn.innerHTML=`<span class="k">${String.fromCharCode(65+oi)}</span>${txt}`;btn.onclick=()=>choose(card,opts,item,oi);opts.appendChild(btn);});card.appendChild(opts);const ex=document.createElement('div');ex.className='expl';ex.innerHTML=`<b class="cor">Correct: ${String.fromCharCode(65+item.a)}.</b> ${item.e}`;card.appendChild(ex);host.appendChild(card);});}
+function choose(card,opts,item,oi){if(card.dataset.done)return;card.dataset.done='1';answered++;[...opts.children].forEach((b,bi)=>{b.classList.add('locked');if(bi===item.a)b.classList.add('correct');if(bi===oi&&oi!==item.a)b.classList.add('wrong');});if(oi===item.a)correct++;card.querySelector('.expl').classList.add('show');updateScore();}
+function updateScore(){scoreTxt.textContent=`${correct} / ${answered} correct`;}
+document.getElementById('resetBtn').onclick=render;render();
+</script>
+</body>
+</html>

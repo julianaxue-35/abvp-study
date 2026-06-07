@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ethics &amp; Animal Welfare | Animals &amp; Public Policy | ABVP Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2c4f18;--ink2:#3d6b22;--paper:#f4f8f0;--paper2:#edf4e8;
+    --line:#c5dbb8;--muted:#567a3a;
+    --id:#3F6B1E;--id-soft:#daefc8;
+    --good:#1f7a4d;--bad:#b23b3b;
+    --notes:#7a4fb5;--notes-soft:#ece3f7;
+    --ref:#1f6f8b;--ref-soft:#dcedf2;
+    --warn:#a8641a;--warn-soft:#f7e6cd;
+    --shadow:0 1px 2px rgba(44,79,24,.08),0 8px 24px rgba(44,79,24,.06);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;
+    background-image:radial-gradient(circle at 1px 1px,rgba(44,79,24,.04) 1px,transparent 0);background-size:22px 22px;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+  header.top{background:var(--id);color:#fff;padding:26px 0 22px;border-bottom:4px solid #a8d080}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#c5e8a0;margin:0 0 6px}
+  header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(26px,4.5vw,40px);margin:0;line-height:1.05}
+  header.top p.sub{margin:8px 0 0;color:#d8f0c0;font-size:14px;max-width:78ch}
+  .legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}
+  .legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.25);color:#eaf4e0;display:flex;align-items:center;gap:6px}
+  .legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--paper2);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button:hover{background:var(--paper);color:var(--ink)}
+  .tabrow button.active{background:var(--ink);color:#fff}
+  .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--id)}
+  main{padding:30px 0 80px}
+  .panel{display:none;animation:fade .35s ease}
+  .panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;letter-spacing:-.01em;color:var(--muted)}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:80ch}
+  h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:30px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;scroll-margin-top:64px;color:var(--id)}
+  h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;color:var(--ink2);text-transform:uppercase;letter-spacing:.03em}
+  .card{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}
+  p.note{font-size:14px;margin:0 0 6px}
+  ul.hy{margin:8px 0;padding-left:0;list-style:none}
+  ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed var(--line);font-size:14px}
+  ul.hy li:last-child{border-bottom:0}
+  ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;border-radius:2px;background:var(--id);transform:rotate(45deg)}
+  .trap{background:#fdf3ed;border:1px solid #e8c9a8;border-left:4px solid var(--warn);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .trap b{color:var(--warn);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .corrbox{background:#e9f4ee;border:1px solid #bfe0cc;border-left:4px solid var(--good);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .corrbox b{color:var(--good);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .alertbox{background:var(--id-soft);border:1px solid #b8d8a0;border-left:4px solid var(--id);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .alertbox b{color:var(--id);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:var(--paper2);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp th{background:var(--ink);color:#fff;font-weight:600;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase}
+  table.cmp tr:last-child td{border-bottom:0}
+  table.cmp td b{color:var(--ink)}
+  .bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+  .bdg.notes{background:var(--notes-soft);color:var(--notes)}
+  .bdg.ref{background:var(--ref-soft);color:var(--ref)}
+  .bdg.warn{background:var(--warn-soft);color:var(--warn)}
+  /* mcq */
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--ink);color:#fff;border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:54px;z-index:10}
+  .mcqbar .filters{display:flex;gap:6px;flex-wrap:wrap}
+  .mcqbar .filters button{font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#c5e8a0;padding:6px 11px;border-radius:999px;cursor:pointer}
+  .mcqbar .filters button.on{background:var(--id);border-color:var(--id);color:#fff}
+  .score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}
+  .score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;color:#c5e8a0;padding:5px 10px;border-radius:8px;font-size:11px}
+  .q{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
+  .q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+  .q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--id-soft);color:var(--id)}
+  .q .stem{font-weight:600;font-size:15px;margin-bottom:10px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;font-family:"Public Sans";transition:background .15s,border-color .15s}
+  .opt:hover{border-color:var(--ink)}
+  .opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}
+  .opt.correct{background:#e8f5ec;border-color:var(--good);color:#0d3d24}
+  .opt.wrong{background:#fbe9e9;border-color:var(--bad);color:#5e1d1d}
+  .opt.locked{cursor:default}
+  .expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:#ecf4e6;border:1px solid var(--line);font-size:13.5px}
+  .expl.show{display:block}
+  .expl b.cor{color:var(--good)}
+  footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
+  @media(max-width:640px){.mcqbar{top:50px}.score{font-size:12px}}
+</style>
+</head>
+<body>
+
+<!-- Back-nav bar -->
+<nav style="background:#2c4f18;padding:9px 18px;display:flex;align-items:center;gap:10px;font-family:'Public Sans',system-ui,sans-serif;font-size:13px;font-weight:500;border-bottom:2px solid #3F6B1E"><a href="../index.html" style="color:#a8d080;text-decoration:none;display:flex;align-items:center;gap:5px"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span style="color:#4a7a2a;font-size:11px">›</span><a href="../index.html#domain-policy" style="color:#a8d080;text-decoration:none">Animals &amp; Public Policy</a><span style="color:#4a7a2a;font-size:11px">›</span><span style="color:#d4f0b0">Ethics &amp; Animal Welfare</span></nav>
+
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">ABVP Shelter Medicine Practice RVS &middot; Animals &amp; Public Policy &middot; Subdomain 1 of 4</p>
+    <h1>Ethics &amp; Animal Welfare</h1>
+    <p class="sub">Exam-depth coverage of welfare frameworks, ethical decision-making, resource allocation principles, moral distress, and the pragmatics of shelter ethics. Includes Five Freedoms vs Five Domains comparison, shelter-specific resource allocation pillars, and cognitive factors in clinical decisions.</p>
+    <div class="legend">
+      <span><i style="background:var(--ref)"></i>AVMA / ASV / ASPCA guidelines</span>
+      <span><i style="background:var(--notes)"></i>Lecture / textbook notes</span>
+      <span><i style="background:var(--warn)"></i>Exam trap</span>
+      <span><i style="background:var(--good)"></i>High-yield point</span>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="frameworks"><span class="dot"></span>Welfare Frameworks</button>
+  <button data-p="resources"><span class="dot"></span>Resource Allocation</button>
+  <button data-p="decisions"><span class="dot"></span>Decision Making</button>
+  <button data-p="mcq"><span class="dot" style="background:#1a3d0a"></span>MCQ Test Bank</button>
+</div></div></nav>
+
+<main><div class="wrap">
+
+<!-- ===================== FRAMEWORKS ===================== -->
+<section class="panel show" id="frameworks">
+  <h2 class="sec">Welfare Frameworks</h2>
+  <p class="lead">Animal welfare science has moved from a reactive "freedom from harm" model to a proactive positive welfare framework. Understanding these frameworks — and how they apply to shelter settings — is a foundation for policy and ethical reasoning on the exam.</p>
+
+  <h3>Five Freedoms <span class="bdg ref">Brambell Commission 1965 / FAWC</span></h3>
+  <div class="card">
+    <p class="note">Developed by the UK Brambell Committee (1965) and formalized by the Farm Animal Welfare Council (FAWC). Originally designed for farm animals; now universally applied. Framed <em>negatively</em> — as freedoms <em>from</em> adverse states.</p>
+    <table class="cmp">
+      <tr><th>#</th><th>Freedom</th><th>Practical provision</th></tr>
+      <tr><td><b>1</b></td><td>Freedom from Hunger and Thirst</td><td>Ready access to fresh water and a diet to maintain full health and vigour</td></tr>
+      <tr><td><b>2</b></td><td>Freedom from Discomfort</td><td>Appropriate environment including shelter and comfortable resting area</td></tr>
+      <tr><td><b>3</b></td><td>Freedom from Pain, Injury or Disease</td><td>Prevention or rapid diagnosis and treatment</td></tr>
+      <tr><td><b>4</b></td><td>Freedom to Express Normal Behaviour</td><td>Sufficient space, proper facilities, and company of the animal's own kind</td></tr>
+      <tr><td><b>5</b></td><td>Freedom from Fear and Distress</td><td>Conditions and treatment that avoid mental suffering</td></tr>
+    </table>
+    <div class="trap"><b>Exam trap — Five Freedoms are aspirational, not absolute</b>The Five Freedoms represent an aspirational standard. In shelter settings with resource constraints, <em>all five</em> cannot always be fully met simultaneously. The framework's value is as a structured lens for identifying welfare deficits — not as a pass/fail checklist. Attempts to achieve one freedom may compromise another (e.g., group housing for socialization may increase disease risk).</div>
+  </div>
+
+  <h3>Five Domains Model <span class="bdg ref">Mellor 1994 / updated 2017</span></h3>
+  <div class="card">
+    <p class="note">Developed by David Mellor (New Zealand). Expands the Five Freedoms into a more nuanced, integrative model that explicitly includes positive welfare states (not just freedom from negatives). Organized into four physical/functional domains feeding into a fifth mental domain.</p>
+    <table class="cmp">
+      <tr><th>Domain</th><th>Focus</th><th>Positive welfare goal</th></tr>
+      <tr><td><b>1 — Nutrition</b></td><td>Adequacy of feed and water</td><td>Animal is well-nourished and hydrated</td></tr>
+      <tr><td><b>2 — Physical environment</b></td><td>Thermal comfort, substrate, space</td><td>Animal is comfortable and mobile</td></tr>
+      <tr><td><b>3 — Health</b></td><td>Disease, injury, physiological function</td><td>Animal is in good health and free from pain</td></tr>
+      <tr><td><b>4 — Behavioural interactions</b></td><td>Intra/inter-species, human–animal, environment</td><td>Animal can express motivated behaviours without frustration</td></tr>
+      <tr><td><b>5 — Mental state</b></td><td>Affective experiences emerging from domains 1–4</td><td>Animal experiences predominantly positive affective states (curiosity, pleasure, contentment, vitality)</td></tr>
+    </table>
+    <div class="corrbox"><b>High-yield — Domain 5 is the key advance over Five Freedoms</b>The Five Domains model explicitly evaluates the animal's <em>subjective experience</em> (mental state), not just its physical status. A shelter animal may meet all Five Freedoms criteria (no hunger, no disease) but still suffer psychologically due to chronic stress, understimulation, or social deprivation. Domain 5 captures this gap.</div>
+  </div>
+
+  <h3>Comparing the Two Frameworks <span class="bdg ref">Shelter medicine application</span></h3>
+  <div class="card">
+    <table class="cmp">
+      <tr><th>Feature</th><th>Five Freedoms</th><th>Five Domains</th></tr>
+      <tr><td><b>Framing</b></td><td>Negative (freedom <em>from</em>)</td><td>Both negative and positive (experience <em>of</em>)</td></tr>
+      <tr><td><b>Mental welfare</b></td><td>Freedom 5 (fear/distress) — reactive</td><td>Domain 5 — proactive; includes positive states</td></tr>
+      <tr><td><b>Assessment</b></td><td>Checklist of deficits</td><td>Integrative; considers interactions between domains</td></tr>
+      <tr><td><b>Positive welfare</b></td><td>Not explicitly addressed</td><td>Central objective; vitality and pleasure are goals</td></tr>
+      <tr><td><b>Shelter utility</b></td><td>Useful for identifying minimum acceptable care</td><td>Useful for optimising enrichment and quality of life</td></tr>
+    </table>
+  </div>
+
+  <h3>Welfare Assessment: Inputs vs Outcomes <span class="bdg ref">ASV / Fraser 2008</span></h3>
+  <div class="card">
+    <p class="note">Welfare can be assessed by measuring either what is provided to the animal (inputs) or what the animal actually experiences (outcomes). Both are complementary and are used in shelter auditing and accreditation.</p>
+    <table class="cmp">
+      <tr><th>Type</th><th>What is measured</th><th>Examples</th></tr>
+      <tr><td><b>Input-based</b> (resource-based)</td><td>Resources and husbandry provided</td><td>Space per animal (m²), diet composition, number of staff, enrichment items provided, veterinary visit frequency</td></tr>
+      <tr><td><b>Outcome-based</b></td><td>Animal's actual welfare state</td><td>Body condition score, disease prevalence, stereotypy rate, positive affective indicators (play, exploration), stress hormone levels, Fear-Free assessment scores</td></tr>
+    </table>
+    <div class="alertbox"><b>Why both matter</b>Input measures are easy to audit and regulate but do not guarantee good welfare (an animal may have adequate space but be chronically stressed). Outcome measures directly reflect the animal's experience but are harder to standardize. A complete welfare audit uses both.</div>
+    <h4>Key outcome indicators used in shelters</h4>
+    <ul class="hy">
+      <li><b>Behavioural indicators of positive welfare:</b> exploration, play, relaxed body posture, voluntary social approach to humans, grooming behaviour</li>
+      <li><b>Behavioural indicators of negative welfare:</b> stereotypies (repetitive pacing, bar-chewing), hiding, hypervigilance, freezing, aggression, reduced food intake</li>
+      <li><b>Physiological indicators:</b> cortisol/corticosterone levels, heart rate variability, immune suppression markers</li>
+      <li><b>Clinical indicators:</b> upper respiratory infection rate, diarrhoea prevalence, wound healing, body condition score progression</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== RESOURCE ALLOCATION ===================== -->
+<section class="panel" id="resources">
+  <h2 class="sec">Resource Allocation in Shelter Ethics</h2>
+  <p class="lead">Shelters operate under resource constraints that require difficult triage and allocation decisions. Three ethical pillars, developed in the shelter medicine literature, provide a principled framework for these decisions. These are heavily tested on the ABVP exam.</p>
+
+  <h3>The Three Ethical Pillars <span class="bdg ref">Newbury et al. / ASV Guidelines</span></h3>
+  <div class="card">
+    <table class="cmp">
+      <tr><th>#</th><th>Pillar</th><th>Core principle</th></tr>
+      <tr><td><b>1</b></td><td>No animal made worse</td><td>Shelter admission or management decisions must not result in a worse welfare outcome for any individual animal than if the animal had not entered the shelter system. Overcrowding, housing animals beyond capacity, or failing to meet basic care needs violates this pillar.</td></tr>
+      <tr><td><b>2</b></td><td>No life worse than death</td><td>Euthanasia is preferable to maintaining an animal in a state of suffering that cannot be relieved. When an animal's quality of life falls below a reasonable threshold and cannot be improved with available resources, humane euthanasia is the ethical choice. Conversely, euthanasia of an animal with good prospects — including feral cats with the ability to live independently — is not justified under this pillar.</td></tr>
+      <tr><td><b>3</b></td><td>Equitable resource distribution</td><td>Resources (staff time, medical care, kennel space, enrichment) must be distributed equitably across all animals in the shelter's care. Animals whose needs exceed available resources must not languish — either additional resources are secured or the population is managed through transfers, returns-to-field, or euthanasia decisions that restore equitable care for remaining animals.</td></tr>
+    </table>
+  </div>
+
+  <div class="trap"><b>Exam trap — overcrowding dilemma</b>A shelter stops euthanasia to reduce killing, but responds to the resulting overcrowding by housing 3 dogs in a run designed for 1. This <em>directly violates Pillar 1</em>: the decision to stop euthanasia has made the animals in care worse off. Stopping euthanasia is not an ethical choice if it results in overcrowding that compromises basic welfare. The ethical path requires either securing additional resources, increasing transfers, or making euthanasia decisions that allow adequate care for remaining animals.</div>
+
+  <div class="trap"><b>Exam trap — euthanasia of feral/independent cats</b>Euthanasia of a feral or outdoor cat that has a good chance of living independently outside the shelter is NOT justified under Pillar 2 ("no life worse than death"). An outdoor cat that can survive and thrive independently is not experiencing a life worse than death; therefore, euthanasia is not ethically compelled. Return-to-field or TNR are appropriate alternatives. This is a classic exam scenario.</div>
+
+  <h3>Short-Term Welfare Compromises <span class="bdg ref">ASV / Shelter Medicine textbook</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Short-term welfare compromises are acceptable <em>only</em> in the context of temporary holding or rehabilitation, where a defined endpoint exists and the compromise is necessary to achieve a better long-term outcome (e.g., brief quarantine isolation).</li>
+      <li>They are <em>not</em> ethically justifiable as an ongoing steady state. A shelter that routinely houses animals in conditions below the threshold of acceptable welfare, with no plan to restore adequate care, is operating unethically regardless of intent.</li>
+      <li>The <b>time-limited exception</b>: a brief period of suboptimal housing (e.g., 48 hours in a small crate during a disease outbreak while the main ward is disinfected) is acceptable IF it is genuinely time-limited, actively managed, and the animal's welfare is monitored throughout.</li>
+    </ul>
+    <div class="corrbox"><b>High-yield — "temporary" must be defined</b>The acceptability of a short-term compromise depends on having a clear timeline and a plan for restoration. "We'll fix it eventually" is not sufficient. The exam tests whether students understand that indefinite suboptimal conditions are NOT justified by resource constraints alone — they require an active management response.</div>
+  </div>
+
+  <h3>Euthanasia Decision-Making Framework <span class="bdg ref">ASV Guidelines / Reeve et al.</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Quality of life assessment</b>: the primary basis for euthanasia decisions is the animal's current and projected welfare, assessed using validated tools (e.g., QoL scales, behavioural assessments). Physical illness alone is not sufficient — treatability and resource availability must also be considered.</li>
+      <li><b>Treatable vs manageable vs untreatable</b>: most shelter protocols classify animals as: (T) treatable within available resources; (M) manageable with ongoing care; or (U) untreatable / quality of life unacceptable. Only U-category animals have unambiguous ethical justification for euthanasia on welfare grounds alone.</li>
+      <li><b>Behavioural euthanasia</b>: may be indicated when an animal poses an unacceptable public safety risk that cannot be mitigated, or when severe behavioural pathology precludes an acceptable quality of life and is not amenable to modification with available resources. This is a legitimate but heavily scrutinized decision requiring documented behavioural assessment by a qualified professional.</li>
+      <li><b>Population-level vs individual decisions</b>: population-level euthanasia (reducing intake to match capacity) is ethically distinct from individual welfare euthanasia. Population-level decisions must be transparent, consistently applied, and based on written criteria.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== DECISION MAKING ===================== -->
+<section class="panel" id="decisions">
+  <h2 class="sec">Ethical Decision Making</h2>
+  <p class="lead">Shelter veterinarians and managers regularly make decisions with significant ethical weight under conditions of uncertainty, time pressure, and resource constraints. Understanding the psychological and structural factors that influence these decisions is both an exam topic and a practical leadership skill.</p>
+
+  <h3>Moral Distress <span class="bdg ref">Jameton 1984 / veterinary adaptation</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Definition</b>: moral distress occurs when a person knows the ethically correct course of action but is constrained from acting on that knowledge by institutional, resource, or authority barriers. First described by Jameton (1984) in nursing; well-documented in veterinary contexts.</li>
+      <li><b>Distinction from moral uncertainty</b>: moral <em>uncertainty</em> is not knowing what the right thing to do is; moral <em>distress</em> is knowing but being unable to act. Both are common in shelter work but require different responses.</li>
+      <li><b>Sources in shelter medicine:</b> being required to euthanize treatable animals due to space constraints; being unable to provide adequate pain management due to budget limitations; witnessing ongoing substandard care without authority to change it; pressure from management or the board to compromise animal welfare for financial or public relations reasons.</li>
+      <li><b>Consequences</b>: untreated moral distress leads to compassion fatigue, burnout, staff turnover, and ultimately compromised animal care. It is a significant driver of the high turnover in animal shelter work.</li>
+      <li><b>Mitigation strategies</b>: transparent and consistent decision-making criteria; peer support and ethics consultation mechanisms; leadership that acknowledges and legitimizes staff concerns; structured debriefs after difficult cases.</li>
+    </ul>
+    <div class="corrbox"><b>High-yield — moral distress ≠ burnout</b>Moral distress is a specific construct: the knowledge-action gap caused by constraints. Burnout is a broader syndrome of exhaustion and cynicism. Moral distress <em>causes</em> burnout but is a distinct phenomenon. The exam may ask candidates to distinguish between them or to identify appropriate institutional responses.</div>
+  </div>
+
+  <h3>Pragmatic Shelter Decision-Making: 6 Factors <span class="bdg ref">ASV / Miller &amp; Zawistowski</span></h3>
+  <div class="card">
+    <p class="note">Shelter decisions about individual animals and population management are influenced by six pragmatic factors that must be considered alongside ethical principles:</p>
+    <table class="cmp">
+      <tr><th>#</th><th>Factor</th><th>Example</th></tr>
+      <tr><td><b>1</b></td><td>Animal's welfare and quality of life</td><td>Current pain level, behavioural indicators, prognosis for recovery</td></tr>
+      <tr><td><b>2</b></td><td>Available resources</td><td>Budget, staff capacity, kennel space, veterinary skill, foster network</td></tr>
+      <tr><td><b>3</b></td><td>Community context</td><td>Local adoption demand, rescue network capacity, public perception, community demographics</td></tr>
+      <tr><td><b>4</b></td><td>Legal obligations</td><td>Stray hold requirements, mandatory holding periods, evidence animal rules, euthanasia statutes</td></tr>
+      <tr><td><b>5</b></td><td>Mission and organizational values</td><td>Open-admission vs limited-admission policy; no-kill commitment; humane euthanasia policy</td></tr>
+      <tr><td><b>6</b></td><td>Stakeholder interests</td><td>Previous owner, adopter, rescue partner, community donor expectations, staff morale</td></tr>
+    </table>
+    <div class="trap"><b>Exam trap — resource constraints do not override welfare</b>Factor 2 (available resources) cannot ethically override Factor 1 (animal welfare) to the point of causing ongoing suffering. Resource constraints justify <em>triage</em> and <em>prioritization</em>, but they do not justify maintaining animals in conditions that are affirmatively harmful. If resources are insufficient to provide minimum acceptable care, population reduction through euthanasia is more ethical than ongoing overcrowding.</div>
+  </div>
+
+  <h3>Heuristics and Cognitive Bias in Clinical Settings <span class="bdg ref">Kahneman / Croskerry / Vet adaptation</span></h3>
+  <div class="card">
+    <p class="note">Clinical and ethical decisions in shelter medicine are subject to the same cognitive shortcuts and biases that affect all medical decision-making. Recognizing these helps clinicians improve the quality of their reasoning.</p>
+    <table class="cmp">
+      <tr><th>Bias / heuristic</th><th>Description</th><th>Shelter example</th></tr>
+      <tr><td><b>Availability heuristic</b></td><td>Overestimating the probability of events that come easily to mind (often because they are recent or dramatic)</td><td>Overweighting the risk of aggression in pit bull–type dogs after a recent incident, leading to unfair euthanasia decisions</td></tr>
+      <tr><td><b>Anchoring</b></td><td>Over-relying on the first piece of information encountered when making decisions</td><td>A dog labelled "aggressive" on intake from animal control; all subsequent behavioural assessment is skewed by that label</td></tr>
+      <tr><td><b>Affective bias</b></td><td>Decisions driven by emotional response to the animal's appearance or species rather than objective welfare assessment</td><td>Allocating disproportionate resources to neonatal kittens (emotionally compelling) relative to adult cats with similar medical need</td></tr>
+      <tr><td><b>Confirmation bias</b></td><td>Seeking information that confirms a prior belief while discounting disconfirming evidence</td><td>A clinician who believes a dog is dangerous interprets neutral behaviours as confirmatory threats</td></tr>
+      <tr><td><b>Status quo bias</b></td><td>Preference for the existing state of affairs; change is perceived as loss</td><td>Reluctance to implement new euthanasia criteria even when current criteria are inconsistent or harmful</td></tr>
+    </table>
+    <div class="corrbox"><b>High-yield — mitigation strategies</b>De-biasing strategies include: structured decision tools (standardized behavioural assessment forms); checklists; requiring explicit documentation of the reasoning behind unusual decisions; seeking a second opinion for high-stakes decisions; and cultural norms that reward deliberate reasoning over rapid intuitive judgments.</div>
+  </div>
+
+  <h3>Shared vs Informed Decision Making <span class="bdg ref">AVMA / veterinary ethics literature</span></h3>
+  <div class="card">
+    <table class="cmp">
+      <tr><th>Model</th><th>Core principle</th><th>Context</th></tr>
+      <tr><td><b>Informed decision making</b></td><td>The veterinarian provides complete and accurate information; the client (or in shelter contexts, the organization) makes the final decision based on that information</td><td>Traditional model; emphasizes autonomy of the decision-maker; appropriate when the client has the capacity and context to make an informed choice</td></tr>
+      <tr><td><b>Shared decision making</b></td><td>The veterinarian and client (or stakeholder) deliberate together, integrating clinical expertise with the client's values and circumstances, to reach a mutually acceptable decision</td><td>More appropriate for complex, value-laden decisions with multiple acceptable options; increasingly favoured in human medicine and recommended in veterinary practice guidelines</td></tr>
+    </table>
+    <ul class="hy">
+      <li>In shelter contexts, shared decision making involves the shelter vet, shelter director, and sometimes community stakeholders (e.g., rescue partners, board members) in decisions with significant welfare, legal, or reputational implications.</li>
+      <li>The veterinarian's role in shared decision making is not to advocate for a predetermined outcome but to ensure that the decision is grounded in accurate welfare assessment and realistic outcome data.</li>
+      <li><b>Key AVMA principle</b>: the veterinarian has an <em>ethical obligation</em> to provide a recommendation and to advocate for the animal's welfare, even in a shared model. Neutrality is not an ethical option when the animal's interests are at stake.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== MCQ ===================== -->
+<section class="panel" id="mcq">
+  <h2 class="sec">MCQ Test Bank — Ethics &amp; Animal Welfare</h2>
+  <p class="lead">30 exam-style questions covering welfare frameworks, resource allocation pillars, decision-making factors, moral distress, and cognitive bias. Select an answer to see the explanation.</p>
+
+  <div class="mcqbar">
+    <div class="filters">
+      <button class="on" data-f="all" onclick="filterQ(this,'all')">All (30)</button>
+      <button data-f="frameworks" onclick="filterQ(this,'frameworks')">Frameworks</button>
+      <button data-f="resource-allocation" onclick="filterQ(this,'resource-allocation')">Resource Allocation</button>
+      <button data-f="decision-making" onclick="filterQ(this,'decision-making')">Decision Making</button>
+    </div>
+    <div class="score"><span id="sc">0 / 0</span><button class="reset" onclick="resetAll()">Reset</button></div>
+  </div>
+
+  <div id="qlist">
+
+  <!-- Q1 -->
+  <div class="q" data-tag="frameworks">
+    <div class="meta"><span class="num">Q1</span><span class="tag">frameworks</span></div>
+    <p class="stem">Which of the following best describes the key advance of the Five Domains Model over the original Five Freedoms?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>It adds a sixth freedom addressing adequate veterinary staffing</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>It explicitly includes the animal's mental/affective experience as an outcome domain, allowing positive welfare states — not just freedom from negative ones — to be assessed</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>It applies only to companion animals in shelter settings, whereas the Five Freedoms apply to farm animals</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>It replaces subjective welfare assessments with objective physiological measurements only</button>
+    <div class="expl"><b class="cor">B is correct.</b> The Five Domains Model (Mellor) introduced Domain 5 — the animal's mental state — as an integrative outcome emerging from the four physical/functional domains. This allows assessment of positive welfare states (curiosity, play, contentment) not merely the absence of suffering. The Five Freedoms, particularly Freedom 5 (freedom from fear and distress), are reactive and deficit-focused. The Five Domains model is bidirectional: it seeks to maximise positive experiences, not just eliminate negative ones.</div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="q" data-tag="frameworks">
+    <div class="meta"><span class="num">Q2</span><span class="tag">frameworks</span></div>
+    <p class="stem">A shelter cat lives in a clean, adequately sized cage with food, water, and daily health checks. She does not display any disease signs and meets all Five Freedoms criteria. However, she spends most of the day hiding, rarely explores, and has not played since admission 3 weeks ago. Which assessment framework is MOST useful for identifying this welfare deficit?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Five Freedoms — Freedom 4 (express normal behaviour) identifies the deficit</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Five Freedoms — Freedom 5 (from fear and distress) identifies the deficit</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Five Domains Model — Domain 5 (mental state) captures the negative affective experience that the Five Freedoms framework, focused on deficit, is less equipped to optimise</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Input-based assessment — measuring cage dimensions and diet quantity is sufficient</button>
+    <div class="expl"><b class="cor">C is correct.</b> Although this cat meets the Five Freedoms (no disease, adequate space, food, water, no obvious fear trigger), she is experiencing a significant welfare deficit characterised by persistent negative affective states (hiding, inactivity, loss of play behaviour). The Five Domains Model, particularly Domain 5 (mental state), is specifically designed to capture this kind of subjective experiential welfare deficit and to target it for intervention through enrichment, social housing, or other proactive positive welfare strategies.</div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="q" data-tag="frameworks">
+    <div class="meta"><span class="num">Q3</span><span class="tag">frameworks</span></div>
+    <p class="stem">Which of the following is the BEST example of an outcome-based (rather than input-based) welfare measure?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Number of enrichment items provided per cage per day</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Square footage of floor space per dog in the kennel run</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Rate of stereotypic pacing behaviour observed during a standardised behavioural observation period</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Frequency of veterinary examinations per animal per week</button>
+    <div class="expl"><b class="cor">C is correct.</b> Outcome-based measures assess the animal's actual welfare state — what the animal is experiencing. Stereotypic pacing is a behavioural indicator of negative welfare (frustration, chronic stress, inadequate behavioural opportunity) that reflects the animal's experience regardless of what resources have been provided. Options A, B, and D are all input-based (resource-based) measures: they describe what is provided, not what the animal actually experiences. A shelter can provide enrichment items that the animals never use, or ample space that does not reduce stress.</div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="q" data-tag="resource-allocation">
+    <div class="meta"><span class="num">Q4</span><span class="tag">resource-allocation</span></div>
+    <p class="stem">A shelter has reached capacity. The director proposes stopping all euthanasia and instead placing 3 adult dogs per double-size kennel run (designed for 1–2 dogs) to accommodate the overflow. Which ethical pillar does this proposal most clearly violate?</p>
+    <button class="opt" onclick="ans(this,true)"><span class="k">A</span>Pillar 1 — No animal made worse: the decision to stop euthanasia results in housing conditions that are worse for the dogs in care than acceptable standards</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Pillar 2 — No life worse than death: the dogs' quality of life is likely to fall below the euthanasia threshold</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Pillar 3 — Equitable distribution: some dogs will receive more space than others</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>This proposal does not violate any ethical pillar, as no euthanasia is being performed</button>
+    <div class="expl"><b class="cor">A is correct.</b> Pillar 1 ("no animal made worse") prohibits management decisions that result in a worse welfare outcome for animals in care. Tripling the occupancy of kennels beyond their designed capacity predictably increases disease transmission, social conflict, stress, and injury risk — making the animals' welfare actively worse. The intent to save lives does not ethically justify causing harm to the animals who remain in care. Option D is incorrect: the absence of euthanasia does not make a management decision ethical if it causes ongoing welfare harm.</div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="q" data-tag="resource-allocation">
+    <div class="meta"><span class="num">Q5</span><span class="tag">resource-allocation</span></div>
+    <p class="stem">A healthy, well-socialised feral cat is brought to an open-admission shelter that lacks a TNR programme. The cat is unadoptable as an indoor pet. Under the ethical framework of the three welfare pillars, which of the following best describes the appropriate disposition?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Humane euthanasia is justified because the cat cannot be placed in a home</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Humane euthanasia is justified because feral cats reduce native wildlife</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Euthanasia is NOT ethically justified under Pillar 2, because the cat has a good prospect of living independently outdoors — its life is not worse than death; return-to-field or TNR referral is the appropriate alternative</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>The cat should be held indefinitely while the shelter develops a TNR programme</button>
+    <div class="expl"><b class="cor">C is correct.</b> Pillar 2 ("no life worse than death") states that euthanasia is justified only when an animal's quality of life falls below an acceptable threshold and cannot be improved. A healthy, well-socialised feral cat with a good chance of surviving independently outdoors does NOT meet this threshold — its life is not worse than death. Euthanising it solely because it cannot be adopted as an indoor pet violates Pillar 2. The ethically appropriate path is return-to-field or referral to a TNR programme. Option D is incorrect because indefinite holding for a feral cat that cannot thrive in a kennel violates Pillar 1.</div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="q" data-tag="resource-allocation">
+    <div class="meta"><span class="num">Q6</span><span class="tag">resource-allocation</span></div>
+    <p class="stem">Which statement BEST describes the ethical status of short-term welfare compromises in shelter medicine?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Short-term welfare compromises are never ethically acceptable under any circumstances</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Short-term welfare compromises are always acceptable when resource constraints exist</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Short-term welfare compromises are acceptable ONLY in temporary holding or rehabilitation contexts with a defined endpoint and a plan to restore acceptable care — they cannot be justified as an ongoing steady state</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Short-term welfare compromises are acceptable whenever the intent is to save animal lives rather than end them</button>
+    <div class="expl"><b class="cor">C is correct.</b> The shelter medicine ethical framework permits time-limited welfare compromises (e.g., 48-hour isolation in a small crate during a disease outbreak) only when there is a genuine temporary purpose, an active management plan, and a realistic timeline for restoration of acceptable care. Indefinite suboptimal conditions — regardless of intent — are not ethically justified. Option D is the classic exam trap: good intentions (saving lives) do not ethically justify sustained welfare harm.</div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="q" data-tag="decision-making">
+    <div class="meta"><span class="num">Q7</span><span class="tag">decision-making</span></div>
+    <p class="stem">Which of the following BEST defines moral distress as distinguished from moral uncertainty?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Moral distress occurs when the right course of action is unknown; moral uncertainty occurs when the right course is known but constrained</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Moral distress and moral uncertainty are synonyms for compassion fatigue</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Moral distress occurs when the ethically correct action is known but the person is constrained from taking it by institutional, resource, or authority barriers; moral uncertainty is not knowing what the right action is</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Moral distress is a form of professional burnout caused by excessive caseload volume</button>
+    <div class="expl"><b class="cor">C is correct.</b> Jameton (1984) defined moral distress as the specific experience of knowing the right thing to do but being prevented from doing it by external constraints. This is distinct from moral uncertainty (not knowing what is right) and from burnout (a broader syndrome of exhaustion and disengagement). In shelters, moral distress is commonly triggered by being required to euthanize treatable animals due to space limitations, or witnessing substandard care without authority to change it.</div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="q" data-tag="decision-making">
+    <div class="meta"><span class="num">Q8</span><span class="tag">decision-making</span></div>
+    <p class="stem">A shelter veterinarian notices that the staff allocates disproportionately high resources to neonatal kittens while adult cats with comparable medical need receive delayed care. Which cognitive bias BEST describes this pattern?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Anchoring bias</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Availability heuristic</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Affective bias</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Confirmation bias</button>
+    <div class="expl"><b class="cor">C is correct.</b> Affective bias (sometimes called the "affect heuristic") refers to decisions driven by emotional response to an animal's appearance, age, or species rather than objective welfare assessment. Neonatal kittens are emotionally compelling — small, vulnerable, visually appealing — and frequently attract resource allocation that is disproportionate to clinical need relative to adult cats. Anchoring would describe over-relying on initial information; availability heuristic would describe overestimating risk based on memorable events; confirmation bias would describe selectively interpreting evidence to confirm a prior belief.</div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="q" data-tag="decision-making">
+    <div class="meta"><span class="num">Q9</span><span class="tag">decision-making</span></div>
+    <p class="stem">A dog is brought to a shelter with an intake note from animal control stating "aggressive — bit officer." All subsequent behavioural assessments by shelter staff find the dog calm and friendly. Staff continue to describe the dog as "dangerous" and recommend euthanasia. Which cognitive bias is MOST prominently demonstrated?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Affective bias</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Anchoring bias</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Status quo bias</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Availability heuristic</button>
+    <div class="expl"><b class="cor">B is correct.</b> Anchoring bias is demonstrated when individuals over-rely on the first piece of information encountered — in this case, the intake note labelling the dog "aggressive." Subsequent assessments that disconfirm this label are discounted rather than integrated. A related phenomenon is labelling bias: once a label is applied, it shapes all subsequent perception of the animal. Structured behavioural assessment protocols with documented criteria help counteract anchoring by requiring evidence-based evaluation independent of intake labels.</div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="q" data-tag="decision-making">
+    <div class="meta"><span class="num">Q10</span><span class="tag">decision-making</span></div>
+    <p class="stem">Which of the following BEST describes the shelter veterinarian's role in a shared decision-making model?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>The veterinarian remains neutral and presents options without making a recommendation, to preserve the organization's autonomy</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>The veterinarian makes all significant welfare decisions unilaterally as the medical expert</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>The veterinarian and relevant stakeholders deliberate together, with the veterinarian providing accurate welfare assessment and a recommendation while integrating organizational values and constraints — the veterinarian retains an ethical obligation to advocate for the animal</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>The veterinarian defers entirely to the shelter director, as operational decisions are outside the veterinarian's role</button>
+    <div class="expl"><b class="cor">C is correct.</b> Shared decision making integrates clinical expertise with stakeholder values and context, but it does not eliminate the veterinarian's advocacy role. The AVMA and ASV are clear that the veterinarian has an ethical obligation to provide a welfare-based recommendation and to advocate for the animal's interests — neutrality is not ethically appropriate when animal welfare is at stake. Option A (complete neutrality) and option D (full deference) both represent abdications of professional responsibility. Option B (unilateral decisions) fails to account for legitimate organizational constraints and values that appropriately inform management decisions.</div>
+  </div>
+
+  <!-- Q11 -->
+  <div class="q" data-tag="resource-allocation">
+    <div class="meta"><span class="num">Q11</span><span class="tag">resource-allocation</span></div>
+    <p class="stem">Which of the following resource allocation decisions is MOST consistent with the three ethical pillars for shelter medicine?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Accepting unlimited intake from animal control regardless of capacity because limiting intake causes animals to be held in unsafe conditions elsewhere</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Providing intensive medical care for every animal regardless of prognosis or resource impact on other animals</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Establishing written population management criteria that trigger intake diversion, increased transfers, or euthanasia decisions when capacity limits are approached, ensuring all animals in care receive adequate welfare standards</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Suspending all enrichment and behavioural care during periods of high census to redirect staff to medical care</button>
+    <div class="expl"><b class="cor">C is correct.</b> The three pillars require: (1) no animal made worse — all animals in care must receive acceptable standards; (2) no life worse than death — euthanasia is ethically justified when welfare cannot be maintained; (3) equitable distribution — resources must be allocated consistently. Establishing written, pre-defined population management criteria that are applied consistently satisfies all three pillars. Option A violates Pillar 1 (unlimited intake beyond capacity makes animals worse). Option B violates Pillar 3 (inequitable distribution favoring one animal at others' expense). Option D violates Pillar 1 (suspending behavioural care causes welfare harm).</div>
+  </div>
+
+  <!-- Q12 -->
+  <div class="q" data-tag="decision-making">
+    <div class="meta"><span class="num">Q12</span><span class="tag">decision-making</span></div>
+    <p class="stem">In the pragmatic shelter decision-making model, which of the following correctly identifies the 6 factors that influence disposition decisions?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Animal welfare, staff preferences, donor expectations, length of stay, species, and age</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Breed, age, medical history, behavioural history, owner surrender reason, and length of stay</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Animal welfare/QoL, available resources, community context, legal obligations, organizational mission/values, and stakeholder interests</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Five Freedoms compliance, Five Domains compliance, ASV guideline compliance, local ordinance, state statute, and federal statute</button>
+    <div class="expl"><b class="cor">C is correct.</b> The pragmatic shelter decision-making framework identifies six factors: (1) animal welfare and quality of life, (2) available resources (budget, space, staff, foster network), (3) community context (adoption demand, rescue capacity, public perception), (4) legal obligations (hold periods, evidence animal rules), (5) organizational mission and values (open/limited admission, no-kill commitment), and (6) stakeholder interests (owner, adopter, rescue partner, staff morale). Options A, B, and D describe real considerations but do not correctly map the six-factor framework as described in shelter medicine literature.</div>
+  </div>
+
+  <!-- Q13 -->
+  <div class="q" data-tag="frameworks">
+    <div class="meta"><span class="num">Q13</span><span class="tag">frameworks</span></div>
+    <p class="stem">The Five Freedoms were originally developed by which body, and for which animal population?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>The AVMA, for companion animals in veterinary practice</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>The ASV, for animals housed in shelters</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>The UK Brambell Committee (1965) / Farm Animal Welfare Council, for farm animals</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>David Mellor (New Zealand), for zoo and captive wildlife populations</button>
+    <div class="expl"><b class="cor">C is correct.</b> The Five Freedoms originated with the UK Brambell Committee report (1965) and were formalised by the Farm Animal Welfare Council (FAWC) for intensively farmed animals. They were subsequently adopted universally across veterinary medicine, including shelter and companion animal contexts. David Mellor (option D) developed the Five Domains Model — a different, later framework. The AVMA and ASV incorporated these principles but did not originate them.</div>
+  </div>
+
+  <!-- Q14 -->
+  <div class="q" data-tag="frameworks">
+    <div class="meta"><span class="num">Q14</span><span class="tag">frameworks</span></div>
+    <p class="stem">Which Five Freedom maps MOST directly to providing hiding boxes for cats in shelter housing?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Freedom from Hunger and Thirst</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Freedom from Pain, Injury or Disease</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Freedom to Express Normal Behaviour</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">D</span>Freedom from Fear and Distress</button>
+    <div class="expl"><b class="cor">D is correct.</b> Freedom 5 (Freedom from Fear and Distress) requires conditions and treatment that avoid mental suffering. Providing hiding boxes directly addresses the cat's ability to escape perceived threats and control its exposure to stressors — a core driver of fear and distress in a shelter environment. While hiding could also be linked to Freedom 4 (expressing normal behaviour, since hiding is a normal feline behaviour), the primary welfare rationale for hiding boxes is reduction of fear and distress, making D the best answer. Option B (pain/injury/disease) relates to veterinary care, not environmental provisions for psychological safety.</div>
+  </div>
+
+  <!-- Q15 -->
+  <div class="q" data-tag="frameworks">
+    <div class="meta"><span class="num">Q15</span><span class="tag">frameworks</span></div>
+    <p class="stem">The Five Opportunities framework (Yeates 2013) is described as the "positive counterpart" to the Five Freedoms. Which pairing CORRECTLY matches a Five Freedom to its corresponding Five Opportunities equivalent?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Freedom from Hunger → Opportunity for routine veterinary examination</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Freedom from Discomfort → Opportunity for interest and confidence</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Freedom from Fear and Distress → Opportunity for interest and confidence (mental enjoyment)</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Freedom to Express Normal Behaviour → Opportunity for pleasure, development and vitality</button>
+    <div class="expl"><b class="cor">C is correct.</b> Each Five Freedom maps to a positive opportunity: Freedom 5 (from fear/distress) → Opportunity for interest and confidence (mental enjoyment). Freedom from Hunger maps to Opportunity for selection of dietary inputs; Freedom from Discomfort maps to Opportunity for control of the environment; Freedom to Express Normal Behaviour maps to Opportunity to express normal behaviour (particularly group housing for social species); and Freedom from Pain/Injury/Disease maps to Opportunity for pleasure, development and vitality. Options B and D have the pairings reversed — a common exam trap.</div>
+  </div>
+
+  <!-- Q16 -->
+  <div class="q" data-tag="frameworks">
+    <div class="meta"><span class="num">Q16</span><span class="tag">frameworks</span></div>
+    <p class="stem">When assessing welfare using the Five Domains Model, a shelter auditor evaluates how often an animal experiences a negative affective state, how intense the state is, and how long it persists. These three dimensions belong to which aspect of welfare scoring?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Input-based scoring of Domain 2 (physical environment)</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Welfare scoring dimensions: intensity, duration, and frequency/probability</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Outcome-based scoring of Domain 3 (health)</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>The Five Freedoms deficit-scoring system</button>
+    <div class="expl"><b class="cor">B is correct.</b> Welfare scoring under the Five Domains Model uses multiple dimensions to characterize the welfare significance of any affective state: intensity (how severe the experience is for each animal), duration (how long the mental state lasts), frequency or probability (how often it occurs), and scope (how many animals are affected). Together these dimensions allow a nuanced welfare impact assessment — an intense but brief experience (e.g., a 30-second blood draw) may have less welfare impact than a low-intensity but chronic state (e.g., persistent mild social isolation). Options A, C, and D describe different assessment tools or domains but not this specific scoring framework.</div>
+  </div>
+
+  <!-- Q17 -->
+  <div class="q" data-tag="frameworks">
+    <div class="meta"><span class="num">Q17</span><span class="tag">frameworks</span></div>
+    <p class="stem">A shelter installs exercise wheels for cats and observes a subsequent decrease in repetitive pacing behaviour. In the welfare assessment input-outcome framework, which pairing does this scenario BEST illustrate?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Diet (input) → body condition score (outcome)</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Human company (input) → aggression or avoidance of caregivers (outcome)</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Toy/exercise enrichment (input) → stereotypic/repetitive behaviours (outcome)</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Routine vet care (input) → signs of infectious disease (outcome)</button>
+    <div class="expl"><b class="cor">C is correct.</b> The welfare assessment framework pairs specific inputs with their expected outcome indicators. Toy and exercise enrichment is the relevant input; the target outcome is the presence or absence of stereotypic and repetitive behaviours (e.g., pacing, bar-chewing, over-grooming). A reduction in stereotypies following enrichment provision is a validated positive welfare outcome. Diet → BCS (A) is a separate pairing; human company → caregiver approach/avoidance (B) is another; and routine vet care → infectious disease signs (D) is a third. Understanding these input-outcome pairs is critical for welfare auditing and enrichment programme evaluation.</div>
+  </div>
+
+  <!-- Q18 -->
+  <div class="q" data-tag="frameworks">
+    <div class="meta"><span class="num">Q18</span><span class="tag">frameworks</span></div>
+    <p class="stem">A shelter implements a new socialisation programme: volunteers spend 20 minutes per day with each cat. Which of the following outcomes would be the MOST valid welfare indicator to track for this input?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Body condition score before and after programme implementation</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Upper respiratory infection rate in the cat ward</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Voluntary approach behaviour toward caregivers and hiding frequency during standardised observations</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Stereotypic pacing rate measured before morning feeding</button>
+    <div class="expl"><b class="cor">C is correct.</b> In the input-outcome welfare assessment framework, human company (the input in this scenario) maps to outcomes reflecting the animal's behavioural response to humans: voluntary approach, avoidance of caregivers, and aggression. Approach toward caregivers and reduced hiding indicate improved human-animal relationship and reduced fear — the expected positive outcome of socialisation. Body condition score (A) reflects dietary adequacy. URI rate (B) tracks biosecurity/veterinary care inputs. Stereotypic pacing (D) is the outcome for exercise/enrichment inputs, not socialisation. Tracking the wrong outcome invalidates the welfare assessment.</div>
+  </div>
+
+  <!-- Q19 -->
+  <div class="q" data-tag="resource-allocation">
+    <div class="meta"><span class="num">Q19</span><span class="tag">resource-allocation</span></div>
+    <p class="stem">A shelter calculates that its mean resources per animal have dropped to $8 per day as intake has increased without a corresponding budget increase. The director argues that spreading resources thin helps the greatest number of animals. Which ethical consideration MOST directly challenges this reasoning?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Pillar 2: animals receiving $8/day are likely experiencing a life worse than death</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Pillar 1: if mean resources fall below the threshold needed for minimum acceptable care, all animals are made worse — the "greatest number" argument cannot justify ongoing welfare harm</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Pillar 3: resources must be distributed unequally, with higher-need animals receiving more</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>The Five Domains Model: spreading resources limits enrichment opportunities in Domain 4</button>
+    <div class="expl"><b class="cor">B is correct.</b> Pillar 3 does support maximising the number of animals helped, but this principle is bounded by Pillar 1: no animal may be made worse by the charity's work. If spreading resources thinly results in animals receiving below the minimum standard of care, Pillar 1 is violated regardless of how many animals are theoretically "helped." The mean resources formula is useful for identifying when population numbers are becoming unsustainable, but it must be evaluated against minimum care thresholds — not just averaged across the population. Option A misapplies Pillar 2, which concerns quality of life thresholds for euthanasia, not resource per-capita cost.</div>
+  </div>
+
+  <!-- Q20 -->
+  <div class="q" data-tag="resource-allocation">
+    <div class="meta"><span class="num">Q20</span><span class="tag">resource-allocation</span></div>
+    <p class="stem">Pillar 3 of the shelter ethics resource allocation framework states that resources should not "unreasonably deprive another needy animal." Which of the following scenarios BEST represents a violation of Pillar 3?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>A shelter spends $4,000 on a life-saving surgery for a dog that is otherwise healthy and highly adoptable</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>A shelter prioritises medical care for animals near death over those with minor ailments</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>A shelter spends $12,000 on prolonged intensive care for a single dog with a poor prognosis while 40 other animals in the shelter receive no enrichment, delayed vaccinations, and substandard nutrition due to budget shortfalls</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>A shelter uses a tiered triage system that directs more resources to animals with greater medical need</button>
+    <div class="expl"><b class="cor">C is correct.</b> Pillar 3 requires that resources be distributed such that no individual animal's disproportionate consumption of resources unreasonably deprives other needy animals of adequate care. Spending $12,000 on one animal with a poor prognosis while 40 others suffer welfare deficits is a textbook Pillar 3 violation. This does not mean expensive care is always wrong — option A (surgery for a highly adoptable dog with a good prognosis) may well represent appropriate resource use. Option D (tiered triage by medical need) actually upholds equitable resource allocation. Option B (prioritising near-death animals) is a clinical triage decision, not inherently unethical.</div>
+  </div>
+
+  <!-- Q21 -->
+  <div class="q" data-tag="resource-allocation">
+    <div class="meta"><span class="num">Q21</span><span class="tag">resource-allocation</span></div>
+    <p class="stem">A shelter's medical team is pressured by management to euthanise a dog whose chronic pain is well-controlled by daily medication, who enjoys interactions with staff, and who has been successfully adopted twice previously but returned due to housing issues. Under Pillar 2, which statement is MOST accurate?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Euthanasia is justified because the dog has been returned twice, indicating low adoptability</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Euthanasia is justified because chronic pain, even when managed, constitutes a life worse than death</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Euthanasia is NOT ethically justified under Pillar 2: the dog's pain is controlled, it exhibits positive welfare indicators, and its quality of life does not fall below an acceptable threshold</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Euthanasia is justified under Pillar 3 because the resources used for this dog could benefit many others</button>
+    <div class="expl"><b class="cor">C is correct.</b> Pillar 2 ("no life worse than death") authorises euthanasia only when an animal's quality of life falls below an acceptable threshold and cannot be improved. A dog whose pain is well-controlled by medication and who actively engages positively with staff does NOT meet this criterion — its current life is not worse than death. Option A incorrectly conflates adoptability with quality of life. Option B incorrectly assumes managed chronic pain equals a life worse than death. Option D improperly invokes Pillar 3 as an independent justification for euthanasia — Pillar 3 informs resource triage, but euthanasia decisions must be grounded in welfare assessment, not solely in resource calculations.</div>
+  </div>
+
+  <!-- Q22 -->
+  <div class="q" data-tag="resource-allocation">
+    <div class="meta"><span class="num">Q22</span><span class="tag">resource-allocation</span></div>
+    <p class="stem">In practice, a shelter's mean resources per animal are rarely distributed equally. Which factor MOST commonly creates inequitable resource distribution within shelters, according to shelter medicine literature?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Veterinary licensing requirements that mandate different levels of care by species</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Perceived value differences based on species, breed, and age — leading to higher resource allocation for "desirable" animals independent of welfare need</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Legal hold requirements that mandate more resources for stray animals than owner-surrendered animals</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Randomly distributed staffing patterns that create unintentional resource disparities</button>
+    <div class="expl"><b class="cor">B is correct.</b> Shelter medicine literature consistently identifies perceived value — shaped by species (dogs vs. cats vs. rabbits), breed (purebred vs. mixed breed), and age (puppies and kittens vs. senior animals) — as the most significant driver of inequitable resource distribution within shelters. This is closely related to affective bias: animals that are perceived as more desirable, valuable, or emotionally compelling receive disproportionate resources regardless of their comparative welfare need. Legal hold requirements (C) do affect resource allocation but are driven by legal obligation, not perceived value. Options A and D are not recognised as primary drivers of inequity in the literature.</div>
+  </div>
+
+  <!-- Q23 -->
+  <div class="q" data-tag="resource-allocation">
+    <div class="meta"><span class="num">Q23</span><span class="tag">resource-allocation</span></div>
+    <p class="stem">To promote ethical consistency in resource allocation, shelter medicine guidelines recommend that organisations take which of the following structural actions?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Allow individual veterinarians to develop their own resource criteria for each animal encountered</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Limit resource allocation decisions to shelter directors only, excluding veterinary staff</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Develop and publish written organisational statements outlining the principles used in resource allocation and ethical decision-making</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Apply universal per-species cost caps so that no single animal ever receives more than the mean resources per animal</button>
+    <div class="expl"><b class="cor">C is correct.</b> Shelter medicine guidelines emphasise that transparent, written organisational statements outlining decision-making principles are a key structural strategy for ethical consistency. Published criteria allow staff to understand how decisions are made, reduce arbitrary or affect-driven variation, and provide accountability to the community and donors. Option A (individual criteria per clinician) maximises inconsistency and cognitive bias. Option B (excluding veterinary staff) removes the essential welfare expertise from decision-making. Option D (strict per-capita cost caps) is overly rigid and would prevent appropriate resource concentration for high-need animals — which Pillar 3 allows when justified.</div>
+  </div>
+
+  <!-- Q24 -->
+  <div class="q" data-tag="resource-allocation">
+    <div class="meta"><span class="num">Q24</span><span class="tag">resource-allocation</span></div>
+    <p class="stem">A shelter director argues: "We cannot harm one animal in order to benefit another." This statement reflects which ethical pillar?</p>
+    <button class="opt" onclick="ans(this,true)"><span class="k">A</span>Pillar 1: no animal should be made worse by the charity's work — including being harmed to provide benefit to another animal</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Pillar 2: no animal should have a life worse than death</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Pillar 3: resources should not unreasonably deprive another needy animal</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>This statement reflects Pillar 2 and Pillar 3 combined, not a single pillar</button>
+    <div class="expl"><b class="cor">A is correct.</b> Pillar 1 contains an important sub-principle: the prohibition extends not only to animals being made worse by the charity's management, but also to harming one animal in order to benefit another. For example, denying an animal pain medication so that those resources can be redirected to a "more adoptable" animal violates Pillar 1. This is a subtle but high-yield distinction — Pillar 1 is not merely about overcrowding or neglect, but about any management decision that actively worsens an individual animal's welfare, including cross-animal resource substitution that causes harm.</div>
+  </div>
+
+  <!-- Q25 -->
+  <div class="q" data-tag="decision-making">
+    <div class="meta"><span class="num">Q25</span><span class="tag">decision-making</span></div>
+    <p class="stem">Which of the following BEST distinguishes shared decision making from informed decision making in a veterinary shelter context?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>In shared decision making, the veterinarian provides information and the client decides alone; in informed decision making, both parties deliberate together</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>In informed decision making, the veterinarian provides complete information and the client/organisation decides autonomously; in shared decision making, both parties share information and deliberate jointly to reach a mutually agreed decision</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Shared decision making applies only to euthanasia decisions; informed decision making applies to all other clinical choices</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>The two models are identical — both require the veterinarian and client to jointly agree on a final disposition</button>
+    <div class="expl"><b class="cor">B is correct.</b> These are distinct models: informed decision making (sometimes called the "informed consent model") places the decision-making authority with the client or organisation — the veterinarian's role is to provide complete, accurate information, after which the decision-maker acts autonomously. Shared decision making involves both parties actively deliberating, exchanging information, and reaching a mutually agreed outcome. In practice, shelter medicine increasingly favours shared decision making for complex, value-laden decisions (euthanasia, population management) while informed decision making is appropriate for lower-stakes clinical choices. Option A has the definitions reversed — a common exam error.</div>
+  </div>
+
+  <!-- Q26 -->
+  <div class="q" data-tag="decision-making">
+    <div class="meta"><span class="num">Q26</span><span class="tag">decision-making</span></div>
+    <p class="stem">Unlike human medical ethics, veterinary ethical decisions are characterised by the absence of a solid conceptual consensus. Which of the following strategies is MOST directly recommended to address this challenge in shelter organisations?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Adopt a single ethical theory (e.g., utilitarianism) as the organisation's official framework and apply it consistently to all decisions</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Defer all ethical questions to the supervising veterinarian to avoid organisational conflict</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Foster a culture of respect for different ethical positions, schedule specific time for ethical discussion, and make organisational decision-making principles publicly available</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Limit ethical discussions to annual staff retreats to avoid disrupting daily operations</button>
+    <div class="expl"><b class="cor">C is correct.</b> Because veterinary ethics lacks the conceptual consensus that grounds much of human medical ethics, the recommended approach is structural and cultural rather than doctrinal: (1) cultivate a culture of respect for diverse ethical positions, (2) create dedicated time for ethical discussion (not just ad hoc), and (3) publish transparent organisational statements outlining the principles used in decision-making. Option A (enforcing a single ethical theory) creates rigidity and suppresses legitimate dissent. Option B (deferring to one person) removes the deliberative process that improves decision quality. Option D (annual retreats only) is insufficiently frequent for the ethical complexity of daily shelter work.</div>
+  </div>
+
+  <!-- Q27 -->
+  <div class="q" data-tag="decision-making">
+    <div class="meta"><span class="num">Q27</span><span class="tag">decision-making</span></div>
+    <p class="stem">After a highly publicised bite incident involving a pit bull–type dog at a neighbouring shelter, a shelter veterinarian begins recommending euthanasia for all pit bull–type dogs with any bite history, even when behavioural assessments indicate low risk. Which cognitive bias is MOST likely driving this change?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Anchoring bias</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Affective bias</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Confirmation bias</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">D</span>Availability heuristic</button>
+    <div class="expl"><b class="cor">D is correct.</b> The availability heuristic causes people to overestimate the probability of events that are cognitively salient — typically because they are recent, dramatic, or emotionally charged. A high-profile bite incident at a nearby facility makes the risk of aggression highly available in memory, leading the veterinarian to overweight this risk when evaluating subsequent dogs. This is distinct from anchoring (over-relying on first information about a specific dog), affective bias (emotional response to appearance), and confirmation bias (selectively interpreting evidence). Structured, validated behavioural assessment tools applied consistently are the recommended countermeasure against availability-driven decisions.</div>
+  </div>
+
+  <!-- Q28 -->
+  <div class="q" data-tag="decision-making">
+    <div class="meta"><span class="num">Q28</span><span class="tag">decision-making</span></div>
+    <p class="stem">A shelter has used the same intake behavioural assessment tool for 12 years. Literature now shows the tool over-predicts aggression in fearful dogs, leading to unnecessary euthanasia. Staff resist switching to a validated alternative, citing familiarity and past success. Which cognitive bias MOST characterises this resistance?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Availability heuristic</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Affective bias</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Status quo bias</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Anchoring bias</button>
+    <div class="expl"><b class="cor">C is correct.</b> Status quo bias is the preference for the existing state of affairs, where change is perceived as a loss even when evidence supports it. In this scenario, staff prefer a familiar tool despite evidence of harm (over-prediction of aggression → unnecessary euthanasia) because switching requires effort, creates uncertainty, and disrupts established workflows. Status quo bias is particularly relevant in organisations where current practices have historical momentum. Availability heuristic (A) would involve overestimating risk from memorable events. Affective bias (B) involves emotional responses to animal appearance. Anchoring (D) involves over-relying on initial information about a specific animal, not resistance to process change.</div>
+  </div>
+
+  <!-- Q29 -->
+  <div class="q" data-tag="decision-making">
+    <div class="meta"><span class="num">Q29</span><span class="tag">decision-making</span></div>
+    <p class="stem">Moral distress (Jameton 1984) is characterised by repeated exposure to situations where a clinician knows the right action but is prevented from acting. Which of the following describes the MOST likely organisational consequence of chronic, unaddressed moral distress among shelter staff?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Improved ethical deliberation, as staff become more accustomed to navigating complex decisions</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Decreased rates of euthanasia, as distressed staff avoid difficult disposition decisions</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Erosion of emotional well-being, leading to compassion fatigue, burnout, and high staff turnover — which ultimately compromises animal care</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Increased moral clarity over time, as staff develop coping mechanisms that reduce the knowledge-action gap</button>
+    <div class="expl"><b class="cor">C is correct.</b> Repeated, unaddressed moral distress does not produce adaptation or resilience — it produces erosion of emotional well-being. This leads sequentially to compassion fatigue (the cost of sustained empathic engagement), burnout (exhaustion and disengagement), and staff turnover. High turnover in shelter medicine is well-documented and is substantially driven by moral distress. The downstream consequence is compromised animal care: experienced staff leave, institutional knowledge is lost, and the animals lose consistent, skilled caregivers. Option A and D incorrectly imply that exposure to distress is beneficial. Option B is not supported — moral distress does not systematically reduce euthanasia rates.</div>
+  </div>
+
+  <!-- Q30 -->
+  <div class="q" data-tag="decision-making">
+    <div class="meta"><span class="num">Q30</span><span class="tag">decision-making</span></div>
+    <p class="stem">A shelter veterinarian believes a particular cat is feral based on the intake note, and interprets all of the cat's behaviours during assessment — freezing, dilated pupils, rapid breathing — as confirming this. The cat actually responds warmly to slow, quiet approach but this is not tested because the veterinarian assumes the result. Which bias is MOST prominent?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Status quo bias</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Availability heuristic</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Affective bias</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">D</span>Confirmation bias</button>
+    <div class="expl"><b class="cor">D is correct.</b> Confirmation bias involves seeking or interpreting evidence in a way that confirms a pre-existing belief, while discounting or failing to seek disconfirming evidence. In this scenario, the veterinarian interprets stress responses (freezing, dilated pupils, rapid breathing — all of which can be caused by fear in a socialised cat, not only in a feral one) as confirming ferality, and does not test the alternative hypothesis (slow, quiet approach). This is distinct from anchoring bias, which would be over-relying on the initial "feral" label but still remaining open to updating — confirmation bias goes further by actively shaping information-gathering to avoid disconfirmation. Standardised behavioural assessment protocols that require testing specific hypotheses are the recommended structural countermeasure.</div>
+  </div>
+
+  </div><!-- /qlist -->
+</section>
+
+</div></main>
+
+<footer><div class="wrap">
+  <p>ABVP Shelter Medicine RVS Study Hub &middot; Animals &amp; Public Policy Domain &middot; Ethics &amp; Animal Welfare (Subdomain 1 of 4)</p>
+  <p>Sources: Mellor DJ (2017) Updating Animal Welfare Thinking; FAWC Five Freedoms (1979); ASV Guidelines for Standards of Care in Animal Shelters (2010); Jameton A (1984) Nursing Practice: The Ethical Issues; AVMA Guidelines for the Euthanasia of Animals (2020); Newbury S et al. Shelter Medicine for Veterinarians and Staff. Content is for exam preparation only — always consult current guidelines for clinical decisions.</p>
+</div></footer>
+
+<script>
+document.getElementById('tabrow').addEventListener('click',function(e){
+  const btn=e.target.closest('button[data-p]');
+  if(!btn)return;
+  document.querySelectorAll('.tabrow button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('show'));
+  document.getElementById(btn.dataset.p).classList.add('show');
+});
+
+let total=0,correct=0;
+function ans(btn,isCorrect){
+  const q=btn.closest('.q');
+  if(q.dataset.locked)return;
+  q.dataset.locked='1';
+  total++;
+  const opts=q.querySelectorAll('.opt');
+  opts.forEach(o=>o.classList.add('locked'));
+  btn.classList.add(isCorrect?'correct':'wrong');
+  if(isCorrect)correct++;
+  else{
+    opts.forEach(o=>{
+      const fn=o.getAttribute('onclick')||'';
+      if(fn.includes('true'))o.classList.add('correct');
+    });
+  }
+  q.querySelector('.expl').classList.add('show');
+  document.getElementById('sc').textContent=correct+' / '+total;
+}
+
+function resetAll(){
+  total=0;correct=0;
+  document.querySelectorAll('.q').forEach(q=>{
+    delete q.dataset.locked;
+    q.querySelectorAll('.opt').forEach(o=>{
+      o.classList.remove('correct','wrong','locked');
+    });
+    const expl=q.querySelector('.expl');
+    if(expl)expl.classList.remove('show');
+  });
+  document.getElementById('sc').textContent='0 / 0';
+}
+
+function filterQ(btn,tag){
+  document.querySelectorAll('.mcqbar .filters button').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('#qlist .q').forEach(q=>{
+    q.style.display=(tag==='all'||q.dataset.tag===tag)?'':'none';
+  });
+}
+</script>
+</body>
+</html>

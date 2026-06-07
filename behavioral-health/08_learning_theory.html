@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<title>Learning Theory Subdomain Hub | ABVP Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme:light dark;
+    --bg:#eef2f7;--surface:#fbfdff;--surface2:#e8edf4;
+    --chrome:#1c3a5e;--chrome2:#264f78;          /* behavioural health blue chrome */
+    --text:#16273a;--onChrome:#e9f0f8;--muted:#586a7d;
+    --line:#ccd6e2;
+    --accent:#b1466f;--accent-soft:#f3e0ea;       /* behavioural health rose accent */
+    --good:#1f7a4d;--good-soft:#e3f2ea;--bad:#b23b3b;
+    --notes:#7a4fb5;--notes-soft:#ece3f7;          /* your Learning Theory notes (PDF) */
+    --asv:#1f6f86;--asv-soft:#dcecf2;              /* ASV principle */
+    --ref:#b5651d;--ref-soft:#f6e7d4;              /* behaviour textbook / published refs */
+    --dot:rgba(28,58,94,.05);
+    --shadow:0 1px 2px rgba(20,40,70,.08),0 8px 24px rgba(20,40,70,.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0e1622;--surface:#16212f;--surface2:#1b2735;
+      --chrome:#122236;--chrome2:#1b3450;
+      --text:#dde6f1;--onChrome:#e9f0f8;--muted:#9aacbf;
+      --line:#2a3a4d;
+      --accent:#d3789c;--accent-soft:rgba(211,120,156,.16);
+      --good:#51b184;--good-soft:rgba(40,140,90,.18);--bad:#e08585;
+      --notes:#c0a4ec;--notes-soft:rgba(150,110,210,.20);
+      --asv:#66c0d6;--asv-soft:rgba(40,150,175,.18);
+      --ref:#e0a766;--ref-soft:rgba(200,130,50,.18);
+      --dot:rgba(255,255,255,.035);
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.3);
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--text);
+    font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;
+    background-image:radial-gradient(circle at 1px 1px,var(--dot) 1px,transparent 0);background-size:22px 22px;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+  .crumb{background:var(--chrome);padding:9px 18px;display:flex;align-items:center;gap:10px;font-size:13px;font-weight:500;border-bottom:2px solid var(--chrome2)}
+  .crumb a{color:#9fc0dc;text-decoration:none;display:flex;align-items:center;gap:5px}
+  .crumb .sep{color:#5f82a3;font-size:11px}
+  .crumb .here{color:#cfe0f1}
+  header.top{background:var(--chrome);color:var(--onChrome);padding:26px 0 22px;border-bottom:4px solid var(--accent)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#9fc0dc;margin:0 0 6px}
+  header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(26px,4.5vw,40px);margin:0;line-height:1.05}
+  header.top p.sub{margin:8px 0 0;color:#cfe0f1;font-size:14px;max-width:78ch}
+  .legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}
+  .legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.22);color:#eaf2fb;display:flex;align-items:center;gap:6px}
+  .legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--surface);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button:hover{background:var(--bg);color:var(--text)}
+  .tabrow button.active{background:var(--chrome);color:var(--onChrome)}
+  .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+  main{padding:30px 0 80px}
+  .panel{display:none;animation:fade .35s ease}
+  .panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;letter-spacing:-.01em;color:var(--text)}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:80ch}
+  h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:30px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;scroll-margin-top:64px;color:var(--text)}
+  h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;color:var(--text);text-transform:uppercase;letter-spacing:.03em}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}
+  p.note{font-size:14px;margin:0 0 6px}
+  ul.hy{margin:8px 0;padding-left:0;list-style:none}
+  ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed var(--line);font-size:14px}
+  ul.hy li:last-child{border-bottom:0}
+  ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;border-radius:2px;background:var(--accent);transform:rotate(45deg)}
+  .trap{background:var(--accent-soft);border:1px solid var(--accent);border-left:4px solid var(--accent);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .trap b{color:var(--accent);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .corrbox{background:var(--good-soft);border:1px solid var(--good);border-left:4px solid var(--good);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .corrbox b{color:var(--good);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .verifybox{background:var(--asv-soft);border:1px solid var(--asv);border-left:4px solid var(--asv);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .verifybox b{color:var(--asv);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp th{background:var(--chrome);color:var(--onChrome);font-weight:600;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase}
+  table.cmp tr:last-child td{border-bottom:0}
+  table.cmp td b{color:var(--text)}
+  .fig{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0;box-shadow:var(--shadow)}
+  .fig figcaption{font-size:12.5px;color:var(--muted);margin-top:8px;font-style:italic}
+  /* svg helpers (use vars so diagrams adapt to dark mode) */
+  .sgbox{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1}
+  .sgbox2{fill:var(--asv-soft);stroke:var(--asv);stroke-width:1}
+  .sgtxt{fill:var(--text);font-family:"Public Sans",sans-serif}
+  .sgmut{fill:var(--muted);font-family:"Public Sans",sans-serif}
+  .sgmono{fill:var(--accent);font-family:"JetBrains Mono",monospace}
+  .sgline{stroke:var(--accent);stroke-width:2;fill:none}
+  .sgaxis{stroke:var(--line);stroke-width:1.5}
+  .sgarrow{fill:var(--accent)}
+  /* source badges */
+  .bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+  .bdg.notes{background:var(--notes-soft);color:var(--notes)}
+  .bdg.asv{background:var(--asv-soft);color:var(--asv)}
+  .bdg.ref{background:var(--ref-soft);color:var(--ref)}
+  .bdg.corr{background:var(--good);color:#fff}
+  /* mcq */
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--chrome);color:var(--onChrome);border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:54px;z-index:10}
+  .mcqbar .label{font-family:"JetBrains Mono",monospace;font-size:12px;color:#cfe0f1;display:flex;align-items:center;gap:8px}
+  .mcqbar .label .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);display:inline-block}
+  .score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}
+  .score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;color:#cfe0f1;padding:5px 10px;border-radius:8px;font-size:11px}
+  .q{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
+  .q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+  .q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+  .q .stem{font-weight:600;font-size:15px;margin-bottom:10px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:var(--surface2);border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;font-family:"Public Sans";color:var(--text);transition:background .15s,border-color .15s}
+  .opt:hover{border-color:var(--accent)}
+  .opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}
+  .opt.correct{background:var(--good-soft);border-color:var(--good)}
+  .opt.wrong{background:rgba(178,59,59,.14);border-color:var(--bad)}
+  .opt.locked{cursor:default}
+  .expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:var(--surface2);border:1px solid var(--line);font-size:13.5px}
+  .expl.show{display:block}
+  .expl b.cor{color:var(--good)}
+  footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
+  @media(max-width:640px){.mcqbar{top:50px}.score{font-size:12px}}
+</style>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span class="sep">&rsaquo;</span><a href="../index.html#domain-behav">Behavioural Health</a><span class="sep">&rsaquo;</span><span class="here">Learning Theory</span></nav>
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">ABVP Shelter Medicine Practice RVS &middot; Behavioural Health</p>
+    <h1>Learning Theory Subdomain Hub</h1>
+    <p class="sub">Exam-depth study tool for learning theory in the shelter: how animals learn, non-associative learning, classical and operant conditioning, humane training, and applying these principles to shelter populations. Scoped to ABVP depth, with the deeper molecular neurobiology from the source notes summarised rather than reproduced in full.</p>
+    <div class="legend">
+      <span><i style="background:var(--notes)"></i>Your Learning Theory notes (PDF)</span>
+      <span><i style="background:var(--asv)"></i>ASV principle</span>
+      <span><i style="background:var(--ref)"></i>Behaviour textbook / published reference</span>
+    </div>
+  </div>
+</header>
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="learn"><span class="dot"></span>How Animals Learn</button>
+  <button data-p="nonassoc"><span class="dot"></span>Non-Associative</button>
+  <button data-p="classical"><span class="dot"></span>Classical Conditioning</button>
+  <button data-p="operant"><span class="dot"></span>Operant &amp; Humane Training</button>
+  <button data-p="practice"><span class="dot"></span>Into Practice</button>
+  <button data-p="mcq"><span class="dot" style="background:var(--chrome2)"></span>MCQ Test Bank</button>
+</div></div></nav>
+<main><div class="wrap">
+
+<section class="panel show" id="learn">
+  <h2 class="sec">How Animals Learn</h2>
+  <p class="lead">Learning is how experience reshapes behaviour. For the shelter exam the practical core is that repetition physically changes the brain, that memory is fragile while it forms, and that these facts shape how we train and house animals.</p>
+
+  <h3>What learning is</h3>
+  <ul class="hy">
+    <li>Learning is a process by which experience leads to long-lasting changes in behaviour. As an adaptive mechanism it lets an animal adjust to predictable and unpredictable circumstances across its lifetime. <span class="bdg notes">your notes</span></li>
+    <li>Innate behaviours occur without any history of learning and are intrinsically reinforcing (usually genetic), although they can still be modified by learning. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <h3>The five aspects of learning</h3>
+  <ul class="hy">
+    <li><b>Attention</b>, then <b>contiguity</b> (events close in time), <b>reinforcement</b> (a consequence that strengthens a behaviour), <b>repetition and association</b> (to consolidate, store, and retrieve learning as memory), and <b>stimulation</b> (neural activity that drives neural growth). <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <figure class="fig">
+    <svg viewBox="0 0 720 150" width="100%" role="img" aria-label="Memory flow from stimulus to behaviour">
+      <defs><marker id="arLT1" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path class="sgarrow" d="M0,0 L7,3 L0,6 Z"/></marker></defs>
+      <g font-size="11" text-anchor="middle">
+        <rect x="8" y="46" width="118" height="50" rx="9" class="sgbox"/><text x="67" y="75" class="sgtxt">Stimulus</text>
+        <rect x="156" y="46" width="118" height="50" rx="9" class="sgbox"/><text x="215" y="75" class="sgtxt">Perception</text>
+        <rect x="304" y="46" width="118" height="50" rx="9" class="sgbox2"/><text x="363" y="70" class="sgtxt">Working memory</text><text x="363" y="86" class="sgmut" font-size="9.5">frontal lobes, temporary</text>
+        <rect x="452" y="46" width="118" height="50" rx="9" class="sgbox2"/><text x="511" y="70" class="sgtxt">Long-term</text><text x="511" y="86" class="sgmut" font-size="9.5">memory</text>
+        <rect x="600" y="46" width="112" height="50" rx="9" class="sgbox"/><text x="656" y="75" class="sgtxt">Behaviour</text>
+        <line x1="126" y1="71" x2="154" y2="71" class="sgline" marker-end="url(#arLT1)"/>
+        <line x1="274" y1="71" x2="302" y2="71" class="sgline" marker-end="url(#arLT1)"/>
+        <line x1="422" y1="71" x2="450" y2="71" class="sgline" marker-end="url(#arLT1)"/>
+        <line x1="570" y1="71" x2="598" y2="71" class="sgline" marker-end="url(#arLT1)"/>
+        <text x="437" y="38" class="sgmut" font-size="9.5">consolidate (sleep, REM)</text>
+        <text x="585" y="38" class="sgmut" font-size="9.5">retrieve</text>
+      </g>
+    </svg>
+    <figcaption>Stimuli pass through perception into temporary working memory, consolidate (largely during sleep) into long-term memory, and are retrieved to drive behaviour. Original didactic schematic built from your notes (Figure 1).</figcaption>
+  </figure>
+
+  <h3>Working versus long-term memory</h3>
+  <ul class="hy">
+    <li><b>Long-term memory</b> holds information stored innately or from previous learning. <span class="bdg notes">your notes</span></li>
+    <li><b>Working memory</b> combines retrieved long-term information with current internal and external sensory input, is processed in the frontal lobes, and is only temporary. <span class="bdg notes">your notes</span></li>
+  </ul>
+  <div class="trap">
+    <b>Exam trap: one behaviour at a time</b>
+    Working memory is easily disrupted during its transition to long-term memory, so it is better to teach only one new behaviour at a time. <span class="bdg notes">your notes</span>
+  </div>
+
+  <h3>Neurology in brief</h3>
+  <div class="card">
+    <p class="note">Each time a behaviour occurs, neural circuits reorganise to support it. Neurons that become more positively charged are depolarised (excitation, driven by glutamate); those that become more negatively charged are hyperpolarised (inhibition, driven by GABA, which raises the glutamate needed to fire). Glial cells recycle or destroy leftover neurotransmitter so excitation does not continue indefinitely. The more often a circuit fires, the more permanent the learning. <span class="bdg notes">your notes</span></p>
+    <p class="note">Working memory uses proteins already present in the cell; building long-term memory requires synthesis of a specific protein (CREB), which drives long-term potentiation (new dendritic spines, more receptors, synaptic widening). Consolidation occurs during sleep, with REM assisting. Mastered simple motor behaviours shift from the hippocampus to the basal ganglia, brainstem, and cerebellum, freeing the hippocampus for new processing. <span class="bdg notes">your notes</span></p>
+    <p class="note"><b>Equipotentiality:</b> categories of information are stored redundantly across circuits, so if a few cells die the rest carry on, protecting the memory. <span class="bdg notes">your notes</span></p>
+  </div>
+  <div class="verifybox">
+    <b>Clarification: the calcium step</b>
+    Your notes compress calcium into one cascade. Strictly, presynaptic calcium drives neurotransmitter release, while postsynaptic calcium (through NMDA receptors) drives the kinase and CREB cascade behind long-term potentiation. The practical takeaway, that repetition plus sleep builds durable memory, is unchanged. The fuller molecular detail in your notes was kept light here for ABVP scope. <span class="bdg notes">your notes</span>
+  </div>
+</section><section class="panel" id="nonassoc">
+  <h2 class="sec">Non-Associative Learning</h2>
+  <p class="lead">A single stimulus, with no paired event. Three forms, and the high-yield point is the direction of the response change.</p>
+
+  <table class="cmp">
+    <tr><th>Form</th><th>What happens</th><th>Use or note</th></tr>
+    <tr><td><b>Habituation</b></td><td>The animal reduces or stops its response to a stimulus after repeated exposure</td><td>Used widely to reduce fear responses to harmless stimuli</td></tr>
+    <tr><td><b>Sensitisation</b></td><td>The opposite of habituation: repeated exposure increases the response</td><td>A rising reaction to a repeated trigger</td></tr>
+    <tr><td><b>Imprinting</b></td><td>An irreversible attachment that can form only during a short, definite sensitive period early in life, and can generalise to all objects of that class</td><td>Most commonly described in birds and neonatal foals</td></tr>
+  </table>
+  <div class="trap">
+    <b>Exam trap: direction</b>
+    Habituation lowers the response, sensitisation raises it. Both follow repeated exposure to a single stimulus with no pairing. <span class="bdg notes">your notes</span>
+  </div>
+</section><section class="panel" id="classical">
+  <h2 class="sec">Classical (Respondent) Conditioning</h2>
+  <p class="lead">Involuntary, reflexive learning: a neutral stimulus comes to elicit a response because it reliably predicts an unconditioned one. This is also where emotional associations, and the pitfalls of poisoned cues, are built.</p>
+
+  <figure class="fig">
+    <svg viewBox="0 0 640 200" width="100%" role="img" aria-label="The three phases of classical conditioning">
+      <defs><marker id="arLT2" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path class="sgarrow" d="M0,0 L7,3 L0,6 Z"/></marker></defs>
+      <g font-size="10.5" text-anchor="middle">
+        <text x="70" y="22" class="sgmono" font-size="10">BEFORE</text>
+        <rect x="20" y="32" width="120" height="40" rx="8" class="sgbox"/><text x="80" y="56" class="sgtxt">Food (US)</text>
+        <line x1="150" y1="52" x2="196" y2="52" class="sgline" marker-end="url(#arLT2)"/>
+        <rect x="200" y="32" width="150" height="40" rx="8" class="sgbox2"/><text x="275" y="56" class="sgtxt">Salivation (reflex)</text>
+        <text x="70" y="98" class="sgmono" font-size="10">DURING</text>
+        <rect x="20" y="108" width="190" height="40" rx="8" class="sgbox"/><text x="115" y="127" class="sgtxt">Metronome (NS), then food</text><text x="115" y="141" class="sgmut" font-size="9">NS immediately precedes US</text>
+        <line x1="214" y1="128" x2="260" y2="128" class="sgline" marker-end="url(#arLT2)"/>
+        <rect x="264" y="108" width="150" height="40" rx="8" class="sgbox2"/><text x="339" y="132" class="sgtxt">Salivation</text>
+        <text x="455" y="98" class="sgmono" font-size="10">AFTER</text>
+        <rect x="430" y="108" width="120" height="40" rx="8" class="sgbox"/><text x="490" y="132" class="sgtxt">Metronome (CS)</text>
+        <line x1="550" y1="128" x2="572" y2="128" class="sgline" marker-end="url(#arLT2)"/>
+        <rect x="576" y="108" width="56" height="40" rx="8" class="sgbox2"/><text x="604" y="132" class="sgtxt">CR</text>
+      </g>
+    </svg>
+    <figcaption>Pavlov's three phases: the unconditioned stimulus elicits a reflex; pairing a neutral stimulus that immediately precedes it transfers the response; afterwards the now-conditioned stimulus elicits the response alone. Original didactic schematic built from your notes.</figcaption>
+  </figure>
+
+  <h3>The three phases and the core terms</h3>
+  <ul class="hy">
+    <li><b>Before:</b> an unconditioned stimulus (US) automatically elicits an unlearned, involuntary response. <span class="bdg notes">your notes</span></li>
+    <li><b>During:</b> the neutral stimulus and US are repeatedly presented together. The association forms less effectively if the neutral stimulus occurs after (backward) or during (simultaneous) the US, or if there is a long delay. <span class="bdg notes">your notes</span></li>
+    <li><b>After:</b> the neutral stimulus becomes a conditioned stimulus (CS) and elicits the response by itself. <span class="bdg notes">your notes</span></li>
+    <li>A CS that predicts something the animal wants can act as a <b>secondary reinforcer</b> for operant behaviour (for example a clicker). <span class="bdg notes">your notes</span></li>
+    <li>A <b>conditioned emotional response (CER)</b> is created by pairing an object, place, or person with something that elicits emotion (joy, fear, anger, anxiety). <span class="bdg notes">your notes</span></li>
+    <li>Success factors: novelty and salience of the CS, salience of the US, CS to US contiguity, the training context, and biological preparedness. <span class="bdg notes">your notes</span></li>
+  </ul>
+  <div class="trap">
+    <b>Exam trap: cue poisoning</b>
+    If punishment is delivered alongside environmental stimuli (for example a leash jerk and a shouted cue when a dog forges to greet another dog), the dog may associate any of those stimuli with fear and pain. Cues, including contextual cues, become poisoned, producing fearful or aggressive responses later. <span class="bdg notes">your notes</span>
+  </div>
+
+  <h3>How animals associate</h3>
+  <ul class="hy">
+    <li>Associations form between stimuli and between the absence of stimuli, and include contextual stimuli (the hippocampus tracks unattended background detail). <span class="bdg notes">your notes</span></li>
+    <li>Associations are learned more easily when stimuli are contiguous, similar or contrasting, frequent, and salient (such as when reinforcers result). <span class="bdg notes">your notes</span></li>
+    <li><b>One-trial learning:</b> a single experience, often a perceived life-threatening one, can produce lasting learning. <span class="bdg notes">your notes</span></li>
+    <li><b>Generalisation:</b> an association extends to other members of the same stimulus or response category. <span class="bdg notes">your notes</span></li>
+    <li><b>Biological preparedness and contrapreparation:</b> animals learn survival-relevant behaviours easily, but contraprepared behaviours clash with innate loops (for example a static sit instead of chasing fast movement) and are harder to train. <span class="bdg notes">your notes</span></li>
+    <li><b>Mapping:</b> cognitive mapping (spatial), sequential mapping (chains of stimuli), serial learning (the exact order of events, important for motor sequences such as agility or flyball), and latent learning (acquired without showing until needed). <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <h3>Memory retrieval and state</h3>
+  <ul class="hy">
+    <li>Retrieval is cued by context (lighting, scent, background noise) and by internal state (body position, physiological state, hormones, neurotransmitters), which all join the retrieval-cue package. <span class="bdg notes">your notes</span></li>
+    <li><b>State-dependent memory:</b> a memory learned in one state may not retrieve in a different state, so antecedent control affects learning. To avoid context-bound cues, train the cue in varying contexts. <span class="bdg notes">your notes</span></li>
+  </ul>
+</section><section class="panel" id="operant">
+  <h2 class="sec">Operant Conditioning and Humane Training</h2>
+  <p class="lead">Operant learning is about consequences: the animal acts on its environment, and the consequence makes the behaviour more or less likely. For the shelter exam the essentials are the four quadrants, the preference for positive reinforcement, and why positive punishment is avoided.</p>
+
+  <h3>Operant basics</h3>
+  <ul class="hy">
+    <li>Operant behaviours are goal-directed: they operate on the environment to produce consequences, and the behaviour is strengthened or weakened by those consequences. <span class="bdg notes">your notes</span></li>
+    <li>Operant conditioning runs on the <b>three-term contingency</b>: antecedent, then behaviour, then consequence. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <figure class="fig">
+    <svg viewBox="0 0 520 260" width="100%" role="img" aria-label="The four operant quadrants">
+      <g font-size="11" text-anchor="middle">
+        <text x="175" y="24" class="sgtxt" font-size="12">Pleasant stimulus</text>
+        <text x="370" y="24" class="sgtxt" font-size="12">Aversive stimulus</text>
+        <text x="40" y="95" class="sgtxt" font-size="12" transform="rotate(-90 40 95)">Add (positive)</text>
+        <text x="40" y="195" class="sgtxt" font-size="12" transform="rotate(-90 40 195)">Remove (negative)</text>
+        <rect x="70" y="40" width="200" height="90" rx="10" style="fill:var(--good-soft);stroke:var(--good);stroke-width:1.2"/>
+        <text x="170" y="74" class="sgtxt" font-size="12.5">Positive reinforcement</text><text x="170" y="94" class="sgmut">behaviour increases</text><text x="170" y="112" class="sgmut" font-size="9.5">add a treat for sitting</text>
+        <rect x="280" y="40" width="200" height="90" rx="10" style="fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.2"/>
+        <text x="380" y="74" class="sgtxt" font-size="12.5">Positive punishment</text><text x="380" y="94" class="sgmut">behaviour decreases</text><text x="380" y="112" class="sgmut" font-size="9.5">avoided in humane training</text>
+        <rect x="70" y="140" width="200" height="90" rx="10" style="fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.2"/>
+        <text x="170" y="174" class="sgtxt" font-size="12.5">Negative punishment</text><text x="170" y="194" class="sgmut">behaviour decreases</text><text x="170" y="212" class="sgmut" font-size="9.5">withhold attention</text>
+        <rect x="280" y="140" width="200" height="90" rx="10" style="fill:var(--good-soft);stroke:var(--good);stroke-width:1.2"/>
+        <text x="380" y="174" class="sgtxt" font-size="12.5">Negative reinforcement</text><text x="380" y="194" class="sgmut">behaviour increases</text><text x="380" y="212" class="sgmut" font-size="9.5">remove an aversive</text>
+      </g>
+    </svg>
+    <figcaption>The four operant quadrants, by whether a stimulus is added or removed and whether it is pleasant or aversive. Reinforcement increases behaviour; punishment decreases it. Original didactic schematic.</figcaption>
+  </figure>
+
+  <h3>The four quadrants</h3>
+  <table class="cmp">
+    <tr><th>Quadrant</th><th>What you do</th><th>Effect on behaviour</th></tr>
+    <tr><td><b>Positive reinforcement</b></td><td>Add something pleasant</td><td>Increases <span class="bdg ref">std ref</span></td></tr>
+    <tr><td><b>Negative reinforcement</b></td><td>Remove something aversive</td><td>Increases <span class="bdg ref">std ref</span></td></tr>
+    <tr><td><b>Positive punishment</b></td><td>Add something aversive</td><td>Decreases <span class="bdg ref">std ref</span></td></tr>
+    <tr><td><b>Negative punishment</b></td><td>Remove something the animal wants</td><td>Decreases <span class="bdg ref">std ref</span></td></tr>
+  </table>
+
+  <h3>Humane training: what to use and what to avoid</h3>
+  <div class="verifybox">
+    <b>ASV: positive reinforcement preferred</b>
+    Training should follow Least Intrusive Minimally Aversive (LIMA) principles and the Humane Hierarchy. Positive reinforcement programs improve health, welfare, and adoption likelihood. Methods that incorporate punishment can increase fear, anxiety, and aggression, and personnel should not use anything other than mildly aversive methods except when safety is an imminent concern. <span class="bdg asv">ASV</span>
+  </div>
+  <div class="trap">
+    <b>Why not positive punishment</b>
+    It is aversive and painful and harms welfare; it does not address the underlying cause or emotional state; the behaviour may worsen or resurface; it can increase anxiety or fear and cause confusion about how to avoid the punishment; the animal may form a different negative association (cue poisoning, or fear of the handler); it carries safety risks; and it can reduce the animal's ability to learn. <span class="bdg notes">your notes</span>
+  </div>
+  <p class="note">Negative punishment (removing something the animal wants, for example briefly withholding attention or a treat) is generally considered acceptable in force-free training and is distinct from positive punishment, which adds an aversive. <span class="bdg ref">std ref</span></p>
+
+  <h3>Flooding and the humane alternative</h3>
+  <ul class="hy">
+    <li><b>Flooding:</b> presenting a threatening stimulus at high intensity with no ability to escape. This can result in learned helplessness. <span class="bdg notes">your notes</span></li>
+    <li><b>Desensitisation and counter-conditioning</b> is the humane alternative: gradual exposure kept below the fear threshold and paired with something positive, changing the underlying emotional response rather than suppressing the behaviour. <span class="bdg asv">ASV</span></li>
+  </ul>
+</section><section class="panel" id="practice">
+  <h2 class="sec">Putting It Into Practice</h2>
+  <p class="lead">The same principles drive prevention and shelter handling: build good associations early, set animals up to succeed, and read behaviour at the right time.</p>
+
+  <h3>Preventing behaviour problems through socialisation</h3>
+  <ul class="hy">
+    <li>Early gentle handling by the breeder. <span class="bdg notes">your notes</span></li>
+    <li>Maternal rearing in a domestic environment with exposure to humans and varied animate and inanimate stimuli (sights, sounds, smells, movement, contact), leading to habituation. <span class="bdg notes">your notes</span></li>
+    <li>Adoption into the new home during the socialisation period. <span class="bdg notes">your notes</span></li>
+    <li>A variety of positive social experiences and new environments throughout the socialisation period, continued through the juvenile period. <span class="bdg notes">your notes</span></li>
+    <li>Avoidance of negative social experiences. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <h3>Setting the pet up for success</h3>
+  <ul class="hy">
+    <li>Reward-based training (positive reinforcement). <span class="bdg notes">your notes</span></li>
+    <li>Supervision. <span class="bdg notes">your notes</span></li>
+    <li>Provide for the pet's needs: chewing, scratching, climbing, perching, bedding, food, elimination, physical and mental exercise, and social interaction. <span class="bdg notes">your notes</span></li>
+    <li>Prevention and confinement. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <h3>Shelter application</h3>
+  <div class="verifybox">
+    <b>Assess behaviour at the right time</b>
+    Behavioural evaluations performed within the first 24 to 48 hours of intake often mislead, because acute situational stress and altered arousal distort behaviour. Let the animal settle first. This connects to the Assessment and Decision Making subdomain. <span class="bdg asv">ASV</span>
+  </div>
+  <p class="note">Related gap-analysis items belong to other subdomains and are covered there: feline housing ergonomics in Facility and Environment, intake anxiolytics (gabapentin, trazodone) in Behaviour Medications and Medical, and stereotypies and Capacity for Care in Assessment and Facility. The draft figures of 2 ft between functional areas and 42 sq ft per cat were not used here, because they conflict with the ASV Standards of Care, which give 11 sq ft as the ideal individual cat floor area and 18 sq ft per cat for cohousing, with functional separation achieved through multi-compartment housing. <span class="bdg asv">ASV</span></p>
+</section><section class="panel" id="mcq">
+  <h2 class="sec">MCQ Test Bank</h2>
+  <p class="lead">Thirty questions across the subdomain, pitched at ABVP depth. They are based on your notes (trimmed from the original MANZCVS-level material), with the four operant quadrants and the LIMA and desensitisation and counter-conditioning framing added from standard references and the ASV Standards of Care 2022, badged by source. Answer positions are distributed across A to D. Tap an option to lock it in and reveal the explanation.</p>
+  <div class="mcqbar">
+    <div class="label"><span class="dot"></span>30 questions &middot; Learning Theory</div>
+    <div class="score"><span id="scoreTxt">0 / 0 correct</span><button class="reset" id="resetBtn">Reset</button></div>
+  </div>
+  <div id="qhost"></div>
+</section>
+</div></main>
+<footer><div class="wrap">
+  Learning Theory subdomain hub &middot; Behavioural Health domain &middot; ABVP Shelter Medicine Practice RVS, November 2026. Content is from your Learning Theory notes (originally prepared for MANZCVS behaviour and trimmed to ABVP scope). The four operant quadrants, the negative versus positive punishment distinction, and the LIMA, Humane Hierarchy, and desensitisation and counter-conditioning framing were added from standard behaviour references and the ASV Standards of Care 2022 (section 9.7), and are badged ref or ASV. Deep molecular neurobiology was summarised rather than reproduced. The draft 2 ft and 42 sq ft housing figures were omitted because they conflict with ASV. In-house SVG schematics are original didactic constructions. Supports light and dark mode.
+</div></footer>
+<script>
+const tabrow=document.getElementById('tabrow');
+tabrow.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.disabled)return;
+  [...tabrow.children].forEach(x=>x.classList.remove('active'));b.classList.add('active');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('show'));
+  document.getElementById(b.dataset.p).classList.add('show');window.scrollTo({top:0,behavior:'smooth'});});
+const Q=[
+{t:"neu",f:"notes",q:"How is learning defined in the source material?",o:["A process by which experience leads to long-lasting changes in behaviour","A purely genetic trait fixed at birth that cannot change","A temporary change lasting only a few minutes","A reflex that cannot be modified by experience"],a:0,e:"Learning is experience producing long-lasting behavioural change, the adaptive mechanism that lets animals cope with a changing environment."},
+{t:"neu",f:"notes",q:"Why is it best to teach a shelter animal only one new behaviour at a time?",o:["Because innate behaviours cannot be learned","Working memory is temporary and limited, so competing new material can disrupt consolidation into long-term memory","Because long-term memory is also temporary and unstable","Because animals cannot attend to any stimulus while housed"],a:1,e:"Working memory is fragile and easily disrupted during transfer to long-term memory, so one new behaviour at a time consolidates best."},
+{t:"neu",f:"notes",q:"When does consolidation of new learning into long-term memory mainly occur?",o:["Only during active training sessions","During the calcium influx just before an action potential","During sleep, with REM sleep assisting long-term memory formation","Only when the animal is fully awake and highly aroused"],a:2,e:"Hippocampal circuits that fire during learning re-fire during sleep, and REM assists long-term memory formation."},
+{t:"neu",f:"notes",q:"A senior dog loses a few neurons in a learned circuit but still performs the behaviour. Which principle explains this resilience?",o:["Biological preparedness","State-dependent memory","Sensitisation","Equipotentiality, where the remaining cells carry on the work"],a:3,e:"Equipotentiality is the redundancy across circuits that protects a memory if some cells are lost."},
+{t:"non",f:"notes",q:"A dog gradually stops reacting to a repeated, harmless overhead door bang. This is:",o:["Habituation","Sensitisation","Positive punishment","Imprinting"],a:0,e:"Habituation is a reduced or absent response to a harmless stimulus after repeated exposure, used widely to lower fear of harmless things."},
+{t:"non",f:"notes",q:"A cat reacts more and more strongly each time a particular carrier is wheeled past its kennel. This escalating response is:",o:["Habituation","Latent learning","Sensitisation","Negative reinforcement"],a:2,e:"Sensitisation is the opposite of habituation: the response grows with repeated exposure."},
+{t:"non",f:"notes",q:"Which statement best describes imprinting?",o:["A reversible preference that can form at any age","An irreversible attachment that forms only during a short, definite sensitive period early in life","A response that simply weakens with repetition","A consequence-driven, goal-directed behaviour"],a:1,e:"Imprinting is irreversible, restricted to a brief early sensitive period, and most often cited in birds and neonatal foals."},
+{t:"cls",f:"notes",q:"In Pavlov's work, which pairing represents the unconditioned stimulus and its unconditioned (reflex) response?",o:["A metronome, then sitting on cue","A clicker, then completing an agility sequence","A leash jerk, then choosing to lie down","Food, then salivation"],a:3,e:"Food (the unconditioned stimulus) elicits salivation, an involuntary unlearned reflex."},
+{t:"cls",f:"notes",q:"For a neutral stimulus to become a conditioned stimulus most effectively, when should it be presented relative to the unconditioned stimulus?",o:["After the unconditioned stimulus (backward)","Immediately before the unconditioned stimulus","At the same instant (simultaneous)","Several hours before the unconditioned stimulus"],a:1,e:"The association forms best when the neutral stimulus immediately precedes the US; backward, simultaneous, or long-delayed pairings are weaker."},
+{t:"cls",f:"notes",q:"A clicker has been paired with food so that it predicts a reward. It can now be used to:",o:["Act as a secondary reinforcer for operant behaviour","Serve as an unconditioned stimulus","Produce learned helplessness","Reverse an animal's imprinting"],a:0,e:"A conditioned stimulus that predicts something wanted can act as a secondary reinforcer, which is how clicker training works."},
+{t:"cls",f:"notes",q:"Pairing a place, person, or object with something that evokes fear, joy, or anxiety creates what?",o:["A three-term contingency","Sensitisation","A conditioned emotional response (CER)","Latent learning"],a:2,e:"A CER is an involuntary emotional shift produced by associating a cue with an emotionally evocative event."},
+{t:"cls",f:"notes",q:"A handler delivers a painful leash jerk while shouting a cue, and the dog later fears unrelated cues that were present at the time. This unintended effect is:",o:["Habituation","Cue poisoning, a negative association spreading to environmental cues","Negative punishment","Equipotentiality"],a:1,e:"Aversive events can poison neutral cues, handlers, or contexts, producing fear or aggression toward them later."},
+{t:"cls",f:"notes",q:"An animal forms a lasting fear of a place after a single, perceived life-threatening event there. This is:",o:["Habituation","Latent learning","Negative reinforcement","One-trial learning"],a:3,e:"One-trial learning occurs when a single intense or life-threatening experience produces durable learning."},
+{t:"cls",f:"notes",q:"A dog struggles to learn a static sit when asked to perform it instead of chasing a fast-moving object. The static behaviour is:",o:["Contraprepared, because it conflicts with an innate predatory response","Innately reinforced","Habituated","Imprinted"],a:0,e:"Contraprepared behaviours run counter to innate responses and are therefore harder to train."},
+{t:"cls",f:"notes",q:"A dog reliably responds to a cue in the quiet training room but not in the busy adoption ward. This retrieval failure reflects:",o:["Equipotentiality","Imprinting","State-dependent memory and weak contextual generalisation","Positive reinforcement"],a:2,e:"Memories are bound to internal and external state and context; changing the context can block retrieval, so cues should be trained in varied settings."},
+{t:"cls",f:"notes",q:"A cat explores a new communal room with no obvious change in behaviour, then days later uses a vertical escape route it had mapped during that exploration. This is:",o:["Sensitisation","Latent learning via cognitive mapping","Positive punishment","Serial motor imprinting"],a:1,e:"Latent learning is acquired without being shown until needed, such as a spatial map built during exploration."},
+{t:"opr",f:"notes",q:"Which statement best defines operant conditioning?",o:["An involuntary reflex elicited by a stimulus","An irreversible early-life attachment","A reduced response after repeated harmless exposure","A goal-directed behaviour that operates on the environment and is strengthened or weakened by its consequences"],a:3,e:"Operant behaviours act on the environment to produce consequences that strengthen or weaken them."},
+{t:"opr",f:"notes",q:"What is the three-term contingency of operant conditioning, in order?",o:["Behaviour, antecedent, consequence","Antecedent, behaviour, consequence","Consequence, behaviour, antecedent","Stimulus, response, reflex"],a:1,e:"Operant learning runs antecedent, then behaviour, then consequence."},
+{t:"opr",f:"ref",q:"Adding a food reward after a dog sits, so that sitting becomes more frequent, is which operant quadrant?",o:["Positive reinforcement","Positive punishment","Negative reinforcement","Negative punishment"],a:0,e:"Positive reinforcement adds something pleasant to increase a behaviour."},
+{t:"opr",f:"ref",q:"Adding an aversive stimulus after a behaviour so that the behaviour decreases is:",o:["Positive reinforcement","Negative reinforcement","Positive punishment","Negative punishment"],a:2,e:"Positive punishment adds an aversive to decrease a behaviour, and is the quadrant humane training avoids."},
+{t:"opr",f:"ref",q:"Removing an aversive stimulus in order to increase a behaviour is:",o:["Negative reinforcement","Positive reinforcement","Positive punishment","Habituation"],a:0,e:"Negative reinforcement removes something aversive to strengthen a behaviour."},
+{t:"opr",f:"ref",q:"Briefly withholding attention so that an attention-seeking behaviour decreases is best classified as:",o:["Positive reinforcement","Positive punishment","Negative reinforcement","Negative punishment"],a:3,e:"Negative punishment removes something the animal wants in order to decrease a behaviour."},
+{t:"opr",f:"asv",q:"Under the ASV approach to training, which method is preferred?",o:["Positive punishment, for faster results","Flooding, to build tolerance","Positive reinforcement, following Least Intrusive Minimally Aversive (LIMA) principles","Negative reinforcement as the routine default"],a:2,e:"ASV bases training on LIMA and the Humane Hierarchy, with positive reinforcement preferred; it improves welfare and adoption likelihood."},
+{t:"opr",f:"asv",q:"Which is a valid argument against using positive punishment?",o:["It speeds up consolidation of long-term memory","It can increase fear and anxiety, poison contextual cues, fail to address the emotional cause, and reduce the ability to learn","It is the only method that can create a conditioned emotional response","It shifts motor learning back to the hippocampus"],a:1,e:"Positive punishment harms welfare and learning, can create fear and cue poisoning, and does not address the underlying emotion."},
+{t:"opr",f:"ref",q:"How does negative punishment differ from positive punishment in humane training?",o:["Negative punishment removes something the animal wants (for example withholding a treat) and is generally acceptable, whereas positive punishment adds an aversive","They are identical in method and acceptability","Negative punishment adds an aversive while positive punishment removes a reward","Negative punishment is always more harmful than positive punishment"],a:0,e:"Negative punishment withdraws a desired item or attention and is generally considered acceptable; positive punishment applies an aversive and is avoided."},
+{t:"opr",f:"notes",q:"A reactive dog is exposed to an intense, continuous aversive sound with no way to escape or reduce it. This technique and its main psychological risk are:",o:["Negative reinforcement; equipotentiality","Habituation; sensitisation","Flooding; learned helplessness","Latent learning; cue poisoning"],a:2,e:"Flooding presents an intense stimulus without escape and risks inducing learned helplessness."},
+{t:"opr",f:"asv",q:"What is the humane alternative to flooding or punishment for a fearful animal?",o:["Continuous high-intensity exposure until the fear stops","Positive punishment of the fear response","Imprinting the animal onto a new handler","Desensitisation and counter-conditioning, gradually changing the underlying emotional response"],a:3,e:"Systematic desensitisation paired with counter-conditioning changes the emotional response below threshold, the preferred humane approach."},
+{t:"app",f:"asv",q:"When is a behavioural assessment most informative for a newly admitted shelter animal?",o:["After acute intake stress has settled, rather than in the first 24 to 48 hours when arousal distorts behaviour","Within the first hour of arrival, while arousal is highest","Only during REM sleep","Never, because shelter behaviour carries no useful information"],a:0,e:"Acute intake stress transiently alters arousal and behaviour, so very early testing is unreliable; this links to the Assessment and Decision Making subdomain."},
+{t:"app",f:"notes",q:"Which sequence reflects sound socialisation for preventing behaviour problems?",o:["Isolation from all stimuli until 16 weeks of age","A single caretaker and deliberate avoidance of novelty","Early gentle handling, varied positive exposure during the socialisation period, continued through the juvenile period, while avoiding negative experiences","Positive punishment of unwanted behaviours from birth"],a:2,e:"Prevention rests on early handling and varied positive exposure across the socialisation and juvenile periods, while avoiding negative experiences."},
+{t:"app",f:"notes",q:"Which set matches the source's steps for setting a pet up for success?",o:["Flooding, restraint, and isolation","Positive punishment and confinement only","Heavy molecular neuro-training drills","Reward-based training, supervision, meeting species-specific needs, and prevention or confinement"],a:3,e:"Setting up for success uses positive reinforcement, supervision, provision for the animal's needs, and prevention or confinement."}
+];
+const host=document.getElementById('qhost');
+const scoreTxt=document.getElementById('scoreTxt');
+let answered=0, correct=0;
+const DLABEL={neu:"Neurology & Memory",non:"Non-Associative",cls:"Classical Conditioning",opr:"Operant & Humane",app:"Shelter Application"};
+function tagLabel(t){return DLABEL[t]||t.toUpperCase();}
+function flagBadge(f){
+  if(f==='corr')return '<span class="bdg corr">corrected</span>';
+  if(f==='notes')return '<span class="bdg notes">your notes</span>';
+  if(f==='asv')return '<span class="bdg asv">ASV</span>';
+  if(f==='ref')return '<span class="bdg ref">std ref</span>';
+  return '';
+}
+function render(){
+  host.innerHTML='';answered=0;correct=0;updateScore();
+  Q.forEach((item,i)=>{
+    const card=document.createElement('div');card.className='q';
+    card.innerHTML=`<div class="meta"><span class="num">#${i+1}</span><span class="tag">&#9670; ${tagLabel(item.t)}</span>${flagBadge(item.f)}</div><div class="stem">${item.q}</div>`;
+    const opts=document.createElement('div');
+    item.o.forEach((txt,oi)=>{
+      const btn=document.createElement('button');btn.className='opt';
+      btn.innerHTML=`<span class="k">${String.fromCharCode(65+oi)}</span>${txt}`;
+      btn.onclick=()=>choose(card,opts,item,oi);opts.appendChild(btn);
+    });
+    card.appendChild(opts);
+    const ex=document.createElement('div');ex.className='expl';
+    ex.innerHTML=`<b class="cor">Correct: ${String.fromCharCode(65+item.a)}.</b> ${item.e}`;
+    card.appendChild(ex);host.appendChild(card);
+  });
+}
+function choose(card,opts,item,oi){
+  if(card.dataset.done)return;card.dataset.done='1';answered++;
+  [...opts.children].forEach((b,bi)=>{b.classList.add('locked');
+    if(bi===item.a)b.classList.add('correct');
+    if(bi===oi && oi!==item.a)b.classList.add('wrong');});
+  if(oi===item.a)correct++;
+  card.querySelector('.expl').classList.add('show');updateScore();
+}
+function updateScore(){scoreTxt.textContent=`${correct} / ${answered} correct`;}
+document.getElementById('resetBtn').onclick=render;
+render();
+</script>
+</body>
+</html>

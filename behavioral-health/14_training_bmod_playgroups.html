@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="color-scheme" content="light dark">
+<title>Training, BMOD and Playgroups Hub | ABVP Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{color-scheme:light dark;--bg:#eef2f7;--surface:#fbfdff;--surface2:#e8edf4;--chrome:#1c3a5e;--chrome2:#264f78;--text:#16273a;--onChrome:#e9f0f8;--muted:#586a7d;--line:#ccd6e2;--accent:#b1466f;--accent-soft:#f3e0ea;--good:#1f7a4d;--good-soft:#e3f2ea;--bad:#b23b3b;--notes:#7a4fb5;--notes-soft:#ece3f7;--asv:#1f6f86;--asv-soft:#dcecf2;--ref:#b5651d;--ref-soft:#f6e7d4;--dot:rgba(28,58,94,.05);--shadow:0 1px 2px rgba(20,40,70,.08),0 8px 24px rgba(20,40,70,.06)}
+  @media(prefers-color-scheme:dark){:root{--bg:#0e1622;--surface:#16212f;--surface2:#1b2735;--chrome:#122236;--chrome2:#1b3450;--text:#dde6f1;--onChrome:#e9f0f8;--muted:#9aacbf;--line:#2a3a4d;--accent:#d3789c;--accent-soft:rgba(211,120,156,.16);--good:#51b184;--good-soft:rgba(40,140,90,.18);--bad:#e08585;--notes:#c0a4ec;--notes-soft:rgba(150,110,210,.20);--asv:#66c0d6;--asv-soft:rgba(40,150,175,.18);--ref:#e0a766;--ref-soft:rgba(200,130,50,.18);--dot:rgba(255,255,255,.035);--shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.3)}}
+  *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;background-image:radial-gradient(circle at 1px 1px,var(--dot) 1px,transparent 0);background-size:22px 22px}.wrap{max-width:1040px;margin:0 auto;padding:0 18px}.crumb{background:var(--chrome);padding:9px 18px;display:flex;align-items:center;gap:10px;font-size:13px;font-weight:500;border-bottom:2px solid var(--chrome2)}.crumb a{color:#9fc0dc;text-decoration:none;display:flex;align-items:center;gap:5px}.crumb .sep{color:#5f82a3;font-size:11px}.crumb .here{color:#cfe0f1}header.top{background:var(--chrome);color:var(--onChrome);padding:26px 0 22px;border-bottom:4px solid var(--accent)}.eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#9fc0dc;margin:0 0 6px}header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(26px,4.5vw,40px);margin:0;line-height:1.05}header.top p.sub{margin:8px 0 0;color:#cfe0f1;font-size:14px;max-width:78ch}.legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}.legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.22);color:#eaf2fb;display:flex;align-items:center;gap:6px}.legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}nav.tabs{position:sticky;top:0;z-index:20;background:var(--surface);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}.tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}.tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}.tabrow button:hover{background:var(--bg);color:var(--text)}.tabrow button.active{background:var(--chrome);color:var(--onChrome)}.tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}main{padding:30px 0 80px}.panel{display:none;animation:fade .35s ease}.panel.show{display:block}@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;letter-spacing:-.01em;color:var(--text)}.lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:80ch}h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:30px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;scroll-margin-top:64px;color:var(--text)}h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;color:var(--text);text-transform:uppercase;letter-spacing:.03em}.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}p.note{font-size:14px;margin:0 0 6px}ul.hy{margin:8px 0;padding-left:0;list-style:none}ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed var(--line);font-size:14px}ul.hy li:last-child{border-bottom:0}ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;border-radius:2px;background:var(--accent);transform:rotate(45deg)}.trap{background:var(--accent-soft);border:1px solid var(--accent);border-left:4px solid var(--accent);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}.trap b{color:var(--accent);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}.verifybox{background:var(--asv-soft);border:1px solid var(--asv);border-left:4px solid var(--asv);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}.verifybox b{color:var(--asv);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}table.cmp th{background:var(--chrome);color:var(--onChrome);font-weight:600;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase}table.cmp tr:last-child td{border-bottom:0}table.cmp td b{color:var(--text)}.fig{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0;box-shadow:var(--shadow)}.fig figcaption{font-size:12.5px;color:var(--muted);margin-top:8px;font-style:italic}.sgbox{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1}.sgbox2{fill:var(--asv-soft);stroke:var(--asv);stroke-width:1}.sgtxt{fill:var(--text);font-family:"Public Sans",sans-serif}.sgmut{fill:var(--muted);font-family:"Public Sans",sans-serif}.sgmono{fill:var(--accent);font-family:"JetBrains Mono",monospace}.sgline{stroke:var(--accent);stroke-width:2;fill:none}.sgaxis{stroke:var(--line);stroke-width:1.5}.sgarrow{fill:var(--accent)}.bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}.bdg.notes{background:var(--notes-soft);color:var(--notes)}.bdg.asv{background:var(--asv-soft);color:var(--asv)}.bdg.ref{background:var(--ref-soft);color:var(--ref)}.bdg.corr{background:var(--good);color:#fff}.mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--chrome);color:var(--onChrome);border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:54px;z-index:10}.mcqbar .label{font-family:"JetBrains Mono",monospace;font-size:12px;color:#cfe0f1;display:flex;align-items:center;gap:8px}.mcqbar .label .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);display:inline-block}.score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}.score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;color:#cfe0f1;padding:5px 10px;border-radius:8px;font-size:11px}.q{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}.q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}.q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}.q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}.q .stem{font-weight:600;font-size:15px;margin-bottom:10px}.opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:var(--surface2);border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;font-family:"Public Sans";color:var(--text);transition:background .15s,border-color .15s}.opt:hover{border-color:var(--accent)}.opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}.opt.correct{background:var(--good-soft);border-color:var(--good)}.opt.wrong{background:rgba(178,59,59,.14);border-color:var(--bad)}.opt.locked{cursor:default}.expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:var(--surface2);border:1px solid var(--line);font-size:13.5px}.expl.show{display:block}.expl b.cor{color:var(--good)}footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}@media(max-width:640px){.mcqbar{top:50px}.score{font-size:12px}}
+</style>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span class="sep">&rsaquo;</span><a href="../index.html#domain-behav">Behavioural Health</a><span class="sep">&rsaquo;</span><span class="here">Training, BMOD & Playgroups</span></nav>
+<div style="background:#f6e7d4;border-left:4px solid #b5651d;padding:8px 18px;font-size:12.5px;color:#7a3a0a;font-family:'Public Sans',sans-serif"><strong>Supplemental topic</strong> — This subdomain may not be directly examined in the ABVP SMP RVS specialty exam but provides useful clinical context.</div>
+<header class="top"><div class="wrap">
+  <p class="eyebrow">ABVP Shelter Medicine Practice RVS &middot; Behavioural Health</p>
+  <h1>Training, BMOD and Playgroups Hub</h1>
+  <p class="sub">Exam-depth study tool for shelter dog training, behaviour modification (BMOD) for adoptability, and the two main playgroup models (DPFL and SPA). Covers training targets, BMOD for bite histories, intraspecific aggression, excessive arousal, fear, playgroup logistics, canine ethology of play and conflict, handler roles, and the SPIDER framework.</p>
+  <div class="legend">
+    <span><i style="background:var(--notes)"></i>Your Training/BMOD/Playgroup notes (PDF)</span>
+    <span><i style="background:var(--asv)"></i>ASV principle</span>
+    <span><i style="background:var(--ref)"></i>Behaviour textbook / published reference</span>
+  </div>
+</div></header>
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="train"><span class="dot"></span>Training &amp; Adoptability</button>
+  <button data-p="bmod"><span class="dot"></span>Behaviour Modification</button>
+  <button data-p="models"><span class="dot"></span>Playgroup Models</button>
+  <button data-p="play"><span class="dot"></span>Play &amp; Conflict</button>
+  <button data-p="mcq"><span class="dot" style="background:var(--chrome2)"></span>MCQ Test Bank</button>
+</div></div></nav>
+<main><div class="wrap">
+
+<section class="panel show" id="train">
+  <h2 class="sec">Training and Adoptability</h2>
+  <p class="lead">Reward-based training increases adoptability. The data points to know are the 1.4x adoption effect of sit-at-the-front, the 27.5% counseling lift, the praise-as-ineffective-reinforcer finding, and the tiered volunteer model.</p>
+
+  <h3>Target behaviours for adoptability</h3>
+  <ul class="hy">
+    <li>Name recognition, eye contact, hand targeting, trick training, stay, walking past other dogs, crate training, drop it, leave it, and sitting at the front of the kennel when people approach. <span class="bdg notes">your notes</span></li>
+    <li>Adopter research shows people prefer dogs that come to the front of the pen, sit, interact, and refrain from barking. <span class="bdg notes">your notes</span></li>
+  </ul>
+  <div class="trap">
+    <b>Exam trap: 1.4x adoption but no LOS effect</b>
+    Teaching dogs to approach the front of the kennel and sit when people approach made them 1.4 times more likely to be adopted, but had no effect on overall length of stay. <span class="bdg notes">your notes</span>
+  </div>
+
+  <h3>Tiered volunteer model</h3>
+  <ul class="hy">
+    <li><b>Lower tier:</b> socialisation, simple tasks (sit, down). <b>Higher tier:</b> agility, nosework, cooperative care for low-stress handling, work with behaviourally challenged dogs. Develop relationships with local dog trainers. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <h3>Reward-based training and reinforcers</h3>
+  <ul class="hy">
+    <li>Use reward-based (positive reinforcement) techniques. Regular human interaction via socialisation, play, and obedience training is clearly beneficial. <span class="bdg notes">your notes</span></li>
+    <li>Focus behaviour efforts on older adolescents and adult dogs. <span class="bdg notes">your notes</span></li>
+  </ul>
+  <div class="trap">
+    <b>Exam trap: praise is an ineffective reinforcer in shelters</b>
+    Social interaction (praise and petting) has been shown to be an ineffective primary reinforcer for shelter dogs compared with food rewards. <span class="bdg notes">your notes</span>
+  </div>
+
+  <h3>Pre and post adoption counseling</h3>
+  <p class="note">Implementing pre and post adoption counseling resulted in 27.5% more adopted dogs than a comparable shelter without the programme. <span class="bdg notes">your notes</span></p>
+
+  <div class="verifybox">
+    <b>Overlaps</b>
+    Reward-based training and DSCC mechanics are covered in the <b>Learning Theory hub</b>. Enrichment via human interaction and conspecific play is in the <b>Shelter Animal Enrichment hub</b>. <span class="bdg notes">your notes</span>
+  </div>
+</section><section class="panel" id="bmod">
+  <h2 class="sec">Behaviour Modification</h2>
+  <p class="lead">BMOD for bite histories, intraspecific aggression, excessive arousal, and fear. The high-yield numbers: 87% success for bite-history DSCC, 20 to 49% intraspecific aggression prevalence, 1% return rate for BMOD dogs versus 16% general, and the ASPCA BRC fear programme outcomes.</p>
+
+  <h3>Bite-history rehabilitation</h3>
+  <ul class="hy">
+    <li>Requires DSCC to triggering stimuli, teaching safety and warning cues, training alternative behaviours, and bite inhibition. 300 dogs, shortest LOS one year, longest three years, 87% success rate (defined as adoption with no subsequent report of biting). <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <h3>Intraspecific aggression</h3>
+  <ul class="hy">
+    <li>In 43 Canadian shelters, 20 to 49% of dogs exhibited intraspecific aggression. BMOD focused on walking calmly on leash and maintaining eye contact with a handler in the presence of other dogs. Playgroup programmes can also help (see Playgroup Models tab). <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <h3>Excessive arousal</h3>
+  <ul class="hy">
+    <li>Can increase LOS and reduce adoption likelihood. Characterised by hyper-responsiveness, exaggerated emotionality, and reduced behavioural inhibition. <span class="bdg notes">your notes</span></li>
+    <li>Signs: in-kennel pacing, circling, spinning, bouncing, barking; out-of-kennel jumping, mouthing, leash tugging, clothes grabbing, snatching treats, and sometimes redirection. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <h3>Fear in shelter dogs</h3>
+  <ul class="hy">
+    <li>Social and non-social fear: fear of handling, restraint, people, dogs, being alone, environments, objects, loud noises, or anything unfamiliar (neophobia). Responses include trembling, panting, freezing, withdrawal, hiding, escape attempts, and defensive aggression. <span class="bdg notes">your notes</span></li>
+    <li>Interventions: DSCC (gradual exposure below threshold paired with something positive), operant conditioning. Flooding (intense stimulus, no escape) risks learned helplessness. <span class="bdg notes">your notes</span></li>
+    <li>ASPCA BRC programme: specialised kennels, restricted handling, designated low-stress handlers, daily enrichment, standardised BMOD, fluoxetine and gabapentin. 66 fearful dogs, 36% met adoptability guidelines, 44% improved but needed further work. Four target categories: fear of people, fear of handling, fear of leashing and walking, fear of novelty. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <h3>BMOD success and return rates</h3>
+  <ul class="hy">
+    <li>Most adopters report concerns in the first weeks but rarely after three months; few regret adopting behaviourally rehabilitated dogs. <span class="bdg notes">your notes</span></li>
+    <li>Shelters screen adopters, provide specialised counseling at adoption, and offer post-adoption support. 1% of BMOD dogs were returned versus a general return rate of 16%. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <div class="verifybox">
+    <b>Overlaps</b>
+    Fluoxetine, gabapentin, and psychotropic pharmacology are covered in the <b>Behaviour Medications hub</b>. Fear physiology (SAM and HPA), flooding, and learned helplessness are in the <b>Stress hub</b>. DSCC mechanics are in the <b>Learning Theory hub</b>. <span class="bdg notes">your notes</span>
+  </div>
+</section><section class="panel" id="models">
+  <h2 class="sec">Playgroup Models and Operations</h2>
+  <p class="lead">Two main models, one maximising efficiency (DPFL) and one minimising aversives (SPA). The exam tests the group sizes, handler ratios, cortisol outcomes, and equipment rules.</p>
+
+  <h3>DPFL versus SPA</h3>
+  <table class="cmp">
+    <tr><th>Parameter</th><th>DPFL (Dogs Playing for Life)</th><th>SPA (Shelter Playgroup Alliance)</th></tr>
+    <tr><td><b>Philosophy</b></td><td>Large-scale enrichment, operational efficiency, and real-time behavioural assessment</td><td>LIMA-based: safety, choice, control, and consent</td></tr>
+    <tr><td><b>Group size</b></td><td>Large groups (6+ dogs)</td><td>Low-risk: 2 to 3 dogs; high-risk: 4 to 6 dogs</td></tr>
+    <tr><td><b>Handler ratios</b></td><td>No general restriction; hands-off style</td><td>Low-risk: 2:1 dog to handler; high-risk: 3:1 dog to handler</td></tr>
+    <tr><td><b>Tools</b></td><td>Airhorns, break sticks, spray bottles, shake cans; accepts higher conflict risk</td><td>Treats, vocal praise, protected contact intros, muzzles, longlines; restricts aversives</td></tr>
+    <tr><td><b>Disadvantages</b></td><td>Higher conflict and flooding risk</td><td>Reduced efficiency, high staff demand, difficult for high-intake shelters</td></tr>
+    <tr><td><b>Cortisol outcome</b></td><td>Large groups with aversives: decreased cortisol</td><td>Small groups with treats and praise: decreased cortisol; small groups with aversives: increased cortisol</td></tr>
+  </table>
+  <div class="trap">
+    <b>Exam trap: cortisol and aversives</b>
+    Post-playgroup salivary cortisol increased only in dogs participating in small playgroups that regularly used aversives. Dogs in both the large-group (with aversives) control and the small-group (with treats and vocal praise) showed decreased cortisol. The LIMA-based approach improved in-kennel welfare and adoptability indicators and produced significantly lower cortisol than aversive-using groups. <span class="bdg notes">your notes</span>
+  </div>
+
+  <h3>Veterinary clearance and candidate selection</h3>
+  <ul class="hy">
+    <li>All candidates must be cleared by veterinary staff. Play is species-typical but not universally reinforcing or safe. <span class="bdg notes">your notes</span></li>
+    <li>Consent tests (choice tests, preference assessments) confirm willingness. On-leash reactivity and barrier reactivity are not accurate predictors of off-leash aggression or sociability. <span class="bdg notes">your notes</span></li>
+    <li>Average participation: about 50% of the shelter dog population. Higher in low-intake shelters. <span class="bdg notes">your notes</span></li>
+    <li>Helper dogs can be used but should be rotated to avoid fatigue, elevated stress, and injury risk. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <h3>PE and biosecurity considerations</h3>
+  <ul class="hy">
+    <li>Suspend or modify playgroups during outbreaks. Disease stats: CPV less than 1%, distemper 0%, CIV 1%, CIRDC 19%. Dogs with contagious illness, injuries, or pain are excluded. <span class="bdg notes">your notes</span></li>
+    <li>Psychotropic medications, steroids, and analgesics may affect behaviour and should inform group composition. Neuter status, age, weight, size, and sex should be considered. Puppies over 20 weeks (fully vaccinated) may join; puppy-only pairings should be supervised. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <h3>Physical environment</h3>
+  <ul class="hy">
+    <li>High, secure fencing; multiple connected zones with separate entrance and exit pens and two-way gates; elevated platforms, ramps, benches, kiddie pools; rest and avoidance areas; regular inspection. <span class="bdg notes">your notes</span></li>
+    <li>Flat, washable collars with quick-release snaps (no buckles); basket muzzles if needed; 6-foot leashes or biothane longlines. <b>Gentle Leader headcollars are not recommended.</b> <span class="bdg notes">your notes</span></li>
+    <li>Interruption tools (airhorns, compressed air, citronella spray, shake cans, water spray bottles, steel bowls for noise, squeaky toys) in weather-resistant containers. Toys and treats may trigger resource guarding. <span class="bdg notes">your notes</span></li>
+  </ul>
+  <div class="verifybox">
+    <b>ASV guideline</b>
+    Optimise human and animal safety by limiting the number of dogs in playgroups based on personnel training, skillset, play-yard size, individual dog behaviour, and shelter resources. <span class="bdg asv">ASV</span>
+  </div>
+</section><section class="panel" id="play">
+  <h2 class="sec">Play, Conflict and Evaluation</h2>
+  <p class="lead">Healthy play has specific ethological markers. The exam tests self-handicapping, the play-bow pause, which behaviours are misread as play versus aggression, and why play wrestling carries the highest conflict risk.</p>
+
+  <h3>Healthy social play: definition and components</h3>
+  <ul class="hy">
+    <li>Defined as simultaneous, reciprocal affiliation between conspecifics that includes at least one of: self-handicapping, inhibited biting, play wrestling, play chasing, or exaggerated low-intensity predatory behaviours. <span class="bdg notes">your notes</span></li>
+    <li><b>Self-handicapping:</b> one dog voluntarily uses less advantageous strategies to maintain the interaction. <span class="bdg notes">your notes</span></li>
+    <li><b>Inhibited biting:</b> oral contact on a conspecific's body without causing injury or distress vocalisation. <span class="bdg notes">your notes</span></li>
+    <li><b>Play wrestling:</b> continuous bodily contact with inhibited biting, shaking, growling, and forceful movement, reciprocated by the partner, without injury or obvious distress. <span class="bdg notes">your notes</span></li>
+    <li><b>Play chasing:</b> running alongside or behind a conspecific with no observable aggression, fear, or distress in the dog being chased. <span class="bdg notes">your notes</span></li>
+    <li><b>Reliable play signal:</b> a play bow with a distinct pause, often followed by more active behaviours. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <h3>Commonly misinterpreted behaviours</h3>
+  <table class="cmp">
+    <tr><th>Direction of error</th><th>Behaviours</th></tr>
+    <tr><td><b>Incorrectly read as aggressive</b> (actually can be play)</td><td>Piloerection, inhibited biting, herding, standing over, showing teeth</td></tr>
+    <tr><td><b>Incorrectly read as play</b> (actually can be arousal or conflict)</td><td>Barking, bouncing, ears erect and forward, tail wagging</td></tr>
+  </table>
+
+  <h3>Dog-to-dog conflict</h3>
+  <ul class="hy">
+    <li>Play wrestling carries the highest risk of escalating into play-induced conflict and aggression. <span class="bdg notes">your notes</span></li>
+    <li>True conflict signs: tucked or raised elevated tail, full-body hackles with a visibly stiff body, fixed stare, low growls, lunging, bite attempts. <span class="bdg notes">your notes</span></li>
+    <li>One dog should not be playing at the expense of another. Watch for cowering, hiding, trembling, or one dog repeatedly displacing others. Redirect both dogs simultaneously. <span class="bdg notes">your notes</span></li>
+    <li>Inter-dog play most often occurs between two dogs. Aggression risk increases when more than two dogs join an interaction, but there is no correlation between average playgroup size and increased fights or injuries. Average playgroup size across shelters is about 8 dogs. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <h3>Handler roles</h3>
+  <ul class="hy">
+    <li>Human interaction significantly increases positive social interactions, including social play. Handlers should provide verbal praise and appropriate petting to facilitate healthy play, especially among familiar dogs. <span class="bdg notes">your notes</span></li>
+    <li>Handlers who bow, lunge, clap, pat the floor, or chase can evoke human-dog play invitations that compete with dog-to-dog play. If the session's goal is assessing conspecific sociability, handlers should remain neutral. Handlers can also overmanage interactions and disrupt healthy play. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <h3>Mounting as displacement</h3>
+  <p class="note">Mounting can manifest as a displacement behaviour induced by frustration or a high motivation to engage in a different behaviour that is not currently possible. It is not necessarily sexual or aggressive. <span class="bdg notes">your notes</span></p>
+
+  <h3>Documentation and evaluation</h3>
+  <ul class="hy">
+    <li>Use the <b>SPIDER framework</b>: Setting goals, Planning, Implementation, Documentation, Evaluation, and Readjustment. <span class="bdg notes">your notes</span></li>
+    <li>Monitor goals, behavioural dynamics, and incidents. Surveillance cameras are valuable for replaying fights to identify antecedents and consequences. Voice-to-text apps can facilitate real-time documentation. <span class="bdg notes">your notes</span></li>
+    <li>A conflict and fight management plan must be planned, prepared, and articulated among staff before playgroups begin. Everyone involved must have reviewed protocols and had the opportunity to contribute. <span class="bdg notes">your notes</span></li>
+  </ul>
+</section><section class="panel" id="mcq">
+  <h2 class="sec">MCQ Test Bank</h2>
+  <p class="lead">Thirty questions from your uploaded set. Answer positions have been redistributed from the original key (which clustered 27 of 30 on option B with zero D) to about 8A / 7B / 8C / 7D; option content is unchanged. Tap an option to lock it in and reveal the explanation.</p>
+  <div class="mcqbar">
+    <div class="label"><span class="dot"></span>30 questions &middot; Training, BMOD &amp; Playgroups</div>
+    <div class="score"><span id="scoreTxt">0 / 0 correct</span><button class="reset" id="resetBtn">Reset</button></div>
+  </div>
+  <div id="qhost"></div>
+</section>
+</div></main>
+<footer><div class="wrap">
+  Training, BMOD and Playgroups subdomain hub &middot; Behavioural Health domain &middot; ABVP Shelter Medicine Practice RVS, November 2026. Content is from your Training and BMOD for Shelter Dogs + Playgroup notes (PDF). The DPFL vs SPA comparison table is adapted from the docx. ASV playgroup guideline (optimise safety by limiting numbers based on training, space, and resources) is badged ASV. Overlapping content (reward-based training and DSCC in Learning Theory; fluoxetine and gabapentin in Behaviour Medications; fear physiology and flooding in Stress; enrichment in Shelter Animal Enrichment) is cross-referenced rather than duplicated. Answer positions were redistributed from a B-heavy key. In-house construction. Supports light and dark mode.
+</div></footer>
+<script>
+const tabrow=document.getElementById('tabrow');tabrow.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.disabled)return;[...tabrow.children].forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.panel').forEach(p=>p.classList.remove('show'));document.getElementById(b.dataset.p).classList.add('show');window.scrollTo({top:0,behavior:'smooth'});});
+const Q=[
+{t:"trn",f:"notes",q:"A shelter implements a tiered volunteer program. What tasks should higher-level volunteers handle compared to lower-level volunteers?",o:["Higher-level volunteers handle agility, nosework, cooperative care for low-stress handling, or work with behaviourally challenged dogs, while lower-level volunteers focus on socialisation and basic cues","Both tiers perform identical basic sit and down repetitions","Lower-level volunteers manage aggressive dogs while higher-level volunteers only walk friendly dogs","Higher-level volunteers perform only administrative duties"],a:0,e:"Tiered programmes assign baseline socialisation to lower tiers and reserve advanced training, cooperative care, and challenging dogs for higher tiers."},
+{t:"bmd",f:"notes",q:"Rehabilitating dogs with bite histories toward humans or dogs requires intensive DSCC. Based on published outcome data, what was the documented success rate?",o:["Less than 5% of dogs were successfully adopted","An 87% success rate (no subsequent biting report) with LOS ranging from 1 to 3 years","100% of dogs were adopted within 2 weeks","Rehabilitation was attempted but zero dogs met adoptability criteria"],a:1,e:"Intensive DSCC over 1 to 3 years yielded an 87% success rate, defined as adoption with no further bite reports."},
+{t:"trn",f:"notes",q:"A study taught randomly selected shelter dogs to approach the front of the kennel and sit when people approached. What was the adoption outcome?",o:["It reduced LOS by 50% but did not change adoption rates","It made no difference to either adoption or LOS","These dogs were 1.4 times more likely to be adopted, although there was no effect on LOS","It eliminated all in-kennel arousal behaviours permanently"],a:2,e:"Sit-at-the-front increased adoption likelihood by 1.4 times but did not alter overall length of stay."},
+{t:"bmd",f:"notes",q:"A dog displays repetitive in-kennel pacing, spinning, bouncing, barking, and out-of-kennel jumping, mouthing, and leash tugging. This presentation is best characterised as:",o:["Self-handicapping behaviour typical of geriatric dogs","Neophobia secondary to intraspecific aggression","Intact male predatory drive mapping","Excessive arousal, which can increase LOS and reduce adoption probability"],a:3,e:"Hyper-responsiveness, exaggerated emotionality, and reduced behavioural inhibition define excessive arousal, which impairs adoptability."},
+{t:"bmd",f:"notes",q:"A shelter wants auditory enrichment to reduce barking and stress in a high-arousal ward. Which stimulus is supported by published data?",o:["Slow-tempo piano or violin music","High-tempo electronic dance music","Continuous white noise at 90 decibels","Intermittent pre-recorded human conversation"],a:0,e:"Slow-tempo classical piano or violin decreased barking, increased resting, and improved HR variability."},
+{t:"bmd",f:"notes",q:"A fearful, un-socialised dog from a hoarding case is undergoing daily BMOD at the ASPCA BRC. Which concurrent psychotropic combination is documented?",o:["Acepromazine and meloxicam","Apomorphine and doxycycline","Fluoxetine and gabapentin","Dexmedetomidine and phenobarbital"],a:2,e:"Standardised BRC fear rehabilitation combines environmental enrichment, structured BMOD, and daily fluoxetine and gabapentin."},
+{t:"plm",f:"notes",q:"Which statement correctly distinguishes a core operational difference between DPFL and SPA playgroup models?",o:["DPFL restricts groups to 2 to 3 dogs while SPA advocates for 15+","SPA completely bans basket muzzles while DPFL mandates them for all","DPFL relies entirely on LIMA while SPA uses a high-aversive methodology","DPFL targets large groups (6+ dogs) for efficiency and assessment, whereas SPA emphasises smaller groups, strict handler ratios, and choice"],a:3,e:"DPFL prioritises operational efficiency with large groups; SPA limits group size and emphasises LIMA, handler ratios, and consent."},
+{t:"plm",f:"notes",q:"A multi-site study measured post-playgroup salivary cortisol. Which group showed increased cortisol?",o:["Dogs in small playgroups with treats and vocal praise","Dogs in a small playgroup that regularly used aversive tools","Dogs in large control playgroups with aversive tools","Dogs in the control shelter with no playgroups"],a:1,e:"Post-playgroup cortisol increased specifically in small groups where handlers regularly used aversives."},
+{t:"plm",f:"notes",q:"A shelter veterinarian establishes playgroup safety protocols. Which candidate-selection directive is standard?",o:["Candidates must be selected only following formal veterinary clearance, as play is not universally reinforcing or safe","All dogs must automatically enter daily regardless of medical status","Intact dogs are excluded entirely based on breed","Dogs with active respiratory disease should be prioritised for group play"],a:0,e:"Veterinary clearance is mandatory; play is species-typical but not universally safe or enriching."},
+{t:"pli",f:"notes",q:"A dog voluntarily places itself in a less advantageous position and slows its movements to sustain a social interaction. This healthy play component is:",o:["Displacement grooming","Conspecific redirection","Self-handicapping","Low-intensity neophobia"],a:2,e:"Self-handicapping is voluntarily using less advantageous strategies to maintain play."},
+{t:"pli",f:"notes",q:"A volunteer reviews playgroup footage. Which set of cues is most frequently misinterpreted as play when they may actually indicate arousal or conflict?",o:["Inhibited biting, play bows, and side-to-side hip thrusts","Mutual resting, ground sniffing, and low-intensity stalking","Piloerection, herding, standing over, and showing teeth","Barking, bouncing, forward-erect ears, and tail wagging"],a:3,e:"Handlers commonly mistake barking, bouncing, erect ears, and tail wagging for play when they can signal arousal or conflict."},
+{t:"pli",f:"notes",q:"Two large dogs engage in intensive bodily contact with growling, reciprocal forceful movements, and wrestling without injury or distress vocalisation. This is defined as (1), and carries the highest risk of transitioning into (2):",o:["Low-intensity predatory stalking; immediate learned helplessness","Conspecific habituation; neophobic withdrawal","Self-handicapping; complete cardiovascular collapse","Play wrestling; play-induced conflict and aggression"],a:2,e:"Play wrestling is defined by continuous reciprocal bodily contact without injury and carries the highest statistical conflict-escalation risk."},
+
+{t:"plm",f:"notes",q:"A handler designs an outdoor multi-dog yard. Which configuration is recommended?",o:["A single tight concrete run with one one-way gate","Multiple connected zones with separate entrance and exit pens, high fencing, two-way gates, and elevated platforms or benches","A large field with no structures and loose raw marrow bones","Indoor rooms without ventilation to retain olfactory pheromones"],a:1,e:"Multi-zone yards with separate pens, escape architecture, and two-way gates reduce conflict and provide choice."},
+{t:"pli",f:"notes",q:"During a playgroup a dog repeatedly mounts a familiar play partner. How should the handler interpret this?",o:["An irreversible indicator of predatory aggression","It can be a displacement behaviour induced by frustration or high motivation to perform a different blocked behaviour","The dog has achieved permanent cognitive mapping of the perimeter","An indicator of severe gabapentin toxicity"],a:1,e:"Mounting often serves as a displacement behaviour arising from arousal or frustrated motivation."},
+{t:"pli",f:"notes",q:"A mature, resilient helper dog is used repeatedly across multiple consecutive sessions. What is the primary welfare concern?",o:["The helper dog will experience cessation of all action potentials","The helper dog automatically develops non-social neophobia","The helper dog will lose the ability to synthesise CREB protein","Overusing an individual helper dog puts them at increased risk for injury, behavioural fatigue, and elevated stress"],a:3,e:"Repeated use of the same helper dog increases their risk of injury, fatigue, and stress; rotate helpers."},
+{t:"plm",f:"notes",q:"According to retrospective data, what is the average incidence rate for CIRDC in shelter playgroup populations?",o:["Approximately 19%","Less than 0.1%","Exactly 50%","Over 85%"],a:0,e:"CIRDC shows an average 19% incidence in playgroup settings; CPV is less than 1% and distemper 0%."},
+{t:"plm",f:"notes",q:"An objective protocol to confirm a dog's willingness to participate in a playgroup is formally called:",o:["A LIMA threshold index","A three-term contingency verification","A stereotypic baseline count","A consent test, choice test, or preference assessment"],a:1,e:"Consent or choice tests formally confirm individual willingness before entry."},
+
+{t:"plm",f:"notes",q:"Which restraint tool is explicitly not recommended for use within shelter playgroups?",o:["Properly fitted basket muzzles","Flat buckle-less collars with quick-release snaps","Gentle Leader headcollars","6-foot nylon or leather leashes"],a:2,e:"Gentle Leader headcollars are not recommended in off-leash multi-dog play settings."},
+{t:"plm",f:"notes",q:"Under the SPA model for a high-risk tolerance setup, what is the maximum recommended group size and dog-to-handler ratio?",o:["12 to 15 dogs with a single handler","Exactly 1 dog per playgroup with 5 handlers","2 to 3 dogs with a 10:1 handler-to-dog ratio","4 to 6 dogs per playgroup with a 3:1 dog-to-handler ratio"],a:3,e:"SPA recommends 4 to 6 dogs and a 3:1 dog-to-handler ratio for high-risk tolerance organisations."},
+{t:"pli",f:"notes",q:"When handlers step into the yard and begin bowing, clapping, or patting the floor, dog-to-dog play decreases. Why?",o:["These actions evoke human-dog play invitations, competing with the dogs' motivation for dog-to-dog play","These behaviours trigger acute auditory neophobia","The handlers are inadvertently administering positive punishment","These movements induce immediate learned helplessness"],a:0,e:"Human play signals (bowing, clapping, floor-patting) evoke human-directed play and reduce dog-to-dog interaction."},
+{t:"trn",f:"notes",q:"A shelter introduces pre and post adoption counseling alongside standard services. What is the documented benefit?",o:["It results in 27.5% more adopted dogs than a comparable shelter without the programme","It reduces operational costs by 50%","It eliminates the need for vet clearance before playgroups","It causes an immediate 16% increase in post-adoption returns"],a:0,e:"Pre and post adoption counseling tracks with a 27.5% increase in successful adoptions."},
+{t:"pli",f:"notes",q:"A handler wants to recognise true canine play signals during high-intensity yard interactions. Which is a reliable, definitive play signal?",o:["Continuous full-body hackles with a fixed stare","A play bow with a distinct pause, often followed by active behaviours","Low-intensity herding with a tucked tail","Stereotypic pacing along the perimeter fence"],a:1,e:"A play bow accompanied by a brief pause is an ethologically stable and reliable play invitation."},
+{t:"pli",f:"notes",q:"A shelter uses the SPIDER framework for its enrichment and playgroup strategies. What do the letters represent?",o:["Stimulation, Perception, Ingestion, Depolarisation, Evaluation, Regulation","Socialisation, Prevention, Isolation, Disinfection, Eradication, Restrictions","Stereotypy, Pacing, Impulsivity, Distressed, Excitability, Reactivity","Setting goals, Planning, Implementation, Documentation, Evaluation, and Readjustment"],a:2,e:"SPIDER is Setting goals, Planning, Implementation, Documentation, Evaluation, and Readjustment."},
+{t:"plm",f:"notes",q:"When must a conflict and fight management plan be developed and communicated to staff?",o:["Immediately after a severe fight resulting in injury","Only when the return rate exceeds 16%","During the annual fiscal audit","The plan must be planned, prepared, and articulated among staff before playgroups begin"],a:3,e:"Conflict plans must be in place before any playgroups start, with input from all involved personnel."},
+{t:"pli",f:"notes",q:"A dog with on-leash reactivity and barrier barking is being evaluated for playgroup entry. How should these behaviours be interpreted?",o:["On-leash and barrier reactivity are not accurate predictors of aggression or sociability in off-leash scenarios","These are absolute predictors of off-leash aggression","The dog must be permanently excluded from all social enrichment","The dog should be treated with high-dose steroids immediately"],a:0,e:"On-leash and barrier reactivity do not predict off-leash sociability; the dog may still be a suitable playgroup candidate."},
+{t:"bmd",f:"notes",q:"Standard fear rehabilitation protocols focus on which four primary target categories?",o:["Fear of food, fear of toys, fear of grass, fear of kennels","Fear of people, fear of handling, fear of leashing and leash walking, and fear of novelty","Fear of sound, fear of light, fear of movement, fear of temperature","Fear of cats, fear of crates, fear of vehicles, fear of structures"],a:1,e:"The four axes are fear of people, handling, leashing and walking, and novelty."},
+{t:"plm",f:"notes",q:"Which playgroup model advocates an every-dog-every-day approach using large groups (6+ dogs)?",o:["Shelter Playgroup Alliance (SPA)","LIMA-based Consent Model","ASPCA Behaviour Rehabilitation framework","Dogs Playing for Life (DPFL)"],a:2,e:"DPFL uses the every-dog-every-day, large-group approach to maximise efficiency."},
+
+{t:"plm",f:"notes",q:"The average playgroup size across shelters is (1) dogs, and data shows (2) correlation between larger sizes and increased fights or injuries:",o:["2; a direct highly positive correlation","50; an unpredictable volatile correlation","8; no correlation","25; an inverse protective correlation"],a:1,e:"The average is about 8 dogs, and no correlation between group size and fight/injury rates has been found."},
+{t:"trn",f:"notes",q:"A trainer argues that praise and petting should be the primary reinforcer for shelter dog training. How does this evaluate against published data?",o:["It is correct; praise is highly effective compared to food","It is incorrect because shelter dogs lack any capacity for interspecific affiliation","It is correct only for dogs with severe bite histories","It is incorrect; social interaction has been shown to be an ineffective reinforcer for shelter dogs compared to food"],a:2,e:"Studies show praise and petting are ineffective primary reinforcers for shelter dogs; food rewards are superior."},
+{t:"bmd",f:"notes",q:"A shelter tracking BMOD outcomes notes a 1% return rate for rehabilitated dogs. What is the general baseline return rate for non-rehabilitated dogs?",o:["Less than 0.5%","Over 75%","Approximately 16%","Exactly 44%"],a:3,e:"BMOD dogs had only 1% returns versus the general non-rehabilitated baseline of about 16%."}
+];
+const host=document.getElementById('qhost');const scoreTxt=document.getElementById('scoreTxt');let answered=0,correct=0;
+const DLABEL={trn:"Training & Adoptability",bmd:"Behaviour Modification",plm:"Playgroup Models",pli:"Play & Interaction"};
+function tagLabel(t){return DLABEL[t]||t.toUpperCase();}
+function flagBadge(f){if(f==='corr')return'<span class="bdg corr">corrected</span>';if(f==='notes')return'<span class="bdg notes">your notes</span>';if(f==='asv')return'<span class="bdg asv">ASV</span>';if(f==='ref')return'<span class="bdg ref">std ref</span>';return'';}
+function render(){host.innerHTML='';answered=0;correct=0;updateScore();Q.forEach((item,i)=>{const card=document.createElement('div');card.className='q';card.innerHTML=`<div class="meta"><span class="num">#${i+1}</span><span class="tag">&#9670; ${tagLabel(item.t)}</span>${flagBadge(item.f)}</div><div class="stem">${item.q}</div>`;const opts=document.createElement('div');item.o.forEach((txt,oi)=>{const btn=document.createElement('button');btn.className='opt';btn.innerHTML=`<span class="k">${String.fromCharCode(65+oi)}</span>${txt}`;btn.onclick=()=>choose(card,opts,item,oi);opts.appendChild(btn);});card.appendChild(opts);const ex=document.createElement('div');ex.className='expl';ex.innerHTML=`<b class="cor">Correct: ${String.fromCharCode(65+item.a)}.</b> ${item.e}`;card.appendChild(ex);host.appendChild(card);});}
+function choose(card,opts,item,oi){if(card.dataset.done)return;card.dataset.done='1';answered++;[...opts.children].forEach((b,bi)=>{b.classList.add('locked');if(bi===item.a)b.classList.add('correct');if(bi===oi&&oi!==item.a)b.classList.add('wrong');});if(oi===item.a)correct++;card.querySelector('.expl').classList.add('show');updateScore();}
+function updateScore(){scoreTxt.textContent=`${correct} / ${answered} correct`;}
+document.getElementById('resetBtn').onclick=render;render();
+</script>
+</body>
+</html>

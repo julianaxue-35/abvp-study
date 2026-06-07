@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<title>Common Behaviour Problems Subdomain Hub | ABVP Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme:light dark;
+    --bg:#eef2f7;--surface:#fbfdff;--surface2:#e8edf4;
+    --chrome:#1c3a5e;--chrome2:#264f78;          /* behavioural health blue chrome */
+    --text:#16273a;--onChrome:#e9f0f8;--muted:#586a7d;
+    --line:#ccd6e2;
+    --accent:#b1466f;--accent-soft:#f3e0ea;       /* behavioural health rose accent */
+    --good:#1f7a4d;--good-soft:#e3f2ea;--bad:#b23b3b;
+    --notes:#7a4fb5;--notes-soft:#ece3f7;          /* your Common behaviour problems notes (PDF) */
+    --asv:#1f6f86;--asv-soft:#dcecf2;              /* ASV principle */
+    --ref:#b5651d;--ref-soft:#f6e7d4;              /* behaviour textbook / published refs */
+    --dot:rgba(28,58,94,.05);
+    --shadow:0 1px 2px rgba(20,40,70,.08),0 8px 24px rgba(20,40,70,.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0e1622;--surface:#16212f;--surface2:#1b2735;
+      --chrome:#122236;--chrome2:#1b3450;
+      --text:#dde6f1;--onChrome:#e9f0f8;--muted:#9aacbf;
+      --line:#2a3a4d;
+      --accent:#d3789c;--accent-soft:rgba(211,120,156,.16);
+      --good:#51b184;--good-soft:rgba(40,140,90,.18);--bad:#e08585;
+      --notes:#c0a4ec;--notes-soft:rgba(150,110,210,.20);
+      --asv:#66c0d6;--asv-soft:rgba(40,150,175,.18);
+      --ref:#e0a766;--ref-soft:rgba(200,130,50,.18);
+      --dot:rgba(255,255,255,.035);
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.3);
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--text);
+    font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;
+    background-image:radial-gradient(circle at 1px 1px,var(--dot) 1px,transparent 0);background-size:22px 22px;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+  .crumb{background:var(--chrome);padding:9px 18px;display:flex;align-items:center;gap:10px;font-size:13px;font-weight:500;border-bottom:2px solid var(--chrome2)}
+  .crumb a{color:#9fc0dc;text-decoration:none;display:flex;align-items:center;gap:5px}
+  .crumb .sep{color:#5f82a3;font-size:11px}
+  .crumb .here{color:#cfe0f1}
+  header.top{background:var(--chrome);color:var(--onChrome);padding:26px 0 22px;border-bottom:4px solid var(--accent)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#9fc0dc;margin:0 0 6px}
+  header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(26px,4.5vw,40px);margin:0;line-height:1.05}
+  header.top p.sub{margin:8px 0 0;color:#cfe0f1;font-size:14px;max-width:78ch}
+  .legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}
+  .legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.22);color:#eaf2fb;display:flex;align-items:center;gap:6px}
+  .legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--surface);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button:hover{background:var(--bg);color:var(--text)}
+  .tabrow button.active{background:var(--chrome);color:var(--onChrome)}
+  .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+  main{padding:30px 0 80px}
+  .panel{display:none;animation:fade .35s ease}
+  .panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;letter-spacing:-.01em;color:var(--text)}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:80ch}
+  h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:30px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;scroll-margin-top:64px;color:var(--text)}
+  h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;color:var(--text);text-transform:uppercase;letter-spacing:.03em}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}
+  p.note{font-size:14px;margin:0 0 6px}
+  ul.hy{margin:8px 0;padding-left:0;list-style:none}
+  ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed var(--line);font-size:14px}
+  ul.hy li:last-child{border-bottom:0}
+  ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;border-radius:2px;background:var(--accent);transform:rotate(45deg)}
+  .trap{background:var(--accent-soft);border:1px solid var(--accent);border-left:4px solid var(--accent);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .trap b{color:var(--accent);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .corrbox{background:var(--good-soft);border:1px solid var(--good);border-left:4px solid var(--good);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .corrbox b{color:var(--good);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .verifybox{background:var(--asv-soft);border:1px solid var(--asv);border-left:4px solid var(--asv);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .verifybox b{color:var(--asv);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp th{background:var(--chrome);color:var(--onChrome);font-weight:600;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase}
+  table.cmp tr:last-child td{border-bottom:0}
+  table.cmp td b{color:var(--text)}
+  .fig{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0;box-shadow:var(--shadow)}
+  .fig figcaption{font-size:12.5px;color:var(--muted);margin-top:8px;font-style:italic}
+  /* svg helpers (use vars so diagrams adapt to dark mode) */
+  .sgbox{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1}
+  .sgbox2{fill:var(--asv-soft);stroke:var(--asv);stroke-width:1}
+  .sgtxt{fill:var(--text);font-family:"Public Sans",sans-serif}
+  .sgmut{fill:var(--muted);font-family:"Public Sans",sans-serif}
+  .sgmono{fill:var(--accent);font-family:"JetBrains Mono",monospace}
+  .sgline{stroke:var(--accent);stroke-width:2;fill:none}
+  .sgaxis{stroke:var(--line);stroke-width:1.5}
+  .sgarrow{fill:var(--accent)}
+  /* source badges */
+  .bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+  .bdg.notes{background:var(--notes-soft);color:var(--notes)}
+  .bdg.asv{background:var(--asv-soft);color:var(--asv)}
+  .bdg.ref{background:var(--ref-soft);color:var(--ref)}
+  .bdg.corr{background:var(--good);color:#fff}
+  /* mcq */
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--chrome);color:var(--onChrome);border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:54px;z-index:10}
+  .mcqbar .label{font-family:"JetBrains Mono",monospace;font-size:12px;color:#cfe0f1;display:flex;align-items:center;gap:8px}
+  .mcqbar .label .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);display:inline-block}
+  .score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}
+  .score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;color:#cfe0f1;padding:5px 10px;border-radius:8px;font-size:11px}
+  .q{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
+  .q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+  .q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+  .q .stem{font-weight:600;font-size:15px;margin-bottom:10px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:var(--surface2);border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;font-family:"Public Sans";color:var(--text);transition:background .15s,border-color .15s}
+  .opt:hover{border-color:var(--accent)}
+  .opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}
+  .opt.correct{background:var(--good-soft);border-color:var(--good)}
+  .opt.wrong{background:rgba(178,59,59,.14);border-color:var(--bad)}
+  .opt.locked{cursor:default}
+  .expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:var(--surface2);border:1px solid var(--line);font-size:13.5px}
+  .expl.show{display:block}
+  .expl b.cor{color:var(--good)}
+  footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
+  @media(max-width:640px){.mcqbar{top:50px}.score{font-size:12px}}
+</style>
+</head>
+<body>
+<nav class="crumb"><a href="../index.html"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span class="sep">&rsaquo;</span><a href="../index.html#domain-behav">Behavioural Health</a><span class="sep">&rsaquo;</span><span class="here">Common Behaviour Problems</span></nav>
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">ABVP Shelter Medicine Practice RVS &middot; Behavioural Health</p>
+    <h1>Common Behaviour Problems Subdomain Hub</h1>
+    <p class="sub">Exam-depth study tool for the clinical problem catalogue: medical contributors and CCDS, compulsive disorders and stereotypies, separation anxiety and destructive behaviours, housesoiling and marking, canine and feline aggression in full, and the behaviour forensics and history-taking that the ABVP commonly tests. Fear, phobia, anxiety neuroanatomy, and the bulk of pharmacology live in two cross-referenced hubs: the dedicated Fear, Phobias, and Anxiety Disorders subdomain (in build) and the existing Behaviour Medications subdomain.</p>
+    <div class="legend">
+      <span><i style="background:var(--notes)"></i>Your Common behaviour problems notes (PDF)</span>
+      <span><i style="background:var(--asv)"></i>ASV principle</span>
+      <span><i style="background:var(--ref)"></i>Textbook / published reference</span>
+    </div>
+  </div>
+</header>
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="med"><span class="dot"></span>Medical &amp; CCDS</button>
+  <button data-p="comp"><span class="dot"></span>Compulsive Disorders</button>
+  <button data-p="sep"><span class="dot"></span>Separation &amp; Destructive</button>
+  <button data-p="house"><span class="dot"></span>Housesoiling</button>
+  <button data-p="cagg"><span class="dot"></span>Canine Aggression</button>
+  <button data-p="fagg"><span class="dot"></span>Feline Aggression</button>
+  <button data-p="fore"><span class="dot"></span>Forensics &amp; Counselling</button>
+  <button data-p="mcq"><span class="dot" style="background:var(--chrome2)"></span>MCQ Test Bank</button>
+</div></div></nav>
+<main><div class="wrap">
+<section class="panel show" id="med">
+  <h2 class="sec">Medical and Neurological Contributors, and Senior Pets</h2>
+  <p class="lead">Behavioural change often precedes severe neurological signs by weeks to months. Rule out medical and neurological causes BEFORE labelling a problem behavioural. The senior-pet section anchors on CCDS and its DISHA acronym.</p>
+
+  <h3>Brain regions that drive behavioural signs when damaged</h3>
+  <table class="cmp">
+    <tr><th>Region</th><th>Functions</th><th>Signs when damaged</th></tr>
+    <tr><td><b>Limbic system</b></td><td>Memory, emotions, basic drives (sexual, anxiety, pleasure)</td><td>Personality change, increased fearfulness and aggression, seizures</td></tr>
+    <tr><td><b>Forebrain (incl. prefrontal)</b></td><td>Cognitive behaviour, motor planning, thought, perception, awareness</td><td>Temperament change, loss of previously learned behaviours, failure to recognise or respond appropriately, altered consciousness and mentation</td></tr>
+    <tr><td><b>Brainstem</b></td><td>Arousal and conscious response to stimuli</td><td>Altered response to stimuli, dullness and stupor, coma</td></tr>
+  </table>
+
+  <h3>Specific contributors</h3>
+  <table class="cmp">
+    <tr><th>Category</th><th>Key points</th></tr>
+    <tr><td><b>Intracranial neoplasia</b></td><td>PRIMARY tumours (meningioma, astrocytoma, neuroblastoma, oligodendroglioma, ependymoma) cause INSIDIOUS, slowly progressive signs (dementia, aggression, altered habits, seizures, head pressing, housesoiling, circling, pacing, panting). Usually dogs over 7 years; age alone cannot rule out a brain tumour, the brain is the second most common neoplasia site. SECONDARY metastatic tumours produce ACUTE changes. Cats: meningioma presents as "not being themselves," reduced play, episodes of lethargy and aggression.</td></tr>
+    <tr><td><b>Seizures</b></td><td>Focal motor (involuntary movement of one body part) or focal sensory (tingling, pain, or visual hallucination, e.g. fly biting or fly snapping). Other signs: head pressing, vocalising, aimless walking or running. Cats: hippocampal necrosis is one cause; also metabolic disease (DM), hepatic encephalopathy, neoplasia, meningoencephalitis.</td></tr>
+    <tr><td><b>Toxicosis</b></td><td>Neurological signs: ataxia, stupor, seizures, or death.</td></tr>
+    <tr><td><b>Degenerative</b></td><td>Heritable, first weeks to months of life. <b>Cerebellar abiotrophy</b>: normal at birth, signs appear 2 to 9 weeks (ataxia, intention tremors, swaying, hypermetria, head tilt, broad-based stance); onset before 4 months; reported in many breeds; less common in cats. <b>Lysosomal storage disease</b>: rare genetic defects, purebred animals, history of inbreeding, signs in the first year (ataxia, disorientation, weakness, behavioural change); neuronal ceroid lipofuscinosis is one example.</td></tr>
+    <tr><td><b>Inflammatory</b></td><td>Diffuse, focal, or multifocal. Encephalitis or parenchymal CNS inflammation: depression, stupor, coma, or altered consciousness.</td></tr>
+    <tr><td><b>Urogenital</b></td><td>Urinary incontinence (conscious vs unconscious voiding); urethral sphincter mechanism incompetence (USMI) is a risk in female dogs over 20 kg neutered before 3 months. Bladder storage dysfunction (detrusor instability, UTI, neoplastic infiltration, ectopic ureters). Urine marking in dogs often reflects conflict, frustration, or anxiety. Submissive or excitement urination must NOT be punished, even acting upset worsens it.</td></tr>
+  </table>
+
+  <h3>Canine Cognitive Dysfunction Syndrome (CCDS)</h3>
+  <ul class="hy">
+    <li>Neurodegenerative disorder of senior dogs and cats with progressive brain pathology and cognitive decline; similar findings to Alzheimer's in humans. <span class="bdg notes">your notes</span></li>
+    <li>Pathology: reduced frontal lobe volume with increased ventricular size, meningeal calcification, demyelination, increased lipofuscin and apoptotic bodies, neuroaxonal degeneration, reduction in neurons. Functional: catecholamine depletion, increased MAOB activity, cholinergic decline, altered REM sleep, increased oxidative damage from reactive oxygen species. <span class="bdg notes">your notes</span></li>
+    <li>Onset: traditionally diagnosed in dogs at 11 years and older. Spatial-memory impairment can appear as early as 6 to 9 years, because the frontal lobe atrophies and accumulates beta-amyloid before other regions. Cats start around 10 to 11 years. <span class="bdg notes">your notes</span></li>
+    <li>Reassess every 6 months; progression is typical over 6 to 12 months. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <div class="trap">
+    <b>Exam trap: DISHA</b>
+    The five letters used to screen for CCDS: <b>D</b>isorientation, altered <b>I</b>nteraction with people and other pets, <b>S</b>leep-wake cycle alteration, <b>H</b>ousesoiling, <b>A</b>ltered Activity level (with decline in memory and learning). <span class="bdg notes">your notes</span>
+  </div>
+
+  <h3>Treatment of CCDS</h3>
+  <table class="cmp">
+    <tr><th>Intervention</th><th>Notes</th></tr>
+    <tr><td><b>Selegiline</b></td><td>MAOB inhibitor in dogs; enhances dopamine and other catecholamines in cortex and hippocampus; demonstrated cognitive enhancement in lab and clinical settings.</td></tr>
+    <tr><td><b>Adrafinil, modafinil</b></td><td>Noradrenergic-enhancing drugs that may improve alertness and help maintain sleep-wake cycles in older dogs.</td></tr>
+    <tr><td><b>Diet</b></td><td>Hill's Prescription Diet b/d has been shown to improve signs and slow progression in dogs. Generally, fruits, vegetables, nuts, whole grains, and vitamins E and C may delay onset.</td></tr>
+    <tr><td><b>Enrichment</b></td><td>Always combine diet and drugs with environmental enrichment.</td></tr>
+  </table>
+
+  <div class="corrbox">
+    <b>Critical drug interaction in senior pets</b>
+    Selegiline must NOT be used concurrently with other MAO inhibitors, OR with SSRIs or TCAs (serotonin syndrome risk). Tramadol, SAMe, tryptophan, and buspirone all add to serotonin and add risk. Senior pets are also more sensitive to anticholinergic or sedating drugs; anxiolytic disinhibition can paradoxically increase aggression in situations where the pet would have otherwise retreated. <span class="bdg notes">your notes</span>
+  </div>
+</section><section class="panel" id="comp">
+  <h2 class="sec">Compulsive Disorders and Stereotypies</h2>
+  <p class="lead">An obsessive-compulsive disorder is an abnormal, invariant repetition of a motor pattern that serves no apparent function. Most arise prepubertal (3 to 6 months) or before social maturity (12 to 36 months) after a period of conflict, change, or distress. Mechanism is abnormal serotonin transmission, which is why SSRIs and clomipramine are first line.</p>
+
+  <h3>Origins: normal behaviour becomes maladaptive</h3>
+  <figure class="fig">
+    <svg viewBox="0 0 540 200" width="100%" role="img" aria-label="Normal behaviours that become compulsive disorders when maladaptive">
+      <defs><marker id="arCB1" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path class="sgarrow" d="M0,0 L7,3 L0,6 Z"/></marker></defs>
+      <g font-size="11" text-anchor="middle">
+        <rect x="14" y="18" width="120" height="48" rx="10" class="sgbox"/>
+        <text x="74" y="38" class="sgtxt">Grooming</text>
+        <text x="74" y="56" class="sgmut">(normal)</text>
+        <rect x="14" y="100" width="120" height="48" rx="10" class="sgbox2"/>
+        <text x="74" y="120" class="sgtxt">Predation</text>
+        <text x="74" y="138" class="sgmut">(normal)</text>
+        <rect x="148" y="18" width="120" height="48" rx="10" class="sgbox"/>
+        <text x="208" y="38" class="sgtxt">Ingestion</text>
+        <text x="208" y="56" class="sgmut">(normal)</text>
+        <rect x="148" y="100" width="120" height="48" rx="10" class="sgbox2"/>
+        <text x="208" y="120" class="sgtxt">Locomotion</text>
+        <text x="208" y="138" class="sgmut">(normal)</text>
+        <line x1="134" y1="42" x2="296" y2="42" class="sgline" marker-end="url(#arCB1)"/>
+        <line x1="134" y1="124" x2="296" y2="124" class="sgline" marker-end="url(#arCB1)"/>
+        <line x1="268" y1="42" x2="296" y2="42" class="sgline" marker-end="url(#arCB1)"/>
+        <line x1="268" y1="124" x2="296" y2="124" class="sgline" marker-end="url(#arCB1)"/>
+        <rect x="300" y="10" width="225" height="64" rx="10" style="fill:rgba(178,59,59,.14);stroke:var(--bad)"/>
+        <text x="412" y="30" style="fill:var(--bad)">Maladaptive forms</text>
+        <text x="412" y="48" class="sgmut">Grooming &rarr; psychogenic alopecia, ALD</text>
+        <text x="412" y="64" class="sgmut">Ingestion &rarr; pica, polydipsia</text>
+        <rect x="300" y="94" width="225" height="64" rx="10" style="fill:rgba(178,59,59,.14);stroke:var(--bad)"/>
+        <text x="412" y="114" style="fill:var(--bad)">Maladaptive forms</text>
+        <text x="412" y="132" class="sgmut">Predation &rarr; tail chasing, pouncing</text>
+        <text x="412" y="148" class="sgmut">Locomotion &rarr; fence pacing, spinning</text>
+        <text x="270" y="186" class="sgmut" font-size="10">Possible hallucinatory components: snapping at air, upward star-gazing</text>
+      </g>
+    </svg>
+    <figcaption>Compulsive disorders are derived from normal behaviour patterns that become invariant and uncontrollable. Original didactic schematic built from your notes.</figcaption>
+  </figure>
+
+  <h3>Risk factors</h3>
+  <ul class="hy">
+    <li>Problems with early environment, maternal care, and handling. <span class="bdg notes">your notes</span></li>
+    <li>Socialisation and environmental localisation problems. <span class="bdg notes">your notes</span></li>
+    <li>Inadequate enrichment and outlets for normal behaviour (social interaction, object play, exercise). <span class="bdg notes">your notes</span></li>
+    <li>Unpredictable schedule or routine; insufficient or inconsistent training and communication. <span class="bdg notes">your notes</span></li>
+    <li>Excessive, unnecessary, or unpredictable positive punishment. <span class="bdg notes">your notes</span></li>
+    <li>Frustration and inability to achieve goals; conflict and competing motivation. <span class="bdg notes">your notes</span></li>
+    <li>Social anxiety (family changes, new or lost pets); household anxiety (moving, renovation). <span class="bdg notes">your notes</span></li>
+    <li>Intense or recurrent fear or anxiety (e.g. noise sensitivity). <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <h3>Pharmacology highlights (cross-reference: Behaviour Medications hub for full formulary)</h3>
+  <ul class="hy">
+    <li><b>Clomipramine</b> is the most selective serotonin-reuptake inhibitor of all the TCAs; effective for ALD, spinning, tail chasing, and feline psychogenic alopecia. TCAs OTHER than clomipramine have NOT been found as effective because they have less SSRI effect. <span class="bdg notes">your notes</span></li>
+    <li>SSRIs (paroxetine, fluoxetine, sertraline, fluvoxamine, citalopram) are often effective. SSRI or TCA monotherapy reduces compulsive behaviour by 50 to 75% within 4 weeks. <span class="bdg notes">your notes</span></li>
+    <li>If response is insufficient at 4 to 6 weeks without adverse effects, doses can be DOUBLED, with monitoring for serotonin syndrome. <span class="bdg notes">your notes</span></li>
+    <li>NMDA antagonists (e.g. memantine) block glutamate-sensitive NMDA receptors; 64% effective within 2 weeks, synergistic with fluoxetine. <span class="bdg notes">your notes</span></li>
+    <li>Opiate antagonists: naloxone 0.01 mg/kg has been reported effective for compulsive tail chasing within 20 minutes (lasting 3 hours); oral naltrexone 2.2 mg/kg SID or BID for ALD showed improvement in 7 of 11 dogs, but all relapsed. <span class="bdg notes">your notes</span></li>
+    <li>Dopamine AGONISTS (apomorphine, amphetamines) INDUCE stereotypic behaviour; antipsychotics block them. <span class="bdg notes">your notes</span></li>
+    <li>Combination adjuncts: buspirone or tryptophan; gabapentin, pregabalin, or carbamazepine; clonazepam; tramadol; phenobarbital, potassium bromide, levetiracetam. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <div class="trap">
+    <b>Exam trap: minimum 6 months of treatment</b>
+    If a compulsive disorder improves on medication, the drug must be continued for AT LEAST 6 months, often lifelong. Premature taper triggers immediate relapse. <span class="bdg notes">your notes</span>
+  </div>
+
+  <h3>Compulsive disorders by category</h3>
+  <table class="cmp">
+    <tr><th>Category</th><th>Examples and notes</th></tr>
+    <tr><td><b>Neurological / locomotor signs</b></td><td>Fly snapping, tail chasing, pouncing, fixed staring, star gazing, head shaking, spinning, checking, and the breed-specific tremors of boxers, bulldogs, dobermans, great danes. DDx: hydrocephalus, partial complex seizures (may improve with anticonvulsants), syringomyelia with Chiari-like malformation in CKCS (circling, fly biting, neuropathic pain). Treatment: anti-seizure meds; if neuropathic pain is considered, trial gabapentin, carbamazepine, amitriptyline; compulsive disorders, trial SSRIs or TCAs.</td></tr>
+    <tr><td><b>Ingestive signs</b></td><td>Pica (rule out GI disorders, nutritional deficiencies, metabolic disease, appetite-stimulating drugs, CNS disturbance, cognitive dysfunction); pica in cats is most often within 2 weeks of rehoming or between 6 and 18 months. Material preferences in cats: wool &rarr; cotton &rarr; synthetic fabrics &rarr; rubber and plastic &rarr; paper and cardboard. Management: muzzle, leash and harness control of exploration, increase oral stimulation (food-stuffed toys, dietary bulk, dental food, treats), provide sheep skin or wool for cats to suck and chew if they do not ingest large amounts.</td></tr>
+    <tr><td><b>Psychogenic polydipsia</b></td><td>DDx first: DM, kidney disease, pyometra, hypercalcaemia, hepatic insufficiency, pyelonephritis, Cushing's, hypokalaemia, hypoadrenocorticism, hyperthyroidism, iatrogenic. Management: low-sodium food and treats, restrict water access.</td></tr>
+    <tr><td><b>Grooming / self-traumatic (dogs)</b></td><td>Acral lick dermatitis (ALD, often over the leg to reduce anxiety, frustration or conflict), claw biting, head and face scratching, tail mutilation. DDx: allergies, orthopaedic pain, trauma, neoplasia, bacterial pyoderma, fungal infection. Long-term antibiotics almost always required; prevent licking around the lesion until healed; once healed, evaluate for fear, noise sensitivity, separation anxiety.</td></tr>
+    <tr><td><b>Grooming / self-traumatic (cats)</b></td><td>Self-trauma and psychogenic alopecia, especially in Burmese, Abyssinian, and Siamese. Rule out medical causes (especially atopy and parasites) first.</td></tr>
+    <tr><td><b>Feline hyperesthesia syndrome</b></td><td>Poorly understood; neurological, dermatological, pain, and behavioural components. Also called rolling, rippling, or twitching skin disease. Early signs: pacing, agitation, licking the tail or back legs. Later: hissing, growling, biting the tail or sides, exaggerated tail wagging, some cats vocalise, suddenly run, hide, and defecate while running. <b>Hallmark</b>: rippling or twitching of the THORACOLUMBAR skin and spasm of the EPAXIAL muscles, can be induced by rubbing the back, impossible to interrupt. Rule out medical, then neurological diseases (neuritis, cranial disease, partial seizures, spinal disease). Treatment: avoid triggers, predictable environment, enrichment; meds: clomipramine or fluoxetine, plus or minus lorazepam or clonazepam (anxiolysis and muscle relaxant).</td></tr>
+    <tr><td><b>Canine hyperesthesia</b></td><td>Twitching of skin and epaxial muscles, may be associated with circling or self-trauma such as licking or biting.</td></tr>
+  </table>
+
+  <h3>Behavioural treatment principles</h3>
+  <ul class="hy">
+    <li>Consistent, predictable environment and daily routine over which the pet has control to engage in desirable activities (resting, perching, object play) and prevent undesirable behaviours. <span class="bdg notes">your notes</span></li>
+    <li>Consistent, predictable consequences that use REWARDS to encourage desirable behaviour, NOT PUNISHMENT to discourage undesirable behaviour. <span class="bdg notes">your notes</span></li>
+    <li>Sufficient enrichment and outlets; ensure owner responses do not reinforce or aggravate the response; manage environment to prevent recurrence. <span class="bdg notes">your notes</span></li>
+    <li>Identify and remove stressors that lead to conflict; identify and avoid triggers; teach response substitution using reinforcement-based techniques. <span class="bdg notes">your notes</span></li>
+    <li>Teach owners to identify triggers and read facial and body language to pre-empt the behaviour. <span class="bdg notes">your notes</span></li>
+  </ul>
+</section><section class="panel" id="sep">
+  <h2 class="sec">Separation Anxiety and Destructive Behaviours</h2>
+  <p class="lead">Separation anxiety is a clinical diagnosis of exclusion built on three classic signs in the owner's absence: vocalisation, destructiveness, and housesoiling. Destructive behaviours when the owner IS home usually have a different cause. The exam trap is differentiating separation anxiety from confinement frustration, noise phobia, and barrier escape.</p>
+
+  <h3>Separation anxiety: diagnosis</h3>
+  <ul class="hy">
+    <li>Exaggerated anxiety when the dog does NOT have access to family members. Must rule out medical conditions and age-related cognitive decline first. <span class="bdg notes">your notes</span></li>
+    <li>History clues: hyper-attachment to one or more family members; anxiety at the time of departure; owner-absent behaviour problems with other causes excluded. <span class="bdg notes">your notes</span></li>
+    <li>Most common signs: vocalisation, destructiveness, housesoiling during the owner's absence. Also: depression and anorexia during departure, hypersalivation, vomiting and diarrhoea, increased motor activity, excessive licking or grooming, ALD, restlessness, shivering, shaking, stereotypic behaviours (ritualised circling, pacing), occasional aggression as the owner prepares to depart. <span class="bdg notes">your notes</span></li>
+    <li>Risk factors: genetics, changes in routine or household or environment, other anxiety disorders, cognitive dysfunction, visit to a new environment, recent move, or recent kennel stay. <span class="bdg notes">your notes</span></li>
+    <li>Dogs adopted after abandonment, or who lost an attachment figure, may have less secure bonds and more anxiety than puppies raised in the same home from puppyhood. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <div class="trap">
+    <b>Exam trap: differentials</b>
+    Destructive behaviour, vocalisation, and housesoiling can arise from confinement frustration rather than true separation anxiety. Separation anxiety is consistent and OCCURS ONLY when the owner departs. Consider other differentials if the behaviour occurs while the family is home, or only randomly rather than consistently on departure. <span class="bdg notes">your notes</span>
+  </div>
+
+  <h3>Prognosis and pharmacology</h3>
+  <ul class="hy">
+    <li>Good prognosis: recent onset, no concurrent anxiety disorders, motivated owners, pet responsive to psychotropic drugs. <span class="bdg notes">your notes</span></li>
+    <li>Meds (cross-reference: Behaviour Medications hub for full doses): pheromones, daily SSRI or TCA, combined with a benzo (alprazolam, diazepam) or clonidine given 1 hour PRE-departure. <span class="bdg notes">your notes</span></li>
+    <li><b>Effectiveness comparison</b>: amitriptyline worked in 56% of cases versus fluoxetine or clomipramine at 75%. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <h3>Four-pillar management program</h3>
+  <table class="cmp">
+    <tr><th>Pillar</th><th>What it means in practice</th></tr>
+    <tr><td><b>1. Shape independence</b></td><td>Gradually shape more relaxed and independent behaviours; remove rewards for ALL attention-seeking. Provide structured interactions: attention only when the pet is calm. Use the same rule structure for all rewards (sit, down, or stay first).</td></tr>
+    <tr><td><b>2. Reduce departure and homecoming anxiety</b></td><td>Adapt the dog to the departure routine while present, so it no longer predicts departure. Depart when the dog is occupied for 15 to 20 minutes (special toys, mat, music). Avoid exposing to typical cues. Keep homecomings low-key; ignore the pet until calm.</td></tr>
+    <tr><td><b>3. Decouple departure cues from actual departures</b></td><td>Expose the dog to keys, coat, garage door, car start without leaving. Add a unique non-departure cue (a song, a sign on the door) for short training sessions of staying calm; mock departures progressively lengthened, on a variable schedule, ALWAYS shorter than the dog's anxiety latency.</td></tr>
+    <tr><td><b>4. Anxiety reduction</b></td><td>Avoid punishment; give the pet more control with structure, predictability, and consistency. Confinement (crate, room, pen, tied down) only if introduced gradually and the pet is calm in it. Use food, toys, chews as rewards and distractors. Pheromones (Adaptil) on or off label. Selegiline considered for chronic anxiety but NOT concurrent with SSRI or TCA.</td></tr>
+  </table>
+
+  <h3>Canine destructive chewing</h3>
+  <ul class="hy">
+    <li>Inappropriate chewing in young dogs is often normal (exploration, play, scavenging, hunger, teething, escape attempts); just unacceptable to owners. Persistent chewing into adulthood may be reinforced by the owner or self-reinforcing. <span class="bdg notes">your notes</span></li>
+    <li>Causes to differentiate: exploration and toy retrieval, attention-seeking, inappropriate toys or tug games, inadequate enrichment, hunger, predatory, territorial, separation anxiety, noise phobia, barrier escape frustration, compulsive disorder, medical. <span class="bdg notes">your notes</span></li>
+    <li>Management: regular daily routine with exercise, training, and play; durable appealing chew items rotated every few days; reward chewing of toys with affection or a treat; reduce appeal of previously chewed items with cayenne pepper or commercial anti-chew spray; if hunger drives it, increase the amount, switch to higher-bulk diet, or shift feeding to match the chewing window. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <h3>Canine digging</h3>
+  <ul class="hy">
+    <li>Innate trait, often arising in the same contexts as other destructive behaviours when stimulation is insufficient. Terriers and other breeds bred to flush prey are especially driven. Differentiate escape digging, separation anxiety digging, noise-phobia digging, and predatory digging. <span class="bdg notes">your notes</span></li>
+    <li>Hole locations: predatory digging is at single or multiple sites in the yard. <span class="bdg notes">your notes</span></li>
+    <li>Management: appropriate digging area; fill holes with rocks, gravel, water, or chicken wire; supervise outside; remote deterrents (motion-activated sprinkler, spray collar). Some dogs require supervision or confinement to prevent undesirable digging. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <h3>Feline destructive scratching</h3>
+  <ul class="hy">
+    <li>Scratching provides BOTH a visual mark and a SCENT (interdigital pheromone). Cats punished by the owner often continue when out of sight. <span class="bdg notes">your notes</span></li>
+    <li>Management: provide one or two appealing locations and substrates near where the cat already scratches; stable, tall enough for the cat to stretch on its hind legs; reward desirable scratching (clicker training works well); a synthetic feline interdigital pheromone (Feliscratch) can encourage post use. <span class="bdg notes">your notes</span></li>
+    <li>Remote deterrents (double-sided tape, motion-activated alarm or spray) can teach avoidance without owner association, only if they do not cause fear or anxiety. <span class="bdg notes">your notes</span></li>
+  </ul>
+</section><section class="panel" id="house">
+  <h2 class="sec">Housesoiling and Marking</h2>
+  <p class="lead">Punishment makes housesoiling WORSE in both species. The exam trap is the feline three-way split: medical, inappropriate toileting, and marking, each with a distinct management approach.</p>
+
+  <h3>Canine housesoiling</h3>
+  <ul class="hy">
+    <li>Avoid PUNISHMENT. Punishment teaches the dog to: avoid eliminating where the owner is present; avoid all elimination in the owner's presence; avoid or become aggressive toward the owner from fear. <span class="bdg notes">your notes</span></li>
+    <li>Causes (also the DDx list): medical; inadequate training; submissive or excitement urination; marking; separation or confinement anxiety; cognitive dysfunction syndrome. <span class="bdg notes">your notes</span></li>
+    <li>Treatment summary: diagnose and treat medical; treat underlying emotional issues; choose a desirable location and substrate and reinforce there; control feeding schedule to control elimination schedule; supervise to train and to interrupt; prevent re-soiling at previously used areas (block access, change substrate, eliminate odour, avoidance condition the area); REWARD desirable behaviour, do not punish. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <div class="trap">
+    <b>Exam trap: submissive and excitement urination</b>
+    Identify triggers, interactions, or situations. Greet calmly and predictably; reinforce only behaviours incompatible with submissive, avoidant, or excitable responses (use response substitution). Confine briefly when visitors arrive; greet on leash only when calm; ignore the puppy until it has settled. Pharmacology if needed: phenylpropanolamine (alpha-adrenergic) or imipramine (TCA). Almost always improves with age. <span class="bdg notes">your notes</span>
+  </div>
+
+  <h3>Feline housesoiling: the three-way split</h3>
+  <figure class="fig">
+    <svg viewBox="0 0 540 200" width="100%" role="img" aria-label="Three categories of feline housesoiling: medical, inappropriate toileting, and marking">
+      <defs><marker id="arCB2" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path class="sgarrow" d="M0,0 L7,3 L0,6 Z"/></marker></defs>
+      <g font-size="11" text-anchor="middle">
+        <rect x="200" y="14" width="140" height="42" rx="10" class="sgbox2"/>
+        <text x="270" y="32" font-size="12" class="sgtxt">Feline housesoiling</text>
+        <text x="270" y="48" class="sgmut">ALWAYS work this 3-way DDx</text>
+        <line x1="240" y1="58" x2="100" y2="100" class="sgline" marker-end="url(#arCB2)"/>
+        <line x1="270" y1="58" x2="270" y2="100" class="sgline" marker-end="url(#arCB2)"/>
+        <line x1="300" y1="58" x2="440" y2="100" class="sgline" marker-end="url(#arCB2)"/>
+        <rect x="14" y="106" width="170" height="84" rx="10" class="sgbox"/>
+        <text x="99" y="124" font-size="11.5" class="sgtxt">1. MEDICAL</text>
+        <text x="99" y="142" class="sgmut">FIC, urolithiasis, UTI,</text>
+        <text x="99" y="156" class="sgmut">DM, neoplasia, IBD,</text>
+        <text x="99" y="170" class="sgmut">anal sacculitis,</text>
+        <text x="99" y="184" class="sgmut">neuro incontinence</text>
+        <rect x="190" y="106" width="170" height="84" rx="10" class="sgbox"/>
+        <text x="275" y="124" font-size="11.5" class="sgtxt">2. INAPPROPRIATE</text>
+        <text x="275" y="138" font-size="11.5" class="sgtxt">TOILETING</text>
+        <text x="275" y="156" class="sgmut">Substrate or location</text>
+        <text x="275" y="170" class="sgmut">aversion or preference,</text>
+        <text x="275" y="184" class="sgmut">box-cleanliness aversion</text>
+        <rect x="366" y="106" width="170" height="84" rx="10" style="fill:rgba(178,59,59,.14);stroke:var(--bad)"/>
+        <text x="451" y="124" font-size="11.5" style="fill:var(--bad)">3. MARKING</text>
+        <text x="451" y="142" class="sgmut">VERTICAL surface,</text>
+        <text x="451" y="156" class="sgmut">stand with tail erect,</text>
+        <text x="451" y="170" class="sgmut">tread with hind legs,</text>
+        <text x="451" y="184" class="sgmut">spray (postpuberty)</text>
+      </g>
+    </svg>
+    <figcaption>Feline housesoiling sorts into three categories: medical, inappropriate toileting, and marking. The posture and substrate differentiate them. Original didactic schematic built from your notes.</figcaption>
+  </figure>
+
+  <h3>1. Medical causes of feline housesoiling</h3>
+  <ul class="hy">
+    <li><b>Urinary</b>: FIC, urolithiasis, UTI, DM, neoplasia, incontinence, conditions that limit locomotion. <span class="bdg notes">your notes</span></li>
+    <li><b>Faecal</b>: increased frequency or urgency (IBD, colitis, diarrhoea); pain on defaecation (anal sacculitis, obstipation, constipation, neoplasia); locomotion; neurological incontinence. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <h3>2. Inappropriate toileting</h3>
+  <ul class="hy">
+    <li>Substrate preference and aversion; location preference and aversion; aversion to the box, an unpleasant event there, or cleanliness. <span class="bdg notes">your notes</span></li>
+    <li><b>Litterbox rules</b>: at least 1 box per cat plus 1; boxes at least 1.5 times the cat's length; scoop once or twice daily; clean weekly with hot water (no strong disinfectants); offer 3 to 4 substrate types if space allows. A healthy cat urinates 2 to 4 times daily and defaecates at least once daily, so cleanliness is paramount. <span class="bdg notes">your notes</span></li>
+    <li>Treatment: reward in the box; remove cause (substrate aversion, location aversion); confine to a small area with the box until the habit re-establishes; prevent return to previously soiled areas (move furniture, block access, eliminate odour with enzymatic cleaner, change the area's function with food bowls or a scratching post). <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <h3>3. Marking (urine spraying)</h3>
+  <ul class="hy">
+    <li>Posture: VERTICAL surface, cat stands with TAIL ERECT, backs up, TREADS with the rear legs, sprays urine. <span class="bdg notes">your notes</span></li>
+    <li>Triggers: territorial competition, anxiety, novel sights, sounds, or odours (especially from other cats); typically POSTPUBERTY. <span class="bdg notes">your notes</span></li>
+    <li>Risk factors: hormones, genetics or temperament, cat population density, scents from other cats, environmental change, new owner schedule, owner absence, inappropriate punishment. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <div class="trap">
+    <b>Exam trap: surgery for marking</b>
+    Castration reduces spraying in 90% of males; spaying reduces spraying in 95% of females. <span class="bdg notes">your notes</span>
+  </div>
+
+  <h3>Marking treatment</h3>
+  <ul class="hy">
+    <li>Reduce stimuli (window coverings, white noise, block view of outdoor cats, remove bird feeders, reduce cats in home). <span class="bdg notes">your notes</span></li>
+    <li>Environmental management: increase litterbox count and location options, scoop at least once daily, weekly clean, odour counteractants. <span class="bdg notes">your notes</span></li>
+    <li>Pheromone therapy: Feliway spray or diffuser may reduce spraying within 1 to 4 weeks. <span class="bdg notes">your notes</span></li>
+    <li>Pharmacology (in Australia ONLY clomipramine 0.25 to 0.5 mg/kg PO q24h is registered for cats): fluoxetine effective at 1 mg/kg with significant improvement by week 2 and continued decrease to week 8; cats with the greatest baseline marking are most likely to recur after drug withdrawal. Buspirone reduces spraying in 55% of cats, ceases in 33%; relapses about 50%; no sedation or ataxia or polyphagia. Treatment usually 8 weeks for maximal effect; if cessation for at least 2 months, attempt slow dose reduction over months. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <div class="verifybox">
+    <b>Feliway versus Felifriend</b>
+    Feliway uses the feline FACIAL pheromone associated with environmental marking; reduces stress and anxiety. Felifriend uses the feline ALLOMARKING pheromone for cat-to-cat familiarisation; applied on the unfamiliar person or animal BEFORE introduction. The two have different indications. <span class="bdg notes">your notes</span>
+  </div>
+</section><section class="panel" id="cagg">
+  <h2 class="sec">Canine Aggression</h2>
+  <p class="lead">Aggression is treatable but rarely curable. Always classify before treating. The three umbrella categories are affective or social (offensive or defensive), predatory, and play. The 13 specific types within these matter on the exam.</p>
+
+  <h3>Three umbrella categories</h3>
+  <table class="cmp">
+    <tr><th>Category</th><th>Definition</th></tr>
+    <tr><td><b>Affective or social aggression</b></td><td>Sympathetic arousal present; can be OFFENSIVE (confident) or DEFENSIVE (fearful)</td></tr>
+    <tr><td><b>Predatory aggression</b></td><td>Hunting behaviour directed at a moving stimulus; little to no sympathetic arousal or prior signalling</td></tr>
+    <tr><td><b>Play-related aggression</b></td><td>Normal puppy play behaviour that has become problematic in intensity or target</td></tr>
+  </table>
+
+  <h3>The 13 canine aggression types</h3>
+  <table class="cmp">
+    <tr><th>Type</th><th>Hallmarks and key facts</th></tr>
+    <tr><td><b>Conflict-related</b></td><td>Competing motivations, frustration over an inability to perform a desired behaviour. Fearful or anxious dogs, unsure how to avoid disagreeable interactions when owners give inconsistent signals. Progression: submission &rarr; anxiety &rarr; uncertainty &rarr; fear &rarr; aggression. Often exhibited toward social group members during physical manipulation or around valuable resources, with ambivalence or submission after biting. Management: identify and avoid eliciting situations. Prevention: consistency and positive reinforcement from puppyhood.</td></tr>
+    <tr><td><b>Resource guarding</b></td><td>Possessive aggression; normal behaviour that becomes maladaptive. Sympathetic arousal (dilated pupils, tense body); stems from anxiety that items will be removed. AGE OF ONSET about 16 weeks; adult onset in dogs on reducing diets or appetite-stimulating drugs or with conditions that increase appetite (e.g. hyperadrenocorticism). Control achievable in most cases within 2 to 3 months. Counter-condition by giving something better in return, or wait until the item is dropped and reward.</td></tr>
+    <tr><td><b>Fear-related</b></td><td>Triggered by a perceived threat. An underlying factor in MANY forms of aggression. Body language: tail DOWN, ears BACK, crouched body, weight shifted AWAY, attempts to escape, piloerection, dilated pupils, tachypnoea, defaecation, urination. Posturing can look offensive when the dog is behind a barrier or the stimulus is at a distance. Particularly susceptible to chronic stress neurochemistry. Treatment: safe management, structure, coping tools, desensitisation and counterconditioning, replace fear response with a calm response. Prevention: early socialisation.</td></tr>
+    <tr><td><b>Territorial and protective</b></td><td>Defined by TARGET, target behaviour, and LOCATION. Territorial is in the home, yard, or car, directed at unfamiliar approachers. Protective requires the PRESENCE of a family member, so a protective dog may be friendly to strangers when the family is absent. Negatively reinforced every time the person or dog passes by, the dog learns the display works. Prognosis is good with environmental control, guarded if the dog has learned the behaviour drives the stimulus away.</td></tr>
+    <tr><td><b>Predatory</b></td><td>Normal instinct; behaviour pattern: stalking, chasing, catching, biting, killing, eating. Stimulated by ANY movement (animals, joggers, cyclists, playing children, cars). Diagnosis: a MOVING stimulus is the target, typically smaller than the dog. Dogs with unwavering focus on a baby's movements or vocalisations are highest risk. Prognosis poor for resolution but management possible with head halter, basket muzzle, leash, response substitution.</td></tr>
+    <tr><td><b>Pain-induced and irritable</b></td><td>Handling or anticipation of handling (approach, reaching) triggers aggression. Even gentle patting, grooming, or medication application of a painful area can elicit it. Hypothyroidism is one differential cause.</td></tr>
+    <tr><td><b>Play</b></td><td>Normal in young dogs, dangerous when intense or uninhibited. Diagnosed by playful postures and behaviours; classic sign is the PLAY BOW. Inconsistent owner responses including punishment can progress play to fear and conflict. Good prognosis with early proper intervention.</td></tr>
+    <tr><td><b>Dominance-related</b></td><td>The MOST mis-diagnosed and OVER-diagnosed type. Three required elements: confident temperament, assertive signalling, AND aggressive behaviour toward social group members in the ABSENCE of fear. Owner-directed aggression in situations where the dog's control of resources or social position is challenged. Lifelong management with guarded prognosis.</td></tr>
+    <tr><td><b>Maternal</b></td><td>Bitch directed at people or animals approaching her puppies. Good prognosis with spontaneous remission as puppies mature or wean. Management: gentle positive handling by trusted family members; muzzle or separate from puppies if needed.</td></tr>
+    <tr><td><b>Redirected</b></td><td>Aggressive behaviour directed at someone or something that is NOT the stimulus. Arises from frustration or interruption of other aggression or arousal. The primary aggression may be territorial, protective, or fear-related; the secondary aggression is redirected. Resolves with treatment of the primary cause unless the relationship has been damaged by the owner's response.</td></tr>
+    <tr><td><b>Intraspecific miscommunication</b></td><td>Failure to communicate; arises in dogs without sufficient socialisation to other dogs, weaned early, or hand-raised. Appeasement behaviours cannot be effectively conveyed. Worsened by altered physical appearance (docked tail, cropped ear, brachycephalic face).</td></tr>
+    <tr><td><b>Intraspecific dominance / status (household)</b></td><td>Aggression between dogs in the same household. Most often SAME-SEX pairs, especially FEMALES. SPAYED FEMALES are over-represented. Younger dogs, new arrivals, and rehomed dogs are most likely to start fights. Intact male and female intra-pair fighters begin at 1 to 3 years. Bites may be uninhibited and severe; prognosis fair to poor. Dogs are roommates, not a pack; giving priority access to the senior dog beats arbitrary preference.</td></tr>
+    <tr><td><b>Pathophysiological</b></td><td>Aggression from underlying physiologic or physical abnormalities: abnormal neurotransmitter or receptor activity, CNS anatomic abnormalities, neoplasia, metabolic disease, infection (rabies), trauma, toxicity.</td></tr>
+  </table>
+
+  <div class="trap">
+    <b>Exam trap: dominance is rarely the answer</b>
+    A diagnosis of dominance-related aggression requires confident temperament, assertive signalling, and aggression toward family members in the absence of fear. Most owner-directed aggression is in fact CONFLICT-RELATED or RESOURCE GUARDING, not dominance. <span class="bdg notes">your notes</span>
+  </div>
+
+  <h3>Behavioural pathology criteria</h3>
+  <p class="note">An aggression problem is considered behaviourally abnormal (a mental health disorder) when ANY of the following apply: exceptionally fearful or anxious, poor impulse control, out of context, excessive for the level of threat, aggressive to benign social signals, lacking predictability or consistency, or an unstable temperament. Drug therapy is helpful in these cases: a daily SSRI (fluoxetine, paroxetine, sertraline) plus an as-needed second agent (trazodone, clonidine, or a benzo). <span class="bdg notes">your notes</span></p>
+
+  <h3>Risk assessment and prognosis</h3>
+  <ul class="hy">
+    <li>Mixed breeds are over-represented, and so are English springer spaniels. The majority of dogs who bite are neutered. <span class="bdg notes">your notes</span></li>
+    <li>Large dogs over 18.2 kg with a short latency to arousal (immediate response to minimal stimuli) and unpredictability are more likely to be euthanised than smaller dogs. <span class="bdg notes">your notes</span></li>
+    <li>Six prognostic factors: latency to arousal (impulsivity), environment, complexity of the situation, potential to do harm, predictability, emotional stability. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <h3>Treatment plan (7 steps)</h3>
+  <ol class="hy" style="list-style:decimal;padding-left:24px">
+    <li>Medical evaluation and treatment as necessary (rule out pain, hyperadrenocorticism, hypothyroidism, seizures, hepatic encephalopathy). <span class="bdg notes">your notes</span></li>
+    <li>Educate the family about all aspects of the problem. <span class="bdg notes">your notes</span></li>
+    <li>Safety recommendations, especially with children in the home. <span class="bdg notes">your notes</span></li>
+    <li>Management changes. <span class="bdg notes">your notes</span></li>
+    <li>Behavioural modification: operant conditioning first, then classical counter-conditioning to shift emotional valence; built on obedience training, structure, predictability, consistency, and resource control. AVOID all physical punishment, which increases aggression and avoidance. <span class="bdg notes">your notes</span></li>
+    <li>Management tools (head halter, muzzle, leash). <span class="bdg notes">your notes</span></li>
+    <li>Medication, supplements, and diet changes. Low-protein diet with tryptophan supplementation is partially effective for territorial aggression. Recheck every 2 weeks by phone and in person at 1 to 2 months. Desexing males reduces territorial and intermale aggression. CAUTION in females: increased reactivity to humans, increased reactivity to unfamiliar dogs, and increased aggression toward family members have been reported AFTER ovariohysterectomy. <span class="bdg notes">your notes</span></li>
+  </ol>
+</section><section class="panel" id="fagg">
+  <h2 class="sec">Feline Aggression</h2>
+  <p class="lead">Ten distinct types. Play aggression is the most common toward owners. Petted-induced is the second most frequent referred. Redirected aggression is the classic cause of acute-onset hostility between previously friendly housemate cats.</p>
+
+  <h3>The 10 feline aggression types</h3>
+  <table class="cmp">
+    <tr><th>Type</th><th>Hallmarks and key facts</th></tr>
+    <tr><td><b>Play</b></td><td>The MOST COMMON aggression by cats toward owners. Predation is highly motivated and instinctive; play attacks start with SILENT STALKING (no vocal or postural threats). Peaks at 9 to 12 months, wanes with maturity. Risk factors: kitten age, hands-and-feet play as a kitten, solo-housed cat, rough or finger-toe play with owners, long periods alone. Management: chase toys (NOT hands); food puzzle toys; redirect to appropriate moving objects; avoid all physical punishment; another social cat of similar age may help (one of the few problems where adding a pet is curative). Prevention: early socialisation, appropriate object and social play; hand-raised kittens are at greatest risk.</td></tr>
+    <tr><td><b>Fear-related (defensive)</b></td><td>Cat perceives a threat with no opportunity to escape. May also redirect after being frightened by an inanimate stimulus. Body cluster: defensive (dilated pupils, ears flat, tail tucked, lowered body, leaning away) PLUS aggressive (piloerection, hissing, teeth bared, growling, swatting, biting, scratching). Good prognosis if adult-onset, short duration, mild arousal, high threshold, defined stimuli, controllable exposure, inhibited bites, adult owner willing to commit.</td></tr>
+    <tr><td><b>Petted-induced</b></td><td>The SECOND MOST FREQUENT form of aggression in referred cases. Cat appears to enjoy attention then bites when stroking exceeds its tolerance. Classically reactive when stroking occurs over the LOWER BACK. Warning signs: fidgeting, tail twitching, tenseness, leaning away, ears flat, lips retracted, hissing, or running. Management: respect the threshold; desensitisation and counterconditioning with high-value food; NEVER restrain or confine during training; no physical punishment.</td></tr>
+    <tr><td><b>Redirected</b></td><td>A common cause of ACUTE-onset aggression between cats in the same household who have lived together amicably for years. Target is NOT the stimulus. Aroused-cat signs to recognise BEFORE the attack: hypervigilance, agitation, nervous pacing, piloerection, fixed gaze, tail flipping, dilated pupils, low vocalisation. Attacks are acute, intense, loud (growling, yowling), with vigorous lunging. Settling may take HOURS to DAYS. Triggers: sight, sound, or odour of another cat; unusual noises; unfamiliar people, animals, or environments.</td></tr>
+    <tr><td><b>Pain-induced and irritable</b></td><td>Liver disease, pancreatitis, renal disease, endocrine disorders, CNS disorders, sensory decline. Diagnose with behaviour change plus medical workup.</td></tr>
+    <tr><td><b>Territorial</b></td><td>Cats recognise colony versus non-colony members; aggression by colony members toward unfamiliar cats. Occurs in both sexes; particularly intense during breeding season. Approach may be slow and stalking or immediate and aggressive. Closely associated with fear-related aggression: a territorially aggressive cat may retreat if the encounter occurs OUTSIDE its territory.</td></tr>
+    <tr><td><b>Intercat household</b></td><td>Differentials: territorial, fear-related, redirected, pain-induced, hormonal. May arise after a single event (e.g. a redirected attack) altering a previously stable relationship. Mild encounters may resolve with hiding places allowing recognition and re-establishment. Spontaneous recovery in hours to weeks. Management: SEPARATE first, then GRADUAL reintroduction (semiochemical exchange with cloths, scent before sight, then visual at distance, then proximity with treats, finally same-room access). Cats should NOT be allowed to "fight it out."</td></tr>
+    <tr><td><b>Pathophysiological</b></td><td>Underlying physiologic or physical abnormality outside the standard categories (e.g. feline hyperesthesia, impulse dyscontrol, chronic anxiety, compulsive disorders, inability to form stable social relationships).</td></tr>
+    <tr><td><b>Social status-related (social stress)</b></td><td>Confident cat asserts status with bold posturing, biting, or threatening to acquire or maintain resources. May initiate interaction then bite during stroking or when lifted or moved. NOT motivated by fear, so may train well to commands when desired resources are the reward. Punishment quickly raises arousal and adds a defensive component since these cats are more likely to fight than back away.</td></tr>
+    <tr><td><b>Hormonally mediated</b></td><td>Normally affiliative queen displays aggression to familiar people or animals approaching her kittens or nest. Function of hormonal lactation state plus the presence of young. Management: do not approach the nest; high-value food rewards at a safe distance.</td></tr>
+  </table>
+
+  <div class="trap">
+    <b>Exam trap: redirected aggression in cats</b>
+    Two previously amicable housemate cats suddenly fight. The MOST LIKELY cause is redirected aggression: one was aroused by an outside trigger (another cat through a window, a strange noise, an unfamiliar visitor) and attacked the bystander. Settling may take HOURS to DAYS. Triggers must be identified and exposure prevented; gradual reintroduction follows. <span class="bdg notes">your notes</span>
+  </div>
+
+  <h3>Feline aggression pharmacology (cross-reference: Behaviour Medications hub)</h3>
+  <ul class="hy">
+    <li>SSRIs (fluoxetine, paroxetine, sertraline) for impulsive, explosive aggression, or for the VICTIM cat with excessive fear of the aggressor. <span class="bdg notes">your notes</span></li>
+    <li>TCAs (clomipramine, amitriptyline) as alternatives. <span class="bdg notes">your notes</span></li>
+    <li>Buspirone for MILD anxiety, but can cause disinhibition and INCREASE aggression. <span class="bdg notes">your notes</span></li>
+    <li>Benzos for refractory cases: rapid anxiolysis, appetite stimulation useful for counterconditioning. Side effects include sedation, incoordination, disinhibition, rebound on rapid withdrawal, paradoxical agitation, and reports of HEPATOTOXICITY in cats. <span class="bdg notes">your notes</span></li>
+    <li>Pheromones: Feliway (environmental) and Felifriend (allomarking with unfamiliar person or animal); alpha-casozepine and L-theanine as adjuncts. <span class="bdg notes">your notes</span></li>
+  </ul>
+</section><section class="panel" id="fore">
+  <h2 class="sec">Behaviour Forensics and Counselling</h2>
+  <p class="lead">Two distinct exam topics live here. Behaviour forensics is the evaluation of dogs from fighting, hoarding, and puppy-mill backgrounds for disposition decisions. Behaviour counselling is the structured history-taking that frames every behavioural consultation.</p>
+
+  <h3>Behaviour forensics: fighting dogs</h3>
+  <ul class="hy">
+    <li>Dogs from fighting environments are typically LESS aggressive toward PEOPLE than the general shelter population, but must be extensively evaluated for aggression toward OTHER DOGS. <span class="bdg notes">your notes</span></li>
+    <li>Physical scarring is evidence of a fight history but does NOT prove the dog was a willing fighter. Some fight-stock dogs attack on first opportunity even without fighting experience; others require encouragement. Inter-dog aggression can emerge as early as 10 weeks. <span class="bdg notes">your notes</span></li>
+    <li>Stimulus dogs must be CAREFULLY SELECTED and UNRELATED to the case (dogs tethered next to each other in the fighting yard are less reactive). <span class="bdg notes">your notes</span></li>
+    <li><b>Order of testing</b>: OPPOSITE-SEX stimulus dog FIRST (fighting dogs often react more favourably or non-aggressively to opposite-sex), then SAME-SEX. <span class="bdg notes">your notes</span></li>
+    <li>Initial introduction through a chain-link FENCE BARRIER, both on leashes (ears, paws, tails, lips can still be bitten through the fence). If neutral or friendly, move away from the barrier and allow a direct nose-to-nose at 0.6 to 1.5 m. <span class="bdg notes">your notes</span></li>
+    <li>Dog handling: THICK BUCKLE COLLARS to avoid discomfort; leashes slightly TAUT to avoid frustration-elicited aggression; handler stays close behind the dog's rear to enable a clean pull-away. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <div class="trap">
+    <b>Exam trap: the fake-dog test</b>
+    Fake dog must be standing erect, short hair, visible eyes, wearing a leash and collar, with a handler. Test dog approaches on a loose lead; if it postures, the fake dog is moved or made to fall in front of the test dog (this may elicit aggression). True aggression toward the fake dog: lunging, intense focus, slow stalking, growling and snapping, excited barking (some are silent), attack with no hesitation or once the fake dog rears or falls, FULL-MOUTHED bites with hold and shake. These dogs are UNSAFE around other animals; with no evidence on behaviour-modification effectiveness, EUTHANASIA is the recommended outcome. <span class="bdg notes">your notes</span>
+  </div>
+
+  <h3>Hoarder and puppy mill dogs</h3>
+  <ul class="hy">
+    <li>Standard behaviour evaluation PLUS additional fear and sociability subtests. <span class="bdg notes">your notes</span></li>
+    <li>These dogs can be extremely social with OTHER DOGS but highly abnormal with PEOPLE and novelty. Impoverished or unenriched environments produce excessive fear of strangers, defensive aggression toward people, catatonia, frenetic activity, and impaired learning. <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <h3>Evaluation protocol</h3>
+  <table class="cmp">
+    <tr><th>Phase</th><th>What happens</th></tr>
+    <tr><td><b>Acclimatisation</b></td><td>Tester seated in a room with the dog loose, NOT soliciting interaction (uses a book or phone). 1 to 2 minutes.</td></tr>
+    <tr><td><b>Active interaction</b></td><td>Tester then actively engages the dog. The earlier passive phase indicates how motivated the dog is to socialise.</td></tr>
+    <tr><td><b>Remote-control car test</b></td><td>Measures response to novelty; slowly moving car observed for 60 seconds for investigation versus avoidance.</td></tr>
+    <tr><td><b>Umbrella test</b></td><td>Place a food bowl, open and close an umbrella while the dog is eating, observe 60 seconds. Dogs that are too frightened will NOT eat. Some associate the umbrella with the tester and become fearful of the tester. Skip both novelty tests if the dog is too fearful for the rest of the evaluation.</td></tr>
+  </table>
+
+  <div class="verifybox">
+    <b>Disposition decision</b>
+    Dogs with no sociability toward humans are unlikely to make suitable pets. Dogs that panic to the point of self-injury or are catatonic in novel environments should be humanely euthanised, even if they can be tamed in home-like surroundings, because they rarely cope with everyday stressors. <span class="bdg ref">std ref</span>
+  </div>
+
+  <div class="trap">
+    <b>Exam trap: long-term outcomes in puppy-mill survivors</b>
+    Even after rehoming, 83% of former puppy-mill BREEDING dogs still exhibit behaviour problems (fear, housesoiling, sensitivity to touch, compulsive behaviour with compromised quality of life). <span class="bdg notes">your notes</span>
+  </div>
+
+  <h3>Behaviour counselling and history-taking</h3>
+  <ul class="hy">
+    <li><b>Undesirable</b> behaviour is the owner's inability to manage an otherwise normal behaviour (resource guarding, protective territorial aggression at visitors, digging, chewing, intraspecies aggression). <span class="bdg notes">your notes</span></li>
+    <li><b>Abnormal</b> behaviour is dysfunctional, anxiety-loaded, out of context, excessive, uninhibited, or impulsive (compulsive disorders, excessive fear, panic and phobias, aggression from dyscontrol, learning deficits, mental health disorders). <span class="bdg notes">your notes</span></li>
+  </ul>
+
+  <div class="card">
+    <h4>Chronic anxiety: clinical signs to look for</h4>
+    <p class="note">Tachycardia, tachypnoea, salivation, GI disturbance, skin disease, self-injurious behaviour, stress- or excitement-induced elimination, PUPD, change in appetite, marked weight loss, obesity, altered grooming, diminished responsiveness, altered sleep pattern. <span class="bdg notes">your notes</span></p>
+  </div>
+
+  <h3>History-taking protocol</h3>
+  <p class="note">A complete behavioural history takes 30 to 90 minutes; the primary caretaker and family members should be present. Four pillars:</p>
+  <table class="cmp">
+    <tr><th>Pillar</th><th>What to ask</th></tr>
+    <tr><td><b>1. Family and environment</b></td><td>House and yard size, human and animal foot traffic, family members, ages, schedules, primary caretaker, other pets and their interactions.</td></tr>
+    <tr><td><b>2. The pet</b></td><td>Sexual status, age, personality, why, when, and where adopted, age at adoption, average daily schedule, location during home, away, sleeping, exercise, interactions with people and pets.</td></tr>
+    <tr><td><b>3. The problem (5 Ws)</b></td><td>WHAT occurs, WHERE, WHEN, WHO is present, WHY does the owner think it occurs. When did it first appear, initial circumstances, frequency and intensity, full body and facial language before, during, and after each incident. Walk back chronologically, most recent first. What corrections have been tried.</td></tr>
+    <tr><td><b>4. Diagnosis, prognosis, treatment, follow-up</b></td><td>The clinical pillars after history.</td></tr>
+  </table>
+</section><section class="panel" id="mcq">
+  <h2 class="sec">MCQ Test Bank</h2>
+  <p class="lead">30 questions covering this hub's content (medical and CCDS, compulsive disorders, separation anxiety and destructive, housesoiling, canine and feline aggression, behaviour forensics). <b>All 30 items in this bank were drafted by Claude from your PDF notes, not from your docx</b>, because your docx 30 MCQs cover fear, phobia, anxiety, and pharmacology and will live in the dedicated Fear, Phobias, and Anxiety Disorders subdomain hub (in build). Correct-answer positions are balanced across A to D.</p>
+  <div class="mcqbar">
+    <div class="label"><span class="dot"></span>30 questions &middot; Common Behaviour Problems &middot; Claude-drafted</div>
+    <div class="score"><span id="scoreTxt">0 / 0 correct</span><button class="reset" id="resetBtn">Reset</button></div>
+  </div>
+  <div id="qhost"></div>
+</section>
+</div></main>
+<footer><div class="wrap">
+  Common Behaviour Problems subdomain hub &middot; Behavioural Health domain &middot; ABVP Shelter Medicine Practice RVS, November 2026. Content badged by source: your uploaded notes (PDF). Specific empirical figures (memantine 64% effective in 2 weeks, amitriptyline 56% versus fluoxetine or clomipramine 75% for separation anxiety, naloxone 0.01 mg/kg tail-chasing effect, 83% post-mill behaviour problem rate, castration 90% spray reduction, spaying 95% spray reduction) are reproduced as your notes record them and have not been independently re-verified against the primary literature. Australia-specific regulatory note kept as written. All 30 MCQs in the bank were drafted by Claude from your PDF and flagged as such. In-house SVG schematics are original didactic constructions. Supports light and dark mode.
+</div></footer>
+<script>
+const tabrow=document.getElementById('tabrow');
+tabrow.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.disabled)return;
+  [...tabrow.children].forEach(x=>x.classList.remove('active'));b.classList.add('active');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('show'));
+  document.getElementById(b.dataset.p).classList.add('show');window.scrollTo({top:0,behavior:'smooth'});});
+const Q=[
+{t:"cbp",f:"notes",q:"A 3 month old purebred dog presents with ataxia, intention tremors, swaying, and a broad-based stance. The signs were absent at birth and emerged at about 6 weeks. Other than this, the dog is bright and otherwise well. Which is the most likely diagnosis?",o:["Cerebellar abiotrophy","Acquired vestibular disease","Lysosomal storage disease in advanced phase","Intracranial primary neoplasia"],a:0,e:"Cerebellar abiotrophy is heritable, dogs are normal at birth, and signs appear at 2 to 9 weeks with onset before 4 months. Lysosomal storage disease shows progressive signs within the first year and is rare; intracranial neoplasia is a senior-onset differential."},
+{t:"cbp",f:"notes",q:"Which structural and functional changes have been documented in canine cognitive dysfunction syndrome?",o:["Diffuse cerebellar atrophy with sparing of the forebrain","Selective hippocampal hypertrophy and dopamine receptor proliferation","Reduced frontal volume, increased ventricles, meningeal calcification, beta-amyloid accumulation, MAOB upregulation, oxidative damage","Acute infarction of the basal ganglia"],a:2,e:"Canine CCDS resembles Alzheimer's disease: frontal atrophy, ventricular enlargement, beta-amyloid, MAOB upregulation, lipofuscin and apoptotic bodies, neuronal loss, and oxidative damage."},
+{t:"cbp",f:"notes",q:"An 8 year old owner-relinquished dog presents with insidious onset of dementia, head pressing, and altered habits. The most likely diagnosis is:",o:["Acute traumatic brain injury","Lysosomal storage disease","Cerebellar abiotrophy","Primary intracranial neoplasia (e.g. meningioma)"],a:3,e:"Primary intracranial tumours (meningioma, astrocytoma) usually occur in dogs over 7 years and cause insidious, slowly progressive signs including dementia, head pressing, and altered habits. Secondary (metastatic) tumours cause acute signs."},
+{t:"cbp",f:"notes",q:"Selegiline is being considered for a senior dog with cognitive dysfunction. Which combination is STRICTLY contraindicated due to fatal serotonin toxicity risk?",o:["Concurrent use with phenobarbital","Concurrent use with SSRIs or TCAs","Concurrent use with calcium-channel blockers","Concurrent use with omeprazole"],a:1,e:"Selegiline (a MAOB inhibitor) combined with SSRIs or TCAs can produce fatal serotonin syndrome. Tramadol, SAMe, tryptophan, and buspirone also add serotonergic risk."},
+{t:"cbp",f:"notes",q:"Which statement best defines a stereotypy in the veterinary behavioural sense?",o:["An abnormal, invariant, repetition of a motor pattern that serves no apparent function","A normal exploratory behaviour displayed in a novel environment","A learned response shaped by positive reinforcement","A breed-specific predatory motor pattern displayed during play"],a:0,e:"A stereotypy is an abnormal, invariant repetition of a motor pattern with no apparent function; it commonly arises from conflict, frustration, or confinement-related stress."},
+{t:"cbp",f:"notes",q:"At what age do compulsive disorders most commonly arise in dogs and cats?",o:["Within the first 2 weeks of life","Only in geriatric patients over 12 years","Prepubertal at 3 to 6 months, or before social maturity at 12 to 36 months","Exclusively during late adolescence between 7 and 8 months"],a:2,e:"Compulsive disorders most commonly arise in the prepubertal period (3 to 6 months), before social maturity (12 to 36 months), or after a recognisable period of change or distress."},
+{t:"cbp",f:"notes",q:"Among the TCAs, which is the MOST SELECTIVE serotonin reuptake inhibitor and the standard TCA choice for ALD, spinning, tail chasing, and feline psychogenic alopecia?",o:["Amitriptyline","Nortriptyline","Doxepin","Clomipramine"],a:3,e:"Clomipramine is the most selective serotonin-reuptake inhibitor of all TCAs and is the standard for compulsive disorders. Other TCAs have less SSRI effect and are less effective for these conditions."},
+{t:"cbp",f:"notes",q:"An NMDA receptor antagonist is being trialled for a refractory compulsive disorder. What efficacy and time course should you discuss with the owner?",o:["Always 100% effective within 24 hours","About 64% effective within 2 weeks, with possible synergy when combined with fluoxetine","About 10% effective only after 6 months of continuous use","Effective only when combined with opiate agonists"],a:1,e:"Memantine and similar NMDA antagonists block glutamate-sensitive NMDA receptors. The notes report about 64% effective within 2 weeks of treatment, with possible synergy with fluoxetine."},
+{t:"cbp",f:"notes",q:"A compulsive disorder responds well to clomipramine over 6 weeks. The owner asks how long to continue the medication. Which is the correct recommendation?",o:["Continue for at least 6 months, often lifelong; if tapering, do so very gradually over several months","Stop immediately once the behaviour resolves","Continue for exactly 2 weeks beyond resolution then stop","Switch to selegiline as soon as improvement is documented"],a:0,e:"If a compulsive disorder improves on medication, the drug should be continued for AT LEAST 6 months, often lifelong. Premature taper risks immediate relapse."},
+{t:"cbp",f:"notes",q:"A cat presents with episodic rippling of the dorsal skin, spasms of the epaxial muscles inducible by rubbing the back, and self-directed tail biting. What is the most likely diagnosis?",o:["Cerebellar abiotrophy","Acute intervertebral disc herniation","Feline hyperesthesia syndrome","Hyperthyroid storm"],a:2,e:"The hallmark of feline hyperesthesia syndrome is rippling or twitching of the thoracolumbar skin and spasm of the epaxial muscles, often inducible by rubbing the back and impossible to interrupt; tail and flank self-trauma is common."},
+{t:"cbp",f:"notes",q:"A dog displays vocalisation, destructiveness, and housesoiling only when the owner is away from home. Other medical and behavioural causes have been ruled out. What is the most likely diagnosis?",o:["Resource guarding","Predatory aggression","Compulsive disorder","Separation anxiety"],a:3,e:"The classic triad of separation anxiety is vocalisation, destructiveness, and housesoiling that occur ONLY when the owner is absent. If the behaviour also occurs when the family is home, or only randomly rather than consistently on departure, consider other differentials."},
+{t:"cbp",f:"notes",q:"Which statement best reflects the comparative effectiveness of antidepressants for separation anxiety in dogs?",o:["Amitriptyline worked in about 95% of cases compared with fluoxetine at about 20%","Amitriptyline worked in about 56% of cases compared with fluoxetine or clomipramine at about 75%","All antidepressants are equally effective at about 50%","Selegiline is first line and works in 100% of cases"],a:1,e:"The notes report amitriptyline effective in about 56% of cases, while fluoxetine or clomipramine were effective in about 75% of cases for separation anxiety."},
+{t:"cbp",f:"notes",q:"Which four pillars should anchor the management of separation anxiety?",o:["Shape independence; reduce departure and homecoming anxiety; decouple departure cues; anxiety reduction through structure and predictability","Use harsh punishment; restrict water; restrain in a small crate; confront the dog","Feed only on departure; allow constant attention; never crate; use force-based correction","Switch homes weekly; play loud music continuously; ignore all distress; never train"],a:0,e:"The four pillars are: shape independence and remove rewards for attention seeking; reduce departure and homecoming anxiety; decouple departure cues from actual departures via mock departures with a unique non-departure cue; reduce overall anxiety with structure and predictability."},
+{t:"cbp",f:"notes",q:"An owner reports their dog digs persistently in the yard. Which differential is LEAST likely to drive digging in this clinical setting?",o:["Predatory drive directed at burrowing rodents","Separation anxiety and escape attempts","Hypothyroidism","Noise-phobia escape attempts"],a:2,e:"Digging is an innate trait in many breeds, especially terriers, and is most commonly driven by predatory exploration of prey odours, escape from separation anxiety or noise phobia, or insufficient stimulation. Hypothyroidism is not described as a digging driver in the notes."},
+{t:"cbp",f:"notes",q:"A cat is observed approaching a vertical wall, standing with tail erect, treading the rear legs, and spraying a stream of urine. This posture and behaviour are diagnostic of:",o:["Inappropriate toileting due to substrate aversion","A medical urinary tract disorder","Cognitive dysfunction-related housesoiling","Urine marking"],a:3,e:"Marking posture is VERTICAL surface, standing with TAIL ERECT, treading with the rear legs, and spraying. Inappropriate toileting is typically horizontal squat onto a horizontal surface."},
+{t:"cbp",f:"notes",q:"An adult intact male cat sprays urine indoors. What proportional reduction in spraying can the owner expect after castration, and how does this compare with the effect of spaying in females who spray?",o:["Castration reduces spraying in about 50% of males; spaying has no effect in females","Castration reduces spraying in about 90% of males; spaying reduces spraying in about 95% of females","Castration eliminates spraying in 100% of males; spaying eliminates it in 100% of females","Surgery has no proven effect on spraying behaviour"],a:1,e:"Castration reduces spraying in about 90% of males and spaying in about 95% of females."},
+{t:"cbp",f:"notes",q:"What is the recommended minimum litterbox-to-cat ratio in a multi-cat household?",o:["1 box per cat plus 1 (n + 1)","1 box per 5 cats","2 boxes per cat regardless of household size","No specific ratio is recommended"],a:0,e:"At least 1 box per cat plus 1, with bigger and more boxes generally better."},
+{t:"cbp",f:"notes",q:"What size and cleaning routine for litterboxes are recommended in the notes?",o:["At least 0.5 times the cat's length, scooped weekly, cleaned monthly with bleach","Any commercial size, scooped twice weekly, cleaned with concentrated quaternary ammonium","At least 1.5 times the cat's length, scooped 1 to 2 times daily, cleaned and changed weekly with hot water, avoiding strong disinfectants","No size or cleaning routine recommendations exist in the literature"],a:2,e:"The notes recommend boxes at least 1.5 times the cat's length, scooped 1 to 2 times daily, cleaned and changed weekly with hot water, avoiding strong disinfectants."},
+{t:"cbp",f:"notes",q:"A young female puppy urinates a small amount whenever excited or when a visitor leans down to greet her. Which approach is most appropriate?",o:["Verbally correct the puppy each time it urinates so it learns not to do it","Withhold water for several hours before any greeting","Confine the puppy permanently to prevent any greetings","Greet calmly and predictably, ignore the puppy until calm, reinforce only behaviours incompatible with submission or excitement, do not punish; the problem usually improves with age"],a:3,e:"Submissive or excitement urination requires calm greetings, ignoring until calm, response substitution to incompatible behaviours, and NO punishment, since punishment makes it worse. The problem typically improves with age."},
+{t:"cbp",f:"notes",q:"Which of the following canine aggression types is described in the literature as the MOST mis-diagnosed and OVER-diagnosed?",o:["Maternal aggression","Dominance-related aggression","Predatory aggression","Pain-induced aggression"],a:1,e:"Dominance-related aggression is the most mis-diagnosed type. The diagnosis requires confident temperament, assertive signalling, AND aggression toward family members in the ABSENCE of fear. Most owner-directed aggression is actually conflict-related or resource guarding."},
+{t:"cbp",f:"notes",q:"At approximately what age does resource-guarding aggression typically begin in dogs?",o:["About 16 weeks of age","About 2 to 3 weeks of age","Only in geriatric dogs","Exclusively at full sexual maturity at 24 months"],a:0,e:"Resource-guarding age of onset is about 16 weeks. Adult-onset cases can occur in dogs on reducing diets or appetite-stimulating drugs or with appetite-increasing medical conditions like hyperadrenocorticism."},
+{t:"cbp",f:"notes",q:"Which combination of signs is most consistent with FEAR-RELATED canine aggression rather than offensive aggression?",o:["Lean forward, fixed hard eye, raised tail, stiff and frozen body, closed mouth, offensive pucker","Ears forward, tail down but not tucked, prolonged focus on the stimulus","Tail down or tucked, ears back, crouched body, weight shifted away, attempts to escape, piloerection, dilated pupils, tachypnoea","Tail high and fast biased to the right, loose side-to-side wag, open relaxed mouth"],a:2,e:"Fear-related aggression body cluster: tail down or tucked, ears back, crouched body, weight shifted away, escape attempts, plus autonomic signs (piloerection, dilated pupils, tachypnoea, defaecation, urination). Posturing can look offensive when behind a barrier or at a distance."},
+{t:"cbp",f:"notes",q:"A dog stalks, chases, bites, and shakes a small moving stimulus with minimal prior threat display. This pattern is characteristic of which aggression type?",o:["Conflict-related aggression","Pain-induced aggression","Maternal aggression","Predatory aggression"],a:3,e:"Predatory aggression is normal hunting behaviour: stalking, chasing, catching, biting, killing, and sometimes eating, triggered by movement, with little vocal or postural threat. Targets are usually smaller and moving."},
+{t:"cbp",f:"notes",q:"Which demographic of intraspecific household aggression is over-represented in dogs?",o:["Opposite-sex pairs, especially intact males","Same-sex pairs, especially females, with spayed females over-represented","Only multi-breed households with three or more dogs","Exclusively senior dogs over 12 years"],a:1,e:"Most intraspecific household aggression involves same-sex pairs, most often FEMALES; SPAYED FEMALES are over-represented. Younger dogs, new arrivals, and rehomed dogs are most likely to initiate."},
+{t:"cbp",f:"notes",q:"At what age does feline play aggression typically peak before waning with maturity?",o:["About 9 to 12 months","About 1 to 2 weeks","About 5 to 7 years","About 14 to 18 years"],a:0,e:"Feline play aggression usually peaks at 9 to 12 months and wanes as the cat grows into adulthood. Risk is higher in solo-housed cats, hand-raised kittens, and cats encouraged to play with hands and feet."},
+{t:"cbp",f:"notes",q:"A cat solicits petting then suddenly bites after the owner strokes the lower back for an extended period. This is the SECOND most frequent referral form of feline aggression. What is the diagnosis?",o:["Predatory play aggression","Pathophysiological aggression","Petted-induced aggression","Maternal aggression"],a:2,e:"Petted-induced aggression is the second most frequent referred form. The cat may seem to enjoy attention, then has a limited threshold for stroking, classically over the lower back, after which it bites."},
+{t:"cbp",f:"notes",q:"Which is the correct distinction between Feliway and Felifriend?",o:["Feliway and Felifriend are identical products with different brand names","Feliway is for dogs; Felifriend is for cats","Felifriend is a controlled antiviral, Feliway is a behaviour drug","Feliway uses the facial pheromone for environmental marking to reduce stress; Felifriend uses the allomarking pheromone to promote cat-to-cat familiarisation, best applied on the unfamiliar person or animal before introduction"],a:3,e:"Feliway is the facial pheromone associated with environmental marking, reducing stress and anxiety. Felifriend is the allomarking pheromone, applied on the unfamiliar person or animal BEFORE introduction to promote cat-to-cat familiarisation."},
+{t:"cbp",f:"notes",q:"When evaluating a dog from a fighting environment for inter-dog aggression, what is the correct order and method of stimulus-dog introduction?",o:["Always begin with a SAME-SEX stimulus dog off-leash with no barrier to allow natural assessment","Begin with an OPPOSITE-SEX, unrelated stimulus dog through a chain-link fence barrier with both dogs on leashes, progressing to same-sex if neutral","Never use a stimulus dog; rely solely on owner history","Use only a fake dog and skip live stimulus dogs entirely"],a:1,e:"Fighting dogs often react more favourably to opposite-sex dogs first; same-sex introduction follows. Initial contact is through a chain-link fence with both on leashes, since ears, paws, tails, and lips can still be bitten through the fence. Stimulus dogs should be completely unrelated to the case."},
+{t:"cbp",f:"notes",q:"Which set of behaviours in the fake-dog test is most consistent with TRUE inter-dog aggression that makes a dog unsafe around other animals and is reported to point to euthanasia as the recommended outcome with no current evidence for behavioural modification?",o:["Lunging, intense focus, slow stalking, growling, excited barking or silent attack with no hesitation, full-mouthed bite-and-shake","Approaching the fake dog with a relaxed wag and play bow","Sniffing the fake dog briefly then walking away","Lying down at a distance and ignoring the fake dog"],a:0,e:"True aggression toward the fake dog includes lunging, intense focus, slow stalking, growling and snapping, excited or silent barking, attack with no hesitation or once the fake dog rears or falls, and full-mouthed bites with hold and shake. The notes record euthanasia as the recommended outcome for these dogs."},
+{t:"cbp",f:"notes",q:"What proportion of former puppy-mill breeding dogs continue to exhibit behaviour problems (fear, housesoiling, touch sensitivity, compulsive behaviour, compromised quality of life) after rehoming?",o:["About 5%","Less than 1%","About 83%","Exactly 50%"],a:2,e:"The notes record that approximately 83% of former puppy-mill breeding dogs still exhibit behaviour problems in the home after rehoming, with a compromised quality of life."}
+];
+const host=document.getElementById('qhost');
+const scoreTxt=document.getElementById('scoreTxt');
+let answered=0, correct=0;
+const DLABEL={cbp:"Common Behaviour Problems"};
+function tagLabel(t){return DLABEL[t]||t.toUpperCase();}
+function flagBadge(f){
+  if(f==='corr')return '<span class="bdg corr">corrected</span>';
+  if(f==='notes')return '<span class="bdg notes">your notes</span>';
+  if(f==='asv')return '<span class="bdg asv">ASV</span>';
+  if(f==='ref')return '<span class="bdg ref">std ref</span>';
+  return '';
+}
+function render(){
+  host.innerHTML='';answered=0;correct=0;updateScore();
+  Q.forEach((item,i)=>{
+    const card=document.createElement('div');card.className='q';
+    card.innerHTML=`<div class="meta"><span class="num">#${i+1}</span><span class="tag">&#9670; ${tagLabel(item.t)}</span>${flagBadge(item.f)}</div><div class="stem">${item.q}</div>`;
+    const opts=document.createElement('div');
+    item.o.forEach((txt,oi)=>{
+      const btn=document.createElement('button');btn.className='opt';
+      btn.innerHTML=`<span class="k">${String.fromCharCode(65+oi)}</span>${txt}`;
+      btn.onclick=()=>choose(card,opts,item,oi);opts.appendChild(btn);
+    });
+    card.appendChild(opts);
+    const ex=document.createElement('div');ex.className='expl';
+    ex.innerHTML=`<b class="cor">Correct: ${String.fromCharCode(65+item.a)}.</b> ${item.e}`;
+    card.appendChild(ex);host.appendChild(card);
+  });
+}
+function choose(card,opts,item,oi){
+  if(card.dataset.done)return;card.dataset.done='1';answered++;
+  [...opts.children].forEach((b,bi)=>{b.classList.add('locked');
+    if(bi===item.a)b.classList.add('correct');
+    if(bi===oi && oi!==item.a)b.classList.add('wrong');});
+  if(oi===item.a)correct++;
+  card.querySelector('.expl').classList.add('show');updateScore();
+}
+function updateScore(){scoreTxt.textContent=`${correct} / ${answered} correct`;}
+document.getElementById('resetBtn').onclick=render;
+render();
+</script>
+</body>
+</html>

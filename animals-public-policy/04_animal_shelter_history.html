@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animal Shelter History | Animals &amp; Public Policy | ABVP Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2c4f18;--ink2:#3d6b22;--paper:#f4f8f0;--paper2:#edf4e8;
+    --line:#c5dbb8;--muted:#567a3a;
+    --id:#3F6B1E;--id-soft:#daefc8;
+    --good:#1f7a4d;--bad:#b23b3b;
+    --notes:#7a4fb5;--notes-soft:#ece3f7;
+    --ref:#1f6f8b;--ref-soft:#dcedf2;
+    --warn:#a8641a;--warn-soft:#f7e6cd;
+    --shadow:0 1px 2px rgba(44,79,24,.08),0 8px 24px rgba(44,79,24,.06);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;
+    background-image:radial-gradient(circle at 1px 1px,rgba(44,79,24,.04) 1px,transparent 0);background-size:22px 22px;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+  header.top{background:var(--id);color:#fff;padding:26px 0 22px;border-bottom:4px solid #a8d080}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#c5e8a0;margin:0 0 6px}
+  header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(26px,4.5vw,40px);margin:0;line-height:1.05}
+  header.top p.sub{margin:8px 0 0;color:#d8f0c0;font-size:14px;max-width:78ch}
+  .legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}
+  .legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.25);color:#eaf4e0;display:flex;align-items:center;gap:6px}
+  .legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--paper2);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button:hover{background:var(--paper);color:var(--ink)}
+  .tabrow button.active{background:var(--ink);color:#fff}
+  .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--id)}
+  main{padding:30px 0 80px}
+  .panel{display:none}.panel.active{display:block}
+  h2{font-family:"Fraunces",serif;font-weight:600;font-size:22px;margin:26px 0 10px;color:var(--ink)}
+  h3{font-family:"Fraunces",serif;font-weight:600;font-size:17px;margin:20px 0 8px;color:var(--ink2)}
+  .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px 26px;margin-bottom:20px;box-shadow:var(--shadow)}
+  .bdg{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+    padding:2px 8px;border-radius:999px;margin-right:6px;vertical-align:middle}
+  .bdg.notes{background:var(--notes-soft);color:var(--notes)}
+  .bdg.ref{background:var(--ref-soft);color:var(--ref)}
+  .bdg.warn{background:var(--warn-soft);color:var(--warn)}
+  table.cmp{width:100%;border-collapse:collapse;margin:10px 0 14px;font-size:13.5px}
+  table.cmp th{text-align:left;font-weight:600;font-size:12px;color:var(--muted);padding:6px 10px;border-bottom:2px solid var(--line)}
+  table.cmp td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp tr:last-child td{border-bottom:none}
+  .timeline{list-style:none;padding:0;margin:10px 0}
+  .timeline li{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--line);align-items:flex-start}
+  .timeline li:last-child{border-bottom:none}
+  .timeline .year{font-family:"JetBrains Mono",monospace;font-size:11.5px;font-weight:700;color:var(--id);min-width:52px;padding-top:1px}
+  .timeline .body{flex:1;font-size:14px;line-height:1.5}
+  .timeline .body strong{color:var(--ink);font-weight:600}
+  .trap{background:var(--warn-soft);border-left:4px solid var(--warn);border-radius:0 10px 10px 0;padding:12px 16px;margin:12px 0;font-size:14px;color:#5a3510}
+  .trap strong{color:var(--warn)}
+  /* MCQ styles */
+  .mcq-bar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+  .filter-btn{border:1px solid var(--line);background:var(--paper2);color:var(--muted);font-family:"Public Sans";font-size:12.5px;font-weight:500;padding:5px 13px;border-radius:999px;cursor:pointer}
+  .filter-btn.on{background:var(--id);color:#fff;border-color:var(--id)}
+  .q{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:14px;box-shadow:var(--shadow)}
+  .q.hidden{display:none}
+  .stem{font-weight:500;font-size:14.5px;margin-bottom:12px;line-height:1.45;color:var(--ink)}
+  .stem b{font-family:"Fraunces",serif;color:var(--muted);margin-right:8px;font-weight:600}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:var(--paper);border-radius:9px;padding:10px 14px;margin-bottom:7px;cursor:pointer;font:inherit;font-size:14px;color:var(--ink);transition:background .12s,border-color .12s;line-height:1.4}
+  .opt:hover{background:var(--id-soft);border-color:var(--id)}
+  .opt.correct{background:#d1f0e0;border-color:var(--good);color:#0d4a2a}
+  .opt.wrong{background:#fce4e4;border-color:var(--bad);color:#5a1010}
+  .opt:disabled{cursor:default}
+  .opt .mk{float:right;font-weight:700}
+  .rat{background:var(--paper2);border-radius:8px;padding:10px 14px;margin-top:6px;font-size:13.5px;line-height:1.5;color:var(--ink2)}
+  .rat b{color:var(--ink)}
+  .score-bar{background:var(--id-soft);border-radius:12px;padding:14px 18px;margin-bottom:18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  .score-label{font-family:"Fraunces",serif;font-size:18px;font-weight:600;color:var(--ink)}
+  .score-label span{font-family:"Public Sans";font-size:13px;font-weight:400;color:var(--muted)}
+  .btn{font-family:"Public Sans";font-size:13.5px;font-weight:500;border:1px solid var(--line);background:#fff;border-radius:9px;padding:7px 14px;cursor:pointer}
+  .btn:hover{background:var(--paper2)}
+  footer{background:var(--paper2);border-top:1px solid var(--line);padding:18px 0;font-size:12.5px;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+<nav style="background:#2c4f18;padding:9px 18px;display:flex;align-items:center;gap:10px;font-family:'Public Sans',system-ui,sans-serif;font-size:13px;font-weight:500;border-bottom:2px solid #3F6B1E"><a href="../index.html" style="color:#a8d080;text-decoration:none;display:flex;align-items:center;gap:5px"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span style="color:#4a7a2a;font-size:11px">›</span><a href="../index.html#domain-policy" style="color:#a8d080;text-decoration:none">Animals &amp; Public Policy</a><span style="color:#4a7a2a;font-size:11px">›</span><span style="color:#d4f0b0">Animal Shelter History</span></nav>
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">Animals &amp; Public Policy · Subdomain 4 of 4 · 20% of domain</p>
+    <h1>Animal Shelter History</h1>
+    <p class="sub">From dog pounds and property law to no-kill paradigms — the evolution of sheltering in North America and the organizations that shaped modern shelter medicine.</p>
+    <div class="legend">
+      <span><i style="background:#7a4fb5"></i>Your notes</span>
+      <span><i style="background:#1f6f8b"></i>Key org/date</span>
+      <span><i style="background:#a8641a"></i>Exam trap</span>
+    </div>
+  </div>
+</header>
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow"></div></div></nav>
+<main><div class="wrap" id="main"></div></main>
+<footer>
+  <p>ABVP Shelter Medicine RVS Study Hub &middot; Animals &amp; Public Policy Domain &middot; Animal Shelter History (Subdomain 4 of 4)</p>
+</footer>
+<script>
+var TABS=[
+  {id:"early",   label:"Early Era",              icon:"🏛️"},
+  {id:"welfare", label:"Welfare Movement",        icon:"🕊️"},
+  {id:"orgs",    label:"National Organizations",  icon:"🏢"},
+  {id:"modern",  label:"Modern Paradigms",        icon:"♻️"},
+  {id:"mcq",     label:"MCQ Test Bank",           icon:"✏️", count:10}
+];
+
+var CONTENT={
+early:`
+<h2>Early Era: Property Law &amp; Dog Pounds</h2>
+<div class="card">
+  <h3>The Property Law Era</h3>
+  <span class="bdg notes">Notes</span>
+  <p>In the 19th century, animals were classified as <strong>property under common law</strong>. Livestock had economic value and some legal protections; dogs and cats were excluded from most property protections and had no legal status as companions.</p>
+  <ul>
+    <li>Livestock (cattle, horses) protected primarily because of their economic value to owners</li>
+    <li>Dogs and cats: no legal status as companion animals; feral/stray dogs seen as nuisances</li>
+    <li>Municipal response was primarily about <strong>public safety and nuisance control</strong>, not welfare</li>
+    <li>"Dog pound" operated by a <strong>poundmaster</strong> — a municipal employee whose role was impoundment and destruction, not adoption</li>
+  </ul>
+  <div class="trap"><strong>⚠ Context:</strong> Early sheltering was punitive and utilitarian — no concept of "adoptability" or owner reunification as a goal.</div>
+</div>
+<div class="card">
+  <h3>The Urban Stray Crisis</h3>
+  <p>Mid-19th century American cities faced a crisis of free-roaming dogs and cats, driven by rapid urbanization and limited sanitation. The public health framing (rabies, dog bites, filth) dominated municipal policy.</p>
+  <ul>
+    <li>New York City: tens of thousands of stray dogs impounded annually by the 1860s–1880s</li>
+    <li>Common disposal method: drowning in the <strong>East River</strong> (mass drowning of dogs became a public controversy in NYC)</li>
+    <li>Drowning was slow and visible — public outrage eventually drove adoption of "more humane" gas methods</li>
+    <li>Licensing fees introduced to fund impound operations → later became the revenue model for salaried municipal workers</li>
+  </ul>
+  <span class="bdg ref">Key date</span> <strong>1870s–1880s:</strong> East River drowning of NYC stray dogs became a catalyst for early animal welfare advocacy.
+</div>
+`,
+welfare:`
+<h2>The Welfare Movement</h2>
+<div class="card">
+  <h3>Henry Bergh &amp; the ASPCA (1866)</h3>
+  <span class="bdg ref">Key org</span>
+  <p>The American Society for the Prevention of Cruelty to Animals was founded in <strong>1866 in New York City</strong> by <strong>Henry Bergh</strong>, modeled on the RSPCA (UK). The ASPCA was the first animal welfare organization in the Western Hemisphere.</p>
+  <ul>
+    <li>Bergh lobbied successfully for New York's first animal cruelty statute (1866)</li>
+    <li>ASPCA given authority to investigate and prosecute animal cruelty — a law enforcement function</li>
+    <li>Focus initially on working horses (most visible animal suffering in urban environments)</li>
+    <li>ASPCA eventually took on NYC animal control contract — a role it held until <strong>1994</strong></li>
+  </ul>
+  <div class="trap"><strong>⚠ Exam trap:</strong> ASPCA founded 1866 by Henry Bergh in New York — not to be confused with the PennSPCA (1868) or HSUS (1950s).</div>
+</div>
+<div class="card">
+  <h3>Caroline Earle White &amp; the PennSPCA (1868)</h3>
+  <span class="bdg ref">Key org</span>
+  <p><strong>Caroline Earle White</strong> co-founded the Women's Branch of the Pennsylvania SPCA in <strong>1868</strong> — the first women-led animal welfare organization. She is credited with championing the move away from drowning toward more humane euthanasia methods.</p>
+  <ul>
+    <li>Advocated for <strong>humane gas asphyxiation chambers</strong> as an alternative to drowning</li>
+    <li>Established a shelter model focused on reducing suffering during impoundment</li>
+    <li>Also co-founded the American Anti-Vivisection Society (1883)</li>
+  </ul>
+</div>
+<div class="card">
+  <h3>Evolution of Euthanasia Methods</h3>
+  <p>As public opposition to visible, prolonged drowning grew, shelters transitioned to:</p>
+  <ul>
+    <li><strong>Electrocution</strong> (early 20th century) — considered "faster" but welfare outcomes poor</li>
+    <li><strong>Carbon monoxide (CO) gas chambers</strong> — widely used through the 20th century; now banned in many states</li>
+    <li><strong>Pentobarbital injection</strong> — current gold standard; recommended by AVMA Guidelines for Euthanasia and ACCES</li>
+  </ul>
+  <p>Municipal licensing fees → revenue to hire <strong>salaried workers</strong> → shift from volunteer/poundmaster model to professionalized shelter staff.</p>
+</div>
+`,
+orgs:`
+<h2>National Organizations</h2>
+<div class="card">
+  <h3>American Humane Association (AHA)</h3>
+  <span class="bdg ref">Key org</span>
+  <p>Founded in <strong>1877</strong>, AHA was originally focused on <strong>humane livestock transport</strong> — responding to railway cruelty to cattle. It later expanded to include sheltering and children's welfare.</p>
+  <ul>
+    <li>AHA was the first national animal welfare organization in the US</li>
+    <li>Developed early standards for shelter operations and euthanasia</li>
+    <li>Role in sheltering diminished as HSUS grew (1950s onward)</li>
+  </ul>
+</div>
+<div class="card">
+  <h3>Humane Society of the United States (HSUS)</h3>
+  <span class="bdg ref">Key org</span>
+  <p>HSUS was founded in <strong>1954</strong> by a group that broke away from the American Humane Association over policy disagreements. It is distinct from local humane societies and does not directly operate shelters.</p>
+  <ul>
+    <li>Founded as a national advocacy organization, not a shelter operator</li>
+    <li>Focuses on legislation, policy, and national campaigns</li>
+    <li>Publishes the widely used <em>Shelter Animal Count</em> data and sheltering guidelines</li>
+  </ul>
+  <div class="trap"><strong>⚠ Exam trap:</strong> HSUS formed from an AHA breakaway in 1954 — NOT from the ASPCA. Know the founding dates: AHA 1877 → ASPCA 1866 → HSUS 1954.</div>
+</div>
+<div class="card">
+  <h3>National Animal Care &amp; Control Association (NACA)</h3>
+  <span class="bdg ref">Key org</span>
+  <p>NACA represents animal control professionals (ACOs) — the field workforce that enforces animal ordinances and operates municipal impound facilities. Provides training, credentialing, and model ordinance guidance.</p>
+  <ul>
+    <li>Distinct from humane society organizations — NACA is the municipal/enforcement side</li>
+    <li>Produces Model Animal Control Ordinance frameworks used by cities and counties</li>
+    <li>Partners with HSUS on shelter reform and Best Friends Animal Society on no-kill initiatives</li>
+  </ul>
+</div>
+<div class="card">
+  <h3>SAWA &amp; the CAWA Credential</h3>
+  <span class="bdg notes">Key credential</span>
+  <p>The <strong>Society of Animal Welfare Administrators (SAWA)</strong> offers the <strong>Certified Animal Welfare Administrator (CAWA)</strong> credential for shelter managers and executives.</p>
+  <table class="cmp">
+    <tr><th>CAWA Credential Domain</th><th>Focus</th></tr>
+    <tr><td>Organizational Leadership</td><td>Board relations, strategic planning, organizational culture</td></tr>
+    <tr><td>Financial Management</td><td>Budgeting, auditing, revenue diversification</td></tr>
+    <tr><td>Human Resources</td><td>Hiring, training, compassion fatigue, compliance</td></tr>
+    <tr><td>Programs &amp; Services</td><td>Adoption, foster, TNR, outreach programs</td></tr>
+    <tr><td>Facility &amp; Operations</td><td>Safety, animal care standards, physical plant management</td></tr>
+  </table>
+  <div class="trap"><strong>⚠ Exam trap:</strong> Know all 5 CAWA domains — ABVP exam may test which domain a specific management task falls under.</div>
+</div>
+<div class="card">
+  <h3>ASPCA Ends NYC Contract (1994)</h3>
+  <span class="bdg ref">Key date</span>
+  <p>In <strong>1994</strong>, the ASPCA ended its 128-year contract to operate New York City's animal control services. NYC Animal Care Centers (ACC) took over as the municipal operator. This marked a broader national trend of separating animal welfare advocacy from municipal animal control.</p>
+  <ul>
+    <li>Separation of advocacy/welfare orgs from municipal contracts allowed each to focus on its mission</li>
+    <li>Many cities transitioned from SPCA-operated pounds to dedicated municipal AC agencies</li>
+  </ul>
+</div>
+`,
+modern:`
+<h2>Modern Paradigms</h2>
+<div class="card">
+  <h3>The No-Kill Movement</h3>
+  <span class="bdg notes">Notes</span>
+  <p>The no-kill movement emerged from the belief that euthanizing healthy and treatable animals in shelters is not an inevitable necessity. The philosophical groundwork was laid by activist and author <strong>Ed Duvin</strong>, whose 1989 essay <em>"In the Name of Mercy"</em> argued that the humane movement was complicit in mass killing.</p>
+  <ul>
+    <li><strong>Ed Duvin</strong>: credited as the intellectual origin of no-kill philosophy — know his name and that he was a writer/activist, not an organizational founder</li>
+    <li>No-Kill definition in practice: live release rate ≥ 90% (excludes irremediably suffering animals from the denominator in the Asilomar Accords model)</li>
+    <li>Best Friends Animal Society (founded 1984, Angel Canyon UT): major no-kill advocacy organization</li>
+    <li>Nathan Winograd: wrote <em>Redemption</em> (2007), operationalized the No Kill Equation — 11 programs for achieving no-kill</li>
+  </ul>
+  <div class="trap"><strong>⚠ Exam trap:</strong> No-Kill movement intellectual origin = Ed Duvin's writings, NOT a specific founding organization. Do not attribute it to Best Friends or Nathan Winograd alone.</div>
+</div>
+<div class="card">
+  <h3>Intake Reduction Strategies</h3>
+  <p>The paradigm shift from "better killing" to "fewer intakes" drove major programmatic innovations:</p>
+  <ul>
+    <li><strong>Spay/Neuter programs</strong>: community-wide S/N reduces shelter intake long-term; high-volume, low-cost (HVLCS) model made it accessible</li>
+    <li><strong>TNR (Trap-Neuter-Return)</strong>: community cat programs reduce feral/free-roaming cat intake and population over time</li>
+    <li><strong>Feral Freedom</strong>: specific return-to-field program for adult unsocialized cats — cats spayed/neutered and returned same day; distinct from TNR in scope and speed</li>
+    <li><strong>Diversion programs</strong>: behavior helplines, temporary foster/boarding, pet food pantries to keep pets in homes</li>
+  </ul>
+  <div class="trap"><strong>⚠ Exam trap:</strong> Feral Freedom ≠ TNR. Feral Freedom is a specific return-to-field model for adult unsocialized cats; TNR encompasses broader community cat colony management.</div>
+</div>
+<div class="card">
+  <h3>The Well-Organized Shelter</h3>
+  <span class="bdg ref">ASV / Shelter Medicine</span>
+  <p>Best Friends Animal Society's "10-Point No Kill Equation" and the ASV's standards frame the well-organized shelter as one that implements:</p>
+  <ol style="margin:0;padding-left:18px;font-size:14px;line-height:1.7">
+    <li>Feral cat TNR / return-to-field programs</li>
+    <li>High-volume / high-quality spay-neuter access</li>
+    <li>Rescue group partnerships and transfer programs</li>
+    <li>Foster care programs</li>
+    <li>Comprehensive adoption programs with extended hours</li>
+    <li>Pet retention / owner support programs</li>
+    <li>Medical and behavior rehabilitation</li>
+    <li>Proactive redemptions (owner reunification outreach)</li>
+    <li>Public relations and community engagement</li>
+    <li>Volunteer programs</li>
+  </ol>
+</div>
+<div class="card">
+  <h3>Coalition Building &amp; Public–Private Partnerships</h3>
+  <p>Modern no-kill communities typically involve formal collaboration across:</p>
+  <ul>
+    <li>Municipal animal control (AC) agencies</li>
+    <li>Private humane societies and SPCAs</li>
+    <li>Rescue groups and breed-specific rescues</li>
+    <li>Veterinary clinics (HVLCS partnerships)</li>
+    <li>Local government (funding, ordinance reform)</li>
+  </ul>
+  <p>The <strong>Austin, TX</strong> model (first major city to achieve "no-kill" status, ~2011) is often cited as the proof-of-concept for community-wide coalition approaches.</p>
+</div>
+`,
+mcq:""
+};
+
+var QS=[
+  {tag:"early",stem:"In 19th-century American cities, stray dogs impounded by municipal pounds were most commonly disposed of by which method?",opts:["Pentobarbital injection","Gas asphyxiation chamber","Drowning in rivers (e.g., the East River)","Electrocution"],ans:2,rat:"Before the welfare movement, mass drowning was the primary disposal method for stray dogs in cities like New York — visible and prolonged, which eventually galvanized public opposition. Gas chambers came later (associated with Caroline Earle White's advocacy), and barbiturate injection is the modern standard."},
+  {tag:"early",stem:"Which statement best describes the legal status of dogs and cats in the United States in the mid-19th century?",opts:["They were protected as sentient property with enforceable welfare rights","They were classified under the same property law protections as livestock","They had no meaningful legal status and were treated as nuisances","They were covered by the Animal Welfare Act from its inception"],ans:2,rat:"In the mid-19th century, dogs and cats had no recognized legal status as property. Livestock had protections tied to their economic value; companion animals were excluded. The Animal Welfare Act was not enacted until 1966."},
+  {tag:"welfare",stem:"The ASPCA was founded in 1866 by which individual?",opts:["Caroline Earle White","Nathan Winograd","Henry Bergh","Ed Duvin"],ans:2,rat:"Henry Bergh founded the ASPCA in New York City in 1866, modeled on the RSPCA. Caroline Earle White co-founded the Women's Branch of PennSPCA in 1868. Ed Duvin and Nathan Winograd are associated with the no-kill movement, decades later."},
+  {tag:"welfare",stem:"Caroline Earle White is BEST remembered in shelter history for which contribution?",opts:["Founding the ASPCA in 1866","Authoring 'In the Name of Mercy' — the intellectual foundation of no-kill","Advocating for humane gas asphyxiation as an alternative to drowning","Establishing the CAWA credentialing program through SAWA"],ans:2,rat:"White co-founded the Women's Branch of the Pennsylvania SPCA (1868) and championed humane gas chambers as an alternative to the then-common practice of drowning stray animals. 'In the Name of Mercy' was written by Ed Duvin, and the ASPCA was founded by Henry Bergh."},
+  {tag:"orgs",stem:"The Humane Society of the United States (HSUS) was formed in 1954 as a breakaway from which organization?",opts:["ASPCA","National Animal Care and Control Association (NACA)","American Humane Association (AHA)","Society of Animal Welfare Administrators (SAWA)"],ans:2,rat:"HSUS was founded in 1954 by a group that broke away from the American Humane Association (AHA) over policy disagreements. It is not affiliated with the ASPCA. NACA and SAWA are separate, later organizations."},
+  {tag:"orgs",stem:"In which year did the ASPCA end its long-running contract to operate New York City's animal control services?",opts:["1966","1977","1994","2001"],ans:2,rat:"The ASPCA ended its NYC animal control contract in 1994 after 128 years, transferring operations to what became NYC Animal Care Centers (ACC). This separation of advocacy from municipal impound function was part of a broader national trend."},
+  {tag:"orgs",stem:"The CAWA (Certified Animal Welfare Administrator) credential is awarded by which organization?",opts:["ASPCA","NACA","SAWA","Best Friends Animal Society"],ans:2,rat:"The CAWA is offered by the Society of Animal Welfare Administrators (SAWA). It has 5 domains: Organizational Leadership, Financial Management, Human Resources, Programs & Services, and Facility & Operations."},
+  {tag:"modern",stem:"The intellectual foundation of the no-kill movement is most directly attributed to which individual?",opts:["Henry Bergh","Ed Duvin","Nathan Winograd","Richard Avanzino"],ans:1,rat:"Ed Duvin's 1989 essay 'In the Name of Mercy' is credited as the philosophical catalyst for the no-kill movement, arguing that shelters were complicit in mass killing. Nathan Winograd later operationalized this in 'Redemption' (2007) and the No Kill Equation. Henry Bergh founded the ASPCA; Richard Avanzino led the San Francisco SPCA's no-kill transformation."},
+  {tag:"modern",stem:"Which of the following BEST distinguishes 'Feral Freedom' from standard TNR programs?",opts:["Feral Freedom requires colony registration; TNR does not","Feral Freedom returns only adult unsocialized cats the same day; TNR involves long-term colony management","Feral Freedom uses ear-notching; TNR relies on microchipping for identification","Feral Freedom is federally funded; TNR is locally funded"],ans:1,rat:"Feral Freedom is a return-to-field model specifically for adult unsocialized cats — they are spayed/neutered and returned to their capture location the same day. Standard TNR involves ongoing colony management (feeding, monitoring, trapping additional cats). Both use ear-tipping for identification."},
+  {tag:"modern",stem:"A shelter director wants to implement a 'no-kill' program. According to the Best Friends Animal Society No Kill Equation framework, which combination of programs is MOST essential?",opts:["Extended adoption hours and breed-specific rescue only","High-volume spay/neuter, foster care, rescue partnerships, proactive redemptions, and community TNR","Mandatory microchipping and increased adoption fees to reduce impulse adoptions","Reducing intake by banning owner surrenders and closing the shelter to strays"],ans:1,rat:"The No Kill Equation includes 11 programs; the core pillars are HVLCS spay/neuter, foster care, rescue/transfer partnerships, proactive owner reunification (redemptions), TNR/return-to-field, and comprehensive adoption programs. Banning owner surrenders or closing to strays transfers animals elsewhere — it doesn't reduce killing systemically."}
+];
+
+var activeTag="all";
+
+function buildMCQ(){
+  var answered={};
+  var correct=0;
+  var total=QS.length;
+
+  function html(){
+    var h='<div class="score-bar"><div class="score-label">'+correct+' / '+total+' correct <span>('+Object.keys(answered).length+' answered)</span></div><button class="btn" onclick="resetMCQ()">Reset</button></div>';
+    h+='<div class="mcq-bar"><button class="filter-btn'+(activeTag==="all"?" on":"")+'" onclick="filterMCQ(\'all\')">All ('+total+')</button>';
+    var tags=[...new Set(QS.map(function(q){return q.tag}))];
+    tags.forEach(function(t){
+      var n=QS.filter(function(q){return q.tag===t}).length;
+      h+='<button class="filter-btn'+(activeTag===t?" on":"")+'" onclick="filterMCQ(\''+t+'\')">'+t.charAt(0).toUpperCase()+t.slice(1).replace(/-/g,' ')+' ('+n+')</button>';
+    });
+    h+='</div>';
+    QS.forEach(function(q,qi){
+      var show=(activeTag==="all"||activeTag===q.tag);
+      h+='<div class="q'+(show?'':' hidden')+'" id="q'+qi+'">';
+      h+='<div class="stem"><b>Q'+(qi+1)+'</b>'+q.stem+'</div>';
+      q.opts.forEach(function(o,oi){
+        var cls="opt",mk="",dis="";
+        if(answered.hasOwnProperty(qi)){
+          dis="disabled";
+          if(oi===q.ans){cls+=" correct";mk='<span class="mk">✓</span>';}
+          else if(oi===answered[qi]){cls+=" wrong";mk='<span class="mk">✗</span>';}
+        }
+        h+='<button class="'+cls+'" '+dis+' onclick="ans('+qi+','+oi+')">'+String.fromCharCode(65+oi)+'. '+o+mk+'</button>';
+      });
+      if(answered.hasOwnProperty(qi)){
+        var isRight=answered[qi]===q.ans;
+        h+='<div class="rat"><b>'+(isRight?"Correct.":"Answer: "+String.fromCharCode(65+q.ans)+".")+'</b> '+q.rat+'</div>';
+      }
+      h+='</div>';
+    });
+    return h;
+  }
+
+  function render(){document.getElementById("mcq-mount").innerHTML=html();}
+
+  window.ans=function(qi,oi){
+    if(answered.hasOwnProperty(qi))return;
+    answered[qi]=oi;
+    if(oi===QS[qi].ans)correct++;
+    render();
+  };
+  window.resetMCQ=function(){answered={};correct=0;render();};
+  window.filterMCQ=function(t){activeTag=t;render();};
+
+  var mount=document.createElement("div");
+  mount.id="mcq-mount";
+  document.getElementById("main").appendChild(mount);
+  render();
+}
+
+function showTab(id){
+  document.querySelectorAll(".panel").forEach(function(p){p.classList.remove("active")});
+  document.querySelectorAll(".tabrow button").forEach(function(b){b.classList.remove("active")});
+  document.getElementById("panel-"+id).classList.add("active");
+  document.querySelector('[data-tab="'+id+'"]').classList.add("active");
+  if(id==="mcq"&&!document.getElementById("mcq-mount"))buildMCQ();
+}
+
+window.addEventListener("DOMContentLoaded",function(){
+  var tabrow=document.getElementById("tabrow");
+  var main=document.getElementById("main");
+  TABS.forEach(function(t,i){
+    var btn=document.createElement("button");
+    btn.setAttribute("data-tab",t.id);
+    btn.innerHTML='<span>'+t.icon+'</span> '+t.label+(t.count?' <span style="background:var(--id-soft);color:var(--id);border-radius:999px;padding:1px 7px;font-size:11px;font-weight:700">'+t.count+'</span>':'');
+    btn.onclick=function(){showTab(t.id)};
+    if(i===0)btn.classList.add("active");
+    tabrow.appendChild(btn);
+
+    var panel=document.createElement("div");
+    panel.className="panel"+(i===0?" active":"");
+    panel.id="panel-"+t.id;
+    if(t.id!=="mcq")panel.innerHTML=CONTENT[t.id];
+    main.appendChild(panel);
+  });
+});
+</script>
+</body>
+</html>

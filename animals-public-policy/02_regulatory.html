@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Regulatory | Animals &amp; Public Policy | ABVP Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2c4f18;--ink2:#3d6b22;--paper:#f4f8f0;--paper2:#edf4e8;
+    --line:#c5dbb8;--muted:#567a3a;
+    --id:#3F6B1E;--id-soft:#daefc8;
+    --good:#1f7a4d;--bad:#b23b3b;
+    --notes:#7a4fb5;--notes-soft:#ece3f7;
+    --ref:#1f6f8b;--ref-soft:#dcedf2;
+    --warn:#a8641a;--warn-soft:#f7e6cd;
+    --shadow:0 1px 2px rgba(44,79,24,.08),0 8px 24px rgba(44,79,24,.06);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;
+    background-image:radial-gradient(circle at 1px 1px,rgba(44,79,24,.04) 1px,transparent 0);background-size:22px 22px;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+  header.top{background:var(--id);color:#fff;padding:26px 0 22px;border-bottom:4px solid #a8d080}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#c5e8a0;margin:0 0 6px}
+  header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(26px,4.5vw,40px);margin:0;line-height:1.05}
+  header.top p.sub{margin:8px 0 0;color:#d8f0c0;font-size:14px;max-width:78ch}
+  .legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}
+  .legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.25);color:#eaf4e0;display:flex;align-items:center;gap:6px}
+  .legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--paper2);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button:hover{background:var(--paper);color:var(--ink)}
+  .tabrow button.active{background:var(--ink);color:#fff}
+  .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--id)}
+  main{padding:30px 0 80px}
+  .panel{display:none;animation:fade .35s ease}
+  .panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;letter-spacing:-.01em;color:var(--muted)}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:80ch}
+  h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:30px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;scroll-margin-top:64px;color:var(--id)}
+  h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;color:var(--ink2);text-transform:uppercase;letter-spacing:.03em}
+  .card{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}
+  p.note{font-size:14px;margin:0 0 6px}
+  ul.hy{margin:8px 0;padding-left:0;list-style:none}
+  ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed var(--line);font-size:14px}
+  ul.hy li:last-child{border-bottom:0}
+  ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;border-radius:2px;background:var(--id);transform:rotate(45deg)}
+  .trap{background:#fdf3ed;border:1px solid #e8c9a8;border-left:4px solid var(--warn);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .trap b{color:var(--warn);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .corrbox{background:#e9f4ee;border:1px solid #bfe0cc;border-left:4px solid var(--good);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .corrbox b{color:var(--good);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .alertbox{background:var(--id-soft);border:1px solid #b8d8a0;border-left:4px solid var(--id);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .alertbox b{color:var(--id);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:var(--paper2);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp th{background:var(--ink);color:#fff;font-weight:600;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase}
+  table.cmp tr:last-child td{border-bottom:0}
+  table.cmp td b{color:var(--ink)}
+  .bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+  .bdg.ref{background:var(--ref-soft);color:var(--ref)}
+  .bdg.warn{background:var(--warn-soft);color:var(--warn)}
+  .bdg.notes{background:var(--notes-soft);color:var(--notes)}
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--ink);color:#fff;border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:54px;z-index:10}
+  .mcqbar .filters{display:flex;gap:6px;flex-wrap:wrap}
+  .mcqbar .filters button{font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#c5e8a0;padding:6px 11px;border-radius:999px;cursor:pointer}
+  .mcqbar .filters button.on{background:var(--id);border-color:var(--id);color:#fff}
+  .score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}
+  .score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;color:#c5e8a0;padding:5px 10px;border-radius:8px;font-size:11px}
+  .q{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
+  .q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+  .q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--id-soft);color:var(--id)}
+  .q .stem{font-weight:600;font-size:15px;margin-bottom:10px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;font-family:"Public Sans";transition:background .15s,border-color .15s}
+  .opt:hover{border-color:var(--ink)}
+  .opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}
+  .opt.correct{background:#e8f5ec;border-color:var(--good);color:#0d3d24}
+  .opt.wrong{background:#fbe9e9;border-color:var(--bad);color:#5e1d1d}
+  .opt.locked{cursor:default}
+  .expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:#ecf4e6;border:1px solid var(--line);font-size:13.5px}
+  .expl.show{display:block}
+  .expl b.cor{color:var(--good)}
+  footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
+  @media(max-width:640px){.mcqbar{top:50px}.score{font-size:12px}}
+</style>
+</head>
+<body>
+
+<!-- Back-nav bar -->
+<nav style="background:#2c4f18;padding:9px 18px;display:flex;align-items:center;gap:10px;font-family:'Public Sans',system-ui,sans-serif;font-size:13px;font-weight:500;border-bottom:2px solid #3F6B1E"><a href="../index.html" style="color:#a8d080;text-decoration:none;display:flex;align-items:center;gap:5px"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span style="color:#4a7a2a;font-size:11px">›</span><a href="../index.html#domain-policy" style="color:#a8d080;text-decoration:none">Animals &amp; Public Policy</a><span style="color:#4a7a2a;font-size:11px">›</span><span style="color:#d4f0b0">Regulatory</span></nav>
+
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">ABVP Shelter Medicine Practice RVS &middot; Animals &amp; Public Policy &middot; Subdomain 2 of 4</p>
+    <h1>Regulatory</h1>
+    <p class="sub">Exam-depth coverage of non-profit governance, stray hold requirements, veterinary practice act supervision rules, DEA controlled substance regulations, and shelter liability. High-yield exam traps on DEA address rules, supervision levels, elective surgery during stray holds, and trial adoption agreements.</p>
+    <div class="legend">
+      <span><i style="background:var(--ref)"></i>State laws / DEA / IRS regulations</span>
+      <span><i style="background:var(--notes)"></i>Textbook / lecture notes</span>
+      <span><i style="background:var(--warn)"></i>Exam trap</span>
+      <span><i style="background:var(--good)"></i>High-yield point</span>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="nonprofit"><span class="dot"></span>Non-Profit Governance</button>
+  <button data-p="stray"><span class="dot"></span>Stray Holds &amp; Ownership</button>
+  <button data-p="vetpractice"><span class="dot"></span>Vet Practice Acts &amp; DEA</button>
+  <button data-p="liability"><span class="dot"></span>Liability</button>
+  <button data-p="mcq"><span class="dot" style="background:#1a3d0a"></span>MCQ Test Bank</button>
+</div></div></nav>
+
+<main><div class="wrap">
+
+<!-- ===================== NON-PROFIT ===================== -->
+<section class="panel show" id="nonprofit">
+  <h2 class="sec">Non-Profit Governance</h2>
+  <p class="lead">Most animal shelters operate as 501(c)(3) tax-exempt non-profits. Understanding the governance structure, IRS requirements, and licensing obligations is a tested component of the ABVP policy domain.</p>
+
+  <h3>501(c)(3) Structure <span class="bdg ref">IRS / Non-profit law</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>501(c)(3) designation</b>: a federal tax exemption granted by the IRS to organisations operating exclusively for charitable, educational, or similar purposes. Animal shelters qualify as charitable organisations under this code section. Donors to 501(c)(3) organisations may deduct contributions from federal income tax.</li>
+      <li><b>Private inurement prohibition</b>: no part of the net earnings of a 501(c)(3) may benefit any private shareholder or individual. This means no individual can take profit from the organisation's activities. Excessive compensation to executives can trigger this prohibition.</li>
+      <li><b>Political activity restrictions</b>: 501(c)(3) organisations are prohibited from participating in political campaign activities on behalf of any candidate. They may engage in a limited amount of lobbying for legislation.</li>
+      <li><b>State-level licensing</b>: most states require animal shelters to obtain a licence from the state department of agriculture (or equivalent regulatory body). Requirements vary but commonly include facility inspections, record-keeping standards, and minimum care requirements. Private shelters and municipal shelters may be regulated differently.</li>
+    </ul>
+    <div class="corrbox"><b>High-yield — state agriculture dept licensing</b>Animal shelters are typically licensed by the state department of agriculture, not the state veterinary board. The veterinary board regulates the practice of veterinary medicine at the shelter (individual veterinarian licences), but the facility itself operates under an agriculture department permit. Know the distinction for the exam.</div>
+  </div>
+
+  <h3>Board of Directors <span class="bdg ref">Non-profit governance standards</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Role of the Board</b>: the board of directors is responsible for <em>strategic oversight</em> — setting mission, approving major policies, overseeing financial health, hiring and evaluating the executive director, and ensuring legal compliance. The board does NOT engage in day-to-day operations.</li>
+      <li><b>Day-to-day management</b>: the executive director (or shelter director/CEO) is responsible for implementing board policy and managing daily operations, including staff supervision, animal care, and community programmes. The board delegates operational authority to the executive director.</li>
+      <li><b>Fiduciary duty</b>: board members have a legal fiduciary duty to the organisation — duty of care (making informed decisions), duty of loyalty (avoiding conflicts of interest), and duty of obedience (following the organisation's mission and applicable law).</li>
+      <li><b>Conflict of interest</b>: board members with a personal financial interest in a decision (e.g., their company is being considered as a vendor) must disclose this conflict and recuse themselves from the vote.</li>
+    </ul>
+    <div class="trap"><b>Exam trap — board does NOT manage day-to-day operations</b>A common exam question presents a scenario where the board intervenes in a specific animal care or hiring decision. This is inappropriate board behaviour — boards set policy and oversight, not operational detail. The shelter director implements policy and manages staff. Board members who micro-manage operations undermine the executive director's authority and expose the organisation to governance failures.</div>
+  </div>
+
+  <h3>IRS Form 990 <span class="bdg ref">IRS regulations</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>What it is</b>: the IRS Form 990 is the annual information return required of most 501(c)(3) organisations. It reports revenue, expenses, assets, liabilities, programme activities, executive compensation, and governance practices.</li>
+      <li><b>Public disclosure requirement</b>: the Form 990 is a public document. Any member of the public may request a copy, and the organisation must provide it. This requirement promotes transparency and accountability for tax-exempt organisations. Third-party databases (e.g., GuideStar/Candid) make 990s freely searchable online.</li>
+      <li><b>Consequences of non-compliance</b>: failure to file a Form 990 for three consecutive years results in automatic revocation of 501(c)(3) status by the IRS.</li>
+    </ul>
+    <div class="corrbox"><b>High-yield — 990 is public</b>The public disclosure requirement of the Form 990 is a frequently tested fact. Unlike corporate financial statements, a non-profit's tax return is available to anyone who requests it. Donors, journalists, and regulators use 990 data to evaluate an organisation's financial health and efficiency.</div>
+  </div>
+</section>
+
+<!-- ===================== STRAY HOLDS ===================== -->
+<section class="panel" id="stray">
+  <h2 class="sec">Stray Holds &amp; Ownership</h2>
+  <p class="lead">Statutory hold requirements protect an owner's property rights in their animal. Violating hold periods — even inadvertently — exposes a shelter to significant legal liability. These rules are among the most tested regulatory content for the ABVP exam.</p>
+
+  <h3>Statutory Hold Periods <span class="bdg ref">State animal control laws</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>What is a stray hold?</b> A legally mandated minimum period during which an impounded animal must be held and made available for owner reclaim before the shelter may dispose of it (by adoption, euthanasia, or transfer). Varies by state and by animal status.</li>
+      <li><b>Typical minimums:</b> 3–7 days for animals without identification; longer holds for animals with ID (collar, tag, microchip). The Illinois Animal Control Act (a frequently cited model) specifies a minimum 7-day hold for animals with owner identification.</li>
+      <li><b>Municipal vs private shelters:</b> municipal (government-contracted) shelters are directly bound by state stray hold statutes. Private non-profit shelters receiving strays from animal control are also typically bound. A private shelter operating as an owner-surrender-only facility may have more flexibility, but accepting strays from public sources triggers statutory obligations.</li>
+      <li><b>Holiday holds:</b> some states require that stray hold days be counted only as business days, excluding weekends and public holidays. Know your jurisdiction's rule for the exam; for a general exam question, assume the state statute governs.</li>
+    </ul>
+    <div class="corrbox"><b>High-yield — 7-day hold for animals with ID</b>Animals impounded with owner identification (collar/tag with phone number, registered microchip, rabies tag) must be held for the maximum statutory period — often 7 days — to allow the owner to be notified and reclaim. The presence of identification substantially limits the shelter's legal ability to dispose of the animal quickly.</div>
+  </div>
+
+  <h3>No Elective Surgery During the Hold <span class="bdg ref">Property law / state statutes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>During a statutory stray hold, the animal remains the <em>legal property</em> of its owner until the hold expires without reclaim (at which point legal ownership transfers to the shelter by operation of law).</li>
+      <li><b>Elective surgery during the hold</b> — such as spay or neuter — constitutes an alteration of another person's property without consent. This is legally actionable as property damage or conversion (the legal term for unauthorised taking of another's property).</li>
+      <li><b>Emergency veterinary care</b> during a hold is permissible and is the standard of care obligation — a shelter may not withhold life-saving treatment because the animal is in a stray hold. Emergency care costs may be recovered from the owner upon reclaim, depending on state law.</li>
+      <li><b>Tattoos and microchips</b>: implanting a microchip in a stray animal during the hold period is also problematic — it identifies the animal as the shelter's property. Best practice is to wait until the hold expires before microchipping or tattooing.</li>
+    </ul>
+    <div class="trap"><b>Exam trap — no elective surgery during stray hold</b>Performing routine elective surgery (spay/neuter) on a stray animal before the statutory hold expires is one of the most commonly tested regulatory violations. Even if the animal is unlikely to be reclaimed, performing elective surgery during the hold period constitutes an unauthorised alteration of another person's property. Always wait for the hold to expire — or obtain written owner consent if the owner is identified and contacted.</div>
+  </div>
+
+  <h3>Risk Differences: Municipal vs Private Shelters <span class="bdg ref">Shelter law</span></h3>
+  <div class="card">
+    <table class="cmp">
+      <tr><th>Factor</th><th>Municipal shelter</th><th>Private non-profit shelter</th></tr>
+      <tr><td><b>Hold obligation</b></td><td>Directly bound by state Animal Control Act; hold period strictly mandated</td><td>Bound when accepting strays from animal control; may have contractual obligations beyond statutory minimums</td></tr>
+      <tr><td><b>Liability for hold violations</b></td><td>Government immunity may apply (varies by state); but civil rights claims possible</td><td>Fully liable under tort law; no government immunity</td></tr>
+      <tr><td><b>Owner reclaim rights</b></td><td>Owner must pay statutory fees to reclaim</td><td>May charge care costs; cannot exceed reasonable costs without statutory authority</td></tr>
+      <tr><td><b>Record-keeping</b></td><td>Public records often required; subject to FOIA</td><td>Not typically subject to FOIA; internal records still must meet state licensing requirements</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ===================== VET PRACTICE / DEA ===================== -->
+<section class="panel" id="vetpractice">
+  <h2 class="sec">Veterinary Practice Acts &amp; DEA Regulations</h2>
+  <p class="lead">Veterinary practice acts govern the scope of practice and supervision requirements for veterinary staff in shelters. DEA regulations govern controlled substance handling. Both are heavily tested on the ABVP exam, with multiple high-yield traps.</p>
+
+  <h3>Supervision Levels: Direct vs Indirect <span class="bdg ref">State veterinary practice acts</span></h3>
+  <div class="card">
+    <table class="cmp">
+      <tr><th>Level</th><th>Definition (typical)</th><th>Veterinarian location</th></tr>
+      <tr><td><b>Direct supervision</b></td><td>The veterinarian is on the premises, the animal is under the veterinarian's care, and the veterinarian is immediately available to respond</td><td>Physically present in the building / on-site</td></tr>
+      <tr><td><b>Indirect supervision</b></td><td>The veterinarian has given authorization for the procedure and is available for consultation, but need not be on the premises</td><td>Off-site; reachable by phone or electronic communication</td></tr>
+    </table>
+    <div class="trap"><b>Exam trap — definitions vary by state</b>The exact definitions of "direct" and "indirect" supervision vary significantly by state. For exam purposes, the key distinction is: <em>direct supervision requires the veterinarian to be physically present on the premises</em>; indirect supervision does not. Some states use additional terms (immediate, general, remote) — know the two-tier framework as a minimum.</div>
+
+    <h4>Procedures requiring direct supervision (veterinarian physically present)</h4>
+    <ul class="hy">
+      <li><b>Surgery</b> — including all elective (spay/neuter) and emergency procedures</li>
+      <li><b>Diagnosis</b> — making a clinical diagnosis of a specific disease or condition</li>
+      <li><b>Prescribing</b> — writing a prescription or dispensing prescription medications</li>
+      <li><b>Rabies vaccination</b> — in most states, a veterinarian must administer or be physically present (directly supervise) the administration of rabies vaccine, because rabies vaccination has legal implications (conferring exemption from quarantine laws)</li>
+    </ul>
+
+    <h4>Procedures permitted under indirect supervision</h4>
+    <ul class="hy">
+      <li>Intake vaccinations (other than rabies) administered by trained veterinary technicians under standing protocols</li>
+      <li>Routine physical examinations and body condition scoring by technicians under standing orders</li>
+      <li>Routine treatments (e.g., flea treatment, dewormers) under standing protocol</li>
+      <li>Blood draws, catheter placement, and other technical procedures by licensed veterinary technicians, per state practice act</li>
+    </ul>
+    <div class="corrbox"><b>High-yield — rabies vaccination always requires direct supervision</b>Rabies vaccination is consistently identified in shelter medicine literature as requiring direct veterinary supervision in most jurisdictions, because it has legal consequences (the certificate of vaccination establishes the animal's protected status). A shelter allowing technicians to administer rabies vaccines without a veterinarian on-site may be violating the practice act regardless of how routine the procedure seems.</div>
+  </div>
+
+  <h3>Indirect Supervision Does NOT Permit Diagnosis or Prescribing <span class="bdg ref">Veterinary practice acts</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>A common misunderstanding is that a vet who is available by phone can authorize a technician to diagnose a new condition or prescribe a new medication. This is incorrect in virtually all states.</li>
+      <li><b>Diagnosis</b> requires the veterinarian to physically examine the animal (or in some jurisdictions, review diagnostic imaging or lab results directly) — a technician's description of clinical signs over the phone is not a substitute.</li>
+      <li><b>Prescribing</b> requires a valid veterinarian-client-patient relationship (VCPR), which in most states requires a physical examination. A VCPR established at intake may support some ongoing prescribing for known chronic conditions, but a new condition requires a new examination.</li>
+    </ul>
+    <div class="trap"><b>Exam trap — diagnosis and prescribing require vet physically present</b>If a shelter technician calls the on-call vet to describe a sick animal, the vet cannot legally diagnose the animal and prescribe treatment without physically examining it (in most states). The vet must come to the shelter (or the animal must be transported to the vet) for new diagnoses. Standing treatment protocols for well-defined, previously diagnosed conditions are different — these may be executed by technicians under indirect supervision.</div>
+  </div>
+
+  <h3>DEA Controlled Substance Regulations <span class="bdg ref">21 CFR / DEA</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>DEA registration</b>: any individual who distributes, dispenses, or administers Schedule II–V controlled substances must be registered with the DEA. For shelters, this typically means the attending veterinarian holds a DEA registration.</li>
+      <li><b>DEA address rule</b>: controlled substances may only be ordered and received at the DEA-registered address. A veterinarian whose DEA address is their private clinic cannot legally have controlled substances shipped to the shelter address (a different address) — even if the vet works at both locations. The shelter must have its own DEA registration or a registered practitioner with the shelter address on their DEA certificate.</li>
+      <li><b>Schedule I–V classification</b>: Schedule I (high abuse potential, no accepted medical use — e.g., heroin); Schedule II (high abuse potential, accepted medical use with severe restrictions — e.g., pentobarbital, fentanyl, morphine); Schedules III–V (decreasing abuse potential).</li>
+      <li><b>Record-keeping</b>: Schedule II drugs require a DEA Form 222 (order form) for ordering and a perpetual inventory log. Schedules III–V require records for 2 years. Inventory must be verified every 2 years.</li>
+      <li><b>Disposal of expired/unused controlled substances</b>: must follow DEA disposal regulations. Options include DEA-authorised reverse distributors, DEA take-back programmes, or (for Schedule II in some circumstances) destruction witnessed by two employees with documentation.</li>
+    </ul>
+    <div class="trap"><b>Exam trap — DEA address mismatch</b>A relief veterinarian whose DEA registration lists their home address cannot order pentobarbital to be shipped to the shelter. A shelter veterinarian who moves to a new practice location must update their DEA registration address. The DEA address rule is a classic exam trap: the substance must be ordered to and received at the exact address on the DEA certificate — not wherever the vet happens to be working.</div>
+  </div>
+</section>
+
+<!-- ===================== LIABILITY ===================== -->
+<section class="panel" id="liability">
+  <h2 class="sec">Shelter Liability</h2>
+  <p class="lead">Animal shelters face liability risk from animal bites and injuries, adoption transactions, foster arrangements, and veterinary care decisions. Understanding the legal frameworks governing shelter liability is essential for risk management and for the exam.</p>
+
+  <h3>"One Bite" Rule and Modern Liability <span class="bdg ref">Common law / state dog bite statutes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Historical "one bite" rule</b>: at common law, an owner was not liable for injuries caused by their dog unless they had prior knowledge that the dog had previously bitten or shown dangerous propensity ("one free bite"). First bite = no liability; second bite = liability established.</li>
+      <li><b>Modern dog bite statutes</b>: most states have replaced or modified the one-bite rule with strict liability dog bite statutes. Under these statutes, owners are liable for injuries caused by their dog regardless of prior knowledge of dangerousness, if the injured person was lawfully present where the bite occurred.</li>
+      <li><b>Shelter liability at adoption</b>: a shelter that adopts out a dog with known behavioural history (bites, aggression) may be liable if the dog injures someone post-adoption — particularly if the adopter was not fully disclosed. Full disclosure of known behaviour history is both an ethical and legal risk management obligation.</li>
+      <li><b>Strict liability vs negligence</b>: under a strict liability statute, the plaintiff need not prove the owner was careless — only that the dog bit them and they were lawfully present. Under a negligence standard, the plaintiff must show the owner or shelter knew (or should have known) of the risk and failed to take reasonable precautions.</li>
+    </ul>
+    <div class="corrbox"><b>High-yield — disclose known behaviour history</b>Shelters must disclose all known biting history and dangerous behaviour to adopters. Failure to disclose creates liability for post-adoption injuries. A signed disclosure acknowledgment from the adopter does not eliminate liability for a shelter that actively concealed a risk; it may, however, limit liability when the risk was fully and accurately disclosed.</div>
+  </div>
+
+  <h3>Trial Adoption Agreements <span class="bdg ref">Shelter law / HSUS</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>A trial adoption (also called a foster-to-adopt or trial period agreement) allows an animal to be placed in a home before the formal adoption is complete, typically to assess compatibility.</li>
+      <li><b>Indemnification clause</b>: a well-drafted trial adoption agreement should include an indemnification clause in which the trial adopter agrees to hold the shelter harmless for injuries caused by the animal during the trial period, provided the shelter disclosed all known risks.</li>
+      <li><b>Homeowner's insurance requirement</b>: some shelters require trial adopters to have homeowner's or renter's insurance as a condition of trial placement, ensuring coverage exists if the animal injures a third party.</li>
+      <li><b>Immediate return clause</b>: trial adoption agreements should include a provision allowing the shelter to require the immediate return of the animal at any time — for example, if new behavioural concerns emerge or if the shelter learns the animal has injured someone during the trial period.</li>
+      <li><b>Shelter retains ownership</b>: during the trial period, legal ownership typically remains with the shelter. This is important both for liability and for the shelter's ability to reclaim the animal if needed.</li>
+    </ul>
+  </div>
+
+  <h3>Foster Home Requirements <span class="bdg ref">ASV / HSUS foster programme guidelines</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Written foster agreement</b>: all foster placements should be governed by a signed written agreement specifying the foster parent's responsibilities, the shelter's responsibilities, expense terms, and the conditions for return.</li>
+      <li><b>Record-keeping</b>: fosters must keep records of any health events, medications administered, and behavioural observations, and report these to the shelter. This maintains continuity of care and a complete medical/behavioural record for the animal.</li>
+      <li><b>24/7 veterinary access</b>: foster agreements should specify that the shelter provides or authorises access to veterinary care 24 hours a day, 7 days a week. Foster parents should know whom to contact for emergencies and who is financially responsible for care.</li>
+      <li><b>Expense terms</b>: the agreement must clearly state which expenses the shelter covers (typically routine and emergency veterinary care) and which are the foster's responsibility (typically supplies, food, transport to appointments). Ambiguous expense terms lead to disputes and discourage foster recruitment.</li>
+      <li><b>Liability</b>: if a foster animal injures a third party, liability may rest with the shelter (as owner), the foster parent, or both. Insurance arrangements and indemnification clauses in the foster agreement manage this risk.</li>
+    </ul>
+    <div class="trap"><b>Exam trap — shelter retains liability as owner during foster placement</b>Even when an animal is in a foster home, the shelter typically retains legal ownership and therefore primary liability if the animal causes injury. This is why written agreements, disclosure, and insurance requirements are so important in foster programmes. A shelter cannot fully transfer liability to the foster parent without also transferring legal ownership.</div>
+  </div>
+</section>
+
+<!-- ===================== MCQ ===================== -->
+<section class="panel" id="mcq">
+  <h2 class="sec">MCQ Test Bank — Regulatory</h2>
+  <p class="lead">30 exam-style questions covering non-profit governance, stray holds, veterinary practice act supervision, DEA regulations, and shelter liability. Select an answer to see the explanation.</p>
+
+  <div class="mcqbar">
+    <div class="filters">
+      <button class="on" data-f="all" onclick="filterQ(this,'all')">All (30)</button>
+      <button data-f="nonprofit" onclick="filterQ(this,'nonprofit')">Non-Profit</button>
+      <button data-f="stray-holds" onclick="filterQ(this,'stray-holds')">Stray Holds</button>
+      <button data-f="vet-practice" onclick="filterQ(this,'vet-practice')">Vet Practice &amp; DEA</button>
+      <button data-f="liability" onclick="filterQ(this,'liability')">Liability</button>
+    </div>
+    <div class="score"><span id="sc">0 / 0</span><button class="reset" onclick="resetAll()">Reset</button></div>
+  </div>
+
+  <div id="qlist">
+
+  <!-- Q1 -->
+  <div class="q" data-tag="nonprofit">
+    <div class="meta"><span class="num">Q1</span><span class="tag">non-profit</span></div>
+    <p class="stem">Which of the following BEST describes the appropriate role of a 501(c)(3) animal shelter's Board of Directors?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Making daily animal care and euthanasia decisions to ensure consistent welfare standards</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Supervising individual staff members and approving all veterinary treatment plans</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Strategic oversight — setting mission, approving major policies, ensuring financial health, and hiring and evaluating the executive director — without involvement in day-to-day operations</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Managing shelter operations directly during periods when the executive director is absent</button>
+    <div class="expl"><b class="cor">C is correct.</b> The board of directors of a non-profit organisation is responsible for strategic oversight: setting the mission and long-term direction, approving major policies and budgets, ensuring legal and financial compliance, and hiring/evaluating the executive director. Day-to-day operations — including individual animal care decisions, staff supervision, and treatment authorizations — are delegated to the executive director. Board members who attempt to manage daily operations undermine the executive director's authority and violate governance best practice.</div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="q" data-tag="nonprofit">
+    <div class="meta"><span class="num">Q2</span><span class="tag">non-profit</span></div>
+    <p class="stem">A neighbour suspects that a local animal shelter is misusing donations. Which document, available to any member of the public by law, would provide the most direct financial transparency information about the shelter?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>The shelter's state agriculture department licence</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>The shelter's IRS Form 990, which is a public document disclosing revenue, expenses, executive compensation, and programme activities</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>The shelter's veterinary practice permits</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>The shelter's articles of incorporation filed with the state secretary of state</button>
+    <div class="expl"><b class="cor">B is correct.</b> The IRS Form 990 is a public document. Any 501(c)(3) organisation is required by law to make its three most recent Form 990s available to any member of the public who requests them. The 990 reports total revenue and expenses, executive compensation, programme descriptions, and key governance information — making it the primary tool for public accountability of non-profits. Databases like Candid/GuideStar make 990s searchable online without a formal request.</div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="q" data-tag="stray-holds">
+    <div class="meta"><span class="num">Q3</span><span class="tag">stray holds</span></div>
+    <p class="stem">A dog is impounded by animal control with a collar bearing a rabies tag and a phone number. Under the Illinois Animal Control Act (a model statute), what is the minimum statutory hold period?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>3 days</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>5 days</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>7 days</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>14 days</button>
+    <div class="expl"><b class="cor">C is correct.</b> The Illinois Animal Control Act — frequently cited as a model statute in shelter medicine education — requires a minimum 7-day hold for animals bearing owner identification (collar, tag, microchip, or rabies tag). Animals without identification may have a shorter minimum hold period (typically 3–5 days), but the presence of identification indicating owner contact information triggers the longer hold to maximize the opportunity for reunification. Always check the applicable state statute for jurisdiction-specific hold periods.</div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="q" data-tag="stray-holds">
+    <div class="meta"><span class="num">Q4</span><span class="tag">stray holds</span></div>
+    <p class="stem">A stray dog is admitted to a municipal shelter on Day 1. The shelter has a high-volume spay/neuter programme. On Day 3, a staff member schedules the dog for routine spay surgery to reduce backlog. The statutory hold period has not expired. This action is BEST described as:</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Legally permissible because spay surgery improves animal welfare</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Legally permissible if the dog is healthy and the surgery is elective rather than emergency</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>A potential legal violation: performing elective surgery on a stray animal before the hold expires constitutes an unauthorised alteration of another person's property</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Legally permissible if the shelter has a written spay/neuter policy</button>
+    <div class="expl"><b class="cor">C is correct.</b> During the statutory hold period, a stray animal remains the legal property of its owner. Performing elective surgery — including routine spay/neuter — before the hold expires constitutes an unauthorised alteration of another person's property, which is legally actionable as property damage or conversion. The shelter's spay/neuter policy or the animal's health status does not override the owner's property rights during the hold. Elective surgery must wait until the hold period has expired and legal ownership has transferred to the shelter.</div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="q" data-tag="vet-practice">
+    <div class="meta"><span class="num">Q5</span><span class="tag">vet practice &amp; DEA</span></div>
+    <p class="stem">A shelter veterinarian is away from the facility at a conference. A technician calls to report a dog showing sudden-onset vomiting and lethargy. The veterinarian says over the phone: "Sounds like gastroenteritis; give him metronidazole and fluids." This scenario MOST likely violates:</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>The indirect supervision requirement — the vet should have been reachable within 30 minutes</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>The direct supervision requirement — diagnosis of a new clinical condition and prescribing for it require the veterinarian to physically examine the animal in most jurisdictions</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>DEA regulations — metronidazole is a Schedule II controlled substance</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Nothing is violated — indirect supervision permits all actions as long as the vet is reachable by phone</button>
+    <div class="expl"><b class="cor">B is correct.</b> Diagnosing a new clinical condition and prescribing a specific treatment for it require direct veterinary supervision (i.e., the veterinarian must physically examine the animal) in most state veterinary practice acts. A technician's verbal description of clinical signs over the phone is not an adequate substitute for physical examination. The vet must come to the shelter, have the animal transported for examination, or another licensed veterinarian must see the animal. Note: metronidazole is not a DEA-controlled substance (option C is incorrect); it is a prescription antibiotic/antiprotozoal.</div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="q" data-tag="vet-practice">
+    <div class="meta"><span class="num">Q6</span><span class="tag">vet practice &amp; DEA</span></div>
+    <p class="stem">Which of the following procedures requires direct veterinary supervision (veterinarian physically present) in MOST state veterinary practice acts?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Administration of core vaccines (distemper, parvovirus) by a licensed veterinary technician at intake</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Application of a monthly topical flea preventive under a standing protocol</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Administration of rabies vaccine</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Measurement of body condition score and body weight by a shelter technician</button>
+    <div class="expl"><b class="cor">C is correct.</b> Rabies vaccination requires direct veterinary supervision (veterinarian physically present) in most jurisdictions. This is because a rabies vaccination certificate has legal consequences — it establishes the animal's protected status and exempts it from certain quarantine requirements under state and local law. Allowing technicians to administer rabies vaccines without a vet on-site could result in legally invalid certificates and practice act violations. Core non-rabies vaccines (options A), topical preventives under standing protocols (B), and BCS measurement (D) are generally permitted under indirect supervision or as technician tasks.</div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="q" data-tag="vet-practice">
+    <div class="meta"><span class="num">Q7</span><span class="tag">vet practice &amp; DEA</span></div>
+    <p class="stem">A shelter's relief veterinarian has a DEA registration listing her home clinic address. She purchases pentobarbital for euthanasia and asks the distributor to ship it directly to the shelter (a different address). This is:</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Permissible because the veterinarian is licensed and registered with the DEA</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Permissible if the shelter director co-signs the order</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>A DEA violation: controlled substances must be ordered and received at the exact address listed on the DEA registration certificate; the vet cannot receive Schedule II drugs at a different address</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Permissible if the shelter has a separate storage licence from the state pharmacy board</button>
+    <div class="expl"><b class="cor">C is correct.</b> DEA regulations require that Schedule II controlled substances (including pentobarbital, a Schedule II drug used for euthanasia) be ordered and delivered only to the DEA-registered address. The veterinarian's registration lists her home clinic — therefore, pentobarbital can only be ordered and received there. To legally order controlled substances for use at the shelter, the shelter must have its own DEA registration, or the relief veterinarian must add the shelter as an additional location on her DEA registration. This is one of the most commonly tested regulatory traps in shelter medicine.</div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="q" data-tag="liability">
+    <div class="meta"><span class="num">Q8</span><span class="tag">liability</span></div>
+    <p class="stem">Under the traditional common law "one bite rule," a dog owner is:</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Always strictly liable for any injury caused by their dog</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Not liable for the first bite if they had no prior knowledge of the dog's dangerous propensity; liable for subsequent injuries once dangerousness is established</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Not liable for dog bites under any circumstances if the dog was on the owner's property</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Liable only if the bite caused serious injury requiring medical treatment</button>
+    <div class="expl"><b class="cor">B is correct.</b> The traditional "one bite rule" holds that an owner is not liable for the first bite if they had no prior knowledge that the dog was dangerous — the first bite effectively puts them "on notice." After that knowledge is established, they are liable for subsequent injuries. Most states have now replaced or modified the one-bite rule with strict liability dog bite statutes, under which the owner is liable regardless of prior knowledge as long as the victim was lawfully present. Shelters should be aware that adopting out a dog with known bite history creates liability under both frameworks.</div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="q" data-tag="liability">
+    <div class="meta"><span class="num">Q9</span><span class="tag">liability</span></div>
+    <p class="stem">A shelter places a cat with a history of one minor bite into a trial adoption with a signed agreement. Three key provisions that should be in this agreement include:</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Spay/neuter agreement, microchip registration, and adoption fee schedule</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>An indemnification clause, a homeowner's/renter's insurance requirement, and an immediate return clause</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>A veterinary reference letter, a home visit assessment, and a non-compete clause</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>A photo release, a social media disclosure, and a neutering deadline</button>
+    <div class="expl"><b class="cor">B is correct.</b> A well-drafted trial adoption agreement should include: (1) an indemnification clause in which the trial adopter holds the shelter harmless for injuries that occur during the trial, provided full risk disclosure was made; (2) a homeowner's or renter's insurance requirement to ensure third-party injury coverage exists; and (3) an immediate return clause allowing the shelter to reclaim the animal at any time — particularly important if new behavioural incidents occur during the trial period. Options A, C, and D describe real shelter practices but are not the three key liability-management provisions of a trial adoption agreement.</div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="q" data-tag="liability">
+    <div class="meta"><span class="num">Q10</span><span class="tag">liability</span></div>
+    <p class="stem">A foster dog bites a child visiting the foster home. Regarding liability, which of the following is MOST accurate?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>The foster parent is solely liable because the bite occurred in their home</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>The shelter is not liable because the animal was in the foster home, not at the shelter</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>The shelter, as legal owner of the animal during foster placement, may retain primary liability; the foster agreement's indemnification and insurance provisions determine the allocation of risk between shelter and foster parent</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Neither party is liable if the child provoked the dog</button>
+    <div class="expl"><b class="cor">C is correct.</b> During a foster placement, the shelter typically retains legal ownership of the animal. Under strict liability dog bite statutes, the legal owner bears primary liability for injuries caused by the animal. The foster agreement's indemnification and insurance provisions determine how that liability is allocated between the shelter and the foster parent. This is why written foster agreements with liability provisions are legally essential, not optional. Option D is partially true in some jurisdictions (provocation may be a defence), but the question asks about the general liability framework.</div>
+  </div>
+
+  <!-- Q11 -->
+  <div class="q" data-tag="vet-practice">
+    <div class="meta"><span class="num">Q11</span><span class="tag">vet practice &amp; DEA</span></div>
+    <p class="stem">A shelter technician working the overnight shift notes that an animal is in respiratory distress. The on-call veterinarian cannot come in immediately and is 40 minutes away. Which of the following actions is MOST appropriate under the veterinary practice act?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Wait until the vet arrives before taking any action, as all treatments require direct supervision</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>The technician may diagnose the condition and prescribe emergency treatment because this is a life-threatening emergency</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>The technician may initiate basic supportive care under existing standing emergency protocols (e.g., supplemental oxygen) while the vet is en route; diagnosis and prescribing of specific medications await veterinary examination</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>The technician may administer any medication in the shelter's emergency kit without restriction in a life-threatening situation</button>
+    <div class="expl"><b class="cor">C is correct.</b> Veterinary practice acts permit technicians to provide basic supportive care (oxygen, fluid support initiation under prior standing protocol) in emergencies while the veterinarian is en route. However, diagnosing a specific cause of respiratory distress and prescribing targeted medications require the veterinarian to physically examine the patient. A well-designed shelter should have standing emergency protocols for common presentations (dyspnoea, seizures, collapse) that authorize specific technician actions until the veterinarian arrives — this is how the practice act framework is operationally compatible with emergency overnight coverage.</div>
+  </div>
+
+  <!-- Q12 -->
+  <div class="q" data-tag="stray-holds">
+    <div class="meta"><span class="num">Q12</span><span class="tag">stray holds</span></div>
+    <p class="stem">A privately owned non-profit shelter has a contract with the county to accept stray animals from animal control. A stray cat is brought in. During the statutory hold period, the cat develops a severe upper respiratory infection. Which of the following is the MOST appropriate action?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Withhold all treatment until the hold expires and ownership transfers to the shelter</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Perform elective spay surgery to sterilize the cat before the hold expires to reduce the workload after hold expiry</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Provide medically necessary treatment (antibiotics, supportive care) for the URI immediately — emergency and necessary care are permitted during the hold; elective procedures must wait until the hold expires</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Euthanize the cat immediately because treatment costs during a stray hold are the shelter's liability</button>
+    <div class="expl"><b class="cor">C is correct.</b> Shelters have both an ethical and legal obligation to provide medically necessary care to animals in their custody, including during a stray hold. Withholding treatment for a treatable illness violates the shelter's duty of care (option A). Elective procedures (spay) remain prohibited during the hold period (option B). Euthanising a treatable animal solely to avoid treatment costs during a hold is ethically and legally problematic (option D) — it may expose the shelter to charges of animal cruelty and certainly violates welfare standards. Many states allow shelters to recover the cost of medically necessary care from the owner upon reclaim.</div>
+  </div>
+
+  <!-- Q13 -->
+  <div class="q" data-tag="nonprofit">
+    <div class="meta"><span class="num">Q13</span><span class="tag">nonprofit-governance</span></div>
+    <p class="stem">A shelter's Form 990 reveals that the executive director received a salary of $380,000 — well above the regional median for comparable organisations. A board member argues this was approved at a board meeting and is therefore acceptable. Under IRS rules governing 501(c)(3) organisations, this compensation MOST raises concerns about:</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Political campaign prohibition, because the executive director may have used shelter resources to campaign</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>The private inurement prohibition, which bars any part of a non-profit's net earnings from improperly benefiting a private individual</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>The public disclosure requirement, because the Form 990 should not have included salary information</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>State agriculture department licensing standards, which cap executive salaries at shelters receiving public funds</button>
+    <div class="expl"><b class="cor">B is correct.</b> The private inurement prohibition under IRC §501(c)(3) forbids a non-profit from allowing its net earnings to inure (flow as profit) to the benefit of any private individual. Excessive executive compensation — even if board-approved — can constitute inurement if the amount is not "reasonable" compared to services rendered and market rates. The IRS may impose excise taxes on both the recipient and the approving board members (intermediate sanctions under IRC §4958). Board approval alone does not insulate the organisation; the compensation must be objectively reasonable. Options A, C, and D describe real rules but do not apply to this scenario.</div>
+  </div>
+
+  <!-- Q14 -->
+  <div class="q" data-tag="nonprofit">
+    <div class="meta"><span class="num">Q14</span><span class="tag">nonprofit-governance</span></div>
+    <p class="stem">An animal shelter's executive director posts a video on the official shelter social media account urging followers to vote against a city council candidate who opposes animal welfare ordinances. Regarding this action, which of the following is MOST accurate?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>This is permissible because animal welfare is a charitable cause, not a partisan political position</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>This is permissible if the shelter does not explicitly endorse a competing candidate</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>This violates the absolute prohibition on political campaign participation for 501(c)(3) organisations; even opposing a candidate is a campaign intervention that jeopardises tax-exempt status</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>This is a minor infraction that can be corrected by removing the post within 30 days without IRS consequence</button>
+    <div class="expl"><b class="cor">C is correct.</b> Under IRC §501(c)(3), non-profit organisations are absolutely prohibited from participating or intervening in any political campaign on behalf of — or in opposition to — any candidate for public office. This includes publishing statements opposing a candidate, regardless of whether the opposition is framed as an animal welfare issue. The prohibition is absolute (unlike lobbying, which is merely limited). Violating the political campaign prohibition can result in loss of 501(c)(3) status and imposition of excise taxes. Removing the post (option D) may mitigate but does not eliminate the violation. Shelters may educate the public on policy issues, but may not support or oppose candidates.</div>
+  </div>
+
+  <!-- Q15 -->
+  <div class="q" data-tag="nonprofit">
+    <div class="meta"><span class="num">Q15</span><span class="tag">nonprofit-governance</span></div>
+    <p class="stem">A board member of a non-profit shelter is also a licensed attorney. She proposes that the shelter hire her law firm to handle all animal seizure litigation for an annual retainer of $60,000. Which governance principle is MOST directly implicated?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>The inurement prohibition — legal fees paid to a board member are always prohibited under IRS rules</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>The duty of loyalty and conflict of interest policy — the board member has a personal financial interest in the decision and must disclose it and recuse herself from the vote</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>The Form 990 disclosure requirement — this fee arrangement does not need to be disclosed on the Form 990</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>The state agriculture department licensing rules — law firms cannot provide services to licensed shelters</button>
+    <div class="expl"><b class="cor">B is correct.</b> Board members owe a fiduciary duty of loyalty to the organisation, which requires them to place the shelter's interests above their own. When a board member has a personal financial interest in a matter before the board (here, her firm would earn $60,000), she must: (1) fully disclose the conflict, (2) recuse herself from deliberation and voting on the matter, and (3) allow only disinterested board members to approve the transaction. The arrangement is not automatically prohibited — if the fee is reasonable and the process is fair (arms-length), the shelter may hire her firm — but proper conflict-of-interest procedures must be followed and documented. This type of transaction, if approved, must typically be disclosed on Form 990 as a related-party transaction (making option C incorrect).</div>
+  </div>
+
+  <!-- Q16 -->
+  <div class="q" data-tag="nonprofit">
+    <div class="meta"><span class="num">Q16</span><span class="tag">nonprofit-governance</span></div>
+    <p class="stem">Which government agency is typically responsible for licensing and inspecting animal shelters at the facility level — as distinct from licensing individual veterinarians?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>The state veterinary medical board</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>The state department of health</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>The state department of agriculture (or equivalent agency)</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>The IRS Office of Exempt Organisations</button>
+    <div class="expl"><b class="cor">C is correct.</b> In most states, animal shelters are licensed and inspected as facilities by the state department of agriculture (or equivalent, such as the Department of Natural Resources or Animal Industry Board). This is a distinct regulatory layer from individual veterinary licensure, which is overseen by the state veterinary medical board. The agriculture department focuses on shelter facility standards — physical environment, record-keeping, holding periods, and minimum care requirements. A shelter may be in full compliance with state facility licensing while a veterinarian working there separately maintains (or violates) their individual practice act obligations. The IRS (option D) grants and oversees tax-exempt status but does not inspect or license shelter facilities.</div>
+  </div>
+
+  <!-- Q17 -->
+  <div class="q" data-tag="nonprofit">
+    <div class="meta"><span class="num">Q17</span><span class="tag">nonprofit-governance</span></div>
+    <p class="stem">A non-profit shelter fails to file its IRS Form 990 for three consecutive years. The MOST significant legal consequence is:</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>A fine of $500 per day until the returns are filed</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Criminal prosecution of the executive director for tax fraud</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Automatic revocation of the organisation's 501(c)(3) tax-exempt status by the IRS</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Suspension of the shelter's state agriculture department licence pending IRS clearance</button>
+    <div class="expl"><b class="cor">C is correct.</b> Under the Pension Protection Act of 2006, a 501(c)(3) organisation that fails to file a Form 990 (or the smaller Form 990-N for very small organisations) for three consecutive years loses its federal tax-exempt status automatically — without further IRS action. The organisation is then subject to federal income tax and donors can no longer take charitable deductions for contributions. Reinstatement requires a new application and, for some organisations, back taxes may be owed. This rule is specifically designed to remove inactive or non-compliant organisations from tax-exempt status. The other options describe consequences that are not directly triggered by 990 non-filing; the state agriculture department licence (option D) is a separate regulatory track.</div>
+  </div>
+
+  <!-- Q18 -->
+  <div class="q" data-tag="stray-holds">
+    <div class="meta"><span class="num">Q18</span><span class="tag">stray-holds</span></div>
+    <p class="stem">A dog seized during a cruelty investigation is housed at the municipal shelter. The owner has been charged with felony animal cruelty. The statutory hold period has expired. A staff member asks whether the dog can now be adopted out. Which of the following BEST describes the legal situation?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>The dog may be adopted immediately because the statutory hold period has expired and the shelter now has legal custody</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>The dog may be adopted if the owner verbally consents during the court process</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>The dog is an evidence animal held under a court order; it cannot be adopted until the criminal case resolves and the court releases the animal; specific legal restrictions apply throughout the case</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>The dog may be adopted because felony charges automatically terminate the owner's property rights</button>
+    <div class="expl"><b class="cor">C is correct.</b> Animals seized in cruelty investigations are evidence in a criminal proceeding. Unlike typical stray holds, the hold on an evidence animal is imposed by court order — not merely the statutory stray hold period — and continues until the case is resolved. The animal cannot be adopted, transferred, or euthanised without specific court authorization, regardless of the statutory hold period. Criminal charges do not automatically terminate the owner's property rights (option D); only a court order does. During the case, the shelter may apply for a bond hearing to require the owner to post a bond or deposit to cover ongoing care costs — a critical financial mechanism for shelters housing evidence animals for months or years.</div>
+  </div>
+
+  <!-- Q19 -->
+  <div class="q" data-tag="stray-holds">
+    <div class="meta"><span class="num">Q19</span><span class="tag">stray-holds</span></div>
+    <p class="stem">A private rescue organisation (no government contract) takes in a stray dog found wandering by a member of the public. The rescue is not a municipal shelter and has no contract with animal control. Regarding stray hold requirements, which of the following is MOST accurate?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>The private rescue is fully exempt from all stray hold requirements and may adopt the dog immediately</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>The private rescue must follow the identical hold period as the municipal shelter because all shelters are subject to the same state statutes</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>The private rescue is not bound by municipal hold statutes but takes on significant legal risk — the dog remains someone's property, and adopting it out exposes the organisation to liability for conversion (taking another's property); routing strays through the municipal pipeline is strongly recommended</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>The private rescue must hold the dog for 3 days regardless of state statute, as this is the federal minimum under the Animal Welfare Act</button>
+    <div class="expl"><b class="cor">C is correct.</b> Private shelters and rescues without government contracts are generally not directly bound by the stray hold statutes that apply to municipal shelters. However, accepting a stray animal does not give the rescue ownership — the animal remains the legal property of its owner until the owner abandons it or statutory abandonment is established. If the rescue adopts the dog to a new family and the original owner comes forward, the rescue faces liability for conversion (the unlawful taking or disposal of another's property). The safest practice is to route stray animals through the municipal animal control system so the statutory hold is properly administered. There is no federal minimum hold period under the Animal Welfare Act applicable to typical companion animal shelters (option D is incorrect).</div>
+  </div>
+
+  <!-- Q20 -->
+  <div class="q" data-tag="stray-holds">
+    <div class="meta"><span class="num">Q20</span><span class="tag">stray-holds</span></div>
+    <p class="stem">A stray cat is impounded with a microchip but no collar. The shelter scans the chip and finds a registered owner. Under the Illinois Animal Control Act framework, how does the presence of the registered microchip affect the hold period compared to a stray cat with no identification?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>The microchip has no effect on the hold period; all stray animals are held for the same minimum duration</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>A microchip shortens the hold period because the owner can be notified quickly, reducing the need for a long wait</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>The microchip triggers the longer (7-day) minimum hold because the animal has owner identification; the same rule applies as for a rabies tag — identification mandates maximum hold to allow owner reclaim</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>A microchip replaces the statutory hold entirely; once the owner is notified, the hold ends and the shelter may proceed</button>
+    <div class="expl"><b class="cor">C is correct.</b> Under the Illinois Animal Control Act (and similar statutes in other states), the presence of owner identification — including a registered microchip, rabies tag, or ID collar — triggers the longer statutory hold period (7 days) rather than the shorter hold applied to animals without identification. The rationale is that identifiable animals have a higher probability of owner reclaim, warranting more time. Importantly, notification of the owner does not terminate the hold early (option D); the statutory period runs regardless. The microchip does not shorten the hold (option B) — it extends it. The distinction between identified and unidentified animals is a frequently tested point on the ABVP exam.</div>
+  </div>
+
+  <!-- Q21 -->
+  <div class="q" data-tag="stray-holds">
+    <div class="meta"><span class="num">Q21</span><span class="tag">stray-holds</span></div>
+    <p class="stem">A stray dog in the municipal shelter is in good health. On Day 4 of a 7-day hold, a technician notices a large abscess on the dog's leg that was not noted on intake. The veterinarian recommends lancing and flushing the abscess. Which of the following BEST describes the appropriate course of action?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Delay all treatment until Day 7 when the hold expires; no procedures are permitted during the stray hold</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Proceed with the procedure only if it can be performed under indirect supervision to avoid calling in the veterinarian</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Proceed with the medically necessary procedure under direct veterinary supervision; treating an active infection is not elective surgery — it is immediate medical need permitted during the hold</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Proceed with lancing and flushing only after obtaining written consent from animal control, who holds custody of the animal</button>
+    <div class="expl"><b class="cor">C is correct.</b> The prohibition on elective procedures during a stray hold applies specifically to elective (non-urgent) surgeries such as spay/neuter. It does not prohibit medically necessary treatment. An active abscess causing pain and risk of systemic infection is an immediate medical need — withholding treatment would violate the shelter's duty of care to animals in its custody. The veterinarian must be physically present (direct supervision) to perform this procedure. The shelter may document costs and seek reimbursement from the owner if the dog is reclaimed. Animal control (option D) grants custody to the municipal shelter but is not a separate party whose consent is required for medical decisions once the animal is in the shelter's care.</div>
+  </div>
+
+  <!-- Q22 -->
+  <div class="q" data-tag="vet-practice">
+    <div class="meta"><span class="num">Q22</span><span class="tag">practice-acts</span></div>
+    <p class="stem">A shelter's staff veterinarian retires and allows her DEA registration to lapse. The shelter director asks the retired veterinarian to continue ordering pentobarbital for the euthanasia programme on a "consulting" basis using her expired registration. This arrangement is:</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Permissible if the retired veterinarian holds a valid state veterinary licence, even without an active DEA registration</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Permissible if the shelter director co-signs the controlled substance order as the authorised representative</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>A federal violation: ordering, dispensing, or administering DEA-scheduled controlled substances requires an active DEA registration; an expired or lapsed registration confers no authority</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Permissible for a 90-day grace period after the registration lapses, as DEA allows a transition window</button>
+    <div class="expl"><b class="cor">C is correct.</b> DEA registration is not merely a formality — it is the federal legal authority that permits a practitioner to order, dispense, and administer Schedule II–V controlled substances. Once a registration expires or is surrendered, that authority ends immediately. There is no grace period (option D is incorrect). Using an expired registration to order pentobarbital would constitute a federal criminal violation under the Controlled Substances Act. When a shelter loses its DEA-registered veterinarian, it must either: (1) hire or contract with a new DEA-registered veterinarian who lists the shelter address, or (2) obtain a facility DEA registration in the shelter's own name. Euthanasia programmes cannot legally continue without a valid, current DEA registration for that facility address.</div>
+  </div>
+
+  <!-- Q23 -->
+  <div class="q" data-tag="vet-practice">
+    <div class="meta"><span class="num">Q23</span><span class="tag">practice-acts</span></div>
+    <p class="stem">Under DEA Schedule II regulations governing controlled substance recordkeeping, which of the following MOST accurately describes the requirements for sodium pentobarbital used in shelter euthanasia?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>A general monthly log is sufficient; individual dose entries are not required for Schedule II drugs in a shelter setting</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Every use must be recorded in a perpetual inventory log; waste must be witnessed and documented; records must be maintained for two years and be available for DEA inspection at any time</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Only the opening and closing inventory need to be documented; individual dispensing events do not require separate log entries</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Recordkeeping requirements for Schedule II drugs are the same as for Schedule IV drugs — a running log maintained by the shelter director is sufficient</button>
+    <div class="expl"><b class="cor">B is correct.</b> Sodium pentobarbital is a DEA Schedule II controlled substance — the highest level of control for substances with accepted medical use. Schedule II recordkeeping requirements are stringent: every administration must be individually logged (perpetual inventory), including the date, animal identification, amount used, and the name of the individual administering it. Any waste (e.g., partial vials discarded) must be witnessed by a second person and documented with the witness's name. Records must be maintained for a minimum of two years and made available for DEA inspection on demand. These requirements are substantially more rigorous than Schedule III–V drugs (option D). Inadequate recordkeeping is one of the most common DEA violations found during shelter inspections.</div>
+  </div>
+
+  <!-- Q24 -->
+  <div class="q" data-tag="vet-practice">
+    <div class="meta"><span class="num">Q24</span><span class="tag">practice-acts</span></div>
+    <p class="stem">A shelter's certified euthanasia technician (CET) administers sodium pentobarbital to animals under the euthanasia programme. Which of the following BEST describes the regulatory requirements for individuals performing euthanasia in this role?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>No specific requirements beyond general employment eligibility; euthanasia is not a regulated act in most states</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>CETs must hold a veterinary technician licence in states that allow non-veterinarians to perform euthanasia</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>CETs must pass background checks (criminal history review), complete state-approved training, and operate under strict quality control protocols; DEA access is typically managed through the supervising veterinarian's or facility's registration</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>CETs are not permitted to handle DEA Schedule II substances under any circumstances; only licensed veterinarians may administer pentobarbital</button>
+    <div class="expl"><b class="cor">C is correct.</b> Many states permit trained non-veterinarian personnel (certified euthanasia technicians or shelter euthanasia technicians) to administer sodium pentobarbital in a shelter euthanasia setting, provided they meet specific requirements. These typically include: a criminal background check (to meet DEA requirements for individuals with access to controlled substances), completion of a state-approved euthanasia training course, and operation under the written protocols and oversight of a licensed veterinarian or the facility's DEA registrant. CETs do not need to be licensed veterinary technicians (option B) in most states. Option D is incorrect — many states explicitly authorize trained non-veterinarians to perform euthanasia under appropriate supervision, which is operationally essential for high-volume shelters.</div>
+  </div>
+
+  <!-- Q25 -->
+  <div class="q" data-tag="vet-practice">
+    <div class="meta"><span class="num">Q25</span><span class="tag">practice-acts</span></div>
+    <p class="stem">A shelter volunteer who is also a human nurse asks to administer injectable ivermectin to a dog under a written standing protocol from the shelter veterinarian. The veterinarian is not on-site but is reachable by phone. Which of the following BEST describes the regulatory situation?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>This is permissible because the volunteer is a licensed healthcare professional and the vet is reachable by phone</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>This is permissible because standing protocols cover all medication administration by any trained shelter staff or volunteer</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>This is likely impermissible under the veterinary practice act: medication administration by prescription drug injection is typically restricted to licensed veterinary professionals; a human nursing licence does not confer authority to practice veterinary medicine, and volunteers generally cannot administer prescription injectables regardless of standing protocols</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>This is permissible as long as the volunteer documents the administration in the animal's medical record</button>
+    <div class="expl"><b class="cor">C is correct.</b> Veterinary practice acts regulate who may administer medications to animals — and those authorised individuals are typically licensed veterinarians, licensed veterinary technicians, and veterinary assistants acting under specific supervision conditions. A human registered nurse licence does not confer any authority to practice veterinary medicine. Furthermore, standing protocols authorise specific licensed veterinary personnel to carry out procedures — they do not typically extend to volunteers or unlicensed individuals for injectable prescription drugs. Administering injectable ivermectin (a prescription drug) by a volunteer (licensed in human nursing or otherwise) would likely constitute unlicensed practice of veterinary medicine in most states. Documentation (option D) does not confer legal authority to perform the act.</div>
+  </div>
+
+  <!-- Q26 -->
+  <div class="q" data-tag="vet-practice">
+    <div class="meta"><span class="num">Q26</span><span class="tag">practice-acts</span></div>
+    <p class="stem">Ketamine is used at a shelter for chemical restraint. Under DEA scheduling, ketamine is classified as:</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Schedule I — high abuse potential with no accepted medical use</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Schedule II — high abuse potential with accepted medical use under severe restrictions</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Schedule III — accepted medical use with moderate to low dependence potential; less restrictive recordkeeping than Schedule II</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Schedule V — lowest control tier; may be ordered without DEA Form 222</button>
+    <div class="expl"><b class="cor">C is correct.</b> Ketamine (ketamine hydrochloride) is a DEA Schedule III controlled substance. This means it has accepted medical use and moderate-to-low potential for physical dependence, though significant psychological dependence potential exists. As a Schedule III drug, ketamine's recordkeeping requirements are less stringent than Schedule II (no DEA Form 222 required; records kept for 2 years). However, it still requires a DEA registration to order and dispense, must be stored securely, and every dispensing event should be logged. This contrasts with pentobarbital, which is Schedule II with the highest recordkeeping requirements. Knowing the DEA schedule of common shelter drugs (pentobarbital = II, ketamine = III, Telazol/tiletamine-zolazepam = III) is tested on the ABVP exam.</div>
+  </div>
+
+  <!-- Q27 -->
+  <div class="q" data-tag="liability">
+    <div class="meta"><span class="num">Q27</span><span class="tag">liability</span></div>
+    <p class="stem">A shelter posts on social media that a dog available for adoption "has shown food aggression and has snapped at handlers." The dog is adopted and subsequently bites a child. The family sues the shelter, claiming the social media post was inaccurate — the dog had never actually shown food aggression; a staff error had mislabelled the record. Which liability theory MOST directly applies to the shelter?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>The shelter has no liability because it disclosed a behavioural concern; any disclosure provides full immunity</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>The shelter is liable under strict liability dog bite statute solely because the dog bit someone after adoption</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>The shelter may face negligence liability for maintaining and publishing inaccurate behavioural records: the inaccuracy may have distorted the adopter's risk assessment, and the shelter's failure to maintain accurate records could be the proximate cause of harm</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>The adopter assumes all liability at the point of adoption signature; no post-adoption shelter liability exists for bite incidents</button>
+    <div class="expl"><b class="cor">C is correct.</b> Social media and adoption record accuracy carry legal consequences. If a shelter publishes inaccurate behavioural information — whether by overstating or understating a risk — and that inaccuracy influences the adopter's decision or risk-management behaviour, the shelter may face negligence liability. In this scenario, the inaccurate "food aggression" label may have caused the family to take precautions around food that were unnecessary, while missing the dog's actual risk profile (whatever that was). Conversely, if the actual risk was understated, the shelter would be liable for failure to disclose. Accurate recordkeeping is both an ethical and legal obligation. Full disclosure (option A) provides reduced but not absolute immunity — the disclosure must be accurate. Adoption agreements with indemnification clauses (option D) do not eliminate liability for shelter negligence.</div>
+  </div>
+
+  <!-- Q28 -->
+  <div class="q" data-tag="liability">
+    <div class="meta"><span class="num">Q28</span><span class="tag">liability</span></div>
+    <p class="stem">A shelter relies heavily on volunteers to assist with dog walking and kennel cleaning. A volunteer is bitten by a dog during a routine walk. The volunteer claims the shelter did not provide any safety training or warn her about the dog's bite history. Which of the following BEST describes the shelter's potential liability?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>No liability: volunteers assume all risks by virtue of volunteering; the shelter owes no duty of care to unpaid workers</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>No liability: the volunteer is not an employee, so OSHA and employer duty of care do not apply</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Potential negligence liability: shelters owe a duty of care to volunteers — including providing reasonable safety training, informing volunteers of known animal behavioural risks, and maintaining a reasonably safe work environment — even though volunteers are unpaid</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Liability is limited to the dog's owner, not the shelter, because the dog caused the injury</button>
+    <div class="expl"><b class="cor">C is correct.</b> The distinction between employee and volunteer status determines tax treatment and employment law obligations, but it does not eliminate a shelter's general duty of care. Organisations have a duty to maintain reasonably safe conditions and provide adequate information to all individuals working on their premises — including volunteers. If the shelter knew of the dog's bite history and failed to warn the volunteer, or if no safety orientation was provided, those omissions could support a negligence claim. While OSHA standards technically apply to employees, general negligence principles apply to anyone harmed by a shelter's unreasonable failure to exercise care. Best practice is to provide all volunteers with bite prevention training, supervise them appropriately, and document that training occurred.</div>
+  </div>
+
+  <!-- Q29 -->
+  <div class="q" data-tag="liability">
+    <div class="meta"><span class="num">Q29</span><span class="tag">liability</span></div>
+    <p class="stem">A shelter's trial adoption agreement includes a broad indemnification clause stating the trial adopter "assumes all liability for any injury caused by the animal during the trial period." A trial adopter's homeowner's insurance policy excludes coverage for animals not owned by the policyholder. The trial animal bites a neighbour. Regarding the liability allocation, which of the following is MOST accurate?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>The indemnification clause fully transfers liability to the trial adopter; the shelter has no exposure regardless of insurance coverage</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Because the homeowner's insurance excludes the animal, the indemnification clause is automatically void and unenforceable</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>The indemnification clause may be enforceable, but if the trial adopter is uninsured for this loss and lacks assets, the injured neighbour may pursue the shelter as the legal owner — demonstrating that requiring verified homeowner's insurance is a critical element of trial adoption risk management</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>The neighbour must first exhaust claims against the trial adopter before suing the shelter; the shelter is only secondarily liable</button>
+    <div class="expl"><b class="cor">C is correct.</b> An indemnification clause contractually shifts liability from the shelter to the trial adopter, but it is only as effective as the trial adopter's ability to honour it. If the adopter's homeowner's policy excludes animals not owned by the policyholder — a common policy exclusion — and the adopter lacks personal assets to satisfy a judgment, the injured third party may pursue the shelter as the legal owner of the animal. Indemnification clauses do not eliminate underlying legal liability; they create a contractual right of reimbursement that may be difficult to enforce against an uninsured, asset-poor adopter. This is precisely why requiring proof of applicable insurance (or a shelter-issued rider) is a best practice, not merely a formality. The shelter retaining legal ownership means it retains primary exposure in practice even when contractually indemnified.</div>
+  </div>
+
+  <!-- Q30 -->
+  <div class="q" data-tag="stray-holds">
+    <div class="meta"><span class="num">Q30</span><span class="tag">stray-holds</span></div>
+    <p class="stem">A dog is impounded as a stray on Monday morning. The statutory hold period is 7 days. The shelter's state statute specifies that hold days are counted as calendar days (not business days). The dog is microchipped with a registered owner. On which day does the hold legally expire, and what action may the shelter first legally take?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>The hold expires at the end of Monday (Day 1); the shelter may act on Tuesday morning</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>The hold expires after 7 business days, excluding the weekend; the shelter may act on the following Tuesday</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Counting the impoundment day as Day 1, the hold expires at the end of Day 7 (Sunday); the shelter may first legally adopt, transfer, or perform elective procedures beginning Monday morning — after the hold has fully run</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Because the owner was notified via the microchip registry, the hold period is waived and the shelter may act after 3 days</button>
+    <div class="expl"><b class="cor">C is correct.</b> When a statute specifies calendar days (not business days), weekends and holidays count toward the hold period. Counting Monday as Day 1 through Sunday as Day 7 means the 7-day hold expires at the end of Sunday. The shelter's legal authority to dispose of the animal (by adoption, transfer, or euthanasia) and to perform elective procedures (spay/neuter, microchipping) begins on Monday — after the hold has fully run. The microchip and owner notification do not waive or shorten the hold (option D); they trigger the longer hold and ensure the owner has maximum opportunity to reclaim. Jurisdictions vary on whether Day 1 is the impoundment day or the day after — candidates should read state statutes carefully, but the concept of "full hold must expire before elective action" is universal.</div>
+  </div>
+
+  </div><!-- /qlist -->
+
+</div></main>
+
+<footer><div class="wrap">
+  <p>ABVP Shelter Medicine RVS Study Hub &middot; Animals &amp; Public Policy Domain &middot; Regulatory (Subdomain 2 of 4)</p>
+  <p>Sources: IRS Publication 557 (Tax-Exempt Status for Your Organization); Illinois Animal Control Act; AVMA Model Veterinary Practice Act; DEA Practitioner's Manual for the Proper Use of Controlled Substances; Newbury S et al. Shelter Medicine for Veterinarians and Staff; HSUS Foster Programme Guidelines. Content is for exam preparation only — consult current state statutes and legal counsel for jurisdiction-specific decisions.</p>
+</div></footer>
+
+<script>
+document.getElementById('tabrow').addEventListener('click',function(e){
+  const btn=e.target.closest('button[data-p]');
+  if(!btn)return;
+  document.querySelectorAll('.tabrow button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('show'));
+  document.getElementById(btn.dataset.p).classList.add('show');
+});
+
+let total=0,correct=0;
+function ans(btn,isCorrect){
+  const q=btn.closest('.q');
+  if(q.dataset.locked)return;
+  q.dataset.locked='1';
+  total++;
+  const opts=q.querySelectorAll('.opt');
+  opts.forEach(o=>o.classList.add('locked'));
+  btn.classList.add(isCorrect?'correct':'wrong');
+  if(isCorrect)correct++;
+  else{
+    opts.forEach(o=>{
+      const fn=o.getAttribute('onclick')||'';
+      if(fn.includes('true'))o.classList.add('correct');
+    });
+  }
+  q.querySelector('.expl').classList.add('show');
+  document.getElementById('sc').textContent=correct+' / '+total;
+}
+
+function resetAll(){
+  total=0;correct=0;
+  document.querySelectorAll('.q').forEach(q=>{
+    delete q.dataset.locked;
+    q.querySelectorAll('.opt').forEach(o=>{
+      o.classList.remove('correct','wrong','locked');
+    });
+    const expl=q.querySelector('.expl');
+    if(expl)expl.classList.remove('show');
+  });
+  document.getElementById('sc').textContent='0 / 0';
+}
+
+function filterQ(btn,tag){
+  document.querySelectorAll('.mcqbar .filters button').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('#qlist .q').forEach(q=>{
+    q.style.display=(tag==='all'||q.dataset.tag===tag)?'':'none';
+  });
+}
+</script>
+</body>
+</html>
