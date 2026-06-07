@@ -380,6 +380,41 @@ function renderHome(){
   return h;
 }
 
+function onSearch(q){
+  var grid=document.getElementById("domain-grid");
+  var panel=document.getElementById("search-results-panel");
+  q=(q||"").trim();
+  if(!q){grid.style.display="";panel.style.display="none";panel.innerHTML="";return;}
+  grid.style.display="none";
+  var ql=q.toLowerCase();
+  var results=[];
+  DOMAINS.forEach(function(d){
+    d.subs.forEach(function(s){
+      if(s.name.toLowerCase().indexOf(ql)>=0)results.push({s:s,d:d});
+    });
+  });
+  var h='<div class="search-results">';
+  if(!results.length){
+    h+='<div class="no-results">No topics found for "'+esc(q)+'"</div>';
+  }else{
+    results.forEach(function(r){
+      var s=r.s,d=r.d,hasUrl=!!s.url;
+      h+='<div class="scard'+(hasUrl?'':' no-url')+'" style="border-left:4px solid '+d.color+'"';
+      if(hasUrl)h+=' onclick="window.location.href=\''+s.url+'\'"';
+      h+='>';
+      h+='<div class="scard-emoji">'+(s.emoji||"📄")+'</div>';
+      h+='<div style="flex:1"><div class="scard-name" style="color:'+d.color+'">'+s.name+'</div>';
+      h+='<div class="scard-sub">'+d.emoji+' '+d.name+'</div></div>';
+      if(hasUrl)h+='<div class="scard-arrow" style="color:'+d.color+'">›</div>';
+      else h+='<div class="scard-soon">coming soon</div>';
+      h+='</div>';
+    });
+  }
+  h+='</div>';
+  panel.innerHTML=h;
+  panel.style.display="";
+}
+
 function renderDomain(id){
   var d=DOMAINS.filter(function(x){return x.id===id;})[0];
   var h='<div class="crumb"><a onclick="nav(\'home\')">Home</a><span class="sep">/</span><span>'+d.name+'</span></div>';
