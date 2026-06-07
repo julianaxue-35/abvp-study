@@ -423,7 +423,8 @@ function quizHTML(t){
 function answer(qi,oi){if(quizState.hasOwnProperty(qi))return;quizState[qi]=oi;document.getElementById("panel").innerHTML=panelHTML(TOPICS[S.dom]);}
 function resetQuiz(){quizState={};document.getElementById("panel").innerHTML=panelHTML(TOPICS[S.dom]);}
 
-render();
+var _hash=location.hash.replace('#','');
+if(_hash.indexOf('domain-')===0){nav('domain',_hash.slice(7));}else{render();}
 </script>
 </body>
 </html>
