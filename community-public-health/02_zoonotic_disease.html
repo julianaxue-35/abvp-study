@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zoonotic Disease | Community &amp; Public Health | ABVP Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0f3d3a;--ink2:#15514c;--paper:#f4efe4;--paper2:#fbf8f1;
+    --line:#d9d0bd;--muted:#5d6b62;
+    --acc:#1f5c8a;--acc-soft:#dcedf5;             /* zoonoses blue-teal */
+    --good:#1f7a4d;--bad:#b23b3b;
+    --notes:#7a4fb5;--notes-soft:#ece3f7;
+    --ref:#1f6f8b;--ref-soft:#dcedf2;             /* CDC / WHO / ASV references */
+    --avma:#9c3d54;--avma-soft:#f4dde3;           /* AVMA / NASPHV */
+    --warn:#a8641a;--warn-soft:#f7e6cd;           /* exam traps amber */
+    --shadow:0 1px 2px rgba(15,61,58,.08),0 8px 24px rgba(15,61,58,.06);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;
+    background-image:radial-gradient(circle at 1px 1px,rgba(15,61,58,.04) 1px,transparent 0);background-size:22px 22px;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+  header.top{background:var(--ink);color:var(--paper2);padding:26px 0 22px;border-bottom:4px solid var(--acc)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#9ec9c2;margin:0 0 6px}
+  header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(26px,4.5vw,40px);margin:0;line-height:1.05}
+  header.top p.sub{margin:8px 0 0;color:#cfe3df;font-size:14px;max-width:78ch}
+  .legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}
+  .legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.25);color:#eaf4f1;display:flex;align-items:center;gap:6px}
+  .legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--paper2);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button:hover{background:var(--paper);color:var(--ink)}
+  .tabrow button.active{background:var(--ink);color:var(--paper2)}
+  .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--acc)}
+  main{padding:30px 0 80px}
+  .panel{display:none;animation:fade .35s ease}
+  .panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;letter-spacing:-.01em}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:80ch}
+  h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:30px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;scroll-margin-top:64px}
+  h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;color:var(--ink2);text-transform:uppercase;letter-spacing:.03em}
+  .card{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}
+  p.note{font-size:14px;margin:0 0 6px}
+  ul.hy{margin:8px 0;padding-left:0;list-style:none}
+  ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed #e6ddca;font-size:14px}
+  ul.hy li:last-child{border-bottom:0}
+  ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;border-radius:2px;background:var(--acc);transform:rotate(45deg)}
+  .trap{background:#fdf3ed;border:1px solid #e8c9a8;border-left:4px solid var(--warn);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .trap b{color:var(--warn);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .corrbox{background:#e9f4ee;border:1px solid #bfe0cc;border-left:4px solid var(--good);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .corrbox b{color:var(--good);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .alertbox{background:var(--acc-soft);border:1px solid #b0cfe3;border-left:4px solid var(--acc);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .alertbox b{color:var(--acc);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:var(--paper2);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp th{background:var(--ink);color:var(--paper2);font-weight:600;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase}
+  table.cmp tr:last-child td{border-bottom:0}
+  table.cmp td b{color:var(--ink)}
+  .bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+  .bdg.notes{background:var(--notes-soft);color:var(--notes)}
+  .bdg.ref{background:var(--ref-soft);color:var(--ref)}
+  .bdg.avma{background:var(--avma-soft);color:var(--avma)}
+  .bdg.warn{background:var(--warn-soft);color:var(--warn)}
+  /* mcq */
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--ink);color:var(--paper2);border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:54px;z-index:10}
+  .mcqbar .filters{display:flex;gap:6px;flex-wrap:wrap}
+  .mcqbar .filters button{font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#d6e7e3;padding:6px 11px;border-radius:999px;cursor:pointer}
+  .mcqbar .filters button.on{background:var(--acc);border-color:var(--acc);color:#fff}
+  .score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}
+  .score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;color:#d6e7e3;padding:5px 10px;border-radius:8px;font-size:11px}
+  .q{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
+  .q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+  .q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--acc-soft);color:var(--acc)}
+  .q .stem{font-weight:600;font-size:15px;margin-bottom:10px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;font-family:"Public Sans";transition:background .15s,border-color .15s}
+  .opt:hover{border-color:var(--ink)}
+  .opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}
+  .opt.correct{background:#e8f5ec;border-color:var(--good);color:#0d3d24}
+  .opt.wrong{background:#fbe9e9;border-color:var(--bad);color:#5e1d1d}
+  .opt.locked{cursor:default}
+  .expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:#f3efe3;border:1px solid var(--line);font-size:13.5px}
+  .expl.show{display:block}
+  .expl b.cor{color:var(--good)}
+  footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
+  @media(max-width:640px){.mcqbar{top:50px}.score{font-size:12px}}
+</style>
+</head>
+<body>
+
+<!-- Back-nav bar -->
+<nav style="background:#0f3d3a;padding:9px 18px;display:flex;align-items:center;gap:10px;font-family:'Public Sans',system-ui,sans-serif;font-size:13px;font-weight:500;border-bottom:2px solid #1f5c8a"><a href="../index.html" style="color:#9ec9c2;text-decoration:none;display:flex;align-items:center;gap:5px"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span style="color:#4a7a6e;font-size:11px">›</span><span style="color:#cfe3df">Community &amp; Public Health</span><span style="color:#4a7a6e;font-size:11px">›</span><span style="color:#b8d9ee">Zoonotic Disease</span></nav>
+
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">ABVP Shelter Medicine Practice RVS &middot; Community &amp; Public Health &middot; Subdomain 2 of 5</p>
+    <h1>Zoonotic Disease</h1>
+    <p class="sub">Exam-depth study tool covering the definition and classification of zoonoses, the highest-yield shelter-relevant pathogens (bacterial, viral, parasitic, fungal), risk reduction frameworks, occupational health obligations, and the One Health framework. Every claim is badged by source.</p>
+    <div class="legend">
+      <span><i style="background:var(--ref)"></i>CDC / WHO / ASV guidelines</span>
+      <span><i style="background:var(--avma)"></i>AVMA / NASPHV</span>
+      <span><i style="background:var(--notes)"></i>Textbook / lecture notes</span>
+      <span><i style="background:var(--warn)"></i>Exam trap</span>
+      <span><i style="background:var(--good)"></i>High-yield point</span>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="overview"><span class="dot"></span>Overview &amp; Framework</button>
+  <button data-p="bacterial"><span class="dot"></span>Bacterial Zoonoses</button>
+  <button data-p="parasitic"><span class="dot"></span>Parasitic Zoonoses</button>
+  <button data-p="fungal"><span class="dot"></span>Fungal &amp; Other</button>
+  <button data-p="risk"><span class="dot"></span>Risk Reduction &amp; Occ. Health</button>
+  <button data-p="oneh"><span class="dot"></span>One Health</button>
+  <button data-p="mcq"><span class="dot" style="background:#0f3d3a"></span>MCQ Test Bank</button>
+</div></div></nav>
+
+<main><div class="wrap">
+
+<!-- ===================== OVERVIEW ===================== -->
+<section class="panel show" id="overview">
+  <h2 class="sec">Overview &amp; Classification Framework</h2>
+  <p class="lead">Zoonoses are diseases transmitted between vertebrate animals and humans. Understanding the classification, epidemiological terminology, and the shelter's unique occupational and community risk profile is the foundation for all zoonosis questions on the ABVP exam.</p>
+
+  <div class="card">
+    <h4>Blueprint placement</h4>
+    <ul class="hy">
+      <li>Community &amp; Public Health = <b>11%</b> of the exam (~38–39 of 350 questions). This subdomain (Zoonotic Disease) carries <b>21%</b> of the domain weight — making it the joint highest-weight subdomain alongside Animal Cruelty.</li>
+      <li>Expect scenario-based questions: a shelter staff member with a cat scratch and a rash, a bite wound management decision, a ringworm outbreak protocol, or a question about which immunocompromised persons are at highest risk.</li>
+      <li>Cross-domain connections: rabies (Subdomain 4, built separately); vector-borne disease (Subdomain 3); reportable/emerging disease (Subdomain 5). Ringworm also appears in Physical Health (Infectious Disease subdomain).</li>
+    </ul>
+  </div>
+
+  <h3>Definitions and transmission categories <span class="bdg ref">WHO / CDC</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Zoonosis</b>: any disease or infection naturally transmissible between vertebrate animals and humans. WHO estimates &gt;60% of known human infectious diseases are zoonotic in origin; ~75% of emerging human pathogens are animal-origin.</li>
+      <li><b>Anthroponosis</b>: disease that humans can transmit to animals (reverse zoonosis / zooanthroponosis). Example: humans can transmit SARS-CoV-2 to cats, mink, and other species — an emerging shelter concern.</li>
+      <li><b>Amplifying host</b>: a host in which the pathogen replicates to high levels, increasing transmission potential (e.g., deer mice for hantavirus; domestic dogs for Leishmania in endemic areas).</li>
+      <li><b>Dead-end host</b>: infected but does not contribute to further transmission (e.g., humans for most arboviruses — West Nile, EEE).</li>
+      <li><b>Reservoir host</b>: the species (or environmental source) in which a pathogen maintains itself long-term. The reservoir is not always the source of human exposure.</li>
+    </ul>
+    <div class="alertbox"><b>Key framework</b>For the ABVP exam, organizing zoonoses by transmission route (direct contact, aerosol, fecal-oral, vector-borne, bite/scratch) is more clinically useful than by agent type, because the route determines the PPE and protocol needed in the shelter setting.</div>
+
+    <h4>Transmission route summary</h4>
+    <table class="cmp">
+      <tr><th>Route</th><th>Examples in shelter context</th><th>Primary prevention</th></tr>
+      <tr><td><b>Direct contact / bite or scratch</b></td><td>Rabies, <i>Pasteurella</i>, cat scratch disease (<i>Bartonella</i>), <i>Capnocytophaga</i></td><td>Bite prevention, wound care, PPE, vaccination (rabies)</td></tr>
+      <tr><td><b>Fecal-oral</b></td><td><i>Salmonella</i>, <i>Campylobacter</i>, Cryptosporidiosis, Toxocariasis, <i>Giardia</i></td><td>Hand hygiene, gloves, cleaning protocols, not eating in animal areas</td></tr>
+      <tr><td><b>Aerosol / respiratory</b></td><td>Q fever (<i>Coxiella</i>), psittacosis (<i>Chlamydophila</i>), ringworm spores</td><td>Respiratory PPE (N95), ventilation, cage/litter hygiene</td></tr>
+      <tr><td><b>Vector-borne</b></td><td>Lyme disease, Rocky Mountain spotted fever, plague, tularemia — via fleas/ticks on animals</td><td>Ectoparasite control, tick checks, repellents (covered in Subdomain 3)</td></tr>
+      <tr><td><b>Indirect / environmental</b></td><td>Leptospirosis (water/urine), ringworm fomites, <i>Toxoplasma</i> oocysts in litter</td><td>Disinfection, gloves, litter hygiene, rodent control</td></tr>
+    </table>
+  </div>
+
+  <h3>High-risk populations in the shelter context <span class="bdg ref">CDC / ASV</span></h3>
+  <div class="card">
+    <p class="note">Immunocompromised individuals are at disproportionate risk from zoonoses that are mild or asymptomatic in healthy adults. The ABVP exam tests this concept repeatedly.</p>
+    <ul class="hy">
+      <li><b>HIV/AIDS and other T-cell immunodeficiencies</b>: increased susceptibility to Cryptosporidiosis, Toxoplasmosis, Bartonellosis (bacillary angiomatosis), Salmonellosis, and disseminated <i>Rhodococcus equi</i>.</li>
+      <li><b>Solid organ transplant recipients on immunosuppression</b>: Cryptosporidiosis, Toxoplasmosis, <i>Salmonella</i>, ringworm (dermatophytosis).</li>
+      <li><b>Chemotherapy patients / hematologic malignancies</b>: broad susceptibility due to neutropenia; Capnocytophaga canimorsus sepsis from dog bites (asplenic individuals also at extreme risk).</li>
+      <li><b>Pregnancy</b>: Toxoplasmosis (fetal loss, congenital infection), Listeriosis, Q fever (abortion in livestock workers).</li>
+      <li><b>Children under 5 years</b>: Toxocariasis (visceral/ocular larva migrans), <i>Salmonella</i> (severe disease), ringworm (tinea capitis).</li>
+      <li><b>Elderly (&gt;65 years)</b>: increased severity of most enteric zoonoses; <i>Capnocytophaga</i> sepsis.</li>
+    </ul>
+    <div class="trap"><b>Exam trap — Toxoplasma and pregnancy</b>Toxoplasmosis risk in pregnant women comes from primary infection during pregnancy, not from reactivation of prior immunity. A woman who is seropositive before pregnancy is generally NOT at risk of transmitting the parasite to her fetus. The risk is from NEW exposure during pregnancy. Owning a cat is not a high-risk activity if the woman avoids changing litter (or wears gloves) and the cat is an indoor-only hunter-free cat.</div>
+  </div>
+</section>
+
+<!-- ===================== BACTERIAL ===================== -->
+<section class="panel" id="bacterial">
+  <h2 class="sec">Bacterial Zoonoses in the Shelter</h2>
+  <p class="lead">Bacterial zoonoses are the most frequently tested category on the ABVP exam within this subdomain. Key pathogens are Salmonella, Campylobacter, Bartonella (cat scratch disease), Leptospira, Pasteurella, Capnocytophaga, and Q fever (Coxiella). Each is organized by agent, transmission, shelter risk, and clinical significance.</p>
+
+  <h3>Salmonellosis <span class="bdg ref">CDC</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Agent</b>: <i>Salmonella enterica</i> serovars — over 2,500 serovars; non-typhoidal Salmonella is the shelter-relevant form. Typhoid fever (<i>S.</i> Typhi) is a human-to-human disease and is not a shelter zoonosis.</li>
+      <li><b>Reservoir and source in shelters</b>: dogs and cats can carry <i>Salmonella</i> subclinically, especially animals fed raw meat diets. Reptiles (turtles, iguanas, snakes) are high-prevalence carriers — a significant concern in shelters accepting exotic animals. Young, stressed, or ill animals have higher shedding rates.</li>
+      <li><b>Transmission</b>: fecal-oral. Contaminated food (especially raw meat), contaminated surfaces, direct handling of infected animals without hand hygiene.</li>
+      <li><b>Human disease</b>: gastroenteritis (diarrhea, cramping, fever, vomiting) 12–72 hours after exposure; usually self-limiting in healthy adults (3–7 days). Invasive disease (bacteremia, focal infection) occurs in immunocompromised individuals, the elderly, and infants.</li>
+      <li><b>Shelter implications</b>: raw meat diets (including raw commercial pet foods) are a meaningful risk factor for Salmonella shedding; the ASV does not recommend raw meat diets in shelter settings. Routine hand hygiene after handling animals, animal waste, and food is the primary prevention.</li>
+    </ul>
+    <div class="trap"><b>Exam trap — reptiles and children</b>CDC estimates reptiles account for ~74,000 Salmonella infections per year in the US. Children under 5, the elderly, and immunocompromised individuals should avoid contact with reptiles, chicks, ducklings, and backyard poultry. This applies to shelter education and adoption counseling.</div>
+  </div>
+
+  <h3>Campylobacteriosis <span class="bdg ref">CDC</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Agent</b>: <i>Campylobacter jejuni</i> (most common), <i>C. coli</i>. Gram-negative, microaerophilic curved rods.</li>
+      <li><b>Reservoir</b>: dogs and cats, especially puppies and kittens (younger animals have higher prevalence). Also poultry, cattle, sheep.</li>
+      <li><b>Transmission</b>: fecal-oral; contact with diarrhetic animals is highest risk. Undercooked poultry and contaminated water are the primary human exposure routes, but shelter animals are a recognized source.</li>
+      <li><b>Human disease</b>: diarrhea (often bloody), abdominal cramps, fever — onset 1–10 days post-exposure, self-limiting in 1 week in healthy adults. Post-infectious Guillain-Barré syndrome is a rare sequela (~1 in 1,000 cases of <i>C. jejuni</i> infection).</li>
+      <li><b>Shelter implications</b>: puppies and kittens with diarrhea should prompt PPE and hand hygiene protocols. Co-infection with Salmonella or Giardia is common in shelter animals with GI signs.</li>
+    </ul>
+  </div>
+
+  <h3>Cat Scratch Disease — Bartonellosis <span class="bdg ref">CDC</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Agent</b>: <i>Bartonella henselae</i> (predominantly), <i>B. quintana</i> (more associated with lice/poverty). Small, gram-negative, intracellular.</li>
+      <li><b>Vector and reservoir</b>: domestic cats are the primary reservoir. The cat flea (<i>Ctenocephalides felis</i>) is the vector between cats; flea feces (flea dirt) containing <i>Bartonella</i> are inoculated into humans via scratch wounds or into cats grooming flea bites. Direct cat-to-human transmission occurs via scratches or bites contaminated with flea feces, not via direct salivary transmission.</li>
+      <li><b>Feline bacteremia</b>: cats are generally asymptomatic; bacteremia is more prevalent in kittens, stray cats, cats with flea infestations, and shelter cats. Seroprevalence can be very high in shelter cat populations.</li>
+      <li><b>Human disease (immunocompetent)</b>: cat scratch disease — primary inoculation papule/pustule at scratch site, followed by regional lymphadenopathy (enlarged, tender, sometimes suppurating lymph nodes) 1–4 weeks later. Fever, malaise. Usually self-limiting over weeks to months.</li>
+      <li><b>Human disease (immunocompromised)</b>: disseminated, life-threatening disease — bacillary angiomatosis (vascular proliferative skin lesions; may mimic Kaposi sarcoma), bacillary peliosis hepatis, bacteremia, neuroretinitis. HIV/AIDS patients are at highest risk.</li>
+    </ul>
+    <div class="corrbox"><b>High-yield — prevention is flea control</b>Because the cat flea is the essential vector for cat-to-cat transmission and the source of flea feces that drive human infections, <b>flea control is the single most important preventive measure</b> for Bartonellosis in the shelter. Declawing cats is not recommended as a preventive strategy. Hand hygiene and wound care after scratches remain important.</div>
+    <div class="trap"><b>Exam trap — route of transmission to humans</b>Cats do not transmit <i>Bartonella henselae</i> via their saliva or directly by biting; transmission requires contaminated flea feces inoculated via the scratch or bite wound. An indoor, flea-free cat is low-risk regardless of its serostatus.</div>
+  </div>
+
+  <h3>Leptospirosis <span class="bdg ref">CDC / AVMA</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Agent</b>: <i>Leptospira interrogans</i> — multiple pathogenic serovars. Maintenance hosts vary by serovar (e.g., <i>L. icterohaemorrhagiae</i>: rats; <i>L. canicola</i>: dogs; <i>L. pomona</i>: swine, cattle).</li>
+      <li><b>Transmission</b>: primarily through contact with urine or urine-contaminated water/soil from infected animals. Organism enters via mucous membranes, conjunctiva, or breaks in skin. Person-to-person transmission is rare.</li>
+      <li><b>Reservoir</b>: rodents (especially Norway rats) are the classic maintenance host and shed in urine without clinical disease. Dogs (especially unvaccinated outdoor dogs) can be infected and shed in urine. Cats are relatively resistant.</li>
+      <li><b>Human disease (Weil's disease)</b>: biphasic illness — initial leptospiremic phase (fever, chills, headache, myalgia, conjunctival suffusion) followed by immune phase in severe cases (icteric leptospirosis / Weil's disease): jaundice, renal failure (acute tubular necrosis), hemorrhage, pulmonary hemorrhage, myocarditis. Case fatality can reach 5–15% in severe cases.</li>
+      <li><b>Shelter implications</b>: dogs admitted from flood events, outdoor environments, or animal hoarding situations are at higher risk. Shelters in rodent-infested buildings are an occupational exposure concern. PPE (gloves, eye protection) when handling potentially infected dog urine. Dog vaccination (4-serovar leptospiral bacterin) is available and recommended in endemic areas.</li>
+    </ul>
+    <div class="trap"><b>Exam trap — cats and leptospirosis</b>Cats are frequently cited as resistant to clinical leptospirosis and are not significant sources of human infection compared with dogs and rodents. The ABVP exam may contrast cat vs. dog risk for leptospirosis — cats are not a meaningful occupational risk for this pathogen in the shelter.</div>
+  </div>
+
+  <h3>Pasteurellosis and Capnocytophaga <span class="bdg ref">CDC</span></h3>
+  <div class="card">
+    <h4>Pasteurella multocida</h4>
+    <ul class="hy">
+      <li>The most common bacterial pathogen isolated from dog and cat bite wounds. Part of normal oral flora of dogs (~50–75%) and cats (~75%).</li>
+      <li><b>Human disease</b>: rapidly progressive cellulitis at bite/scratch wound, often within hours; may progress to tenosynovitis, septic arthritis, osteomyelitis, or bacteremia. Cats inflict deep puncture wounds that inoculate <i>Pasteurella</i> into deeper tissues.</li>
+      <li>Treatment: amoxicillin-clavulanate is first-line for bite wound infections; penicillin allergy — doxycycline or fluoroquinolone. Do not use first-generation cephalosporins — poor activity against <i>Pasteurella</i>.</li>
+    </ul>
+    <div class="trap"><b>Exam trap — do not use first-gen cephalosporins for bite wounds</b>Cephalexin and cefazolin have poor activity against <i>Pasteurella multocida</i>. Bite wound infections require amoxicillin-clavulanate (or equivalent broad-spectrum cover for both <i>Pasteurella</i> and anaerobes).</div>
+    <h4>Capnocytophaga canimorsus</h4>
+    <ul class="hy">
+      <li>Gram-negative, slow-growing, fusiform rod; normal oral flora of dogs (and cats). Transmitted by bite, scratch, or lick on broken skin.</li>
+      <li><b>In healthy individuals</b>: usually causes mild or no disease.</li>
+      <li><b>In high-risk individuals</b>: life-threatening sepsis, DIC, meningitis, endocarditis, gangrene. Highest risk: <b>asplenic individuals</b> (functional or surgical asplenia), alcoholics, those on immunosuppressive therapy. Case fatality ~30% in septic asplenic patients.</li>
+      <li><b>Shelter implication</b>: all dog bite victims should be counseled about <i>Capnocytophaga</i>. Asplenic staff or volunteers must be identified in shelter health and safety programs; even a minor lick on an open sore is a potential life-threatening exposure for an asplenic person.</li>
+    </ul>
+    <div class="alertbox"><b>High-yield — asplenic individuals and dog exposure</b>An asplenic person who is licked by a dog on a minor abrasion and develops fever within 24–72 hours should seek emergency care immediately. <i>Capnocytophaga canimorsus</i> sepsis can progress to multiorgan failure and death within 24–48 hours in asplenic individuals.</div>
+  </div>
+
+  <h3>Q Fever — Coxiella burnetii <span class="bdg ref">CDC / NASPHV</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Agent</b>: <i>Coxiella burnetii</i> — obligate intracellular bacterium (now classified as gamma-Proteobacteria, not Rickettsia). Extremely environmentally stable; resistant to heat, drying, and many disinfectants. Forms a spore-like small cell variant that can survive in dust for months to years.</li>
+      <li><b>Reservoir and source</b>: primarily ruminants (cattle, sheep, goats). Cats and dogs can also be infected. Parturient animals shed massive quantities of organisms in placental fluids, amniotic fluid, fetal membranes, and birth products. Also shed in milk, urine, and feces.</li>
+      <li><b>Transmission to humans</b>: primarily aerosolization of contaminated dust or birthing materials — not bite or direct contact. Ingestion of unpasteurized dairy products is a secondary route.</li>
+      <li><b>Shelter relevance</b>: pregnant cats (queens) undergoing parturition in a shelter are a Q fever risk. Shelters with farm-animal contacts or wildlife rehabilitators handling ruminants face higher risk.</li>
+      <li><b>Human disease</b>: most infections (~60%) are asymptomatic or mild. Symptomatic acute Q fever: abrupt onset fever, severe headache, myalgia, pneumonia, hepatitis. Chronic Q fever (endocarditis, chronic fatigue): more common in those with prior valvular disease or immunocompromised status.</li>
+    </ul>
+    <div class="trap"><b>Exam trap — Q fever is aerosol-transmitted</b>Q fever is not transmitted by contact alone. A shelter worker who assists a parturient cat without respiratory protection and becomes ill with fever, headache, and pneumonia-like symptoms should prompt consideration of Q fever. No bite, scratch, or broken skin is required.</div>
+  </div>
+
+  <h3>Psittacosis — Chlamydophila psittaci <span class="bdg ref">CDC</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Agent</b>: <i>Chlamydophila psittaci</i> (formerly <i>Chlamydia psittaci</i>). Obligate intracellular.</li>
+      <li><b>Reservoir</b>: birds — particularly psittacines (parrots, macaws, cockatiels, parakeets), but also pigeons, raptors, and other avian species. Infected birds may appear healthy.</li>
+      <li><b>Transmission</b>: inhalation of dried feces, respiratory secretions, or feather dust from infected birds. Also through bites.</li>
+      <li><b>Human disease</b>: pneumonia with atypical features — non-productive cough, fever, headache, myalgia. Presentation similar to other atypical pneumonias (Mycoplasma, Legionella). Severe cases: multi-organ involvement, endocarditis.</li>
+      <li><b>Shelter relevance</b>: shelters that accept birds — particularly parrots and pigeons — have an occupational psittacosis risk. All birds should be handled with respiratory protection and bird rooms adequately ventilated. Psittacosis is a nationally notifiable disease.</li>
+      <li><b>Treatment</b>: doxycycline is first-line for both avian and human disease.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== PARASITIC ===================== -->
+<section class="panel" id="parasitic">
+  <h2 class="sec">Parasitic Zoonoses in the Shelter</h2>
+  <p class="lead">Parasitic zoonoses are high-yield because they connect the Physical Health domain (parasite control) with the Community and Public Health domain. Key pathogens include Toxoplasma, Toxocara, Cryptosporidium, Giardia, and hookworms.</p>
+
+  <h3>Toxoplasmosis <span class="bdg ref">CDC</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Agent</b>: <i>Toxoplasma gondii</i> — obligate intracellular coccidian parasite. <b>Cats are the only definitive host</b> and the only species that can shed environmentally resistant oocysts in feces.</li>
+      <li><b>Transmission to humans</b>: (1) ingestion of tissue cysts in undercooked meat (most common route); (2) ingestion of oocysts from environment contaminated by cat feces; (3) vertical transmission from primary maternal infection during pregnancy; (4) organ transplant/blood transfusion (rare).</li>
+      <li><b>Oocyst shedding window</b>: a cat typically sheds oocysts for only 1–3 weeks following primary infection, then develops immunity and stops shedding. Oocysts require 1–5 days of sporulation in the environment before becoming infectious — meaning fresh litter changed daily poses minimal risk even from a shedding cat.</li>
+      <li><b>Congenital toxoplasmosis</b>: fetal infection with chorioretinitis, hydrocephalus, intracranial calcifications, and developmental delay occurs only with primary maternal infection during pregnancy. Reactivation of latent infection in immunocompetent pregnant women does not typically transmit to the fetus.</li>
+      <li><b>Immunocompromised disease</b>: reactivation of latent bradyzoites causes toxoplasmic encephalitis — the most common cause of brain abscess in HIV/AIDS patients with CD4 &lt;100 cells/µL.</li>
+    </ul>
+    <div class="corrbox"><b>High-yield — practical risk counseling</b>The shelter practitioner's public health message: pregnant staff should wear gloves when handling litter and wash hands thoroughly. They should avoid cleaning litter boxes if possible. Having a cat does not mean she must give it up — the risk from her indoor, non-hunting, routinely tested cat is extremely low. The greater risk of toxoplasmosis for most Americans is eating undercooked meat.</div>
+    <div class="trap"><b>Exam trap — definitive host specificity</b>Cats are the ONLY definitive host for <i>Toxoplasma gondii</i>. Dogs, humans, and all other warm-blooded animals are intermediate hosts that harbor tissue cysts but do NOT shed oocysts in their feces. This means dogs are NOT a source of Toxoplasma oocysts.</div>
+  </div>
+
+  <h3>Toxocariasis — Visceral and Ocular Larva Migrans <span class="bdg ref">CDC</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Agent</b>: <i>Toxocara canis</i> (dog roundworm) and <i>T. cati</i> (cat roundworm). Larval stages (L2) cause human disease; adult worms do not develop in humans (dead-end hosts).</li>
+      <li><b>Transmission</b>: ingestion of embryonated eggs from contaminated soil, sandboxes, or directly from surfaces soiled with infected dog/cat feces. Geophagia in young children is a major risk factor. Paratenic hosts (raw liver from infected animals) are an additional route.</li>
+      <li><b>Prepatent period and environmental persistence</b>: eggs are not immediately infectious — they require 2–4 weeks to embryonate in the environment. Eggs are hardy and can survive in soil for years. Cat and dog defecation in public playgrounds and sandboxes is a significant public health concern.</li>
+      <li><b>Human disease</b>:
+        <ul style="margin:6px 0 0 16px;font-size:13.5px">
+          <li><b>Visceral larva migrans (VLM)</b>: larvae migrate through liver, lung, brain, heart. Presents as fever, eosinophilia, hepatomegaly, cough. More common in young children with pica.</li>
+          <li><b>Ocular larva migrans (OLM)</b>: larva migrates to the eye causing granuloma, uveitis, and potentially permanent visual impairment or blindness. Often in older children (5–10 years); may present without systemic eosinophilia.</li>
+          <li><b>Covert toxocariasis</b>: common subclinical infection — seroprevalence in the US ranges from ~14% in the general population to &gt;30% in economically disadvantaged communities.</li>
+        </ul>
+      </li>
+      <li><b>Prevention</b>: regular deworming of dogs and cats (especially puppies and kittens, which have highest egg burdens), covering sandboxes, preventing animal defecation in playgrounds, hand hygiene for children.</li>
+    </ul>
+  </div>
+
+  <h3>Hookworm — Cutaneous Larva Migrans <span class="bdg ref">CDC</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Agent</b>: <i>Ancylostoma braziliense</i> (most common cause of cutaneous larva migrans), <i>A. caninum</i>, <i>Uncinaria stenocephala</i>. These are dog and cat hookworms that cannot complete their life cycle in humans.</li>
+      <li><b>Transmission</b>: direct skin penetration by infective L3 larvae from contaminated soil. Typical exposure: walking barefoot on sandy soil or beaches contaminated with dog/cat feces.</li>
+      <li><b>Human disease</b>: pruritic, serpiginous, advancing skin track (creeping eruption) as larvae migrate through skin at ~1–2 cm/day. Does not progress to systemic disease in most cases; larvae die within weeks to months. Eosinophilic enteritis from <i>A. caninum</i> is a rare complication.</li>
+      <li><b>Prevention</b>: deworming shelter dogs and cats, footwear in potentially contaminated areas, not allowing dogs to defecate on beaches or playgrounds.</li>
+    </ul>
+  </div>
+
+  <h3>Cryptosporidiosis <span class="bdg ref">CDC</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Agent</b>: <i>Cryptosporidium parvum</i> (cattle, humans), <i>C. felis</i> (cats), <i>C. canis</i> (dogs), among others. Protozoan coccidian.</li>
+      <li><b>Transmission</b>: fecal-oral; oocysts are immediately infectious when passed. Extremely resistant to chlorine disinfection at standard water treatment concentrations.</li>
+      <li><b>Human disease</b>: watery, profuse, non-bloody diarrhea with cramping — self-limiting in immunocompetent individuals (1–2 weeks). In immunocompromised individuals (especially HIV/AIDS with CD4 &lt;100): severe, life-threatening, chronic diarrhea; biliary and pulmonary involvement possible. There is no reliably curative treatment for immunocompromised patients.</li>
+      <li><b>Shelter implications</b>: young, stressed shelter animals (especially kittens and puppies) have higher Cryptosporidium prevalence. Handling diarrheic animals without gloves and hand washing is an occupational risk, especially for immunocompromised staff.</li>
+    </ul>
+    <div class="trap"><b>Exam trap — chlorine resistance</b>Cryptosporidium oocysts are highly resistant to chlorine bleach at concentrations used for routine shelter disinfection. Effective interventions include hydrogen peroxide (accelerated hydrogen peroxide products), steam, and ammonia — though ammonia compatibility with other cleaning products must be considered. Hand hygiene with soap and water (not hand sanitizer alone) is essential because alcohol-based sanitizers have limited activity against oocysts.</div>
+  </div>
+
+  <h3>Giardiasis <span class="bdg ref">CDC</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Agent</b>: <i>Giardia duodenalis</i> (syn. <i>G. intestinalis</i>, <i>G. lamblia</i>). Assemblage A and B infect humans; assemblage C and D are predominantly dog-specific; assemblage F is cat-specific.</li>
+      <li><b>Zoonotic potential</b>: the zoonotic risk from dogs and cats is lower than commonly perceived because most animal-specific assemblages (C, D, F) do not readily infect humans. Assemblage A (zoonotic) does occur in dogs and cats and can infect humans, but the primary human risk is via contaminated water and human-to-human transmission.</li>
+      <li><b>Human disease</b>: diarrhea (often steatorrhea, malabsorption), bloating, flatulence, nausea — typically lasting 1–3 weeks; may become chronic.</li>
+      <li><b>Shelter implications</b>: Giardia is extremely common in shelter animals and a significant cause of diarrhea. Standard shelter disinfectants (quaternary ammonium compounds) have limited activity against Giardia cysts; accelerated hydrogen peroxide and quaternary ammonium with adequate contact time, plus mechanical cleaning, are recommended.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== FUNGAL & OTHER ===================== -->
+<section class="panel" id="fungal">
+  <h2 class="sec">Fungal &amp; Other Zoonoses</h2>
+  <p class="lead">Dermatophytosis (ringworm) is the most important fungal zoonosis in shelter practice. Sporothrix and select others are lower-yield but testable. Viral zoonoses other than rabies (covered in Subdomain 4) are addressed briefly here.</p>
+
+  <h3>Dermatophytosis (Ringworm) <span class="bdg ref">ASV / CDC</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Agents</b>: <i>Microsporum canis</i> (most common in cats; zoonotic), <i>Trichophyton mentagrophytes</i> (rodents, some dogs), <i>Microsporum gypseum</i> (soil; geophilic). <i>M. canis</i> is the predominant zoonotic species in shelters.</li>
+      <li><b>Transmission</b>: direct contact with infected animal or person; indirect contact with spores on fomites (bedding, grooming equipment, exam tables). Spores are environmentally persistent for 12–18 months under dry conditions.</li>
+      <li><b>Animal presentation</b>: circular areas of alopecia, scaling, and broken hairs, most commonly on the face, pinnae, and forelimbs. However, up to 20–30% of infected cats may be asymptomatic carriers — <b>a clinically normal coat does not rule out infection</b>.</li>
+      <li><b>Diagnosis</b>: Wood's lamp fluorescence (apple-green) for <i>M. canis</i> — but only ~50% of <i>M. canis</i> strains fluoresce; a negative Wood's lamp does not rule out infection. Fungal culture (DTM / dermatophyte test medium) with PCR confirmation is the gold standard.</li>
+      <li><b>Human disease</b>: tinea corporis (body), tinea capitis (scalp, predominantly in children — can cause permanent alopecia if untreated), tinea faciei, tinea manuum. Lesions are circular, itchy, scaling, erythematous rings.</li>
+      <li><b>Treatment (animals)</b>: lime sulfur dips (effective but malodorous), enilconazole rinses, topical miconazole/chlorhexidine shampoos, systemic itraconazole or terbinafine. Combination of systemic and topical therapy is more effective than either alone.</li>
+      <li><b>Shelter outbreak control</b>: isolate infected animals; decontaminate environment (dilute bleach 1:10 on non-porous surfaces; vacuuming + HEPA filtration; laundering with heat); staff PPE (gloves, gown, dedicated footwear); systematic testing of all exposed animals; foster care for isolated animals accelerates shelter capacity recovery.</li>
+    </ul>
+    <div class="trap"><b>Exam trap — Wood's lamp sensitivity</b>Wood's lamp detects only approximately 50% of <i>M. canis</i> infections. A negative Wood's lamp does NOT rule out ringworm. DTM culture is required for definitive diagnosis. This distinction is heavily tested.</div>
+    <div class="corrbox"><b>High-yield — ringworm is the #1 zoonosis by volume in shelter practice</b>Ringworm is the most frequently transmitted zoonotic disease in shelter settings — not Salmonella, not Toxoplasma. It is highly contagious, environmentally persistent, and produces outbreaks that strain shelter capacity. Understanding the shelter management protocol for a ringworm outbreak is essential exam preparation.</div>
+  </div>
+
+  <h3>Sporotrichosis <span class="bdg ref">CDC</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Agent</b>: <i>Sporothrix schenckii</i> complex — dimorphic fungus. Mold phase in environment; yeast phase in host tissue.</li>
+      <li><b>Traditional route</b>: traumatic inoculation from environmental source (thorns, plant material — "rose thorn disease").</li>
+      <li><b>Zoonotic transmission</b>: in Brazil, an epidemic linked to cats — transmission via scratch or bite from infected cats. Cat-associated sporotrichosis is an emerging concern in shelter cats from endemic regions. Infected cats typically have ulcerative nodular skin lesions and nasal involvement.</li>
+      <li><b>Human disease</b>: lymphocutaneous form (most common) — nodular lesion at inoculation site with chain of lymphangitic nodules progressing proximally. Disseminated disease in immunocompromised individuals.</li>
+      <li><b>Treatment</b>: itraconazole is first-line for both feline and human lymphocutaneous sporotrichosis.</li>
+    </ul>
+  </div>
+
+  <h3>Viral zoonoses (non-rabies) <span class="bdg ref">CDC</span></h3>
+  <div class="card">
+    <h4>Influenza A — interspecies transmission</h4>
+    <ul class="hy">
+      <li>Canine influenza virus (CIV H3N8, H3N2) does not currently infect humans. However, shelter staff contact with dogs during CIV outbreaks is an OHS point of awareness for novel reassortments, given influenza A's pandemic potential.</li>
+      <li>Cat-to-human transmission of influenza A (H7N2) was documented in a 2016–2017 outbreak in a New York City animal shelter — a shelter worker developed mild influenza-like illness. This was a novel event; routine CIV is not a human health risk, but influenza A in cats should prompt reporting to public health authorities.</li>
+    </ul>
+    <h4>SARS-CoV-2 (reverse zoonosis / anthroponosis)</h4>
+    <ul class="hy">
+      <li>Humans can transmit SARS-CoV-2 to cats, dogs, and other species (mink, big cats). Cats appear more susceptible than dogs. Evidence of cat-to-human transmission exists but is considered rare under normal shelter conditions.</li>
+      <li>Shelter implication: staff with COVID-19 should avoid contact with animals if possible; routine screening of shelter animals for SARS-CoV-2 is not warranted but may be triggered by cluster events.</li>
+    </ul>
+    <h4>Monkeypox (Mpox)</h4>
+    <ul class="hy">
+      <li>Prairie dogs and small exotic rodents have been implicated in US outbreaks (2003: pet store-to-human transmission via prairie dogs exposed to infected Gambian giant pouched rats). Shelters accepting exotic rodents should be aware of this risk.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== RISK REDUCTION & OCC HEALTH ===================== -->
+<section class="panel" id="risk">
+  <h2 class="sec">Risk Reduction &amp; Occupational Health</h2>
+  <p class="lead">Shelters are occupational environments with zoonotic disease risk for staff and volunteers. The ASV Guidelines for Standards of Care, CDC, and OSHA provide the framework for written zoonosis risk reduction programs. This is directly exam-tested.</p>
+
+  <h3>Hierarchy of controls in the shelter <span class="bdg ref">CDC / OSHA</span></h3>
+  <div class="card">
+    <p class="note">The occupational health framework applies engineering controls, administrative controls, and PPE in order of effectiveness:</p>
+    <table class="cmp">
+      <tr><th>Control level</th><th>Examples in zoonosis context</th></tr>
+      <tr><td><b>Elimination / substitution</b></td><td>Not accepting high-risk species (e.g., wild-caught reptiles) when alternatives exist; eliminating raw meat diets from shelter feeding protocols</td></tr>
+      <tr><td><b>Engineering controls</b></td><td>Isolation wards with dedicated ventilation; HEPA filtration for ringworm isolation rooms; handwashing sinks at room exits; negative-pressure isolation for respiratory pathogens</td></tr>
+      <tr><td><b>Administrative controls</b></td><td>Written SOPs for zoonosis risk; staff health screening and pre-employment risk disclosure; no eating/drinking in animal areas; mandatory hand hygiene protocols; mandatory reporting of bites and potential exposures; training on zoonosis recognition</td></tr>
+      <tr><td><b>PPE</b></td><td>Gloves for all direct animal contact; N95 for aerosol-transmissible pathogens (Q fever, psittacosis, ringworm spores); gown and eye protection for high-risk procedures; dedicated footwear in animal areas</td></tr>
+    </table>
+    <div class="corrbox"><b>High-yield — hand hygiene is the single most impactful intervention</b>Across all fecal-oral zoonoses (Salmonella, Campylobacter, Cryptosporidium, Giardia, Toxocara), thorough hand washing with soap and water before eating, after handling animals, and after cleaning is the single most impactful preventive measure. Hand sanitizer has limited activity against non-enveloped pathogens and oocysts.</div>
+  </div>
+
+  <h3>Written zoonosis risk program requirements <span class="bdg ref">ASV Standards of Care</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>ASV Guidelines recommend all shelters have a written zoonosis risk reduction program that includes: (1) identification of zoonotic risks present in the shelter; (2) protocols for PPE use; (3) bite and exposure reporting procedures; (4) education for staff and volunteers; (5) identification and accommodation of at-risk employees.</li>
+      <li><b>At-risk staff categories</b>: pregnant women, immunocompromised individuals, children (if applicable to shelter context), elderly. These individuals should be counseled about specific risks (Toxoplasmosis for pregnancy, Cryptosporidiosis for immunocompromised) and may need role modifications.</li>
+      <li>All bite wounds and potential zoonotic exposures must be reported and documented. Workers' compensation implications and mandatory reporting requirements (e.g., rabies exposure) make documentation a legal obligation, not just a best practice.</li>
+    </ul>
+  </div>
+
+  <h3>Adoption counseling and pet-owner education <span class="bdg ref">CDC / ASV</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Shelter veterinarians and adoption counselors have a public health obligation to discuss zoonotic risks with adopters, particularly for households with immunocompromised members, pregnant women, young children, or elderly individuals.</li>
+      <li>Key adoption counseling points for immunocompromised adopters: regular veterinary care, internal parasite testing and control, ectoparasite control (flea prevention for Bartonella), avoidance of raw meat diets, and immediate veterinary attention for animals with diarrhea or skin lesions.</li>
+      <li>Pregnant adopters: counsel on Toxoplasma (indoor cat, not hunting, regular litter changes with gloves), cat scratch disease prevention (flea control), and avoidance of handling parturient animals.</li>
+      <li>Families with young children: counsel on Toxocara (regular deworming, hand hygiene for children, supervised sandboxes), Campylobacter/Salmonella (hand washing after animal contact), and ringworm recognition.</li>
+    </ul>
+    <div class="alertbox"><b>Shelter policy point — Healthy Pets Healthy People</b>The CDC "Healthy Pets Healthy People" framework emphasizes that the benefits of pet ownership generally outweigh zoonotic risks for most households when proper hygiene and veterinary care protocols are followed. The shelter's role is to educate, not to discourage adoption. Denying adoption to immunocompromised applicants is neither evidence-based nor ethically appropriate in most circumstances — it requires individualized counseling.</div>
+  </div>
+
+  <h3>PPE guide for common shelter zoonoses <span class="bdg ref">CDC / ASV</span></h3>
+  <div class="card">
+    <table class="cmp">
+      <tr><th>Pathogen / scenario</th><th>Minimum PPE</th><th>Notes</th></tr>
+      <tr><td><b>Routine animal handling (healthy animals)</b></td><td>Gloves; hand washing after</td><td>Foundation for all zoonosis prevention</td></tr>
+      <tr><td><b>Handling diarrheic animals</b></td><td>Gloves, gown, hand washing</td><td>Salmonella, Campylobacter, Crypto, Giardia risk</td></tr>
+      <tr><td><b>Ringworm isolation room</b></td><td>Gloves, gown, dedicated footwear; N95 may be added for spore-generating procedures</td><td>Change and launder gown before leaving room</td></tr>
+      <tr><td><b>Parturient cat (Q fever risk)</b></td><td>Gloves, gown, N95 respirator, eye protection</td><td>Birthing fluids are highest-load source</td></tr>
+      <tr><td><b>Birds (psittacosis)</b></td><td>N95, gloves, gown; minimize aerosol-generating procedures in bird rooms</td><td>All bird species, not only psittacines</td></tr>
+      <tr><td><b>Bite wound first aid</b></td><td>Wash wound with soap and water 15+ min; report; medical evaluation</td><td>Rabies, Pasteurella, Capnocytophaga risk</td></tr>
+      <tr><td><b>Handling suspect-rabid animal</b></td><td>Gloves, face shield or goggles, bite-resistant gloves</td><td>Avoid contact with saliva on mucous membranes</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ===================== ONE HEALTH ===================== -->
+<section class="panel" id="oneh">
+  <h2 class="sec">One Health Framework for Zoonotic Disease</h2>
+  <p class="lead">The One Health approach recognizes that human health, animal health, and environmental health are inextricably linked. Zoonotic disease is the paradigmatic One Health problem — it cannot be effectively controlled from a single-species perspective. The ABVP exam tests whether candidates can articulate this integrated framework.</p>
+
+  <h3>Definition and pillars of One Health <span class="bdg ref">WHO / FAO / WOAH / CDC</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>WHO, FAO (Food and Agriculture Organization), and WOAH (World Organisation for Animal Health, formerly OIE) jointly define One Health as "a collaborative, multisectoral, and transdisciplinary approach — working at the local, regional, national, and global levels — with the goal of achieving optimal health outcomes recognizing the interconnection between people, animals, plants, and their shared environment."</li>
+      <li><b>The triad</b>: human health + animal health + ecosystem/environmental health. No pillar can be effectively addressed in isolation.</li>
+      <li>Key One Health statistics: ~60% of known human infectious diseases are zoonotic; ~75% of emerging human pathogens are animal-origin; most pandemic-potential pathogens (influenza, SARS, Ebola, Nipah, HIV) have animal origins.</li>
+    </ul>
+  </div>
+
+  <h3>Shelter medicine's role in One Health <span class="bdg ref">ASV / CDC</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Surveillance function</b>: shelters intake animals from diverse community sources and are ideally positioned to detect unusual disease patterns (novel zoonoses, outbreak clusters) early. A shelter with multiple animals showing neurological signs or unusual pneumonia should trigger public health notification.</li>
+      <li><b>Vaccination as herd immunity</b>: shelters vaccinating all impounded animals against rabies and other diseases contribute to population-level immunity in the community animal population — directly reducing human exposure risk. High-volume low-cost (HVLC) clinics extend this function into the community.</li>
+      <li><b>Parasite control</b>: systematic deworming and ectoparasite treatment of shelter animals at intake directly reduces the burden of Toxocara eggs, hookworm larvae, and flea-transmitted Bartonella in the community.</li>
+      <li><b>Community education</b>: adoption counseling, public outreach, and veterinary guidance at the point of adoption is a scalable public health intervention that reaches populations who may not otherwise access veterinary or public health services.</li>
+      <li><b>TNR and community cat management</b>: vaccinating free-roaming cats during TNR programs reduces the population of unvaccinated, potentially parasitized animals that interact with the community and wildlife.</li>
+    </ul>
+    <div class="corrbox"><b>High-yield One Health exam point</b>The shelter veterinarian simultaneously functions as a veterinary clinician, a public health practitioner, a community educator, and a disease surveillance node. The ABVP exam tests this integrated role — knowing the clinical features of zoonoses is necessary but not sufficient; understanding the public health implications and shelter operational responses is required for full-mark answers.</div>
+  </div>
+
+  <h3>Emerging and re-emerging zoonoses: the shelter as a sentinel <span class="bdg ref">CDC / WHO</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Factors driving emergence</b>: land use change (wildlife-human-livestock interface); climate change (expanding vector ranges for Lyme, West Nile, plague); global trade in live animals; antimicrobial resistance in zoonotic pathogens; increased density of immunocompromised humans.</li>
+      <li><b>Role of shelters in early detection</b>: clusters of unusual disease in multiple species, rapid neurological deterioration, or unusual distribution of respiratory signs should prompt consultation with state veterinarian and public health authorities. Shelters should have contact information for local/state animal disease reporting on file.</li>
+      <li><b>Antimicrobial-resistant zoonoses</b>: MRSA can be transmitted between humans and companion animals (bidirectional). Shelter animals have been identified as both recipients of MRSA from colonized humans and occasional sources of MRSA for staff. Standard infection control (hand hygiene, PPE) prevents transmission. Routine MRSA screening of shelter animals is not recommended but may be warranted during outbreak investigation.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== MCQ ===================== -->
+<section class="panel" id="mcq">
+  <h2 class="sec">MCQ Test Bank — Zoonotic Disease</h2>
+  <p class="lead">20 exam-style questions covering definitions, bacterial, parasitic, fungal zoonoses, risk reduction, and One Health. Select an answer to see the explanation.</p>
+
+  <div class="mcqbar">
+    <div class="filters">
+      <button class="on" data-f="all" onclick="filterQ(this,'all')">All (20)</button>
+      <button data-f="overview" onclick="filterQ(this,'overview')">Overview</button>
+      <button data-f="bacterial" onclick="filterQ(this,'bacterial')">Bacterial</button>
+      <button data-f="parasitic" onclick="filterQ(this,'parasitic')">Parasitic</button>
+      <button data-f="fungal" onclick="filterQ(this,'fungal')">Fungal</button>
+      <button data-f="risk" onclick="filterQ(this,'risk')">Risk / OccH</button>
+      <button data-f="oneh" onclick="filterQ(this,'oneh')">One Health</button>
+    </div>
+    <div class="score"><span id="sc">0 / 0</span><button class="reset" onclick="resetAll()">Reset</button></div>
+  </div>
+
+  <div id="qlist">
+
+  <!-- Q1 -->
+  <div class="q" data-tag="overview">
+    <div class="meta"><span class="num">Q1</span><span class="tag">overview</span></div>
+    <p class="stem">Which of the following best defines a zoonosis?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>A disease caused by a parasite that can survive in both aquatic and terrestrial environments</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>A disease or infection naturally transmissible between vertebrate animals and humans</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Any infectious disease that spreads between domestic animals in a shelter setting</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>A disease caused by a pathogen that has crossed the species barrier at least once in recorded history</button>
+    <div class="expl"><b class="cor">B is correct.</b> The WHO definition of a zoonosis is a disease or infection naturally transmissible between vertebrate animals and humans under natural conditions. Option D is partly true historically but does not define a zoonosis — a disease must be capable of ongoing natural transmission between species to qualify.</div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="q" data-tag="overview">
+    <div class="meta"><span class="num">Q2</span><span class="tag">overview</span></div>
+    <p class="stem">A pregnant shelter employee is concerned about exposure to cats. Which of the following statements about Toxoplasma gondii and pregnancy is most accurate?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Any pregnant woman who owns a cat is at high risk of congenital toxoplasmosis in her fetus</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Fetal infection occurs only with primary maternal infection during pregnancy; prior immunity is protective. The greater risk for most Americans is undercooked meat, not cat contact</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Cats shed oocysts continuously throughout their lives, making any cat-owning household high-risk</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Dogs also shed Toxoplasma oocysts and pose an equal risk to cats for pregnant women</button>
+    <div class="expl"><b class="cor">B is correct.</b> Congenital toxoplasmosis requires primary maternal infection during pregnancy. Women with prior immunity are protected. Cats typically shed oocysts for only 1–3 weeks after primary infection. The oocyst shedding window, sporulation requirement (1–5 days), and the high proportion of human Toxoplasma infections from undercooked meat all reduce the practical risk from indoor cats. Dogs are intermediate hosts and do NOT shed oocysts.</div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="q" data-tag="overview">
+    <div class="meta"><span class="num">Q3</span><span class="tag">overview</span></div>
+    <p class="stem">An asplenic staff member is licked on a small abrasion on their hand by a dog in the shelter. Three days later they present to the ER with high fever, hypotension, and purpuric rash. Which pathogen is most likely responsible?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Bartonella henselae</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Pasteurella multocida</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Capnocytophaga canimorsus</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Leptospira interrogans</button>
+    <div class="expl"><b class="cor">C is correct.</b> <i>Capnocytophaga canimorsus</i> is the classic cause of rapidly progressive fulminant sepsis in asplenic individuals following dog (or cat) contact — including licking on broken skin. The purpuric rash and rapid deterioration are hallmarks. Asplenic persons have dramatically impaired opsonization and are unable to clear this encapsulated gram-negative organism. Mortality approaches 30% in asplenic patients. This scenario is a recurring ABVP exam vignette.</div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="q" data-tag="bacterial">
+    <div class="meta"><span class="num">Q4</span><span class="tag">bacterial</span></div>
+    <p class="stem">A shelter receives a confiscated collection of reptiles including juvenile turtles. Which zoonosis is most directly associated with handling these animals, and which population is at highest risk?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Leptospirosis; pregnant women</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Salmonellosis; children under 5 years, elderly, and immunocompromised individuals</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Campylobacteriosis; elderly individuals</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Q fever; staff assisting in parturition</button>
+    <div class="expl"><b class="cor">B is correct.</b> Reptiles — including turtles, lizards, and snakes — are high-prevalence carriers of non-typhoidal <i>Salmonella</i>. CDC estimates reptiles account for ~74,000 Salmonella infections annually in the US. Children under 5, the elderly, and immunocompromised individuals are at highest risk of invasive (bacteremic) disease. The FDA banned the sale of small turtles (&lt;4 inches) in 1975 specifically because of this risk.</div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="q" data-tag="bacterial">
+    <div class="meta"><span class="num">Q5</span><span class="tag">bacterial</span></div>
+    <p class="stem">The primary mechanism of Bartonella henselae transmission from cats to humans is:</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Direct inoculation via cat saliva during a bite</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Inoculation of flea feces into a scratch or bite wound</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Inhalation of aerosolized cat respiratory secretions</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Ingestion of oocysts in cat feces</button>
+    <div class="expl"><b class="cor">B is correct.</b> The cat flea (<i>Ctenocephalides felis</i>) is the vector between cats; flea feces (containing <i>Bartonella</i>) deposited on the cat's skin are inoculated into humans when scratch wounds occur. The cat's saliva is not the direct source — saliva becomes contaminated with flea feces when the cat grooms. An indoor, flea-free cat is low-risk regardless of its <i>Bartonella</i> serostatus. Flea control is therefore the most important preventive measure.</div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="q" data-tag="bacterial">
+    <div class="meta"><span class="num">Q6</span><span class="tag">bacterial</span></div>
+    <p class="stem">A shelter employee develops fever, severe headache, myalgia, and cough 10 days after assisting a stray queen with a complicated parturition without wearing respiratory PPE. The most likely diagnosis is:</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Leptospirosis — acquired from urine contamination</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Psittacosis — acquired from aerosol of cat respiratory secretions</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Q fever — acquired via inhalation of aerosolized birthing fluids contaminated with Coxiella burnetii</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Cat scratch disease — acquired from a scratch during restraint</button>
+    <div class="expl"><b class="cor">C is correct.</b> <i>Coxiella burnetii</i> (Q fever) is transmitted by inhalation of aerosolized birthing fluids, placental material, and fetal membranes from infected animals — including cats. The incubation period is typically 2–3 weeks (range 2–6 weeks). No bite, scratch, or skin break is required; the aerosol route is the primary mode of transmission. N95 respirator, gloves, gown, and eye protection are required for shelter staff assisting parturient animals in areas with Q fever risk.</div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="q" data-tag="bacterial">
+    <div class="meta"><span class="num">Q7</span><span class="tag">bacterial</span></div>
+    <p class="stem">A shelter dog with a history of outdoor exposure and known rodent activity in the shelter is found to have acute renal failure, icterus, and conjunctival suffusion. Which zoonosis should be considered, and what is the appropriate PPE for staff handling this animal?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Campylobacteriosis; standard gloves and hand washing</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Leptospirosis; gloves and eye protection when handling urine or body fluids</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Q fever; N95 respirator and gown</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Salmonellosis; gloves and enteric precautions only</button>
+    <div class="expl"><b class="cor">B is correct.</b> The clinical picture — renal failure, jaundice, and conjunctival suffusion (bleeding into the conjunctival membranes) — in a dog with rodent exposure is classic for leptospirosis (Weil's disease). <i>Leptospira</i> is shed in urine and enters humans via mucous membranes or skin breaks. Staff handling this dog's urine or body fluids should wear gloves and eye protection (splash risk). Cats are relatively resistant to leptospirosis and are not a significant occupational risk for this pathogen.</div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="q" data-tag="bacterial">
+    <div class="meta"><span class="num">Q8</span><span class="tag">bacterial</span></div>
+    <p class="stem">A shelter staff member is bitten on the hand by a cat. Within 4 hours the wound is red, warm, and rapidly spreading. The most appropriate first-line antibiotic for empirical treatment is:</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Cephalexin (first-generation cephalosporin)</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Amoxicillin-clavulanate</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Clindamycin</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Metronidazole alone</button>
+    <div class="expl"><b class="cor">B is correct.</b> <i>Pasteurella multocida</i>, the predominant pathogen in cat bites, has intrinsic resistance to first-generation cephalosporins (cephalexin, cefazolin). Amoxicillin-clavulanate provides coverage for <i>Pasteurella</i>, anaerobes, and staphylococci — the empirical standard for bite wound infections. Clindamycin and metronidazole also have poor activity against <i>Pasteurella</i> when used alone. This is a classic antibiotic-selection exam trap.</div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="q" data-tag="parasitic">
+    <div class="meta"><span class="num">Q9</span><span class="tag">parasitic</span></div>
+    <p class="stem">Which of the following is the ONLY definitive host for Toxoplasma gondii?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Humans</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Dogs</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Cats (and other felids)</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Sheep and goats</button>
+    <div class="expl"><b class="cor">C is correct.</b> Cats (domestic and wild felids) are the only definitive hosts for <i>Toxoplasma gondii</i> — they are the only species in which sexual replication of the parasite occurs, leading to oocyst formation and fecal shedding. All other warm-blooded species, including dogs and humans, are intermediate hosts that harbor tissue cysts (bradyzoites) but never shed environmentally resistant oocysts.</div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="q" data-tag="parasitic">
+    <div class="meta"><span class="num">Q10</span><span class="tag">parasitic</span></div>
+    <p class="stem">A 7-year-old child presents with a unilateral visual disturbance and decreased visual acuity. Ophthalmologic examination reveals a retinal granuloma. Serology shows eosinophilia. No systemic signs are present. The most likely diagnosis is:</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Visceral larva migrans due to Toxocara canis</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Ocular larva migrans due to Toxocara canis</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Ocular toxoplasmosis from primary feline source</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Cutaneous larva migrans from Ancylostoma braziliense</button>
+    <div class="expl"><b class="cor">B is correct.</b> Ocular larva migrans (OLM) from <i>Toxocara canis</i> presents in school-age children (typically 5–10 years) as a retinal granuloma with visual impairment, often without the systemic eosinophilia and hepatomegaly seen in visceral larva migrans (VLM). The two forms tend to present in different age groups: VLM in toddlers with pica, OLM in older children. <i>A. braziliense</i> causes cutaneous larva migrans (skin tracking), not ocular disease.</div>
+  </div>
+
+  <!-- Q11 -->
+  <div class="q" data-tag="parasitic">
+    <div class="meta"><span class="num">Q11</span><span class="tag">parasitic</span></div>
+    <p class="stem">An immunocompromised cat adopter with HIV/AIDS and CD4 count of 80 cells/µL reports profuse watery diarrhea that has persisted for 3 weeks after adopting two kittens with diarrhea from a shelter. Which pathogen is most likely responsible and what is the key disinfection challenge?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Giardia duodenalis; kills with standard bleach dilutions</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Cryptosporidium spp.; oocysts are highly resistant to chlorine at standard concentrations</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Salmonella enterica; difficult to culture from the shelter environment</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Campylobacter jejuni; requires microaerophilic conditions for environmental survival</button>
+    <div class="expl"><b class="cor">B is correct.</b> Cryptosporidium causes chronic, life-threatening diarrhea in immunocompromised patients (particularly HIV/AIDS with CD4 &lt;100). There is no reliably effective treatment in immunocompromised hosts. The key disinfection challenge is that Cryptosporidium oocysts are highly resistant to chlorine bleach at standard concentrations used in most shelters. Accelerated hydrogen peroxide, steam, and mechanical cleaning are more effective. Hand washing with soap and water is essential; alcohol hand gels are inadequate against oocysts.</div>
+  </div>
+
+  <!-- Q12 -->
+  <div class="q" data-tag="parasitic">
+    <div class="meta"><span class="num">Q12</span><span class="tag">parasitic</span></div>
+    <p class="stem">A child develops a serpiginous, intensely pruritic, advancing skin track on the sole of the foot after playing on a beach where stray dogs were present. The most likely diagnosis and causative organism are:</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Visceral larva migrans due to Toxocara canis</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Cutaneous larva migrans due to Ancylostoma braziliense</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Ocular larva migrans due to Toxocara cati</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Cutaneous toxoplasmosis due to sporulated oocysts in sand</button>
+    <div class="expl"><b class="cor">B is correct.</b> Cutaneous larva migrans (CLM), or "creeping eruption," is caused by the skin penetration of <i>Ancylostoma braziliense</i> (hookworm) larvae from contaminated soil or sand. The larvae migrate through human skin at 1–2 cm/day creating a characteristic serpiginous track but cannot complete their life cycle in humans. Walking barefoot on contaminated sandy beaches is the classic exposure scenario. Treatment: topical or oral ivermectin or albendazole.</div>
+  </div>
+
+  <!-- Q13 -->
+  <div class="q" data-tag="fungal">
+    <div class="meta"><span class="num">Q13</span><span class="tag">fungal</span></div>
+    <p class="stem">A Wood's lamp examination of a kitten with circular areas of alopecia on the face is negative. Which of the following is the most appropriate next step?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Conclude ringworm is ruled out and discharge the kitten from isolation</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Perform a fungal culture (DTM) because Wood's lamp detects only approximately 50% of Microsporum canis infections and a negative result does not rule out dermatophytosis</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Treat empirically with lime sulfur dip without further diagnostics as Wood's lamp is 95% sensitive</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Perform a skin biopsy as histopathology is the gold standard for ringworm</button>
+    <div class="expl"><b class="cor">B is correct.</b> Wood's lamp (UV at 365 nm) produces apple-green fluorescence in <i>M. canis</i> infections, but only approximately 50% of strains fluoresce. A negative Wood's lamp does NOT rule out ringworm. Fungal culture (DTM — dermatophyte test medium, or Sabouraud's) with color change and microscopic confirmation is the diagnostic standard. PCR on hair samples is increasingly available and provides faster results. Histopathology is not routinely used for ringworm diagnosis.</div>
+  </div>
+
+  <!-- Q14 -->
+  <div class="q" data-tag="fungal">
+    <div class="meta"><span class="num">Q14</span><span class="tag">fungal</span></div>
+    <p class="stem">A ringworm outbreak occurs in a shelter's kitten room. Which of the following environmental decontamination approaches is most appropriate for hard, non-porous surfaces?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Quaternary ammonium compound spray with standard 10-minute contact time</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Dilute bleach (1:10 sodium hypochlorite) applied with adequate contact time to non-porous surfaces, combined with vacuuming (HEPA) and heat laundering of soft materials</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Alcohol-based hand sanitizer applied to all cage surfaces</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Accelerated hydrogen peroxide only — bleach is ineffective against dermatophytes</button>
+    <div class="expl"><b class="cor">B is correct.</b> Dilute bleach (1:10 or 1:32 sodium hypochlorite) is effective against dermatophyte spores on non-porous surfaces when properly applied with adequate contact time and after mechanical cleaning. For soft materials (bedding, towels), heat laundering (&gt;60°C) and HEPA vacuum for spore removal are required. Quaternary ammonium compounds have limited sporicidal activity against dermatophytes. Accelerated hydrogen peroxide is also effective on hard surfaces but the claim that bleach is ineffective against dermatophytes is incorrect.</div>
+  </div>
+
+  <!-- Q15 -->
+  <div class="q" data-tag="fungal">
+    <div class="meta"><span class="num">Q15</span><span class="tag">fungal</span></div>
+    <p class="stem">In an immunocompromised HIV-positive cat adopter, which of the following Bartonella manifestations is most likely to occur if the patient is scratched by a flea-infested cat?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Tinea corporis at the scratch site</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Self-limiting regional lymphadenopathy resolving within 4 weeks</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Bacillary angiomatosis or bacillary peliosis hepatis — disseminated, potentially life-threatening disease</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Ocular larva migrans progressing to retinal granuloma</button>
+    <div class="expl"><b class="cor">C is correct.</b> In immunocompromised individuals — particularly those with HIV/AIDS — <i>Bartonella henselae</i> infection can disseminate rather than remaining localized. Bacillary angiomatosis (vascular proliferative skin and systemic lesions resembling Kaposi sarcoma) and bacillary peliosis hepatis (blood-filled hepatic cysts) are the characteristic severe presentations. Immunocompetent individuals typically develop self-limiting regional lymphadenopathy (cat scratch disease) only. Tinea corporis and OLM are unrelated to Bartonella.</div>
+  </div>
+
+  <!-- Q16 -->
+  <div class="q" data-tag="risk">
+    <div class="meta"><span class="num">Q16</span><span class="tag">risk / occ health</span></div>
+    <p class="stem">According to the hierarchy of controls, which of the following is the MOST effective strategy for preventing zoonotic disease in a shelter?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Providing all staff with gloves and gowns (PPE)</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Eliminating or substituting high-risk sources (e.g., not accepting raw meat diets, not accepting high-risk species when alternatives exist)</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Training staff annually on zoonosis recognition (administrative control)</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Installing HEPA filtration in ringworm isolation rooms (engineering control)</button>
+    <div class="expl"><b class="cor">B is correct.</b> The hierarchy of controls ranks elimination and substitution as the most effective strategies because they prevent the hazard from existing. PPE (option A) is the LEAST effective level in the hierarchy, as it relies on correct and consistent use. Engineering controls and administrative controls are intermediate. In practice, shelters use all levels simultaneously, but the question tests the hierarchy concept.</div>
+  </div>
+
+  <!-- Q17 -->
+  <div class="q" data-tag="risk">
+    <div class="meta"><span class="num">Q17</span><span class="tag">risk / occ health</span></div>
+    <p class="stem">A shelter volunteer discloses that she is 14 weeks pregnant. What is the MOST appropriate action?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Exclude her from all animal contact for the duration of her pregnancy</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Provide individualized counseling about specific zoonotic risks (Toxoplasma, Bartonella, Q fever, Listeria from animals), offer role modifications to minimize highest-risk exposures, and ensure she uses appropriate PPE</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>No special action is needed — zoonotic disease risks in shelters are minimal for pregnant women</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Ask her to take unpaid leave until after delivery to protect the shelter from liability</button>
+    <div class="expl"><b class="cor">B is correct.</b> Complete exclusion (option A) is neither evidence-based nor legally appropriate in most contexts. Doing nothing (option C) fails the duty of care. The correct approach is individualized risk counseling, identification of highest-risk tasks (assisting parturient animals, handling litter without gloves, working with diarrheic animals), role modifications where reasonable, and ensuring proper PPE. This reflects both the ASV occupational health framework and OSHA general duty of care principles.</div>
+  </div>
+
+  <!-- Q18 -->
+  <div class="q" data-tag="risk">
+    <div class="meta"><span class="num">Q18</span><span class="tag">risk / occ health</span></div>
+    <p class="stem">Which single hand hygiene measure is most effective against the broadest range of zoonotic pathogens in a shelter setting, including non-enveloped viruses and protozoan oocysts?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Alcohol-based hand sanitizer (62–70% ethanol)</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Thorough hand washing with soap and running water for at least 20 seconds</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Chlorhexidine gluconate scrub</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Quaternary ammonium hand wipe</button>
+    <div class="expl"><b class="cor">B is correct.</b> Soap and water hand washing is effective against the broadest spectrum including oocysts (Cryptosporidium, Toxoplasma, Toxocara eggs) and non-enveloped viruses (parvovirus, calicivirus) for which alcohol-based sanitizers have limited or no activity. Alcohol-based sanitizers are adequate for enveloped pathogens (Salmonella, most bacteria) but should not be used as a substitute for soap and water when oocyst or non-enveloped pathogen exposure is possible. Chlorhexidine gluconate is effective against bacteria but has limited activity against oocysts and non-enveloped viruses.</div>
+  </div>
+
+  <!-- Q19 -->
+  <div class="q" data-tag="oneh">
+    <div class="meta"><span class="num">Q19</span><span class="tag">one health</span></div>
+    <p class="stem">Approximately what percentage of known human infectious diseases are zoonotic in origin, according to WHO estimates?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>~20%</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>~40%</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>&gt;60%</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>~90%</button>
+    <div class="expl"><b class="cor">C is correct.</b> WHO estimates that over 60% of known human infectious diseases are zoonotic, and approximately 75% of emerging human pathogens have animal origins. This statistic is the core epidemiological justification for the One Health approach — human and animal health cannot be effectively managed in isolation. It is a foundational ABVP exam fact for this domain.</div>
+  </div>
+
+  <!-- Q20 -->
+  <div class="q" data-tag="oneh">
+    <div class="meta"><span class="num">Q20</span><span class="tag">one health</span></div>
+    <p class="stem">From a One Health perspective, which of the following shelter activities MOST directly contributes to reducing zoonotic disease risk at the community population level?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Training staff to recognize ringworm lesions on individual cats</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Systematic deworming and ectoparasite treatment of all animals at intake, combined with flea prevention counseling at adoption</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Providing gloves to all staff who handle diarrheic animals</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Posting zoonosis information signs in all animal housing areas</button>
+    <div class="expl"><b class="cor">B is correct.</b> Systematic deworming reduces the burden of Toxocara, hookworm, and other parasites that can be shed into the environment long after adoption. Flea prevention at adoption reduces Bartonella transmission in the community. These interventions have population-level impact beyond the individual animal. Options A, C, and D are important for individual occupational protection but do not have the same community-scale One Health impact. The ABVP exam tests this distinction between individual-animal and population-level thinking.</div>
+  </div>
+
+  </div><!-- /qlist -->
+</section>
+
+</div></main>
+
+<footer><div class="wrap">
+  <p>ABVP Shelter Medicine RVS Study Hub &middot; Community &amp; Public Health Domain &middot; Zoonotic Disease (Subdomain 2)</p>
+  <p>Sources: CDC Healthy Pets Healthy People; CDC Zoonotic Disease resources; WHO One Health framework; ASV Guidelines for Standards of Care in Animal Shelters; NASPHV guidelines; AVMA guidelines. Content is for exam preparation only — always consult current guidelines and local public health authorities for clinical and legal decisions.</p>
+</div></footer>
+
+<script>
+// Tab switching
+document.getElementById('tabrow').addEventListener('click',function(e){
+  const btn=e.target.closest('button[data-p]');
+  if(!btn)return;
+  document.querySelectorAll('.tabrow button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('show'));
+  document.getElementById(btn.dataset.p).classList.add('show');
+});
+
+// MCQ
+let total=0,correct=0;
+function ans(btn,isCorrect){
+  const q=btn.closest('.q');
+  if(q.dataset.locked)return;
+  q.dataset.locked='1';
+  total++;
+  const opts=q.querySelectorAll('.opt');
+  opts.forEach(o=>{
+    o.classList.add('locked');
+    o.onclick=null;
+  });
+  if(isCorrect){correct++;btn.classList.add('correct');}
+  else{btn.classList.add('wrong');}
+  q.querySelector('.expl').classList.add('show');
+  document.getElementById('sc').textContent=correct+' / '+total;
+}
+function filterQ(btn,tag){
+  document.querySelectorAll('.mcqbar .filters button').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('.q').forEach(q=>{
+    q.style.display=(tag==='all'||q.dataset.tag===tag)?'':'none';
+  });
+}
+function resetAll(){
+  total=0;correct=0;
+  document.getElementById('sc').textContent='0 / 0';
+  document.querySelectorAll('.q').forEach(q=>{
+    delete q.dataset.locked;
+    q.style.display='';
+    q.querySelectorAll('.opt').forEach(o=>{
+      o.classList.remove('correct','wrong','locked');
+    });
+    q.querySelector('.expl').classList.remove('show');
+  });
+  document.querySelectorAll('.mcqbar .filters button').forEach(b=>b.classList.remove('on'));
+  document.querySelector('.mcqbar .filters button[data-f="all"]').classList.add('on');
+  // Re-attach onclick handlers
+  document.querySelectorAll('.opt').forEach(o=>{
+    const isCorrect=o.getAttribute('onclick')===null;
+    // Restore from original markup via re-parsing is impractical; reload page instead
+  });
+  location.reload();
+}
+</script>
+</body>
+</html>

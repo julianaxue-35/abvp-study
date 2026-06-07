@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animal Cruelty | Community &amp; Public Health | ABVP Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0f3d3a;--ink2:#15514c;--paper:#f4efe4;--paper2:#fbf8f1;
+    --line:#d9d0bd;--muted:#5d6b62;
+    --acc:#7a1f1f;--acc-soft:#f2e2e2;             /* community/public health red */
+    --good:#1f7a4d;--bad:#b23b3b;
+    --notes:#7a4fb5;--notes-soft:#ece3f7;
+    --ref:#1f6f8b;--ref-soft:#dcedf2;             /* ASPCA / AVMA / legal references */
+    --avma:#9c3d54;--avma-soft:#f4dde3;           /* AVMA policy */
+    --warn:#a8641a;--warn-soft:#f7e6cd;           /* exam traps amber */
+    --shadow:0 1px 2px rgba(15,61,58,.08),0 8px 24px rgba(15,61,58,.06);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;
+    background-image:radial-gradient(circle at 1px 1px,rgba(15,61,58,.04) 1px,transparent 0);background-size:22px 22px;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+  header.top{background:var(--ink);color:var(--paper2);padding:26px 0 22px;border-bottom:4px solid var(--acc)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#9ec9c2;margin:0 0 6px}
+  header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(26px,4.5vw,40px);margin:0;line-height:1.05}
+  header.top p.sub{margin:8px 0 0;color:#cfe3df;font-size:14px;max-width:78ch}
+  .legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}
+  .legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.25);color:#eaf4f1;display:flex;align-items:center;gap:6px}
+  .legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--paper2);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button:hover{background:var(--paper);color:var(--ink)}
+  .tabrow button.active{background:var(--ink);color:var(--paper2)}
+  .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--acc)}
+  main{padding:30px 0 80px}
+  .panel{display:none;animation:fade .35s ease}
+  .panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;letter-spacing:-.01em}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:80ch}
+  h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:30px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;scroll-margin-top:64px}
+  h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;color:var(--ink2);text-transform:uppercase;letter-spacing:.03em}
+  .card{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}
+  p.note{font-size:14px;margin:0 0 6px}
+  ul.hy{margin:8px 0;padding-left:0;list-style:none}
+  ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed #e6ddca;font-size:14px}
+  ul.hy li:last-child{border-bottom:0}
+  ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;border-radius:2px;background:var(--acc);transform:rotate(45deg)}
+  .trap{background:#fdf3ed;border:1px solid #e8c9a8;border-left:4px solid var(--warn);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .trap b{color:var(--warn);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .corrbox{background:#e9f4ee;border:1px solid #bfe0cc;border-left:4px solid var(--good);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .corrbox b{color:var(--good);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .alertbox{background:var(--acc-soft);border:1px solid #d9b0b0;border-left:4px solid var(--acc);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .alertbox b{color:var(--acc);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:var(--paper2);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp th{background:var(--ink);color:var(--paper2);font-weight:600;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase}
+  table.cmp tr:last-child td{border-bottom:0}
+  table.cmp td b{color:var(--ink)}
+  .bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+  .bdg.notes{background:var(--notes-soft);color:var(--notes)}
+  .bdg.ref{background:var(--ref-soft);color:var(--ref)}
+  .bdg.avma{background:var(--avma-soft);color:var(--avma)}
+  .bdg.warn{background:var(--warn-soft);color:var(--warn)}
+  /* mcq */
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--ink);color:var(--paper2);border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:54px;z-index:10}
+  .mcqbar .filters{display:flex;gap:6px;flex-wrap:wrap}
+  .mcqbar .filters button{font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#d6e7e3;padding:6px 11px;border-radius:999px;cursor:pointer}
+  .mcqbar .filters button.on{background:var(--acc);border-color:var(--acc);color:#fff}
+  .score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}
+  .score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;color:#d6e7e3;padding:5px 10px;border-radius:8px;font-size:11px}
+  .q{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
+  .q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+  .q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--acc-soft);color:var(--acc)}
+  .q .stem{font-weight:600;font-size:15px;margin-bottom:10px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;font-family:"Public Sans";transition:background .15s,border-color .15s}
+  .opt:hover{border-color:var(--ink)}
+  .opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}
+  .opt.correct{background:#e8f5ec;border-color:var(--good);color:#0d3d24}
+  .opt.wrong{background:#fbe9e9;border-color:var(--bad);color:#5e1d1d}
+  .opt.locked{cursor:default}
+  .expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:#f3efe3;border:1px solid var(--line);font-size:13.5px}
+  .expl.show{display:block}
+  .expl b.cor{color:var(--good)}
+  footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
+  @media(max-width:640px){.mcqbar{top:50px}.score{font-size:12px}}
+</style>
+</head>
+<body>
+
+<!-- Back-nav bar -->
+<nav style="background:#0f3d3a;padding:9px 18px;display:flex;align-items:center;gap:10px;font-family:'Public Sans',system-ui,sans-serif;font-size:13px;font-weight:500;border-bottom:2px solid #7a1f1f"><a href="../index.html" style="color:#9ec9c2;text-decoration:none;display:flex;align-items:center;gap:5px"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span style="color:#4a7a6e;font-size:11px">›</span><span style="color:#cfe3df">Community &amp; Public Health</span><span style="color:#4a7a6e;font-size:11px">›</span><span style="color:#f0c8c8">Animal Cruelty</span></nav>
+
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">ABVP Shelter Medicine Practice RVS &middot; Community &amp; Public Health &middot; Subdomain 1 of 5</p>
+    <h1>Animal Cruelty</h1>
+    <p class="sub">Exam-depth study tool covering definitions, recognition, documentation, the link between animal abuse and human violence, mandatory reporting obligations, legal frameworks, forensic investigation, and the shelter veterinarian's role in cruelty cases. Every claim is badged by source.</p>
+    <div class="legend">
+      <span><i style="background:var(--ref)"></i>ASPCA / AVMA / HSUS guidelines</span>
+      <span><i style="background:var(--avma)"></i>AVMA policy</span>
+      <span><i style="background:var(--notes)"></i>Lecture / textbook notes</span>
+      <span><i style="background:var(--warn)"></i>Exam trap</span>
+      <span><i style="background:var(--good)"></i>High-yield point</span>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="overview"><span class="dot"></span>Overview &amp; Definitions</button>
+  <button data-p="recognition"><span class="dot"></span>Recognition &amp; Forensics</button>
+  <button data-p="link"><span class="dot"></span>The Link</button>
+  <button data-p="reporting"><span class="dot"></span>Reporting &amp; Legal</button>
+  <button data-p="investigation"><span class="dot"></span>Investigation &amp; Documentation</button>
+  <button data-p="shelter"><span class="dot"></span>Shelter Role</button>
+  <button data-p="mcq"><span class="dot" style="background:#0f3d3a"></span>MCQ Test Bank</button>
+</div></div></nav>
+
+<main><div class="wrap">
+
+<!-- ===================== OVERVIEW ===================== -->
+<section class="panel show" id="overview">
+  <h2 class="sec">Overview &amp; Definitions</h2>
+  <p class="lead">Animal cruelty is one of the highest-weighted subdomains within Community &amp; Public Health (21% of this domain, ~8–9 exam questions). It spans veterinary forensics, public health, law, and shelter operations. The shelter veterinarian is frequently the first professional to evaluate a cruelty victim and to serve as an expert witness.</p>
+
+  <div class="card">
+    <h4>Blueprint placement</h4>
+    <ul class="hy">
+      <li>Community &amp; Public Health = <b>11%</b> of the exam (~38–39 of 350 questions). Animal Cruelty = <b>21%</b> of this domain, or roughly <b>8–9 questions</b>.</li>
+      <li>Sibling subdomains: Zoonotic Disease (21%), Animals and Public Safety (20%), Rabies (20%), Reportable and Emerging Disease (18%).</li>
+      <li>Expect questions on: recognizing abuse vs. accidental injury, mandatory reporting, the human–animal violence link, forensic documentation, legal definitions (cruelty vs. neglect vs. hoarding), and shelter-level response protocols.</li>
+    </ul>
+  </div>
+
+  <h3>Legal and conceptual definitions <span class="bdg ref">AVMA / ASPCA</span></h3>
+  <div class="card">
+    <table class="cmp">
+      <tr><th>Term</th><th>Definition / key points</th></tr>
+      <tr><td><b>Animal cruelty (active / intentional)</b></td><td>Deliberate infliction of pain, suffering, injury, or death. Includes striking, burning, poisoning, shooting, stabbing, sexual abuse. Statutory definitions vary by jurisdiction.</td></tr>
+      <tr><td><b>Animal neglect (passive cruelty)</b></td><td>Failure to provide adequate food, water, shelter, veterinary care, or sanitation. The most <b>common</b> form of animal abuse presented to shelters. May be intentional or result from ignorance, poverty, or hoarding disorder.</td></tr>
+      <tr><td><b>Animal hoarding</b></td><td>Accumulation of large numbers of animals with failure to provide minimum standards of care, denial of the problem, and a deteriorating environment for both animals and humans. A distinct syndrome with psychological dimensions; recidivism is very high without intervention targeting the underlying disorder.</td></tr>
+      <tr><td><b>Animal fighting</b></td><td>Organized baiting or fighting of animals (dogfighting, cockfighting) for entertainment or gambling. A federal felony in the US under the Animal Welfare Act. Co-occurs with other criminal activity.</td></tr>
+      <tr><td><b>Sexual abuse / zoophilia</b></td><td>Sexual exploitation of animals. Increasingly recognized as a form of cruelty with distinct psychological and legal dimensions; reportable under animal cruelty statutes in most states.</td></tr>
+    </table>
+    <div class="trap"><b>Exam trap — neglect is the most common form</b>Students often focus on dramatic intentional abuse. Animal neglect (passive cruelty) is by far the most frequently encountered category in shelter and veterinary practice. It is still legally actionable and can cause equally severe suffering.</div>
+  </div>
+
+  <h3>Federal and state legal framework <span class="bdg ref">ASPCA / US DOJ</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>PACT Act (2019)</b>: Preventing Animal Cruelty and Torture Act. Federal law making intentional acts of crushing, burning, drowning, suffocating, impaling, or sexual exploitation of animals a federal felony (up to 7 years imprisonment). The first broad federal anti-cruelty statute targeting companion animals (the Animal Welfare Act regulates research, transport, and dealer animals but not companion animal cruelty).</li>
+      <li><b>State statutes</b>: all 50 states have felony animal cruelty provisions. Definitions, penalties, and species covered vary widely. Felony prosecution is more common for intentional acts; neglect is more often charged as a misdemeanor, though many states have elevated serious neglect to felony status.</li>
+      <li><b>Animal fighting</b>: federal felony under 7 U.S.C. § 2156 (Animal Welfare Act) for dogfighting or cockfighting, attending a fight, or transporting animals for fighting. State laws also apply.</li>
+      <li><b>Mandatory reporting laws</b>: ~20+ states have mandatory reporting laws requiring veterinarians (and in some states, animal control officers, shelter staff, or law enforcement) to report suspected animal cruelty to authorities. See the Reporting &amp; Legal tab for details.</li>
+    </ul>
+    <div class="corrbox"><b>High-yield — PACT Act 2019</b>Prior to 2019, there was no broad federal anti-cruelty law covering companion animals in non-laboratory settings. The PACT Act filled this gap. Know the year (2019) and that it covers intentional acts of serious cruelty — not negligence-based neglect.</div>
+  </div>
+
+  <h3>Scope of the problem <span class="bdg ref">ASPCA / NIJ</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Animal cruelty is underreported, with estimates suggesting that only a fraction of cases result in prosecution. Approximately <b>1 million animals</b> are abused or killed by intimate-partner violence perpetrators annually in the US (ASPCA estimate).</li>
+      <li>Domestic dogs and cats are the most common victims in cruelty investigations, but livestock, horses, and birds are also affected.</li>
+      <li>Animal fighting operations (dogfighting in particular) are linked to illegal firearms, drug trade, and organized crime — making animal control and veterinary responders part of a complex multi-agency criminal environment.</li>
+      <li>Hoarding cases comprise a disproportionately large share of shelter intake in some regions, with seizures sometimes involving hundreds of animals requiring triage, care, and disposition.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== RECOGNITION ===================== -->
+<section class="panel" id="recognition">
+  <h2 class="sec">Recognition &amp; Forensic Assessment</h2>
+  <p class="lead">The shelter veterinarian or examining veterinarian is often the first — and sometimes the only — professional to evaluate a cruelty victim before evidence degrades. Recognizing the physical and behavioral hallmarks of abuse, and distinguishing abuse from accidental or natural injury, requires systematic forensic thinking.</p>
+
+  <h3>General physical examination in cruelty cases <span class="bdg ref">ASPCA / Munro &amp; Thrusfield</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Begin with a complete, systematic head-to-tail physical examination and thorough history. Document body weight and condition score; record measurements of wounds, burns, or lesions.</li>
+      <li>Use the <b>Body Condition Score (BCS)</b> to quantify emaciation objectively (BCS 1–2/9 is consistent with starvation-level neglect in dogs and cats).</li>
+      <li>Photograph everything: overall body, all lesions, wound measurements with scale, bite wounds, bruising patterns, burns. Photography must include case ID information and a color/scale reference card if available.</li>
+      <li>Collect radiographs to detect fractures in various stages of healing (indicative of repeated trauma), rib fractures, and foreign bodies (e.g., embedded pellets from BB or air-gun injuries).</li>
+      <li>Retain and label all biological samples (blood, urine, swabs) and foreign material (projectiles, ligatures) under chain-of-custody procedures.</li>
+    </ul>
+  </div>
+
+  <h3>Injury patterns and their interpretation <span class="bdg ref">ASPCA / Merck Veterinary Manual of Animal Cruelty</span></h3>
+  <div class="card">
+    <h4>Trauma patterns suggestive of abuse</h4>
+    <table class="cmp">
+      <tr><th>Finding</th><th>Significance</th></tr>
+      <tr><td><b>Multiple fractures in different stages of healing</b></td><td>Indicates repeated trauma over time; inconsistent with a single accidental event. Most reliable radiographic indicator of ongoing abuse.</td></tr>
+      <tr><td><b>Injuries inconsistent with stated history</b></td><td>Bilateral injuries in a "fell from a chair" case; severe patterned burns inconsistent with accidental contact. History–injury mismatch is a core red flag.</td></tr>
+      <tr><td><b>Patterned injuries</b></td><td>Burns, bruises, or lacerations with a specific object shape (cigarette burns, cord imprints, belt buckle marks). Pattern indicates deliberate application of an object.</td></tr>
+      <tr><td><b>Defensive injuries</b></td><td>Wounds on the feet, legs, or face in an animal that was attempting to escape or ward off blows.</td></tr>
+      <tr><td><b>Bite wounds from conspecifics</b></td><td>Characteristic of animal fighting; punctures on head, neck, forelegs, and scruff in dogs. Old and new bites together indicate repeated exposure.</td></tr>
+      <tr><td><b>Thermal injuries (burns)</b></td><td>Immersion burns have sharp demarcation lines (forced immersion in hot water) vs. contact burns. Chemical burns have irregular margins and may follow fur patterns.</td></tr>
+      <tr><td><b>Ligature marks</b></td><td>Circumferential pressure lesions, alopecia, and necrosis from tethering or constricting devices.</td></tr>
+    </table>
+
+    <h4>Perimortem vs. postmortem findings</h4>
+    <ul class="hy">
+      <li>Vital reaction (hemorrhage, inflammation) distinguishes injuries that occurred while the animal was alive (perimortem) from those inflicted after death (postmortem artifacts).</li>
+      <li>Histopathology of bruised tissue: neutrophilic infiltration indicates injuries hours to days before death; hemosiderin deposition indicates weeks-old healing.</li>
+      <li>Estimating the postmortem interval is relevant to timeline reconstruction: rigor mortis, livor mortis, degree of decomposition, and ambient temperature are used.</li>
+    </ul>
+
+    <div class="trap"><b>Exam trap — bruising in dark-coated animals</b>Bruising may be invisible on examination of skin surface in black or dark-coated animals. Clipping the hair and examining the skin directly, or using Wood's lamp illumination to detect fluorescent patterns, increases detection sensitivity. Histopathology of excised tissue is definitive.</div>
+  </div>
+
+  <h3>Neglect: emaciation and starvation <span class="bdg ref">ASPCA</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Chronic starvation produces: BCS 1–2/9, prominent bony prominences (spine, ribs, iliac crests, skull), muscle atrophy, poor coat quality, and in severe cases, peripheral edema (hypoproteinemia) and weakness.</li>
+      <li>Laboratory findings in severe starvation: hypoalbuminemia, hypoglycemia, elevated liver enzymes (hepatic lipidosis in cats), anemia, leukopenia. These findings, combined with BCS, support a diagnosis of nutritional neglect.</li>
+      <li><b>Refeeding syndrome</b> is a critical management concern in severely malnourished animals: reintroducing food too rapidly causes electrolyte shifts (hypophosphatemia, hypokalemia, hypomagnesemia) leading to hemolysis, cardiac arrhythmias, and neurological signs. Refeeding must be done gradually over 3–7 days, with electrolyte monitoring.</li>
+      <li>Differential for emaciation: malabsorption (IBD, exocrine pancreatic insufficiency), neoplasia, parasitism, dental disease preventing adequate intake. Documenting the environment (absence of food, water, shelter) and multiple animals in similar condition strengthens a neglect diagnosis.</li>
+    </ul>
+    <div class="corrbox"><b>High-yield — refeeding syndrome</b>Refeeding syndrome is a well-tested clinical trap in cruelty cases. Starved animals admitted to shelters must be refed gradually with electrolyte monitoring. Rapid refeeding is potentially fatal.</div>
+  </div>
+
+  <h3>Forensic pathology: necropsy in cruelty cases <span class="bdg ref">ASPCA / DiMaio &amp; DiMaio</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>A forensic necropsy follows strict chain-of-custody procedures: photographically document the body and any packaging before opening; collect blood, urine, vitreous humor, stomach contents, and tissue samples for toxicology.</li>
+      <li>Document all injuries and their anatomical location, depth, and characteristics before incising. Retain projectiles intact (do not crush with forceps) for ballistic analysis.</li>
+      <li>Toxicological screening: anticoagulant rodenticides (brodifacoum, bromadiolone), ethylene glycol, organophosphates, heavy metals, and illicit drugs are common in poisoning cases.</li>
+      <li>Histopathology of all grossly abnormal tissues and of at least one section from each major organ system. Include skin/subcutis from patterned injuries, growth plates (fracture dating), and brain (trauma, encephalitis).</li>
+    </ul>
+    <div class="alertbox"><b>Chain of custody</b>Every sample, photograph, and physical object collected in a cruelty case must be handled under chain-of-custody protocol: labeled with case number, collector, date, and time; sealed in tamper-evident containers; logged when transferred between individuals. Breaks in chain of custody can result in evidence being inadmissible in court.</div>
+  </div>
+</section>
+
+<!-- ===================== THE LINK ===================== -->
+<section class="panel" id="link">
+  <h2 class="sec">The Link: Animal Abuse and Human Violence</h2>
+  <p class="lead">"The Link" refers to the well-documented association between animal abuse and interpersonal violence, including domestic violence, child abuse, elder abuse, and other forms of family violence. Understanding this association is a core ABVP Community &amp; Public Health competency.</p>
+
+  <h3>Evidence base for the link <span class="bdg ref">ASPCA / AVMA / NCJRS</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Studies consistently find that <b>animal abuse co-occurs with domestic violence</b> in 50–70% of domestic violence households. Abusers use threats to or acts against pets as a tool of coercion and control.</li>
+      <li>A landmark study (Ascione et al.) found that <b>71% of women entering domestic violence shelters</b> reported that their partner had threatened, injured, or killed a pet. Many delayed leaving an abusive situation because they had no safe place for their animals.</li>
+      <li>Animal abuse is one of the strongest predictors of future interpersonal violence in children and adolescents (MacEwen, Kellert, Flynn). Childhood animal cruelty is recognized as a risk factor in the FBI's violent crime profiling.</li>
+      <li>Studies of convicted serial killers find a high prevalence of childhood animal abuse (the "homicidal triad" includes animal cruelty, arson, and enuresis — though the predictive specificity of this triad is debated in the modern literature, animal cruelty remains independently validated as a predictor).</li>
+      <li><b>Elder abuse</b>: companion animals are also used as leverage against elderly individuals, and the deterioration of an elder's ability to care for pets may be an early indicator of self-neglect or abuse by a caregiver.</li>
+    </ul>
+    <div class="corrbox"><b>High-yield statistic — 71% of DV households</b>The finding that ~71% of women entering domestic violence shelters reported a partner had harmed or threatened their pet is widely cited on licensing and specialty exams as justification for integrated response programs and safe harbor/co-shelter initiatives.</div>
+  </div>
+
+  <h3>Bidirectional reporting and cross-reporting <span class="bdg ref">ASPCA / National Link Coalition</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Cross-reporting</b>: the practice by which animal control officers, veterinarians, and shelter staff report suspected child or elder abuse and domestic violence to human social services — and vice versa — when they encounter concurrent animal abuse.</li>
+      <li>Over 40 states have some form of cross-reporting legislation or pilot program. In some states, veterinarians who report suspected child abuse in the context of an animal cruelty investigation have immunity from civil liability.</li>
+      <li>Cross-reporting increases detection: animal control investigators who enter a home for an animal welfare complaint are in a unique position to observe indicators of human abuse that human service workers would not encounter until separately called.</li>
+      <li><b>Integrated family violence teams</b> (combining animal control, law enforcement, child protective services, domestic violence advocates, and veterinary forensics) have been shown to improve prosecution rates and family safety outcomes.</li>
+    </ul>
+    <div class="trap"><b>Exam trap — cross-reporting is bidirectional</b>Cross-reporting is not just about veterinarians reporting human abuse; it also requires human service workers (child protective services, adult protective services) to report animal abuse they observe. The information flow goes in both directions. This is a tested concept.</div>
+  </div>
+
+  <h3>Safe harbor programs <span class="bdg ref">ASPCA / HSUS</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Safe harbor programs (also called SafePet, Pets and Women's Shelters [PAWS], or co-sheltering programs) provide temporary housing for the pets of domestic violence survivors, enabling the survivor to leave an abusive situation without abandoning their animal.</li>
+      <li>Models include: on-site housing at the DV shelter; foster networks coordinated through the local humane society or shelter; veterinary clinic boarding partnerships; and dedicated co-located facilities.</li>
+      <li>The National Link Coalition maintains a directory of safe harbor programs. As of 2024, more than half of US domestic violence shelters have some form of pet accommodation program.</li>
+      <li>Barriers: liability, cost, zoning restrictions, and the reluctance of some DV shelters to take on animal care responsibilities. Shelter veterinarians are natural partners in overcoming the veterinary care component of these barriers.</li>
+    </ul>
+  </div>
+
+  <h3>Animal fighting and criminality <span class="bdg ref">ASPCA / FBI</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Dogfighting and cockfighting are consistently co-located with illegal firearms, drug trafficking, gambling, and money laundering in law enforcement investigations.</li>
+      <li>The <b>FBI's Uniform Crime Reporting (UCR) system</b> began tracking animal cruelty as a specific crime category in 2016, reflecting the recognition of animal cruelty as a serious crime linked to broader patterns of violence.</li>
+      <li>Children raised in dogfighting households are at elevated risk of normalization of violence, trauma, and perpetuation of animal abuse.</li>
+      <li>Seizures of fighting animals (dogs in particular) require specialized veterinary assessment, behavioral evaluation, and legal holding — often placing enormous strain on shelter resources. Multi-agency coordination plans should be pre-established.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== REPORTING & LEGAL ===================== -->
+<section class="panel" id="reporting">
+  <h2 class="sec">Reporting &amp; Legal Framework</h2>
+  <p class="lead">The shelter veterinarian operates at the intersection of animal welfare law, public health law, and the criminal justice system. Understanding mandatory reporting obligations, evidentiary standards, and the expert witness role is essential for exam and practice.</p>
+
+  <h3>Mandatory reporting laws for veterinarians <span class="bdg ref">AVMA / state statutes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>As of 2024, approximately <b>20+ states have mandatory reporting laws</b> requiring veterinarians to report suspected animal cruelty to law enforcement or animal control. Several more states have voluntary reporting laws with immunity from civil and criminal liability for good-faith reports.</li>
+      <li>The <b>AVMA's position (2019)</b> supports mandatory veterinary reporting of suspected animal abuse and endorses the veterinarian's role as an advocate in cruelty investigations, while acknowledging that details vary by jurisdiction.</li>
+      <li>The two key policy elements: (1) a <b>duty to report</b> and (2) <b>immunity from liability</b> for good-faith reports. Both are needed to make a reporting law effective. Immunity provisions encourage reporting by removing the fear of civil suit from an owner who disputes the diagnosis.</li>
+      <li><b>Veterinarian–client confidentiality</b> in the US does not carry the same statutory protection as physician–patient confidentiality. Most animal cruelty mandatory reporting laws explicitly override confidentiality concerns, similar to how child abuse reporting laws override physician–patient privilege.</li>
+    </ul>
+    <div class="trap"><b>Exam trap — reporting is to animal control or law enforcement, not a state agency</b>In most jurisdictions, mandatory animal cruelty reports are made to local animal control or law enforcement, not to a state veterinary licensing board or public health department. Know who receives the report in your jurisdiction — but for exam purposes, "law enforcement or animal control" is the standard answer.</div>
+  </div>
+
+  <h3>Who may report and to whom <span class="bdg ref">ASPCA / state statutes</span></h3>
+  <div class="card">
+    <table class="cmp">
+      <tr><th>Reporter</th><th>Obligation</th><th>Report to</th></tr>
+      <tr><td><b>Veterinarian (mandatory reporting state)</b></td><td>Must report suspected abuse; immune from liability for good-faith report</td><td>Animal control or law enforcement</td></tr>
+      <tr><td><b>Veterinarian (voluntary reporting state)</b></td><td>May report; immune from liability for good-faith report</td><td>Animal control or law enforcement</td></tr>
+      <tr><td><b>Shelter veterinarian / ACO</b></td><td>May have additional agency-specific reporting obligations</td><td>Law enforcement, DA's office, animal control supervisor</td></tr>
+      <tr><td><b>General public</b></td><td>No duty in most states; encouraged to report</td><td>Local animal control or 911 in emergencies</td></tr>
+    </table>
+  </div>
+
+  <h3>Evidence and legal standards <span class="bdg ref">ASPCA / Forensic Veterinary Investigations</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Probable cause</b>: the legal standard required for law enforcement to make an arrest or obtain a search warrant. A veterinarian's written statement that a presented animal has injuries consistent with abuse may establish probable cause for a warrant to seize additional animals from a premises.</li>
+      <li><b>Preponderance of the evidence</b>: the civil standard (more likely than not). Relevant in animal seizure hearings and civil forfeiture proceedings.</li>
+      <li><b>Beyond a reasonable doubt</b>: the criminal standard. A veterinarian serving as an expert witness will opine on whether findings are "consistent with" abuse, not whether abuse definitively occurred — the determination of guilt is the jury's role.</li>
+      <li><b>Frye vs. Daubert standards</b>: courts use these standards to evaluate whether expert testimony is based on generally accepted science (Frye) or reliable methodology with sufficient factual basis (Daubert). Most federal courts and many state courts use the Daubert standard; a veterinarian expert witness may be asked to establish the scientific basis for their conclusions.</li>
+    </ul>
+    <div class="corrbox"><b>High-yield — "consistent with" language</b>Veterinarians should use language such as "the injuries are consistent with blunt force trauma" rather than "these injuries were caused by the defendant." The former is a medical opinion within the veterinarian's expertise; the latter invades the province of the fact-finder and may be inadmissible.</div>
+  </div>
+
+  <h3>Seizure, custody, and cost of care <span class="bdg ref">ASPCA / HSUS state law database</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>When animals are seized in a cruelty investigation, they typically become evidence and remain in law enforcement custody (often physically held at a shelter) until the criminal case is resolved. Cases can last months to years.</li>
+      <li><b>Cost-of-care bonds</b> (sometimes called "prepayment" or "security deposit" statutes): in some states, owners must post a bond covering the estimated daily cost of care; failure to post the bond results in forfeiture of the animal. Over 30 states have some form of this provision. This mechanism prevents animals from languishing in shelters indefinitely while the owner contests charges.</li>
+      <li><b>Forfeiture laws</b>: allow courts to order permanent transfer of ownership of seized animals to the shelter or a rescue before or at conviction. Many states allow pre-conviction forfeiture to reduce holding time and costs.</li>
+      <li>Shelters holding seized evidence animals face a tension: they cannot adopt out, euthanize (unless medically necessary), or transfer evidence animals without court approval — yet must provide full care, including expensive veterinary treatment, during prolonged holds.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== INVESTIGATION ===================== -->
+<section class="panel" id="investigation">
+  <h2 class="sec">Investigation &amp; Documentation</h2>
+  <p class="lead">Effective cruelty investigation requires a coordinated, multi-disciplinary approach. The veterinarian's role is to provide objective, reproducible, scientifically defensible documentation that will withstand scrutiny in court.</p>
+
+  <h3>Multi-disciplinary approach <span class="bdg ref">ASPCA</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Cruelty cases ideally involve: law enforcement (investigates crime, collects evidence, makes arrests), animal control (seizes animals, may issue citations), prosecutors (decide charges), veterinarians (evaluate animals, provide expert testimony), behavioral specialists (evaluate dogs post-seizure), social service agencies (if children or vulnerable adults are present), and prosecutorial support agencies (e.g., ASPCA field investigations team).</li>
+      <li>Pre-established memoranda of understanding (MOUs) or protocols between shelters, law enforcement, and prosecutors significantly improve case outcomes. Training law enforcement officers to recognize signs of animal abuse improves initial evidence collection at the scene.</li>
+      <li>The <b>veterinary forensic examination</b> should be conducted before routine shelter intake processing to preserve evidence — do not bathe the animal, clip hair, or treat wounds before fully documenting and sampling.</li>
+    </ul>
+  </div>
+
+  <h3>The forensic veterinary examination: documentation standards <span class="bdg ref">ASPCA / Merck Animal Cruelty Manual</span></h3>
+  <div class="card">
+    <h4>Examination protocol</h4>
+    <ul class="hy">
+      <li><b>History</b>: document all history provided, noting source (officer, ACO, witness) and time. Note any inconsistencies between history and physical findings. Never alter or edit the record after the fact — use addenda with date and signature.</li>
+      <li><b>Systematic physical examination</b>: use a standardized form. Describe location, size (measured), shape, color, and character of every lesion. Use anatomical terminology consistently. Assign a clock-face or grid reference for wound location on a body diagram.</li>
+      <li><b>Body condition score</b>: record using a validated scale (Purina 9-point or WSAVA 9-point for dogs and cats). A BCS of 1–2/9 objectively documents emaciation that is difficult to dismiss in court.</li>
+      <li><b>Wound age estimation</b>: describe gross features (fresh: red, moist, bleeding; subacute: scabbing, early granulation; chronic: scar tissue, alopecia, contracture). Histopathology provides more precise aging.</li>
+      <li><b>Photographs</b>: full-body dorsal, ventral, and both laterals; close-up of each lesion with scale bar and case ID; photograph of the identification chip scan if present. Use a professional-quality camera if available; smartphone images are acceptable but require metadata retention.</li>
+      <li><b>Radiographs</b>: full-body survey in cruelty cases involving suspected trauma. Document fracture type, healing stage, and any retained foreign material. Retain all original radiographic files (DICOM) and label with case ID.</li>
+    </ul>
+
+    <h4>Reporting and record keeping</h4>
+    <ul class="hy">
+      <li>Write the veterinary examination report in objective, factual language. State findings; give the differential diagnosis; give the opinion (e.g., "findings are consistent with inflicted blunt force trauma, with the differential of accidental injury being less likely for the following reasons..."). Do not editorialize about the suspect.</li>
+      <li>Retain all records, photographs, and specimens indefinitely (or per local statute for evidence) — cases may reopen or go to appeal years later.</li>
+      <li>Anticipate subpoena: all examination records, notes, emails, and photographs may be subpoenaed. Write as if a judge and opposing counsel will read every word.</li>
+    </ul>
+    <div class="alertbox"><b>Evidence integrity — do not over-clean</b>Animals presented from cruelty seizures may carry trace evidence (fibers, soil, human DNA from blood under the animal's nails). Bathing, clipping, or treating the animal before completing forensic evidence collection destroys this evidence. Notify the investigating officer before beginning any treatment.</div>
+  </div>
+
+  <h3>Toxicology in cruelty cases <span class="bdg ref">ASPCA / ASPCA Animal Poison Control Center</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Anticoagulant rodenticides</b> (brodifacoum, bromadiolone, diphacinone): single-dose long-acting. Clinical signs: hemorrhage, hemothorax, hemoabdomen, epistaxis. PT/APTT prolonged; vitamin K1 antidote. Intentional poisoning is common.</li>
+      <li><b>Strychnine</b>: causes tetanic seizures, extensor rigidity, hyperaesthesia. Historically used in animal poisoning; less common but still encountered.</li>
+      <li><b>Ethylene glycol</b> (antifreeze): acute renal failure within 24–72 h. Calcium oxalate crystalluria on urinalysis. Confirmed by serum ethylene glycol level or clinical response to antidote (fomepizole in dogs; ethanol + fomepizole in cats).</li>
+      <li><b>Organophosphate / carbamate insecticides</b>: SLUDGE signs (salivation, lacrimation, urination, diarrhea, GI distress, emesis) plus bradycardia and miosis. Treat with atropine (anticholinergic) ± pralidoxime (reactivates cholinesterase, only if given early).</li>
+      <li><b>Illicit drugs</b>: methamphetamine, cocaine, opioids. Encountered in drug-house seizures. Presentation varies; urine drug screen and confirmatory GCMS.</li>
+      <li>Collect antemortem: blood (EDTA and red-top), urine, gastric contents (if vomiting or intubated), eye swab. Postmortem: liver, kidney, brain, stomach contents, whole blood, vitreous humor. All in sealed, labeled containers with chain of custody.</li>
+    </ul>
+  </div>
+
+  <h3>Expert witness role <span class="bdg ref">AVMA / ASPCA</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>A veterinarian may be asked to testify as a <b>fact witness</b> (what they personally observed and did) or as an <b>expert witness</b> (opinions and conclusions based on expertise not available to the average juror).</li>
+      <li>Preparation: review all records and photographs before testimony; know the opposing attorney's likely challenge areas (e.g., whether injuries could have accidental causes); understand Daubert/Frye qualification requirements.</li>
+      <li>Conduct during testimony: answer only the question asked; never speculate beyond the evidence; acknowledge uncertainty when it exists; do not become an advocate for either side — the expert's job is to inform the court, not win the case for the prosecution.</li>
+      <li>Scope of veterinary expertise: a veterinarian can opine on mechanism of injury, consistency with abuse, wound timing, and medical consequences. Questions of intent (did the owner mean to cause harm?) are legal conclusions outside the veterinarian's role.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== SHELTER ROLE ===================== -->
+<section class="panel" id="shelter">
+  <h2 class="sec">The Shelter's Role in Animal Cruelty</h2>
+  <p class="lead">Animal shelters are uniquely positioned at the intersection of animal welfare, public health, and law enforcement response to cruelty. The shelter veterinarian may simultaneously be a treating clinician, a forensic examiner, a mandatory reporter, and a potential expert witness — all in the same case.</p>
+
+  <h3>Shelter intake protocols for cruelty cases <span class="bdg ref">ASPCA / ASV Guidelines</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Shelters should have a <b>written protocol</b> for receiving animals under law enforcement custody that includes: notification of the shelter director and attending veterinarian, chain-of-custody documentation, separation from the regular intake stream, and immediate veterinary examination.</li>
+      <li>Assign a unique case tracking number to all animals in a cruelty seizure from the moment of intake. All records (examination, treatments, behavioral assessments, husbandry logs) use this number and are retained as potential evidence.</li>
+      <li>Animals from the same case should be housed separately from the general shelter population, both to preserve evidence and to reduce the risk of disease transmission from animals that have not been fully health-screened.</li>
+      <li>Notify the prosecuting agency (DA's office or city attorney) before making any disposition decisions (adoption, euthanasia, transfer) for animals under law enforcement hold. Failure to obtain court authorization can result in obstruction of justice charges and loss of evidence.</li>
+    </ul>
+  </div>
+
+  <h3>Triage and care of cruelty victims <span class="bdg ref">ASPCA / Merck</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Complete forensic documentation before any cleaning or treatment unless an animal requires emergency stabilization (life-threatening hemorrhage, respiratory distress, shock). If emergency treatment must precede documentation, photograph and note pre-treatment state.</li>
+      <li>Pain management: cruelty victims often present in significant pain. Adequate analgesia is both an ethical obligation and a welfare standard under the ASV Guidelines — pain is not "preserved" as evidence; the animal's suffering is.</li>
+      <li>Nutritional rehabilitation: follow a gradual refeeding protocol with electrolyte monitoring. Document daily weight gains and BCS changes as part of the clinical record; this demonstrates the trajectory of recovery and provides evidence of prior neglect severity.</li>
+      <li>Behavioral care: animals from fighting operations, prolonged isolation, or abuse households may have significant behavioral sequelae. Behavioral assessment by a qualified behaviorist (using a validated tool) determines rehabilitative potential and appropriate housing. Behavioral records become part of the evidence file.</li>
+    </ul>
+    <div class="corrbox"><b>High-yield — gradual refeeding with monitoring</b>Refeeding syndrome in severely malnourished animals is a clinically significant risk and a frequently tested topic. Introduce food at 25–33% of calculated resting energy requirement on day 1, advancing to full RER by day 3–5, with daily electrolyte monitoring (phosphorus, potassium, magnesium).</div>
+  </div>
+
+  <h3>Mass-seizure events <span class="bdg ref">ASPCA / HSUS</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Hoarding cases, dogfighting busts, and large-scale neglect seizures may involve 50 to 500+ animals arriving simultaneously, overwhelming normal shelter capacity. Mutual aid agreements with neighboring shelters, rescue organizations, and veterinary schools should be pre-established.</li>
+      <li>Incident Command System (ICS) principles apply: designate an incident commander, establish a unified command with law enforcement, assign a veterinary triage lead, establish staging areas, and use a tracking system that assigns ID to each animal from first contact.</li>
+      <li>Triage categories: immediate (life-threatening, treatable) — stabilize and document; delayed (significant but stable) — document and treat within hours; minimal (minor injuries, healthy) — document and standard care; expectant (non-survivable or untreatable suffering) — humane euthanasia with documentation and sample collection.</li>
+      <li>Evidence integrity at scale: a tagging and photographing protocol for each animal at point of seizure, before transport, is critical. Body cameras on animal control officers and numbered identification tags placed on each animal before removal from the scene are best practice.</li>
+    </ul>
+    <div class="trap"><b>Exam trap — euthanasia of evidence animals</b>Even humane euthanasia of an animal in extreme suffering that is held as evidence must be authorized by the court or prosecuting agency when possible, or at minimum thoroughly documented as a veterinary emergency with photographs and a written veterinary justification. Unauthorized euthanasia of evidence animals has derailed prosecutions.</div>
+  </div>
+
+  <h3>Secondary traumatic stress in shelter staff <span class="bdg ref">HSUS / AVMA</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Shelter workers involved in cruelty investigations are at elevated risk of <b>secondary traumatic stress</b> (STS), <b>compassion fatigue</b>, and post-traumatic stress disorder (PTSD) compared with workers in other shelter roles.</li>
+      <li>STS is caused by indirect exposure to trauma through the suffering of animals and human victims. Symptoms parallel those of PTSD: intrusive thoughts, avoidance, hyperarousal, emotional numbing.</li>
+      <li>Protective factors: adequate staffing, rotation of staff on cruelty cases, peer support programs, access to employee assistance programs (EAP), supervisory acknowledgment of the emotional toll, and debriefing after mass-seizure events.</li>
+      <li>The shelter director and veterinarian have a duty-of-care obligation to monitor staff well-being and to build resiliency into organizational culture, especially when cruelty investigations are a regular part of operations.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== MCQ ===================== -->
+<section class="panel" id="mcq">
+  <h2 class="sec">MCQ Test Bank — Animal Cruelty</h2>
+  <p class="lead">20 exam-style questions covering definitions, forensic recognition, The Link, reporting obligations, legal standards, investigation, and the shelter veterinarian's role. Select an answer to see the explanation.</p>
+
+  <div class="mcqbar">
+    <div class="filters">
+      <button class="on" data-f="all" onclick="filterQ(this,'all')">All (20)</button>
+      <button data-f="definition" onclick="filterQ(this,'definition')">Definitions</button>
+      <button data-f="forensic" onclick="filterQ(this,'forensic')">Forensics</button>
+      <button data-f="link" onclick="filterQ(this,'link')">The Link</button>
+      <button data-f="reporting" onclick="filterQ(this,'reporting')">Reporting / Legal</button>
+      <button data-f="shelter" onclick="filterQ(this,'shelter')">Shelter Role</button>
+    </div>
+    <div class="score"><span id="sc">0 / 0</span><button class="reset" onclick="resetAll()">Reset</button></div>
+  </div>
+
+  <div id="qlist">
+
+  <!-- Q1 -->
+  <div class="q" data-tag="definition">
+    <div class="meta"><span class="num">Q1</span><span class="tag">definitions</span></div>
+    <p class="stem">Which of the following is the MOST common form of animal abuse encountered by shelter and veterinary professionals?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Intentional physical trauma</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Animal neglect (passive cruelty)</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Animal sexual abuse</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Animal fighting</button>
+    <div class="expl"><b class="cor">B is correct.</b> Animal neglect — failure to provide adequate food, water, shelter, or veterinary care — is by far the most frequently encountered category in shelter and veterinary practice. Intentional active abuse is more dramatic but less common.</div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="q" data-tag="definition">
+    <div class="meta"><span class="num">Q2</span><span class="tag">definitions</span></div>
+    <p class="stem">The PACT Act (2019) established which of the following?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Mandatory veterinary reporting of suspected animal cruelty in all 50 states</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Federal regulation of animal shelters and their standards of care</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Federal felony charges for intentional acts of crushing, burning, drowning, suffocating, impaling, or sexual exploitation of animals</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>A national registry of convicted animal abusers accessible to shelters</button>
+    <div class="expl"><b class="cor">C is correct.</b> The Preventing Animal Cruelty and Torture (PACT) Act of 2019 created the first broad federal anti-cruelty law covering companion animals, making intentional acts of serious cruelty a federal felony. It does not mandate veterinary reporting (a state-level issue) or regulate shelter standards.</div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="q" data-tag="definition">
+    <div class="meta"><span class="num">Q3</span><span class="tag">definitions</span></div>
+    <p class="stem">Which feature most distinguishes animal hoarding from simple multi-animal neglect?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Hoarding involves only dogs; multi-animal neglect involves mixed species</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Hoarding involves denial of the problem, a deteriorating environment for both animals and humans, and very high recidivism without intervention targeting the underlying psychological disorder</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Hoarding is always a criminal felony; neglect may be treated as a misdemeanor</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Hoarding requires more than 50 animals; fewer animals constitute simple neglect</button>
+    <div class="expl"><b class="cor">B is correct.</b> Animal hoarding is a distinct syndrome characterized by accumulation of many animals beyond the capacity to provide adequate care, denial of the problem, and an environment that deteriorates for both animals and people. Recidivism is extremely high without psychological intervention targeting the underlying disorder. No specific number of animals defines hoarding.</div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="q" data-tag="forensic">
+    <div class="meta"><span class="num">Q4</span><span class="tag">forensics</span></div>
+    <p class="stem">Multiple fractures in various stages of healing on whole-body radiographs of a dog is most consistent with which of the following?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>A single high-impact traumatic event (e.g., motor vehicle accident)</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Repeated trauma occurring over time, consistent with ongoing abuse</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Osteogenesis imperfecta (brittle bone disease)</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Nutritional secondary hyperparathyroidism from a calcium-deficient diet</button>
+    <div class="expl"><b class="cor">B is correct.</b> Multiple fractures in different stages of healing indicate injuries occurring at different points in time, which is inconsistent with a single acute event. This pattern is the most reliable radiographic indicator of repeated traumatic abuse. While metabolic bone disease can cause pathological fractures, the combination of multiple sites and different healing stages points to repeated trauma.</div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="q" data-tag="forensic">
+    <div class="meta"><span class="num">Q5</span><span class="tag">forensics</span></div>
+    <p class="stem">A severely emaciated dog with a body condition score of 1/9 is admitted to a shelter following a cruelty seizure. You begin feeding. Which of the following is the most important clinical concern in the first 3–5 days of refeeding?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Aspiration pneumonia from eating too fast</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Refeeding syndrome: electrolyte shifts (hypophosphatemia, hypokalemia, hypomagnesemia) that can cause hemolysis, arrhythmias, and neurological signs</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Gastric dilatation-volvulus from a single large meal</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Development of food aggression that will require behavioral euthanasia</button>
+    <div class="expl"><b class="cor">B is correct.</b> Refeeding syndrome is the most important short-term clinical risk. Rapid refeeding after starvation causes a shift of phosphorus, potassium, and magnesium from the extracellular to intracellular compartment as insulin is stimulated by incoming glucose. Resulting electrolyte deficiencies can cause hemolytic anemia, cardiac arrhythmias, and neurological signs. Introduce food gradually (25–33% RER on day 1) and monitor electrolytes daily.</div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="q" data-tag="forensic">
+    <div class="meta"><span class="num">Q6</span><span class="tag">forensics</span></div>
+    <p class="stem">A cruelty suspect states their dog sustained an injury when it "fell off the couch." You examine the dog and find bilateral forelimb fractures, a healing rib fracture, and a fresh bruise over the dorsal thorax. Which principle best describes the significance of the history-injury inconsistency?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>The inconsistency proves the owner is lying and is guilty of abuse</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>The inconsistency is a red flag that the stated mechanism is insufficient to explain the findings, warranting further investigation and documentation — though the veterinarian's role is to note the inconsistency, not to determine guilt</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>A couch fall cannot cause any fractures, so the owner's history is impossible</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>The veterinarian should confront the owner directly to obtain an accurate history before filing a report</button>
+    <div class="expl"><b class="cor">B is correct.</b> A history inconsistent with the injuries is a core forensic red flag. However, the veterinarian documents and reports the inconsistency — they do not determine guilt. Bilateral forelimb fractures, a healing rib fracture, and a new bruise from a single "fall off the couch" are inconsistent with that mechanism. The veterinarian should document thoroughly and report to law enforcement, who will investigate. Confronting the owner risks evidence contamination and personal safety.</div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="q" data-tag="forensic">
+    <div class="meta"><span class="num">Q7</span><span class="tag">forensics</span></div>
+    <p class="stem">When performing a forensic necropsy on a cruelty case, which of the following best describes the correct approach to a projectile found in the carcass?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Remove the projectile with forceps, clean it, and place it in a standard specimen jar</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Leave the projectile in situ; do not remove it as it may be needed for in-body radiographic documentation only</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Remove the projectile carefully using minimal-contact technique (avoid crushing with forceps), place it in a dry, sealed, labeled container under chain-of-custody documentation</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Discard the projectile after photographing; only the wound tract is legally relevant</button>
+    <div class="expl"><b class="cor">C is correct.</b> Projectiles (bullets, pellets, BBs) are physical evidence subject to ballistic analysis that can link a firearm to a crime. They must be removed with minimal surface contact (not crushed with forceps, which creates tool marks that interfere with forensic analysis), placed in a dry container (not formalin), sealed, labeled with case ID and chain-of-custody information, and logged when transferred to law enforcement.</div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="q" data-tag="link">
+    <div class="meta"><span class="num">Q8</span><span class="tag">the link</span></div>
+    <p class="stem">Studies by Ascione and others have found that approximately what percentage of women entering domestic violence shelters reported that their partner had threatened, injured, or killed a pet?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>10–15%</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>25–35%</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>~71%</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>&gt;90%</button>
+    <div class="expl"><b class="cor">C is correct.</b> The 71% figure (Ascione et al.) is the landmark and most frequently cited statistic for the co-occurrence of animal abuse and domestic violence. Many of these women delayed leaving the abusive household because they had no safe placement for their pets, driving the development of safe harbor programs.</div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="q" data-tag="link">
+    <div class="meta"><span class="num">Q9</span><span class="tag">the link</span></div>
+    <p class="stem">Which of the following best describes the concept of "cross-reporting" in the context of The Link?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Animal control officers file reports with both local and state agencies simultaneously</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Animal welfare professionals report suspected human abuse when they encounter it, and human service workers report suspected animal abuse — information flows in both directions</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Veterinarians report to the local police, who then cross-report to the state attorney general</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Domestic violence shelters share client information with animal shelters to coordinate co-shelter placement</button>
+    <div class="expl"><b class="cor">B is correct.</b> Cross-reporting is a bidirectional practice: animal control officers and veterinarians who observe signs of child abuse, elder abuse, or domestic violence report those concerns to human services; and child protective service workers, police, and social workers who encounter animal abuse report it to animal control. The bidirectional nature is the key tested concept.</div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="q" data-tag="link">
+    <div class="meta"><span class="num">Q10</span><span class="tag">the link</span></div>
+    <p class="stem">Safe harbor programs for domestic violence survivors primarily address which barrier to leaving an abusive relationship?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Lack of financial resources to cover housing costs</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Fear of losing child custody</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Lack of safe housing for pets, which causes survivors to delay or refuse to leave an abuser</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Absence of legal representation for filing protective orders</button>
+    <div class="expl"><b class="cor">C is correct.</b> Safe harbor programs exist specifically because a significant proportion of domestic violence survivors delay leaving — or choose not to leave — because they have no safe place for their pets and cannot bring them to a traditional DV shelter. Providing temporary housing for pets removes this barrier and enables survivors to seek safety.</div>
+  </div>
+
+  <!-- Q11 -->
+  <div class="q" data-tag="reporting">
+    <div class="meta"><span class="num">Q11</span><span class="tag">reporting / legal</span></div>
+    <p class="stem">A veterinarian in a state with a mandatory animal cruelty reporting law examines a dog with injuries strongly suspicious for abuse. The owner insists the injuries are accidental. What is the veterinarian's legal obligation?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Report only if the injuries are proven to be intentional beyond a reasonable doubt</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Report the suspected abuse to animal control or law enforcement; a good-faith report is protected from civil liability regardless of the ultimate determination of guilt</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Withhold treatment until law enforcement is present</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Obtain written consent from the owner before contacting animal control</button>
+    <div class="expl"><b class="cor">B is correct.</b> Mandatory reporting laws require reporting suspected (not proven) cruelty. The legal standard is suspicion based on professional judgment, not certainty. Immunity provisions protect the veterinarian from civil liability for a good-faith report even if the case is ultimately not prosecuted. The veterinarian should not withhold treatment for medical needs, and owner consent is not required to file a report with animal control.</div>
+  </div>
+
+  <!-- Q12 -->
+  <div class="q" data-tag="reporting">
+    <div class="meta"><span class="num">Q12</span><span class="tag">reporting / legal</span></div>
+    <p class="stem">When a veterinarian in a cruelty case writes an examination report, which of the following best describes the appropriate language for the opinion section?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>"The defendant deliberately and cruelly harmed this animal."</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>"There is no doubt that these injuries were inflicted."</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>"The injuries are consistent with inflicted blunt force trauma; accidental injury is less consistent with the distribution and severity of findings."</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>"I believe the owner is responsible for these injuries based on my assessment of their demeanor."</button>
+    <div class="expl"><b class="cor">C is correct.</b> Veterinary forensic opinions should use "consistent with" language that describes the medical findings and their most likely mechanism, while acknowledging the differential. Statements that name the perpetrator, assign intent, or claim certainty beyond what the evidence supports invade the fact-finder's role and can make expert testimony inadmissible. The demeanor of the owner is not a medical finding.</div>
+  </div>
+
+  <!-- Q13 -->
+  <div class="q" data-tag="reporting">
+    <div class="meta"><span class="num">Q13</span><span class="tag">reporting / legal</span></div>
+    <p class="stem">A cost-of-care bond statute in an animal cruelty case primarily serves which purpose?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Provides the shelter with immediate legal ownership of seized animals</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Requires the owner to post a bond covering ongoing care costs; failure to post results in forfeiture, preventing animals from languishing indefinitely in legal limbo</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Compensates shelter staff for overtime worked during mass-seizure events</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Establishes a cap on the cost of veterinary care the shelter may provide to evidence animals</button>
+    <div class="expl"><b class="cor">B is correct.</b> Cost-of-care bonds require owners to periodically post funds covering the shelter's cost of caring for seized animals. If the owner fails to post the bond, they forfeit ownership of the animals, allowing the shelter to proceed with placement or other disposition without waiting for the criminal case to conclude. This addresses the chronic problem of expensive long-term holds of evidence animals.</div>
+  </div>
+
+  <!-- Q14 -->
+  <div class="q" data-tag="reporting">
+    <div class="meta"><span class="num">Q14</span><span class="tag">reporting / legal</span></div>
+    <p class="stem">The Daubert standard, as applied to veterinary expert testimony in a cruelty case, requires that the expert's opinion:</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Be based on the veterinarian's personal experience alone, without published literature support</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Be based on reliable scientific methodology with a sufficient factual basis and be relevant to the facts of the case</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Have been accepted as standard of care for at least 10 years (the "general acceptance" test)</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Match the opinion of a majority of veterinarians in the relevant specialty</button>
+    <div class="expl"><b class="cor">B is correct.</b> The Daubert standard (used in federal courts and many state courts) requires that expert testimony be based on a reliable methodology with a sufficient factual basis, be the product of a reliable application of that methodology, and be relevant to the dispute. It replaced the older Frye "general acceptance" test in many jurisdictions. Veterinarians offering expert opinions should be prepared to explain the scientific basis for their conclusions.</div>
+  </div>
+
+  <!-- Q15 -->
+  <div class="q" data-tag="shelter">
+    <div class="meta"><span class="num">Q15</span><span class="tag">shelter role</span></div>
+    <p class="stem">Animals seized in a cruelty investigation are admitted to your shelter under law enforcement custody. Before you can adopt one out to an interested applicant, what must occur?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>A 10-day stray hold must be completed</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>The animal must pass a behavioral evaluation</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Court authorization (or authorization from the prosecuting agency) must be obtained before any change in disposition of evidence animals</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>The owner must be given the opportunity to reclaim the animal within 72 hours</button>
+    <div class="expl"><b class="cor">C is correct.</b> Animals held as evidence in an ongoing criminal case are the property of the court until the case is resolved or the court orders otherwise. Adopting, transferring, or euthanizing (except in a documented medical emergency) without court authorization constitutes destruction of evidence and can result in charges against the shelter. Always obtain written authorization from the DA's office or court before making any disposition decision for evidence animals.</div>
+  </div>
+
+  <!-- Q16 -->
+  <div class="q" data-tag="shelter">
+    <div class="meta"><span class="num">Q16</span><span class="tag">shelter role</span></div>
+    <p class="stem">A large dogfighting operation is raided and 120 dogs are seized and transported to your shelter over 4 hours. Which organizational model is most appropriate to manage this mass-seizure event?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Standard intake processing with extra volunteers called in</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Incident Command System (ICS) with designated roles: incident commander, veterinary triage lead, documentation team, animal care team, and liaison to law enforcement</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Transfer all animals immediately to multiple partner shelters without individual documentation</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Euthanize all dogs immediately because dogfighting dogs are too dangerous to assess</button>
+    <div class="expl"><b class="cor">B is correct.</b> Mass-seizure events require the Incident Command System (ICS) structure to maintain coordination, chain-of-custody documentation, and evidence integrity under surge conditions. Each dog must receive an individual ID and be documented from the moment of seizure. Transferring animals without documentation destroys chain-of-custody. Blanket euthanasia of fighting dogs is neither required nor appropriate; behavioral assessment determines individual outcomes.</div>
+  </div>
+
+  <!-- Q17 -->
+  <div class="q" data-tag="shelter">
+    <div class="meta"><span class="num">Q17</span><span class="tag">shelter role</span></div>
+    <p class="stem">A shelter veterinarian admits a cruelty case animal and wants to bathe it to document skin injuries more clearly. What is the most appropriate sequence of actions?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Bathe the animal first to allow clear photography, then perform the physical examination</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Complete full photographic documentation, swab collection, and physical examination before bathing; notify the law enforcement officer before any evidence-altering procedures</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Bathe and clip hair, then perform radiographs; skin injuries are documented by clipping alone</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Bathing is always acceptable in cruelty cases because it does not alter injury evidence</button>
+    <div class="expl"><b class="cor">B is correct.</b> Bathing, clipping, or treating an animal before forensic documentation can destroy trace evidence (fibers, blood, human DNA under nails, soil) and alter wound appearance. Complete all forensic documentation first (photography, swabs, physical exam, radiographs), notify the law enforcement officer of any planned treatment, and then proceed with bathing and clinical care. If a life-threatening emergency requires immediate treatment, document the pre-treatment state as thoroughly as possible before intervening.</div>
+  </div>
+
+  <!-- Q18 -->
+  <div class="q" data-tag="shelter">
+    <div class="meta"><span class="num">Q18</span><span class="tag">shelter role</span></div>
+    <p class="stem">Shelter workers regularly involved in cruelty investigations are at elevated risk of which occupational health condition?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Primary PTSD from direct personal trauma</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Secondary traumatic stress (STS) and compassion fatigue from indirect exposure to the suffering of animals and human victims</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Burnout exclusively related to caseload volume, not to cruelty content</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Occupational asthma from chemical disinfectant exposure</button>
+    <div class="expl"><b class="cor">B is correct.</b> Secondary traumatic stress (STS) develops from indirect exposure to trauma through the suffering of others — in this case, abused animals and their human victims. STS symptoms are similar to PTSD: intrusive imagery, avoidance, hyperarousal, and emotional numbing. Shelter leaders have a duty of care to monitor staff for STS and to build organizational resilience through rotation, peer support, and access to mental health resources.</div>
+  </div>
+
+  <!-- Q19 -->
+  <div class="q" data-tag="forensic">
+    <div class="meta"><span class="num">Q19</span><span class="tag">forensics</span></div>
+    <p class="stem">In the context of animal cruelty forensics, what is the purpose of documenting the "vital reaction" at a wound site on histopathology?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>To determine the breed of the animal from inflammatory cell characteristics</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>To determine whether the injury occurred while the animal was alive (perimortem), distinguishing it from postmortem artifact</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>To identify the specific instrument used to inflict the injury</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>To determine whether the injury was painful to the animal</button>
+    <div class="expl"><b class="cor">B is correct.</b> Vital reaction (hemorrhage, acute inflammatory infiltration at a wound site) indicates that the injury occurred while the animal had a functioning cardiovascular and immune system — i.e., while alive or immediately perimortem. Absence of vital reaction in a wound suggests the injury occurred after death (postmortem artifact from handling or scavenging). This distinction is critical for timeline reconstruction in cruelty investigations.</div>
+  </div>
+
+  <!-- Q20 -->
+  <div class="q" data-tag="link">
+    <div class="meta"><span class="num">Q20</span><span class="tag">the link</span></div>
+    <p class="stem">When was the FBI's Uniform Crime Reporting (UCR) system updated to specifically track animal cruelty as a distinct crime category?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>1994</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>2008</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>2016</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>2020</button>
+    <div class="expl"><b class="cor">C is correct.</b> In 2016, the FBI began tracking animal cruelty as a Group A offense in the National Incident-Based Reporting System (NIBRS), allowing for the first time systematic national data collection on animal cruelty crimes. This change reflected the recognition of animal cruelty's link to broader patterns of violence and was a significant advocacy victory for animal protection organizations.</div>
+  </div>
+
+  </div><!-- /qlist -->
+</section>
+
+</div></main>
+
+<footer><div class="wrap">
+  <p>ABVP Shelter Medicine RVS Study Hub &middot; Community &amp; Public Health Domain &middot; Animal Cruelty (Subdomain 1 of 5)</p>
+  <p>Sources: ASPCA guidelines and forensic resources; AVMA Animal Cruelty policy statements; Merck Animal Cruelty in Veterinary Practice; National Link Coalition; HSUS; Ascione FR (2007) International Handbook of Animal Abuse and Cruelty; US DOJ PACT Act documentation. Content is for exam preparation only — always consult current guidelines, local statutes, and legal counsel for clinical and legal decisions.</p>
+</div></footer>
+
+<script>
+// Tab switching
+document.getElementById('tabrow').addEventListener('click',function(e){
+  const btn=e.target.closest('button[data-p]');
+  if(!btn)return;
+  document.querySelectorAll('.tabrow button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('show'));
+  document.getElementById(btn.dataset.p).classList.add('show');
+});
+
+// MCQ
+let total=0,correct=0;
+function ans(btn,isCorrect){
+  const q=btn.closest('.q');
+  if(q.dataset.locked)return;
+  q.dataset.locked='1';
+  total++;
+  const opts=q.querySelectorAll('.opt');
+  opts.forEach(o=>o.classList.add('locked'));
+  btn.classList.add(isCorrect?'correct':'wrong');
+  if(isCorrect)correct++;
+  else{
+    opts.forEach(o=>{
+      const fn=o.getAttribute('onclick')||'';
+      if(fn.includes('true'))o.classList.add('correct');
+    });
+  }
+  q.querySelector('.expl').classList.add('show');
+  document.getElementById('sc').textContent=correct+' / '+total;
+}
+
+function resetAll(){
+  total=0;correct=0;
+  document.querySelectorAll('.q').forEach(q=>{
+    delete q.dataset.locked;
+    q.querySelectorAll('.opt').forEach(o=>{
+      o.classList.remove('correct','wrong','locked');
+    });
+    const expl=q.querySelector('.expl');
+    if(expl)expl.classList.remove('show');
+  });
+  document.getElementById('sc').textContent='0 / 0';
+  const activeFilter=document.querySelector('.mcqbar .filters button.on');
+  if(activeFilter)filterQ(activeFilter,'all');
+}
+
+function filterQ(btn,tag){
+  document.querySelectorAll('.mcqbar .filters button').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('#qlist .q').forEach(q=>{
+    q.style.display=(tag==='all'||q.dataset.tag===tag)?'':'none';
+  });
+}
+</script>
+</body>
+</html>

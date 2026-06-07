@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reportable &amp; Emerging Diseases | Community &amp; Public Health | ABVP Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0f3d3a;--ink2:#15514c;--paper:#f4efe4;--paper2:#fbf8f1;
+    --line:#d9d0bd;--muted:#5d6b62;
+    --acc:#1a5c3a;--acc-soft:#ddf0e6;             /* public health green */
+    --good:#1f7a4d;--bad:#b23b3b;
+    --notes:#7a4fb5;--notes-soft:#ece3f7;
+    --ref:#1f6f8b;--ref-soft:#dcedf2;             /* CDC / USDA / WHO references */
+    --avma:#9c3d54;--avma-soft:#f4dde3;           /* AVMA / NASPHV policy */
+    --warn:#a8641a;--warn-soft:#f7e6cd;           /* exam traps amber */
+    --shadow:0 1px 2px rgba(15,61,58,.08),0 8px 24px rgba(15,61,58,.06);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;
+    background-image:radial-gradient(circle at 1px 1px,rgba(15,61,58,.04) 1px,transparent 0);background-size:22px 22px;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+  header.top{background:var(--ink);color:var(--paper2);padding:26px 0 22px;border-bottom:4px solid var(--acc)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#9ec9c2;margin:0 0 6px}
+  header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(26px,4.5vw,40px);margin:0;line-height:1.05}
+  header.top p.sub{margin:8px 0 0;color:#cfe3df;font-size:14px;max-width:78ch}
+  .legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}
+  .legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.25);color:#eaf4f1;display:flex;align-items:center;gap:6px}
+  .legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--paper2);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button:hover{background:var(--paper);color:var(--ink)}
+  .tabrow button.active{background:var(--ink);color:var(--paper2)}
+  .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--acc)}
+  main{padding:30px 0 80px}
+  .panel{display:none;animation:fade .35s ease}
+  .panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;letter-spacing:-.01em}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:80ch}
+  h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:30px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;scroll-margin-top:64px}
+  h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;color:var(--ink2);text-transform:uppercase;letter-spacing:.03em}
+  .card{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}
+  p.note{font-size:14px;margin:0 0 6px}
+  ul.hy{margin:8px 0;padding-left:0;list-style:none}
+  ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed #e6ddca;font-size:14px}
+  ul.hy li:last-child{border-bottom:0}
+  ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;border-radius:2px;background:var(--acc);transform:rotate(45deg)}
+  .trap{background:#fdf3ed;border:1px solid #e8c9a8;border-left:4px solid var(--warn);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .trap b{color:var(--warn);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .corrbox{background:#e9f4ee;border:1px solid #bfe0cc;border-left:4px solid var(--good);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .corrbox b{color:var(--good);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .alertbox{background:var(--acc-soft);border:1px solid #a8d4bc;border-left:4px solid var(--acc);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .alertbox b{color:var(--acc);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:var(--paper2);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp th{background:var(--ink);color:var(--paper2);font-weight:600;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase}
+  table.cmp tr:last-child td{border-bottom:0}
+  table.cmp td b{color:var(--ink)}
+  .bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+  .bdg.notes{background:var(--notes-soft);color:var(--notes)}
+  .bdg.ref{background:var(--ref-soft);color:var(--ref)}
+  .bdg.avma{background:var(--avma-soft);color:var(--avma)}
+  .bdg.warn{background:var(--warn-soft);color:var(--warn)}
+  /* mcq */
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--ink);color:var(--paper2);border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:54px;z-index:10}
+  .mcqbar .filters{display:flex;gap:6px;flex-wrap:wrap}
+  .mcqbar .filters button{font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#d6e7e3;padding:6px 11px;border-radius:999px;cursor:pointer}
+  .mcqbar .filters button.on{background:var(--acc);border-color:var(--acc);color:#fff}
+  .score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}
+  .score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;color:#d6e7e3;padding:5px 10px;border-radius:8px;font-size:11px}
+  .q{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
+  .q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+  .q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--acc-soft);color:var(--acc)}
+  .q .stem{font-weight:600;font-size:15px;margin-bottom:10px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;font-family:"Public Sans";transition:background .15s,border-color .15s}
+  .opt:hover{border-color:var(--ink)}
+  .opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}
+  .opt.correct{background:#e8f5ec;border-color:var(--good);color:#0d3d24}
+  .opt.wrong{background:#fbe9e9;border-color:var(--bad);color:#5e1d1d}
+  .opt.locked{cursor:default}
+  .expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:#f3efe3;border:1px solid var(--line);font-size:13.5px}
+  .expl.show{display:block}
+  .expl b.cor{color:var(--good)}
+  footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
+  @media(max-width:640px){.mcqbar{top:50px}.score{font-size:12px}}
+</style>
+</head>
+<body>
+
+<!-- Back-nav bar -->
+<nav style="background:#0f3d3a;padding:9px 18px;display:flex;align-items:center;gap:10px;font-family:'Public Sans',system-ui,sans-serif;font-size:13px;font-weight:500;border-bottom:2px solid #1a5c3a"><a href="../index.html" style="color:#9ec9c2;text-decoration:none;display:flex;align-items:center;gap:5px"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span style="color:#4a7a6e;font-size:11px">›</span><span style="color:#cfe3df">Community &amp; Public Health</span><span style="color:#4a7a6e;font-size:11px">›</span><span style="color:#b8e8cc">Reportable &amp; Emerging Diseases</span></nav>
+
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">ABVP Shelter Medicine Practice RVS &middot; Community &amp; Public Health &middot; Subdomain 5 of 5</p>
+    <h1>Reportable &amp; Emerging Diseases</h1>
+    <p class="sub">Exam-depth study tool covering the framework for disease reporting, federally and state notifiable conditions relevant to shelter medicine, emerging and re-emerging pathogens, outbreak response, and the shelter's role in disease surveillance. Every claim is badged by source.</p>
+    <div class="legend">
+      <span><i style="background:var(--ref)"></i>CDC / USDA / WHO guidelines</span>
+      <span><i style="background:var(--avma)"></i>AVMA / NASPHV policy</span>
+      <span><i style="background:var(--notes)"></i>Lecture / textbook notes</span>
+      <span><i style="background:var(--warn)"></i>Exam trap</span>
+      <span><i style="background:var(--good)"></i>High-yield point</span>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="framework"><span class="dot"></span>Reporting Framework</button>
+  <button data-p="notifiable"><span class="dot"></span>Notifiable Diseases</button>
+  <button data-p="emerging"><span class="dot"></span>Emerging Pathogens</button>
+  <button data-p="outbreak"><span class="dot"></span>Outbreak Response</button>
+  <button data-p="shelter"><span class="dot"></span>Shelter Surveillance Role</button>
+  <button data-p="mcq"><span class="dot" style="background:#0f3d3a"></span>MCQ Test Bank</button>
+</div></div></nav>
+
+<main><div class="wrap">
+
+<!-- ===================== FRAMEWORK ===================== -->
+<section class="panel show" id="framework">
+  <h2 class="sec">Disease Reporting Framework</h2>
+  <p class="lead">Veterinarians and shelter professionals operate within a layered federal-state-local reporting system. Understanding who reports what to whom — and by what mechanism — is directly tested on the ABVP exam.</p>
+
+  <div class="card">
+    <h4>Blueprint placement</h4>
+    <ul class="hy">
+      <li>Community &amp; Public Health = <b>11%</b> of the exam (~38–39 of 350 questions). Five subdomains; Reportable &amp; Emerging Diseases is the fifth.</li>
+      <li>Expect scenario questions asking whether a condition is reportable, the correct reporting pathway, the appropriate first response when a novel cluster is identified, and how shelters contribute to surveillance systems.</li>
+      <li>Zoonotic diseases with reporting obligations overlap heavily with the Zoonoses subdomain; treat them as complementary study areas.</li>
+    </ul>
+  </div>
+
+  <h3>The tiered reporting system <span class="bdg ref">CDC / USDA APHIS</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Federal level — USDA APHIS:</b> oversees reportable animal diseases at the national level. The <i>National List of Reportable Animal Diseases (NLRAD)</i> was formally established in 2023, creating for the first time a unified federal list of conditions that states must report to USDA. Prior to NLRAD, reporting was patchwork and state-driven.</li>
+      <li><b>Federal level — CDC:</b> maintains the <i>National Notifiable Disease Surveillance System (NNDSS)</i> for human diseases. State health departments voluntarily report nationally notifiable conditions to CDC; this is not legally mandated at the federal level but is universally practiced.</li>
+      <li><b>State level:</b> each state has its own list of reportable animal and human diseases under state statute. State lists vary — some conditions are reportable in all states, others only in some. State veterinarians (or state public health veterinarians) receive animal disease reports; state health departments receive human disease reports.</li>
+      <li><b>Local level:</b> local health departments and animal control agencies are often the first point of contact for disease events. They report upward to state agencies.</li>
+      <li><b>International level:</b> the World Organisation for Animal Health (WOAH, formerly OIE) maintains a list of notifiable diseases requiring member-nation reporting for global trade and biosecurity purposes.</li>
+    </ul>
+    <div class="trap"><b>Exam trap — state vs. federal authority</b>There is no single federal list that overrides state reporting laws for all animal diseases (NLRAD covers federally reportable conditions but states retain authority to add diseases). A disease may be reportable in one state but not another. Exam questions may test this by asking who receives a report — always start with the <b>state veterinarian or state animal health official</b> for animal diseases.</div>
+  </div>
+
+  <h3>Who reports and to whom <span class="bdg ref">CDC / USDA APHIS</span></h3>
+  <div class="card">
+    <table class="cmp">
+      <tr><th>Reporter</th><th>Reports to</th><th>Pathway</th></tr>
+      <tr><td><b>Veterinarian (animal disease)</b></td><td>State veterinarian / state animal health official</td><td>State-specific form, phone, or online portal; timeline depends on urgency (immediate vs. within 24 h vs. weekly summary)</td></tr>
+      <tr><td><b>Physician (human disease)</b></td><td>Local or state health department</td><td>NNDSS-compatible reporting; state law governs timeline</td></tr>
+      <tr><td><b>Laboratory</b></td><td>State health or agriculture department (depending on specimen type)</td><td>Electronic laboratory reporting (ELR) increasingly standard</td></tr>
+      <tr><td><b>State animal health official</b></td><td>USDA APHIS / WOAH (for NLRAD / WOAH-listed diseases)</td><td>USDA APHIS VS (Veterinary Services) portal; 24-hour requirement for foreign animal diseases and highly dangerous pathogens</td></tr>
+      <tr><td><b>State health department</b></td><td>CDC via NNDSS</td><td>Electronic submission; nationally notifiable conditions reported weekly or upon confirmation</td></tr>
+    </table>
+    <div class="alertbox"><b>Shelter veterinarian reporting obligation</b>A shelter veterinarian is subject to the same reporting obligations as any licensed veterinarian in that state. If a shelter animal is diagnosed with or strongly suspected of having a reportable disease, the veterinarian must report it — this cannot be delegated solely to animal control or shelter management. Failure to report is a licensing violation in most states.</div>
+  </div>
+
+  <h3>Reporting timelines and priority categories <span class="bdg ref">USDA APHIS / state statutes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Immediate (within 24 hours or "immediately"):</b> foreign animal diseases (FADs), highly pathogenic avian influenza (HPAI), foot-and-mouth disease (FMD), anthrax, plague, tularemia, and other conditions with high spread potential or bioterrorism relevance. Contact the state veterinarian's emergency line.</li>
+      <li><b>24–72 hours:</b> rabies (confirmed), brucellosis, leptospirosis, most zoonotic disease clusters, and other listed conditions with significant public health implications.</li>
+      <li><b>Weekly / monthly:</b> endemic reportable conditions tracked for trend surveillance (e.g., heartworm positivity in some states, West Nile virus).</li>
+      <li><b>Upon laboratory confirmation:</b> many conditions require reporting only once laboratory diagnosis is confirmed (vs. clinical suspicion), though clinical suspicion of a FAD should be reported immediately regardless of lab status.</li>
+    </ul>
+    <div class="trap"><b>Exam trap — "suspect" vs. "confirmed" reporting</b>For most endemic reportable diseases, reporting is triggered upon laboratory confirmation. However, for foreign animal diseases (FMD, HPAI, Newcastle disease, etc.) and highly dangerous conditions, <b>clinical suspicion alone is sufficient — do not wait for lab confirmation before calling the state veterinarian.</b></div>
+  </div>
+
+  <h3>WOAH-listed diseases relevant to shelter medicine <span class="bdg ref">WOAH</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>WOAH (World Organisation for Animal Health) maintains a single list of diseases requiring international notification. WOAH-listed diseases affecting companion animals and relevant to shelters include: <b>rabies</b>, <b>anthrax</b> (all species), and <b>echinococcosis/hydatidosis</b>.</li>
+      <li>HPAI (H5N1 and related) is WOAH-listed and, while primarily a poultry disease, has caused shelter-relevant events when infected wildlife (especially waterfowl and raptors) are admitted to shelters or wildlife rehabilitation centers.</li>
+      <li>Brucella canis is not WOAH-listed but is a high-priority state-reportable and public health concern in shelters.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== NOTIFIABLE ===================== -->
+<section class="panel" id="notifiable">
+  <h2 class="sec">Notifiable Diseases in Shelter Medicine</h2>
+  <p class="lead">This tab covers the diseases most likely to be encountered or detected in shelter settings that carry mandatory reporting obligations. Focus on the disease, its zoonotic potential, the reporting trigger, and the shelter response.</p>
+
+  <h3>High-priority reportable zoonoses <span class="bdg ref">CDC / USDA APHIS</span></h3>
+  <div class="card">
+    <table class="cmp">
+      <tr><th>Disease / Pathogen</th><th>Species affected (shelter relevance)</th><th>Zoonotic?</th><th>Reporting trigger</th></tr>
+      <tr><td><b>Rabies</b></td><td>All mammals; dogs, cats, ferrets most common in shelters</td><td>Yes — fatal encephalitis</td><td>Clinical suspicion or confirmed; all US states</td></tr>
+      <tr><td><b>Brucellosis (<i>B. canis</i>)</b></td><td>Dogs; especially breeding facilities and imported dogs</td><td>Yes — flu-like illness, rare but documented in humans</td><td>Laboratory-confirmed; reportable in most states</td></tr>
+      <tr><td><b>Leptospirosis</b></td><td>Dogs (cats rarely); wildlife reservoirs (raccoons, skunks, rats)</td><td>Yes — Weil's disease in humans</td><td>Laboratory-confirmed; reportable in many states</td></tr>
+      <tr><td><b>Plague (<i>Yersinia pestis</i>)</b></td><td>Cats highly susceptible; dogs less so; wildlife reservoirs in western US</td><td>Yes — bubonic, septicemic, pneumonic</td><td>Clinical suspicion; immediately reportable; CDC category A bioterrorism agent</td></tr>
+      <tr><td><b>Tularemia (<i>Francisella tularensis</i>)</b></td><td>Cats, rabbits, rodents; shelter wildlife admissions</td><td>Yes — ulceroglandular, pneumonic forms in humans</td><td>Clinical suspicion; immediately reportable; CDC category A agent</td></tr>
+      <tr><td><b>Anthrax (<i>Bacillus anthracis</i>)</b></td><td>All mammals; rare in companion animals; grazing livestock primarily</td><td>Yes — cutaneous, inhalation, GI</td><td>Immediately reportable; WOAH-listed; category A bioterrorism agent</td></tr>
+      <tr><td><b>Q fever (<i>Coxiella burnetii</i>)</b></td><td>Cats, dogs; primary reservoirs are cattle, sheep, goats; parturient animals highest risk</td><td>Yes — flu-like illness; chronic endocarditis</td><td>Laboratory-confirmed; reportable in most states</td></tr>
+      <tr><td><b>Salmonellosis</b></td><td>Reptiles (turtles, iguanas), birds, hedgehogs, all species; common in shelter wildlife</td><td>Yes — enteric illness; neonates, immunocompromised at highest risk</td><td>Human cases reportable to health departments; animal clusters may trigger state reports</td></tr>
+    </table>
+  </div>
+
+  <h3>Brucella canis — shelter-specific detail <span class="bdg ref">USDA APHIS / NASPHV</span></h3>
+  <div class="card">
+    <p class="note"><b>Why shelters are a high-risk setting:</b> Brucella canis spreads primarily via reproductive secretions (semen, vaginal discharge, aborted fetuses, placentas) but also via urine. Shelters receive intact and recently intact dogs with unknown breeding history, including dogs from hoarding situations and puppy mills.</p>
+    <ul class="hy">
+      <li>Clinical signs: reproductive failure (abortion at 45–59 days gestation, stillbirths, early embryonic death), orchitis, epididymitis, lymphadenopathy, discospondylitis; many dogs are chronically infected but clinically normal.</li>
+      <li>Diagnosis: RSAT (rapid slide agglutination test) used for screening; high sensitivity, lower specificity. Confirm positives with tube agglutination test (TAT) with 2-ME or blood culture. Agar gel immunodiffusion (AGID) has high specificity. PCR is increasingly used.</li>
+      <li>Shelter protocol: screen dogs with reproductive history, dogs from high-risk sources (puppy mills, hoarding), and dogs intended for breeding or placement in homes with pregnant women or immunocompromised individuals. Positive dogs should be isolated pending confirmation; management (treatment vs. euthanasia) depends on resources and public health risk assessment.</li>
+      <li>Zoonotic risk to staff: low but real — direct contact with abortive material, blood, urine, reproductive secretions, or saliva from infected dogs. PPE (gloves, eye protection) when handling reproductive cases or performing diagnostics on suspect animals.</li>
+    </ul>
+    <div class="trap"><b>Exam trap — treatment of Brucella canis in shelter dogs</b>Brucella canis cannot be reliably cured with antibiotics in dogs — prolonged combination antibiotic therapy can suppress but not eliminate infection. Dogs that test positive on confirmatory testing are generally not considered adoptable without full informed consent and ongoing monitoring. Euthanasia is a common shelter decision given limited resources and the public health risk. This is a values-as-well-as-science question that may appear in case scenarios.</div>
+  </div>
+
+  <h3>Leptospirosis — shelter-specific detail <span class="bdg ref">CDC / WSAVA</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Caused by pathogenic serovars of <i>Leptospira interrogans</i> sensu lato. Major serovars in North America: Icterohaemorrhagiae, Canicola, Grippotyphosa, Pomona, Bratislava. Wildlife reservoirs: raccoons, skunks, opossums, rodents.</li>
+      <li>Transmission: contact with infected urine or urine-contaminated water/soil through mucous membranes or abraded skin. Organisms are shed in urine for months.</li>
+      <li>Clinical presentation in dogs: ranges from subclinical to peracute death; classic forms include acute renal failure with vomiting, polydipsia/polyuria, and icterus (hepatorenal syndrome); pulmonary hemorrhage syndrome is an increasingly recognized severe form.</li>
+      <li>Diagnosis: MAT (microscopic agglutination test) is gold standard — paired titres (4-fold rise) most diagnostic; single titres difficult to interpret due to cross-reactivity. PCR on urine or blood during acute phase is highly sensitive.</li>
+      <li>Shelter protocol: isolate suspect cases (especially urinary shedders); wear waterproof gloves and eye protection when handling urine; disinfect with dilute bleach (0.5% sodium hypochlorite) or quaternary ammonium compounds — leptospires are susceptible to many common disinfectants and to drying.</li>
+      <li>Treatment: doxycycline (first line for clearing renal carriage) or ampicillin (acute illness); supportive care for renal and hepatic compromise.</li>
+    </ul>
+    <div class="corrbox"><b>High-yield</b>Leptospires are susceptible to common disinfectants and do not persist long on dry surfaces — contrast this with CPV (months in environment) and even MRSP. The main shelter risk is fresh urine on wet surfaces or contaminated standing water.</div>
+  </div>
+
+  <h3>Plague and tularemia — shelter wildlife admissions <span class="bdg ref">CDC</span></h3>
+  <div class="card">
+    <h4>Plague (<i>Yersinia pestis</i>) <span class="bdg ref">CDC</span></h4>
+    <ul class="hy">
+      <li>Geographic distribution: western US (California, New Mexico, Colorado, Arizona, Nevada, Oregon, and parts of adjacent states). Fleas on rodents are the primary vector.</li>
+      <li>Cats are uniquely susceptible among domestic species — they develop severe septicemic plague and can transmit directly to humans via bite, scratch, or respiratory droplets (pneumonic form). Dogs are more resistant and typically subclinical.</li>
+      <li>Shelter risk: cats and dogs admitted from rural/endemic western US counties, especially if recently outdoors or hunting. Cats presenting with fever, lymphadenopathy (especially cervical and submandibular — "buboes"), oral ulcers, and sepsis in an endemic area.</li>
+      <li>PPE and isolation: strict isolation, full PPE including N95 respirator if pneumonic form suspected. Report immediately; do not wait for lab confirmation.</li>
+    </ul>
+    <h4>Tularemia (<i>Francisella tularensis</i>) <span class="bdg ref">CDC</span></h4>
+    <ul class="hy">
+      <li>Reservoirs: rabbits, hares, rodents, ticks (Dermacentor, Amblyomma). Present throughout the continental US; highest prevalence in south-central states (Arkansas, Missouri, Oklahoma).</li>
+      <li>Cats are highly susceptible and can develop severe systemic disease. Transmission to shelter staff occurs via bite, scratch, inhalation, or contact with infected animal tissues.</li>
+      <li>Shelter risk: intake of wild-caught or outdoor cats, dead rabbits or rodents, and wildlife rehabilitation admissions. Any cat presenting with fever, lymphadenopathy, oral lesions, and systemic illness in a tick-endemic area warrants tularemia consideration.</li>
+      <li>Biosafety: tularemia is a <b>Tier 1 select agent</b>; laboratory work on suspect specimens requires BSL-2 precautions and immediate notification to the laboratory before submission.</li>
+    </ul>
+    <div class="trap"><b>Exam trap — cats as amplifying hosts for plague and tularemia</b>Cats are more clinically severe — and more likely to transmit to humans — than dogs for both plague and tularemia. A common exam scenario involves a technician bitten by a sick cat from an endemic area. Plague and tularemia should be in the differential even if the technician's injury seems minor.</div>
+  </div>
+
+  <h3>Highly pathogenic avian influenza (HPAI) in shelter contexts <span class="bdg ref">USDA APHIS / CDC</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>HPAI H5N1 (clade 2.3.4.4b) spread widely in North America from 2021 onward, affecting wild birds, poultry, and — importantly — domestic cats, bobcats, foxes, and other carnivores via consumption of infected birds or raw poultry.</li>
+      <li>Cats infected with HPAI H5N1 can develop severe neurological disease (ataxia, blindness, seizures) and respiratory signs with high mortality. Outbreaks in shelter cats occurred in 2024 linked to raw poultry diet and exposure to infected backyard poultry flocks.</li>
+      <li>Shelter obligations: HPAI in any species is immediately reportable to USDA APHIS and the state veterinarian. Cats on raw poultry diets in HPAI-affected regions should be evaluated for dietary change. Biosafety for staff: PPE including N95, gloves, eye protection when handling suspect cats; HPAI is a human health concern (H5N1 causes severe disease in humans, though sustained human-to-human transmission has not occurred as of 2025).</li>
+      <li>Feed safety intersection: many shelters feed raw or lightly cooked poultry. USDA and CDC recommend against feeding raw poultry products to pets in HPAI-affected regions.</li>
+    </ul>
+    <div class="alertbox"><b>Staff safety note — HPAI</b>Any shelter staff member who has had unprotected exposure to a suspected HPAI-positive cat or bird should be reported to occupational health and the local health department for monitoring. Antiviral prophylaxis (oseltamivir) may be considered per CDC guidance. HPAI H5N1 is a CDC Priority Pathogen with pandemic potential.</div>
+  </div>
+</section>
+
+<!-- ===================== EMERGING ===================== -->
+<section class="panel" id="emerging">
+  <h2 class="sec">Emerging &amp; Re-Emerging Pathogens</h2>
+  <p class="lead">Emerging infectious diseases (EIDs) disproportionately arise at the human-animal interface. Shelters — as high-density, high-turnover environments at the intersection of owned pets, strays, and wildlife — are sentinel nodes for emerging disease detection.</p>
+
+  <h3>Definitions and drivers <span class="bdg ref">CDC / WHO</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Emerging infectious disease (EID):</b> a disease that has newly appeared in a population, or that has existed but is rapidly increasing in incidence, geographic range, or host range.</li>
+      <li><b>Re-emerging disease:</b> a previously recognized disease that has declined and then resurged, often due to changes in host immunity, pathogen evolution, or ecological factors (e.g., resurgence of canine distemper in wildlife, re-emergence of endemic typhus).</li>
+      <li><b>Drivers of emergence:</b> land use change and habitat encroachment (increasing human-wildlife contact); global trade and travel (rapid spread); climate change (expanding vector ranges); antimicrobial resistance (refractory infections); intensified agriculture; and changes in human and animal demography (dense shelter populations).</li>
+      <li><b>Spillover and spill-back:</b> spillover is the transmission of a pathogen from a reservoir to a new host species. Spill-back is the reintroduction of a pathogen to the reservoir after adaptation in the new host. Shelters can participate in both directions (e.g., shelter dogs acquiring novel influenza strains from humans or wildlife, then circulating within the shelter population).</li>
+    </ul>
+  </div>
+
+  <h3>Canine influenza (CIV) — an emerged shelter pathogen <span class="bdg ref">CDC / USDA APHIS</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>H3N8 CIV</b> emerged in greyhounds in Florida in 2004, originating from an equine H3N8 influenza A strain that adapted to dogs. It spread to the broader dog population through racing and boarding facilities — high-density environments like shelters.</li>
+      <li><b>H3N2 CIV</b> was introduced to the US in 2015, originating from avian influenza A H3N2 that had been circulating in dogs in South Korea and China. It spread rapidly in the Midwest through dog shows and shelters.</li>
+      <li>Clinical signs: range from mild self-limiting URTI (cough, nasal discharge, low-grade fever) to severe pneumonia. Most (~80%) show mild signs; ~20% develop pneumonia; mortality is low (&lt;10% in severe cases) with supportive care.</li>
+      <li>Shelter implications: essentially all naive dogs exposed will become infected (no herd immunity in the US population when H3N2 emerged). Outbreaks in shelters require strict respiratory isolation, enhanced hand hygiene, and PPE. Vaccines are available for both H3N8 and H3N2; recommended as shelter intake vaccines in endemic regions by ASV guidelines.</li>
+      <li>Zoonotic risk: CIV has not caused confirmed human infections in the US. However, CIV strains are being monitored because of their capacity for host-range expansion.</li>
+    </ul>
+    <div class="trap"><b>Exam trap — CIV is not seasonal like human influenza</b>Canine influenza A viruses can circulate year-round. Unlike human seasonal influenza, CIV does not have a predictable winter peak. In a fully naive shelter population, transmission is highly efficient regardless of season.</div>
+  </div>
+
+  <h3>SARS-CoV-2 and pets <span class="bdg ref">CDC / USDA APHIS</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>SARS-CoV-2 (the cause of COVID-19 in humans) demonstrated broad host range; natural infections were confirmed in domestic cats, dogs, tigers, lions, mink, ferrets, white-tailed deer, and many other species.</li>
+      <li><b>Cats</b> are more susceptible than dogs; cats can develop mild respiratory or systemic disease and shed virus. Experimental cat-to-cat transmission has been demonstrated, though cat-to-human transmission was not well documented epidemiologically during the pandemic.</li>
+      <li><b>Dogs</b> can be infected (confirmed by PCR and serology) but rarely show clinical signs and shed at lower levels than cats.</li>
+      <li>Shelter protocol during outbreak conditions: staff who test positive for COVID-19 should avoid contact with shelter animals (especially cats) for the duration of isolation. Animals known to have been exposed to COVID-19-positive owners may be flagged and monitored, though routine testing of shelter animals was not recommended by CDC during the pandemic.</li>
+      <li>USDA APHIS maintains a voluntary reporting program for SARS-CoV-2 in animals — an example of a novel surveillance mechanism created in response to an emerging zoonosis.</li>
+    </ul>
+    <div class="corrbox"><b>High-yield One Health point</b>SARS-CoV-2 is a case study in reverse zoonosis (anthrooonosis): a human-origin pathogen spilling back into animal populations. Mink farming facilities became amplifying hosts and were the source of spillback into wild mink populations in Europe. Shelters were involved in monitoring companion animal exposures. This bidirectional flow is a core One Health concept.</div>
+  </div>
+
+  <h3>Monkeypox / mpox and companion animals <span class="bdg ref">CDC / NASPHV</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>The 2022 mpox outbreak (caused by Monkeypox virus, a poxvirus) raised new questions about companion animal risk. In 2022, an Italian household dog was confirmed infected by its mpox-positive owners — a documented case of reverse zoonosis.</li>
+      <li>NASPHV issued guidance recommending that persons with confirmed mpox avoid contact with animals (including pets) for the duration of illness. Animals in contact with mpox-positive individuals should be kept at home and monitored; if tested, veterinarians must consult state health and agriculture officials before collecting specimens.</li>
+      <li>Shelter relevance: shelters should have protocols for receiving animals surrendered by mpox-positive owners. The risk of sustained animal-to-animal transmission in shelters has not been well characterized, but precautionary isolation and PPE are prudent.</li>
+    </ul>
+  </div>
+
+  <h3>Antimicrobial-resistant organisms (AMR) as emerging shelter threats <span class="bdg ref">CDC / ASV</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>AMR in shelters is a public health concern because animals can serve as reservoirs for resistant organisms that can colonize humans. Specific high-priority AMR organisms in shelter settings:</li>
+      <li><b>Methicillin-resistant <i>Staphylococcus pseudintermedius</i> (MRSP):</b> the dominant resistant staphylococcus in dogs; primarily a veterinary pathogen but rare human infections documented. Spreads easily in shelter environments via fomites and hands.</li>
+      <li><b>Methicillin-resistant <i>Staphylococcus aureus</i> (MRSA):</b> primarily a human pathogen; dogs and cats can be transiently colonized from human contacts (reverse zoonosis). Shelter staff who are MRSA carriers can seed shelter animal populations.</li>
+      <li><b>Extended-spectrum beta-lactamase (ESBL)-producing <i>Enterobacteriaceae</i>:</b> including resistant <i>E. coli</i> and <i>Klebsiella</i> spp.; found in shelter dogs and cats; can colonize humans and is a serious clinical and public health problem.</li>
+      <li><b>Carbapenem-resistant organisms (CROs):</b> emerging in companion animals; the public health implications are severe given that carbapenems are last-resort human antibiotics.</li>
+      <li>AMR surveillance is a public health function; the CDC National Antimicrobial Resistance Monitoring System (NARMS) includes veterinary components. Shelters contribute to AMR burden through antibiotic use practices; antibiotic stewardship in shelters is increasingly recognized as a public health responsibility.</li>
+    </ul>
+    <div class="trap"><b>Exam trap — MRSP vs. MRSA in dogs</b>MRSP (<i>S. pseudintermedius</i>) is the primary methicillin-resistant staphylococcus in dogs and cats, not MRSA (<i>S. aureus</i>). MRSA in pets is usually a reverse zoonosis from human contacts. Do not confuse the two — they have different epidemiology and different zoonotic significance.</div>
+  </div>
+
+  <h3>Emerging vector-borne diseases with shelter relevance <span class="bdg ref">CDC / USDA APHIS</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Chagas disease (<i>Trypanosoma cruzi</i>):</b> increasingly recognized in the southern US. Dogs (especially hound breeds in Texas and surrounding states) are important reservoir and sentinel hosts. Transmission via triatomine bugs ("kissing bugs"). Shelter dogs from the south should be considered for serologic screening, especially if presenting with cardiac arrhythmias or sudden death. Zoonotic risk: triatomine bug bites or contact with infected feces — not direct dog-to-human transmission in most scenarios.</li>
+      <li><b>Leishmaniosis (<i>Leishmania infantum</i>):</b> endemic in parts of Europe and Latin America; in the US, a reservoir population of infected foxhounds was identified in northeastern kennels. Risk in shelter dogs imported from endemic regions (especially Latin America and southern Europe). Zoonotic transmission via sand flies.</li>
+      <li><b>Heartland and Bourbon viruses:</b> tick-borne viruses (Thogotovirus, Phlebovirus) recognized in the US south-central and upper Midwest regions; can cause severe human illness. Dogs and cats may seroconvert and serve as sentinels of tick exposure but role in transmission to humans is indirect (tick amplification, not direct).</li>
+      <li><b>Tick populations and climate:</b> the northward expansion of <i>Ixodes scapularis</i> and <i>Amblyomma americanum</i> ranges driven by climate change is bringing Lyme disease, anaplasmosis, ehrlichiosis, and STARI into previously unaffected areas. Shelter dogs from newly endemic regions present with these infections.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== OUTBREAK RESPONSE ===================== -->
+<section class="panel" id="outbreak">
+  <h2 class="sec">Outbreak Response</h2>
+  <p class="lead">An outbreak is defined as an occurrence of disease in excess of what would normally be expected in a defined community, geographic area, or season. Shelters, because of their population density and rapid turnover, are both high-risk outbreak settings and critical response nodes.</p>
+
+  <h3>Recognizing a shelter outbreak <span class="bdg ref">CDC / ASV</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Case definition:</b> an outbreak investigation begins with a clear case definition — the minimum clinical, epidemiological, and/or laboratory criteria that an animal must meet to be considered a "case." Case definitions should be specific enough to exclude unrelated disease but sensitive enough not to miss cases. Shelter medicine case definitions often rely on clinical signs plus age/housing unit/intake cohort.</li>
+      <li><b>Baseline ("expected") rate:</b> to call something an outbreak, you need to compare observed cases to baseline. Shelters should track disease incidence by housing unit, species, age group, and intake date to establish a baseline. Unexpected clustering — more cases in one unit, one intake cohort, one time period — triggers investigation.</li>
+      <li><b>Index case:</b> the first identified case in an outbreak. Identifying the index case, its intake date, housing history, and contact network is the starting point for an epidemiological investigation.</li>
+      <li><b>Attack rate:</b> the proportion of exposed animals that develop disease. High attack rate + common exposure suggests a point source; moderate attack rate + no obvious common exposure suggests propagated spread.</li>
+    </ul>
+  </div>
+
+  <h3>Epidemiological investigation steps <span class="bdg ref">CDC field epidemiology</span></h3>
+  <div class="card">
+    <ol style="padding-left:20px;font-size:14px;line-height:2">
+      <li>Prepare for fieldwork (assemble team, PPE, data collection tools)</li>
+      <li>Establish existence of an outbreak (confirm cases exceed baseline)</li>
+      <li>Verify the diagnosis (laboratory confirmation where possible)</li>
+      <li>Define and identify cases (apply case definition, create a line list)</li>
+      <li>Describe the outbreak by person/animal, place, and time (epidemic curve)</li>
+      <li>Develop hypotheses about source and transmission</li>
+      <li>Evaluate hypotheses (analytical study — cohort or case-control)</li>
+      <li>Implement control and prevention measures (often in parallel with steps 4–7)</li>
+      <li>Communicate findings (report to appropriate authorities; staff debriefing)</li>
+      <li>Maintain surveillance to confirm the outbreak has ended</li>
+    </ol>
+    <div class="corrbox"><b>High-yield</b>In shelter practice, steps 3 and 8 are often performed simultaneously — you do not wait for full epidemiological confirmation to implement basic infection control. But document what you did and when, because retrospective analysis of outbreak control measures requires knowing when interventions were applied relative to the epidemic curve.</div>
+  </div>
+
+  <h3>The epidemic curve <span class="bdg ref">CDC field epidemiology</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Point source outbreak:</b> all cases exposed to the same source at approximately the same time. Epidemic curve is a sharp single peak with a narrow time window consistent with one incubation period. Example: all cats in one room exposed to the same contaminated disinfectant bucket, or FPV outbreak from a contaminated cage bank.</li>
+      <li><b>Propagated (person-to-person/animal-to-animal) outbreak:</b> each wave of cases serves as the source for the next generation. Epidemic curve shows successive peaks, each approximately one incubation period apart and broader than the previous. Example: CDV or CPV spreading cage-to-cage.</li>
+      <li><b>Continuous common source:</b> ongoing exposure to a contaminated source. Epidemic curve shows a plateau or gradual rise as long as exposure continues. Example: water source contaminated with leptospires.</li>
+      <li>The shape of the epidemic curve guides hypothesis generation about the source type and informs control measures (remove the source vs. interrupt transmission chains).</li>
+    </ul>
+    <div class="trap"><b>Exam trap — incubation period and epidemic curve interpretation</b>For point-source outbreaks, the peak of the epidemic curve minus the minimum incubation period gives the approximate time of exposure. The exam may present a timeline and ask you to identify when exposure occurred. Know the incubation periods of major shelter pathogens: CPV (4–14 d), CDV (3–6 d), FPV (2–10 d), CIV (2–5 d), rabies (2 wk–6 mo).</div>
+  </div>
+
+  <h3>Shelter outbreak control measures <span class="bdg ref">ASV / CDC</span></h3>
+  <div class="card">
+    <h4>Immediate containment</h4>
+    <ul class="hy">
+      <li><b>Isolate sick animals</b> from the general population immediately. Suspect cases should be treated as confirmed until proven otherwise when dealing with highly contagious pathogens (CPV, FPV, CDV, FURI).</li>
+      <li><b>Cohort exposed animals</b> — group animals with known exposure together and manage separately from unexposed animals. Do not mix unexposed animals into the exposed cohort's housing area.</li>
+      <li><b>Stop intake</b> (full or partial) if the outbreak cannot be controlled with current capacity. An intake moratorium is a public health decision and requires communication with the governing authority and the public.</li>
+      <li><b>Emergency vaccination</b> of at-risk unvaccinated animals in the population. Vaccination during an outbreak will not protect already-incubating animals but will reduce subsequent spread. Prioritize animals with longest remaining shelter stay (least likely to be adopted within the incubation window).</li>
+    </ul>
+    <h4>Environmental decontamination</h4>
+    <ul class="hy">
+      <li>Match disinfectant to pathogen spectrum (see Sanitation &amp; Biosecurity subdomain for full disinfectant tables). Key point: CPV and FPV require <b>sodium hypochlorite (bleach) at 1:32 dilution</b> or other parvocidal agents; enveloped viruses (CDV, CIV, rabies) are susceptible to most common disinfectants.</li>
+      <li>Remove all organic material before applying disinfectant — organic load inactivates most disinfectants. Proper protocol: remove organic matter → clean with detergent → rinse → apply disinfectant at correct concentration and contact time → rinse.</li>
+      <li>Contact time matters: most disinfectants require a minimum contact time of 10 minutes (some require longer). Rushing this step is a common shelter error.</li>
+    </ul>
+    <h4>Staff and flow management</h4>
+    <ul class="hy">
+      <li>Implement or reinforce directional flow (clean to dirty, healthy to sick). Staff should work in the healthy population first, then the sick/quarantine population — never the reverse.</li>
+      <li>PPE: gloves, shoe covers or dedicated footwear, gowns for entering isolation areas. Hand hygiene between every animal contact.</li>
+      <li>Communication: brief all staff and volunteers. Outbreak rumors spread faster than pathogens; accurate, timely communication prevents panic adoptions and media problems.</li>
+    </ul>
+  </div>
+
+  <h3>Reporting obligations during an outbreak <span class="bdg ref">CDC / USDA APHIS</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>A cluster of cases of a reportable disease must be reported even if individual cases would normally not trigger an immediate report. Example: three confirmed leptospirosis cases in one shelter in 7 days constitutes a cluster warranting immediate public health notification.</li>
+      <li>For unknown or unusual disease presentations (novel clinical syndrome, unusual species affected, unexplained mortality cluster), the state veterinarian should be notified promptly even in the absence of a diagnosis — the state has resources (state animal health laboratory, epidemiologists) to assist.</li>
+      <li>Outbreaks with confirmed or suspected human exposure or illness must also be reported to the local health department; this triggers parallel human epidemiological investigation.</li>
+      <li>Documentation during an outbreak is legally and epidemiologically critical: maintain a line list (animal ID, date of onset, housing location, intake date, diagnostic results, outcome) throughout the investigation.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== SHELTER SURVEILLANCE ===================== -->
+<section class="panel" id="shelter">
+  <h2 class="sec">The Shelter's Role in Disease Surveillance</h2>
+  <p class="lead">Shelters function as sentinel surveillance nodes at the human-animal-environment interface. Recognizing, documenting, and reporting disease patterns in shelter populations contributes directly to national and regional animal and public health surveillance systems.</p>
+
+  <h3>Shelters as sentinel populations <span class="bdg ref">ASV / CDC / USDA</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Shelter animals are a representative cross-section of the community pet population, including free-roaming animals with wildlife and environmental exposures that privately-owned pets rarely have. This makes shelter disease patterns a window into community-level disease prevalence.</li>
+      <li><b>Examples of shelter sentinel surveillance:</b> tracking heartworm prevalence by intake zip code; tracking antimicrobial resistance in shelter bacterial isolates; tracking seroprevalence of tick-borne diseases; monitoring respiratory pathogen circulation (CIV, Bordetella, Mycoplasma) to detect novel strains.</li>
+      <li>Aggregated data from shelters contributed to the identification of CIV H3N2 spread in the US in 2015 and to HPAI H5N1 spillover tracking in domestic cats in 2024.</li>
+      <li>Necropsy programs in shelters generate pathological and diagnostic data that would not otherwise be available for community animals that die in the field or are euthanized without workup.</li>
+    </ul>
+  </div>
+
+  <h3>Passive vs. active surveillance <span class="bdg ref">CDC epidemiology principles</span></h3>
+  <div class="card">
+    <table class="cmp">
+      <tr><th>Type</th><th>Definition</th><th>Shelter example</th><th>Strengths / Weaknesses</th></tr>
+      <tr><td><b>Passive</b></td><td>Reports submitted by individuals who identify cases in the course of normal activities; no active case-seeking</td><td>Veterinarian reports a confirmed rabies case to the state veterinarian as required by law</td><td>Low cost; broad geographic coverage; <b>underreporting is the major weakness</b> — only cases that come to clinical attention and are appropriately diagnosed and reported are captured</td></tr>
+      <tr><td><b>Active</b></td><td>Public health authorities or researchers systematically seek out cases, often by regularly soliciting reports from defined sources</td><td>State contacts all shelters weekly during a CPV outbreak to report case counts; or a research study screens all intake dogs for MRSP regardless of clinical presentation</td><td>More complete and timely; <b>resource-intensive</b>; usually limited to specific pathogens or time periods</td></tr>
+      <tr><td><b>Syndromic</b></td><td>Near-real-time monitoring of health-related data (chief complaint, discharge diagnoses, pharmaceutical sales) to detect unusual clusters before laboratory confirmation</td><td>Shelter management software tracking respiratory disease daily incidence and alerting when 7-day rolling average exceeds 10% of population</td><td>Early detection advantage; <b>non-specific</b> — requires follow-up to confirm etiology</td></tr>
+    </table>
+    <div class="trap"><b>Exam trap — underreporting in passive surveillance</b>Passive surveillance consistently underestimates true disease burden. The "iceberg phenomenon" — the majority of cases are below the surface of detection — is why passive surveillance data underrepresent true prevalence, especially for mild or asymptomatic infections. Active surveillance studies are used to estimate the true denominator.</div>
+  </div>
+
+  <h3>Shelter data infrastructure for surveillance <span class="bdg ref">Koret Shelter Medicine / ASV</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Shelter management software (Shelterluv, PetPoint, Chameleon, etc.):</b> records intake source, species, age, medical history, diagnoses, and outcomes. When used consistently, this data can be mined for surveillance purposes — tracking disease incidence by housing unit, tracking intake-source ZIP codes for disease cluster identification.</li>
+      <li><b>Minimum data elements for disease surveillance:</b> animal ID, species/breed/age/sex, intake date and source, housing location and moves, date of onset for any illness, diagnosis (with lab confirmation method), treatment and outcome, and date of discharge.</li>
+      <li><b>Necropsy and diagnostic banking:</b> saving diagnostic samples (serum, fecal PCR, tissue at necropsy) from unexplained deaths and clusters for retrospective testing when a new pathogen is later identified. Biobanking is a public health function that allows retrospective determination of when a pathogen first appeared in a population.</li>
+      <li><b>Sharing data:</b> participation in regional disease surveillance networks (e.g., Shelter Animal Count, regional shelter collaborative networks) multiplies the surveillance value of individual shelter data. Anonymous, de-identified aggregate disease data shared across shelters can identify regional outbreaks that no single shelter would detect alone.</li>
+    </ul>
+  </div>
+
+  <h3>One Health integration in shelter surveillance <span class="bdg ref">CDC / WHO One Health</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>The One Health framework explicitly recognizes that animal, human, and environmental health are interconnected and that surveillance systems spanning these domains are more effective than siloed systems.</li>
+      <li>Shelters are uniquely positioned to contribute to One Health surveillance because they: (1) handle animals from multiple epidemiological backgrounds in one location; (2) have regular veterinary care and diagnostic capacity; (3) interface with the public (adopters, surrender clients) who may themselves be symptomatic; (4) receive wildlife, stray, and owned animals in one continuous intake stream.</li>
+      <li>Joint shelter-public health surveillance examples: shelters and local health departments sharing data on animal bites and rabies testing results; shelters reporting Q fever or leptospirosis cluster data to health departments to trigger human screening; shelters and wildlife agencies coordinating on HPAI in admitted raptors and waterfowl.</li>
+      <li>The CDC One Health Office, USDA APHIS, and state health departments all include animal-interface surveillance as a formal component of their One Health programs. The ABVP exam may ask about the concept, the rationale, or a specific example of this integration.</li>
+    </ul>
+    <div class="corrbox"><b>High-yield synthesis point</b>The shelter veterinarian is simultaneously a clinician, an infection-control officer, a public health reporter, and a surveillance node operator. The exam tests whether candidates can integrate these roles — not just recite clinical facts. When a case scenario presents an unusual cluster in a shelter, the correct answer is nearly always: (1) diagnose and treat affected animals; (2) implement infection control; (3) report to the appropriate public health authority; (4) preserve documentation and samples for investigation. All four steps, not just one.</div>
+  </div>
+</section>
+
+<!-- ===================== MCQ ===================== -->
+<section class="panel" id="mcq">
+  <h2 class="sec">MCQ Test Bank — Reportable &amp; Emerging Diseases</h2>
+  <p class="lead">20 exam-style questions covering reporting framework, notifiable diseases, emerging pathogens, outbreak investigation, and surveillance. Select an answer to see the explanation.</p>
+
+  <div class="mcqbar">
+    <div class="filters">
+      <button class="on" data-f="all" onclick="filterQ(this,'all')">All (20)</button>
+      <button data-f="reporting" onclick="filterQ(this,'reporting')">Reporting</button>
+      <button data-f="notifiable" onclick="filterQ(this,'notifiable')">Notifiable Diseases</button>
+      <button data-f="emerging" onclick="filterQ(this,'emerging')">Emerging</button>
+      <button data-f="outbreak" onclick="filterQ(this,'outbreak')">Outbreak</button>
+      <button data-f="surveillance" onclick="filterQ(this,'surveillance')">Surveillance</button>
+    </div>
+    <div class="score"><span id="sc">0 / 0</span><button class="reset" onclick="resetAll()">Reset</button></div>
+  </div>
+
+  <div id="qlist">
+
+  <!-- Q1 -->
+  <div class="q" data-tag="reporting">
+    <div class="meta"><span class="num">Q1</span><span class="tag">reporting</span></div>
+    <p class="stem">A shelter veterinarian in Texas identifies a dog with clinical signs highly suspicious for foreign animal disease (FMD). There are no laboratory results yet. What is the correct reporting action?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Wait for laboratory confirmation before reporting; a clinical diagnosis alone is insufficient</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Immediately contact the state veterinarian and USDA APHIS Veterinary Services; clinical suspicion alone is sufficient for immediate FAD reporting</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Report to the local animal control authority and have the animal quarantined pending lab results</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Report to the CDC because FMD is a human health emergency</button>
+    <div class="expl"><b class="cor">B is correct.</b> For foreign animal diseases (FMD, HPAI, Newcastle disease, etc.) and other highly dangerous conditions, clinical suspicion alone is the reporting trigger — you do not wait for laboratory confirmation. USDA APHIS Veterinary Services is the federal contact; the state veterinarian is the state contact. CDC is not the primary agency for animal disease reporting.</div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="q" data-tag="reporting">
+    <div class="meta"><span class="num">Q2</span><span class="tag">reporting</span></div>
+    <p class="stem">Which federal agency maintains the National Notifiable Disease Surveillance System (NNDSS) for human diseases in the US?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>USDA APHIS</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>CDC</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>FDA</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>WOAH (formerly OIE)</button>
+    <div class="expl"><b class="cor">B is correct.</b> The CDC maintains the NNDSS, which receives reports of nationally notifiable human diseases from state health departments. USDA APHIS manages animal disease reporting (including the NLRAD). WOAH is the international body for animal disease reporting between countries. FDA does not manage disease surveillance.</div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="q" data-tag="reporting">
+    <div class="meta"><span class="num">Q3</span><span class="tag">reporting</span></div>
+    <p class="stem">A disease is reportable in California but not in Colorado. This illustrates which feature of the US disease reporting system?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>The CDC can override state reporting decisions for nationally notifiable diseases</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Each state maintains its own list of reportable diseases; state lists vary and a disease may be reportable in some states but not others</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>The NLRAD (National List of Reportable Animal Diseases) is the sole arbiter of which diseases must be reported</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Diseases are only reportable if they are WOAH-listed</button>
+    <div class="expl"><b class="cor">B is correct.</b> State law governs reportable disease lists for both human and animal diseases within a state. There is no single federal list that overrides state authority (the NLRAD covers federally reportable conditions but states can add diseases). A disease may therefore be reportable in one state and not another.</div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="q" data-tag="notifiable">
+    <div class="meta"><span class="num">Q4</span><span class="tag">notifiable diseases</span></div>
+    <p class="stem">Which of the following statements about Brucella canis infection in shelter dogs is most accurate?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Prolonged combination antibiotic therapy reliably cures B. canis infection in dogs</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>B. canis poses no meaningful zoonotic risk to shelter staff</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>B. canis cannot be reliably eliminated with antibiotics; positive dogs generally cannot be considered cured and pose ongoing public health risk</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>B. canis infection is detectable only by blood culture; serologic screening is not useful</button>
+    <div class="expl"><b class="cor">C is correct.</b> Unlike some bacterial infections, B. canis infection in dogs cannot be reliably cured with antibiotic therapy — recurrence is common and serology may remain positive. Positive dogs present a public health risk (especially to immunocompromised persons and pregnant women). Blood culture and serology (RSAT with confirmatory TAT or AGID) are both used in diagnosis.</div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="q" data-tag="notifiable">
+    <div class="meta"><span class="num">Q5</span><span class="tag">notifiable diseases</span></div>
+    <p class="stem">A shelter dog from rural south Texas is presented with fever, cervical lymphadenopathy, and oral ulcers. The dog lives in an area with known plague activity. Which of the following is most important?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Collect a lymph node aspirate without PPE for rapid cytology</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Isolate the animal, don full PPE including N95 respirator, and report clinical suspicion to the state veterinarian immediately without waiting for lab results</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Treat empirically with amoxicillin-clavulanate and recheck in 48 hours before deciding on reporting</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Contact the CDC directly; plague is a human disease that bypasses veterinary reporting channels</button>
+    <div class="expl"><b class="cor">B is correct.</b> Cats with suspected plague are a significant zoonotic risk — they can transmit pneumonic plague via respiratory droplets. Full PPE including N95 is required. Plague is immediately reportable on clinical suspicion to the state veterinarian (not solely CDC). Do not perform unprotected procedures or delay reporting pending lab confirmation.</div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="q" data-tag="notifiable">
+    <div class="meta"><span class="num">Q6</span><span class="tag">notifiable diseases</span></div>
+    <p class="stem">Which disinfectant is required to reliably inactivate Leptospira spp. on contaminated shelter surfaces?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Accelerated hydrogen peroxide (AHP) is the only effective disinfectant</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Leptospires are resistant to all common disinfectants; the kennel must be abandoned</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Leptospires are susceptible to most common disinfectants (bleach, quaternary ammonium, AHP) and to drying; standard cleaning and disinfection protocols are effective</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Only quaternary ammonium compounds are effective; bleach is inactivated by leptospiral outer membrane proteins</button>
+    <div class="expl"><b class="cor">C is correct.</b> Unlike CPV or FPV (which require specifically parvocidal products and prolonged contact times), Leptospira spp. are susceptible to a wide range of common disinfectants and to desiccation. Standard cleaning protocols (organic removal + disinfection) effectively address leptospiral contamination. The main risk is fresh urine on wet surfaces, not prolonged environmental persistence.</div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="q" data-tag="notifiable">
+    <div class="meta"><span class="num">Q7</span><span class="tag">notifiable diseases</span></div>
+    <p class="stem">Q fever (Coxiella burnetii) poses the greatest zoonotic risk to shelter staff in which situation?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Cleaning kennels occupied by dogs with respiratory disease</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Handling a parturient cat or assisting with delivery of a litter without PPE</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Processing blood samples from dogs with tick exposure</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Administering vaccines to large numbers of cats during a clinic</button>
+    <div class="expl"><b class="cor">B is correct.</b> Coxiella burnetii is shed in extremely high concentrations in birth fluids, placenta, and fetal membranes. Even a single infectious dose can cause Q fever in humans. Parturient animals (particularly cats, cattle, sheep, and goats) are the highest-risk exposure scenario. PPE including gloves and ideally a respirator are essential when assisting with deliveries from animals of unknown Q fever status.</div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="q" data-tag="emerging">
+    <div class="meta"><span class="num">Q8</span><span class="tag">emerging pathogens</span></div>
+    <p class="stem">Canine influenza virus (CIV) H3N2 was first detected in the US in 2015. Which statement best describes the epidemiological significance of this event?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>CIV H3N2 was a re-emergence of the H3N2 strain that had previously circulated in US dogs in the 1990s</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>CIV H3N2 is a human-adapted influenza virus that spilled over into dogs</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>CIV H3N2 was a novel introduction from avian/canine influenza circulating in Asia; the US dog population had no prior immunity, leading to rapid spread through shelters and dog facilities</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>CIV H3N2 is the same strain as equine H3N2, which adapted from horses to dogs, identical to the CIV H3N8 origin story</button>
+    <div class="expl"><b class="cor">C is correct.</b> CIV H3N2 originated from avian influenza A H3N2 that had adapted to dogs in South Korea and China. It was a completely novel introduction to the US dog population in 2015. Because no prior immunity existed, attack rates in exposed populations were very high. CIV H3N8 — the first identified CIV — originated from equine H3N8; the two strains have different origins.</div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="q" data-tag="emerging">
+    <div class="meta"><span class="num">Q9</span><span class="tag">emerging pathogens</span></div>
+    <p class="stem">Which of the following best describes SARS-CoV-2 infection in companion animals from a One Health perspective?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>SARS-CoV-2 originated in dogs and spilled over to humans — a classic zoonosis</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>SARS-CoV-2 is a human-origin pathogen that demonstrated reverse zoonosis (spill-back) into domestic cats, dogs, mink, and wildlife species</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Cats and dogs are the primary reservoir for SARS-CoV-2 and should be routinely tested in shelters</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>SARS-CoV-2 cannot infect any companion animal species; all reported companion animal cases were due to contaminated swabs</button>
+    <div class="expl"><b class="cor">B is correct.</b> SARS-CoV-2 is a human-origin virus (likely originating via a zoonotic spillover event from a bat reservoir via potential intermediate hosts, but established in humans) that then demonstrated reverse zoonosis into companion animals (cats, dogs), captive big cats, mink, ferrets, deer, and other species. Cats are more susceptible than dogs. This is a key example of the bidirectional nature of zoonotic transmission in the One Health framework.</div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="q" data-tag="emerging">
+    <div class="meta"><span class="num">Q10</span><span class="tag">emerging pathogens</span></div>
+    <p class="stem">Which of the following is the primary methicillin-resistant Staphylococcus causing infections in shelter dogs and cats, distinct from MRSA?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Methicillin-resistant Staphylococcus aureus (MRSA)</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Methicillin-resistant Staphylococcus epidermidis (MRSE)</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Methicillin-resistant Staphylococcus pseudintermedius (MRSP)</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Methicillin-resistant Staphylococcus schleiferi (MRSS)</button>
+    <div class="expl"><b class="cor">C is correct.</b> MRSP (Staphylococcus pseudintermedius) is the dominant methicillin-resistant staphylococcus in companion animals. It is primarily a veterinary pathogen, though rare human infections occur. MRSA (S. aureus) in pets is usually acquired from human contacts (reverse zoonosis). Knowing the distinction between MRSP and MRSA is a high-yield exam point.</div>
+  </div>
+
+  <!-- Q11 -->
+  <div class="q" data-tag="emerging">
+    <div class="meta"><span class="num">Q11</span><span class="tag">emerging pathogens</span></div>
+    <p class="stem">A shelter in central California receives a cat from an outdoor colony. The cat has fever, marked cervical lymphadenopathy, and septic shock. A staff member was scratched while handling the cat and did not wear gloves. The shelter is in a county with documented ground squirrel die-offs. What is the priority differential and action?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Cat-scratch disease (Bartonella henselae); staff member needs only routine wound care</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Tularemia; the staff member should be observed for 10 days before PEP is considered</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Plague (Yersinia pestis); immediately isolate the cat with full PPE including N95, notify the state veterinarian, and refer the staff member to occupational health / public health for urgent evaluation</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Feline infectious peritonitis; no zoonotic risk to the staff member</button>
+    <div class="expl"><b class="cor">C is correct.</b> Ground squirrel die-offs are a plague epizootic indicator in California. Cats in enzootic plague areas are at high risk; they can develop severe septicemic plague and can transmit pneumonic plague to humans via respiratory route. This is an emergency requiring immediate isolation, full PPE, and urgent reporting. The scratched staff member requires urgent medical evaluation for potential plague exposure — do not observe and wait.</div>
+  </div>
+
+  <!-- Q12 -->
+  <div class="q" data-tag="outbreak">
+    <div class="meta"><span class="num">Q12</span><span class="tag">outbreak investigation</span></div>
+    <p class="stem">In an outbreak investigation, what is the purpose of a "case definition"?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>A legal definition of which animals the shelter is responsible for under its operating agreement</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>The minimum clinical, epidemiological, and/or laboratory criteria an animal must meet to be counted as a case in the outbreak</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>A dictionary definition of the disease being investigated, used for staff training</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>The number of animals required to constitute an "outbreak" under state law</button>
+    <div class="expl"><b class="cor">B is correct.</b> A case definition is an epidemiological tool: it specifies the minimum criteria (clinical signs, exposure history, time window, lab confirmation) that an animal must meet to be counted as a case. A well-constructed case definition is sensitive enough not to miss cases but specific enough to exclude unrelated disease, enabling accurate counting and analysis of outbreak scope and pattern.</div>
+  </div>
+
+  <!-- Q13 -->
+  <div class="q" data-tag="outbreak">
+    <div class="meta"><span class="num">Q13</span><span class="tag">outbreak investigation</span></div>
+    <p class="stem">An epidemic curve for a shelter CPV outbreak shows a sharp, narrow single peak with all cases occurring within a 2-day window. What type of outbreak does this suggest?</p>
+    <button class="opt" onclick="ans(this,true)"><span class="k">A</span>Point source outbreak — all animals were likely exposed to the same source at approximately the same time</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Propagated outbreak — cases are spreading from animal to animal over successive generations</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Continuous common-source outbreak — an ongoing contamination source is infecting animals over an extended period</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Sentinel surveillance event — the curve shape indicates these are unrelated background cases, not an outbreak</button>
+    <div class="expl"><b class="cor">A is correct.</b> A sharp, narrow single peak with cases clustered within one incubation period is the classic signature of a point-source outbreak — all cases were exposed to a common source at approximately the same time (e.g., a contaminated intake area, a batch of contaminated supplies, or a single highly infectious animal that all others were exposed to simultaneously). Propagated outbreaks show successive waves; continuous source outbreaks show a plateau.</div>
+  </div>
+
+  <!-- Q14 -->
+  <div class="q" data-tag="outbreak">
+    <div class="meta"><span class="num">Q14</span><span class="tag">outbreak investigation</span></div>
+    <p class="stem">During a shelter respiratory disease outbreak, which of the following flow-management practices is most important to prevent further spread?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Staff should work in the sick wards first, then the healthy population, to get the highest-risk work done early in the shift</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Staff should work in the healthy population first, then move to the sick or quarantine population, never reversing this direction during a single shift</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Sick and healthy animals should be intermingled to accelerate herd immunity development</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Staff flow direction is less important than disinfectant concentration, which should be doubled during outbreaks</button>
+    <div class="expl"><b class="cor">B is correct.</b> Directional flow from clean (healthy) to dirty (sick) is a fundamental infection-control principle in shelter medicine. Staff who work in the sick population and then enter the healthy population carry pathogens on their hands, clothing, and shoes. This principle applies to housing assignment, staff movement, and supply flow. Reversing direction during a shift is one of the most common outbreak amplification errors in shelters.</div>
+  </div>
+
+  <!-- Q15 -->
+  <div class="q" data-tag="outbreak">
+    <div class="meta"><span class="num">Q15</span><span class="tag">outbreak investigation</span></div>
+    <p class="stem">During a CPV outbreak, the shelter considers emergency vaccination of uninfected dogs in the population. What is the primary rationale and limitation of this intervention?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Emergency vaccination will immediately protect all vaccinated dogs including those already incubating CPV</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Emergency vaccination will reduce spread to susceptible animals not yet exposed but will not protect dogs already incubating infection; the vaccine cannot reverse ongoing infection</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Emergency vaccination is contraindicated during an active outbreak because it will spread the virus via modified-live virus vaccine shedding</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Emergency vaccination will eliminate the need for isolation and quarantine measures</button>
+    <div class="expl"><b class="cor">B is correct.</b> Emergency vaccination during an outbreak reduces the population of susceptible animals who have not yet been exposed, thereby limiting further spread. However, animals already incubating the pathogen at time of vaccination cannot be "rescued" — the vaccine takes 7–14 days to confer immunity. Vaccination does not eliminate the need for isolation and quarantine of sick and exposed animals. MLV vaccines for CPV do not pose a meaningful shedding risk in a shelter setting that would worsen the outbreak.</div>
+  </div>
+
+  <!-- Q16 -->
+  <div class="q" data-tag="surveillance">
+    <div class="meta"><span class="num">Q16</span><span class="tag">surveillance</span></div>
+    <p class="stem">A state animal health official systematically contacts all shelters in the state weekly during a respiratory disease season to collect case count data. This is an example of which type of surveillance?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Passive surveillance</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Active surveillance</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Syndromic surveillance</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Sentinel surveillance (passive variant)</button>
+    <div class="expl"><b class="cor">B is correct.</b> Active surveillance involves authorities systematically seeking out case data from defined sources — the opposite of passive surveillance in which reporters submit data only when they identify a case on their own initiative. Contacting all shelters on a regular schedule to collect data is a classic active surveillance design. Syndromic surveillance uses near-real-time aggregate data streams (e.g., electronic health records) without requiring individual case identification.</div>
+  </div>
+
+  <!-- Q17 -->
+  <div class="q" data-tag="surveillance">
+    <div class="meta"><span class="num">Q17</span><span class="tag">surveillance</span></div>
+    <p class="stem">The "iceberg phenomenon" in disease surveillance refers to which concept?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>The fact that most disease outbreaks begin in cold climates and spread southward</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Passive surveillance captures only the visible tip of disease burden; the majority of cases are subclinical, mild, or undiagnosed and go unreported</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Surveillance systems capture only recently emerged diseases, missing the long history of established endemic pathogens</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Laboratory confirmation is required before any disease appears in surveillance data, hiding the true burden of clinically diagnosed cases</button>
+    <div class="expl"><b class="cor">B is correct.</b> The iceberg phenomenon illustrates why passive surveillance consistently underestimates disease burden. Like an iceberg, only the most severe, clinically apparent, diagnosed, and reported cases are "visible above the waterline." The much larger number of mild, subclinical, undiagnosed, or unreported cases remain invisible. Active surveillance studies are used to characterize the full iceberg and estimate true incidence.</div>
+  </div>
+
+  <!-- Q18 -->
+  <div class="q" data-tag="surveillance">
+    <div class="meta"><span class="num">Q18</span><span class="tag">surveillance</span></div>
+    <p class="stem">Which of the following best describes the concept of "biobanking" in the context of shelter disease surveillance?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Maintaining a financial reserve to fund diagnostic testing during outbreaks</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Storing licensed vaccines at appropriate temperatures to maintain potency</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Preserving diagnostic samples (serum, tissue, fecal material) from unexplained deaths and disease clusters for potential retrospective testing when new pathogens are later identified</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Maintaining a database of adoption records linked to veterinary outcome data</button>
+    <div class="expl"><b class="cor">C is correct.</b> Biobanking involves preserving biological samples from disease events so that, if a new pathogen is later identified or a new diagnostic test becomes available, retrospective testing can determine when the pathogen first appeared in the population. This is a powerful surveillance tool — it was used to identify when SARS-CoV-2 first circulated in various populations by testing archived samples predating the outbreak. Shelters can contribute to this by retaining necropsy samples and serum from unexplained disease clusters.</div>
+  </div>
+
+  <!-- Q19 -->
+  <div class="q" data-tag="surveillance">
+    <div class="meta"><span class="num">Q19</span><span class="tag">surveillance</span></div>
+    <p class="stem">A shelter participates in a regional collaborative that shares anonymous, de-identified aggregate disease data weekly across 12 shelters in the metro area. What is the primary surveillance benefit of this approach?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>It allows the state veterinarian to access individual animal records for auditing purposes</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Regional outbreaks that no single shelter would detect alone become detectable when cases are aggregated across multiple facilities</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>It eliminates the need for passive surveillance reporting to state and federal agencies</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>It converts passive surveillance into active surveillance by having shelters report to each other</button>
+    <div class="expl"><b class="cor">B is correct.</b> Collaborative data sharing multiplies the epidemiological power of individual shelter data. A disease that produces 2 cases in shelter A and 3 cases in shelter B and 2 in shelter C in the same week might go unnoticed by each shelter individually (each within their normal baseline), but the combined signal of 7 cases in one week across co-located facilities is anomalous and detectable. This is the rationale behind regional surveillance networks.</div>
+  </div>
+
+  <!-- Q20 -->
+  <div class="q" data-tag="surveillance">
+    <div class="meta"><span class="num">Q20</span><span class="tag">surveillance</span></div>
+    <p class="stem">From a One Health perspective, which of the following best describes the role of shelter veterinarians in disease surveillance?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Shelter veterinarians function solely as clinicians; public health surveillance is the responsibility of public health officials, not veterinarians</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Shelter veterinarians are only obligated to report zoonotic diseases; animal-only diseases do not require reporting</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Shelter veterinarians should report disease events directly to the CDC, bypassing the state veterinarian</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">D</span>Shelter veterinarians function simultaneously as clinicians, infection-control officers, mandatory reporters, and surveillance node operators within the One Health framework — integrating animal health, public health, and community engagement</button>
+    <div class="expl"><b class="cor">D is correct.</b> This is the central synthesis point of this subdomain. The ABVP exam consistently tests the integrated One Health role of the shelter veterinarian — not just clinical knowledge but the understanding that disease recognition, infection control, mandatory reporting, community communication, and data contribution to surveillance systems are all part of the role. A case scenario presenting a disease cluster will reward candidates who address all four dimensions: diagnose and treat; control spread; report to the right authority; document and preserve data.</div>
+  </div>
+
+  </div><!-- /qlist -->
+</section>
+
+</div></main>
+
+<footer><div class="wrap">
+  <p>ABVP Shelter Medicine RVS Study Hub &middot; Community &amp; Public Health Domain &middot; Reportable &amp; Emerging Diseases (Subdomain 5 of 5)</p>
+  <p>Sources: CDC disease reporting and surveillance resources; USDA APHIS Veterinary Services; NASPHV guidelines; WOAH disease lists; ASV Standards of Care. Content is for exam preparation only — always consult current guidelines and local public health authorities for clinical and legal decisions.</p>
+</div></footer>
+
+<script>
+// Tab switching
+document.getElementById('tabrow').addEventListener('click',function(e){
+  const btn=e.target.closest('button[data-p]');
+  if(!btn)return;
+  document.querySelectorAll('.tabrow button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('show'));
+  document.getElementById(btn.dataset.p).classList.add('show');
+});
+
+// MCQ
+let total=0,correct=0;
+function ans(btn,isCorrect){
+  const q=btn.closest('.q');
+  if(q.dataset.locked)return;
+  q.dataset.locked='1';
+  total++;
+  const opts=q.querySelectorAll('.opt');
+  opts.forEach(o=>{
+    o.classList.add('locked');
+    if(o===btn){o.classList.add(isCorrect?'correct':'wrong');}
+  });
+  if(!isCorrect){
+    opts.forEach(o=>{
+      const fn=o.getAttribute('onclick')||'';
+      if(fn.includes('true'))o.classList.add('correct');
+    });
+  }
+  if(isCorrect)correct++;
+  q.querySelector('.expl').classList.add('show');
+  document.getElementById('sc').textContent=correct+' / '+total;
+}
+
+function resetAll(){
+  total=0;correct=0;
+  document.querySelectorAll('.q').forEach(q=>{
+    delete q.dataset.locked;
+    q.querySelectorAll('.opt').forEach(o=>{
+      o.classList.remove('correct','wrong','locked');
+    });
+    const expl=q.querySelector('.expl');
+    if(expl)expl.classList.remove('show');
+  });
+  document.getElementById('sc').textContent='0 / 0';
+  const onBtn=document.querySelector('.mcqbar .filters button.on');
+  if(onBtn)filterQ(onBtn,'all');
+}
+
+function filterQ(btn,tag){
+  document.querySelectorAll('.mcqbar .filters button').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('#qlist .q').forEach(q=>{
+    q.style.display=(tag==='all'||q.dataset.tag===tag)?'':'none';
+  });
+}
+
+// Highlight correct when wrong answer is clicked
+document.querySelectorAll('.opt').forEach(btn=>{
+  btn.addEventListener('click',function(){
+    const q=this.closest('.q');
+    if(q.dataset.locked&&this.classList.contains('wrong')){
+      setTimeout(()=>{
+        q.querySelectorAll('.opt').forEach(o=>{
+          const fn=o.getAttribute('onclick')||'';
+          if(fn.includes('true'))o.classList.add('correct');
+        });
+      },10);
+    }
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rabies | Community &amp; Public Health | ABVP Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0f3d3a;--ink2:#15514c;--paper:#f4efe4;--paper2:#fbf8f1;
+    --line:#d9d0bd;--muted:#5d6b62;
+    --acc:#7a1f1f;--acc-soft:#f2e2e2;             /* rabies / public health red */
+    --good:#1f7a4d;--bad:#b23b3b;
+    --notes:#7a4fb5;--notes-soft:#ece3f7;
+    --ref:#1f6f8b;--ref-soft:#dcedf2;             /* CDC / NASPHV references */
+    --avma:#9c3d54;--avma-soft:#f4dde3;           /* AVMA policy */
+    --warn:#a8641a;--warn-soft:#f7e6cd;           /* exam traps amber */
+    --shadow:0 1px 2px rgba(15,61,58,.08),0 8px 24px rgba(15,61,58,.06);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;
+    background-image:radial-gradient(circle at 1px 1px,rgba(15,61,58,.04) 1px,transparent 0);background-size:22px 22px;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+  header.top{background:var(--ink);color:var(--paper2);padding:26px 0 22px;border-bottom:4px solid var(--acc)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#9ec9c2;margin:0 0 6px}
+  header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(26px,4.5vw,40px);margin:0;line-height:1.05}
+  header.top p.sub{margin:8px 0 0;color:#cfe3df;font-size:14px;max-width:78ch}
+  .legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}
+  .legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.25);color:#eaf4f1;display:flex;align-items:center;gap:6px}
+  .legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--paper2);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button:hover{background:var(--paper);color:var(--ink)}
+  .tabrow button.active{background:var(--ink);color:var(--paper2)}
+  .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--acc)}
+  main{padding:30px 0 80px}
+  .panel{display:none;animation:fade .35s ease}
+  .panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;letter-spacing:-.01em}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:80ch}
+  h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:30px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;scroll-margin-top:64px}
+  h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;color:var(--ink2);text-transform:uppercase;letter-spacing:.03em}
+  .card{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}
+  p.note{font-size:14px;margin:0 0 6px}
+  ul.hy{margin:8px 0;padding-left:0;list-style:none}
+  ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed #e6ddca;font-size:14px}
+  ul.hy li:last-child{border-bottom:0}
+  ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;border-radius:2px;background:var(--acc);transform:rotate(45deg)}
+  .trap{background:#fdf3ed;border:1px solid #e8c9a8;border-left:4px solid var(--warn);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .trap b{color:var(--warn);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .corrbox{background:#e9f4ee;border:1px solid #bfe0cc;border-left:4px solid var(--good);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .corrbox b{color:var(--good);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .alertbox{background:var(--acc-soft);border:1px solid #d9b0b0;border-left:4px solid var(--acc);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .alertbox b{color:var(--acc);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:var(--paper2);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp th{background:var(--ink);color:var(--paper2);font-weight:600;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase}
+  table.cmp tr:last-child td{border-bottom:0}
+  table.cmp td b{color:var(--ink)}
+  .bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+  .bdg.notes{background:var(--notes-soft);color:var(--notes)}
+  .bdg.ref{background:var(--ref-soft);color:var(--ref)}
+  .bdg.avma{background:var(--avma-soft);color:var(--avma)}
+  .bdg.warn{background:var(--warn-soft);color:var(--warn)}
+  /* mcq */
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--ink);color:var(--paper2);border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:54px;z-index:10}
+  .mcqbar .filters{display:flex;gap:6px;flex-wrap:wrap}
+  .mcqbar .filters button{font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#d6e7e3;padding:6px 11px;border-radius:999px;cursor:pointer}
+  .mcqbar .filters button.on{background:var(--acc);border-color:var(--acc);color:#fff}
+  .score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}
+  .score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;color:#d6e7e3;padding:5px 10px;border-radius:8px;font-size:11px}
+  .q{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
+  .q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+  .q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--acc-soft);color:var(--acc)}
+  .q .stem{font-weight:600;font-size:15px;margin-bottom:10px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;font-family:"Public Sans";transition:background .15s,border-color .15s}
+  .opt:hover{border-color:var(--ink)}
+  .opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}
+  .opt.correct{background:#e8f5ec;border-color:var(--good);color:#0d3d24}
+  .opt.wrong{background:#fbe9e9;border-color:var(--bad);color:#5e1d1d}
+  .opt.locked{cursor:default}
+  .expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:#f3efe3;border:1px solid var(--line);font-size:13.5px}
+  .expl.show{display:block}
+  .expl b.cor{color:var(--good)}
+  footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
+  @media(max-width:640px){.mcqbar{top:50px}.score{font-size:12px}}
+</style>
+</head>
+<body>
+
+<!-- Back-nav bar -->
+<nav style="background:#0f3d3a;padding:9px 18px;display:flex;align-items:center;gap:10px;font-family:'Public Sans',system-ui,sans-serif;font-size:13px;font-weight:500;border-bottom:2px solid #7a1f1f"><a href="../index.html" style="color:#9ec9c2;text-decoration:none;display:flex;align-items:center;gap:5px"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span style="color:#4a7a6e;font-size:11px">›</span><span style="color:#cfe3df">Community &amp; Public Health</span><span style="color:#4a7a6e;font-size:11px">›</span><span style="color:#f0c8c8">Rabies</span></nav>
+
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">ABVP Shelter Medicine Practice RVS &middot; Community &amp; Public Health &middot; Subdomain 4 of 5</p>
+    <h1>Rabies</h1>
+    <p class="sub">Exam-depth study tool covering virology, pathophysiology, clinical signs, shelter-specific exposure management, post-exposure prophylaxis (PEP), public health law, and the One Health framework for rabies. Every claim is badged by source.</p>
+    <div class="legend">
+      <span><i style="background:var(--ref)"></i>CDC / NASPHV / AVMA guidelines</span>
+      <span><i style="background:var(--avma)"></i>AVMA policy</span>
+      <span><i style="background:var(--notes)"></i>Lecture / textbook notes</span>
+      <span><i style="background:var(--warn)"></i>Exam trap</span>
+      <span><i style="background:var(--good)"></i>High-yield correction</span>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="overview"><span class="dot"></span>Overview &amp; Virology</button>
+  <button data-p="path"><span class="dot"></span>Pathophysiology</button>
+  <button data-p="clinical"><span class="dot"></span>Clinical Signs &amp; Dx</button>
+  <button data-p="shelter"><span class="dot"></span>Shelter Exposure Protocol</button>
+  <button data-p="pep"><span class="dot"></span>PEP &amp; Vaccines</button>
+  <button data-p="law"><span class="dot"></span>Public Health &amp; Law</button>
+  <button data-p="oneh"><span class="dot"></span>One Health</button>
+  <button data-p="mcq"><span class="dot" style="background:#0f3d3a"></span>MCQ Test Bank</button>
+</div></div></nav>
+
+<main><div class="wrap">
+
+<!-- ===================== OVERVIEW ===================== -->
+<section class="panel show" id="overview">
+  <h2 class="sec">Overview &amp; Virology</h2>
+  <p class="lead">Rabies is a fatal zoonotic encephalitis caused by neurotropic lyssaviruses. It is the single highest-priority rabies topic on the ABVP Community &amp; Public Health domain because of its public health, legal, and shelter-operational implications.</p>
+
+  <div class="card">
+    <h4>Blueprint placement</h4>
+    <ul class="hy">
+      <li>Community &amp; Public Health = <b>11%</b> of the exam (~38–39 of 350 questions). Five subdomains: zoonoses (general), rabies, vector-borne disease, shelter medicine public health, and community cats &amp; TNR.</li>
+      <li>Rabies is consistently identified in ABVP prep materials as among the highest-yield topics within this domain due to its legal, clinical, and One Health dimensions.</li>
+      <li>Expect scenario-based questions on bite-quarantine durations, PEP decision-making, euthanasia-for-testing indications, and staff exposure management.</li>
+    </ul>
+  </div>
+
+  <h3>Taxonomy &amp; classification <span class="bdg ref">CDC / ICTV</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Family <i>Rhabdoviridae</i>, genus <i>Lyssavirus</i>. The rabies virus (RABV) is genotype 1, the predominant species worldwide and the only lyssavirus circulating in the Americas.</li>
+      <li>Bullet-shaped, enveloped, single-stranded, negative-sense RNA virus (~180 × 75 nm). The lipid envelope makes it <b>easily inactivated</b> by soap and water, household bleach (1:32 dilution), alcohols, and most standard disinfectants — a critical contrast with non-enveloped shelter pathogens such as CPV and FPV.</li>
+      <li>Five viral proteins: nucleoprotein (N), phosphoprotein (P), matrix protein (M), glycoprotein (G), and large protein (L/RNA-dependent RNA polymerase). The G protein mediates cell entry and is the primary target for virus-neutralizing antibodies (VNAs); it is the antigen in all licensed vaccines.</li>
+      <li>RABV is phylogenetically divided into <b>variants</b> associated with specific reservoir host species (e.g., raccoon variant, skunk variant, bat variants). Variant identity matters for epidemiology but not for vaccination or PEP choice, because cross-protection is complete among RABV variants.</li>
+    </ul>
+    <div class="trap"><b>Exam trap</b>Because rabies virus is enveloped it is readily destroyed by soap and water — yet students sometimes assume all neurotropic viruses are environmentally hardy. The environmental hardiness of CPV (non-enveloped) does not apply to rabies.</div>
+  </div>
+
+  <h3>Epidemiology in the United States <span class="bdg ref">CDC</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Domestic reservoirs have been eliminated in dogs in the US. The major wildlife reservoirs are <b>raccoons</b> (eastern US), <b>skunks</b> (central and California), <b>foxes</b> (Texas/Alaska), and <b>bats</b> (all 49 continental states plus Hawaii — bat RABV variants account for the majority of human rabies deaths in the US in the modern era).</li>
+      <li>Cats are now the most commonly reported rabid domestic animal in the US (surpassing dogs) — largely because cat vaccination and stray-cat management lag behind dog programs. This is a recurrent exam fact.</li>
+      <li>Approximately 1–3 human rabies deaths per year in the US; globally ~59,000 deaths/year, >95% from dog bites in Africa and Asia.</li>
+      <li>Post-exposure prophylaxis (PEP) is administered to ~55,000 Americans annually; cost ~$3,000–$7,000 per course.</li>
+      <li>Bat bites may be <b>unrecognized</b> (small punctures, nocturnal exposure, persons who cannot provide history — sleeping individuals, young children, intoxicated persons). A bat found in a room with a sleeping person or a child is a PEP indication in most jurisdictions.</li>
+    </ul>
+    <div class="trap"><b>Exam trap — cats, not dogs, are #1 domestic rabid animal in the US</b>Many students assume dogs are the most commonly reported rabid domestic animal. In the US, cats hold that distinction. Dogs remain #1 globally.</div>
+  </div>
+
+  <h3>Environmental stability <span class="bdg ref">CDC / NASPHV</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>RABV survives in saliva and neural tissue for a short time under cool, moist conditions but is rapidly destroyed by drying, UV light, heat, and common disinfectants.</li>
+      <li>The virus does <b>not</b> survive on environmental surfaces long enough to pose an indirect contact (fomite) transmission risk under normal conditions. Transmission requires fresh salivary inoculation into a wound or mucous membrane.</li>
+      <li>This means fomite disinfection protocols for rabies focus on <b>preventing contact with fresh saliva</b> (wound care, PPE) rather than extended environmental decontamination as required for CPV.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== PATHOPHYSIOLOGY ===================== -->
+<section class="panel" id="path">
+  <h2 class="sec">Pathophysiology &amp; Transmission</h2>
+  <p class="lead">Understanding the centripetal-then-centrifugal spread of RABV in neural tissue explains both the variable incubation period and why the salivary glands test positive before death.</p>
+
+  <h3>Transmission routes <span class="bdg ref">CDC / NASPHV</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Bite wounds</b>: the overwhelmingly dominant route. Virus in saliva is inoculated directly into muscle or subcutaneous tissue.</li>
+      <li><b>Saliva into mucous membranes or open wounds</b>: scratches that break skin, saliva contact with eyes/mouth. Less efficient but epidemiologically relevant in shelter staff injuries.</li>
+      <li><b>Aerosol</b>: documented only in bat-cave spelunkers (extremely high viral load) and laboratory accidents. Not a shelter risk under normal circumstances.</li>
+      <li><b>Transplant</b>: organ/corneal transplant from undiagnosed rabid donors — rare, documented cases.</li>
+      <li>Intact skin, handling an animal, or contact with blood, urine, or feces <b>does not</b> constitute an exposure requiring PEP. This distinction is tested repeatedly.</li>
+    </ul>
+    <div class="trap"><b>Exam trap — what is NOT an exposure</b>Contact with blood, urine, feces, or intact skin from a rabid or suspected-rabid animal is not a rabies exposure and does not require PEP. Only saliva (or neural tissue/CSF/eye fluid) into a wound or mucous membrane constitutes an exposure.</div>
+  </div>
+
+  <h3>Pathogenesis <span class="bdg notes">notes / textbook</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Step 1 — Local replication</b>: after inoculation, RABV replicates in local myocytes and/or enters peripheral nerve endings directly. Initial replication in muscle is low-level and may last days to weeks.</li>
+      <li><b>Step 2 — Centripetal spread</b>: virus travels retrograde via axoplasmic transport along peripheral nerves toward the spinal cord and brainstem. Speed ~50–100 mm/day. This is why bites to the face, neck, or highly innervated areas have shorter incubation periods than bites to distal limbs.</li>
+      <li><b>Step 3 — CNS amplification</b>: once in the spinal cord, rapid ascent to the brain with infection of limbic system, brainstem, cerebellum, and cortex. Neuronal dysfunction produces the clinical signs. Gross and histologic lesions are often surprisingly mild relative to the severity of signs (diffuse encephalitis without massive necrosis).</li>
+      <li><b>Step 4 — Centrifugal spread</b>: virus spreads outward from the CNS along efferent nerves to highly innervated peripheral organs, including the <b>salivary glands</b>, cornea, skin hair follicles, and adrenal glands. Salivary gland infection produces infectious saliva. This centrifugal phase explains why the DFA test can be positive on skin biopsies (nuchal hair follicles) ante-mortem.</li>
+    </ul>
+    <div class="alertbox"><b>Key exam point — incubation period</b>The incubation period is typically <b>3–8 weeks</b> in dogs and cats but ranges from <b>2 weeks to 6 months</b> (rarely up to 1 year). The 10-day quarantine period for dogs, cats, and ferrets is based on the well-established fact that these species shed virus in saliva no more than <b>a few days before the onset of clinical signs</b> and die within days of sign onset — so a healthy animal at 10 days could not have had infectious saliva at the time of the bite.</div>
+  </div>
+
+  <h3>Neuropathology <span class="bdg notes">textbook</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Negri bodies</b>: eosinophilic intracytoplasmic inclusion bodies found in infected neurons, most reliably in the hippocampus (Ammon's horn), cerebellum (Purkinje cells), and brainstem. Pathognomonic but present in only ~70–80% of confirmed cases; absence does not rule out rabies.</li>
+      <li>The preferred ante-mortem and post-mortem confirmatory test is the <b>direct fluorescent antibody (DFA) test</b> on fresh brain tissue (brainstem, cerebellum, hippocampus). DFA is the gold standard — sensitivity and specificity approach 100% when performed on adequate, unfixed tissue.</li>
+      <li>Histopathology (H&amp;E for Negri bodies) and virus isolation are supplementary; RT-PCR on saliva, CSF, or skin biopsy can provide ante-mortem confirmation in humans.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== CLINICAL ===================== -->
+<section class="panel" id="clinical">
+  <h2 class="sec">Clinical Signs &amp; Diagnosis</h2>
+  <p class="lead">Rabies produces a progressive, invariably fatal encephalitis. Recognizing the clinical stages and species-specific presentations is essential for triggering appropriate shelter and public health responses.</p>
+
+  <h3>Clinical stages in dogs and cats <span class="bdg notes">textbook</span><span class="bdg ref">NASPHV</span></h3>
+  <div class="card">
+    <table class="cmp">
+      <tr><th>Stage</th><th>Duration</th><th>Key features</th></tr>
+      <tr><td><b>Prodromal</b></td><td>1–3 days</td><td>Personality change (shy animals become friendly, friendly become aggressive or shy), fever, anorexia, licking/chewing at bite site, mydriasis. Often the only stage visible in shelter animals.</td></tr>
+      <tr><td><b>Excitative ("furious")</b></td><td>1–7 days</td><td>Aggression, restlessness, pica, photophobia, hypersalivation, vocalization changes, seizures. Animals may bite without provocation and wander.</td></tr>
+      <tr><td><b>Paralytic ("dumb")</b></td><td>2–4 days</td><td>Ascending LMN paralysis, jaw drop, inability to swallow (appears to choke on food or water — the source of "hydrophobia" as a misnomer in veterinary patients), dysphagia, voice change, progressive posterior paresis, recumbency, coma, death.</td></tr>
+    </table>
+    <div class="trap"><b>Exam trap — the "dumb" form</b>Animals (especially cattle) may present with the paralytic form only, with no aggressive phase. A cow or dog with sudden jaw drop, drooling, inability to eat, and unexplained pharyngeal paralysis should prompt rabies as a differential before the mouth is examined without PPE.</div>
+    <div class="corrbox"><b>High-yield</b>Not all rabid animals progress through all three stages or in the listed order. Both forms are fatal; average time from first clinical sign to death is <b>2–10 days</b> in dogs and cats. An animal that has shown clinical signs for more than 10 days and is still alive is unlikely to be rabid, but the diagnosis cannot be excluded without DFA testing.</div>
+  </div>
+
+  <h3>Species-specific notes <span class="bdg ref">CDC / NASPHV</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Dogs and cats</b>: subject to the 10-day observation rule (see Shelter Exposure Protocol tab). Both forms occur; cats more often show the furious form.</li>
+      <li><b>Wildlife (raccoons, skunks, foxes)</b>: diurnal activity in a nocturnal species, uncoordinated gait ("drunk" raccoon), loss of fear of humans, self-mutilation. However, a <i>single</i> behavioral aberration is not diagnostic; DFA is required.</li>
+      <li><b>Bats</b>: a bat found on the ground, unable to fly, or in an unusual location (indoors) should be treated as potentially rabid. Bat rabies strains (e.g., silver-haired bat RABV, big brown bat RABV) account for the majority of US human cases. Bat contact PEP thresholds are lower than for terrestrial mammals.</li>
+      <li><b>Cattle and large animals</b>: often present with paralytic form, pharyngeal paralysis, bloat, straining — easily mistaken for hardware disease, choke, or dystocia. Rabies is a differential in any large animal with unexplained CNS signs.</li>
+      <li><b>Small rodents and lagomorphs</b> (mice, rats, squirrels, rabbits): rarely involved in rabies transmission in the US; bites from these animals almost never require PEP without epidemiological evidence of exposure, per CDC. However, state health department consultation is always advised.</li>
+    </ul>
+  </div>
+
+  <h3>Diagnosis <span class="bdg ref">CDC</span></h3>
+  <div class="card">
+    <h4>Post-mortem (definitive)</h4>
+    <ul class="hy">
+      <li><b>Direct fluorescent antibody (DFA)</b>: gold standard. Requires fresh, unfixed brain tissue (brainstem, cerebellum, hippocampus). Sensitivity ~98–99% for adequate specimens. <b>Formalin-fixed or frozen/thawed tissue reduces accuracy.</b></li>
+      <li>Specimens must be refrigerated (not frozen) and submitted to a state public health lab within 24–72 hours. Labs use the DFA and may confirm with virus isolation or RT-PCR.</li>
+      <li>Histopathology for Negri bodies is supplementary — not used for definitive modern diagnosis.</li>
+    </ul>
+    <h4>Ante-mortem (humans and occasionally animals)</h4>
+    <ul class="hy">
+      <li>RT-PCR on saliva, nuchal skin biopsy (hair follicles), CSF, or corneal impression smear. Multiple samples over time increase sensitivity.</li>
+      <li>Serology (VNA titres) is unreliable ante-mortem in unvaccinated individuals because antibody develops late and may be absent until the terminal stage.</li>
+    </ul>
+    <div class="trap"><b>Exam trap — do not refrigerate the head in dry ice or freeze it</b>Freezing then thawing brain tissue degrades fluorescent antibody staining quality and can give a false-negative DFA. Heads submitted for rabies testing should be <b>refrigerated (not frozen)</b> and shipped on wet ice or refrigerant packs, packed to prevent leakage. Freezing is acceptable only if transit time exceeds 72 hours and the lab is consulted first.</div>
+  </div>
+</section>
+
+<!-- ===================== SHELTER EXPOSURE PROTOCOL ===================== -->
+<section class="panel" id="shelter">
+  <h2 class="sec">Shelter Exposure Protocol</h2>
+  <p class="lead">Shelters must have written rabies exposure response protocols covering animal quarantine, staff exposure management, and public health reporting. The NASPHV Compendium of Animal Rabies Prevention and Control (updated periodically; most recent version should be consulted) is the primary reference document.</p>
+
+  <h3>The 10-day observation rule <span class="bdg ref">NASPHV Compendium</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Applies to <b>dogs, cats, and ferrets only</b> — the three domestic species for which the pre-clinical shedding window is well established.</li>
+      <li>If a healthy dog, cat, or ferret bites a person, it may be placed under <b>10-day observation</b> (by a licensed veterinarian or under veterinary supervision) in lieu of immediate euthanasia and testing, <i>provided it remains healthy throughout</i>.</li>
+      <li>Rationale: these species do not shed rabies virus in saliva more than a few days before clinical signs appear, and they die within days of sign onset. A healthy animal at day 10 post-bite had non-infectious saliva at the time of the bite.</li>
+      <li>If the animal becomes ill or dies during the 10-day period, it should be euthanized and submitted for DFA testing immediately. PEP should be initiated for the exposed person while awaiting results if clinical signs are consistent with rabies.</li>
+      <li><b>Observation vs. quarantine</b>: "observation" means the animal is monitored for clinical signs; "quarantine" implies physical restriction. Most jurisdictions use both terms interchangeably for bite animals but have specific statutory requirements. Shelter staff should be familiar with local ordinances.</li>
+    </ul>
+    <div class="trap"><b>Exam trap — 10-day rule does NOT apply to wildlife or most livestock</b>The 10-day rule is species-specific. A raccoon, bat, skunk, fox, or coyote that bites a person cannot be observed; it should be euthanized and submitted for testing, or PEP initiated. Similarly, the 10-day observation rule is not validated for horses or cattle.</div>
+  </div>
+
+  <h3>Bite-quarantine periods by scenario <span class="bdg ref">NASPHV / state law</span></h3>
+  <div class="card">
+    <table class="cmp">
+      <tr><th>Scenario</th><th>Action</th><th>Duration</th></tr>
+      <tr><td><b>Vaccinated dog/cat/ferret bites person; owner known</b></td><td>10-day observation at home or facility</td><td>10 days</td></tr>
+      <tr><td><b>Unvaccinated dog/cat/ferret bites person; owner known</b></td><td>10-day quarantine (stricter confinement); state law may mandate longer or euthanasia</td><td>10 days minimum (state-variable)</td></tr>
+      <tr><td><b>Stray dog/cat bites person; animal available</b></td><td>Impound and observe for 10 days; if animal becomes ill, euthanize and test</td><td>10 days</td></tr>
+      <tr><td><b>Stray dog/cat bites person; animal unavailable / escaped</b></td><td>Initiate PEP; report to public health</td><td>N/A</td></tr>
+      <tr><td><b>Bat bites person or bat found in room with sleeping person</b></td><td>Capture bat without killing brain if possible; submit for testing. Initiate PEP unless bat tests negative</td><td>N/A — test immediately</td></tr>
+      <tr><td><b>Wildlife (raccoon, skunk, fox) bites person</b></td><td>Euthanize and submit for DFA; initiate PEP pending results</td><td>N/A — test immediately</td></tr>
+    </table>
+  </div>
+
+  <h3>Unvaccinated shelter animal bitten by suspect-rabid wildlife <span class="bdg ref">NASPHV Compendium</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Currently vaccinated animal (vaccine up to date)</b>: revaccinate immediately; place under 45-day observation. The 45-day period is not the same as the 10-day bite-quarantine — it is the post-exposure observation for the animal itself.</li>
+      <li><b>Unvaccinated animal with owner</b>: owner may elect immediate euthanasia (with brain submitted for testing) OR strict 6-month isolation quarantine with vaccination at entry and at 1 month before release. Release requires a negative ante-mortem test is not feasible for animals, so the quarantine period is used to allow the incubation period to pass.</li>
+      <li><b>Unvaccinated stray / owned animal for which owner refuses quarantine</b>: humane euthanasia and DFA testing per local ordinance.</li>
+      <li><b>Overdue-for-vaccination animal</b>: managed on a case-by-case basis; treat as unvaccinated in most protocols unless a veterinarian determines the animal is likely protected.</li>
+    </ul>
+    <div class="corrbox"><b>High-yield numbers</b>10 days (bite quarantine for healthy dog/cat/ferret) · 45 days (observation period for currently-vaccinated animal exposed to potentially rabid wildlife) · 6 months (isolation quarantine for unvaccinated exposed animal whose owner elects against euthanasia). These numbers appear on the exam.</div>
+  </div>
+
+  <h3>Staff exposure management <span class="bdg ref">NASPHV / OSHA</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Any shelter employee bitten or scratched by an animal that cannot be immediately ruled out as rabid should wash the wound <b>thoroughly with soap and water for at least 15 minutes</b> — this step alone reduces transmission risk significantly.</li>
+      <li>Report immediately to a supervisor and seek medical evaluation; the local or state health department must be notified per mandatory reporting laws in all US states.</li>
+      <li>PEP decision is made by the attending physician in consultation with the local health department, based on animal species, vaccination status, availability for testing, and epidemiological risk in the region.</li>
+      <li>Pre-exposure prophylaxis (PrEP): shelter veterinarians, veterinary technicians, wildlife rehabilitators, and animal control officers are classified as Category II (frequent risk) by the CDC and should receive the 3-dose pre-exposure vaccine series (days 0, 7, 21–28) and have titres checked every 2 years (Category II) or more frequently (Category I, e.g., rabies laboratory workers).</li>
+    </ul>
+    <div class="alertbox"><b>Shelter protocol requirement</b>Shelters should maintain records of pre-exposure vaccination status for all at-risk staff. If a pre-exposure-vaccinated staff member is bitten, they require only <b>2 doses of PEP vaccine</b> (days 0 and 3), without rabies immune globulin (RIG). Unvaccinated individuals require the full PEP series with RIG.</div>
+  </div>
+</section>
+
+<!-- ===================== PEP ===================== -->
+<section class="panel" id="pep">
+  <h2 class="sec">Post-Exposure Prophylaxis (PEP) &amp; Vaccines</h2>
+  <p class="lead">PEP is essentially 100% effective when administered correctly and promptly after exposure. Delay, incomplete courses, or omission of RIG are the main causes of failure in developed countries.</p>
+
+  <h3>Human PEP protocol <span class="bdg ref">CDC ACIP recommendations</span></h3>
+  <div class="card">
+    <h4>Previously unvaccinated individuals</h4>
+    <ul class="hy">
+      <li><b>Wound care</b>: immediate, thorough washing with soap and water for 15 minutes (povidone-iodine if available). Do not suture immediately if possible; this reduces virus inoculation depth.</li>
+      <li><b>Rabies immune globulin (RIG)</b>: 20 IU/kg total dose on day 0. As much of the dose as anatomically feasible is infiltrated directly into and around the wound; the remainder is given IM at a distant site. RIG provides immediate passive immunity during the 7–10 days before active vaccine-induced immunity develops. <b>RIG must be given on day 0 only</b> — if not given initially, it can be given up to day 7 but not after day 7 (it blunts the active immune response).</li>
+      <li><b>Vaccine</b>: 4 doses of cell-culture or purified chick embryo cell vaccine on days <b>0, 3, 7, and 14</b>. (Immunocompromised individuals receive a 5th dose on day 28.) Route: IM into the deltoid in adults; anterolateral thigh in children. Never inject into the gluteus — poor immune response.</li>
+    </ul>
+    <h4>Previously vaccinated individuals (complete pre-exposure or prior PEP)</h4>
+    <ul class="hy">
+      <li>Wound care as above.</li>
+      <li><b>No RIG</b>.</li>
+      <li>Vaccine: <b>2 doses on days 0 and 3 only</b>.</li>
+    </ul>
+    <div class="trap"><b>Exam trap — RIG injection site and timing</b>RIG must be infiltrated into/around the wound — do NOT give the entire dose IM at a distant site. Giving RIG after day 7 may actually impair vaccine response. RIG and vaccine should not be injected in the same syringe or at the same anatomical site.</div>
+  </div>
+
+  <h3>Veterinary vaccines <span class="bdg ref">NASPHV Compendium / AAHA / AAFP guidelines</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>All licensed veterinary rabies vaccines in the US are killed (inactivated) or recombinant (canarypox-vectored for cats). There are <b>no licensed modified-live rabies vaccines for dogs or cats in the US</b>.</li>
+      <li><b>Initial vaccination</b>: 1 dose at ≥12 weeks of age (product-label dependent; some labels allow 12 weeks, others 16 weeks). A booster is given 1 year later, then every 1 or 3 years depending on the product label and local ordinance.</li>
+      <li>The <b>1-year and 3-year products are immunologically equivalent</b>; the difference is the label duration of immunity and the regulatory approval period. Using a 1-year product does not provide less protection per dose — it is a regulatory distinction, not a biological one.</li>
+      <li>Rabies vaccination is legally required for dogs in all US states. Requirements for cats vary by state and jurisdiction; many require cat vaccination but not all.</li>
+      <li><b>Oral rabies vaccination (ORV)</b>: used for wildlife population management (raccoons, coyotes, foxes) via baits containing modified-live or vaccinia-recombinant vaccine dropped from aircraft or distributed by hand. ORV programs have dramatically reduced fox and raccoon rabies in targeted regions and are a key One Health intervention.</li>
+    </ul>
+    <div class="trap"><b>Exam trap — 1-year vs. 3-year product</b>A dog vaccinated with a 1-year product is <b>not</b> considered "overdue" if only 11 months have elapsed. But a dog vaccinated with a 1-year product 13 months ago is overdue, and most protocols treat it as unvaccinated for exposure risk purposes. This has significant implications for post-exposure quarantine duration decisions.</div>
+  </div>
+
+  <h3>Vaccine-associated adverse events <span class="bdg ref">AVMA / USDA</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Injection site sarcomas in cats (feline injection-site sarcomas, FISS): rabies and FeLV vaccines historically associated; current AAFP guidelines recommend rabies vaccination in the right distal hind limb (for limb amputation if sarcoma develops). Adjuvanted vaccines have a higher but still rare association; recombinant (non-adjuvanted) rabies vaccine is preferred for cats partly for this reason.</li>
+      <li>Vaccinial rabies: impossible with killed or recombinant vaccines in dogs and cats. A dog cannot develop rabies from a licensed rabies vaccine in the US.</li>
+      <li>Rare hypersensitivity reactions (anaphylaxis) occur at a low rate; observation for 20–30 minutes post-vaccination in high-throughput clinic settings is reasonable practice.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== PUBLIC HEALTH & LAW ===================== -->
+<section class="panel" id="law">
+  <h2 class="sec">Public Health &amp; Law</h2>
+  <p class="lead">Rabies is a compulsorily notifiable disease in all US states. Shelter personnel operate at the intersection of veterinary medicine, public health, and animal control law — understanding the legal obligations is exam-relevant.</p>
+
+  <h3>Mandatory reporting <span class="bdg ref">CDC / state statutes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Suspected or confirmed animal rabies must be reported to the <b>local or state public health department</b> in all jurisdictions. The reporting party is typically the examining or attending veterinarian, the shelter director, or animal control.</li>
+      <li>Human bites or potential human exposures must be reported; the health department then manages PEP coordination and epidemiological investigation.</li>
+      <li>Confirmed rabies cases are reported nationally through the CDC via state health departments and published in the <i>Journal of the American Veterinary Medical Association</i> (JAVMA) annual rabies surveillance report.</li>
+    </ul>
+  </div>
+
+  <h3>Legal framework for shelters <span class="bdg ref">NASPHV / state/local ordinance</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Vaccination at intake</b>: many jurisdictions legally require rabies vaccination of all dogs (and some cats) upon impoundment. Shelters should know the local requirements and have protocols for cases where animals cannot be immediately vaccinated (age, illness).</li>
+      <li><b>Bite quarantine authority</b>: animal control agencies have statutory authority to impound and quarantine biting animals; shelters operating as contracted animal control facilities must have written protocols consistent with local ordinance.</li>
+      <li><b>Euthanasia for testing</b>: staff must understand that a head submitted for DFA is euthanized by intracardiac (IC) injection only if the animal is under deep general anesthesia, or by other AVMA-approved methods that avoid brain damage. <b>Gunshot to the head destroys the brainstem and is not acceptable for animals intended for DFA testing unless no alternative exists and the cerebellum and hippocampus are preserved.</b></li>
+      <li><b>Liability and documentation</b>: thorough documentation of bite incidents, quarantine decisions, vaccination history, staff exposure events, and all communications with the health department reduces institutional liability and supports epidemiological investigation.</li>
+    </ul>
+    <div class="alertbox"><b>Euthanasia method for brain submission</b>IV pentobarbital overdose (or another AVMA-approved method that preserves brain architecture) is required when an animal must be euthanized for rabies DFA testing. Warn referring staff: gunshot to the head destroys the brainstem — the region required for the DFA test — and renders the specimen non-diagnostic.</div>
+  </div>
+
+  <h3>NASPHV Compendium of Animal Rabies Prevention and Control <span class="bdg ref">NASPHV</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>The Compendium is published by the National Association of State Public Health Veterinarians and updated periodically. It is the authoritative reference for vaccine schedules, quarantine periods, and exposure management used by veterinarians, public health officials, and animal control agencies across the US.</li>
+      <li>Exam questions about standard quarantine durations, observation periods, and PEP triggers are grounded in the Compendium. Students should be familiar with the most current edition.</li>
+      <li>The Compendium lists approved rabies vaccines and their licensed durations. A vaccine used outside its label duration (e.g., giving a 1-year product and not boostering for 2 years) means the animal is considered inadequately vaccinated for legal and public health purposes.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== ONE HEALTH ===================== -->
+<section class="panel" id="oneh">
+  <h2 class="sec">One Health Framework for Rabies</h2>
+  <p class="lead">Rabies is a model One Health disease — its control requires integrated action at the human-animal-environment interface. Understanding this framework at the level required for the ABVP exam means being able to articulate the interdependence of dog/cat vaccination, wildlife management, and human public health.</p>
+
+  <h3>Pillars of rabies elimination <span class="bdg ref">WHO / CDC / GARC</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Dog vaccination</b>: achieving and sustaining &ge;70% vaccination coverage in the domestic dog population breaks the transmission cycle. Dogs are the reservoir responsible for &gt;99% of human rabies deaths globally. WHO, OIE (now WOAH), and FAO support the goal of zero human deaths from dog-mediated rabies by 2030 (Zero by 30).</li>
+      <li><b>Responsible dog ownership &amp; population management</b>: reducing free-roaming dog populations through spay/neuter, registration, and community education reduces the pool of susceptible individuals and bite incidence.</li>
+      <li><b>Human PEP access</b>: ensuring affordable, accessible PEP in low-income countries is the immediate life-saving intervention while vaccination programs scale up.</li>
+      <li><b>Wildlife management (ORV)</b>: oral rabies vaccination programs for raccoons and coyotes in the eastern US and for foxes in Europe have demonstrated that wildlife RABV variants can be geographically contained or eliminated. Continued ORV programs prevent westward spread of raccoon rabies.</li>
+      <li><b>Surveillance and reporting</b>: a functional, integrated surveillance system that captures animal and human cases in real time allows rapid response to outbreaks and tracks progress toward elimination.</li>
+    </ul>
+  </div>
+
+  <h3>Shelter medicine's role in the One Health framework <span class="bdg ref">ASV / HSUS</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Shelters are a critical vaccination point for free-roaming and owner-surrendered animals that otherwise have no veterinary contact. High-volume, low-cost (HVLC) vaccination clinics conducted by or in partnership with shelters directly increase herd immunity in the community dog and cat populations.</li>
+      <li>TNR (trap-neuter-return) programs for community cats, when conducted with rabies vaccination of all cats handled, contribute to population-level immunity in a difficult-to-reach population.</li>
+      <li>Shelters serve as surveillance nodes: animals that arrive dead or moribund, or that exhibit neurological signs, may be the first indication of a local rabies case. Protocols for safe handling, testing, and reporting are therefore a public health function, not only an animal welfare function.</li>
+      <li>Community engagement and education about rabies prevention — avoiding wildlife contact, reporting bats found indoors, vaccinating pets — are core shelter outreach activities that directly reduce human exposure risk.</li>
+    </ul>
+    <div class="corrbox"><b>High-yield One Health point</b>The shelter veterinarian is simultaneously a veterinary clinician, a public health practitioner, and a community educator with respect to rabies. The ABVP exam tests whether candidates understand this integrated role — not just the clinical facts about RABV.</div>
+  </div>
+
+  <h3>Global burden and equity considerations <span class="bdg ref">WHO / Global Alliance for Rabies Control</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>~59,000 human deaths/year globally, predominantly children in Africa and Asia from dog bites.</li>
+      <li>The economic burden includes PEP costs (~$8.6 billion/year globally in direct and indirect costs), productivity losses, and the cost of livestock deaths (rabies also kills cattle and other livestock).</li>
+      <li>Rabies disproportionately affects people in rural, low-income areas without access to PEP. Investment in dog vaccination is more cost-effective than investment in PEP availability alone.</li>
+      <li>The US spends an estimated $300 million/year on rabies prevention (vaccination, surveillance, PEP, ORV programs), yet virtually eliminates human deaths from the disease — a demonstration of the return on One Health investment.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== MCQ ===================== -->
+<section class="panel" id="mcq">
+  <h2 class="sec">MCQ Test Bank — Rabies</h2>
+  <p class="lead">20 exam-style questions covering virology, pathophysiology, exposure management, PEP, public health law, and One Health. Select an answer to see the explanation.</p>
+
+  <div class="mcqbar">
+    <div class="filters">
+      <button class="on" data-f="all" onclick="filterQ(this,'all')">All (20)</button>
+      <button data-f="virology" onclick="filterQ(this,'virology')">Virology</button>
+      <button data-f="path" onclick="filterQ(this,'path')">Pathophysiology</button>
+      <button data-f="clinical" onclick="filterQ(this,'clinical')">Clinical / Dx</button>
+      <button data-f="shelter" onclick="filterQ(this,'shelter')">Shelter Protocol</button>
+      <button data-f="pep" onclick="filterQ(this,'pep')">PEP &amp; Vaccines</button>
+      <button data-f="law" onclick="filterQ(this,'law')">Public Health / Law</button>
+    </div>
+    <div class="score"><span id="sc">0 / 0</span><button class="reset" onclick="resetAll()">Reset</button></div>
+  </div>
+
+  <div id="qlist">
+
+  <!-- Q1 -->
+  <div class="q" data-tag="virology">
+    <div class="meta"><span class="num">Q1</span><span class="tag">virology</span></div>
+    <p class="stem">Rabies virus belongs to which family and genus?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Flaviviridae / Flavivirus</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Rhabdoviridae / Lyssavirus</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Paramyxoviridae / Morbillivirus</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Reoviridae / Orbivirus</button>
+    <div class="expl"><b class="cor">B is correct.</b> Rabies virus is the type species of genus <i>Lyssavirus</i>, family <i>Rhabdoviridae</i>. Flaviviridae contains West Nile and dengue; Paramyxoviridae contains distemper and canine parainfluenza; Reoviridae contains bluetongue.</div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="q" data-tag="virology">
+    <div class="meta"><span class="num">Q2</span><span class="tag">virology</span></div>
+    <p class="stem">Which structural protein of rabies virus is the primary target for virus-neutralizing antibodies and is the antigen used in all licensed vaccines?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Nucleoprotein (N)</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Matrix protein (M)</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Glycoprotein (G)</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Phosphoprotein (P)</button>
+    <div class="expl"><b class="cor">C is correct.</b> The G protein is the surface spike glycoprotein that mediates cell entry via acetylcholine receptor and other receptors, and is the dominant neutralizing antigen. All licensed vaccines stimulate anti-G antibody.</div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="q" data-tag="virology">
+    <div class="meta"><span class="num">Q3</span><span class="tag">virology</span></div>
+    <p class="stem">Why is rabies virus more easily inactivated by common disinfectants than canine parvovirus (CPV)?</p>
+    <button class="opt" onclick="ans(this,true)"><span class="k">A</span>Rabies virus is enveloped; its lipid envelope is readily disrupted by soap, bleach, and alcohols</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Rabies virus is a DNA virus; DNA is less stable than RNA</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Rabies virus is smaller than CPV and therefore diffuses out of contaminated surfaces faster</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Rabies virus cannot replicate outside a host cell, so it dies within minutes on any surface</button>
+    <div class="expl"><b class="cor">A is correct.</b> The lipid envelope is the key. CPV is non-enveloped and persists in the environment for months; RABV is enveloped and is destroyed rapidly by drying, UV, soap, bleach, and alcohols. This distinction is a classic exam trap.</div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="q" data-tag="path">
+    <div class="meta"><span class="num">Q4</span><span class="tag">pathophysiology</span></div>
+    <p class="stem">A dog is bitten on the left hind foot by a raccoon. Which of the following best explains why this dog would be expected to have a longer incubation period than a dog bitten on the face?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>The hind limb has fewer blood vessels to carry virus to the CNS</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Virus must travel a longer distance via retrograde axoplasmic transport to reach the spinal cord and brain</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>The hind limb has thicker skin, reducing initial viral inoculation</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>The hind limb has fewer lymphatics to amplify the initial infection</button>
+    <div class="expl"><b class="cor">B is correct.</b> RABV travels centripetally via retrograde axoplasmic transport at ~50–100 mm/day. A bite on the foot requires transport across the entire hind limb and spinal cord before reaching the brain, whereas a facial bite is centimeters from the brainstem.</div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="q" data-tag="path">
+    <div class="meta"><span class="num">Q5</span><span class="tag">pathophysiology</span></div>
+    <p class="stem">What is the significance of the centrifugal phase of rabies virus spread in the context of ante-mortem diagnosis?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>It allows serology to become positive before clinical signs</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>It means virus can be isolated from blood in the viremic phase</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Virus spreads to salivary glands and nuchal skin, enabling ante-mortem detection by RT-PCR on saliva or skin biopsy</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>It causes the animal to shed virus in feces, enabling environmental surveillance</button>
+    <div class="expl"><b class="cor">C is correct.</b> Once RABV reaches the brain, it spreads centrifugally to peripheral organs including salivary glands and skin hair follicles. This makes ante-mortem RT-PCR on saliva or nuchal skin biopsy possible in humans suspected of having rabies.</div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="q" data-tag="clinical">
+    <div class="meta"><span class="num">Q6</span><span class="tag">clinical / dx</span></div>
+    <p class="stem">Which eosinophilic intracytoplasmic inclusion body is pathognomonic for rabies encephalitis, and in which location is it most reliably found?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Cowdry Type A bodies; in hepatocytes</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Lewy bodies; in the substantia nigra</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Negri bodies; most reliably in hippocampal neurons and cerebellar Purkinje cells</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Bollinger bodies; in epithelial cells of the skin</button>
+    <div class="expl"><b class="cor">C is correct.</b> Negri bodies are pathognomonic intracytoplasmic inclusions in infected neurons. They are most reliably found in the hippocampus (Ammon's horn) and cerebellar Purkinje cells. However, they are absent in ~20–30% of confirmed cases, so the DFA test is the gold standard, not histopathology.</div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="q" data-tag="clinical">
+    <div class="meta"><span class="num">Q7</span><span class="tag">clinical / dx</span></div>
+    <p class="stem">A shelter receives a stray dog showing sudden jaw drop, drooling, and an inability to eat or drink. A technician opens the dog's mouth to examine for a foreign body. What is the most important concern?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Aspiration pneumonia from drooling</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Tetanus causing masseter spasm</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Rabies — pharyngeal paralysis is a sign of the paralytic form; the technician may have had an unprotected exposure</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Botulism — treatment with antitoxin should start immediately</button>
+    <div class="expl"><b class="cor">C is correct.</b> Jaw drop with hypersalivation and dysphagia in a stray animal is a classic presentation of the paralytic ("dumb") form of rabies. Examining the mouth without PPE constitutes a potential mucous membrane or wound exposure to saliva. Rabies must be considered before any unprotected examination.</div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="q" data-tag="clinical">
+    <div class="meta"><span class="num">Q8</span><span class="tag">clinical / dx</span></div>
+    <p class="stem">A rabies-suspect animal must be euthanized and its brain submitted for DFA testing. Which euthanasia method is CONTRAINDICATED?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>IV pentobarbital overdose</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>IC pentobarbital under deep general anesthesia</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Gunshot to the head</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Inhalant anesthetic overdose followed by IV pentobarbital</button>
+    <div class="expl"><b class="cor">C is correct.</b> Gunshot to the head destroys the brainstem, cerebellum, and hippocampus — the tissue required for DFA testing. This renders the specimen non-diagnostic. Any method that preserves brain architecture (IV barbiturate overdose, deep anesthesia followed by IC injection) is appropriate.</div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="q" data-tag="shelter">
+    <div class="meta"><span class="num">Q9</span><span class="tag">shelter protocol</span></div>
+    <p class="stem">The 10-day observation rule applies to which three domestic species after a bite incident?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Dogs, cats, and rabbits</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Dogs, cats, and ferrets</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Dogs, cats, and guinea pigs</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Dogs, ferrets, and horses</button>
+    <div class="expl"><b class="cor">B is correct.</b> Dogs, cats, and ferrets are the only domestic species for which the pre-clinical shedding window is well established and the 10-day observation rule applies. Rabbits, guinea pigs, and horses are not covered by the 10-day rule.</div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="q" data-tag="shelter">
+    <div class="meta"><span class="num">Q10</span><span class="tag">shelter protocol</span></div>
+    <p class="stem">A currently vaccinated dog is bitten by a stray cat that tests positive for rabies. Per NASPHV Compendium recommendations, what is the appropriate management of the dog?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Immediate euthanasia and DFA testing</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>10-day home observation with no further action</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Revaccinate immediately and place under 45-day observation</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>6-month strict isolation quarantine</button>
+    <div class="expl"><b class="cor">C is correct.</b> A currently vaccinated animal exposed to a confirmed or probable rabid animal should be revaccinated immediately and observed for 45 days. The 6-month isolation quarantine is for unvaccinated animals whose owners choose not to elect euthanasia. The 10-day rule applies to biting incidents involving domestic animals and humans, not to animal-animal exposures.</div>
+  </div>
+
+  <!-- Q11 -->
+  <div class="q" data-tag="shelter">
+    <div class="meta"><span class="num">Q11</span><span class="tag">shelter protocol</span></div>
+    <p class="stem">A bat is found in a room where a child was sleeping alone. The child has no visible bite marks. What is the recommended course of action?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>No action needed; bat bites always leave visible marks</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Test the bat; PEP is only required if the bat tests positive</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Capture the bat for testing and initiate PEP unless the bat tests negative; a sleeping child cannot reliably report a bite</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Observe the child for 10 days before deciding on PEP</button>
+    <div class="expl"><b class="cor">C is correct.</b> Bat bites are often imperceptible. A bat in the room with a sleeping person, an unattended child, or an intoxicated person is a PEP indication in most jurisdictions because the person cannot reliably confirm or deny a bite. PEP should be initiated unless the bat can be tested and tests negative.</div>
+  </div>
+
+  <!-- Q12 -->
+  <div class="q" data-tag="shelter">
+    <div class="meta"><span class="num">Q12</span><span class="tag">shelter protocol</span></div>
+    <p class="stem">Which of the following contacts with a rabies-suspect animal does NOT constitute a rabies exposure requiring PEP evaluation?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Saliva from the animal contacts an open wound on the handler's hand</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>The handler is bitten through thin latex gloves</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>The handler touches the animal's fur with intact skin on both hands</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Saliva contacts the handler's conjunctiva while the animal is being restrained</button>
+    <div class="expl"><b class="cor">C is correct.</b> Intact skin contact does not constitute a rabies exposure. Exposures require virus contact with broken skin or mucous membranes. Bites through thin gloves, saliva on open wounds, and saliva on mucous membranes are all exposures requiring evaluation.</div>
+  </div>
+
+  <!-- Q13 -->
+  <div class="q" data-tag="pep">
+    <div class="meta"><span class="num">Q13</span><span class="tag">pep &amp; vaccines</span></div>
+    <p class="stem">An unvaccinated person is bitten by a bat. What is the correct administration of rabies immune globulin (RIG)?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Entire 20 IU/kg dose given IM in the deltoid on day 0</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>As much of the 20 IU/kg dose as anatomically feasible infiltrated into and around the wound; remainder given IM at a distant site on day 0</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>20 IU/kg dose given IV over 30 minutes on day 0</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>20 IU/kg dose given IM on day 0 and again on day 3</button>
+    <div class="expl"><b class="cor">B is correct.</b> RIG must be infiltrated into and around the wound to neutralize virus at the inoculation site. Any remainder is given IM at a site distant from vaccine administration. It is given only on day 0; giving it after day 7 can blunt the vaccine response. It is not given IV and not repeated.</div>
+  </div>
+
+  <!-- Q14 -->
+  <div class="q" data-tag="pep">
+    <div class="meta"><span class="num">Q14</span><span class="tag">pep &amp; vaccines</span></div>
+    <p class="stem">A shelter veterinarian who completed the 3-dose pre-exposure prophylaxis series 3 years ago and has confirmed adequate antibody titres is bitten by a suspected-rabid raccoon. What is the correct PEP protocol?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Full 4-dose vaccine series plus RIG</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>2 doses of vaccine on days 0 and 3; no RIG</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>RIG only; no vaccine needed because of prior vaccination</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>No PEP needed; pre-exposure vaccination is fully protective</button>
+    <div class="expl"><b class="cor">B is correct.</b> Previously vaccinated individuals (prior complete pre-exposure series or prior PEP with demonstrated antibody response) receive only 2 booster doses of vaccine (days 0 and 3) and no RIG. RIG can actually suppress the anamnestic immune response in pre-vaccinated individuals and is contraindicated.</div>
+  </div>
+
+  <!-- Q15 -->
+  <div class="q" data-tag="pep">
+    <div class="meta"><span class="num">Q15</span><span class="tag">pep &amp; vaccines</span></div>
+    <p class="stem">Which of the following is true regarding 1-year vs. 3-year veterinary rabies vaccines?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>3-year vaccines contain higher antigen mass and provide superior immunity</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Both products are immunologically equivalent; the difference is the USDA-approved label duration</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>1-year vaccines are modified-live; 3-year vaccines are killed</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>3-year vaccines must be given with adjuvant; 1-year vaccines may be non-adjuvanted</button>
+    <div class="expl"><b class="cor">B is correct.</b> The duration designation is a regulatory distinction based on challenge studies conducted to obtain the specific label claim. The vaccines are immunologically equivalent; using a 1-year product does not provide inferior protection per dose. However, for legal and public health purposes an animal vaccinated with a 1-year product must be revaccinated annually to remain "currently vaccinated."</div>
+  </div>
+
+  <!-- Q16 -->
+  <div class="q" data-tag="pep">
+    <div class="meta"><span class="num">Q16</span><span class="tag">pep &amp; vaccines</span></div>
+    <p class="stem">Which of the following best describes the reason a recombinant (canarypox-vectored) rabies vaccine is preferred over an adjuvanted killed vaccine in cats?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Recombinant vaccines provide longer duration of immunity (5 years) in cats</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Adjuvanted vaccines are not licensed for use in cats in the US</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Adjuvanted vaccines have a higher (though still rare) association with feline injection-site sarcoma; recombinant vaccines are non-adjuvanted, reducing this risk</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Recombinant vaccines elicit superior cell-mediated immunity in cats compared with killed products</button>
+    <div class="expl"><b class="cor">C is correct.</b> Feline injection-site sarcoma (FISS) is associated with adjuvanted vaccines (and other injected products). Recombinant rabies vaccines (e.g., canarypox-vectored) are non-adjuvanted and are therefore preferred by current AAFP vaccine guidelines to reduce FISS risk. Duration of immunity under the label is 1–3 years depending on product.</div>
+  </div>
+
+  <!-- Q17 -->
+  <div class="q" data-tag="law">
+    <div class="meta"><span class="num">Q17</span><span class="tag">public health / law</span></div>
+    <p class="stem">Which domestic animal species is currently the most frequently reported rabid domestic animal in the United States?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Dogs</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Cats</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Cattle</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Horses</button>
+    <div class="expl"><b class="cor">B is correct.</b> Cats surpassed dogs as the most commonly reported rabid domestic animal in the US, largely because vaccination rates in cats (especially free-roaming cats) lag behind those in dogs, and some jurisdictions do not legally mandate cat vaccination. This is a high-frequency exam fact.</div>
+  </div>
+
+  <!-- Q18 -->
+  <div class="q" data-tag="law">
+    <div class="meta"><span class="num">Q18</span><span class="tag">public health / law</span></div>
+    <p class="stem">A shelter staff member is bitten by an impounded stray dog of unknown vaccination status. The dog is available for observation. What is the immediate first step?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Euthanize the dog and submit brain for DFA testing</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Begin PEP immediately without waiting for public health consultation</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Wash the wound thoroughly with soap and water for at least 15 minutes, then report to a supervisor and seek medical evaluation / public health consultation</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Place the dog under 10-day observation and take no further action regarding the staff member</button>
+    <div class="expl"><b class="cor">C is correct.</b> Immediate thorough wound washing is the single most important first step — it significantly reduces viral inoculation. Then report and seek medical/public health evaluation. The decision about PEP is made in consultation with the health department. Euthanasia is not required if the animal is available for 10-day observation.</div>
+  </div>
+
+  <!-- Q19 -->
+  <div class="q" data-tag="law">
+    <div class="meta"><span class="num">Q19</span><span class="tag">public health / law</span></div>
+    <p class="stem">The NASPHV Compendium of Animal Rabies Prevention and Control is best described as:</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>A federal regulation that overrides state law in all US jurisdictions</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>A document published by the CDC that is legally binding for animal control agencies</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>The authoritative national reference for vaccine schedules, quarantine periods, and exposure management, published by the National Association of State Public Health Veterinarians and updated periodically</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>An AVMA policy statement that applies only to licensed veterinarians</button>
+    <div class="expl"><b class="cor">C is correct.</b> The NASPHV Compendium is an evidence-based, nationally recognized reference document but is not a federal regulation. States and localities may adopt its recommendations into law or exceed its standards. Veterinarians and shelter staff should follow the Compendium's guidance and local law, whichever is more stringent.</div>
+  </div>
+
+  <!-- Q20 -->
+  <div class="q" data-tag="law">
+    <div class="meta"><span class="num">Q20</span><span class="tag">public health / law</span></div>
+    <p class="stem">From a One Health perspective, which single intervention has been shown to be most cost-effective for preventing human rabies deaths globally?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Expanding access to human PEP in low-income countries</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Achieving and sustaining ≥70% vaccination coverage in the domestic dog population</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Oral rabies vaccination of raccoon and skunk populations in North America</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Mandatory rabies vaccination of all cats in the United States</button>
+    <div class="expl"><b class="cor">B is correct.</b> Dogs are the reservoir responsible for &gt;99% of human rabies deaths globally. Mathematical modeling and field evidence consistently show that achieving ≥70% vaccination coverage in domestic dogs breaks transmission chains and is more cost-effective than PEP availability alone. This is the foundation of the WHO/FAO/WOAH Zero by 30 strategy.</div>
+  </div>
+
+  </div><!-- /qlist -->
+</section>
+
+</div></main>
+
+<footer><div class="wrap">
+  <p>ABVP Shelter Medicine RVS Study Hub &middot; Community &amp; Public Health Domain &middot; Rabies (Subdomain 4)</p>
+  <p>Sources: CDC Rabies resource pages; NASPHV Compendium of Animal Rabies Prevention and Control (current edition); AVMA guidelines; WHO Global rabies data. Content is for exam preparation only — always consult current guidelines and local public health authorities for clinical and legal decisions.</p>
+</div></footer>
+
+<script>
+// Tab switching
+document.getElementById('tabrow').addEventListener('click',function(e){
+  const btn=e.target.closest('button[data-p]');
+  if(!btn)return;
+  document.querySelectorAll('.tabrow button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('show'));
+  document.getElementById(btn.dataset.p).classList.add('show');
+});
+
+// MCQ
+let total=0,correct=0;
+function ans(btn,isCorrect){
+  const q=btn.closest('.q');
+  if(q.dataset.locked)return;
+  q.dataset.locked='1';
+  total++;
+  const opts=q.querySelectorAll('.opt');
+  opts.forEach(o=>{
+    o.classList.add('locked');
+    if(o===btn){o.classList.add(isCorrect?'correct':'wrong');}
+    else if(isCorrect===false){
+      // find the correct one
+      const idx=[...opts].indexOf(o);
+    }
+  });
+  if(!isCorrect){
+    // highlight correct
+    opts.forEach(o=>{
+      o.onclick&&o.onclick.toString().includes('true')&&o.classList.add('correct');
+    });
+  }
+  if(isCorrect)correct++;
+  q.querySelector('.expl').classList.add('show');
+  document.getElementById('sc').textContent=correct+' / '+total;
+}
+
+function resetAll(){
+  total=0;correct=0;
+  document.querySelectorAll('.q').forEach(q=>{
+    delete q.dataset.locked;
+    q.querySelectorAll('.opt').forEach(o=>{
+      o.classList.remove('correct','wrong','locked');
+    });
+    const expl=q.querySelector('.expl');
+    if(expl)expl.classList.remove('show');
+  });
+  document.getElementById('sc').textContent='0 / 0';
+  filterQ(document.querySelector('.mcqbar .filters button.on'),'all');
+}
+
+function filterQ(btn,tag){
+  document.querySelectorAll('.mcqbar .filters button').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('#qlist .q').forEach(q=>{
+    q.style.display=(tag==='all'||q.dataset.tag===tag)?'':'none';
+  });
+}
+
+// Fix correct highlighting when wrong answer clicked
+document.querySelectorAll('.opt').forEach(btn=>{
+  const orig=btn.onclick;
+  btn.addEventListener('click',function(e){
+    const q=this.closest('.q');
+    if(q.dataset.locked)return;
+    // after marking wrong, highlight correct
+    setTimeout(()=>{
+      if(this.classList.contains('wrong')){
+        q.querySelectorAll('.opt').forEach(o=>{
+          const fn=o.getAttribute('onclick')||'';
+          if(fn.includes('true'))o.classList.add('correct');
+        });
+      }
+    },10);
+  });
+});
+</script>
+</body>
+</html>
