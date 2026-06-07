@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Regulation and Legal Framework | Shelter Management | ABVP Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#3d1a0a;--ink2:#5c2c14;--paper:#fdf4ec;--paper2:#fffaf5;
+    --line:#e4d3c4;--muted:#7a5c4a;
+    --id:#b84c1a;--id-soft:#f5ddd0;
+    --good:#1f7a4d;--bad:#b23b3b;
+    --notes:#7a4fb5;--notes-soft:#ece3f7;
+    --lit:#1f6f8b;--lit-soft:#dcedf2;
+    --aspca:#8a6d1f;--aspca-soft:#f3ebcf;
+    --ref:#b5651d;--ref-soft:#f6e7d4;
+    --shadow:0 1px 2px rgba(61,26,10,.08),0 8px 24px rgba(61,26,10,.06);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;
+    background-image:radial-gradient(circle at 1px 1px,rgba(61,26,10,.04) 1px,transparent 0);background-size:22px 22px;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+  header.top{background:var(--ink);color:var(--paper2);padding:26px 0 22px;border-bottom:4px solid var(--id)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#d4a88a;margin:0 0 6px}
+  header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(24px,4vw,38px);margin:0;line-height:1.05}
+  header.top p.sub{margin:8px 0 0;color:#f0d9cc;font-size:14px;max-width:70ch}
+  .legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}
+  .legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.25);color:#f5ece5;display:flex;align-items:center;gap:6px}
+  .legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--paper2);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button:hover{background:var(--paper);color:var(--ink)}
+  .tabrow button.active{background:var(--ink);color:var(--paper2)}
+  .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--id)}
+  main{padding:30px 0 80px}
+  .panel{display:none;animation:fade .35s ease}
+  .panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;letter-spacing:-.01em}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:78ch}
+  h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:30px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;color:var(--ink2);text-transform:uppercase;letter-spacing:.03em}
+  .card{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}
+  ul.hy{margin:8px 0;padding-left:0;list-style:none}
+  ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed #e6d4c2;font-size:14px}
+  ul.hy li:last-child{border-bottom:0}
+  ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;border-radius:2px;background:var(--id);transform:rotate(45deg)}
+  .trap{background:#fdf0ea;border:1px solid #e8c4aa;border-left:4px solid var(--id);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .trap b{color:var(--id);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .corrbox{background:#e9f4ee;border:1px solid #bfe0cc;border-left:4px solid var(--good);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .corrbox b{color:var(--good);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:var(--paper2);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp th{background:var(--ink);color:var(--paper2);font-weight:600;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase}
+  table.cmp tr:last-child td{border-bottom:0}
+  table.cmp td b{color:var(--ink)}
+  .bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+  .bdg.ref{background:var(--ref-soft);color:var(--ref)}
+  .bdg.lit{background:var(--lit-soft);color:var(--lit)}
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--ink);color:var(--paper2);border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:54px;z-index:10}
+  .mcqbar .filters{display:flex;gap:6px;flex-wrap:wrap}
+  .mcqbar .filters button{font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#f0d9cc;padding:6px 11px;border-radius:999px;cursor:pointer}
+  .mcqbar .filters button.on{background:var(--id);border-color:var(--id);color:#fff}
+  .score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}
+  .score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;color:#f0d9cc;padding:5px 10px;border-radius:8px;font-size:11px}
+  .q{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
+  .q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+  .q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--id-soft);color:var(--id)}
+  .q .stem{font-weight:600;font-size:15px;margin-bottom:10px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;font-family:"Public Sans";transition:background .15s,border-color .15s}
+  .opt:hover{border-color:var(--ink)}
+  .opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}
+  .opt.correct{background:#e8f5ec;border-color:var(--good);color:#0d3d24}
+  .opt.wrong{background:#fbe9e9;border-color:var(--bad);color:#5e1d1d}
+  .opt.locked{cursor:default}
+  .expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:#f9f0e8;border:1px solid var(--line);font-size:13.5px}
+  .expl.show{display:block}
+  .expl b.cor{color:var(--good)}
+  footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
+  @media(max-width:640px){.mcqbar{top:50px}}
+</style>
+</head>
+<body>
+<nav style="background:#0f3d3a;padding:9px 18px;display:flex;align-items:center;gap:10px;font-family:'Public Sans',system-ui,sans-serif;font-size:13px;font-weight:500;border-bottom:2px solid #1f5c4e"><a href="../index.html" style="color:#9ec9c2;text-decoration:none;display:flex;align-items:center;gap:5px"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span style="color:#4a7a6e;font-size:11px">›</span><span style="color:#cfe3df">Shelter Management</span></nav>
+
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">ABVP Shelter Medicine RVS &middot; Shelter Management (18%) &middot; Subdomain 7: Regulation</p>
+    <h1>Regulation and Legal Framework</h1>
+    <p class="sub">State veterinary practice acts, supervision levels, stray hold law, and DEA controlled substance regulations. Source: Shelter Medicine for Veterinarians and Staff, 2nd Ed., Chapter 6.</p>
+    <div class="legend">
+      <span><i style="background:var(--ref)"></i>Textbook Ch. 6</span>
+      <span><i style="background:var(--good)"></i>Verified content</span>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="practiceact"><span class="dot"></span>Practice Acts</button>
+  <button data-p="stray"><span class="dot"></span>Stray Hold Laws</button>
+  <button data-p="dea"><span class="dot"></span>Controlled Substances</button>
+  <button data-p="mcq"><span class="dot" style="background:var(--ink)"></span>MCQ Bank (26)</button>
+</div></div></nav>
+
+<main><div class="wrap">
+
+<!-- PRACTICE ACTS -->
+<section class="panel show" id="practiceact">
+  <h2 class="sec">Practice Acts and Supervision</h2>
+  <p class="lead">State veterinary practice acts are the primary statutory authority for all veterinary task delegation within shelters. They are state-specific and always supersede internal shelter policies.</p>
+
+  <h3>State Practice Acts and Shelter Exemptions <span class="bdg ref">Ch. 6</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>State-specific authority:</b> Each state's veterinary medicine practice act defines what veterinary tasks may be delegated to non-licensed staff and under what supervisory conditions.</li>
+      <li><b>Voter / state exemptions:</b> Some state practice acts contain specific provisions allowing out-of-state licensed veterinarians to practice within registered shelter facilities. These shelter-specific exemptions are written directly into state law to help shelters attract qualified staff across state lines.</li>
+      <li><b>Delegated task clauses:</b> Some states permit trained but non-licensed shelter staff to perform specific tasks (microchipping, core subcutaneous vaccines) under defined supervision. What is legal in one state may be a criminal violation in another.</li>
+    </ul>
+    <div class="trap"><b>Exam Trap</b> Legality of non-licensed staff performing medical tasks is determined by the STATE PRACTICE ACT, not by internal SOPs, shelter board resolutions, or municipal contracts. Internal policies cannot expand legal authority beyond what the practice act grants.</div>
+  </div>
+
+  <h3>Supervision Level Definitions <span class="bdg ref">Ch. 6</span></h3>
+  <div class="card">
+    <table class="cmp">
+      <thead><tr><th>Level</th><th>Definition</th><th>Application</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><b>Direct supervision</b></td>
+          <td>The licensed veterinarian must be physically present on the premises when the task is performed.</td>
+          <td>Required for stray animals where ownership is legally unsettled (best practice). Also required for higher-risk delegated tasks in many state practice acts.</td>
+        </tr>
+        <tr>
+          <td><b>Indirect supervision</b></td>
+          <td>The veterinarian does NOT need to be on the premises but has given written or oral instructions and is immediately available by telephone or other communication.</td>
+          <td>Sufficient for routine delegated tasks (core vaccines, microchips) in states where the practice act permits delegation under indirect supervision.</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="corrbox"><b>Rabies Vaccination Statutory Mandate</b> In most jurisdictions, rabies vaccination must be administered exclusively by a licensed veterinarian. It cannot be delegated to non-licensed staff under indirect supervision, regardless of any other shelter-specific practice act exemptions that may apply.</div>
+    <div class="trap"><b>Exam Trap</b> Core vaccines (DHPP, FVRCP) may be delegable under indirect supervision in states with shelter exemptions. Rabies cannot. This distinction is directly tested. Also: for stray animals specifically, the text designates direct supervision as the absolute best practice standard, even if indirect supervision would otherwise be legally sufficient for an owned animal.</div>
+  </div>
+
+  <h3>Internal SOPs Cannot Supersede State Law <span class="bdg ref">Ch. 6</span></h3>
+  <div class="card">
+    <p>Statutory state laws and veterinary board regulations <b>always supersede</b> internal corporate policies, standard operating procedures, or any board-approved protocol. A shelter that allows a non-licensed assistant to perform surgery based on an internal SOP cannot use that SOP as a legal defense at prosecution.</p>
+    <div class="trap"><b>Exam Trap</b> "Our SOPs permitted it" is not a valid legal defense. The practice act governs. An SOP that expands authority beyond what the state practice act grants is legally void regardless of how carefully it was written or how broadly it was adopted.</div>
+  </div>
+</section>
+
+<!-- STRAY HOLD LAWS -->
+<section class="panel" id="stray">
+  <h2 class="sec">Stray Hold Laws and Ownership</h2>
+  <p class="lead">Animals entering a shelter as strays are legally the property of their unknown owner during the hold period. The shelter acts as bailee (custodian), not owner. This has direct clinical implications for what can and cannot be done medically.</p>
+
+  <h3>Legal Status of Stray Animals During Hold <span class="bdg ref">Ch. 6</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>A stray animal is legally the property of its unknown owner during the statutory hold period.</li>
+      <li>The shelter holds the animal in trust (bailment) and does not have ownership authority to permanently alter the animal.</li>
+      <li>Standard hold period: 3 to 7 days depending on local municipal ordinance.</li>
+      <li>Animals carrying explicit identification (microchip, rabies tag): must be held a <b>minimum of 7 days</b>.</li>
+      <li>No elective surgery should be performed during the 7-day ID hold period.</li>
+      <li>Stray hold expiration = automatic statutory transfer of title to the shelter (no paperwork or court action needed).</li>
+    </ul>
+    <div class="trap"><b>Exam Trap</b> The 7-day hold is triggered by the presence of identification markers (microchip or rabies tag), NOT by the standard municipal hold period. A shelter in a 3-day hold jurisdiction still must hold a microchipped animal for a minimum of 7 days.</div>
+  </div>
+
+  <h3>Permissible and Prohibited Treatments During Hold <span class="bdg ref">Ch. 6</span></h3>
+  <div class="card">
+    <table class="cmp">
+      <thead><tr><th>During Stray Hold: PERMITTED</th><th>During Stray Hold: PROHIBITED</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>
+            <ul style="margin:0;padding-left:16px;font-size:13px">
+              <li>Core vaccines</li>
+              <li>Deworming</li>
+              <li>Flea and parasite treatments</li>
+              <li>Supportive care and pain management</li>
+              <li>Emergency or life-saving surgery</li>
+            </ul>
+          </td>
+          <td>
+            <ul style="margin:0;padding-left:16px;font-size:13px">
+              <li>Spay or neuter (elective)</li>
+              <li>Non-emergency surgical procedures</li>
+              <li>Any irreversible alteration not immediately required to save life</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="corrbox"><b>Emergency Exception</b> Veterinarians retain emergency authority during the stray hold period to provide triage, stabilizing surgery, or humane euthanasia when immediately required to prevent acute suffering or death. The test is: is the intervention necessary NOW to prevent death or severe suffering? If yes, proceed. If not, wait for hold expiration.</div>
+    <div class="trap"><b>Exam Trap</b> A non-painful necrotic tail tip on an otherwise stable stray cat is NOT an emergency. The vet must provide palliative care (pain control, wound management) but must delay amputation until the hold expires. Non-painful chronic conditions, even disfiguring ones, do not qualify as emergencies under this standard.</div>
+  </div>
+
+  <h3>Private Shelters Handling Strays <span class="bdg ref">Ch. 6</span></h3>
+  <div class="card">
+    <p>A private shelter that handles stray animals in a jurisdiction with no established municipal stray hold procedures operates entirely at its own legal risk.</p>
+    <div class="corrbox"><b>Explicit Recommendation</b> Process all stray animals through either a government shelter or a shelter with an established government contract. This legally settles ownership through the governmental process and shifts the liability to the authority with jurisdictional mandate.</div>
+  </div>
+
+  <h3>Data Integrity Protects Property Rights <span class="bdg ref">Ch. 6</span></h3>
+  <div class="card">
+    <p>Accurate intake record-keeping (correct microchip number, species, color, markings) is a property rights protection mechanism. Errors in intake records can prevent an owner from locating their legally owned animal during the hold period, resulting in inadvertent adoption of an animal that still belongs to the original owner. This creates serious liability for violation of property rights.</p>
+  </div>
+</section>
+
+<!-- DEA -->
+<section class="panel" id="dea">
+  <h2 class="sec">DEA Regulations and Controlled Substances</h2>
+  <p class="lead">The DEA holds sole federal authority over controlled substances including sodium pentobarbital and chemical immobilization agents. Individual registration, storage, and off-site restrictions are absolute and non-negotiable.</p>
+
+  <h3>DEA Registration: Individual and Location-Specific <span class="bdg ref">Ch. 6</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>DEA registrations are <b>individual, non-transferable</b> licenses tied to a specific practitioner AND a specific physical practice location.</li>
+      <li>When the registered veterinarian departs: all ordering and usage under that DEA registration must <b>cease immediately</b> at that location.</li>
+      <li>The departing veterinarian cannot leave, sign over, or temporarily loan their DEA number to the facility.</li>
+      <li>Final professional and legal responsibility for all controlled substance disposition rests with <b>the veterinarian</b>.</li>
+    </ul>
+    <div class="trap"><b>Exam Trap</b> There is no grace period after a vet's departure. The DEA registration expires at that location on the day of departure. The shelter cannot continue to use existing stock under the former vet's number "while looking for a replacement."</div>
+  </div>
+
+  <h3>Off-Site Shipping: Federal Violation <span class="bdg ref">Ch. 6</span></h3>
+  <div class="card">
+    <div class="corrbox"><b>Absolute Federal Violation</b> A registered off-site veterinarian ordering euthanasia solution and having it shipped to a shelter facility's address for the shelter's independent use is a violation of controlled substance regulations. All controlled substances must be shipped to and stored at the exact address listed on the veterinarian's DEA license. Off-site vets cannot transfer euthanasia solution to a facility for the facility's own use.</div>
+  </div>
+
+  <h3>Shelters Without a Staff Veterinarian <span class="bdg ref">Ch. 6</span></h3>
+  <div class="card">
+    <p>If a shelter has no staff veterinarian but must perform euthanasia, the DEA may issue a <b>direct facility procurement permit.</b> Requirements include:</p>
+    <ul class="hy">
+      <li>Specific facility certification.</li>
+      <li>Training and certification of euthanasia technicians.</li>
+      <li>Defined permitted methods of euthanasia under this framework.</li>
+    </ul>
+  </div>
+
+  <h3>Storage, Quality Control, and Permit Suspension <span class="bdg ref">Ch. 6</span></h3>
+  <div class="card">
+    <p><b>Storage requirement:</b> Securely locked, substantially constructed cabinet or safe, <b>permanently anchored</b> to the building structure. Not an unlocked cabinet, personal vehicle, or open shelving.</p>
+    <p><b>Quality control scope:</b> Must monitor everyone who has access to controlled substances, including board members, veterinarians, and staff unaccustomed to taking direction within the shelter hierarchy.</p>
+    <p><b>Permit suspension:</b> If a regulatory agency launches an investigation into controlled substance handling, the agency may <b>temporarily suspend the shelter's permits</b> pending the outcome of investigation and prosecution. Operations requiring those permits must cease during suspension.</p>
+  </div>
+</section>
+
+<!-- MCQ -->
+<section class="panel" id="mcq">
+  <h2 class="sec">MCQ Test Bank</h2>
+  <p class="lead">26 board-style questions covering practice acts, stray hold law, and DEA regulations. Questions drawn from both MCQ banks in the source notes. Click an option to answer.</p>
+  <div class="mcqbar">
+    <div class="filters">
+      <button class="on" data-f="all">All 26</button>
+      <button data-f="practiceact">Practice Acts</button>
+      <button data-f="stray">Stray Hold</button>
+      <button data-f="dea">DEA</button>
+    </div>
+    <div class="score"><span id="scoreDisplay">0 / 0</span><button class="reset" id="resetBtn">Reset</button></div>
+  </div>
+  <div id="qhost"></div>
+</section>
+
+</div></main>
+<footer><div class="wrap"><p>ABVP Shelter Medicine Practice RVS &middot; Shelter Management &middot; Subdomain 7: Regulation and Legal Framework &middot; Source: Shelter Medicine for Veterinarians and Staff 2nd Ed., Ch. 6. Exam: November 2026.</p></div></footer>
+
+<script>
+const tabrow = document.getElementById("tabrow");
+tabrow.addEventListener("click", function(e){
+  const b = e.target.closest("button");
+  if(!b || !b.dataset.p) return;
+  [...tabrow.children].forEach(x => x.classList.remove("active"));
+  b.classList.add("active");
+  document.querySelectorAll(".panel").forEach(p => p.classList.remove("show"));
+  document.getElementById(b.dataset.p).classList.add("show");
+});
+
+const Q = [
+  {f:"practiceact",q:"A newly hired shelter veterinarian notices a specific provision in the state's practice act that permits out-of-state licensed veterinarians to practice medicine inside registered shelter facilities. What is the legal term for this type of provision?",o:["Civil service exemption","Voter or state exemption","Delegated task clause","Restricted mandate waiver"],a:1,e:"State veterinary boards write voter or institutional exemptions into practice acts to ensure shelters can attract qualified staff across state lines. These are shelter-specific carve-outs within the broader state practice act framework."},
+  {f:"practiceact",q:"A shelter veterinarian wants to train non-licensed shelter assistants to perform microchipping and administer subcutaneous core vaccines at intake. What document dictates whether these tasks can be legally delegated?",o:["The individual shelter's internal standard operating procedures","The state's Veterinary Medicine Practice Act","The DEA practitioner manual","The municipal contract agreement"],a:1,e:"State practice acts establish the exact legal boundaries regarding what veterinary tasks can be delegated to non-licensed personnel and under what level of supervision. Internal SOPs cannot expand legal authority beyond what the practice act permits."},
+  {f:"dea",q:"A veterinary technician auditing the shelter's controlled substance logs notes that the volume of sodium pentobarbital logged for usage does not match the volume remaining in the safe. Which federal agency regulates and audits these records?",o:["Food and Drug Administration (FDA)","Environmental Protection Agency (EPA)","Drug Enforcement Administration (DEA)","Department of Agriculture (USDA)"],a:2,e:"The DEA holds absolute statutory authority over the manufacturing, distribution, logging, and security of controlled substances including sodium pentobarbital and chemical immobilization agents. Discrepancies in controlled substance records are a DEA regulatory matter."},
+  {f:"dea",q:"A shelter's medical director leaves suddenly. The facility's controlled substance registration was filed under that specific veterinarian's individual DEA license number. What must happen to the shelter's ability to order and use controlled substances?",o:["Usage may continue under the shelter manager's supervision for 60 days","The registration automatically transfers to the senior veterinary technician","All ordering and usage under that registration must cease immediately at that location","The departing veterinarian can sign a waiver leaving their DEA number with the facility"],a:2,e:"An individual DEA registration is tied specifically to that practitioner at their specific registered location. Once they terminate employment, the facility cannot use their registration. There is no grace period and no transfer mechanism. A new registration must be obtained."},
+  {f:"stray",q:"A stray dog is admitted to a municipal shelter. The local municipal code mandates a 4-day stray hold period. Legally, what is the status of the animal during this hold?",o:["It is the unconditional legal property of the shelter","It is considered public property with no legal protections","It is legally the property of its unknown owner, held in trust by the shelter","It is an unowned entity with no legal status"],a:2,e:"During a statutory hold, the shelter acts as a legal custodian or bailee. Title to the animal remains with the original owner until the hold expires. The shelter cannot permanently alter the animal during this period except in emergencies."},
+  {f:"stray",q:"On day 2 of a mandated 5-day stray hold, a shelter veterinarian notes a stray cat has a fractured, non-painful left hind claw that will eventually need removal but is not systemically compromised. What is the legally sound course of action?",o:["Perform both neuter and claw repair immediately","Neuter the cat now but delay the claw repair until hold expires","Perform the claw repair immediately but delay the neuter until hold expires","Provide appropriate palliative care and delay both elective procedures until the stray hold expires"],a:3,e:"Because the animal is still the legal property of an unknown owner, irreversible elective and non-emergency surgical procedures must be delayed until the hold concludes. Non-painful chronic conditions are not emergencies. Palliative care can be provided in the interim."},
+  {f:"stray",q:"A stray dog on day 1 of a 3-day hold presents with a compound femoral fracture, active severe hemorrhage, and traumatic shock. The owner is unknown. What legal right does the shelter veterinarian have?",o:["No right; must wait for the hold to expire before any surgical intervention","Legal authority to provide emergency triage, surgical stabilization, or humane euthanasia to alleviate suffering","Must transfer the animal to a private practice to avoid shelter liability","Must obtain a court order before administering pain relief"],a:1,e:"Shelter laws universally grant veterinarians emergency authority to provide diagnostic and palliative intervention, stabilizing surgery, or humane euthanasia to resolve severe pain or life-threatening trauma during the stray hold. The standard is whether immediate intervention is necessary to prevent death or acute suffering."},
+  {f:"practiceact",q:"A veterinarian is prosecuted under a state practice act for allowing an assistant to perform surgeries. The shelter manager argues that internal SOPs permitted it. Why does this defense fail?",o:["Internal shelter policies cannot supersede statutory state law or the state practice act","The shelter manager does not hold a 501(c)(3) certification","The assistant was not a board member","The surgery was performed on an open-admission animal"],a:0,e:"Statutory state laws and veterinary board rules always supersede internal corporate policies or standard operating guidelines. An SOP that permits something the state practice act prohibits is legally void. The practice act governs regardless of internal documentation."},
+  {f:"stray",q:"What is the primary legal mechanism that transfers ownership of a stray animal from the original owner to an animal shelter?",o:["Payment of an intake fee by the finder","Expiration of the legally mandated stray hold period","Implantation of a new microchip at intake","Administration of a core modified-live vaccine"],a:1,e:"The legal expiration of the stray hold period acts as an automatic statutory forfeiture of the original owner's property rights, transferring clean title to the shelter. No other action (microchipping, vaccination, intake fee) changes ownership status."},
+  {f:"dea",q:"A state regulatory board visits a shelter to inspect controlled substance records. Which storage arrangement is a mandatory DEA requirement?",o:["A standard unlocked plastic cabinet in the main hallway","A securely locked, substantially constructed cabinet or safe anchored to the building structure","The personal vehicle trunk of the shelter manager","Clear glass containers on open shelving for visual auditing"],a:1,e:"DEA regulations specify that controlled substances must be stored in a securely locked, substantially constructed cabinet or safe that is permanently affixed to the premises structure. Personal vehicles and unlocked storage are explicit violations."},
+  {f:"stray",q:"A shelter clerk accidentally logs a dog's microchip number incorrectly at intake, preventing the original owner from locating the animal during its stray hold. The animal is subsequently adopted out. This scenario highlights the importance of which administrative factor?",o:["Utilizing restricted grant protocols for intake","Data integrity and accurate record-keeping to protect property rights","Bypassing the state practice act for microchip verification","Maximizing length of stay metrics"],a:1,e:"Accurate intake data entry is a property rights protection mechanism. An error in the microchip number prevents the legal owner from exercising their reclaim right during the hold period. This administrative failure creates serious shelter liability for violating an owner's property rights."},
+  {f:"stray",q:"Once a non-profit animal shelter successfully achieves federal 501(c)(3) tax-exempt status, which dual state-level entities must it register with next?",o:["The state department of health and the municipal sanitation division","The state agency that licenses shelters and the state's attorney general's office of charitable trusts","The local police department and the state veterinary medical board","The DEA and the state department of labor"],a:1,e:"Post-federal-exemption, the shelter must register with the state agency that licenses shelters (typically the Department of Agriculture) and the state attorney general's office of charitable trusts. Both registrations are required; the federal exemption alone does not complete the process."},
+  {f:"stray",q:"Which state-level entity is statutorily empowered to license, inspect, and write operational regulations for both private and government animal shelters?",o:["The State Department of Health","The State Department of Agriculture","The State Veterinary Medical Board","The Attorney General's Office of Charitable Trusts"],a:1,e:"The state Department of Agriculture holds the statutory mandate to license, inspect, and write regulatory frameworks for both private non-profit and government (municipal) shelters. This applies to both types uniformly, not exclusively to private facilities."},
+  {f:"stray",q:"A private shelter operates in a jurisdiction with no established municipal procedures for stray hold management. How does the text characterize its legal position when handling stray animals?",o:["Automatically granted charitable immunity from civil lawsuits","Operates entirely at its own legal risk","Legally designated as a municipal public health department extension","Exempted from state veterinary practice act requirements"],a:1,e:"Without an established municipal framework or government contract, a private shelter handling strays has no legal protection from property rights claims by the original owner. The recommendation is to process strays through a government shelter or one with a government contract."},
+  {f:"stray",q:"Due to unsettled ownership liability, what explicit recommendation does the text provide for how private shelters should process stray animals?",o:["Process all strays through either a government shelter or a shelter with a government contract","Perform immediate elective surgeries to increase adoption speed","Transfer ownership to a trial adoption home within the first 48 hours","Keep animals in offsite foster homes without notifying local animal control"],a:0,e:"The text explicitly recommends routing stray animals through a government shelter or a shelter with a government contract to legally settle the ownership question through the governmental process, shifting liability appropriately."},
+  {f:"stray",q:"An animal control act dictates that a stray animal carrying an explicit marker of ownership (microchip or rabies tag) must be held for a minimum of how many days, and what medical restriction applies?",o:["Held for 3 days; no vaccinations may be given","Held at least 7 days; no elective surgery should be performed","Held for 17 days; must be under direct lighting continuously","Held for 14 days; cannot be handled without a control pole"],a:1,e:"An animal with identification markers indicating a known owner must be held a minimum of 7 days to allow the owner adequate time to reclaim. During this extended hold, elective surgery (spay, neuter) must not be performed. Vaccines, deworming, and flea treatment remain permitted."},
+  {f:"stray",q:"During a mandatory stray hold period, which medical treatments are legally permissible for the shelter to perform?",o:["Routine elective neutering, dental prophylaxis, and cosmetic grooming","Vaccinations, deworming, and flea treatments, but not routine surgeries unless life-saving","Complete diagnostic biopsy panels and behavioral temperament evaluation batteries","No medical treatments of any kind may be administered prior to ownership transfer"],a:1,e:"The stray hold permits preventive care (vaccines, deworming, flea treatment) and emergency interventions. It prohibits irreversible elective procedures such as spay, neuter, and non-emergency surgery. Supportive and palliative care is permitted throughout."},
+  {f:"practiceact",q:"Some state veterinary practice acts include exemptions that allow unlicensed shelter employees to administer vaccines and microchips. Under what supervisory condition is this typically permitted?",o:["Only if board members are physically present in the room","Under the indirect supervision of a licensed veterinarian, following established protocols","Only if the animal was owner-surrendered, not a stray","Only if no Form 990 is currently on public display"],a:1,e:"Practice act exemptions for shelter environments most commonly permit delegated tasks under indirect supervision, where the veterinarian has provided written or oral instructions and is available by phone but need not be on premises."},
+  {f:"practiceact",q:"How does the text define indirect supervision of a licensed veterinarian regarding shelter staff administering treatments?",o:["The veterinarian must be physically standing next to the staff member inside the facility","The veterinarian does not need to be on the premises, but has given instructions and is available by telephone","The veterinarian reviews records once every 2 months","The veterinarian operates an off-site mobile clinic with no formal relationship to the shelter"],a:1,e:"Indirect supervision is defined as: the veterinarian is not on premises but has given written or oral instructions to the staff performing the task, and is immediately available by telephone or other communication. Physical presence is not required."},
+  {f:"practiceact",q:"For stray animals where ownership remains legally unsettled, what does the text define as the absolute best practice standard for delivery of veterinary medical care?",o:["Administer care exclusively via a certified euthanasia technician","Administer care only under the direct supervision of a licensed veterinarian","Delegate all diagnostic and treatment protocols to trained volunteers","Suspend all medical care until a newspaper advertisement has expired"],a:1,e:"Because stray animals are legally owned by an unknown third party during the hold period, direct supervision (the veterinarian physically present) is the best practice standard for care delivery. This is a higher bar than indirect supervision, which may otherwise suffice for owned animals."},
+  {f:"practiceact",q:"Which specific preventive treatment must, according to statutory regulation, be administered exclusively by a licensed veterinarian?",o:["Polyvalent core feline vaccines","Topical flea and tick preventatives","Broad-spectrum anthelmintic dewormers","Rabies vaccination"],a:3,e:"Rabies vaccination is a statutory mandate in virtually all jurisdictions that requires a licensed veterinarian to administer and certify the vaccination. It cannot be delegated to unlicensed staff under indirect supervision, even in states with broad shelter practice act exemptions."},
+  {f:"dea",q:"A registered off-site veterinarian orders euthanasia solution and has it shipped directly to a shelter facility's address for the shelter's independent use. How is this action categorized under federal drug regulations?",o:["Fully permissible under standard veterinary practice act exemptions","A violation of controlled substance regulations; drugs must be shipped to and stored at the address on the vet's DEA license","Legal as long as the shelter board reviews the shipment budget","Permissible provided the shelter is registered with the office of charitable trusts"],a:1,e:"Federal controlled substance regulations require that all drugs be shipped to and stored at the exact address listed on the ordering registrant's DEA license. An off-site vet ordering drugs for a different facility's use violates this requirement regardless of any other authorization."},
+  {f:"dea",q:"If a shelter lacks a registered staff veterinarian but performs euthanasia, how can it legally procure, store, and use controlled substances?",o:["Purchase drugs from farm supply stores under standard exemptions","The DEA may issue permits directly to the facility, subject to specific facility certification and euthanasia technician training requirements","Operate without a permit as long as the local health department inspects annually","Rely on an off-site veterinarian transferring substances via an umbrella liability policy"],a:1,e:"The DEA can issue direct facility procurement permits to shelters that lack a staff veterinarian. These permits come with specific facility certification requirements, mandatory euthanasia technician training, and defined permitted methods of euthanasia under the facility's authorization."},
+  {f:"dea",q:"If a regulatory agency launches an investigation into a shelter's controlled substance record-keeping, what immediate enforcement action can it take?",o:["The shelter is automatically converted into a municipal police division","The agency may temporarily suspend the shelter's permits pending investigation and prosecution","The board is required to take over day-to-day kennel cleaning","All animals are instantly transferred to another shelter"],a:1,e:"Regulatory agencies have authority to temporarily suspend a shelter's controlled substance permits pending the outcome of an investigation. This means the shelter cannot legally order, use, or store controlled substances during the suspension period, effectively halting euthanasia operations until the matter is resolved."},
+  {f:"dea",q:"A shelter's quality control program for controlled substances must maintain strict supervision and oversight over which groups of personnel?",o:["Adopters executing a trial adoption only","Everyone who has access, including board members, veterinarians, and personnel unaccustomed to taking direction from others in the shelter hierarchy","External inspectors from the state department of agriculture only","Patrons who have signed a standard waiver and photo release"],a:1,e:"The DEA quality control mandate extends to all personnel with any access to controlled substances, regardless of role, title, or employment status. This explicitly includes board members, veterinarians, and any individuals who may not be accustomed to the shelter's standard hierarchy of authority."},
+  {f:"dea",q:"Who bears the final legal and professional duty for the disposition of all controlled drugs used within a shelter facility?",o:["The Chief Executive Officer","The Board of Directors' Risk Management Committee","The veterinarian","The licensed state department of agriculture inspector"],a:2,e:"The veterinarian bears final professional responsibility for controlled substance disposition. This is a non-delegable duty under federal and state law. Even when a facility DEA permit exists, the veterinary professional remains accountable for how all controlled substances are used, stored, and disposed of."}
+];
+
+const LABELS = {practiceact:"Practice Acts", stray:"Stray Hold", dea:"DEA"};
+let answered = 0, correct = 0, chosen = "all", locked = [];
+
+function updateScore(){ document.getElementById("scoreDisplay").textContent = correct + " / " + answered; }
+
+function render(){
+  const filtered = chosen === "all" ? Q : Q.filter(function(q){ return q.f === chosen; });
+  locked = new Array(Q.length).fill(false);
+  const host = document.getElementById("qhost");
+  host.innerHTML = "";
+  filtered.forEach(function(q, i){
+    const gi = Q.indexOf(q);
+    const div = document.createElement("div");
+    div.className = "q";
+    let html = '<div class="meta"><span class="num">Q' + (i+1) + '</span><span class="tag">' + (LABELS[q.f]||q.f) + '</span></div>';
+    html += '<div class="stem">' + q.q + '</div>';
+    q.o.forEach(function(o, j){ html += '<button class="opt" data-i="' + gi + '" data-j="' + j + '"><span class="k">' + "ABCD"[j] + '.</span>' + o + '</button>'; });
+    html += '<div class="expl" id="expl-' + gi + '"><b class="cor">Correct: ' + "ABCD"[q.a] + '.</b> ' + q.e + '</div>';
+    div.innerHTML = html;
+    host.appendChild(div);
+  });
+}
+
+document.getElementById("qhost").addEventListener("click", function(e){
+  const btn = e.target.closest(".opt");
+  if(!btn) return;
+  const i = +btn.dataset.i, j = +btn.dataset.j;
+  if(locked[i]) return;
+  locked[i] = true; answered++;
+  const host = document.getElementById("qhost");
+  if(j === Q[i].a){ correct++; btn.classList.add("correct"); }
+  else { btn.classList.add("wrong"); const cb = host.querySelector('.opt[data-i="' + i + '"][data-j="' + Q[i].a + '"]'); if(cb) cb.classList.add("correct"); }
+  host.querySelectorAll('.opt[data-i="' + i + '"]').forEach(function(b){ b.classList.add("locked"); });
+  const expl = document.getElementById("expl-" + i); if(expl) expl.classList.add("show");
+  updateScore();
+});
+
+document.querySelectorAll(".mcqbar .filters button").forEach(function(btn){
+  btn.addEventListener("click", function(){
+    document.querySelectorAll(".mcqbar .filters button").forEach(function(b){ b.classList.remove("on"); });
+    btn.classList.add("on"); chosen = btn.dataset.f;
+    answered = 0; correct = 0; updateScore(); render();
+  });
+});
+
+document.getElementById("resetBtn").addEventListener("click", function(){ answered = 0; correct = 0; updateScore(); render(); });
+render();
+</script>
+</body>
+</html>

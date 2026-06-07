@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Management and Leadership | Shelter Management | ABVP Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#3d1a0a;--ink2:#5c2c14;--paper:#fdf4ec;--paper2:#fffaf5;
+    --line:#e4d3c4;--muted:#7a5c4a;
+    --id:#b84c1a;--id-soft:#f5ddd0;
+    --good:#1f7a4d;--bad:#b23b3b;
+    --notes:#7a4fb5;--notes-soft:#ece3f7;
+    --lit:#1f6f8b;--lit-soft:#dcedf2;
+    --aspca:#8a6d1f;--aspca-soft:#f3ebcf;
+    --ref:#b5651d;--ref-soft:#f6e7d4;
+    --shadow:0 1px 2px rgba(61,26,10,.08),0 8px 24px rgba(61,26,10,.06);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;
+    background-image:radial-gradient(circle at 1px 1px,rgba(61,26,10,.04) 1px,transparent 0);background-size:22px 22px;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+  header.top{background:var(--ink);color:var(--paper2);padding:26px 0 22px;border-bottom:4px solid var(--id)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#d4a88a;margin:0 0 6px}
+  header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(24px,4vw,38px);margin:0;line-height:1.05}
+  header.top p.sub{margin:8px 0 0;color:#f0d9cc;font-size:14px;max-width:70ch}
+  .legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}
+  .legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.25);color:#f5ece5;display:flex;align-items:center;gap:6px}
+  .legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--paper2);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button:hover{background:var(--paper);color:var(--ink)}
+  .tabrow button.active{background:var(--ink);color:var(--paper2)}
+  .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--id)}
+  main{padding:30px 0 80px}
+  .panel{display:none;animation:fade .35s ease}
+  .panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;letter-spacing:-.01em}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:78ch}
+  h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:30px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;color:var(--ink2);text-transform:uppercase;letter-spacing:.03em}
+  .card{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}
+  ul.hy{margin:8px 0;padding-left:0;list-style:none}
+  ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed #e6d4c2;font-size:14px}
+  ul.hy li:last-child{border-bottom:0}
+  ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;border-radius:2px;background:var(--id);transform:rotate(45deg)}
+  ol.num{margin:8px 0;padding-left:20px;font-size:14px;line-height:2.2}
+  ol.num li{border-bottom:1px dashed #e6d4c2;padding:2px 0}
+  ol.num li:last-child{border-bottom:0}
+  .trap{background:#fdf0ea;border:1px solid #e8c4aa;border-left:4px solid var(--id);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .trap b{color:var(--id);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .corrbox{background:#e9f4ee;border:1px solid #bfe0cc;border-left:4px solid var(--good);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .corrbox b{color:var(--good);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:var(--paper2);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp th{background:var(--ink);color:var(--paper2);font-weight:600;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase}
+  table.cmp tr:last-child td{border-bottom:0}
+  table.cmp td b{color:var(--ink)}
+  .fig{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0;box-shadow:var(--shadow)}
+  .fig figcaption{font-size:12.5px;color:var(--muted);margin-top:8px;font-style:italic}
+  .bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+  .bdg.notes{background:var(--notes-soft);color:var(--notes)}
+  .bdg.asv{background:var(--id-soft);color:var(--id)}
+  .bdg.ref{background:var(--ref-soft);color:var(--ref)}
+  .ruletag{display:inline-flex;align-items:center;gap:6px;background:var(--ink);color:var(--paper2);font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;margin:4px 2px}
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--ink);color:var(--paper2);border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:54px;z-index:10}
+  .mcqbar .filters{display:flex;gap:6px;flex-wrap:wrap}
+  .mcqbar .filters button{font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#f0d9cc;padding:6px 11px;border-radius:999px;cursor:pointer}
+  .mcqbar .filters button.on{background:var(--id);border-color:var(--id);color:#fff}
+  .score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}
+  .score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;color:#f0d9cc;padding:5px 10px;border-radius:8px;font-size:11px}
+  .q{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
+  .q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+  .q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--id-soft);color:var(--id)}
+  .q .stem{font-weight:600;font-size:15px;margin-bottom:10px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;font-family:"Public Sans";transition:background .15s,border-color .15s}
+  .opt:hover{border-color:var(--ink)}
+  .opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}
+  .opt.correct{background:#e8f5ec;border-color:var(--good);color:#0d3d24}
+  .opt.wrong{background:#fbe9e9;border-color:var(--bad);color:#5e1d1d}
+  .opt.locked{cursor:default}
+  .expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:#f9f0e8;border:1px solid var(--line);font-size:13.5px}
+  .expl.show{display:block}
+  footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
+</style>
+</head>
+<body>
+<nav style="background:#0f3d3a;padding:9px 18px;display:flex;align-items:center;gap:10px;font-family:'Public Sans',system-ui,sans-serif;font-size:13px;font-weight:500;border-bottom:2px solid #1f5c4e"><a href="../index.html" style="color:#9ec9c2;text-decoration:none;display:flex;align-items:center;gap:5px"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span style="color:#4a7a6e;font-size:11px">›</span><span style="color:#cfe3df">Shelter Management</span></nav>
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">ABVP Shelter Medicine RVS &middot; Shelter Management (18%) &middot; Subdomain 3 of 7</p>
+    <h1>Management and Leadership</h1>
+    <p class="sub">Personnel management, organizational governance, media relations, community engagement, strategic planning, and staff training. Source: Shelter Medicine for Veterinarians and Staff, Chapter 5.</p>
+    <div class="legend">
+      <span><i style="background:var(--notes)"></i>ONENOTE notes (Ch. 5)</span>
+      <span><i style="background:var(--id)"></i>ASV Standards 2022</span>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="personnel"><span class="dot"></span>Personnel</button>
+  <button data-p="governance"><span class="dot"></span>Governance</button>
+  <button data-p="media"><span class="dot"></span>Media Relations</button>
+  <button data-p="community"><span class="dot"></span>Community Engagement</button>
+  <button data-p="planning"><span class="dot"></span>Planning and Protocols</button>
+  <button data-p="mcq"><span class="dot" style="background:var(--ink)"></span>MCQ Bank (30)</button>
+</div></div></nav>
+
+<main><div class="wrap">
+
+<!-- ===== PERSONNEL ===== -->
+<section class="panel show" id="personnel">
+  <h2 class="sec">Personnel Management</h2>
+  <p class="lead">Effective shelters are built on communication, careful hiring, and consistent performance management. Rushing any stage creates compounding problems that cost far more time and credibility than the original shortcut saved.</p>
+
+  <h3>Communication principles <span class="bdg notes">Ch. 5</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Active listening:</b> essential for two-way communication. Staff respect and trust are non-negotiable for effective functioning.</li>
+      <li><b>Clarification loop:</b> ask for clarification of what the other person is saying, then repeat it back and ask for confirmation. Do not prejudge the message being received.</li>
+      <li><b>Gray zones cause conflict:</b> shelters frequently have "gray zones" around euthanasia and intake criteria that cause conflict and bad feelings. Consistent application of criteria removes the gray zone.</li>
+      <li><b>Positive reinforcement:</b> applies to training staff just as it applies to animals. Use it explicitly.</li>
+      <li><b>Fair pay:</b> a baseline requirement for staff retention and organizational trust.</li>
+    </ul>
+  </div>
+
+  <h3>The 9 hiring principles <span class="bdg notes">Ch. 5</span></h3>
+  <div class="card">
+    <ol class="num">
+      <li><b>Thorough over fast:</b> it is worth working short-staffed for a longer period to find the right person. Pressure to fill a slot quickly leads to short-sighted decisions that will be regretted.</li>
+      <li><b>Check references, including past employers.</b> Past employers rarely disclose poor performance, but will enthusiastically describe excellent employees. Key question: "If given the chance, would you hire this person again?"</li>
+      <li><b>The interview must include a facility tour.</b> Topics to cover: euthanasia and adoption policies, handling of animals with infectious diseases. The astute interviewer observes how the applicant interacts with the animals and the depth of questions the tour generates.</li>
+      <li><b>Probationary basis only.</b> If things are not feeling right during the probationary period, terminate promptly, even before the period ends.</li>
+      <li><b>Gut feelings are worth listening to.</b></li>
+      <li><b>Common sense cannot be overrated.</b> It is one of those assets a person either has or does not have. It cannot be taught.</li>
+      <li><b>Team players are invaluable.</b> Skills can be honed with proper training. Personality cannot.</li>
+      <li><b>Allow adequate time for training.</b></li>
+      <li><b>Quality evaluations must be standard practice.</b> For good employees: highlight appreciation and valued qualities. For poor employees: document specifically where improvement is needed and what is expected going forward.</li>
+    </ol>
+  </div>
+
+  <div class="trap">
+    <b>Exam Trap: Skills vs. personality</b>
+    Technical skills can be trained. Common sense and personality cannot. When an exam scenario presents a candidate with good personality/common sense but limited technical skills versus a technically strong candidate with a poor attitude, the correct answer prioritizes the former, because the organization can train skills but cannot fix personality.
+  </div>
+
+  <h3>Performance evaluations <span class="bdg notes">Ch. 5</span></h3>
+  <table class="cmp">
+    <tr><th>Employee type</th><th>Primary purpose of evaluation</th><th>Key content</th></tr>
+    <tr>
+      <td><b>Good employee</b></td>
+      <td>Appreciation and retention</td>
+      <td>Highlight the specific qualities that are valuable to the organization and the animals. Make the employee feel seen and valued.</td>
+    </tr>
+    <tr>
+      <td><b>Poor employee</b></td>
+      <td>Documentation and accountability</td>
+      <td>Specify exactly where improvement is needed and what is expected going forward. This documentation forms the legal foundation for termination.</td>
+    </tr>
+  </table>
+
+  <h3>Termination <span class="bdg notes">Ch. 5</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>If termination becomes necessary, the case must be carefully and professionally built in advance.</li>
+      <li>The pattern of poor performance previously documented in evaluations greatly reduces the likelihood of a lawsuit or union intervention.</li>
+      <li>An impulsive, undocumented termination creates legal vulnerability. A documented, progressive performance record does not.</li>
+    </ul>
+  </div>
+
+  <div class="trap">
+    <b>Exam Trap: Probationary period is not a protection for the employee</b>
+    The probationary period exists to protect the organization, not the employee. An employee showing problematic behavior during probation should be terminated promptly, even if the probationary period is not yet complete. Waiting is the incorrect action.
+  </div>
+</section>
+
+<!-- ===== GOVERNANCE ===== -->
+<section class="panel" id="governance">
+  <h2 class="sec">Governance and Authority</h2>
+  <p class="lead">Organizational effectiveness depends on clear role boundaries. The Board governs strategy; the Executive Director manages operations; staff never bypass the chain of command.</p>
+
+  <h3>Board of Directors: role and limits <span class="bdg notes">Ch. 5</span></h3>
+  <table class="cmp">
+    <tr><th>The Board DOES</th><th>The Board does NOT do</th></tr>
+    <tr>
+      <td>Define the organizational direction and mission</td>
+      <td>Manage day-to-day shelter operations</td>
+    </tr>
+    <tr>
+      <td>Oversee finances and ensure adequate resources</td>
+      <td>Direct animal care staff on specific tasks</td>
+    </tr>
+    <tr>
+      <td>Long-range planning</td>
+      <td>Alter feeding schedules, cleaning rotations, or intake decisions</td>
+    </tr>
+    <tr>
+      <td>Review and approve operating budgets</td>
+      <td>Communicate with staff except through the ED</td>
+    </tr>
+    <tr>
+      <td>Ensure the organization's policies reflect the mission</td>
+      <td>Sign off on individual animal euthanasia decisions</td>
+    </tr>
+  </table>
+
+  <div class="trap">
+    <b>Exam Trap: Board involvement in operations is a governance failure</b>
+    A board member who directs kennel staff to change feeding schedules or instructs the intake team to accept a specific animal has overstepped their role. This is an institutional boundary violation regardless of their intent or position. Day-to-day operations are entirely outside board authority.
+  </div>
+
+  <h3>The chain of command <span class="bdg notes">Ch. 5</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>The <b>Executive Director (ED)</b> is the staff's exclusive interface with the Board.</li>
+      <li>It is never appropriate for staff members to go over the head of the ED directly to the Board, even if they disagree with an ED decision.</li>
+      <li>Big problems develop when the Board and the ED do not have a strong and cooperative relationship.</li>
+    </ul>
+  </div>
+
+  <figure class="fig">
+    <svg viewBox="0 0 700 260" width="100%" role="img" aria-label="Shelter organizational hierarchy showing Board to ED to staff, with the rule that staff never bypass the ED to go to the Board">
+      <defs>
+        <marker id="ar-gov-a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#b84c1a"/></marker>
+        <marker id="ar-gov-b" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#b23b3b"/></marker>
+      </defs>
+      <g font-family="Public Sans" font-size="12" text-anchor="middle" fill="#3d1a0a">
+        <rect x="240" y="14" width="220" height="46" rx="10" fill="#3d1a0a"/>
+        <text x="350" y="34" fill="#fdf4ec" font-weight="700" font-size="13">Board of Directors</text>
+        <text x="350" y="52" fill="#d4a88a" font-size="10">Big picture | Mission | Finances | Long-range planning</text>
+        <line x1="350" y1="60" x2="350" y2="88" stroke="#b84c1a" stroke-width="2" marker-end="url(#ar-gov-a)"/>
+        <rect x="240" y="90" width="220" height="46" rx="10" fill="#b84c1a"/>
+        <text x="350" y="110" fill="#fff" font-weight="700" font-size="13">Executive Director</text>
+        <text x="350" y="128" fill="#fde8d8" font-size="10">Staff-Board interface | Operational oversight</text>
+        <line x1="280" y1="136" x2="160" y2="162" stroke="#b84c1a" stroke-width="2" marker-end="url(#ar-gov-a)"/>
+        <line x1="350" y1="136" x2="350" y2="162" stroke="#b84c1a" stroke-width="2" marker-end="url(#ar-gov-a)"/>
+        <line x1="420" y1="136" x2="540" y2="162" stroke="#b84c1a" stroke-width="2" marker-end="url(#ar-gov-a)"/>
+        <rect x="70" y="164" width="180" height="42" rx="10" fill="#f5ddd0" stroke="#b84c1a" stroke-width="1.5"/>
+        <text x="160" y="181" font-weight="600" font-size="12">Animal Care Dept</text>
+        <text x="160" y="197" font-size="10" fill="#7a5c4a">Husbandry, medical, intake</text>
+        <rect x="260" y="164" width="180" height="42" rx="10" fill="#f5ddd0" stroke="#b84c1a" stroke-width="1.5"/>
+        <text x="350" y="181" font-weight="600" font-size="12">Operations</text>
+        <text x="350" y="197" font-size="10" fill="#7a5c4a">Adoptions, outcomes, foster</text>
+        <rect x="450" y="164" width="180" height="42" rx="10" fill="#f5ddd0" stroke="#b84c1a" stroke-width="1.5"/>
+        <text x="540" y="181" font-weight="600" font-size="12">Admin / Fundraising</text>
+        <text x="540" y="197" font-size="10" fill="#7a5c4a">Records, grants, comms</text>
+        <path d="M160 206 Q95 240 240 96" stroke="#b23b3b" stroke-width="1.8" fill="none" stroke-dasharray="5,4" marker-end="url(#ar-gov-b)"/>
+        <rect x="10" y="218" width="155" height="30" rx="6" fill="#fbe9e9" stroke="#b23b3b" stroke-width="1"/>
+        <text x="88" y="231" font-size="9" fill="#b23b3b" font-weight="700">NEVER: Staff bypass</text>
+        <text x="88" y="243" font-size="9" fill="#b23b3b">ED to contact Board directly</text>
+      </g>
+    </svg>
+    <figcaption>Organizational hierarchy. The ED is the sole interface between staff and the Board. The red dashed line shows the forbidden bypass that staff must never attempt.</figcaption>
+  </figure>
+
+  <h3>Government / municipal shelter bureaucracy <span class="bdg notes">Ch. 5</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Some animal control facilities operate under the auspices of a police department or other municipal agency whose leadership are not necessarily "animal people."</li>
+      <li>The main problems in this structure center on money, bureaucracy, and ignorance of animal welfare and sheltering issues.</li>
+      <li>Those in positions of authority over the shelter need to be educated on important animal welfare issues and, critically, on "what is in it for them" (i.e., how animal welfare outcomes serve their organizational and political goals).</li>
+    </ul>
+  </div>
+
+  <h3>Authority, credentials, and the veterinarian's role <span class="bdg asv">ASV 2022</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Decisions involving resource allocation (organizational, population, or individual animal level) must be made by personnel who understand the shelter's priorities and its Capacity for Care.</li>
+      <li>Authority and responsibility must only be given to those with appropriate knowledge, training, and (where applicable) credentials. Non-credentialed staff cannot make medical decisions.</li>
+      <li>The shelter veterinarian must be consulted on all policies and protocols related to the maintenance of medical and behavioral animal health. This is not optional.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== MEDIA ===== -->
+<section class="panel" id="media">
+  <h2 class="sec">Media Relations</h2>
+  <p class="lead">Shelter veterinarians are most likely to be approached by the media during cruelty cases, hoarding investigations, or operational failures. Every media interaction carries reputational risk and opportunity.</p>
+
+  <h3>The designated spokesperson rule <span class="bdg notes">Ch. 5</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>In any sensitive case (cruelty, hoarding, operational failure), there must be <b>one designated media point person</b> for the agency.</li>
+      <li>All media inquiries must be referred to this person.</li>
+      <li>The shelter veterinarian should only make public statements if explicitly authorized by the designated point person.</li>
+      <li>Assume that most reporters want to present accurate information. Truthfulness enhances credibility.</li>
+    </ul>
+  </div>
+
+  <div class="trap">
+    <b>Exam Trap: The vet speaks only if authorized</b>
+    A shelter vet approached by a reporter during a cruelty case must refer the reporter to the designated media point person and decline to comment unless explicitly authorized. Giving an off-the-record interview or inviting a reporter into a sensitive area are both wrong answers on the boards.
+  </div>
+
+  <h3>Interview rules <span class="bdg notes">Ch. 5</span></h3>
+  <table class="cmp">
+    <tr><th>Rule</th><th>Rationale</th></tr>
+    <tr><td><b>Never walk in cold, upset, or unprepared.</b> Obtain the questions in advance.</td><td>Preparation allows you to control the message rather than react to it.</td></tr>
+    <tr><td><b>Assume the interview is being recorded.</b></td><td>Anything said informally can appear on air or in print.</td></tr>
+    <tr><td><b>State the most important point first.</b> Weave 2 to 3 core messages throughout the interview no matter what.</td><td>Editors cut from the end. Front-loading ensures the message survives editing.</td></tr>
+    <tr><td><b>Never say "no comment."</b> If you cannot discuss something, say so and explain why if possible.</td><td>"No comment" reads as evasion or guilt. A clear explanation of a legal restriction is credible.</td></tr>
+    <tr><td><b>Do not repeat the interviewer's negative words.</b> Pivot to a positive frame.</td><td>Repeating negative language reinforces it in print or on video. Always reframe.</td></tr>
+    <tr><td><b>Keep answers concise.</b> Say no more than necessary and stop, as in court testimony.</td><td>Lengthy answers give editors more to work with and increase the risk of being misquoted.</td></tr>
+    <tr><td><b>Remain confident and upbeat.</b> Do not become annoyed or sarcastic.</td><td>The reporter always has the last word. Irritation never helps the shelter's cause.</td></tr>
+    <tr><td><b>If you don't know the answer</b>, say so. Find the answer and report back before the reporter's deadline.</td><td>Admitting uncertainty preserves credibility. Fabricating statistics destroys it.</td></tr>
+    <tr><td><b>Hit the media first with a positive story.</b> Do not wait for a crisis to force coverage.</td><td>Proactive positive coverage establishes a narrative. It is always better to set the frame than to play defense against someone else's negative spin.</td></tr>
+  </table>
+
+  <div class="trap">
+    <b>Exam Trap: "No comment" vs. "I can't discuss that"</b>
+    "No comment" is explicitly flagged as the wrong response. The correct alternative when information cannot be shared is to explain that the information cannot be disclosed and, where possible, why (e.g., "This is part of an ongoing investigation and I am not in a position to share details at this time").
+  </div>
+
+  <div class="trap">
+    <b>Exam Trap: Do NOT repeat negative words</b>
+    If a reporter asks: "Why is your shelter failing so badly?" the wrong answer begins with "We are not failing badly because..." Repeating the negative language reinforces it. The correct response pivots directly to a positive message about what the shelter is doing.
+  </div>
+</section>
+
+<!-- ===== COMMUNITY ===== -->
+<section class="panel" id="community">
+  <h2 class="sec">Community Engagement</h2>
+  <p class="lead">Building relationships with local general practitioners and the broader veterinary community is imperative. These partnerships directly benefit shelter animals and strengthen the organization's community standing.</p>
+
+  <h3>The "What's in it for me?" principle <span class="bdg notes">Ch. 5</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Every decision a person makes is based on the underlying question: "What's in it for me?" This is the guiding principle for building relationships with private practitioners.</li>
+      <li>Working together on small projects and coming to consensus on small issues marks the beginning of affinity and rapport.</li>
+      <li><b>Every small "yes" makes future yeses more likely.</b> Start with achievable asks; build toward larger commitments.</li>
+      <li>The more time an individual donates to an organization, the more invested and loyal they become. Investment creates ownership and loyalty.</li>
+    </ul>
+  </div>
+
+  <h3>Engagement strategies for private practitioners <span class="bdg notes">Ch. 5</span></h3>
+  <table class="cmp">
+    <tr><th>Strategy</th><th>Details and exam-relevant nuance</th></tr>
+    <tr>
+      <td><b>Newsletter / mailing list</b></td>
+      <td>Local vets should be on every shelter's mailing list. Leave newsletters in their waiting rooms. The shelter vet can write columns on shelter-relevant topics: vaccination protocols, rabies quarantine policies, pediatric spay/neuter. Invite local colleagues to write a column, which further deepens the relationship.</td>
+    </tr>
+    <tr>
+      <td><b>After-hours facility tour</b></td>
+      <td>An evening or weekend "behind the scenes" tour of shelter facilities can have surprising benefits. Providing food significantly increases attendance when people are being asked to come after a full workday. Can be extended to family members and clinic staff.</td>
+    </tr>
+    <tr>
+      <td><b>Invite to teach at the shelter</b></td>
+      <td>Invite local practitioners to give a seminar for the public or shelter staff on topics such as geriatric pet care, emergency first aid, vaccination importance, or choosing the right companion animal. Teaching increases personal investment and loyalty.</td>
+    </tr>
+    <tr>
+      <td><b>Special event invitations</b></td>
+      <td>Add practitioners to the shelter's event mailing list. A personal follow-up call, where appropriate, amplifies the invitation.</td>
+    </tr>
+  </table>
+
+  <div class="trap">
+    <b>Exam Trap: Food at after-hours events is explicitly recommended</b>
+    The notes specifically call out that providing food increases attendance when practitioners are being asked to attend after work. This is a testable detail.
+  </div>
+
+  <h3>Liaison committees <span class="bdg notes">Ch. 5</span></h3>
+  <div class="card">
+    <h4>Composition</h4>
+    <ul class="hy">
+      <li>A few local <b>Veterinary Medical Association (VMA) members</b> plus <b>relevant shelter staff</b>.</li>
+      <li>Experience with such committees is typically positive and benefits both organizations.</li>
+    </ul>
+    <h4>Protocol consultation</h4>
+    <ul class="hy">
+      <li>It is always wise to solicit the opinions of colleagues who have experience with proposed protocol changes or can evaluate a program's effectiveness.</li>
+      <li>Critical warning: <b>veterinarians may become resentful if their advice is solicited and then seemingly ignored.</b> If feedback is sought, it must be genuinely considered, or the request for input will damage rather than strengthen the relationship.</li>
+    </ul>
+  </div>
+
+  <h3>Working with outside specialists <span class="bdg notes">Ch. 5</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Fee discussion upfront:</b> whenever an outside colleague will provide a service for a shelter case, fees must be discussed before the service is rendered. Options include full price, reduced fee, at cost, or pro bono. Ambiguity about fees after the fact damages relationships.</li>
+      <li><b>Recognize generous donations of time:</b> it is vital that generous donations of specialist time and expertise are recognized. A thank-you note signed by shelter staff or the veterinary team is highly valued by recipients, even if it "does not seem like much."</li>
+      <li><b>High-value recognition tokens:</b> cookies, flowers, or a framed photograph of the patient with their new adoptive family. The photo is specifically noted as deeply meaningful to recipients.</li>
+    </ul>
+  </div>
+
+  <div class="trap">
+    <b>Exam Trap: Fees must be settled BEFORE services are rendered</b>
+    Discussing financial terms after the fact creates awkwardness and potential conflict. The correct sequence is: agree on fee structure first (full/reduced/at cost/pro bono), then proceed with the clinical service. This applies even for specialist colleagues with whom you have an existing relationship.
+  </div>
+</section>
+
+<!-- ===== PLANNING ===== -->
+<section class="panel" id="planning">
+  <h2 class="sec">Strategic Planning and Protocols</h2>
+  <p class="lead">Administrative infrastructure, not just clinical skill, determines shelter outcomes. Strategic plans set direction; policies set boundaries; protocols deliver consistency. Training ensures every staff member can execute both safely.</p>
+
+  <h3>Strategic planning <span class="bdg notes">Ch. 5</span><span class="bdg asv">ASV 2022</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Definition:</b> the organizational process used to define the shelter's essential programs and goals, then purposefully allocate resources toward achieving those goals.</li>
+      <li><b>Review frequency:</b> strategic plans are most effective when reviewed regularly, often <b>quarterly</b>, to ensure progress is being made and goals remain relevant.</li>
+      <li><b>External guidance:</b> when developing organizational policies and protocols, administrators are encouraged to consult industry-specific professional organizations (e.g., ASV, NACA) for guidance and to learn from the experience of others in the field.</li>
+    </ul>
+  </div>
+
+  <h3>Policies vs. Protocols <span class="bdg notes">Ch. 5</span></h3>
+  <table class="cmp">
+    <tr><th>Feature</th><th>Policies</th><th>Protocols</th></tr>
+    <tr><td><b>Level</b></td><td>High-level framework</td><td>Detailed operational instructions</td></tr>
+    <tr><td><b>Purpose</b></td><td>Ensure operations remain consistent with the shelter's mission and priorities; prevent animal needs from overwhelming C4C</td><td>Ensure consistent daily task execution in keeping with policies</td></tr>
+    <tr><td><b>Content areas</b></td><td>Intake, treatable conditions, euthanasia, adoption, transport, community animal services</td><td>How specifically to perform each clinical and operational task covered by policy</td></tr>
+    <tr><td><b>Access</b></td><td>Communicated to all staff as organizational expectations</td><td>All personnel must have access to protocols at all times</td></tr>
+    <tr><td><b>Review</b></td><td>Updated when organizational mission or priorities change</td><td>Must be reviewed and updated regularly; outdated protocols create compliance risk</td></tr>
+  </table>
+
+  <div class="trap">
+    <b>Exam Trap: Policies safeguard C4C</b>
+    Policies serve an explicit population-management function: they prevent animal needs from overwhelming the resources available to meet those needs. Operating beyond C4C is unacceptable; policies are the administrative mechanism that prevents it. The exam may frame a policy question as a C4C question.
+  </div>
+
+  <h3>Consistency in intake and euthanasia criteria <span class="bdg notes">Ch. 5</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>The intake and euthanasia areas are the most common sources of staff conflict and bad feelings in shelters.</li>
+      <li>The root cause is inconsistent or ambiguous application of criteria, which creates a "gray zone."</li>
+      <li>The solution is consistent, clearly documented criteria applied uniformly. Removing the gray zone removes the emotional burden from individual staff members who otherwise feel responsible for case-by-case life-or-death decisions.</li>
+    </ul>
+  </div>
+
+  <h3>Training requirements <span class="bdg asv">ASV 2022</span></h3>
+  <div class="card">
+    <h4>Mandatory training topics</h4>
+    <ul class="hy">
+      <li><b>Zoonotic disease information:</b> must be provided to all staff members. This is an absolute obligation, not optional.</li>
+      <li><b>Proper animal handling skills</b></li>
+      <li><b>Animal body language</b></li>
+      <li><b>Bite prevention strategies</b></li>
+    </ul>
+    <h4>Broader training curriculum</h4>
+    <ul class="hy">
+      <li>Communication techniques</li>
+      <li>Data management</li>
+      <li>Animal husbandry (beyond mandatory zoonotic/safety content)</li>
+      <li>Staff well-being and resilience</li>
+      <li>Diversity, equity, and inclusion (DEI)</li>
+    </ul>
+    <h4>Documentation requirement</h4>
+    <ul class="hy">
+      <li>Documentation of all completed training must be maintained and reviewed regularly as part of professional development and performance reviews.</li>
+      <li>Undocumented training creates the same administrative vulnerability as no training at all.</li>
+    </ul>
+  </div>
+
+  <h3>Legal compliance <span class="bdg asv">ASV 2022</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Shelters are legally obligated to comply with all local, state, and national regulations.</li>
+      <li>These regulations must be reviewed regularly, as they change.</li>
+      <li>Non-compliance is not mitigated by organizational mission or financial constraints.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== MCQ ===== -->
+<section class="panel" id="mcq">
+  <h2 class="sec">MCQ Test Bank</h2>
+  <p class="lead">30 board-style questions across all Management and Leadership topics. Click an answer to see the explanation.</p>
+  <div class="mcqbar">
+    <div class="filters">
+      <button class="on" data-f="all">All 30</button>
+      <button data-f="personnel">Personnel</button>
+      <button data-f="governance">Governance</button>
+      <button data-f="media">Media</button>
+      <button data-f="community">Community</button>
+      <button data-f="planning">Planning</button>
+    </div>
+    <div class="score"><span id="scoreDisplay">0 / 0</span><button class="reset" id="resetBtn">Reset</button></div>
+  </div>
+  <div id="qhost"></div>
+</section>
+
+</div></main>
+<footer><div class="wrap">
+  <p>ABVP Shelter Medicine RVS | Shelter Management Domain (18%) | Subdomain 3 of 7: Management and Leadership | Accuracy score: <strong>9.5 / 10</strong> | Source: Shelter Medicine for Veterinarians and Staff, Chapter 5. Verified against ASV Standards of Care 2022.</p>
+</div></footer>
+
+<script>
+const tabrow = document.getElementById("tabrow");
+tabrow.addEventListener("click", function(e){
+  const b = e.target.closest("button");
+  if(!b) return;
+  [...tabrow.children].forEach(x => x.classList.remove("active"));
+  b.classList.add("active");
+  document.querySelectorAll(".panel").forEach(p => p.classList.remove("show"));
+  document.getElementById(b.dataset.p).classList.add("show");
+});
+
+const Q = [
+  {f:"personnel",q:"A shelter manager faces an acute staffing shortage in the canine care department. According to management principles, what is the most appropriate response?",o:["Lower the hiring standard to fill the slots within 48 hours","Work short-staffed for a longer period if that is what it takes to find the right person","Hire the first available applicant without checking references","Outsource daily cleaning to untrained temporary volunteers"],a:1,e:"The principle is clear: time spent being thorough is time well spent. The pressure to fill a slot quickly leads to short-sighted decisions. It is worth working short-staffed for a longer period to find the right person."},
+  {f:"personnel",q:"When checking references for a shelter technician candidate, which specific question is most effective for revealing true past performance?",o:["What were this person's exact daily working hours?","If given the chance, would you hire this person again?","Can you list every mistake this person made?","Did this person ever experience compassion fatigue?"],a:1,e:"Past employers rarely disclose poor performance directly, but they will enthusiastically praise excellent employees when asked directly. The question 'Would you hire this person again?' bypasses superficialities and reveals genuine performance history through the enthusiasm (or absence of it) in the response."},
+  {f:"personnel",q:"During an interview for a shelter technician position, the supervisor conducts a facility tour. What is the primary purpose of this tour from the interviewer's perspective?",o:["To have the applicant perform uncompensated cleaning tasks during the visit","To observe how the applicant interacts with the animals and the types of questions the tour generates","To test whether the applicant can memorize the building layout in one pass","To verify the applicant is wearing appropriate safety gear"],a:1,e:"The facility tour is an active diagnostic tool. The astute interviewer observes how naturally the applicant interacts with the animals and what the tour reveals about the applicant's intellectual curiosity and depth of interest through the questions it generates."},
+  {f:"personnel",q:"An employee hired two weeks ago on a probationary basis is causing interpersonal friction and showing a poor attitude. What is the correct management action?",o:["Wait until the full probationary period ends before addressing the behavior","Terminate the employee promptly, even before the probationary period ends, listening to gut feelings","Promote the individual to a remote role to minimize team contact","Suspend all performance evaluations for the rest of the year"],a:1,e:"If things are not feeling right during a probationary period, the employee should be terminated promptly, even if the probationary period is not yet complete. Gut feelings are explicitly worth listening to. Waiting out the probationary period is the wrong answer."},
+  {f:"personnel",q:"A director is choosing between a candidate with excellent common sense and teamwork skills but limited technical knowledge, and a technically strong candidate with a difficult personality. Which candidate should be prioritized and why?",o:["The technically strong candidate, because personality can be improved through counseling","The candidate with good common sense and personality, because skills can be trained but personality and common sense cannot","Both candidates are equally suitable","Neither candidate should be hired; re-advertise the role"],a:0,e:"Common sense is one of those assets a person either has or does not have. It cannot be taught. Skills can be honed with proper training. The candidate with the right personality and common sense who lacks technical skills is the superior hire, as the technical gaps can be closed through training."},
+  {f:"personnel",q:"A supervisor is completing an annual performance evaluation for an exemplary animal care worker. What is the primary purpose of providing a high-quality evaluation to an excellent employee?",o:["To create a legal waiver preventing the employee from requesting raises","To ensure the employee realizes they are valued and appreciated for what they do for the organization and the animals","To transition the employee from an hourly rate to a volunteer-based role","To update their training record with mandatory bite prevention hours"],a:1,e:"Good evaluations are worth their weight in gold. An excellent employee needs to know they are valued and appreciated. This is the primary retention function of performance evaluations for high performers: recognition, not documentation."},
+  {f:"personnel",q:"An animal care worker has been consistently failing to follow cleaning protocols. The supervisor is preparing to terminate the employee. What is essential for a legally defensible termination?",o:["Firing the employee immediately via text message without prior documentation","The case must be carefully and professionally built on previously documented poor performance in evaluations","Waiting until the next quarterly strategic plan review","Reassigning the employee to report directly to the Board of Directors"],a:1,e:"If an employee must be terminated, the case must be carefully built professionally. A pattern of poor performance previously documented in evaluations greatly reduces the risk of a lawsuit or union intervention. Undocumented termination creates serious legal vulnerability."},
+  {f:"governance",q:"A newly appointed Board member instructs the kennel staff to change the daily canine feeding schedule. Why does this action represent a governance violation?",o:["The Board is only permitted to communicate with the media point person","It is not the Board's role to be involved in the shelter's day-to-day operations","Feeding schedules can only be modified during an active disease outbreak","The Board's authority is limited solely to conducting facility tours"],a:1,e:"Day-to-day shelter operations fall entirely outside the scope of the Board of Directors. The Board's role is high-level governance: mission, finances, long-range planning, and operating budgets. Directing kennel staff on daily tasks is an institutional boundary violation."},
+  {f:"governance",q:"Which of the following activities represents a core legal function of a shelter's Board of Directors?",o:["Performing daily visual health observations in the isolation ward","Overseeing finances, ensuring adequate resources, long-range planning, and reviewing and approving operating budgets","Administering core vaccines to animals at intake","Signing individual euthanasia certificates for each animal"],a:1,e:"The Board is legally responsible for governance, which includes overseeing finances, ensuring adequate resources, long-range planning, and reviewing and approving operating budgets. These are strategic and fiduciary functions, not clinical or operational ones."},
+  {f:"governance",q:"A staff member is unhappy with a decision made by the Executive Director and emails the Board President directly to complain. Why is this inappropriate?",o:["The Board President is legally barred from reading internal staff communications","The ED is the staff's interface with the Board; going over the head of the ED to the Board is never appropriate","It triggers an automatic external inspection by the local police department","Operational complaints must be routed exclusively through private practitioners"],a:1,e:"The Executive Director is the staff's exclusive interface with the Board. Bypassing the ED to go directly to the Board undermines the chain of command and the ED's authority. This is true even when the staff member genuinely disagrees with an ED decision."},
+  {f:"governance",q:"An animal control agency operates under a municipal police department. What is the most common management challenge in this structure?",o:["The facility is legally barred from using strategic planning","The individuals in authority are not necessarily animal people and may be ignorant of animal welfare issues","Staff are required to pass police academy training before cleaning kennels","The facility is exempt from national zoonotic disease regulations"],a:1,e:"Municipal structures present a recurring challenge: the people in positions of authority over the shelter are not necessarily 'animal people.' The main problems concern money, bureaucracy, and ignorance of animal welfare issues. Those in authority need to be educated on animal welfare and, critically, on what is in it for them and their organization."},
+  {f:"media",q:"A local reporter contacts the shelter veterinarian directly about an ongoing hoarding investigation. What is the correct protocol?",o:["Give an immediate off-the-record interview sharing all medical findings","Refer all inquiries to the designated media point person; only make statements if explicitly authorized","Say 'no comment' and end the call","Invite the reporter into the isolation ward for an unannounced tour"],a:1,e:"In cruelty, hoarding, or other sensitive cases, there must be one designated media point person for the agency. All inquiries must be referred to this person. The shelter vet makes public statements only if explicitly authorized by the point person. All other responses are wrong."},
+  {f:"media",q:"During a media interview, the reporter asks a highly technical question the shelter veterinarian cannot answer. What is the most appropriate response?",o:["Invent a plausible statistic to preserve institutional credibility","Acknowledge that you do not know, and offer to find the answer and report back before the reporter's deadline","Repeat the interviewer's negative framing back to them to deflect","Stop the interview immediately"],a:1,e:"There is no shame in not knowing the answer to a question. The correct response is to acknowledge this, then make a genuine effort to find the answer and get it to the reporter before their deadline. This approach preserves both honesty and credibility. Inventing information is both unethical and dangerous."},
+  {f:"media",q:"A shelter vet is interviewed on television about a local parvovirus spike. Which communication strategy is most important for ensuring the shelter's key message is conveyed?",o:["Save the most important information for the very end of the interview","State the most important point first and weave 2 to 3 core messages into the interview throughout, regardless of what is asked","Respond with long technical explanations to fill all available airtime","Use humor to minimize perceived severity"],a:1,e:"Consistency counts. The most important thing must be said first because editors cut from the end. Two to three core messages should be woven into the entire interview no matter what the questions are. This ensures the intended message survives editing and reaches the audience."},
+  {f:"media",q:"A reporter asks a shelter representative: 'Why is your shelter failing so badly to control pit bull abuse in this city?' Which communication rule must be applied?",o:["Say 'no comment' to shut down the line of questioning","Do not repeat the interviewer's negative words; pivot immediately to a proactive, positive message","Agree with the negative premise to build rapport with the reporter","Remain completely silent until a different question is asked"],a:1,e:"Repeating an interviewer's negative words reinforces that negative framing in print and on video. The rule is explicit: never repeat negative words. Instead, pivot directly to a positive message about what the shelter is actively doing. 'No comment' is also explicitly wrong."},
+  {f:"media",q:"What is the primary strategic benefit of proactively pitching a positive news story to the media rather than waiting for a crisis?",o:["It eliminates the need for an Executive Director","It allows the shelter to establish a positive narrative first, rather than playing defense against someone else's negative spin","It legally exempts the facility from public records requests","It guarantees pro bono care from all local private practitioners"],a:1,e:"The objective should always be to hit the papers first with a positive story rather than play defense and react to someone else's negative spin. Organizations that establish their own narrative are in a fundamentally stronger position than those who only respond to external criticism."},
+  {f:"community",q:"A shelter veterinarian wants to strengthen relationships with local general practitioners. Which human-relations principle should guide this process?",o:["Local vets will only cooperate if given a vote on the shelter's cleaning schedules","Every decision a person makes is based on the underlying question 'What's in it for me?'; building rapport starts with small collaborative agreements","Private practitioners must be required to accept protocol changes without prior consultation","Relationships are best formalized through legal agreements drafted by the local VMA"],a:1,e:"The guiding principle is the 'What's in it for me?' framework. Every person, including private practitioners, evaluates relationships and commitments through this lens. Working together on small projects, coming to a consensus on small issues, and making early agreements build affinity and rapport that enables larger future collaboration."},
+  {f:"community",q:"A shelter team wants to increase attendance at an after-hours educational tour for local private veterinarians. What simple addition to the event is explicitly recommended to boost attendance?",o:["Requiring all attendees to pass a written exam before entry","Providing food, especially because people are being asked to attend after a full workday","Restricting the tour to board-certified specialists only","Scheduling the event at 5 AM on a Sunday"],a:1,e:"Providing food is explicitly noted as an effective way to increase attendance at events where people are being asked to come after work. This respects participants' personal time and signals appreciation for their effort, making attendance more likely."},
+  {f:"community",q:"A shelter veterinarian invites a local internist to give a public seminar on geriatric pet care at the shelter. What is the main strategic benefit of this invitation?",o:["It transfers all legal liability for shelter animal health to the visiting specialist","The more time individuals donate, the more invested and loyal they become to the organization","It allows the shelter to stop providing daily care to its own geriatric animals","It fulfills a national training documentation requirement"],a:1,e:"One investment leads to another. The more time that individuals donate to an organization, the more invested and loyal they become. Inviting a local practitioner to teach converts a passive mailing-list contact into an active stakeholder who has a personal stake in the shelter's success."},
+  {f:"community",q:"Which of the following correctly describes the composition of a shelter Liaison Committee?",o:["Board members and local police chiefs","A few local VMA members and relevant shelter staff","Media reporters, adopters, and former employees","Shelter volunteers and public health attorneys"],a:1,e:"Liaison committees consist of a few local Veterinary Medical Association (VMA) members and relevant shelter staff. This cross-sectional composition creates a bridge between the shelter's internal perspective and the broader veterinary community, benefiting both organizations."},
+  {f:"community",q:"A shelter vet is planning a major update to the pediatric spay/neuter protocol and is deciding whether to consult local veterinary colleagues. What is the key risk in seeking input?",o:["Local colleagues must legally approve all protocol changes before implementation","Soliciting opinions builds trust, but veterinarians may become resentful if their advice is solicited and then seemingly ignored","Consulting colleagues automatically bypasses industry-specific professional organizations","Colleague feedback guarantees no 'gray zones' will remain in the new protocol"],a:1,e:"It is always wise to solicit the opinions of experienced colleagues, but this carries an important obligation: if advice is sought, it must be genuinely considered. Veterinarians who feel their input was requested as a formality and then ignored will become resentful, damaging the relationship. Seeking input creates an implicit commitment to engage with the feedback."},
+  {f:"community",q:"An outside veterinary surgeon agrees to perform a complex orthopedic repair on a shelter dog. According to management guidelines, what must happen before the procedure?",o:["The shelter must wait until after adoption to negotiate a fee","Fee expectations must be discussed upfront, including whether services are full price, reduced, at cost, or pro bono","The shelter is legally required to pay full retail price","The specialist must submit a budget request to the Board of Directors"],a:1,e:"Whenever a colleague will provide a service for a shelter case, fees must be discussed before the service is rendered. This includes whether services will be reimbursed at full price, a reduced fee, at cost, or pro bono. Resolving financial terms after the fact creates awkwardness and potential conflict."},
+  {f:"community",q:"A veterinary ophthalmologist donates their time to perform cataract surgery on a shelter cat. Which form of recognition is specifically noted as highly valued by recipients of such donations?",o:["A voucher exempting the specialist from mandatory training sessions","A thank-you note signed by shelter staff, or a framed photograph of the patient with their new adoptive family","An announcement at the quarterly strategic planning meeting","A lifetime waiver from attending zoonotic disease training"],a:1,e:"It is vital to recognize generous donations of specialist time and expertise. A thank-you note signed by shelter staff is noted as being highly valued by recipients even though it may not seem like much. A framed photograph of the patient with their adoptive family is specifically called out as a deeply meaningful token of appreciation."},
+  {f:"planning",q:"A shelter management team is systematically defining essential programs, setting benchmarks, and allocating resource streams toward specific goals. What administrative process are they performing?",o:["Daily population rounds","Strategic planning","Performance evaluation","Liaison committee auditing"],a:1,e:"Strategic planning is defined as the organizational process used to define the shelter's essential programs and goals, and then purposefully allocate resources toward achieving those goals. The key elements in this scenario (defining programs, setting benchmarks, allocating resources) are the hallmarks of strategic planning."},
+  {f:"planning",q:"How frequently should a shelter's strategic plan ideally be reviewed to ensure progress and relevance?",o:["Once every five years during municipal contract renewals","Regularly, often quarterly","Every morning during medical rounds","Only during an active infectious disease outbreak"],a:1,e:"Strategic plans are most effective when reviewed regularly, often quarterly, to ensure progress is being made and that goals remain relevant. Annual reviews are insufficient; circumstances and community needs change faster than that."},
+  {f:"planning",q:"A shelter administrator is drafting high-level rules about which medical conditions the facility has the resources to treat. What is the primary function these policies serve?",o:["To prevent animal needs from overwhelming the resources available, since operating beyond C4C is unacceptable","To eliminate the need for creating detailed daily protocols","To allow non-credentialed volunteers to make resource allocation decisions","To satisfy media inquiries about cruelty investigations"],a:0,e:"Policies function as an organizational safeguard: they ensure that animal needs do not overwhelm the resources available to meet those needs. Operating beyond C4C is explicitly unacceptable, and high-level policies are the administrative mechanism that prevents this from happening."},
+  {f:"planning",q:"What is the correct distinction between a shelter's Policies and its Protocols?",o:["Policies are written by private practitioners; protocols are written by the Board","Policies are the high-level decision framework; protocols are the detailed daily operational steps that maintain those policies","Protocols govern financial allocations; policies govern how to clean a kennel","Policies must be confidential; protocols must be shared with the media"],a:1,e:"Policies provide a framework of high-level decisions that ensure operations remain consistent with the shelter's mission. Protocols provide the highly detailed, documented operational instructions that ensure consistent daily execution of those policies. Policies set what; protocols define how."},
+  {f:"planning",q:"A shelter's intake department frequently generates staff conflict because of ambiguous decisions about which animals can be accepted. What is the recommended solution?",o:["Eliminate all written protocols and rely on individual gut feelings","Apply intake and euthanasia criteria consistently, removing the gray zones that cause conflict and bad feelings","Delegate all intake decisions to the Board of Directors","Never discuss euthanasia policies with new hires during onboarding"],a:1,e:"Gray zones in intake and euthanasia criteria are the primary source of conflict and bad feelings in shelter environments. The solution is consistent, clearly documented criteria applied uniformly by all staff. Removing the gray zone removes the burden of individual decision-making and the associated emotional distress."},
+  {f:"planning",q:"An audit reveals that multiple staff members have never received information about ringworm or rabies exposure risks. Which administrative mandate has been violated?",o:["The requirement to provide strategic planning documentation to volunteers","The absolute requirement to provide comprehensive zoonotic disease information to all staff members","A national regulation on DEI budget allocations","The protocol requiring all staff to hold active veterinary licenses"],a:1,e:"Providing comprehensive zoonotic disease information to all staff members is an absolute administrative requirement. Ringworm (dermatophytosis) and rabies are both zoonotic diseases with direct occupational health implications for shelter workers. This training is not optional."},
+  {f:"planning",q:"A supervisor completes a bite prevention training session with three new animal care workers. What administrative step must follow immediately?",o:["Send a press release to the media point person","Formally document the completed training and maintain the record as part of professional development and performance review","Submit the attendees' names to the VMA","Update the high-level transport policy to include the trainees' signatures"],a:1,e:"Documentation of all completed training must be maintained and reviewed regularly as part of professional development and performance reviews. Undocumented training creates the same administrative gap as no training at all. The documentation is what makes the training defensible in an audit or legal review."}
+];
+
+let activeFilter = "all";
+let answered = 0, correct = 0;
+function getVisible(){ return activeFilter==="all"?Q:Q.filter(function(q){return q.f===activeFilter;}); }
+function updateScore(){ document.getElementById("scoreDisplay").textContent=correct+" / "+answered; }
+function render(){
+  const host=document.getElementById("qhost");
+  const vis=getVisible();
+  host.innerHTML="";
+  vis.forEach(function(q,i){
+    const d=document.createElement("div");
+    d.className="q";
+    d.innerHTML="<div class=\"meta\"><span class=\"num\">Q"+(i+1)+"</span><span class=\"tag\">"+q.f+"</span></div>"
+      +"<div class=\"stem\">"+q.q+"</div>"
+      +q.o.map(function(o,j){return "<button class=\"opt\" data-qi=\""+i+"\" data-oi=\""+j+"\"><span class=\"k\">"+"ABCD"[j]+"</span>"+o+"</button>";}).join("")
+      +"<div class=\"expl\" id=\"expl-"+i+"\"><b style=\"color:var(--good)\">Correct: "+"ABCD"[q.a]+"</b> "+q.e+"</div>";
+    host.appendChild(d);
+  });
+  host.querySelectorAll(".opt").forEach(function(btn){
+    btn.addEventListener("click",function(){
+      const qi=parseInt(this.dataset.qi),oi=parseInt(this.dataset.oi);
+      const qDiv=this.closest(".q");
+      if(qDiv.dataset.done) return;
+      qDiv.dataset.done="1";
+      answered++;
+      const vis=getVisible();
+      const ok=(oi===vis[qi].a);
+      if(ok) correct++;
+      updateScore();
+      qDiv.querySelectorAll(".opt").forEach(function(b,j){
+        b.classList.add("locked");
+        if(j===vis[qi].a) b.classList.add("correct");
+        else if(j===oi&&!ok) b.classList.add("wrong");
+      });
+      document.getElementById("expl-"+qi).classList.add("show");
+    });
+  });
+}
+document.querySelectorAll(".mcqbar .filters button").forEach(function(btn){
+  btn.addEventListener("click",function(){
+    document.querySelectorAll(".mcqbar .filters button").forEach(function(b){b.classList.remove("on");});
+    this.classList.add("on");
+    activeFilter=this.dataset.f;
+    answered=0;correct=0;
+    updateScore();render();
+  });
+});
+document.getElementById("resetBtn").addEventListener("click",function(){answered=0;correct=0;updateScore();render();});
+render();updateScore();
+</script>
+</body>
+</html>

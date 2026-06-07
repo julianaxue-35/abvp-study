@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animal ID and Tracking | Shelter Management | ABVP Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#3d1a0a;--ink2:#5c2c14;--paper:#fdf4ec;--paper2:#fffaf5;
+    --line:#e4d3c4;--muted:#7a5c4a;
+    --id:#b84c1a;--id-soft:#f5ddd0;
+    --good:#1f7a4d;--bad:#b23b3b;
+    --notes:#7a4fb5;--notes-soft:#ece3f7;
+    --lit:#1f6f8b;--lit-soft:#dcedf2;
+    --aspca:#8a6d1f;--aspca-soft:#f3ebcf;
+    --ref:#b5651d;--ref-soft:#f6e7d4;
+    --shadow:0 1px 2px rgba(61,26,10,.08),0 8px 24px rgba(61,26,10,.06);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;
+    background-image:radial-gradient(circle at 1px 1px,rgba(61,26,10,.04) 1px,transparent 0);background-size:22px 22px;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+  header.top{background:var(--ink);color:var(--paper2);padding:26px 0 22px;border-bottom:4px solid var(--id)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#d4a88a;margin:0 0 6px}
+  header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(24px,4vw,38px);margin:0;line-height:1.05}
+  header.top p.sub{margin:8px 0 0;color:#f0d9cc;font-size:14px;max-width:70ch}
+  .legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}
+  .legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.25);color:#f5ece5;display:flex;align-items:center;gap:6px}
+  .legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--paper2);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button:hover{background:var(--paper);color:var(--ink)}
+  .tabrow button.active{background:var(--ink);color:var(--paper2)}
+  .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--id)}
+  main{padding:30px 0 80px}
+  .panel{display:none;animation:fade .35s ease}
+  .panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;letter-spacing:-.01em}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:78ch}
+  h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:30px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;color:var(--ink2);text-transform:uppercase;letter-spacing:.03em}
+  .card{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}
+  ul.hy{margin:8px 0;padding-left:0;list-style:none}
+  ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed #e6d4c2;font-size:14px}
+  ul.hy li:last-child{border-bottom:0}
+  ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;border-radius:2px;background:var(--id);transform:rotate(45deg)}
+  .trap{background:#fdf0ea;border:1px solid #e8c4aa;border-left:4px solid var(--id);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .trap b{color:var(--id);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .corrbox{background:#e9f4ee;border:1px solid #bfe0cc;border-left:4px solid var(--good);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .corrbox b{color:var(--good);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .verifybox{background:#fdf5e6;border:1px solid #ecd9a8;border-left:4px solid var(--aspca);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .verifybox b{color:var(--aspca);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:var(--paper2);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp th{background:var(--ink);color:var(--paper2);font-weight:600;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase}
+  table.cmp tr:last-child td{border-bottom:0}
+  table.cmp td b{color:var(--ink)}
+  .fig{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0;box-shadow:var(--shadow)}
+  .fig figcaption{font-size:12.5px;color:var(--muted);margin-top:8px;font-style:italic}
+  .bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+  .bdg.notes{background:var(--notes-soft);color:var(--notes)}
+  .bdg.lit{background:var(--lit-soft);color:var(--lit)}
+  .bdg.asv{background:var(--id-soft);color:var(--id)}
+  .bdg.aspca{background:var(--aspca-soft);color:var(--aspca)}
+  .bdg.ref{background:var(--ref-soft);color:var(--ref)}
+  .bdg.corr{background:var(--good);color:#fff}
+  .phasebox{border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:14px 0}
+  .phasebox .ph-head{background:var(--ink);color:var(--paper2);padding:10px 16px;display:flex;align-items:center;gap:12px;font-family:"Fraunces",serif;font-weight:600;font-size:15px}
+  .phasebox .ph-head .num{font-family:"JetBrains Mono",monospace;font-size:11px;background:rgba(255,255,255,.18);padding:3px 9px;border-radius:999px}
+  .phasebox .ph-body{padding:12px 16px;background:var(--paper2)}
+  .phasebox .ph-body ol{margin:0;padding-left:18px;font-size:14px;line-height:2}
+  .num-badge{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--id);color:#fff;font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:600;flex-shrink:0}
+  /* mcq */
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--ink);color:var(--paper2);border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:54px;z-index:10}
+  .mcqbar .filters{display:flex;gap:6px;flex-wrap:wrap}
+  .mcqbar .filters button{font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#f0d9cc;padding:6px 11px;border-radius:999px;cursor:pointer}
+  .mcqbar .filters button.on{background:var(--id);border-color:var(--id);color:#fff}
+  .score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}
+  .score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;color:#f0d9cc;padding:5px 10px;border-radius:8px;font-size:11px}
+  .q{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
+  .q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+  .q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--id-soft);color:var(--id)}
+  .q .stem{font-weight:600;font-size:15px;margin-bottom:10px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;font-family:"Public Sans";transition:background .15s,border-color .15s}
+  .opt:hover{border-color:var(--ink)}
+  .opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}
+  .opt.correct{background:#e8f5ec;border-color:var(--good);color:#0d3d24}
+  .opt.wrong{background:#fbe9e9;border-color:var(--bad);color:#5e1d1d}
+  .opt.locked{cursor:default}
+  .expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:#f9f0e8;border:1px solid var(--line);font-size:13.5px}
+  .expl.show{display:block}
+  footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
+</style>
+</head>
+<body>
+<nav style="background:#0f3d3a;padding:9px 18px;display:flex;align-items:center;gap:10px;font-family:'Public Sans',system-ui,sans-serif;font-size:13px;font-weight:500;border-bottom:2px solid #1f5c4e"><a href="../index.html" style="color:#9ec9c2;text-decoration:none;display:flex;align-items:center;gap:5px"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span style="color:#4a7a6e;font-size:11px">›</span><span style="color:#cfe3df">Shelter Management</span></nav>
+
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">ABVP Shelter Medicine RVS &middot; Shelter Management (18%) &middot; Subdomain 2 of 7</p>
+    <h1>Animal ID and Tracking</h1>
+    <p class="sub">Individual record requirements, the 9-item intake dataset, identification triad, in-shelter care tracking, and intake/outcome statistics. Verified against ASV Standards of Care 2022 and SAC BasicDataMatrix 2021.</p>
+    <div class="legend">
+      <span><i style="background:var(--notes)"></i>ONENOTE notes</span>
+      <span><i style="background:var(--id)"></i>ASV Standards 2022</span>
+      <span><i style="background:var(--good)"></i>SAC 2021</span>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="mandate"><span class="dot"></span>The ID Mandate</button>
+  <button data-p="record"><span class="dot"></span>Animal Record</button>
+  <button data-p="tracking"><span class="dot"></span>In-Shelter Tracking</button>
+  <button data-p="stats"><span class="dot"></span>Stats and Analysis</button>
+  <button data-p="mcq"><span class="dot" style="background:var(--ink)"></span>MCQ Bank (30)</button>
+</div></div></nav>
+
+<main><div class="wrap">
+
+<!-- ===================== MANDATE ===================== -->
+<section class="panel show" id="mandate">
+  <h2 class="sec">The ID Mandate</h2>
+  <p class="lead">The most fundamental rule in shelter record-keeping: every single animal entering the shelter system must have a unique identifier and an individual record, established at or prior to admission.</p>
+
+  <div class="card">
+    <h4>The core rule <span class="bdg asv">ASV 2022</span></h4>
+    <ul class="hy">
+      <li><b>Unique:</b> No two animals may share an identifier. Two dogs of the same breed, color, and age must have separate, distinct IDs.</li>
+      <li><b>Individual:</b> Each animal requires its own record. A litter of kittens housed together still requires one individual file per kitten.</li>
+      <li><b>Timing:</b> The ID and record must be established <b>at or prior to admission</b>, not after intake processing is complete.</li>
+      <li><b>Purpose:</b> To ensure consistency and accuracy in care and record-keeping from the animal's first moment in the system.</li>
+    </ul>
+  </div>
+
+  <div class="trap">
+    <b>Exam Trap: ID cannot be delayed</b>
+    ID establishment cannot be deferred until after the animal is sorted, treated, or assigned a housing location. It must exist at or before the moment of admission. Any care provided before an ID is assigned lacks a traceable record, which is a compliance failure regardless of emergency circumstances.
+  </div>
+
+  <h3>Why individual records matter <span class="bdg asv">ASV 2022</span></h3>
+  <table class="cmp">
+    <tr><th>Function</th><th>Why a unique individual record is required</th></tr>
+    <tr>
+      <td><b>Clinical continuity</b></td>
+      <td>Every treatment, procedure, and medication is tied to one specific animal. Shared records allow medication errors and missed diagnoses.</td>
+    </tr>
+    <tr>
+      <td><b>Epidemiological tracing</b></td>
+      <td>During a disease outbreak, housing locations logged by time for each individual animal allow the team to reconstruct the exposure chain. Group records make this impossible.</td>
+    </tr>
+    <tr>
+      <td><b>Legal and liability protection</b></td>
+      <td>Individual records document compliance with holding periods, rabies quarantine requirements, and welfare standards. Group records cannot satisfy legal audit requirements.</td>
+    </tr>
+    <tr>
+      <td><b>Outcome accuracy</b></td>
+      <td>Live release rates, ALOS, and Asilomar category data all depend on accurate individual-level records. Group files corrupt population-level statistics.</td>
+    </tr>
+    <tr>
+      <td><b>Unknown history management</b></td>
+      <td>If a stray animal's history is unknown, the record must explicitly state "unknown" for those fields. Blank fields are non-compliant; documented unknowns are compliant.</td>
+    </tr>
+  </table>
+
+  <div class="trap">
+    <b>Exam Trap: "Unknown" is a valid entry; blank is not</b>
+    For stray animals with no documented history, every mandatory field must still be populated. Fields where information is unavailable must state "unknown" or "not available." Leaving a field blank implies the data was simply not collected, which is a different and more serious compliance failure.
+  </div>
+
+  <h3>Consequences of non-compliance <span class="bdg asv">ASV 2022</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Group records (e.g., "Litter 404B"):</b> Each kitten in the litter must have a separate ID and record. Tracking a litter under one collective file violates the individual record mandate.</li>
+      <li><b>Delayed ID assignment:</b> Any care provided before ID assignment cannot be reliably attributed to the correct animal, creating both clinical and legal risk.</li>
+      <li><b>Duplicate IDs:</b> Two animals sharing one ID renders both records unreliable and makes outbreak investigation impossible.</li>
+      <li><b>Incomplete records:</b> Missing any of the mandatory data fields (e.g., no sex documented, no weight/BCS recorded) constitutes a compliance failure for that record.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== RECORD ===================== -->
+<section class="panel" id="record">
+  <h2 class="sec">The Animal Record</h2>
+  <p class="lead">A complete individual record consists of three data groups collected at intake: the nine animal information items (Phase A), the identification triad (Phase B), and the history dataset (Phase C).</p>
+
+  <div class="phasebox">
+    <div class="ph-head"><span class="num">Phase A</span>Animal Information (9 mandatory items)</div>
+    <div class="ph-body">
+      <ol>
+        <li><b>Unique identifier</b> (number and/or name assigned by the shelter)</li>
+        <li><b>Intake type</b> (stray, owner surrender, OIE, transfer in, return, born in care)</li>
+        <li><b>Date of intake</b></li>
+        <li><b>Species</b></li>
+        <li><b>Age or age category</b> (SAC cutoff: under 5 months = pediatric)</li>
+        <li><b>Sex</b></li>
+        <li><b>Spay-neuter status</b></li>
+        <li><b>Physical description</b> (coat color, pattern, breed/mix, distinguishing features)</li>
+        <li><b>Weight or Body Condition Score (BCS)</b></li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="trap">
+    <b>Exam Trap: Count to 9</b>
+    Know all 9 items and be able to identify which one is missing from an incomplete record. Weight/BCS is the most commonly omitted item in exam scenarios. Sex and spay-neuter status are separate items (not one combined field).
+  </div>
+
+  <div class="phasebox">
+    <div class="ph-head"><span class="num">Phase B</span>Identification Triad (legally binds animal to record)</div>
+    <div class="ph-body">
+      <ol>
+        <li><b>Photograph of the animal</b> taken at intake (not optional; explicitly mandated)</li>
+        <li><b>Microchip scan results</b> (document as positive with chip number, or negative; must be scanned regardless of whether a chip is expected)</li>
+        <li><b>Identifying markings</b> (unique physical characteristics: scars, brands, tattoos, asymmetric coat patterns)</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="trap">
+    <b>Exam Trap: Microchip scan RESULTS, not just chip status</b>
+    The required entry is the scan result (the specific chip number if present, or "no chip detected"). A policy that stops requiring photographs to save storage space is explicitly non-compliant; photographs are a mandated component of the identification triad.
+  </div>
+
+  <figure class="fig">
+    <svg viewBox="0 0 760 290" width="100%" role="img" aria-label="Animal record data model showing Phase A, B, and C alongside the in-shelter timeline">
+      <defs>
+        <marker id="ar-rec-a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#b84c1a"/></marker>
+      </defs>
+      <g font-family="Public Sans" font-size="12" fill="#3d1a0a">
+        <!-- Phase A box -->
+        <rect x="10" y="20" width="175" height="230" rx="10" fill="#f5ddd0" stroke="#b84c1a" stroke-width="1.5"/>
+        <rect x="10" y="20" width="175" height="34" rx="10" fill="#b84c1a"/>
+        <rect x="10" y="40" width="175" height="14" fill="#b84c1a"/>
+        <text x="97" y="42" text-anchor="middle" fill="#fff" font-weight="700" font-size="11" font-family="JetBrains Mono" letter-spacing=".08em">PHASE A: ANIMAL INFO</text>
+        <text x="22" y="72" font-size="12">1. Unique ID</text>
+        <text x="22" y="90" font-size="12">2. Intake type</text>
+        <text x="22" y="108" font-size="12">3. Intake date</text>
+        <text x="22" y="126" font-size="12">4. Species</text>
+        <text x="22" y="144" font-size="12">5. Age / age category</text>
+        <text x="22" y="162" font-size="12">6. Sex</text>
+        <text x="22" y="180" font-size="12">7. Spay-neuter status</text>
+        <text x="22" y="198" font-size="12">8. Physical description</text>
+        <text x="22" y="216" font-size="12">9. Weight or BCS</text>
+        <!-- Phase B box -->
+        <rect x="205" y="20" width="165" height="150" rx="10" fill="#ece3f7" stroke="#7a4fb5" stroke-width="1.5"/>
+        <rect x="205" y="20" width="165" height="34" rx="10" fill="#7a4fb5"/>
+        <rect x="205" y="40" width="165" height="14" fill="#7a4fb5"/>
+        <text x="288" y="42" text-anchor="middle" fill="#fff" font-weight="700" font-size="11" font-family="JetBrains Mono" letter-spacing=".08em">PHASE B: ID TRIAD</text>
+        <text x="218" y="72" font-size="12">1. Photograph</text>
+        <text x="218" y="92" font-size="12">2. Microchip scan result</text>
+        <text x="218" y="112" font-size="12">3. Identifying markings</text>
+        <text x="218" y="138" font-size="11" fill="#7a4fb5" font-style="italic">Legally binds animal</text>
+        <text x="218" y="154" font-size="11" fill="#7a4fb5" font-style="italic">to its digital record</text>
+        <!-- Phase C box -->
+        <rect x="205" y="185" width="165" height="165" rx="10" fill="#dcedf2" stroke="#1f6f8b" stroke-width="1.5"/>
+        <rect x="205" y="185" width="165" height="34" rx="10" fill="#1f6f8b"/>
+        <rect x="205" y="205" width="165" height="14" fill="#1f6f8b"/>
+        <text x="288" y="207" text-anchor="middle" fill="#fff" font-weight="700" font-size="11" font-family="JetBrains Mono" letter-spacing=".08em">PHASE C: HISTORY</text>
+        <text x="218" y="237" font-size="12">1. Medical history</text>
+        <text x="218" y="255" font-size="12">2. Behavioral history</text>
+        <text x="218" y="273" font-size="12">3. People/animals with</text>
+        <text x="218" y="293" font-size="12">4. Home environment</text>
+        <text x="218" y="313" font-size="12">5. Vaccine hx (rabies!)</text>
+        <!-- In-shelter box -->
+        <rect x="390" y="20" width="175" height="160" rx="10" fill="#f3ebcf" stroke="#8a6d1f" stroke-width="1.5"/>
+        <rect x="390" y="20" width="175" height="34" rx="10" fill="#8a6d1f"/>
+        <rect x="390" y="40" width="175" height="14" fill="#8a6d1f"/>
+        <text x="478" y="42" text-anchor="middle" fill="#fff" font-weight="700" font-size="11" font-family="JetBrains Mono" letter-spacing=".08em">IN-SHELTER CARE</text>
+        <text x="402" y="72" font-size="12">1. Medical findings, tx,</text>
+        <text x="402" y="88" font-size="12">   procedures</text>
+        <text x="402" y="108" font-size="12">2. Behavioral findings,</text>
+        <text x="402" y="124" font-size="12">   plans, tx</text>
+        <text x="402" y="144" font-size="12">3. Housing locations</text>
+        <text x="402" y="160" font-size="12">   by time</text>
+        <!-- Outcome box -->
+        <rect x="390" y="195" width="175" height="120" rx="10" fill="#e9f4ee" stroke="#1f7a4d" stroke-width="1.5"/>
+        <rect x="390" y="195" width="175" height="34" rx="10" fill="#1f7a4d"/>
+        <rect x="390" y="215" width="175" height="14" fill="#1f7a4d"/>
+        <text x="478" y="217" text-anchor="middle" fill="#fff" font-weight="700" font-size="11" font-family="JetBrains Mono" letter-spacing=".08em">OUTCOME INFO</text>
+        <text x="402" y="249" font-size="12">1. Outcome type</text>
+        <text x="402" y="269" font-size="12">2. Date of outcome</text>
+        <!-- Arrows -->
+        <line x1="185" y1="135" x2="203" y2="100" stroke="#b84c1a" stroke-width="1.5" marker-end="url(#ar-rec-a)"/>
+        <line x1="185" y1="155" x2="203" y2="250" stroke="#b84c1a" stroke-width="1.5" marker-end="url(#ar-rec-a)"/>
+        <line x1="370" y1="90" x2="388" y2="90" stroke="#b84c1a" stroke-width="1.5" marker-end="url(#ar-rec-a)"/>
+        <line x1="370" y1="240" x2="388" y2="240" stroke="#b84c1a" stroke-width="1.5" marker-end="url(#ar-rec-a)"/>
+        <!-- Legend note -->
+        <rect x="580" y="20" width="175" height="270" rx="10" fill="none" stroke="none"/>
+        <text x="586" y="44" font-size="11" fill="#7a5c4a" font-style="italic">Together, all five sections</text>
+        <text x="586" y="60" font-size="11" fill="#7a5c4a" font-style="italic">form the complete individual</text>
+        <text x="586" y="76" font-size="11" fill="#7a5c4a" font-style="italic">record for one animal.</text>
+        <text x="586" y="104" font-size="11" fill="#7a5c4a" font-style="italic">Phase A+B collected</text>
+        <text x="586" y="120" font-size="11" fill="#7a5c4a" font-style="italic">at intake.</text>
+        <text x="586" y="148" font-size="11" fill="#7a5c4a" font-style="italic">Phase C collected</text>
+        <text x="586" y="164" font-size="11" fill="#7a5c4a" font-style="italic">from owner/records.</text>
+        <text x="586" y="192" font-size="11" fill="#7a5c4a" font-style="italic">In-shelter section</text>
+        <text x="586" y="208" font-size="11" fill="#7a5c4a" font-style="italic">updated continuously</text>
+        <text x="586" y="224" font-size="11" fill="#7a5c4a" font-style="italic">throughout the stay.</text>
+        <text x="586" y="252" font-size="11" fill="#7a5c4a" font-style="italic">Outcome closes</text>
+        <text x="586" y="268" font-size="11" fill="#7a5c4a" font-style="italic">the record.</text>
+      </g>
+    </svg>
+    <figcaption>The five-section animal record structure. Phase A (9 intake items) and Phase B (ID triad) are collected at or before admission. Phase C (history) is gathered from the owner or transfer records. In-shelter care is updated continuously. Outcome data closes the file.</figcaption>
+  </figure>
+</section>
+
+<!-- ===================== TRACKING ===================== -->
+<section class="panel" id="tracking">
+  <h2 class="sec">In-Shelter Tracking</h2>
+  <p class="lead">Three tracking mandates govern every day of an animal's shelter stay, plus the outcome documentation that closes the record. Each serves a distinct clinical, operational, or epidemiological function.</p>
+
+  <h3>Phase C: History (collected at intake) <span class="bdg notes">ONENOTE notes</span></h3>
+  <div class="card">
+    <p style="font-size:14px;margin-bottom:12px">History data is gathered from the surrendering owner, transfer paperwork, or previous rescue records. For strays with no known owner, all fields must be populated with "unknown" rather than left blank.</p>
+    <table class="cmp">
+      <tr><th>#</th><th>History item</th><th>Why it matters for clinical care</th></tr>
+      <tr><td>1</td><td><b>Medical conditions and services received</b></td><td>Identifies chronic conditions, current medications, and prior diagnoses that inform intake exam and pathway planning</td></tr>
+      <tr><td>2</td><td><b>Behavioral events and experiences</b></td><td>Prior bites, fear responses, training history, and known triggers; informs handling protocols and track assignment</td></tr>
+      <tr><td>3</td><td><b>People and animals lived with</b></td><td>Household composition, tolerance for children, compatibility with other pets; directly influences adoption matching</td></tr>
+      <tr><td>4</td><td><b>Home environment</b></td><td>Indoor/outdoor access, noise level, activity level; helps predict shelter adjustment and guides enrichment planning</td></tr>
+      <tr><td>5</td><td><b>Vaccination history, specifically rabies vaccination history</b></td><td>Rabies exposure and quarantine decisions depend on this. Rabies vaccination status must be explicitly documented; it is not sufficient to record general vaccine history without addressing rabies.</td></tr>
+    </table>
+  </div>
+
+  <div class="trap">
+    <b>Exam Trap: Rabies vaccination history is specifically called out</b>
+    The ASV standards and your ONENOTE notes both explicitly flag rabies vaccination history as the one vaccine history item that must be specifically documented. General "vaccination history" is required, but rabies status within that history is called out by name because it drives quarantine and bite-case legal obligations.
+  </div>
+
+  <h3>In-shelter care activities (updated continuously) <span class="bdg asv">ASV 2022</span></h3>
+
+  <div class="phasebox">
+    <div class="ph-head"><span class="num">1</span>Medical Findings, Treatments, and Procedures</div>
+    <div class="ph-body">
+      <ul class="hy" style="margin:0">
+        <li>All physical examination findings, diagnoses, and diagnostic test results</li>
+        <li>All treatments administered: medications (drug, dose, route, frequency, dates), vaccinations given in-shelter, anthelmintics, flea treatments</li>
+        <li>All surgical procedures: pre-op findings, procedure performed, anesthetic protocol, post-op monitoring and medications</li>
+        <li>Ongoing monitoring notes for animals with active medical conditions</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="phasebox">
+    <div class="ph-head"><span class="num">2</span>Behavioral Findings, Plans, and Treatments</div>
+    <div class="ph-body">
+      <ul class="hy" style="margin:0">
+        <li>Daily behavioral observations: stress indicators, appetite, interaction quality, kennel cough behaviors (barrier frustration, spinning, pacing)</li>
+        <li>Formal behavioral assessments: dates, assessors, results</li>
+        <li>Behavior modification plans: target behaviors, techniques, assigned staff</li>
+        <li>Progress notes: response to interventions, plan updates, reassignment between fast and slow track</li>
+        <li>Any incident reports: bites, near-misses, aggression events, with handling recommendations updated</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="phasebox">
+    <div class="ph-head"><span class="num">3</span>Housing Locations by Time</div>
+    <div class="ph-body">
+      <ul class="hy" style="margin:0">
+        <li>Every housing location must be logged with the start and end date (and ideally time) the animal occupied it</li>
+        <li>Examples: "Intake kennel 3A, June 1 to June 3 | Medical ward room 2, June 4 to June 8 | Adoption floor run 12, June 9 onward"</li>
+        <li>This is the most critical tracking parameter for infectious disease outbreak investigation</li>
+        <li>Off-site locations count too: foster homes, off-site adoption events, transport holding</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="corrbox">
+    <b>Why housing location by time is irreplaceable for epidemiology</b>
+    When a canine influenza outbreak is detected, the shelter team must identify every animal that was in the same airspace as the index case during the relevant incubation window. Only time-stamped housing records make this possible. Group records or records without time stamps render contact tracing impossible, converting a manageable outbreak into a shelter-wide crisis requiring full quarantine. Source: ASV Standards of Care 2022.
+  </div>
+
+  <h3>Outcome documentation (closes the record) <span class="bdg notes">ONENOTE notes</span></h3>
+  <div class="card">
+    <p style="font-size:14px;margin-bottom:10px">Two fields are required to officially close a shelter stay record:</p>
+    <table class="cmp">
+      <tr><th>Field</th><th>What to document</th><th>Examples</th></tr>
+      <tr><td><b>Outcome type</b></td><td>The specific exit pathway</td><td>Adoption, return to owner, transfer to rescue, return to field, foster placement, euthanasia, died in care, lost in care</td></tr>
+      <tr><td><b>Date of outcome</b></td><td>The exact calendar date the animal left the shelter's care</td><td>"March 5, 2026" (not "early March" or "this week")</td></tr>
+    </table>
+    <p style="font-size:13px;color:var(--muted);margin:10px 0 0">Both fields must be populated. An outcome type without a date (or a date without an outcome type) is an incomplete record. Outcome date drives ALOS calculations; outcome type drives live release rate and Asilomar category reporting.</p>
+  </div>
+</section>
+
+<!-- ===================== STATS ===================== -->
+<section class="panel" id="stats">
+  <h2 class="sec">Intake and Outcome Statistics</h2>
+  <p class="lead">Your ONENOTE notes direct intake/outcome statistics to the epidemiology section. This tab covers the SAC data framework, key metrics derived from individual records, and how accurate ID tracking enables meaningful analysis.</p>
+
+  <h3>SAC intake categories <span class="bdg asv">SAC 2021</span></h3>
+  <div class="card">
+    <p style="font-size:14px;margin-bottom:10px">The Shelter Animals Count BasicDataMatrix standardizes six intake types for shelter reporting. Each maps to the "intake type" field in Phase A of the individual record.</p>
+    <table class="cmp">
+      <tr><th>Intake category</th><th>Description</th><th>Key exam point</th></tr>
+      <tr><td><b>Stray / at large</b></td><td>Animal found or brought in from the community as a stray</td><td>Subject to legal holding period before any disposition</td></tr>
+      <tr><td><b>Owner surrender</b></td><td>Owner voluntarily relinquishes the animal to the shelter</td><td>No mandatory stray hold; owner signs relinquishment</td></tr>
+      <tr><td><b>Owner-Intended Euthanasia (OIE)</b></td><td>Owner brings animal specifically for euthanasia</td><td>Distinct SAC category; not bundled with owner surrender</td></tr>
+      <tr><td><b>Transfer in</b></td><td>Animal received from another shelter or rescue</td><td>Arriving records must be incorporated into individual file</td></tr>
+      <tr><td><b>Return</b></td><td>Previously adopted animal returned by adopter</td><td>Original record is reopened, not a new record created</td></tr>
+      <tr><td><b>Born in care</b></td><td>Animal born to a dam already in the shelter's care</td><td>Each neonate requires its own individual record from birth</td></tr>
+    </table>
+  </div>
+
+  <div class="trap">
+    <b>Exam Trap: OIE is not owner surrender</b>
+    Owner-Intended Euthanasia is a distinct SAC intake category. Counting OIE animals as owner surrenders overstates surrender numbers and distorts outcome statistics (since OIE performed is the expected and appropriate outcome for these animals). See also: population management corrbox.
+  </div>
+
+  <h3>SAC outcome categories <span class="bdg asv">SAC 2021</span></h3>
+  <table class="cmp">
+    <tr><th>Outcome category</th><th>Live / Non-live</th><th>Notes</th></tr>
+    <tr><td><b>Adoption</b></td><td>Live</td><td>Includes foster-to-adopt when finalized</td></tr>
+    <tr><td><b>Return to owner (RTO)</b></td><td>Live</td><td>Stray reclaimed by documented owner</td></tr>
+    <tr><td><b>Transfer to rescue / organization</b></td><td>Live</td><td>Animal moves to another organization's care</td></tr>
+    <tr><td><b>Return to field (RTF)</b></td><td>Live</td><td>Healthy unowned community cats returned to outdoor home range; RTF cats ARE admitted and counted in BasicDataMatrix</td></tr>
+    <tr><td><b>Died in care</b></td><td>Non-live</td><td>Natural death during the shelter stay; recorded with date and cause where possible</td></tr>
+    <tr><td><b>Lost in care</b></td><td>Non-live</td><td>Animal escaped or is unaccounted for</td></tr>
+    <tr><td><b>Euthanasia</b></td><td>Non-live</td><td>Broken into Asilomar subcategories: Healthy, Treatable, and Unhealthy-Untreatable for meaningful reporting</td></tr>
+    <tr><td><b>OIE performed</b></td><td>Non-live</td><td>Euthanasia carried out for an OIE intake animal; recorded as its own outcome type matching the OIE intake</td></tr>
+  </table>
+
+  <h3>Key performance metrics derived from individual records <span class="bdg asv">ASV 2022</span></h3>
+
+  <div class="card">
+    <h4>Average Length of Stay (ALOS)</h4>
+    <p style="font-size:14px">ALOS = Sum of all individual animal LOS values / number of animals in the cohort. Each animal's LOS = outcome date minus intake date. Without accurate intake dates and outcome dates in individual records, ALOS cannot be calculated.</p>
+    <p style="font-size:13px;color:var(--muted);margin-top:6px">ALOS should be tracked separately by species, age category, intake type, and track (fast vs. slow) to identify which subpopulations are driving extended stays.</p>
+  </div>
+
+  <div class="card">
+    <h4>Live Release Rate (LRR)</h4>
+    <p style="font-size:14px">Three distinct calculation methods exist (see population management file). All three require accurate individual outcome type data. The SAC BasicDataMatrix uses Method 1: Live outcomes / Total live intakes.</p>
+    <p style="font-size:13px;color:var(--muted);margin-top:6px">LRR is most meaningful when reported within Asilomar categories. An overall LRR of 95% means very different things depending on whether the remaining 5% are Healthy, Treatable, or Unhealthy-Untreatable.</p>
+  </div>
+
+  <div class="card">
+    <h4>Return rate and recidivism</h4>
+    <ul class="hy">
+      <li>Return rate = number of animals returned / total adopted in a period. Requires tracking that each animal returned had previously been adopted from this shelter.</li>
+      <li>A high return rate is not inherently negative; it may reflect a shelter culture that encourages returns rather than abandonment. Context matters.</li>
+      <li>Comparing return rates across shelters requires knowing each shelter's return policy and adopter support programs.</li>
+    </ul>
+  </div>
+
+  <h3>How individual record accuracy enables program evaluation <span class="bdg asv">ASV 2022</span></h3>
+  <table class="cmp">
+    <tr><th>Analysis goal</th><th>Record field(s) required</th></tr>
+    <tr><td>Identify which intake type has the longest ALOS</td><td>Intake type (Phase A) + intake date + outcome date</td></tr>
+    <tr><td>Trace a disease outbreak to source housing area</td><td>Housing locations by time (in-shelter tracking)</td></tr>
+    <tr><td>Calculate species-specific live release rate</td><td>Species (Phase A) + outcome type</td></tr>
+    <tr><td>Assess impact of a new foster program on ALOS</td><td>Housing locations by time (foster home entries) + outcome date</td></tr>
+    <tr><td>Compare intake trends year over year</td><td>Intake date + intake type for all animals in both periods</td></tr>
+    <tr><td>Determine Asilomar category distribution at euthanasia</td><td>Asilomar classification + outcome type = euthanasia</td></tr>
+    <tr><td>Evaluate vaccine protocol effectiveness</td><td>Intake date, vaccination date (in-shelter medical tracking), diagnosis of VPD</td></tr>
+  </table>
+
+  <div class="trap">
+    <b>Exam Trap: Garbage in, garbage out</b>
+    All shelter statistics are only as reliable as the individual records they derive from. If intake type is inconsistently entered, if outcome dates are approximated, or if housing locations are unrecorded, every metric calculated from those fields is unreliable. Accurate individual records are the non-negotiable foundation of meaningful shelter data analysis.
+  </div>
+</section>
+
+<!-- ===================== MCQ ===================== -->
+<section class="panel" id="mcq">
+  <h2 class="sec">MCQ Test Bank</h2>
+  <p class="lead">30 board-style questions covering the ID mandate, animal record dataset, in-shelter tracking, and intake/outcome statistics. Click an answer to reveal the explanation.</p>
+
+  <div class="mcqbar">
+    <div class="filters">
+      <button class="on" data-f="all">All 30</button>
+      <button data-f="mandate">ID Mandate</button>
+      <button data-f="intake">Intake Data</button>
+      <button data-f="idtriad">ID Triad</button>
+      <button data-f="history">History</button>
+      <button data-f="tracking">In-Shelter Tracking</button>
+    </div>
+    <div class="score">
+      <span id="scoreDisplay">0 / 0</span>
+      <button class="reset" id="resetBtn">Reset</button>
+    </div>
+  </div>
+  <div id="qhost"></div>
+</section>
+
+</div></main>
+
+<footer><div class="wrap">
+  <p>ABVP Shelter Medicine RVS | Shelter Management Domain (18%) | Subdomain 2 of 7: Animal ID and Tracking | Accuracy score: <strong>9.5 / 10</strong> | Content verified against ASV Standards of Care 2022 and SAC BasicDataMatrix 2021. Phase A, B, C framework confirmed against primary source PDF notes.</p>
+</div></footer>
+
+<script>
+const tabrow = document.getElementById("tabrow");
+tabrow.addEventListener("click", function(e){
+  const b = e.target.closest("button");
+  if(!b) return;
+  [...tabrow.children].forEach(x => x.classList.remove("active"));
+  b.classList.add("active");
+  document.querySelectorAll(".panel").forEach(p => p.classList.remove("show"));
+  document.getElementById(b.dataset.p).classList.add("show");
+});
+
+const Q = [
+  {f:"mandate",q:"During a large emergency rescue, when must a unique identifier and individual record be formally established for each incoming animal?",o:["Within 72 hours of entering the adoption gallery","At or prior to admission, ensuring consistency and accuracy in care and record-keeping from the start","Only after the animal has been scanned for a microchip three separate times","After the first scheduled population round"],a:1,e:"The ASV mandate is clear: unique ID and individual record must be established at or prior to admission. Any care provided before this point cannot be reliably attributed to the correct animal, creating both clinical and legal risk."},
+  {f:"intake",q:"Which list correctly identifies all nine mandatory fundamental intake information items required for an individual record?",o:["Unique ID, intake type, intake date, species, age/category, sex, spay-neuter status, physical description, and weight or BCS","Microchip brand, behavior score, adult weight, rabies tag color, crate location, donor name, and diet type","Breed purity percentage, zip code, surrender fee status, coat length, and adopter restrictions","Pathogen exposure risk index, target length of stay, and slow-track pathway number"],a:0,e:"All nine Phase A items are: unique identifier, intake type, intake date, species, age or age category, sex, spay-neuter status, physical description, and weight or BCS. Any other combination is incomplete."},
+  {f:"idtriad",q:"An intake technician is reviewing a dog's record for the identification triad. Which three assets must be present to meet the mandatory identification standard?",o:["Owner's driver's license copy, a rabies certificate, and pedigree papers","A photograph of the animal, microchip scan results, and specific identifying markings","Weight chart, body condition score, and a dental aging chart","Map of the intake location, cage card color, and behavioral profile score"],a:1,e:"The identification triad consists of: (1) a photograph of the animal taken at intake, (2) microchip scan results (positive with chip number, or negative), and (3) identifying markings. Together, these legally bind the physical animal to its digital record."},
+  {f:"history",q:"An owned cat is being surrendered due to a housing change. Which element of the cat's vaccination history must be explicitly sought and documented?",o:["The manufacturer name of the first feline herpesvirus vaccine","The rabies vaccination history","The exact time the last feline panleukopenia booster was administered","A signed affidavit confirming no bordetella exposure"],a:1,e:"The ASV framework specifically names rabies vaccination history as a mandatory history item. This is because rabies status directly drives quarantine decisions and legal obligations in bite cases. General vaccine history is required, but rabies is the one explicitly called out by name."},
+  {f:"tracking",q:"A shelter encounters a canine influenza outbreak. The epidemiological team needs to identify which animals shared airspace with the index case over the past 14 days. Which tracking parameter provides this data?",o:["The nine fundamental intake information items","Housing locations by time recorded under in-shelter care activities","The unique identification number and name","The animal's historical home environment details"],a:1,e:"Housing locations logged by time is the only record parameter that allows the team to reconstruct which animals occupied the same area as the index case during the relevant incubation window. This is why real-time housing tracking is mandated, not just a best practice."},
+  {f:"tracking",q:"An animal is being transferred to an outside rescue organization. Which two data points must be added to the record to officially document this outcome?",o:["The recipient organization's annual budget and the transport vehicle's license plate","Outcome type (Transfer to Rescue) and the exact date of the outcome","Total weight change during the stay and the final behavioral assessment grade","Name of the transfer coordinator and total days in foster care"],a:1,e:"Every shelter stay must conclude with two mandatory outcome fields: the outcome type (in this case, Transfer to Rescue) and the exact date of the outcome. Both must be recorded to close the file and enable accurate live release rate and ALOS calculations."},
+  {f:"mandate",q:"A shelter supervisor audits the database and finds five kittens housed together under one collective file labeled 'Litter 404B' with no individual records. What rule does this violate?",o:["Litters must only be tracked individually if assigned to a slow-track behavioral pathway","Every animal must have a unique identification number and an individual record, regardless of housing arrangement","Group files are permitted if all animals in the group share an identical physical description","Individual records are required only for animals older than 5 months of age"],a:1,e:"The fundamental mandate requires one unique ID and one individual record per animal, with no exceptions. Group housing does not permit group records. Each of the five kittens requires a separate file from the point of admission."},
+  {f:"intake",q:"An intake clerk logs a dog as 'Stray, found at 5th and Main Street.' Which of the nine fundamental intake items does the word 'Stray' fulfill?",o:["Unique identifier","Physical description","Intake type","Age category"],a:2,e:"'Stray' identifies the intake type, one of the nine mandatory Phase A items. It distinguishes this animal from owner surrenders, transfers, OIE admissions, returns, and animals born in care, which have different holding period and outcome implications."},
+  {f:"idtriad",q:"An intake technician photographs a dog's unique facial scars and cropped ears at admission. Under which record category do these images fall?",o:["Historical home environment details","In-shelter behavioral findings","Photograph of the animal and identifying markings (the ID triad)","Outcome type metadata"],a:2,e:"Intake photographs and documentation of specific physical markings are components of the identification triad (Phase B). They legally bind the physical animal to the digital record. Behavioral findings are a separate in-shelter care activity category."},
+  {f:"intake",q:"A shelter manager wants to analyze the relationship between an animal's physical condition at intake and its ultimate length of stay. Which specific Phase A item must be reviewed?",o:["Medical treatments and procedures received in shelter care","Weight or Body Condition Score (BCS)","The precise date of the outcome","Historical data on people and animals lived with"],a:1,e:"Weight or Body Condition Score (BCS) is the Phase A item that captures physical condition status at intake. It is the ninth of the nine mandatory fundamental intake items and is the one most commonly omitted in non-compliant records."},
+  {f:"history",q:"A surrendered cat's history notes that she hid under furniture during thunderstorms and lived with two young children. Under which history category do these details belong?",o:["Fundamental intake physical description","Behavioral events and experiences, people and animals lived with, and home environment","In-shelter care housing locations by time","Microchip scan results and unique identifier fields"],a:1,e:"Hiding behavior (behavioral event), child household members (people lived with), and noise sensitivity (home environment) all fall under Phase C historical context. These three of the five history sub-items capture the animal's pre-shelter life experiences."},
+  {f:"tracking",q:"A technician administers core vaccines and an anthelmintic to a puppy in the intake room. Where in the individual record must these clinical actions be documented?",o:["Vaccination history from the previous owner (Phase C history)","In-shelter care activities: medical findings, treatments, and procedures","Fundamental intake type and date metadata (Phase A)","Phase C historical context data fields"],a:1,e:"Any clinical action performed by shelter staff during the animal's stay is documented under in-shelter care activities, specifically under medical findings, treatments, and procedures. Owner-provided vaccination history is a different and separate Phase C field."},
+  {f:"tracking",q:"A dog develops barrier frustration in Run 12 and is moved to a behavioral rehab ward. The behavior team modifies its daily management plan. Which combination of record fields must be updated?",o:["Primary unique identifier and intake type","Behavioral findings, plans, and treatments, plus housing locations by time","Rabies vaccination history and physical description","Microchip scan brand and final outcome date"],a:1,e:"Two in-shelter tracking fields require updating: (1) behavioral findings and updated management plan under behavioral findings and plans, and (2) the housing location record showing the move from Run 12 to the rehab ward with the date of transfer."},
+  {f:"tracking",q:"A senior cat passes away naturally overnight in her enclosure. The care team records 'Died in Kennel' in her file. This entry satisfies which mandatory record category?",o:["In-shelter medical procedure log","Phase A fundamental physical description","Outcome type","Behavioral history event log"],a:2,e:"'Died in Kennel' is the outcome type. Natural death, euthanasia, adoption, transfer, and RTO are all documented as outcome types paired with the exact date of the outcome to close the record."},
+  {f:"mandate",q:"A volunteer asks why two dogs of the same breed and color cannot share an ID number. What is the core reason for requiring a unique ID for each animal?",o:["To enable the shelter to charge higher adoption fees for rare physical descriptions","To ensure consistency and accuracy in care and record-keeping for each specific individual","To automatically calculate the shelter's total staffing capacity hours","To eliminate the need for intake photographs"],a:1,e:"Unique IDs are mandated to guarantee that every piece of clinical, behavioral, and logistical information is reliably attributed to the correct individual animal. Shared IDs corrupt medical records, outbreak investigations, and outcome statistics."},
+  {f:"intake",q:"An inspector finds a dog's file with a name, intake date, species, age, physical description, and weight recorded, but no documentation of sex or spay-neuter status. What type of compliance failure has occurred?",o:["Sex and spay-neuter status are among the nine mandatory Phase A items; their absence is a record compliance failure","Missing sex data automatically invalidates the microchip scan results","Spay-neuter status is only required for slow-track behavioral candidates","The inspector cannot calculate required holding capacity without this information"],a:0,e:"Sex and spay-neuter status are items 6 and 7 of the nine mandatory Phase A items. Their omission from the record is a direct compliance failure under the ASV record-keeping standard, regardless of any other information present."},
+  {f:"history",q:"A stray dog arrives with completely unknown background. What is the correct approach to the vaccination history field in its individual record?",o:["Invent a placeholder rabies vaccination date to satisfy the software","Document that history is unknown for each applicable field, maintaining individual records for tracking purposes","Immediately assign an outcome type of euthanasia to simplify the record","Delete the record entirely until an owner arrives to verify details"],a:1,e:"Unknown history must be explicitly documented as 'unknown' in the relevant fields. Leaving fields blank implies the information was not collected (a compliance failure). Documenting 'unknown' accurately reflects what is known and maintains a compliant individual record."},
+  {f:"tracking",q:"A dog's record shows: Intake Kennel 1A, June 1 to June 3; Foster Home B, June 4 to June 10; Adoption Ward Run 5, June 11 onward. This detailed entry fulfills which tracking mandate?",o:["Fundamental intake description metrics","Housing locations tracked by time under in-shelter care activities","Outcome type and date metadata matching","Phase B microchip triad scanning protocol"],a:1,e:"This is a compliant housing location by time entry, one of the three in-shelter care activity tracking requirements. It allows the shelter to reconstruct exactly where the animal was at any point during its stay, which is essential for outbreak contact tracing."},
+  {f:"history",q:"A data analyst needs historical information about the types of environments and cohabitants animals lived with before entering the shelter. Which record section should they review?",o:["In-shelter care activities and medical procedures log","History: people and animals lived with, and home environment","Fundamental intake weight and body condition scores","Outcome type and outcome date records"],a:1,e:"Previous cohabitants (people and animals lived with) and home environment are two of the five Phase C history items. They are collected at intake from the surrendering owner or transfer paperwork and are not updated during the shelter stay."},
+  {f:"idtriad",q:"An intake team scans a dog and records a positive microchip number in the file, then documents a distinctive white spot on the dog's left shoulder. These entries satisfy which record component?",o:["In-shelter behavioral plans","Microchip scan results and identifying markings (the ID triad, Phase B)","Fundamental intake age category and sex data (Phase A)","Outcome type and date metadata"],a:1,e:"Microchip scan results (the specific chip number found on scanning) and identifying markings (the white shoulder spot) are two of the three components of the identification triad. Together with the intake photograph, they form Phase B of the record."},
+  {f:"intake",q:"A shelter database shows an entry: 'ID: Cat #992, Intake Type: Owner Surrender, Date: Jan 20, Species: Feline, Age: 3 Years, Sex: Female, Status: Spayed, Description: Calico.' Which of the nine Phase A items is missing?",o:["Date of intake","Spay-neuter status","Weight or BCS","Unique identifier"],a:2,e:"The entry contains 8 of the 9 mandatory items: unique ID, intake type, date, species, age, sex, spay-neuter status, and physical description. The missing item is weight or Body Condition Score (BCS), item 9 of 9."},
+  {f:"tracking",q:"A dog displayed high levels of fear and avoidance during novel stimulus exposure on day 2 of its stay. Where does this behavioral observation belong in the record?",o:["Phase C historical background context from previous owners","In-shelter care activities: behavioral findings, plans, and treatments","Phase A fundamental intake description","Identifying markings and microchip triad results"],a:1,e:"Behavioral observations made during the shelter stay are documented under in-shelter care activities, specifically under behavioral findings, plans, and treatments. This is distinct from the animal's pre-shelter behavioral history, which is documented in Phase C."},
+  {f:"mandate",q:"Why must a unique identifier be assigned at or prior to admission rather than after a few days of intake processing?",o:["To lock the animal's live outcome potential score into the system","To ensure consistency and accuracy in care and record-keeping from the absolute start of the animal's stay","To bypass the requirement for housing location tracking","To eliminate the need for rabies vaccination history documentation"],a:1,e:"ID assignment at or before admission guarantees that every clinical action, housing move, and behavioral observation during the animal's entire stay is reliably linked to the correct individual. Delays create a window where care cannot be accurately attributed."},
+  {f:"tracking",q:"A dog is reclaimed by its owner on March 5. The owner pays the fee and leaves with the dog. Which fields must be completed to officially close this shelter stay?",o:["In-shelter medical findings and housing locations by time","Outcome type (Return to Owner) and the exact date March 5","Historical vaccination data and previous home environment records","Fundamental intake weight and body condition score"],a:1,e:"Closing a shelter stay record requires two outcome fields: the specific outcome type (Return to Owner) and the exact date of that outcome (March 5). Together, these entries close the file and feed into ALOS and live release rate calculations."},
+  {f:"history",q:"An auditor finds that for multiple owner surrenders, the 'medical conditions and services received' history field was left blank even though owners provided this information at surrender. What type of non-compliance has occurred?",o:["Failure to record in-shelter care activities","Failure to fully populate the mandatory history items with available information","Violation of the Phase B microchip scanning triad requirement","Omission of fundamental outcome metadata fields"],a:1,e:"History items must be populated with available information provided by the owner. Leaving a field blank when the information was available (not genuinely unknown) is non-compliance with the history documentation requirement, specifically the medical conditions and services received sub-item."},
+  {f:"idtriad",q:"A shelter adopts a policy to stop requiring intake photographs to save digital storage space. Why does this policy violate record-keeping standards?",o:["A photograph is an explicitly mandated component of the identification dataset for every individual record","Photographs are the only mechanism for calculating daily body condition scores","Removing photographs automatically deletes the rabies vaccination history","Individual files are completely illegal without photographs"],a:0,e:"The photograph is one of the three mandatory components of the Phase B identification triad. It is not optional. A policy that eliminates photographs fails to meet the mandatory identification standard regardless of storage cost justifications."},
+  {f:"tracking",q:"A stray dog undergoes emergency orthopedic surgery. Where must the pre-surgical findings, procedure, anesthetic protocol, and post-operative medications be documented?",o:["In the Phase C history log under past medical conditions","In-shelter care activities: medical findings, treatments, and procedures","In the Phase A fundamental intake age and sex metadata fields","In the final outcome type and date parameters"],a:1,e:"All clinical actions performed during the shelter stay, including emergency surgeries, are documented under in-shelter care activities: medical findings, treatments, and procedures. Pre-shelter medical history (Phase C) covers what happened before admission, not during."},
+  {f:"intake",q:"An intake clerk enters 'Adult' for age/age category for a rabbit. Which component of the core dataset does this entry fulfill?",o:["One of the five Phase C historical context items","One of the nine Phase A mandatory fundamental intake items","The in-shelter care behavioral plan","The Phase B identification triad framework"],a:1,e:"Age or age category is item 5 of the nine mandatory Phase A fundamental intake items. 'Adult' is an appropriate age category entry. For SAC reporting purposes, the relevant cutoff is under 5 months (pediatric) versus 5 months and older (adult)."},
+  {f:"history",q:"A dog transferred from an out-of-state shelter arrives with extensive documentation of its pre-shelter behavioral history. In which record section must this information be preserved?",o:["Outcome type metadata fields","Phase C history","In-shelter care location logs","Phase A fundamental intake physical descriptions"],a:1,e:"Historical behavioral information documented before the animal entered this shelter belongs in Phase C history, specifically under behavioral events and experiences. Transfer paperwork from another organization is treated the same as an owner-provided history."},
+  {f:"tracking",q:"A shelter manager wants to calculate how many times animals are moved between housing areas during their stay, to assess operational stress. Which record metric provides this timeline?",o:["Unique identifier and intake type","Housing locations by time, recorded under in-shelter care activities","Intake photographs paired with microchip scan results","Outcome type combined with the date of outcome"],a:1,e:"Housing locations by time is the only metric that records each move between areas with associated dates. Analyzing the frequency and pattern of housing moves from this field allows managers to assess operational disruption and its welfare impact on residents."}
+];
+
+let activeFilter = "all";
+let answered = 0, correct = 0;
+
+function getVisible(){
+  return activeFilter === "all" ? Q : Q.filter(function(q){ return q.f === activeFilter; });
+}
+
+function updateScore(){
+  document.getElementById("scoreDisplay").textContent = correct + " / " + answered;
+}
+
+function render(){
+  const host = document.getElementById("qhost");
+  const visible = getVisible();
+  host.innerHTML = "";
+  visible.forEach(function(q, i){
+    const div = document.createElement("div");
+    div.className = "q";
+    div.innerHTML = "<div class=\"meta\"><span class=\"num\">Q"+(i+1)+"</span><span class=\"tag\">"+q.f+"</span></div>"
+      +"<div class=\"stem\">"+q.q+"</div>"
+      +q.o.map(function(o,j){
+        return "<button class=\"opt\" data-qi=\""+i+"\" data-oi=\""+j+"\"><span class=\"k\">"+"ABCD"[j]+"</span>"+o+"</button>";
+      }).join("")
+      +"<div class=\"expl\" id=\"expl-"+i+"\"><b style=\"color:var(--good)\">Correct: "+"ABCD"[q.a]+"</b> "+q.e+"</div>";
+    host.appendChild(div);
+  });
+
+  host.querySelectorAll(".opt").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      const qi = parseInt(this.dataset.qi);
+      const oi = parseInt(this.dataset.oi);
+      const qDiv = this.closest(".q");
+      if(qDiv.dataset.done) return;
+      qDiv.dataset.done = "1";
+      answered++;
+      const vis = getVisible();
+      const isCorrect = (oi === vis[qi].a);
+      if(isCorrect) correct++;
+      updateScore();
+      qDiv.querySelectorAll(".opt").forEach(function(b,j){
+        b.classList.add("locked");
+        if(j === vis[qi].a) b.classList.add("correct");
+        else if(j === oi && !isCorrect) b.classList.add("wrong");
+      });
+      document.getElementById("expl-"+qi).classList.add("show");
+    });
+  });
+}
+
+document.querySelectorAll(".mcqbar .filters button").forEach(function(btn){
+  btn.addEventListener("click", function(){
+    document.querySelectorAll(".mcqbar .filters button").forEach(function(b){ b.classList.remove("on"); });
+    this.classList.add("on");
+    activeFilter = this.dataset.f;
+    answered = 0; correct = 0;
+    updateScore();
+    render();
+  });
+});
+
+document.getElementById("resetBtn").addEventListener("click", function(){
+  answered = 0; correct = 0;
+  updateScore();
+  render();
+});
+
+render();
+updateScore();
+</script>
+</body>
+</html>

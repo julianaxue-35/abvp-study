@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mental Health, Resiliency and Self-Care | Shelter Management | ABVP Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#3d1a0a;--ink2:#5c2c14;--paper:#fdf4ec;--paper2:#fffaf5;
+    --line:#e4d3c4;--muted:#7a5c4a;
+    --id:#b84c1a;--id-soft:#f5ddd0;
+    --good:#1f7a4d;--bad:#b23b3b;
+    --notes:#7a4fb5;--notes-soft:#ece3f7;
+    --lit:#1f6f8b;--lit-soft:#dcedf2;
+    --aspca:#8a6d1f;--aspca-soft:#f3ebcf;
+    --ref:#b5651d;--ref-soft:#f6e7d4;
+    --shadow:0 1px 2px rgba(61,26,10,.08),0 8px 24px rgba(61,26,10,.06);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;
+    background-image:radial-gradient(circle at 1px 1px,rgba(61,26,10,.04) 1px,transparent 0);background-size:22px 22px;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+  header.top{background:var(--ink);color:var(--paper2);padding:26px 0 22px;border-bottom:4px solid var(--id)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#d4a88a;margin:0 0 6px}
+  header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(24px,4vw,38px);margin:0;line-height:1.05}
+  header.top p.sub{margin:8px 0 0;color:#f0d9cc;font-size:14px;max-width:70ch}
+  .legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}
+  .legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.25);color:#f5ece5;display:flex;align-items:center;gap:6px}
+  .legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--paper2);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button:hover{background:var(--paper);color:var(--ink)}
+  .tabrow button.active{background:var(--ink);color:var(--paper2)}
+  .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--id)}
+  main{padding:30px 0 80px}
+  .panel{display:none;animation:fade .35s ease}
+  .panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;letter-spacing:-.01em}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:78ch}
+  h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:30px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;color:var(--ink2);text-transform:uppercase;letter-spacing:.03em}
+  .card{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}
+  ul.hy{margin:8px 0;padding-left:0;list-style:none}
+  ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed #e6d4c2;font-size:14px}
+  ul.hy li:last-child{border-bottom:0}
+  ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;border-radius:2px;background:var(--id);transform:rotate(45deg)}
+  ol.steps{margin:8px 0;padding-left:22px}
+  ol.steps li{padding:5px 0;font-size:14px;border-bottom:1px dashed #e6d4c2}
+  ol.steps li:last-child{border-bottom:0}
+  .trap{background:#fdf0ea;border:1px solid #e8c4aa;border-left:4px solid var(--id);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .trap b{color:var(--id);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .corrbox{background:#e9f4ee;border:1px solid #bfe0cc;border-left:4px solid var(--good);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .corrbox b{color:var(--good);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .verifybox{background:#fdf5e6;border:1px solid #ecd9a8;border-left:4px solid var(--aspca);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .verifybox b{color:var(--aspca);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:var(--paper2);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp th{background:var(--ink);color:var(--paper2);font-weight:600;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase}
+  table.cmp tr:last-child td{border-bottom:0}
+  table.cmp td b{color:var(--ink)}
+  .bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+  .bdg.notes{background:var(--notes-soft);color:var(--notes)}
+  .bdg.lit{background:var(--lit-soft);color:var(--lit)}
+  .bdg.asv{background:var(--id-soft);color:var(--id)}
+  .bdg.aspca{background:var(--aspca-soft);color:var(--aspca)}
+  .bdg.ref{background:var(--ref-soft);color:var(--ref)}
+  .formulabox{background:var(--id-soft);border:1px solid #e0b89a;border-left:4px solid var(--id);border-radius:10px;padding:14px 16px;margin:14px 0}
+  .formulabox .label{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--id);margin-bottom:4px;font-weight:600}
+  .formulabox .formula{font-family:"JetBrains Mono",monospace;font-size:14px;color:var(--ink);margin:4px 0;font-weight:600}
+  .formulabox .fnote{font-size:12.5px;color:var(--muted);margin-top:6px}
+  .pillars{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;margin:14px 0}
+  .pillar{background:var(--id-soft);border:1px solid #e0b89a;border-radius:12px;padding:14px 16px}
+  .pillar .pnum{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--id);font-weight:600;margin-bottom:4px}
+  .pillar h5{font-family:"Fraunces",serif;font-weight:600;font-size:15px;margin:0 0 6px}
+  .pillar p{font-size:13px;margin:0;color:var(--ink2)}
+  .hierarchy{display:flex;flex-direction:column;gap:3px;margin:12px 0}
+  .hrow{display:flex;align-items:center;gap:12px;padding:9px 14px;border-radius:8px;font-size:13.5px}
+  .hrow .rank{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:600;width:24px;flex-shrink:0}
+  .hrow.best{background:#d4f0e3;border:1px solid #a3d9bc;color:#0d3d24}
+  .hrow.good{background:#e2efda;border:1px solid #b8d9a0}
+  .hrow.mid{background:#fdf5e6;border:1px solid #ecd9a8}
+  .hrow.low{background:#fde9dc;border:1px solid #f0c4a8}
+  .hrow.worst{background:#fbe9e9;border:1px solid #f0b8b8;color:#5e1d1d}
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--ink);color:var(--paper2);border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:54px;z-index:10}
+  .mcqbar .filters{display:flex;gap:6px;flex-wrap:wrap}
+  .mcqbar .filters button{font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#f0d9cc;padding:6px 11px;border-radius:999px;cursor:pointer}
+  .mcqbar .filters button.on{background:var(--id);border-color:var(--id);color:#fff}
+  .score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}
+  .score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;color:#f0d9cc;padding:5px 10px;border-radius:8px;font-size:11px}
+  .q{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
+  .q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+  .q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--id-soft);color:var(--id)}
+  .q .stem{font-weight:600;font-size:15px;margin-bottom:10px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;font-family:"Public Sans";transition:background .15s,border-color .15s}
+  .opt:hover{border-color:var(--ink)}
+  .opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}
+  .opt.correct{background:#e8f5ec;border-color:var(--good);color:#0d3d24}
+  .opt.wrong{background:#fbe9e9;border-color:var(--bad);color:#5e1d1d}
+  .opt.locked{cursor:default}
+  .expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:#f9f0e8;border:1px solid var(--line);font-size:13.5px}
+  .expl.show{display:block}
+  .expl b.cor{color:var(--good)}
+  footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
+  @media(max-width:640px){.mcqbar{top:50px}.score{font-size:12px}.pillars{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<nav style="background:#0f3d3a;padding:9px 18px;display:flex;align-items:center;gap:10px;font-family:'Public Sans',system-ui,sans-serif;font-size:13px;font-weight:500;border-bottom:2px solid #1f5c4e"><a href="../index.html" style="color:#9ec9c2;text-decoration:none;display:flex;align-items:center;gap:5px"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span style="color:#4a7a6e;font-size:11px">›</span><span style="color:#cfe3df">Shelter Management</span></nav>
+
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">ABVP Shelter Medicine RVS &middot; Shelter Management (18%) &middot; Subdomain 6 of 7</p>
+    <h1>Mental Health, Resiliency and Self-Care</h1>
+    <p class="sub">Workplace hazard control, waste anesthetic gas safety, physical ergonomics for HQHVSN surgeons, surgical suite design, and mental health resiliency in high-volume shelter environments.</p>
+    <div class="legend">
+      <span><i style="background:var(--notes)"></i>ONENOTE notes</span>
+      <span><i style="background:var(--ref)"></i>Textbook (HQHVSN / Shelter Medicine)</span>
+      <span><i style="background:var(--good)"></i>Verified content</span>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="safety"><span class="dot"></span>Workplace Safety</button>
+  <button data-p="wag"><span class="dot"></span>Waste Anesthetic Gas</button>
+  <button data-p="ergo"><span class="dot"></span>Physical Ergonomics</button>
+  <button data-p="env"><span class="dot"></span>Surgical Suite</button>
+  <button data-p="mental"><span class="dot"></span>Mental Health</button>
+  <button data-p="mcq"><span class="dot" style="background:var(--ink)"></span>MCQ Bank (30)</button>
+</div></div></nav>
+
+<main><div class="wrap">
+
+<!-- ===================== WORKPLACE SAFETY ===================== -->
+<section class="panel show" id="safety">
+  <h2 class="sec">Workplace Safety and Hazard Control</h2>
+  <p class="lead">HQHVSN (High Quality, High Volume Spay-Neuter) shelter surgeons face daily hazards across three categories. The hierarchy of risk control determines how to prioritize interventions, from most to least effective.</p>
+
+  <h3>Three Pillars of Occupational Risk <span class="bdg ref">HQHVSN</span></h3>
+  <div class="card">
+    <table class="cmp">
+      <thead><tr><th>Risk Category</th><th>Examples in HQHVSN Environments</th></tr></thead>
+      <tbody>
+        <tr><td><b>Chemical</b></td><td>Waste anesthetic gases (isoflurane, sevoflurane), disinfectants and cleaning chemicals, formalin for tissue fixation</td></tr>
+        <tr><td><b>Biologic</b></td><td>Zoonotic disease exposure (ringworm, Q fever, Bartonella), allergens (animal dander, latex), sharps prick injuries from contaminated needles</td></tr>
+        <tr><td><b>Physical</b></td><td>Musculoskeletal strain from patient handling and awkward surgical postures, equipment malfunction hazards, heavy lifting of large-breed patients</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Hierarchy of Risk Control <span class="bdg ref">HQHVSN</span></h3>
+  <div class="card">
+    <p>When addressing any occupational hazard, interventions should be applied in this order from most to least effective. The hierarchy is a systematic framework: always attempt the higher tiers first before defaulting to lower-tier controls.</p>
+    <div class="hierarchy">
+      <div class="hrow best"><span class="rank">1</span><div><b>Elimination:</b> Remove the hazard entirely from the workplace (e.g., removing an unsafe piece of equipment).</div></div>
+      <div class="hrow good"><span class="rank">2</span><div><b>Substitution:</b> Replace the hazard with a safer alternative (e.g., switching from a higher-volatility to a lower-volatility anesthetic).</div></div>
+      <div class="hrow mid"><span class="rank">3</span><div><b>Engineering controls:</b> Physically modify the environment to contain or reduce the hazard (e.g., active scavenging systems, ventilation upgrades).</div></div>
+      <div class="hrow low"><span class="rank">4</span><div><b>Administrative controls:</b> Change work practices and procedures (e.g., vaporizer filling protocols, shift rotation, leak testing schedules).</div></div>
+      <div class="hrow worst"><span class="rank">5</span><div><b>PPE:</b> Personal protective equipment is the LAST line of defense, used when hazards cannot be adequately controlled by higher-tier methods.</div></div>
+    </div>
+    <div class="trap"><b>Exam Trap</b> PPE is at the BOTTOM of the hierarchy. It is not the preferred solution; it is the fallback when elimination, substitution, and engineering controls cannot adequately manage the hazard. An exam question asking for the "most effective" control is asking for Elimination, not better gloves.</div>
+  </div>
+
+  <h3>Participatory Ergonomics <span class="bdg ref">HQHVSN</span></h3>
+  <div class="card">
+    <p><b>Participatory ergonomics</b> is the practice of involving the workers who directly execute a task in designing the solutions to their own ergonomic and safety challenges. Staff members involved in daily tasks are often best positioned to identify practical, usable solutions because they understand the nuances of the work.</p>
+    <p>Benefits of participatory ergonomics:</p>
+    <ul class="hy">
+      <li>Produces more creative and contextually appropriate solutions.</li>
+      <li>Increases staff engagement and sense of ownership over workplace safety.</li>
+      <li>Reduces resistance to new protocols because staff helped design them.</li>
+    </ul>
+    <div class="trap"><b>Exam Trap</b> Participatory ergonomics is not just "asking staff for feedback." It means actively delegating the problem-solving authority to the workers performing the task. This is contrasted with top-down administrative mandates, which may produce technically correct but practically unusable solutions.</div>
+  </div>
+</section>
+
+<!-- ===================== WAG ===================== -->
+<section class="panel" id="wag">
+  <h2 class="sec">Waste Anesthetic Gas (WAG) Safety</h2>
+  <p class="lead">Inhalant anesthetic gases that escape into the surgical environment are a significant chemical hazard. Both clinical and environmental consequences are directly tested. PPE (masks, HEPA filters) does NOT protect against WAG.</p>
+
+  <h3>Clinical and Environmental Consequences <span class="bdg ref">HQHVSN</span></h3>
+  <div class="card">
+    <h4>Clinical consequences of chronic WAG exposure</h4>
+    <ul class="hy">
+      <li>Miscarriages and pre-term delivery (primary reproductive risk)</li>
+      <li>Balance and proprioceptive deficits</li>
+      <li>Hematologic and blood chemistry alterations</li>
+      <li>Genotoxicity (DNA damage)</li>
+    </ul>
+    <h4>Environmental consequences</h4>
+    <ul class="hy">
+      <li>Ozone depletion</li>
+      <li>Global warming potential of common inhalant agents (isoflurane, sevoflurane) is <b>more than 1,000 times that of CO2</b></li>
+    </ul>
+    <div class="trap"><b>Exam Trap</b> The global warming potential is stated as a specific magnitude: over 1,000 times CO2, not "slightly higher" or "comparable." This specific figure is testable. Also note: environmental harm cannot be neutralized by HEPA filters, which have no effect on gas molecules.</div>
+  </div>
+
+  <h3>What Does NOT Protect Against WAG <span class="bdg ref">HQHVSN</span></h3>
+  <div class="card">
+    <div class="corrbox"><b>Critical Point: PPE Cannot Protect Against WAG</b> Standard surgical paper masks, charcoal face masks, and HEPA filtration masks all FAIL to block waste anesthetic gas molecules from being inhaled by surgical personnel. None of these PPE items are suitable protection. This is an absolute statement in the textbook.</div>
+    <p>Charcoal canisters (scavenging canisters) are distinct from charcoal masks. Canisters adsorb gas (trap it) rather than venting it to the atmosphere. However, they are among the least effective and most inconsistent WAG protection methods. If used:</p>
+    <ul class="hy">
+      <li>Weight gain must be monitored <b>daily</b> to detect when the canister reaches exhaustion and must be exchanged.</li>
+      <li>Usage must be recorded daily.</li>
+      <li>They should never be relied upon as primary protection.</li>
+    </ul>
+  </div>
+
+  <h3>Engineering and Administrative Controls for WAG <span class="bdg ref">HQHVSN</span></h3>
+  <div class="card">
+    <h4>Engineering controls (preferred tier)</h4>
+    <ul class="hy">
+      <li>Active scavenging systems (preferred) or passive scavenging to capture exhaled gas at source</li>
+      <li>Non-recirculating room ventilation (exhausts room air to outside rather than recirculating)</li>
+      <li>Keyed vaporizer filling systems or drip-free bottle adapters (prevent liquid anesthetic spillage during transfer)</li>
+    </ul>
+    <h4>Administrative controls</h4>
+    <ul class="hy">
+      <li>Establish and use the <b>lowest appropriate flow rates</b> consistent with patient safety and circuit function</li>
+      <li>Perform a <b>daily leak test</b> before any anesthesia system is used</li>
+      <li>Fill vaporizers when the <b>minimum number of staff are present</b></li>
+      <li>Pregnant personnel or those attempting to conceive <b>must never be present</b> during vaporizer filling</li>
+      <li>Periodically monitor individual staff exposure using <b>anesthetic monitoring badges</b> (wearable dosimeters)</li>
+    </ul>
+    <div class="trap"><b>Exam Trap</b> "Daily leak test" and "lowest appropriate flow rates" are administrative controls, not engineering controls. Scavenging systems are engineering controls. Know which tier each intervention belongs to. Leak tests are performed daily; monitoring badges are periodic (not daily).</div>
+  </div>
+
+  <h3>Vaporizer Filling Protocols <span class="bdg ref">HQHVSN</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Use a <b>keyed vaporizer filling system</b> or a <b>drip-free bottle adapter</b> to minimize liquid spills during transfer.</li>
+      <li>Fill vaporizers at the <b>end of a surgical day</b> (or at a time when minimal staff will be exposed to any residual vapors).</li>
+      <li>Maintain active ventilation during filling.</li>
+      <li>Pregnant staff and those attempting to conceive must be completely excluded from the room during filling.</li>
+    </ul>
+  </div>
+
+  <h3>Spill Management <span class="bdg ref">HQHVSN</span></h3>
+  <div class="card">
+    <table class="cmp">
+      <thead><tr><th>Spill Size</th><th>Management Protocol</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><b>Small spill</b></td>
+          <td>Evaporates rapidly before cleanup is possible. Ensure ventilation is running. No absorbent intervention is effective for small spills.</td>
+        </tr>
+        <tr>
+          <td><b>Large spill</b></td>
+          <td>1. Ventilate the area (increase air exchange). 2. Apply an absorbent material such as cat litter to soak up the liquid. 3. Sweep the saturated material into a sealable container for proper disposal. Alternatively: use surgical suction if the spill occurs within the operating room.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===================== ERGONOMICS ===================== -->
+<section class="panel" id="ergo">
+  <h2 class="sec">Physical Ergonomics for HQHVSN Surgeons</h2>
+  <p class="lead">High-volume spay-neuter surgery involves repetitive motion, static postures, and sustained force application. Musculoskeletal (MSK) disorders are the most common occupational injury in this setting. Ergonomic interventions are evidence-based and directly tested.</p>
+
+  <h3>MSK Risk Factors and Common Injury Sites <span class="bdg ref">HQHVSN</span></h3>
+  <div class="card">
+    <h4>Three categories of MSK risk factors</h4>
+    <ul class="hy">
+      <li><b>Biomechanical:</b> Static or awkward postures, high repetition, and application of significant force during surgical tasks.</li>
+      <li><b>Psychosocial:</b> High workload, low managerial support, and low decision latitude. These psychological stressors independently correlate with higher rates of MSK discomfort and injury.</li>
+      <li><b>Individual:</b> Personal coping strategies, physical fitness, and individual resilience to occupational strain.</li>
+    </ul>
+    <h4>Most common MSK injury regions in HQHVSN surgeons</h4>
+    <ul class="hy">
+      <li>Lower back</li>
+      <li>Neck and cervical spine</li>
+      <li>Shoulders</li>
+      <li>Right thumb</li>
+      <li>Right wrist</li>
+    </ul>
+    <div class="trap"><b>Exam Trap</b> Psychosocial stressors (high workload, low decision latitude) directly contribute to MSK discomfort. This is not just a mental health point; it is an ergonomic principle. A question about reducing physical injury may have a correct answer involving management structure and workload distribution, not just table height.</div>
+  </div>
+
+  <h3>Workspace Setup and Posture <span class="bdg ref">HQHVSN</span></h3>
+  <div class="card">
+    <table class="cmp">
+      <thead><tr><th>Adjustment</th><th>Correct Setup</th><th>Rationale</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><b>Surgery table height</b></td>
+          <td>5 to 10 cm BELOW the surgeon's elbow height</td>
+          <td>Minimizes shoulder elevation and reduces awkward spinal flexion/leaning</td>
+        </tr>
+        <tr>
+          <td><b>Small patient placement</b></td>
+          <td>Move the patient to the side of the table CLOSER to the surgeon</td>
+          <td>Reduces the radius of forward reach, protecting the lower back from sustained forward lean</td>
+        </tr>
+        <tr>
+          <td><b>Sitting vs. standing</b></td>
+          <td>Alternate between sitting and standing throughout the surgical day</td>
+          <td>Limits static loading of the spine and lower limbs; reduces fatigue</td>
+        </tr>
+        <tr>
+          <td><b>Saddle chairs</b></td>
+          <td>Recommended for HQHVSN settings</td>
+          <td>Promote an upright pelvic tilt; allow the surgeon to position close to the table without thigh or pedestal interference</td>
+        </tr>
+        <tr>
+          <td><b>Floor support</b></td>
+          <td>Anti-fatigue floor mats + cushioned footwear</td>
+          <td>Reduces lower limb fatigue during long standing periods</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="trap"><b>Exam Trap</b> Table height is BELOW elbow, not at elbow or above. Small patients go to the NEAR side of the table, not centered. Saddle chairs specifically allow proximity to the table without pedestal interference against the thighs (this is their specific advantage over standard chairs).</div>
+  </div>
+
+  <h3>Repetitive Motion Mitigation <span class="bdg ref">HQHVSN</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Use pedicle ties</b> (faster, less repetitive motion per procedure) rather than more complex multi-throw closures when surgical technique permits.</li>
+      <li><b>Create smaller incisions</b> to reduce reach and tissue manipulation time.</li>
+      <li><b>Alternate instrument grips</b> between a tripod grip and a palm grip across different procedures or steps within the same procedure.</li>
+      <li><b>Alternate knotting styles</b> between hand ties and instrument ties to distribute the load across different muscle groups.</li>
+    </ul>
+    <div class="corrbox"><b>Suture Size and Force</b> Thicker suture materials require significantly more tensile force to secure. High force application during tying leads to ligament inflammation and increased muscle excitability in the hand and wrist. Choosing the appropriate (smallest effective) suture size is an ergonomic consideration, not just a tissue-handling preference.</div>
+    <div class="trap"><b>Exam Trap</b> Thicker suture = MORE force required = MORE risk of wrist and hand injury. The clinical reflex to "use a thicker, stronger suture" must be balanced against the ergonomic cost in high-volume settings where the same motion is repeated hundreds of times per day.</div>
+  </div>
+
+  <h3>Micropauses <span class="bdg ref">HQHVSN</span></h3>
+  <div class="card">
+    <div class="formulabox">
+      <div class="label">Micropause Protocol</div>
+      <div class="formula">15 to 30 seconds &middot; multiple times per hour</div>
+      <div class="fnote">Short intentional breaks that interrupt sustained static muscle loading. When combined with movement exercises such as stretching, yoga, or even dancing, micropauses significantly reduce MSK discomfort measured at end-of-shift evaluations.</div>
+    </div>
+    <div class="trap"><b>Exam Trap</b> The duration is 15 to 30 SECONDS, not 15 to 30 minutes. These are brief, frequent resets integrated into the surgical day, not extended rest periods. Their effectiveness depends on combining them with physical movement (stretching or exercise), not passive sitting.</div>
+  </div>
+</section>
+
+<!-- ===================== SURGICAL SUITE ===================== -->
+<section class="panel" id="env">
+  <h2 class="sec">Surgical Suite Design and Visual Environment</h2>
+  <p class="lead">Suite lighting quality and corrective lens management are directly testable in the context of HQHVSN ergonomics. These specifications protect tissue identification accuracy and surgeon posture.</p>
+
+  <h3>Lighting Requirements <span class="bdg ref">HQHVSN</span></h3>
+  <div class="card">
+    <div class="formulabox">
+      <div class="label">Surgical Suite Lighting Specifications</div>
+      <div class="formula">Color Rendering Index (CRI) &gt; 90</div>
+      <div class="fnote">Must include a broad spectrum of wavelengths, explicitly including the RED spectrum at wavelengths greater than 600 nm. The red spectrum is required for accurate differentiation of tissue types, vessel identification, and blood detection during procedures.</div>
+    </div>
+    <div class="trap"><b>Exam Trap</b> CRI must be GREATER THAN 90, not "at least 80" (the standard commercial building requirement) or "at least 90." The red spectrum above 600 nm is an explicit requirement, not implied by any standard CRI specification. A room with excellent CRI but no red spectrum is still inadequate for surgical use.</div>
+  </div>
+
+  <h3>Presbyopia and Corrective Lenses <span class="bdg ref">HQHVSN</span></h3>
+  <div class="card">
+    <p><b>Presbyopia</b> (age-related loss of near-focusing ability) affects most veterinary surgeons by age 40. Nearly all HQHVSN surgeons performing fine procedural work will require corrective lenses at some point during their career.</p>
+    <p>When introducing or changing prescription glasses in the surgical environment, the surgeon must verify that the glasses do <b>not adversely affect posture</b> by forcing a change in head or neck position to find the focal point. Incorrectly fitted lenses can introduce sustained head tilt or neck extension, causing chronic cervical MSK load.</p>
+    <div class="corrbox"><b>Surgical Mask Fogging</b> Condensation forming on corrective lenses during surgery is a common distraction and patient safety issue. The recommended solution is <b>adhesive tape applied over the nose bridge of the surgical mask</b> to create a seal that prevents warm exhaled breath from venting upward into the lens surface. This simple intervention eliminates fogging without requiring mask removal or special anti-fog lenses.</div>
+    <div class="trap"><b>Exam Trap</b> The recommended fix for lens fogging is tape over the nose bridge, not removing the mask, changing the mask type, or anti-fog lens coatings. The tape creates a physical seal against the face that redirects exhaled air downward instead of upward.</div>
+  </div>
+</section>
+
+<!-- ===================== MENTAL HEALTH ===================== -->
+<section class="panel" id="mental">
+  <h2 class="sec">Mental Health, Resiliency and Coping</h2>
+  <p class="lead">Shelter veterinarians face elevated rates of psychological distress and compassion fatigue compared to other veterinary cohorts. Understanding occupational strain models, at-risk demographics, and structured coping frameworks is essential for both clinical practice and the exam.</p>
+
+  <h3>The Job Strain Model <span class="bdg ref">HQHVSN</span></h3>
+  <div class="card">
+    <div class="formulabox">
+      <div class="label">Occupational Strain Formula</div>
+      <div class="formula">High Work Demands + Low Control / Low Decision Latitude = Major Strain</div>
+      <div class="fnote">This is the classic Job Demand-Control model. High-volume shelter environments combine extreme time pressure and emotional weight (high demands) with limited autonomy over scheduling, protocols, or outcomes (low decision latitude). This combination is the primary structural driver of occupational strain in HQHVSN settings.</div>
+    </div>
+    <div class="trap"><b>Exam Trap</b> High demands alone do not produce maximum strain. The damaging combination is high demands PLUS low control. A high-demand role with HIGH decision latitude (autonomy, flexibility) is associated with job challenge and growth, not distress. The control variable is the key modifier.</div>
+  </div>
+
+  <h3>At-Risk Demographics <span class="bdg ref">HQHVSN</span></h3>
+  <div class="card">
+    <p>Epidemiological studies of veterinary mental health have identified specific demographic groups with elevated risk for serious psychological distress and suicidal ideation:</p>
+    <ul class="hy">
+      <li><b>Young practitioners</b></li>
+      <li><b>Female practitioners</b></li>
+      <li><b>Solo practitioners</b> (working alone, without the buffering effect of a team or colleagues)</li>
+    </ul>
+    <p>Shelter veterinarians as a group face elevated risk for serious psychological distress, distinct from other veterinary cohorts such as companion animal general practitioners in multi-doctor practices.</p>
+    <div class="trap"><b>Exam Trap</b> The at-risk demographic is young, female, and solo. Not older, male, or those in large group practices. The social isolation component (solo practice) is an independently recognized risk factor beyond just gender and age.</div>
+  </div>
+
+  <h3>Perioperative Fatalities and Debriefing <span class="bdg ref">HQHVSN</span></h3>
+  <div class="card">
+    <p>Animal deaths during routine procedures trigger guilt, self-blame, and grief in shelter surgeons. This is particularly challenging in HQHVSN environments because:</p>
+    <ul class="hy">
+      <li>The unyielding operational schedule and fixed appointment load make it <b>difficult or impossible to pause for debriefing</b> after an adverse event.</li>
+      <li>There is a persistent cultural taboo around acknowledging medical errors and patient deaths openly.</li>
+    </ul>
+    <p>The text mandates that high-volume settings must move past this taboo and create structural space for <b>candid discussion of errors and adverse outcomes</b>, even if this requires scheduling modifications.</p>
+    <div class="trap"><b>Exam Trap</b> The challenge with debriefing after a perioperative death in HQHVSN settings is specifically the scheduling and operational tempo, NOT that vets are legally prohibited from discussing errors or that software prevents death logging. The exam tests whether you understand that the structural barrier is time/schedule, not legal or administrative prohibition.</div>
+  </div>
+
+  <h3>The Four Pillars of Coping <span class="bdg ref">HQHVSN</span></h3>
+  <div class="card">
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pnum">Pillar 1</div>
+        <h5>Technical Learning</h5>
+        <p>Analyzing the adverse event to identify technical skill improvements and team mechanics that prevent future occurrences. Rebuilds confidence through competence.</p>
+      </div>
+      <div class="pillar">
+        <div class="pnum">Pillar 2</div>
+        <h5>Finding Perspective</h5>
+        <p>Placing the adverse event within a larger context without minimizing its importance. Connecting individual cases to population-level impact and mission.</p>
+      </div>
+      <div class="pillar">
+        <div class="pnum">Pillar 3</div>
+        <h5>Seeking Support</h5>
+        <p>Actively engaging with professional colleagues, mentors, and teammates. Social connection is an independently protective factor against professional isolation and burnout.</p>
+      </div>
+      <div class="pillar">
+        <div class="pnum">Pillar 4</div>
+        <h5>Emotional Learning</h5>
+        <p>Building the personal capacity to navigate and recover from professional trauma. Developing self-awareness about emotional responses to high-stakes clinical events.</p>
+      </div>
+    </div>
+    <div class="trap"><b>Exam Trap</b> "Technical learning" means analyzing errors to extract skill improvements, NOT just practicing more surgeries without reflection. "Finding perspective" requires acknowledging the event's importance, not dismissing it. Social isolation is a risk factor; Pillar 3 (seeking support) directly counteracts it.</div>
+  </div>
+
+  <h3>Resilience and Mental Health Interventions <span class="bdg ref">HQHVSN</span></h3>
+  <div class="card">
+    <p>Formally recommended modalities for building psychological resilience in shelter veterinary staff:</p>
+    <ul class="hy">
+      <li><b>Mindfulness training</b></li>
+      <li><b>Psychotherapy</b> (professional counseling)</li>
+      <li><b>Compassion fatigue training</b> (specific programs designed for veterinary and human healthcare workers)</li>
+    </ul>
+    <div class="trap"><b>Exam Trap</b> The recommended interventions are mindfulness, psychotherapy, and compassion fatigue training, NOT "more surgical volume to build resilience," "forced team isolation," or "rotating to administrative duties." Compassion fatigue training is a specific, structured educational program, not just awareness of compassion fatigue as a concept.</div>
+  </div>
+</section>
+
+<!-- ===================== MCQ ===================== -->
+<section class="panel" id="mcq">
+  <h2 class="sec">MCQ Test Bank</h2>
+  <p class="lead">30 board-style questions covering Mental Health, Resiliency and Self-Care. Content drawn from HQHVSN and Shelter Medicine textbook chapters on workplace safety, ergonomics, and mental health. Click an option to answer; explanation appears after selection.</p>
+
+  <div class="mcqbar">
+    <div class="filters">
+      <button class="on" data-f="all">All 30</button>
+      <button data-f="safety">Safety (2)</button>
+      <button data-f="wag">WAG (11)</button>
+      <button data-f="ergo">Ergonomics (9)</button>
+      <button data-f="env">Suite (3)</button>
+      <button data-f="mental">Mental Health (5)</button>
+    </div>
+    <div class="score">
+      <span id="scoreDisplay">0 / 0</span>
+      <button class="reset" id="resetBtn">Reset</button>
+    </div>
+  </div>
+  <div id="qhost"></div>
+</section>
+
+</div></main>
+
+<footer><div class="wrap">
+  <p>ABVP Shelter Medicine Practice RVS &middot; Shelter Management Domain &middot; Subdomain 6: Mental Health, Resiliency and Self-Care &middot; Source: HQHVSN and Shelter Medicine textbook chapters. Exam date: November 2026.</p>
+</div></footer>
+
+<script>
+const tabrow = document.getElementById("tabrow");
+tabrow.addEventListener("click", function(e){
+  const b = e.target.closest("button");
+  if(!b || !b.dataset.p) return;
+  [...tabrow.children].forEach(x => x.classList.remove("active"));
+  b.classList.add("active");
+  document.querySelectorAll(".panel").forEach(p => p.classList.remove("show"));
+  document.getElementById(b.dataset.p).classList.add("show");
+});
+
+const Q = [
+  {f:"safety",q:"A high-volume spay-neuter clinic wants to systematically address injuries resulting from animal bites, heavy lifting, and sharps prick injuries. According to the hierarchy of risk control, which strategy represents the absolute most effective initial tier of defense?",o:["Mandate the use of thick canvas protective gloves (PPE)","Complete elimination of the hazard","Implement a mandatory 2-hour administrative lecture on low-stress handling","Install active scavenging engineering control lines in the pre-op suite"],a:1,e:"The hierarchy of risk control ranks elimination as the most effective tier: removing the hazard entirely from the workplace. PPE is the least effective tier and is used only when higher-tier controls cannot adequately manage the hazard."},
+  {f:"safety",q:"A clinic supervisor encourages veterinary technicians to directly design the restraint protocols for the facility's feral cat intake trap lines. What concept from the text describes this collaborative problem-solving approach?",o:["Psychosocial stress stratification","Participatory ergonomics","Decision latitude isolation","Administrative substitution"],a:1,e:"Participatory ergonomics actively engages the staff who execute a task in designing the solutions to their own workplace challenges. This approach yields more practical and creative solutions while fostering staff ownership and engagement with the resulting protocols."},
+  {f:"wag",q:"Exposure to waste anesthetic gas (WAG) inside an unventilated surgical prep room presents severe health risks to veterinary personnel. Which clinical consequence is explicitly associated with chronic WAG exposure?",o:["Presbyopia before the age of 40","Miscarriage and pre-term delivery","Ligament inflammation from high force application","Severe color rendering index discrepancies"],a:1,e:"Chronic exposure to waste anesthetic gas is directly associated with reproductive and genotoxic outcomes including miscarriages, pre-term delivery, balance and proprioceptive deficits, hematologic alterations, and genotoxicity. Presbyopia is a separate age-related vision issue unrelated to WAG."},
+  {f:"wag",q:"An environmental auditor calculates the global warming footprint of an HQHVSN facility's anesthetic vaporizers. What is the global warming potential of commonly released waste anesthetic gases?",o:["Equal to the baseline potential of ambient CO2","Over a thousand times that of CO2","Negligible due to rapid atmospheric neutralization","Completely eliminated by the use of inline HEPA filters"],a:1,e:"Modern inhalant anesthetic agents (isoflurane, sevoflurane) have global warming potentials exceeding the baseline of carbon dioxide by more than a thousandfold. HEPA filters have no effect on gas molecules and cannot reduce the environmental release of waste anesthetic gases."},
+  {f:"wag",q:"A high-volume surgery clinic relies solely on activated charcoal canisters attached to the exhalation limbs of their anesthesia circuits. What unique property and operational limitation do these canisters possess?",o:["They vent gas safely to the outside environment but require high-flow non-recirculating ventilation","They adsorb the gas rather than releasing it into the atmosphere, but they are among the least effective and most inconsistent protection methods","They function as an effective engineering control only if paired with standard surgical masks","They offer complete protection for pregnant personnel during vaporizer refills"],a:1,e:"Charcoal canisters capture gas molecules via adsorption rather than venting, which is environmentally better than releasing gas to the atmosphere. However, they yield inconsistent performance, have a finite capacity, and are among the least effective scavenging methods. They do not protect pregnant personnel during filling."},
+  {f:"wag",q:"A technician has weighed a charcoal scavenging canister at the end of a long surgical shift. To maintain safety when using these specific canisters, what daily administrative practice must be performed?",o:["The canister must be flushed with water to dissolve the adsorbed gas","Canister weight gain must be monitored and usage recorded daily so they can be exchanged when exhausted","The canister must be placed directly beneath a HEPA filter overnight","The weight data must be reported to the local regulatory body quarterly"],a:1,e:"Charcoal has a finite adsorption capacity. Daily monitoring of weight gain is mandatory to detect the exact threshold of canister exhaustion so it can be exchanged before releasing gas back into the environment. This is an administrative control that supports the use of an already low-efficacy scavenging method."},
+  {f:"wag",q:"A clinic manager wants to choose personal protective equipment to block waste anesthetic gases from being inhaled by recovery room personnel. Which option is explicitly stated to protect workers?",o:["Standard surgical paper masks","Activated charcoal cloth face masks","Inline HEPA filtration masks","None of the above; surgical masks, charcoal masks, and HEPA filters do not protect against WAG"],a:1,e:"The textbook explicitly states that standard surgical masks, charcoal face masks, and HEPA filtration masks are all ineffective at filtering waste anesthetic gas molecules from inhaled air. Gas molecules are too small to be blocked by any of these filtration mechanisms. Engineering controls (scavenging, ventilation) are required."},
+  {f:"wag",q:"An anesthetic protocol is being updated to minimize ambient contamination in a high-volume suite. Which protocol setting directly minimizes WAG release while maintaining patient safety?",o:["Utilizing the highest possible flow rate to ensure circuit pressure","Choosing the lowest appropriate gas flow rates consistent with patient safety and proper equipment function","Deactivating the active scavenging system during induction","Overfilling the liquid vaporizer chambers twice per shift"],a:1,e:"Balancing environmental protection with anesthesia safety requires setting the minimum viable flow rate that keeps the circuit functional while minimizing gas escape into the workspace. High flow rates increase WAG exposure without clinical benefit once minimum safe levels are achieved."},
+  {f:"wag",q:"During the morning setup, a veterinary assistant is preparing the anesthesia machines. Which mechanical step must always be executed before using the systems to minimize room contamination?",o:["Color rendering index evaluation","Leak testing of the anesthesia circuit","Pedicle tie force assessment","Activated charcoal canister venting"],a:1,e:"A daily, universal pressure check (leak test) is a baseline requirement that must precede any anesthesia use. Catching system leaks before gas escapes into the workspace is an administrative control that prevents unnecessary staff exposure throughout the entire surgical day."},
+  {f:"wag",q:"A clinic is updating its liquid anesthesia filling protocols. To minimize spills during vaporizer filling, what specific equipment configuration should be utilized?",o:["Open plastic funnels held by two staff members","A keyed vaporizer filling system or a drip-free bottle adapter","A non-recirculating wide-mouth beaker line","Standard surgical suction lines routed through a HEPA filter"],a:1,e:"Keyed fill ports and drip-free neck adapters specifically target liquid handling vulnerabilities to prevent spills during liquid anesthetic transfer. These engineering controls reduce the risk of large liquid spills that would create immediate high-concentration WAG exposure for all personnel in the area."},
+  {f:"wag",q:"A veterinary technician is assigned to refill the liquid isoflurane vaporizers at the end of the day. Which administrative parameter must be strictly enforced during this task?",o:["Fill the vaporizers when as many staff as possible are present to observe the process","Fill vaporizers when as few staff as possible are present, and pregnant personnel must not be present","Perform the filling directly over a large absorbent mat of dry cat litter","Ensure the room's non-recirculating ventilation system is completely turned off during filling"],a:1,e:"Minimizing the number of personnel in the room during filling reduces collective exposure. The absolute exclusion of pregnant personnel and those attempting to conceive is a mandatory administrative rule. Running non-recirculating ventilation during filling further reduces ambient WAG concentration."},
+  {f:"wag",q:"A bottle of liquid anesthetic breaks on the operating room floor creating a large liquid spill. What is the correct documented method for resolving a large liquid spill?",o:["Wait for it to evaporate naturally without altering room ventilation","Ventilate the area, apply an absorbent material like cat litter, sweep it into a sealable container, or use surgical suction if available in the room","Cover the spill with a damp surgical drape and continue with the next scheduled surgery","Evacuate the entire building for 48 hours to prevent genotoxicity"],a:1,e:"Large liquid spills require: first, increasing ventilation; then applying a granular absorbent (cat litter) to capture the liquid; sweeping the saturated absorbent into a sealable container for proper disposal. In an OR, surgical suction can also be used. Waiting for evaporation without additional ventilation results in maximum staff exposure as the liquid vaporizes."},
+  {f:"wag",q:"A clinic director wants to evaluate individual cumulative exposure to waste gases among the surgery team over a two-week period. Which monitoring tool should be employed periodically for this purpose?",o:["Inline HEPA filter sensors","Individual anesthetic monitoring badges worn by each staff member","Daily charcoal canister weight logs","Table height metric calipers"],a:1,e:"Wearable badge dosimeters (anesthetic monitoring badges) provide accurate, individual-level cumulative data on each staff member's WAG exposure over a defined period. This is distinct from daily charcoal canister weight logs (which measure canister exhaustion, not personal exposure) and daily leak tests (which check equipment integrity)."},
+  {f:"ergo",q:"A surgery team frequently handles large dogs weighing over 35 kg. To reduce the ergonomic strain of lifting these animals onto prep tables, what lifting strategy should be practiced?",o:["A rapid single-person lift using back muscles to ensure speed and minimize handling time","A coordinated two-person lift using bent knees and a straight back","Lifting the animal exclusively by its front limbs while keeping the legs straight","Requiring the surgeon to perform all lifts to maintain clinical isolation of the patient"],a:1,e:"Proper biomechanical lifting mechanics for heavy patients require a multi-person effort (to distribute load) focusing force generation through the legs (bent knees) while maintaining a neutral, straight spinal column. Single-person lifts using back muscles in a bent position are the primary cause of acute lumbar injury."},
+  {f:"ergo",q:"An HQHVSN surgeon reports chronic musculoskeletal discomfort in the lower back, neck, and shoulders. Aside from biomechanical strain, which psychosocial risk factors are highly correlated with MSK discomfort in veterinarians?",o:["Low work demands paired with high decision latitude","Low job satisfaction and high work-related stress","High usage of active scavenging systems","Frequent participation in ergonomics committees"],a:1,e:"Somatic pain perception and structural musculoskeletal deterioration are heavily influenced by psychological markers. Low job satisfaction and systemic career stress are independently correlated with higher rates of reported MSK discomfort in veterinarians. The biomechanical and psychosocial risk categories interact and amplify each other."},
+  {f:"ergo",q:"A surgeon is adjusting the hydraulic surgery table prior to starting a long row of cat spays. To optimize physical ergonomics, what is the ideal table height relative to the surgeon's body?",o:["Exactly parallel with the surgeon's shoulder joints","5 to 10 cm below the surgeon's elbow height","20 cm above the surgeon's waistline","Level with the surgeon's right thumb and wrist joints"],a:1,e:"Placing the working surface 5 to 10 cm below elbow level minimizes shoulder elevation and neutralizes awkward spinal flexion. Tables set too high force the surgeon to elevate their shoulders and flex their elbows acutely; tables set too low force the surgeon to lean forward, loading the lumbar spine."},
+  {f:"ergo",q:"A surgeon is preparing to spay a 1.5 kg pediatric kitten on a standard-sized surgical table. How should the patient be positioned to reduce unnecessary ergonomic strain?",o:["Placed directly dead-center on the table regardless of distance from the surgeon","Placed to the side of the surgery table closer to the surgeon","Placed at the far diagonal corner of the table to maximize lighting exposure","Elevated on a pedestal directly above the surgeon's elbow height"],a:1,e:"Moving lightweight or small patients to the near lateral boundary of the workspace reduces the radius of forward reach. Extended forward reaching loads the lower back and shoulder muscles in a disadvantaged mechanical position. Centering the patient on a large table unnecessarily forces a forward lean for every instrument pass."},
+  {f:"ergo",q:"An HQHVSN facility is evaluating different seating options for its surgical staff. Why are saddle chairs explicitly recommended for high-volume surgeons?",o:["They require the surgeon to stand continuously, maximizing lower limb strength","They generate a more upright posture and allow the surgeon to position close to the table without pedestal or table interference against the thighs","They feature integrated active scavenging systems that adsorb WAG","They eliminate the need for surgeons to use corrective lenses after the age of 40"],a:1,e:"Saddle seats position the pelvis to tilt naturally upright, promoting a neutral lumbar curve. Their narrow footprint allows close physical proximity to the table edge without the thighs pressing against the table underside or the seat pedestal intruding. This allows fine-motor surgical work from a sitting position."},
+  {f:"ergo",q:"A surgeon experiences repetitive motion strain in the right wrist and thumb while practicing in a high-volume shelter environment. Which modification to surgical technique is recommended to mitigate repetitive motion risk?",o:["Implement hand ties exclusively for every closure to standardize technique","Implement pedicle ties and create smaller incisions if the surgical technique permits","Increase incision length to allow a full palm grip on all instruments","Standardize on the thickest available suture size for all ligations"],a:1,e:"The intense repetition of high-volume settings requires adapting techniques to minimize cumulative strain per procedure. Pedicle ties complete the ligation step with fewer motion repetitions; smaller incisions reduce the amount of tissue manipulation required per case. Together, these reduce the total motion load over a surgical day."},
+  {f:"ergo",q:"A surgeon wants to vary physical movements between surgeries to decrease static musculoskeletal load. Which instrument handling habit directly supports this ergonomic goal?",o:["Maintaining a rigid tripod grip throughout the entire workday to maximize consistency","Varying techniques such as alternating between hand ties and instrument ties, and alternating between tripod and palm grips","Standardizing on a single unvarying palm grip to maximize closing force","Avoiding the use of new instruments to prevent unfamiliar motion patterns"],a:1,e:"Alternating grip configurations (tripod vs. palm) and switching closure mechanics (hand tie vs. instrument tie) distributes the kinetic load across distinct muscle fiber groups and tendon pathways. This prevents any single structure from bearing the full cumulative load of hundreds of repetitions over a surgical day."},
+  {f:"ergo",q:"A resident is selecting suture materials for a large volume of canine neuters. How does suture gauge (thickness) directly affect physical strain on the surgeon's hands according to ergonomic guidelines?",o:["Thicker suture sizes require less force to secure, reducing wrist excitability","The thicker the suture gauge, the more force required to secure the knot, which can lead to ligament inflammation and muscle excitability","Suture gauge has no biomechanical relationship with hand or wrist load","Thicker suture material automatically increases the tensile strength of the surgeon's ligaments"],a:1,e:"High-diameter suture strands require significantly greater tensile force to seat and secure the knot. Over hundreds of repetitions, this intense, repeated force application generates tendon inflammation (particularly of the thumb and wrist flexors) and increases localized nerve and muscle excitability, contributing to repetitive strain injury."},
+  {f:"ergo",q:"An HQHVSN surgeon integrates brief 15 to 30 second breaks multiple times per hour into their surgical schedule. What is the term for these breaks and what is their documented physical benefit?",o:["Macro-intervals; they increase the collagen content of hand ligaments","Micropauses; they are shown to reduce MSK discomfort, especially when combined with stretching or movement exercises","Administrative controls; they allow for daily leak testing of anesthesia machines","Decision latitude windows; they reduce the global warming potential of the surgical suite"],a:1,e:"Micropauses are intentional 15 to 30 second interruptions to sustained static muscle loading, implemented multiple times per hour. When combined with physical movement such as stretching, yoga, or gentle exercises, they provide tissues with brief recovery windows that reduce cumulative musculoskeletal discomfort measured at end-of-shift evaluations."},
+  {f:"env",q:"A clinic manager is renovating a surgical suite's lighting infrastructure. What are the explicit requirements for lighting quality and wavelength spectrum in a shelter surgical suite?",o:["A color rendering index under 50, focused entirely on blue-spectrum wavelengths","A color rendering index greater than 90, including a broad spectrum with wavelengths in the red spectrum above 600 nm","Monochromatic green lighting to minimize patient handling stress","Variable fluorescent bulbs that maximize lens fogging for surgeons over 40"],a:1,e:"Accurate clinical tissue differentiation requires high-fidelity illumination (CRI greater than 90) that faithfully reproduces the full visible spectrum, explicitly including long red wavelengths above 600 nm. The red spectrum is essential for identifying blood vessels, hemorrhage, and tissue type differentiation during fine surgical work."},
+  {f:"env",q:"A 44-year-old high-volume surgeon introduces new prescription reading glasses while performing flank ovariohysterectomies. When introducing glasses into the surgical environment, what critical postural check must the surgeon perform?",o:["Ensure the glasses completely block the red spectrum of light above 600 nm","Verify that the glasses do not adversely affect posture by influencing head or neck position","Verify that the lenses eliminate the need for adhesive tape over the mask nose bridge","Check that the frame forces a tilted head angle to provide a cervical stretch during surgery"],a:1,e:"Visual corrections must be checked to confirm they do not require the surgeon to tilt, flex, or extend the neck to find the focal point. Incorrectly fitted lenses that force a postural compensation introduce sustained cervical MSK loading that accumulates over a high-volume surgical day and can contribute to chronic neck and shoulder injury."},
+  {f:"env",q:"A surgeon struggles with constant condensation forming on their corrective lenses during surgery. What simple physical modification is documented as the recommended solution to this problem?",o:["Increase the room temperature to match the surgeon's body temperature","Apply adhesive tape over the nose bridge of the surgical mask to reduce upward fogging","Switch from an instrument tie to a hand tie technique","Remove the surgical mask entirely during pediatric spays"],a:1,e:"Applying an adhesive seal across the upper margin of the surgical mask creates a physical barrier that redirects warm exhaled breath downward instead of upward into the lens surface. This eliminates condensation without requiring mask removal or specialized anti-fog lens coatings. It is the standard recommended technique."},
+  {f:"mental",q:"According to sociological models of workplace strain, which specific combination of operational factors represents a primary recognized source of severe occupational strain for high-volume shelter veterinarians?",o:["Low work demands combined with high decision latitude and strong managerial support","High work demands paired with low control or low decision latitude over work processes","High managerial communication paired with excessively low surgery throughput targets","Practicing in large team settings with an abundance of available medical resources"],a:1,e:"The classic job demand-control model identifies the most damaging occupational conditions as high systemic demands (workload, time pressure, emotional weight) combined with minimal personal control (low decision latitude over schedule, protocols, and outcomes). This combination drives the highest levels of psychological strain in professional settings."},
+  {f:"mental",q:"An epidemiological survey reviews mental health risks across various veterinary practice cohorts. Which demographic subgroups of veterinarians are statistically identified as being at significantly elevated risk for suicidal ideation?",o:["Older male clinicians who practice in large multi-doctor corporate hospital settings","Young female practitioners and those who practice alone rather than within a team","Mid-career veterinarians who serve exclusively on liaison and committee roles","Safe-handling instructors who coordinate participatory ergonomics programs"],a:1,e:"Statistical health reviews consistently show that young age, female gender, and geographic or operational isolation (solo practice) are independently associated with elevated suicidal ideation risk in veterinarians. Shelter veterinarians as a group face elevated psychological distress compared to other veterinary cohorts."},
+  {f:"mental",q:"Following a sudden perioperative death during a routine spay at a high-volume shelter clinic, a veterinarian experiences self-blame, guilt, and grief. Why is resolving this emotional response uniquely challenging in HQHVSN environments?",o:["Shelter software prevents the electronic logging of perioperative fatalities","The unyielding schedule of HQHVSN clinics makes it difficult or impossible to interrupt the workday for debriefing and time away","Veterinarians are legally barred from seeking support from external professional colleagues","Technical learning cannot occur following a natural or unexpected animal death"],a:1,e:"The fixed, high-volume operational flow of HQHVSN environments leaves little to no systemic space to pause for clinical debriefing, error discussion, or emotional processing after an adverse event. The scheduling barrier is the primary structural impediment, not legal restrictions or technical limitations."},
+  {f:"mental",q:"A veterinary team meets to analyze a technical error that occurred during a cryptorchid neuter, discussing how they recovered intraoperatively and how to improve future technique. This debrief session directly engages which of the four pillars of successful coping?",o:["Emotional learning","Technical learning","Finding perspective","Seeking support via social isolation"],a:1,e:"Technical learning is defined as analyzing adverse events to extract specific improvements to surgical skills, decision-making, and team mechanics. This directly rebuilds the team's confidence in their clinical competence by converting a negative experience into actionable knowledge that reduces the probability of future occurrence."},
+  {f:"mental",q:"A shelter manager wants to integrate psychological resilience training into the veterinary team's continuing education program. Which specific modalities are explicitly recommended by the text to help staff manage stress and compassion fatigue?",o:["High-flow ventilation auditing and non-recirculating ventilation training","Mindfulness training, psychotherapy, and compassion fatigue training programs","Forced ergonomics compliance drills and static posture isolation protocols","Standard PPE utilization certification and mandatory colleague isolation"],a:1,e:"Building long-term psychological resilience against compassion fatigue requires formal cognitive and emotional support structures. The three explicitly recommended modalities are: mindfulness training (present-moment awareness practices), professional psychotherapy (structured therapeutic support), and compassion fatigue training (specific educational programs designed for healthcare workers in high-emotional-impact roles)."}
+];
+
+const LABELS = {
+  safety:"Workplace Safety", wag:"WAG", ergo:"Ergonomics",
+  env:"Surgical Suite", mental:"Mental Health"
+};
+
+let answered = 0, correct = 0, chosen = "all";
+let locked = [];
+
+function updateScore(){
+  document.getElementById("scoreDisplay").textContent = correct + " / " + answered;
+}
+
+function render(){
+  const filtered = chosen === "all" ? Q : Q.filter(function(q){ return q.f === chosen; });
+  locked = new Array(Q.length).fill(false);
+  const host = document.getElementById("qhost");
+  host.innerHTML = "";
+  filtered.forEach(function(q, i){
+    const globalIdx = Q.indexOf(q);
+    const div = document.createElement("div");
+    div.className = "q";
+    let html = '<div class="meta"><span class="num">Q' + (i + 1) + '</span><span class="tag">' + (LABELS[q.f] || q.f) + '</span></div>';
+    html += '<div class="stem">' + q.q + '</div>';
+    q.o.forEach(function(o, j){
+      html += '<button class="opt" data-i="' + globalIdx + '" data-j="' + j + '"><span class="k">' + "ABCD"[j] + '.</span>' + o + '</button>';
+    });
+    html += '<div class="expl" id="expl-' + globalIdx + '"><b class="cor">Correct: ' + "ABCD"[q.a] + '.</b> ' + q.e + '</div>';
+    div.innerHTML = html;
+    host.appendChild(div);
+  });
+}
+
+document.getElementById("qhost").addEventListener("click", function(e){
+  const btn = e.target.closest(".opt");
+  if(!btn) return;
+  const i = +btn.dataset.i;
+  const j = +btn.dataset.j;
+  if(locked[i]) return;
+  locked[i] = true;
+  answered++;
+  const host = document.getElementById("qhost");
+  if(j === Q[i].a){
+    correct++;
+    btn.classList.add("correct");
+  } else {
+    btn.classList.add("wrong");
+    const correctBtn = host.querySelector('.opt[data-i="' + i + '"][data-j="' + Q[i].a + '"]');
+    if(correctBtn) correctBtn.classList.add("correct");
+  }
+  host.querySelectorAll('.opt[data-i="' + i + '"]').forEach(function(b){ b.classList.add("locked"); });
+  const expl = document.getElementById("expl-" + i);
+  if(expl) expl.classList.add("show");
+  updateScore();
+});
+
+document.querySelectorAll(".mcqbar .filters button").forEach(function(btn){
+  btn.addEventListener("click", function(){
+    document.querySelectorAll(".mcqbar .filters button").forEach(function(b){ b.classList.remove("on"); });
+    btn.classList.add("on");
+    chosen = btn.dataset.f;
+    answered = 0; correct = 0;
+    updateScore();
+    render();
+  });
+});
+
+document.getElementById("resetBtn").addEventListener("click", function(){
+  answered = 0; correct = 0;
+  updateScore();
+  render();
+});
+
+render();
+</script>
+</body>
+</html>

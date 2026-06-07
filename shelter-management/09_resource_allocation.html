@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resource Allocation, Grants and Funding | Shelter Management | ABVP Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#3d1a0a;--ink2:#5c2c14;--paper:#fdf4ec;--paper2:#fffaf5;
+    --line:#e4d3c4;--muted:#7a5c4a;
+    --id:#b84c1a;--id-soft:#f5ddd0;
+    --good:#1f7a4d;--bad:#b23b3b;
+    --notes:#7a4fb5;--notes-soft:#ece3f7;
+    --lit:#1f6f8b;--lit-soft:#dcedf2;
+    --aspca:#8a6d1f;--aspca-soft:#f3ebcf;
+    --ref:#b5651d;--ref-soft:#f6e7d4;
+    --shadow:0 1px 2px rgba(61,26,10,.08),0 8px 24px rgba(61,26,10,.06);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;
+    background-image:radial-gradient(circle at 1px 1px,rgba(61,26,10,.04) 1px,transparent 0);background-size:22px 22px;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+  header.top{background:var(--ink);color:var(--paper2);padding:26px 0 22px;border-bottom:4px solid var(--id)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#d4a88a;margin:0 0 6px}
+  header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(24px,4vw,38px);margin:0;line-height:1.05}
+  header.top p.sub{margin:8px 0 0;color:#f0d9cc;font-size:14px;max-width:70ch}
+  .legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}
+  .legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.25);color:#f5ece5;display:flex;align-items:center;gap:6px}
+  .legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--paper2);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button:hover{background:var(--paper);color:var(--ink)}
+  .tabrow button.active{background:var(--ink);color:var(--paper2)}
+  .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--id)}
+  main{padding:30px 0 80px}
+  .panel{display:none;animation:fade .35s ease}
+  .panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;letter-spacing:-.01em}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:78ch}
+  h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:30px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;color:var(--ink2);text-transform:uppercase;letter-spacing:.03em}
+  .card{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}
+  ul.hy{margin:8px 0;padding-left:0;list-style:none}
+  ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed #e6d4c2;font-size:14px}
+  ul.hy li:last-child{border-bottom:0}
+  ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;border-radius:2px;background:var(--id);transform:rotate(45deg)}
+  .trap{background:#fdf0ea;border:1px solid #e8c4aa;border-left:4px solid var(--id);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .trap b{color:var(--id);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .corrbox{background:#e9f4ee;border:1px solid #bfe0cc;border-left:4px solid var(--good);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .corrbox b{color:var(--good);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:var(--paper2);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp th{background:var(--ink);color:var(--paper2);font-weight:600;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase}
+  table.cmp tr:last-child td{border-bottom:0}
+  table.cmp td b{color:var(--ink)}
+  .bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+  .bdg.ref{background:var(--ref-soft);color:var(--ref)}
+  .bdg.lit{background:var(--lit-soft);color:var(--lit)}
+  .formulabox{background:var(--id-soft);border:1px solid #e0b89a;border-left:4px solid var(--id);border-radius:10px;padding:14px 16px;margin:14px 0}
+  .formulabox .label{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--id);margin-bottom:4px;font-weight:600}
+  .formulabox .formula{font-family:"JetBrains Mono",monospace;font-size:14px;color:var(--ink);margin:4px 0;font-weight:600}
+  .formulabox .fnote{font-size:12.5px;color:var(--muted);margin-top:6px}
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--ink);color:var(--paper2);border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:54px;z-index:10}
+  .mcqbar .filters{display:flex;gap:6px;flex-wrap:wrap}
+  .mcqbar .filters button{font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#f0d9cc;padding:6px 11px;border-radius:999px;cursor:pointer}
+  .mcqbar .filters button.on{background:var(--id);border-color:var(--id);color:#fff}
+  .score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}
+  .score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;color:#f0d9cc;padding:5px 10px;border-radius:8px;font-size:11px}
+  .q{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
+  .q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+  .q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--id-soft);color:var(--id)}
+  .q .stem{font-weight:600;font-size:15px;margin-bottom:10px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;font-family:"Public Sans";transition:background .15s,border-color .15s}
+  .opt:hover{border-color:var(--ink)}
+  .opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}
+  .opt.correct{background:#e8f5ec;border-color:var(--good);color:#0d3d24}
+  .opt.wrong{background:#fbe9e9;border-color:var(--bad);color:#5e1d1d}
+  .opt.locked{cursor:default}
+  .expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:#f9f0e8;border:1px solid var(--line);font-size:13.5px}
+  .expl.show{display:block}
+  .expl b.cor{color:var(--good)}
+  footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
+  @media(max-width:640px){.mcqbar{top:50px}}
+</style>
+</head>
+<body>
+<nav style="background:#0f3d3a;padding:9px 18px;display:flex;align-items:center;gap:10px;font-family:'Public Sans',system-ui,sans-serif;font-size:13px;font-weight:500;border-bottom:2px solid #1f5c4e"><a href="../index.html" style="color:#9ec9c2;text-decoration:none;display:flex;align-items:center;gap:5px"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span style="color:#4a7a6e;font-size:11px">›</span><span style="color:#cfe3df">Shelter Management</span></nav>
+
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">ABVP Shelter Medicine RVS &middot; Shelter Management (18%) &middot; Subdomain 9: Resource Allocation</p>
+    <h1>Resource Allocation, Grants and Funding</h1>
+    <p class="sub">Funding structures (government vs. non-profit), restricted and unrestricted grants, board fiscal oversight, 501(c)(3) compliance, staff resource allocation, and private practitioner community relations. Source: Shelter Medicine for Veterinarians and Staff, 2nd Ed., Chapter 5.</p>
+    <div class="legend">
+      <span><i style="background:var(--ref)"></i>Textbook Ch. 5 (Administrative Issues)</span>
+      <span><i style="background:var(--good)"></i>Verified content</span>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="funding"><span class="dot"></span>Funding Structures</button>
+  <button data-p="grants"><span class="dot"></span>Grants and Donor Intent</button>
+  <button data-p="board"><span class="dot"></span>Board Fiscal Oversight</button>
+  <button data-p="staffing"><span class="dot"></span>Resource Allocation</button>
+  <button data-p="practitioners"><span class="dot"></span>Community Relations</button>
+  <button data-p="mcq"><span class="dot" style="background:var(--ink)"></span>MCQ Bank (16)</button>
+</div></div></nav>
+
+<main><div class="wrap">
+
+<!-- FUNDING STRUCTURES -->
+<section class="panel show" id="funding">
+  <h2 class="sec">Funding Structures: Government vs. Non-Profit</h2>
+  <p class="lead">Understanding how a shelter is funded determines its operational constraints, admission policies, and legal obligations. This is a foundational administrative concept directly tested on the ABVP exam.</p>
+
+  <h3>Government (Municipal) Funding <span class="bdg ref">Ch. 5</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Primary funding source:</b> Local tax revenue, allocated through the municipal budget process.</li>
+      <li><b>Admission mandate:</b> Open-admission. Legally required by local ordinances to accept every animal brought to them from the designated jurisdiction. Cannot turn away animals.</li>
+      <li><b>Operational constraints:</b>
+        <ul style="margin:6px 0 0;padding-left:16px;font-size:13.5px">
+          <li>Civil service rules governing hiring, firing, compensation, and employee classification.</li>
+          <li>Union agreements that may dictate work rules, task assignments, and scheduling.</li>
+          <li>Public purchasing mandates requiring competitive bidding for contracts above a threshold.</li>
+        </ul>
+      </li>
+    </ul>
+    <div class="trap"><b>Exam Trap</b> Municipal shelters cannot simply "decide" to become limited-admission. Their admission policy is determined by the local ordinance that established them. The operational flexibility to limit intake belongs to private non-profits, not government entities.</div>
+  </div>
+
+  <h3>Private Non-Profit 501(c)(3) Funding <span class="bdg ref">Ch. 5</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Primary funding sources:</b> Private foundation grants, individual donations, fundraising events, planned giving/bequests, and earned revenue (adoption fees, low-cost services).</li>
+      <li><b>Admission flexibility:</b> May choose limited-admission to preserve Capacity for Care (C4C). This is a legally defensible operational strategy, not an evasion of responsibility.</li>
+      <li><b>Operational advantages:</b> Greater flexibility in hiring, compensation, purchasing, and program design compared to government shelters.</li>
+      <li><b>Accountability structure:</b> Accountable to the board of directors, donors, and state regulatory bodies. Not subject to public record laws in the same way as government agencies.</li>
+    </ul>
+    <div class="corrbox"><b>Key Registration Pathway for Non-Profits</b> After achieving federal 501(c)(3) status, a non-profit shelter must ALSO register with: (1) the state agency that licenses animal shelters (typically the State Department of Agriculture), and (2) the state attorney general's office of charitable trusts. Both dual state registrations are required.</div>
+  </div>
+
+  <h3>501(c)(3) Compliance Requirements <span class="bdg ref">Ch. 5</span></h3>
+  <div class="card">
+    <p>Three absolute conditions for maintaining 501(c)(3) status:</p>
+    <ul class="hy">
+      <li>Must <b>operate exclusively for the exempt purpose</b> stated in the articles of incorporation.</li>
+      <li>Must have <b>no earnings that improperly benefit private individuals</b> (private inurement prohibition).</li>
+      <li>Must <b>not carry on substantial activities to influence legislation</b> (lobbying restriction).</li>
+    </ul>
+    <div class="corrbox"><b>Form 990: Mandatory Public Display</b> The IRS Form 990 (governance composition, financial reporting) must by law be on public display and available to the public at ALL TIMES. It is not an internal document restricted to board members. Public accessibility is a legal requirement, not a voluntary transparency practice.</div>
+    <div class="trap"><b>Exam Trap</b> Form 990 is publicly accessible "at all times" not "upon request" or "annually at the AGM." The document must be continuously available for public review. Keeping it sealed or requiring a formal request process violates this requirement.</div>
+  </div>
+</section>
+
+<!-- GRANTS AND DONOR INTENT -->
+<section class="panel" id="grants">
+  <h2 class="sec">Grants, Restricted Funds, and Donor Intent</h2>
+  <p class="lead">Restricted grants are legally binding agreements. Understanding what a shelter can and cannot do with grant funds is one of the most directly tested administrative topics on the ABVP exam.</p>
+
+  <h3>Restricted vs. Unrestricted Grants <span class="bdg ref">Ch. 5</span></h3>
+  <div class="card">
+    <table class="cmp">
+      <thead><tr><th>Grant Type</th><th>Definition</th><th>Operational Implication</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><b>Restricted grant</b></td>
+          <td>Donor specifies in writing the exact purpose for which funds must be used (e.g., "pediatric feline spay-neuter only").</td>
+          <td>Funds may only be used for the designated purpose. Cannot be diverted under any circumstances, including medical emergencies. Diverting funds violates non-profit law, trust law, and may trigger revocation of 501(c)(3) status.</td>
+        </tr>
+        <tr>
+          <td><b>Unrestricted grant</b></td>
+          <td>Donor provides funds with no designated purpose, leaving allocation to the shelter's discretion.</td>
+          <td>May be used for any legitimate operational or programmatic purpose. Management and board have full discretion over deployment.</td>
+        </tr>
+        <tr>
+          <td><b>General operating support (GOS)</b></td>
+          <td>A type of unrestricted funding specifically intended to cover overhead and operational costs.</td>
+          <td>Most valued by non-profits because it provides flexibility. Increasingly offered by progressive funders who recognize operational sustainability.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>The Restricted Grant Rule: No Emergency Exception <span class="bdg ref">Ch. 5</span></h3>
+  <div class="card">
+    <div class="corrbox"><b>Absolute Rule</b> There is NO emergency exception to restricted grant law. A shelter facing an acute canine parvovirus outbreak cannot use funds restricted to a feline TNR program to purchase isolation PPE, even if animals are dying. The shelter must seek alternative emergency funding. Diverting restricted funds is a violation of legal obligations to the donor regardless of the severity of the operational crisis.</div>
+    <div class="trap"><b>Exam Trap</b> Neither the board of directors, the executive director, nor the shelter veterinarian has authority to redirect restricted grant funds during an emergency. No internal governance mechanism can override donor intent in a legally restricted grant. Board approval does not create an exception.</div>
+  </div>
+
+  <h3>Grant Management Best Practices <span class="bdg ref">Ch. 5</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Separate accounting:</b> Restricted funds must be tracked in separate accounts or cost centers to ensure they are used only for the designated purpose and that reporting to the donor is accurate.</li>
+      <li><b>Grant reporting:</b> Most restricted grants require periodic reports demonstrating that funds were used as specified. Failure to report may require repayment.</li>
+      <li><b>Grant stewardship:</b> The board oversees compliance with grant conditions. The executive director and veterinary staff implement programs and report on outcomes.</li>
+      <li><b>Donor relations:</b> Proactive communication with funders when programmatic challenges arise (e.g., lower-than-expected surgery volume) preserves the relationship even when outcomes fall short of targets.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BOARD FISCAL OVERSIGHT -->
+<section class="panel" id="board">
+  <h2 class="sec">Board of Directors Fiscal Oversight</h2>
+  <p class="lead">The Board of Directors governs; the staff operates. Understanding the exact boundary between these roles is a high-yield exam topic. Boards control money and strategic direction. Staff controls medicine and day-to-day operations.</p>
+
+  <h3>Board Duties <span class="bdg ref">Ch. 5</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Governance and policy-making</li>
+      <li>Fiscal oversight and financial accountability</li>
+      <li>Long-range strategic planning</li>
+      <li>Ensuring restricted grant funds are used as designated by donors (legally binding fiduciary duty)</li>
+      <li>Hiring and evaluating the CEO (the ONLY staff member the board directly hires)</li>
+    </ul>
+  </div>
+
+  <h3>What the Board Does NOT Do <span class="bdg ref">Ch. 5</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Does NOT engage in day-to-day shelter operations</li>
+      <li>Does NOT hire staff members other than the CEO</li>
+      <li>Does NOT make detailed programmatic decisions without consulting staff</li>
+      <li>Does NOT independently direct medical protocols or override veterinary judgments</li>
+    </ul>
+    <div class="trap"><b>Exam Trap</b> A board that denies a medical resource request because restricted funds are already committed to a designated program is executing its legal fiduciary duty correctly. This is NOT an example of the board overstepping into day-to-day operations. Boards control restricted money allocation. Staff request resources within those constraints.</div>
+  </div>
+
+  <h3>Fiscal Oversight in Practice <span class="bdg ref">Ch. 5</span></h3>
+  <div class="card">
+    <p>The board's financial oversight role includes:</p>
+    <ul class="hy">
+      <li>Approving the annual operating budget.</li>
+      <li>Reviewing and approving financial statements (monthly or quarterly).</li>
+      <li>Ensuring the annual audit is completed and results reviewed.</li>
+      <li>Monitoring compliance with all grant terms and conditions.</li>
+      <li>Ensuring the Form 990 is filed accurately and is on public display at all times.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- RESOURCE ALLOCATION -->
+<section class="panel" id="staffing">
+  <h2 class="sec">Resource Allocation and Staff Utilization</h2>
+  <p class="lead">Resource allocation is the operational process of aligning personnel hours, physical assets, and budget with the shelter's animal care mandate while maintaining Capacity for Care.</p>
+
+  <h3>Resource Allocation Framework <span class="bdg ref">Ch. 5</span></h3>
+  <div class="card">
+    <p><b>Resource allocation</b> in a shelter context means matching available resources (staff hours, kennel space, medical supplies, budget) to the operational requirements of caring for the current animal population.</p>
+    <ul class="hy">
+      <li><b>Staff scheduling:</b> Scheduling kennel staff to ensure every animal receives feeding, cleaning, and enrichment within available human resource constraints is a direct application of resource allocation.</li>
+      <li><b>Capacity management:</b> Matching intake volume to kennel capacity, staffing levels, and medical resources. When these fall out of alignment, C4C is compromised and disease risk rises.</li>
+      <li><b>Budget alignment:</b> Ensuring that operational costs are covered by available funding, and that restricted funds are deployed only for their designated purposes.</li>
+    </ul>
+    <div class="corrbox"><b>Key Reference: Every Nose Counts</b> "Every Nose Counts: Using Metrics in Animal Shelters" is the primary operational text dedicated to using statistical metrics (denominators from intake data, numerators from medical data) to optimize shelter population flow and operational resource deployment. It translates data collection into actionable management decisions.</div>
+  </div>
+
+  <h3>The NACA Staffing Standard <span class="bdg ref">Ch. 5</span></h3>
+  <div class="card">
+    <div class="formulabox">
+      <div class="label">NACA Minimum Care Standard</div>
+      <div class="formula">15 minutes per animal per day</div>
+      <div class="fnote">This covers ONLY feeding and cleaning. It is an absolute minimum, NOT a target or ideal standard. A shelter using 15 min/animal/day as a staffing target is providing the legal floor of care, not a welfare-positive standard. Shelters should aim to exceed this and include enrichment, socialization, and health monitoring time in staffing calculations.</div>
+    </div>
+    <div class="trap"><b>Exam Trap</b> The NACA 15-minute standard applies specifically to feeding and cleaning. It does NOT include medical care, enrichment, socialization, or behavioral assessment. A shelter staffing at exactly 15 minutes per animal is meeting the minimum, not providing comprehensive care. The staffing audit should calculate required time (actual care tasks) vs. actual available time.</div>
+  </div>
+
+  <h3>Staff Conflict and Operational Health <span class="bdg ref">Ch. 5</span></h3>
+  <div class="card">
+    <p>Chapter 5 addresses structural contributors to staff conflict in shelter environments:</p>
+    <ul class="hy">
+      <li><b>High-turnover positions:</b> Care technician roles in shelters experience higher-than-average turnover due to emotional demands, physical workload, and often lower compensation relative to other animal care settings.</li>
+      <li><b>Compassion fatigue:</b> Repetitive exposure to animal suffering and euthanasia drives emotional exhaustion. This is a predictable organizational hazard that requires active management, not just individual resilience.</li>
+      <li><b>Union guidelines:</b> In government settings, union contracts may limit management's flexibility in restructuring roles, adjusting hours, or disciplining staff outside agreed procedures.</li>
+      <li><b>Communication systems:</b> Structured communication models (shift handoff protocols, team briefings, escalation pathways) reduce operational friction and prevent information gaps from becoming animal welfare failures.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- COMMUNITY RELATIONS -->
+<section class="panel" id="practitioners">
+  <h2 class="sec">Private Practitioner Community Relations</h2>
+  <p class="lead">Shelter HQHVSN and low-cost public wellness programs sometimes create friction with local private veterinary practices. Managing this relationship proactively is both a business and a community health strategy.</p>
+
+  <h3>The Friction Dynamic <span class="bdg ref">Ch. 5</span></h3>
+  <div class="card">
+    <p>Private veterinary practices may express concern that a shelter's subsidized public wellness clinic (low-cost vaccines, flea prevention, basic exams) creates unfair competition for their paying client base.</p>
+    <p>This tension is real and legitimate. A regional veterinary medical association (VMA) expressing concern about a shelter's low-cost public clinic is identifying a genuine market competition issue, not simply being territorial.</p>
+  </div>
+
+  <h3>Income-Qualified Restrictions: The Standard Solution <span class="bdg ref">Ch. 5</span></h3>
+  <div class="card">
+    <div class="corrbox"><b>Standard Operational Strategy</b> Restricting subsidized public services to income-qualified clients (means-testing) is the standard approach shelters use to fulfill their humanitarian mission while minimizing competitive friction with private practitioners. By limiting subsidized services to clients who cannot otherwise afford veterinary care, the shelter avoids drawing clients away from private practices and serves the population that private practices cannot economically serve.</div>
+    <div class="trap"><b>Exam Trap</b> Income-qualified restrictions are NOT a compromise or a concession to private practices. They are an operationally sound strategy that achieves two goals simultaneously: serving the target population (underserved low-income pet owners) AND maintaining community goodwill with private practitioners. The exam tests whether you understand why this strategy is used, not just that it exists.</div>
+  </div>
+
+  <h3>Additional Community Integration Strategies <span class="bdg ref">Ch. 5</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Referral relationships:</b> Shelters can refer adopters with complex medical needs to local private practices, creating a steady client stream for private vets rather than competing for it.</li>
+      <li><b>Specialist services:</b> Private practices can serve as referral partners for specialist care (orthopedics, cardiology, oncology) that shelter medicine programs cannot provide in-house.</li>
+      <li><b>Low-cost clinic scope limits:</b> Shelters may voluntarily limit their public-facing clinic services to preventive care (vaccines, flea treatment, deworming) and leave diagnostic and curative care to private practices.</li>
+      <li><b>Communication:</b> Proactively informing the local VMA of the shelter's income-qualification criteria and scope limits prevents misunderstandings about service overlap.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- MCQ -->
+<section class="panel" id="mcq">
+  <h2 class="sec">MCQ Test Bank</h2>
+  <p class="lead">16 board-style questions covering funding structures, grants, boards, resource allocation, and community relations. Content drawn from source notes. Click an option to answer.</p>
+  <div class="mcqbar">
+    <div class="filters">
+      <button class="on" data-f="all">All 16</button>
+      <button data-f="funding">Funding</button>
+      <button data-f="grants">Grants</button>
+      <button data-f="board">Board</button>
+      <button data-f="staffing">Staffing</button>
+      <button data-f="community">Community</button>
+    </div>
+    <div class="score"><span id="scoreDisplay">0 / 0</span><button class="reset" id="resetBtn">Reset</button></div>
+  </div>
+  <div id="qhost"></div>
+</section>
+
+</div></main>
+<footer><div class="wrap"><p>ABVP Shelter Medicine Practice RVS &middot; Shelter Management &middot; Subdomain 9: Resource Allocation, Grants and Funding &middot; Source: Shelter Medicine for Veterinarians and Staff 2nd Ed., Ch. 5. Exam: November 2026.</p></div></footer>
+
+<script>
+const tabrow = document.getElementById("tabrow");
+tabrow.addEventListener("click", function(e){
+  const b = e.target.closest("button");
+  if(!b || !b.dataset.p) return;
+  [...tabrow.children].forEach(x => x.classList.remove("active"));
+  b.classList.add("active");
+  document.querySelectorAll(".panel").forEach(p => p.classList.remove("show"));
+  document.getElementById(b.dataset.p).classList.add("show");
+});
+
+const Q = [
+  {f:"funding",q:"A municipal animal control facility operates under local ordinances that require it to accept every stray, abandoned, or seized animal brought to its doors within county lines. Which term correctly defines this operational mandate?",o:["Limited-admission shelter","Managed-intake facility","Open-admission shelter","Semiautonomous sanctuary"],a:2,e:"Open-admission facilities are structurally and legally bound by local ordinances to accept every animal from their designated jurisdiction. This is a legal mandate, not a policy choice. Private non-profit shelters have the flexibility to be limited-admission."},
+  {f:"funding",q:"A private 501(c)(3) shelter establishes strict criteria for owner surrenders, capping intake based on current kennel availability. What primary management concept justifies this limited-admission framework?",o:["Civil service protection rules","Public purchasing policies","Maintaining Capacity for Care (C4C)","Municipal contract optimization"],a:2,e:"Limited-admission shelters control their intake to match population size with available staff, space, and medical resources. Capacity for Care is the structural justification: a shelter that cannot meet the welfare needs of its animals should not admit more animals than it can humanely house."},
+  {f:"board",q:"A shelter veterinarian requests funds to overhaul a quarantine ward's air-handling system. The executive director denies the request, stating the board has restricted all foundation grant payouts to a public TNR program. Which statement correctly describes the board's role?",o:["The board is overstepping by managing day-to-day medical logistics","The board is executing its legal role of fiscal oversight and strategic donor-intent compliance","The board has authority to change donor intent without notifying the foundation","The board must defer all financial allocation choices to veterinary staff"],a:1,e:"Boards focus on governance and fiscal stewardship, including ensuring restricted funds are used exactly as designated by the donor. Denying a medical resource request because restricted funds are committed elsewhere is the board executing its fiduciary duty correctly, not overstepping into operations."},
+  {f:"staffing",q:"A shelter medicine department experiences severe friction between care technicians and leadership due to repetitive tasks, high euthanasia rates, and emotional exhaustion. What organizational hazard must management address?",o:["Civil service bureaucracy","High decision latitude","Compassion fatigue","Public relations restrictions"],a:2,e:"Long-term exposure to animal suffering, high-stakes decisions, and euthanasia performance directly drives compassion fatigue in shelter environments. It is a predictable organizational hazard that must be addressed proactively through workload management, support systems, and mental health resources."},
+  {f:"community",q:"A regional veterinary medical association expresses concern that a shelter's low-cost public wellness clinic is competing unfairly with local private practices. To balance mission with community relations, which operational strategy is most commonly evaluated?",o:["Broadening public wellness services to all zip codes regardless of income","Establishing income-qualified restrictions or means-testing for public-facing clinics","Mandating that all private practitioners volunteer weekly at the shelter","Stopping all shelter medical procedures including care for adoptable animals"],a:1,e:"Restricting subsidized public services to income-qualified clients fulfills the shelter's humanitarian mission while minimizing competitive friction with private clinics. By limiting eligibility to clients who cannot otherwise afford care, the shelter serves the population private practices cannot economically serve."},
+  {f:"staffing",q:"A shelter operates an intake system where denominators are pulled from intake logs and numerators from medical diagnostics. Which reference text is explicitly dedicated to using these statistical metrics to optimize population flow?",o:["Veterinary Forensics: Animal Cruelty Investigations","Every Nose Counts: Using Metrics in Animal Shelters","Infectious Disease Management in Animal Shelters","High-Quality, High-Volume Spay and Neuter"],a:1,e:"Every Nose Counts is the primary operational text dedicated to using statistical metrics (denominators from intake data, numerators from medical data) to optimize shelter population flow and operational resource deployment. It translates data collection into actionable management decisions."},
+  {f:"funding",q:"Which key structural limitation distinguishes municipal animal control agencies from private non-profit shelters?",o:["Municipal agencies cannot utilize controlled substances","Municipal agencies are heavily constrained by civil service rules and public purchasing mandates","Municipal agencies are completely exempt from state veterinary practice acts","Municipal agencies are funded entirely by private foundation grants"],a:1,e:"Publicly funded municipal agencies must comply with civil service labor regulations governing hiring, firing, and compensation, as well as competitive public procurement laws. These constraints significantly limit operational flexibility compared to private non-profits."},
+  {f:"funding",q:"A private shelter board wants to ensure its organization maintains federal tax-exempt status. Under which section of the Internal Revenue Code must it comply?",o:["Section 401(k)","Section 501(c)(3)","Section 506(c)","Section 1099"],a:1,e:"Section 501(c)(3) is the specific IRS tax classification that grants federal tax exemption to charitable non-profit entities. Organizations must operate exclusively for their exempt purpose, avoid private inurement, and limit lobbying activities to maintain this status."},
+  {f:"grants",q:"A non-profit shelter receives a $50,000 grant restricted for construction of a new outdoor canine play yard. The shelter faces an immediate shortfall for utility bills. Can the executive director use this grant for utilities?",o:["Yes, if the utility bill threatens facility operations","No, using restricted funds for general operations violates non-profit law and donor intent","Yes, because utilities indirectly benefit the canine play yard","Yes, if the board of directors signs an internal operational waiver"],a:1,e:"Diverting restricted donor funds to unrelated operational needs violates trust law and non-profit fiduciary obligations, and can result in revocation of 501(c)(3) status. There is no emergency exception and no internal governance mechanism (including board vote) that can override legally restricted grant terms."},
+  {f:"staffing",q:"A shelter manager wants to optimize kennel staff scheduling to ensure every animal is cleaned and fed within available human resource constraints. Which core management concept maps directly to this administrative goal?",o:["Veterinary Practice Act exemptions","Restricted funding optimization","Resource allocation and staff utilization","Forensic chain of custody"],a:2,e:"Aligning personnel hours with operational care mandates is the definition of resource allocation and workforce asset optimization. Scheduling staff to meet the animal care requirements within available labor capacity is a direct application of resource allocation principles."},
+  {f:"funding",q:"An open-admission shelter faces severe overcrowding during the summer, driving disease rates up. From an administrative perspective, this situation represents a failure to balance population size with which operational metric?",o:["The restricted grant ratio","The state practice act exemption limit","Capacity for Care (C4C)","The forensic chain index"],a:2,e:"Operating a facility beyond its physical and human infrastructure capacity breaks biosecurity, drives disease transmission, and compromises animal welfare by definition. This is a Capacity for Care failure: the shelter has more animals than it can humanely house and care for with available resources."},
+  {f:"funding",q:"Once a non-profit animal shelter achieves federal 501(c)(3) tax-exempt status, which dual state-level entities must it also register with?",o:["The state department of health and the municipal sanitation division","The state agency that licenses shelters and the state's attorney general's office of charitable trusts","The local police department and the state veterinary medical board","The DEA and the state department of labor"],a:1,e:"Post-federal-exemption, the non-profit must register with the state agency that licenses animal shelters (typically the State Department of Agriculture) AND the state attorney general's office of charitable trusts. Both registrations are required. The federal exemption alone does not complete the regulatory pathway."},
+  {f:"funding",q:"Which state-level entity is statutorily empowered to license, inspect, and write operational regulations for BOTH private and government animal shelters?",o:["The State Department of Health","The State Department of Agriculture","The State Veterinary Medical Board","The Attorney General's Office of Charitable Trusts"],a:1,e:"The State Department of Agriculture holds the statutory mandate to license, inspect, and write regulatory frameworks for both private non-profit AND government (municipal) shelters. This authority applies uniformly to both types of shelters, not exclusively to private facilities."},
+  {f:"board",q:"A non-profit shelter's board of directors is establishing its operational boundaries. Which of the following correctly reflects a limitation on the board's direct duties?",o:["The board must personally manage day-to-day shelter operations","The board is legally required to hire all shelter staff members including individual caretakers","The board does not need to engage in day-to-day operations, hire staff other than the CEO, or make detailed programmatic decisions without staff consultation","The board must personally execute all daily medical treatments and intake diagnostics"],a:2,e:"The board governs; it does not manage. The explicit limitations on board duties include: not engaging in day-to-day operations, not hiring any staff other than the CEO, and not making detailed programmatic decisions without staff input. These boundaries prevent board members from undermining staff authority and management effectiveness."},
+  {f:"grants",q:"A non-profit shelter's IRS Form 990 is requested by a member of the public at the front desk. What is the legally correct response?",o:["Keep it sealed and only reveal it under a court subpoena","Submit it exclusively to the State Department of Agriculture every 2 months","Provide it immediately, as it must by law be on display and available to the public at all times","Share it only with board members during long-range planning sessions"],a:2,e:"IRS regulations require that a non-profit organization's Form 990 be on public display and available to the public at all times. This is a legal requirement, not a discretionary transparency policy. The shelter must provide a copy or direct the individual to where the public display copy is maintained."},
+  {f:"grants",q:"A shelter receives a restricted grant specifically earmarked for a pediatric feline spay-neuter program. The following month, a canine parvovirus outbreak exhausts the shelter's disinfection supply budget. How should the restricted grant funds be handled?",o:["Temporarily reallocate the grant under the emergency Capacity for Care clause","Keep the funds allocated to the pediatric feline program and seek separate emergency funding for the parvo outbreak","The veterinarian can autonomously reallocate up to 25% of any restricted grant for disease control","The board can permanently redirect the grant if animal welfare is acutely compromised"],a:1,e:"Restricted grants are legally binding agreements. No emergency exception exists. The shelter must honor the grant's designated purpose and pursue separate funding for the outbreak response. Internal authority figures (vet, board, ED) cannot unilaterally redirect restricted funds regardless of the urgency."}
+];
+
+const LABELS = {funding:"Funding", grants:"Grants", board:"Board", staffing:"Staffing", community:"Community"};
+let answered = 0, correct = 0, chosen = "all", locked = [];
+
+function updateScore(){ document.getElementById("scoreDisplay").textContent = correct + " / " + answered; }
+
+function render(){
+  const filtered = chosen === "all" ? Q : Q.filter(function(q){ return q.f === chosen; });
+  locked = new Array(Q.length).fill(false);
+  const host = document.getElementById("qhost");
+  host.innerHTML = "";
+  filtered.forEach(function(q, i){
+    const gi = Q.indexOf(q);
+    const div = document.createElement("div");
+    div.className = "q";
+    let html = '<div class="meta"><span class="num">Q' + (i+1) + '</span><span class="tag">' + (LABELS[q.f]||q.f) + '</span></div>';
+    html += '<div class="stem">' + q.q + '</div>';
+    q.o.forEach(function(o, j){ html += '<button class="opt" data-i="' + gi + '" data-j="' + j + '"><span class="k">' + "ABCD"[j] + '.</span>' + o + '</button>'; });
+    html += '<div class="expl" id="expl-' + gi + '"><b class="cor">Correct: ' + "ABCD"[q.a] + '.</b> ' + q.e + '</div>';
+    div.innerHTML = html;
+    host.appendChild(div);
+  });
+}
+
+document.getElementById("qhost").addEventListener("click", function(e){
+  const btn = e.target.closest(".opt");
+  if(!btn) return;
+  const i = +btn.dataset.i, j = +btn.dataset.j;
+  if(locked[i]) return;
+  locked[i] = true; answered++;
+  const host = document.getElementById("qhost");
+  if(j === Q[i].a){ correct++; btn.classList.add("correct"); }
+  else { btn.classList.add("wrong"); const cb = host.querySelector('.opt[data-i="' + i + '"][data-j="' + Q[i].a + '"]'); if(cb) cb.classList.add("correct"); }
+  host.querySelectorAll('.opt[data-i="' + i + '"]').forEach(function(b){ b.classList.add("locked"); });
+  const expl = document.getElementById("expl-" + i); if(expl) expl.classList.add("show");
+  updateScore();
+});
+
+document.querySelectorAll(".mcqbar .filters button").forEach(function(btn){
+  btn.addEventListener("click", function(){
+    document.querySelectorAll(".mcqbar .filters button").forEach(function(b){ b.classList.remove("on"); });
+    btn.classList.add("on"); chosen = btn.dataset.f;
+    answered = 0; correct = 0; updateScore(); render();
+  });
+});
+
+document.getElementById("resetBtn").addEventListener("click", function(){ answered = 0; correct = 0; updateScore(); render(); });
+render();
+</script>
+</body>
+</html>

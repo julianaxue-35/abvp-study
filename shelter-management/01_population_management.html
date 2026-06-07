@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Population Management | Shelter Management | ABVP Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#3d1a0a;--ink2:#5c2c14;--paper:#fdf4ec;--paper2:#fffaf5;
+    --line:#e4d3c4;--muted:#7a5c4a;
+    --id:#b84c1a;--id-soft:#f5ddd0;
+    --good:#1f7a4d;--bad:#b23b3b;
+    --notes:#7a4fb5;--notes-soft:#ece3f7;
+    --lit:#1f6f8b;--lit-soft:#dcedf2;
+    --aspca:#8a6d1f;--aspca-soft:#f3ebcf;
+    --ref:#b5651d;--ref-soft:#f6e7d4;
+    --shadow:0 1px 2px rgba(61,26,10,.08),0 8px 24px rgba(61,26,10,.06);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;
+    background-image:radial-gradient(circle at 1px 1px,rgba(61,26,10,.04) 1px,transparent 0);background-size:22px 22px;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+  header.top{background:var(--ink);color:var(--paper2);padding:26px 0 22px;border-bottom:4px solid var(--id)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#d4a88a;margin:0 0 6px}
+  header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(24px,4vw,38px);margin:0;line-height:1.05}
+  header.top p.sub{margin:8px 0 0;color:#f0d9cc;font-size:14px;max-width:70ch}
+  .legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}
+  .legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.25);color:#f5ece5;display:flex;align-items:center;gap:6px}
+  .legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--paper2);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button:hover{background:var(--paper);color:var(--ink)}
+  .tabrow button.active{background:var(--ink);color:var(--paper2)}
+  .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--id)}
+  main{padding:30px 0 80px}
+  .panel{display:none;animation:fade .35s ease}
+  .panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;letter-spacing:-.01em}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:78ch}
+  h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:30px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;color:var(--ink2);text-transform:uppercase;letter-spacing:.03em}
+  .card{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}
+  ul.hy{margin:8px 0;padding-left:0;list-style:none}
+  ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed #e6d4c2;font-size:14px}
+  ul.hy li:last-child{border-bottom:0}
+  ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;border-radius:2px;background:var(--id);transform:rotate(45deg)}
+  .trap{background:#fdf0ea;border:1px solid #e8c4aa;border-left:4px solid var(--id);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .trap b{color:var(--id);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .corrbox{background:#e9f4ee;border:1px solid #bfe0cc;border-left:4px solid var(--good);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .corrbox b{color:var(--good);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .verifybox{background:#fdf5e6;border:1px solid #ecd9a8;border-left:4px solid var(--aspca);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .verifybox b{color:var(--aspca);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:var(--paper2);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp th{background:var(--ink);color:var(--paper2);font-weight:600;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase}
+  table.cmp tr:last-child td{border-bottom:0}
+  table.cmp td b{color:var(--ink)}
+  .fig{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0;box-shadow:var(--shadow)}
+  .fig figcaption{font-size:12.5px;color:var(--muted);margin-top:8px;font-style:italic}
+  .bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+  .bdg.notes{background:var(--notes-soft);color:var(--notes)}
+  .bdg.lit{background:var(--lit-soft);color:var(--lit)}
+  .bdg.asv{background:var(--id-soft);color:var(--id)}
+  .bdg.aspca{background:var(--aspca-soft);color:var(--aspca)}
+  .bdg.ref{background:var(--ref-soft);color:var(--ref)}
+  .bdg.corr{background:var(--good);color:#fff}
+  .formulabox{background:var(--id-soft);border:1px solid #e0b89a;border-left:4px solid var(--id);border-radius:10px;padding:14px 16px;margin:14px 0}
+  .formulabox .label{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--id);margin-bottom:4px;font-weight:600}
+  .formulabox .formula{font-family:"JetBrains Mono",monospace;font-size:14px;color:var(--ink);margin:4px 0;font-weight:600}
+  .formulabox .fnote{font-size:12.5px;color:var(--muted);margin-top:6px}
+  /* mcq */
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--ink);color:var(--paper2);border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:54px;z-index:10}
+  .mcqbar .filters{display:flex;gap:6px;flex-wrap:wrap}
+  .mcqbar .filters button{font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#f0d9cc;padding:6px 11px;border-radius:999px;cursor:pointer}
+  .mcqbar .filters button.on{background:var(--id);border-color:var(--id);color:#fff}
+  .score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}
+  .score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;color:#f0d9cc;padding:5px 10px;border-radius:8px;font-size:11px}
+  .q{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
+  .q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+  .q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--id-soft);color:var(--id)}
+  .q .stem{font-weight:600;font-size:15px;margin-bottom:10px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;font-family:"Public Sans";transition:background .15s,border-color .15s}
+  .opt:hover{border-color:var(--ink)}
+  .opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}
+  .opt.correct{background:#e8f5ec;border-color:var(--good);color:#0d3d24}
+  .opt.wrong{background:#fbe9e9;border-color:var(--bad);color:#5e1d1d}
+  .opt.locked{cursor:default}
+  .expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:#f9f0e8;border:1px solid var(--line);font-size:13.5px}
+  .expl.show{display:block}
+  .expl b.cor{color:var(--good)}
+  footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
+  @media(max-width:640px){.mcqbar{top:50px}.score{font-size:12px}}
+</style>
+</head>
+<body>
+<nav style="background:#0f3d3a;padding:9px 18px;display:flex;align-items:center;gap:10px;font-family:'Public Sans',system-ui,sans-serif;font-size:13px;font-weight:500;border-bottom:2px solid #1f5c4e"><a href="../index.html" style="color:#9ec9c2;text-decoration:none;display:flex;align-items:center;gap:5px"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span style="color:#4a7a6e;font-size:11px">›</span><span style="color:#cfe3df">Shelter Management</span></nav>
+
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">ABVP Shelter Medicine RVS &middot; Shelter Management (18%) &middot; Subdomain 1 of 7</p>
+    <h1>Population Management</h1>
+    <p class="sub">Asilomar Accords, Capacity for Care, fast/slow-track systems, population formulas, rounds, and vulnerable-population protocols. Verified against ASV Standards of Care 2022 and Maddie's Fund Asilomar Guide. Corrections boxed and badged.</p>
+    <div class="legend">
+      <span><i style="background:var(--notes)"></i>ONENOTE notes</span>
+      <span><i style="background:var(--id)"></i>ASV Standards 2022</span>
+      <span><i style="background:var(--aspca)"></i>Maddie's Fund / Asilomar</span>
+      <span><i style="background:var(--good)"></i>Corrected</span>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="asilomar"><span class="dot"></span>Asilomar Accords</button>
+  <button data-p="c4c"><span class="dot"></span>Capacity for Care</button>
+  <button data-p="tracks"><span class="dot"></span>Track System</button>
+  <button data-p="formulas"><span class="dot"></span>Formulas</button>
+  <button data-p="rounds"><span class="dot"></span>Rounds &amp; Welfare</button>
+  <button data-p="outcomes"><span class="dot"></span>Outcomes &amp; Planning</button>
+  <button data-p="foster"><span class="dot"></span>Foster Care</button>
+  <button data-p="mcq"><span class="dot" style="background:var(--ink)"></span>MCQ Bank (61)</button>
+</div></div></nav>
+
+<main><div class="wrap">
+
+<!-- ===================== ASILOMAR ===================== -->
+<section class="panel show" id="asilomar">
+  <h2 class="sec">Asilomar Accords</h2>
+  <p class="lead">A landmark 2004 agreement among approximately 20 shelter leaders establishing a shared categorization language to eliminate euthanasia of healthy and treatable animals and allow cross-shelter data comparison.</p>
+
+  <div class="card">
+    <h4>Historical context <span class="bdg aspca">Maddie's Fund 2004</span></h4>
+    <ul class="hy">
+      <li>Developed in 2004 at a summit in Pacific Grove, California by approximately 20 shelter leaders.</li>
+      <li>Goal: build alignment across disparate welfare philosophies and create a shared language for comparing outcomes.</li>
+      <li>Success is tracked by monitoring the percentages of live release versus euthanasia within each of the four categories over time.</li>
+      <li>Not a legal mandate; a voluntary framework adopted by participating organizations to enable meaningful national data comparison.</li>
+    </ul>
+  </div>
+
+  <h3>The four categories <span class="bdg aspca">Asilomar / Maddie's Fund</span></h3>
+  <table class="cmp">
+    <tr><th>Category</th><th>Definition</th><th>Key nuance for the exam</th></tr>
+    <tr>
+      <td><b>Healthy</b></td>
+      <td>Vaccinated against core diseases, no sign of illness or injury that compromises quality of life, behaving appropriately for age and species.</td>
+      <td>Requires age at or above <b>8 weeks</b>. An animal under 8 weeks cannot be classified as Healthy regardless of appearance.</td>
+    </tr>
+    <tr>
+      <td><b>Treatable: Rehabilitable</b></td>
+      <td>Condition is treatable with medical or behavioral intervention; good prognosis if treatment is provided within a reasonable timeframe.</td>
+      <td>Classification is based on community standard, NOT shelter resources. A shelter being unable to treat the condition does not make it Untreatable.</td>
+    </tr>
+    <tr>
+      <td><b>Treatable: Manageable</b></td>
+      <td>Requires ongoing management (chronic condition or behavioral issue) but quality of life is acceptable; a committed owner could manage it long-term.</td>
+      <td>Same community-standard basis. Shelter budget and staffing are irrelevant to this classification.</td>
+    </tr>
+    <tr>
+      <td><b>Unhealthy and Untreatable</b></td>
+      <td>Suffering that cannot be alleviated within community-standard resources, or behavioral risk to public safety that cannot be sufficiently mitigated.</td>
+      <td>Does NOT mean the animal is unsavable by any organization. It means care is beyond what a community-standard caring owner can realistically provide.</td>
+    </tr>
+  </table>
+
+  <div class="corrbox">
+    <b>Correction: Age cutoff for "Healthy"</b>
+    The Asilomar framework explicitly requires age at or above 8 weeks for the Healthy category. Your ONENOTE notes do not specify this cutoff. Animals under 8 weeks must be classified separately even if they appear clinically healthy. Source: Maddie's Fund Guide to the Asilomar Accords Definitions.
+  </div>
+
+  <div class="corrbox">
+    <b>Correction: "Treatable" categories are resource-independent</b>
+    Your notes suggest the Treatable designation depends on the individual shelter's resources. This is incorrect. Treatability is determined by what a reasonable, caring owner within that community can provide, not by what the specific shelter can offer. A shelter's limited budget cannot reclassify a treatable animal as untreatable. Source: Maddie's Fund Guide to the Asilomar Accords Definitions.
+  </div>
+
+  <div class="corrbox">
+    <b>Correction: "Unhealthy and Untreatable" does not mean unsavable</b>
+    This category does not mean the animal cannot be saved by any organization. It means the level of care required exceeds what a community-standard caring owner can reasonably provide. A specialty rescue with greater resources could still save such an animal. Source: Maddie's Fund Guide to the Asilomar Accords Definitions.
+  </div>
+
+  <div class="trap">
+    <b>Exam Trap: Community-referenced, not shelter-referenced</b>
+    The Asilomar matrix is pegged to the community, not to any individual shelter. The same clinical condition may yield different categories in different communities depending on what caring owners there can realistically provide. Two shelters in the same city should produce the same classification for the same animal.
+  </div>
+
+  <h3>How shelters use Asilomar data <span class="bdg asv">ASV 2022</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Track the percentage of live outcomes and euthanasia within each category separately over time.</li>
+      <li>Healthy and Treatable animals that are euthanized represent unmet goals; Unhealthy and Untreatable euthanasia is an expected and appropriate outcome.</li>
+      <li>Shelters increasingly aim for zero euthanasia in the Healthy and Treatable categories, with euthanasia limited to Unhealthy and Untreatable cases plus public safety.</li>
+      <li>Data is reported to Shelter Animals Count (SAC) using standardized Asilomar-aligned intake and outcome categories.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== C4C ===================== -->
+<section class="panel" id="c4c">
+  <h2 class="sec">Capacity for Care (C4C)</h2>
+  <p class="lead">C4C defines the maximum number and specific types of animals an organization can care for humanely at any given time. Operating within it is a legal and ethical obligation, not a target.</p>
+
+  <div class="card">
+    <h4>Definition and components <span class="bdg asv">ASV 2022</span></h4>
+    <ul class="hy">
+      <li>C4C is dynamically bounded by five factors: <b>financial resources</b>, <b>physical facility assets</b>, <b>personnel hours and skills</b>, <b>housing space</b>, and <b>availability of live outcomes</b>.</li>
+      <li>Operating beyond C4C is explicitly defined as an unacceptable practice. It is not an emergency option or a temporary measure.</li>
+      <li>Operating within C4C is scientifically proven to decrease LOS, reduce disease rates, lower euthanasia, and maximize live releases.</li>
+    </ul>
+  </div>
+
+  <h3>Humane Housing Units (HHUs) <span class="bdg asv">ASV 2022</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>HHUs are the foundational determinant of C4C. They include in-shelter cages, foster placements, and off-site housing with rescue partners.</li>
+      <li>Enclosures that are too small, structurally inappropriate, or that cannot meet basic welfare standards <b>cannot</b> be counted toward C4C, regardless of how many physical cages exist.</li>
+      <li>A shelter with 200 physical cages may have a true C4C of 120 if 80 cages are undersized or non-compliant.</li>
+    </ul>
+  </div>
+
+  <div class="trap">
+    <b>Exam Trap: Raw cage count is not C4C</b>
+    Always distinguish between the number of physical cages and the number of Humane Housing Units. Only HHUs that meet welfare standards count. Non-compliant units must be excluded even if they are currently housing animals.
+  </div>
+
+  <h3>Consequences of exceeding C4C <span class="bdg asv">ASV 2022</span></h3>
+  <table class="cmp">
+    <tr><th>Operating within C4C</th><th>Operating beyond C4C</th></tr>
+    <tr><td>Decreased average length of stay</td><td>Increased average length of stay</td></tr>
+    <tr><td>Lower disease rates</td><td>Higher disease transmission and outbreak risk</td></tr>
+    <tr><td>Lower euthanasia rates</td><td>Increased euthanasia for space and disease</td></tr>
+    <tr><td>Maximized live releases</td><td>Reduced live release rates</td></tr>
+    <tr><td>Better welfare for all residents</td><td>Behavioral deterioration and stress-related illness</td></tr>
+  </table>
+
+  <h3>Staffing as a C4C determinant <span class="bdg notes">ONENOTE notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>NACA minimum: 15 minutes per animal per day for basic care (feeding and cleaning only). This is a floor, not a welfare target.</li>
+      <li>If total required care minutes exceed available staff minutes, the shelter has exceeded its staffing C4C regardless of physical space.</li>
+      <li>Animals with medical or behavioral needs require more than 15 minutes; staffing capacity must account for these additions.</li>
+    </ul>
+  </div>
+
+  <div class="trap">
+    <b>Exam Trap: C4C has multiple ceilings</b>
+    A shelter can exceed C4C in staffing (not enough people) while still having empty cages, or in housing (no available HHUs) while having enough staff. All five components must be assessed simultaneously.
+  </div>
+
+  <h3>Strategic response to chronic C4C strain <span class="bdg asv">ASV 2022</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Organizations that frequently operate near or above C4C must initiate a <b>structured strategic planning process</b> to align capacity with community needs long-term.</li>
+      <li>Short-term responses include transport, emergency foster appeals, intake holds, and rescue partnerships.</li>
+      <li>Compromising animal care standards is never an acceptable short-term response.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== TRACKS ===================== -->
+<section class="panel" id="tracks">
+  <h2 class="sec">Track System and Flow-Through</h2>
+  <p class="lead">Managing animals as two distinct populations with separate operational metrics, housing standards, and outcome timelines is essential for maintaining both welfare and throughput.</p>
+
+  <h3>Fast track vs. slow track <span class="bdg notes">ONENOTE notes</span></h3>
+  <table class="cmp">
+    <tr><th>Parameter</th><th>Fast Track</th><th>Slow Track</th></tr>
+    <tr><td><b>Who</b></td><td>Kittens, puppies, friendly small-to-medium dogs; high adoption probability</td><td>Animals with behavioral challenges, advanced age, complex medical needs; any fast-track animal not adopted within 2 to 3 weeks</td></tr>
+    <tr><td><b>Goal</b></td><td>Minimize ALOS; rapid throughput frees resources for animals with greater needs</td><td>Sustained long-term care with advanced enrichment and individualized plans</td></tr>
+    <tr><td><b>Housing</b></td><td>Standard HHUs</td><td>Physically larger enclosures; more enrichment; quiet zones</td></tr>
+    <tr><td><b>Reassignment rule</b></td><td>Must move to slow track if not adopted within 2 to 3 weeks</td><td>No new animals assigned when units are full; exits must occur first</td></tr>
+    <tr><td><b>Key operational risk</b></td><td>Delayed reassignment leaves complex-needs animals in unsuitable conditions</td><td>Overflow chokes the entire system, blocking fast-track throughput</td></tr>
+  </table>
+
+  <div class="trap">
+    <b>Exam Trap: Slow track full = no new slow-track assignments</b>
+    When slow-track units are 100% full, no additional animals may enter slow track until a slot opens via adoption, transfer, or another outcome. The correct response is to work on accelerating slow-track exits, not to double-house or compromise standards.
+  </div>
+
+  <h3>Open Selection <span class="bdg notes">ONENOTE notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Allows prospective adopters or rescue partners to view, select, and begin paperwork for an animal <b>during its mandatory stray-hold period</b>.</li>
+      <li>Prospective adopters are explicitly informed that an owner reclaim could still occur before the hold expires.</li>
+      <li>Benefit: converts mandatory waiting time into productive live-release preparation. Minimizes LOS and population size simultaneously without bypassing legal protections for the owner.</li>
+    </ul>
+  </div>
+
+  <h3>Ways to reduce Length of Stay (LOS) <span class="bdg asv">ASV 2022</span></h3>
+  <div class="card">
+    <h4>Approved strategies</h4>
+    <ul class="hy">
+      <li><b>Eliminate unproductive holds:</b> e.g., no hold for puppies or kittens awaiting a second vaccine if the first was given at intake.</li>
+      <li><b>Open selection</b> during mandatory stray-hold periods.</li>
+      <li><b>Field reunification:</b> scan for microchip in the field and return lost pets directly to owners without shelter admission.</li>
+      <li><b>Foster care:</b> removes animals from the in-shelter population while they await adoption or recover from illness/surgery.</li>
+      <li><b>Return-to-Field (RTF):</b> for healthy unowned community cats. Minimizes space-related euthanasia and preserves intake capacity for animals that truly need sheltering.</li>
+      <li><b>Transport and transfer</b> partnerships with regional rescue organizations.</li>
+      <li><b>Off-site adoption events</b>, expanded adoption hours, and foster-to-adopt programs.</li>
+      <li><b>Remove discriminatory barriers:</b> strict income verification, mandatory home visits, and breed bans prolong LOS without improving outcomes. Exclusionary policies are discriminatory and counterproductive.</li>
+    </ul>
+  </div>
+
+  <h3>Community cats: RTF vs. TNR <span class="bdg notes">ONENOTE notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Return-to-Field (RTF):</b> healthy unowned community cats are admitted to the shelter briefly for sterilization and vaccination, then returned to their outdoor location. RTF cats ARE counted in the SAC BasicDataMatrix (they enter the shelter's system).</li>
+      <li><b>Trap-Neuter-Return (TNR):</b> cats are sterilized and vaccinated by community organizations without entering the shelter. TNR cats are NOT counted in the shelter's BasicDataMatrix intake (only logged in the Community Services Matrix).</li>
+    </ul>
+  </div>
+
+  <div class="corrbox">
+    <b>Correction: RTF cats are admitted; TNR cats are not</b>
+    Your notes conflate RTF and TNR. RTF cats are admitted and counted in the shelter's intake statistics. TNR cats are not admitted; they are only tracked in the Community Services Matrix. This distinction matters for live release rate (LRR) calculations. Source: SAC BasicDataMatrix 2021.
+  </div>
+
+  <figure class="fig">
+    <svg viewBox="0 0 760 300" width="100%" role="img" aria-label="Shelter population flow from intake to outcome">
+      <defs>
+        <marker id="ar-track-a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#3d1a0a"/></marker>
+        <marker id="ar-track-b" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#b84c1a"/></marker>
+        <marker id="ar-track-c" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#b23b3b"/></marker>
+      </defs>
+      <g font-family="Public Sans" font-size="12" text-anchor="middle" fill="#3d1a0a">
+        <rect x="10" y="120" width="130" height="48" rx="9" fill="#f5ddd0" stroke="#b84c1a" stroke-width="1.5"/>
+        <text x="75" y="140" font-weight="600">INTAKE</text>
+        <text x="75" y="156" font-size="11" fill="#7a5c4a">Stray / OS / Transfer</text>
+        <text x="75" y="170" font-size="11" fill="#7a5c4a">RTF / Seized</text>
+        <line x1="140" y1="144" x2="188" y2="144" stroke="#3d1a0a" stroke-width="1.5" marker-end="url(#ar-track-a)"/>
+        <rect x="190" y="120" width="130" height="48" rx="9" fill="#fffaf5" stroke="#e4d3c4"/>
+        <text x="255" y="140" font-weight="600">ID + TRIAGE</text>
+        <text x="255" y="156" font-size="11" fill="#7a5c4a">Intake exam</text>
+        <text x="255" y="170" font-size="11" fill="#7a5c4a">Pathway assigned</text>
+        <line x1="320" y1="133" x2="370" y2="90" stroke="#b84c1a" stroke-width="1.5" marker-end="url(#ar-track-b)"/>
+        <line x1="320" y1="155" x2="370" y2="198" stroke="#b84c1a" stroke-width="1.5" marker-end="url(#ar-track-b)"/>
+        <rect x="372" y="62" width="130" height="46" rx="9" fill="#e9f4ee" stroke="#1f7a4d" stroke-width="1.5"/>
+        <text x="437" y="82" font-weight="600" fill="#1f7a4d">FAST TRACK</text>
+        <text x="437" y="98" font-size="11" fill="#7a5c4a">Puppies, kittens, friendly dogs</text>
+        <rect x="372" y="178" width="130" height="46" rx="9" fill="#fdf5e6" stroke="#8a6d1f" stroke-width="1.5"/>
+        <text x="437" y="198" font-weight="600" fill="#8a6d1f">SLOW TRACK</text>
+        <text x="437" y="214" font-size="11" fill="#7a5c4a">Medical / behavioral needs</text>
+        <path d="M502 108 Q555 144 502 178" stroke="#b23b3b" stroke-width="1.2" fill="none" stroke-dasharray="4,3" marker-end="url(#ar-track-c)"/>
+        <text x="574" y="140" font-size="10" fill="#b23b3b">2 to 3 wk</text>
+        <text x="574" y="154" font-size="10" fill="#b23b3b">if not adopted</text>
+        <line x1="502" y1="85" x2="555" y2="85" stroke="#3d1a0a" stroke-width="1.5" marker-end="url(#ar-track-a)"/>
+        <line x1="502" y1="200" x2="555" y2="200" stroke="#3d1a0a" stroke-width="1.5" marker-end="url(#ar-track-a)"/>
+        <rect x="557" y="62" width="185" height="185" rx="9" fill="#fffaf5" stroke="#e4d3c4"/>
+        <text x="649" y="84" font-weight="600">OUTCOMES</text>
+        <text x="649" y="104" font-size="11" fill="#7a5c4a">Adoption</text>
+        <text x="649" y="122" font-size="11" fill="#7a5c4a">Return to owner</text>
+        <text x="649" y="140" font-size="11" fill="#7a5c4a">Transfer to rescue</text>
+        <text x="649" y="158" font-size="11" fill="#7a5c4a">Return to field (RTF)</text>
+        <text x="649" y="176" font-size="11" fill="#7a5c4a">Foster / foster-to-adopt</text>
+        <text x="649" y="194" font-size="11" fill="#7a5c4a">Euthanasia</text>
+        <text x="649" y="212" font-size="11" fill="#7a5c4a">Died in care</text>
+      </g>
+    </svg>
+    <figcaption>Population flow from intake through track assignment to outcome. Fast-track animals not adopted within 2 to 3 weeks are formally reassigned to slow track (dashed red arrow).</figcaption>
+  </figure>
+</section>
+
+<!-- ===================== FORMULAS ===================== -->
+<section class="panel" id="formulas">
+  <h2 class="sec">Population Formulas</h2>
+  <p class="lead">Five calculation frameworks are essential for the ABVP boards. Know each formula by name, variables, and a worked example. All formulas derive from the core relationship: population = admissions x ALOS.</p>
+
+  <div class="formulabox">
+    <div class="label">1 of 5 : Average Daily Population</div>
+    <div class="formula">Avg Daily Population = Avg Daily Admissions x ALOS</div>
+    <div class="fnote">Core insight: this is the master relationship. Reducing ALOS or reducing admissions (or both) is the only way to sustainably reduce daily population size. Example: 10 admissions/day x 12-day ALOS = 120 animals in the building at any given time.</div>
+  </div>
+
+  <div class="formulabox">
+    <div class="label">2 of 5 : Required Holding Capacity (RHC)</div>
+    <div class="formula">RHC = MDA Intake x Required Holding Period</div>
+    <div class="fnote">MDA = Monthly Daily Average. Example: MDA intake of 15 dogs/day x 4-day legal hold = RHC of 60 stray-hold units. Must account for mandatory legal holds, rabies quarantine periods, and age-based restrictions.</div>
+  </div>
+
+  <div class="formulabox">
+    <div class="label">3 of 5 : Adoption-Driven Capacity (ADC)</div>
+    <div class="formula">ADC = Target ALOS x MDA Adoptions</div>
+    <div class="fnote">Tells you how many adoption-floor spaces you need to sustain your target adoption rate. Example: target ALOS of 5 days x MDA adoptions of 4/day = ADC of 20 adoption-floor units needed.</div>
+  </div>
+
+  <div class="formulabox">
+    <div class="label">4 of 5 : Staffing Hours Required for Basic Daily Care</div>
+    <div class="formula">Staff Hours = (Minutes Per Animal x Avg Daily Population) / 60</div>
+    <div class="fnote">Baseline: 15 min/animal/day for feeding and cleaning. Example: 80 dogs x 15 min / 60 = 20 staff hours required per day for basic care alone. Animals with medical/behavioral needs require more.</div>
+  </div>
+
+  <div class="formulabox">
+    <div class="label">5 of 5 : Staff Capacity for Daily Care (SCDC)</div>
+    <div class="formula">SCDC = Total Daily Staff Care Minutes / Minutes Required Per Animal</div>
+    <div class="fnote">The staffing ceiling. Example: 2,400 staff minutes available / 15 min per animal = SCDC of 160 animals. If your census exceeds 160, welfare is compromised regardless of physical cage availability.</div>
+  </div>
+
+  <h3>Formula relationships and exam applications <span class="bdg asv">ASV 2022</span></h3>
+  <table class="cmp">
+    <tr><th>Question type</th><th>Formula to use</th><th>What it tells you</th></tr>
+    <tr><td>"How many stray-hold cages do we need?"</td><td>RHC = MDA Intake x Hold Period</td><td>Minimum physical space for legal stray holding</td></tr>
+    <tr><td>"How many adoption-floor spaces do we need?"</td><td>ADC = Target ALOS x MDA Adoptions</td><td>Adoption floor sizing for a given throughput target</td></tr>
+    <tr><td>"Do we have enough staff for X animals?"</td><td>SCDC = Staff Minutes / 15 min</td><td>Maximum census given available staff time</td></tr>
+    <tr><td>"How many staff hours does our census require?"</td><td>Staff Hours = (15 x Pop) / 60</td><td>Daily care time demand vs. supply</td></tr>
+    <tr><td>"What happens to population if ALOS drops?"</td><td>Pop = Admissions x ALOS</td><td>Reducing ALOS by half halves the population</td></tr>
+  </table>
+
+  <div class="trap">
+    <b>Exam Trap: 15 minutes is a floor, not a target</b>
+    The 15 min/animal/day NACA standard covers feeding and cleaning only. It is the minimum to determine staffing capacity, not a recommendation for adequate welfare. Animals with medical or behavioral needs require substantially more daily staff time. Citing 15 minutes as "adequate care" would be incorrect on the exam.
+  </div>
+
+  <h3>Worked calculation examples <span class="bdg notes">ONENOTE notes</span></h3>
+  <div class="card">
+    <h4>Example 1: RHC calculation</h4>
+    <p style="font-size:14px">A municipal shelter has a 4-day legal stray hold. Their MDA stray intake is 15 dogs/day. How many stray-hold housing units are required?</p>
+    <p style="font-size:14px;font-family:'JetBrains Mono',monospace;background:#f5ddd0;padding:8px 12px;border-radius:8px">RHC = 15 x 4 = <b>60 housing units</b></p>
+  </div>
+  <div class="card">
+    <h4>Example 2: Staffing capacity</h4>
+    <p style="font-size:14px">A shelter has 2,400 minutes of total staff time available for basic animal care each day. The NACA standard is 15 min/animal/day. What is the SCDC?</p>
+    <p style="font-size:14px;font-family:'JetBrains Mono',monospace;background:#f5ddd0;padding:8px 12px;border-radius:8px">SCDC = 2,400 / 15 = <b>160 animals</b></p>
+  </div>
+  <div class="card">
+    <h4>Example 3: Impact of reducing ALOS</h4>
+    <p style="font-size:14px">A shelter admits 10 dogs/day and has a current ALOS of 12 days (daily population = 120). If ALOS is reduced to 6 days, what happens to daily population?</p>
+    <p style="font-size:14px;font-family:'JetBrains Mono',monospace;background:#f5ddd0;padding:8px 12px;border-radius:8px">New Pop = 10 x 6 = <b>60 animals</b> (50% reduction)</p>
+  </div>
+</section>
+
+<!-- ===================== ROUNDS ===================== -->
+<section class="panel" id="rounds">
+  <h2 class="sec">Rounds and Welfare</h2>
+  <p class="lead">Population rounds, medical rounds, and protocols for vulnerable populations form the daily operational backbone of welfare-compliant population management.</p>
+
+  <h3>Population Rounds vs. Medical Rounds <span class="bdg notes">ONENOTE notes</span><span class="bdg asv">ASV 2022</span></h3>
+  <table class="cmp">
+    <tr><th>Type</th><th>Purpose</th><th>Team</th><th>Frequency</th></tr>
+    <tr>
+      <td><b>Population Rounds</b></td>
+      <td>Systematic review of every animal to keep the broad management plan on track; identifies when and what care is needed</td>
+      <td>Cross-functional: intake, medical, behavior, husbandry, outcomes. ALL departments.</td>
+      <td>Daily</td>
+    </tr>
+    <tr>
+      <td><b>Medical Rounds</b></td>
+      <td>Physically deliver the care identified in population rounds; individual clinical follow-up and treatment</td>
+      <td>Veterinary team and vet techs</td>
+      <td>As clinically indicated</td>
+    </tr>
+  </table>
+
+  <div class="card">
+    <h4>Three questions answered for every animal in population rounds</h4>
+    <ul class="hy">
+      <li><b>How are you doing?</b> Current behavioral and physical status; welfare assessment; eating, drinking, stress indicators.</li>
+      <li><b>What is your pathway, and are there any updates or concerns?</b> Fast vs. slow track assignment; medical flags; behavioral progress notes; foster or transport candidacy.</li>
+      <li><b>What are your next steps?</b> Upcoming procedures, adoption events, transport dates, foster placements, or escalation plans.</li>
+    </ul>
+    <p style="font-size:13.5px;color:var(--muted);margin:10px 0 0">Any welfare-compromising or stay-extending need identified during rounds must be addressed <b>promptly</b>. Deferral to the next day is not acceptable.</p>
+  </div>
+
+  <h3>Vulnerable populations <span class="bdg notes">ONENOTE notes</span></h3>
+  <table class="cmp">
+    <tr><th>Group</th><th>Key vulnerability</th><th>Management priority</th></tr>
+    <tr>
+      <td><b>Pediatric (under 5 months)</b></td>
+      <td>Highly susceptible to infectious disease due to immature immunity; long stays impair the critical socialization window and cause permanent socioemotional deficits</td>
+      <td>Minimize LOS aggressively; foster immediately where possible; open selection during hold; eliminate unproductive holds (e.g., second vaccine wait)</td>
+    </tr>
+    <tr>
+      <td><b>Geriatric</b></td>
+      <td>Physical fragility; pain; higher stress sensitivity; proprioceptive and orthopedic risks in standard kennel environments</td>
+      <td>Comfortable, quiet quarters with secure footing; extra monitoring for stress signs and food intake; targeted marketing for longer-stay geriatrics</td>
+    </tr>
+    <tr>
+      <td><b>Nursing mothers and neonates</b></td>
+      <td>Neonates cannot thermoregulate; nursing interruption is life-threatening; both highly susceptible to infectious disease</td>
+      <td>Foster family placement is preferred over in-shelter housing; minimize all stress; dedicated separate housing from general population</td>
+    </tr>
+  </table>
+
+  <div class="trap">
+    <b>Exam Trap: SAC pediatric age cutoff is under 5 months</b>
+    Your ONENOTE notes use "4 to 5 months" as the pediatric cutoff. The SAC BasicDataMatrix defines the cutoff as strictly under 5 months. Use "under 5 months" when answering data and statistics questions about animal age categories.
+  </div>
+
+  <h3>Isolation vs. Quarantine <span class="bdg notes">ONENOTE notes</span></h3>
+  <table class="cmp">
+    <tr><th>Area</th><th>Who goes here</th><th>Current health status</th><th>Key requirements</th></tr>
+    <tr>
+      <td><b>Isolation</b></td>
+      <td>Animals with confirmed or suspected active infection; animals showing clinical signs of disease</td>
+      <td>Currently SICK</td>
+      <td>Separate air handling; dedicated PPE; staff visit last; segregated by species and pathogen where possible</td>
+    </tr>
+    <tr>
+      <td><b>Quarantine</b></td>
+      <td>Animals that appear healthy but have a known or suspected exposure to disease during the relevant incubation window</td>
+      <td>Currently HEALTHY but at risk</td>
+      <td>Hold for full incubation period; no mixing with general population; monitor twice daily for clinical signs</td>
+    </tr>
+  </table>
+
+  <div class="trap">
+    <b>Exam Trap: Quarantine is NOT for sick animals</b>
+    Quarantine is for apparently healthy animals with exposure risk. A dog exposed to a confirmed parvo case goes to quarantine. A dog showing vomiting and hemorrhagic diarrhea goes to isolation. A newly admitted stray with no known exposure goes to standard intake holding.
+  </div>
+
+  <h3>Problem-oriented approach to intake <span class="bdg notes">ONENOTE notes</span></h3>
+  <div class="card">
+    <h4>Correct sequence</h4>
+    <ol style="padding-left:20px;font-size:14px;line-height:2">
+      <li><b>Data collection:</b> history (owner, records), physical examination, behavioral observation</li>
+      <li><b>Problem identification:</b> list active and potential problems from the data</li>
+      <li><b>Plan formulation:</b> diagnostics, initial therapy, pathway assignment</li>
+      <li><b>Assessment and follow-up:</b> monitor, adjust plan, update rounds team</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h4>Geriatric minimum database at intake PE</h4>
+    <ul class="hy">
+      <li>PCV/TP: packed cell volume and total protein to screen for anemia and protein abnormalities</li>
+      <li>Urine specific gravity (USG): evaluates renal concentrating ability</li>
+      <li>Urine dipstick: screens for glucosuria, proteinuria, and other abnormalities</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== OUTCOMES ===================== -->
+<section class="panel" id="outcomes">
+  <h2 class="sec">Outcomes and Planning</h2>
+  <p class="lead">Population management begins before an animal enters the building and continues through every stage of its stay. Both admission and outcome sides of the equation must be actively managed.</p>
+
+  <h3>Admission planning <span class="bdg notes">ONENOTE notes</span></h3>
+  <div class="card">
+    <h4>Two intake pathway types</h4>
+    <ul class="hy">
+      <li><b>Controlled/predictable pathway:</b> owner surrenders by appointment, scheduled transports, pre-arranged transfers. Can be managed proactively by adjusting appointment availability to match C4C.</li>
+      <li><b>Uncontrolled but predictable pathway:</b> strays, animal control intakes, cruelty seizures. Cannot be refused but can be anticipated statistically. Requires ongoing evaluation to monitor impact on total capacity.</li>
+    </ul>
+    <p style="font-size:13.5px;color:var(--muted);margin:10px 0 0">Population management begins <b>before admission:</b> an animal should only be admitted if the shelter has the capacity and resources to provide the specific care that animal requires.</p>
+  </div>
+
+  <h3>Live release rate (LRR) calculation methods <span class="bdg asv">ASV 2022</span></h3>
+  <div class="card">
+    <p style="font-size:14px;margin-bottom:10px">Three distinct methods exist. Knowing which method a shelter uses is critical for comparing data between organizations.</p>
+    <table class="cmp">
+      <tr><th>Method</th><th>Formula</th><th>Note</th></tr>
+      <tr><td><b>1. Standard</b></td><td>Live outcomes / Total live intakes</td><td>Most common; excludes animals that died or were owner-intended euthanasia at intake</td></tr>
+      <tr><td><b>2. Outcomes-based</b></td><td>Live outcomes / (Total outcomes excluding current residents)</td><td>Denominator excludes animals still in care; measures what happens to animals that leave</td></tr>
+      <tr><td><b>3. Net intake</b></td><td>(Intakes minus euthanasia) / Total intakes</td><td>Measures what proportion of intakes result in a live outcome from the intake side</td></tr>
+    </table>
+  </div>
+
+  <div class="corrbox">
+    <b>Correction: Three distinct LRR calculation methods</b>
+    Your ONENOTE notes present LRR as a single calculation. The ASV Shelter Terminology (2017) documents three distinct methods. Because shelters can use any of the three, reported LRR values are not directly comparable across organizations unless you know which method was used. Source: ASV Shelter Terminology 2017.
+  </div>
+
+  <h3>SAC intake categories <span class="bdg asv">SAC 2021</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Stray/at large:</b> animals found or brought in as strays from the community</li>
+      <li><b>Owner surrender:</b> animals whose owners voluntarily relinquish them</li>
+      <li><b>Owner-Intended Euthanasia (OIE):</b> owners bring animals specifically to be euthanized. This is a <b>distinct intake category</b>, not bundled under owner surrender.</li>
+      <li><b>Transfer in:</b> animals received from another organization</li>
+      <li><b>Return:</b> previously adopted animals returned by the adopter</li>
+      <li><b>Born in care:</b> animals born to animals already in the shelter's care</li>
+    </ul>
+  </div>
+
+  <div class="corrbox">
+    <b>Correction: OIE is a distinct intake type</b>
+    Owner-Intended Euthanasia (OIE) is a separate intake category in the SAC BasicDataMatrix, not a subset of owner surrender. Conflating OIE with owner surrender inflates the owner surrender count and distorts intake and outcome statistics. Source: SAC BasicDataMatrix 2021.
+  </div>
+
+  <h3>Euthanasia within a wellness framework <span class="bdg asv">ASV 2022</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Euthanasia must be considered when animal welfare <b>cannot be managed</b> due to physical or behavioral disease, or due to overcrowding, and when no other remedies exist to relieve suffering.</li>
+      <li>Euthanasia is <b>never</b> an acceptable substitute for providing basic daily care or for managing overcrowding that could be addressed by reducing intake or increasing throughput.</li>
+      <li>Euthanasia for space constraints alone is appropriate only when C4C is genuinely exceeded and all other options (transport, foster, intake holds) have been exhausted.</li>
+    </ul>
+  </div>
+
+  <h3>Strategic planning and the long view <span class="bdg asv">ASV 2022</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Organizations that frequently operate near or above C4C must initiate a <b>structured strategic planning process</b> to align capacity with community needs.</li>
+      <li>Strategic plans should be reviewed quarterly to monitor progress and maintain relevance.</li>
+      <li>Short-term responses to acute C4C strain: emergency transport, foster appeals, intake appointments, rescue partnerships. Never reduce care standards.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== FOSTER CARE ===================== -->
+<section class="panel" id="foster">
+  <h2 class="sec">Foster Care</h2>
+  <p class="lead">Foster care extends sheltering capacity into community homes, improves welfare outcomes, and is essential for neonatal animals. Key exam areas: planning formulas, pathway types, disease control, caregiver requirements.</p>
+
+  <h3>Benefits, Goals and Costs <span class="bdg notes">ONENOTE</span></h3>
+  <div class="card">
+    <p><b>Core benefits:</b> Safe environment during active immunity development (pups/kittens), socialization and enrichment opportunities, rehabilitation potential, reduces physical shelter housing demand, saves daily care costs per animal.</p>
+    <p><b>Common program goals:</b> increase life-saving capacity, improve individual welfare, increase C4C, reduce shelter LOS, increase adoption potential, maximize existing resources.</p>
+    <p><b>Program costs and risks to acknowledge:</b> Legal agreement overhead, carer communication and training burden, risk of caregiver welfare failures, pressure toward positive outcome regardless of animal's interest, zoonotic and infectious disease risk to household members and resident pets.</p>
+  </div>
+
+  <h3>Foster Home Calculation Formulas <span class="bdg notes">ONENOTE</span></h3>
+  <div class="card">
+    <div class="formulabox">
+      <b>Monthly foster homes needed</b><br>
+      Winter: monthly kitten intake divided by 2<br>
+      Peak season: monthly kitten intake divided by 3<br>
+      <em>If average LOS in foster is long, you need more homes than the formula suggests. Always recruit more than expected need.</em>
+    </div>
+    <div class="formulabox" style="margin-top:14px">
+      <b>Census audit formula</b><br>
+      Feb 1 count = Jan 1 count + animals sent to foster in January minus animals returned from foster in January
+    </div>
+    <div class="trap"><strong>Exam Trap:</strong> Peak season uses the smaller divisor (3), not the larger one. More kittens coming in means each home can absorb a smaller litter (divided into smaller groups), so more homes are needed per intake unit. Always recruit above calculated need to buffer for attrition.</div>
+  </div>
+
+  <h3>Foster Pathways <span class="bdg notes">ONENOTE</span></h3>
+  <div class="card">
+    <table class="cmp">
+      <thead><tr><th>Pathway</th><th>Key Criteria</th><th>Exam Pearl</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><b>Underage / Pre-adoption</b></td>
+          <td>Routine vacc/deworming/S-N schedule. Neonates need intensive care.</td>
+          <td>Most common pathway. Pups/kittens under 8 weeks cannot be classified Healthy under Asilomar.</td>
+        </tr>
+        <tr>
+          <td><b>Medical</b></td>
+          <td>Post-surgical, awaiting surgery, stress reduction. Organized treatment schedule required.</td>
+          <td>Foster carer must understand treatment rationale, side effects, and risks to household members and resident animals.</td>
+        </tr>
+        <tr>
+          <td><b>Behavioral</b></td>
+          <td>Basic manners training; brief home observation for behavioral assessment.</td>
+          <td><span class="bdg asv">ASV</span> Guideline: dangerous animals should NOT be rehomed. Behavioral treatment plans require training goals, target dates, written guidelines, and regular re-evaluation.</td>
+        </tr>
+        <tr>
+          <td><b>Space</b></td>
+          <td>Animals with prolonged expected LOS. Foster often superior to shelter housing.</td>
+          <td>Reduces accumulated infectious risk and behavioral deterioration associated with long shelter stays.</td>
+        </tr>
+        <tr>
+          <td><b>Foster-to-adopt</b></td>
+          <td>When legal ownership transfer is not yet possible (stray hold period).</td>
+          <td>Potential adopter must be informed of original owner reclaim rights. Nonrefundable fee credited toward adoption fee. Animal must have received all appropriate preventive care before placement.</td>
+        </tr>
+        <tr>
+          <td><b>Fospice</b></td>
+          <td>Animals ineligible for adoption due to age or terminal illness.</td>
+          <td>Carer trained for QOL assessments. Frequent vet and QOL recheck by shelter staff. <b>Shelter retains final euthanasia decision authority.</b> Resources for compassion fatigue essential.</td>
+        </tr>
+        <tr>
+          <td><b>Temporary</b></td>
+          <td>DV victims, hospitalized, deployed, divorce, homelessness.</td>
+          <td>Written agreement that animal is returned when circumstances resolve, or as ordered by a court.</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="corrbox"><strong>Key fact:</strong> In fospice arrangements, the shelter retains final authority over euthanasia decisions, even when the animal is living in a foster home. This must be stated explicitly in the foster agreement.</div>
+  </div>
+
+  <h3>Disease Control and Infectious Risk <span class="bdg notes">ONENOTE</span></h3>
+  <div class="card">
+    <h4 style="margin:0 0 8px">Accumulated infectious risk</h4>
+    <p>Risk = n (number of animals ever in the home, not current census). Risk level is retained after animals leave; it does not reset when animals are adopted or returned. Periodically emptying homes completely breaks the accumulation cycle.</p>
+    <div class="formulabox">
+      Example: 1 resident cat + 4 kittens = risk 5. Four kittens adopted, 1 remains = still risk 5. One new kitten added = risk 6.
+    </div>
+    <div class="trap"><strong>Exam Trap:</strong> Accumulated infectious risk does NOT reset when animals leave. The number only increases with each new animal placed, regardless of how many have already been adopted out.</div>
+
+    <h4 style="margin:14px 0 8px">Family unit concept</h4>
+    <p>Animals with similar prior exposures and infectious potential who can safely share space. Family units are unlikely to transmit new diseases among themselves unless a new pathogen is introduced. Units should consist of animals who can comfortably share space without behavioral conflict. Housing multiple unrelated family units together substantially increases disease transmission risk.</p>
+
+    <h4 style="margin:14px 0 8px">Pre-placement screening</h4>
+    <ul class="hy">
+      <li>Physical examination, vaccination, behavioral assessment.</li>
+      <li>Infectious disease screening: CPV, FPV, coccidia, ringworm (prior to placement).</li>
+      <li>Zoonotic disease assessment: scabies, ringworm, rabies status confirmed.</li>
+      <li>Fecal exam; broad-spectrum dewormer at 2 to 3 weeks of age, then repeat every 2 weeks until 2 months old, then monthly.</li>
+      <li>Coccidia: ponazuril at 2 to 3 weeks, retreat 7 to 14 days later.</li>
+      <li>FeLV/FIV: inform foster carer of the possibility of exposure. Resident cats must be FeLV/FIV negative.</li>
+      <li>Heartworm testing in cats: limitations apply. A negative result does NOT rule out infection.</li>
+    </ul>
+
+    <h4 style="margin:14px 0 8px">Routine care schedule</h4>
+    <ul class="hy">
+      <li>Puppies and kittens: exam, weigh, deworm, and revaccinate (DHPP/FVRCP) every 2 weeks until 18 to 20 weeks of age.</li>
+      <li>Rabies vaccination at 3 months (12 weeks).</li>
+      <li>Recheck appointments assigned to staff or volunteers not in frequent contact with the main shelter population.</li>
+    </ul>
+
+    <h4 style="margin:14px 0 8px">Foster home environment requirements</h4>
+    <ul class="hy">
+      <li>Young animals placed in easily disinfectable areas for the first 2 weeks (calibrated to incubation periods of core pathogens).</li>
+      <li>Households with personal puppies or kittens under 20 weeks should NOT foster, due to incomplete antibody protection.</li>
+      <li>Resident cats must be FeLV/FIV negative before fostering cats.</li>
+      <li>Resident pets must be current on core vaccines: FVRCP or DHPP, rabies; parasite prevention maintained.</li>
+    </ul>
+    <div class="trap"><strong>Exam Trap:</strong> The 2-week quarantine period in a disinfectable area is not arbitrary. It maps to the incubation window of core shelter pathogens. Households with unvaccinated or incompletely vaccinated pets under 20 weeks are ineligible as foster homes.</div>
+  </div>
+
+  <h3>Socialization <span class="bdg notes">ONENOTE</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Puppies and kittens under 4 months require daily handling and positive exposure to novel stimuli during the socialization window.</li>
+      <li>Without adequate socialization, animals may develop chronic fear, anxiety, and inability to adjust to normal stimuli.</li>
+      <li>Singletons benefit from pairing with another well-screened singleton; the behavioral benefit generally balances the infectious risk.</li>
+      <li>Adding a singleton to an already healthy litter generally does NOT balance well (infectious risk outweighs behavioral gain for the singleton).</li>
+    </ul>
+  </div>
+
+  <h3>Caregiver Requirements and Program Management <span class="bdg notes">ONENOTE</span></h3>
+  <div class="card">
+    <h4 style="margin:0 0 8px">Legal and labor requirements</h4>
+    <ul class="hy">
+      <li>Minimum age 18 years for a legally binding foster agreement. Younger individuals may participate with an adult as primary carer.</li>
+      <li>Shelter staff fostering their employer's animals at home creates state labor law (overtime) risks. This arrangement has resulted in regulatory fines; it should be avoided or carefully reviewed with legal counsel.</li>
+      <li>Police background checks are a common but not universal regulatory screening requirement.</li>
+    </ul>
+    <div class="trap"><strong>Exam Trap:</strong> Staff fostering is legally distinct from volunteer fostering. State labor laws around hours of care, compensation, and overtime have been triggered by staff fostering arrangements. This is a recognized compliance risk.</div>
+
+    <h4 style="margin:14px 0 8px">Foster coordinator competencies</h4>
+    <ul class="hy">
+      <li>Knowledgeable about shelter operations and policies.</li>
+      <li>Training and experience to guide caregivers through medical and behavioral cases.</li>
+      <li>Working knowledge of animal health and behavior.</li>
+      <li>Meticulous record keeping and strong communication skills.</li>
+    </ul>
+
+    <h4 style="margin:14px 0 8px">Caregiver training and level systems</h4>
+    <ul class="hy">
+      <li>Training content: basic animal care and behavior, zoonotic disease risks, disease transmission and reduction strategies, home preparation, record keeping, sanitation protocols, problem recognition.</li>
+      <li>Resources: foster manual, in-person orientation sessions, monitoring sheets for appetite, elimination, growth, and behavior.</li>
+      <li>Level systems: new carers start with straightforward animals (e.g., 6 to 8 week healthy kittens) and progress to medical, post-surgical, behavioral, elderly, or neonatal cases.</li>
+      <li>Mentorship programs pair experienced and new foster carers.</li>
+      <li>Best retention: match skills to case complexity, provide rest breaks, and create growth opportunities.</li>
+    </ul>
+
+    <h4 style="margin:14px 0 8px">Monitoring and data collection</h4>
+    <ul class="hy">
+      <li>Monitor: weight, appetite, elimination, signs of illness, behavior changes.</li>
+      <li>Online monitoring systems recommended to track status in real time.</li>
+      <li>Minimum mandatory data points: reason for foster, age, date placed, date returned, and outcome.</li>
+      <li>Track: average LOS waiting for foster pick-up, average LOS in foster, current census, number of active carers.</li>
+    </ul>
+    <div class="trap"><strong>Exam Trap:</strong> Home visits after placement can deter applicants and are labor intensive. The environment often changes after the visit, limiting its predictive value. Risk-stratified or targeted visits are preferred over mandatory universal visits.</div>
+  </div>
+</section>
+
+<!-- ===================== MCQ ===================== -->
+<section class="panel" id="mcq">
+  <h2 class="sec">MCQ Test Bank</h2>
+  <p class="lead">61 board-style questions covering all Population Management topics including Foster Care. Click an option to answer; the explanation appears after you select. Use the Reset button to restart.</p>
+
+  <div class="mcqbar">
+    <div class="filters">
+      <button class="on" data-f="all">All 61</button>
+      <button data-f="asilomar">Asilomar</button>
+      <button data-f="c4c">C4C</button>
+      <button data-f="formulas">Formulas</button>
+      <button data-f="flow">Track / Flow</button>
+      <button data-f="rounds">Rounds / Welfare</button>
+      <button data-f="foster">Foster Care</button>
+    </div>
+    <div class="score">
+      <span id="scoreDisplay">0 / 0</span>
+      <button class="reset" id="resetBtn">Reset</button>
+    </div>
+  </div>
+  <div id="qhost"></div>
+</section>
+
+</div></main>
+
+<footer><div class="wrap">
+  <p>ABVP Shelter Medicine Practice RVS | Shelter Management Domain (18% of exam) | Subdomain 1 of 7: Population Management | Accuracy score: <strong>9.5 / 10</strong> | 3 Asilomar corrections verified against Maddie's Fund primary source; SAC OIE and LRR corrections confirmed; RTF/TNR distinction confirmed against SAC BasicDataMatrix 2021</p>
+</div></footer>
+
+<script>
+/* ---- tab switcher ---- */
+const tabrow = document.getElementById("tabrow");
+tabrow.addEventListener("click", function(e){
+  const b = e.target.closest("button");
+  if(!b) return;
+  [...tabrow.children].forEach(x => x.classList.remove("active"));
+  b.classList.add("active");
+  document.querySelectorAll(".panel").forEach(p => p.classList.remove("show"));
+  document.getElementById(b.dataset.p).classList.add("show");
+});
+
+/* ---- MCQ bank ---- */
+const Q = [
+  {f:"asilomar",q:"A shelter team is implementing data collection models based on the Asilomar Accords. A community is heavily underfunded and lacks veterinary specialists. How might an animal with a chronic complex medical condition be categorized compared to the same animal presenting in a well-resourced metropolitan shelter?",o:["It must be classified as Healthy in all American jurisdictions under federal welfare mandates.","Its category could change from Treatable-Manageable to Unhealthy-Untreatable, because the matrix is pegged to what a caring owner with realistic community resources can provide.","It must automatically be assigned to an immediate fast-track adoption pathway.","It is legally exempt from the shelter's calculation of Average Length of Stay."],a:1,e:"The Asilomar matrix is explicitly community-referenced. Categorization reflects what a reasonable, caring owner in that specific community can realistically provide. The same condition may yield a different category in an under-resourced rural community versus a well-resourced urban one."},
+  {f:"asilomar",q:"Which age requirement must be met before an animal can be classified as 'Healthy' under the Asilomar Accords?",o:["The animal must be at least 12 weeks old.","The animal must be at least 8 weeks old.","Any age is acceptable provided the animal shows no clinical signs of disease.","The animal must have completed a full primary vaccination series."],a:1,e:"The Asilomar framework explicitly requires that an animal be at or above 8 weeks of age to qualify for the Healthy category. Animals under 8 weeks are classified separately regardless of clinical appearance."},
+  {f:"asilomar",q:"A private practitioner argues that a shelter's Treatable-Manageable classification is wrong because the shelter cannot afford to treat the condition. Which statement correctly addresses this argument?",o:["The practitioner is correct; Treatable status requires the shelter itself to be able to provide treatment.","The practitioner is incorrect; Treatable status is based on community standard, specifically what a caring owner in that community can realistically provide, not what the shelter can afford.","The practitioner is correct; shelters with limited budgets must reclassify animals to Unhealthy-Untreatable automatically.","The practitioner is incorrect; Treatable status is determined solely by the attending veterinarian's opinion."],a:1,e:"Treatability under Asilomar is determined by the community standard, not by any individual shelter's resources. A shelter being unable to treat a condition does not reclassify the animal as untreatable if a caring owner in that community could realistically manage the condition."},
+  {f:"asilomar",q:"A shelter director tells their board that all animals classified as 'Unhealthy and Untreatable' are unsavable. Is this accurate?",o:["Yes; Unhealthy and Untreatable is synonymous with 'no possible outcome other than euthanasia' under the Asilomar framework.","No; the category means care is beyond community-standard resources, but a specialty organization with greater resources could still save such an animal.","Yes; the Asilomar framework prohibits any rescue organization from accepting Unhealthy and Untreatable animals.","No; Unhealthy and Untreatable means the animal is healthy but exhibiting dangerous behavior."],a:1,e:"Unhealthy and Untreatable means the level of care required exceeds what a community-standard caring owner can provide. It does not mean the animal is biologically unsavable. A specialty rescue with greater resources may still be able to treat or manage the condition."},
+  {f:"c4c",q:"An open-admission facility is facing severe overcrowding due to an unexpected cruelty seizure. The shelter is already at 100% C4C. Which response to this crisis is explicitly defined as unacceptable by the ASV?",o:["Initiating emergency transport to regional rescue partners.","Compromising the baseline welfare of existing residents and personnel to absorb the additional intake.","Issuing an emergency foster appeal to the community.","Temporarily suspending scheduled owner-surrender appointments."],a:1,e:"Compromising existing animal welfare to absorb additional intake is explicitly defined by the ASV as unacceptable. Operating beyond C4C cannot be justified by emergency circumstances. Appropriate responses include transport, foster, intake holds, and rescue partnerships."},
+  {f:"c4c",q:"A shelter has 200 physical cages. 60 of them are undersized and lack proper drainage. How many cages can be counted toward the shelter's true Capacity for Care?",o:["200, because physical presence determines capacity.","140, because only Humane Housing Units that meet welfare standards can be counted.","60, because only the substandard cages are available for general population housing.","200, but only if staffing is adequate."],a:1,e:"Only Humane Housing Units (HHUs) that meet welfare standards can be counted toward C4C. Enclosures that are too small or structurally inappropriate cannot be included regardless of their physical existence. The true HHU count here is 140."},
+  {f:"c4c",q:"A shelter director frequently finds the facility operating above its C4C. According to the ASV, what long-term administrative process should be initiated?",o:["Immediately reducing the daily care time standard from 15 to 5 minutes per animal.","A structured strategic planning process to align shelter capacity with community needs.","Hiring untrained volunteers to supplement medical rounds.","Reclassifying all slow-track animals as fast-track to increase throughput."],a:1,e:"Chronic operation above C4C signals a structural mismatch. The ASV recommends initiating a formal strategic planning process to identify root causes and develop durable solutions rather than reducing care standards."},
+  {f:"formulas",q:"A shelter veterinarian calculates the Required Holding Capacity (RHC) for the stray ward. The legal stray hold is 4 days. The Monthly Daily Average (MDA) stray intake is 15 dogs per day. What is the RHC?",o:["15 units","30 units","60 units","120 units"],a:2,e:"RHC = MDA Intake x Holding Period = 15 x 4 = 60 housing units. Each animal needs its own unit for each day of the mandatory hold period."},
+  {f:"formulas",q:"A shelter manager is sizing the cat adoption floor. The Monthly Daily Average (MDA) for cat adoptions is 4 per day and the target ALOS for adoptable cats is 5 days. What is the Adoption-Driven Capacity (ADC) needed?",o:["9 units","20 units","40 units","80 units"],a:1,e:"ADC = Target ALOS x MDA Adoptions = 5 x 4 = 20 adoption-floor units. This is the number of spaces needed to sustain the target adoption throughput without overflow."},
+  {f:"formulas",q:"A facility houses an average daily population of 80 dogs. Using the NACA minimum of 15 minutes of basic care per animal per day, how many total staff hours must be scheduled for daily basic care?",o:["10 hours","15 hours","20 hours","40 hours"],a:2,e:"Staff Hours = (15 min x 80 dogs) / 60 = 1,200 / 60 = 20 staff hours per day for basic care (feeding and cleaning) alone."},
+  {f:"formulas",q:"A shelter has 2,400 minutes of total daily staff care time available. Using the NACA 15-minute minimum, what is the Staff Capacity for Daily Care (SCDC)?",o:["80 animals","160 animals","240 animals","360 animals"],a:1,e:"SCDC = 2,400 / 15 = 160 animals. If the shelter's census exceeds 160, the staffing C4C has been breached regardless of physical cage availability."},
+  {f:"formulas",q:"A shelter currently admits 10 dogs per day with an ALOS of 12 days (daily population of 120). If ALOS is reduced to 6 days, what is the new daily population?",o:["120 animals","60 animals","90 animals","30 animals"],a:1,e:"Avg Daily Population = Admissions x ALOS = 10 x 6 = 60 animals. Halving ALOS halves the daily population at the same intake rate. This is the most powerful lever for reducing overcrowding."},
+  {f:"flow",q:"A shelter supervisor is structuring a Fast Track protocol. Which animal profile should be placed in this stream to minimize ALOS?",o:["A 12-year-old diabetic cat requiring twice-daily insulin injections.","Highly adoptable kittens, puppies, and friendly small-to-medium sized dogs.","An aggressive large-breed dog requiring formal counter-conditioning behavioral modification.","A feral cat colony held for a 10-day legal quarantine period."],a:1,e:"Fast-track populations consist of high-adoption-probability animals: kittens, puppies, and friendly small-to-medium dogs. Rapid throughput for these animals frees critical resources for animals with greater needs."},
+  {f:"flow",q:"An adult dog assigned to the Fast Track has been in the shelter for 2.5 weeks without any adoption applications. What operational action is required?",o:["The animal must be euthanized immediately for space constraints.","The animal must be formally reassigned to the Slow Track, triggering larger housing, more enrichment, and a long-term care plan.","The animal must be placed into mandatory disease quarantine for 14 days.","The animal's daily care time must be reduced to 5 minutes to conserve resources."],a:1,e:"Any fast-track animal not adopted within 2 to 3 weeks must be formally reassigned to slow track. Remaining in fast-track housing is inappropriate for animals requiring longer stays and more complex care."},
+  {f:"flow",q:"A shelter's slow-track housing units are 100% full. An intake technician wants to move a dog with complex behavioral needs from holding into the slow track. What is the correct protocol?",o:["Double-house the dog in an existing full unit.","No additional animals may be assigned to slow track until existing residents have been adopted or transferred.","Demote a highly adoptable puppy from fast track to create space.","Remove all enrichment items from slow track to fit additional crates."],a:1,e:"When slow-track units are full, no additional slow-track assignments can occur until a unit opens. Doubling housing compromises welfare and violates C4C standards. The solution is to work on accelerating slow-track exits."},
+  {f:"flow",q:"A shelter implements an Open Selection program for stray animals on hold. How does this program reduce length of stay without bypassing legal protections?",o:["It eliminates the need to scan animals for microchips during intake.","It allows prospective adopters or rescue partners to select an animal during its legal hold period, converting waiting time into live-release preparation.","It mandates that selected animals bypass spay/neuter surgery.","It opens isolation wards to public viewing without PPE requirements."],a:1,e:"Open Selection productively utilizes mandatory stray-hold periods. Adopters or rescuers can select an animal before the hold expires and are told an owner reclaim is still possible. This minimizes LOS without circumventing the owner's legal right to reclaim."},
+  {f:"flow",q:"A municipality proposes that all RTF community cats be counted the same way as TNR community cats in the shelter's intake statistics. Why would this be incorrect?",o:["RTF and TNR cats are biologically identical and should always be counted the same way.","RTF cats are admitted to the shelter and counted in the BasicDataMatrix intake; TNR cats are not admitted and are only tracked in the Community Services Matrix.","TNR cats must be admitted and counted because they receive shelter services.","RTF cats are not admitted; they go directly to foster homes without shelter processing."],a:1,e:"RTF cats enter the shelter system and are counted in intake statistics. TNR cats are managed entirely by community organizations without shelter admission; they appear only in the Community Services Matrix. Conflating the two distorts intake and live release statistics."},
+  {f:"rounds",q:"The ASV emphasizes that minimizing LOS is critical for kittens and puppies under 5 months. What is the primary biological rationale?",o:["They consume twice as many financial resources per day as geriatric animals.","They are highly susceptible to infectious disease and prolonged stays can permanently impair their critical socialization window.","They are legally exempt from daily visual health observations.","They cannot be safely handled by anyone other than a board-certified veterinary surgeon."],a:1,e:"Pediatric animals under 5 months have immature immune systems and are highly vulnerable to shelter-acquired disease. Prolonged shelter stays also occur during a critical developmental window where lack of appropriate socialization causes permanent behavioral deficits."},
+  {f:"rounds",q:"A cross-departmental team performs Population Rounds. Which three questions must be answered for every animal?",o:["What breed are you? How much do you weigh? When is your next vaccine due?","Who surrendered you? What was your intake fee? Is your cage card in color?","How are you doing? What is your pathway and are there updates or concerns? What are your next steps?","Are you fast or slow track? Can you sit on command? Do you prefer wet or dry food?"],a:2,e:"Population rounds require three precise collaborative questions for every animal: (1) How are you doing? (2) What is your pathway and are there updates or concerns? (3) What are your next steps? These questions drive welfare assessment, pathway management, and outcome planning simultaneously."},
+  {f:"rounds",q:"A fearful dog identified in population rounds has stopped eating due to stress, threatening to extend its shelter stay. How must this finding be handled?",o:["Log the issue and re-evaluate during the animal's semi-annual examination.","The need must be addressed promptly; any welfare-compromising or stay-extending finding from rounds cannot be deferred.","Immediately reassign the dog to an unventilated quarantine stall.","Fast-track the dog to the adoption floor without behavioral intervention."],a:1,e:"The ASV mandates that any welfare-compromising or stay-extending need identified during population rounds must be addressed promptly, not deferred. Prompt action protects the animal and prevents LOS extension, which would compound the population problem."},
+  {f:"rounds",q:"A shelter technician is explaining the difference between the Isolation Ward and the Quarantine Ward to a new volunteer. Which statement is correct?",o:["Isolation is for healthy animals; quarantine is for animals undergoing spay/neuter recovery.","Isolation is for actively sick animals; quarantine is for apparently healthy animals with known or suspected disease exposure who are being monitored through the incubation window.","Both areas can house sick and healthy animals together to maximize space.","Isolation is exclusively for geriatric animals; quarantine is exclusively for nursing mothers."],a:1,e:"Isolation targets actively sick animals. Quarantine targets apparently healthy animals with exposure risk, holding them through the incubation period for observation. The defining distinction is current health status at time of placement."},
+  {f:"rounds",q:"An intake supervisor performs a physical exam on a 9-year-old stray dog. According to geriatric minimum database guidelines, which screening panel should be added to the standard intake exam?",o:["Full-body CT and skin scrape.","PCV/TP, urine specific gravity (USG), and a urine dipstick.","12-lead ECG and liver biopsy.","Immediate FeLV/FIV testing."],a:1,e:"The geriatric shelter patient minimum database includes PCV/TP to screen for anemia and protein abnormalities, USG to evaluate renal concentrating ability, and a urine dipstick to screen for glucosuria and proteinuria. These are efficient, low-cost, high-yield screens for common geriatric conditions."},
+  {f:"rounds",q:"A long shelter stay is identified as a direct risk factor in population management. What is the most significant health risk correlated with an extended LOS?",o:["An automatic increase in the manufacturer's drug expiration date.","An increased risk of developing a shelter-acquired illness due to prolonged pathogen exposure and stress.","An immediate reduction in the required holding capacity of the stray ward.","A transition from Schedule II to Schedule III controlled substance status."],a:1,e:"Risk management data shows a direct correlation between extended LOS and increased risk of shelter-acquired disease. Prolonged pathogen exposure combined with immunosuppressive stress increases susceptibility significantly."},
+  {f:"c4c",q:"A shelter analysis shows large dogs have an ALOS 15 days longer than small dogs. What is the correct management response to this data?",o:["Ban the intake of all large dogs to protect the average daily population metrics.","Focus on improved housing, advanced enrichment, and targeted marketing programs to help large dogs achieve positive live outcomes more quickly.","Reduce daily care time for large dogs to offset their resource consumption.","Move all large dogs into the fast-track kitten socialization ward."],a:1,e:"When a subpopulation has elevated ALOS, risk management calls for both improving welfare during the longer stay (appropriate housing, enrichment) and accelerating outcomes through targeted marketing, offsite events, and foster networks. Banning intake or reducing care are not appropriate responses."},
+  {f:"rounds",q:"According to the problem-oriented approach to shelter medicine, what is the correct sequence for initial case progression?",o:["Plan formulation > Diagnostic testing > Live release > History collection.","Data collection (history, PE, behavioral observation) > Problem identification > Plan formulation > Assessment and follow-up.","Euthanasia review > Open selection tagging > Daily care calculation.","Fast-track assignment > Slow-track demotion > Monthly BCS reweigh."],a:1,e:"The problem-oriented approach follows a strict sequence: Data collection first (history, physical exam, behavioral observation), then Problem identification, then Plan formulation (diagnostics and initial therapy), then Assessment and follow-up. Skipping to treatment before data collection is incorrect."},
+  {f:"flow",q:"An animal control officer finds a healthy stray dog two blocks from its home. What is the most efficient approach for this animal?",o:["Immediately transport the dog to a regional isolation ward.","Scan for microchip in the field; lost pets are statistically close to home and may be returned directly to the owner without shelter admission.","Admit the dog and place it on a mandatory 14-day quarantine.","Immediately assign the dog to the slow track."],a:1,e:"Lost pets are statistically found close to home. Field scanning and direct owner reunification prevents any shelter LOS, preserves a housing unit for an animal that genuinely needs sheltering, and is the most efficient outcome for this animal."},
+  {f:"c4c",q:"A shelter's new adoption policy requires strict income verification, mandatory home visits, and a ban on renting families. What is the primary operational consequence according to the ASV?",o:["Decreases disease transmission by 50%.","The exclusionary policies are discriminatory, prolong LOS by shrinking the adopter pool, and prevent future adoptions without improving outcomes.","Automatically increases the SCDC.","Converts slow-track animals to fast-track within 48 hours."],a:1,e:"Restrictive, exclusionary adoption requirements directly prolong LOS by reducing the available adopter population. Evidence consistently shows these barriers do not improve adoption success rates or animal welfare outcomes while creating significant welfare harm through extended shelter stays."},
+  {f:"c4c",q:"A shelter manages two intake pathways: scheduled owner surrenders (controlled) and stray intakes (uncontrolled but predictable). How should leadership manage the uncontrolled pathway?",o:["Close it entirely, refusing all emergency or municipal stray admissions.","Monitor it continuously to evaluate its impact on total facility capacity and make necessary adjustments to the controlled pathway to compensate.","Automatically assign every animal from this pathway to immediate euthanasia.","Skip all initial data collection for animals entering through this pathway."],a:1,e:"Uncontrolled but predictable pathways (strays, animal control intakes) cannot simply be refused. They require ongoing evaluation of their impact on total capacity so that management can adjust the controlled pathway (e.g., reduce scheduled owner surrender appointments) to maintain C4C."},
+  {f:"flow",q:"What is the primary purpose of a Return-to-Field (RTF) program for healthy unowned community cats in an open-admission shelter?",o:["It dramatically increases the ALOS for healthy kittens in the shelter.","It minimizes euthanasia for space constraints and maximizes intake capacity for owned animals requiring sheltering.","It transitions the shelter from a Schedule III to a Schedule II DEA licensing tier.","It requires all community cats to undergo a mandatory 6-month physical exam before release."],a:1,e:"RTF programs divert healthy unowned community cats back to their outdoor home ranges, freeing shelter space and reducing space-related euthanasia. This preserves intake capacity for owned animals, lost pets, and animals that genuinely require the shelter's services."},
+  {f:"asilomar",q:"A shelter tracks its Asilomar data monthly. Which outcome metric should be monitored within each category separately to evaluate progress toward elimination of preventable euthanasia?",o:["Total intake numbers and average weight gain.","Live release percentage and euthanasia percentage within each of the four categories over time.","Spay/neuter surgery count and average length of stay for fast-track animals only.","Staff hours spent in population rounds per week."],a:1,e:"Tracking live release and euthanasia percentages within each category separately is the Asilomar framework's intended monitoring mechanism. Healthy and Treatable euthanasia indicates unmet goals; Unhealthy and Untreatable euthanasia may be appropriate. Aggregate numbers obscure this critical distinction."},
+  {f:"rounds",q:"A shelter director wants to confirm that population management begins at the correct point in an animal's trajectory. At what stage must population management officially start?",o:["Only after the animal has completed mandatory spay/neuter surgery.","Before admission; an animal should only be admitted if the shelter has capacity and resources to provide the specific care that animal requires.","At the exact moment the animal is transitioned from fast track to slow track.","After the first 6 months of continuous residency in an off-site foster network."],a:1,e:"Population management begins before admission. Admitting an animal when C4C is already exceeded compounds the overcrowding problem. Intake decisions must account for current capacity and the specific needs of the incoming animal before the admission occurs."},
+  // ---- FOSTER CARE (30 questions) ----
+  {f:"foster",q:"A shelter takes in 90 kittens during June, a peak kitten season month. Using the standard foster home planning formula, how many foster homes should the program target for that month?",o:["45 homes","30 homes","90 homes","15 homes"],a:1,e:"Peak season formula: monthly kitten intake divided by 3. 90 divided by 3 = 30 homes. Winter formula uses a divisor of 2. Always recruit above the calculated number to buffer for attrition."},
+  {f:"foster",q:"A shelter wants to verify its foster census on February 1st. On January 1st there were 12 animals in foster care. During January, 28 animals were sent to foster and 20 were returned. What is the February 1st census?",o:["40 animals","20 animals","28 animals","8 animals"],a:1,e:"Census audit formula: Feb 1 = Jan 1 count + sent to foster in Jan minus returned from foster in Jan. 12 + 28 - 20 = 20 animals."},
+  {f:"foster",q:"A foster coordinator notices that their calculated home need is 40 homes per month, but average LOS in foster is 6 weeks rather than the 2 to 3 weeks assumed by the formula. What adjustment is necessary?",o:["More foster homes than the formula suggests are needed, because animals stay longer and homes fill up faster","Fewer homes are needed because longer stays mean animals spend less time in the shelter","The formula accounts for LOS automatically, so no adjustment is needed","Reduce intake to match the formula output"],a:0,e:"The standard formula assumes a typical LOS. When animals stay in foster longer than assumed, homes become occupied for longer periods, reducing availability. The program must recruit more homes than the raw formula indicates to maintain the same throughput."},
+  {f:"foster",q:"A shelter receives a large orphaned litter of 12 kittens. Which management strategy best limits disease transmission risk among the litter?",o:["House all 12 together so cohort immunity develops quickly","Divide into smaller groups of 3 to 4 kittens placed in separate foster homes","Place all 12 with one experienced carer to centralize monitoring","Keep all 12 in the shelter until weaned before placing in foster"],a:1,e:"Dividing large litters into smaller groups placed in separate homes limits accumulated infectious risk and reduces the severity of any disease outbreak within a group. Each smaller group becomes its own low-risk family unit."},
+  {f:"foster",q:"A shelter approaching capacity has a large cohort of neonatal kittens about to arrive from a hoarding case. Which foster program approach is most consistent with best practice?",o:["Wait until the shelter reaches maximum capacity before activating foster appeals","Run proactive recruitment programs ahead of anticipated need, particularly before kitten season","Restrict foster to medical cases only to conserve training resources","Require all neonates to complete a 7-day shelter observation period before foster placement"],a:1,e:"Proactive recruitment ahead of anticipated high-intake periods is essential for capacity management. Reactive appeals during peak need are less effective because recruiting and onboarding carers takes time. Pre-kitten season campaigns are standard best practice."},
+  {f:"foster",q:"A 16-year-old applicant wants to become a foster carer. Which statement correctly describes program eligibility?",o:["Any age is acceptable as long as a parent is aware of the arrangement","Minimum age 18 is required to sign a legally binding foster agreement; a younger person may participate with an adult primary carer","Minimum age is 21 in all jurisdictions for animals requiring medical care","There is no age requirement; individual shelter policy governs eligibility"],a:1,e:"A legally binding foster contract requires the signatory to be at least 18 years old. Younger individuals may participate in the care of animals, but an adult must be the primary carer and contract signatory."},
+  {f:"foster",q:"A shelter director proposes encouraging staff members to take foster animals home over the weekend to reduce shelter census. What is the primary compliance risk of this arrangement?",o:["It violates HSUS national standards for foster care","State labor laws and overtime regulations may be triggered when employees care for employer-owned animals outside work hours, and this has resulted in fines","Staff are prohibited from fostering under all ASV guidelines","It creates conflict of interest because staff make placement decisions about their own foster animals"],a:1,e:"Staff fostering their employer's animals activates state labor law provisions around hours worked and overtime compensation. This specific arrangement has resulted in regulatory fines for shelters. It should be avoided or reviewed carefully with employment legal counsel."},
+  {f:"foster",q:"A foster program conducts criminal background checks on all applicants before placement. This is best described as which type of screening measure?",o:["A universal regulatory mandate required by federal law","A common but not universally mandated regulatory requirement that varies by jurisdiction","An ASV Guideline requirement for all programs placing medical cases","A voluntary best practice with no legal basis"],a:1,e:"Police or criminal background checks are a commonly applied regulatory or program requirement for foster carers, but they are not universally mandated by federal or national law. Requirements vary by jurisdiction and shelter policy."},
+  {f:"foster",q:"A shelter implements a policy requiring an in-home inspection visit for every foster applicant before any placement. What is the primary operational drawback of this approach?",o:["Home visits are prohibited by privacy laws in most states","The visits are labor intensive, can create mistrust with applicants, and the environment may change after the visit, limiting predictive value","Home visits dramatically increase zoonotic disease transmission to staff","Home visits are only useful for medical foster cases, not routine placements"],a:1,e:"Mandatory universal home visits are resource intensive and can deter well-qualified applicants. The environment at the time of the visit may not reflect how it will look once animals are present. Risk-stratified or targeted visits are preferred over blanket requirements."},
+  {f:"foster",q:"A foster program is experiencing high carer attrition. Which retention strategy is most strongly supported by volunteer management principles?",o:["Increase stipends to all carers regardless of experience level","Match case complexity to carer skills, provide rest breaks between placements, and offer growth opportunities through mentorship or level advancement","Reduce communication frequency to avoid burdening carers","Assign all new carers to the most challenging cases to accelerate skill development"],a:1,e:"Effective volunteer retention requires matching the difficulty of cases to the carer's skill level so they feel competent but not overwhelmed. Providing breaks between placements prevents burnout. Creating visible growth pathways through level systems and mentorship increases engagement and retention."},
+  {f:"foster",q:"A foster carer has had 1 resident cat and 4 foster kittens in their home. The 4 kittens are all adopted. A new single kitten is then placed in the home. What is the accumulated infectious risk level?",o:["1 (only the resident cat)","5 (4 kittens plus resident cat, carries forward)","4 (only the kittens who were present)","6 (5 previous animals plus the new kitten)"],a:3,e:"Accumulated infectious risk is cumulative and does not reset when animals leave. After the initial placement: 1 cat + 4 kittens = risk 5. The 4 kittens leave but risk remains at 5. Adding one new kitten raises risk to 6. The number only ever increases."},
+  {f:"foster",q:"Which management strategy is most effective at breaking the cycle of accumulated infectious risk in a foster home?",o:["Treating all incoming animals prophylactically with antibiotics","Periodically emptying the home completely for an interval before any new placements","Increasing vaccination frequency in resident animals","Restricting all placements to animals of the same species"],a:1,e:"The only way to reset accumulated infectious risk is to completely empty the foster home for a period between cohorts. This allows the environment to be cleaned and the pathogen load to diminish before any new animals are introduced."},
+  {f:"foster",q:"Why are young animals placed in an easily disinfectable area of the foster home for the first 2 weeks of placement?",o:["Because neonates are at highest behavioral risk during the first 2 weeks","Because the 2-week period is calibrated to the incubation period of core shelter pathogens, allowing disease to declare itself before the animal has full home access","Because shelter transport containers may leave chemical residues that require a decontamination window","Because most foster carers cannot adequately supervise animals during this initial period"],a:1,e:"The 2-week quarantine in an easily disinfectable area corresponds to the incubation window of the most common core shelter pathogens (including parvovirus and panleukopenia). If disease is incubating, it will declare within this window, and containment to a cleanable area limits spread."},
+  {f:"foster",q:"Which factor most directly explains why high-traffic foster environments increase the risk of FIP in cats?",o:["Repeated exposure to novel, potentially mutating feline coronavirus strains from multiple unrelated animals increases the probability of a virulent mutation arising","High-traffic environments have lower vaccination rates","Foster carers in high-traffic homes rarely provide adequate nutrition","FIP risk is not related to housing density or traffic"],a:0,e:"FIP arises from mutation of feline enteric coronavirus (FCoV). High-traffic environments with frequent introduction of unrelated cats increase the probability of exposure to novel FCoV strains and raise the overall viral burden, increasing the likelihood of a virulent mutation occurring. This is a recognized risk in intensive foster programs."},
+  {f:"foster",q:"A shelter screens all foster cats for heartworm before placement. A cat tests negative. Which statement is most accurate?",o:["The cat can be confirmed free of heartworm infection based on the negative result","A negative test result does not rule out infection in cats, due to limitations in current feline HW testing methodology","The cat must be retested in 6 months before foster placement","HW testing in cats is not recommended and should not be part of foster screening"],a:1,e:"Feline heartworm serology has significant sensitivity limitations. Cats can harbor single-sex infections that are undetectable by antigen tests, and antibody tests are also imperfect. A negative result provides some reassurance but cannot definitively exclude infection. Foster carers should be informed of this limitation."},
+  {f:"foster",q:"What is the recommended frequency for examination, weighing, deworming, and core revaccination in foster puppies and kittens?",o:["Monthly, with a final booster at 6 months","Every 2 weeks until 18 to 20 weeks of age","Every 4 weeks until 12 weeks of age","Every week until adoption, then transfer to adopter's vet"],a:1,e:"The standard protocol is examination, weight check, deworming, and core revaccination (DHPP or FVRCP) every 2 weeks until 18 to 20 weeks of age. This schedule ensures adequate protection during the window when maternal antibody interference is waning."},
+  {f:"foster",q:"A 3-week-old litter of kittens is being prepared for foster placement. They have not been treated for coccidia. Which treatment protocol is recommended?",o:["Ponazuril administered at 2 to 3 weeks of age, with a repeat dose 7 to 14 days later","Metronidazole for 5 days starting at 4 weeks of age","No treatment unless oocysts are confirmed on fecal float","Sulfadimethoxine daily for 21 days starting at 6 weeks"],a:0,e:"Ponazuril is the recommended anticoccidial for shelter kittens. The protocol is administration at 2 to 3 weeks of age with a repeat dose 7 to 14 days later. Treatment is recommended prophylactically given the high prevalence of coccidia in shelter kittens."},
+  {f:"foster",q:"At what age should rabies vaccination be administered to neonatal foster puppies and kittens?",o:["6 weeks of age","8 weeks of age","3 months (12 weeks) of age","6 months of age"],a:2,e:"Rabies vaccination is administered at 3 months (12 weeks) of age in puppies and kittens. This is the minimum age for rabies vaccination under most jurisdictional licensing requirements and aligns with label indications for most rabies vaccines."},
+  {f:"foster",q:"To minimize biosecurity risk, who should conduct recheck appointments for foster animals?",o:["The primary attending veterinarian who also works the main shelter intake area","Staff or volunteers not in frequent contact with the main shelter animal population","Any available staff member to maximize scheduling flexibility","The foster carer themselves, to reduce shelter visits"],a:1,e:"Foster recheck appointments carry risk of disease introduction to or from the shelter population. Assigning these appointments to staff or volunteers who are not in frequent contact with the main shelter population reduces bidirectional transmission risk."},
+  {f:"foster",q:"A foster carer is placed with a dog recovering from a spay. Which competency set is most important for this medical foster placement?",o:["Advanced behavioral modification techniques and aggression management","Wound care monitoring, enforcing exercise restriction, environmental enrichment for confinement, pain management recognition, and identifying post-surgical complications","Knowledge of cat-specific infectious diseases only","Ability to administer intravenous fluids and run in-clinic diagnostics"],a:1,e:"Medical fosters require carers to monitor surgical wounds, enforce activity restriction, provide appropriate low-stimulation enrichment, recognize signs of pain, and identify early complications such as dehiscence, infection, or seroma. These are the core competency requirements for this pathway."},
+  {f:"foster",q:"A singleton 5-week-old kitten has been placed in foster care. The carer reports the kitten is fearful and not socializing well. What is the most appropriate management strategy?",o:["Return the kitten to the shelter for professional behavioral evaluation","Pair the singleton with another well-screened singleton to provide social stimulation; the behavioral benefit generally outweighs the infectious risk in this case","Isolate the kitten completely and allow natural desensitization over time","Increase human handling to compensate for lack of feline social contact"],a:1,e:"Singleton kittens under 4 months benefit from pairing with another well-screened singleton. The behavioral benefit (normal feline socialization, play behavior, and emotional development) generally outweighs the incremental infectious risk when the pairing kitten has been properly screened."},
+  {f:"foster",q:"A kitten is 12 weeks old and has received no socialization or positive human handling since birth. What is the most likely long-term outcome?",o:["Normal socialization will occur naturally during adolescence with no intervention","The kitten is likely to develop chronic fear, anxiety, and difficulty adjusting to normal household stimuli","The kitten will benefit from more intensive play sessions starting at 16 weeks","No intervention is needed; socialization windows extend to 6 months in kittens"],a:1,e:"The primary socialization window in kittens closes at approximately 7 weeks and secondary socialization continues to about 14 weeks. Animals not adequately handled and exposed to positive novel stimuli during this period are at high risk of developing chronic fear, anxiety, and an inability to adjust to normal household environments."},
+  {f:"foster",q:"A shelter's foster coordinator proposes placing a dog with a documented bite history resulting in significant injury into a foster home for behavioral rehabilitation. Which ASV guideline is most directly relevant?",o:["Dogs with bite histories are automatically eligible for behavioral foster if the carer is experienced","Dangerous animals should not be rehomed; behavioral modification for dangerous animals poses unacceptable safety and liability risks","All bite history dogs require a 10-day hold before foster placement","Behavioral foster is prohibited for dogs with any aggression history"],a:1,e:"The ASV Guidelines state that dangerous animals should not be rehomed. Placing an animal with a documented significant bite history in a foster home for behavioral rehabilitation creates safety risks for the carer, household members, and the community, as well as serious liability exposure for the shelter."},
+  {f:"foster",q:"A shelter develops a behavioral treatment plan for a dog displaying barrier frustration in foster care. Which elements are required in a properly constructed behavioral treatment plan?",o:["A general description of the problem behavior and a target adoption date","Specific training goals, target dates for each goal, written behavioral guidelines for the carer, and a schedule for regular re-evaluation","A single assessment by a certified behaviorist with a written summary","A medication plan and monthly follow-up with a shelter veterinarian"],a:1,e:"A complete behavioral treatment plan requires specific and measurable training goals, defined target dates for achieving each goal, written behavioral guidelines the carer can follow consistently, and a structured re-evaluation schedule to assess progress and adjust the plan. Vague descriptions or outcome targets without behavioral specificity are insufficient."},
+  {f:"foster",q:"A dog is placed in behavioral foster care with a carer who wants to teach basic manners. What is the primary benefit of basic manners training in the foster context?",o:["It reduces the legal liability of the shelter if the dog bites","It enriches the animal's daily life, builds the human-animal bond, and increases adoptability and adoption success","It is required under state veterinary licensing law for dogs in behavioral placement","It eliminates the need for a behavioral assessment before adoption"],a:1,e:"Basic manners and house training provide daily mental stimulation and enrichment, strengthen the bond between the carer and the animal, and make the animal more appealing and manageable for adopters. This is the primary purpose of behavioral training in the foster context, distinct from treatment of serious behavioral pathology."},
+  {f:"foster",q:"A cat in fospice foster care is declining. The carer disagrees with the shelter's assessment and wants to pursue further treatment rather than euthanasia. What is the correct process?",o:["The foster carer has decision-making authority because the animal is living in their home","The shelter administration and veterinary team retain final authority over the euthanasia decision, regardless of the carer's wishes","The carer may delay euthanasia indefinitely as long as the animal is eating","Euthanasia decisions must be made by the attending private practitioner, not the shelter"],a:1,e:"In a fospice arrangement, the shelter retains ownership of the animal and therefore retains final authority over all medical decisions, including euthanasia. The foster carer is caring for the animal on behalf of the shelter, not as an owner. This must be stated clearly in the fospice agreement."},
+  {f:"foster",q:"A fospice carer has experienced the death of three animals in one month. Which support measure is most important for preventing carer burnout and ensuring continued program participation?",o:["Immediately assigning three new animals to keep the carer occupied","Providing access to compassion fatigue resources and encouraging rest breaks between placements","Requiring the carer to attend a debriefing session before taking any more animals","Transitioning the carer to space foster to reduce emotional burden"],a:1,e:"Repeated animal loss is a primary cause of compassion fatigue in fospice carers. The evidence-based response is to provide access to compassion fatigue support resources (counseling, peer support, grief support groups) and encourage breaks between placements. Immediate reloading without recovery time increases attrition."},
+  {f:"foster",q:"A DV survivor contacts the shelter asking to place her two cats temporarily while she seeks safe housing. What legal document is essential before placement?",o:["A police report confirming the DV situation","A written agreement stating the animals will be returned to the owner when her circumstances resolve, or as ordered by a court","A surrender form transferring ownership to the shelter during the temporary period","A veterinary health certificate showing the animals are current on vaccines"],a:1,e:"Temporary foster for DV, disaster, or displacement situations requires a written agreement that clearly defines the temporary nature of the arrangement and stipulates the conditions under which the animal will be returned: when the owner's circumstances resolve, or as directed by a court. Without this, ownership and return rights may be ambiguous."},
+  {f:"foster",q:"A couple is interested in fostering a dog currently in the shelter's mandatory stray hold period. They would like to adopt the dog once the hold period ends. Which statement best describes the foster-to-adopt pathway in this situation?",o:["The couple can be listed as owners immediately to simplify paperwork","The couple may foster the dog, but must be clearly informed that the original owner retains the legal right to reclaim the animal until the end of the mandatory stray hold period","The dog cannot leave the shelter until the stray hold period is fully complete","The stray hold period is waived if the couple signs an adoption intent form"],a:1,e:"Foster-to-adopt is designed for situations where legal ownership transfer is not yet possible, such as during a mandatory stray hold period. The prospective adopter must be clearly informed in writing that the original owner retains full reclaim rights until the hold expires. Placement before the hold ends does not affect those rights."},
+  {f:"foster",q:"Before placing a dog in a foster-to-adopt arrangement, which condition must be met regarding the animal's medical status?",o:["The animal must have completed spay or neuter surgery","The animal must have received all appropriate preventive care before placement","The animal must have passed an advanced behavioral assessment","The animal must have been in the shelter for at least 7 days"],a:1,e:"Before any foster-to-adopt placement, the animal must have received all appropriate preventive care: age-appropriate vaccinations, deworming, and relevant disease screening. This protects the household, the resident pets, and ensures the prospective adopter receives an animal in appropriate health condition."}
+];
+
+let activeFilter = "all";
+let answered = 0, correct = 0;
+
+function getVisible(){
+  return activeFilter === "all" ? Q : Q.filter(q => q.f === activeFilter);
+}
+
+function updateScore(){
+  document.getElementById("scoreDisplay").textContent = correct + " / " + answered;
+}
+
+function render(){
+  const host = document.getElementById("qhost");
+  const visible = getVisible();
+  host.innerHTML = "";
+  visible.forEach(function(q, i){
+    const div = document.createElement("div");
+    div.className = "q";
+    div.innerHTML = "<div class=\"meta\"><span class=\"num\">Q"+(i+1)+"</span><span class=\"tag\">"+q.f+"</span></div>"
+      +"<div class=\"stem\">"+q.q+"</div>"
+      +q.o.map(function(o,j){
+        return "<button class=\"opt\" data-qi=\""+i+"\" data-oi=\""+j+"\"><span class=\"k\">"+"ABCD"[j]+"</span>"+o+"</button>";
+      }).join("")
+      +"<div class=\"expl\" id=\"expl-"+i+"\"><b class=\"cor\">Correct: "+"ABCD"[q.a]+"</b> "+q.e+"</div>";
+    host.appendChild(div);
+  });
+
+  host.querySelectorAll(".opt").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      const qi = parseInt(this.dataset.qi);
+      const oi = parseInt(this.dataset.oi);
+      const qDiv = this.closest(".q");
+      if(qDiv.dataset.done) return;
+      qDiv.dataset.done = "1";
+      answered++;
+      const isCorrect = (oi === getVisible()[qi].a);
+      if(isCorrect) correct++;
+      updateScore();
+      qDiv.querySelectorAll(".opt").forEach(function(b,j){
+        b.classList.add("locked");
+        if(j === getVisible()[qi].a) b.classList.add("correct");
+        else if(j === oi && !isCorrect) b.classList.add("wrong");
+      });
+      document.getElementById("expl-"+qi).classList.add("show");
+    });
+  });
+}
+
+document.querySelectorAll(".mcqbar .filters button").forEach(function(btn){
+  btn.addEventListener("click", function(){
+    document.querySelectorAll(".mcqbar .filters button").forEach(function(b){ b.classList.remove("on"); });
+    this.classList.add("on");
+    activeFilter = this.dataset.f;
+    answered = 0; correct = 0;
+    updateScore();
+    render();
+  });
+});
+
+document.getElementById("resetBtn").addEventListener("click", function(){
+  answered = 0; correct = 0;
+  updateScore();
+  render();
+});
+
+render();
+updateScore();
+</script>
+</body>
+</html>

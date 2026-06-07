@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Liability and Risk Management | Shelter Management | ABVP Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#3d1a0a;--ink2:#5c2c14;--paper:#fdf4ec;--paper2:#fffaf5;
+    --line:#e4d3c4;--muted:#7a5c4a;
+    --id:#b84c1a;--id-soft:#f5ddd0;
+    --good:#1f7a4d;--bad:#b23b3b;
+    --notes:#7a4fb5;--notes-soft:#ece3f7;
+    --lit:#1f6f8b;--lit-soft:#dcedf2;
+    --aspca:#8a6d1f;--aspca-soft:#f3ebcf;
+    --ref:#b5651d;--ref-soft:#f6e7d4;
+    --shadow:0 1px 2px rgba(61,26,10,.08),0 8px 24px rgba(61,26,10,.06);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;
+    background-image:radial-gradient(circle at 1px 1px,rgba(61,26,10,.04) 1px,transparent 0);background-size:22px 22px;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+  header.top{background:var(--ink);color:var(--paper2);padding:26px 0 22px;border-bottom:4px solid var(--id)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#d4a88a;margin:0 0 6px}
+  header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(24px,4vw,38px);margin:0;line-height:1.05}
+  header.top p.sub{margin:8px 0 0;color:#f0d9cc;font-size:14px;max-width:70ch}
+  .legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}
+  .legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.25);color:#f5ece5;display:flex;align-items:center;gap:6px}
+  .legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--paper2);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button:hover{background:var(--paper);color:var(--ink)}
+  .tabrow button.active{background:var(--ink);color:var(--paper2)}
+  .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--id)}
+  main{padding:30px 0 80px}
+  .panel{display:none;animation:fade .35s ease}
+  .panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;letter-spacing:-.01em}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:78ch}
+  h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:30px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;color:var(--ink2);text-transform:uppercase;letter-spacing:.03em}
+  .card{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}
+  ul.hy{margin:8px 0;padding-left:0;list-style:none}
+  ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed #e6d4c2;font-size:14px}
+  ul.hy li:last-child{border-bottom:0}
+  ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;border-radius:2px;background:var(--id);transform:rotate(45deg)}
+  .trap{background:#fdf0ea;border:1px solid #e8c4aa;border-left:4px solid var(--id);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .trap b{color:var(--id);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .corrbox{background:#e9f4ee;border:1px solid #bfe0cc;border-left:4px solid var(--good);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .corrbox b{color:var(--good);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:var(--paper2);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp th{background:var(--ink);color:var(--paper2);font-weight:600;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase}
+  table.cmp tr:last-child td{border-bottom:0}
+  table.cmp td b{color:var(--ink)}
+  .bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+  .bdg.ref{background:var(--ref-soft);color:var(--ref)}
+  .bdg.lit{background:var(--lit-soft);color:var(--lit)}
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--ink);color:var(--paper2);border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:54px;z-index:10}
+  .mcqbar .filters{display:flex;gap:6px;flex-wrap:wrap}
+  .mcqbar .filters button{font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#f0d9cc;padding:6px 11px;border-radius:999px;cursor:pointer}
+  .mcqbar .filters button.on{background:var(--id);border-color:var(--id);color:#fff}
+  .score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}
+  .score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;color:#f0d9cc;padding:5px 10px;border-radius:8px;font-size:11px}
+  .q{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
+  .q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+  .q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--id-soft);color:var(--id)}
+  .q .stem{font-weight:600;font-size:15px;margin-bottom:10px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;font-family:"Public Sans";transition:background .15s,border-color .15s}
+  .opt:hover{border-color:var(--ink)}
+  .opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}
+  .opt.correct{background:#e8f5ec;border-color:var(--good);color:#0d3d24}
+  .opt.wrong{background:#fbe9e9;border-color:var(--bad);color:#5e1d1d}
+  .opt.locked{cursor:default}
+  .expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:#f9f0e8;border:1px solid var(--line);font-size:13.5px}
+  .expl.show{display:block}
+  .expl b.cor{color:var(--good)}
+  footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
+  @media(max-width:640px){.mcqbar{top:50px}}
+</style>
+</head>
+<body>
+<nav style="background:#0f3d3a;padding:9px 18px;display:flex;align-items:center;gap:10px;font-family:'Public Sans',system-ui,sans-serif;font-size:13px;font-weight:500;border-bottom:2px solid #1f5c4e"><a href="../index.html" style="color:#9ec9c2;text-decoration:none;display:flex;align-items:center;gap:5px"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span style="color:#4a7a6e;font-size:11px">›</span><span style="color:#cfe3df">Shelter Management</span></nav>
+
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">ABVP Shelter Medicine RVS &middot; Shelter Management (18%) &middot; Subdomain 8: Liability</p>
+    <h1>Liability and Risk Management</h1>
+    <p class="sub">Adoption disclosure, trial adoption risks, foster care legal framework, cruelty investigation obligations, insurance, and the ASV Guidelines as legal standard of care. Source: Shelter Medicine for Veterinarians and Staff, 2nd Ed., Chapter 6.</p>
+    <div class="legend">
+      <span><i style="background:var(--ref)"></i>Textbook Ch. 6</span>
+      <span><i style="background:var(--lit)"></i>ASV Guidelines</span>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="disclosure"><span class="dot"></span>Adoption Disclosure</button>
+  <button data-p="trial"><span class="dot"></span>Trial Adoptions</button>
+  <button data-p="foster"><span class="dot"></span>Foster Legal Framework</button>
+  <button data-p="cruelty"><span class="dot"></span>Cruelty and Reporting</button>
+  <button data-p="insurance"><span class="dot"></span>Insurance and Risk</button>
+  <button data-p="mcq"><span class="dot" style="background:var(--ink)"></span>MCQ Bank (20)</button>
+</div></div></nav>
+
+<main><div class="wrap">
+
+<!-- DISCLOSURE -->
+<section class="panel show" id="disclosure">
+  <h2 class="sec">Adoption Disclosure and Liability</h2>
+  <p class="lead">Full, documented disclosure of all known health and behavioral information before adoption is the primary legal protection against negligence claims. ASV Guidelines establish the industry standard of care used by courts.</p>
+
+  <h3>ASV Guidelines as Legal Standard of Care <span class="bdg lit">ASV</span></h3>
+  <div class="card">
+    <div class="corrbox"><b>ASV Guidelines: Not Federal Law But Legally Significant</b> The ASV Guidelines for Standards of Care in Animal Shelters are NOT a federal statute. They are an industry-accepted professional standard of care. Courts use them to evaluate what a "reasonable, prudent shelter professional" would do under similar circumstances. Shelters that fall below ASV Standards in a negligence case have a weakened legal defense.</div>
+  </div>
+
+  <h3>Disclosure and the One Bite Rule <span class="bdg ref">Ch. 6</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Full disclosure before transfer</b> of all known health and behavioral issues shifts risk awareness to the adopter and protects the shelter from claims of fraudulent concealment.</li>
+      <li><b>Failure to disclose</b> a documented severe behavioral hazard (e.g., documented aggression toward children) exposes the shelter to serious civil tort liability for negligence if an incident occurs post-adoption.</li>
+      <li><b>One Bite Rule:</b> Once an owner has knowledge that their animal has a propensity to bite, they are held fully liable for subsequent biting incidents. This applies to shelters: the shelter's prior knowledge of a bite history becomes a liability after adoption if it was not disclosed.</li>
+      <li>If a state permits adopting out animals with known infectious diseases, this must be executed under conditions of <b>full disclosure.</b></li>
+      <li>Under shelter health guarantees, any required medical evaluation or treatment must be performed by a <b>licensed veterinarian.</b></li>
+    </ul>
+    <div class="trap"><b>Exam Trap</b> Full disclosure of a known behavioral issue (separation anxiety, leash reactivity) shifts risk to the adopter. But a shelter that adopts out an animal with a documented severe dangerous behavioral trait WITHOUT disclosure is exposed to negligence liability when that animal injures someone. The One Bite Rule extends to any owner (including a shelter pre-adoption) who has knowledge of propensity to bite.</div>
+  </div>
+</section>
+
+<!-- TRIAL ADOPTIONS -->
+<section class="panel" id="trial">
+  <h2 class="sec">Trial Adoptions: The Liability Mismatch</h2>
+  <p class="lead">Trial adoptions create a dangerous liability gap: the shelter retains legal ownership (and therefore liability) but has no physical custody or control over the animal. The text characterizes these arrangements as "a shelter lawyer's nightmare."</p>
+
+  <h3>The Dual Liability Structure <span class="bdg ref">Ch. 6</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>During a trial adoption, the shelter remains the <b>legal owner.</b> The trial home is the physical custodian but not the owner.</li>
+      <li>If a public safety incident occurs during the trial period, <b>both</b> the entity with physical control (the trial home) AND the legal owner (the shelter) may potentially be charged or sued.</li>
+      <li>If a trial home's resident pets contract an infectious disease from the incoming trial animal, this is the trial home's own risk. The shelter should state this explicitly in the written agreement.</li>
+    </ul>
+    <div class="trap"><b>Exam Trap</b> Trial adoptions do NOT transfer liability away from the shelter. Liability and ownership travel together. A signed waiver and release form is not an absolute shield against all liability, particularly for incidents involving public safety.</div>
+  </div>
+
+  <h3>Required Elements of a Trial Adoption Agreement <span class="bdg ref">Ch. 6</span></h3>
+  <div class="card">
+    <table class="cmp">
+      <thead><tr><th>Required Provision</th><th>Purpose</th></tr></thead>
+      <tbody>
+        <tr><td><b>Homeowner's insurance notification</b></td><td>The trial adopter must confirm their homeowner's insurance carrier has been notified of the new animal and must agree to indemnify the shelter for any incident during the trial period.</td></tr>
+        <tr><td><b>Resident pet illness risk allocation</b></td><td>The agreement must explicitly state that any illness contracted by the trial home's resident animals from the trial shelter animal is the trial home's own risk, not the shelter's liability.</td></tr>
+        <tr><td><b>Indemnification clause</b></td><td>The trial adopter agrees to indemnify the shelter against claims arising from incidents during the trial period.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- FOSTER LEGAL -->
+<section class="panel" id="foster">
+  <h2 class="sec">Foster Care Legal Framework</h2>
+  <p class="lead">Foster care is a bailment arrangement: the shelter retains full legal ownership and title of the animal while delegating physical care to a foster home. The shelter's ownership means the shelter retains liability and decision-making authority.</p>
+
+  <h3>Bailment Contract Fundamentals <span class="bdg ref">Ch. 6</span></h3>
+  <div class="card">
+    <p>A foster care agreement is a <b>bailment contract.</b> The shelter (bailor) delivers possession to the foster home (bailee) for a defined purpose, while retaining full legal title. Key implications:</p>
+    <ul class="hy">
+      <li>The foster parent is NOT the legal owner of the animal at any point during the foster period.</li>
+      <li>The shelter retains authority over major medical decisions, including euthanasia decisions for fospice animals.</li>
+      <li>For fospice (foster-to-hospice) cases: the shelter retains final authority over the euthanasia decision even when the animal is residing in a foster home.</li>
+      <li>For foster-to-adopt: the original owner retains reclaim rights until the stray hold expires.</li>
+      <li>Temporary foster (domestic violence, custody dispute): written agreement must specify that the animal is returned to the shelter when the owner's circumstances resolve.</li>
+    </ul>
+  </div>
+
+  <h3>Operational and Legal Mandates for Foster Networks <span class="bdg ref">Ch. 6</span></h3>
+  <div class="card">
+    <table class="cmp">
+      <thead><tr><th>Requirement</th><th>Detail</th></tr></thead>
+      <tbody>
+        <tr><td><b>Contact frequency</b></td><td>Shelter personnel must maintain regular (weekly) contact with each foster home AND make periodic in-person visits.</td></tr>
+        <tr><td><b>Animal density limits</b></td><td>State licensing laws may dictate a strict maximum number of shelter animals permitted in one foster home simultaneously.</td></tr>
+        <tr><td><b>Separation capability</b></td><td>The home must have the physical capacity to maintain fostered animals separately from resident animals if medically or behaviorally necessary.</td></tr>
+        <tr><td><b>Home licensing</b></td><td>Depending on jurisdiction, foster homes may need to be individually licensed as affiliates of the licensed shelter and subject to their own periodic inspections.</td></tr>
+        <tr><td><b>Dangerous animals</b></td><td>Per ASV Guidelines, dangerous animals should NOT be rehomed.</td></tr>
+      </tbody>
+    </table>
+    <div class="trap"><b>Exam Trap</b> "Weekly contact" is the explicit textbook requirement for foster home contact, not monthly or bimonthly. This is a specific, testable mandate. Also: foster homes may need to be individually licensed depending on state law, not just informally affiliated with the shelter.</div>
+  </div>
+</section>
+
+<!-- CRUELTY -->
+<section class="panel" id="cruelty">
+  <h2 class="sec">Cruelty Investigations and Mandatory Reporting</h2>
+  <p class="lead">Shelter veterinarians carry a legal and ethical obligation to report suspected animal abuse. Maintaining a legally defensible chain of custody for cruelty case evidence is as important as the clinical findings themselves.</p>
+
+  <h3>Mandatory Reporting Obligation <span class="bdg ref">Ch. 6</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Veterinarians have a legal and ethical obligation to report suspected animal abuse to law enforcement.</li>
+      <li>Clear indicators include: symmetric burns, multiple fractures in various healing stages, patterns of injury inconsistent with reported history.</li>
+      <li>These findings must be documented and reported regardless of who owns the animal or the surrounding circumstances.</li>
+    </ul>
+  </div>
+
+  <h3>Chain of Custody <span class="bdg ref">Ch. 6</span></h3>
+  <div class="card">
+    <p>Chain of custody documentation tracks every individual who handles a cruelty case animal or piece of physical evidence. Without an intact chain of custody, forensic findings may be ruled inadmissible in court regardless of how compelling the clinical evidence is.</p>
+    <ul class="hy">
+      <li>Every handler, every transfer, every examination must be logged with date, time, and name.</li>
+      <li>All forensic findings must be recorded in a <b>secure, unalterable medical-legal record</b> attached to the case file.</li>
+      <li>Not appropriate: whiteboards, general newsletters, informal logs, or any alterable format.</li>
+    </ul>
+    <div class="trap"><b>Exam Trap</b> Chain of custody failure (missed handoff documentation, altered records, improper evidence storage) renders all forensic findings inadmissible in court. The clinical evidence can be perfect; if the legal trail is broken, the abuser may escape prosecution. Documentation rigor equals legal rigor.</div>
+  </div>
+</section>
+
+<!-- INSURANCE AND RISK -->
+<section class="panel" id="insurance">
+  <h2 class="sec">Insurance and Risk Management</h2>
+  <p class="lead">Reputational harm is explicitly classified as severe and un-insurable. Understanding what is and is not covered by insurance, and which risks can permanently compromise shelter operations, is directly testable.</p>
+
+  <h3>Insurance Coverage and Gaps <span class="bdg ref">Ch. 5</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Mobile clinic vehicle insurance:</b> The shelter must maintain adequate vehicle insurance so that staff members are not required to use their personal insurance in the event of an accident during mobile clinic transit.</li>
+      <li><b>General liability umbrella:</b> Standard coverage for bodily injury and property damage incidents.</li>
+      <li><b>Directors and Officers (D&amp;O) insurance:</b> Covers board members against claims related to governance decisions.</li>
+    </ul>
+    <div class="corrbox"><b>Un-Insurable: Reputational Harm</b> Harm to a shelter's reputation caused by an accident with an animal, a disease outbreak (e.g., distemper spreading from an adoption event), or a controlled substance mishap is classified as severe and potentially un-insurable. Unlike property damage or medical liability, reputational damage cannot reliably be covered by any insurance product and may permanently compromise donor trust, public support, and operational viability.</div>
+    <div class="trap"><b>Exam Trap</b> Reputational harm is characterized as un-insurable, not just underinsured. A shelter cannot purchase a policy that will repair its reputation after a public controlled substance scandal or a fatal dog attack at an adoption event. Prevention and disclosure are the only risk management strategies for reputational harm.</div>
+  </div>
+
+  <h3>Documentation and Disclosure as Risk Management <span class="bdg ref">Ch. 6</span></h3>
+  <div class="card">
+    <p>The most effective legal protection available to shelters against negligence claims is a combination of:</p>
+    <ul class="hy">
+      <li>Meticulous observation and documentation of all known medical and behavioral findings.</li>
+      <li>Full disclosure of these findings to the prospective adopter before transfer.</li>
+      <li>Signed documentation that disclosure occurred.</li>
+    </ul>
+    <p>This documentation-disclosure pathway shifts legal risk awareness from the shelter to the adopter and is the foundation of every adoption liability defense.</p>
+  </div>
+</section>
+
+<!-- MCQ -->
+<section class="panel" id="mcq">
+  <h2 class="sec">MCQ Test Bank</h2>
+  <p class="lead">20 board-style questions covering adoption liability, trial adoptions, foster care, cruelty reporting, and insurance. Content drawn from both source MCQ banks. Click an option to answer.</p>
+  <div class="mcqbar">
+    <div class="filters">
+      <button class="on" data-f="all">All 20</button>
+      <button data-f="disclosure">Disclosure</button>
+      <button data-f="trial">Trial Adoption</button>
+      <button data-f="foster">Foster</button>
+      <button data-f="cruelty">Cruelty</button>
+      <button data-f="insurance">Insurance</button>
+    </div>
+    <div class="score"><span id="scoreDisplay">0 / 0</span><button class="reset" id="resetBtn">Reset</button></div>
+  </div>
+  <div id="qhost"></div>
+</section>
+
+</div></main>
+<footer><div class="wrap"><p>ABVP Shelter Medicine Practice RVS &middot; Shelter Management &middot; Subdomain 8: Liability and Risk Management &middot; Source: Shelter Medicine for Veterinarians and Staff 2nd Ed., Ch. 6. Exam: November 2026.</p></div></footer>
+
+<script>
+const tabrow = document.getElementById("tabrow");
+tabrow.addEventListener("click", function(e){
+  const b = e.target.closest("button");
+  if(!b || !b.dataset.p) return;
+  [...tabrow.children].forEach(x => x.classList.remove("active"));
+  b.classList.add("active");
+  document.querySelectorAll(".panel").forEach(p => p.classList.remove("show"));
+  document.getElementById(b.dataset.p).classList.add("show");
+});
+
+const Q = [
+  {f:"foster",q:"A shelter transitions an adoptable dog into a temporary foster home while it undergoes heartworm treatment. Legally, who retains ownership of the dog while it resides at the foster parent's home?",o:["The foster parent","The state veterinary medical board","The animal control officer who brought the dog in","The shelter organization"],a:3,e:"A foster care agreement is a bailment contract where the shelter delegates physical care but retains full legal ownership and title. The foster parent is a caregiver acting on behalf of the shelter, not the owner. The shelter retains authority over major decisions including euthanasia."},
+  {f:"disclosure",q:"A shelter adopts out a dog with a disclosed history of mild separation anxiety. Three weeks later, the adopter sues because the dog destroyed property. Why does the shelter have strong legal protection?",o:["Shelters are completely immune to all civil lawsuits by federal law","The shelter fully disclosed the known behavioral history prior to adoption","Adopters waive all constitutional rights when signing an adoption contract","Separation anxiety is not recognized as a behavioral condition under property law"],a:1,e:"Full legal disclosure of known behavioral or medical history before adoption shifts risk awareness to the adopter and protects the shelter from claims of fraudulent concealment. The adopter was informed and chose to proceed."},
+  {f:"cruelty",q:"A shelter veterinarian examines a dog with symmetric hair loss, cigarette burns on the dorsum, and multiple fractured ribs in various healing stages. What is the veterinarian's legal and ethical obligation?",o:["Maintain confidentiality and treat without documenting the history","Report suspected animal abuse to law enforcement and maintain strict documentation","Return the dog to the owner immediately to avoid civil liability","Erase the medical record to prevent public record requests"],a:1,e:"Veterinarians have a legal and ethical obligation to report clear indicators of animal cruelty to law enforcement and to document all findings meticulously. Symmetric burns, healing rib fractures, and history inconsistencies are classic indicators of deliberate harm."},
+  {f:"cruelty",q:"During a large-scale cruelty seizure involving 80 dogs, what administrative protocol must be meticulously maintained to ensure findings are admissible in court?",o:["The Capacity for Care index","Public relations non-disclosure agreements","The chain of custody for all physical evidence and animals","The income-qualification verification roster"],a:2,e:"Chain of custody documentation tracks every individual who handles a cruelty case animal or piece of evidence, preventing legal challenges regarding tampering. Without an intact chain of custody, forensic findings may be inadmissible regardless of their clinical strength."},
+  {f:"cruelty",q:"A shelter veterinarian completes a forensic exam on a deceased cat suspected of intentional poisoning. Where must the chain of custody documentation be logged?",o:["In the general public relations newsletter","In a secure, unalterable medical-legal record attached to the case file","On a whiteboard in the breakroom for staff transparency","In the municipal budget proposal file"],a:1,e:"Forensic data and chain of custody records must be kept in secure, legally protected case files to maintain their integrity for potential trial use. Informal or alterable documentation (whiteboards, newsletters) compromises the legal chain and renders findings inadmissible."},
+  {f:"disclosure",q:"A shelter adopts out a dog known by staff to have severely aggressive tendencies toward children without disclosing this history. The dog bites a child. What legal vulnerability does the shelter face?",o:["Absolute statutory immunity","Liability for negligence and failure to disclose known dangerous traits","No liability because the dog is legally property","A violation of the federal Controlled Substances Act"],a:1,e:"Failing to disclose a documented, severe behavioral hazard exposes the shelter to serious civil tort liability for negligence. The shelter's prior knowledge (scienter) is key: they knew the animal was dangerous and placed it without warning the new family."},
+  {f:"disclosure",q:"Why is the ASV Guidelines for Standards of Care in Animal Shelters highly relevant to legal liability cases?",o:["It is a federal statute signed into law by Congress","It establishes the industry-accepted professional standard of care used by courts to evaluate negligence","It automatically exempts shelters from local municipal codes","It defines criminal penalties for DEA logging violations"],a:1,e:"Expert industry guidelines like ASV Standards are used by courts to define what a reasonable, prudent shelter professional would do under similar circumstances. They are not federal law but carry significant legal weight as the benchmark against which shelter conduct is measured in negligence cases."},
+  {f:"disclosure",q:"A private shelter veterinarian is asked by law enforcement to hold an animal indefinitely as evidence during a prolonged domestic violence trial. Which chapter of Shelter Medicine for Veterinarians and Staff addresses the legalities of holding protective custody animals?",o:["Chapter 2: Population Statistics","Chapter 5: Administrative Issues","Chapter 6: Legal Issues for Shelters","Chapter 12: Feline Retroviruses"],a:2,e:"Chapter 6 is dedicated to structural legal issues for shelters, including custody hold dynamics, the liability of holding evidence animals, and risk management parameters for shelters navigating law enforcement requests."},
+  {f:"disclosure",q:"Some states allow shelters to adopt out animals with known infectious diseases. What legal condition must be fulfilled to execute these transfers lawfully?",o:["Invoke a state-level charitable immunity clause","Execute the transfer under full disclosure to the adopter","Process the animal through an off-site mobile clinic","Alter the shelter's primary mission statement on its Form 990"],a:1,e:"Even where adoption-out of infectious disease-carrying animals is permitted by state law, the transfer must be executed under full disclosure. The adopter must be informed of the health status before they take custody. Disclosure is the legal condition that makes the transfer permissible."},
+  {f:"disclosure",q:"If a newly adopted animal requires a medical evaluation or treatment under a shelter's health guarantee, who is legally authorized to perform that care?",o:["Any certified euthanasia technician working under indirect supervision","A licensed veterinarian","The shelter's CEO following board policies","An experienced volunteer using farm supply medications"],a:1,e:"Health guarantee evaluations and treatments must be performed by a licensed veterinarian. This requirement protects both the adopter (ensuring quality care) and the shelter (ensuring the evaluation meets professional standards that can be legally defended)."},
+  {f:"trial",q:"Why are trial adoptions characterized as 'a shelter lawyer's nightmare' in the text?",o:["The IRS automatically revokes 501(c)(3) status if an animal enters a trial home","The shelter retains legal ownership (and liability) but has no custody or control of the animal","Homeowner's insurance universally refuses to cover shelter-owned property","State departments of agriculture require daily inspections of all trial homes"],a:1,e:"Trial adoptions create a liability mismatch: the shelter remains the legal owner (with all associated liability) while having no ability to monitor or control the animal's environment. If an incident occurs, the shelter may be named in both civil and criminal proceedings despite having no physical custody."},
+  {f:"trial",q:"If a public safety incident occurs during a trial adoption and law enforcement takes action, who may potentially be charged?",o:["The shelter's board of directors exclusively","Both the entity with physical control (trial home) and the actual legal owner (the shelter)","Only the off-site veterinarian who certified the animal's baseline health","The state department of agriculture inspector who licensed the facility"],a:1,e:"Because the trial home has physical control and the shelter has legal ownership, both parties can be implicated when an incident occurs. Physical control = operational responsibility; legal ownership = liability for the property's behavior. Both exist simultaneously in a trial adoption."},
+  {f:"trial",q:"What specific insurance-related mandate should a shelter require from a dog trial adopter before allowing physical custody transfer?",o:["Confirmation that homeowner's insurance has been notified and the adopter agrees to indemnify the shelter","A copy of their personal veterinary malpractice insurance","Proof of worker's compensation coverage for the trial period","An umbrella liability policy covering off-site DEA controlled substance storage"],a:0,e:"The shelter should require confirmation that the trial adopter's homeowner's insurance carrier has been informed of the new animal, and that the trial adopter agrees to indemnify the shelter against claims arising from incidents during the trial period."},
+  {f:"trial",q:"If a resident pet in a trial adoption home contracts an infectious disease from the incoming trial shelter animal, how should financial liability be allocated?",o:["The shelter covers 100% of medical costs under its veterinary malpractice policy","This is a matter of the trial home's own risk, and should be explicitly stated in the written agreement","The shelter's board must vote to adjust its long-range fiscal boundaries","Expenses are billed to the state attorney general's office"],a:1,e:"The trial home assumes the risk of disease transmission to resident animals when they accept a trial animal into their home. This risk allocation must be stated explicitly in the written trial adoption agreement. The shelter cannot be held liable for an event it could not control in an environment it cannot monitor."},
+  {f:"foster",q:"Depending on state jurisdiction, what structural and legal requirements may apply to a shelter's network of foster homes?",o:["They must be organized as independent 501(c)(3) entities","They may have to be individually licensed as shelter affiliates, subject to inspections, and follow strict animal density limits","They must be operated under the direct auspices of the local sanitation department","They must maintain a full-time certified euthanasia technician on premises"],a:1,e:"State licensing laws may require that individual foster homes be licensed as affiliates of the shelter, be subject to periodic inspections, and comply with strict limits on the number of shelter animals housed simultaneously. The shelter's liability for animals in these homes makes oversight a legal necessity."},
+  {f:"foster",q:"How frequently are shelter personnel required to maintain contact with individual foster homes, and what additional type of contact is mandated?",o:["Bi-monthly contact during fight kit inventories","Regular (weekly) contact with each foster home, plus periodic in-person visits","Contact only if a bite incident occurs","Annual contact via the digital display of the Form 990"],a:1,e:"The text mandates weekly contact with each foster home AND periodic in-person visits. This oversight requirement reflects the shelter's continued legal ownership of the animals and its obligation to monitor their welfare even when they are off-site."},
+  {f:"insurance",q:"A shelter operates a mobile clinic unit for community outreach. What insurance provisions must the shelter maintain to protect its personnel?",o:["A standard D&O policy requiring staff to use personal insurance for transit accidents","Adequate vehicle insurance so staff do not have to use personal insurance in the event of an accident","A specialized DEA permit covering off-site controlled substance shipping in vehicles","A charitable immunity waiver signed by all municipal health department employees"],a:1,e:"Mobile clinic operations require adequate vehicle insurance so that staff members involved in transit accidents are covered by the shelter's policy, not their personal auto insurance. Requiring staff to use personal insurance for shelter business activity exposes them to personal liability."},
+  {f:"insurance",q:"According to the text, which type of harm represents a severe, un-insurable risk that can permanently compromise a shelter's operational viability?",o:["Purchasing a general liability policy that overlaps with a worker's compensation policy","Harm to a shelter's reputation from an animal accident, disease outbreak, or controlled substance mishap","Registering the non-profit's bylaws with the state attorney general's office","Requiring patrons to complete a photo release form at public events"],a:1,e:"Reputational harm is characterized as un-insurable and potentially catastrophic. Unlike property damage or medical malpractice, reputation cannot be restored by an insurance payment. A disease outbreak at an adoption event, a fatal dog bite, or a controlled substance scandal can permanently erode public trust and donor support in ways no financial instrument can repair."},
+  {f:"disclosure",q:"Under the One Bite Rule, how is a shelter's liability determined if it adopts out a dog with a documented bite history to an adopter who was not informed of the history, and the dog bites again?",o:["The shelter is completely exempted from civil liability by charitable immunity","The shelter is held liable because it had knowledge of the animal's propensity to bite (scienter) prior to transfer","The liability transfers entirely to the state veterinary board at the moment of adoption","The shelter is liable only if it performed a pre-adoption temperament test"],a:1,e:"Under the One Bite Rule, any owner (including a pre-adoption shelter) who has documented knowledge of an animal's propensity to bite is held liable for subsequent incidents. The shelter's knowledge of the bite history constitutes scienter. Failure to disclose that history before transfer creates direct negligence liability."},
+  {f:"cruelty",q:"What proactive documentation strategy provides shelters the strongest legal protection against negligence lawsuits related to adopted animal behavior?",o:["Rely on verbal agreements and destroy records to protect client privacy","Observe, document, and fully disclose all known health and behavioral information before transfer","Perform routine elective surgeries during the stray hold period to improve temperament","Use a signed waiver and release form as an absolute, unbreachable shield against all liability"],a:1,e:"The documentation-disclosure pathway is the foundation of adoption liability defense. Observation and documentation demonstrate the shelter exercised professional diligence. Full disclosure shifts risk awareness to the adopter. Signed documentation proves disclosure occurred. Together, these constitute a legally defensible adoption process."}
+];
+
+const LABELS = {disclosure:"Disclosure", trial:"Trial Adoption", foster:"Foster", cruelty:"Cruelty", insurance:"Insurance"};
+let answered = 0, correct = 0, chosen = "all", locked = [];
+
+function updateScore(){ document.getElementById("scoreDisplay").textContent = correct + " / " + answered; }
+
+function render(){
+  const filtered = chosen === "all" ? Q : Q.filter(function(q){ return q.f === chosen; });
+  locked = new Array(Q.length).fill(false);
+  const host = document.getElementById("qhost");
+  host.innerHTML = "";
+  filtered.forEach(function(q, i){
+    const gi = Q.indexOf(q);
+    const div = document.createElement("div");
+    div.className = "q";
+    let html = '<div class="meta"><span class="num">Q' + (i+1) + '</span><span class="tag">' + (LABELS[q.f]||q.f) + '</span></div>';
+    html += '<div class="stem">' + q.q + '</div>';
+    q.o.forEach(function(o, j){ html += '<button class="opt" data-i="' + gi + '" data-j="' + j + '"><span class="k">' + "ABCD"[j] + '.</span>' + o + '</button>'; });
+    html += '<div class="expl" id="expl-' + gi + '"><b class="cor">Correct: ' + "ABCD"[q.a] + '.</b> ' + q.e + '</div>';
+    div.innerHTML = html;
+    host.appendChild(div);
+  });
+}
+
+document.getElementById("qhost").addEventListener("click", function(e){
+  const btn = e.target.closest(".opt");
+  if(!btn) return;
+  const i = +btn.dataset.i, j = +btn.dataset.j;
+  if(locked[i]) return;
+  locked[i] = true; answered++;
+  const host = document.getElementById("qhost");
+  if(j === Q[i].a){ correct++; btn.classList.add("correct"); }
+  else { btn.classList.add("wrong"); const cb = host.querySelector('.opt[data-i="' + i + '"][data-j="' + Q[i].a + '"]'); if(cb) cb.classList.add("correct"); }
+  host.querySelectorAll('.opt[data-i="' + i + '"]').forEach(function(b){ b.classList.add("locked"); });
+  const expl = document.getElementById("expl-" + i); if(expl) expl.classList.add("show");
+  updateScore();
+});
+
+document.querySelectorAll(".mcqbar .filters button").forEach(function(btn){
+  btn.addEventListener("click", function(){
+    document.querySelectorAll(".mcqbar .filters button").forEach(function(b){ b.classList.remove("on"); });
+    btn.classList.add("on"); chosen = btn.dataset.f;
+    answered = 0; correct = 0; updateScore(); render();
+  });
+});
+
+document.getElementById("resetBtn").addEventListener("click", function(){ answered = 0; correct = 0; updateScore(); render(); });
+render();
+</script>
+</body>
+</html>

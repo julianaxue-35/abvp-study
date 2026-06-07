@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data and Analysis | Shelter Management | ABVP Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#3d1a0a;--ink2:#5c2c14;--paper:#fdf4ec;--paper2:#fffaf5;
+    --line:#e4d3c4;--muted:#7a5c4a;
+    --id:#b84c1a;--id-soft:#f5ddd0;
+    --good:#1f7a4d;--bad:#b23b3b;
+    --notes:#7a4fb5;--notes-soft:#ece3f7;
+    --lit:#1f6f8b;--lit-soft:#dcedf2;
+    --aspca:#8a6d1f;--aspca-soft:#f3ebcf;
+    --ref:#b5651d;--ref-soft:#f6e7d4;
+    --shadow:0 1px 2px rgba(61,26,10,.08),0 8px 24px rgba(61,26,10,.06);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;
+    background-image:radial-gradient(circle at 1px 1px,rgba(61,26,10,.04) 1px,transparent 0);background-size:22px 22px;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+  header.top{background:var(--ink);color:var(--paper2);padding:26px 0 22px;border-bottom:4px solid var(--id)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#d4a88a;margin:0 0 6px}
+  header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(24px,4vw,38px);margin:0;line-height:1.05}
+  header.top p.sub{margin:8px 0 0;color:#f0d9cc;font-size:14px;max-width:70ch}
+  .legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}
+  .legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.25);color:#f5ece5;display:flex;align-items:center;gap:6px}
+  .legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--paper2);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button:hover{background:var(--paper);color:var(--ink)}
+  .tabrow button.active{background:var(--ink);color:var(--paper2)}
+  .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--id)}
+  main{padding:30px 0 80px}
+  .panel{display:none;animation:fade .35s ease}
+  .panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;letter-spacing:-.01em}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:78ch}
+  h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:30px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;color:var(--ink2);text-transform:uppercase;letter-spacing:.03em}
+  .card{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}
+  ul.hy{margin:8px 0;padding-left:0;list-style:none}
+  ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed #e6d4c2;font-size:14px}
+  ul.hy li:last-child{border-bottom:0}
+  ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;border-radius:2px;background:var(--id);transform:rotate(45deg)}
+  .trap{background:#fdf0ea;border:1px solid #e8c4aa;border-left:4px solid var(--id);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .trap b{color:var(--id);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .corrbox{background:#e9f4ee;border:1px solid #bfe0cc;border-left:4px solid var(--good);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .corrbox b{color:var(--good);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .verifybox{background:#fdf5e6;border:1px solid #ecd9a8;border-left:4px solid var(--aspca);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .verifybox b{color:var(--aspca);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:var(--paper2);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp th{background:var(--ink);color:var(--paper2);font-weight:600;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase}
+  table.cmp tr:last-child td{border-bottom:0}
+  table.cmp td b{color:var(--ink)}
+  .bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+  .bdg.notes{background:var(--notes-soft);color:var(--notes)}
+  .bdg.lit{background:var(--lit-soft);color:var(--lit)}
+  .bdg.asv{background:var(--id-soft);color:var(--id)}
+  .bdg.aspca{background:var(--aspca-soft);color:var(--aspca)}
+  .bdg.ref{background:var(--ref-soft);color:var(--ref)}
+  .formulabox{background:var(--id-soft);border:1px solid #e0b89a;border-left:4px solid var(--id);border-radius:10px;padding:14px 16px;margin:14px 0}
+  .formulabox .label{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--id);margin-bottom:4px;font-weight:600}
+  .formulabox .formula{font-family:"JetBrains Mono",monospace;font-size:14px;color:var(--ink);margin:4px 0;font-weight:600}
+  .formulabox .fnote{font-size:12.5px;color:var(--muted);margin-top:6px}
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--ink);color:var(--paper2);border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:54px;z-index:10}
+  .mcqbar .filters{display:flex;gap:6px;flex-wrap:wrap}
+  .mcqbar .filters button{font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#f0d9cc;padding:6px 11px;border-radius:999px;cursor:pointer}
+  .mcqbar .filters button.on{background:var(--id);border-color:var(--id);color:#fff}
+  .score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}
+  .score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;color:#f0d9cc;padding:5px 10px;border-radius:8px;font-size:11px}
+  .q{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
+  .q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+  .q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--id-soft);color:var(--id)}
+  .q .stem{font-weight:600;font-size:15px;margin-bottom:10px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;font-family:"Public Sans";transition:background .15s,border-color .15s}
+  .opt:hover{border-color:var(--ink)}
+  .opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}
+  .opt.correct{background:#e8f5ec;border-color:var(--good);color:#0d3d24}
+  .opt.wrong{background:#fbe9e9;border-color:var(--bad);color:#5e1d1d}
+  .opt.locked{cursor:default}
+  .expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:#f9f0e8;border:1px solid var(--line);font-size:13.5px}
+  .expl.show{display:block}
+  .expl b.cor{color:var(--good)}
+  footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
+  @media(max-width:640px){.mcqbar{top:50px}.score{font-size:12px}}
+</style>
+</head>
+<body>
+<nav style="background:#0f3d3a;padding:9px 18px;display:flex;align-items:center;gap:10px;font-family:'Public Sans',system-ui,sans-serif;font-size:13px;font-weight:500;border-bottom:2px solid #1f5c4e"><a href="../index.html" style="color:#9ec9c2;text-decoration:none;display:flex;align-items:center;gap:5px"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span style="color:#4a7a6e;font-size:11px">›</span><span style="color:#cfe3df">Shelter Management</span></nav>
+
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">ABVP Shelter Medicine RVS &middot; Shelter Management (18%) &middot; Subdomain 5 of 7</p>
+    <h1>Data and Analysis</h1>
+    <p class="sub">Disease surveillance frameworks, epidemiological metrics, LOS and ALOS formulas, capacity for care calculations, and data collection protocols. Verified against source notes and ASV Shelter Terminology 2017.</p>
+    <div class="legend">
+      <span><i style="background:var(--notes)"></i>ONENOTE notes</span>
+      <span><i style="background:var(--id)"></i>ASV Standards 2022</span>
+      <span><i style="background:var(--lit)"></i>ASV Terminology 2017</span>
+      <span><i style="background:var(--good)"></i>Corrected / Verified</span>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="surveillance"><span class="dot"></span>Disease Surveillance</button>
+  <button data-p="metrics"><span class="dot"></span>Basic Metrics</button>
+  <button data-p="los"><span class="dot"></span>LOS and ALOS</button>
+  <button data-p="c4c"><span class="dot"></span>C4C Formulas</button>
+  <button data-p="analysis"><span class="dot"></span>Data Collection and Analysis</button>
+  <button data-p="mcq"><span class="dot" style="background:var(--ink)"></span>MCQ Bank (30)</button>
+</div></div></nav>
+
+<main><div class="wrap">
+
+<!-- ===================== DISEASE SURVEILLANCE ===================== -->
+<section class="panel show" id="surveillance">
+  <h2 class="sec">Disease Surveillance</h2>
+  <p class="lead">Routine disease surveillance transforms clinical observations into quantitative data that drives decisions, detects outbreaks early, and justifies resource allocation.</p>
+
+  <h3>Formal Definition <span class="bdg notes">ONENOTE</span></h3>
+  <div class="card">
+    <p>Disease surveillance is defined as two inseparable components:</p>
+    <ul class="hy">
+      <li>The ongoing, systematic collection, orderly consolidation, analysis, and interpretation of health-related data in a population.</li>
+      <li>The prompt dissemination of this information to the people who are in a position to act on it.</li>
+    </ul>
+    <div class="trap"><b>Exam Trap</b> Both components are required. A system that collects and analyzes data but does not promptly communicate findings to decision-makers does not fully satisfy the definition of disease surveillance.</div>
+  </div>
+
+  <h3>Why Disease Surveillance Matters <span class="bdg notes">ONENOTE</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Assess population health in quantitative terms.</li>
+      <li>Set objective and measurable disease-related priorities.</li>
+      <li>Identify outbreaks before they escalate.</li>
+      <li>Plan and monitor the effectiveness of preventive and control measures.</li>
+      <li>Rapidly identify new diseases or conditions entering the population.</li>
+      <li>Justify grant proposals and funding applications with data.</li>
+      <li>Clearly communicate population health status to constituencies (board, donors, regulators).</li>
+    </ul>
+    <p style="font-size:13.5px;color:var(--muted)">Even when disease incidence is stable, quantifying endemic disease levels facilitates discussions about which diseases deserve priority attention and resource allocation.</p>
+  </div>
+
+  <h3>Surveillance Implementation: Steps 1 to 8 <span class="bdg notes">ONENOTE</span></h3>
+  <div class="card">
+    <table class="cmp">
+      <thead><tr><th>Step</th><th>Action</th><th>Key Detail</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><b>1</b></td>
+          <td>Create a disease monitoring list</td>
+          <td>Short and manageable. Focus on common diseases, particularly problematic ones, and those tied to shelter medical goals. Prioritize data likely to influence thinking and action.</td>
+        </tr>
+        <tr>
+          <td><b>2</b></td>
+          <td>Calculate baseline (endemic) frequencies</td>
+          <td>Establish the usual incidence of each monitored disease to provide a reference level for detecting deviations.</td>
+        </tr>
+        <tr>
+          <td><b>3</b></td>
+          <td>Use an annual medical profile</td>
+          <td>Standard tool to summarize yearly occurrence of all monitored diseases and track longitudinal trends.</td>
+        </tr>
+        <tr>
+          <td><b>4</b></td>
+          <td>Monitor high-incidence diseases more frequently</td>
+          <td>High-incidence diseases (e.g., feline URI) require at least monthly monitoring. Active outbreaks trigger even more frequent review.</td>
+        </tr>
+        <tr>
+          <td><b>5</b></td>
+          <td>Write disease descriptions and train staff</td>
+          <td>Clear, written descriptions of each monitored disease. Staff must be trained to recognize signs and report promptly.</td>
+        </tr>
+        <tr>
+          <td><b>6</b></td>
+          <td>Count only first episode per timeframe</td>
+          <td>For diseases that can recur in the same animal, only the first episode during a specified monitoring period counts as a new (incident) case.</td>
+        </tr>
+        <tr>
+          <td><b>7</b></td>
+          <td>Collect denominators and numerators separately</td>
+          <td>Intake data provides denominators (animals at risk). Medical data provides numerators (cases). Movement, outcomes, and daily observations supplement for additional analyses.</td>
+        </tr>
+        <tr>
+          <td><b>8</b></td>
+          <td>Regular review of collected data</td>
+          <td>Monthly reviews maintain staff engagement and data quality. They allow timely notification of health changes to shelter administration.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Requirements for an Effective Surveillance Program <span class="bdg notes">ONENOTE</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Good individual animal identification system.</li>
+      <li>A functioning medical records system.</li>
+      <li>Staff understanding of why surveillance matters.</li>
+      <li>Agreement on which diseases to include.</li>
+      <li>Clear, standardized definitions of each monitored disease.</li>
+      <li>Prompt disease reporting and incentives to encourage reporting.</li>
+      <li>A management plan for affected animals when disease is identified.</li>
+    </ul>
+  </div>
+
+  <h3>Population Health Snapshot: What to Report <span class="bdg notes">ONENOTE</span></h3>
+  <div class="card">
+    <p>Shelters should regularly provide a snapshot of population disease status including:</p>
+    <ul class="hy">
+      <li>Incidence and prevalence of major infectious diseases in the facility.</li>
+      <li>Mortality due to natural causes.</li>
+      <li>Number and percentage of animals euthanized for medical reasons.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== BASIC METRICS ===================== -->
+<section class="panel" id="metrics">
+  <h2 class="sec">Basic Metrics</h2>
+  <p class="lead">Four core epidemiological metrics underpin shelter disease monitoring. Confusing incidence with prevalence is one of the most common exam errors in this domain.</p>
+
+  <h3>Core Definitions <span class="bdg notes">ONENOTE</span></h3>
+  <div class="card">
+    <table class="cmp">
+      <thead><tr><th>Metric</th><th>Definition</th><th>Exam Pearl</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><b>Morbidity</b></td>
+          <td>Frequency of illness within the population (e.g., incidence rate of disease).</td>
+          <td>Morbidity = illness frequency. Distinct from mortality (death).</td>
+        </tr>
+        <tr>
+          <td><b>Mortality</b></td>
+          <td>Frequency of death due to natural causes.</td>
+          <td>Natural deaths only. Euthanasia is a separate, managed outcome category. Both tracked in the population health snapshot.</td>
+        </tr>
+        <tr>
+          <td><b>Incidence rate</b></td>
+          <td>Number of newly diagnosed cases of a disease divided by the number of animals that could develop that disease during a specified period.</td>
+          <td>New cases only. Denominator = susceptible population at risk during the period. A RATE over TIME.</td>
+        </tr>
+        <tr>
+          <td><b>Prevalence</b></td>
+          <td>Percentage of cases of a disease present in a population at a single given point in time.</td>
+          <td>A snapshot. Includes both new and existing active cases. A PROPORTION at a POINT IN TIME.</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="trap"><b>Exam Trap</b> A shelter census on October 1st finds 15 of 100 cats with URI signs today: this is 15% PREVALENCE (point-in-time snapshot), not incidence. Incidence requires tracking new cases over a defined time period in the susceptible population.</div>
+  </div>
+
+  <h3>Recurring Disease: Counting Rule <span class="bdg notes">ONENOTE</span></h3>
+  <div class="card">
+    <p>For diseases that can occur more than once in the same animal, <b>only the first episode during a particular timeframe is counted as a new or incident case.</b> Subsequent episodes in the same animal within the same monitoring period are excluded from the incidence numerator.</p>
+    <div class="trap"><b>Exam Trap</b> A dog recovers from URI in week 1 then develops URI again in week 3 of the same monitoring period. The second episode does NOT count toward incidence. Counting it would inflate the rate and misrepresent true new disease burden in the population.</div>
+  </div>
+
+  <h3>Three-Axis Analysis of Disease Frequency <span class="bdg notes">ONENOTE</span></h3>
+  <div class="card">
+    <p>A sudden increase in disease frequency almost always signals a breakdown in health-management protocols or signals the need for new ones. Analyze disease frequency across three axes to generate actionable hypotheses:</p>
+    <table class="cmp">
+      <thead><tr><th>Axis</th><th>Examples</th><th>Generates Hypotheses About</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><b>Host</b></td>
+          <td>Kittens vs. adults; vaccinated vs. unvaccinated; intake source</td>
+          <td>Which subpopulations are most susceptible and why</td>
+        </tr>
+        <tr>
+          <td><b>Location</b></td>
+          <td>Holding ward vs. adoption floor; isolation vs. general population</td>
+          <td>Spatial transmission routes, environmental contamination, housing design issues</td>
+        </tr>
+        <tr>
+          <td><b>Time</b></td>
+          <td>Spring vs. fall; kitten season; post-adoption event; after staffing change</td>
+          <td>Seasonal patterns, event-linked causes, procedural changes that preceded the increase</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:13.5px;color:var(--muted)">Analyzing all three axes together helps explain the cause of increased frequency, the precipitating event, and factors sustaining transmission in the shelter.</p>
+  </div>
+
+  <h3>Data Integrity Rules <span class="bdg notes">ONENOTE</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Denominators</b> come from shelter intake data (animals at risk of the disease).</li>
+      <li><b>Numerators</b> come from medical data (animals diagnosed with the disease).</li>
+      <li>If both clinical signs AND definitive diagnoses are collected, they must be kept in <b>separate data fields</b> to prevent double-counting a single disease episode.</li>
+      <li>The primary cause of surveillance data failure is <b>failure to reach a definitive diagnosis</b>: undiagnosed cases cannot be classified or counted in the system.</li>
+    </ul>
+    <div class="trap"><b>Exam Trap</b> Cross-shelter comparisons of crude, unadjusted incidence rates can be unfair and epidemiologically misleading. Baseline circumstances that cannot be changed between shelters (intake profile, geography, facility design, species mix) may be entirely different, confounding any raw comparison.</div>
+  </div>
+</section>
+
+<!-- ===================== LOS AND ALOS ===================== -->
+<section class="panel" id="los">
+  <h2 class="sec">Length of Stay and ALOS</h2>
+  <p class="lead">LOS is simultaneously a welfare indicator and a capacity management tool. ALOS drives the housing capacity formulas and reveals operational bottlenecks when stratified by subgroup.</p>
+
+  <h3>Consequences of Increasing LOS <span class="bdg notes">ONENOTE</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Increases disease risk through prolonged pathogen exposure.</li>
+      <li>Amplifies animal stress (boredom, frustration, behavioral deterioration).</li>
+      <li>Leads directly to overcrowding as incoming animals fill housing occupied by long-stay residents.</li>
+    </ul>
+    <p style="font-size:13.5px;color:var(--muted)">Reducing ALOS is one of the highest-leverage interventions available: it simultaneously improves welfare, decreases disease risk, and increases intake capacity without adding a single housing unit.</p>
+  </div>
+
+  <h3>ALOS Definition and Formula <span class="bdg notes">ONENOTE</span></h3>
+  <div class="card">
+    <p>Average Length of Stay (ALOS) measures the average speed with which animals move through the shelter.</p>
+    <div class="formulabox">
+      <div class="label">ALOS Formula</div>
+      <div class="formula">ALOS = sum of LOS of all animals of interest / total number of animals contributing to LOS in the period</div>
+      <div class="fnote">Specify the period: month, season, or year. Calculate separately for dogs and cats, and for relevant subgroups to isolate bottlenecks.</div>
+    </div>
+  </div>
+
+  <h3>Uses of ALOS Data <span class="bdg notes">ONENOTE</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Identify patterns in animal transit speed through the facility.</li>
+      <li>Set LOS reduction goals and gauge progress toward them.</li>
+      <li>Reveal associations between elevated ALOS and disease risk in specific areas or subgroups.</li>
+      <li>Identify which subgroups, procedures, or shelter areas disproportionately slow animal transit.</li>
+      <li>Focus operational efforts on the specific impediments causing delays.</li>
+    </ul>
+
+    <h4>Factors to Stratify ALOS By</h4>
+    <table class="cmp">
+      <thead><tr><th>Factor</th><th>Operational Insight</th></tr></thead>
+      <tbody>
+        <tr><td><b>Source of animal</b> (seized vs. stray vs. owner surrender)</td><td>Court-hold seizures often have very long ALOS driven by legal hold periods, which should be tracked separately from voluntary intakes</td></tr>
+        <tr><td><b>General health status</b> (healthy vs. sick)</td><td>Sick animals with long LOS identify where medical throughput is a bottleneck</td></tr>
+        <tr><td><b>Breed type</b></td><td>Certain breeds (large dogs, brachycephalics) may have consistently longer LOS requiring targeted marketing strategies</td></tr>
+        <tr><td><b>Seasonal intake</b></td><td>Peak-season intakes may have different flow dynamics than off-season animals</td></tr>
+        <tr><td><b>Volunteer availability</b></td><td>Periods with reduced volunteer presence may correlate with longer LOS due to fewer offsite events, reduced socialization, and less exercise</td></tr>
+      </tbody>
+    </table>
+    <div class="trap"><b>Exam Trap</b> When a specific subgroup (e.g., court-ordered custody animals) has ALOS of 45 days vs. 5 days for owner surrenders, the correct response is to identify and address the specific procedural or legal impediments causing that delay, not to stop accepting animals from that category.</div>
+  </div>
+</section>
+
+<!-- ===================== C4C FORMULAS ===================== -->
+<section class="panel" id="c4c">
+  <h2 class="sec">Capacity for Care Formulas</h2>
+  <p class="lead">Two housing capacity formulas quantify the relationship between housing units, ALOS, and sustainable intake. The NACA 15-minute standard is the parallel measure for staffing capacity.</p>
+
+  <h3>C4C Definition <span class="bdg notes">ONENOTE</span></h3>
+  <div class="card">
+    <p>Capacity for Care (C4C) is the ability of a shelter to comprehensively meet the physical, medical, and behavioral needs of its resident animals. Adverse conditions result when:</p>
+    <ul class="hy">
+      <li>A shelter houses more animals than it can humanely accommodate (housing C4C exceeded).</li>
+      <li>A shelter has too few staff to provide adequate basic daily care (staffing C4C exceeded).</li>
+    </ul>
+  </div>
+
+  <h3>Housing Capacity Formulas <span class="bdg notes">ONENOTE</span></h3>
+  <div class="card">
+    <div class="formulabox">
+      <div class="label">Intake Capacity (total new animals that can be housed in a defined period)</div>
+      <div class="formula">Intake = (number of humane housing spaces x number of days) / ALOS</div>
+      <div class="fnote">Use when you know your housing count and ALOS and want to calculate total intake capacity over a period (e.g., a 30-day month).</div>
+    </div>
+    <div class="formulabox">
+      <div class="label">Daily Admissions Target</div>
+      <div class="formula">Daily admissions = number of humane housing units / ALOS (days)</div>
+      <div class="fnote">Use to set a daily admission cap that avoids exceeding housing C4C. This is the sustainable daily intake rate.</div>
+    </div>
+
+    <div class="corrbox"><b>Three Uses of These Formulas</b>
+      <ol style="margin:8px 0 0;padding-left:18px;font-size:13.5px">
+        <li>What ALOS is required to avoid overcrowding, given a fixed intake volume and housing count?</li>
+        <li>How many animals can be admitted in a specific period, given available housing units and known ALOS?</li>
+        <li>What is the predicted effect of reducing ALOS on intake capacity? (Halving ALOS doubles capacity with the same housing.)</li>
+      </ol>
+    </div>
+
+    <div class="trap"><b>Worked Example</b> A shelter has 60 dog housing units and ALOS of 6 days. Daily admissions target = 60 / 6 = 10 dogs per day. Monthly intake capacity = (60 x 30) / 6 = 300 dogs. If ALOS is halved to 3 days: daily target doubles to 20 dogs, and monthly capacity doubles to 600, without adding a single cage.</div>
+  </div>
+
+  <h3>Staffing Capacity: NACA 15-Minute Standard <span class="bdg notes">ONENOTE</span></h3>
+  <div class="card">
+    <p>Inadequate staffing leads directly to biosecurity breaches, increased infectious agent exposure, and rising disease frequency.</p>
+    <div class="formulabox">
+      <div class="label">NACA Minimum Standard</div>
+      <div class="formula">15 minutes per animal per day for basic care</div>
+      <div class="fnote">Basic care = feeding AND cleaning ONLY. This is a minimum floor, not a target. Shelters should strive to increase staff time per animal beyond this minimum.</div>
+    </div>
+
+    <p>Staffing capacity audit: compare these three steps:</p>
+    <table class="cmp">
+      <thead><tr><th>Step</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td><b>1</b></td><td>Estimate total time staff SHOULD spend in basic animal care daily (current census x minimum 15 minutes per animal).</td></tr>
+        <tr><td><b>2</b></td><td>Calculate actual hours staff ARE engaged in basic care daily.</td></tr>
+        <tr><td><b>3</b></td><td>Compare the two. The gap reveals the staffing shortfall.</td></tr>
+      </tbody>
+    </table>
+    <div class="trap"><b>Exam Trap</b> The 15-minute NACA standard covers only feeding and cleaning. It is explicitly a MINIMUM, not a sufficient level of care. A shelter that meets this standard is meeting only the bare survival floor. Medical care, enrichment, behavioral assessment, training, and socialization all require additional staff time above this minimum.</div>
+  </div>
+</section>
+
+<!-- ===================== DATA COLLECTION AND ANALYSIS ===================== -->
+<section class="panel" id="analysis">
+  <h2 class="sec">Data Collection, Analysis and Communication</h2>
+  <p class="lead">Data quality depends on written protocols, staff accountability, and regular structured review. Poor data is not neutral: it wastes resources and produces misleading analyses that can harm population health outcomes.</p>
+
+  <h3>Written Protocols Requirement <span class="bdg notes">ONENOTE</span></h3>
+  <div class="card">
+    <p>An effective surveillance program must be valued, planned, and well-executed. Written protocols must specify:</p>
+    <ul class="hy">
+      <li><b>What</b> data is collected (which metrics, which diseases, which fields).</li>
+      <li><b>Where</b> each data element is recorded.</li>
+      <li><b>When</b> collection and review events occur.</li>
+      <li><b>By whom</b> each task is performed.</li>
+    </ul>
+    <p>Everyone involved in data collection must be trained and held accountable for providing accurate, complete information.</p>
+  </div>
+
+  <h3>Stratified Incidence Rates <span class="bdg notes">ONENOTE</span></h3>
+  <div class="card">
+    <p>Separate incidence rates must be calculated for different subgroups: by age, source, and time period at minimum. A single facility-wide incidence rate obscures subgroup variation and prevents targeted intervention.</p>
+    <div class="trap"><b>Exam Trap</b> A low overall incidence rate can coexist with a very high rate in a specific high-risk subgroup (e.g., neonatal kittens in one ward). Reporting only the aggregate figure hides the signal. Stratify to find actionable patterns.</div>
+  </div>
+
+  <h3>Review Cadence and Monitoring Frequency <span class="bdg notes">ONENOTE</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Monthly data reviews maintain staff interest in surveillance and attention to data quality.</li>
+      <li>Monthly reviews allow timely notification of health changes to shelter administration and other staff.</li>
+      <li>Monitoring frequency is related to disease incidence, severity, and whether the shelter has specific goals tied to that disease.</li>
+      <li>High-incidence diseases such as feline URI (FURI) require at minimum monthly monitoring.</li>
+      <li>Active disease outbreaks trigger more frequent monitoring than the baseline schedule.</li>
+      <li>Some analyses can be prespecified (quarterly reports, annual medical profile); others arise as the data generates new questions.</li>
+    </ul>
+  </div>
+
+  <h3>Data Quality and Staff Understanding <span class="bdg notes">ONENOTE</span></h3>
+  <div class="card">
+    <p>When staff understand the rationale for and importance of complete, accurate data collection, data quality rises. Resources are wasted collecting poor-quality data, and analyses of that data can be actively misleading.</p>
+    <p>Staff who work directly with animals often have valuable insight into why disease is manifesting as it is (e.g., a new cleaning protocol, a housing configuration change, a period of low volunteer attendance). Interpretation requires their input alongside the numbers.</p>
+  </div>
+
+  <h3>Live Release Rate: Three Calculation Methods <span class="bdg lit">ASV Terminology 2017</span></h3>
+  <div class="card">
+    <div class="corrbox"><b>Key Fact: No Single LRR Formula</b> The ASV Shelter Terminology 2017 document describes three distinct LRR calculation methods. Each produces a different numeric result from the same dataset. Knowing which method a shelter uses is essential when comparing rates across organizations.
+      <table class="cmp" style="margin-top:10px">
+        <thead><tr><th>Method</th><th>Formula</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><b>1</b></td>
+            <td>Live outcomes / total live intakes</td>
+            <td>Intake-based rate. Can be affected by how OIE is categorized in the denominator.</td>
+          </tr>
+          <tr>
+            <td><b>2</b></td>
+            <td>Live outcomes / total outcomes (excluding current residents)</td>
+            <td>Disposition-based rate. Excludes animals still in care from denominator.</td>
+          </tr>
+          <tr>
+            <td><b>3</b></td>
+            <td>(Total intakes minus euthanasia) / total intakes</td>
+            <td>Includes all euthanasia in the numerator adjustment. Often used to track shelter reform progress.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="trap"><b>Exam Trap</b> Comparing LRR figures between shelters or across time periods is only valid if the same calculation method was used. A shelter reporting 90% LRR by method 2 and another reporting 85% by method 1 cannot be directly compared without knowing their intake profiles and calculation methods.</div>
+  </div>
+</section>
+
+<!-- ===================== MCQ ===================== -->
+<section class="panel" id="mcq">
+  <h2 class="sec">MCQ Test Bank</h2>
+  <p class="lead">30 board-style questions covering all Data and Analysis topics. Click an option to answer; the explanation appears after you select. Use Reset to restart.</p>
+
+  <div class="mcqbar">
+    <div class="filters">
+      <button class="on" data-f="all">All 30</button>
+      <button data-f="surveillance">Surveillance</button>
+      <button data-f="metrics">Basic Metrics</button>
+      <button data-f="los">LOS / ALOS</button>
+      <button data-f="c4c">C4C / Staffing</button>
+      <button data-f="analysis">Data Analysis</button>
+    </div>
+    <div class="score">
+      <span id="scoreDisplay">0 / 0</span>
+      <button class="reset" id="resetBtn">Reset</button>
+    </div>
+  </div>
+  <div id="qhost"></div>
+</section>
+
+</div></main>
+
+<footer><div class="wrap">
+  <p>ABVP Shelter Medicine Practice RVS &middot; Shelter Management Domain &middot; Subdomain 5: Data and Analysis &middot; Verified against source notes and ASV Shelter Terminology 2017. Exam date: November 2026.</p>
+</div></footer>
+
+<script>
+const tabrow = document.getElementById("tabrow");
+tabrow.addEventListener("click", function(e){
+  const b = e.target.closest("button");
+  if(!b || !b.dataset.p) return;
+  [...tabrow.children].forEach(x => x.classList.remove("active"));
+  b.classList.add("active");
+  document.querySelectorAll(".panel").forEach(p => p.classList.remove("show"));
+  document.getElementById(b.dataset.p).classList.add("show");
+});
+
+const Q = [
+  {f:"surveillance",q:"Which of the following correctly describes the formal definition of disease surveillance within a shelter population?",o:["Random sampling of healthy animals prior to community adoption events","The ongoing systematic collection, orderly consolidation, analysis and interpretation of health data, and its prompt dissemination to those who can act on it","Immediate euthanasia of any animal exhibiting signs of an endemic respiratory condition","Retrospective evaluation of historical medical bills by the Board of Directors"],a:1,e:"Disease surveillance requires both components: (1) ongoing systematic collection, consolidation, analysis and interpretation of health data AND (2) prompt dissemination to people in a position to act. A system that collects without communicating does not meet the full definition."},
+  {f:"metrics",q:"A shelter veterinarian calculates the number of newly diagnosed cases of canine parvovirus divided by the total number of susceptible dogs in the facility during May. What specific metric is being calculated?",o:["Prevalence percentage","Incidence rate","Crude mortality frequency","Case-fatality proportion"],a:1,e:"Incidence rate is newly diagnosed cases divided by the susceptible population at risk during a specified period. It is a rate over time, not a point-in-time proportion. Prevalence would measure all current cases at a single moment."},
+  {f:"metrics",q:"On October 1st, a medical team examines all 100 resident cats and notes 15 currently display signs of upper respiratory infection. What epidemiological metric does this 15% figure represent?",o:["Incidence rate","Prevalence","Attack rate","Morbidity distribution"],a:1,e:"Prevalence measures the proportion of active disease cases present in the population at a single point in time. This October 1st snapshot is point prevalence, not incidence, which would require tracking new cases over a defined period."},
+  {f:"surveillance",q:"An open-admission facility experiences a sudden sharp increase in feline panleukopenia incidence. What does a sudden escalation in disease frequency almost always indicate?",o:["A successful expansion of physical housing capacity","A breakdown in health-management protocols or the need for new ones","An automatic reduction in average length of stay for all felines","A shift from digital to paper record-keeping"],a:1,e:"Increased disease frequency almost always signals a protocol breakdown or the need for additional protocols. Even when incidence is stable, quantifying the endemic level helps prioritize which diseases deserve special attention."},
+  {f:"metrics",q:"A veterinary epidemiologist investigating a Bordetella outbreak at a shelter must analyze disease frequency across which three axes to generate actionable transmission hypotheses?",o:["Breed type, intake source, and funding stream","Host, location, and time of the year","Microchip status, volunteer availability, and weather patterns","Body condition score, weight, and adopter demographics"],a:1,e:"The three required axes are: Host (who is getting sick, e.g., kittens vs. adults), Location (where disease occurs, e.g., holding vs. adoption), and Time (when disease peaks, e.g., spring vs. fall). All three together generate hypotheses about causes and transmission factors."},
+  {f:"analysis",q:"When configuring a disease surveillance database, why is it essential to maintain separate data fields for clinical signs and definitive diagnoses?",o:["To satisfy bureaucratic police department reporting requirements","To avoid double-counting individual disease episodes","To allow non-credentialed volunteers to alter veterinary records","To artificially lower the calculated average length of stay"],a:1,e:"If clinical signs and diagnoses are stored in the same field, a single disease episode can be counted twice: once when signs are noted and again when a diagnosis is confirmed. Separate fields prevent this double-counting, which would inflate disease frequency metrics."},
+  {f:"metrics",q:"A shelter dog recovers from a URI episode in week 1 but develops a second identical bout two weeks later within the same monitoring period. For calculating incidence rate, how is the second episode handled?",o:["It is added to the denominator as a new susceptible host","Only the first episode during a particular timeframe counts as a new or incident case","It is multiplied by the overall prevalence to calculate a new mortality risk","It triggers mandatory recalculation of the staff-to-animal ratio"],a:1,e:"For diseases that can occur more than once in the same animal, only the first episode within the monitoring period counts as an incident case. Counting subsequent episodes would inflate the incidence rate and misrepresent new disease burden in the population."},
+  {f:"analysis",q:"A shelter manager wants to calculate disease incidence metrics. Which data sources must provide the denominators and numerators respectively?",o:["Volunteer hours for denominators; financial grant lines for numerators","Shelter intake data for denominators; medical data for numerators","Board of Directors rosters for denominators; media inquiries for numerators","Euthanasia percentages for denominators; adoption rates for numerators"],a:1,e:"Intake data provides the denominator (total animals at risk of developing the disease). Medical records provide the numerator (animals diagnosed with the disease). Movement and outcome data supplement these for additional analyses."},
+  {f:"metrics",q:"Why is directly comparing crude, unadjusted incidence rates between two regional shelters often epidemiologically misleading?",o:["Shelters are legally barred from sharing population-level data with outside veterinarians","Baseline circumstances that cannot be changed between shelters may be entirely different","Incidence can only be calculated for individual animals, not shelter populations","One facility may use spreadsheets while the other uses specialized software"],a:1,e:"Raw cross-shelter incidence comparisons are misleading when unalterable baseline variables (intake profile, geography, facility design, species mix) differ substantially between facilities. These confounders can make a well-run shelter appear worse than it truly is."},
+  {f:"surveillance",q:"A shelter medicine team is establishing a disease surveillance program. What is the initial, foundational step?",o:["Procure advanced PCR equipment for every individual stall","Create a short, manageable list of important infectious diseases to monitor","Request copies of all medical records from private practitioners in the county","Mandate Board of Directors training on daily sanitation"],a:1,e:"Surveillance must begin with a realistic, manageable disease list focused on those that are common, particularly problematic, or tied to the shelter's medical goals. The list should be short enough that collected data will actually influence decision-making and action."},
+  {f:"analysis",q:"A shelter monitors feline URI (FURI) and rabies. How should monitoring frequency differ between these two diseases under standard surveillance guidelines?",o:["Low-frequency severe diseases must be reviewed daily; high-frequency diseases reviewed annually","High-incidence diseases like FURI should be monitored more frequently (monthly) than lower-frequency diseases","All monitored diseases must be reviewed on an identical quarterly schedule","Frequency is determined exclusively by police department administrative timelines"],a:1,e:"Monitoring frequency tracks with disease incidence and severity. High-incidence endemic diseases like FURI require at minimum monthly monitoring to detect shifts. Lower-incidence diseases can be reviewed less frequently. Active outbreaks trigger more frequent monitoring than any baseline schedule."},
+  {f:"los",q:"Which of the following is a direct operational consequence of allowing an animal's length of stay to unnecessarily increase within a shelter?",o:["It decreases the overall workload for basic animal care staff","It increases disease risk, amplifies animal stress, and leads to overcrowding","It automatically maximizes the shelter's daily intake capacity","It eliminates the need for routine disease surveillance"],a:1,e:"Prolonged LOS has three compounding consequences: increased disease risk from longer pathogen exposure, increased animal stress and behavioral deterioration, and overcrowding as incoming animals fill housing occupied by long-stay residents. Reducing ALOS addresses all three simultaneously."},
+  {f:"los",q:"A shelter tracks 500 dogs over the summer. How is Average Length of Stay (ALOS) mathematically calculated for this population?",o:["Multiplying total available humane housing units by 15 minutes of care","Summing the LOS of all animals of interest and dividing by the total number of animals contributing to LOS in that period","Dividing the number of available housing units by monthly intake capacity","Subtracting total mortality count from total live adoptions"],a:1,e:"ALOS is the arithmetic mean: sum of individual LOS values for all animals of interest, divided by the total count of animals contributing to the LOS calculation during the specified period (month, season, or year)."},
+  {f:"los",q:"A shelter finds court-ordered protective custody animals have an ALOS of 45 days compared to 5 days for owner surrenders. How should leadership use this finding?",o:["Erase the data field to keep the overall population average low","Focus efforts on identifying and addressing the specific impediments causing delays in that subgroup's transit","Stop accepting all owner-surrendered animals to balance the overall average","Demote care staff responsible for housing protective custody animals"],a:1,e:"Elevated ALOS in a specific subgroup is an actionable signal. Leadership should investigate and address the specific legal, procedural, or operational impediments causing delays for that subgroup. The goal is targeted intervention, not changing intake policy."},
+  {f:"c4c",q:"A shelter has 50 humane housing units and an ALOS of 5 days. How many new animals can be sustainably housed over a 30-day period?",o:["300 animals (50 spaces x 30 days / 5 day ALOS)","55 animals (50 + 5)","150 animals (50 x 5 days / 30 days)","7500 animals (50 x 5 x 30)"],a:0,e:"Intake capacity = (humane housing spaces x number of days) / ALOS. (50 x 30) / 5 = 300 animals. This formula calculates how many animals can cycle through fixed housing over a defined period given the current ALOS."},
+  {f:"c4c",q:"A shelter has 60 humane canine housing units and an ALOS of 6 days. To avoid overcrowding, how many dogs can be safely admitted daily?",o:["360 dogs","10 dogs","15 dogs","2 dogs"],a:1,e:"Daily admissions target = humane housing units / ALOS. 60 / 6 = 10 dogs per day. Admitting more than this without reducing ALOS will cause the housing census to exceed capacity."},
+  {f:"c4c",q:"A shelter demonstrates that reducing canine ALOS from 10 days to 5 days will have what predictive effect on capacity?",o:["It doubles the number of staff needed to clean each cage","It increases the number of animals that can be admitted in a period without causing overcrowding","It automatically causes a breakdown in biosecurity protocols","It completely eliminates baseline infectious disease transmission risk"],a:1,e:"Shorter ALOS means each housing unit cycles through animals faster. Halving ALOS from 10 to 5 days doubles the intake capacity for the same fixed housing count. This is why ALOS reduction is one of the most powerful capacity interventions available."},
+  {f:"c4c",q:"Which term defines the absolute ability of an animal welfare organization to comprehensively meet the physical, medical, and behavioral needs of its resident animals?",o:["Morbidity index","Capacity for Care (C4C)","Prevalence coefficient","Data surveillance margin"],a:1,e:"C4C is the structural equilibrium between a shelter's physical and human resources and the baseline needs of its animal population. When C4C is exceeded, whether by too many animals or too few staff, conditions adverse to animal wellbeing result."},
+  {f:"c4c",q:"A shelter is severely understaffed, leaving one technician responsible for 80 cages. What direct health risk does this understaffing create?",o:["An artificial reduction in the prevalence of endemic diseases","Breaches in shelter biosecurity, increased infectious agent exposure, and rising disease frequency","An automatic decrease in average length of stay for all sick animals","A legal challenge regarding board of directors financial governance"],a:1,e:"When staffing is inadequate, cleaning and feeding times are compressed, cross-contamination risks rise, and infectious disease frequency increases. Biosecurity depends on consistent, timely cage cleaning: understaffing directly undermines the basic infection control framework."},
+  {f:"c4c",q:"What is the minimum amount of daily time per animal that the National Animal Control Association (NACA) recommends staff spend providing basic care?",o:["5 minutes","15 minutes","45 minutes","60 minutes"],a:1,e:"NACA explicitly recommends a minimum of 15 minutes per animal per day for basic care. This is a minimum baseline for feeding and cleaning only, not a comprehensive care standard. Shelters should strive to exceed this minimum."},
+  {f:"c4c",q:"The NACA-recommended 15 minutes per animal per day is strictly intended to cover which two basic tasks?",o:["Behavioral modification and public adoption counseling","Feeding and cleaning","Venipuncture and diagnostic PCR testing","Media training and record-keeping entry"],a:1,e:"The 15-minute NACA standard covers only feeding and cleaning. Medical care, enrichment, behavioral assessment, training, and socialization all require additional staff time beyond this minimum floor."},
+  {f:"c4c",q:"A shelter currently meets the NACA 15-minute basic care minimum. What is the explicit recommendation regarding this standard?",o:["Maintain this exact ceiling to prevent over-budget expenditure on personnel","Strive to increase available staff time per animal beyond this minimum to maximize animal welfare","Reduce time to 5 minutes if the facility uses digital record-keeping","Outsource remaining cleaning duties to a liaison committee"],a:1,e:"Meeting the 15-minute standard means meeting only the bare minimum survival floor for feeding and cleaning. The explicit recommendation is that shelters should strive to increase available staff time per animal above this minimum to maximize the welfare of their resident population."},
+  {f:"c4c",q:"To audit a shelter's staffing capacity to provide basic care, which two metrics must be estimated and compared?",o:["Required daily basic care time (census x minimum time per animal) compared to actual daily hours staff spend in basic care","Volunteer orientation hours vs. hours spent in executive board meetings","Time spent processing intake files vs. time spent on media interviews","Minutes spent performing euthanasia vs. hours spent on public training classes"],a:0,e:"The three-step audit: (1) estimate total time staff SHOULD spend in basic care daily (census x 15 min minimum), (2) calculate actual hours staff spend in basic care daily, (3) compare the two. The gap reveals the staffing shortfall."},
+  {f:"surveillance",q:"A shelter medicine department publishes a yearly summary of all monitored infectious disease occurrence. What is this standard document called?",o:["A quarterly strategic plan memo","An annual medical profile","A general practitioner liaison brief","A public relations press kit"],a:1,e:"The annual medical profile is the recommended standard tool for organizing and summarizing disease occurrence trends over a calendar year. It provides a longitudinal view of disease burden and progress toward control goals."},
+  {f:"analysis",q:"Which data issue most commonly causes failure or inaccuracy in shelter disease surveillance collection?",o:["Using specialized shelter software instead of spreadsheets","Failure to reach a definitive diagnosis","Documenting bite prevention training hours in a digital file","Providing food during after-hours facility tours"],a:1,e:"If an animal's illness never receives a standardized definitive diagnosis, the case cannot be classified or counted in the surveillance system. Undiagnosed cases are invisible to the surveillance framework. This is explicitly identified as the primary systemic cause of surveillance data failure."},
+  {f:"analysis",q:"When staff members fully understand the rationale for complete and accurate data collection, what is the direct operational result?",o:["Physical housing capacity instantly doubles","Data quality rises, preventing wasted resources and misleading analyses","Average length of stay drops to zero for all sick animals","The shelter is legally exempted from tracking natural mortality"],a:1,e:"Staff who understand WHY accurate data collection matters produce better data. Poor-quality data wastes collection resources and produces misleading analyses that can misdirect interventions and harm population health outcomes."},
+  {f:"analysis",q:"A shelter's medical staff provides a monthly data packet to the executive director. What is the primary benefit of this monthly review cadence?",o:["It eliminates the need for written protocols","It maintains interest in surveillance, ensures data quality, and allows timely notification of health changes to administration","It automatically ensures compliance with municipal law enforcement codes","It fulfills the board's requirement to manage day-to-day kennel operations"],a:1,e:"Monthly reviews provide three reinforcing benefits: they keep staff engaged in data quality, they allow timely detection of health trends before they become crises, and they ensure medical staff can promptly inform administration when population health changes."},
+  {f:"los",q:"A shelter veterinarian selects variables to monitor alongside ALOS to identify procedural impediments. Which of the following is explicitly listed as an appropriate tracking variable?",o:["The name of the board of directors president","Source of the animal (such as seized vs. stray)","The brand of digital spreadsheet software used","Distance from the shelter to the nearest police department"],a:1,e:"Animal source (seized vs. stray vs. owner surrender) is one of five explicitly listed factors to stratify ALOS by. Others include general health status, breed type, seasonal intake, and volunteer availability. Stratifying by source often reveals legal hold periods or procedural delays specific to that intake pathway."},
+  {f:"analysis",q:"To ensure an effective surveillance program, which document must specify what, where, when, and by whom each data collection component is performed?",o:["Verbal agreements during shift changes","Written protocols","Media press releases","Invoices from local private general practitioners"],a:1,e:"Written protocols are explicitly required for an effective surveillance program. They provide the standardized framework ensuring consistency across staff, shifts, and time. Verbal agreements are not accountable, not auditable, and not durable."},
+  {f:"metrics",q:"A shelter records 20 natural deaths among its resident canine population during a canine influenza outbreak. This figure represents the population's:",o:["Morbidity rate","Mortality due to natural causes","Prevalence index","Capacity for care coefficient"],a:1,e:"Mortality tracks the frequency of death due to natural causes within the population. Natural deaths are tracked separately from euthanasia, which is a managed outcome. Both metrics appear in the required population health snapshot alongside incidence and prevalence of major infectious diseases."}
+];
+
+const LABELS = {
+  surveillance:"Surveillance", metrics:"Basic Metrics", los:"LOS / ALOS",
+  c4c:"C4C / Staffing", analysis:"Data Analysis"
+};
+
+let answered = 0, correct = 0, chosen = "all";
+let locked = [];
+
+function updateScore(){
+  document.getElementById("scoreDisplay").textContent = correct + " / " + answered;
+}
+
+function render(){
+  const filtered = chosen === "all" ? Q : Q.filter(function(q){ return q.f === chosen; });
+  locked = new Array(Q.length).fill(false);
+  const host = document.getElementById("qhost");
+  host.innerHTML = "";
+  filtered.forEach(function(q, i){
+    const globalIdx = Q.indexOf(q);
+    const div = document.createElement("div");
+    div.className = "q";
+    let html = '<div class="meta"><span class="num">Q' + (i + 1) + '</span><span class="tag">' + (LABELS[q.f] || q.f) + '</span></div>';
+    html += '<div class="stem">' + q.q + '</div>';
+    q.o.forEach(function(o, j){
+      html += '<button class="opt" data-i="' + globalIdx + '" data-j="' + j + '"><span class="k">' + "ABCD"[j] + '.</span>' + o + '</button>';
+    });
+    html += '<div class="expl" id="expl-' + globalIdx + '"><b class="cor">Correct: ' + "ABCD"[q.a] + '.</b> ' + q.e + '</div>';
+    div.innerHTML = html;
+    host.appendChild(div);
+  });
+}
+
+document.getElementById("qhost").addEventListener("click", function(e){
+  const btn = e.target.closest(".opt");
+  if(!btn) return;
+  const i = +btn.dataset.i;
+  const j = +btn.dataset.j;
+  if(locked[i]) return;
+  locked[i] = true;
+  answered++;
+  const host = document.getElementById("qhost");
+  if(j === Q[i].a){
+    correct++;
+    btn.classList.add("correct");
+  } else {
+    btn.classList.add("wrong");
+    const correctBtn = host.querySelector('.opt[data-i="' + i + '"][data-j="' + Q[i].a + '"]');
+    if(correctBtn) correctBtn.classList.add("correct");
+  }
+  host.querySelectorAll('.opt[data-i="' + i + '"]').forEach(function(b){ b.classList.add("locked"); });
+  const expl = document.getElementById("expl-" + i);
+  if(expl) expl.classList.add("show");
+  updateScore();
+});
+
+document.querySelectorAll(".mcqbar .filters button").forEach(function(btn){
+  btn.addEventListener("click", function(){
+    document.querySelectorAll(".mcqbar .filters button").forEach(function(b){ b.classList.remove("on"); });
+    btn.classList.add("on");
+    chosen = btn.dataset.f;
+    answered = 0; correct = 0;
+    updateScore();
+    render();
+  });
+});
+
+document.getElementById("resetBtn").addEventListener("click", function(){
+  answered = 0; correct = 0;
+  updateScore();
+  render();
+});
+
+render();
+</script>
+</body>
+</html>
