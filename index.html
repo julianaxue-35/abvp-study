@@ -417,28 +417,33 @@ function onSearch(q){
 
 function renderDomain(id){
   var d=DOMAINS.filter(function(x){return x.id===id;})[0];
-  var h='<div class="crumb"><a onclick="nav(\'home\')">Home</a><span class="sep">/</span><span>'+d.name+'</span></div>';
-  h+='<div class="domhead" style="background:'+d.color+'14;border-color:'+d.color+'33"><h1>'+d.name+'</h1><p>'+d.weight+'% of the exam &middot; '+d.subs.length+' subdomains. Percentages below are share of this domain.</p></div>';
-  d.subs.forEach(function(s,i){
-    h+='<div class="sub">';
-    if(s.topics){
-      h+='<div class="srow" style="cursor:default"><div class="nm">'+s.name+'</div><div class="rt"><span class="wbadge">'+s.w+'%</span></div></div>';
-      h+='<div class="topics">';
-      s.topics.forEach(function(t){
-        var ready=topicReady(t);
-        h+='<span class="tchip '+(ready?'ready':'')+'" onclick="nav(\'topic\',\''+t+'\')"><span class="dot" style="background:'+(ready?'#0F6E56':'#B4B2A9')+'"></span>'+TOPICS[t].name+'</span>';
-      });
-      if(s.url){
-        h+='<a class="tchip ready" href="'+s.url+'" style="text-decoration:none"><span class="dot" style="background:#0F6E56"></span>Full subdomain hub &rsaquo;</a>';
-      }
-      h+='</div>';
-    }else if(s.url){
-      h+='<a class="srow" href="'+s.url+'" style="text-decoration:none"><div class="nm">'+s.name+'<small>hub page ready</small></div><div class="rt"><span class="wbadge">'+s.w+'%</span><span class="arrow">&rsaquo;</span></div></a>';
-    }else{
-      h+='<div class="srow" onclick="alert(\'No topic content yet for this subdomain. Send notes and it will be built here.\')"><div class="nm">'+s.name+'<small>no topics yet</small></div><div class="rt"><span class="wbadge">'+s.w+'%</span><span class="arrow">&rsaquo;</span></div></div>';
-    }
+  var readySubs=d.subs.filter(function(s){return !!s.url;}).length;
+  var total=d.subs.length;
+  var h='<div class="domain-header" style="background:'+d.color+'">';
+  h+='<div class="domain-back" onclick="nav(\'home\')">← Study Hub</div>';
+  h+='<div class="domain-title">'+d.emoji+' '+d.name+'</div>';
+  h+='<div class="domain-pills">';
+  h+='<div class="domain-pill">'+total+' topics</div>';
+  h+='<div class="domain-pill">'+d.weight+'% of exam</div>';
+  if(readySubs>0&&readySubs===total){
+    h+='<div class="domain-pill rpill">✓ All ready</div>';
+  }else if(readySubs>0){
+    h+='<div class="domain-pill rpill">'+readySubs+' / '+total+' ready</div>';
+  }
+  h+='</div></div>';
+  h+='<div class="scards">';
+  d.subs.forEach(function(s){
+    var hasUrl=!!s.url;
+    h+='<div class="scard'+(hasUrl?'':' no-url')+'" style="border-left:4px solid '+d.color+'"';
+    if(hasUrl)h+=' onclick="window.location.href=\''+s.url+'\'"';
+    h+='>';
+    h+='<div class="scard-emoji">'+(s.emoji||"📄")+'</div>';
+    h+='<div class="scard-name" style="color:'+d.color+'">'+s.name+'</div>';
+    if(hasUrl)h+='<div class="scard-arrow" style="color:'+d.color+'">›</div>';
+    else h+='<div class="scard-soon">coming soon</div>';
     h+='</div>';
   });
+  h+='</div>';
   return h;
 }
 
