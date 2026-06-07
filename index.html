@@ -135,10 +135,6 @@
 </style>
 </head>
 <body>
-<header class="bar"><div class="wrap">
-  <div class="brand" onclick="nav('home')">Shelter Medicine RVS Study Hub<small>ABVP Combined Exam &middot; November 2026</small></div>
-  <div class="chip" id="hdrchip">7 domains</div>
-</div></header>
 <div class="wrap" id="app"></div>
 <script>
 /* ---------- DATA ---------- */
@@ -333,35 +329,54 @@ function nav(view,a,b){S.view=view;S.dom=a;S.sub=b;if(view==="topic"){quizState=
 
 function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
 
+function dtileBadge(bgColor){
+  return {bg:"rgba(110,231,183,.2)",border:"rgba(110,231,183,.4)",text:"#6ee7b7"};
+}
+
 function render(){
   var app=document.getElementById("app");
   if(S.view==="home")app.innerHTML=renderHome();
   else if(S.view==="domain")app.innerHTML=renderDomain(S.dom);
   else if(S.view==="topic")app.innerHTML=renderTopic(S.dom);
-  document.getElementById("hdrchip").textContent=(S.view==="home")?("7 domains"):"";
 }
 
 function renderHome(){
-  var c=allCounts();
-  var h='<div class="crumb">&nbsp;</div>';
-  h+='<h1 class="page">Build your exam coverage, one topic at a time</h1>';
-  h+='<p class="lede">Pick a domain to drill into its subdomains and topics. Each ready topic gives you a summary, a visual diagram, and an interactive scored quiz. Empty topics fill in as you send notes.</p>';
-  h+='<div class="stats"><div class="stat"><b>7</b><span>domains</span></div><div class="stat"><b>'+c.t+'</b><span>topics mapped</span></div><div class="stat"><b>'+c.r+'</b><span>ready to study</span></div><div class="stat"><b>350</b><span>exam items</span></div></div>';
-  h+='<div class="grid">';
+  var tots=0,readyDoms=0;
   DOMAINS.forEach(function(d){
-    var cc=domainCounts(d);
-    var pct=cc.total?Math.round(cc.ready/cc.total*100):0;
-    h+='<div class="dcard" onclick="nav(\''+'domain\',\''+d.id+'\')">';
-    h+='<div class="top" style="background:'+d.color+'"></div>';
-    h+='<div class="wt" style="color:'+d.color+'">'+d.weight+'% of exam</div>';
-    h+='<h3>'+d.name+'</h3>';
-    h+='<div class="meta">'+d.subs.length+' subdomains</div>';
-    h+='<div class="prog"><i style="width:'+pct+'%;background:'+d.color+'"></i></div>';
-    h+='<div class="pl">'+cc.ready+' of '+cc.total+' topics ready</div>';
+    tots+=d.subs.length;
+    if(d.subs.some(function(s){return !!s.url;}))readyDoms++;
+  });
+  var h='<div class="hero">';
+  h+='<div class="hero-eye">2026 ABVP Exam Prep &middot; RVS</div>';
+  h+='<div class="hero-title" onclick="nav(\'home\')">Shelter Medicine<br>Study Hub</div>';
+  h+='<div class="hero-pills">';
+  h+='<div class="hero-pill"><b>'+DOMAINS.length+'</b><span>Domains</span></div>';
+  h+='<div class="hero-pill"><b>'+tots+'</b><span>Topics</span></div>';
+  h+='<div class="hero-pill rpill"><b>'+readyDoms+'/7</b><span>Ready</span></div>';
+  h+='</div></div>';
+  h+='<div class="search-wrap">';
+  h+='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>';
+  h+='<input class="search-input" type="search" placeholder="Search topics… e.g. FeLV, ringworm, euthanasia" oninput="onSearch(this.value)" id="searchbox">';
+  h+='</div>';
+  h+='<div id="search-results-panel" style="display:none"></div>';
+  h+='<div id="domain-grid">';
+  h+='<div class="section-label">Exam Domains</div>';
+  h+='<div class="dtile-grid">';
+  DOMAINS.forEach(function(d,i){
+    var hasUrl=d.subs.some(function(s){return !!s.url;});
+    var spanFull=(i===DOMAINS.length-1&&DOMAINS.length%2===1);
+    h+='<div class="dtile'+(hasUrl?'':' faded')+'"';
+    h+=' style="background:'+d.color+(spanFull?';grid-column:1/-1':'')+'"';
+    if(hasUrl)h+=' onclick="nav(\'domain\',\''+d.id+'\')"';
+    h+='>';
+    h+='<div class="dtile-emoji">'+d.emoji+'</div>';
+    h+='<div class="dtile-name">'+d.name+'</div>';
+    h+='<div class="dtile-count">'+d.subs.length+' topics'+(hasUrl?'':' · coming soon')+'</div>';
+    if(hasUrl){var b=dtileBadge(d.color);h+='<div class="dtile-badge" style="background:'+b.bg+';border:1px solid '+b.border+';color:'+b.text+'">✓</div>';}
     h+='</div>';
   });
-  h+='</div>';
-  h+='<div class="foot">Standalone study aid built from your notes. Save this file to keep it. Content is baked in, so nothing is lost if it is rebuilt. Not a substitute for the primary ABVP sources.</div>';
+  h+='</div></div>';
+  h+='<div class="foot">Standalone study aid built from your notes. Content is baked in — nothing is lost if it is rebuilt. Not a substitute for primary ABVP sources.</div>';
   return h;
 }
 
