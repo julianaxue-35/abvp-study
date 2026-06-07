@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spay-Neuter Subdomain Hub | ABVP Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0f3d3a;--ink2:#15514c;--paper:#f4efe4;--paper2:#fbf8f1;
+    --line:#d9d0bd;--muted:#5d6b62;--sn:#cf5a2b;--sn-soft:#f6e2d6;
+    --phys:#3c4a86;--phys-soft:#e2e4f2;--good:#1f7a4d;--bad:#b23b3b;
+    --ref:#1f6f8b;--ref-soft:#dcedf2;--proj:#7a4fb5;--proj-soft:#ece3f7;--unv:#8a6d1f;
+    --shadow:0 1px 2px rgba(15,61,58,.08),0 8px 24px rgba(15,61,58,.06);--dom-head:#2d1f3d;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;
+    background-image:radial-gradient(circle at 1px 1px,rgba(92,74,114,.04) 1px,transparent 0);background-size:22px 22px;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+  header.top{background:var(--dom-head);color:var(--paper2);padding:26px 0 22px;border-bottom:4px solid var(--sn)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#c8b8e8;margin:0 0 6px}
+  header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(26px,4.5vw,40px);margin:0;line-height:1.05}
+  header.top p.sub{margin:8px 0 0;color:#d4c8ea;font-size:14px;max-width:64ch}
+  .legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}
+  .legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.25);color:#ede8f6;display:flex;align-items:center;gap:6px}
+  .legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--paper2);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button:hover{background:var(--paper);color:var(--ink)}
+  .tabrow button.active{background:var(--dom-head);color:var(--paper2)}
+  .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--sn)}
+  .tabrow button.xdom .dot{background:var(--phys)}
+  .tabrow button.active.xdom{background:var(--phys)}
+  main{padding:30px 0 80px}
+  .panel{display:none;animation:fade .35s ease}
+  .panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;letter-spacing:-.01em}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:74ch}
+  h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:26px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;color:var(--ink2);text-transform:uppercase;letter-spacing:.03em}
+  .card{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}
+  ul.hy{margin:8px 0;padding-left:0;list-style:none}
+  ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed #e6ddca;font-size:14px}
+  ul.hy li:last-child{border-bottom:0}
+  ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;border-radius:2px;background:var(--sn);transform:rotate(45deg)}
+  ul.hy.phys li:before{background:var(--phys)}
+  .trap{background:#fff6ef;border:1px solid #f0d8c4;border-left:4px solid var(--sn);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .trap b{color:var(--sn);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:var(--paper2);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp th{background:var(--dom-head);color:var(--paper2);font-weight:600;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase}
+  table.cmp tr:last-child td{border-bottom:0}
+  table.cmp td b{color:var(--ink)}
+  .fig{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0;box-shadow:var(--shadow)}
+  .fig figcaption{font-size:12.5px;color:var(--muted);margin-top:8px;font-style:italic}
+  /* source badges */
+  .bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+  .bdg.asv{background:var(--sn-soft);color:var(--sn)}
+  .bdg.ref{background:var(--ref-soft);color:var(--ref)}
+  .bdg.proj{background:var(--proj-soft);color:var(--proj)}
+  .bdg.unv{background:#f3ebcf;color:var(--unv)}
+  .bdg.corr{background:var(--good);color:#fff}
+  .xbanner{display:flex;gap:10px;align-items:flex-start;background:var(--phys-soft);border:1px solid #c6cbe6;border-left:4px solid var(--phys);border-radius:10px;padding:12px 14px;margin:0 0 18px;font-size:13.5px;color:#2c356b}
+  .refbanner{display:flex;gap:10px;align-items:flex-start;background:var(--ref-soft);border:1px solid #b9d6e0;border-left:4px solid var(--ref);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13px;color:#16414f}
+  .refbanner b{color:var(--ref)}
+  /* mcq */
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--dom-head);color:var(--paper2);border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:54px;z-index:10}
+  .mcqbar .filters{display:flex;gap:6px;flex-wrap:wrap}
+  .mcqbar .filters button{font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#d6cce8;padding:6px 11px;border-radius:999px;cursor:pointer}
+  .mcqbar .filters button.on{background:var(--sn);border-color:var(--sn);color:#fff}
+  .mcqbar .filters button.on[data-f="phys"]{background:var(--phys);border-color:var(--phys)}
+  .score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}
+  .score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;color:#d6cce8;padding:5px 10px;border-radius:8px;font-size:11px}
+  .q{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
+  .q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+  .q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--sn-soft);color:var(--sn)}
+  .q .tag.phys{background:var(--phys-soft);color:var(--phys)}
+  .q .stem{font-weight:600;font-size:15px;margin-bottom:10px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;font-family:"Public Sans";transition:background .15s,border-color .15s}
+  .opt:hover{border-color:var(--ink)}
+  .opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}
+  .opt.correct{background:#e8f5ec;border-color:var(--good);color:#0d3d24}
+  .opt.wrong{background:#fbe9e9;border-color:var(--bad);color:#5e1d1d}
+  .opt.locked{cursor:default}
+  .expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:#f3efe3;border:1px solid var(--line);font-size:13.5px}
+  .expl.show{display:block}
+  .expl b.cor{color:var(--good)}
+  footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
+  @media(max-width:640px){.mcqbar{top:50px}.score{font-size:12px}}
+</style>
+</head>
+<body>
+<nav style="background:#2d1f3d;padding:9px 18px;display:flex;align-items:center;gap:10px;font-family:'Public Sans',system-ui,sans-serif;font-size:13px;font-weight:500;border-bottom:2px solid #4a3563"><a href="../index.html" style="color:#c8b8e8;text-decoration:none;display:flex;align-items:center;gap:5px"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span style="color:#6b5285;font-size:11px">›</span><span style="color:#d4c8ea">Companion Animal Homelessness</span></nav>
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">ABVP Shelter Medicine Practice RVS &middot; Companion Animal Homelessness</p>
+    <h1>Spay-Neuter Subdomain Hub</h1>
+    <p class="sub">Exam-depth study tool for the Spay-Neuter subdomain (16% of the Companion Animal Homelessness domain). Specific drug, local-anaesthetic, analgesia and fluid protocols are included from standard references and badged as non-ASV. Physical Health items are kept and badged cross-domain.</p>
+    <div class="legend">
+      <span><i style="background:var(--sn)"></i>&#9670; Spay-Neuter (ASV-verified)</span>
+      <span><i style="background:var(--ref)"></i>Std ref (White / ACVAA / Plumb's)</span>
+      <span><i style="background:var(--proj)"></i>ASPCA poster (project)</span>
+      <span><i style="background:var(--phys)"></i>Physical Health (cross-domain)</span>
+      <span><i style="background:var(--unv)"></i>Source-specific / unverified</span>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="overview"><span class="dot"></span>Overview &amp; Program Setup</button>
+  <button data-p="ages"><span class="dot"></span>Ages &amp; Patient Selection</button>
+  <button data-p="anes"><span class="dot"></span>Anaesthesia, Analgesia &amp; Fluids</button>
+  <button data-p="surgery"><span class="dot"></span>Surgical Technique &amp; Recovery</button>
+  <button data-p="cleaning"><span class="dot"></span>Cleaning &amp; Biosecurity</button>
+  <button class="xdom" data-p="vaccine"><span class="dot"></span>Vaccination</button>
+  <button data-p="population"><span class="dot"></span>Population Impact</button>
+  <button data-p="stress"><span class="dot"></span>Stress &amp; Handling</button>
+  <button data-p="dsd"><span class="dot"></span>Repro Pathology &amp; DSD</button>
+  <button data-p="mcq"><span class="dot" style="background:#0f3d3a"></span>MCQ Test Bank</button>
+</div></div></nav>
+
+<main><div class="wrap">
+
+<!-- ================= OVERVIEW & PROGRAM SETUP ================= -->
+<section class="panel show" id="overview">
+  <h2 class="sec">Overview &amp; Program Setup</h2>
+  <p class="lead">Where spay-neuter sits in the exam, the ASV definition and four pillars, and a full walk-through of how to plan, fund, staff, and run an HQHVSN program. ASV content verified against Griffin et al. 2016 (JAVMA 249:165).</p>
+
+  <div class="card">
+    <h4>Blueprint placement</h4>
+    <ul class="hy">
+      <li>Companion Animal Homelessness = <b>12%</b> of the exam; Spay-Neuter = <b>16%</b> of that domain.</li>
+      <li>Sibling subdomains: Shelter Diversion, Adoption/Placement, Epidemiology of Homelessness, Transfer, Disaster, Reunification, Non-Surgical Sterilization.</li>
+    </ul>
+  </div>
+
+  <h3>HQHVSN definition &amp; four pillars <span class="bdg asv">ASV</span></h3>
+  <div class="card">
+    <p style="margin:0 0 6px"><b>Goal:</b> efficient surgical initiatives that meet or exceed veterinary medical standards of care, providing accessible, targeted sterilization of large numbers of cats and dogs to reduce overpopulation and euthanasia.</p>
+    <ul class="hy">
+      <li><b>High Quality:</b> safe protocols; individual-animal care never sacrificed for volume.</li>
+      <li><b>High Volume:</b> efficient flow; next patient prepped on a second table as the current surgery is closed (no surgeon downtime). Needs adequate staffing and layout.</li>
+      <li><b>Accessible:</b> easy to reach/use; barriers = cost, geography, transport, language, cultural norms, sense of safety.</li>
+      <li><b>Targeted:</b> animals unlikely to otherwise be neutered (low-income owned pets, community animals).</li>
+    </ul>
+    <div class="trap"><b>Exam trap</b>Targeting by income = below-median-income areas + pricing, NOT income screening. Intact status is the leading relinquishment risk, so targeting prevents litters AND surrender. Non-surgical sterilization is explicitly out of scope of the 2016 guideline.</div>
+  </div>
+
+  <figure class="fig">
+    <svg viewBox="0 0 760 150" width="100%" role="img" aria-label="HQHVSN two-table flow">
+      <defs><marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0f3d3a"/></marker></defs>
+      <g font-family="Public Sans" font-size="12.5" text-anchor="middle">
+        <rect x="10" y="40" width="105" height="44" rx="9" fill="#fbf8f1" stroke="#d9d0bd"/><text x="62" y="67">Intake / ID</text>
+        <rect x="145" y="40" width="105" height="44" rx="9" fill="#fbf8f1" stroke="#d9d0bd"/><text x="197" y="61">Premed /</text><text x="197" y="76">induction</text>
+        <rect x="280" y="22" width="120" height="38" rx="9" fill="#f6e2d6" stroke="#cf5a2b"/><text x="340" y="45">Table 1: surgery</text>
+        <rect x="280" y="68" width="120" height="38" rx="9" fill="#f6e2d6" stroke="#cf5a2b"/><text x="340" y="91">Table 2: prepped</text>
+        <rect x="430" y="40" width="105" height="44" rx="9" fill="#fbf8f1" stroke="#d9d0bd"/><text x="482" y="61">Recovery</text><text x="482" y="76">(first 3 h)</text>
+        <rect x="565" y="40" width="105" height="44" rx="9" fill="#fbf8f1" stroke="#d9d0bd"/><text x="617" y="67">Discharge</text>
+      </g>
+      <g stroke="#0f3d3a" stroke-width="1.5" fill="none" marker-end="url(#ar)">
+        <path d="M115,62 L143,62"/><path d="M250,62 L278,52"/><path d="M250,62 L278,86"/><path d="M400,52 L428,62"/><path d="M400,86 L428,62"/><path d="M535,62 L563,62"/>
+      </g>
+    </svg>
+    <figcaption>Two-table flow is the engine of high volume: glove change, immediate next case, no downtime.</figcaption>
+  </figure>
+
+  <h3>Setting up a program, step by step <span class="bdg asv">ASV</span></h3>
+  <div class="card">
+    <h4>1. Mission, goals, needs assessment</h4>
+    <ul class="hy">
+      <li>Ask: what program do you want, what change do you hope to effect and why, what is the level of need, what resources do you have.</li>
+      <li>Articulate goals first, then plan services that reasonably contribute to them. Understand the resources (financial and human) available to meet your target community's need.</li>
+    </ul>
+    <h4>2. Funding (the hardest resource) <span class="bdg asv">ASV</span></h4>
+    <ul class="hy">
+      <li>Sources: grants, donations, public funding, fees for service.</li>
+      <li>Grants generally need nonprofit or government status and an application; often purpose-specific (startup, or subsidies for community cats or pit-bull-type dogs).</li>
+      <li>Public funds: animal-control budgets, pet-friendly license plates, dog licensing.</li>
+      <li><b>Fees for service:</b> to stay accessible, fees must sit <b>below local general-practice prices</b>. The shortfall is covered by efficiency, volunteer labour, or other funding.</li>
+      <li>For-profit programs may partner with a nonprofit that can accept grants/donations and supply volunteers.</li>
+    </ul>
+    <h4>3. Human resources &amp; model selection</h4>
+    <ul class="hy">
+      <li>Employees, independent contractors, volunteers; be realistic about volunteer reliance. Large monthly MASH community-cat clinics often run all-volunteer.</li>
+    </ul>
+    <table class="cmp">
+      <tr><th>Model</th><th>Advantages</th><th>Disadvantages</th></tr>
+      <tr><td><b>Stationary</b></td><td>Greatest daily capacity; local relationships; can hospitalize</td><td>Facility cost/time; geographic limitation of population</td></tr>
+      <tr><td><b>Mobile (MASH / fitted vehicle)</b></td><td>Targets any geography; lower overhead</td><td>Limited housing; time constraints; communication and emergency protocols must be exceptional; some jurisdictions restrict mobile neutering</td></tr>
+      <tr><td><b>Community / feral cat clinic</b></td><td>Uses any model above</td><td>Exclusively community cats</td></tr>
+    </table>
+    <h4>4. Protocols, SOPs &amp; checklists</h4>
+    <ul class="hy">
+      <li>Clear protocols and documentation reduce communication lapses, errors and unnecessary variability, and cut cognitive load during emergencies.</li>
+      <li>Design the protocol, then implement; a good medical-record form doubles as a checklist. Deviations invite error and should be avoided, while staying flexible for individual needs.</li>
+    </ul>
+    <h4>5. Physical layout &amp; flow</h4>
+    <ul class="hy">
+      <li>Minimize staff travel between tasks; keep needed items nearby; keep sedated animals visible and monitored; target improvement at the riskiest processes/locations.</li>
+    </ul>
+    <h4>6. Staff roles, culture &amp; leadership</h4>
+    <ul class="hy">
+      <li>Collaborative (not strictly hierarchical) cultures; greater teamwork correlates with fewer complications. Defined duties plus team interaction; each role understood and performed with minimal wasted time.</li>
+      <li>Leaders who value and empower staff raise performance, satisfaction and well-being, and lower turnover. Leadership can be taught.</li>
+    </ul>
+    <h4>7. Data tracking &amp; improvement</h4>
+    <ul class="hy">
+      <li><b>Safety:</b> capture peri-anaesthetic and post-op morbidity/mortality; track when/where/why an error occurred; software can sort complications by surgeon, species, or surgery type and correlate outcome changes with protocol changes.</li>
+      <li><b>Effectiveness:</b> local shelter intake and euthanasia rates, nuisance complaints, colony size, kitten production, disease incidence.</li>
+    </ul>
+    <h4>8. Personnel health, ergonomics &amp; mental health</h4>
+    <ul class="hy">
+      <li>Reduce distractions (loud music/conversation, foot traffic, barking, slamming cages, phones). Manage chemical/biological safety, waste gas, sharps, noise, zoonoses, physical injury, compassion fatigue.</li>
+      <li>Safe handling (lift tables, stretchers, blankets) prevents bites, lifting strains, slips/falls.</li>
+      <li>Ergonomics: sit or alternate sit/stand; firm elastic mats, cushioned shoes; <b>micropauses 15&ndash;30 s several times per hour</b> with stretching reduce fatigue and raise accuracy.</li>
+      <li>Mental health: shelter/HQHVSN veterinarians carry elevated risk of depression, burnout, compassion fatigue, suicidal ideation. Provide resources, support groups, crisis lines, and scheduling flexibility; train staff to recognize early signs.</li>
+    </ul>
+  </div>
+  <h3>Clinic models in depth <span class="bdg ref">HQHVSN literature</span></h3>
+  <div class="card">
+    <h4>Stationary clinic</h4>
+    <ul class="hy">
+      <li>Dedicated SN facility. To be sustainable it must fill its schedule: a benchmark of about <b>35 surgeries per vet per day, 5 days/week, 48 weeks/year</b>.</li>
+      <li>Typically needs a catchment of at least <b>250,000 people within a 60-mile radius</b>, and an opening reserve of about <b>$35,000</b>.</li>
+      <li>Optional transport program (vehicle, driver, fuel, insurance, registration, maintenance) extends reach to clients with limited transport; the driver is the first line of patient monitoring and may decline an animal that looks unwell.</li>
+      <li>Regulatory: city/county zoning, the veterinary practice act, ADA alignment, ventilation/air exchange, waste and drain rules, and the oxygen delivery choice (central, portable E-tanks cheapest up front but costly over time, or concentrator).</li>
+    </ul>
+    <h4>Mobile clinic (self-contained vehicle)</h4>
+    <ul class="hy">
+      <li>Travels to communities, surgery on board, same-day discharge; often <b>at least 25 dogs/cats per 10-hour day</b>.</li>
+      <li>Needs fresh/grey water tanks, generator, HVAC, fridge/freezer, latching cabinets, at least two anaesthesia machines, ideally two tables; parked in a locked garage when idle.</li>
+      <li>Regulatory: state/local vet law, inspection/registration/insurance, possibly a commercial licence; consult the Veterinary Mobility Act and local DEA. Carbon monoxide detector if generator-powered.</li>
+      <li>Anaesthetic tactics: premedicate groups in surgical order to reduce barking, do longer-recovery animals early, use reversible drugs, minimise masking to limit waste gas.</li>
+    </ul>
+    <h4>MASH clinic</h4>
+    <ul class="hy">
+      <li>Staff transport equipment to a temporary venue (shelter, church basement, fire station, gym). <b>Fastest, lowest-cost</b> way to start HQHVSN; good for rural low-density and dense urban areas alike.</li>
+      <li>Lower investment than stationary/mobile (vehicle, surgical/anaesthetic equipment, autoclave, initial consumables, roughly $20,000 to $35,000).</li>
+      <li><b>Surgical capacity:</b> about 5 hours of surgery is a full MASH day, from as few as 15 to 20 dogs up to 50 to 60 cats for one vet.</li>
+      <li>Collaborative MASH: host group supplies venue, 2 to 5 staff/volunteers, scheduling, admission/discharge and non-medical supplies; the MASH org supplies vets, techs, surgical supplies, and trains hosts. Independent MASH does it all itself.</li>
+    </ul>
+    <h4>Hybrid, community-cat, in-clinic and voucher models</h4>
+    <ul class="hy">
+      <li><b>Hybrid:</b> a building plus a mobile/MASH component (e.g. a cargo trailer).</li>
+      <li><b>Community/feral cat clinic:</b> tractability, health and rabies status unknown, so all are treated as feral and unvaccinated; IM-only induction, never handle without sedation, capture nets and squeeze cages, recover in the trap. A large study put community-cat euthanasia at about <b>0.4%</b>. A cited feral GA recipe is Telazol reconstituted with 4 mL ketamine + 1 mL xylazine, dosed by volume (about 0.125 mL small kitten, 0.25 mL average, 0.3 mL tom); reported death rate about 0.4%. <span class="bdg unv">notes/source-specific</span></li>
+      <li><b>In-clinic clinic / voucher:</b> a private practice partners with a welfare group; the welfare partner handles advertising, scheduling, income screening and reminders, the hospital does pre-op instructions, exams, surgery and aftercare. In-clinic blocks use otherwise idle time; best for communities under ~25,000 that cannot support a full-time program. Pitfalls: communication breakdown, judging low-income clients, poor pricing transparency or upselling.</li>
+    </ul>
+    <h4>Staffing</h4>
+    <ul class="hy">
+      <li>Ratio about <b>1 vet to 2 to 3 trained support staff</b>; shifts of 4x10 h or 3x12 h work better than 5x8 h.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= AGES & PATIENT SELECTION ================= -->
+<section class="panel" id="ages">
+  <h2 class="sec">Ages &amp; Patient Selection</h2>
+  <p class="lead">Every age-anchored fact for the subdomain in one place, plus who decides on surgery and the special-case decisions that keep length of stay low.</p>
+
+  <h3>Age reference table</h3>
+  <table class="cmp">
+    <tr><th>Age / weight anchor</th><th>Fact</th><th>Source</th></tr>
+    <tr><td>6&ndash;16 weeks</td><td>ASV-supported window for early-age (pediatric) spay-neuter</td><td><span class="bdg asv">ASV</span></td></tr>
+    <tr><td>As early as 6 weeks</td><td>Pre-adoption neuter to ensure compliance</td><td><span class="bdg asv">ASV</span></td></tr>
+    <tr><td>4 months or older</td><td>Best scheduling for owned pets, to optimize immunity through timely vaccination</td><td><span class="bdg asv">ASV</span></td></tr>
+    <tr><td>~1 kg / 2 lb, clinically stable</td><td>Common practical minimum for pediatric surgery</td><td><span class="bdg ref">Std ref</span></td></tr>
+    <tr><td>6&ndash;16 wk fasting</td><td>Small meal 2&ndash;4 h pre-op; do NOT withhold food &gt;4 h (hypoglycemia)</td><td><span class="bdg asv">ASV</span></td></tr>
+    <tr><td>&gt;16 wk fasting</td><td>Withhold minimum 4 h; overnight acceptable; &gt;6 h unnecessary. Never withhold water</td><td><span class="bdg asv">ASV</span></td></tr>
+    <tr><td>Tomcat puberty ~8&ndash;13 mo</td><td>Neuter before puberty to prevent male behaviours</td><td><span class="bdg unv">repro ref</span></td></tr>
+    <tr><td>Penile spines</td><td>Appear ~12 wk, obvious by 6 mo; regress within ~6 wk of castration; equivocal under 6 mo</td><td><span class="bdg unv">repro ref</span></td></tr>
+    <tr><td>Tom jowls</td><td>Androgen-dependent; usually after 2 yo</td><td><span class="bdg unv">repro ref</span></td></tr>
+    <tr><td>Pup &lt;12 wk neuter</td><td>Penis/os penis/prepuce stay infantile (objective sign of prior castration in an adult)</td><td><span class="bdg unv">repro ref</span></td></tr>
+    <tr><td>Testicular descent</td><td>Scrotal in most dogs/cats by 5 days of age; of those not down by 10 d, ~1/4 descend by 14 wk</td><td><span class="bdg unv">repro ref</span></td></tr>
+  </table>
+  <div class="trap"><b>Exam trap</b>The 4-month owned-pet figure is about <b>immunity/vaccination</b>, not skeletal maturity. Pediatric upper fasting limit (no more than 4 h) prevents hypoglycemia; adult minimum is 4 h and beyond 6 h is unnecessary.</div>
+
+  <h3>Patient selection <span class="bdg asv">ASV</span></h3>
+  <ul class="hy">
+    <li>Depends on staffing, anaesthetic capability, locale, training, economics.</li>
+    <li>A <b>veterinarian</b> makes the final acceptance decision based on history, PE, and the schedule; the surgeon sets minimum/maximum age and weight.</li>
+    <li>PE may be before or after premedication at the vet's discretion; verify sex/reproductive status, check for tattoo, scan for microchip.</li>
+  </ul>
+
+  <h3>Special-case decisions <span class="bdg asv">ASV</span></h3>
+  <ul class="hy">
+    <li><b>Estrus, pregnant, lactating, pyometra, mild URI/parasites, subclinical heartworm:</b> generally proceed. The welfare cost of prolonged shelter stay and disease exposure outweighs the surgical management of an engorged or compromised tract. Grant an exemption only when surgery poses significant patient risk.</li>
+    <li><b>Pregnant en bloc:</b> fetal euthanasia not required when the gravid uterus is removed intact (fetuses stay unconscious). If the sac is opened, a near-term fetus may rouse, so humane euthanasia is then warranted. Terminating pregnancy at any stage is considered humane in shelters.</li>
+    <li><b>Cryptorchid:</b> full PE, inspect penis, palpate the entire inguinal region. Remove <b>both</b> testes; locate the retained testis first. If it cannot be found, do not remove the descended one (refer). Diagnostics: ultrasound, hCG/GnRH stimulation (testosterone &gt;3 ng/mL post-stim = testicular tissue), LH and AMH testing. <span class="bdg unv">repro ref</span></li>
+    <li>Mind state/local ordinances on timing relative to legal holding periods.</li>
+  </ul>
+</section>
+
+<!-- ================= ANAESTHESIA, ANALGESIA & FLUIDS ================= -->
+<section class="panel" id="anes">
+  <h2 class="sec">Anaesthesia, Analgesia &amp; Fluids</h2>
+  <p class="lead">Balanced anaesthesia for high throughput, with specific agents and doses. ASV principles are badged ASV; all mg/kg figures are representative standard-reference ranges (badged Std ref).</p>
+
+  <div class="refbanner"><div><b>Dose disclaimer.</b> The ASV guideline gives no doses. The mg/kg ranges below are representative values compiled from standard references (Sara White, <i>HQHVSN and Other Shelter Surgeries</i>; ACVAA pain-management guidelines; Plumb's). Ranges and combination "recipes" vary by source, edition, formulation, and region. <b>Cross-check against your own formulary before clinical or exam use.</b></div></div>
+
+  <h3>ASV anaesthesia principles <span class="bdg asv">ASV</span></h3>
+  <ul class="hy">
+    <li>Four protocol criteria: analgesia/anxiolysis; immobility/muscle relaxation; safe, reversible CNS depression to unconsciousness; affordable balanced injectable + inhalant anaesthesia.</li>
+    <li>Use a <b>drug chart</b> to prevent calculation errors; at weight extremes dose by body surface area or metabolic scaling. Favour reversible agents; estimate weight accurately.</li>
+    <li>Multimodal analgesia; avoid NSAIDs in clinically or subclinically dehydrated patients (nephrotoxicosis).</li>
+    <li>Total IM anaesthesia: a single injection of alpha-2 + opioid + dissociative reduces pain and stress.</li>
+    <li>Anticholinergics available in all clinics but <b>not</b> used for alpha-2-induced bradycardia (use reversal/partial reversal).</li>
+  </ul>
+
+  <h3>Premedication / IM induction combos <span class="bdg ref">Std ref</span></h3>
+  <table class="cmp">
+    <tr><th>Drug (class)</th><th>Cat IM</th><th>Dog IM</th><th>Notes</th></tr>
+    <tr><td>Dexmedetomidine (alpha-2)</td><td>0.02&ndash;0.04 mg/kg</td><td>0.005&ndash;0.01 mg/kg (or 125&ndash;375 mcg/m&sup2;)</td><td>Biphasic BP; reverse with atipamezole; avoid in cardiac/sick</td></tr>
+    <tr><td>Ketamine (dissociative)</td><td>3&ndash;5 mg/kg (combo)</td><td>3&ndash;5 mg/kg (combo)</td><td>Somatic &gt; visceral analgesia; pair with sedative</td></tr>
+    <tr><td>Butorphanol (opioid)</td><td>0.2&ndash;0.4 mg/kg</td><td>0.2&ndash;0.4 mg/kg</td><td>Short duration (~1&ndash;2 h); mild visceral analgesia</td></tr>
+    <tr><td>Buprenorphine (opioid)</td><td>0.02&ndash;0.03 mg/kg</td><td>0.01&ndash;0.02 mg/kg</td><td>Longer (~6&ndash;8 h); good take-home option in cats (OTM)</td></tr>
+    <tr><td>Hydromorphone / methadone</td><td>0.05&ndash;0.1 / 0.2&ndash;0.3 mg/kg</td><td>0.05&ndash;0.1 / 0.3&ndash;0.5 mg/kg</td><td>Fuller mu agonists for more painful cases</td></tr>
+    <tr><td>Acepromazine (phenothiazine)</td><td>0.01&ndash;0.05 mg/kg</td><td>0.01&ndash;0.03 mg/kg</td><td><b>Zero analgesia</b>; vasodilation/hypotension &ndash; avoid if hypovolemic/dehydrated</td></tr>
+  </table>
+  <ul class="hy">
+    <li><b>Feline "kitty magic" pattern:</b> dexmedetomidine + ketamine + an opioid, frequently mixed and dosed by volume per cat for a single IM injection.</li>
+    <li><b>Telazol-based ("TTDex") pattern:</b> tiletamine-zolazepam reconstituted with dexmedetomidine + an opioid, dosed by volume; recipes differ between programs, so follow your clinic's validated chart.</li>
+    <li><b>Feral cats:</b> a complete IM combo (e.g. DKT = dexmedetomidine + ketamine + butorphanol) allows induction without handling; the cat is removed from the trap only after sedation.</li>
+  </ul>
+
+  <h3>Induction &amp; maintenance <span class="bdg ref">Std ref</span></h3>
+  <table class="cmp">
+    <tr><th>Agent</th><th>Dose / setting</th><th>Notes</th></tr>
+    <tr><td>Propofol</td><td>4&ndash;6 mg/kg IV to effect (2&ndash;4 if premedicated)</td><td>Smooth; apnea if fast; titrate</td></tr>
+    <tr><td>Alfaxalone</td><td>1&ndash;2 mg/kg IV (premedicated)</td><td>Good cardiovascular stability</td></tr>
+    <tr><td>Ketamine + diazepam/midazolam</td><td>ketamine 5 mg/kg + benzo 0.25 mg/kg IV</td><td>Co-induction option</td></tr>
+    <tr><td>Isoflurane (maintenance)</td><td>MAC ~1.3% dog, ~1.6% cat</td><td>Minimize mask/chamber; use scavenging</td></tr>
+    <tr><td>Sevoflurane (maintenance)</td><td>MAC ~2.3% dog, ~2.6% cat</td><td>Faster on/off; useful for rapid mask if needed</td></tr>
+  </table>
+
+  <h3>Anticholinergics &amp; reversal <span class="bdg ref">Std ref</span></h3>
+  <table class="cmp">
+    <tr><th>Agent</th><th>Dose</th><th>Use</th></tr>
+    <tr><td>Atropine</td><td>0.02&ndash;0.04 mg/kg IV/IM</td><td>Vagal (NOT alpha-2) bradycardia; faster onset</td></tr>
+    <tr><td>Glycopyrrolate</td><td>0.005&ndash;0.011 mg/kg IV/IM</td><td>Vagal bradycardia; no CNS crossing, longer</td></tr>
+    <tr><td>Atipamezole</td><td>same <b>volume</b> as the dexmedetomidine given, IM</td><td>Reverse alpha-2; avoid IV except emergencies</td></tr>
+    <tr><td>Naloxone</td><td>0.01&ndash;0.04 mg/kg IV/IM</td><td>Opioid reversal (emergency; also reverses analgesia)</td></tr>
+    <tr><td>Flumazenil</td><td>~0.01 mg/kg IV</td><td>Benzodiazepine reversal</td></tr>
+  </table>
+
+  <figure class="fig">
+    <svg viewBox="0 0 760 165" width="100%" role="img" aria-label="Dexmedetomidine biphasic response">
+      <text x="0" y="14" font-family="JetBrains Mono" font-size="11.5" fill="#5d6b62">DEXMEDETOMIDINE: BIPHASIC RESPONSE</text>
+      <line x1="55" y1="140" x2="720" y2="140" stroke="#bcae93"/><line x1="55" y1="28" x2="55" y2="140" stroke="#bcae93"/>
+      <path d="M55,95 C120,38 180,48 260,66 S480,90 720,90" fill="none" stroke="#cf5a2b" stroke-width="3"/>
+      <path d="M55,90 C120,140 200,140 300,127 S520,112 720,110" fill="none" stroke="#0f3d3a" stroke-width="3"/>
+      <g font-family="Public Sans" font-size="12" font-weight="600"><text x="150" y="36" fill="#cf5a2b">Blood pressure &uarr;</text><text x="115" y="158" fill="#0f3d3a">Heart rate &darr; (reflex)</text></g>
+      <text x="495" y="55" font-family="Public Sans" font-size="11" fill="#5d6b62" font-style="italic">Treat this bradycardia by reversal, not an anticholinergic</text>
+    </svg>
+    <figcaption>Peripheral vasoconstriction spikes BP, triggering baroreceptor reflex bradycardia. Anticholinergics raise myocardial work against high afterload; reverse with atipamezole if perfusion fails.</figcaption>
+  </figure>
+
+  <h3>Local anaesthetics <span class="bdg ref">Std ref / ACVAA</span></h3>
+  <table class="cmp">
+    <tr><th>Agent</th><th>Dog max</th><th>Cat max</th><th>Onset / duration</th></tr>
+    <tr><td>Lidocaine</td><td>~6&ndash;10 mg/kg</td><td>~2&ndash;4 mg/kg (use conservative ~2)</td><td>~5&ndash;10 min / ~1&ndash;1.5 h</td></tr>
+    <tr><td>Bupivacaine</td><td>~2 mg/kg</td><td>~1&ndash;2 mg/kg</td><td>~20 min / ~4&ndash;6 h. <b>Never IV</b> (cardiotoxic)</td></tr>
+  </table>
+  <ul class="hy">
+    <li><b>Intratesticular block</b> before castration: inject into each testis until firm; reduces intra-op nociception and inhalant need.</li>
+    <li><b>Incisional / line / splash block</b> (bupivacaine) and <b>intraperitoneal "splash"</b> before closure for spay.</li>
+    <li>Keep the combined dose under the species maximum; reduce in pediatric, small, or debilitated patients. Cats are more sensitive: stay conservative.</li>
+  </ul>
+
+  <h3>Post-op &amp; take-home analgesia <span class="bdg ref">Std ref</span></h3>
+  <table class="cmp">
+    <tr><th>Agent</th><th>Dog</th><th>Cat</th><th>Caution</th></tr>
+    <tr><td>Meloxicam (NSAID)</td><td>0.2 mg/kg SC/PO once, then 0.1 mg/kg</td><td>single 0.1&ndash;0.3 mg/kg SC (repeat use off-label/caution)</td><td rowspan="3">Avoid if dehydrated, hypotensive, renal/hepatic compromise, or very young</td></tr>
+    <tr><td>Carprofen (NSAID)</td><td>4.4 mg/kg once or 2.2 mg/kg q12h</td><td>limited; single perioperative use</td></tr>
+    <tr><td>Robenacoxib (NSAID)</td><td>1&ndash;2 mg/kg</td><td>1&ndash;2 mg/kg</td></tr>
+    <tr><td>Buprenorphine (opioid)</td><td>0.01&ndash;0.02 mg/kg</td><td>0.02&ndash;0.03 mg/kg (OTM useful)</td><td>Also reverses with naloxone</td></tr>
+  </table>
+  <ul class="hy">
+    <li>ASV: post-op analgesia varies with surgical complexity/technique, age, individual response; adjust per patient and plan for analgesia beyond 24 h. <span class="bdg asv">ASV</span></li>
+    <li>Multimodal (NSAID + opioid + local) is preferred; take-home is usually an NSAID in a healthy patient.</li>
+  </ul>
+
+  <h3>Fluid therapy</h3>
+  <ul class="hy">
+    <li><b>Who needs IV fluids</b> (ASV): high-risk patients &ndash; pregnant, pyometra, substantial blood loss, prolonged surgery; warmed fluids for pediatric, small, frail, ill. <span class="bdg asv">ASV</span></li>
+    <li><b>Routine healthy elective patients</b> often do not need IV fluids; SC fluids may be given for comfort. <span class="bdg ref">Std ref</span></li>
+    <li><b>Anaesthetic IV rate</b> (AAHA 2013): start ~<b>5 mL/kg/h in dogs, ~3 mL/kg/h in cats</b>, titrated down; the older standard was 10 mL/kg/h. <span class="bdg ref">Std ref</span></li>
+    <li><b>Pediatric/neonatal hypoglycemia:</b> transmucosal sugar (ASV) or 2.5% dextrose support during recovery; recover with littermates, do not pile. <span class="bdg asv">ASV</span> <span class="bdg ref">Std ref</span></li>
+  </ul>
+
+  <h3>Monitoring <span class="bdg asv">ASV</span> <span class="bdg ref">Std ref</span></h3>
+  <ul class="hy">
+    <li>Hands-on observation is most reliable; monitor several variables (no single one suffices).</li>
+    <li><b>Pulse oximetry</b> highly encouraged; shown to reduce anaesthetic death in cats (CEPSAF). SpO2 should be 98&ndash;100% on oxygen; under 95% = hypoxemia. <span class="bdg ref">Std ref</span></li>
+    <li>Pulse quality/rate/rhythm; respiratory rate/pattern; <b>capnograph ETCO2 35&ndash;45 mmHg</b> (flatline = disconnect/arrest; rising = hypoventilation; abrupt fall = falling cardiac output). <span class="bdg ref">Std ref</span></li>
+    <li><b>MAP minimum ~60 mmHg</b> to autoregulate renal/cerebral perfusion. <span class="bdg ref">Std ref</span></li>
+    <li>Jaw tone unreliable in pediatric puppies (no mandibular tone); ventral eye rotation = surgical plane; palpebral may be absent with dissociatives; MM/CRT subjective.</li>
+  </ul>
+  <figure class="fig">
+    <svg viewBox="0 0 760 200" width="100%" role="img" aria-label="Capnography waveforms">
+      <text x="0" y="14" font-family="JetBrains Mono" font-size="11.5" fill="#1f6f8b">CAPNOGRAPHY (ETCO2 normal 35&ndash;45 mmHg)</text>
+      <g stroke="#1f6f8b" stroke-width="2.5" fill="none"><path d="M30,66 h12 v-30 h26 v30 h12 M92,66 h12 v-30 h26 v30 h12"/></g>
+      <text x="30" y="88" font-family="Public Sans" font-size="11.5" font-weight="600" fill="#0f3d3a">Normal</text>
+      <g stroke="#b23b3b" stroke-width="2.5" fill="none"><path d="M280,66 h12 v-30 h26 v30 h12 h60"/></g>
+      <text x="280" y="88" font-family="Public Sans" font-size="11.5" font-weight="600" fill="#b23b3b">Disconnect / arrest &rarr; flatline to 0</text>
+      <g stroke="#cf5a2b" stroke-width="2.5" fill="none"><path d="M30,166 h10 v-24 h22 v24 h10 v-32 h22 v32 h10 v-40 h22 v40 h10"/></g>
+      <text x="30" y="188" font-family="Public Sans" font-size="11.5" font-weight="600" fill="#cf5a2b">Hypoventilation &rarr; rising ETCO2</text>
+      <g stroke="#0f3d3a" stroke-width="2.5" fill="none"><path d="M300,166 c20,-38 26,-38 40,0 c20,-38 26,-38 40,0"/></g>
+      <text x="300" y="188" font-family="Public Sans" font-size="11.5" font-weight="600" fill="#0f3d3a">Abrupt fall &rarr; &darr; cardiac output</text>
+    </svg>
+    <figcaption>Flatline = disconnect/arrest. Rising = hypoventilation (increase rate/tidal volume). Abrupt drop = falling cardiac output/perfusion (e.g. haemorrhage).</figcaption>
+  </figure>
+  <h3>Anaesthetic risk, nociception &amp; CPR <span class="bdg ref">your pack, embedded</span></h3>
+  <div class="refbanner"><div><b>Embedded from your anaesthesia study pack.</b> Figures reproduced as provided. Mortality figures match the CEPSAF study; the "61% of deaths in recovery" and "15x mortality under 2 kg" figures are from the pack and worth a quick re-check against the primary source. SGAD/v-gel preference for short feline procedures is an evolving position beyond the ASV guideline.</div></div>
+  <div class="card">
+    <h4>HQHVSN mortality (CEPSAF-aligned)</h4>
+    <table class="cmp">
+      <tr><th>Population</th><th>Dogs</th><th>Cats</th></tr>
+      <tr><td>General practice (overall)</td><td>0.17%</td><td>0.24%</td></tr>
+      <tr><td>Healthy elective (ASA I to II)</td><td>0.05%</td><td>0.11%</td></tr>
+      <tr><td>Sick (ASA III to V)</td><td>1.33%</td><td>1.40%</td></tr>
+    </table>
+    <ul class="hy">
+      <li>Most anaesthetic deaths occur in the <b>post-operative recovery period</b> (the pack cites &gt;61%), the majority cardiovascular or respiratory.</li>
+      <li>Canine risk: low body weight (&lt;5 kg), mask induction, age &gt;12 y. Feline risk: subclinical HCM (prevalence up to ~15%), intubation trauma, age &gt;12 y, extreme weights (&lt;2 kg or &gt;6 kg). The pack cites a ~15x mortality rise in cats under 2 kg.</li>
+    </ul>
+    <h4>Nociception &amp; multimodal targets</h4>
+    <ul class="hy">
+      <li>Pathway: transduction, transmission, modulation, perception. Primary hyperalgesia is local; secondary hyperalgesia spreads to uninjured tissue via central sensitisation ("wind-up"), driven by NMDA receptor activation by glutamate.</li>
+      <li>Multimodal sites: opioids (brain/cord/periphery, mu/kappa/delta), NSAIDs (COX inhibition, periphery/cord), local anaesthetics (Na+ channel blockade, axons), ketamine (NMDA antagonist, dorsal horn).</li>
+    </ul>
+    <h4>MAC modifiers</h4>
+    <ul class="hy">
+      <li><b>MAC decreased</b> by: hypothermia, pregnancy, severe hypotension, hypoxia (PaO2 &lt;38 mmHg), hypercapnia (PaCO2 &gt;95 mmHg), anaemia, acute blood loss, old age, premedications (alpha-2 agonists up to ~80%).</li>
+      <li><b>MAC increased</b> by: hyperthermia, hypernatraemia, CNS stimulants.</li>
+    </ul>
+    <h4>Capnograph patterns</h4>
+    <ul class="hy">
+      <li>Elevated baseline (does not return to 0): rebreathing CO2 (exhausted soda lime or stuck expiratory valve).</li>
+      <li>Cardiogenic oscillations: small ripples at end-expiration, normal in relaxed deep-chested dogs.</li>
+      <li>Curare cleft: a dip in the plateau, the patient is breathing against the circuit (light plane or waning relaxant).</li>
+    </ul>
+    <h4>Thermoregulation (AIH) &amp; fluid distribution</h4>
+    <ul class="hy">
+      <li>Three phases: (1) rapid core-to-periphery redistribution from vasodilation (conduction/convection ~80% of early loss), (2) slower linear loss (evaporation, radiation), (3) plateau after ~3 h when production matches loss.</li>
+      <li>Hypothermia: left-shifts the oxyhaemoglobin curve, slows drug clearance, causes platelet dysfunction and more blood loss, raises infection risk; shivering raises oxygen demand 200 to 300%.</li>
+      <li>Isotonic crystalloids: only ~25% stays intravascular at 30 to 60 min (75% shifts interstitial), so over-hydration drives pulmonary oedema.</li>
+    </ul>
+    <h4>RECOVER CPR</h4>
+    <ul class="hy">
+      <li>Compressions 100 to 120/min, 1/3 to 1/2 chest width, full recoil. Lateral cardiac-pump for &lt;10 kg, thoracic-pump (widest point, lateral) for &gt;10 kg.</li>
+      <li>Ventilate 10 breaths/min (1 every 6 s), inspiratory time 1 to 1.5 s; hyperventilation raises intrathoracic pressure and crashes preload.</li>
+      <li>Epinephrine low-dose 0.01 mg/kg IV/IO; if intratracheal, increase 10x to 0.1 mg/kg diluted. Atropine 0.04 mg/kg for high-vagal arrest/PEA/asystole. Avoid fluid boluses in CPR unless hypovolaemia is the cause (they raise right atrial pressure and lower coronary perfusion pressure).</li>
+    </ul>
+    <h4>Special populations</h4>
+    <ul class="hy">
+      <li>Acepromazine: reduces inhalant ~40%, antiemetic; alpha-1 vasodilation/hypotension; avoid if hypovolaemic; caution in Boxers and MDR1 herding breeds.</li>
+      <li>Alpha-2 agonists (selectivity dexmedetomidine &gt; medetomidine &gt; xylazine): biphasic BP; avoid with structural cardiac disease (feline HCM, canine MMVD) or raised intracranial/intraocular pressure.</li>
+      <li>Pediatric (6 to 12 wk): cardiac output is rate-dependent (fixed stroke volume), so bradycardia causes immediate hypotension; high metabolic/oxygen demand needs RR 2 to 3x adult; tiny airways (resistance proportional to 1/r^4); hypoglycaemia risk. Fasting: &lt;4 wk none, 4 to 6 wk 1 to 2 h, 6 to 12 wk 2 to 4 h.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= SURGICAL TECHNIQUE & RECOVERY ================= -->
+<section class="panel" id="surgery">
+  <h2 class="sec">Surgical Technique &amp; Recovery</h2>
+  <p class="lead">Asepsis, suture selection, technique, identification of altered animals, and the recovery-to-discharge pathway.</p>
+
+  <h3>Asepsis &amp; surgeon prep <span class="bdg asv">ASV</span></h3>
+  <ul class="hy">
+    <li>Operating area: anaesthesia, surgery and immediate recovery performed safely; limit traffic to essential personnel; scheduled sanitation.</li>
+    <li>Surgeon: attire, cap, mask, hand/arm scrub; gown at discretion. <b>Sterile gloves for all abdominal surgery and adult dog castration</b>; exam gloves acceptable for routine cat and puppy castration.</li>
+    <li>Patient prep: empty bladder if possible; gentle skin prep (avoid stiff bristles/scraping &ndash; micro-abrasions promote infection); elevate the chest of pregnant animals; avoid limb hyperextension; drape all abdominal surgery.</li>
+  </ul>
+
+  <h3>Suture matrix <span class="bdg ref">Std ref</span></h3>
+  <table class="cmp">
+    <tr><th>Material</th><th>Structure</th><th>Absorption</th><th>Best use</th></tr>
+    <tr><td>Poliglecaprone 25 (Monocryl)</td><td>Monofilament</td><td>Rapid (~90&ndash;120 d)</td><td>Pediatric tissue, subcutis</td></tr>
+    <tr><td>Polydioxanone (PDS)</td><td>Monofilament</td><td>Prolonged (~182 d)</td><td>Linea alba, adult fascia</td></tr>
+    <tr><td>Polyglactin 910 (Vicryl)</td><td>Braided multifilament</td><td>Moderate (~56&ndash;70 d)</td><td>Avoided for skin/fascia: bacterial wicking</td></tr>
+  </table>
+  <ul class="hy">
+    <li>Separate sterile instruments per patient; suture never shared; only stainless-steel needles re-sterilizable. <span class="bdg asv">ASV</span></li>
+    <li>Halsted: gentle handling (limits bradykinin/prostaglandins), meticulous hemostasis, asepsis, obliterate dead space (prevents seroma and colonization), minimize trauma.</li>
+    <li>Antibiotics not needed for short routine procedures in healthy patients; skin glue only after satisfactory intradermal closure. <span class="bdg asv">ASV</span></li>
+  </ul>
+
+  <h3>OHE / OVE &amp; orchidectomy <span class="bdg asv">ASV</span></h3>
+  <ul class="hy">
+    <li>Autoligation (pedicle tie) recommended in cats; avoid in large/deep-chested dogs. <span class="bdg ref">Std ref</span></li>
+    <li>Ventral incision incorporates external rectus fascia; flank incision incorporates transversus abdominis and internal/external obliques.</li>
+    <li>Orchidectomy: remove both testes.</li>
+  </ul>
+
+  <h3>Identification of altered animals <span class="bdg asv">ASV</span></h3>
+  <figure class="fig">
+    <svg viewBox="0 0 760 170" width="100%" role="img" aria-label="Neuter identification map">
+      <g font-family="Public Sans" font-size="12.5">
+        <ellipse cx="150" cy="100" rx="95" ry="46" fill="#fbf8f1" stroke="#d9d0bd"/>
+        <line x1="150" y1="60" x2="150" y2="142" stroke="#cf5a2b" stroke-width="3"/><circle cx="150" cy="78" r="4" fill="#1f7a4d"/>
+        <text x="150" y="164" text-anchor="middle">Pet dogs/cats: green linear tattoo</text>
+        <text x="150" y="42" text-anchor="middle" fill="#5d6b62" font-size="11">ventral midline (on/lateral to incision)</text>
+        <path d="M520,150 q-10,-86 40,-104 q-6,28 14,32 q-30,10 -20,72 z" fill="#fbf8f1" stroke="#d9d0bd"/>
+        <path d="M560,42 l8,-20 l14,11 z" fill="#f6e2d6" stroke="#cf5a2b"/>
+        <text x="560" y="164" text-anchor="middle">Community cats: ear tip</text>
+        <text x="600" y="32" font-size="11" fill="#cf5a2b">~1/3 distal pinna,</text><text x="600" y="46" font-size="11" fill="#cf5a2b">perpendicular cut</text>
+      </g>
+    </svg>
+    <figcaption>Green linear tattoo for owned pets (female: on/lateral to midline incision incl. flank spays; male dog: caudal abdomen/prescrotal; male cat: midline area). Unilateral ear tip (~one-third of the distal pinna, perpendicular) is the international standard for community cats; ear notching is discouraged.</figcaption>
+  </figure>
+
+  <h3>Recovery, complications &amp; discharge <span class="bdg asv">ASV</span></h3>
+  <ul class="hy">
+    <li>Recovery: continuous direct observation; secure level surface; clean/dry/warm; minimize noise (reduces emergence delirium); head/neck in slight extension aligned with thorax.</li>
+    <li>Complications (haemorrhage, CV/respiratory depression, pain, hypo/hyperthermia, distress, vomiting, regurgitation, aspiration) <b>mostly occur in the first 3 hours</b>; monitor HR, pulse, RR, airway, MM colour, pain/anxiety, temperature, arousal, ambulation.</li>
+    <li>Reversal for prolonged recovery or emergencies; partial alpha-2 reversal shortens recovery without losing analgesia; avoid rapid IV reversal except emergencies.</li>
+    <li>Return to housing: express the bladder under anaesthesia (comfort); cover and elevate traps; dogs walked if overnight.</li>
+    <li>Discharge: sternal, alert, responsive; normal mentation/RR, adequate analgesia, clean dry well-apposed incision; trapped cats returned to capture site once no longer anaesthetized.</li>
+    <li>Discharge instructions: procedure summary, normal vs abnormal recovery, pain signs, incision care, food/water timing, exercise restriction, medications, when/how to report complications, urgent re-evaluation signs, emergency care, ongoing-care recommendation.</li>
+  </ul>
+  <h3>Surgical approaches &amp; special procedures <span class="bdg ref">HQHVSN literature</span></h3>
+  <div class="card">
+    <h4>Flank spay</h4>
+    <ul class="hy">
+      <li>Lateral recumbency, ideally left lateral to keep clear of the spleen. In cats, incision about 2/3 to 3/4 of the way from the last rib toward the wing of the ilium, ~2 cm ventral to the transverse processes, 1.5 to 2 cm long.</li>
+      <li>Through external oblique, internal oblique, then peritoneum; if the uterus is elusive, sweep the hook dorsally to the transverse processes. Dogs need a 3-layer closure.</li>
+    </ul>
+    <h4>Pyometra</h4>
+    <ul class="hy">
+      <li>Dehydration, azotaemia, acid-base derangement; larger incision; avoid the spay hook (friable uterus); meticulous broad-ligament haemostasis; protect the abdomen with towels; flush the stump, do not oversew; change gloves/instruments before closure.</li>
+    </ul>
+    <h4>Caesarean and en bloc <span class="bdg ref">+ surgical detail</span></h4>
+    <ul class="hy">
+      <li>Avoid xylazine (the one agent linked to neonatal and maternal mortality); avoid alpha-2 agonists generally; preoxygenate 3 min; rapid IV induction (propofol or alfaxalone), cuffed ET tube (aspiration risk); glycopyrrolate does not cross the placenta whereas atropine does; ephedrine 0.04 to 0.1 mg/kg IV is the preferred pressor (preserves uterine flow); single NSAID dose only if normovolaemic/normotensive.</li>
+      <li><b>En bloc</b> (OHE then hand the uterus to a resuscitation team) gives the shortest dam GA time, least contamination, and the highest neonatal survival. Cut suspensory and broad ligaments first, leave blood supply intact, then <b>45 to 60 s maximum from clamping to delivery</b>; one resuscitator per neonate.</li>
+      <li>Oxytocin if poor involution/haemorrhage: dogs 5 to 20 IU IM (or 0.5 to 1 IU into the wall, or 1 to 5 IU IV), cats 2 to 4 IU IM, while anaesthetised.</li>
+    </ul>
+    <h4>Neonatal resuscitation</h4>
+    <ul class="hy">
+      <li>Dry and warm (ambient 27 to 32&deg;C); rub for tactile stimulation; <b>do not swing/shake</b> (intracranial haemorrhage). Clear airways; mask O2; positive-pressure ventilation if no breathing in 30 s; intubate with a 14 to 18 G catheter if needed; compressions if still bradycardic.</li>
+      <li>Epinephrine 0.01 to 0.03 mg/kg (umbilical vein, ET, or IO); atropine/glyco NOT recommended (bradycardia is hypoxic); naloxone 0.1 mg/kg only if the dam had opioids; doxapram not recommended in the hypoxic newborn; dextrose for hypoglycaemia (normal ~2.2 to 3.3 mmol/L).</li>
+    </ul>
+    <h4>Ovary-sparing spay &amp; uterine prolapse</h4>
+    <ul class="hy">
+      <li>ASV recognises both OHE and OVE. Ovary-sparing spay (hysterectomy keeping ovaries) leaves hormones intact, prevents pregnancy but <b>not</b> pyometra unless all uterine tissue to the cervix is removed; estrus behaviour persists.</li>
+      <li>Uterine prolapse: more common in cats, during/after delivery; check for abdominal contents in the prolapse; reduce and OHE if viable, or ovariectomy plus external amputation if not.</li>
+    </ul>
+  </div>
+
+  <h3>Complications &amp; the surgical checklist <span class="bdg ref">HQHVSN literature</span></h3>
+  <div class="card">
+    <h4>Haemorrhage</h4>
+    <ul class="hy">
+      <li>Frank haemorrhage is usually technical: torn ovarian pedicle (more often the <b>right</b>, more cranial/harder to expose) or ligature failure. Prevention: adequate pedicle length, ligature placed proximally (~5 mm distal stump), correct suture gauge, sound technique, gentle minimal post-ligation inspection.</li>
+      <li>Oozing: in-heat/recent-heat (endogenous oestrogen), anticoagulant rodenticide, von Willebrand (Dobermann). Management: large incision, scrubbed assistant, Balfour retractors, suction; consider autotransfusion (medium/large dog with &gt;100 cc free blood; deliver through a filter, ~5 mL/s).</li>
+    </ul>
+    <h4>Post-op complications</h4>
+    <ul class="hy">
+      <li>Early haemoabdomen (within ~12 h): slow recovery, prolonged recumbency, refractory hypothermia, tachycardia without pain, pale MM, low BP. Abdominocentesis caudal/right of midline; a negative tap does not rule it out.</li>
+      <li>Dehiscence (median ~4 days, often evisceration at night): self-trauma from uncomfortable/over-tight skin closure or faulty knots; always send home with an E-collar.</li>
+      <li>Secondary haemorrhage 4 to 16 days post-spay (uterine-vessel erosion under the ligature, often infection): any serious vaginal bleed warrants immediate exploration and re-ligation (Miller's knot).</li>
+      <li>Sinus tracts/stump granulomas: non-absorbable or excessive ligature, poor asepsis, excess stump; definitive treatment is surgical.</li>
+      <li>Orchiectomy: scrotal swelling in &gt;20% at 24 to 48 h (open castration higher risk); abdominal haemorrhage if a cord retracts; iatrogenic urethral/prostatic trauma when removing an abdominal cryptorchid testis.</li>
+    </ul>
+    <h4>Ovarian remnant syndrome</h4>
+    <ul class="hy">
+      <li>~0.3% feline, ~0.04% canine; surgeon error or ectopic/accessory ovarian tissue. Signs of estrus return; diagnose by vaginal cytology (cornified cells), hormone assays (progesterone &gt;5 ng/mL after GnRH/hCG-induced luteinisation; LH rises and AMH falls after ovariectomy), ultrasound near the kidneys. Surgery best 2 to 3 weeks after luteinisation or during behavioural estrus; submit tissue for histopathology.</li>
+    </ul>
+    <h4>Surgical checklist (prevention)</h4>
+    <ul class="hy">
+      <li>READ-DO or DO-CONFIRM format, brief (1 to 2 min), relevant and consistent. Pre-op: client/patient name, signed consent, sex verified, fasting, other procedures, ASA, special risks. On the table: reconfirm name/procedure/reproductive status/concerns and verify gauze count. Pair with regular non-punitive morbidity and mortality rounds and mandatory post-mortems.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= CLEANING & BIOSECURITY ================= -->
+<section class="panel" id="cleaning">
+  <h2 class="sec">Cleaning &amp; Biosecurity</h2>
+  <p class="lead">Between-patient infection control plus a verified disinfectant reference. The disinfectant table is taken directly from the ASPCA Pro Shelter Disinfectant Quick Reference in your project files.</p>
+
+  <h3>Between-patient &amp; clinic biosecurity <span class="bdg asv">ASV</span></h3>
+  <ul class="hy">
+    <li>Clean and disinfect all direct-contact equipment between patients: tables, ET tubes, masks, laryngoscope blades, pulse-ox clips, esophageal stethoscopes, thermometers.</li>
+    <li>Maintain anaesthetic equipment on a schedule matched to surgical volume; hand hygiene or glove change between patients and litters.</li>
+    <li>Instruments: clean before sterilization; sterility indicators inside and outside the pack; outer wrap barrier at least equivalent to dry 270-thread-count pima cotton; double non-woven wrap gives a tortuous-path barrier.</li>
+    <li><b>Suspected-contagious but still-eligible animals are operated on LAST</b>, after all apparently healthy animals.</li>
+    <li>Steam sterilization: wrapped goods 121&deg;C (250&deg;F), ~15 min, 15 psi; unwrapped/flash 132&deg;C, 3&ndash;4 min. Biological indicator = <i>Geobacillus stearothermophilus</i> (test weekly; confirm against ASV Standards of Care). Heat-sensitive items: hydrogen peroxide gas plasma. <span class="bdg ref">Std ref</span></li>
+  </ul>
+
+  <h3>Disinfectant quick reference <span class="bdg proj">ASPCA poster (project)</span></h3>
+  <table class="cmp">
+    <tr><th>Disinfectant</th><th>Non-enveloped virus?</th><th>Ringworm (after precleaning)</th><th>Inactivated by organic matter?</th><th>Diluted stability</th><th>Contact time</th><th>Rinse?</th></tr>
+    <tr><td><b>Accelerated hydrogen peroxide</b></td><td>Yes, 1:32</td><td>Yes, 1:16</td><td>Minimal</td><td>90 days</td><td>10 min (1:32); 5 min (1:16)</td><td>No</td></tr>
+    <tr><td><b>Potassium peroxymonosulfate</b></td><td>Yes at 1%</td><td>Yes at 2%</td><td>Slight (less than bleach/quats)</td><td>7 days</td><td>10 min</td><td>No</td></tr>
+    <tr><td><b>Quaternary ammonium (quats)</b></td><td>Not per independent research</td><td>Yes if labeled fungicidal vs <i>Trichophyton</i></td><td>Mildly</td><td>Varies</td><td>10 min</td><td>Yes</td></tr>
+    <tr><td><b>Calcium hypochlorite</b></td><td>Yes</td><td>Not per independent research</td><td>Yes</td><td>24 h</td><td>10 min</td><td>Yes</td></tr>
+    <tr><td><b>Household bleach (sodium hypochlorite)</b></td><td>Yes, 1:32 (&frac12; cup/gal)</td><td>Yes, 1:32</td><td>Yes</td><td>24 h</td><td>10 min</td><td>Yes</td></tr>
+  </table>
+  <div class="trap"><b>Exam trap</b>Non-enveloped viruses (parvovirus, panleukopenia) are the hard targets. <b>Quats are NOT reliably effective</b> against them per independent research; reach for accelerated hydrogen peroxide, potassium peroxymonosulfate, or bleach. Bleach and calcium hypochlorite are inactivated by organic matter and need extensive precleaning plus a rinse. Rinsing is recommended after any product to remove residue.</div>
+  <h3>Instruments &amp; suture <span class="bdg ref">HQHVSN literature</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Core instruments: #10/#15 blade, Metzenbaum (tissue) and Mayo (heavy tissue/suture) scissors, Adson-Brown forceps (most common in HQHVSN), Snook or Covault spay hook, Olsen-Hegar (with scissors) or Mayo-Hegar needle holder, haemostats (mosquito for pedicle ties, Kelly/Crile small-medium vessels, Rochester-Carmalt for large canine ovarian pedicles).</li>
+      <li>Suture: synthetic monofilament absorbable is the HQHVSN default. Monocryl loses ~75% strength by day 14, gone by ~121 days. PDS II keeps ~75% at 14 days, ~50% at 28 days, absorbed ~180 days (but has memory). Vicryl (braided) ~75% at 14 d, ~25% at 28 d, absorbed 56 to 70 days. Stainless steel: highest strength, no reaction, suitable for high-volume pedicles/body wall (not skin). Reverse-cutting needles preferred. Sizes 4-0 to 1 (0 or 1 for large-dog linea alba).</li>
+      <li>Packs: adult canine spay (Olsen-Hegar, Adson-Brown, scissors, spay hook, haemostats including Carmalts); feline/pediatric spay (mosquito/Kelly/Crile instead of Carmalts); adult canine neuter (two Kelly haemostats, Mayo scissors, needle holder, thumb forceps).</li>
+    </ul>
+  </div>
+
+  <h3>Instrument processing &amp; sterilisation <span class="bdg ref">HQHVSN literature</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Clean before sterilising: wipe organic matter, flush lumens, immerse in warm (80 to 110&deg;F) detergent (not &gt;20 min), scrub with an instrument brush (no abrasives), rinse with tap then distilled water, dry open on a lint-free towel.</li>
+      <li>Packing: woven cotton muslin (minimum 140 thread count), non-woven SMS, or paper-plastic peel pouches; launder reusable textiles every use; double-wrap to extend shelf life. Indicators inside and outside; biological indicators are the most accurate, run weekly.</li>
+      <li>Methods: gravity-displacement steam is the HQHVSN standard (instruments ~250 to 275&deg;F, 10 to 30 min, 15 to 30 psi); also ethylene oxide, gas plasma, and liquid chemical (field setting) needing 6 to 12 h immersion, sterile-water rinse, single-use solution. A pressure cooker can sterilise if used like an autoclave.</li>
+      <li>Storage: dry and cool before removal (15 to 45 min), closed cabinets, not stacked, &lt;75&deg;F and &lt;70% humidity; shelf life 4 weeks (double-wrapped woven) up to 1 year (peel pouches). Secure paper-plastic pouches with masking tape, not standard tape (melts ~150&deg;F and breaks the seal).</li>
+    </ul>
+  </div>
+
+  <h3>Surgeon &amp; patient prep <span class="bdg ref">HQHVSN literature</span></h3>
+  <ul class="hy">
+    <li>Hand prep: alcohol-based rubs are most effective, then chlorhexidine, then iodophors; brushless preferred (brushes damage skin). Initial scrub at least 5 min contact, subsequent scrubs at least 2 min; re-scrub after asepsis breaks or procedures &gt;60 min.</li>
+    <li>Patient prep: clip just before induction (clipping &gt;4 h before surgery roughly triples SSI risk); #10 blade then #40 along hair growth; avoid over-clipping; scrub in one direction with adequate contact time; air-dry before draping.</li>
+  </ul>
+
+  <h3>Infection control &amp; cohorting <span class="bdg asv">ASV</span> <span class="bdg ref">HQHVSN literature</span></h3>
+  <ul class="hy">
+    <li>Transmission routes: direct contact, fomites, aerosols, oral, vector-borne. Control by sanitation, hand hygiene, traffic flow, isolating sick animals, and separating by source, age and vaccination status.</li>
+    <li>Cohort by source/age/health/vaccination status; <b>pediatric patients are housed separately</b> (immature immunity, MDA, likely unvaccinated).</li>
+    <li>Operate healthy animals first, suspected-contagious last; mucous-membrane-contact items (laryngoscope, pulse-ox) need a disinfectant effective against non-enveloped viruses between patients.</li>
+    <li>Clean the <b>most vulnerable patients first</b> (pediatric, then unknown-vaccination adults); sanitise then disinfect; vaccinate ~1 week before admission where possible.</li>
+  </ul>
+</section>
+
+<!-- ================= VACCINATION (cross-domain) ================= -->
+<section class="panel" id="vaccine">
+  <div class="xbanner"><div><b>Cross-domain tab (Physical Health &middot; Vaccination).</b> Retained from your notes for completeness. These items are scored under the Physical Health domain, not Spay-Neuter.</div></div>
+  <h2 class="sec" style="color:var(--phys)">Vaccination &amp; Immunology</h2>
+  <p class="lead">Shelter immunology essentials kept alongside the surgical material.</p>
+  <figure class="fig">
+    <svg viewBox="0 0 760 175" width="100%" role="img" aria-label="Window of vulnerability">
+      <text x="0" y="14" font-family="JetBrains Mono" font-size="11.5" fill="#3c4a86">WINDOW OF VULNERABILITY (MDA vs vaccine response)</text>
+      <line x1="55" y1="140" x2="720" y2="140" stroke="#bcae93"/>
+      <path d="M55,42 C200,52 320,116 720,134" fill="none" stroke="#3c4a86" stroke-width="3"/>
+      <path d="M55,140 C260,140 320,140 720,52" fill="none" stroke="#cf5a2b" stroke-width="3" stroke-dasharray="6 4"/>
+      <rect x="300" y="38" width="120" height="102" fill="rgba(178,59,59,.10)"/>
+      <text x="360" y="32" text-anchor="middle" font-family="Public Sans" font-size="11.5" font-weight="600" fill="#b23b3b">window</text>
+      <g font-family="Public Sans" font-size="12" font-weight="600"><text x="80" y="38" fill="#3c4a86">Maternal antibody</text><text x="560" y="46" fill="#cf5a2b">Vaccine response</text></g>
+      <text x="360" y="160" text-anchor="middle" font-family="Public Sans" font-size="11" fill="#5d6b62" font-style="italic">MDA too low to protect but high enough to block vaccine &rarr; boost q3&ndash;4 wk to 16&ndash;20 wk</text>
+    </svg>
+    <figcaption>Maternally derived antibody blocks vaccine then wanes; boost every 3&ndash;4 weeks until 16&ndash;20 weeks to close the gap.</figcaption>
+  </figure>
+  <ul class="hy phys">
+    <li>Vaccinate core <b>at intake</b>; MLV core (CDV/CPV/FPV) gives rapid protection and can overcome low MDA.</li>
+    <li>Naive adult: FVRCP at intake + one booster 2&ndash;4 weeks later.</li>
+    <li>Avoid MLV panleukopenia in pregnant queens (fetal cerebellar hypoplasia).</li>
+    <li>Feline sites (distal limb, avoid interscapular to prevent unresectable FISS): FVRCP right fore, rabies right hind, FeLV left hind. AAFP 2020 emphasizes "as distal as possible," including the tail.</li>
+    <li><b>1-2-3 FISS rule:</b> biopsy a post-vaccinal mass if it persists 3 months, grows over 2 cm, or enlarges 1 month post-injection.</li>
+    <li>Rabies bite (no vaccine history): 10-day observation regardless of status; do not vaccinate during the window.</li>
+    <li>Anaphylaxis: epinephrine first-line.</li>
+  </ul>
+</section>
+
+<!-- ================= POPULATION IMPACT ================= -->
+<section class="panel" id="population">
+  <h2 class="sec">Population Impact</h2>
+  <p class="lead">Why spay-neuter is a homelessness intervention: access to care, targeting, community cats, and the metrics that show it works.</p>
+  <figure class="fig">
+    <svg viewBox="0 0 760 190" width="100%" role="img" aria-label="Targeting funnel">
+      <text x="0" y="14" font-family="JetBrains Mono" font-size="11.5" fill="#5d6b62">TARGETING THE RIGHT POPULATION</text>
+      <g font-family="Public Sans" font-size="12.5" text-anchor="middle">
+        <polygon points="120,36 640,36 560,74 200,74" fill="#fbf8f1" stroke="#d9d0bd"/><text x="380" y="60">All cats &amp; dogs in the community</text>
+        <polygon points="200,76 560,76 500,114 260,114" fill="#f9ece3" stroke="#e3b79e"/><text x="380" y="100">Unlikely to be neutered otherwise</text>
+        <polygon points="260,116 500,116 440,154 320,154" fill="#f6e2d6" stroke="#cf5a2b"/><text x="380" y="140">Low-income owned + community animals</text>
+      </g>
+      <text x="380" y="176" text-anchor="middle" font-family="Public Sans" font-size="11" fill="#5d6b62" font-style="italic">Target by geography (GIS, high-intake zip codes), income (area-based), and age (before puberty)</text>
+    </svg>
+    <figcaption>Targeting concentrates limited resources on the sources of shelter intake and surplus.</figcaption>
+  </figure>
+  <div class="card">
+    <h4>Access to care &amp; community cats <span class="bdg asv">ASV</span></h4>
+    <ul class="hy">
+      <li>Accessibility barriers: cost, transport, scheduling, geography, language, sense of safety. HQHVSN fees must sit below local general-practice prices.</li>
+      <li>HQHVSN clinics are a gateway to veterinary care and can coexist with private practice.</li>
+      <li>Community cat programs (TNVR / return-to-field) at minimum provide affordable HQ spay-neuter, FVRCP, rabies where endemic, ID (ear tip + tattoo), and humane euthanasia for irredeemable suffering; strategic resource use (e.g. not routinely FeLV/FIV testing).</li>
+    </ul>
+    <h4>Effectiveness metrics &amp; funding <span class="bdg asv">ASV</span></h4>
+    <ul class="hy">
+      <li>Local shelter intake and euthanasia rates, nuisance complaints, colony size, kitten production, disease incidence.</li>
+      <li>Funding: grants (nonprofit/government), donations, public funds (animal-control budgets, plates, licensing), fees for service.</li>
+    </ul>
+  </div>
+  <h3>Community cats: epidemiology &amp; population models <span class="bdg ref">community-cat literature</span></h3>
+  <div class="card">
+    <h4>Epidemiology</h4>
+    <ul class="hy">
+      <li>Pregnancy is highly seasonal (rising day length): rates can exceed 50% of females presented in spring (peaks March/April), lowest October to December; ~0.98 to 2 pregnancies/year, 4 to 5 kittens each. Feline pyometra ~0.4% at spay; community-cat cryptorchidism ~0.8 to 1.8% (bilateral more often abdominal).</li>
+      <li>Infectious load: FeLV/FIV ~4% (similar to outdoor pet cats); FIV ~4x higher in males (bite transmission); retroviral false positives reach ~50% in low-prevalence healthy populations, so do not test-and-cull. High parasite burdens (fleas, ear mites, ascarids, Toxoplasma seropositivity), and Bartonella henselae common.</li>
+      <li>Rabies: rabid cats outnumber rabid dogs in the US; treat all community cats as unvaccinated.</li>
+    </ul>
+    <h4>Population dynamics &amp; the four vital rates</h4>
+    <ul class="hy">
+      <li>Birth, death, immigration, emigration. Closed populations (no in/out) are easy to model but rare; open populations need immigration control. Models range from Ricker logistic to demographic, simulation, deterministic vs stochastic; sensitivity/elasticity analysis identifies the most influential rate.</li>
+      <li>Free-roaming cat dynamics are <b>more sensitive to survival than fecundity</b> (adult survival most of all), which is why removal often outperforms sterilisation of equal intensity, and why a single untreated litter can undo intensive effort.</li>
+    </ul>
+    <h4>Sterilisation thresholds (what the models say)</h4>
+    <table class="cmp">
+      <tr><th>Source / scenario</th><th>Threshold to reduce or control the population</th></tr>
+      <tr><td>Rule of thumb</td><td>At least ~70% sterilised to stabilise size</td></tr>
+      <tr><td>2004 model</td><td>&gt;75% sterilised (or &ge;50% trap-and-euthanise) annually</td></tr>
+      <tr><td>Boone et al. 2019 / adult-focused sim</td><td>~75% of intact cats every 6 months (about 50% of intact adults per 6-month interval)</td></tr>
+      <tr><td>Nutter 2005</td><td>~80% annual sterilisation (or ~60% annual removal)</td></tr>
+      <tr><td>Lessa &amp; Bergallo 2012 (closed)</td><td>~70% of females, or ~60% of both sexes</td></tr>
+      <tr><td>Non-surgical contraception</td><td>Only if immigration/emigration very limited and &gt;40 to 50% treated per 6-month interval</td></tr>
+    </table>
+    <ul class="hy">
+      <li>Sterilising males only showed essentially no population change. TNR beat TVHR for reducing nuisance. Targeted TNR works: a 2-year campaign altering ~54% of cats cut shelter intake from the targeted zip code by ~66% (vs ~12% elsewhere).</li>
+      <li>Dogs: catch-neuter-return (CNR) can stabilise populations if rates are high and welfare is adequate; carrying-capacity control (food-source management) was the strongest lever in one Brazilian model. Desexing reliably cuts cat intake/euthanasia, less so for dogs.</li>
+      <li>GIS pinpoints sub-zip-code source areas (where human and shelter-animal risk overlap); monitoring (cameras, walking transects, citizen science) over &gt;1 year is essential to evaluate any program.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= STRESS & HANDLING ================= -->
+<section class="panel" id="stress">
+  <h2 class="sec">Stress &amp; Low-Stress Handling</h2>
+  <p class="lead">Fear and stress are welfare, safety and anaesthetic-risk issues. Reducing them improves handling and lowers peri-induction arrhythmia risk.</p>
+  <div class="card">
+    <h4>Triggers, signs &amp; impact</h4>
+    <ul class="hy">
+      <li>Triggers: transport, novel environment, slippery floors, separation, strange smells/noises, unfamiliar animals/people, unpredictable events, handling/restraint/injection.</li>
+      <li>Acute fear activates the sympathetic nervous system (raises HR/RR/BP); fear-induced tachycardia raises peri-induction arrhythmia risk. Signs span the <b>4 Fs</b> (fight, flight, fret/fidget, freeze): tense body/face, wide eyes, ears back, hissing or silence, refusing treats, dilated pupils, excessive shedding. Fear can imprint and is contagious between animals.</li>
+    </ul>
+    <h4>Senses &amp; environment</h4>
+    <ul class="hy">
+      <li>Hearing: reduce barking, separate dogs and cats, minimise sudden noise. Smell: avoid alcohol odours; lavender can soothe dogs. Sight: minimise looming/reaching, cover carriers, shut doors. Touch: slow steady contact, avoid feet and ventral abdomen.</li>
+    </ul>
+    <h4>Practical tactics</h4>
+    <ul class="hy">
+      <li>Train staff in low-stress handling; allow acclimatisation; calm reception (scheduling to cut waits); consistent housing (same spot before and after); keep littermates together; warmth, secure footing, treats; pheromones/aromatherapy; towel wraps; never drag with a slip lead; pole syringe/blow pipe only for truly fractious large dogs.</li>
+      <li>Community cats: keep in the trap, cover, move slowly, hands-off, quiet.</li>
+    </ul>
+    <h4>Pre-visit anxiolytics <span class="bdg ref">Std ref</span></h4>
+    <table class="cmp">
+      <tr><th>Drug</th><th>Dog</th><th>Cat</th></tr>
+      <tr><td>Trazodone</td><td>4 to 12 mg/kg q8 to 12 h (start ~4 to 7 mg/kg)</td><td>~50 mg/cat once or twice daily</td></tr>
+      <tr><td>Gabapentin</td><td>5 to 20 mg/kg q6 to 12 h (start 5 to 10 mg/kg)</td><td>50 to 100 mg/cat</td></tr>
+    </table>
+    <div class="trap"><b>Exam trap (cat safety)</b>Many commercial gabapentin oral <b>solutions contain xylitol</b>, which must be avoided in cats. Use xylitol-free compounded liquid or capsules (can be mixed in tuna juice). Trazodone side effects: over-sedation, GI signs, tremor, paradoxical anxiety.</div>
+  </div>
+</section>
+
+<!-- ================= REPRO PATHOLOGY & DSD ================= -->
+<section class="panel" id="dsd">
+  <h2 class="sec">Repro Pathology &amp; Disorders of Sexual Development</h2>
+  <p class="lead">Intersex and developmental anomalies encountered at spay-neuter. In all DSD cases, gonadectomy is recommended.</p>
+  <div class="card">
+    <h4>Embryology (three steps)</h4>
+    <ul class="hy">
+      <li>Chromosomal sex at fertilisation, then gonadal differentiation, then phenotypic development. Sertoli cells secrete anti-Mullerian hormone (regresses the female ducts); Leydig cells secrete testosterone and INSL3. Testicular descent has three stages (abdominal translocation, transinguinal migration, inguinoscrotal) and needs active testes plus the gubernaculum.</li>
+    </ul>
+    <h4>DSD classification</h4>
+    <ul class="hy">
+      <li><b>Sex-chromosome DSD:</b> XXY (Klinefelter, the most common in dogs/cats), XO; underdeveloped genitalia, abnormal cycling/infertility.</li>
+      <li><b>Pseudohermaphrodite:</b> gonads disagree with phenotype. Female pseudohermaphrodite = ovaries + XX but masculinised genitalia (enlarged clitoris, sometimes prepuce/prostate). Male pseudohermaphrodite = testes + XY but feminised genitalia.</li>
+      <li><b>True hermaphrodite:</b> at least one ovary and one testis (or an ovotestis). Gonads sit between the caudal kidney pole, inguinal area and perineum.</li>
+    </ul>
+    <h4>Named conditions</h4>
+    <ul class="hy">
+      <li><b>Persistent Mullerian duct syndrome:</b> hereditary (Miniature Schnauzer in the US, Basset Hound in Europe); male external genitalia with male and female internal ducts, often cryptorchid; hyperoestrogenism from retained-testis neoplasia, gynaecomastia, alopecia, pyometra.</li>
+      <li>Male calico cats: castrate if testes external; abdominal surgery only if cryptorchid or clinical problems.</li>
+      <li>Hypospadias (abnormal ventral urethral opening), penile frenulum, micropenis, phimosis; monorchidism/polyorchidism (rare).</li>
+    </ul>
+    <h4>Female anomalies</h4>
+    <ul class="hy">
+      <li>Ovarian agenesis, ovarian/follicular cysts (persistent estrus), uterus unicornis (hunt for the ipsilateral ovary to prevent remnant syndrome), segmental aplasia, hydro/muco/pyometra, ectopic fetuses, clitoral hypertrophy/os clitoris (check urethral placement before any clitoral surgery).</li>
+      <li><b>Feline mammary fibroadenomatous hyperplasia:</b> benign progesterone-driven proliferation in young cycling queens or progestin-treated cats; firm glands, sometimes brown milk; <b>flank spay recommended</b>.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= MCQ ================= -->
+<section class="panel" id="mcq">
+  <h2 class="sec">MCQ Test Bank</h2>
+  <p class="lead">129 questions. <span style="color:var(--sn);font-weight:600">&#9670; Spay-Neuter</span> and <span style="color:var(--phys);font-weight:600">&#9670; Physical Health (cross-domain)</span> are tagged and filterable. Dose questions carry a "std ref" badge; cleaning questions an "ASPCA" badge; corrected items a "corrected" badge.</p>
+  <div class="mcqbar">
+    <div class="filters">
+      <button class="on" data-f="all">All</button>
+      <button data-f="sn">&#9670; Spay-Neuter</button>
+      <button data-f="phys">&#9670; Physical Health</button>
+    </div>
+    <div class="score"><span id="scoreTxt">0 / 0 correct</span><button class="reset" id="resetBtn">Reset</button></div>
+  </div>
+  <div id="qhost"></div>
+</section>
+
+</div></main>
+
+<footer><div class="wrap">
+  <p><b>Verification 85 / 100.</b> ASV spay-neuter content verified against Griffin et al. 2016 (JAVMA 249:165) and ASV position statements; the disinfectant table is reproduced from the ASPCA Pro reference in your project files. Newly embedded sections (clinic models, surgical methods/complications, instruments and sterilisation, infection control, low-stress handling, community-cat epidemiology and population models, disorders of sexual development) are drawn from the primary-source PDFs you provided and the HQHVSN/repro literature they summarise, and the anaesthesia section is embedded from your study pack as-is. <b>Drug doses, clinic-planning figures (e.g. 35 surgeries/day, 250,000 catchment), feral GA recipes, and the anaesthetic-mortality and TNR-threshold statistics are representative or source-specific values from those references, not independently re-verified against a primary formulary or the original studies</b>, so cross-check exact numbers before clinical or exam use. The "61% of deaths in recovery" and "15x mortality under 2 kg" figures are carried from your pack and flagged for re-check. Non-surgical sterilisation was excluded for its own hub. Cross-domain (Physical Health) content is badged. No facts were fabricated; non-ASV claims are flagged throughout.</p>
+</div></footer>
+
+<script>
+const tabrow=document.getElementById('tabrow');
+tabrow.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
+  [...tabrow.children].forEach(x=>x.classList.remove('active'));b.classList.add('active');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('show'));
+  document.getElementById(b.dataset.p).classList.add('show');window.scrollTo({top:0,behavior:'smooth'});});
+
+const Q=[
+ {t:"sn",f:"corrected",q:"For STERILE WRAPPED surgical packs in a gravity-displacement autoclave, the standard steam parameter is:",o:["121\u00b0C for 3 min at 15 psi","121\u00b0C for 15 min at 15 psi","132\u00b0C for 3 min at 30 psi","132\u00b0C for 10 min at 30 psi"],a:1,e:"Wrapped: 121\u00b0C, ~15 min, 15 psi. Unwrapped/flash: 132\u00b0C, 3\u20134 min."},
+ {t:"phys",q:"Chemical indicator reacting to all critical steam variables?",o:["Class 1","Class 2","Class 4","Class 5"],a:3,e:"Class 5 integrators track time, temperature, and steam penetration."},
+ {t:"phys",q:"Biological indicator organism for steam autoclave validation?",o:["Clostridium perfringens","Geobacillus stearothermophilus","Bacillus atrophaeus","Bacillus cereus"],a:1,e:"G. stearothermophilus spores are the steam gold standard (B. atrophaeus is for dry heat/EtO)."},
+ {t:"phys",q:"Minimum recommended frequency for biological spore testing?",o:["Daily","Weekly","Monthly","Semiannually"],a:1,e:"Weekly is commonly cited; confirm against ASV Standards of Care."},
+ {t:"sn",q:"Best suture for a 4-month kitten's subcutis (rapid absorption, low drag)?",o:["PDS","Vicryl","Monocryl","Chromic gut"],a:2,e:"Monocryl hydrolyzes fast and is low-reaction."},
+ {t:"sn",q:"Why is braided Vicryl discouraged for skin/fascia in high-risk patients?",o:["Tissue drag","Capillarity wicks bacteria into the site","Poor strength in peritoneal fluid","Rapid enzymatic dehiscence"],a:1,e:"Braided multifilament wicks bacteria."},
+ {t:"sn",q:"Best suture for linea alba in a mature large-breed dog?",o:["Monocryl","Vicryl","PDS","Plain gut"],a:2,e:"PDS retains tensile strength longest (~6 weeks)."},
+ {t:"sn",q:"Pedicle (autoligation) tie is most safely used in:",o:["Deep-chested male dog","Young thin cat OHE","Dog with cystic endometrial hyperplasia","Third-trimester dog"],a:1,e:"Standard on feline ovarian pedicles; avoid large/deep-chested dogs."},
+ {t:"sn",q:"Adult bitch in deep estrus at an open shelter for spay. Best timing?",o:["Delay 4\u20136 wk","Proceed now; delay increases LOS and disease exposure","Ovariectomy only","Pretreat antifibrinolytics"],a:1,e:"Welfare risk of prolonged stay outweighs estrus engorgement."},
+ {t:"phys",q:"Minimum barrier between a clean prep table and an unsterile dental station in one room?",o:["None if scavenger runs","5 feet","Physically separate room or enclosed alcove","3-ft Plexiglas"],a:2,e:"Dental scaling aerosolizes pathogens; isolate clean surgery."},
+ {t:"sn",q:"Halsted's gentle handling reduces which mediators of pain/edema?",o:["Bradykinin and prostaglandins","Thromboxane and serotonin","Acetylcholine and epinephrine","GABA and glycine"],a:0,e:"Less cell lysis limits the arachidonic-acid cascade."},
+ {t:"phys",q:"Sterilization alternative for heat/moisture-sensitive instruments?",o:["2% glutaraldehyde 10 min","Low-temp hydrogen peroxide gas plasma","Boiling 100\u00b0C 60 min","High-dose UV"],a:1,e:"Gas plasma sterilizes without toxic residue (10-min glutaraldehyde is only disinfection)."},
+ {t:"phys",q:"Most reliable sterile shelf-life wrap configuration?",o:["Single muslin","Double sequential non-woven","Single peel pouch","Open tray under drape"],a:1,e:"Double sequential wrap creates a tortuous barrier path."},
+ {t:"sn",q:"Feral cat in a trap needs restraint + visceral analgesia + reversibility. Best combo?",o:["Midazolam+ace+butorphanol","Dexmedetomidine+ketamine+butorphanol (DKT)","Propofol+alfaxalone+diazepam","Atropine+bupr+xylazine"],a:1,e:"DKT gives restraint, somatic+visceral analgesia, partial reversibility."},
+ {t:"sn",q:"Mechanism of dexmedetomidine bradycardia?",o:["Direct SA-node depression","Reflex from peripheral vasoconstriction","Central vagolytic action","Parasympathetic respiratory activation"],a:1,e:"High afterload triggers baroreceptor reflex bradycardia."},
+ {t:"sn",q:"Dexmed-pretreated patient: HR 42, pink MM, high MAP. Correct action?",o:["Full IV atropine","IM glycopyrrolate","No anticholinergic; reverse with atipamezole only if perfusion fails","20 mL/kg bolus"],a:2,e:"Forcing HR up against vasoconstriction overloads the myocardium; perfusion is adequate here."},
+ {t:"sn",q:"Which agent provides NO analgesia?",o:["Dexmedetomidine","Acepromazine","Ketamine","Buprenorphine"],a:1,e:"Phenothiazines tranquilize but give zero analgesia."},
+ {t:"sn",q:"Why is acepromazine contraindicated in a dehydrated dog with pale MM?",o:["Vasoconstriction blocks access","Vasodilation \u2192 severe hypotension","Bone-marrow suppression","Accelerated clearance"],a:1,e:"Acepromazine vasodilation worsens hypotension in hypovolemia."},
+ {t:"sn",q:"Why are puppies <8 weeks sensitive to hepatically/renally cleared drugs?",o:["Impermeable BBB","Immature P450 and low GFR","Low body water","100% protein binding"],a:1,e:"Immature metabolism/clearance prolongs half-lives."},
+ {t:"phys",q:"Fastest indicator of ET tube disconnection/obstruction?",o:["Pulse oximeter","Capnograph","ECG","Doppler BP"],a:1,e:"Capnography flatlines immediately."},
+ {t:"phys",q:"Capnograph baseline ETCO2 climbs to 55 mmHg. Action?",o:["Hyperventilating; slow rate","Hypoventilating; increase rate/tidal volume","Drain water trap","Give epinephrine"],a:1,e:"Elevated ETCO2 = respiratory acidosis from hypoventilation."},
+ {t:"phys",q:"Minimum MAP to autoregulate renal/cerebral perfusion?",o:["40","50","60","90"],a:2,e:"Below 60 mmHg risks ischemic organ damage."},
+ {t:"phys",q:"Why does SpO2 92% on 100% oxygen need evaluation?",o:["Normal under inhalants","Hypoxemia; <95% impaired","Hyperoxia toxicity","Invalid without temp probe"],a:1,e:"Expect 98\u2013100% on oxygen; 92% = hypoxemia."},
+ {t:"phys",q:"Why avoid chamber induction with isoflurane?",o:["Cost","Stress, catecholamines, waste-gas exposure","Corneal ulcers","Prevents surgical plane"],a:1,e:"Chamber induction panics patients and contaminates the room."},
+ {t:"phys",q:"Why are electric heating pads prohibited in recovery?",o:["Insufficient heat","Sedated patients cannot move from heat points \u2192 burns","Interferes with pulse-ox","Power use"],a:1,e:"Thermoregulation failure plus immobility causes burns."},
+ {t:"phys",q:"Severe intra-op haemorrhage: capnograph change?",o:["Sudden ETCO2 drop","Spike above 70","Prolonged plateau","No change"],a:0,e:"Falling cardiac output reduces CO2 delivery to lungs."},
+ {t:"phys",q:"When should a 6-week pup at a high-density shelter start core vaccines?",o:["After 5-day hold","Immediately at intake","8 weeks after fecal float","Before adoption only"],a:1,e:"Intake vaccination counters immediate exposure risk."},
+ {t:"phys",q:"Why prefer MLV core vaccines in shelters?",o:["No booster needed","Rapid response and can overcome low MDA","Safe in moribund animals","No refrigeration"],a:1,e:"Rapid robust protection in high-exposure settings."},
+ {t:"phys",q:"Main cause of vaccine failure in a pup boosted q3 wk to 12 wk?",o:["Potency loss","Persistent MDA","Low protein","Flea allergy"],a:1,e:"MDA can block vaccines to 16\u201320 weeks."},
+ {t:"phys",q:"3-yo intact male cat, no vaccine history. Core protocol?",o:["FVRCP + booster 1 yr later","FVRCP at intake + booster 2\u20134 wk later","Three doses q2 wk","Waive if healthy"],a:1,e:"Naive adults need a priming dose plus one booster 2\u20134 weeks later."},
+ {t:"phys",q:"Which MLV vaccine risks fetal cerebellar hypoplasia in pregnant queens?",o:["Killed rabies","MLV panleukopenia (FPV)","Recombinant FeLV","Intranasal Chlamydia"],a:1,e:"MLV FPV damages the developing fetal cerebellum."},
+ {t:"phys",q:"Unvaccinated shelter dog bites staff, breaks skin. Mandate?",o:["Euthanize and test now","Observe 10 days; do not vaccinate in the window","3 rabies doses in 72 h","6-month confinement"],a:1,e:"10-day observation confirms infectious virus in saliva at the bite."},
+ {t:"phys",q:"Why are adjuvanted vaccines more linked to FISS?",o:["Oncogenic retroviruses","Chronic local inflammation \u2192 malignant transformation","Vascular pH change","Anaphylaxis"],a:1,e:"Persistent adjuvant inflammation transforms feline fibroblasts."},
+ {t:"sn",q:"What does Capacity for Care (C4C) define?",o:["Cages \u00d7 2","Quality care to every animal, matching needs to staff/space/mandate","Isolation capacity","Surgeries per shift"],a:1,e:"C4C balances holding with staff bandwidth and medical capability."},
+ {t:"sn",f:"note",q:"Benchmark surgeries per HQHVSN surgeon per day (practical, not ASV)?",o:["5\u201310","12\u201315","25\u201330 or more with support staff","Exactly 50"],a:2,e:"Practical benchmark (Sara White), not an ASV standard."},
+ {t:"sn",f:"note",q:"Practical minimum body weight commonly used for pediatric SN?",o:["0.25 kg","~1 kg / 2 lb, clinically stable","3 kg","5 kg"],a:1,e:"~1 kg / 2 lb is a practical floor; ASV early-age window is 6\u201316 weeks."},
+ {t:"sn",q:"Cornerstone analgesic class after elective orchiectomy in an active dog?",o:["Corticosteroids","NSAIDs (carprofen, meloxicam)","Pure mu-opioid CRI only","Local alone"],a:1,e:"NSAIDs give stable long-lasting control for routine elective surgery."},
+ {t:"sn",q:"Why discourage routine prophylactic post-op antibiotics for clean SN?",o:["Cost","Diarrhea","Clean surgery does not benefit; overuse drives resistance","Delays suture absorption"],a:2,e:"Stewardship reserves prophylaxis for contaminated/infected fields."},
+ {t:"sn",q:"Most sensitive indicator of acute post-op pain in a non-verbal patient?",o:["Mild hypothermia","Skin turgor >3 s","Guarding, abnormal posture, vocalizing on palpation","Transient tachypnea on waking"],a:2,e:"Objective behavioral change is the most sensitive marker."},
+ {t:"sn",f:"ref",q:"Maximum lidocaine dose for a testicular block in DOGS (standard reference)?",o:["1 mg/kg","~6\u201310 mg/kg (stay under toxic dose)","20 mg/kg","No limit"],a:1,e:"Dogs tolerate ~6\u201310 mg/kg; cats far less (~2\u20134). Std-ref range."},
+ {t:"phys",q:"Over-inflated ET cuff in a cat: localized complication?",o:["Laryngeal paralysis","Tracheal pressure necrosis/tear, SC emphysema","Esophageal stricture","Atelectasis"],a:1,e:"Feline tracheas are sensitive to over-inflation injury."},
+ {t:"phys",q:"Primary purpose of an active gas scavenging system?",o:["Cool the machine","Remove waste anaesthetic gas to protect staff","Keep inhalant constant","Measure oxygen use"],a:1,e:"Limits chronic trace anaesthetic exposure."},
+ {t:"phys",q:"Feline spay line: sloped loss of capnograph waveform. Why check the ET tube?",o:["Viscous mucus can occlude small tubes","Cats bite through tubes","Confirm anticholinergic dose","Grade dental disease"],a:0,e:"Small feline tubes are prone to mucus plugs."},
+ {t:"phys",f:"proj",q:"Per the ASPCA reference, which disinfectant is NOT reliably effective against non-enveloped parvovirus?",o:["Accelerated hydrogen peroxide","Quaternary ammonium compounds","Potassium peroxymonosulfate","Household bleach"],a:1,e:"Quats are not effective vs non-enveloped viruses per independent research."},
+ {t:"sn",q:"Why avoid stiff bristles/scraping during surgical skin prep?",o:["Dulls clippers","Micro-abrasions promote infection","Breaks chlorhexidine persistence","Delays warming"],a:1,e:"Gentle prep preserves the epidermal barrier."},
+ {t:"phys",q:"ASV spay-neuter standard for instrument maintenance?",o:["Inspect only on breakage","Documented schedule for sharpening, alignment, ultrasonic cleaning","Replace packs every 24 mo","Dish soap only"],a:1,e:"Documented routine maintenance ensures reliable performance."},
+ {t:"phys",q:"First-line drug for acute anaphylaxis to a vaccine or anaesthetic?",o:["IM diphenhydramine","IV/IM epinephrine","SC atropine","IV dexamethasone"],a:1,e:"Epinephrine is the gold standard."},
+ {t:"sn",q:"Halsted: obliterating dead space primarily prevents:",o:["Tissue tension","Suture hydrolysis","Seroma and bacterial colonization","Vasoconstriction"],a:2,e:"Seroma is an ideal medium for bacterial growth."},
+ {t:"sn",q:"\"Targeting by income\" in HQHVSN means:",o:["Proof of income at intake","Below-median-income areas + pricing","Free only for welfare recipients","Refuse higher-income clients"],a:1,e:"Area-based location and pricing, not screening."},
+ {t:"sn",q:"Leading relinquishment risk that HQHVSN targeting addresses?",o:["Behaviour","Being sexually intact","Landlord rules","Allergies"],a:1,e:"Intact status is the leading relinquishment risk."},
+ {t:"sn",q:"Pediatric (6\u201316 wk) fasting before surgery?",o:["Overnight","At least 6 h","Small meal 2\u20134 h pre-op; not >4 h","No food that day"],a:2,e:"Prevents hypoglycemia."},
+ {t:"sn",q:"Owned pets best scheduled at 4 months mainly to:",o:["Reduce cost","Optimize immunity via vaccination","Skeletal maturity","Rabies law"],a:1,e:"The 4-month figure relates to vaccination/immunity."},
+ {t:"sn",q:"Intubation of cats for procedures under 30 minutes:",o:["Mandatory","Acceptable to omit if emergency equipment available","Always supraglottic device","Mask-induce never intubate"],a:1,e:"CEPSAF: feline intubation is not benign; omission acceptable with backup."},
+ {t:"sn",q:"Which monitor reduces anaesthetic death risk in cats?",o:["ECG","Capnography","Pulse oximetry","Esophageal stethoscope"],a:2,e:"Pulse oximetry (CEPSAF) lowers feline anaesthetic death risk."},
+ {t:"sn",q:"Jaw tone is unreliable for depth in:",o:["Adult cats","Pediatric puppies","Brachycephalics","Geriatric cats"],a:1,e:"Pediatric puppies lack mandibular tone."},
+ {t:"sn",q:"En bloc gravid uterus removal: fetal euthanasia is:",o:["Always required","Only in cats","Not necessary unless the sac is opened","After 45 d gestation"],a:2,e:"Fetuses stay unconscious unless the sac is opened."},
+ {t:"sn",q:"Recommended permanent identifier for a neutered community cat?",o:["Green tattoo","Microchip only","Ear notch","Unilateral ear tip ~1/3 distal pinna"],a:3,e:"Ear tip (one-third distal pinna, perpendicular) is the standard; notching discouraged."},
+ {t:"sn",q:"Sterile gloves are required for:",o:["Routine puppy castration only","All abdominal surgery and adult dog castration","Cat castration only","No SN procedures"],a:1,e:"Exam gloves OK for routine cat/puppy castration; sterile for abdominal and adult dog castration."},
+ {t:"sn",q:"Most post-op complications occur within:",o:["30 min","First 3 hours","24 h","72 h"],a:1,e:"First 3 hours is the critical window."},
+ {t:"sn",q:"Recommended perioperative ambient temperature range?",o:["10\u201315\u00b0C","18\u201328\u00b0C (64\u201384\u00b0F)","30\u201335\u00b0C","12\u201318\u00b0C"],a:1,e:"Thermostat low-to-mid 70s\u00b0F typical."},
+ {t:"sn",q:"Which scavenging method is specifically discouraged by ASV?",o:["Active wall suction","Passive charcoal canister","F-air with active interface","Central evacuation"],a:1,e:"Charcoal canister scavenging is discouraged."},
+ {t:"sn",q:"Contagious-but-eligible animals should be scheduled:",o:["First","Last, after healthy animals","Separate day always","Mobile clinics only"],a:1,e:"Operate suspected-contagious animals last."},
+ {t:"sn",q:"Partial alpha-2 reversal in a multimodal protocol:",o:["Longer recovery, more analgesia","Shorter recovery without losing analgesia","More hypothermia","Higher mortality"],a:1,e:"Shortens recovery while preserving analgesia."},
+ {t:"sn",q:"NSAIDs should be avoided in SN patients that are:",o:["Brachycephalic","Clinically or subclinically dehydrated","Geriatric","Pregnant only"],a:1,e:"Dehydration raises nephrotoxicosis risk."},
+ {t:"sn",q:"Which model offers the greatest daily surgical capacity?",o:["Mobile MASH","Fitted vehicle","Stationary clinic","Voucher program"],a:2,e:"Stationary clinics have the highest daily capacity."},
+ {t:"sn",q:"Recommended ergonomic micropauses during surgery?",o:["1\u20132 min every hour","15\u201330 s several times per hour","5 min between patients","Only at lunch"],a:1,e:"Short frequent micropauses cut fatigue and raise accuracy."},
+ {t:"sn",f:"corrected",q:"Median survival time of spayed female cats vs intact is best stated as:",o:["13.1%, ~39% longer","About 13.1 years, ~39% longer","39 months","No difference"],a:1,e:"MST is a duration (~13.1 yr); the \"13.1%\" was a transcription error."},
+ {t:"sn",f:"note",q:"A positive point-of-care LH test in a cat is consistent with:",o:["Intact cat in anestrus","A previously neutered cat","Pregnancy","Pyometra"],a:1,e:"Loss of gonadal negative feedback raises LH after neutering. Test stats are source-specific."},
+ {t:"sn",f:"note",q:"In dogs, cryptorchid testes are roughly how much more likely to become neoplastic?",o:["2\u00d7","9\u201314\u00d7","50\u00d7","No increase"],a:1,e:"Reported ~9.2\u201313.6\u00d7; source-specific."},
+ // ---- new exam-depth items ----
+ {t:"sn",f:"ref",q:"Representative dexmedetomidine premed range in CATS (std ref)?",o:["0.001\u20130.005 mg/kg","0.02\u20130.04 mg/kg","0.1\u20130.2 mg/kg","1\u20132 mg/kg"],a:1,e:"~0.02\u20130.04 mg/kg IM in cats; dogs are lower per kg. Std-ref range."},
+ {t:"sn",f:"ref",q:"How is atipamezole dosed to reverse dexmedetomidine?",o:["Half the dexmed volume IV","The same volume as the dexmed given, IM","10\u00d7 the dexmed dose","Fixed 1 mg regardless"],a:1,e:"Give an equal volume to the dexmedetomidine, IM; avoid IV except emergencies."},
+ {t:"sn",f:"ref",q:"Bupivacaine must never be given by which route?",o:["Intratesticular","Incisional","Intravenous","Intraperitoneal splash"],a:2,e:"Bupivacaine is cardiotoxic IV."},
+ {t:"sn",f:"ref",q:"Local technique that reduces nociception and inhalant need during castration?",o:["Intratesticular block","Epidural only","Topical EMLA on scrotum","Intranasal lidocaine"],a:0,e:"Intratesticular local block blunts the spermatic-cord stimulus."},
+ {t:"sn",f:"ref",q:"Correct meloxicam regimen for a healthy adult dog post-spay?",o:["0.2 mg/kg once then 0.1 mg/kg","2 mg/kg q8h","10 mg/kg once","Contraindicated in dogs"],a:0,e:"Meloxicam dog: ~0.2 mg/kg load then 0.1 mg/kg; cats single dose with caution. Std-ref."},
+ {t:"sn",f:"ref",q:"AAHA-recommended STARTING anaesthetic IV fluid rate in dogs?",o:["1 mL/kg/h","~5 mL/kg/h (cats ~3)","10 mL/kg/h fixed","20 mL/kg/h"],a:1,e:"AAHA 2013: start ~5 (dog)/3 (cat) mL/kg/h, titrate down; older standard was 10. Std-ref."},
+ {t:"sn",q:"Which patients DO warrant IV fluids per ASV?",o:["All healthy electives","Pregnant, pyometra, blood loss, prolonged surgery","Only cats","None ever"],a:1,e:"ASV reserves IV fluids for high-risk patients; routine electives often need none."},
+ {t:"sn",f:"ref",q:"Propofol induction dose in a WELL-PREMEDICATED dog?",o:["0.5 mg/kg","2\u20134 mg/kg IV to effect","8\u201310 mg/kg","Fixed 50 mg"],a:1,e:"Premedication lowers propofol need to ~2\u20134 mg/kg titrated."},
+ {t:"sn",f:"ref",q:"Anticholinergic appropriate for VAGAL (not alpha-2) bradycardia?",o:["Atipamezole","Atropine 0.02\u20130.04 mg/kg or glycopyrrolate 0.005\u20130.011 mg/kg","Naloxone","Flumazenil"],a:1,e:"Atropine/glycopyrrolate for vagal bradycardia; never for alpha-2 bradycardia."},
+ {t:"phys",f:"proj",q:"Per the ASPCA reference, household bleach dilution and contact time effective against parvovirus?",o:["1:10 for 1 min","1:32 (\u00bd cup/gal) for 10 min","1:100 for 30 s","Undiluted for 1 h"],a:1,e:"1:32 (about half a cup per gallon), 10-minute contact on precleaned surfaces."},
+ {t:"phys",f:"proj",q:"Per the ASPCA reference, diluted stability of accelerated hydrogen peroxide?",o:["24 hours","7 days","90 days","1 year"],a:2,e:"Accelerated H2O2 is stable ~90 days diluted (potassium peroxymonosulfate ~7 days; bleach ~24 h)."},
+ {t:"phys",f:"proj",q:"Per the ASPCA reference, which two agents are most inactivated by organic matter and need a rinse?",o:["Accelerated H2O2 and quats","Bleach and calcium hypochlorite","Potassium peroxymonosulfate and AHP","Quats and AHP"],a:1,e:"Bleach and calcium hypochlorite are organic-matter sensitive, need extensive precleaning and a rinse."},
+ {t:"sn",q:"The hardest resource to obtain when setting up a program (ASV)?",o:["Volunteers","Funding","Cages","Surgeons"],a:1,e:"ASV identifies funding as the hardest resource."},
+ {t:"sn",q:"For a program to stay accessible, fees for service must be:",o:["Equal to general practice","Higher than general practice","Lower than local general-practice prices","Zero for everyone"],a:2,e:"Accessibility requires fees below local GP prices; shortfall covered by efficiency/volunteers/funding."},
+ {t:"sn",q:"Effective HQHVSN work culture is best described as:",o:["Strictly hierarchical","Collaborative; more teamwork \u2192 fewer complications","Surgeon-only decisions","Rotating leaderless"],a:1,e:"Collaborative teamwork correlates with fewer complications."},
+ {t:"sn",q:"Program EFFECTIVENESS is measured by:",o:["Number of staff","Local intake/euthanasia rates, complaints, colony size, kitten production","Square footage","Social-media reach"],a:1,e:"Population-level metrics gauge whether targeting is working."},
+ {t:"sn",f:"ref",q:"Which opioid gives the longest analgesia and is a good feline take-home (OTM) option?",o:["Butorphanol","Buprenorphine","Naloxone","Acepromazine"],a:1,e:"Buprenorphine (~6\u20138 h) suits feline take-home; butorphanol is short-acting; acepromazine has no analgesia."},
+ {t:"sn",f:"note",q:"Benchmark daily surgical volume for a sustainable stationary HQHVSN clinic (one vet)?",o:["~10/day","~35/day","~80/day","~120/day"],a:1,e:"About 35 surgeries per vet per day, 5 days/week, 48 weeks/year. Source-specific planning figure."},
+ {t:"sn",f:"note",q:"Catchment commonly cited as needed to sustain a stationary clinic?",o:["~25,000 within 10 miles","~250,000 within a 60-mile radius","~1 million within 5 miles","Any size"],a:1,e:"~250,000 people within ~60 miles, plus about a $35,000 opening reserve. Source-specific."},
+ {t:"sn",q:"Fastest, lowest-cost way to start an HQHVSN program?",o:["Stationary clinic","Self-contained mobile unit","MASH clinic","Hybrid trailer"],a:2,e:"MASH clinics have the lowest setup cost and suit both rural and dense urban areas."},
+ {t:"sn",q:"In a collaborative MASH model, the host organisation typically provides:",o:["Vets and surgical supplies","Venue, scheduling, admission/discharge, non-medical supplies","Anaesthesia machines","Autoclave"],a:1,e:"Hosts supply venue/personnel/scheduling; the MASH org supplies vets, techs, surgical supplies and training."},
+ {t:"sn",f:"note",q:"Recommended HQHVSN staff ratio (vet to trained support)?",o:["1:1","1:2 to 1:3","1:5","1:8"],a:1,e:"About one vet to two or three trained support staff; 4x10 h or 3x12 h shifts work better than 5x8 h."},
+ {t:"phys",f:"ref",q:"CEPSAF anaesthetic mortality in healthy elective cats (ASA I to II)?",o:["0.01%","0.11%","1.4%","5%"],a:1,e:"~0.11% healthy cats vs ~1.4% sick cats; dogs ~0.05% vs ~1.33%."},
+ {t:"phys",q:"Which change INCREASES MAC (needing more inhalant)?",o:["Hypothermia","Pregnancy","Hyperthermia","Alpha-2 premedication"],a:2,e:"Hyperthermia, hypernatraemia and CNS stimulants raise MAC; the others lower it."},
+ {t:"phys",q:"A capnograph baseline that does not return to zero indicates:",o:["Hyperventilation","Rebreathing CO2 (exhausted soda lime or stuck expiratory valve)","Oesophageal intubation","Cardiac arrest"],a:1,e:"An elevated baseline means inspired CO2 is being rebreathed."},
+ {t:"phys",q:"A 'curare cleft' on the capnograph plateau means:",o:["Complete airway obstruction","The patient is breathing against the circuit (light plane or waning relaxant)","Hypothermia","Hypercapnia"],a:1,e:"The cleft reflects spontaneous effort against the ventilator/circuit."},
+ {t:"sn",q:"In a 6 to 12 week pediatric patient, cardiac output depends primarily on:",o:["Stroke volume via Frank-Starling","Heart rate (fixed stroke volume)","Systemic vascular resistance","Haematocrit"],a:1,e:"Non-compliant ventricles mean CO is rate-dependent, so bradycardia causes immediate hypotension."},
+ {t:"phys",q:"RECOVER chest-compression rate?",o:["60/min","80/min","100 to 120/min","150/min"],a:2,e:"100 to 120/min, 1/3 to 1/2 chest width, full recoil."},
+ {t:"phys",q:"RECOVER ventilation rate for an intubated arrest patient?",o:["6/min","10/min (1 every 6 s)","25/min","40/min"],a:1,e:"10/min; hyperventilation raises intrathoracic pressure and crashes preload."},
+ {t:"phys",q:"If epinephrine must be given intratracheally during CPR, the dose is:",o:["Halved","Unchanged","Increased 10-fold (0.1 mg/kg) and diluted","Given as a fixed 1 mg"],a:2,e:"Intratracheal epinephrine is 10x the IV dose, diluted for alveolar absorption."},
+ {t:"phys",q:"Roughly how much isotonic crystalloid remains intravascular 30 to 60 min after a bolus?",o:["~75%","~50%","~25%","~5%"],a:2,e:"About 25% stays intravascular (75% shifts interstitial), so over-hydration drives oedema."},
+ {t:"sn",q:"Maximum acceptable time from clamping the uterine blood supply to delivery in en bloc caesarean?",o:["10 to 15 s","45 to 60 s","3 to 4 min","10 min"],a:1,e:"45 to 60 seconds; longer risks fetal hypoxia. One resuscitator per neonate."},
+ {t:"sn",q:"Which caesarean technique gives the highest neonatal survival and shortest dam GA time?",o:["Single hysterotomy, dam intact","Multiple hysterotomies","En bloc OHE then hand-off hysterotomy","Natural parturition"],a:2,e:"En bloc removal minimises dam GA time, contamination, and maximises neonatal survival."},
+ {t:"sn",q:"Which neonatal resuscitation manoeuvre is NO LONGER recommended?",o:["Drying and warming","Swinging/shaking to clear airways","Tactile stimulation by rubbing","Mask oxygen"],a:1,e:"Swinging/shaking risks intracranial haemorrhage and head/neck injury."},
+ {t:"sn",q:"Neonatal bradycardia during resuscitation is usually due to, and managed by:",o:["Vagal tone; give atropine","Myocardial hypoxaemia; ventilate/oxygenate (atropine/glyco not recommended)","Hypothermia; give epinephrine","Hypoglycaemia; give naloxone"],a:1,e:"Most neonatal bradycardia is hypoxic, so anticholinergics are not recommended; oxygenate first."},
+ {t:"sn",q:"Ovary-sparing spay (hysterectomy keeping ovaries) still carries the risk of:",o:["Mammary neoplasia elimination","Pyometra (unless all uterine tissue to the cervix is removed)","Permanent infertility behaviour change","Testicular tumour"],a:1,e:"Stump pyometra risk persists and estrus behaviour continues; all uterine tissue must be removed to avoid stump pyometra."},
+ {t:"sn",q:"Tearing of the ovarian pedicle is more commonly associated with which side?",o:["Left","Right","Neither","Both equally"],a:1,e:"The right ovary is more cranial and harder to exteriorise."},
+ {t:"sn",q:"Ovarian remnant syndrome is more common in which species, and is best resected when?",o:["Dogs; during anestrus","Cats; about 2 to 3 weeks after luteinisation or during behavioural estrus","Dogs; immediately","Cats; only after 1 year"],a:1,e:"~0.3% cats vs ~0.04% dogs; operate when ovarian tissue is most identifiable (post-luteinisation or in estrus)."},
+ {t:"sn",q:"Recommended surgical approach for feline mammary fibroadenomatous hyperplasia?",o:["Bilateral mastectomy","Flank spay","Ventral midline spay only","Medical management alone"],a:1,e:"Flank spay is recommended; the hyperplasia is progesterone-driven and regresses after ovariectomy."},
+ {t:"sn",q:"Secondary post-spay haemorrhage from uterine-vessel erosion typically presents:",o:["Within 1 hour","4 to 16 days post-op","After 3 months","Never"],a:1,e:"Often 4 to 16 days out; any serious vaginal bleed warrants immediate exploration and re-ligation."},
+ {t:"sn",q:"Every spay/neuter patient should be discharged with which item to prevent dehiscence?",o:["Antibiotics","An Elizabethan collar","A bandage","A heat pad"],a:1,e:"Self-trauma is the main cause of skin dehiscence; an E-collar is standard."},
+ {t:"sn",q:"Preferred vasopressor to support blood pressure during caesarean (preserves uterine flow)?",o:["Epinephrine","Phenylephrine","Ephedrine 0.04 to 0.1 mg/kg IV","Norepinephrine"],a:2,e:"Ephedrine maintains or improves uterine blood flow despite vasoconstriction."},
+ {t:"sn",q:"Which anticholinergic does NOT cross the placenta (preferred for maternal bradycardia in caesarean)?",o:["Atropine","Glycopyrrolate","Both cross","Neither crosses"],a:1,e:"Glycopyrrolate's size/charge keep it out of fetal circulation; atropine crosses (and raises fetal HR)."},
+ {t:"sn",q:"The one sedative specifically linked to neonatal and maternal mortality (avoid in caesarean)?",o:["Dexmedetomidine","Xylazine","Midazolam","Buprenorphine"],a:1,e:"Xylazine is the alpha-2 agonist associated with both neonatal and maternal mortality."},
+ {t:"phys",q:"Most accurate monitor of sterilisation efficacy, run weekly?",o:["Chemical indicator strip","Biological (spore) indicator","Autoclave gauge","Tape colour change"],a:1,e:"Biological indicators (G. stearothermophilus for steam) are the most accurate; run weekly."},
+ {t:"phys",q:"Most commonly used suture type in HQHVSN?",o:["Braided multifilament absorbable","Synthetic monofilament absorbable","Non-absorbable nylon","Stainless steel for skin"],a:1,e:"Synthetic monofilament absorbable (Monocryl, PDS) predominates."},
+ {t:"phys",q:"Clipping the surgical site more than 4 hours before surgery does what to SSI risk?",o:["No effect","Roughly triples it","Halves it","Eliminates it"],a:1,e:"Clipping well before surgery (or before induction) increases SSI risk roughly threefold."},
+ {t:"phys",q:"Minimum thread count for woven cotton muslin sterilisation wrap?",o:["70","140","270","500"],a:1,e:"Minimum ~140 thread count for muslin (270-count pima cotton is the barrier-equivalence benchmark)."},
+ {t:"phys",q:"Most effective surgical hand-prep agent?",o:["Plain soap","Alcohol-based rub","Povidone-iodine","Quaternary ammonium"],a:1,e:"Alcohol-based products are most effective, then chlorhexidine, then iodophors; brushless preferred."},
+ {t:"phys",q:"When cleaning cages, which animals are cared for first?",o:["Adults of unknown status","The most vulnerable (pediatric/immunocompromised) first","Sick animals first","Order does not matter ever"],a:1,e:"Clean the most vulnerable first, then unknown-vaccination adults; pediatrics are also housed separately."},
+ {t:"sn",f:"ref",q:"Why must many commercial gabapentin oral solutions be avoided in cats?",o:["Too dilute","They often contain xylitol","They taste bitter","They cause hyperthermia"],a:1,e:"Xylitol-containing liquids are toxic to cats; use xylitol-free compounded liquid or capsules."},
+ {t:"sn",f:"ref",q:"Typical canine pre-visit trazodone dose range?",o:["0.1 to 0.5 mg/kg","4 to 12 mg/kg","30 to 50 mg/kg","100 mg/kg"],a:1,e:"~4 to 12 mg/kg q8 to 12 h (start ~4 to 7 mg/kg); cats ~50 mg/cat."},
+ {t:"sn",q:"Free-roaming cat population dynamics are MOST sensitive to:",o:["Fecundity (litter size)","Adult survival","Kitten coat colour","Season only"],a:1,e:"Survival (especially adult) outweighs fecundity, which is why removal often beats equal-intensity sterilisation."},
+ {t:"sn",q:"In population simulations, sterilising only male cats produced:",o:["A rapid decline","Essentially no change vs no sterilisation","A population spike","Eradication in 2 years"],a:1,e:"Male-only sterilisation showed no meaningful population change."},
+ {t:"sn",f:"note",q:"Boone et al. (2019) modelling suggested effective TNR requires sterilising about:",o:["25% of cats annually","75% of intact cats every 6 months","10% every 6 months","100% once"],a:1,e:"~75% of intact cats per 6-month interval to drive decline; non-surgical contraception needs >40 to 50% per 6 months plus limited migration."},
+ {t:"sn",q:"Why is test-and-cull for FeLV/FIV discouraged in community cats?",o:["Tests are too expensive only","High false-positive rate at low prevalence risks euthanising healthy cats","Cats cannot be tested","It is illegal everywhere"],a:1,e:"At low prevalence up to ~50% of positives can be false, risking euthanasia of uninfected cats."},
+ {t:"sn",q:"Most common sex-chromosome disorder of sexual development in dogs and cats?",o:["XO (Turner-type)","XXY (Klinefelter)","Triploidy","XYY"],a:1,e:"XXY (Klinefelter) is the most commonly reported."},
+ {t:"sn",q:"Persistent Mullerian duct syndrome is hereditary in which breeds?",o:["Labrador and Poodle","Miniature Schnauzer (US) and Basset Hound (Europe)","Boxer and Bulldog","Siamese and Persian"],a:1,e:"Miniature Schnauzers in the US, Basset Hounds in Europe; often cryptorchid."},
+ {t:"sn",q:"A true hermaphrodite is defined by:",o:["Ovaries plus masculinised genitalia","Testes plus feminised genitalia","At least one ovary and one testis (or an ovotestis)","XXY karyotype"],a:2,e:"True hermaphrodite = both gonadal tissues present; pseudohermaphrodites have one gonad type with discordant phenotype."},
+ {t:"sn",q:"In all confirmed disorders of sexual development, the recommendation is:",o:["Breed for research","Gonadectomy","No intervention","Hormone therapy for life"],a:1,e:"Gonadectomy is recommended in all DSD cases (neoplasia and welfare risk)."}
+];
+
+const host=document.getElementById('qhost');
+const scoreTxt=document.getElementById('scoreTxt');
+let answered=0, correct=0, filter='all';
+function tagLabel(t){return t==='sn'?'Spay-Neuter':'Physical Health';}
+function flagBadge(f){
+  if(f==='corrected')return '<span class="bdg corr">corrected</span>';
+  if(f==='note')return '<span class="bdg unv">note</span>';
+  if(f==='ref')return '<span class="bdg ref">std ref</span>';
+  if(f==='proj')return '<span class="bdg proj">ASPCA</span>';
+  return '';
+}
+function render(){
+  host.innerHTML='';answered=0;correct=0;updateScore();
+  Q.forEach((item,i)=>{
+    if(filter!=='all' && item.t!==filter) return;
+    const card=document.createElement('div');card.className='q';
+    card.innerHTML=`<div class="meta"><span class="num">#${i+1}</span><span class="tag ${item.t==='phys'?'phys':''}">&#9670; ${tagLabel(item.t)}</span>${flagBadge(item.f)}</div><div class="stem">${item.q}</div>`;
+    const opts=document.createElement('div');
+    item.o.forEach((txt,oi)=>{
+      const btn=document.createElement('button');btn.className='opt';
+      btn.innerHTML=`<span class="k">${String.fromCharCode(65+oi)}</span>${txt}`;
+      btn.onclick=()=>choose(card,opts,item,oi);opts.appendChild(btn);
+    });
+    card.appendChild(opts);
+    const ex=document.createElement('div');ex.className='expl';
+    ex.innerHTML=`<b class="cor">Correct: ${String.fromCharCode(65+item.a)}.</b> ${item.e}`;
+    card.appendChild(ex);host.appendChild(card);
+  });
+}
+function choose(card,opts,item,oi){
+  if(card.dataset.done)return;card.dataset.done='1';answered++;
+  [...opts.children].forEach((b,bi)=>{b.classList.add('locked');
+    if(bi===item.a)b.classList.add('correct');
+    if(bi===oi && oi!==item.a)b.classList.add('wrong');});
+  if(oi===item.a)correct++;
+  card.querySelector('.expl').classList.add('show');updateScore();
+}
+function updateScore(){scoreTxt.textContent=`${correct} / ${answered} correct`;}
+document.querySelector('.filters').addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  document.querySelectorAll('.filters button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');filter=b.dataset.f;render();});
+document.getElementById('resetBtn').onclick=render;
+render();
+</script>
+</body>
+</html>

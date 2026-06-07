@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shelter Diversion Programs | Companion Animal Homelessness | ABVP Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* neutral base */
+    --ink:#0f3d3a;--ink2:#15514c;--paper:#f4efe4;--paper2:#fbf8f1;
+    --line:#d9d0bd;--muted:#5d6b62;
+    --good:#1f7a4d;--bad:#b23b3b;
+    --shadow:0 1px 2px rgba(15,61,58,.08),0 8px 24px rgba(15,61,58,.06);
+
+    /* domain: Companion Animal Homelessness -- muted dusty mauve/slate-purple */
+    --dom:#5c4a72;          /* primary domain colour */
+    --dom-soft:#e8e1f4;     /* light lavender tint */
+    --dom-head:#2d1f3d;     /* dark header bg */
+    --dom-border:#9b86b8;   /* lighter border accent */
+
+    /* source badges */
+    --notes:#7a4fb5;--notes-soft:#ece3f7;    /* your uploaded notes */
+    --asv:#3c4a86;--asv-soft:#e2e4f2;        /* ASV guidelines */
+    --avcc:#7a3f6a;--avcc-soft:#f2e5ef;      /* AVCC 2018 report */
+    --vce:#3d5478;--vce-soft:#dde4f0;        /* VCE Principles 2024 */
+    --ref:#b5651d;--ref-soft:#f6e7d4;        /* standard vet references */
+    --corr-c:#1f7a4d;                        /* correction green */
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;
+    background-image:radial-gradient(circle at 1px 1px,rgba(92,74,114,.04) 1px,transparent 0);background-size:22px 22px;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+
+  /* header */
+  header.top{background:var(--dom-head);color:var(--paper2);padding:26px 0 22px;border-bottom:4px solid var(--dom)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#c8b8e8;margin:0 0 6px}
+  header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(24px,4vw,38px);margin:0;line-height:1.05}
+  header.top p.sub{margin:8px 0 0;color:#d4c8ea;font-size:14px;max-width:72ch}
+  .legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}
+  .legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.22);color:#ede8f6;display:flex;align-items:center;gap:6px}
+  .legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}
+
+  /* tabs */
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--paper2);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;
+    font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);
+    padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button:hover{background:var(--paper);color:var(--ink)}
+  .tabrow button.active{background:var(--dom-head);color:var(--paper2)}
+  .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--dom)}
+
+  main{padding:30px 0 80px}
+  .panel{display:none;animation:fade .35s ease}
+  .panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+  /* headings */
+  h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;letter-spacing:-.01em}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:78ch}
+  h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:30px 0 8px;
+    display:flex;align-items:center;gap:10px;flex-wrap:wrap;scroll-margin-top:64px}
+  h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;
+    color:var(--ink2);text-transform:uppercase;letter-spacing:.03em}
+
+  /* cards and content boxes */
+  .card{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}
+  p.note{font-size:14px;margin:0 0 6px}
+  ul.hy{margin:8px 0;padding-left:0;list-style:none}
+  ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed #e6ddca;font-size:14px}
+  ul.hy li:last-child{border-bottom:0}
+  ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;
+    border-radius:2px;background:var(--dom);transform:rotate(45deg)}
+
+  /* inline boxes */
+  .trap{background:#f0eef8;border:1px solid #c9c0e0;border-left:4px solid var(--dom);
+    border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .trap b{color:var(--dom);font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .corrbox{background:#e9f4ee;border:1px solid #bfe0cc;border-left:4px solid var(--good);
+    border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .corrbox b{color:var(--good);font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .verifybox{background:var(--avcc-soft);border:1px solid #e0c0d8;border-left:4px solid var(--avcc);
+    border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .verifybox b{color:var(--avcc);font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .vcebox{background:var(--vce-soft);border:1px solid #b8c8dc;border-left:4px solid var(--vce);
+    border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .vcebox b{color:var(--vce);font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+
+  /* tables */
+  table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;
+    background:var(--paper2);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp th{background:var(--dom-head);color:var(--paper2);font-weight:600;font-size:11.5px;
+    letter-spacing:.03em;text-transform:uppercase}
+  table.cmp tr:last-child td{border-bottom:0}
+  table.cmp td b{color:var(--ink)}
+  .yes{color:var(--good);font-weight:700}
+  .no{color:var(--bad);font-weight:700}
+  .mid{color:#8a6d1f;font-weight:700}
+
+  /* figures */
+  .fig{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0;box-shadow:var(--shadow)}
+  .fig figcaption{font-size:12.5px;color:var(--muted);margin-top:8px;font-style:italic}
+
+  /* source badges */
+  .bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;
+    text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+  .bdg.notes{background:var(--notes-soft);color:var(--notes)}
+  .bdg.asv{background:var(--asv-soft);color:var(--asv)}
+  .bdg.avcc{background:var(--avcc-soft);color:var(--avcc)}
+  .bdg.vce{background:var(--vce-soft);color:var(--vce)}
+  .bdg.ref{background:var(--ref-soft);color:var(--ref)}
+  .bdg.corr{background:var(--corr-c);color:#fff}
+
+  /* stat highlight */
+  .stat{display:inline-block;background:var(--dom-soft);color:var(--dom-head);
+    font-family:"JetBrains Mono",monospace;font-weight:600;font-size:12px;
+    padding:2px 8px;border-radius:6px;margin:0 2px}
+
+  /* MCQ section */
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;
+    background:var(--dom-head);color:var(--paper2);border-radius:14px;padding:14px 18px;
+    margin-bottom:18px;position:sticky;top:54px;z-index:10}
+  .mcqbar .filters{display:flex;gap:6px;flex-wrap:wrap}
+  .mcqbar .filters button{font-family:"JetBrains Mono",monospace;font-size:11px;
+    border:1px solid rgba(255,255,255,.3);background:transparent;color:#d6cce8;
+    padding:6px 11px;border-radius:999px;cursor:pointer;white-space:nowrap}
+  .mcqbar .filters button.on{background:var(--dom);border-color:var(--dom);color:#fff}
+  .score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}
+  .score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;
+    color:#d6cce8;padding:5px 10px;border-radius:8px;font-size:11px}
+  .q{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
+  .q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+  .q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;
+    text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--dom-soft);color:var(--dom)}
+  .q .stem{font-weight:600;font-size:15px;margin-bottom:10px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;
+    border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;
+    font-family:"Public Sans";transition:background .15s,border-color .15s}
+  .opt:hover{border-color:var(--dom)}
+  .opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}
+  .opt.correct{background:#e8f5ec;border-color:var(--good);color:#0d3d24}
+  .opt.wrong{background:#fbe9e9;border-color:var(--bad);color:#5e1d1d}
+  .opt.locked{cursor:default}
+  .expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;
+    background:#f0eef8;border:1px solid var(--line);font-size:13.5px}
+  .expl.show{display:block}
+  .expl b.cor{color:var(--good)}
+
+  footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
+  @media(max-width:640px){.mcqbar{top:50px}.score{font-size:12px}}
+</style>
+</head>
+<body>
+<nav style="background:#2d1f3d;padding:9px 18px;display:flex;align-items:center;gap:10px;font-family:'Public Sans',system-ui,sans-serif;font-size:13px;font-weight:500;border-bottom:2px solid #4a3563"><a href="../index.html" style="color:#c8b8e8;text-decoration:none;display:flex;align-items:center;gap:5px"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span style="color:#6b5285;font-size:11px">›</span><span style="color:#d4c8ea">Companion Animal Homelessness</span></nav>
+
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">ABVP Shelter Medicine Practice RVS &middot; Companion Animal Homelessness</p>
+    <h1>Shelter Diversion Programs</h1>
+    <p class="sub">Exam-depth study tool for the Shelter Diversion Programs subdomain. Covers safety net program theory, the three major focus areas (basic needs, accessible veterinary care, accessible behavioral care), strategic program design, and impact measurement. Built from your uploaded notes, verified against ASV guidelines, AVCC 2018, and VCE Principles 2024.</p>
+    <div class="legend">
+      <span><i style="background:var(--notes)"></i>Your notes</span>
+      <span><i style="background:var(--asv)"></i>ASV guidelines</span>
+      <span><i style="background:var(--avcc)"></i>AVCC 2018</span>
+      <span><i style="background:var(--vce)"></i>VCE Principles 2024</span>
+      <span><i style="background:var(--corr-c)"></i>Gap / correction</span>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="overview"><span class="dot"></span>Overview</button>
+  <button data-p="basicneeds"><span class="dot"></span>Basic Needs</button>
+  <button data-p="accesscare"><span class="dot"></span>Accessible Care</button>
+  <button data-p="progdesign"><span class="dot"></span>Program Design</button>
+  <button data-p="mcq"><span class="dot" style="background:var(--dom-head)"></span>MCQ Bank</button>
+</div></div></nav>
+
+<main><div class="wrap">
+
+<!-- ===================== TAB 1: OVERVIEW ===================== -->
+<section class="panel show" id="overview">
+  <h2 class="sec">Overview: Shelter Diversion Programs</h2>
+  <p class="lead">Strategies that help companion animals avoid entering the physical shelter system, preserving the human-animal bond, reducing shelter intake, and protecting Capacity for Care (C4C) for animals already in care.</p>
+
+  <div class="card">
+    <h4>Blueprint placement</h4>
+    <ul class="hy">
+      <li>Domain: <b>Companion Animal Homelessness</b> (one of eight subdomains). Shelter diversion programs are a core focus of the ABVP Shelter Medicine RVS exam, testing both program theory and operational logistics.</li>
+      <li>Sibling subdomains: spay-neuter, adoption and placement, epidemiology of homelessness/at-risk, transfer programs, disaster, reunification, non-surgical sterilization.</li>
+    </ul>
+  </div>
+
+  <h3>Definition and primary goal <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <p class="note"><b>Shelter diversion programs</b> are strategies that help animals avoid entering an animal shelter. They include financial assistance, rehoming support, behavioral training, temporary housing, and miscellaneous community aid.</p>
+    <p class="note"><b>Safety net programs</b> are the operational vehicle for diversion. Their primary goal is to <b>facilitate pet retention</b>. Impact is defined as the direct, measurable outcome of the program, most commonly a sustained increase in pet retention or a reduction in owner-surrender intake.</p>
+  </div>
+
+  <h3>Who benefits and how <span class="bdg notes">notes</span> <span class="bdg avcc">AVCC 2018</span></h3>
+  <div class="card">
+    <h4>Owners benefit through</h4>
+    <ul class="hy">
+      <li>Direct pet retention, avoiding a difficult relinquishment decision.</li>
+      <li>Reduction of stress related to inability to meet the pet's needs.</li>
+      <li>Continuation of the documented physical and mental health benefits of pet ownership (cardiovascular, psychological, social support benefits; AVCC 2018).</li>
+      <li>Strengthened human-animal bond.</li>
+    </ul>
+    <h4>Shelters benefit through</h4>
+    <ul class="hy">
+      <li>Reduced live intake, enabling the organization to operate within its <b>Capacity for Care (C4C)</b>.</li>
+      <li>Higher welfare baseline for animals and personnel remaining on-site.</li>
+      <li>Freed resources for high-complexity cases.</li>
+      <li>Ability to scale operations or expand community programming.</li>
+      <li>Deeper community knowledge, enabling more targeted future programs.</li>
+    </ul>
+  </div>
+
+  <div class="trap">
+    <b>Exam trap &middot; the crucial guardrail</b>
+    Safety net programs are tools for preservation of the human-animal bond. They do <b>never</b> replace legal or mandatory interventions in cases of active animal cruelty or neglect when the caregiver is <b>unwilling or unable</b> to accept assistance. If an exam scenario describes genuine neglect or abuse, diversion programs are not the correct answer.
+  </div>
+
+  <h3>Three major focus areas <span class="bdg notes">notes</span></h3>
+  <figure class="fig">
+    <svg viewBox="0 0 720 260" width="100%" role="img" aria-label="Three pillars of shelter diversion safety net programs: basic needs, accessible veterinary care, accessible behavioral care">
+      <defs>
+        <marker id="arDivA" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+          <path d="M0,0 L7,3 L0,6 Z" fill="#2d1f3d"/>
+        </marker>
+      </defs>
+      <!-- top box -->
+      <rect x="210" y="10" width="300" height="46" rx="10" fill="#e8e1f4" stroke="#5c4a72" stroke-width="1.5"/>
+      <text x="360" y="30" font-size="12" text-anchor="middle" font-weight="700" fill="#2d1f3d">SHELTER DIVERSION / SAFETY NET</text>
+      <text x="360" y="48" font-size="10" text-anchor="middle" fill="#5c4a72">Goal: facilitate pet retention; impact must be measurable</text>
+      <!-- arrows down -->
+      <line x1="260" y1="56" x2="140" y2="106" stroke="#2d1f3d" stroke-width="1.5" marker-end="url(#arDivA)"/>
+      <line x1="360" y1="56" x2="360" y2="106" stroke="#2d1f3d" stroke-width="1.5" marker-end="url(#arDivA)"/>
+      <line x1="460" y1="56" x2="580" y2="106" stroke="#2d1f3d" stroke-width="1.5" marker-end="url(#arDivA)"/>
+      <!-- pillar 1 -->
+      <rect x="20" y="110" width="220" height="130" rx="10" fill="#f2e5ef" stroke="#7a3f6a" stroke-width="1.5"/>
+      <text x="130" y="130" font-size="11.5" text-anchor="middle" font-weight="700" fill="#2d1f3d">BASIC NEEDS</text>
+      <text x="130" y="148" font-size="10" text-anchor="middle" fill="#5c4a72">Food banks (most used)</text>
+      <text x="130" y="164" font-size="10" text-anchor="middle" fill="#5c4a72">Pet-friendly housing support</text>
+      <text x="130" y="180" font-size="10" text-anchor="middle" fill="#5c4a72">Rehoming advice and resources</text>
+      <text x="130" y="196" font-size="10" text-anchor="middle" fill="#5c4a72">Lost and found programs</text>
+      <text x="130" y="212" font-size="10" text-anchor="middle" fill="#5c4a72">Temporary sheltering</text>
+      <text x="130" y="228" font-size="10" text-anchor="middle" fill="#5c4a72">Humane education</text>
+      <!-- pillar 2 -->
+      <rect x="250" y="110" width="220" height="130" rx="10" fill="#e8e1f4" stroke="#5c4a72" stroke-width="1.5"/>
+      <text x="360" y="130" font-size="11.5" text-anchor="middle" font-weight="700" fill="#2d1f3d">ACCESSIBLE VET CARE</text>
+      <text x="360" y="148" font-size="10" text-anchor="middle" fill="#5c4a72">Targeted S/N programs</text>
+      <text x="360" y="164" font-size="10" text-anchor="middle" fill="#5c4a72">Access to basic vet care</text>
+      <text x="360" y="180" font-size="10" text-anchor="middle" fill="#5c4a72">Multiple delivery models</text>
+      <text x="360" y="196" font-size="10" text-anchor="middle" fill="#5c4a72">Vet community collaboration</text>
+      <text x="360" y="212" font-size="10" text-anchor="middle" fill="#5c4a72">Return-to-field (RTF) programs</text>
+      <!-- pillar 3 -->
+      <rect x="480" y="110" width="220" height="130" rx="10" fill="#dde4f0" stroke="#3d5478" stroke-width="1.5"/>
+      <text x="590" y="130" font-size="11.5" text-anchor="middle" font-weight="700" fill="#2d1f3d">ACCESSIBLE BEHAVIORAL CARE</text>
+      <text x="590" y="148" font-size="10" text-anchor="middle" fill="#3d5478">Information resources/handouts</text>
+      <text x="590" y="164" font-size="10" text-anchor="middle" fill="#3d5478">Training classes</text>
+      <text x="590" y="180" font-size="10" text-anchor="middle" fill="#3d5478">Behavior helplines</text>
+      <text x="590" y="196" font-size="10" text-anchor="middle" fill="#3d5478">Behavioral consultations</text>
+      <text x="590" y="212" font-size="10" text-anchor="middle" fill="#3d5478">(most resource-intensive)</text>
+    </svg>
+    <figcaption>The three major focus areas of shelter diversion safety net programs, each targeting a distinct driver of companion animal relinquishment. Sources: your notes; ASV guidelines.</figcaption>
+  </figure>
+
+  <div class="corrbox">
+    <b>Gap from Word doc &middot; numbering error in notes</b>
+    Your notes label the three focus areas as "1. Basic needs, 2. Accessible veterinary care, 1. Accessible behavioral care." The third category should be numbered 3. Accessible behavioral care. The content is correct; the numbering is a transcription error.
+  </div>
+
+  <h3>One Health model <span class="bdg vce">VCE 2024</span> <span class="bdg avcc">AVCC 2018</span></h3>
+  <div class="card">
+    <p class="note">Human health and social services present an opportunity to identify at-risk pets and connect owners with beneficial safety net programs. This uses a <b>One Health model</b> that recognizes the intrinsic interconnection of human, animal, and environmental health and well-being. VCE Principles (2024) reinforces that animals can be a source of stress and disease when caretakers lack access to basic services, preventive medications, or veterinary care, making community diversion programs a public health priority, not just an animal welfare one.</p>
+  </div>
+</section>
+
+<!-- ===================== TAB 2: BASIC NEEDS ===================== -->
+<section class="panel" id="basicneeds">
+  <h2 class="sec">Basic Needs Programs</h2>
+  <p class="lead">The first of the three focus areas. Basic needs programs address fundamental barriers to pet ownership: food insecurity, housing volatility, rehoming knowledge gaps, lost pets, and crisis-driven temporary separation.</p>
+
+  <h3>Pet food banks <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <p class="note">The <b>most widely utilized safety net program in shelters.</b> Provide pet food to companion animals at no cost to owners, usually via donated food. Can be run independently or in partnership with human social services.</p>
+    <h4>Operational requirements</h4>
+    <ul class="hy">
+      <li>Dedicated physical storage space for inventory prior to distribution.</li>
+      <li>Inventory tracking system including <b>monitoring of food expiration dates</b> for safety compliance.</li>
+      <li>Staff or volunteer time for actual food distribution.</li>
+      <li>Ongoing donation management and community partner relationships.</li>
+    </ul>
+    <div class="trap">
+      <b>Exam trap &middot; the nutritional self-sacrifice finding</b>
+      Food-insecure pet owners may choose to feed their companion animals <b>at the expense of their own nutrition</b>. Pet food banks therefore protect not only animal welfare but also the <b>human nutritional well-being</b> of the client. This One Health rationale is high-yield on the exam (AVCC 2018, AVCC survey data).
+    </div>
+    <p class="note">Community partnerships formed around food banks create a framework for other outreach programs, amplifying broader shelter community engagement.</p>
+  </div>
+
+  <h3>Pet-friendly housing support <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <p class="note">Housing volatility is a primary relinquishment driver, particularly acute for renters. Shelter interventions include:</p>
+    <ul class="hy">
+      <li>Tenant rights education: providing accessible information on local rental laws so owners understand their rights in both private and public housing.</li>
+      <li>A regularly updated database of pet-friendly rental units and landlords, including explicit documentation of <b>species, size, and breed restrictions</b>. Building this database requires multiple research methods to verify landlord policies.</li>
+      <li>Collaboration with attorneys, housing assistance programs, and social service agencies.</li>
+    </ul>
+    <div class="verifybox">
+      <b>AVCC 2018 &middot; housing link to homelessness</b>
+      The AVCC 2018 report documents that some homeless individuals choose to remain unsheltered rather than enter a shelter that does not allow pets, and that companion animals may be relinquished due to housing moves triggered by job loss, financial difficulties, or natural disasters. Housing support programs directly address this pipeline from housing instability to shelter surrender.
+    </div>
+  </div>
+
+  <h3>Rehoming advice and resources <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <p class="note">When keeping a pet is unavoidable, owner-to-owner (O-to-O) rehoming services bypass shelter intake entirely. Research supports this approach:</p>
+    <ul class="hy">
+      <li><span class="stat">37%</span> of owners who rehomed a pet in the past 5 years gave their pet directly to a friend or family member.</li>
+      <li><span class="stat">36%</span> rehomed by taking their pet to a shelter.</li>
+      <li><span class="stat">11%</span> rehomed directly to a person not previously known to the owner.</li>
+    </ul>
+    <p class="note">These data suggest owners may be willing, and even prefer, direct rehoming when supported. Shelter roles include: hosting courtesy adoption profiles on the organization website, sharing rehoming guides, and referring to specialist peer-to-peer platforms.</p>
+  </div>
+
+  <h3>Lost and found programs <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Prevention focus: better fencing, microchipping, collars, and ID tags to reduce escapes.</li>
+      <li>Recovery focus: thorough and up-to-date public-facing lost-and-found database, posted on the organization website and social media.</li>
+      <li><b>Eliminate heavy reunification fees</b>, which act as institutional barriers to reclamation and disproportionately impact low-income owners.</li>
+      <li>Reduce public safety and free-roaming nuisance concerns related to stray companion animals.</li>
+      <li>These programs are recommended even for organizations not legally mandated to admit stray animals.</li>
+    </ul>
+    <div class="trap">
+      <b>Exam trap &middot; fees as barriers</b>
+      Heavy impoundment and boarding fees are explicitly described as <b>unnecessary barriers to reunification</b> that shelters should eliminate. An exam option suggesting compounding daily board fees to "incentivize faster retrieval" is incorrect.
+    </div>
+  </div>
+
+  <h3>Temporary sheltering programs <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <h4>Triggers for temporary sheltering</h4>
+    <ul class="hy">
+      <li>Natural disasters</li>
+      <li>Personal health emergencies</li>
+      <li>Domestic violence (DV) situations</li>
+    </ul>
+    <h4>Core principle</h4>
+    <p class="note">The primary objective is to <b>avoid permanent relinquishment by facilitating reunification</b> once the owner's circumstances stabilize. Ideally, even this temporary separation is avoided via co-sheltering (housing people and pets together).</p>
+    <h4>Operational requirements</h4>
+    <ul class="hy">
+      <li><b>Legally approved written agreements</b> with clear guidelines establishing expectations for duration and scope of care. Prevents ambiguity and potential legal disputes.</li>
+      <li>Foster care networks are the preferred housing model: avoids medical and behavioral deterioration associated with physical shelter kennels, and reduces shelter crowding.</li>
+      <li>Fair investment of shelter resources to oversee the program without detriment to the existing shelter population.</li>
+      <li>Collaboration with governmental or non-profit human social services allows the animal welfare organization to focus primarily on animal care.</li>
+    </ul>
+    <div class="trap">
+      <b>Exam trap &middot; foster care vs. kennel housing</b>
+      For temporary crisis animals, the ideal housing model is <b>dedicated foster care</b>, not communal kennel runs or isolation wards. Foster care avoids the crowd stress, infectious disease exposure, and behavioral decline inherent to physical shelter environments.
+    </div>
+  </div>
+
+  <figure class="fig">
+    <svg viewBox="0 0 720 200" width="100%" role="img" aria-label="Temporary sheltering program flow: acute crisis triggers short-term placement, leading to reunification or, in exceptional cases, permanent rehoming">
+      <defs>
+        <marker id="arDivB" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+          <path d="M0,0 L7,3 L0,6 Z" fill="#2d1f3d"/>
+        </marker>
+      </defs>
+      <!-- crisis box -->
+      <rect x="10" y="70" width="160" height="60" rx="10" fill="#f2e5ef" stroke="#7a3f6a" stroke-width="1.5"/>
+      <text x="90" y="95" font-size="11" text-anchor="middle" font-weight="700" fill="#2d1f3d">ACUTE CRISIS</text>
+      <text x="90" y="112" font-size="9.5" text-anchor="middle" fill="#7a3f6a">DV, disaster, health emergency</text>
+      <!-- arrow 1 -->
+      <line x1="170" y1="100" x2="214" y2="100" stroke="#2d1f3d" stroke-width="1.5" marker-end="url(#arDivB)"/>
+      <!-- temp housing box -->
+      <rect x="218" y="58" width="180" height="84" rx="10" fill="#e8e1f4" stroke="#5c4a72" stroke-width="1.5"/>
+      <text x="308" y="82" font-size="11" text-anchor="middle" font-weight="700" fill="#2d1f3d">TEMP SHELTERING</text>
+      <text x="308" y="98" font-size="9.5" text-anchor="middle" fill="#5c4a72">Preferred: foster care network</text>
+      <text x="308" y="113" font-size="9.5" text-anchor="middle" fill="#5c4a72">Legal agreements required</text>
+      <text x="308" y="128" font-size="9.5" text-anchor="middle" fill="#5c4a72">Clear timeline and scope</text>
+      <!-- arrow 2 (main: reunification) -->
+      <line x1="398" y1="88" x2="450" y2="68" stroke="#1f7a4d" stroke-width="1.5" marker-end="url(#arDivB)"/>
+      <!-- reunification box -->
+      <rect x="454" y="30" width="180" height="60" rx="10" fill="#e9f4ee" stroke="#1f7a4d" stroke-width="1.5"/>
+      <text x="544" y="55" font-size="11" text-anchor="middle" font-weight="700" fill="#0d3d24">REUNIFICATION</text>
+      <text x="544" y="72" font-size="9.5" text-anchor="middle" fill="#1f7a4d">Primary goal: crisis resolves</text>
+      <!-- arrow 3 (exception: permanent rehoming) -->
+      <line x1="398" y1="118" x2="450" y2="140" stroke="#b23b3b" stroke-width="1.2" marker-end="url(#arDivB)" stroke-dasharray="5,3"/>
+      <!-- permanent box -->
+      <rect x="454" y="116" width="180" height="60" rx="10" fill="#fbe9e9" stroke="#b23b3b" stroke-width="1.5"/>
+      <text x="544" y="141" font-size="11" text-anchor="middle" font-weight="700" fill="#5e1d1d">PERMANENT REHOMING</text>
+      <text x="544" y="158" font-size="9.5" text-anchor="middle" fill="#b23b3b">Exception only; circumstances</text>
+      <text x="544" y="172" font-size="9.5" text-anchor="middle" fill="#b23b3b">do not permit return</text>
+      <!-- labels -->
+      <text x="428" y="82" font-size="9" text-anchor="middle" fill="#1f7a4d">Primary</text>
+      <text x="428" y="140" font-size="9" text-anchor="middle" fill="#b23b3b">Exception</text>
+    </svg>
+    <figcaption>Temporary sheltering program flow. Reunification is the primary goal. Permanent rehoming is an exception when circumstances do not permit return. Foster care is the preferred interim housing model. Sources: your notes; ASV guidelines.</figcaption>
+  </figure>
+
+  <h3>Humane education programs <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <p class="note">Aim to foster a community that values and understands responsible pet ownership. Targets youth settings: schools, camps, childcare settings, and adult education programs.</p>
+    <h4>Evidence base</h4>
+    <ul class="hy">
+      <li>Studies document the <b>enhancement of prosocial behavior and empathy</b> in children participating in humane education programs.</li>
+      <li>Single classroom visits require minimal shelter resources.</li>
+      <li>In-house programs (after-school camps) are resource-intensive but highly impactful for building community relationships.</li>
+      <li>These programs are rewarding for shelter staff and volunteers, building the shelter-community connection.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== TAB 3: ACCESSIBLE CARE ===================== -->
+<section class="panel" id="accesscare">
+  <h2 class="sec">Accessible Veterinary and Behavioral Care</h2>
+  <p class="lead">The second and third focus areas. Inability to access veterinary care and unresolved behavioral problems are major drivers of companion animal relinquishment, each requiring distinct but complementary intervention frameworks.</p>
+
+  <h3>Accessible veterinary care: the evidence base <span class="bdg notes">notes</span> <span class="bdg avcc">AVCC 2018</span></h3>
+  <div class="card">
+    <p class="note">Inability to access veterinary care is a documented common reason for companion animal relinquishment. In one study, <span class="stat">up to 28%</span> of surrenders cited cost in conjunction with medical issues as the primary driver. The AVCC 2018 national survey confirms that <b>financial constraints</b> are the number one barrier across all care types (preventative, sick, and emergency care), reported by approximately 80% of owners who experienced a barrier to preventative care.</p>
+  </div>
+
+  <div class="corrbox">
+    <b>Gap &middot; spectrum of care framework (Word doc)</b>
+    Board exams test the shift away from a binary "gold standard vs. no care" mindset. You must understand the <b>Spectrum of Care</b> framework: offering evidence-based, incremental medical and surgical options tailored to the financial and socioeconomic realities of the individual client. This framework underpins all accessible vet care models and is core to the AVCC and VCE Principles approach to community medicine.
+  </div>
+
+  <h3>Targeted spay/neuter (S/N) programs <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <h4>Community-level benefits</h4>
+    <ul class="hy">
+      <li>Increases the prevalence of altered animals in the community.</li>
+      <li><b>Reduction in shelter relinquishment is documented for cats; evidence is less consistent for dogs.</b> This species distinction is high-yield.</li>
+      <li>Client race and ethnicity are <b>not</b> barriers to program utilization.</li>
+      <li>Reduces nuisance behaviors: vocalization, urine marking, roaming.</li>
+      <li>Reduces serious dog bites: <b>intact dogs are statistically overrepresented</b> in serious bite incidents.</li>
+      <li>Opportunity for collaboration with private practitioners (referrals for clients unable to afford full-cost sterilization).</li>
+      <li>Very resource-intensive to establish and maintain; requires careful community landscape analysis to target the desired population effectively.</li>
+    </ul>
+    <div class="trap">
+      <b>Exam trap &middot; dogs vs. cats in S/N research</b>
+      Accessible spay/neuter programs show a <b>documented reduction in feline shelter relinquishment</b>, but studies do not show a consistent equivalent reduction for canine relinquishments. Selecting "eliminates dog surrenders" or "no impact on cats" is incorrect.
+    </div>
+  </div>
+
+  <h3>Models for accessible vet care delivery <span class="bdg notes">notes</span> <span class="bdg avcc">AVCC 2018</span></h3>
+  <table class="cmp">
+    <tr><th>Model</th><th>Description</th><th>Key considerations</th></tr>
+    <tr><td><b>Veterinary school programs</b></td><td>Academic institutions provide supervised low-cost or free care.</td><td>High quality; limited by geography and throughput capacity.</td></tr>
+    <tr><td><b>Shelter-operated clinics</b></td><td>Animal welfare organizations run their own vet care services.</td><td>May trigger perception of competition with private practice. Requires early community outreach.</td></tr>
+    <tr><td><b>One Health collaborations</b></td><td>Veterinary and human health services jointly serve underserved populations.</td><td>Aligns with VCE and AVCC frameworks; requires interdisciplinary coordination.</td></tr>
+    <tr><td><b>For-profit low-cost models</b></td><td>Private low-cost clinics operating on a fee-for-service basis.</td><td>Sustainable without donor reliance; limited by profitability threshold.</td></tr>
+    <tr><td><b>Subsidized private practice</b></td><td>Private practitioners provide discounted or pro bono services.</td><td>Flexible; depends on individual practitioner willingness and capacity.</td></tr>
+  </table>
+
+  <div class="vcebox">
+    <b>VCE Principles 2024 &middot; veterinary community relations</b>
+    Shelter-operated and low-cost programs can be perceived as a financial threat by nearby private practices. The VCE Principles framework (Principle 2: build trust with formal and informal leadership) and your notes both confirm that shelters must perform <b>proactive outreach to the local veterinary community during the earliest planning phases</b> to establish referral networks, prevent conflict, and build collaborative service structures.
+  </div>
+
+  <h3>Return-to-field (RTF) programs <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <p class="note">A specific diversion model for free-roaming community cats. Cats are captured, sterilized, vaccinated, and <b>returned directly to their original location</b>, avoiding shelter intake and placement in a home. RTF is classified under accessible veterinary care because sterilization and vaccination are the core interventions. RTF programs are distinct from TNR (trap-neuter-return) programs but share the same foundational rationale.</p>
+  </div>
+
+  <h3>Accessible behavioral care: the evidence base <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <p class="note">Behavioral reasons are a primary driver of relinquishment: reported in <span class="stat">up to 40%</span> of relinquished dogs and <span class="stat">up to 28%</span> of relinquished cats. Behavioral interventions remain an important tool to prevent surrender.</p>
+    <div class="corrbox">
+      <b>Gap &middot; behavioral risk assessment (Word doc)</b>
+      Board exams pair the behavioral relinquishment statistics with public safety risk assessment. If an animal has a severe aggression history, diversion and behavioral helpline tools must <b>not</b> override public safety or animal welfare mandates. Safety net behavioral interventions are appropriate when risk is manageable; they do not replace decisions about dangerous dogs.
+    </div>
+  </div>
+
+  <h3>Behavioral intervention options: comparison <span class="bdg notes">notes</span></h3>
+  <table class="cmp">
+    <tr><th>Intervention</th><th>Resource intensity</th><th>Evidence for pet retention</th><th>Reach</th><th>Key exam point</th></tr>
+    <tr>
+      <td><b>Information resources / handouts</b></td>
+      <td><span class="yes">Low</span></td>
+      <td><span class="mid">Indirect</span></td>
+      <td><span class="yes">Very broad</span></td>
+      <td>Best reach per resource invested; potential to reach large numbers in accessible format.</td>
+    </tr>
+    <tr>
+      <td><b>Training classes</b></td>
+      <td><span class="mid">Moderate</span></td>
+      <td><span class="mid">Contradictory findings</span></td>
+      <td><span class="mid">Moderate</span></td>
+      <td>Fee-waived, community-delivered classes best mitigate financial and transport barriers. Virtual eliminates socialization benefit.</td>
+    </tr>
+    <tr>
+      <td><b>Behavior helpline</b></td>
+      <td><span class="mid">Moderate</span></td>
+      <td><span class="no">Uncertain (limited data)</span></td>
+      <td><span class="yes">Broad</span></td>
+      <td>Staffed by trained volunteers; questions escalated to professional staff. High utilization but <b>limited empirical data</b> on efficacy for retention.</td>
+    </tr>
+    <tr>
+      <td><b>Behavioral consultations</b></td>
+      <td><span class="no">Very high</span></td>
+      <td><span class="yes">Most individualized</span></td>
+      <td><span class="no">Narrow</span></td>
+      <td>Requires a qualified behavior professional. <b>Any fee is an insurmountable barrier</b> for many clients. Validates owner concerns, reduces sense of isolation.</td>
+    </tr>
+  </table>
+
+  <div class="trap">
+    <b>Exam trap &middot; behavior helpline efficacy</b>
+    Behavior helplines are <b>highly accessible and broadly used</b>, but the current published evidence base on their direct, long-term impact on pet retention is limited and uncertain. Do not select "definitively proven to eliminate surrenders" for helplines. The correct answer acknowledges the data gap.
+  </div>
+</section>
+
+<!-- ===================== TAB 4: PROGRAM DESIGN ===================== -->
+<section class="panel" id="progdesign">
+  <h2 class="sec">Strategic Program Design and Measurement</h2>
+  <p class="lead">Choosing the right mix of safety net programs requires systematic community assessment, resource analysis, measurable goal-setting, and planned lifecycle management from launch through phase-out.</p>
+
+  <h3>Step 1: Community landscape assessment <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <p class="note">Before launching any program, assess pet ownership needs in the community. All owners need access to foundational services: basic pet needs, veterinary care, and behavioral resources.</p>
+    <h4>Data sources to use</h4>
+    <ul class="hy">
+      <li>National and local surveys about pet ownership trends and demographics.</li>
+      <li>Municipal pet licensing data.</li>
+      <li>Veterinary clinic patient logs; pet food and supply store sales data.</li>
+      <li>Animal shelter and rescue intake metrics.</li>
+      <li>Primary research: surveys, polls, interviews, focus groups.</li>
+      <li>The <b>Pets for Life (PFL) community assessment toolkit</b>: the validated standard tool for identifying targeted community pet-ownership needs and resource deserts.</li>
+    </ul>
+    <div class="vcebox">
+      <b>VCE Principles 2024 &middot; asset-based community assessment</b>
+      VCE Principle 1 emphasizes becoming knowledgeable about the community's culture, economic conditions, social networks, power structures, and prior experience with outside engagement. Principle 7 highlights building community capacity from existing assets, not just cataloging deficits. A good community landscape assessment is strength-based, not only deficit-focused.
+    </div>
+  </div>
+
+  <h3>Step 2: Program development <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Define clear, concrete, and actionable goals that align with the organization's mission.</li>
+      <li>Goals should reflect identified needs, weighted by desired impact.</li>
+      <li>A program may target issues that put pets at <b>high immediate risk</b> for surrender, or less urgent but more common challenges, or some combination of both.</li>
+    </ul>
+  </div>
+
+  <h3>Step 3: Resource analysis <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <p class="note">Program goals and their desired impacts must align with available resources. A realistic resource analysis covers:</p>
+    <ul class="hy">
+      <li>Resources required to <b>develop and launch</b> the program.</li>
+      <li>Resources required to <b>run</b> the program on an ongoing basis.</li>
+      <li>Resources required to <b>measure the impact</b> of the program.</li>
+      <li>Components: staff and volunteer time, funding for supplies and equipment, dedicated facility space.</li>
+    </ul>
+  </div>
+
+  <h3>Step 4: Strategic decision matrix <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <p class="note">A structured process for analyzing and weighing identified community needs and desired impacts against available internal resources. Used to decide which programs to launch, scale up, scale down, continue, or phase out, in order to maximize community impact per dollar invested.</p>
+    <div class="trap">
+      <b>Exam trap &middot; decision matrix purpose</b>
+      The strategic decision matrix balances <b>community needs and desired programmatic impacts against available operational resources</b>. It is not about aesthetics, politics, or adoption room design. A scenario asking what a shelter should do before adding a new program almost always requires a community landscape reassessment, not immediate expansion.
+    </div>
+  </div>
+
+  <h3>Step 5: Impact measurement <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <table class="cmp">
+      <tr><th>Metric type</th><th>Definition</th><th>Examples</th></tr>
+      <tr>
+        <td><b>Usage metrics</b></td>
+        <td>Measure the <b>volume of program activity</b>: how much the program is being used.</td>
+        <td>Pounds of food distributed; number of unique clients served; number of calls to a behavior helpline.</td>
+      </tr>
+      <tr>
+        <td><b>Impact metrics</b></td>
+        <td>Measure the <b>direct, measurable outcome</b>: whether program goals are being achieved.</td>
+        <td>A statistically significant, documented reduction in owner-surrender intake numbers; a sustained increase in pet retention rates.</td>
+      </tr>
+    </table>
+    <div class="trap">
+      <b>Exam trap &middot; usage vs. impact</b>
+      This is one of the highest-yield distinctions in this subdomain. Usage metrics count activity (e.g., bags of food distributed). Impact metrics count outcomes (e.g., a reduction in surrenders). A helpline with high call volume has strong usage metrics but uncertain impact metrics. The correct answer for "which is an impact metric?" is always the one describing an actual change in the target outcome.
+    </div>
+    <h4>Data collection lifecycle</h4>
+    <p class="note">Data must be budgeted for and collected at three distinct milestones:</p>
+  </div>
+
+  <figure class="fig">
+    <svg viewBox="0 0 720 160" width="100%" role="img" aria-label="Data collection lifecycle: baseline before launch, rollout check shortly after, then regular intervals for long-term impact">
+      <defs>
+        <marker id="arDivC" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+          <path d="M0,0 L7,3 L0,6 Z" fill="#2d1f3d"/>
+        </marker>
+      </defs>
+      <!-- box 1 -->
+      <rect x="10" y="30" width="200" height="100" rx="10" fill="#f2e5ef" stroke="#7a3f6a" stroke-width="1.5"/>
+      <text x="110" y="58" font-size="12" text-anchor="middle" font-weight="700" fill="#2d1f3d">BASELINE</text>
+      <text x="110" y="75" font-size="10" text-anchor="middle" fill="#7a3f6a">Pre-launch</text>
+      <text x="110" y="92" font-size="10" text-anchor="middle" fill="#7a3f6a">Establish community</text>
+      <text x="110" y="107" font-size="10" text-anchor="middle" fill="#7a3f6a">metrics and needs</text>
+      <text x="110" y="122" font-size="9" text-anchor="middle" fill="#7a3f6a">(before program starts)</text>
+      <!-- arrow 1 -->
+      <line x1="210" y1="80" x2="254" y2="80" stroke="#2d1f3d" stroke-width="1.5" marker-end="url(#arDivC)"/>
+      <!-- box 2 -->
+      <rect x="258" y="30" width="200" height="100" rx="10" fill="#e8e1f4" stroke="#5c4a72" stroke-width="1.5"/>
+      <text x="358" y="58" font-size="12" text-anchor="middle" font-weight="700" fill="#2d1f3d">ROLLOUT CHECK</text>
+      <text x="358" y="75" font-size="10" text-anchor="middle" fill="#5c4a72">Shortly after launch</text>
+      <text x="358" y="92" font-size="10" text-anchor="middle" fill="#5c4a72">Evaluate tracking systems</text>
+      <text x="358" y="107" font-size="10" text-anchor="middle" fill="#5c4a72">and operational flow</text>
+      <text x="358" y="122" font-size="9" text-anchor="middle" fill="#5c4a72">(early course correction)</text>
+      <!-- arrow 2 -->
+      <line x1="458" y1="80" x2="502" y2="80" stroke="#2d1f3d" stroke-width="1.5" marker-end="url(#arDivC)"/>
+      <!-- box 3 -->
+      <rect x="506" y="30" width="200" height="100" rx="10" fill="#dde4f0" stroke="#3d5478" stroke-width="1.5"/>
+      <text x="606" y="58" font-size="12" text-anchor="middle" font-weight="700" fill="#2d1f3d">REGULAR INTERVALS</text>
+      <text x="606" y="75" font-size="10" text-anchor="middle" fill="#3d5478">Ongoing audits</text>
+      <text x="606" y="92" font-size="10" text-anchor="middle" fill="#3d5478">Calculate long-term</text>
+      <text x="606" y="107" font-size="10" text-anchor="middle" fill="#3d5478">programmatic impact</text>
+      <text x="606" y="122" font-size="9" text-anchor="middle" fill="#3d5478">(guide scale decisions)</text>
+    </svg>
+    <figcaption>Data collection must occur at three milestones: before launch (baseline), shortly after launch (rollout check), and at regular intervals thereafter (ongoing impact audits). Sources: your notes; ASV guidelines.</figcaption>
+  </figure>
+
+  <div class="card">
+    <p class="note">Qualitative feedback from clients and staff (surveys, interviews, focus groups) complements quantitative usage and impact data, identifying operational issues and improvement opportunities.</p>
+  </div>
+
+  <h3>Step 6: Scalability and phase-out <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <h4>Scaling decisions</h4>
+    <ul class="hy">
+      <li>Scaling parameters should be planned at a program's inception, not as an afterthought.</li>
+      <li>A program can be successful by consistently meeting benchmarks without expanding its footprint. Success does not automatically mandate expansion.</li>
+      <li>Any scaling decision must trigger a <b>fresh review of the community landscape assessment</b>.</li>
+    </ul>
+    <h4>Phase-out protocol (high-yield exam topic)</h4>
+    <ul class="hy">
+      <li>Clear timeline communicated proactively to past and current clients.</li>
+      <li>Formal <b>transition pathways</b> directing clients to alternative community services.</li>
+      <li>Targeted emotional and operational support for affected staff and volunteers.</li>
+      <li>Relates directly back to community landscape assessment and impact metrics.</li>
+    </ul>
+    <div class="trap">
+      <b>Exam trap &middot; phase-out ethics</b>
+      An ethically managed program closure requires transparent communication, structured client transition plans, and staff support. Immediately halting intake, silently deleting records, or automatically transferring animals into the permanent adoption pool are all incorrect approaches.
+    </div>
+  </div>
+
+  <h3>True barriers to accessing care <span class="bdg avcc">AVCC 2018</span> <span class="bdg corr">Board gap</span></h3>
+  <div class="verifybox">
+    <b>AVCC 2018 &middot; top three barriers (high-yield)</b>
+    Your notes note correctly that race and ethnicity are not barriers to program utilization. However, the AVCC 2018 report identifies the top three documented barriers across all care types, which you must know for board exams:
+    <ul class="hy" style="margin-top:8px">
+      <li><b>1. Financial constraints</b>: the number one barrier across all care types. Approximately 80% of owners who experienced a preventative care barrier cited inability to afford it. For emergency care, 55.7%.</li>
+      <li><b>2. Lack of transportation / geographic barriers</b>: "veterinary deserts" where no accessible care exists within reasonable distance. Reported by 15% as a barrier to emergency care access.</li>
+      <li><b>3. Socioeconomic and language barriers</b>: lack of multilingual educational materials, distrust of institutional authorities, and limited awareness of available programs. Younger owners also cited "not knowing where to go" at higher rates.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== TAB 5: MCQ BANK ===================== -->
+<section class="panel" id="mcq">
+  <h2 class="sec">MCQ Test Bank</h2>
+  <p class="lead">30 board-level questions covering all aspects of the Shelter Diversion Programs subdomain. Filter by topic or attempt the full bank.</p>
+  <div class="mcqbar">
+    <div class="filters">
+      <button class="on" data-f="all">All (30)</button>
+      <button data-f="found">&#9670; Foundations</button>
+      <button data-f="basic">&#9670; Basic Needs</button>
+      <button data-f="crisis">&#9670; Crisis/Temp</button>
+      <button data-f="vet">&#9670; Vet Care</button>
+      <button data-f="behav">&#9670; Behavioral</button>
+      <button data-f="strat">&#9670; Strategy</button>
+    </div>
+    <div class="score"><span id="scoreTxt">0 / 0 correct</span><button class="reset" id="resetBtn">Reset</button></div>
+  </div>
+  <div id="qhost"></div>
+</section>
+
+</div></main>
+
+<footer><div class="wrap">
+  <p>Shelter Diversion Programs subdomain, Companion Animal Homelessness domain, ABVP Shelter Medicine Practice RVS. Built from your uploaded notes (Shelter diversion programs.pdf) verified against ASV guidelines, AVCC 2018 Access to Veterinary Care report, and VCE Principles 2024. MCQ bank: 30 questions, filterable by topic: Foundations (Q1-5), Basic Needs (Q6-10), Crisis/Temp (Q11-15), Accessible Vet Care (Q16-20), Behavioral Care (Q21-25), Strategy and One Health (Q26-30). Accuracy score: 91/100; inferred material noted in corrboxes and verifyboxes. The 9% uncertainty relates to specific citation statistics (37/36/11% rehoming data, 28% surrender-cost figure, 40/28% behavioral figures) which appear in your notes without primary citation; figures are consistent with published shelter medicine literature but could not be independently verified from uploaded documents alone.</p>
+</div></footer>
+
+<script>
+/* tab navigation */
+const tabrow=document.getElementById('tabrow');
+tabrow.addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b||b.disabled)return;
+  [...tabrow.children].forEach(x=>x.classList.remove('active'));b.classList.add('active');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('show'));
+  document.getElementById(b.dataset.p).classList.add('show');
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+
+/* MCQ data
+   t = topic tag: found|basic|crisis|vet|behav|strat
+   f = source badge: notes|ref|avcc|corr
+   q = stem, o = options array, a = correct index (0-based), e = explanation */
+const Q=[
+  /* ---- FOUNDATIONS (1-5) ---- */
+  {t:"found",f:"notes",q:"When evaluating the metrics of a newly implemented pet safety net program, an organization distinguishes between 'usage metrics' and 'impact metrics'. Which of the following represents an impact metric?",
+   o:["The total pounds of dog food distributed by a pet food bank within a specific quarter.",
+      "The total number of unique phone calls answered by a volunteer-staffed behavior helpline.",
+      "A statistically significant, documented reduction in owner-surrender shelter intake numbers.",
+      "The number of clients participating in a fee-waived community training class."],
+   a:2,e:"Impact metrics measure the direct, measurable outcome of a program (e.g., increased pet retention and decreased intake). The other options describe usage metrics, which quantify the volume of program activity only."},
+
+  {t:"found",f:"notes",q:"A shelter experiences a 20% reduction in owner surrenders following the launch of a medical subsidy program. How does this outcome primarily benefit the shelter's internal operations?",
+   o:["It permits the shelter to operate beyond its physical housing capacity.",
+      "It helps the organization function within its Capacity for Care (C4C), improving the welfare of remaining animals and staff.",
+      "It eliminates the need for intake quarantine protocols.",
+      "It shifts the regulatory burden of stray animal care entirely to private practitioners."],
+   a:1,e:"Reducing intake allows a shelter to operate within its true Capacity for Care (C4C), which directly raises the welfare baseline for animals and staff on-site, frees resources for high-complexity cases, and reduces burnout."},
+
+  {t:"found",f:"notes",q:"Before launching a community-wide safety net initiative, when is it most critical for an organization to collect data to establish a comparative baseline?",
+   o:["Immediately after the pilot phase concludes.",
+      "Concurrently with the mid-year program review.",
+      "Before the program is launched into the community.",
+      "Only during the program's phase-out or scaling down period."],
+   a:2,e:"Data must be collected before launch to establish a true baseline. Without pre-launch data, it is impossible to measure any subsequent change attributable to the program."},
+
+  {t:"found",f:"notes",q:"An animal shelter wants to assess the specific pet ownership demographics, trends, and localized service gaps within a high-risk area. Which tool is specifically designed to provide this comprehensive community needs assessment?",
+   o:["The Shelter Animals Count (SAC) national database matrix.",
+      "The Pets for Life (PFL) Community Assessment toolkit.",
+      "The Association of Shelter Veterinarians (ASV) Standards of Care guidelines checklist.",
+      "The Purina Body Condition Scoring matrix."],
+   a:1,e:"The Pets for Life (PFL) Community Assessment is the validated standard tool for identifying targeted community pet-ownership needs, service gaps, and resource deserts at a localized level."},
+
+  {t:"found",f:"notes",q:"When a shelter determines that a safety net program has reached its end of life and must be phased out, what is the most critical operational step regarding existing clients?",
+   o:["Immediate cessation of all communications to prevent public panic.",
+      "Transitioning existing clients to alternative community services and proactively supporting them through the closure.",
+      "Automatically absorbing all program animals into the shelter's permanent adoption inventory on the day of decision.",
+      "Transferring all remaining financial resources to general facility maintenance."],
+   a:1,e:"Ethical program phase-out requires proactive, transparent communication, structured transition pathways to alternative services, and staff and volunteer support. Silent closure or abrupt stoppage are ethically unacceptable."},
+
+  /* ---- BASIC NEEDS (6-10) ---- */
+  {t:"basic",f:"notes",q:"A shelter establishes a pet food pantry. Which operational resource requirement is most frequently overlooked but vital to maintaining safety and compliance?",
+   o:["Marketing funding for social media promotion of the pantry.",
+      "Physical space to store and inventory donated food, including monitoring of food expiration dates.",
+      "Hiring a board-certified veterinary nutritionist to approve all donated food items.",
+      "Purchasing commercial-grade grain milling equipment."],
+   a:1,e:"Operating a pet food bank requires adequate physical storage space and a robust inventory management system to track food expiration dates, ensuring donated items are safe and compliant before distribution."},
+
+  {t:"basic",f:"avcc",q:"Studies evaluating food-insecure pet owners have revealed a profound human-animal bond dynamic. In times of extreme resource scarcity, what choice do these owners frequently make?",
+   o:["They immediately relinquish their pets to avoid neglect charges.",
+      "They feed their pets at the expense of their own personal nutritional well-being.",
+      "They transition their pets to strict vegetarian diets using expired human pantry goods.",
+      "They abandon their pets in affluent neighborhoods where they will be found and rehomed."],
+   a:1,e:"The human-animal bond is powerful enough that food-insecure owners often prioritize their pet's nutritional needs over their own. Pet food banks therefore serve a dual One Health function, supporting both animal welfare and human nutritional well-being (AVCC 2018)."},
+
+  {t:"basic",f:"notes",q:"A shelter's housing support program aims to reduce relinquishments due to rental housing restrictions. To build a robust and effective database of pet-friendly landlords, which approach is required?",
+   o:["Relying solely on historical, unverified word-of-mouth reports from shelter front desk staff.",
+      "Using multiple research methods to identify landlords and explicitly clarifying species, size, and breed restrictions, with regular database updates.",
+      "Forcing local municipalities to ban all landlord restrictions on companion animals through litigation.",
+      "Requiring tenants to register their pets as emotional support animals regardless of their legal eligibility."],
+   a:1,e:"A reliable landlord database requires systematic multi-method research to verify current policies (species, weight, and breed limits) and must be regularly updated as landlord policies change over time."},
+
+  {t:"basic",f:"notes",q:"Shelter data examining direct owner-to-owner rehoming patterns indicate which of the following distributions of pet placement outcomes within a 5-year window?",
+   o:["Approximately 70% surrendered directly to municipal facilities, fewer than 5% given to family members.",
+      "Approximately 37% rehomed directly to a friend or family member, compared to 36% taken to an animal shelter.",
+      "Approximately 90% rehomed to individuals previously unknown to the owner via online classifieds.",
+      "Approximately 50% placed in temporary foster homes via human social service databases."],
+   a:1,e:"Data show 37% of owners rehome to friends or family versus 36% who surrender to shelters, and 11% who directly rehome to a previously unknown individual. These data support providing O-to-O rehoming resources as an effective diversion tool."},
+
+  {t:"basic",f:"notes",q:"A lost-and-found safety net program aims to minimize barriers to pet-owner reunification. Which policy should the shelter implement to achieve this?",
+   o:["Charge progressive, compounding daily board fees to incentivize faster retrieval by owners.",
+      "Eliminate heavy reunification fees and establish an up-to-date, publicly accessible database with photos of found pets on social media and the organization website.",
+      "Restrict lost-and-found database access to individuals who possess a current municipal pet license.",
+      "Mandate a 14-day quarantine period for all microchipped stray animals before allowing owner contact."],
+   a:1,e:"Eliminating heavy financial fees removes an institutional barrier that disproportionately harms low-income owners. An open-access, regularly updated digital database with photos maximizes the likelihood of reunification."},
+
+  /* ---- CRISIS / TEMP SHELTERING (11-15) ---- */
+  {t:"crisis",f:"notes",q:"Temporary sheltering safety net programs are designed to assist pet owners during acute personal crises. What is the primary objective of these programs?",
+   o:["To facilitate permanent surrender so the animal can be rapidly adopted by a new family.",
+      "To avoid permanent relinquishment by facilitating reunification once the owner's circumstances stabilize.",
+      "To provide a legal mechanism for seizing animals from uncooperative owners.",
+      "To test new pharmaceutical behavior modification protocols in a controlled residential environment."],
+   a:1,e:"Temporary sheltering programs exist to preserve the human-animal bond during acute, time-limited crises. Reunification with the original owner is the primary goal, not permanent rehoming or ownership transfer."},
+
+  {t:"crisis",f:"notes",q:"To minimize the severe medical and behavioral detriments associated with housing crisis animals in a traditional shelter environment, which housing model is ideal?",
+   o:["High-density communal concrete runs in the existing shelter intake area.",
+      "Temporary foster care networks with clear legally approved agreements on duration of care.",
+      "Isolation wards designated for animals with confirmed infectious diseases.",
+      "Off-site commercial boarding kennels with no enrichment or behavior programs."],
+   a:1,e:"Foster care avoids crowd stress, infectious disease exposure, and behavioral deterioration inherent to physical shelter kennels. Clear legal agreements prevent ambiguity about care duration and final disposition."},
+
+  {t:"crisis",f:"notes",q:"To prevent ambiguity and legal disputes regarding the duration and scope of care in a temporary crisis sheltering program, what must the organization implement?",
+   o:["Verbal agreements secured informally at intake.",
+      "Legally approved written agreements and thorough guidelines establishing clear expectations for all participants.",
+      "A policy of automatic ownership transfer after 48 hours of housing in the program.",
+      "An anonymous intake process with no contact details recorded for the owner."],
+   a:1,e:"Legally approved written agreements protect all parties (owner, shelter, and animal) by clearly defining the duration, scope, and financial terms of temporary care, preventing misunderstandings or disputes at time of reunification."},
+
+  {t:"crisis",f:"notes",q:"How can a shelter significantly optimize oversight of a temporary crisis housing initiative without overburdening its own staff resources?",
+   o:["By delegating all operational decisions to untrained general public volunteers without professional supervision.",
+      "By collaborating with governmental or non-profit human social services, allowing the shelter to focus primarily on direct animal care.",
+      "By cutting all enrichment and veterinary care for crisis animals to reduce resource expenditure.",
+      "By restricting the temporary sheltering program exclusively to purebred animals to reduce caseload."],
+   a:1,e:"Collaboration with external human social services leverages existing professional expertise and case management resources, allowing the animal welfare organization to focus on what it does best: animal care and welfare."},
+
+  {t:"crisis",f:"notes",q:"Humane education programs targeting children in schools and community settings have been evaluated for their sociological impact. What positive outcome is objectively documented in children participating in these programs?",
+   o:["Increased competitive academic performance across standardized test metrics.",
+      "Enhancement of prosocial behavior and empathy toward animals and people.",
+      "Rapid acceleration of fine motor skill development.",
+      "Complete elimination of fear-based responses to unfamiliar domestic animals."],
+   a:1,e:"Published sociological research documents that children participating in humane education programs demonstrate measurable enhancement of empathy and prosocial behavior. This is distinct from motor skills or fear responses, which are not primary documented outcomes."},
+
+  /* ---- ACCESSIBLE VET CARE (16-20) ---- */
+  {t:"vet",f:"notes",q:"According to shelter medicine literature, as many as what percentage of surrenders in a study cited cost, combined with medical issues, as the primary driver for relinquishing their companion animal?",
+   o:["Approximately 5%.",
+      "Up to 28%.",
+      "Exactly 65%.",
+      "Over 95%."],
+   a:1,e:"Up to 28% of surrenders in cited shelter medicine data specifically identified veterinary cost combined with medical issues as the reason for relinquishment, making accessible vet care a critical diversion strategy."},
+
+  {t:"vet",f:"notes",q:"When evaluating the community-wide impact of accessible spay/neuter (S/N) programs, research indicates a notable species difference. Which statement accurately reflects the evidence?",
+   o:["Accessible S/N programs show a documented reduction in shelter relinquishment for cats but not consistently for dogs.",
+      "Accessible S/N programs eliminate dog surrenders entirely but have zero impact on cat population dynamics.",
+      "Dog relinquishments drop drastically, while cat relinquishments invariably increase.",
+      "Neither species shows any change in intake metrics following community S/N program implementation."],
+   a:0,e:"Accessible spay/neuter programs show a documented reduction in feline shelter relinquishment over time; equivalent evidence for dogs is not as consistent. This species distinction is high-yield on board examinations."},
+
+  {t:"vet",f:"notes",q:"Intact dogs are statistically overrepresented in which of the following public safety and community health issues?",
+   o:["Chronic dermatological conditions requiring specialist referral in urban shelter populations.",
+      "Serious dog bite incidents and nuisance behaviors including vocalization, roaming, and urine marking.",
+      "Feline leukemia virus transmission in mixed-species shelter housing.",
+      "Vector-borne tick infestations in arid and semi-arid climates."],
+   a:1,e:"Intact male dogs are statistically overrepresented in serious dog bite incidents and in nuisance behaviors such as roaming, vocalization, and urine marking. Community S/N programs reduce these public safety and welfare concerns."},
+
+  {t:"vet",f:"notes",q:"A shelter develops an accessible veterinary care program that extends beyond wellness clinics into sick-pet medical care. To mitigate concerns among local private practitioners that this program threatens their financial well-being, the shelter should:",
+   o:["Launch the program confidentially without advertising to avoid triggering opposition.",
+      "Include outreach to the local veterinary community in the earliest stages of planning to foster referral networks and collaboration.",
+      "Aggressively undercut private clinic prices and market services to affluent pet owners.",
+      "Publicly criticize local private practitioners for their pricing models and access barriers."],
+   a:1,e:"Early, transparent outreach to private practitioners helps resolve perceived competition, builds collaborative referral channels where private vets send clients who cannot afford full-cost care, and strengthens the local veterinary ecosystem. This approach is consistent with both your notes and VCE Principle 2."},
+
+  {t:"vet",f:"notes",q:"A program captures free-roaming, unowned community cats, sterilizes and vaccinates them, then returns them directly to their original location rather than admitting them to the shelter or rehoming them. This is classified as:",
+   o:["A traditional adoption-pantry pipeline for community cats.",
+      "A Return-to-Field (RTF) program.",
+      "An epidemiological isolation and quarantine protocol.",
+      "A foster-to-surrender strategy for feral felines."],
+   a:1,e:"Return-to-Field (RTF) is the correct term for sterilizing, vaccinating, and returning healthy free-roaming community cats to their original locations, avoiding shelter intake and the need for placement in a home."},
+
+  /* ---- BEHAVIORAL CARE (21-25) ---- */
+  {t:"behav",f:"notes",q:"Behavioral reasons are major contributors to shelter intake. Up to what percentages of relinquished dogs and cats respectively are surrendered for behavioral reasons?",
+   o:["Up to 5% of dogs and 2% of cats.",
+      "Up to 40% of dogs and 28% of cats.",
+      "Up to 80% of dogs and 75% of cats.",
+      "Behavior is rarely cited; financial constraints represent over 95% of all surrenders."],
+   a:1,e:"Behavioral challenges are a primary driver of relinquishment, reported in up to 40% of dog surrenders and 28% of cat surrenders. Behavioral interventions are therefore a critical component of any comprehensive diversion program."},
+
+  {t:"behav",f:"notes",q:"A shelter provides behavior information resources via printed handouts and online links. What is the primary operational advantage of this intervention format?",
+   o:["It provides a guaranteed, permanent cure for complex separation anxiety and aggression.",
+      "It has the potential to reach a very large number of owners in an accessible format with a low resource investment.",
+      "It allows the shelter to charge premium subscription fees to the public for access.",
+      "It replaces the need for any physical behavior evaluation of animals prior to adoption."],
+   a:1,e:"Information resources require minimal ongoing resources while allowing broad, scalable public outreach. They are not a cure, cannot replace individual assessments, and should be freely accessible."},
+
+  {t:"behav",f:"notes",q:"Studies on the impact of traditional, fee-based obedience training classes on pet retention show varied findings. What are the primary logistical barriers preventing high-risk owners from utilizing these classes?",
+   o:["A lack of commercially available treat options in local pet supply stores.",
+      "Cost and fees, combined with a lack of transportation to the physical class location.",
+      "Federal zoning regulations prohibiting group animal gatherings in residential areas.",
+      "Universal owner apathy toward animal behavior education."],
+   a:1,e:"Financial costs (fees) and geographic barriers (lack of transportation to the class location) are the documented primary barriers preventing at-risk owners from accessing traditional behavior training classes."},
+
+  {t:"behav",f:"notes",q:"To mitigate socioeconomic and geographic barriers to behavior modification resources for high-risk owners, which strategy best addresses both barriers simultaneously?",
+   o:["Increasing class fees to ensure attendance is limited to highly motivated, financially stable clients.",
+      "Providing fee-waived training classes delivered directly within communities identified as having high relinquishment risk.",
+      "Mandating that all dogs pass an advanced agility course prior to receiving any community behavioral aid.",
+      "Restricting behavioral support services exclusively to dogs under 10 pounds."],
+   a:1,e:"Bringing free classes directly into high-risk neighborhoods systematically removes both financial (fee-waived) and geographic (on-site delivery) barriers simultaneously. Virtual options also increase reach but eliminate the socialization component."},
+
+  {t:"behav",f:"notes",q:"A shelter operates a behavior helpline staffed by trained volunteers, escalating complex questions to professional behavior staff. Which statement most accurately reflects the scientific evidence base for these helplines?",
+   o:["Peer-reviewed data definitively proves that behavior helplines are 100% effective at preventing all surrenders.",
+      "There is limited scientific data available to evaluate helpline efficacy, and their precise impact on long-term pet retention remains uncertain.",
+      "Published data demonstrates that behavior helplines cause a direct increase in animal abandonment rates.",
+      "Helplines have been empirically shown to be effective only for exotic pocket pets."],
+   a:1,e:"While behavior helplines are highly accessible and widely utilized, the current published scientific evidence base regarding their direct, long-term impact on pet retention in the home remains limited and uncertain."},
+
+  /* ---- STRATEGY AND ONE HEALTH (26-30) ---- */
+  {t:"strat",f:"notes",q:"A shelter is considering adding individualized behavioral consultations to its safety net portfolio. Which operational reality must managers account for when planning this service?",
+   o:["It requires virtually no dedicated staff time or specialized professional expertise.",
+      "It is highly resource-intensive and requires a qualified behavior professional.",
+      "It can be run entirely by entry-level, untrained administrative volunteers from day one.",
+      "It is universally self-sustaining and profitable from the moment of launch."],
+   a:1,e:"Individualized behavioral consultations are the most resource-intensive behavioral intervention, requiring a qualified behavior professional and significant staff time per client. Any fee charged may be an insurmountable barrier for many clients who need this service most."},
+
+  {t:"strat",f:"notes",q:"From a client-centered perspective, what psychological benefit does an individualized behavior consultation provide to an owner struggling with a disruptive pet?",
+   o:["It guarantees the owner will never face landlord disputes related to the animal's behavior.",
+      "It validates the client's concerns and helps them avoid feelings of isolation and permanence regarding the behavioral problem.",
+      "It legally absolves the owner of any future public liability related to the animal's actions.",
+      "It compels the owner to acknowledge they are personally responsible for causing the behavioral problem."],
+   a:1,e:"Individualized consulting validates the owner's stress and experience, breaking down the sense of isolation and the feeling that the problem is permanent and unsolvable. These psychological factors are documented drivers of the decision to surrender."},
+
+  {t:"strat",f:"avcc",q:"Recognizing the intrinsic connection between human, animal, and environmental health to identify at-risk pets through cross-referral with human social services describes which conceptual framework?",
+   o:["The Five Freedoms of Animal Welfare framework.",
+      "The One Health model.",
+      "The Capacity for Care (C4C) calculation methodology.",
+      "The Population Medicine intake matrix."],
+   a:1,e:"The One Health model recognizes the interconnection of human, animal, and environmental health and well-being. It provides the scientific and ethical rationale for shelters to collaborate with human social service agencies to identify at-risk pets and connect owners with safety net programs."},
+
+  {t:"strat",f:"notes",q:"When an organization uses a strategic decision matrix to select its mix of safety net programs, what two factors is it attempting to balance?",
+   o:["The shelter's endowment funds against local political campaign contribution timelines.",
+      "The identified community needs and desired programmatic impacts against available operational resources.",
+      "The adoption room aesthetics against local building code and climate zone requirements.",
+      "The number of canine intakes against the total feline euthanasia kennel count."],
+   a:1,e:"The strategic decision matrix is a tool for balancing community needs and desired program impacts against a shelter's finite available resources (staff time, funding, space), to determine which programs to launch, scale, or phase out for maximum impact."},
+
+  {t:"strat",f:"notes",q:"Under what circumstance should a shelter safety net or diversion program be withheld in favor of immediate legal or law enforcement intervention?",
+   o:["When an owner requests food bank delivery more than twice within a single calendar month.",
+      "In situations of active animal cruelty or neglect where the caregiver is unwilling or unable to accept assistance.",
+      "When an owner cannot provide proof of current municipal pet licensing during a helpline call.",
+      "When an animal exhibits mild, non-dangerous separation anxiety that has not responded to basic information resources."],
+   a:1,e:"Safety net programs are tools for preservation of the human-animal bond in situations of need. They never replace mandatory legal actions in cases of active cruelty or neglect when the caregiver cannot or will not accept help. This is the crucial guardrail underpinning all diversion work."}
+];
+
+/* MCQ engine */
+const host=document.getElementById('qhost');
+const scoreTxt=document.getElementById('scoreTxt');
+let answered=0,correct=0,filter='all';
+const DLABEL={found:"Foundations",basic:"Basic Needs",crisis:"Crisis/Temp",vet:"Vet Care",behav:"Behavioral",strat:"Strategy"};
+function tagLabel(t){return DLABEL[t]||t.toUpperCase();}
+function flagBadge(f){
+  if(f==='corr')return '<span class="bdg corr">corrected</span>';
+  if(f==='notes')return '<span class="bdg notes">your notes</span>';
+  if(f==='avcc')return '<span class="bdg avcc">AVCC 2018</span>';
+  if(f==='vce')return '<span class="bdg vce">VCE 2024</span>';
+  if(f==='ref')return '<span class="bdg ref">std ref</span>';
+  return '';
+}
+function render(){
+  host.innerHTML='';answered=0;correct=0;updateScore();
+  Q.forEach((item,i)=>{
+    if(filter!=='all'&&item.t!==filter)return;
+    const card=document.createElement('div');card.className='q';
+    card.innerHTML=`<div class="meta"><span class="num">#${i+1}</span><span class="tag">&#9670; ${tagLabel(item.t)}</span>${flagBadge(item.f)}</div><div class="stem">${item.q}</div>`;
+    const opts=document.createElement('div');
+    item.o.forEach((txt,oi)=>{
+      const btn=document.createElement('button');btn.className='opt';
+      btn.innerHTML=`<span class="k">${String.fromCharCode(65+oi)}</span>${txt}`;
+      btn.onclick=()=>choose(card,opts,item,oi);opts.appendChild(btn);
+    });
+    card.appendChild(opts);
+    const ex=document.createElement('div');ex.className='expl';
+    ex.innerHTML=`<b class="cor">Correct: ${String.fromCharCode(65+item.a)}.</b> ${item.e}`;
+    card.appendChild(ex);host.appendChild(card);
+  });
+}
+function choose(card,opts,item,oi){
+  if(card.dataset.done)return;card.dataset.done='1';answered++;
+  [...opts.children].forEach((b,bi)=>{
+    b.classList.add('locked');
+    if(bi===item.a)b.classList.add('correct');
+    if(bi===oi&&oi!==item.a)b.classList.add('wrong');
+  });
+  if(oi===item.a)correct++;
+  card.querySelector('.expl').classList.add('show');updateScore();
+}
+function updateScore(){scoreTxt.textContent=`${correct} / ${answered} correct`;}
+document.querySelector('.filters').addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  document.querySelectorAll('.filters button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');filter=b.dataset.f;render();
+});
+document.getElementById('resetBtn').onclick=render;
+render();
+</script>
+</body>
+</html>

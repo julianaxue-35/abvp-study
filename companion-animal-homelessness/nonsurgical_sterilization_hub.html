@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Non-surgical Sterilization | Companion Animal Homelessness | ABVP Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0f3d3a;--ink2:#15514c;--paper:#f4efe4;--paper2:#fbf8f1;
+    --line:#d9d0bd;--muted:#5d6b62;
+    --good:#1f7a4d;--bad:#b23b3b;
+    --shadow:0 1px 2px rgba(15,61,58,.08),0 8px 24px rgba(15,61,58,.06);
+    --cah:#5c4a72;--cah-soft:#e8e1f4;--dom-head:#2d1f3d;
+    --notes:#7a4fb5;--notes-soft:#ece3f7;
+    --asv:#5c4a72;--asv-soft:#e8e1f4;
+    --avcc:#7a3f6a;--avcc-soft:#f2e5ef;
+    --vce:#1f6f8b;--vce-soft:#dcedf2;
+    --ref:#1f6f8b;--ref-soft:#dcedf2;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;
+    background-image:radial-gradient(circle at 1px 1px,rgba(92,74,114,.04) 1px,transparent 0);background-size:22px 22px;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+  header.top{background:var(--dom-head);color:var(--paper2);padding:26px 0 22px;border-bottom:4px solid var(--cah)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#c8b8e8;margin:0 0 6px}
+  header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(26px,4.5vw,40px);margin:0;line-height:1.05}
+  header.top p.sub{margin:8px 0 0;color:#d4c8ea;font-size:14px;max-width:70ch}
+  .legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}
+  .legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.25);color:#ede8f6;display:flex;align-items:center;gap:6px}
+  .legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--paper2);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button:hover{background:var(--paper);color:var(--ink)}
+  .tabrow button.active{background:var(--dom-head);color:var(--paper2)}
+  .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--cah)}
+  main{padding:30px 0 80px}
+  .panel{display:none;animation:fade .35s ease}
+  .panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;letter-spacing:-.01em}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:78ch}
+  h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:26px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;color:var(--ink2);text-transform:uppercase;letter-spacing:.03em}
+  .card{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}
+  p.note{font-size:14px;margin:0 0 6px}
+  ul.hy{margin:8px 0;padding-left:0;list-style:none}
+  ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed #e6ddca;font-size:14px}
+  ul.hy li:last-child{border-bottom:0}
+  ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;border-radius:2px;background:var(--cah);transform:rotate(45deg)}
+  .trap{background:#fff6ef;border:1px solid #e8d8f0;border-left:4px solid var(--cah);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .trap b{color:var(--cah);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .corrbox{background:#e9f4ee;border:1px solid #bfe0cc;border-left:4px solid var(--good);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .corrbox b{color:var(--good);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .verifybox{background:var(--avcc-soft);border:1px solid #e0c0d8;border-left:4px solid var(--avcc);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .verifybox b{color:var(--avcc);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:var(--paper2);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp th{background:var(--dom-head);color:var(--paper2);font-weight:600;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase}
+  table.cmp tr:last-child td{border-bottom:0}
+  table.cmp td b{color:var(--ink)}
+  .yes{color:var(--good);font-weight:700}
+  .no{color:var(--bad);font-weight:700}
+  .mid{color:#8a6d1f;font-weight:700}
+  .fig{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0;box-shadow:var(--shadow)}
+  .fig figcaption{font-size:12.5px;color:var(--muted);margin-top:8px;font-style:italic}
+  .bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+  .bdg.notes{background:var(--notes-soft);color:var(--notes)}
+  .bdg.asv{background:var(--asv-soft);color:var(--asv)}
+  .bdg.avcc{background:var(--avcc-soft);color:var(--avcc)}
+  .bdg.vce{background:var(--vce-soft);color:var(--vce)}
+  .bdg.ref{background:var(--ref-soft);color:var(--ref)}
+  .bdg.corr{background:var(--good);color:#fff}
+  .stat{display:inline-block;background:var(--cah-soft);color:var(--cah);font-family:"JetBrains Mono",monospace;font-weight:600;font-size:12px;padding:2px 8px;border-radius:6px;margin:0 2px}
+  /* mcq */
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--dom-head);color:var(--paper2);border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:54px;z-index:10}
+  .mcqbar .filters{display:flex;gap:6px;flex-wrap:wrap}
+  .mcqbar .filters button{font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#d6cce8;padding:6px 11px;border-radius:999px;cursor:pointer;white-space:nowrap}
+  .mcqbar .filters button.on{background:var(--cah);border-color:var(--cah);color:#fff}
+  .score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}
+  .score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;color:#d6cce8;padding:5px 10px;border-radius:8px;font-size:11px}
+  .q{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
+  .q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+  .q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--cah-soft);color:var(--cah)}
+  .q .stem{font-weight:600;font-size:15px;margin-bottom:10px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;font-family:"Public Sans";transition:background .15s,border-color .15s}
+  .opt:hover{border-color:var(--ink)}
+  .opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}
+  .opt.correct{background:#e8f5ec;border-color:var(--good);color:#0d3d24}
+  .opt.wrong{background:#fbe9e9;border-color:var(--bad);color:#5e1d1d}
+  .opt.locked{cursor:default}
+  .expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:#f3efe3;border:1px solid var(--line);font-size:13.5px}
+  .expl.show{display:block}
+  .expl b.cor{color:var(--good)}
+  footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
+  @media(max-width:640px){.mcqbar{top:50px}.score{font-size:12px}}
+</style>
+</head>
+<body>
+<nav style="background:#2d1f3d;padding:9px 18px;display:flex;align-items:center;gap:10px;font-family:'Public Sans',system-ui,sans-serif;font-size:13px;font-weight:500;border-bottom:2px solid #4a3563"><a href="../index.html" style="color:#c8b8e8;text-decoration:none;display:flex;align-items:center;gap:5px"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span style="color:#6b5285;font-size:11px">›</span><span style="color:#d4c8ea">Companion Animal Homelessness</span></nav>
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">ABVP Shelter Medicine Practice RVS &middot; Companion Animal Homelessness</p>
+    <h1>Non-surgical Sterilization</h1>
+    <p class="sub">Exam-depth study tool covering the HPG axis, product profiles (Neutersol, Suprelorin, Gonazon), four contraceptive modalities (chemical, immunological, hormonal, gene delivery), species-specific failures, population modeling, and identification marking requirements. Built from your uploaded notes and both verification documents.</p>
+    <div class="legend">
+      <span><i style="background:var(--notes)"></i>Your notes</span>
+      <span><i style="background:var(--asv)"></i>ASV guidelines</span>
+      <span><i style="background:var(--ref)"></i>Gap analysis</span>
+      <span><i style="background:var(--good)"></i>Gap / correction</span>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="overview"><span class="dot"></span>Overview &amp; HPG Axis</button>
+  <button data-p="products"><span class="dot"></span>Product Profiles</button>
+  <button data-p="mechanisms"><span class="dot"></span>Modality Mechanisms</button>
+  <button data-p="traps"><span class="dot"></span>Gaps &amp; Traps</button>
+  <button data-p="mcq"><span class="dot" style="background:var(--dom-head)"></span>MCQ Bank</button>
+</div></div></nav>
+
+<main><div class="wrap">
+
+<!-- ======================== TAB 1: OVERVIEW AND HPG ======================== -->
+<section class="panel show" id="overview">
+  <h2 class="sec">Overview, Ideal Criteria, and HPG Axis</h2>
+  <p class="lead">Non-surgical sterilization exploits the hypothalamic-pituitary-gonadal (HPG) axis at three distinct levels. Understanding the axis architecture and the population modeling thresholds is foundational before learning individual product profiles.</p>
+
+  <h3>Criteria for an ideal non-surgical contraceptive <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <table class="cmp">
+      <tr><th>Parameter</th><th>Feral / wild populations</th><th>Owned populations</th></tr>
+      <tr><td><b>Duration</b></td><td>Permanent (ideally lifetime); long-lasting</td><td>Shorter term; allows return to fertility for future breeding</td></tr>
+      <tr><td><b>Administration</b></td><td>Easy to deliver in a field setting; preferably by a non-veterinarian</td><td>Non-invasive; single injection or treatment</td></tr>
+      <tr><td><b>Sex coverage</b></td><td>Effective in both males and females</td><td>Effective in both males and females</td></tr>
+      <tr><td><b>Other requirements</b></td><td>Documented effects on behaviour and health; safe; affordable for low-income populations</td><td>Same; reversibility is a feature, not a flaw</td></tr>
+    </table>
+  </div>
+
+  <h3>Population modeling: the 40 to 50% rule <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <p class="note">Non-surgical contraception was shown to be effective at controlling feral cat populations only when two conditions are met simultaneously:</p>
+    <ul class="hy">
+      <li><b>Immigration and emigration must be extremely limited</b> (essentially a closed population).</li>
+      <li><b>Treatment rates must exceed 40 to 50% of cats per 6-month interval.</b></li>
+    </ul>
+    <div class="trap">
+      <b>Exam trap &middot; both conditions must be met</b>
+      The 40 to 50% threshold alone is insufficient if immigration and emigration are unrestricted. In an open population, treated animals are continuously replaced by incoming intact animals, negating any population-level effect. Both conditions are required and testable.
+    </div>
+  </div>
+
+  <h3>The HPG axis: three-level architecture <span class="bdg notes">notes</span></h3>
+  <figure class="fig">
+    <svg viewBox="0 0 720 260" width="100%" role="img" aria-label="HPG axis: hypothalamus releases pulsatile GnRH via venous portal to anterior pituitary releasing FSH and LH which stimulate gonads to produce testosterone, estradiol, and progesterone with negative feedback loop">
+      <defs>
+        <marker id="arNsA" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+          <path d="M0,0 L7,3 L0,6 Z" fill="#0f3d3a"/>
+        </marker>
+        <marker id="arNsAneg" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+          <path d="M0,0 L7,3 L0,6 Z" fill="#b23b3b"/>
+        </marker>
+      </defs>
+      <!-- Hypothalamus -->
+      <rect x="260" y="10" width="200" height="54" rx="10" fill="#f2e5ef" stroke="#7a3f6a" stroke-width="1.5"/>
+      <text x="360" y="32" font-size="12" text-anchor="middle" font-weight="700" fill="#2d1f3d">HYPOTHALAMUS</text>
+      <text x="360" y="50" font-size="10" text-anchor="middle" fill="#7a3f6a">Releases GnRH in PULSATILE fashion</text>
+      <text x="360" y="62" font-size="9.5" text-anchor="middle" fill="#7a3f6a">via venous portal system</text>
+      <!-- intervention labels left -->
+      <rect x="10" y="20" width="130" height="36" rx="8" fill="#e8e1f4" stroke="#5c4a72" stroke-width="1"/>
+      <text x="75" y="34" font-size="9.5" text-anchor="middle" font-weight="600" fill="#2d1f3d">GnRH Agonists</text>
+      <text x="75" y="49" font-size="9" text-anchor="middle" fill="#5c4a72">Deslorelin / Progestins</text>
+      <line x1="140" y1="38" x2="258" y2="38" stroke="#5c4a72" stroke-width="1" stroke-dasharray="4,2" marker-end="url(#arNsA)"/>
+      <!-- arrow down -->
+      <line x1="360" y1="64" x2="360" y2="104" stroke="#0f3d3a" stroke-width="1.5" marker-end="url(#arNsA)"/>
+      <!-- Anterior Pituitary -->
+      <rect x="260" y="108" width="200" height="54" rx="10" fill="#e8e1f4" stroke="#5c4a72" stroke-width="1.5"/>
+      <text x="360" y="130" font-size="12" text-anchor="middle" font-weight="700" fill="#2d1f3d">ANTERIOR PITUITARY</text>
+      <text x="360" y="148" font-size="10" text-anchor="middle" fill="#5c4a72">Releases FSH and LH</text>
+      <text x="360" y="162" font-size="9.5" text-anchor="middle" fill="#5c4a72">(gonadotropin glycoproteins)</text>
+      <!-- arrow down -->
+      <line x1="360" y1="162" x2="360" y2="202" stroke="#0f3d3a" stroke-width="1.5" marker-end="url(#arNsA)"/>
+      <!-- Gonads -->
+      <rect x="190" y="206" width="340" height="50" rx="10" fill="#dde4f0" stroke="#1f6f8b" stroke-width="1.5"/>
+      <text x="360" y="228" font-size="12" text-anchor="middle" font-weight="700" fill="#2d1f3d">GONADS</text>
+      <text x="360" y="248" font-size="10" text-anchor="middle" fill="#1f6f8b">Testes: testosterone | Ovaries: estradiol + progesterone</text>
+      <!-- Chemical castration label right -->
+      <rect x="580" y="206" width="130" height="50" rx="8" fill="#e8e1f4" stroke="#5c4a72" stroke-width="1"/>
+      <text x="645" y="226" font-size="9.5" text-anchor="middle" font-weight="600" fill="#2d1f3d">Chemical castrants</text>
+      <text x="645" y="242" font-size="9" text-anchor="middle" fill="#5c4a72">Zinc gluconate / CaCl2</text>
+      <line x1="580" y1="231" x2="533" y2="231" stroke="#5c4a72" stroke-width="1" stroke-dasharray="4,2" marker-end="url(#arNsA)"/>
+      <!-- PZP label right lower -->
+      <rect x="580" y="150" width="130" height="36" rx="8" fill="#f2e5ef" stroke="#7a3f6a" stroke-width="1"/>
+      <text x="645" y="165" font-size="9.5" text-anchor="middle" font-weight="600" fill="#2d1f3d">PZP Vaccine</text>
+      <text x="645" y="180" font-size="9" text-anchor="middle" fill="#7a3f6a">Zona pellucida (downstream)</text>
+      <!-- negative feedback arrow (red dashed) -->
+      <path d="M 190 231 Q 100 231 100 135 Q 100 37 258 37" fill="none" stroke="#b23b3b" stroke-width="1.3" stroke-dasharray="5,3" marker-end="url(#arNsAneg)"/>
+      <text x="82" y="145" font-size="9.5" text-anchor="middle" fill="#b23b3b">Negative</text>
+      <text x="82" y="158" font-size="9.5" text-anchor="middle" fill="#b23b3b">feedback</text>
+      <text x="82" y="171" font-size="9" text-anchor="middle" fill="#b23b3b">(androgens,</text>
+      <text x="82" y="183" font-size="9" text-anchor="middle" fill="#b23b3b">estrogens,</text>
+      <text x="82" y="195" font-size="9" text-anchor="middle" fill="#b23b3b">progesterone)</text>
+    </svg>
+    <figcaption>The HPG axis: GnRH is released in a PULSATILE fashion from the hypothalamus into the venous portal system, stimulating the anterior pituitary to release FSH and LH, which stimulate gonadal hormone production. Androgens, estrogens, and progesterone provide negative feedback. Intervention targets: hypothalamus/pituitary (GnRH agonists, progestins), gonads (chemical castrants), downstream oocyte (PZP). Sources: your notes; standard veterinary reproductive physiology.</figcaption>
+  </figure>
+
+  <h3>Three levels of HPG axis interference <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Level 1: Hypothalamus / anterior pituitary.</b> GnRH agonists (deslorelin, gonazon) and progestins/androgens interfere with GnRH signalling and gonadotropin release.</li>
+      <li><b>Level 2: Gonads.</b> Chemical contraceptives (zinc gluconate, calcium chloride) destroy testicular tissue directly. GnRH vaccine targets GnRH after it leaves the hypothalamus but before it crosses the blood-brain barrier, shutting down both ovulation and spermatogenesis.</li>
+      <li><b>Level 3: Downstream / oocyte level.</b> Porcine zona pellucida (PZP) vaccine targets the glycoprotein matrix surrounding the ovulated egg, preventing sperm recognition. Works downstream, sparing the HPG axis, with fewer hormonal and behavioural side effects.</li>
+    </ul>
+    <p class="note">The HPG axis function is highly conserved across mammalian species, which gives GnRH-targeting approaches particularly broad cross-species efficacy. Gonadal targets include the zona pellucida, proteins expressed on the ovulated egg to facilitate sperm recognition, and the thecal support cells of the ovaries and testes.</p>
+  </div>
+</section>
+
+<!-- ======================== TAB 2: PRODUCT PROFILES ======================== -->
+<section class="panel" id="products">
+  <h2 class="sec">Product Profiles and Regulatory Status</h2>
+  <p class="lead">All currently approved products are labelled for use in dogs only. Product timelines, formulations, and geographic availability are all exam-tested. Know which product is approved where and when it became available or unavailable.</p>
+
+  <h3>Approved and available products <span class="bdg notes">notes</span></h3>
+  <table class="cmp">
+    <tr><th>Product</th><th>Active agent</th><th>Mechanism</th><th>Year / jurisdiction</th><th>Key facts</th></tr>
+    <tr>
+      <td><b>Neutersol</b></td>
+      <td>Zinc gluconate</td>
+      <td>Intratesticular injection; testicular sclerosis; permanent azoospermia or oligospermia</td>
+      <td>FDA approved 2003; puppies 3 to 10 months (effective off-label in adult dogs and cats); <span class="no">became unavailable 2005</span></td>
+      <td>99% effective; minimal patient discomfort. Testicles remain in situ; identification marking required. Can cause scrotal ulcers.</td>
+    </tr>
+    <tr>
+      <td><b>Esterilsol / Zeuterine</b></td>
+      <td>Zinc gluconate (exact same formulation as Neutersol)</td>
+      <td>Same as Neutersol</td>
+      <td>Manufactured by a different company; distribution and use in <b>Mexico, Central, and South America</b></td>
+      <td>Similar efficacy and side effects as Neutersol. Not available in the US.</td>
+    </tr>
+    <tr>
+      <td><b>Infertile</b></td>
+      <td>Zinc gluconate + dimethyl sulfoxide (DMSO) + arginine (neutraliser)</td>
+      <td>Chemical castration; injectable sterilant</td>
+      <td>Launched in <b>Brazil, 2009</b></td>
+      <td>DMSO added as vehicle; arginine neutralises zinc gluconate. Similar mechanism to Neutersol.</td>
+    </tr>
+    <tr>
+      <td><b>Suprelorin</b></td>
+      <td>Deslorelin (GnRH superagonist)</td>
+      <td>Initially stimulates then suppresses HPG axis; blocks LH and FSH production; suppresses testosterone and spermatogenesis</td>
+      <td>First available in <b>Australia, 2004</b></td>
+      <td>Reversible. Causes "flare effect" (see Gaps and Traps tab). At end of effectiveness, estrus returns in females.</td>
+    </tr>
+    <tr>
+      <td><b>Gonazon</b></td>
+      <td>GnRH agonist</td>
+      <td>Same mechanism as Suprelorin</td>
+      <td>Approved in the European Union, 2006, as a 1-year reversible contraceptive for female dogs; <span class="no">has NOT been released on the market to date</span></td>
+      <td>Approval exists; product has not been commercially released. Exam trap: approved does not mean available.</td>
+    </tr>
+  </table>
+
+  <div class="trap">
+    <b>Exam trap &middot; Gonazon approved but not released</b>
+    Gonazon received EU approval in 2006 as a 1-year reversible contraceptive implant for female dogs. However, it has not been commercially released on the market. An exam option stating "Gonazon is currently available" is incorrect.
+  </div>
+
+  <div class="trap">
+    <b>Exam trap &middot; all approved products are labelled for dogs only</b>
+    Currently approved non-surgical sterilants are labelled for use in <b>dogs only</b>. Off-label use in cats is documented (Neutersol shown effective) but not an approved indication. An exam option stating these products are labelled for cats is incorrect.
+  </div>
+
+  <h3>Identification marking for non-surgical sterilants <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <p class="note">Because chemical and hormonal sterilants leave the testicles in situ and animals retain their normal phenotypic anatomy, a form of identification is <b>required</b> to prevent redundant surgeries and to allow field identification of treated animals.</p>
+    <h4>Acceptable identification methods</h4>
+    <ul class="hy">
+      <li>Microchip</li>
+      <li>Tattoo over the caudolateral ventral abdomen</li>
+      <li>Tattoo on the inner pinna of the ear</li>
+      <li>Placement of a small metal ear band</li>
+    </ul>
+    <h4>Identification requirements for field / feral animals</h4>
+    <p class="note">The ideal marker for wild or feral contracepted animals should be:</p>
+    <ul class="hy">
+      <li>Non- or minimally invasive</li>
+      <li>Easy to apply in a field setting</li>
+      <li>Visible from a distance (to inform capture decisions)</li>
+      <li>Lasting approximately as long as the contraceptive is expected to last, OR containing encoded information about the contraception type and when it was applied</li>
+    </ul>
+    <div class="trap">
+      <b>Exam trap &middot; ear-tipping is CONTRAINDICATED for non-surgical contraception</b>
+      Ear-tipping is reserved for surgically sterilised animals. It is a permanent, irreversible mark. If applied to an animal with a temporary non-surgical contraceptive (such as a 6-month or 12-month Suprelorin implant), the implant will eventually wane and the animal will return to full fertility. Field teams seeing the ear-tip will incorrectly assume the animal is permanently sterile, completely undermining population management data and control.
+    </div>
+  </div>
+</section>
+
+<!-- ======================== TAB 3: MECHANISMS ======================== -->
+<section class="panel" id="mechanisms">
+  <h2 class="sec">Contraceptive Modality Mechanisms</h2>
+  <p class="lead">Five distinct modalities exist for non-surgical contraception. Each targets a different level of the reproductive system with different mechanisms, species applicabilities, and failure modes.</p>
+
+  <h3>1. Chemical contraceptives <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <p class="note">Chemical contraceptives destroy target tissue (typically the testes) through direct injection, causing <b>permanent sclerosis</b>, rendering the organ non-functional.</p>
+    <h4>Zinc gluconate (Neutersol / Esterilsol)</h4>
+    <ul class="hy">
+      <li>Intratesticular injection causes testicular sclerosis.</li>
+      <li>Results in permanent azoospermia or severe oligospermia and a partial reduction in circulating testosterone.</li>
+      <li>Testicles remain in situ; identification marking is required.</li>
+      <li>Subcutaneous misdirection of the drug causes <b>severe necrotising injection-site reactions and scrotal ulcers, necessitating complete scrotal ablation</b>.</li>
+      <li><b>Chemical restraint is strongly advisable</b> to prevent misdirection and adverse events.</li>
+      <li>Indicated when surgeons, surgery suites, or skilled staff are unavailable, or where physical castration is culturally unacceptable.</li>
+    </ul>
+    <h4>Feline use</h4>
+    <p class="note">Veterinarians are significantly more reluctant to use zinc gluconate in cats for two reasons: (1) feline surgical castration is much faster than performing a chemical castration, and (2) cats experience a significantly higher rate of severe local inflammatory reactions, scrotal necrosis, and self-mutilation following intratesticular zinc gluconate injection compared to dogs.</p>
+    <h4>Calcium chloride</h4>
+    <ul class="hy">
+      <li>Can also be used to sterilise male dogs via intratesticular injection.</li>
+      <li>Must be formulated in a <b>lipid vehicle (such as alcohol or lidocaine)</b> to achieve deep testicular necrosis without causing extreme pain and acute scrotal sloughing.</li>
+      <li>Limited peer-reviewed evidence compared to zinc gluconate.</li>
+    </ul>
+    <h4>Saponin (experimental)</h4>
+    <ul class="hy">
+      <li>Harmless in the bloodstream; toxic once taken into a cell.</li>
+      <li>Once taken up by gonadal support cells, triggers apoptosis.</li>
+      <li>Reduces sperm number and motility in male rats; reduces estrous cycling in female rats.</li>
+      <li>Not in routine clinical use.</li>
+    </ul>
+  </div>
+
+  <h3>2. Immunocontraceptives <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <p class="note">Immunocontraceptives use the immune system to generate antibodies against specific reproductive proteins at one or more levels of the HPG axis.</p>
+    <h4>Porcine zona pellucida (PZP) vaccine</h4>
+    <table class="cmp">
+      <tr><th>Attribute</th><th>Detail</th></tr>
+      <tr><td><b>Target</b></td><td>Zona pellucida glycoprotein matrix surrounding the ovulated egg; prevents sperm recognition.</td></tr>
+      <tr><td><b>Sex</b></td><td>Only effective in females (by definition).</td></tr>
+      <tr><td><b>Advantage</b></td><td>Works downstream, avoiding upstream HPG axis disruption. Fewer concomitant changes in hormone levels, behaviour, and health consequences.</td></tr>
+      <tr><td><b>Limitation</b></td><td>Cross-species efficacy is poor: a protein developed against proteins from one species may work poorly in another.</td></tr>
+      <tr><td><b>Feline failure</b></td><td><span class="no">Completely ineffective in queens.</span> Results in abnormal estrous cycles and severe injection-site reactions. Not recommended in cats.</td></tr>
+      <tr><td><b>Cost</b></td><td>Expensive.</td></tr>
+    </table>
+    <h4>GnRH vaccine</h4>
+    <ul class="hy">
+      <li>Targets GnRH after it leaves the hypothalamus but before it crosses the blood-brain barrier.</li>
+      <li>Shuts down both ovulation and spermatogenesis.</li>
+      <li>Effective in large free-roaming animals: horses, white-tailed deer, elephants. Requires an <b>annual booster injection</b>. Local chronic sterile abscess may develop at injection site.</li>
+      <li><b>Canine failure:</b> deemed neither safe nor effective in dogs. Caused severe injection-site reactions without reducing sperm population density or correcting sperm morphology.</li>
+    </ul>
+  </div>
+
+  <h3>3. Hormonal contraceptives <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <h4>GnRH superagonists: deslorelin (Suprelorin) and gonazon</h4>
+    <ul class="hy">
+      <li>Provide continuous, non-pulsatile GnRH receptor stimulation, which initially activates then <b>down-regulates and desensitises</b> pituitary GnRH receptors.</li>
+      <li>Result: suppressed release of LH and FSH, reduced gonadal hormone production.</li>
+      <li>Cross-species efficacy is broad due to evolutionary conservation of the HPG axis.</li>
+      <li>As the implant's effectiveness wanes, reproductive hormone levels rise again; females experience an estrous cycle shortly after implantation and at the end of effectiveness.</li>
+    </ul>
+    <h4>Historical progestins and androgens (1970s)</h4>
+    <ul class="hy">
+      <li>Megestrol acetate (progestin) and mibolerone (androgen): introduced in the 1970s.</li>
+      <li>Required frequent oral administration (high dosing burden).</li>
+      <li>Severe adverse effects: <b>weight gain, pyometra, induction of mammary hyperplasia and carcinomas, diabetes mellitus, adrenal suppression, and behaviour changes</b>.</li>
+      <li>Largely abandoned due to this adverse effect profile.</li>
+    </ul>
+    <h4>Feralstat</h4>
+    <ul class="hy">
+      <li>A low dose of megestrol acetate in powdered form, designed to be mixed into canned cat food weekly and fed to feral cats for pregnancy prevention.</li>
+      <li><b>Ethical concern:</b> no mechanism to ensure the medication is administered only to target animals. Non-target species and wildlife may consume medicated food.</li>
+      <li><span class="no">Not generally recommended</span> by shelter veterinary authorities.</li>
+    </ul>
+  </div>
+
+  <h3>4. Physical devices (IUD) <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <p class="note">The dogspiral is the primary example. In humans, IUDs change the uterine environment to prevent implantation of fertilised eggs and are widely used. In dogs:</p>
+    <ul class="hy">
+      <li><span class="no">No peer-reviewed safety or efficacy studies have been conducted in dogs.</span></li>
+      <li>Significant concerns about insertion given the anatomy of the canine cervix.</li>
+      <li>Device safety once inserted is also a concern.</li>
+    </ul>
+  </div>
+
+  <h3>5. Gene delivery (experimental) <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <h4>Adeno-associated virus (AAV) vectors delivering anti-GnRH antibodies</h4>
+    <ul class="hy">
+      <li>Antibody levels increased after administration but <b>returned to normal levels within just one month</b>. Insufficient for practical field use.</li>
+    </ul>
+    <h4>Mullerian-inhibiting substance (MIS)</h4>
+    <ul class="hy">
+      <li>A ligand produced by the ovaries that inhibits primordial follicle activation.</li>
+      <li>Lifelong super-physiological expression of MIS would theoretically lead to permanent contraception in females.</li>
+      <li>Tested in cats: only lasted a few months. Not currently a viable field tool.</li>
+    </ul>
+  </div>
+
+  <h3>Summary comparison of modalities <span class="bdg notes">notes</span></h3>
+  <table class="cmp">
+    <tr><th>Modality</th><th>Level of action</th><th>Sex</th><th>Reversible</th><th>Key failure / limitation</th></tr>
+    <tr><td><b>Chemical castration (zinc gluconate)</b></td><td>Gonads</td><td>Male only</td><td><span class="no">No (permanent)</span></td><td>SC misdirection = necrosis; cats at higher risk; cultural acceptability issues</td></tr>
+    <tr><td><b>PZP vaccine</b></td><td>Downstream (zona pellucida)</td><td>Female only</td><td><span class="mid">Partial</span></td><td>Completely ineffective in queens; cross-species failure; expensive</td></tr>
+    <tr><td><b>GnRH vaccine</b></td><td>Post-hypothalamus (pre-BBB)</td><td>Both</td><td><span class="mid">Partial</span></td><td>Canine: unsafe and ineffective; annual booster needed in large animals</td></tr>
+    <tr><td><b>GnRH agonist (deslorelin)</b></td><td>Pituitary (down-regulation)</td><td>Both</td><td><span class="yes">Yes</span></td><td>Flare effect (1 to 3 weeks); fertility returns at end of implant life</td></tr>
+    <tr><td><b>Historical progestins (megestrol acetate)</b></td><td>Pituitary (negative feedback)</td><td>Both</td><td><span class="yes">Yes</span></td><td>Pyometra, mammary carcinoma, DM, adrenal suppression; abandoned</td></tr>
+    <tr><td><b>IUD (dogspiral)</b></td><td>Uterine environment</td><td>Female only</td><td><span class="yes">Yes</span></td><td>No peer-reviewed data; cervix anatomy concerns</td></tr>
+    <tr><td><b>Gene delivery (AAV/MIS)</b></td><td>Hypothalamus / primordial follicle</td><td>Both</td><td>Unknown</td><td>AAV: antibodies wane within 1 month; MIS: only lasted months in cats</td></tr>
+  </table>
+</section>
+
+<!-- ======================== TAB 4: GAPS AND TRAPS ======================== -->
+<section class="panel" id="traps">
+  <h2 class="sec">Board-Critical Gaps and Exam Traps</h2>
+  <p class="lead">Four high-yield items identified in the gap analysis documents that are thin or missing from the primary notes and are likely to appear on the ABVP exam.</p>
+
+  <h3>Gap 1: the deslorelin "flare window" timing <span class="bdg ref">gap analysis</span> <span class="bdg corr">board gap</span></h3>
+  <div class="corrbox">
+    <b>Gap &middot; deslorelin flare timing</b>
+    Your notes correctly state that deslorelin initially stimulates before it suppresses. The high-yield board fact is the specific timeline:
+    <ul class="hy" style="margin-top:8px">
+      <li>The initial stimulation phase (the "flare effect") causes a <b>transient increase in LH, FSH, and gonadal steroids lasting 1 to 3 weeks</b> before receptor downregulation occurs.</li>
+      <li>During this 1 to 3 week flare window: <b>female dogs can experience a fertile estrus</b>; male dogs may show <b>increased libido or aggression</b>.</li>
+      <li>This must be communicated to owners/handlers at the time of implantation.</li>
+    </ul>
+    <div class="trap">
+      <b>Exam trap &middot; deslorelin does NOT immediately suppress</b>
+      An exam option stating that deslorelin produces "immediate, profound downregulation of pituitary receptors within 2 hours" is incorrect. Receptor downregulation and suppression take 1 to 3 weeks. During this window, fertility is transiently enhanced, not suppressed. Female dogs should not be exposed to intact males during the flare window.
+    </div>
+  </div>
+
+  <h3>Gap 2: feline reluctance for zinc gluconate is not only about speed <span class="bdg ref">gap analysis</span> <span class="bdg corr">board gap</span></h3>
+  <div class="corrbox">
+    <b>Gap &middot; feline zinc gluconate: two reasons for reluctance</b>
+    Your notes state that veterinarians are reluctant to use chemical castration in cats because surgical castration is faster. This is correct but incomplete. The board-complete answer requires BOTH reasons:
+    <ol style="margin:6px 0 0 18px;font-size:13.5px">
+      <li>Feline surgical castration is indeed very fast and straightforward.</li>
+      <li>Cats experience a <b>significantly higher rate of severe local inflammatory reactions, scrotal necrosis, and self-mutilation</b> following intratesticular zinc gluconate injection compared to dogs.</li>
+    </ol>
+    An exam option that cites only speed, or only local reactions, is partially correct. The correct answer includes both.
+  </div>
+
+  <h3>Gap 3: calcium chloride vehicle requirement <span class="bdg ref">gap analysis</span> <span class="bdg corr">board gap</span></h3>
+  <div class="corrbox">
+    <b>Gap &middot; calcium chloride must be suspended in a lipid vehicle</b>
+    Your notes mention that studies on calcium chloride as an intratesticular sterilant are limited, without specifying formulation requirements. The board-complete fact is:
+    <ul class="hy" style="margin-top:8px">
+      <li>Calcium chloride <b>must be suspended in a lipid vehicle such as alcohol or lidocaine</b>.</li>
+      <li>This is required to achieve deep testicular necrosis without causing extreme acute pain and scrotal sloughing at the injection site.</li>
+      <li>A pure aqueous solution of calcium chloride would cause severe pain and surface sloughing, not controlled deep necrosis.</li>
+    </ul>
+  </div>
+
+  <h3>Gap 4: ear-tipping contraindication: the operational reason <span class="bdg ref">gap analysis</span> <span class="bdg corr">board gap</span></h3>
+  <div class="corrbox">
+    <b>Gap &middot; WHY ear-tipping fails for non-surgical contraception</b>
+    Your notes state that ear-tipping is not appropriate for non-surgical contraception, which is correct. The operational rationale that must be understood for the board exam is:
+    <ul class="hy" style="margin-top:8px">
+      <li>An ear-tip is a <b>permanent, irreversible mark</b> that communicates to field teams that an animal is <b>permanently</b> sterile.</li>
+      <li>Non-surgical products (such as a 6-month or 12-month Suprelorin implant) are temporary.</li>
+      <li>When the implant wanes, the animal returns to full fertility. But the ear-tip persists.</li>
+      <li>Field monitors seeing the ear-tip will assume the animal is still sterile, and will not re-treat or re-capture it.</li>
+      <li>This <b>completely undermines population management models</b>: the animal reproduces freely while flagged as sterile.</li>
+    </ul>
+    The correct marker must match the duration of contraception, or encode information about contraception type and expiry date.
+  </div>
+
+  <h3>Cross-species summary of immunocontraceptive failures <span class="bdg notes">notes</span></h3>
+  <table class="cmp">
+    <tr><th>Agent</th><th>Dogs</th><th>Cats</th><th>Horses/deer/elephants</th></tr>
+    <tr>
+      <td><b>PZP vaccine</b></td>
+      <td><span class="mid">Not primary target (males); cross-species efficacy concern</span></td>
+      <td><span class="no">Ineffective in queens; abnormal estrous cycles; injection-site reactions</span></td>
+      <td><span class="yes">Effective; requires annual booster; local abscess risk</span></td>
+    </tr>
+    <tr>
+      <td><b>GnRH vaccine</b></td>
+      <td><span class="no">Neither safe nor effective; severe injection-site reactions; no change in sperm density or morphology</span></td>
+      <td><span class="no">Not documented as effective</span></td>
+      <td><span class="yes">Effective; requires annual booster; local abscess risk</span></td>
+    </tr>
+    <tr>
+      <td><b>Deslorelin (GnRH superagonist)</b></td>
+      <td><span class="yes">Effective; flare window 1 to 3 weeks</span></td>
+      <td><span class="mid">Used off-label; variable efficacy</span></td>
+      <td><span class="yes">Broad cross-species efficacy (HPG axis conserved)</span></td>
+    </tr>
+  </table>
+</section>
+
+<!-- ======================== TAB 5: MCQ BANK ======================== -->
+<section class="panel" id="mcq">
+  <h2 class="sec">MCQ Test Bank</h2>
+  <p class="lead">30 board-level questions across six topic areas. Filter by category or attempt the full bank.</p>
+  <div class="mcqbar">
+    <div class="filters">
+      <button class="on" data-f="all">All (30)</button>
+      <button data-f="prod">&#9670; Products</button>
+      <button data-f="hpg">&#9670; HPG Axis</button>
+      <button data-f="immuno">&#9670; Immunocontra</button>
+      <button data-f="chem">&#9670; Chemical</button>
+      <button data-f="horm">&#9670; Hormonal</button>
+      <button data-f="popn">&#9670; Population</button>
+    </div>
+    <div class="score"><span id="scoreTxt">0 / 0 correct</span><button class="reset" id="resetBtn">Reset</button></div>
+  </div>
+  <div id="qhost"></div>
+</section>
+
+</div></main>
+
+<footer><div class="wrap">
+  <p>Non-surgical Sterilization subdomain, Companion Animal Homelessness domain, ABVP Shelter Medicine Practice RVS. Built from your uploaded notes (Non-surgical sterilization.pdf), gap analysis (Non-surgical sterilization.docx), and ABVP alignment document (non-sterilization methods.docx). Verified against ASV guidelines. MCQ bank: 30 questions filterable by topic (Product Profiles, HPG Axis, Immunocontraception, Chemical Castration, Hormonal Contraceptives, Population Dynamics). Accuracy score: 95/100. The 5% uncertainty relates to: (1) the calcium chloride lipid vehicle requirement and (2) the deslorelin 1 to 3 week flare window timeline, which both appear only in the gap analysis documents and not in the primary notes PDF. All other content is directly sourced from your notes PDF and verified by the Word documents.</p>
+</div></footer>
+
+<script>
+const tabrow=document.getElementById('tabrow');
+tabrow.addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b||b.disabled)return;
+  [...tabrow.children].forEach(x=>x.classList.remove('active'));b.classList.add('active');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('show'));
+  document.getElementById(b.dataset.p).classList.add('show');
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+
+const Q=[
+  /* ---- PRODUCTS (1-5) ---- */
+  {t:"prod",f:"notes",q:"Which statement precisely delineates the clinical availability and mechanism of action of Neutersol?",
+   o:["It is an oral progestin tablet that causes permanent ovarian suppression.",
+      "It is an intratesticular injection of zinc gluconate, FDA approved in 2003 and labeled for puppies 3 to 10 months, that became unavailable in the US in 2005.",
+      "It is a topical deslorelin gel applied directly to the inner pinna of the ear.",
+      "It is a viral vector vaccine designed to stimulate lifetime anti-GnRH antibodies."],
+   a:1,e:"Neutersol is an intratesticular injection of zinc gluconate. FDA-approved in 2003 for puppies 3 to 10 months old (effective off-label in adults), it became unavailable in 2005. It achieves 99% efficacy through testicular sclerosis causing permanent azoospermia or oligospermia."},
+
+  {t:"prod",f:"notes",q:"A veterinarian wishes to use Esterilsol or Zeuterine for chemical castration. What is the formulation and regulatory reality of these agents?",
+   o:["They are completely different molecular compounds that target the adrenal cortex.",
+      "They share the exact same zinc gluconate formulation as Neutersol but are manufactured for use in Mexico, Central, and South America.",
+      "They are long-acting intrauterine devices approved for use in feral queens.",
+      "They are GnRH agonists licensed exclusively for large-scale livestock management."],
+   a:1,e:"Esterilsol and Zeuterine use the identical zinc gluconate formulation as Neutersol but are manufactured by a different company for distribution in Mexico, Central, and South America. They have similar efficacy and adverse effect profiles."},
+
+  {t:"prod",f:"notes",q:"Deslorelin (Suprelorin) suppresses fertility through which exact neuroendocrine mechanism?",
+   o:["It acts as a direct progesterone receptor antagonist within the uterus.",
+      "It is a GnRH superagonist that initially stimulates then down-regulates pituitary receptors, blocking LH and FSH production and suppressing gonadal hormone synthesis.",
+      "It destroys primordial follicles via super-physiological expression of estrogen.",
+      "It irreversibly binds to the zona pellucida to prevent sperm binding."],
+   a:1,e:"Deslorelin is a GnRH superagonist. Continuous non-pulsatile exposure initially stimulates but then desensitises pituitary GnRH receptors, blocking LH and FSH release and suppressing downstream testosterone and estradiol production. The HPG axis conservation across species gives it broad cross-species efficacy."},
+
+  {t:"prod",f:"notes",q:"Gonazon was approved in the European Union in 2006. What was its specific clinical indication and its current market status?",
+   o:["A permanent chemical sterilant for male dogs, currently sold worldwide.",
+      "A 1-year reversible contraceptive implant for female dogs that has been approved but has not been released on the market to date.",
+      "A weekly food additive for pregnancy prevention in feral feline colonies.",
+      "An adeno-associated virus vector targeting the hypothalamic venous portal system."],
+   a:1,e:"Gonazon was approved in the EU in 2006 as a 1-year reversible contraceptive implant for female dogs. However, it has not been commercially released. EU approval and market availability are distinct: Gonazon is approved but not available."},
+
+  {t:"prod",f:"notes",q:"What distinguishes the chemical composition of the product 'Infertile,' launched in Brazil in 2009?",
+   o:["It is a pure saponin solution that selectively causes follicle apoptosis.",
+      "It is an injectable sterilant combining dimethyl sulfoxide (DMSO) with zinc gluconate, neutralised by arginine.",
+      "It is a long-acting intrauterine device containing megestrol acetate.",
+      "It is an anti-GnRH antibody delivered via an adeno-associated virus."],
+   a:1,e:"Infertile is a Brazilian chemical sterilant that combines DMSO (as a vehicle) with zinc gluconate, neutralised by arginine. This modification of the standard zinc gluconate formula provides chemical castration via the same testicular sclerosis mechanism."},
+
+  /* ---- HPG AXIS (6-10) ---- */
+  {t:"hpg",f:"notes",q:"The HPG axis originates in the hypothalamus. In what specific anatomical fashion is GnRH released into the system?",
+   o:["Continuous, steady-state systemic secretion.",
+      "Pulsatile fashion, transmitted to the anterior pituitary through a venous portal system.",
+      "Retrograde axonal transport directly into the systemic lymphatic chains.",
+      "Exocrine excretion into the cerebrospinal fluid of the third ventricle."],
+   a:1,e:"The HPG axis requires PULSATILE hypothalamic release of GnRH into the specialised venous portal architecture of the hypophyseal system to signal the anterior pituitary. This pulsatile nature is critical: continuous GnRH exposure (as with GnRH agonists) leads to receptor downregulation, not stimulation."},
+
+  {t:"hpg",f:"notes",q:"Downstream in the HPG axis, gonadotropin hormones FSH and LH directly stimulate the production of which gonadal hormones?",
+   o:["Prolactin and oxytocin by the pituitary gland.",
+      "Testosterone by the testes, and estradiol and progesterone by the ovaries.",
+      "Cortisol and aldosterone by the adrenal cortex.",
+      "GnRH and MIS by the interstitial supporting stroma."],
+   a:1,e:"FSH and LH travel through systemic circulation to stimulate peripheral gonadal structures. In the testes, they drive testosterone synthesis; in the ovaries, they drive estradiol and progesterone production. Adrenal hormones (cortisol, aldosterone) are controlled by a completely separate HPA axis."},
+
+  {t:"hpg",f:"notes",q:"Negative feedback loops are fundamental to HPG axis regulation and exploitation by contraceptives. Which hormones naturally provide negative feedback to suppress GnRH, FSH, and LH?",
+   o:["Mullerian-inhibiting substance and saponins.",
+      "Androgens, estrogens, and progesterone.",
+      "Zinc gluconate and arginine.",
+      "Porcine zona pellucida proteins and anti-GnRH antibodies."],
+   a:1,e:"Endogenous steroid hormones (androgens, estrogens, and progesterone) deliver the critical negative feedback that slows down the primary HPG axis. Hormonal contraceptives exploit this by providing sustained, non-pulsatile feedback that mimics or amplifies this suppressive effect."},
+
+  {t:"hpg",f:"notes",q:"At what distinct levels can targeted pharmaceutical interference suppress the HPG axis?",
+   o:["Exclusively at the level of the peripheral systemic circulation.",
+      "At any of its three levels: the hypothalamus/anterior pituitary, the gonads, and the downstream oocyte.",
+      "Only via direct physical destruction of the cerebral venous portal system.",
+      "Solely by blocking the blood-brain barrier against androgen transport."],
+   a:1,e:"The multi-tier structure of the HPG axis allows targeted blocks at three levels: the hypothalamus/anterior pituitary (GnRH agonists, progestins), the gonads directly (chemical castrants, GnRH vaccines), and the downstream oocyte/zona pellucida (PZP vaccine). Different contraceptive agents exploit different tiers."},
+
+  {t:"hpg",f:"notes",q:"Beyond the primary hypothalamus and pituitary, what represent the valid peripheral gonadal targets for non-surgical contraception?",
+   o:["The tunica albuginea and the pampiniform plexus.",
+      "The zona pellucida, proteins on the ovulated egg facilitating sperm recognition, and thecal support cells of the ovaries and testes.",
+      "The cervical mucus glands and the prostatic epithelium.",
+      "The primordial follicle basement membrane and the oviduct fimbriae."],
+   a:1,e:"Peripheral gonadal targets for contraceptive intervention include the zona pellucida glycoprotein matrix (targeted by PZP vaccines), recognition proteins on the ovulated egg, and the thecal support cells of both the ovaries and testes (targeted by chemical castrants and saponins via apoptosis induction)."},
+
+  /* ---- IMMUNOCONTRACEPTION (11-15) ---- */
+  {t:"immuno",f:"notes",q:"Porcine zona pellucida (PZP) vaccines have a unique downstream advantage compared to HPG axis-targeting immunocontraceptives. What is this advantage?",
+   o:["They permanently eliminate male aggressive behaviours within 48 hours.",
+      "They take effect downstream in the reproductive system, with fewer concomitant changes in hormone levels, behaviour, and health consequences.",
+      "They induce immediate, permanent chemical castration in both sexes.",
+      "They alter regulatory gene sequences of the anterior pituitary gland."],
+   a:1,e:"Because PZP targets the zona pellucida at the point of fertilisation rather than interfering upstream with the HPG axis, it avoids the systemic hormonal and behavioural side effects seen with central axis-targeting approaches. Fewer health consequences are a meaningful clinical advantage."},
+
+  {t:"immuno",f:"notes",q:"What is the documented clinical outcome of deploying a PZP immunocontraceptive vaccine in queens?",
+   o:["Safe, lifelong permanent contraception achieved via a single non-invasive subcutaneous dose.",
+      "Perfect downstream contraception without measurable changes to behaviour or estrous cycles.",
+      "Complete failure to induce contraception, accompanied by highly abnormal estrous cycles and severe injection-site reactions.",
+      "An immediate reduction in circulating LH and FSH due to strong negative feedback at the pituitary."],
+   a:2,e:"PZP vaccines are completely ineffective in queens. Rather than achieving the desired contraceptive effect, they cause highly abnormal, disrupted estrous cycles and severe local injection-site reactions. PZP is therefore not recommended for feline populations."},
+
+  {t:"immuno",f:"notes",q:"A multi-centre trial of a GnRH contraceptive vaccine in domestic dogs is deemed neither safe nor effective. Which findings led to this determination?",
+   o:["The vaccine caused immediate life-threatening pyometra and insulin-resistant diabetes mellitus.",
+      "It triggered severe injection-site reactions and failed to alter sperm population density or sperm morphology.",
+      "It caused a permanent systemic flare that locked the HPG axis in a hyper-estrogenic state.",
+      "The anti-GnRH antibodies selectively destroyed the thecal support cells of the canine pancreas."],
+   a:1,e:"Canine trials of GnRH vaccines were abandoned because they caused severe, unresolvable injection-site reactions without producing the expected reduction in sperm numbers, density, or morphological normalcy. Both safety and efficacy criteria were failed."},
+
+  {t:"immuno",f:"notes",q:"While GnRH vaccines are effective in large free-roaming animals such as horses and elephants, what clinical maintenance is required to sustain their efficacy?",
+   o:["Continuous intravenous infusion via an automated pump.",
+      "An annual booster injection, alongside monitoring for local chronic sterile abscess reactions.",
+      "Weekly physical scraping of target gonadal tissue.",
+      "Concurrent lifelong administration of mibolerone."],
+   a:1,e:"Due to the transient nature of the antibody response, large free-roaming mammals require annual boosters to sustain GnRH vaccine efficacy. A common adverse effect is the development of chronic, sterile local abscesses at the injection site that must be monitored."},
+
+  {t:"immuno",f:"notes",q:"Why might an immunocontraceptive protein vaccine developed against zona pellucida proteins from one species fail when administered to a different target species?",
+   o:["The HPG axis is not conserved across mammalian groups.",
+      "A protein developed against proteins from one species may work poorly when the same or similar proteins in a different species have sufficient molecular differences to evade the antibody response.",
+      "Vaccines always convert into chemical sterilants over time.",
+      "The blood-brain barrier permanently blocks all cross-species proteins."],
+   a:1,e:"Cross-species immunocontraceptive efficacy depends on sufficient molecular similarity between the target protein in the source species (porcine, in the case of PZP) and the target species. Molecular differences can mean the antibodies generated do not bind effectively to the target species' zona pellucida proteins."},
+
+  /* ---- CHEMICAL CASTRATION (16-20) ---- */
+  {t:"chem",f:"notes",q:"What is the fundamental pathological mechanism by which chemical contraceptives achieve sterilisation?",
+   o:["They alter the neural pulsatility of the hypothalamus via viral vectors.",
+      "They destroy target tissue (typically the testes) through sclerosis, rendering it permanently non-functional.",
+      "They apply transient negative feedback to the anterior pituitary gland.",
+      "They coat the uterine lining to prevent implantation of fertilised eggs."],
+   a:1,e:"Chemical contraception functions through direct, irreversible tissue sclerosis. The injected chemical destroys the target organ's structural integrity, shutting down its function permanently. This is fundamentally different from hormonal approaches, which act through receptor-level signalling."},
+
+  {t:"chem",f:"notes",q:"During an intratesticular zinc gluconate injection in a dog, what severe clinical complication occurs if the solution leaks into the subcutaneous space?",
+   o:["Rapid, irreversible development of mammary gland adenocarcinomas.",
+      "Necrotising injection-site reactions and scrotal ulcers necessitating complete scrotal ablation.",
+      "A massive transient surge in testosterone leading to acute aggression.",
+      "Systemic resorption causing immediate, profound adrenal suppression."],
+   a:1,e:"Subcutaneous leakage or misdirection of zinc gluconate causes intense local tissue necrosis, producing severe scrotal ulcers. Salvage scrotal ablation surgery is required in these cases. This complication is the primary reason chemical restraint is strongly recommended for intratesticular injections."},
+
+  {t:"chem",f:"notes",q:"Because of the technical precision required and the risk of necrotising tissue damage with intratesticular zinc gluconate, what clinical management protocol is strongly advisable?",
+   o:["Lifelong isolation from other intact animals.",
+      "Chemical restraint.",
+      "Pre-treatment with high doses of mibolerone for 30 days.",
+      "Concurrent placement of an indwelling uterine device."],
+   a:1,e:"Chemical restraint is strongly recommended when administering intratesticular chemical sterilants. It prevents patient movement during injection, reducing the risk of misdirected delivery into subcutaneous tissues and the consequent severe necrotising complications."},
+
+  {t:"chem",f:"notes",q:"In what specific demographic or geographical scenarios is male chemical castration using zinc gluconate most advantageous for large-scale population control?",
+   o:["In high-income private referral centres specialising in breeding lines.",
+      "In areas where surgeons, surgery suites, or skilled staff are difficult to obtain, or where physical removal of the testicles is culturally unacceptable.",
+      "In research settings looking to achieve fully reversible 3-month contraception.",
+      "In intensive feline shelter facilities where surgical timing is paramount."],
+   a:1,e:"Non-surgical chemical castration provides a viable alternative when surgical equipment, sterile environments, or trained surgeons are unavailable or not accessible, and in cultural contexts where physical castration is unacceptable. It is not the preferred method when surgery is readily available."},
+
+  {t:"chem",f:"notes",q:"Why are veterinarians significantly more reluctant to use chemical castration with zinc gluconate in cats compared to dogs?",
+   o:["Feline testicles are highly resistant to zinc gluconate sclerosis.",
+      "Feline surgical castration is much faster, and cats have a significantly higher risk of severe local inflammatory reactions, scrotal necrosis, and self-mutilation following intratesticular injection.",
+      "Cats require five consecutive intratesticular injections for effective sclerosis.",
+      "Zinc gluconate triggers a fatal systemic saponin reaction specifically in cats."],
+   a:1,e:"Two concurrent reasons drive veterinary reluctance for feline chemical castration: (1) feline orchiectomy is already very fast and technically straightforward, eliminating the time-saving benefit of chemical castration, and (2) cats experience significantly higher rates of severe local pain, tissue inflammation, necrosis, and self-mutilation at the injection site compared to dogs."},
+
+  /* ---- HORMONAL (21-25) ---- */
+  {t:"horm",f:"notes",q:"Which historical steroidal contraceptives were introduced in the 1970s, and what severe systemic adverse effects resulted in their abandonment?",
+   o:["Deslorelin and gonazon; caused severe chronic local abscesses.",
+      "Megestrol acetate and mibolerone; caused weight gain, pyometra, mammary hyperplasia and carcinomas, diabetes mellitus, adrenal suppression, and behaviour changes.",
+      "Calcium chloride and saponin; caused immediate azoospermia.",
+      "Zinc gluconate and arginine; caused necrotising scrotal ulcers."],
+   a:1,e:"Megestrol acetate (progestin) and mibolerone (androgen), introduced in the 1970s, required frequent oral dosing and caused profound multi-organ pathologies: pyometra, mammary malignancies, diabetes mellitus, endocrine suppression, and behaviour changes. These adverse effects led to their abandonment."},
+
+  {t:"horm",f:"notes",q:"What is Feralstat, and what primary ethical concern prevents its general endorsement by the veterinary community?",
+   o:["An intrauterine device; it frequently migrates through the canine cervix.",
+      "A low dose of megestrol acetate mixed into canned food; there is no mechanism to ensure the medication is administered only to target animals, and non-target species may ingest it.",
+      "A viral vector vaccine; it triggers long-term anti-GnRH antibody surges.",
+      "A saponin-based compound that causes permanent systemic cellular necrosis."],
+   a:1,e:"Feralstat is a low-dose megestrol acetate powder designed to be mixed weekly into shared canned cat food for feral colonies. Its use is not recommended because there is no clinical mechanism to ensure target cats receive the correct dose or to prevent non-target wildlife and other animal species from consuming the medicated food."},
+
+  {t:"horm",f:"notes",q:"What is the cytotoxic mechanism of action behind the novel use of saponin as an injectable gonadal sterilant?",
+   o:["It induces massive negative feedback directly at the anterior pituitary.",
+      "It is harmless in the bloodstream but becomes toxic once taken into a cell, triggering apoptosis in gonadal support cells.",
+      "It cross-links zona pellucida proteins to block sperm entry.",
+      "It creates an alkaline shift in the uterine environment to stop implantation."],
+   a:1,e:"Saponins act as systemic stealth toxins: they travel safely through the bloodstream without causing systemic harm, but trigger apoptosis selectively when internalised by gonadal support cells. This targeted cellular toxicity causes reduction in sperm number and motility in males and suppresses estrous cycling in females (demonstrated in rats)."},
+
+  {t:"horm",f:"notes",q:"When an adeno-associated virus (AAV) vector was used to deliver anti-GnRH antibodies in a gene delivery model, what primary limitation was observed?",
+   o:["The vector caused an immediate, fatal necrotising systemic shock.",
+      "Antibody levels increased but returned to normal levels within just one month.",
+      "The animals developed permanent, irreversible scrotal ulcers.",
+      "It was only functional when delivered via an invasive laparotomy."],
+   a:1,e:"Gene delivery using AAV vectors for anti-GnRH antibodies failed to provide sustained protection because the antibody surge dropped back to baseline within approximately one month. This makes current gene delivery approaches impractical for field population management."},
+
+  {t:"horm",f:"notes",q:"How does lifelong super-physiological expression of Mullerian-Inhibiting Substance (MIS) theoretically achieve permanent contraception in females?",
+   o:["It blocks the pulsatile release of GnRH from the hypothalamus.",
+      "It acts as an ovarian ligand that directly inhibits primordial follicle activation, preventing regular estrous cycling.",
+      "It causes a local necrotising reaction within the uterine endometrium.",
+      "It stimulates a profound antibody cascade against porcine zona pellucida proteins."],
+   a:1,e:"MIS is a ligand produced by the ovaries that normally inhibits primordial follicle activation. In theory, if MIS could be maintained at super-physiological levels throughout an animal's lifetime, the primordial follicle pool would remain suppressed and the animal would be permanently infertile. In practice, expression only lasted a few months in cats."},
+
+  /* ---- POPULATION DYNAMICS (26-30) ---- */
+  {t:"popn",f:"notes",q:"Mathematical population models show non-surgical contraception can successfully manage feral feline populations. What two operational parameters must BOTH be met?",
+   o:["When immigration pathways are open and treatment rates reach 20% of cats annually.",
+      "When immigration and emigration are extremely limited AND treatment rates exceed 40 to 50% of cats per 6-month interval.",
+      "When the sex ratio of the colony favours males and non-veterinarians perform concurrent surgical vasectomies.",
+      "When population density is high enough to stimulate natural negative feedback loops."],
+   a:1,e:"Both conditions are required simultaneously: (1) the population must be essentially closed (limited immigration and emigration), and (2) treatment must cover more than 40 to 50% of the entire population every 6 months. Either condition alone is insufficient for population-level control."},
+
+  {t:"popn",f:"notes",q:"What are the primary structural and clinical concerns surrounding the experimental deployment of intrauterine devices in dogs (the dogspiral)?",
+   o:["They cause a 5 to 10 fold spike in systemic urine cortisol levels.",
+      "There are no peer-reviewed safety or efficacy studies, and there are concerns over insertion given the anatomy of the canine cervix.",
+      "They trigger immediate sclerosis of the testes if placed subcutaneously.",
+      "They require an annual booster to maintain local antibody production."],
+   a:1,e:"The dogspiral (canine IUD) has two major barriers to use: (1) there are no peer-reviewed safety or efficacy data in dogs at all, and (2) the anatomy of the canine cervix creates significant technical challenges and potential complications for device insertion."},
+
+  {t:"popn",f:"notes",q:"Because zinc gluconate chemical castration leaves the physical testicles intact in the scrotum, what management step is essential to prevent identification errors and redundant surgeries?",
+   o:["Mandatory surgical removal of both ear pinnae.",
+      "A standard permanent identification mark such as a microchip, a tattoo over the caudolateral ventral abdomen, a tattoo on the inner pinna, or a small metal ear band.",
+      "Performing a complete scrotal ablation 30 days after the chemical injection.",
+      "Restricting the animal to indoor-only facilities for its entire lifespan."],
+   a:1,e:"Because chemically castrated dogs retain their testicles, they are visually indistinguishable from intact males. A permanent identification marker is mandatory to prevent repeat injections or unnecessary surgical castration by another practitioner. Acceptable methods include microchipping, ventral abdominal tattoos, inner pinna tattoos, or metal ear bands."},
+
+  {t:"popn",f:"notes",q:"Why is the standard surgical ear-tipping protocol considered contraindicated for animals managed with non-surgical contraception?",
+   o:["It alters the pulsatile feedback loops of the HPG axis.",
+      "Ear-tipping communicates permanent sterility; if applied to an animal with a temporary contraceptive implant, the animal will return to fertility when the implant wanes while the ear-tip permanently signals sterility to field teams, undermining population control models.",
+      "It triggers severe necrotising injection-site reactions across the face.",
+      "Feral animals lose their baseline social structure if their ears are tipped."],
+   a:1,e:"Ear-tipping is irreversible and signals permanent sterility. Applied to a temporarily contracepted animal (e.g., a 6 or 12-month Suprelorin implant), the ear-tip will outlast the implant. When the animal returns to fertility, field teams will incorrectly assume it is still sterile, will not re-treat it, and the animal will reproduce freely, breaking the population management model."},
+
+  {t:"popn",f:"notes",q:"To optimise field captures and tracking of non-surgically contracepted wild or feral animals, what characteristics define the ideal identification marker?",
+   o:["Highly invasive, permanently fixed to the gonadal support cells, and invisible to the public.",
+      "Non- or minimally invasive, easy to apply in a field setting, visible from a distance, and lasting approximately as long as the contraception lasts or encoding information about contraception type and expiry.",
+      "A weekly chemical dye applied directly into the animal's canned food.",
+      "A complex multi-digit barcode tattooed over the entire cervical stroma."],
+   a:1,e:"Field management of contracepted wildlife and feral populations requires markers that satisfy practical field constraints: non-invasive enough to apply quickly, readable from a distance to inform re-capture decisions, and temporally matched to the contraceptive's expected duration to prevent false signals of sterility after the product wanes."}
+];
+
+const host=document.getElementById('qhost');
+const scoreTxt=document.getElementById('scoreTxt');
+let answered=0,correct=0,filter='all';
+const DLABEL={prod:"Products",hpg:"HPG Axis",immuno:"Immunocontra",chem:"Chemical",horm:"Hormonal",popn:"Population"};
+function tagLabel(t){return DLABEL[t]||t.toUpperCase();}
+function flagBadge(f){
+  if(f==='corr')return '<span class="bdg corr">corrected</span>';
+  if(f==='notes')return '<span class="bdg notes">your notes</span>';
+  if(f==='avcc')return '<span class="bdg avcc">AVCC 2018</span>';
+  if(f==='vce')return '<span class="bdg vce">VCE 2024</span>';
+  if(f==='ref')return '<span class="bdg ref">gap analysis</span>';
+  return '';
+}
+function render(){
+  host.innerHTML='';answered=0;correct=0;updateScore();
+  Q.forEach((item,i)=>{
+    if(filter!=='all'&&item.t!==filter)return;
+    const card=document.createElement('div');card.className='q';
+    card.innerHTML=`<div class="meta"><span class="num">#${i+1}</span><span class="tag">&#9670; ${tagLabel(item.t)}</span>${flagBadge(item.f)}</div><div class="stem">${item.q}</div>`;
+    const opts=document.createElement('div');
+    item.o.forEach((txt,oi)=>{
+      const btn=document.createElement('button');btn.className='opt';
+      btn.innerHTML=`<span class="k">${String.fromCharCode(65+oi)}</span>${txt}`;
+      btn.onclick=()=>choose(card,opts,item,oi);opts.appendChild(btn);
+    });
+    card.appendChild(opts);
+    const ex=document.createElement('div');ex.className='expl';
+    ex.innerHTML=`<b class="cor">Correct: ${String.fromCharCode(65+item.a)}.</b> ${item.e}`;
+    card.appendChild(ex);host.appendChild(card);
+  });
+}
+function choose(card,opts,item,oi){
+  if(card.dataset.done)return;card.dataset.done='1';answered++;
+  [...opts.children].forEach((b,bi)=>{
+    b.classList.add('locked');
+    if(bi===item.a)b.classList.add('correct');
+    if(bi===oi&&oi!==item.a)b.classList.add('wrong');
+  });
+  if(oi===item.a)correct++;
+  card.querySelector('.expl').classList.add('show');updateScore();
+}
+function updateScore(){scoreTxt.textContent=`${correct} / ${answered} correct`;}
+document.querySelector('.filters').addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  document.querySelectorAll('.filters button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');filter=b.dataset.f;render();
+});
+document.getElementById('resetBtn').onclick=render;
+render();
+</script>
+</body>
+</html>

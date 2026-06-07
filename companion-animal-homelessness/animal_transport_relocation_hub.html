@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animal Transport &amp; Relocation Programs | Companion Animal Homelessness | ABVP Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0f3d3a;--ink2:#15514c;--paper:#f4efe4;--paper2:#fbf8f1;
+    --line:#d9d0bd;--muted:#5d6b62;
+    --good:#1f7a4d;--bad:#b23b3b;
+    --shadow:0 1px 2px rgba(15,61,58,.08),0 8px 24px rgba(15,61,58,.06);
+    --cah:#5c4a72;--cah-soft:#e8e1f4;--dom-head:#2d1f3d;
+    --notes:#7a4fb5;--notes-soft:#ece3f7;
+    --asv:#5c4a72;--asv-soft:#e8e1f4;
+    --ref:#1f6f8b;--ref-soft:#dcedf2;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;
+    background-image:radial-gradient(circle at 1px 1px,rgba(92,74,114,.04) 1px,transparent 0);background-size:22px 22px;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+  header.top{background:var(--dom-head);color:var(--paper2);padding:26px 0 22px;border-bottom:4px solid var(--cah)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#c8b8e8;margin:0 0 6px}
+  header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(26px,4.5vw,40px);margin:0;line-height:1.05}
+  header.top p.sub{margin:8px 0 0;color:#d4c8ea;font-size:14px;max-width:74ch}
+  .legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}
+  .legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.25);color:#ede8f6;display:flex;align-items:center;gap:6px}
+  .legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--paper2);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button:hover{background:var(--paper);color:var(--ink)}
+  .tabrow button.active{background:var(--dom-head);color:var(--paper2)}
+  .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--cah)}
+  main{padding:30px 0 80px}
+  .panel{display:none;animation:fade .35s ease}
+  .panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;letter-spacing:-.01em}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:80ch}
+  h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:26px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;color:var(--ink2);text-transform:uppercase;letter-spacing:.03em}
+  .card{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}
+  p.note{font-size:14px;margin:0 0 6px}
+  ul.hy{margin:8px 0;padding-left:0;list-style:none}
+  ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed #e6ddca;font-size:14px}
+  ul.hy li:last-child{border-bottom:0}
+  ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;border-radius:2px;background:var(--cah);transform:rotate(45deg)}
+  .trap{background:#fff6ef;border:1px solid #e8d8f0;border-left:4px solid var(--cah);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .trap b{color:var(--cah);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .corrbox{background:#e9f4ee;border:1px solid #bfe0cc;border-left:4px solid var(--good);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .corrbox b{color:var(--good);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .gapbox{background:var(--asv-soft);border:1px solid #d3c4e6;border-left:4px solid var(--asv);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .gapbox b{color:var(--asv);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .refbox{background:var(--ref-soft);border:1px solid #b8d0e0;border-left:4px solid var(--ref);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .refbox b{color:var(--ref);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:var(--paper2);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp th{background:var(--dom-head);color:var(--paper2);font-weight:600;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase}
+  table.cmp tr:last-child td{border-bottom:0}
+  table.cmp td b{color:var(--ink)}
+  .yes{color:var(--good);font-weight:700}
+  .no{color:var(--bad);font-weight:700}
+  .mid{color:#8a6d1f;font-weight:700}
+  .fig{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0;box-shadow:var(--shadow)}
+  .fig figcaption{font-size:12.5px;color:var(--muted);margin-top:8px;font-style:italic}
+  .bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+  .bdg.notes{background:var(--notes-soft);color:var(--notes)}
+  .bdg.asv{background:var(--asv-soft);color:var(--asv)}
+  .bdg.ref{background:var(--ref-soft);color:var(--ref)}
+  .bdg.corr{background:var(--good);color:#fff}
+  .stat{display:inline-block;background:var(--cah-soft);color:var(--cah);font-family:"JetBrains Mono",monospace;font-weight:600;font-size:12px;padding:2px 8px;border-radius:6px;margin:0 2px}
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--dom-head);color:var(--paper2);border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:54px;z-index:10}
+  .mcqbar .filters{display:flex;gap:6px;flex-wrap:wrap}
+  .mcqbar .filters button{font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#d6cce8;padding:6px 11px;border-radius:999px;cursor:pointer;white-space:nowrap}
+  .mcqbar .filters button.on{background:var(--cah);border-color:var(--cah);color:#fff}
+  .score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}
+  .score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;color:#d6cce8;padding:5px 10px;border-radius:8px;font-size:11px}
+  .q{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
+  .q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+  .q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--cah-soft);color:var(--cah)}
+  .q .stem{font-weight:600;font-size:15px;margin-bottom:10px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;font-family:"Public Sans";transition:background .15s,border-color .15s}
+  .opt:hover{border-color:var(--ink)}
+  .opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}
+  .opt.correct{background:#e8f5ec;border-color:var(--good);color:#0d3d24}
+  .opt.wrong{background:#fbe9e9;border-color:var(--bad);color:#5e1d1d}
+  .opt.locked{cursor:default}
+  .expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:#f3efe3;border:1px solid var(--line);font-size:13.5px}
+  .expl.show{display:block}
+  .expl b.cor{color:var(--good)}
+  footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
+  @media(max-width:640px){.mcqbar{top:50px}.score{font-size:12px}}
+</style>
+</head>
+<body>
+<nav style="background:#2d1f3d;padding:9px 18px;display:flex;align-items:center;gap:10px;font-family:'Public Sans',system-ui,sans-serif;font-size:13px;font-weight:500;border-bottom:2px solid #4a3563"><a href="../index.html" style="color:#c8b8e8;text-decoration:none;display:flex;align-items:center;gap:5px"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span style="color:#6b5285;font-size:11px">›</span><span style="color:#d4c8ea">Companion Animal Homelessness</span></nav>
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">ABVP Shelter Medicine Practice RVS &middot; Companion Animal Homelessness</p>
+    <h1>Animal Transport &amp; Relocation Programs</h1>
+    <p class="sub">Exam-depth study tool covering the ASV relocation framework, source and destination responsibilities, vehicle and enclosure engineering, the 28-hour confinement grid, feeding and monitoring intervals, air transport limits, behavioural stress physiology, sedation evidence, and post-relocation outcomes. Built from your uploaded notes and cross-referenced against the ASV Guidelines for Standards of Care in Animal Shelters, 2nd edition (2022), chapter 11.</p>
+    <div class="legend">
+      <span><i style="background:var(--notes)"></i>Your notes</span>
+      <span><i style="background:var(--asv)"></i>ASV Guidelines 2022</span>
+      <span><i style="background:var(--ref)"></i>Reference / study data</span>
+      <span><i style="background:var(--good)"></i>Gap filled / correction</span>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="overview"><span class="dot"></span>Framework &amp; Regulations</button>
+  <button data-p="source"><span class="dot"></span>Source Responsibilities</button>
+  <button data-p="vehicle"><span class="dot"></span>Vehicles &amp; Enclosures</button>
+  <button data-p="confine"><span class="dot"></span>Confinement &amp; Monitoring</button>
+  <button data-p="behaviour"><span class="dot"></span>Behaviour &amp; Outcomes</button>
+  <button data-p="mcq"><span class="dot" style="background:var(--dom-head)"></span>MCQ Bank</button>
+</div></div></nav>
+
+<main><div class="wrap">
+
+<!-- ======================== TAB 1: FRAMEWORK ======================== -->
+<section class="panel show" id="overview">
+  <h2 class="sec">Relocation Framework, Goals and Regulations</h2>
+  <p class="lead">Relocation programs transfer animals from a source organisation (typically a community with excess pet population) to a destination organisation (typically one with unmet adopter demand). Every design decision is judged against the welfare of all affected animals and against length of stay (LOS).</p>
+
+  <div class="card">
+    <h4>Core principle</h4>
+    <ul class="hy">
+      <li>Intentionally designed relocation programs weigh the health, behaviour and safety risks and benefits for all affected animals and minimise negative impacts through careful selection and planning.</li>
+      <li>Decision making must prioritise a <b>decrease in LOS</b>. Holding animals for relocation when live outcomes are available locally pushes shelters beyond their capacity for care and damages community relationships.</li>
+      <li>When destination shelters accept more animals than they have capacity to care for, welfare is compromised for both relocated and resident animals, and LOS increases.</li>
+      <li>It is <b>UNACCEPTABLE</b> to transport an animal when the transport itself is likely to be harmful to its immediate or long-term health or welfare.</li>
+    </ul>
+  </div>
+
+  <h3>Relocation program models: risk and cost gradients <span class="bdg ref">textbook Fig 20.2</span></h3>
+  <p class="note">Risk and operating cost both rise along three independent axes: how far the animal travels (geographic), how many organisations are involved (population), and how the animal moves (transport mode). A program can sit at a different point on each axis.</p>
+  <figure class="fig">
+    <svg viewBox="0 0 720 360" width="100%" role="img" aria-label="Three gradients showing rising risk and cost for relocation programs by geographic scope, shelter population complexity, and transport mode">
+      <defs>
+        <marker id="arTp2" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+          <path d="M0,0 L7,3 L0,6 Z" fill="#0f3d3a"/>
+        </marker>
+        <linearGradient id="gradTp2a" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#e8e1f4"/><stop offset="1" stop-color="#5c4a72"/>
+        </linearGradient>
+        <linearGradient id="gradTp2b" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#dcedf2"/><stop offset="1" stop-color="#1f6f8b"/>
+        </linearGradient>
+        <linearGradient id="gradTp2c" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#f1e7d6"/><stop offset="1" stop-color="#b23b3b"/>
+        </linearGradient>
+      </defs>
+      <!-- GEOGRAPHIC -->
+      <text x="14" y="26" font-size="12" font-weight="700" fill="#0f3d3a">GEOGRAPHIC MODEL</text>
+      <rect x="14" y="34" width="692" height="40" rx="6" fill="url(#gradTp2a)"/>
+      <text x="22" y="50" font-size="9.5" fill="#2d1f3d">Single intra-</text>
+      <text x="22" y="62" font-size="9.5" fill="#2d1f3d">community</text>
+      <text x="210" y="50" font-size="9.5" fill="#2d1f3d">Regional, intra-state</text>
+      <text x="210" y="62" font-size="9.5" fill="#2d1f3d">(under 4h drive or direct flight)</text>
+      <text x="430" y="50" font-size="9.5" fill="#fff">Regional, inter-state</text>
+      <text x="430" y="62" font-size="9.5" fill="#fff">(overnight or multi-stop flight)</text>
+      <text x="600" y="56" font-size="9.5" font-weight="700" fill="#fff">International</text>
+      <line x1="14" y1="84" x2="706" y2="84" stroke="#0f3d3a" stroke-width="1.4" marker-end="url(#arTp2)"/>
+      <text x="360" y="98" font-size="10" text-anchor="middle" font-weight="700" fill="#b23b3b">RISK increases &#8594;</text>
+
+      <!-- SHELTER POPULATION -->
+      <text x="14" y="138" font-size="12" font-weight="700" fill="#0f3d3a">SHELTER POPULATION</text>
+      <rect x="14" y="146" width="692" height="40" rx="6" fill="url(#gradTp2b)"/>
+      <text x="22" y="162" font-size="9.5" fill="#13414f">Single source to</text>
+      <text x="22" y="174" font-size="9.5" fill="#13414f">single destination</text>
+      <text x="250" y="162" font-size="9.5" fill="#13414f">Multiple sources to</text>
+      <text x="250" y="174" font-size="9.5" fill="#13414f">single destination</text>
+      <text x="470" y="162" font-size="9.5" fill="#fff">Multiple sources to</text>
+      <text x="470" y="174" font-size="9.5" fill="#fff">multiple destinations</text>
+      <line x1="14" y1="196" x2="706" y2="196" stroke="#0f3d3a" stroke-width="1.4" marker-end="url(#arTp2)"/>
+      <text x="360" y="210" font-size="10" text-anchor="middle" font-weight="700" fill="#b23b3b">RISK increases &#8594;</text>
+
+      <!-- TRANSPORT MODE -->
+      <text x="14" y="250" font-size="12" font-weight="700" fill="#0f3d3a">MODE OF TRANSPORTATION</text>
+      <rect x="14" y="258" width="692" height="40" rx="6" fill="url(#gradTp2c)"/>
+      <text x="22" y="282" font-size="9.5" fill="#3a2a16">Personal vehicles</text>
+      <text x="230" y="282" font-size="9.5" fill="#3a2a16">Ground transport, purpose-built vehicles</text>
+      <text x="500" y="282" font-size="9.5" fill="#fff">Commercial airlines</text>
+      <text x="615" y="282" font-size="9.5" font-weight="700" fill="#fff">Private air</text>
+      <line x1="14" y1="308" x2="706" y2="308" stroke="#0f3d3a" stroke-width="1.4" marker-end="url(#arTp2)"/>
+      <text x="360" y="322" font-size="10" text-anchor="middle" font-weight="700" fill="#b23b3b">OPERATING COST increases &#8594;</text>
+      <text x="360" y="346" font-size="9.5" text-anchor="middle" fill="#5d6b62">Rebuilt from textbook Figure 20.2 (illustration source: Laura Nelson). Each axis is independent.</text>
+    </svg>
+    <figcaption>Relocation program models. Risk rises with geographic distance and with the number of organisations involved; operating cost rises with transport mode from personal vehicles to private air. Rebuilt as in-house SVG from your uploaded textbook figure.</figcaption>
+  </figure>
+
+  <h3>Responsibilities of the program <span class="bdg asv">ASV 2022</span> <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <h4>Regulatory and legal</h4>
+    <ul class="hy">
+      <li>All participants must follow <b>federal</b> transport regulations plus <b>local and state</b> regulations for both source and destination.</li>
+      <li>Departments of Agriculture and Departments of Health commonly require health certificates (CVIs), specific vaccinations, and age or health restrictions for imported animals. For commercial air, the airline must be consulted.</li>
+    </ul>
+    <h4>Emergency planning (made before transport)</h4>
+    <ul class="hy">
+      <li>Emergency contact information; safe locations to stop; protocols for vehicle problems; a plan for animal and human medical emergencies. Travelling animals must have contact information for both source and destination.</li>
+    </ul>
+    <h4>Agreements, records and metrics</h4>
+    <ul class="hy">
+      <li>Written agreements between all parties, reviewed regularly, addressing at minimum medical and behavioural selection criteria plus transportation and destination requirements.</li>
+      <li>A contact person must be identified at each transfer point, and a travel record kept from source to destination to allow tracing of source and contacts along the route.</li>
+      <li>Track standard metrics: animal demographics, behavioural and medical conditions, and outcomes.</li>
+    </ul>
+  </div>
+
+  <div class="trap">
+    <b>Exam trap &middot; the no-return resource paradox</b>
+    Unless there are extenuating circumstances, animals should <b>NOT</b> be returned to the source, even when unexpected medical or behavioural concerns appear at the destination. Transport is a major physiological stressor and a heavy resource investment. Programmatic failures are corrected by <b>revisiting selection criteria and goals</b>, not by re-shipping the animal. If a destination repeatedly receives ineligible animals, all parties revisit selection criteria, they do not raise capacity or return animals.
+  </div>
+
+  <div class="gapbox">
+    <b>Gap filled &middot; named regional zoonoses (ASV 2022, 11.2)</b>
+    Your notes list "zoonotic diseases, HW disease" generically. The ASV chapter specifically names <b>plague, rabies and leptospirosis</b> as regionally distributed zoonoses requiring special consideration, alongside aggressive behaviours. Clarification with scientific backing: heartworm (<i>Dirofilaria immitis</i>) is a relevant vector-borne and public-health consideration in relocation, but it is <b>not</b> a classic zoonosis (human infection is rare and aberrant, and is not the reason ASV flags it). Keep heartworm separate from the named zoonoses on the exam.
+  </div>
+
+  <div class="gapbox">
+    <b>Gap filled &middot; the manifest must survive an accident (ASV 2022, 11.3)</b>
+    Beyond the travel record in your notes, ASV requires that a copy of the transport <b>manifest</b> (identifying every animal on board) is kept accessible and <b>separate from the vehicle itself</b>, so it survives if an accident destroys the copy travelling with the animals. A cloud-based digital manifest shared in real time with source, transporter and destination satisfies this.
+  </div>
+</section>
+
+<!-- ======================== TAB 2: SOURCE ======================== -->
+<section class="panel" id="source">
+  <h2 class="sec">Responsibilities at the Source</h2>
+  <p class="lead">The source organisation carries the bulk of preventive and screening duties: population-wide vaccination, parasite control, heartworm testing, records, identification, and the fit-for-transport examination.</p>
+
+  <h3>Vaccination, parasites and heartworm <span class="bdg asv">ASV 2022</span> <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>All eligible animals</b> in the source population must be vaccinated at or before intake. Vaccinating only the animals selected for relocation is insufficient because it leaves the majority of the population unprotected.</li>
+      <li>It is <b>not</b> recommended to hold animals back from transport just to allow a vaccine response or a booster.</li>
+      <li>Treatment for fleas, ticks and internal parasites is strongly recommended.</li>
+      <li>Ideally, all <b>dogs 6 months of age and older are tested for heartworm</b> disease prior to relocation.</li>
+    </ul>
+  </div>
+
+  <div class="trap">
+    <b>Exam trap &middot; vaccinate the population, not just the travellers</b>
+    A tempting wrong answer is "vaccinate only the animals selected for transport." The standard is population-wide vaccination at or before intake. Selective vaccination of only the transport pool is explicitly inadequate.
+  </div>
+
+  <h3>Records, certificates and identification <span class="bdg asv">ASV 2022</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Health and behaviour records must be shared with the destination. When required, a valid CVI and proof of <b>rabies vaccination</b> must accompany each animal (requirements vary by state).</li>
+      <li>Visual identification is required: collars or tags routinely, with alternatives such as marking the inner ear or painting a claw on a neonate. <b>Microchipping before transport is ideal</b> because it provides permanent identification.</li>
+      <li>Each primary transport enclosure must be marked with the animal's unique identifier.</li>
+    </ul>
+  </div>
+
+  <h3>The fit-for-transport examination <span class="bdg asv">ASV 2022</span> <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Animals must be examined by trained staff <b>within 24 hours prior to travel</b> and deemed fit for transport.</li>
+      <li>Purpose: look for evidence of infectious disease and evaluate the animal's ability to tolerate the physical and emotional experiences of travel (prolonged confinement, handling by different people, direct exposure to other animals).</li>
+      <li>A <b>veterinarian</b> must confirm fitness for transport for any animal with medical concerns or recovering from surgery.</li>
+    </ul>
+    <div class="corrbox">
+      <b>Who clears whom</b>
+      Trained staff can screen and clear apparently healthy animals within the 24-hour window. A <b>licensed veterinarian</b> is specifically required to clear animals with medical concerns or post-surgical recovery. Exam options naming the driver, an agriculture inspector, or a foster coordinator are wrong.
+    </div>
+  </div>
+
+  <h3>Local and regional vs international sources <span class="bdg asv">ASV 2022</span> <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Before accepting transport from an <b>international</b> source, organisations should weigh the needs of partners closer to home and the impact of the international partnership on their own mission.</li>
+      <li>Selection criteria must account for suitability for adoption, disease management, long-term quality of life, and the effects of extensive travel.</li>
+      <li>Shelters accepting international transports should have a written policy statement explaining the decision.</li>
+    </ul>
+  </div>
+
+  <div class="gapbox">
+    <b>Gap filled &middot; importing animals under 8 weeks (ASV 2022, 11.4.2)</b>
+    Importing animals less than 8 weeks old may be <b>prohibited in some states</b>. This is a regulatory constraint to check at the destination jurisdiction before planning pediatric transports.
+  </div>
+</section>
+
+<!-- ======================== TAB 3: VEHICLES & ENCLOSURES ======================== -->
+<section class="panel" id="vehicle">
+  <h2 class="sec">Vehicles, Climate and Enclosure Standards</h2>
+  <p class="lead">Engineering controls protect animals from heat, exhaust and injury. The high-yield numbers cluster here: temperature and humidity bounds, ventilation geometry, and the reasons factory cargo climate units are rejected.</p>
+
+  <h3>Primary enclosure standards <span class="bdg asv">ASV 2022</span> <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Large enough for the animal to <b>stand and sit erect, turn around normally while standing, and lie in a natural position without lying on another animal</b>.</li>
+      <li><b>Unfamiliar animals must not be transported together</b> in the same primary enclosure.</li>
+      <li>No sharp edges; flooring must prevent injury, discomfort and leakage of fluids into other enclosures. Absorbent bedding must be provided unless it poses a risk to the individual animal.</li>
+      <li>Vent openings on <b>at least 3 sides</b>, with at least <b>1 inch (2 cm)</b> of unobstructed space between vent openings and adjacent structures.</li>
+      <li>If an enclosure is permanently fixed so only a single door ventilates, that door must face an unobstructed aisle.</li>
+      <li>Enclosures must be secured against movement, doors secured against accidental opening, and operators must be able to remove animals swiftly in an emergency.</li>
+    </ul>
+  </div>
+
+  <h3>Species-specific constraints <span class="bdg asv">ASV 2022</span></h3>
+  <table class="cmp">
+    <tr><th>Group</th><th>Required accommodation during transport</th></tr>
+    <tr><td><b>Cats</b></td><td>A hiding space or visual barrier that still allows ventilation and monitoring (towel partly covering the door, or a small hiding box). Acclimate to carrier beforehand with familiar scent. Litter box access for long-distance transport.</td></tr>
+    <tr><td><b>Dogs and cats together</b></td><td>Ideally transported in separate vehicles. If in one vehicle, they must be in <b>physically separate space</b> with visual and noise barriers.</td></tr>
+    <tr><td><b>Puppies / kittens under 8 weeks</b></td><td>Transport with the mother when possible, in a single enclosure large enough for her to lie down with legs extended for comfort and nursing.</td></tr>
+    <tr><td><b>Pediatric and brachycephalic</b></td><td>More susceptible to temperature extremes; may require alternative modes of transport and different environmental parameters.</td></tr>
+    <tr><td><b>Vulnerable (geriatric, chronic conditions)</b></td><td>Avoid temperature extremes, feed more frequently, and enhance protection from infectious disease exposure.</td></tr>
+  </table>
+
+  <h3>Vehicle climate parameters <span class="bdg asv">ASV 2022</span> <span class="bdg notes">notes</span></h3>
+  <p class="note">These are the most heavily tested numbers in the subdomain. Memorise both the absolute safety bounds and the narrower comfort target.</p>
+  <figure class="fig">
+    <svg viewBox="0 0 720 250" width="100%" role="img" aria-label="Temperature bands for ground and air transport with humidity range">
+      <defs>
+        <marker id="arTp3" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+          <path d="M0,0 L7,3 L0,6 Z" fill="#0f3d3a"/>
+        </marker>
+      </defs>
+      <text x="360" y="22" font-size="12" text-anchor="middle" font-weight="700" fill="#0f3d3a">Transport Temperature Bands (°C)</text>
+      <!-- scale -->
+      <line x1="60" y1="60" x2="680" y2="60" stroke="#0f3d3a" stroke-width="1.2"/>
+      <!-- ticks from -10 to 35 -->
+      <g font-size="9" fill="#5d6b62" text-anchor="middle">
+        <line x1="60" y1="56" x2="60" y2="64" stroke="#5d6b62"/><text x="60" y="76">-10</text>
+        <line x1="198" y1="56" x2="198" y2="64" stroke="#5d6b62"/><text x="198" y="76">0</text>
+        <line x1="336" y1="56" x2="336" y2="64" stroke="#5d6b62"/><text x="336" y="76">10</text>
+        <line x1="474" y1="56" x2="474" y2="64" stroke="#5d6b62"/><text x="474" y="76">20</text>
+        <line x1="612" y1="56" x2="612" y2="64" stroke="#5d6b62"/><text x="612" y="76">30</text>
+      </g>
+      <!-- GROUND safety band 7.2 to 29.5 -->
+      <text x="60" y="104" font-size="10.5" font-weight="700" fill="#0f3d3a">GROUND transport</text>
+      <rect x="159" y="112" width="307" height="20" rx="4" fill="#e8e1f4" stroke="#5c4a72"/>
+      <text x="312" y="126" font-size="10" text-anchor="middle" font-weight="700" fill="#5c4a72">Safety band 7.2°C to 29.5°C</text>
+      <!-- comfort 18 to 26.6 nested -->
+      <rect x="308" y="116" width="119" height="12" rx="3" fill="#5c4a72"/>
+      <text x="430" y="150" font-size="9" fill="#5d6b62">Comfort target 18°C to 26.6°C (inner bar)</text>
+      <!-- AIR ground hold band -7 to 27 -->
+      <text x="60" y="182" font-size="10.5" font-weight="700" fill="#0f3d3a">AIR (cargo hold, on ground)</text>
+      <rect x="63" y="190" width="538" height="20" rx="4" fill="#dcedf2" stroke="#1f6f8b"/>
+      <text x="332" y="204" font-size="10" text-anchor="middle" font-weight="700" fill="#1f6f8b">Hold band -7°C to 27°C; do not load if interior &gt; 29°C</text>
+      <text x="360" y="236" font-size="9.5" text-anchor="middle" fill="#5d6b62">Humidity 30% to 70% throughout. Ground safety bounds are ASV 2022; air-specific bounds are from your notes (full guidelines / live-animal air standards).</text>
+    </svg>
+    <figcaption>Temperature bands. Ground safety band 7.2 to 29.5°C with a comfort target of 18 to 26.6°C and humidity 30 to 70% (ASV 2022). Air hold band -7 to 27°C with a no-load threshold above 29°C (your notes).</figcaption>
+  </figure>
+
+  <div class="card">
+    <h4>Vehicle engineering rules</h4>
+    <ul class="hy">
+      <li>Control over heating and cooling in the animal compartment is essential and must be monitored; alarms help when drivers and animals are in separate compartments.</li>
+      <li>Air must be fresh and free of exhaust fumes; a <b>battery-operated carbon monoxide detector</b> is placed in the animal compartment to protect all occupants from an undetected leak.</li>
+      <li>Interior temperatures in direct sunlight can rapidly exceed safe levels even when it is comfortable outside.</li>
+      <li>Small vehicles carrying few animals per trip are preferred.</li>
+    </ul>
+    <div class="trap">
+      <b>Exam trap &middot; why factory cargo climate units are rejected</b>
+      Factory-installed cargo climate units are designed for <b>static, non-heat-producing loads</b> (the classic example is flowers). They lack the airflow, heat distribution and power to clear the metabolic body heat of live animals. The recommendation is a <b>roof-mounted</b> climate unit, plus insulation of sides, roof and floor, and an insulated floor mat (covered with bedliner or diamond-plate flooring) to block road heat reaching the lowest tier of enclosures.
+    </div>
+  </div>
+
+  <h3>Kennel selection <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Sound, appropriately sized, and matched to the length of transport; must not collapse; minimise injury or escape; easy to clean and disinfect; durable for repeated use.</li>
+      <li>Use a disinfectable barrier (e.g. roll-down outdoor solar shades) to reduce visual stimulation and act as a physical barrier to respiratory droplets.</li>
+      <li>Choose kennels that can be removed without taking the animal out of the safety of the kennel; built-in cargo control bars help achieve this.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ======================== TAB 4: CONFINEMENT & MONITORING ======================== -->
+<section class="panel" id="confine">
+  <h2 class="sec">Confinement Timeline, Feeding, Monitoring and Air Transport</h2>
+  <p class="lead">The ASV confinement grid is the single most testable diagram in this subdomain. Pair the timeline with the feeding and observation intervals, then layer the air transport limits on top.</p>
+
+  <h3>The ASV confinement grid <span class="bdg asv">ASV 2022 (Fig 11.1)</span></h3>
+  <figure class="fig">
+    <svg viewBox="0 0 720 230" width="100%" role="img" aria-label="Total duration of confinement maximum 28 hours excluding overnight rest, with travelling blocks of maximum 12 hours, overnight rest minimum 10 hours, and loading or unloading maximum 1 hour each">
+      <defs>
+        <marker id="arTp1" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+          <path d="M0,0 L8,3 L0,6 Z" fill="#15514c"/>
+        </marker>
+      </defs>
+      <text x="360" y="26" font-size="14" text-anchor="middle" font-weight="700" fill="#0f3d3a">Total Duration of Confinement</text>
+      <text x="360" y="44" font-size="11.5" text-anchor="middle" font-weight="600" fill="#5d6b62">Maximum 28 hours (excluding overnight rest)</text>
+      <!-- span arrows -->
+      <line x1="40" y1="62" x2="320" y2="62" stroke="#15514c" stroke-width="1.4" marker-start="url(#arTp1)"/>
+      <line x1="400" y1="62" x2="680" y2="62" stroke="#15514c" stroke-width="1.4" marker-end="url(#arTp1)"/>
+      <!-- the bar: loading | travel | unloading | (rest gap) | loading | travel | unloading -->
+      <!-- green = load/unload markers, dark = travel, light = rest -->
+      <!-- segment positions -->
+      <rect x="40"  y="92" width="16"  height="34" fill="#7cae54"/>            <!-- load -->
+      <rect x="56"  y="92" width="200" height="34" fill="#2f4858"/>            <!-- travel 12h -->
+      <rect x="256" y="92" width="16"  height="34" fill="#7cae54"/>            <!-- unload -->
+      <rect x="272" y="92" width="120" height="34" fill="#e7e2d4"/>            <!-- overnight rest gap -->
+      <rect x="392" y="92" width="16"  height="34" fill="#7cae54"/>            <!-- load -->
+      <rect x="408" y="92" width="256" height="34" fill="#2f4858"/>            <!-- travel 12h -->
+      <rect x="664" y="92" width="16"  height="34" fill="#7cae54"/>            <!-- unload -->
+      <!-- labels above -->
+      <text x="156" y="84" font-size="10" text-anchor="middle" font-weight="600" fill="#2f4858">Travelling (max 12 h)</text>
+      <text x="332" y="84" font-size="10" text-anchor="middle" font-weight="600" fill="#8a7a4a">Overnight Rest (min 10 h)</text>
+      <text x="536" y="84" font-size="10" text-anchor="middle" font-weight="600" fill="#2f4858">Travelling (max 12 h)</text>
+      <!-- labels below with arrows -->
+      <g font-size="9" fill="#5d6b62" text-anchor="middle">
+        <line x1="48"  y1="126" x2="48"  y2="150" stroke="#7cae54" stroke-width="1.3"/>
+        <text x="48"  y="164">Loading</text><text x="48" y="175">(max 1 h)</text>
+        <line x1="264" y1="126" x2="264" y2="150" stroke="#7cae54" stroke-width="1.3"/>
+        <text x="264" y="164">Unloading</text><text x="264" y="175">(max 1 h)</text>
+        <line x1="400" y1="126" x2="400" y2="150" stroke="#7cae54" stroke-width="1.3"/>
+        <text x="400" y="164">Loading</text><text x="400" y="175">(max 1 h)</text>
+        <line x1="672" y1="126" x2="672" y2="150" stroke="#7cae54" stroke-width="1.3"/>
+        <text x="672" y="164">Unloading</text><text x="672" y="175">(max 1 h)</text>
+      </g>
+      <text x="360" y="205" font-size="9.5" text-anchor="middle" fill="#5d6b62">The 28-hour ceiling counts loading and unloading but excludes the overnight rest. Transport over 12 h of travel must be broken by an overnight stop.</text>
+      <text x="360" y="220" font-size="9" text-anchor="middle" fill="#9a8f78">Rebuilt as in-house SVG from your uploaded ASV Figure 11.1 (© ASV 2022).</text>
+    </svg>
+    <figcaption>Total duration of confinement. Each travelling block is capped at 12 hours, loading and unloading at 1 hour each, the overnight rest is a minimum of 10 hours, and the cumulative confined time from source to final destination is capped at 28 hours excluding the overnight rest.</figcaption>
+  </figure>
+
+  <h3>Monitoring, feeding and hydration intervals <span class="bdg asv">ASV 2022</span></h3>
+  <table class="cmp">
+    <tr><th>Requirement</th><th>Interval / rule</th></tr>
+    <tr><td>Visual observation of each animal (vehicle stopped)</td><td><b>At least every 4 hours</b></td></tr>
+    <tr><td>Two drivers present</td><td>For transports longer than <b>4 hours</b> (to monitor and reload)</td></tr>
+    <tr><td>Water (adults and juveniles)</td><td>At least <b>every 4 hours</b> during observation stops</td></tr>
+    <tr><td>Food, adults</td><td>At least <b>every 24 hours</b></td></tr>
+    <tr><td>Food, juveniles</td><td>Small meal no more than 4 h before departure, then small amounts <b>every 4 hours</b></td></tr>
+    <tr><td>Daily driving time</td><td>No more than <b>12 hours per day</b></td></tr>
+    <tr><td>Loading / unloading</td><td>No more than <b>1 hour each</b></td></tr>
+    <tr><td>Overnight rest stop</td><td>Required when travel exceeds 12 h; <b>minimum 10 hours</b></td></tr>
+    <tr><td>Total confined time, source to destination</td><td>No more than <b>28 hours</b> (excludes overnight rest)</td></tr>
+  </table>
+
+  <div class="trap">
+    <b>Exam trap &middot; water vs food intervals</b>
+    Water and food are not on the same clock. <b>Water at least every 4 hours</b> at observation stops (adults and juveniles). <b>Food at least every 24 hours for adults</b>, while juveniles eat small amounts every 4 hours. An option giving "food and water every 4 hours for adults without exception" is wrong.
+  </div>
+
+  <div class="card">
+    <h4>Overnight and unattended care</h4>
+    <ul class="hy">
+      <li>When feasible, an overnight facility that houses cats and dogs <b>off the vehicle</b> is preferred (foster homes, shelters, hotels, or transport hubs).</li>
+      <li>Animals should never be left unattended unless monitoring is sufficient and attendants can immediately respond to needs.</li>
+      <li>Cats may benefit from remaining in their carriers if large enough, and must have litter box access if housed overnight.</li>
+      <li>Dogs must be walked or exercised on trips requiring an overnight stay.</li>
+    </ul>
+  </div>
+
+  <h3>Air transport <span class="bdg notes">notes</span> <span class="bdg ref">live-animal air standards</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Most expensive method and the greatest degree of risk; accommodates only individuals or small groups. Commercial airlines often have breed, species or conformational restrictions for liability and safety.</li>
+      <li>When well managed, flight can shorten travel time, which may reduce stress, illness and LOS at the destination.</li>
+      <li>Plan the whole chain: travel to the airport, loading, flight, travel to the destination, and unloading.</li>
+      <li>Hold temperature should stay comfortable; not below <b>-7°C</b> or above <b>27°C</b> on the ground.</li>
+      <li>Loading time should not exceed <b>45 minutes</b>; do not load if interior temperature exceeds <b>29°C</b>.</li>
+      <li>Animals should not sit on a loaded plane more than <b>30 minutes</b> without take-off if ground temperatures exceed <b>23.9°C</b>.</li>
+      <li>Consider weight balance within the plane.</li>
+    </ul>
+  </div>
+
+  <h3>Responsibilities at the destination <span class="bdg asv">ASV 2022</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Sufficient trained personnel ready to receive and evaluate animals on arrival.</li>
+      <li>Each animal receives a <b>brief health assessment at intake</b> to identify infectious disease and problems needing emergency or follow-up care.</li>
+      <li>Adequate housing prepared without displacing the existing population.</li>
+      <li>Isolation or quarantine need is informed by regulatory requirements, <b>animal health status, and infectious disease risk</b>. Quarantine is appropriate only for high-risk animals with direct exposure; unnecessary holds increase LOS and harm animal health and organisational goals.</li>
+    </ul>
+    <div class="gapbox">
+      <b>Gap filled &middot; aggregation of sources (ASV 2022, 11.4.5)</b>
+      If animals from different sources cannot travel on separate vehicles, they should ideally be housed in <b>separate compartments</b>, with protocols in place to minimise exposure and cross-contamination between populations.
+    </div>
+  </div>
+</section>
+
+<!-- ======================== TAB 5: BEHAVIOUR & OUTCOMES ======================== -->
+<section class="panel" id="behaviour">
+  <h2 class="sec">Behavioural Stress, Sedation and Post-Relocation Outcomes</h2>
+  <p class="lead">Transport is a measurable physiological and behavioural stressor. This tab covers the stress-biomarker studies, behavioural patient selection, the evidence for anxiolytics, special-population handling, and disease and outcome data after relocation.</p>
+
+  <h3>Transport stress physiology <span class="bdg ref">study data</span> <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Beagles after 22 hours of long-distance ground transport took <b>2 weeks</b> to return serum cortisol and total bilirubin to normal.</li>
+      <li>Beagles travelling 9.5 hours had elevated cortisol and corticosterone during ground transport that returned to baseline overnight.</li>
+      <li>Beagles flown showed increased plasma cortisol after ground transport, increased salivary cortisol after both ground and air, and higher neutrophil with lower lymphocyte counts after both modes. Heart rate was significantly higher during <b>loading</b> than during take-off, flight, landing or turnaround; the largest heart-rate increases were during <b>loading and unloading</b>.</li>
+      <li>In flight, dogs were lying down about 50% of the time and inactive about 75% of the time; the most common behaviours were sitting and lip licking.</li>
+      <li>44% of owned dogs that travelled were reported to show anxiety, fear and motion sickness. Nausea-consistent behaviours (vomiting, salivation, hiding, cowering) were ameliorated by a dog-appeasing pheromone collar in one report.</li>
+    </ul>
+  </div>
+
+  <div class="trap">
+    <b>Exam trap &middot; heart rate peaks during loading, not flight</b>
+    The intuitive wrong answer is that heart rate peaks at take-off or during turbulence. The data show the largest heart-rate increases occur during <b>loading and unloading</b>. The flight itself was relatively stable, with animals mostly inactive.
+  </div>
+
+  <h3>Behavioural patient selection <span class="bdg asv">ASV 2022</span> <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Emphasis on preparing animals: low-stress handling, acclimation to the transport enclosure, and selecting behaviourally appropriate candidates.</li>
+      <li>At minimum, candidates should be easily handled by a variety of people, able to cope with prolonged confinement, and not show overt aggression toward any species that may share their individual transport.</li>
+      <li>Animals with known behavioural health concerns should not be relocated unless their safety and that of personnel can be ensured during the journey, and their best opportunity for continued management and improved welfare lies at the destination.</li>
+    </ul>
+  </div>
+
+  <h3>Sedatives and anxiolytics <span class="bdg asv">ASV 2022</span> <span class="bdg ref">study data</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Psychopharmaceuticals must only be used under <b>veterinary direction</b>, and clear communication between partners is essential when behaviour medications are used.</li>
+      <li>Safe programs do not use sedatives to compensate for poor transport practices. It is unacceptable to transport animals sedated or anaesthetised to the point they cannot swallow, walk or thermoregulate (risk of choking, aspiration pneumonia, hypothermia, cardiac and respiratory arrest without continuous monitoring).</li>
+      <li><b>Evidence:</b> dogs given <b>clomipramine twice daily starting 3 days before transport</b> had a significantly smaller rise in plasma cortisol, a lower neutrophil-to-lymphocyte ratio, lower average heart rate during transport, and drooled less often than placebo.</li>
+    </ul>
+  </div>
+
+  <h3>Special populations during transport <span class="bdg notes">notes</span></h3>
+  <table class="cmp">
+    <tr><th>Population</th><th>Handling adjustments</th></tr>
+    <tr><td><b>Pediatric (8 to 20 weeks)</b></td><td>Consider transporting with mother or siblings to reduce stress; offer food and water more frequently.</td></tr>
+    <tr><td><b>Community (feral) cats</b></td><td>Likely highly stressed; favour shorter distances, use a feral cat den and guillotine doors where possible; enclosures in a single layer, never stacked.</td></tr>
+    <tr><td><b>Fearful, shy, undersocialised dogs</b></td><td>Martingale collar with leash plus a slip lead during loading and unloading to limit escape; a GPS tracker for extreme flight-risk dogs.</td></tr>
+  </table>
+
+  <h3>Outcomes after relocation <span class="bdg ref">study data</span> <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <h4>Dogs</h4>
+    <ul class="hy">
+      <li>Common conditions include spay/neuter (SN) complications, CIRDC, gastrointestinal and dermatologic disease.</li>
+      <li>99% of relocated dogs were adopted after a mean LOS of 9 days; at 30 days post-adoption, 10% had been returned.</li>
+      <li>2% of dogs developed SN complications within 2 weeks of relocation; neither the timing of SN nor the method of transport affected complication or disease rates.</li>
+      <li>The authors recommend performing <b>SN at the destination</b> to balance surgical capacity, LOS and community needs.</li>
+    </ul>
+    <h4>Cats</h4>
+    <ul class="hy">
+      <li>Cats transported a mean of 17 hours with a mean destination LOS of 18 days; 95% adopted, under 6% returned within 30 days.</li>
+      <li>Prevalence at destination: FURI 25.8%, FPV 1.6%, dermatophytosis 0.9%. Younger age, longer transport time and longer LOS were associated with higher FURI prevalence.</li>
+      <li>Disease incidences were under 5% both at the destination and at 30-day follow-up, except CIRDC at 17% at follow-up.</li>
+    </ul>
+    <div class="trap">
+      <b>Exam trap &middot; spay/neuter timing and complications</b>
+      The recommendation is to perform SN at the <b>destination</b>, and transport does <b>not</b> raise the baseline 2% complication rate. An option claiming travel increases SN complications, or that SN must be done at the source 14 days before loading, is wrong.
+    </div>
+  </div>
+
+  <h3>Data collection and reporting <span class="bdg asv">ASV 2022</span> <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>At minimum, both source and destination track the number of animals relocated, the incidence of unanticipated medical and behavioural concerns, and outcomes.</li>
+      <li>Tracking <b>total LOS (source plus destination)</b> captures the animal's overall time in the system and complements outcome metrics.</li>
+      <li>Collect non-urgent health and outcome data <b>within 14 days</b> of relocation and perform a <b>quarterly</b> analysis of aggregate data to catch the majority of individual, partner and programmatic concerns in time to respond.</li>
+      <li>These findings then inform selection and preparation policies, improving short-term success and long-term viability.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ======================== TAB 6: MCQ BANK ======================== -->
+<section class="panel" id="mcq">
+  <h2 class="sec">MCQ Test Bank</h2>
+  <p class="lead">30 board-level questions across the six exam categories: relocation philosophy and regulations, source responsibilities, vehicles and climate, enclosures and species constraints, confinement timelines and monitoring, and air transport and outcomes. Filter by category or attempt the full bank. Answer positions are shuffled, so do not rely on a fixed letter.</p>
+  <div class="mcqbar">
+    <div class="filters">
+      <button class="on" data-f="all">All (30)</button>
+      <button data-f="phil">&#9670; Philosophy &amp; Regs</button>
+      <button data-f="source">&#9670; Source Duties</button>
+      <button data-f="vehicle">&#9670; Vehicles &amp; Climate</button>
+      <button data-f="enclos">&#9670; Enclosures &amp; Species</button>
+      <button data-f="timing">&#9670; Timelines &amp; Monitoring</button>
+      <button data-f="outcome">&#9670; Air &amp; Outcomes</button>
+    </div>
+    <div class="score"><span id="scoreTxt">0 / 0 correct</span><button class="reset" id="resetBtn">Reset</button></div>
+  </div>
+  <div id="qhost"></div>
+</section>
+
+</div></main>
+
+<footer><div class="wrap">
+  <p>Animal Transport and Relocation Programs subdomain, Companion Animal Homelessness domain, ABVP Shelter Medicine Practice RVS. Built from your uploaded notes (Transfer programs.pdf) and verification document (Transfer programs.docx), cross-referenced against the ASV Guidelines for Standards of Care in Animal Shelters, 2nd edition (2022), chapter 11 (Animal Transport and Relocation Programs). MCQ bank: 30 questions filterable by six categories. Source badges distinguish content verified against the ASV chapter, content from your notes, and study or reference data. Diagrams rebuilt as in-house SVG from your uploaded ASV Figure 11.1 and textbook Figure 20.2.</p>
+</div></footer>
+
+<script>
+const tabrow=document.getElementById('tabrow');
+tabrow.addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b||b.disabled)return;
+  [...tabrow.children].forEach(x=>x.classList.remove('active'));b.classList.add('active');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('show'));
+  document.getElementById(b.dataset.p).classList.add('show');
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+
+const Q=[
+  /* ---- PHILOSOPHY & REGS (1-5) ---- */
+  {t:"phil",f:"asv",q:"According to the ASV guidelines, what operational outcome must fundamentally drive decision making within animal relocation and transfer programs?",
+   o:["Maximising the physical size and volume of the transport vehicle.",
+      "Keeping animals in holding patterns until local live outcomes are completely exhausted.",
+      "Prioritising a decrease in the overall length of stay (LOS) for the animals.",
+      "Ensuring 100% of animals are returned to the source if they fail to adopt."],
+   a:2,e:"Decisions within relocation networks must aim to lower the animal's total LOS, preventing overcrowding and localised resource strain. Holding animals for relocation when local live outcomes exist pushes shelters beyond their capacity for care."},
+
+  {t:"phil",f:"asv",q:"Under what explicit condition is it considered UNACCEPTABLE to transport an animal in a relocation program?",
+   o:["When the transport itself is likely to be harmful to the animal's immediate or long-term health or welfare.",
+      "When the destination shelter does not have a full-time behaviour manager.",
+      "If the animal has not received a secondary booster vaccine 14 days prior.",
+      "If the animal is an adult dog that tested negative for heartworm."],
+   a:0,e:"Transport is unacceptable when the journey itself poses an active threat to, or is highly likely to degrade, the animal's immediate or long-term clinical or emotional welfare. Careful management and planning are required."},
+
+  {t:"phil",f:"asv",q:"When setting up a lawful interstate or regional transfer network, which regulatory elements are commonly mandated by state Departments of Agriculture and Health?",
+   o:["Mandatory genetic breed tracing and microchip manufacturer matching.",
+      "Valid certificates of veterinary inspection (CVIs), specific vaccinations, and age or health condition restrictions.",
+      "Written signed waivers from all adoption clients within a 50-mile radius.",
+      "Direct corporate registration with the Federal Aviation Administration."],
+   a:1,e:"Jurisdictional transits are governed by state agricultural and public-health bodies via mandatory CVIs, certain vaccinations, and age or health restrictions. For commercial air, the airline must also be consulted."},
+
+  {t:"phil",f:"asv",q:"If a destination shelter routinely discovers that arriving transported animals are medically or behaviourally ineligible for adoption, what action must the partners take?",
+   o:["Immediately ship the ineligible animals back to the source via air transport.",
+      "Increase the destination shelter's maximum capacity beyond its standard care limits.",
+      "Transition the program exclusively to international feral cat imports.",
+      "Revisit and adjust the program's selection criteria and baseline goals."],
+   a:3,e:"Repeated intake eligibility failures call for a programmatic pause to re-adjust selection criteria and goals. Unless extenuating circumstances exist, animals are not returned to the source, because transport is a major stressor and resource investment."},
+
+  {t:"phil",f:"asv",q:"To capture individual concerns and recognise programmatic trends in time to respond, when should non-urgent health and outcome data be collected and analysed?",
+   o:["Within 24 hours of arrival, followed by a mandatory weekly public audit.",
+      "Collected within 14 days of relocation, with a quarterly analysis of aggregate data.",
+      "Every 12 months, trailing the close of the federal fiscal year.",
+      "Only when requested by local law enforcement or public health agencies."],
+   a:1,e:"ASV points to a 14-day window for non-urgent data collection paired with a quarterly aggregate analysis. (Note: your uploaded answer key explanation contained a stray reference to '24 weeks'; the correct standard is the 14-day collection window plus quarterly review.)"},
+
+  /* ---- SOURCE DUTIES (6-10) ---- */
+  {t:"source",f:"asv",q:"What is the correct protocol for administering vaccinations within a source shelter's population prior to a transport program?",
+   o:["Delay all intake vaccinations until the animal arrives at its final destination.",
+      "Vaccinate only the specific high-value animals chosen for the immediate transport pool.",
+      "Vaccinate all eligible animals within the source population at or before intake.",
+      "Administer vaccines exclusively to juvenile animals under 8 weeks of age."],
+   a:2,e:"Vaccinating only the moving population is insufficient because it leaves the majority unprotected. All eligible animals must be vaccinated at or before intake. Holding animals back just for a vaccine response or booster is not recommended."},
+
+  {t:"source",f:"asv",q:"A source shelter is preparing adult dogs for relocation. What is the explicit requirement regarding heartworm (HW) disease testing?",
+   o:["All dogs 6 months of age and older are tested for HW disease prior to relocation.",
+      "Heartworm testing should be bypassed to decrease the source length of stay.",
+      "Only dogs displaying clinical signs of coughing require a heartworm test.",
+      "Testing is optional if the animal receives a pheromone spray treatment."],
+   a:0,e:"Ideally, every canine candidate aged 6 months or older receives heartworm screening before being cleared for departure. Treatment for fleas, ticks and internal parasites is also strongly recommended."},
+
+  {t:"source",f:"asv",q:"Within what timeframe prior to travel must an animal be evaluated by trained source staff and deemed fit for transport?",
+   o:["Within 72 hours prior to departure, confirmed via a digital photo log.",
+      "Exactly 5 days before loading to allow vaccine response tracking.",
+      "Immediately upon vehicle engine ignition at the loading dock.",
+      "Within 24 hours prior to travel."],
+   a:3,e:"A physical screening by trained staff must occur within 24 hours before departure, to catch infectious disease and evaluate the animal's ability to tolerate the physical and emotional stresses of travel."},
+
+  {t:"source",f:"asv",q:"If an animal chosen for transport has underlying medical concerns or is recovering from surgery, who must explicitly confirm its fitness for transport?",
+   o:["The transport vehicle driver or operations section chief.",
+      "A licensed veterinarian.",
+      "The local Department of Agriculture field inspector.",
+      "The destination shelter's foster coordinator."],
+   a:1,e:"Trained staff can screen apparently healthy animals, but any animal with active medical conditions or recovering from surgery requires explicit clearance from a licensed veterinarian."},
+
+  {t:"source",f:"asv",q:"Before accepting an animal transport from an international source, what should a domestic destination shelter carefully evaluate?",
+   o:["The market value of out-of-state air transport fuel subsidies.",
+      "Whether the source country uses identical microchip scanning frequencies.",
+      "The needs of partners closer to home and the impact of the partnership on its own mission.",
+      "The availability of scented essential oils to coat the transport enclosures."],
+   a:2,e:"Destination facilities should look locally first, weighing nearby regional needs and ensuring an international mission does not dilute their primary local purpose. They should also keep a written policy statement explaining the decision."},
+
+  /* ---- VEHICLES & CLIMATE (11-15) ---- */
+  {t:"vehicle",f:"asv",q:"Why do the ASV guidelines state that factory-installed cargo climate control units should be avoided in an animal transport vehicle?",
+   o:["They require proprietary fuel blends unavailable during long-distance travel.",
+      "They are designed for static items (like flowers) and lack the airflow, distribution and power to handle live-animal metabolic body heat.",
+      "They automatically shut down if vehicle speed exceeds 50 miles per hour.",
+      "They emit high levels of carbon monoxide directly into the driver's cab."],
+   a:1,e:"Factory units are engineered for static, non-heat-producing loads; they cannot clear the substantial metabolic heat of live animals. A roof-mounted unit, body insulation and an insulated floor mat are recommended instead."},
+
+  {t:"vehicle",f:"asv",q:"To protect all vehicle occupants from an undetected exhaust leak, what safety device must be installed in the animal cargo compartment?",
+   o:["A dual-control remote solar shade sensor.",
+      "An automated dog-appeasing pheromone misting device.",
+      "A battery-operated carbon monoxide (CO) detector.",
+      "A continuous electronic heart rate monitor."],
+   a:2,e:"An independent, battery-powered carbon monoxide detector is placed in the animal compartment so that an exhaust leak tracking into the hold is detected and all occupants are protected."},
+
+  {t:"vehicle",f:"asv",q:"What are the ambient temperature boundaries mandated for the animal compartment of a ground transport vehicle?",
+   o:["Maintained above 0°C and below 20°C.",
+      "Kept strictly at a static 23.9°C at all times.",
+      "Maintained above 7.2°C and below 29.5°C.",
+      "Set between 10°C and 15°C with 90% relative humidity."],
+   a:2,e:"For animal safety, ambient temperature must stay above 7.2°C (45°F) and below 29.5°C (85°F). The narrower comfort target is 18°C to 26.6°C (64°F to 80°F)."},
+
+  {t:"vehicle",f:"asv",q:"What relative humidity range must be maintained within the primary animal compartment during ground transport?",
+   o:["10% to 20%.",
+      "30% to 70%.",
+      "Exactly 50% at all times.",
+      "80% to 90% to prevent respiratory desiccation."],
+   a:1,e:"Relative humidity in the animal compartment must be kept within a moderate 30% to 70% band."},
+
+  {t:"vehicle",f:"notes",q:"To reduce road heat affecting animals housed on the lowest tier of a transport van or trailer, what feature is recommended?",
+   o:["Thick layers of newspaper print changed every 2 hours.",
+      "Stacking primary enclosures at least three layers deep on the floor.",
+      "Leaving the rear cargo doors partially unlatched during highway travel.",
+      "An insulated floor mat covered with bedliner or diamond-plate flooring."],
+   a:3,e:"Direct contact with van floors exposes lower-tier animals to radiant road heat. An insulated floor mat covered with bedliner or diamond-plate flooring, plus insulation of sides and roof, mitigates this."},
+
+  /* ---- ENCLOSURES & SPECIES (16-20) ---- */
+  {t:"enclos",f:"asv",q:"Which parameter defines the minimum acceptable structural sizing for a primary animal enclosure during transport?",
+   o:["Large enough to stand and sit erect, turn around normally while standing, and lie in a natural position without lying on another animal.",
+      "Formed to fit the animal's exact body contours to prevent shifting during turns.",
+      "Sized to allow at least three unfamiliar adult animals to share a single floor space.",
+      "Exactly twice the length of the animal's tail measurement."],
+   a:0,e:"Enclosures must allow normal postural adjustments: standing and sitting erect, turning around while standing, and lying naturally without piling onto other animals."},
+
+  {t:"enclos",f:"asv",q:"What is the strict rule regarding co-housing of unfamiliar animals within the same primary enclosure during transport?",
+   o:["They may be housed together if they are of similar weight and age.",
+      "Unfamiliar animals must not be transported together in the same primary enclosure.",
+      "They can share an enclosure if the transport time is under 4 hours.",
+      "Co-housing is permissible if both animals wear pheromone collars."],
+   a:1,e:"Placing unfamiliar animals together in a confined space during transit is a safety violation; they must be separated into individual primary enclosures."},
+
+  {t:"enclos",f:"asv",q:"Primary transport enclosures must feature ventilation openings on at least how many sides, and with what clearance from adjacent structures?",
+   o:["On at least 2 sides, with a 10cm unobstructed gap.",
+      "On all 4 sides, with a mandatory 5-inch mechanical stand-off bar.",
+      "On at least 3 sides, with at least 1 inch (2cm) of unobstructed space.",
+      "Ventilation is required on the door side only, with no clearance limits."],
+   a:2,e:"Enclosures need ventilation openings on a minimum of 3 sides and at least 1 inch (2cm) of unobstructed space from adjacent structures so airflow is not blocked."},
+
+  {t:"enclos",f:"asv",q:"When transporting cats, what behavioural husbandry feature must be provided inside the primary enclosure to minimise stress?",
+   o:["An open-air mesh window facing the largest dog crates.",
+      "A mechanical exercise wheel tailored for feline use.",
+      "Lifelong access to a continuous stream of running water.",
+      "A hiding space or visual barrier (a towel partly covering the door or a small hiding box) that still allows ventilation and monitoring."],
+   a:3,e:"Cats need options for environmental avoidance; a visual barrier such as a partly draped towel or an internal hiding box reduces acute travel stress while still allowing ventilation and monitoring."},
+
+  {t:"enclos",f:"asv",q:"If dogs and cats must be transported within the same vehicle, what housing and barriers are required?",
+   o:["They can be stacked in alternating tiers with open wire-mesh flooring.",
+      "They must be housed in physically separate spaces, with consideration given to visual and noise barriers.",
+      "They must be separated by a minimum distance of 10 centimetres without walls.",
+      "Cats must be sedated to recumbency to prevent vocalisation."],
+   a:1,e:"To reduce predatory stress and noise anxiety, co-shipped dogs and cats must be physically separated with visual and acoustic barriers. Ideally they travel in separate vehicles."},
+
+  /* ---- TIMELINES & MONITORING (21-25) ---- */
+  {t:"timing",f:"asv",q:"For long-distance transports, what is the maximum daily driving time permitted before an overnight rest stop is mandated?",
+   o:["8 hours.",
+      "12 hours.",
+      "16 hours.",
+      "24 hours."],
+   a:1,e:"Daily driving is capped at 12 hours per 24-hour block. Transport that exceeds 12 hours of travel must be broken with an overnight rest stop."},
+
+  {t:"timing",f:"asv",q:"When a long-distance transport triggers a mandatory overnight rest stop, what is the minimum duration of that rest period?",
+   o:["6 hours.",
+      "10 hours.",
+      "12 hours.",
+      "14 hours."],
+   a:1,e:"The overnight rest stop is a minimum of 10 hours of stationary rest before reloading, per the ASV confinement grid (Figure 11.1)."},
+
+  {t:"timing",f:"asv",q:"According to the ASV confinement grid, what is the maximum cumulative time an animal can be confined to a vehicle from source to final destination, excluding the overnight rest?",
+   o:["12 hours.",
+      "28 hours.",
+      "36 hours.",
+      "48 hours."],
+   a:1,e:"The ceiling for cumulative confined time, including loading and unloading but excluding the overnight rest, is 28 hours."},
+
+  {t:"timing",f:"asv",q:"During a transport, what is the minimum frequency for stopping the vehicle to perform a direct visual observation of each animal?",
+   o:["Every 2 hours.",
+      "At least every 4 hours.",
+      "Exactly every 6 hours.",
+      "Only during refuelling stops exceeding 45 minutes."],
+   a:1,e:"A complete vehicle stop and individual visual welfare check of every animal is required at least every 4 hours. Transports longer than 4 hours should also carry two drivers."},
+
+  {t:"timing",f:"asv",q:"What are the hydration and nutritional frequencies required for adult animals during a relocation journey?",
+   o:["Water at least every 4 hours during observation stops; food at least every 24 hours.",
+      "Water and food both delivered continuously via automated cage-mounted valves.",
+      "Water every 12 hours, with food withheld up to 48 hours to prevent vomiting.",
+      "Food and water every 4 hours without exception."],
+   a:0,e:"Hydration is high-frequency (water at least every 4 hours at stops, for adults and juveniles), whereas adult nutrition can be managed on a 24-hour interval. Juveniles eat small amounts every 4 hours."},
+
+  /* ---- AIR & OUTCOMES (26-30) ---- */
+  {t:"outcome",f:"notes",q:"Under commercial air transport, what are the ground temperature limits for cargo holds, and at what interior temperature is loading banned?",
+   o:["Holds must not be below -2°C or above 20°C; loading banned at 25°C interior.",
+      "Holds must not be below -7°C or above 27°C; loading banned if interior exceeds 29°C.",
+      "Holds must not be below 0°C or above 30°C; loading banned at 32°C interior.",
+      "Cargo holds are unheated; loading banned only during visible winter storms."],
+   a:1,e:"Per your notes (consistent with live-animal air transport standards), holds should not be below -7°C or above 27°C on the ground, and loading is prohibited if interior temperature exceeds 29°C. Loading should also not exceed 45 minutes."},
+
+  {t:"outcome",f:"ref",q:"Physiological studies on beagles after a 22-hour long-distance ground transport showed they required how long to return serum cortisol and total bilirubin to normal?",
+   o:["24 hours.",
+      "48 hours.",
+      "2 weeks.",
+      "30 days."],
+   a:2,e:"Long-distance ground transport produced a deep physiological toll: serum cortisol and total bilirubin remained altered for up to 2 weeks post-travel in this beagle study."},
+
+  {t:"outcome",f:"ref",q:"In flight studies of canine biometrics, during which phases did animals experience the largest increases in heart rate?",
+   o:["During cruise-altitude flight and turnaround manoeuvres.",
+      "During loading and unloading phases.",
+      "While sitting quietly in the cargo hold midway through the flight.",
+      "Exactly 10 minutes after administration of clomipramine."],
+   a:1,e:"The flight path itself was relatively stable; the most acute heart-rate spikes occurred during loading and unloading. Heart rate was significantly higher during loading than during take-off, flight, landing or turnaround."},
+
+  {t:"outcome",f:"ref",q:"Which pre-treatment protocol was shown to significantly lower plasma cortisol, lower the neutrophil-to-lymphocyte ratio, and reduce heart rate and drooling during transport?",
+   o:["Single-dose acepromazine at the moment of loading.",
+      "Twice-daily clomipramine starting 3 days prior to transport.",
+      "Weekly megestrol acetate mixed into canned food.",
+      "A single high-dose injection of intratesticular zinc gluconate."],
+   a:1,e:"Proactive twice-daily clomipramine started 3 days before transport produced significantly lower cortisol rises, a lower neutrophil-to-lymphocyte ratio, lower average heart rate, and less drooling than placebo. Psychopharmaceuticals must be used only under veterinary direction."},
+
+  {t:"outcome",f:"ref",q:"To balance surgical capacity, length of stay and community needs, what does the literature recommend regarding the timing and location of spay/neuter (SN) for relocated dogs?",
+   o:["Perform SN exclusively at the source at least 14 days before loading.",
+      "Perform SN at the destination, as travel does not increase postoperative complication rates.",
+      "Perform SN inside the moving transport vehicle using chemical restraint.",
+      "Outsource SN entirely to international partners before entry assessment."],
+   a:1,e:"Performing SN at the destination balances local resources and reduces source LOS. Data show transport does not raise the baseline 2% postoperative complication rate, and neither timing of SN nor transport method affected complication or disease incidence."}
+];
+
+const host=document.getElementById('qhost');
+const scoreTxt=document.getElementById('scoreTxt');
+let answered=0,correct=0,filter='all';
+const DLABEL={phil:"Philosophy & Regs",source:"Source Duties",vehicle:"Vehicles & Climate",enclos:"Enclosures & Species",timing:"Timelines & Monitoring",outcome:"Air & Outcomes"};
+function tagLabel(t){return DLABEL[t]||t.toUpperCase();}
+function flagBadge(f){
+  if(f==='corr')return '<span class="bdg corr">corrected</span>';
+  if(f==='notes')return '<span class="bdg notes">your notes</span>';
+  if(f==='asv')return '<span class="bdg asv">ASV 2022</span>';
+  if(f==='ref')return '<span class="bdg ref">study data</span>';
+  return '';
+}
+function render(){
+  host.innerHTML='';answered=0;correct=0;updateScore();
+  Q.forEach((item,i)=>{
+    if(filter!=='all'&&item.t!==filter)return;
+    const card=document.createElement('div');card.className='q';
+    card.innerHTML=`<div class="meta"><span class="num">#${i+1}</span><span class="tag">&#9670; ${tagLabel(item.t)}</span>${flagBadge(item.f)}</div><div class="stem">${item.q}</div>`;
+    const opts=document.createElement('div');
+    item.o.forEach((txt,oi)=>{
+      const btn=document.createElement('button');btn.className='opt';
+      btn.innerHTML=`<span class="k">${String.fromCharCode(65+oi)}</span>${txt}`;
+      btn.onclick=()=>choose(card,opts,item,oi);opts.appendChild(btn);
+    });
+    card.appendChild(opts);
+    const ex=document.createElement('div');ex.className='expl';
+    ex.innerHTML=`<b class="cor">Correct: ${String.fromCharCode(65+item.a)}.</b> ${item.e}`;
+    card.appendChild(ex);host.appendChild(card);
+  });
+}
+function choose(card,opts,item,oi){
+  if(card.dataset.done)return;card.dataset.done='1';answered++;
+  [...opts.children].forEach((b,bi)=>{
+    b.classList.add('locked');
+    if(bi===item.a)b.classList.add('correct');
+    if(bi===oi&&oi!==item.a)b.classList.add('wrong');
+  });
+  if(oi===item.a)correct++;
+  card.querySelector('.expl').classList.add('show');updateScore();
+}
+function updateScore(){scoreTxt.textContent=`${correct} / ${answered} correct`;}
+document.querySelector('.filters').addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  document.querySelectorAll('.filters button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');filter=b.dataset.f;render();
+});
+document.getElementById('resetBtn').onclick=render;
+render();
+</script>
+</body>
+</html>

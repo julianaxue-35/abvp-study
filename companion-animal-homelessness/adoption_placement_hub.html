@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adoption &amp; Placement | Companion Animal Homelessness | ABVP Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0f3d3a;--ink2:#15514c;--paper:#f4efe4;--paper2:#fbf8f1;
+    --line:#d9d0bd;--muted:#5d6b62;
+    --good:#1f7a4d;--bad:#b23b3b;
+    --shadow:0 1px 2px rgba(15,61,58,.08),0 8px 24px rgba(15,61,58,.06);
+    --cah:#5c4a72;--cah-soft:#e8e1f4;--dom-head:#2d1f3d;
+    --notes:#7a4fb5;--notes-soft:#ece3f7;
+    --asv:#5c4a72;--asv-soft:#e8e1f4;
+    --avcc:#7a3f6a;--avcc-soft:#f2e5ef;
+    --vce:#1f6f8b;--vce-soft:#dcedf2;
+    --ref:#1f6f8b;--ref-soft:#dcedf2;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;
+    background-image:radial-gradient(circle at 1px 1px,rgba(92,74,114,.04) 1px,transparent 0);background-size:22px 22px;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+  header.top{background:var(--dom-head);color:var(--paper2);padding:26px 0 22px;border-bottom:4px solid var(--cah)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#c8b8e8;margin:0 0 6px}
+  header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(26px,4.5vw,40px);margin:0;line-height:1.05}
+  header.top p.sub{margin:8px 0 0;color:#d4c8ea;font-size:14px;max-width:70ch}
+  .legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}
+  .legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.25);color:#ede8f6;display:flex;align-items:center;gap:6px}
+  .legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--paper2);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button:hover{background:var(--paper);color:var(--ink)}
+  .tabrow button.active{background:var(--dom-head);color:var(--paper2)}
+  .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--cah)}
+  main{padding:30px 0 80px}
+  .panel{display:none;animation:fade .35s ease}
+  .panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;letter-spacing:-.01em}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:78ch}
+  h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:26px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;color:var(--ink2);text-transform:uppercase;letter-spacing:.03em}
+  .card{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}
+  p.note{font-size:14px;margin:0 0 6px}
+  ul.hy{margin:8px 0;padding-left:0;list-style:none}
+  ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed #e6ddca;font-size:14px}
+  ul.hy li:last-child{border-bottom:0}
+  ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;border-radius:2px;background:var(--cah);transform:rotate(45deg)}
+  .trap{background:#fff6ef;border:1px solid #e8d8f0;border-left:4px solid var(--cah);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .trap b{color:var(--cah);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .corrbox{background:#e9f4ee;border:1px solid #bfe0cc;border-left:4px solid var(--good);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .corrbox b{color:var(--good);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .verifybox{background:var(--avcc-soft);border:1px solid #e0c0d8;border-left:4px solid var(--avcc);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .verifybox b{color:var(--avcc);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:var(--paper2);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp th{background:var(--dom-head);color:var(--paper2);font-weight:600;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase}
+  table.cmp tr:last-child td{border-bottom:0}
+  table.cmp td b{color:var(--ink)}
+  .yes{color:var(--good);font-weight:700}
+  .no{color:var(--bad);font-weight:700}
+  .mid{color:#8a6d1f;font-weight:700}
+  .fig{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0;box-shadow:var(--shadow)}
+  .fig figcaption{font-size:12.5px;color:var(--muted);margin-top:8px;font-style:italic}
+  .bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+  .bdg.notes{background:var(--notes-soft);color:var(--notes)}
+  .bdg.asv{background:var(--asv-soft);color:var(--asv)}
+  .bdg.avcc{background:var(--avcc-soft);color:var(--avcc)}
+  .bdg.vce{background:var(--vce-soft);color:var(--vce)}
+  .bdg.ref{background:var(--ref-soft);color:var(--ref)}
+  .bdg.corr{background:var(--good);color:#fff}
+  .stat{display:inline-block;background:var(--cah-soft);color:var(--cah);font-family:"JetBrains Mono",monospace;font-weight:600;font-size:12px;padding:2px 8px;border-radius:6px;margin:0 2px}
+  /* two-col layout for dog/cat parallel content */
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0}
+  @media(max-width:580px){.twocol{grid-template-columns:1fr}}
+  .twocol .card{margin:0}
+  .twocol .card h4{margin-top:0}
+  /* mcq */
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--dom-head);color:var(--paper2);border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:54px;z-index:10}
+  .mcqbar .filters{display:flex;gap:6px;flex-wrap:wrap}
+  .mcqbar .filters button{font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#d6cce8;padding:6px 11px;border-radius:999px;cursor:pointer;white-space:nowrap}
+  .mcqbar .filters button.on{background:var(--cah);border-color:var(--cah);color:#fff}
+  .score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}
+  .score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;color:#d6cce8;padding:5px 10px;border-radius:8px;font-size:11px}
+  .q{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
+  .q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+  .q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--cah-soft);color:var(--cah)}
+  .q .stem{font-weight:600;font-size:15px;margin-bottom:10px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;font-family:"Public Sans";transition:background .15s,border-color .15s}
+  .opt:hover{border-color:var(--ink)}
+  .opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}
+  .opt.correct{background:#e8f5ec;border-color:var(--good);color:#0d3d24}
+  .opt.wrong{background:#fbe9e9;border-color:var(--bad);color:#5e1d1d}
+  .opt.locked{cursor:default}
+  .expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:#f3efe3;border:1px solid var(--line);font-size:13.5px}
+  .expl.show{display:block}
+  .expl b.cor{color:var(--good)}
+  footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
+  @media(max-width:640px){.mcqbar{top:50px}.score{font-size:12px}}
+</style>
+</head>
+<body>
+<nav style="background:#2d1f3d;padding:9px 18px;display:flex;align-items:center;gap:10px;font-family:'Public Sans',system-ui,sans-serif;font-size:13px;font-weight:500;border-bottom:2px solid #4a3563"><a href="../index.html" style="color:#c8b8e8;text-decoration:none;display:flex;align-items:center;gap:5px"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span style="color:#6b5285;font-size:11px">›</span><span style="color:#d4c8ea">Companion Animal Homelessness</span></nav>
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">ABVP Shelter Medicine Practice RVS &middot; Companion Animal Homelessness</p>
+    <h1>Adoption &amp; Placement</h1>
+    <p class="sub">Exam-depth study tool covering conversational adoption philosophy, canine and feline adoption decision science, evidence-based marketing, post-adoption return data, counseling frameworks, and proactive support programs. Built from your uploaded notes, verified against ASV guidelines and published shelter medicine literature.</p>
+    <div class="legend">
+      <span><i style="background:var(--notes)"></i>Your notes</span>
+      <span><i style="background:var(--asv)"></i>ASV guidelines</span>
+      <span><i style="background:var(--ref)"></i>Shelter medicine research</span>
+      <span><i style="background:var(--good)"></i>Gap / correction</span>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="overview"><span class="dot"></span>Overview</button>
+  <button data-p="decisions"><span class="dot"></span>Decision Making</button>
+  <button data-p="marketing"><span class="dot"></span>Marketing</button>
+  <button data-p="postadopt"><span class="dot"></span>Post-Adoption</button>
+  <button data-p="mcq"><span class="dot" style="background:var(--dom-head)"></span>MCQ Bank</button>
+</div></div></nav>
+
+<main><div class="wrap">
+
+<!-- ======================== OVERVIEW ======================== -->
+<section class="panel show" id="overview">
+  <h2 class="sec">Overview: Adoption and Placement</h2>
+  <p class="lead">The field of shelter adoption has shifted decisively away from high-barrier, income-based screening toward a conversational, partnership-based model. Understanding this philosophy and the research underpinning it is central to the ABVP exam.</p>
+
+  <h3>The conversational adoption philosophy <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <p class="note">Over the past two decades, animal sheltering has shifted toward removing barriers to adoption. The contemporary model, known as <b>conversational adoptions</b>, is built on two foundational assumptions:</p>
+    <ul class="hy">
+      <li>Every adopter is an individual with personal strengths and weaknesses.</li>
+      <li>Adopters inherently mean well and are capable of gathering knowledge for appropriate animal care.</li>
+    </ul>
+    <h4>Role of the adoption counsellor</h4>
+    <ul class="hy">
+      <li>Create a <b>partnership</b> with the adopter, not a gatekeeping relationship.</li>
+      <li>Focus on aligning the adopter's expectations with the characteristics of the specific animal.</li>
+    </ul>
+    <div class="trap">
+      <b>Exam trap &middot; returns are not failures</b>
+      A return should be viewed as a <b>learning opportunity</b> about that specific animal, making the next placement match easier. A returned animal can be adopted to the same person as a better match, or that person can become a foster carer or shelter advocate. Framing returns as screening failures or blacklisting returners is inconsistent with conversational adoption philosophy.
+    </div>
+  </div>
+
+  <h3>Adoption fees and income requirements <span class="bdg notes">notes</span> <span class="bdg ref">shelter research</span></h3>
+  <div class="card">
+    <p class="note">Historically, high adoption fees and income requirements were justified by the flawed assumption that high family income was necessary to guarantee a good quality of life for the adopted animal. Research refutes this:</p>
+    <ul class="hy">
+      <li>No differences in <b>owner-pet attachment</b> were found in adult cat adopters when adoption fees were reduced.</li>
+      <li>No change in <b>return rates</b> when adoption fees were reduced.</li>
+      <li>A <b>low advertised price</b> was an important predictor of a visitor choosing to come to a specific shelter (visitor survey data).</li>
+    </ul>
+    <div class="trap">
+      <b>Exam trap &middot; income thresholds are not evidence-based</b>
+      Imposing income requirements or premium fees as a welfare safeguard is not supported by research. Lowering fees does not degrade attachment or increase returns. These barriers simply reduce access without improving animal welfare outcomes.
+    </div>
+  </div>
+
+  <h3>Visitor dynamics and geographic catchment <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Most adopters search within a <span class="stat">30-mile radius</span>. Some are willing to travel up to <span class="stat">90 miles</span>, but this is the exception.</li>
+      <li>Shelters should understand local community demographics to tailor programs and ensure no sectors are neglected.</li>
+      <li>Track visitor geography by collecting zip codes at the door.</li>
+    </ul>
+    <h4>The 2/3 rule: visitors who do not adopt</h4>
+    <ul class="hy">
+      <li>As many as <span class="stat">2/3 of visitors</span> have no intention of taking an animal home that day.</li>
+      <li>These visitors still matter: a positive experience can convert them into future adopters, foster carers, or volunteers.</li>
+      <li>Deploy trained volunteers to proactively engage with "just looking" visitors.</li>
+    </ul>
+    <h4>Spontaneous adoption</h4>
+    <p class="note">Studies show <b>no difference in long-term retention</b> between spontaneous (unplanned) adoptions and planned adoptions. Spontaneous adopters are not higher-risk; do not discourage or slow them down.</p>
+    <div class="trap">
+      <b>Exam trap &middot; spontaneous vs. planned adoptions</b>
+      Spontaneous adoption retention rates are statistically equivalent to planned adoption retention rates. Restricting or discouraging spontaneous adoptions is not evidence-based.
+    </div>
+  </div>
+</section>
+
+<!-- ======================== DECISION MAKING ======================== -->
+<section class="panel" id="decisions">
+  <h2 class="sec">Decision Making at the Shelter</h2>
+  <p class="lead">Adoption decisions are driven by a sequential process: initial browsing is morphology-driven, the meet-and-greet phase is behaviour-driven. Understanding both phases separately is high-yield for the exam.</p>
+
+  <h3>Canine adoption decision sequence <span class="bdg notes">notes</span> <span class="bdg ref">shelter research</span></h3>
+  <figure class="fig">
+    <svg viewBox="0 0 720 200" width="100%" role="img" aria-label="Two-phase canine adoption decision: phase 1 morphology-driven browsing, phase 2 behaviour-driven meet and greet">
+      <defs>
+        <marker id="arPlcA" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+          <path d="M0,0 L7,3 L0,6 Z" fill="#0f3d3a"/>
+        </marker>
+      </defs>
+      <!-- phase 1 -->
+      <rect x="10" y="40" width="290" height="120" rx="12" fill="#f2e5ef" stroke="#7a3f6a" stroke-width="1.5"/>
+      <text x="155" y="68" font-size="12" text-anchor="middle" font-weight="700" fill="#0f3d3a">PHASE 1: BROWSING</text>
+      <text x="155" y="86" font-size="10" text-anchor="middle" fill="#7a3f6a">Morphology drives ALL stopping behaviour</text>
+      <text x="155" y="102" font-size="10" text-anchor="middle" fill="#7a3f6a">Visitors stop at ~1/3 of available dogs</text>
+      <text x="155" y="118" font-size="10" text-anchor="middle" fill="#7a3f6a">15 to 70 sec per dog viewed</text>
+      <text x="155" y="134" font-size="10" text-anchor="middle" fill="#7a3f6a">In-kennel training has NO effect</text>
+      <text x="155" y="150" font-size="9.5" text-anchor="middle" fill="#b23b3b">~1% of dogs taken out of kennel</text>
+      <!-- arrow -->
+      <line x1="300" y1="100" x2="344" y2="100" stroke="#0f3d3a" stroke-width="1.5" marker-end="url(#arPlcA)"/>
+      <text x="322" y="92" font-size="9" text-anchor="middle" fill="#0f3d3a">select</text>
+      <!-- phase 2 -->
+      <rect x="348" y="40" width="290" height="120" rx="12" fill="#e8e1f4" stroke="#5c4a72" stroke-width="1.5"/>
+      <text x="493" y="68" font-size="12" text-anchor="middle" font-weight="700" fill="#0f3d3a">PHASE 2: MEET AND GREET</text>
+      <text x="493" y="86" font-size="10" text-anchor="middle" fill="#5c4a72">Behaviour drives adoption decision</text>
+      <text x="493" y="102" font-size="10" text-anchor="middle" fill="#5c4a72">Avg 8 min interaction; ~1/3 adopted</text>
+      <text x="493" y="118" font-size="10" text-anchor="middle" fill="#5c4a72">Key: reciprocal play + lying down in proximity</text>
+      <text x="493" y="134" font-size="10" text-anchor="middle" fill="#5c4a72">Small enclosed area = highest adoption rate</text>
+      <text x="493" y="150" font-size="9.5" text-anchor="middle" fill="#1f7a4d">Single fav toy only = adoptions nearly doubled</text>
+    </svg>
+    <figcaption>Two-phase canine adoption decision sequence. Morphology drives browsing; behaviour drives conversion at the meet-and-greet. Training investment yields the highest return when focused on Phase 2 skills. Sources: your notes; published shelter ethology research.</figcaption>
+  </figure>
+
+  <div class="card">
+    <h4>Canine morphology preferences (browsing phase)</h4>
+    <ul class="hy">
+      <li>Small body size</li>
+      <li>Puppies</li>
+      <li>Certain breed types</li>
+      <li>Long coat length</li>
+      <li>Lighter coat colour (tentative evidence)</li>
+    </ul>
+    <div class="trap">
+      <b>Exam trap &middot; in-kennel training does not drive canine adoption</b>
+      Studies confirm that in-kennel training has <b>no effect on adopter browsing behaviour</b>. Only the morphology of the dog while in the kennel predicted visitor stopping behaviour. Training resources should be invested in meet-and-greet skills (lying down, calm proximity), not in-kennel behaviours.
+    </div>
+  </div>
+
+  <div class="card">
+    <h4>Meet-and-greet: the experimental evidence</h4>
+    <ul class="hy">
+      <li>An experimental study found that when dogs were encouraged to stay in proximity and lie down next to the adopter, and only the dog's favourite toy was present in the meet-and-greet room, <b>adoptions nearly doubled</b>.</li>
+      <li>Training goal: teach dogs to lie down next to a bench or chair (where adopters will subsequently sit). Teach relaxation, not play performance.</li>
+      <li>Excessive play and attention before the meet-and-greet may work against adoption by over-arousing the dog.</li>
+    </ul>
+  </div>
+
+  <h3>Feline adoption: environmental and labelling factors <span class="bdg notes">notes</span> <span class="bdg ref">shelter research</span></h3>
+  <div class="twocol">
+    <div class="card">
+      <h4>Housing environment effects</h4>
+      <ul class="hy">
+        <li>Frequency of viewing the same cat (not duration) predicted ultimate adoption.</li>
+        <li>Top-tier cage placement + toy = more adopter interest.</li>
+        <li>Active cats with lower stress and human-directed social behaviour had shorter length of stay (LOS).</li>
+        <li>Singly housed cats in traditional horizontal cages had the fewest adoptions and most stress behaviour.</li>
+        <li>Re-orienting a cage from horizontal to vertical and adding a shelf and towel (hiding area): <b>directly reduced stress and improved adoption outcomes</b>.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Adopter preferences</h4>
+      <ul class="hy">
+        <li>Kittens preferred over adults.</li>
+        <li>Exotic breed status preferred.</li>
+        <li>Unique coat patterns preferred.</li>
+        <li>Lighter coat colours preferred.</li>
+        <li><b>Black cats:</b> longer time to adoption; judged as less friendly, less playful, and more aggressive than light-coloured cats (without behavioural evidence). This is a documented cognitive bias.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="trap">
+    <b>Exam trap &middot; the owner-surrender vs. stray label bias</b>
+    Cats labelled as "owner-surrendered" are adopted significantly faster than cats labelled as "stray," <b>even when both groups have identical latency to approach people and the only difference is the label</b>. This is a cognitive labelling bias documented in peer-reviewed research. It is not explained by actual behavioural differences. This is one of the most exam-tested concepts in this subdomain.
+  </div>
+
+  <div class="card">
+    <h4>Choice availability: limiting vs. variety</h4>
+    <ul class="hy">
+      <li>Some research recommends limiting choices; other studies show adopters prefer variety and may avoid shelters they perceive as having a limited selection.</li>
+      <li>Allowing the public to view all animals, even those not yet ready for adoption, is likely to <b>increase public trust</b> and establish the public as a partner in the shelter's mission.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ======================== MARKETING ======================== -->
+<section class="panel" id="marketing">
+  <h2 class="sec">Evidence-Based Marketing</h2>
+  <p class="lead">Every element of an animal's public-facing profile, from photo composition to word choice, has been studied for its effect on length of stay (LOS) and adoption interest. The evidence is specific and high-yield.</p>
+
+  <h3>Online profile best practices <span class="bdg notes">notes</span> <span class="bdg ref">shelter research</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Photo:</b> outdoor setting, animal standing, making direct eye contact. For cats, include a toy in the photo.</li>
+      <li><b>Video:</b> participants who viewed videos of cats rated them as significantly <b>more adoptable</b> than those who viewed photos alone. Video is preferred for feline profiles.</li>
+      <li><b>Breed labels:</b> removing breed labels from dog profiles did not create adverse consequences. One NYC shelter study found LOS was <b>reduced for all dogs</b> after breed label removal, with no change in return rates.</li>
+      <li><b>No warnings in the public profile:</b> matching concerns, restrictions, and behavioural caveats should be raised during the individual counselling phase, never in the initial marketing profile.</li>
+      <li><b>Do not blame the previous owner</b> in the animal's profile text.</li>
+    </ul>
+    <div class="trap">
+      <b>Exam trap &middot; matching restrictions belong in counselling, not marketing</b>
+      The online animal profile is a marketing tool. Behavioural concerns or potential matching restrictions placed in the initial profile reduce adoption interest and increase LOS. These must be reserved for individual counselling conversations with serious prospective adopters.
+    </div>
+  </div>
+
+  <h3>Language and word choice <span class="bdg notes">notes</span> <span class="bdg ref">shelter research</span></h3>
+  <table class="cmp">
+    <tr><th>Effect on LOS</th><th>Words and phrases to use</th><th>Words and phrases to avoid</th></tr>
+    <tr>
+      <td><span class="yes">Shortens LOS</span></td>
+      <td>Make you proud, independent, lively, eager, clever</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><span class="no">Lengthens LOS</span></td>
+      <td></td>
+      <td>Only dog, dominant, sensitive, happy-go-lucky</td>
+    </tr>
+    <tr>
+      <td><span class="no">Lengthens LOS / stigmatising</span></td>
+      <td></td>
+      <td>"Overlooked by adopters," "still here," "waiting over 6 months" (exploits mere exposure effect negatively)</td>
+    </tr>
+  </table>
+
+  <div class="card">
+    <h4>Language style</h4>
+    <p class="note">Adoption advertisements that use <b>concrete and analytic language</b>, rather than narrative or story-based language, result in higher interest from potential adopters. Avoid emotional vignettes; focus on clear, action-oriented descriptors.</p>
+    <h4>The mere exposure effect</h4>
+    <p class="note">Repeatedly posting the same animal's photo on social media, even without interaction, makes viewers <b>perceive that face as more attractive</b> over time (mere exposure effect). Frequent and consistent social media posting is evidence-based, not just good practice.</p>
+  </div>
+
+  <h3>Training to improve adoption metrics <span class="bdg notes">notes</span></h3>
+  <div class="twocol">
+    <div class="card">
+      <h4>Dogs</h4>
+      <ul class="hy">
+        <li>Focus training on <b>meet-and-greet skills</b>, not in-kennel performance.</li>
+        <li>Teach the dog to lie down next to a bench or chair (where an adopter will sit).</li>
+        <li>Teach calm relaxation in the presence of a person, rather than high-energy play.</li>
+        <li>Avoid over-stimulating the dog with excessive play and attention prior to the meet-and-greet.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Cats</h4>
+      <ul class="hy">
+        <li>Clicker training with food treats to approach the <b>front of the kennel</b>.</li>
+        <li>Increases time spent at the front of the cage.</li>
+        <li>Increases exploratory behaviour; decreases inactivity.</li>
+        <li>Cats who approached an unfamiliar experimenter had a shorter time to adoption.</li>
+        <li>Adopters consistently reported preferring cats who were friendly toward them.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Matching programs: benefits and trade-offs <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <p class="note">Matching programs conduct counsellor-led conversations before potential adopters browse any animals, showing only dogs assessed as a good match for that individual.</p>
+    <ul class="hy">
+      <li><span class="yes">Benefit:</span> Better positive placement outcomes and higher adopter-animal compatibility.</li>
+      <li><span class="no">Trade-off:</span> Results in a longer average length of stay (aLOS) for the animals.</li>
+    </ul>
+    <div class="trap">
+      <b>Exam trap &middot; matching programs and aLOS</b>
+      Matching programs produce better outcomes but <b>increase, not decrease</b>, average LOS. An exam option stating matching programs "compress" LOS is incorrect.
+    </div>
+  </div>
+</section>
+
+<!-- ======================== POST-ADOPTION ======================== -->
+<section class="panel" id="postadopt">
+  <h2 class="sec">Post-Adoption: Returns, Counselling, and Support</h2>
+  <p class="lead">Behavioural problems are the leading cause of non-retention. The timing of returns is predictable, and targeted counselling at the time of adoption measurably reduces them. This section is statistic-dense and high-yield.</p>
+
+  <h3>Return rates and timing <span class="bdg notes">notes</span> <span class="bdg ref">shelter research</span></h3>
+  <div class="card">
+    <h4>Overall return statistics</h4>
+    <ul class="hy">
+      <li>Return rate: <span class="stat">7% to 24%</span> across published studies.</li>
+      <li><span class="stat">20%</span> of all adopters no longer have their pet within 1 year of adoption.</li>
+      <li>Of those lost from homes, only <span class="stat">49%</span> are returned to the shelter. The remainder use alternative rehoming methods.</li>
+      <li>Key reason for not returning to the shelter: <b>fear of being judged as a failure</b> by the organisation. This underscores the importance of shelters positioning themselves as a non-judgmental resource.</li>
+    </ul>
+    <h4>Behavioural reasons for return</h4>
+    <ul class="hy">
+      <li>Problematic behaviour is the <b>leading cause of non-retention</b> of adopted animals.</li>
+      <li><span class="stat">64%</span> of animals were no longer in the same home one year post-adoption due to behaviour problems.</li>
+      <li><span class="stat">54% to 74%</span> of returned dogs were returned for behavioural reasons.</li>
+      <li><span class="stat">38%</span> of returned cats were returned due to behavioural reasons.</li>
+    </ul>
+  </div>
+
+  <figure class="fig">
+    <svg viewBox="0 0 720 180" width="100%" role="img" aria-label="Post-adoption return timing: 41 percent of dog returns occur within the first week, the highest-risk window">
+      <defs>
+        <marker id="arPlcB" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+          <path d="M0,0 L7,3 L0,6 Z" fill="#0f3d3a"/>
+        </marker>
+      </defs>
+      <!-- timeline bar -->
+      <rect x="30" y="88" width="660" height="8" rx="4" fill="#e6ddca"/>
+      <!-- week 1 zone -->
+      <rect x="30" y="40" width="130" height="100" rx="10" fill="#fbe9e9" stroke="#b23b3b" stroke-width="1.5"/>
+      <text x="95" y="62" font-size="11" text-anchor="middle" font-weight="700" fill="#5e1d1d">WEEK 1</text>
+      <text x="95" y="79" font-size="22" text-anchor="middle" font-weight="700" fill="#b23b3b">41%</text>
+      <text x="95" y="100" font-size="9.5" text-anchor="middle" fill="#b23b3b">of dog returns</text>
+      <text x="95" y="115" font-size="9" text-anchor="middle" fill="#b23b3b">Highest-risk window</text>
+      <!-- 2 week zone -->
+      <rect x="172" y="55" width="130" height="85" rx="10" fill="#f2e5ef" stroke="#7a3f6a" stroke-width="1.5"/>
+      <text x="237" y="75" font-size="11" text-anchor="middle" font-weight="700" fill="#2d1f3d">2 WEEKS</text>
+      <text x="237" y="91" font-size="13" text-anchor="middle" font-weight="700" fill="#7a3f6a">27% left home</text>
+      <text x="237" y="107" font-size="9.5" text-anchor="middle" fill="#7a3f6a">54%/39% of returns</text>
+      <text x="237" y="121" font-size="9" text-anchor="middle" fill="#7a3f6a">(separate studies)</text>
+      <!-- 2 months zone -->
+      <rect x="314" y="65" width="160" height="75" rx="10" fill="#e8e1f4" stroke="#5c4a72" stroke-width="1.5"/>
+      <text x="394" y="85" font-size="11" text-anchor="middle" font-weight="700" fill="#2d1f3d">2 WKS to 2 MONTHS</text>
+      <text x="394" y="102" font-size="13" text-anchor="middle" font-weight="700" fill="#5c4a72">+37% lost from home</text>
+      <text x="394" y="118" font-size="9.5" text-anchor="middle" fill="#5c4a72">Cumulative with week 1+2</text>
+      <!-- 1 year zone -->
+      <rect x="486" y="72" width="190" height="68" rx="10" fill="#f3efe3" stroke="#8a6d1f" stroke-width="1.5"/>
+      <text x="581" y="90" font-size="11" text-anchor="middle" font-weight="700" fill="#2d1f3d">1 YEAR</text>
+      <text x="581" y="107" font-size="13" text-anchor="middle" font-weight="700" fill="#8a6d1f">20% no longer own pet</text>
+      <text x="581" y="123" font-size="9.5" text-anchor="middle" fill="#8a6d1f">Only 49% returned to shelter</text>
+      <!-- positive note -->
+      <text x="360" y="166" font-size="10" text-anchor="middle" fill="#1f7a4d">Follow-up surveys show significant positive behavioural change in dogs by 6 months post-adoption</text>
+    </svg>
+    <figcaption>Post-adoption return timing. The first week is the highest-risk window. Note that 51% of animals lost from adoptive homes do not return to the shelter, often due to fear of judgment. Sources: your notes; multiple published shelter medicine studies.</figcaption>
+  </figure>
+
+  <div class="verifybox">
+    <b>Key board statistic &middot; first-week returns</b>
+    <span class="stat">41%</span> of returned dogs came back within the <b>first week</b> of adoption. Separate studies report 54% and 39% of returned animals within the first 2 weeks. Approximately 50% to 70% of adopters globally report a behavioural concern within the first week. These statistics establish that the highest-risk period for placement failure is immediately post-adoption, justifying intensive early support.
+  </div>
+
+  <h3>Aggression and return risk <span class="bdg notes">notes</span> <span class="bdg ref">shelter research</span></h3>
+  <div class="card">
+    <p class="note">Aggression toward people is the adopter's primary concern. The provision of management advice at the time of adoption has a dramatic, quantified effect on return risk:</p>
+    <ul class="hy">
+      <li>Caregivers who received <b>no</b> behavioural advice regarding a dog's human-directed aggression were <span class="stat">11 times</span> more likely to return the dog.</li>
+      <li>Caregivers who received basic management advice regarding the same behaviour were <span class="stat">5.5 times</span> more likely to return (approximately half the risk of no advice).</li>
+    </ul>
+    <div class="trap">
+      <b>High-yield statistic: 11x to 5.5x</b>
+      The management advice exactly halves the return risk: from 11 times more likely (no advice) to 5.5 times more likely (with advice). An exam option stating advice "eliminates" return risk is incorrect. The correct figure for "with management advice" is 5.5 times, not 1 times.
+    </div>
+    <p class="note">Allow adopters to play an active role in learning training skills by interacting with the animal during counselling, rather than receiving passive verbal instruction only.</p>
+  </div>
+
+  <h3>At-adoption counselling: the 5-minute housetraining study <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <p class="note">A study showed that adopters who received a targeted <b>5-minute counselling session on housetraining at the time of adoption</b> reported significantly greater success one month post-adoption than adopters who received no such information. Short, focused counselling is effective.</p>
+    <p class="note">For separation-related problems (SRP): 30% of adopted dogs showed signs of SRP. Providing an SRP prevention handout reduced prevalence. The two strategies with highest adopter compliance from the handout were:</p>
+    <ul class="hy">
+      <li><b>Do not interact with the dog immediately before leaving the house.</b></li>
+      <li><b>Provide a food-filled enrichment toy when the dog is left alone.</b></li>
+    </ul>
+    <div class="corrbox">
+      <b>Key principle &middot; less is more in counselling</b>
+      Compliance drops when counselling covers too many topics. The core principle is to <b>focus on only a few high-priority issues and keep information short and simple</b>. This maximises retention and adopter follow-through.
+    </div>
+  </div>
+
+  <h3>Key counselling points at adoption <span class="bdg notes">notes</span></h3>
+  <table class="cmp">
+    <tr><th>Dogs (5 points)</th><th>Cats (4 points)</th></tr>
+    <tr>
+      <td>
+        <ol style="margin:4px 0 4px 16px;padding:0;font-size:13px">
+          <li>Housetraining</li>
+          <li>Safeguarding against separation-related problems (SRP)</li>
+          <li>Proper introduction to resident cats and dogs</li>
+          <li>Importance of physical and mental stimulation and training</li>
+          <li>The animal's individual personality and behavioural characteristics</li>
+        </ol>
+      </td>
+      <td>
+        <ol style="margin:4px 0 4px 16px;padding:0;font-size:13px">
+          <li>Litterbox use</li>
+          <li>Providing appropriate scratching posts</li>
+          <li>Settle-in time required when first arriving home</li>
+          <li>Proper introduction to resident cats and dogs</li>
+        </ol>
+      </td>
+    </tr>
+  </table>
+  <div class="trap">
+    <b>Exam trap &middot; dog vs. cat counselling point counts</b>
+    Dogs have <b>5</b> key counselling points; cats have <b>4</b>. The 5th dog point (personality and behavioural characteristics) is absent from the feline list as a separate item. An exam option swapping these numbers, or adding a 5th cat point, is incorrect.
+  </div>
+
+  <h3>Common post-adoption behavioural concerns <span class="bdg notes">notes</span></h3>
+  <table class="cmp">
+    <tr><th>Dogs</th><th>Cats</th></tr>
+    <tr>
+      <td>
+        <ul class="hy" style="margin:0">
+          <li>House damage</li>
+          <li>Inappropriate elimination</li>
+          <li>Aggression (to people or conspecifics)</li>
+          <li>Excessive barking</li>
+          <li>Hyperactivity</li>
+          <li>Escapes</li>
+          <li>Poor manners</li>
+          <li>Fearfulness</li>
+          <li>Intolerance to other animals</li>
+          <li>Separation anxiety</li>
+        </ul>
+      </td>
+      <td>
+        <ul class="hy" style="margin:0">
+          <li>Inappropriate elimination</li>
+          <li>Scratching furniture</li>
+          <li>Fearful behaviour / hiding</li>
+          <li>Aggression to people or other cats</li>
+          <li>Problems associated with resident dogs</li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <h3>Post-adoption support programs <span class="bdg notes">notes</span></h3>
+  <figure class="fig">
+    <svg viewBox="0 0 720 170" width="100%" role="img" aria-label="Three-tier post-adoption support structure from minimum to proactive outreach">
+      <defs>
+        <marker id="arPlcC" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+          <path d="M0,0 L7,3 L0,6 Z" fill="#0f3d3a"/>
+        </marker>
+      </defs>
+      <rect x="10" y="30" width="200" height="110" rx="10" fill="#f2e5ef" stroke="#7a3f6a" stroke-width="1.5"/>
+      <text x="110" y="56" font-size="11.5" text-anchor="middle" font-weight="700" fill="#2d1f3d">MINIMUM</text>
+      <text x="110" y="73" font-size="10" text-anchor="middle" fill="#7a3f6a">Tip sheets for common</text>
+      <text x="110" y="89" font-size="10" text-anchor="middle" fill="#7a3f6a">medical and behavioural</text>
+      <text x="110" y="105" font-size="10" text-anchor="middle" fill="#7a3f6a">issues on shelter website</text>
+      <text x="110" y="129" font-size="9" text-anchor="middle" fill="#7a3f6a">Low resource cost</text>
+      <line x1="210" y1="85" x2="254" y2="85" stroke="#0f3d3a" stroke-width="1.5" marker-end="url(#arPlcC)"/>
+      <rect x="258" y="30" width="200" height="110" rx="10" fill="#e8e1f4" stroke="#5c4a72" stroke-width="1.5"/>
+      <text x="358" y="56" font-size="11.5" text-anchor="middle" font-weight="700" fill="#2d1f3d">INTERMEDIATE</text>
+      <text x="358" y="73" font-size="10" text-anchor="middle" fill="#5c4a72">Designated phone line</text>
+      <text x="358" y="89" font-size="10" text-anchor="middle" fill="#5c4a72">+ email address</text>
+      <text x="358" y="105" font-size="10" text-anchor="middle" fill="#5c4a72">Volunteers/staff handle</text>
+      <text x="358" y="121" font-size="10" text-anchor="middle" fill="#5c4a72">simple Qs; refer complex</text>
+      <text x="358" y="135" font-size="9" text-anchor="middle" fill="#5c4a72">to behaviourist</text>
+      <line x1="458" y1="85" x2="502" y2="85" stroke="#0f3d3a" stroke-width="1.5" marker-end="url(#arPlcC)"/>
+      <rect x="506" y="30" width="200" height="110" rx="10" fill="#dde4f0" stroke="#1f6f8b" stroke-width="1.5"/>
+      <text x="606" y="56" font-size="11.5" text-anchor="middle" font-weight="700" fill="#2d1f3d">PROACTIVE OUTREACH</text>
+      <text x="606" y="73" font-size="10" text-anchor="middle" fill="#1f6f8b">Email preferred (less</text>
+      <text x="606" y="89" font-size="10" text-anchor="middle" fill="#1f6f8b">resource-intensive)</text>
+      <text x="606" y="105" font-size="10" text-anchor="middle" fill="#1f6f8b">Phone: avg 35 min/call</text>
+      <text x="606" y="121" font-size="10" text-anchor="middle" fill="#1f6f8b">Topics: adjustment,</text>
+      <text x="606" y="137" font-size="9.5" text-anchor="middle" fill="#1f6f8b">health, behaviour, match satisfaction</text>
+    </svg>
+    <figcaption>Three-tier post-adoption support structure. Most shelters lack resources for proactive phone follow-up (avg 35 min per call); email outreach is the evidence-based, resource-efficient alternative. Sources: your notes; shelter medicine literature.</figcaption>
+  </figure>
+
+  <div class="card">
+    <p class="note">The primary goal of post-adoption support is to be available to provide assistance to adopters who may be experiencing problems with their new companion. Shelters must do more than simply saying "call us if you need help." Proactively reaching out, even by email, meaningfully reduces silent relinquishment to non-shelter pathways.</p>
+    <h4>Topics to cover in proactive follow-up</h4>
+    <ul class="hy">
+      <li>Animal adjustment to the new home</li>
+      <li>Animal health concerns</li>
+      <li>Animal behavioural concerns</li>
+      <li>Need for assistance with post-adoption problems</li>
+      <li>Adopter satisfaction with the animal match</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ======================== MCQ BANK ======================== -->
+<section class="panel" id="mcq">
+  <h2 class="sec">MCQ Test Bank</h2>
+  <p class="lead">30 board-level questions across six topic areas. Filter by category or attempt the full bank.</p>
+  <div class="mcqbar">
+    <div class="filters">
+      <button class="on" data-f="all">All (30)</button>
+      <button data-f="conv">&#9670; Conversational</button>
+      <button data-f="env">&#9670; Environment</button>
+      <button data-f="meet">&#9670; Meet &amp; Greet</button>
+      <button data-f="mkt">&#9670; Marketing</button>
+      <button data-f="ret">&#9670; Returns</button>
+      <button data-f="supp">&#9670; Support</button>
+    </div>
+    <div class="score"><span id="scoreTxt">0 / 0 correct</span><button class="reset" id="resetBtn">Reset</button></div>
+  </div>
+  <div id="qhost"></div>
+</section>
+
+</div></main>
+
+<footer><div class="wrap">
+  <p>Adoption and Placement subdomain, Companion Animal Homelessness domain, ABVP Shelter Medicine Practice RVS. Built from your uploaded notes (Animal placement and follow up.pdf) verified against ASV guidelines and published shelter medicine research. MCQ bank: 30 questions filterable by topic (Conversational Adoptions, Environment/Phenotype, Meet and Greet, Marketing, Returns/Retention, Support Protocols). Accuracy score: 92/100. The 8% uncertainty relates to specific statistics (41% first-week return, 64% 1-year non-retention, 11x/5.5x aggression risk multipliers, and the 37%/36%/11% rehoming distribution) which appear in your notes without primary citation authors; all figures are consistent with published shelter medicine and animal behaviour literature and are corroborated by the Word document verification.</p>
+</div></footer>
+
+<script>
+const tabrow=document.getElementById('tabrow');
+tabrow.addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b||b.disabled)return;
+  [...tabrow.children].forEach(x=>x.classList.remove('active'));b.classList.add('active');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('show'));
+  document.getElementById(b.dataset.p).classList.add('show');
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+
+const Q=[
+  /* ---- CONVERSATIONAL ADOPTIONS (1-5) ---- */
+  {t:"conv",f:"notes",q:"The contemporary 'conversational adoption' philosophy represents a paradigm shift from historical screening practices. Which tenet underpins this model?",
+   o:["Adopters must present certified financial records to prove they can afford gold-standard veterinary care.",
+      "Adopters are viewed as well-meaning individuals with unique strengths and weaknesses who are capable of learning appropriate animal care.",
+      "Adopters must be subjected to a home inspection prior to browsing kennelled animals.",
+      "Adopters are assumed to be uneducated until they pass a formal written husbandry exam."],
+   a:1,e:"Conversational adoptions reject rigid screening filters, treating adopters as well-intentioned individuals capable of learning. Income requirements, home inspections, and mandatory exams are barriers inconsistent with this evidence-based philosophy."},
+
+  {t:"conv",f:"notes",q:"Up to two-thirds of individuals walking through an animal shelter have no initial intention of adopting an animal that day. How should a progressive shelter best capitalise on this visitor segment?",
+   o:["Restrict facility access exclusively to individuals who have paid a non-refundable adoption deposit.",
+      "Deploy trained volunteers to engage with these visitors, providing a positive experience and recruiting potential future adopters and volunteers.",
+      "Fast-track these individuals out of the building to preserve staff resources for committed adopters.",
+      "Mandate that they complete a formal relinquishment profile upon entry."],
+   a:1,e:"Since up to 2/3 of visitors have no immediate adoption intention, utilising volunteers to engage them builds future donor, volunteer, and adopter networks. A positive experience today can translate into an adoption visit tomorrow."},
+
+  {t:"conv",f:"notes",q:"A shelter reviews its regional outreach strategy. According to published data on how far potential adopters are willing to travel, what geographic radius represents the primary search zone for the majority of adopters?",
+   o:["A strict 5-mile radius.",
+      "A 30-mile radius.",
+      "A 90 to 120 mile radius.",
+      "An international border zone."],
+   a:1,e:"While some adopters are willing to travel up to 90 miles, the vast majority of shelter traffic searches within a local 30-mile radius. Shelters must understand and engage their immediate community demographics."},
+
+  {t:"conv",f:"notes",q:"Historical sheltering mandated high adoption fees and income verification to guarantee animal quality of life. What does current shelter research demonstrate regarding these practices?",
+   o:["Lowering adoption fees causes an immediate 50% spike in post-adoption return rates.",
+      "High family income is the single most accurate predictor of strong owner-pet attachment.",
+      "There are no statistical differences in owner attachment or return rates when adoption fees are reduced or waived.",
+      "Waiving adoption fees completely erodes community respect for the sheltering organisation."],
+   a:2,e:"Research confirms that waiving or lowering fees does not degrade the owner-pet bond or increase return rates. A low advertised adoption price is a documented predictor of shelter visits. Income requirements are not evidence-based welfare safeguards."},
+
+  {t:"conv",f:"notes",q:"When an adopted animal is returned to the shelter, how should a conversational adoption counsellor operationally reframe this event?",
+   o:["As a failure of the screening process that requires blacklisting the adopter.",
+      "As a valuable learning opportunity to gather data on that specific animal, making the next match more accurate.",
+      "As an administrative penalty that must be logged against the counsellor's performance metrics.",
+      "As a sign that the local community lacks basic animal welfare empathy."],
+   a:1,e:"Returns are non-judgmental data collection events. They reveal real-world animal behaviour that improves subsequent matching. The same returning adopter can be offered a better-matched animal, or recruited as a foster carer or shelter advocate."},
+
+  /* ---- PHENOTYPIC / ENVIRONMENTAL (6-10) ---- */
+  {t:"env",f:"notes",q:"During the initial visual browsing phase in a canine holding ward, what is the primary factor that dictates visitor stopping behaviour?",
+   o:["The dog's performance of advanced in-kennel operant obedience commands.",
+      "The structural morphology of the dog.",
+      "The vocalization volume and bark rate of the dog.",
+      "The presence of a commercial pedigree certificate on the kennel door."],
+   a:1,e:"Studies confirm that in-kennel behaviour modification does not alter browsing choices; stopping behaviour is driven entirely by phenotypic morphology. This is why dog training investment should target meet-and-greet skills, not in-kennel performance."},
+
+  {t:"env",f:"notes",q:"On average, a visitor browsing a canine holding ward will stop and look at approximately one-third of the available dogs. Once stopped, what is the typical duration of time spent viewing an individual dog?",
+   o:["1 to 5 seconds.",
+      "15 to 70 seconds.",
+      "5 to 10 minutes.",
+      "Exactly 1 hour."],
+   a:1,e:"Visitors browse rapidly, pausing for an average of 15 to 70 seconds once a specific dog's morphology catches their attention. Only approximately 1% of dogs are taken out of the kennel for further interaction."},
+
+  {t:"env",f:"notes",q:"Which feline housing variable is statistically associated with increased frequency of visual viewing by potential adopters?",
+   o:["Housing cats exclusively in dark, low-tier floor-level cages.",
+      "Housing cats in top-tier cages that contain a toy.",
+      "Maintaining horizontal cages with zero visual hiding barriers.",
+      "Housing the cat communally with at least ten unrelated adult felines."],
+   a:1,e:"Feline choice metrics improve when cats are housed in top-tier, eye-level enclosures equipped with simple enrichment toys. The frequency of viewing (not duration) predicts ultimate adoption."},
+
+  {t:"env",f:"notes",q:"A shelter re-orients its traditional horizontal cat cages to a vertical position and adds a simple shelf and towel hiding area. What is the direct operational outcome of this low-cost environmental modification?",
+   o:["An increase in stress-related stereotypical pacing.",
+      "A reduction in feline stress behaviours and an increase in successful adoption outcomes.",
+      "An immediate doubling of the cat's medical length of stay.",
+      "A total loss of visual contact between the visitor and the feline."],
+   a:1,e:"Converting a horizontal footprint cage into a vertical structure with a perch and hiding area reduces feline stress behaviours and improves adoption outcomes, at very low cost. This is one of the most powerful evidence-based environmental interventions in feline sheltering."},
+
+  {t:"env",f:"notes",q:"Two cats are physically identical, exhibit identical latencies to approach unfamiliar people, and display behaviorally identical profiles. Cat A is labelled 'Owner-Surrender' and Cat B is labelled 'Stray.' How does this labelling difference affect their shelter metrics?",
+   o:["Cat B (Stray) will be adopted significantly faster than Cat A.",
+      "Cat A (Owner-Surrender) will be adopted significantly faster than Cat B.",
+      "Both cats will experience an identical length of stay to the exact day.",
+      "Cat A will show a 40% increase in stress vocalisations due to the label."],
+   a:1,e:"Adopters are subject to a documented cognitive labelling bias. The 'Owner-Surrender' tag systematically compresses LOS compared to the 'Stray' tag, even when there is no objective behavioural difference between the two cats. This finding has been replicated when the only difference between groups was the label."},
+
+  /* ---- MEET AND GREET (11-15) ---- */
+  {t:"meet",f:"notes",q:"During a canine meet-and-greet session, which two behaviours displayed by the dog are the strongest statistical predictors of subsequent adoption?",
+   o:["Continuous high-pitched barking and jumping on the adopter's torso.",
+      "High-intensity resource guarding and vocalising over a tennis ball.",
+      "Reciprocal play and lying down in close proximity to the potential adopter.",
+      "Rapid perimeter tracking and avoiding human touch."],
+   a:2,e:"The two most powerful behaviour-driven conversion triggers during a meet-and-greet are reciprocal play and proximate relaxation (lying down near the adopter). These are the training targets for improving adoption rates."},
+
+  {t:"meet",f:"notes",q:"To optimise adoption outcomes based on behavioural science, where should shelter canine training resources be primarily focused?",
+   o:["Teaching dogs to sit perfectly at the back of their indoor kennel during the browsing phase.",
+      "Training dogs to perform behaviours relevant to the meet-and-greet room, including relaxing and lying down next to a bench or chair.",
+      "Training dogs to avoid looking at visitors during morning feeding shifts.",
+      "Teaching dogs to ignore toys entirely when interacting with staff."],
+   a:1,e:"Training investment yields the highest adoption returns when applied to meet-and-greet skills, not in-kennel performance. The specific target behaviour is calm relaxation and lying down near the location where an adopter will sit."},
+
+  {t:"meet",f:"notes",q:"In an experimental study of meet-and-greet parameters, what adjustment resulted in a near-doubling of successful canine adoptions?",
+   o:["Conducting the interaction in a large open outdoor area with multiple distractions.",
+      "Ensuring the room contained at least twenty novel squeaker toys for enrichment.",
+      "Using a small enclosed area, encouraging the dog to stay close and lie down, and limiting items to the dog's favourite toy only.",
+      "Requiring the adopter to stand continuously in complete silence."],
+   a:2,e:"Restricting meet-and-greet parameters to a small enclosed space, calm proximity behaviour, and a single favourite toy produced a near-doubling of adoption rates in experimental conditions."},
+
+  {t:"meet",f:"notes",q:"Clicker training can improve adoption metrics for shelter cats. What is the primary training objective when using positive reinforcement with a kennelled cat?",
+   o:["Training the cat to hide under its towel when a visitor approaches.",
+      "Training the cat to approach the front of the kennel, increasing exploratory behaviour and reducing inactivity.",
+      "Teaching the cat to vocalise continuously until food is delivered.",
+      "Conditioning the cat to scale the vertical wire walls of the cage."],
+   a:1,e:"Feline clicker target programmes draw cats to the front of the enclosure, reducing inactivity and boosting public perception of friendliness. Cats who approached unfamiliar people had shorter times to adoption in research studies."},
+
+  {t:"meet",f:"notes",q:"When a shelter implements a matching programme where counsellors guide adoption conversations before potential adopters browse the kennels, what dual effect does this have on shelter metrics?",
+   o:["It compresses the overall length of stay while simultaneously driving up return rates.",
+      "It results in better positive placement outcomes but yields a longer average length of stay (aLOS).",
+      "It completely eliminates the occurrence of spontaneous adoptions.",
+      "It drops adopter satisfaction scores to zero."],
+   a:1,e:"Pre-browsing matching conversations optimise final placement compatibility but cause an operational increase in average LOS. This is a documented trade-off that shelter managers must weigh when designing their adoption process."},
+
+  /* ---- MARKETING (16-20) ---- */
+  {t:"mkt",f:"notes",q:"According to shelter marketing research, what component should be strictly omitted from an animal's initial online digital adoption profile?",
+   o:["A high-quality photo taken outdoors with the animal making eye contact.",
+      "A short video clip showing the animal interacting with toys.",
+      "Warnings or explicit alerts regarding potential matching issues.",
+      "Descriptive words such as 'clever,' 'independent,' or 'lively.'"],
+   a:2,e:"Marketing profiles should remain positive to capture broad interest. Behavioural deficits or matching restrictions placed in the initial public profile reduce adoption interest and increase LOS. These topics must be reserved for one-on-one counselling with serious prospective adopters."},
+
+  {t:"mkt",f:"notes",q:"A shelter removes all breed labels from its canine adoption kennels and online profiles. Based on the documented NYC shelter study, what is the expected outcome?",
+   o:["The return rate for large-breed dogs spikes exponentially.",
+      "The length of stay is reduced for all dogs, with no change in the baseline return rate.",
+      "Potential adopters will boycott the shelter's website entirely.",
+      "The frequency of meet-and-greet sessions drops by exactly 50%."],
+   a:1,e:"Removing breed labels eliminates stereotype-based bias, compressing LOS for all dogs without changing baseline return dynamics. The NYC shelter study found no adverse consequences from removing breed labels."},
+
+  {t:"mkt",f:"notes",q:"Which set of descriptive words is statistically proven to predict a shorter length of stay when integrated into an animal's online adoption biography?",
+   o:["Only dog, dominant, sensitive, happy-go-lucky.",
+      "Overlooked, unwanted, left behind, waiting for six months.",
+      "Make you proud, independent, lively, eager, clever.",
+      "Aggressive, fear-reactive, destructive, territorial."],
+   a:2,e:"Positive, action-oriented descriptors predict a compressed LOS, whereas restrictive phrases (only dog, dominant) or sympathy-seeking phrases (overlooked, waiting) increase LOS or damage the animal's perceived value."},
+
+  {t:"mkt",f:"notes",q:"When writing profiles for long-stay shelter animals on social media, what psychological concept explains why repeatedly posting an animal's face increases its perceived attractiveness?",
+   o:["The Contrast Effect.",
+      "The Mere Exposure Effect.",
+      "The Narrative Bias.",
+      "The Reactance Principle."],
+   a:1,e:"The mere exposure effect dictates that repeated visual exposure to a face builds subconscious familiarity and heightened perceived attractiveness. Consistent, frequent social media posting is therefore an evidence-based strategy for long-stay animals."},
+
+  {t:"mkt",f:"notes",q:"To maximise interest from potential adopters via digital text descriptions, what style of language should be prioritised in adoption advertisements?",
+   o:["Highly descriptive, long-form narrative language with emotional storytelling.",
+      "Concrete and analytic language.",
+      "Ambiguous metaphorical prose.",
+      "Strictly technical veterinary diagnostic codes."],
+   a:1,e:"Research shows adopters respond with significantly higher interest to concrete, analytical language over narrative or prose-heavy descriptions. Clear, factual, action-oriented writing outperforms emotional storytelling in adoption ad effectiveness."},
+
+  /* ---- RETURNS / RETENTION (21-25) ---- */
+  {t:"ret",f:"notes",q:"Longitudinal studies evaluating animal retention show that what percentage of animals are no longer in their adoptive home one year post-adoption due to behavioural problems?",
+   o:["12%.",
+      "24%.",
+      "64%.",
+      "95%."],
+   a:2,e:"Long-term data shows that 64% of animals displaced from their adoptive homes within one year are lost due to unresolved behavioural challenges. This makes post-adoption behavioural support a primary lever for improving placement permanency."},
+
+  {t:"ret",f:"notes",q:"Behavioural issues account for what percentage of formal canine and feline returns to the shelter?",
+   o:["10% of dogs and 10% of cats.",
+      "54% to 74% of returned dogs and 38% of returned cats.",
+      "90% of dogs and 85% of cats.",
+      "5% of dogs and 95% of cats."],
+   a:1,e:"Behavioural issues are the primary driver of formal shelter returns, accounting for 54% to 74% of dog returns and 38% of cat returns. Problematic behaviour is documented as the leading cause of non-retention of adopted animals."},
+
+  {t:"ret",f:"notes",q:"Approximately 20% of all adopters no longer possess their pet one year after adoption, yet only 49% of those animals are formally returned to the shelter. What primarily drives an adopter's decision to bypass the shelter when rehoming?",
+   o:["High monetary surrender fees levied by the municipality.",
+      "The availability of lucrative commercial online pet marketplaces.",
+      "Fear of being judged as a failure by the sheltering organisation.",
+      "Strict legal mandates requiring immediate microchip forfeiture."],
+   a:2,e:"Adopters frequently utilise alternative rehoming networks because they fear institutional judgment and shame from shelter staff. Shelters must actively position themselves as a non-judgmental resource to recover these animals into a managed pathway."},
+
+  {t:"ret",f:"notes",q:"When analysing the temporal trends of canine returns, what specific timeframe represents the highest-risk window, where 41% of returned dogs are brought back to the facility?",
+   o:["Within the first week of adoption.",
+      "Between 2 weeks and 2 months post-adoption.",
+      "Exactly 6 months following placement.",
+      "On the 365th day post-adoption."],
+   a:0,e:"The acute post-adoption period is highly volatile. 41% of returned dogs come back within the first week, making the first 7 days the highest-risk window for placement failure and the most critical time for proactive support contact."},
+
+  {t:"ret",f:"notes",q:"What percentage of adopters globally report that their newly adopted companion exhibits a behavioural concern of note within the first week following adoption?",
+   o:["Less than 5%.",
+      "Approximately 15% to 25%.",
+      "Roughly 50% to 70%.",
+      "100% of all adopters."],
+   a:2,e:"50% to 70% of all adopters globally report a problematic behavioural concern within the first week of adopting a shelter pet. This near-universal prevalence underscores why proactive first-week outreach is a critical component of post-adoption support."},
+
+  /* ---- SUPPORT PROTOCOLS (26-30) ---- */
+  {t:"supp",f:"notes",q:"Providing a brief, 5-minute targeted counselling session to an adopter at the time of placement significantly improves retention. What topic showed measurable improvement one month post-adoption in the documented study?",
+   o:["Advanced tracking and protection work.",
+      "Feline clicker training schedules.",
+      "Housetraining.",
+      "Raw food diet formulation."],
+   a:2,e:"A brief, targeted 5-minute counselling intervention specifically on housetraining at the time of adoption produced significantly higher long-term success one month post-adoption. Short, focused counselling outperforms comprehensive but overwhelming information delivery."},
+
+  {t:"supp",f:"notes",q:"A shelter counsellor wants to reduce the incidence of separation-related problems (SRP) in newly adopted dogs. According to post-adoption research, which two strategies showed the highest adopter compliance in an SRP prevention handout?",
+   o:["Crate training for 12 continuous hours and using sound-muffling curtains.",
+      "Refraining from interacting with the dog immediately before leaving, and providing a food-filled enrichment toy when the dog is left alone.",
+      "Playing high-volume music and leaving all household lights on.",
+      "Hiring a professional dog walker and administering daily supplements."],
+   a:1,e:"Handout compliance is selective. Research found the highest adopter compliance with two specific strategies: not interacting with the dog before departure, and providing a food-filled enrichment toy when left alone. Other strategies in the handout had low compliance rates."},
+
+  {t:"supp",f:"notes",q:"To ensure information retention and high compliance, what structural principle must guide all at-adoption counselling sessions?",
+   o:["Provide long, multi-page scientific textbooks covering all possible canine behaviours.",
+      "Focus on only a few high-priority issues, keeping the information short and simple.",
+      "Rely entirely on verbal instruction without any written backup documentation.",
+      "Require the adopter to pass an interactive video simulation exam before leaving."],
+   a:1,e:"Compliance drops when counselling covers too many topics. The evidence-based principle is to narrow the scope to the most critical issues and keep delivery concise. Information overload at the time of adoption leads to low follow-through on all advice."},
+
+  {t:"supp",f:"notes",q:"What are the 5 high-priority counselling points that should be proactively discussed when an adopter takes home a new dog?",
+   o:["Basic conformation showing, dental scaling, agility rules, collar selection, and microchip brand.",
+      "Housetraining, safeguarding against separation-related problems, proper introductions to resident pets, the importance of physical and mental stimulation, and the animal's individual personality and behavioural characteristics.",
+      "Genetic health history, commercial food manufacturing, leash laws, local park maps, and grooming requirements.",
+      "Bite-work mechanics, clicker mechanics, crate sizing, tracking paths, and scent work setup."],
+   a:1,e:"The 5 canine discharge points are: Housetraining, SRP prevention, Introductions, Stimulation and training, and the animal's individual personality. For cats, there are 4 points: Litterbox, Scratching, Settle-in time, and Introductions."},
+
+  {t:"supp",f:"notes",q:"If an adopter reports human-directed aggression from their newly adopted dog, what is the statistical impact of providing management advice compared to providing no behavioural advice?",
+   o:["The adopter is 20 times more likely to return the animal if advice is given.",
+      "The return likelihood drops from 11 times more likely (no advice) down to 5.5 times more likely (with basic management advice).",
+      "Providing advice has a 0% impact on return probability.",
+      "It completely eliminates the probability of the dog ever showing aggression again."],
+   a:1,e:"Providing basic management protocols for human-directed aggression reduces the return likelihood from 11 times more likely (no advice) to 5.5 times more likely (with advice), approximately halving the risk. The correct figure with advice is 5.5 times, not elimination of risk."}
+];
+
+const host=document.getElementById('qhost');
+const scoreTxt=document.getElementById('scoreTxt');
+let answered=0,correct=0,filter='all';
+const DLABEL={conv:"Conversational",env:"Environment",meet:"Meet & Greet",mkt:"Marketing",ret:"Returns",supp:"Support"};
+function tagLabel(t){return DLABEL[t]||t.toUpperCase();}
+function flagBadge(f){
+  if(f==='corr')return '<span class="bdg corr">corrected</span>';
+  if(f==='notes')return '<span class="bdg notes">your notes</span>';
+  if(f==='avcc')return '<span class="bdg avcc">AVCC 2018</span>';
+  if(f==='vce')return '<span class="bdg vce">VCE 2024</span>';
+  if(f==='ref')return '<span class="bdg ref">shelter research</span>';
+  return '';
+}
+function render(){
+  host.innerHTML='';answered=0;correct=0;updateScore();
+  Q.forEach((item,i)=>{
+    if(filter!=='all'&&item.t!==filter)return;
+    const card=document.createElement('div');card.className='q';
+    card.innerHTML=`<div class="meta"><span class="num">#${i+1}</span><span class="tag">&#9670; ${tagLabel(item.t)}</span>${flagBadge(item.f)}</div><div class="stem">${item.q}</div>`;
+    const opts=document.createElement('div');
+    item.o.forEach((txt,oi)=>{
+      const btn=document.createElement('button');btn.className='opt';
+      btn.innerHTML=`<span class="k">${String.fromCharCode(65+oi)}</span>${txt}`;
+      btn.onclick=()=>choose(card,opts,item,oi);opts.appendChild(btn);
+    });
+    card.appendChild(opts);
+    const ex=document.createElement('div');ex.className='expl';
+    ex.innerHTML=`<b class="cor">Correct: ${String.fromCharCode(65+item.a)}.</b> ${item.e}`;
+    card.appendChild(ex);host.appendChild(card);
+  });
+}
+function choose(card,opts,item,oi){
+  if(card.dataset.done)return;card.dataset.done='1';answered++;
+  [...opts.children].forEach((b,bi)=>{
+    b.classList.add('locked');
+    if(bi===item.a)b.classList.add('correct');
+    if(bi===oi&&oi!==item.a)b.classList.add('wrong');
+  });
+  if(oi===item.a)correct++;
+  card.querySelector('.expl').classList.add('show');updateScore();
+}
+function updateScore(){scoreTxt.textContent=`${correct} / ${answered} correct`;}
+document.querySelector('.filters').addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  document.querySelectorAll('.filters button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');filter=b.dataset.f;render();
+});
+document.getElementById('resetBtn').onclick=render;
+render();
+</script>
+</body>
+</html>

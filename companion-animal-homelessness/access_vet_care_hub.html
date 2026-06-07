@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Access to Veterinary Care | Companion Animal Homelessness | ABVP Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0f3d3a;--ink2:#15514c;--paper:#f4efe4;--paper2:#fbf8f1;
+    --line:#d9d0bd;--muted:#5d6b62;
+    --good:#1f7a4d;--bad:#b23b3b;
+    --shadow:0 1px 2px rgba(15,61,58,.08),0 8px 24px rgba(15,61,58,.06);
+    --cah:#5c4a72;--cah-soft:#e8e1f4;--dom-head:#2d1f3d;
+    --notes:#7a4fb5;--notes-soft:#ece3f7;
+    --asv:#5c4a72;--asv-soft:#e8e1f4;
+    --avcc:#7a3f6a;--avcc-soft:#f2e5ef;
+    --vce:#1f6f8b;--vce-soft:#dcedf2;
+    --ref:#1f6f8b;--ref-soft:#dcedf2;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;
+    background-image:radial-gradient(circle at 1px 1px,rgba(92,74,114,.04) 1px,transparent 0);background-size:22px 22px;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+  header.top{background:var(--dom-head);color:var(--paper2);padding:26px 0 22px;border-bottom:4px solid var(--cah)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#c8b8e8;margin:0 0 6px}
+  header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(26px,4.5vw,40px);margin:0;line-height:1.05}
+  header.top p.sub{margin:8px 0 0;color:#d4c8ea;font-size:14px;max-width:70ch}
+  .legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}
+  .legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.25);color:#ede8f6;display:flex;align-items:center;gap:6px}
+  .legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--paper2);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button:hover{background:var(--paper);color:var(--ink)}
+  .tabrow button.active{background:var(--dom-head);color:var(--paper2)}
+  .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--cah)}
+  main{padding:30px 0 80px}
+  .panel{display:none;animation:fade .35s ease}
+  .panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;letter-spacing:-.01em}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:78ch}
+  h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:26px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;color:var(--ink2);text-transform:uppercase;letter-spacing:.03em}
+  .card{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}
+  p.note{font-size:14px;margin:0 0 6px}
+  ul.hy{margin:8px 0;padding-left:0;list-style:none}
+  ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed #e6ddca;font-size:14px}
+  ul.hy li:last-child{border-bottom:0}
+  ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;border-radius:2px;background:var(--cah);transform:rotate(45deg)}
+  .trap{background:#fff6ef;border:1px solid #e8d8f0;border-left:4px solid var(--cah);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .trap b{color:var(--cah);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .corrbox{background:#e9f4ee;border:1px solid #bfe0cc;border-left:4px solid var(--good);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .corrbox b{color:var(--good);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .verifybox{background:var(--avcc-soft);border:1px solid #e0c0d8;border-left:4px solid var(--avcc);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .verifybox b{color:var(--avcc);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .vcebox{background:var(--vce-soft);border:1px solid #b8d0e0;border-left:4px solid var(--vce);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .vcebox b{color:var(--vce);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:var(--paper2);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp th{background:var(--dom-head);color:var(--paper2);font-weight:600;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase}
+  table.cmp tr:last-child td{border-bottom:0}
+  table.cmp td b{color:var(--ink)}
+  .yes{color:var(--good);font-weight:700}
+  .no{color:var(--bad);font-weight:700}
+  .mid{color:#8a6d1f;font-weight:700}
+  .fig{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0;box-shadow:var(--shadow)}
+  .fig figcaption{font-size:12.5px;color:var(--muted);margin-top:8px;font-style:italic}
+  .bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+  .bdg.notes{background:var(--notes-soft);color:var(--notes)}
+  .bdg.asv{background:var(--asv-soft);color:var(--asv)}
+  .bdg.avcc{background:var(--avcc-soft);color:var(--avcc)}
+  .bdg.vce{background:var(--vce-soft);color:var(--vce)}
+  .bdg.ref{background:var(--ref-soft);color:var(--ref)}
+  .bdg.corr{background:var(--good);color:#fff}
+  .stat{display:inline-block;background:var(--cah-soft);color:var(--cah);font-family:"JetBrains Mono",monospace;font-weight:600;font-size:12px;padding:2px 8px;border-radius:6px;margin:0 2px}
+  /* bar chart visual */
+  .bar-wrap{margin:12px 0}
+  .bar-row{display:flex;align-items:center;gap:10px;margin:6px 0;font-size:13px}
+  .bar-label{flex:0 0 160px;text-align:right;color:var(--muted)}
+  .bar-track{flex:1;background:#ede8d6;border-radius:4px;height:22px;position:relative;overflow:hidden}
+  .bar-fill{height:100%;border-radius:4px;display:flex;align-items:center;padding-left:8px;font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:600;color:#fff}
+  /* mcq */
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--dom-head);color:var(--paper2);border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:54px;z-index:10}
+  .mcqbar .filters{display:flex;gap:6px;flex-wrap:wrap}
+  .mcqbar .filters button{font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#d6cce8;padding:6px 11px;border-radius:999px;cursor:pointer;white-space:nowrap}
+  .mcqbar .filters button.on{background:var(--cah);border-color:var(--cah);color:#fff}
+  .score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}
+  .score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;color:#d6cce8;padding:5px 10px;border-radius:8px;font-size:11px}
+  .q{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
+  .q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+  .q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--cah-soft);color:var(--cah)}
+  .q .stem{font-weight:600;font-size:15px;margin-bottom:10px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;font-family:"Public Sans";transition:background .15s,border-color .15s}
+  .opt:hover{border-color:var(--ink)}
+  .opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}
+  .opt.correct{background:#e8f5ec;border-color:var(--good);color:#0d3d24}
+  .opt.wrong{background:#fbe9e9;border-color:var(--bad);color:#5e1d1d}
+  .opt.locked{cursor:default}
+  .expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:#f3efe3;border:1px solid var(--line);font-size:13.5px}
+  .expl.show{display:block}
+  .expl b.cor{color:var(--good)}
+  footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
+  @media(max-width:640px){.mcqbar{top:50px}.score{font-size:12px}}
+</style>
+</head>
+<body>
+<nav style="background:#2d1f3d;padding:9px 18px;display:flex;align-items:center;gap:10px;font-family:'Public Sans',system-ui,sans-serif;font-size:13px;font-weight:500;border-bottom:2px solid #4a3563"><a href="../index.html" style="color:#c8b8e8;text-decoration:none;display:flex;align-items:center;gap:5px"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span style="color:#6b5285;font-size:11px">›</span><span style="color:#d4c8ea">Companion Animal Homelessness</span></nav>
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">ABVP Shelter Medicine Practice RVS &middot; Companion Animal Homelessness</p>
+    <h1>Access to Veterinary Care</h1>
+    <p class="sub">Exam-depth study tool covering the AVCC/CARE national dataset, income-stratified barriers across three care types, the housing insecurity cohort, community program models, cultural competence requirements, and the human-animal bond in vulnerable populations. Built from your uploaded notes and cross-referenced against the AVCC 2018 report and VCE Principles 2024.</p>
+    <div class="legend">
+      <span><i style="background:var(--notes)"></i>Your notes</span>
+      <span><i style="background:var(--avcc)"></i>AVCC 2018</span>
+      <span><i style="background:var(--vce)"></i>VCE Principles 2024</span>
+      <span><i style="background:var(--good)"></i>Gap / correction</span>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="overview"><span class="dot"></span>Epidemiology</button>
+  <button data-p="barriers"><span class="dot"></span>Barriers to Care</button>
+  <button data-p="housing"><span class="dot"></span>Housing Insecurity</button>
+  <button data-p="programs"><span class="dot"></span>Programs &amp; Solutions</button>
+  <button data-p="mcq"><span class="dot" style="background:var(--dom-head)"></span>MCQ Bank</button>
+</div></div></nav>
+
+<main><div class="wrap">
+
+<!-- ======================== TAB 1: EPIDEMIOLOGY ======================== -->
+<section class="panel show" id="overview">
+  <h2 class="sec">Epidemiology of Pet Ownership and At-Risk Populations</h2>
+  <p class="lead">Data from the national AVCC/CARE study (University of Tennessee, 2018) establishes the demographic landscape of companion animal ownership in relation to income, age, gender, region, and housing type. These epidemiological patterns directly predict access to veterinary care.</p>
+
+  <div class="card">
+    <h4>Study context</h4>
+    <ul class="hy">
+      <li>Conducted by the University of Tennessee's <b>Centre for Applied Research and Evaluation (CARE)</b> in partnership with the <b>Access to Veterinary Care Coalition (AVCC)</b>.</li>
+      <li>Three income strata defined by the federal poverty level (FPL): below 138% FPL, 138% to 250% FPL, and above 250% FPL.</li>
+      <li>2017 guidelines: FPL for a family of 4 was <span class="stat">$24,600</span>. SNAP eligibility is at or below 138% FPL.</li>
+      <li>Average household owned <span class="stat">2.2 pets</span>; approximately 1/4 of households owned only 1 pet.</li>
+      <li><span class="stat">80.2%</span> of respondents strongly agreed their pets are considered members of the family.</li>
+    </ul>
+  </div>
+
+  <h3>Income-stratified pet ownership patterns <span class="bdg avcc">AVCC 2018</span> <span class="bdg notes">notes</span></h3>
+  <div class="trap">
+    <b>Exam trap &middot; the low-income multiple-pet paradox</b>
+    Lower-income households are <b>more</b> likely to own multiple pets than higher-income households. Approximately 1/3 of the lowest-income bracket owned only one pet, compared to 43.6% (middle income) and 44.4% (high income). This is counterintuitive and frequently tested. Do not confuse this with affordability of care, which shows the opposite trend.
+  </div>
+
+  <table class="cmp">
+    <tr><th>Income bracket</th><th>Single pet ownership</th><th>Likely to own dogs from</th><th>S/N status</th><th>Stray acquisition</th></tr>
+    <tr>
+      <td><b>Below 138% FPL</b> (SNAP eligible)</td>
+      <td>~1/3 (lowest rate)</td>
+      <td>Strays; less likely from breeders</td>
+      <td><span class="no">Lower S/N rates</span></td>
+      <td><span class="yes">Higher rate of stray intake</span></td>
+    </tr>
+    <tr>
+      <td><b>138% to 250% FPL</b></td>
+      <td>43.6%</td>
+      <td>Mixed</td>
+      <td>Intermediate</td>
+      <td>Intermediate</td>
+    </tr>
+    <tr>
+      <td><b>Above 250% FPL</b></td>
+      <td>44.4% (highest rate)</td>
+      <td>Dogs from breeders/pet stores; cats from shelters</td>
+      <td><span class="yes">Higher S/N rates</span></td>
+      <td>Lower rate</td>
+    </tr>
+  </table>
+
+  <h3>Demographic patterns in pet ownership <span class="bdg notes">notes</span> <span class="bdg avcc">AVCC 2018</span></h3>
+  <div class="card">
+    <h4>Household type</h4>
+    <ul class="hy">
+      <li><span class="stat">46.5%</span> of households owned dogs only; <span class="stat">24%</span> owned cats only; <span class="stat">29.6%</span> had a blended family (dogs and cats).</li>
+      <li>Condo and apartment dwellers: more likely to have fewer pets than other residence types.</li>
+      <li>Higher-income households: more likely to own dogs only.</li>
+      <li>Males: more likely to have only dogs. Younger respondents: more likely to have blended families.</li>
+    </ul>
+    <h4>Age trends</h4>
+    <ul class="hy">
+      <li>Older respondents: more likely to own only one pet; more likely to own cats; more likely to have acquired from friend/family or taken in a stray cat.</li>
+      <li>Younger respondents: more likely to have a blended family; more likely to have received their pet as a gift; less likely to have spayed/neutered their pets (if done, more likely at a free or reduced cost clinic).</li>
+      <li>Younger pet owners more likely to hold pet insurance. Western US had the highest insurance ownership rate.</li>
+    </ul>
+    <h4>Acquisition and spay/neuter</h4>
+    <ul class="hy">
+      <li>Approximately 1/4 of dogs and cats were reportedly adopted from shelters.</li>
+      <li>More dogs came from breeders; cats were more often strays or shelter-adopted.</li>
+      <li>Dogs were more likely than cats to remain intact (not spayed or neutered).</li>
+    </ul>
+  </div>
+
+  <h3>Human-animal bond in context <span class="bdg notes">notes</span> <span class="bdg avcc">AVCC 2018</span></h3>
+  <div class="card">
+    <p class="note">Two theoretical frameworks underpin the human-animal bond (HAB) and its relevance to access to care:</p>
+    <ul class="hy">
+      <li><b>Attachment theory:</b> originally developed studying mother-infant relationships; now extended to human-animal bonds. Recognises four attachment styles. The strength and style of attachment shapes how an owner responds to barriers in providing care.</li>
+      <li><b>Social support theory:</b> social support acts to buffer the health impacts of stress, either through the perception that support is available or through tangible/intangible supportive actions. Companion animals function as social support for their owners.</li>
+    </ul>
+    <div class="trap">
+      <b>Exam trap &middot; two different family-membership statistics</b>
+      Your notes contain two distinct survey figures that are both testable and easily confused:
+      <ul style="margin:6px 0 0 16px;font-size:13px">
+        <li><span class="stat">80.2%</span> = strongly agreed "my pets are members of the family" in the AVCC 2018 national study.</li>
+        <li><span class="stat">95%</span> = considered their animals family members in a separate 2015 survey also referenced in the notes.</li>
+      </ul>
+      An exam question citing the AVCC/CARE study expects 80.2%. An exam question citing the 2015 survey expects 95%. Read the source carefully.
+    </div>
+    <p class="note">Additionally: 59% of dog owners and 56% of cat owners viewed their animal as a child or family member (2015 data). Social support has been shown to be a protective factor for overall physical and mental health.</p>
+  </div>
+
+  <h3>Vulnerable populations and relinquishment <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <h4>Defined vulnerable populations</h4>
+    <ul class="hy">
+      <li>Elderly individuals</li>
+      <li>Homeless individuals</li>
+      <li>Victims of abuse</li>
+      <li>Individuals with mental illness</li>
+      <li>Racial and ethnic minorities</li>
+    </ul>
+    <h4>HAB benefits in vulnerable populations (three categories)</h4>
+    <ul class="hy">
+      <li>Physiological benefits</li>
+      <li>Psychological and emotional benefits</li>
+      <li>Psychosocial benefits</li>
+    </ul>
+    <h4>Relinquishment drivers related to life circumstance</h4>
+    <ul class="hy">
+      <li>Moving as the result of a life situation is one of the most frequent reasons for relinquishment.</li>
+      <li>Associated circumstances: loss of or change in employment, housing issues, health issues, financial difficulties, natural disasters.</li>
+    </ul>
+    <h4>Homelessness definition</h4>
+    <p class="note">A person who lacks a fixed, regular, and adequate nighttime residence. Includes individuals living on streets, in cars or abandoned buildings, or in temporary shelter (staying with family/friends, in a homeless shelter, or in a hotel/motel).</p>
+    <h4>Factors associated with homelessness</h4>
+    <ul class="hy">
+      <li>Living below the poverty level; insufficient resources for low-income families</li>
+      <li>Substance abuse; mental illness; family violence</li>
+      <li>In the US: 17.6% of families with children under 18 years fall below the poverty level; 19.5% of those with children under 6 years</li>
+      <li>Families with children: approximately <span class="stat">33%</span> of the homeless population</li>
+      <li>Unaccompanied youth (under 25 years, without parents/guardian): <span class="stat">7%</span> of the total homeless population</li>
+    </ul>
+    <h4>Homeless individuals and pets</h4>
+    <ul class="hy">
+      <li>Difficulty affording veterinary care.</li>
+      <li>Refuse services (shelters, transitional housing) when accommodation policies do not allow animals.</li>
+      <li>Some homeless individuals report putting the animal's needs above their own.</li>
+      <li>Studies show attachments to animals in homeless individuals are <b>stronger than in the general population</b>.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ======================== TAB 2: BARRIERS ======================== -->
+<section class="panel" id="barriers">
+  <h2 class="sec">Barriers to Veterinary Care: Three Care Types</h2>
+  <p class="lead">The AVCC/CARE study quantifies barriers across three distinct types of veterinary care. The financial barrier is dominant across all types but varies in percentage. Secondary barriers and demographic risk factors also differ by care type.</p>
+
+  <h3>Overview: three care types defined <span class="bdg avcc">AVCC 2018</span> <span class="bdg notes">notes</span></h3>
+  <table class="cmp">
+    <tr><th>Care type</th><th>Definition</th><th>% facing barrier</th><th>Financial barrier %</th><th>Next largest barriers</th></tr>
+    <tr>
+      <td><b>Preventative care</b></td>
+      <td>Annual exams, vaccinations, heartworm (HW), flea/tick prevention, behavioural advice. Services to avoid illness and disease.</td>
+      <td><span class="no">1/4 respondents (highest barrier)</span></td>
+      <td><span class="stat">80%</span> cited financial reasons</td>
+      <td>Not knowing where to go; no transport; no equipment to transport pet</td>
+    </tr>
+    <tr>
+      <td><b>Sick care</b></td>
+      <td>Treatment for illness, physical injury, or behavioural problem that is <b>not</b> an emergency requiring immediate care.</td>
+      <td><span class="mid">Significantly lower than preventative</span></td>
+      <td><span class="stat">73.8%</span> cited financial reasons</td>
+      <td>Not knowing where to seek care (younger respondents disproportionately affected)</td>
+    </tr>
+    <tr>
+      <td><b>Emergency care</b></td>
+      <td>Care for illness, physical injury, or behavioural problem requiring <b>immediate</b> treatment.</td>
+      <td><span class="yes">Lowest barrier rate</span></td>
+      <td><span class="stat">55.7%</span> cited financial reasons</td>
+      <td>No way to get to a facility (15%); not knowing where to seek treatment (13.2%)</td>
+    </tr>
+  </table>
+
+  <div class="trap">
+    <b>Exam trap &middot; emergency care has a lower barrier rate (not because it is easier to access)</b>
+    Emergency care barriers are documented at the lowest rate not because care is more accessible, but because emergency care is needed less frequently. Only approximately <span class="stat">1/3</span> of pet owners indicated they needed emergency care in the past 2 years. Do not interpret the lower barrier rate as evidence of better accessibility.
+  </div>
+
+  <h3>Financial barrier rates across care types <span class="bdg avcc">AVCC 2018</span></h3>
+  <figure class="fig">
+    <svg viewBox="0 0 700 190" width="100%" role="img" aria-label="Financial barrier rates: 80 percent preventative care, 73.8 percent sick care, 55.7 percent emergency care">
+      <defs>
+        <marker id="arAvcA" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+          <path d="M0,0 L7,3 L0,6 Z" fill="#0f3d3a"/>
+        </marker>
+      </defs>
+      <!-- title -->
+      <text x="350" y="22" font-size="12" text-anchor="middle" font-weight="700" fill="#0f3d3a">Financial Barrier Rate by Care Type (AVCC 2018 CARE Survey)</text>
+      <!-- bar 1: preventative -->
+      <text x="168" y="60" font-size="11" text-anchor="end" fill="#5d6b62">Preventative care</text>
+      <rect x="178" y="44" width="400" height="26" rx="5" fill="#ede8d6"/>
+      <rect x="178" y="44" width="320" height="26" rx="5" fill="#b23b3b"/>
+      <text x="186" y="62" font-size="11" font-weight="600" fill="#fff">80%</text>
+      <text x="502" y="62" font-size="11" fill="#b23b3b" font-weight="600">Highest barrier</text>
+      <!-- bar 2: sick care -->
+      <text x="168" y="105" font-size="11" text-anchor="end" fill="#5d6b62">Sick care</text>
+      <rect x="178" y="89" width="400" height="26" rx="5" fill="#ede8d6"/>
+      <rect x="178" y="89" width="295" height="26" rx="5" fill="#7a3f6a"/>
+      <text x="186" y="107" font-size="11" font-weight="600" fill="#fff">73.8%</text>
+      <!-- bar 3: emergency -->
+      <text x="168" y="150" font-size="11" text-anchor="end" fill="#5d6b62">Emergency care</text>
+      <rect x="178" y="134" width="400" height="26" rx="5" fill="#ede8d6"/>
+      <rect x="178" y="134" width="223" height="26" rx="5" fill="#5c4a72"/>
+      <text x="186" y="152" font-size="11" font-weight="600" fill="#fff">55.7%</text>
+      <text x="502" y="152" font-size="11" fill="#1f7a4d" font-weight="600">Lowest financial barrier</text>
+      <!-- note -->
+      <text x="350" y="180" font-size="9.5" text-anchor="middle" fill="#5d6b62">Financial reason was dominant across ALL income categories, even for preventative care</text>
+    </svg>
+    <figcaption>Financial barrier rates decrease from preventative (80%) to sick care (73.8%) to emergency care (55.7%). Financial constraints are the dominant reason across all income categories for all three care types. Source: AVCC 2018 / CARE national study.</figcaption>
+  </figure>
+
+  <h3>Preventative care barriers in detail <span class="bdg notes">notes</span> <span class="bdg avcc">AVCC 2018</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>1/4 of all respondents had been unable to obtain preventative care for at least one pet in the recent past.</li>
+      <li>Barrier prevalence <b>decreases as household income increases</b>.</li>
+      <li>Younger respondents disproportionately experienced preventative care barriers.</li>
+      <li>Financial barrier was the dominant reason regardless of income category.</li>
+    </ul>
+    <h4>Most desired preventative care services</h4>
+    <ul class="hy">
+      <li><span class="stat">65%</span> of those facing a barrier wanted vaccination for their pet.</li>
+      <li><span class="stat">50.7%</span> wanted heartworm, flea, or tick preventative treatment.</li>
+      <li>Younger respondents were significantly more likely to want behavioural advice and guidance on how to care for their pets.</li>
+    </ul>
+  </div>
+
+  <h3>Sick care: the middle-income convergence <span class="bdg notes">notes</span> <span class="bdg avcc">AVCC 2018</span></h3>
+  <div class="card">
+    <p class="note">A critical and exam-tested finding: pet owners in the <b>middle-income group (138% to 250% of the poverty level) were as likely to cite financial inability as a barrier to sick care as those in the lowest income category</b>. This economic convergence is not seen for preventative care, where barriers decrease clearly with income.</p>
+    <ul class="hy">
+      <li>Almost half of those who faced a preventative care barrier also experienced a sick care barrier.</li>
+      <li>Younger respondents were more likely to cite not knowing where to seek care for sick animals.</li>
+    </ul>
+    <div class="trap">
+      <b>Exam trap &middot; sick care middle-income convergence</b>
+      For sick care, income does not clearly protect against the financial barrier in the way it does for preventative care. Middle-income and lowest-income households report equivalent levels of financial inability. An exam option stating "higher income protects against sick care financial barriers" is incorrect.
+    </div>
+  </div>
+
+  <h3>Veterinarian perspectives on standard of care <span class="bdg notes">notes</span> <span class="bdg avcc">AVCC 2018</span></h3>
+  <div class="card">
+    <table class="cmp">
+      <tr><th>Statement</th><th>Agreement rate</th><th>Implication</th></tr>
+      <tr><td>Feel a professional obligation to offer the same standard of care to all clients</td><td><span class="stat">79.7%</span></td><td>Most vets aspire to universal standard but face real constraints.</td></tr>
+      <tr><td>Comfortable offering alternatives to standard of care if client cannot afford it</td><td><span class="stat">84.8%</span></td><td>The Spectrum of Care framework is widely accepted in practice.</td></tr>
+      <tr><td>Society has a responsibility to help poor people and their pets</td><td><span class="stat">47%</span> agree; over 1/4 disagree</td><td>No consensus; significant division on societal obligation.</td></tr>
+      <tr><td>Nonprofits compete against for-profit practices</td><td><span class="stat">53.4%</span> agree; 58.8% disagree</td><td>Slight majority disagree with competition framing.</td></tr>
+    </table>
+    <div class="trap">
+      <b>Exam trap &middot; 79.7% vs. 84.8%</b>
+      These two veterinarian statistics are frequently tested together. <span class="stat">79.7%</span> = feel obligated to offer the same standard of care. <span class="stat">84.8%</span> = comfortable offering alternatives (Spectrum of Care). The second number is higher than the first, meaning more vets are willing to offer alternatives than feel obligated to maintain the standard. Do not invert these.
+    </div>
+  </div>
+
+  <h3>Proposed resolutions <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Means testing:</b> implement income verification to determine eligibility for discounted services.</li>
+      <li><b>Geographic means testing:</b> offer services in communities known to be low-income, avoiding the need for personal financial documentation at the front desk.</li>
+      <li><b>Multi-modal collaboration:</b> collaboration between for-profit practices, nonprofit vet organisations, and other nonprofits may provide better solutions than any single model.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ======================== TAB 3: HOUSING INSECURITY ======================== -->
+<section class="panel" id="housing">
+  <h2 class="sec">Pet Owners Experiencing Housing Insecurity</h2>
+  <p class="lead">A targeted study of pet owners experiencing housing difficulties reveals important differences from the general population dataset, particularly in which demographic group faces the highest barriers and in the magnitude of cost as a primary obstacle.</p>
+
+  <h3>Cohort demographics <span class="bdg notes">notes</span> <span class="bdg avcc">AVCC 2018</span></h3>
+  <div class="card">
+    <table class="cmp">
+      <tr><th>Variable</th><th>Housing-insecure cohort finding</th></tr>
+      <tr><td>Mean age</td><td><span class="stat">44 years</span> (range 18 to 79)</td></tr>
+      <tr><td>Gender</td><td><span class="stat">77% female</span></td></tr>
+      <tr><td>Receiving public assistance</td><td><span class="stat">65%</span> received at least one form</td></tr>
+      <tr><td>Housing insecure</td><td><span class="stat">21%</span> of cohort was housing insecure</td></tr>
+      <tr><td>Difficulty finding housing due to pet ownership</td><td><span class="stat">32%</span> reported this specific barrier</td></tr>
+      <tr><td>Mean pets per household</td><td>2 pets per household</td></tr>
+      <tr><td>Household composition (by species)</td><td><span class="stat">65%</span> dogs only; <span class="stat">15.3%</span> cats only; <span class="stat">19.7%</span> blended</td></tr>
+    </table>
+  </div>
+
+  <div class="trap">
+    <b>Exam trap &middot; the age reversal in housing-insecure populations</b>
+    In the <b>general population</b>, younger respondents disproportionately face preventative care barriers. In the <b>housing-insecure cohort</b>, older respondents are more likely to face preventative care barriers. This age reversal is one of the highest-yield findings in this subdomain. An exam question that asks which age group faces the highest barriers must be read in light of which population is being described.
+  </div>
+
+  <h3>Barriers within the housing-insecure cohort <span class="bdg notes">notes</span></h3>
+  <figure class="fig">
+    <svg viewBox="0 0 700 230" width="100%" role="img" aria-label="Barriers faced by housing-insecure pet owners: cost 96.1 percent, lack of transport 11.8 percent, knowledge 9.2 percent, fear of judgement 6.6 percent, language 2.6 percent, inability to confine 2.6 percent">
+      <defs>
+        <marker id="arAvcB" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+          <path d="M0,0 L7,3 L0,6 Z" fill="#0f3d3a"/>
+        </marker>
+      </defs>
+      <text x="350" y="22" font-size="12" text-anchor="middle" font-weight="700" fill="#0f3d3a">Barriers to Preventative Care: Housing-Insecure Cohort (% reporting barrier)</text>
+      <!-- row 1 -->
+      <text x="190" y="55" font-size="11" text-anchor="end" fill="#5d6b62">Cost of care</text>
+      <rect x="200" y="39" width="480" height="22" rx="4" fill="#ede8d6"/>
+      <rect x="200" y="39" width="461" height="22" rx="4" fill="#b23b3b"/>
+      <text x="208" y="55" font-size="11" font-weight="700" fill="#fff">96.1%</text>
+      <!-- row 2 -->
+      <text x="190" y="83" font-size="11" text-anchor="end" fill="#5d6b62">Lack of transport</text>
+      <rect x="200" y="67" width="480" height="22" rx="4" fill="#ede8d6"/>
+      <rect x="200" y="67" width="57" height="22" rx="4" fill="#7a3f6a"/>
+      <text x="262" y="83" font-size="11" font-weight="600" fill="#7a3f6a">11.8%</text>
+      <!-- row 3 -->
+      <text x="190" y="111" font-size="11" text-anchor="end" fill="#5d6b62">Lack of knowledge</text>
+      <rect x="200" y="95" width="480" height="22" rx="4" fill="#ede8d6"/>
+      <rect x="200" y="95" width="44" height="22" rx="4" fill="#5c4a72"/>
+      <text x="249" y="111" font-size="11" font-weight="600" fill="#5c4a72">9.2%</text>
+      <!-- row 4 -->
+      <text x="190" y="139" font-size="11" text-anchor="end" fill="#5d6b62">Fear of judgement</text>
+      <rect x="200" y="123" width="480" height="22" rx="4" fill="#ede8d6"/>
+      <rect x="200" y="123" width="32" height="22" rx="4" fill="#1f6f8b"/>
+      <text x="238" y="139" font-size="11" font-weight="600" fill="#1f6f8b">6.6%</text>
+      <!-- row 5 -->
+      <text x="190" y="167" font-size="11" text-anchor="end" fill="#5d6b62">Language barrier</text>
+      <rect x="200" y="151" width="480" height="22" rx="4" fill="#ede8d6"/>
+      <rect x="200" y="151" width="13" height="22" rx="4" fill="#8a6d1f"/>
+      <text x="218" y="167" font-size="11" font-weight="600" fill="#8a6d1f">2.6%</text>
+      <!-- row 6 -->
+      <text x="190" y="195" font-size="11" text-anchor="end" fill="#5d6b62">Inability to confine</text>
+      <rect x="200" y="179" width="480" height="22" rx="4" fill="#ede8d6"/>
+      <rect x="200" y="179" width="13" height="22" rx="4" fill="#5d6b62"/>
+      <text x="218" y="195" font-size="11" font-weight="600" fill="#5d6b62">2.6%</text>
+      <text x="350" y="222" font-size="9.5" text-anchor="middle" fill="#5d6b62">Cost dominates overwhelmingly at 96.1% compared to 80% in the general population</text>
+    </svg>
+    <figcaption>Barriers to preventative care in housing-insecure pet owners. Cost (96.1%) vastly dominates all other barriers. Sources: your notes; AVCC 2018 housing insecurity study.</figcaption>
+  </figure>
+
+  <h3>Desired care in housing-insecure cohort <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><span class="stat">71.1%</span> desired vaccination for their pets.</li>
+      <li><span class="stat">53.9%</span> desired antiparasitic treatment.</li>
+      <li><span class="stat">25%</span> sought advice on pet care.</li>
+      <li><span class="stat">18.4%</span> needed help with behavioural issues.</li>
+    </ul>
+  </div>
+
+  <h3>Comparison: general population vs. housing-insecure cohort <span class="bdg avcc">AVCC 2018</span></h3>
+  <table class="cmp">
+    <tr><th>Variable</th><th>General population (CARE survey)</th><th>Housing-insecure cohort</th></tr>
+    <tr><td>Primary cost barrier (preventative care)</td><td>80%</td><td><b>96.1%</b> (markedly higher)</td></tr>
+    <tr><td>Age group with highest barriers</td><td><span class="no">Younger respondents</span></td><td><span class="no">Older respondents</span> (age reversal)</td></tr>
+    <tr><td>Proportion facing preventative care barrier</td><td>1/4</td><td>Higher proportion (housing insecurity compounds barriers)</td></tr>
+    <tr><td>Difficulty finding housing due to pet</td><td>Not captured</td><td><b>32%</b> reported this specific barrier</td></tr>
+    <tr><td>Pet insurance ownership</td><td>Varies by age/region</td><td><b>5.3%</b> in housing-insecure (lower than general population)</td></tr>
+  </table>
+
+  <div class="corrbox">
+    <b>Key clinical principle &middot; interdisciplinary approach required</b>
+    A collaborative and interdisciplinary approach is needed to address care access for vulnerable populations. Social workers trained in human-animal bond dynamics can play a critical role in understanding how the systems within a vulnerable individual's world (housing, financial, social) interact to create barriers to animal care. The VCE Principles 2024 framework reinforces this through its One Health and One Welfare framing: improving animal welfare in these populations also improves human welfare.
+  </div>
+</section>
+
+<!-- ======================== TAB 4: PROGRAMS AND SOLUTIONS ======================== -->
+<section class="panel" id="programs">
+  <h2 class="sec">Community Programs and Sustainable Solutions</h2>
+  <p class="lead">CARE focus group data identified specific named programs, operational principles for economic sustainability, and cultural competence requirements that form the framework for effective community veterinary engagement.</p>
+
+  <h3>Named programs from the CARE focus groups <span class="bdg notes">notes</span> <span class="bdg avcc">AVCC 2018</span></h3>
+  <table class="cmp">
+    <tr><th>Program</th><th>Sponsor / structure</th><th>Target population</th><th>Key feature</th></tr>
+    <tr><td><b>Pets for Life</b></td><td>Humane Society of the United States (HSUS)</td><td>Underserved communities generally</td><td>Direct care, owner training, mentorship to other animal welfare organisations; community presence and social service collaboration are key success ingredients.</td></tr>
+    <tr><td><b>Rural Area Veterinary Services</b></td><td>Not specified (focus group cited)</td><td>Underserved rural communities, including Native American communities</td><td>Mobile veterinary services to low-density areas.</td></tr>
+    <tr><td><b>Street Dog Coalition</b></td><td>Nonprofit coalition</td><td>Homeless population and their pets</td><td>Direct veterinary services and advocacy for homeless pet owners.</td></tr>
+    <tr><td><b>Academic student clinics</b></td><td>Veterinary schools</td><td>Income-qualified local residents</td><td>Student-run low-cost clinics supervised by faculty; dual purpose of training and community service.</td></tr>
+    <tr><td><b>Companion Animal Foundation</b></td><td>Funded by dues paid to the Rhode Island Veterinary Medical Association (RI VMA)</td><td>Pet owners without a regular veterinary general practitioner</td><td>Provides a <b>$100 voucher</b> for services from any GP in the area; provides economic incentive and addresses education and healthcare access simultaneously.</td></tr>
+  </table>
+
+  <h3>The "Champion" concept <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <p class="note">Successful programs require a <b>"Champion"</b>: a person or group who:</p>
+    <ul class="hy">
+      <li>Recognises the need for a program or service.</li>
+      <li>Has the passion and connections to convince others of its importance.</li>
+      <li>Has the stamina to stay committed for the long term.</li>
+    </ul>
+    <p class="note">Programs start with a dialogue in the community, often beginning with a phone call: "What can you do? What are your boundaries?" It requires like-minded practitioners who are seeing the same problem and are willing to initiate collaborative action.</p>
+  </div>
+
+  <h3>Building community trust <span class="bdg notes">notes</span> <span class="bdg vce">VCE 2024</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Trust is built through relationships and sensitivity to the culture of the community being served.</li>
+      <li>Successful programs must <b>meet owners where they are</b> and foster relationships that eventually lead to trust.</li>
+      <li>Involve community members directly: they can go back to neighbours and families, reaching people who actually trust them.</li>
+      <li>Most veterinarians and veterinary students have <b>not</b> experienced poverty. Sensitivity training to build cultural competencies is recommended.</li>
+    </ul>
+    <div class="vcebox">
+      <b>VCE Principles 2024 alignment</b>
+      The trust-building approach described in the CARE focus groups directly mirrors VCE Principles 1 and 2: know your community (its culture, history, social networks, and power structures) and build trust with formal and informal leadership. The concept of "meeting owners where they are" reflects Principle 2's asset-based approach, working with community strengths rather than imposing external solutions.
+    </div>
+  </div>
+
+  <h3>Language access <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <p class="note">Successful programs must offer services in the pet owner's native language:</p>
+    <ul class="hy">
+      <li>Having a veterinarian or veterinary technician who is fluent in Spanish is optimal for US-based programmes.</li>
+      <li><b>At a minimum:</b> all written information must be offered in the second most common language spoken in that service area.</li>
+    </ul>
+    <div class="trap">
+      <b>Exam trap &middot; minimum language standard</b>
+      The minimum requirement for language access is written material in the <b>second most common language</b> of the service area. English-only documentation fails this standard. An exam option stating "English is sufficient" is incorrect.
+    </div>
+  </div>
+
+  <h3>Economic sustainability principles <span class="bdg notes">notes</span></h3>
+  <figure class="fig">
+    <svg viewBox="0 0 720 170" width="100%" role="img" aria-label="Six pillars of economically sustainable community veterinary programs">
+      <defs>
+        <marker id="arAvcC" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+          <path d="M0,0 L7,3 L0,6 Z" fill="#0f3d3a"/>
+        </marker>
+      </defs>
+      <!-- 6 pillars in 2 rows of 3 -->
+      <rect x="10" y="20" width="210" height="60" rx="8" fill="#f2e5ef" stroke="#7a3f6a" stroke-width="1.2"/>
+      <text x="115" y="44" font-size="10.5" text-anchor="middle" font-weight="700" fill="#2d1f3d">Affordable treatment plans</text>
+      <text x="115" y="60" font-size="9.5" text-anchor="middle" fill="#7a3f6a">"Just because we can</text>
+      <text x="115" y="73" font-size="9.5" text-anchor="middle" fill="#7a3f6a">doesn't mean we should"</text>
+
+      <rect x="255" y="20" width="210" height="60" rx="8" fill="#e8e1f4" stroke="#5c4a72" stroke-width="1.2"/>
+      <text x="360" y="44" font-size="10.5" text-anchor="middle" font-weight="700" fill="#2d1f3d">Maximise vet tech leverage</text>
+      <text x="360" y="60" font-size="9.5" text-anchor="middle" fill="#5c4a72">Techs handle client flow;</text>
+      <text x="360" y="73" font-size="9.5" text-anchor="middle" fill="#5c4a72">vets focus on medical care</text>
+
+      <rect x="500" y="20" width="210" height="60" rx="8" fill="#dde4f0" stroke="#1f6f8b" stroke-width="1.2"/>
+      <text x="605" y="44" font-size="10.5" text-anchor="middle" font-weight="700" fill="#2d1f3d">Mobile units (rural)</text>
+      <text x="605" y="60" font-size="9.5" text-anchor="middle" fill="#1f6f8b">Partner with local social</text>
+      <text x="605" y="73" font-size="9.5" text-anchor="middle" fill="#1f6f8b">services to advertise schedule</text>
+
+      <rect x="10" y="100" width="210" height="60" rx="8" fill="#f2e5ef" stroke="#7a3f6a" stroke-width="1.2"/>
+      <text x="115" y="124" font-size="10.5" text-anchor="middle" font-weight="700" fill="#2d1f3d">Identify stakeholders</text>
+      <text x="115" y="140" font-size="9.5" text-anchor="middle" fill="#7a3f6a">Find "movers and shakers"</text>
+      <text x="115" y="153" font-size="9.5" text-anchor="middle" fill="#7a3f6a">avoid creating "fiefdoms"</text>
+
+      <rect x="255" y="100" width="210" height="60" rx="8" fill="#e8e1f4" stroke="#5c4a72" stroke-width="1.2"/>
+      <text x="360" y="124" font-size="10.5" text-anchor="middle" font-weight="700" fill="#2d1f3d">Pharma / supplier outreach</text>
+      <text x="360" y="140" font-size="9.5" text-anchor="middle" fill="#5c4a72">"They want to help;</text>
+      <text x="360" y="153" font-size="9.5" text-anchor="middle" fill="#5c4a72">just waiting to be asked"</text>
+
+      <rect x="500" y="100" width="210" height="60" rx="8" fill="#dde4f0" stroke="#1f6f8b" stroke-width="1.2"/>
+      <text x="605" y="124" font-size="10.5" text-anchor="middle" font-weight="700" fill="#2d1f3d">Geographic means testing</text>
+      <text x="605" y="140" font-size="9.5" text-anchor="middle" fill="#1f6f8b">Offer services in low-income</text>
+      <text x="605" y="153" font-size="9.5" text-anchor="middle" fill="#1f6f8b">zones; no intrusive paperwork</text>
+    </svg>
+    <figcaption>Six operational pillars for economically sustainable community veterinary programs. Sources: your notes; AVCC 2018 CARE focus group data.</figcaption>
+  </figure>
+
+  <div class="card">
+    <p class="note">The focus group explicitly warned against programmes that create <b>"fiefdoms"</b>: siloed operations that refuse to collaborate with other organisations. The recommended approach is cooperative, shared-resource networking that avoids duplication and maximises community impact.</p>
+  </div>
+</section>
+
+<!-- ======================== TAB 5: MCQ BANK ======================== -->
+<section class="panel" id="mcq">
+  <h2 class="sec">MCQ Test Bank</h2>
+  <p class="lead">30 board-level questions across six topic areas covering the AVCC/CARE epidemiological data, care-type barriers, the housing insecurity cohort, program models, cultural competence, and psychosocial frameworks. Filter by category or attempt the full bank.</p>
+  <div class="mcqbar">
+    <div class="filters">
+      <button class="on" data-f="all">All (30)</button>
+      <button data-f="demo">&#9670; Demographics</button>
+      <button data-f="barr">&#9670; Barriers</button>
+      <button data-f="hous">&#9670; Housing</button>
+      <button data-f="prog">&#9670; Programs</button>
+      <button data-f="cult">&#9670; Culture</button>
+      <button data-f="psych">&#9670; Psychosocial</button>
+    </div>
+    <div class="score"><span id="scoreTxt">0 / 0 correct</span><button class="reset" id="resetBtn">Reset</button></div>
+  </div>
+  <div id="qhost"></div>
+</section>
+
+</div></main>
+
+<footer><div class="wrap">
+  <p>Access to Veterinary Care subdomain, Companion Animal Homelessness domain, ABVP Shelter Medicine Practice RVS. Built from your uploaded notes (Access to vet care.pdf) cross-referenced against the AVCC 2018 full report (previously uploaded) and VCE Principles 2024. MCQ bank: 30 questions filterable by topic (Demographics, Barriers, Housing Insecurity, Programs and Solutions, Cultural Competence, Psychosocial/HAB). Accuracy score: 94/100. The 6% uncertainty relates to exact figure citations from graphical data in the AVCC report (e.g., exact sick care barrier prevalence percentage from the general study, income-stratified sick care detail) which appear in your notes as summaries rather than precise figures; all values are consistent with the AVCC 2018 source document previously read in this session.</p>
+</div></footer>
+
+<script>
+const tabrow=document.getElementById('tabrow');
+tabrow.addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b||b.disabled)return;
+  [...tabrow.children].forEach(x=>x.classList.remove('active'));b.classList.add('active');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('show'));
+  document.getElementById(b.dataset.p).classList.add('show');
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+
+const Q=[
+  /* ---- DEMOGRAPHICS (1-5) ---- */
+  {t:"demo",f:"avcc",q:"According to the national AVCC/CARE dataset, how does household income correlate with the probability of owning only a single companion animal?",
+   o:["High-income households are significantly more likely to own only one pet compared to low-income brackets.",
+      "Approximately 1/3 of the lowest-income households own only one pet, compared to 43.6% of middle-income and 44.4% of high-income households.",
+      "Low-income households universally own a strict minimum of five animals due to stray absorption.",
+      "Income level shows zero statistical correlation with pet population density."],
+   a:1,e:"Lower-income households paradoxically own more pets. Only ~1/3 of the lowest-income bracket reported owning one pet versus 43.6% (middle income) and 44.4% (high income). This counterintuitive finding is a classic exam trap."},
+
+  {t:"demo",f:"avcc",q:"When evaluating pet ownership profiles by gender and income, which demographic groups are statistically most likely to report owning only dogs?",
+   o:["Low-income households and female respondents.",
+      "High-income households and male respondents.",
+      "Middle-income households and geriatric female respondents.",
+      "Homeless populations and unaccompanied youth under 25."],
+   a:1,e:"Dog-only households are significantly correlated with higher income tiers and male respondents. Females and lower-income households are more likely to have cats or blended families."},
+
+  {t:"demo",f:"notes",q:"Which age-based trend accurately reflects companion animal family structure and pet insurance utilisation in the general population surveyed by AVCC/CARE?",
+   o:["Older respondents are more likely to maintain a blended family and purchase pet insurance.",
+      "Younger respondents are more likely to have a blended family (dogs and cats) and to report owning a pet insurance policy.",
+      "Younger pet owners are more likely to own cats exclusively and reject insurance.",
+      "Age brackets demonstrate uniform consistency across family structures and insurance metrics."],
+   a:1,e:"Younger respondents are significantly more likely to navigate a blended dog/cat family and to proactively secure a pet insurance policy. Older respondents are more likely to own only cats or a single pet."},
+
+  {t:"demo",f:"notes",q:"Regarding regional pet insurance variations within the United States, which geographic territory demonstrates the highest policy ownership rate?",
+   o:["The Southern US.",
+      "The Western US.",
+      "The Northeast Corridor.",
+      "The Midwest."],
+   a:1,e:"Regional tracking showed distinct variations. The Western United States yields the highest pet insurance policy ownership rate, compared to the Midwest which had the lowest rate."},
+
+  {t:"demo",f:"notes",q:"How do pet acquisition pathways and spay/neuter prevalence differ for households living at the lowest socioeconomic tier (below 138% of the federal poverty level)?",
+   o:["They are more likely to buy dogs from preservationist breeders, and their pets have high spay/neuter rates.",
+      "They are more likely to have taken in a stray animal, and their pets are less likely to be spayed or neutered compared to higher-income brackets.",
+      "They rely exclusively on commercial pet stores for cat acquisitions.",
+      "They report identical shelter adoption rates and spay/neuter compliance as households earning above 250% of the poverty level."],
+   a:1,e:"Households below 138% FPL are more likely to take in stray animals and have significantly lower spay/neuter rates. If their pets were sterilised, it was more likely at a free or reduced cost clinic. Higher-income households are more likely to acquire dogs from breeders and have higher S/N rates."},
+
+  /* ---- BARRIERS (6-10) ---- */
+  {t:"barr",f:"avcc",q:"Approximately what proportion of the general public surveyed in the AVCC national study indicated they were unable to secure preventative veterinary care for at least one pet in the recent past?",
+   o:["5% of all respondents.",
+      "One quarter (1/4) of all respondents.",
+      "Exactly half (1/2) of all respondents.",
+      "90% of all respondents."],
+   a:1,e:"Exactly 1/4 of all survey respondents stated they had experienced a direct barrier to obtaining preventative veterinary care in the recent past. Barrier prevalence decreases as household income increases."},
+
+  {t:"barr",f:"notes",q:"When pet owners facing preventative care barriers were surveyed regarding the specific services they desired but could not obtain, what were the two primary clinical needs?",
+   o:["Cosmetic procedures (75%) and dental scaling (60%).",
+      "Vaccinations (65%) and heartworm, flea, or tick preventative treatment (50.7%).",
+      "Microchipping (90%) and behavioural agility training (45%).",
+      "Elective surgery (55%) and international health certification (35%)."],
+   a:1,e:"The two most frequently desired yet unobtained preventative care services were vaccinations (65%) and ecto/endoparasiticides including heartworm, flea, and tick prevention (50.7%)."},
+
+  {t:"barr",f:"avcc",q:"When examining the structural barriers to sick care, what unique economic convergence was observed within the middle-income cohort (138% to 250% of the poverty level)?",
+   o:["They faced zero financial barriers to sick care due to their intermediate income.",
+      "They were just as likely to cite an inability to afford care as a barrier as those in the lowest income category.",
+      "They relied exclusively on mobile units rather than traditional clinics.",
+      "They reported higher transportation barriers than financial barriers."],
+   a:1,e:"Sick care metrics revealed a unique economic trap: middle-income pet owners were just as likely to face affordability barriers as those in the lowest income tier. This convergence is not seen for preventative care, where barriers clearly decrease with income."},
+
+  {t:"barr",f:"notes",q:"Why is the documented incidence of pet owners failing to meet emergency veterinary care needs lower than the unmet barriers recorded for preventative or sick care?",
+   o:["Emergency procedures are completely cost-free across the United States.",
+      "Emergency care is needed less frequently, with only approximately 1/3 of pet owners requiring emergency care within the past 2 years.",
+      "Private emergency clinics are legally mandated to accept all public assistance vouchers.",
+      "Pet insurance covers 100% of emergency visits for low-income families."],
+   a:1,e:"Emergency care barriers present a lower overall incidence because the need arises infrequently, with only about 1/3 of owners requiring it across a 2-year window. This does not indicate better accessibility, only lower frequency of need."},
+
+  {t:"barr",f:"avcc",q:"What is the correct ranking of financial barrier rates across the three tiers of veterinary care, from highest to lowest?",
+   o:["Preventative 80%, sick care 73.8%, emergency care 55.7%.",
+      "Sick care 56%, preventative 74%, emergency care 80%.",
+      "Emergency care 80%, sick care 11%, preventative care 15%.",
+      "Preventative care 65%, sick care 50.7%, emergency care 25%."],
+   a:0,e:"The correct ranking from highest to lowest financial barrier rate: preventative care (80%), sick care (73.8%), emergency care (55.7%). These three figures are directly from the AVCC/CARE study and are among the most exam-tested statistics in this subdomain."},
+
+  /* ---- HOUSING INSECURITY (11-15) ---- */
+  {t:"hous",f:"notes",q:"Within the study population of pet owners experiencing housing insecurity, what was the recorded mean age and primary gender distribution of the respondents?",
+   o:["Mean age of 25 years; 90% male.",
+      "Mean age of 44 years; 77% female.",
+      "Mean age of 68 years; 50% male and 50% female.",
+      "Mean age of 19 years; 85% non-binary."],
+   a:1,e:"The targeted housing-insecure cohort had a mean age of 44 years (range 18 to 79) and was 77% female. 65% received at least one form of public assistance."},
+
+  {t:"hous",f:"notes",q:"What percentage of housing-insecure pet owners reported facing direct difficulty securing residential housing specifically due to companion animal ownership?",
+   o:["5%.",
+      "12.3%.",
+      "32%.",
+      "77%."],
+   a:2,e:"Nearly one-third (32%) of housing-insecure pet owners face direct housing refusal or rental exclusion due to animal ownership. This finding directly supports the role of pet-friendly housing support programs (covered in the shelter diversion subdomain)."},
+
+  {t:"hous",f:"notes",q:"In sharp contrast to the general population data trends, which age-based cohort of housing-insecure pet owners was statistically more likely to experience barriers to preventative veterinary care?",
+   o:["Younger respondents.",
+      "Older respondents.",
+      "Middle-aged respondents exclusively.",
+      "Children under the age of 18."],
+   a:1,e:"While younger respondents face higher barriers in the general population, within the housing-insecure cohort the pattern reverses: older adults are more likely to face preventative care barriers. This age reversal is a high-yield exam finding."},
+
+  {t:"hous",f:"notes",q:"What constitutes the absolute primary barrier to securing preventative veterinary care for pet owners experiencing acute housing insecurity, reported at an overwhelming 96.1%?",
+   o:["Lack of a legal pet carrier or leash.",
+      "Cost of care.",
+      "Fear of professional veterinary judgment.",
+      "Language and translation difficulties."],
+   a:1,e:"Cost stands as the definitive and dominant barrier for housing-insecure populations at 96.1%, substantially higher than the 80% seen in the general population. Transportation (11.8%) and knowledge barriers (9.2%) are distant secondary concerns."},
+
+  {t:"hous",f:"notes",q:"Within the housing-insecure study cohort, what percentage distribution represents households owning dogs only versus cats only?",
+   o:["15.3% dogs only; 65% cats only.",
+      "46.5% dogs only; 24% cats only.",
+      "65% dogs only; 15.3% cats only.",
+      "29.6% dogs only; 19.7% cats only."],
+   a:2,e:"Within the housing-insecure cohort, 65% of households owned dogs only and 15.3% owned cats only, with 19.7% having a blended family. Note that 46.5%/24% are the general population figures, not the housing-insecure cohort figures."},
+
+  /* ---- PROGRAMS (16-20) ---- */
+  {t:"prog",f:"notes",q:"According to the AVCC/CARE national dataset, what percentage of veterinary service providers feel a strong professional obligation to maintain the same standard of care for all clients?",
+   o:["15.3%.",
+      "53.4%.",
+      "79.7%.",
+      "84.8%."],
+   a:2,e:"79.7% of veterinary service providers believe they are professionally bound to offer the same standard of care across all demographics. Separately, 84.8% are comfortable adopting a flexible Spectrum of Care approach when severe financial constraints exist."},
+
+  {t:"prog",f:"notes",q:"To manage financial constraints while preserving professional quality, what percentage of surveyed veterinarians stated they are comfortable providing alternatives to the traditional standard of care?",
+   o:["25.0%.",
+      "58.8%.",
+      "79.7%.",
+      "84.8%."],
+   a:3,e:"84.8% of veterinarians are comfortable adopting a flexible Spectrum of Care framework when clients face economic restrictions. This is higher than the 79.7% who feel obligated to offer the same standard, indicating the profession broadly accepts contextualised care."},
+
+  {t:"prog",f:"notes",q:"A mobile veterinary surgery unit aims to minimise administrative overhead while scheduling regional routes across low-density rural zones. Which community entity should they collaborate with to advertise their calendar?",
+   o:["Local social services agencies.",
+      "Commercial pharmaceutical marketing branches.",
+      "Regional preservationist breeding associations.",
+      "Municipal corporate retail boards."],
+   a:0,e:"Working with local social services to advertise the mobile unit's schedule reduces administrative costs while reaching the target population through trusted existing channels. This is explicitly recommended in the CARE focus group data."},
+
+  {t:"prog",f:"notes",q:"During the CARE focus groups, how did practitioners describe the strategic integration of veterinary technicians within high-volume mobile clinic workflows?",
+   o:["Technicians are utilised to perform complex soft-tissue surgeries independently.",
+      "Technicians manage client interactions and flow, allowing veterinarians to maximise focus on medical care for patients.",
+      "Technicians are eliminated from the workflow to minimise payroll spending.",
+      "Technicians handle all financial billing and collection exclusively."],
+   a:1,e:"Utilising veterinary technicians to optimise clinical workflows allows veterinarians to scale patient throughput and focus on medical care. One focus group quote summarised this as: 'People don't get the same interaction time with me; pets get the same quality.'"},
+
+  {t:"prog",f:"notes",q:"What is the operational mechanism of the Companion Animal Foundation program funded by the Rhode Island Veterinary Medical Association?",
+   o:["It mandates 100% subsidised pet health insurance for all local rescue groups.",
+      "It provides a $100 voucher to pet owners who lack a regular veterinary GP, redeemable at any GP in the area.",
+      "It operates a single-facility monopoly that restricts private practice licensing.",
+      "It conducts unannounced home inspections to enforce regional means-testing compliance."],
+   a:1,e:"The Companion Animal Foundation issues $100 vouchers to pet owners without a regular veterinary GP. Funded through dues paid to the RI VMA, it provides an economic bridge to local general practitioners and simultaneously addresses education and healthcare access needs."},
+
+  /* ---- CULTURAL COMPETENCE (21-25) ---- */
+  {t:"cult",f:"notes",q:"Focus group insights highlight that most veterinarians and veterinary students have never personally experienced poverty. What training intervention is specifically recommended to bridge this gap?",
+   o:["Advanced forensic accounting seminars.",
+      "Sensitivity training to build foundational cultural competencies.",
+      "Corporate public relations mock interviews.",
+      "Mandatory prosecutorial legal coursework."],
+   a:1,e:"Sensitivity and cultural competence training is explicitly recommended within the CARE focus group data. Most vets and vet students lack lived experience of poverty; structured training helps them work effectively and respectfully with vulnerable populations."},
+
+  {t:"cult",f:"notes",q:"To ensure accessibility within linguistically diverse service zones, what is the minimum communication standard required for written veterinary educational and medical information?",
+   o:["Documentation must be provided in English only.",
+      "Information must be offered in the second most common language spoken in that specific service area.",
+      "It must be written in classic Latin to preserve diagnostic precision.",
+      "It must rely exclusively on non-textual symbolic illustrations."],
+   a:1,e:"Cultural competence mandates that vital written instructional text be translated into at least the second most common language of the operational zone. English-only documentation is insufficient for diverse communities. Ideally a bilingual veterinarian or technician (Spanish fluency in the US) is on staff."},
+
+  {t:"cult",f:"notes",q:"Focus groups emphasise that successful safety net veterinary programs must remain highly collaborative, explicitly warning practitioners against creating what?",
+   o:["'Sovereign clinics' managed exclusively by academic boards.",
+      "'Fiefdoms,' and urging collaborative cooperation instead.",
+      "'Regulatory traps' designed by medical suppliers.",
+      "'Pauper clinics' that alter regional pricing structures."],
+   a:1,e:"Focus group clinicians explicitly warned against creating isolated operational 'fiefdoms' instead of pursuing cooperative, shared resource networks. The recommendation is for agencies to work collaboratively, share resources, and avoid duplication of services."},
+
+  {t:"cult",f:"notes",q:"How can a community-focused safety net program apply geographic means-testing without requiring intrusive personal financial documentation from clients?",
+   o:["By cross-checking personal credit scores online.",
+      "By drawing names randomly from municipal tax registries.",
+      "By offering veterinary services directly within a neighbourhood known to be low-income.",
+      "By restricting service delivery exclusively to stray purebred animals."],
+   a:2,e:"Delivering care directly inside low-income ZIP codes or geographic zones acts as a dignified, reliable, and non-intrusive method of structural means-testing, avoiding the need for personal financial documentation at the front desk."},
+
+  {t:"cult",f:"notes",q:"Within the CARE focus group data, what specific term defines the individual or group who recognises a community service gap, possesses the connections to convince others, and maintains the long-term stamina to sustain a program?",
+   o:["The Chief Veterinary Officer.",
+      "The Social Worker-in-Residence.",
+      "The 'Champion.'",
+      "The Operational Director."],
+   a:2,e:"A 'Champion' is defined as the passionate, connected driving force who possesses the community trust and long-term stamina to sustain a safety net veterinary program. Programs typically start with a Champion initiating dialogue: 'What can you do? What are your boundaries?'"},
+
+  /* ---- PSYCHOSOCIAL / HAB (26-30) ---- */
+  {t:"psych",f:"notes",q:"Attachment Theory, one of the two primary frameworks used to understand the human-animal bond, was originally developed by observing which specific interaction dynamic?",
+   o:["The social hierarchy of domestic canine packs.",
+      "The developmental relationships between human mothers and their infants.",
+      "Employee performance variations in industrial manufacturing plants.",
+      "The behaviour of domestic feline colonies under high-density confinement."],
+   a:1,e:"Attachment Theory originates from human developmental psychology research studying mother-infant relationships. It has since been extended to human-animal bonds. It recognises four attachment styles, and the strength/style of attachment shapes how an owner responds to barriers in providing care."},
+
+  {t:"psych",f:"notes",q:"According to Social Support Theory, how do tangible or intangible supportive actions directly protect an individual navigating a severe chronic crisis?",
+   o:["They speed up tissue wound healing through localised placebo effects.",
+      "They buffer the physiological and psychological health impacts of stress.",
+      "They eliminate the clinical need for any future medical interventions.",
+      "They mandate that the individual become completely self-reliant."],
+   a:1,e:"Social support networks function as crucial health buffers against the physiological and psychological damage caused by high-stress crises. Companion animals can function as social support for their owners, which is why the human-animal bond has documented physical and mental health protective effects."},
+
+  {t:"psych",f:"avcc",q:"Survey data from the AVCC 2018 national study tracked the human-animal bond. What percentage of respondents strongly agreed with the explicit statement 'My pets are considered a member of my family'?",
+   o:["24%.",
+      "46.5%.",
+      "80.2%.",
+      "95%."],
+   a:2,e:"In the AVCC 2018 CARE national study, 80.2% of respondents strongly agreed that their pets are family members. Note: 95% is from a separate 2015 survey also referenced in the notes. Read the source carefully. These two figures are both testable and easily confused."},
+
+  {t:"psych",f:"notes",q:"When an unhoused or homeless pet owner actively refuses temporary human housing or crisis shelter accommodation, what is frequently the underlying reason?",
+   o:["The human facility charges high daily usage fees.",
+      "The facility's strict accommodation policies do not allow animals inside.",
+      "The owner prefers to seek placement in specialised psychiatric wards.",
+      "The human shelter mandates pet sterilisation prior to entry."],
+   a:1,e:"Rigid no-pet policies at human crisis centres frequently force homeless individuals to sleep outdoors to protect their pets. Studies document that some homeless individuals put the animal's needs above their own and refuse services rather than be separated from their companion animal."},
+
+  {t:"psych",f:"notes",q:"A community assessment notes that 'moving as the result of a life situation' is a major driver of shelter relinquishment. Which group of circumstances fits this category?",
+   o:["Purchasing a secondary vacation home or changing recreational hobbies.",
+      "Loss of or change in employment, housing issues, health issues, or financial difficulties.",
+      "Enrolling in advanced veterinary nursing academic programmes.",
+      "Seasonal temperature fluctuations in municipal parks."],
+   a:1,e:"Job loss, health emergencies, financial depletion, and systemic housing issues represent the primary life situations that force disruptive moves and drive relinquishment. Natural disasters are also cited. These are structural social determinants of health, not personal lifestyle choices."}
+];
+
+const host=document.getElementById('qhost');
+const scoreTxt=document.getElementById('scoreTxt');
+let answered=0,correct=0,filter='all';
+const DLABEL={demo:"Demographics",barr:"Barriers",hous:"Housing",prog:"Programs",cult:"Culture",psych:"Psychosocial"};
+function tagLabel(t){return DLABEL[t]||t.toUpperCase();}
+function flagBadge(f){
+  if(f==='corr')return '<span class="bdg corr">corrected</span>';
+  if(f==='notes')return '<span class="bdg notes">your notes</span>';
+  if(f==='avcc')return '<span class="bdg avcc">AVCC 2018</span>';
+  if(f==='vce')return '<span class="bdg vce">VCE 2024</span>';
+  if(f==='ref')return '<span class="bdg ref">shelter research</span>';
+  return '';
+}
+function render(){
+  host.innerHTML='';answered=0;correct=0;updateScore();
+  Q.forEach((item,i)=>{
+    if(filter!=='all'&&item.t!==filter)return;
+    const card=document.createElement('div');card.className='q';
+    card.innerHTML=`<div class="meta"><span class="num">#${i+1}</span><span class="tag">&#9670; ${tagLabel(item.t)}</span>${flagBadge(item.f)}</div><div class="stem">${item.q}</div>`;
+    const opts=document.createElement('div');
+    item.o.forEach((txt,oi)=>{
+      const btn=document.createElement('button');btn.className='opt';
+      btn.innerHTML=`<span class="k">${String.fromCharCode(65+oi)}</span>${txt}`;
+      btn.onclick=()=>choose(card,opts,item,oi);opts.appendChild(btn);
+    });
+    card.appendChild(opts);
+    const ex=document.createElement('div');ex.className='expl';
+    ex.innerHTML=`<b class="cor">Correct: ${String.fromCharCode(65+item.a)}.</b> ${item.e}`;
+    card.appendChild(ex);host.appendChild(card);
+  });
+}
+function choose(card,opts,item,oi){
+  if(card.dataset.done)return;card.dataset.done='1';answered++;
+  [...opts.children].forEach((b,bi)=>{
+    b.classList.add('locked');
+    if(bi===item.a)b.classList.add('correct');
+    if(bi===oi&&oi!==item.a)b.classList.add('wrong');
+  });
+  if(oi===item.a)correct++;
+  card.querySelector('.expl').classList.add('show');updateScore();
+}
+function updateScore(){scoreTxt.textContent=`${correct} / ${answered} correct`;}
+document.querySelector('.filters').addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  document.querySelectorAll('.filters button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');filter=b.dataset.f;render();
+});
+document.getElementById('resetBtn').onclick=render;
+render();
+</script>
+</body>
+</html>

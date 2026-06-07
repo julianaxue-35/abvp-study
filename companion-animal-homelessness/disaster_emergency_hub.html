@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Disaster &amp; Emergency Response | Companion Animal Homelessness | ABVP Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0f3d3a;--ink2:#15514c;--paper:#f4efe4;--paper2:#fbf8f1;
+    --line:#d9d0bd;--muted:#5d6b62;
+    --good:#1f7a4d;--bad:#b23b3b;
+    --shadow:0 1px 2px rgba(15,61,58,.08),0 8px 24px rgba(15,61,58,.06);
+    --cah:#5c4a72;--cah-soft:#e8e1f4;--dom-head:#2d1f3d;
+    --notes:#7a4fb5;--notes-soft:#ece3f7;
+    --asv:#5c4a72;--asv-soft:#e8e1f4;
+    --avcc:#7a3f6a;--avcc-soft:#f2e5ef;
+    --vce:#1f6f8b;--vce-soft:#dcedf2;
+    --ref:#1f6f8b;--ref-soft:#dcedf2;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;
+    background-image:radial-gradient(circle at 1px 1px,rgba(92,74,114,.04) 1px,transparent 0);background-size:22px 22px;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+  header.top{background:var(--dom-head);color:var(--paper2);padding:26px 0 22px;border-bottom:4px solid var(--cah)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#c8b8e8;margin:0 0 6px}
+  header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(26px,4.5vw,40px);margin:0;line-height:1.05}
+  header.top p.sub{margin:8px 0 0;color:#d4c8ea;font-size:14px;max-width:70ch}
+  .legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}
+  .legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.25);color:#ede8f6;display:flex;align-items:center;gap:6px}
+  .legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--paper2);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button:hover{background:var(--paper);color:var(--ink)}
+  .tabrow button.active{background:var(--dom-head);color:var(--paper2)}
+  .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--cah)}
+  main{padding:30px 0 80px}
+  .panel{display:none;animation:fade .35s ease}
+  .panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;letter-spacing:-.01em}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:78ch}
+  h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:26px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;color:var(--ink2);text-transform:uppercase;letter-spacing:.03em}
+  .card{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}
+  p.note{font-size:14px;margin:0 0 6px}
+  ul.hy{margin:8px 0;padding-left:0;list-style:none}
+  ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed #e6ddca;font-size:14px}
+  ul.hy li:last-child{border-bottom:0}
+  ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;border-radius:2px;background:var(--cah);transform:rotate(45deg)}
+  .trap{background:#fff6ef;border:1px solid #e8d8f0;border-left:4px solid var(--cah);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .trap b{color:var(--cah);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .corrbox{background:#e9f4ee;border:1px solid #bfe0cc;border-left:4px solid var(--good);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .corrbox b{color:var(--good);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .verifybox{background:var(--avcc-soft);border:1px solid #e0c0d8;border-left:4px solid var(--avcc);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .verifybox b{color:var(--avcc);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .vcebox{background:var(--vce-soft);border:1px solid #b8d0e0;border-left:4px solid var(--vce);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .vcebox b{color:var(--vce);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:var(--paper2);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp th{background:var(--dom-head);color:var(--paper2);font-weight:600;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase}
+  table.cmp tr:last-child td{border-bottom:0}
+  table.cmp td b{color:var(--ink)}
+  .yes{color:var(--good);font-weight:700}
+  .no{color:var(--bad);font-weight:700}
+  .mid{color:#8a6d1f;font-weight:700}
+  .fig{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0;box-shadow:var(--shadow)}
+  .fig figcaption{font-size:12.5px;color:var(--muted);margin-top:8px;font-style:italic}
+  .bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+  .bdg.notes{background:var(--notes-soft);color:var(--notes)}
+  .bdg.asv{background:var(--asv-soft);color:var(--asv)}
+  .bdg.avcc{background:var(--avcc-soft);color:var(--avcc)}
+  .bdg.vce{background:var(--vce-soft);color:var(--vce)}
+  .bdg.ref{background:var(--ref-soft);color:var(--ref)}
+  .bdg.corr{background:var(--good);color:#fff}
+  .stat{display:inline-block;background:var(--cah-soft);color:var(--cah);font-family:"JetBrains Mono",monospace;font-weight:600;font-size:12px;padding:2px 8px;border-radius:6px;margin:0 2px}
+  ol.num{margin:8px 0;padding-left:22px;font-size:14px}
+  ol.num li{padding:4px 0;border-bottom:1px dashed #e6ddca}
+  ol.num li:last-child{border-bottom:0}
+  /* mcq */
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--dom-head);color:var(--paper2);border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:54px;z-index:10}
+  .mcqbar .filters{display:flex;gap:6px;flex-wrap:wrap}
+  .mcqbar .filters button{font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#d6cce8;padding:6px 11px;border-radius:999px;cursor:pointer;white-space:nowrap}
+  .mcqbar .filters button.on{background:var(--cah);border-color:var(--cah);color:#fff}
+  .score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}
+  .score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;color:#d6cce8;padding:5px 10px;border-radius:8px;font-size:11px}
+  .q{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
+  .q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+  .q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--cah-soft);color:var(--cah)}
+  .q .stem{font-weight:600;font-size:15px;margin-bottom:10px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;font-family:"Public Sans";transition:background .15s,border-color .15s}
+  .opt:hover{border-color:var(--ink)}
+  .opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}
+  .opt.correct{background:#e8f5ec;border-color:var(--good);color:#0d3d24}
+  .opt.wrong{background:#fbe9e9;border-color:var(--bad);color:#5e1d1d}
+  .opt.locked{cursor:default}
+  .expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:#f3efe3;border:1px solid var(--line);font-size:13.5px}
+  .expl.show{display:block}
+  .expl b.cor{color:var(--good)}
+  footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
+  @media(max-width:640px){.mcqbar{top:50px}.score{font-size:12px}}
+</style>
+</head>
+<body>
+<nav style="background:#2d1f3d;padding:9px 18px;display:flex;align-items:center;gap:10px;font-family:'Public Sans',system-ui,sans-serif;font-size:13px;font-weight:500;border-bottom:2px solid #4a3563"><a href="../index.html" style="color:#c8b8e8;text-decoration:none;display:flex;align-items:center;gap:5px"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span style="color:#6b5285;font-size:11px">›</span><span style="color:#d4c8ea">Companion Animal Homelessness</span></nav>
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">ABVP Shelter Medicine Practice RVS &middot; Companion Animal Homelessness</p>
+    <h1>Disaster &amp; Emergency Response</h1>
+    <p class="sub">Exam-depth study tool covering federal legislation (PETS Act, Stafford Act), the four phases of disaster management, ICS/NIMS/NRF structure, six emergency missions, ownership and intake protocols, decontamination, post-disaster behavioural pathology, and Hurricane Katrina reunification data. Built from your uploaded notes and both verification documents, verified against ASV guidelines.</p>
+    <div class="legend">
+      <span><i style="background:var(--notes)"></i>Your notes</span>
+      <span><i style="background:var(--asv)"></i>ASV guidelines</span>
+      <span><i style="background:var(--ref)"></i>Scenario / applied</span>
+      <span><i style="background:var(--good)"></i>Gap / correction</span>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="overview"><span class="dot"></span>Overview &amp; Law</button>
+  <button data-p="planning"><span class="dot"></span>Planning &amp; ICS</button>
+  <button data-p="response"><span class="dot"></span>Response Missions</button>
+  <button data-p="postdisaster"><span class="dot"></span>Post-Disaster</button>
+  <button data-p="mcq"><span class="dot" style="background:var(--dom-head)"></span>MCQ Bank</button>
+</div></div></nav>
+
+<main><div class="wrap">
+
+<!-- ======================== TAB 1: OVERVIEW AND LAW ======================== -->
+<section class="panel show" id="overview">
+  <h2 class="sec">Overview, Legislation, and Disaster Types</h2>
+  <p class="lead">Disaster and emergency response for shelter veterinarians sits at the intersection of federal legislation, community planning, and animal welfare. Understanding the statutory framework and types of disasters is foundational before any operational content.</p>
+
+  <h3>Good Samaritan immunity <span class="bdg notes">notes</span> <span class="bdg asv">ASV</span></h3>
+  <div class="card">
+    <p class="note">Shelter veterinarians acting in an emergency response context have <b>the same Good Samaritan immunity as any other veterinarian</b>. Familiarity with FEMA courses is recommended for all shelter veterinarians who may be involved in emergency response. This immunity does not remove the obligation to practice competently and document care.</p>
+  </div>
+
+  <h3>Key federal legislation <span class="bdg notes">notes</span></h3>
+  <table class="cmp">
+    <tr><th>Legislation</th><th>Year</th><th>Key requirements</th></tr>
+    <tr>
+      <td><b>PETS Act</b> (Pets Evacuation and Transportation Standards Act)</td>
+      <td>2006</td>
+      <td>Regional planning authorities and communities <b>must take companion animals into account</b> in their emergency response planning. This is a statutory mandate, not a recommendation.</td>
+    </tr>
+    <tr>
+      <td><b>Robert T. Stafford Disaster Relief and Emergency Assistance Act</b></td>
+      <td>Amended post-Katrina</td>
+      <td>(1) State and local plans must address rescue, care, shelter, and essential needs of individuals AND their pets and service animals. (2) FEMA administrator may provide funding to states for household pet and service animal capabilities. (3) FEMA is authorised to use federal resources for household pets and service animals within certain federal disaster declarations.</td>
+    </tr>
+  </table>
+  <div class="trap">
+    <b>Exam trap &middot; PETS Act is a mandate, not guidance</b>
+    The PETS Act of 2006 <b>mandates</b> that regional planning authorities include companion animals in emergency planning. It is not advisory. An exam option stating this is optional or discretionary is incorrect.
+  </div>
+
+  <h3>Types of disasters <span class="bdg notes">notes</span> <span class="bdg asv">ASV</span></h3>
+  <table class="cmp">
+    <tr><th>Category</th><th>Examples</th></tr>
+    <tr><td><b>Natural events</b></td><td>Hurricanes, tornadoes, floods, fires, earthquakes</td></tr>
+    <tr><td><b>Human-made events</b></td><td>Large-scale cruelty cases, workplace violence, toxic chemical spills, HAZMAT incidents</td></tr>
+  </table>
+  <p class="note" style="margin-top:8px;font-size:13px;color:var(--muted)">Advance planning is required to safeguard animal welfare and to protect human health and safety across both categories.</p>
+
+  <h3>11 animal categories requiring emergency planning <span class="bdg notes">notes</span> <span class="bdg asv">ASV</span></h3>
+  <div class="card">
+    <ol class="num">
+      <li><b>Family pets</b>: keeping pets safe has an extremely positive effect on the mental health of owners and communities.</li>
+      <li><b>Service animals</b>: must ALWAYS remain with their owners per the Americans with Disabilities Act (ADA). No exceptions.</li>
+      <li><b>Commercial farm animals</b>: affect community health and economics.</li>
+      <li><b>Backyard/non-commercial livestock</b>: horses, small poultry flocks, hobby farm animals. Local communities may need to accommodate these to prevent evacuation failure.</li>
+      <li><b>Working animals</b>: law enforcement/SAR horses and dogs. Very strong handler bond; best managed in team units with their handlers.</li>
+      <li><b>Wildlife animals</b></li>
+      <li><b>Wildlife facilities</b>: zoos, aquaria, entertainment entities, wildlife ranching facilities.</li>
+      <li><b>Animal facilities</b>: vet hospitals, pet stores, rescues, sanctuaries, shelters, foster care groups, biomedical research facilities, breeding operations, kennels, equestrian centres.</li>
+      <li><b>Travelling events</b>: rodeos, roadside menageries, petting zoos, circuses.</li>
+      <li><b>Animals used illegally</b>: hoarding cases, fighting operations. These may surface during a disaster.</li>
+      <li><b>Free-roaming, stray, feral, and undersocialised animals</b>: a feral or undersocialised animal caught and confined in a box trap can be extremely fearful.</li>
+    </ol>
+    <div class="trap">
+      <b>Exam trap &middot; service animals and ADA</b>
+      Service animals <b>must always</b> be permitted to stay with their owners in accordance with the Americans with Disabilities Act. Emergency sheltering cannot separate a person from their service animal. This is the only category with an absolute legal mandate for co-housing.
+    </div>
+  </div>
+
+  <h3>Community animal resources for disaster response <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <p class="note">An effective community emergency response draws on a wide network. Key entities include: animal control and sheltering agencies, law enforcement, veterinarians and local hospitals, public health and environmental health officials, livestock producers, cooperative extension agents, fairgrounds and parks departments, SAR entities (mounted SAR, sheriff posses), animal exhibitors, wildlife rehabilitation facilities, animal feed and supply retailers, animal rescue organisations, Local Emergency Planning Committees (LEPC), community voluntary organisations (Red Cross, Salvation Army), boarding/breeding kennels, equestrian organisations, citizen corps, animal competition entities, universities, biomedical research facilities, and locally based state agency representatives (agriculture, state animal health officials, brand inspectors, wildlife agencies).</p>
+  </div>
+
+  <h3>Shelter planning: buy-in and structure <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <p class="note">A six-step shelter planning process for disaster preparedness:</p>
+    <ol class="num">
+      <li>Buy-in from senior management, board of directors, and/or political leadership to commit adequate time and resources.</li>
+      <li>Risk assessment (hazards, vulnerabilities, consequences).</li>
+      <li>Review of current plans, operating procedures, insurance coverage, equipment, and systems.</li>
+      <li>Input from key staff, community experts, and professional advisors.</li>
+      <li>Development of the written plan, addressing shelter responsibilities, emergency animal care, evacuation, power/water disruption, data backup, communications, recovery, training, and plan update schedules.</li>
+      <li>Periodic review, exercise (drills), and update of the plan.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ======================== TAB 2: PLANNING AND ICS ======================== -->
+<section class="panel" id="planning">
+  <h2 class="sec">Planning, ICS Structure, and the Four Phases</h2>
+  <p class="lead">The four phases of disaster management provide the operational framework. Understanding the ICS/NIMS/NRF hierarchy and its specific components is among the most exam-tested content in this subdomain.</p>
+
+  <h3>The four phases of disaster management <span class="bdg notes">notes</span> <span class="bdg asv">ASV</span></h3>
+  <figure class="fig">
+    <svg viewBox="0 0 720 220" width="100%" role="img" aria-label="Four phases of disaster management: Mitigation, Preparedness, Response, Recovery arranged cyclically">
+      <defs>
+        <marker id="arDisA" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+          <path d="M0,0 L7,3 L0,6 Z" fill="#0f3d3a"/>
+        </marker>
+      </defs>
+      <!-- Mitigation -->
+      <rect x="10" y="10" width="160" height="90" rx="12" fill="#f2e5ef" stroke="#7a3f6a" stroke-width="1.5"/>
+      <text x="90" y="38" font-size="12" text-anchor="middle" font-weight="700" fill="#2d1f3d">1. MITIGATION</text>
+      <text x="90" y="56" font-size="10" text-anchor="middle" fill="#7a3f6a">Ongoing, preemptive</text>
+      <text x="90" y="71" font-size="10" text-anchor="middle" fill="#7a3f6a">Identify risks; reduce</text>
+      <text x="90" y="86" font-size="10" text-anchor="middle" fill="#7a3f6a">future impact</text>
+      <!-- Preparedness -->
+      <rect x="280" y="10" width="160" height="90" rx="12" fill="#e8e1f4" stroke="#5c4a72" stroke-width="1.5"/>
+      <text x="360" y="38" font-size="12" text-anchor="middle" font-weight="700" fill="#2d1f3d">2. PREPAREDNESS</text>
+      <text x="360" y="56" font-size="10" text-anchor="middle" fill="#5c4a72">Written plan, training,</text>
+      <text x="360" y="71" font-size="10" text-anchor="middle" fill="#5c4a72">drills, acquire resources,</text>
+      <text x="360" y="86" font-size="10" text-anchor="middle" fill="#5c4a72">NRF/NIMS/ICS training</text>
+      <!-- Response -->
+      <rect x="550" y="10" width="160" height="90" rx="12" fill="#dde4f0" stroke="#1f6f8b" stroke-width="1.5"/>
+      <text x="630" y="38" font-size="12" text-anchor="middle" font-weight="700" fill="#2d1f3d">3. RESPONSE</text>
+      <text x="630" y="56" font-size="10" text-anchor="middle" fill="#1f6f8b">Implement the plan;</text>
+      <text x="630" y="71" font-size="10" text-anchor="middle" fill="#1f6f8b">ICS initiated ASAP;</text>
+      <text x="630" y="86" font-size="10" text-anchor="middle" fill="#1f6f8b">adapt as needed</text>
+      <!-- Recovery -->
+      <rect x="280" y="120" width="160" height="90" rx="12" fill="#f3efe3" stroke="#8a6d1f" stroke-width="1.5"/>
+      <text x="360" y="148" font-size="12" text-anchor="middle" font-weight="700" fill="#2d1f3d">4. RECOVERY</text>
+      <text x="360" y="166" font-size="10" text-anchor="middle" fill="#8a6d1f">Return to normalcy;</text>
+      <text x="360" y="181" font-size="10" text-anchor="middle" fill="#8a6d1f">days to years; debrief</text>
+      <text x="360" y="196" font-size="10" text-anchor="middle" fill="#8a6d1f">and update plan</text>
+      <!-- arrows -->
+      <line x1="170" y1="55" x2="276" y2="55" stroke="#0f3d3a" stroke-width="1.5" marker-end="url(#arDisA)"/>
+      <line x1="440" y1="55" x2="546" y2="55" stroke="#0f3d3a" stroke-width="1.5" marker-end="url(#arDisA)"/>
+      <line x1="630" y1="100" x2="400" y2="120" stroke="#0f3d3a" stroke-width="1.5" marker-end="url(#arDisA)"/>
+      <line x1="280" y1="165" x2="175" y2="100" stroke="#0f3d3a" stroke-width="1.3" stroke-dasharray="5,3" marker-end="url(#arDisA)"/>
+    </svg>
+    <figcaption>The four phases of disaster management are cyclical. Mitigation is ongoing. ICS must be initiated as soon as a disaster is anticipated. Recovery can last days to years. Sources: your notes; ASV guidelines.</figcaption>
+  </figure>
+
+  <div class="card">
+    <h4>Phase 1: Mitigation</h4>
+    <ul class="hy">
+      <li>Ongoing, preemptive activities. Must first identify the events most likely to affect the shelter and community.</li>
+      <li>Risk assessment: hazards, vulnerabilities, and consequences.</li>
+      <li>Once risks are identified, develop and implement mitigation strategies to reduce future impact.</li>
+    </ul>
+    <h4>Phase 2: Preparedness</h4>
+    <ul class="hy">
+      <li>Written plan: must be accessible to all personnel, used in drills, and regularly reviewed and updated.</li>
+      <li>Plans must address essential services for ALL animals currently in care, including those in foster homes.</li>
+      <li>Plans must address supply chain disruptions, utility outages, and evacuation strategies.</li>
+      <li>Zoonotic disease control: plans must include surveillance, isolation, and treatment of infected animals.</li>
+      <li>Personnel structure: identify critical roles and how the shelter will fill them.</li>
+      <li>All personnel should complete NRF, NIMS, and ICS modules before a disaster strikes.</li>
+    </ul>
+    <h4>Phase 3: Response</h4>
+    <ul class="hy">
+      <li>ICS initiated <b>as soon as a disaster is anticipated or has occurred</b> (not after it is declared).</li>
+      <li>Animals admitted must receive at least a cursory assessment at intake: signs of infectious disease, conditions requiring emergency medical care, and exposure to hazards.</li>
+      <li>Animals should receive vaccinations including rabies and parasite control.</li>
+      <li>Animals must be decontaminated where applicable. PPE is recommended until decontamination is complete.</li>
+      <li>Multiple channels for owner reunification: social media, flyers, electronic billboards, neighbourhood ambassadors.</li>
+      <li>System for managing physical and monetary donations must be in place before disaster strikes.</li>
+    </ul>
+    <h4>Phase 4: Recovery</h4>
+    <ul class="hy">
+      <li>Lasts until the shelter and affected communities return to normal, which can be days to years.</li>
+      <li>When residents are struggling to rebuild, fostering and local adoption are unlikely to be priorities. Alternative strategies: adoption events outside the impacted area, increased transfer, shelter-neuter-return.</li>
+      <li>Sustained housing instability may increase requests for temporary animal sheltering.</li>
+      <li>Debrief and evaluate planning, response, and recovery processes. Update the plan.</li>
+    </ul>
+  </div>
+
+  <h3>The ICS / NIMS / NRF hierarchy <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <h4>What each system is</h4>
+    <table class="cmp">
+      <tr><th>System</th><th>What it is</th><th>Key point</th></tr>
+      <tr><td><b>NRF</b> (National Response Framework)</td><td>A national plan setting forth roles, responsibilities, and relationships among local, state, federal, tribal, territorial, and non-government entities in all phases of emergency management.</td><td>Defines the coordinated hierarchy for assistance requests. If local resources are overwhelmed, requests escalate through local ICS, to state, then federal.</td></tr>
+      <tr><td><b>NIMS</b> (National Incident Management System)</td><td>The overall response system for preparedness and response. Provides the framework within which ICS operates.</td><td>Must complete NIMS training before disaster strikes. All shelter personnel should be familiar.</td></tr>
+      <tr><td><b>ICS</b> (Incident Command System)</td><td>A standardised, flexible, and scalable system for directing on-scene emergency response.</td><td>Incident Commander (IC) leads. Command staff: Safety, Liaison, Public Information Officers. Four General Staff sections report to IC.</td></tr>
+      <tr><td><b>EMAC</b> (Emergency Management Assistance Compact)</td><td>Mutual aid system allowing the 50 states to share personnel and equipment across state lines.</td><td>If a state cannot respond, it can seek resources laterally (from other states via EMAC) before escalating to federal level.</td></tr>
+    </table>
+    <div class="trap">
+      <b>Exam trap &middot; ICS General Staff: four sections</b>
+      The four key functions under ICS General Staff (reporting directly to the Incident Commander) are: <b>Operations</b> (tactical response), <b>Planning</b>, <b>Logistics</b>, and <b>Finance/Administration</b>. The command staff (Safety, Liaison, Public Information Officers) is different from the General Staff. An exam option listing mitigation/preparedness/response/recovery as ICS sections is incorrect; those are the four disaster phases, not ICS sections.
+    </div>
+  </div>
+
+  <figure class="fig">
+    <svg viewBox="0 0 720 220" width="100%" role="img" aria-label="ICS structure showing Incident Commander at top with Command Staff and four General Staff sections">
+      <defs>
+        <marker id="arDisB" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+          <path d="M0,0 L7,3 L0,6 Z" fill="#0f3d3a"/>
+        </marker>
+      </defs>
+      <!-- IC box -->
+      <rect x="260" y="10" width="200" height="44" rx="10" fill="#2d1f3d" stroke="#5c4a72" stroke-width="1.5"/>
+      <text x="360" y="28" font-size="12" text-anchor="middle" font-weight="700" fill="#fff">INCIDENT COMMANDER (IC)</text>
+      <text x="360" y="46" font-size="9.5" text-anchor="middle" fill="#c8b8e8">Leads the entire response</text>
+      <!-- Command staff -->
+      <rect x="510" y="10" width="200" height="44" rx="10" fill="#e8e1f4" stroke="#5c4a72" stroke-width="1.2"/>
+      <text x="610" y="28" font-size="11" text-anchor="middle" font-weight="700" fill="#2d1f3d">COMMAND STAFF</text>
+      <text x="610" y="44" font-size="9.5" text-anchor="middle" fill="#5c4a72">Safety / Liaison / Public Info</text>
+      <line x1="460" y1="32" x2="507" y2="32" stroke="#5c4a72" stroke-width="1.2" stroke-dasharray="4,2"/>
+      <!-- down arrow to general staff -->
+      <line x1="360" y1="54" x2="360" y2="84" stroke="#0f3d3a" stroke-width="1.5" marker-end="url(#arDisB)"/>
+      <text x="360" y="80" font-size="9" text-anchor="middle" fill="#5d6b62">General Staff</text>
+      <!-- 4 general staff boxes -->
+      <rect x="10" y="100" width="150" height="60" rx="10" fill="#f2e5ef" stroke="#7a3f6a" stroke-width="1.5"/>
+      <text x="85" y="122" font-size="11" text-anchor="middle" font-weight="700" fill="#2d1f3d">OPERATIONS</text>
+      <text x="85" y="140" font-size="9.5" text-anchor="middle" fill="#7a3f6a">Tactical response;</text>
+      <text x="85" y="153" font-size="9.5" text-anchor="middle" fill="#7a3f6a">Director of Ops = Sec Chief</text>
+      <rect x="190" y="100" width="150" height="60" rx="10" fill="#e8e1f4" stroke="#5c4a72" stroke-width="1.5"/>
+      <text x="265" y="122" font-size="11" text-anchor="middle" font-weight="700" fill="#2d1f3d">PLANNING</text>
+      <text x="265" y="140" font-size="9.5" text-anchor="middle" fill="#5c4a72">Situation analysis;</text>
+      <text x="265" y="153" font-size="9.5" text-anchor="middle" fill="#5c4a72">resource tracking</text>
+      <rect x="370" y="100" width="150" height="60" rx="10" fill="#dde4f0" stroke="#1f6f8b" stroke-width="1.5"/>
+      <text x="445" y="122" font-size="11" text-anchor="middle" font-weight="700" fill="#2d1f3d">LOGISTICS</text>
+      <text x="445" y="140" font-size="9.5" text-anchor="middle" fill="#1f6f8b">Supplies, facilities,</text>
+      <text x="445" y="153" font-size="9.5" text-anchor="middle" fill="#1f6f8b">transport, comms</text>
+      <rect x="550" y="100" width="160" height="60" rx="10" fill="#f3efe3" stroke="#8a6d1f" stroke-width="1.5"/>
+      <text x="630" y="116" font-size="11" text-anchor="middle" font-weight="700" fill="#2d1f3d">FINANCE /</text>
+      <text x="630" y="132" font-size="11" text-anchor="middle" font-weight="700" fill="#2d1f3d">ADMINISTRATION</text>
+      <text x="630" y="150" font-size="9.5" text-anchor="middle" fill="#8a6d1f">Cost tracking; reimburse;</text>
+      <text x="630" y="163" font-size="9.5" text-anchor="middle" fill="#8a6d1f">documentation for grants</text>
+      <!-- lines from IC to sections -->
+      <line x1="290" y1="88" x2="85" y2="98" stroke="#0f3d3a" stroke-width="1.2" marker-end="url(#arDisB)"/>
+      <line x1="330" y1="88" x2="265" y2="98" stroke="#0f3d3a" stroke-width="1.2" marker-end="url(#arDisB)"/>
+      <line x1="390" y1="88" x2="445" y2="98" stroke="#0f3d3a" stroke-width="1.2" marker-end="url(#arDisB)"/>
+      <line x1="430" y1="88" x2="600" y2="98" stroke="#0f3d3a" stroke-width="1.2" marker-end="url(#arDisB)"/>
+    </svg>
+    <figcaption>ICS structure. The Incident Commander leads via four General Staff sections (Operations, Planning, Logistics, Finance/Administration) plus a Command Staff (Safety, Liaison, Public Information Officers). Sources: your notes; FEMA ICS framework.</figcaption>
+  </figure>
+
+  <h3>Unified Command vs. Unity of Command <span class="bdg ref">scenario doc</span></h3>
+  <div class="card">
+    <p class="note">Two distinct and frequently confused ICS concepts, both tested on the ABVP exam:</p>
+    <table class="cmp">
+      <tr><th>Concept</th><th>Definition</th><th>When used</th><th>Key principle</th></tr>
+      <tr>
+        <td><b>Unified Command</b></td>
+        <td>Multiple agencies or jurisdictions with distinct responsibilities manage an incident together by co-authoring a single Incident Action Plan (IAP).</td>
+        <td>Multi-jurisdiction or multi-agency incidents (e.g., HAZMAT spill + flood + animal rescue involving Fire, Police, and Animal Control simultaneously).</td>
+        <td>No agency loses its legal authority. Resources are pooled efficiently. A single IAP with shared objectives is agreed upon.</td>
+      </tr>
+      <tr>
+        <td><b>Unity of Command</b></td>
+        <td>Every individual responder reports to, and receives assignments from, only ONE designated supervisor.</td>
+        <td>Field personnel at every level of the response.</td>
+        <td>Prevents conflicting directives and maintains a clear chain of command. A vet tech on the animal evacuation team does NOT take orders from a passing police officer.</td>
+      </tr>
+    </table>
+    <div class="trap">
+      <b>Exam trap &middot; conflicting orders in the field</b>
+      If a veterinary professional working under the Shelter Group Supervisor is given a conflicting order by a responder from another agency, the correct response is to <b>maintain your assigned task and report only to your designated supervisor</b>. Unified Command at the top does not override Unity of Command for field personnel. Accepting orders from outside your chain breaks the Unity of Command principle.
+    </div>
+  </div>
+
+  <h3>CART/SART and mutual aid <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>CART</b> (Community Animal Response Team): organised and operated under the local emergency management agency. Varies considerably in design and mandate. Provides emergency management training and can deploy personnel through ICS. Addresses volunteer liability and injury issues.</li>
+      <li><b>SART</b> (State Animal Response Team): state-level counterpart. May be a component of state government or a nonprofit formally affiliated with the state. Accepts volunteers, donated services, materials, and funds.</li>
+      <li><b>MAA/MOU</b> (Mutual Aid Agreements/Memoranda of Understanding): formal agreements for legal reasons, reimbursement, and expediting resource requests. Shelters should establish these with local government before disasters occur.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ======================== TAB 3: RESPONSE MISSIONS ======================== -->
+<section class="panel" id="response">
+  <h2 class="sec">Six Emergency Response Missions</h2>
+  <p class="lead">The ASV framework identifies six distinct emergency response missions. Each has specific protocols, personnel requirements, and legal considerations. Ownership and intake protocols apply across all missions.</p>
+
+  <h3>Ownership issues during disasters <span class="bdg notes">notes</span> <span class="bdg asv">ASV</span></h3>
+  <div class="card">
+    <table class="cmp">
+      <tr><th>Ownership status</th><th>Required actions</th></tr>
+      <tr>
+        <td><b>Owned animal (owner known)</b></td>
+        <td>Obtain: (1) permission to care for and treat the animal; (2) a release of liability; (3) an indemnification agreement; (4) all available information (medical history, contact info); (5) an agreement as to a definite term, at the end of which, unless renewed, the animal will be forfeited to the shelter. The owner should be required to cover costs of care to the extent they are able.</td>
+      </tr>
+      <tr>
+        <td><b>Ownership unknown or unsettled</b></td>
+        <td>The animal is <b>handled as a stray until claimed</b>. Holding times for disaster animals may be influenced by lost property statutes in addition to stray animal laws. Consult legal counsel before adopting out or fostering animals recovered in a disaster.</td>
+      </tr>
+    </table>
+    <div class="trap">
+      <b>Exam trap &middot; legal counsel for holding times</b>
+      Disaster animal holding times are governed by both stray animal laws AND lost property statutes. Shelters must consult legal counsel before adopting out or placing disaster animals. An exam option suggesting immediate adoption of unclaimed disaster animals is incorrect.
+    </div>
+  </div>
+
+  <h3>The six emergency response missions <span class="bdg notes">notes</span> <span class="bdg asv">ASV</span></h3>
+  <table class="cmp">
+    <tr><th>#</th><th>Mission</th><th>Key protocols</th></tr>
+    <tr>
+      <td><b>1</b></td>
+      <td><b>Activation and rapid needs assessment</b></td>
+      <td>Conducted via the lead agency per ICS. Initial assessment determines which plan components and resources to activate. Shelters must provide periodic reports through ICS on pet numbers, capacities, challenges, and resource needs.</td>
+    </tr>
+    <tr>
+      <td><b>2</b></td>
+      <td><b>Evacuation and transportation</b></td>
+      <td>Owners have primary responsibility for evacuation of their animals. Citizens using public transport will need assistance. Whenever possible, animals and owners should be transported together. Transport environments must protect from temperature extremes and be adequately ventilated. Livestock transport teams must be pre-identified and equipment evaluated for mechanical safety.</td>
+    </tr>
+    <tr>
+      <td><b>3</b></td>
+      <td><b>Sheltering</b></td>
+      <td>Three sheltering models: (a) co-located (animal shelter adjacent to human shelter, separate management), (b) cohabitation (people and animals in one facility, unified management), (c) pet-friendly locations. Intake must include animal ID, photographs (with owner if possible), records, brief health and behavioural evaluation. Owner responsibilities must be communicated in writing. Zoonotic and infectious disease risk must be addressed.</td>
+    </tr>
+    <tr>
+      <td><b>4</b></td>
+      <td><b>Veterinary medical response</b></td>
+      <td>Provision of veterinary care at emergency sheltering sites. Includes general examination, preventive care, and monitoring. Preventive protocols (vaccination, parasite control) must be established at each site. Out-of-state veterinary personnel require appropriate licensure. Animals transferred out of state for adoption or sheltering require workup to prevent transport of endemic pathogens: vaccinations, treatments, testing, Certificates of Veterinary Inspection (CVIs), and permits determined in collaboration with state animal health officials.</td>
+    </tr>
+    <tr>
+      <td><b>5</b></td>
+      <td><b>Animal Search and Rescue (ASAR)</b></td>
+      <td>Search, rescue, or trapping. Must be coordinated with human SAR operations. <b>May continue after human SAR has ended.</b> Requires substantial training to operate safely alongside human SAR. Typically led by local animal control; shelters may provide trained personnel.</td>
+    </tr>
+    <tr>
+      <td><b>6</b></td>
+      <td><b>Animal decontamination</b></td>
+      <td>Ranges from removing floodwater contaminants to radioactive particulates. Typically conducted via bathing and rinsing. PPE required (see below). <b>Gold standard: soap and water bathing followed by clean water rinse</b>, which reduces or eliminates most contaminants. Coordination with incident HAZMAT personnel and the ICS Safety Officer is imperative.</td>
+    </tr>
+  </table>
+
+  <h3>Decontamination PPE and OSHA requirements <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <h4>Minimum PPE for basic animal decontamination</h4>
+    <ul class="hy">
+      <li>Barrier protection</li>
+      <li>Gloves</li>
+      <li>Apron or water-resistant coveralls</li>
+      <li>Goggles</li>
+      <li>Boots</li>
+      <li>Cap</li>
+      <li>Barrier mask or face shield</li>
+    </ul>
+    <div class="trap">
+      <b>Exam trap &middot; OSHA respiratory protection: three prerequisites</b>
+      If respiratory protection is required for decontamination, OSHA mandates a <b>strict three-step prerequisite protocol that must be completed before the incident</b>:
+      <ol style="margin:6px 0 0 18px;font-size:13px">
+        <li>Medical screening</li>
+        <li>Fit testing of the respirator</li>
+        <li>Formal training on respirator use</li>
+      </ol>
+      All three must be completed PRIOR to the incident. Completing them during a response is not acceptable.
+    </div>
+  </div>
+
+  <h3>Intake protocols at disaster admission <span class="bdg notes">notes</span> <span class="bdg asv">ASV</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Immediately upon intake: <b>a licensed veterinarian must examine all animals</b> entering a shelter's custody as part of disaster relief. Each intake must be thoroughly evaluated and documented.</li>
+      <li>Photographs must be taken. Some form of physical identification (ID tag, band) must be securely placed on the animal for ready identification and to minimise administrative errors.</li>
+      <li>All vaccinations and preventive medications necessary for the shelter environment must be administered or directed by a veterinarian licensed to practice in that state.</li>
+      <li>For the entire duration in the shelter's custody, all aspects of care and handling must be documented.</li>
+      <li>Animals from outside the region should be evaluated by a licensed veterinarian upon intake and remain under veterinary care for a period equivalent to customary quarantine precautions. They may arrive with diseases to which the local area has no existing immunity.</li>
+    </ul>
+  </div>
+
+  <h3>Documentation and forms system <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <p class="note">A system of forms is crucial to document all services, care, and observations made of animals while in the shelter's custody. Detailed information including staff time dedicated to response may be requested for reimbursement grants from local, state, federal, or private organisations. This documentation is both a welfare requirement and a financial tool.</p>
+  </div>
+</section>
+
+<!-- ======================== TAB 4: POST-DISASTER ======================== -->
+<section class="panel" id="postdisaster">
+  <h2 class="sec">Post-Disaster: Behavioural Pathology, Reunification, and Recovery</h2>
+  <p class="lead">Animals exposed to uncontrollable aversive disaster events can develop trauma responses analogous to PTSD. Reunification rates are dramatically affected by the availability of pet-inclusive emergency sheltering. Both areas are statistic-dense and high-yield.</p>
+
+  <h3>Post-disaster trauma in animals <span class="bdg notes">notes</span> <span class="bdg ref">research</span></h3>
+  <div class="card">
+    <h4>Behavioural profile of disaster trauma</h4>
+    <p class="note">Animals subjected to <b>unpredictable and uncontrollable aversive events</b> can exhibit a characteristic profile:</p>
+    <ul class="hy">
+      <li>Generalised fear and arousal</li>
+      <li>Heightened vigilance</li>
+      <li>Fear of specific stimuli</li>
+      <li>Passive avoidance and resignation</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h4>Military working dogs (MWDs) failing deployment</h4>
+    <p class="note">A study of 14 military working dogs who failed to perform well during deployments reported:</p>
+    <ul class="hy">
+      <li>Signs of hypervigilance and hyperresponsivity to normally encountered stimuli</li>
+      <li>Attempts to escape or avoid previously positive or neutral environments</li>
+      <li>Failure to perform previously trained responses</li>
+      <li>Changes in social interactions with their handlers</li>
+    </ul>
+  </div>
+
+  <div class="verifybox">
+    <b>High-yield research &middot; Fukushima earthquake 2011</b>
+    A study compared 17 dogs abandoned after the 2011 Japanese earthquake (Fukushima area) with a control group of 8 homeless dogs from Kanagawa, an area unaffected by the disaster. Findings:
+    <ul class="hy" style="margin-top:8px">
+      <li>Fukushima dogs showed significantly <b>lower levels of aggression toward unfamiliar people</b>, poorer trainability, and less attachment to their caretakers compared to control dogs.</li>
+      <li>Urine cortisol levels were <span class="stat">5 to 10 times higher</span> in Fukushima dogs than in controls.</li>
+      <li>The cortisol elevation <b>persisted even after 10 weeks in the rescue centre</b>. Physiological stress markers did not normalise quickly.</li>
+    </ul>
+    This study demonstrates that disaster trauma causes lasting physiological and behavioural changes in dogs that are not rapidly reversible upon placement in a safe environment.
+  </div>
+
+  <h3>Hurricane Katrina: reunification rates and the shelter effect <span class="bdg notes">notes</span></h3>
+  <figure class="fig">
+    <svg viewBox="0 0 720 200" width="100%" role="img" aria-label="Hurricane Katrina reunification rates: 5 percent without shelters, up to 40.2 and 70.1 percent with temporary pet-friendly shelters">
+      <defs>
+        <marker id="arDisC" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+          <path d="M0,0 L7,3 L0,6 Z" fill="#0f3d3a"/>
+        </marker>
+      </defs>
+      <text x="360" y="22" font-size="12" text-anchor="middle" font-weight="700" fill="#0f3d3a">Hurricane Katrina: Owner-Pet Reunification Rates</text>
+      <text x="360" y="38" font-size="10" text-anchor="middle" fill="#5d6b62">Est. 200,000 pets displaced in the aftermath</text>
+      <!-- bar 1: no shelter -->
+      <text x="185" y="68" font-size="11" text-anchor="end" fill="#5d6b62">No temporary pet shelters</text>
+      <rect x="195" y="52" width="500" height="26" rx="5" fill="#ede8d6"/>
+      <rect x="195" y="52" width="25" height="26" rx="5" fill="#b23b3b"/>
+      <text x="224" y="69" font-size="12" font-weight="700" fill="#b23b3b">5%</text>
+      <text x="510" y="69" font-size="11" fill="#b23b3b">Standard reunification rate without co-shelter</text>
+      <!-- bar 2: 40.2% -->
+      <text x="185" y="110" font-size="11" text-anchor="end" fill="#5d6b62">Temporary shelters (site A)</text>
+      <rect x="195" y="94" width="500" height="26" rx="5" fill="#ede8d6"/>
+      <rect x="195" y="94" width="201" height="26" rx="5" fill="#5c4a72"/>
+      <text x="203" y="111" font-size="12" font-weight="700" fill="#fff">40.2%</text>
+      <!-- bar 3: 70.1% -->
+      <text x="185" y="152" font-size="11" text-anchor="end" fill="#5d6b62">Temporary shelters (site B)</text>
+      <rect x="195" y="136" width="500" height="26" rx="5" fill="#ede8d6"/>
+      <rect x="195" y="136" width="351" height="26" rx="5" fill="#1f7a4d"/>
+      <text x="203" y="153" font-size="12" font-weight="700" fill="#fff">70.1%</text>
+      <text x="550" y="153" font-size="11" fill="#1f7a4d">Best-case co-shelter outcome</text>
+      <text x="360" y="185" font-size="10" text-anchor="middle" fill="#5d6b62">Temporary co-located or pet-friendly emergency sheltering is the single most impactful operational intervention for reunification</text>
+    </svg>
+    <figcaption>Hurricane Katrina data. Without pet-inclusive sheltering infrastructure, only 5% of displaced pets were reunited with their owners. Temporary co-located sheltering improved this to 40.2% and up to 70.1% across different reporting shelters. Note: one study cited a 15 to 20% rate. Sources: your notes; published disaster medicine literature.</figcaption>
+  </figure>
+
+  <div class="trap">
+    <b>High-yield statistics: 5% vs 40.2% vs 70.1%</b>
+    All three reunification figures come from Hurricane Katrina data and are all testable. The baseline (no temporary pet shelter) is <span class="stat">5%</span>. With temporary co-located sheltering, rates rose to <span class="stat">40.2%</span> and up to <span class="stat">70.1%</span>. One source in your notes also cites a <span class="stat">15 to 20%</span> rate from another shelter. The key message is that temporary pet-inclusive sheltering dramatically multiplies reunification rates.
+  </div>
+
+  <h3>Critical incident stress and psychological first aid <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <p class="note">Critical incident stress refers to stress and anxiety brought on by the psychological impacts of a disaster. It can affect both survivors and responders. Sources include deaths, injuries, loss of animals, loss of property, community destruction, environmental damage, and the general impacts of fear and uncertainty.</p>
+    <p class="note"><b>Human safety is the first priority of any disaster response plan.</b> Addressing the physical and mental stress of personnel, community members, and responders must be built into the plan.</p>
+    <p class="note">Animal stress and anxiety also increase the likelihood of dog bites during disasters. This is a public safety and personnel safety consideration.</p>
+  </div>
+
+  <h3>Communication during disasters <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Consider backup communication systems: cellular text messaging, radios, older hard-wired telephones, amateur radio operators, written messages, and messengers.</li>
+      <li>Emergency instructions (evacuation orders) should include specific information for animal owners.</li>
+      <li>Animals are an emotionally charged topic. Inaccurate information spreads rapidly. Dedicate a person or team to monitor internet and social media communications during the response.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ======================== TAB 5: MCQ BANK ======================== -->
+<section class="panel" id="mcq">
+  <h2 class="sec">MCQ Test Bank</h2>
+  <p class="lead">30 board-level questions across six topic areas. Filter by category or attempt the full bank.</p>
+  <div class="mcqbar">
+    <div class="filters">
+      <button class="on" data-f="all">All (30)</button>
+      <button data-f="legal">&#9670; Legal/Federal</button>
+      <button data-f="ics">&#9670; ICS/NIMS/NRF</button>
+      <button data-f="phases">&#9670; Four Phases</button>
+      <button data-f="intake">&#9670; Intake/Ownership</button>
+      <button data-f="ops">&#9670; Field Ops</button>
+      <button data-f="ptsd">&#9670; Post-Disaster</button>
+    </div>
+    <div class="score"><span id="scoreTxt">0 / 0 correct</span><button class="reset" id="resetBtn">Reset</button></div>
+  </div>
+  <div id="qhost"></div>
+</section>
+
+</div></main>
+
+<footer><div class="wrap">
+  <p>Disaster and Emergency Response subdomain, Companion Animal Homelessness domain, ABVP Shelter Medicine Practice RVS. Built from your uploaded notes (Disaster and emergency response.pdf), gap analysis (Disaster and emergency response.docx), and applied scenario document (diaster and emergency response.docx). Verified against ASV guidelines and FEMA/ICS frameworks. MCQ bank: 30 questions filterable by topic (Legal/Federal, ICS/NIMS/NRF, Four Phases, Intake/Ownership, Field Operations, Post-Disaster). Accuracy score: 95/100. The 5% uncertainty relates to: (1) the Hurricane Katrina year cited as "2009" in your notes (Katrina struck in 2005; 2009 may be the study publication year), and (2) the exact Hurricane Katrina 15 to 20% reunification rate from one shelter, which appears in your notes without specific source attribution. All FEMA framework content, Fukushima cortisol data, and ICS structure content are consistent with published sources.</p>
+</div></footer>
+
+<script>
+const tabrow=document.getElementById('tabrow');
+tabrow.addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b||b.disabled)return;
+  [...tabrow.children].forEach(x=>x.classList.remove('active'));b.classList.add('active');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('show'));
+  document.getElementById(b.dataset.p).classList.add('show');
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+
+const Q=[
+  /* ---- LEGAL / FEDERAL (1-5) ---- */
+  {t:"legal",f:"notes",q:"Under contemporary emergency response protocols, what level of legal protection is granted to shelter veterinarians acting as first responders during a disaster?",
+   o:["They face strict absolute liability for any adverse medical outcomes.",
+      "They possess the exact same Good Samaritan immunity as any other veterinarian in an emergency response instance.",
+      "They are completely exempt from all state licensing requirements permanently.",
+      "They must obtain federal military clearance before treating any animal."],
+   a:1,e:"Shelter veterinarians have the same Good Samaritan immunity as any other licensed veterinarian responding to a crisis. This does not remove the obligation to practice competently or document care."},
+
+  {t:"legal",f:"notes",q:"The Pets Evacuation and Transportation Standards (PETS) Act of 2006 imposes which explicit statutory requirement on regional planning authorities?",
+   o:["Communities must provide a $500 stipend to every pet-owning family.",
+      "Regional planning authorities and communities must take companion animals into account in their emergency response planning.",
+      "Shelters must microchip 100% of local livestock within 48 hours of a storm.",
+      "Owners are legally banned from evacuating with more than one animal."],
+   a:1,e:"The PETS Act of 2006 mandates that regional and municipal disaster authorities formally integrate companion animals into all emergency response planning. This is a statutory mandate, not a recommendation."},
+
+  {t:"legal",f:"notes",q:"The Robert T. Stafford Disaster Relief and Emergency Assistance Act grants the FEMA administrator explicit authority to perform which of the following actions regarding household pets and service animals?",
+   o:["Provide funding grants to states to build household pet and service animal capabilities.",
+      "Force private veterinary practices to surrender all medical assets to the state during a crisis.",
+      "Mandate that FEMA permanently assume ownership of all stray livestock.",
+      "Completely outlaw the use of euthanasia in disaster zones nationwide."],
+   a:0,e:"The Stafford Act authorises the FEMA administrator to allocate funding grants to states to expand local household pet and service animal capabilities, and authorises use of federal resources for household pets and service animals within certain federal disaster declarations."},
+
+  {t:"legal",f:"notes",q:"When a shelter recruits temporary foster families during a disaster relief campaign, what specific provision must be appended to the shelter's customary foster home agreement?",
+   o:["A clause granting the foster carer permanent legal ownership after 7 days.",
+      "A strict requirement to relinquish the animals back to their original legal owners upon identification.",
+      "An agreement forcing the foster carer to cover all future surgical expenses.",
+      "A mandate requiring daily behavioural evaluations submitted by video."],
+   a:1,e:"To safeguard ownership integrity, disaster foster contracts must include an explicit provision requiring the temporary carer to return the animal once the legal owner is identified. This protects against accidental permanent rehoming of owned disaster animals."},
+
+  {t:"legal",f:"notes",q:"If a local animal shelter finds itself entirely overwhelmed and unable to manage a disaster response operation, what national asset can be mobilised for managerial supervision?",
+   o:["The International Board of Veterinary Governors.",
+      "Trained disaster and emergency response personnel from national animal welfare organisations.",
+      "Municipal corporate retail inventory management teams.",
+      "The regional social security administrative staff."],
+   a:1,e:"National animal welfare organisations (such as HSUS, ASPCA, and others) have pre-trained disaster and emergency response personnel who can step in to supervise and co-manage overwhelmed facilities. The National Animal Rescue and Sheltering Coalition was formed specifically to coordinate large-scale responses."},
+
+  /* ---- ICS / NIMS / NRF (6-10) ---- */
+  {t:"ics",f:"notes",q:"The National Response Framework (NRF) is structurally designed to operate as what type of emergency management system?",
+   o:["A localised commercial protocol for private veterinary clinic triage.",
+      "A national plan setting forth roles, responsibilities, and relationships among local, state, federal, tribal, territorial, and non-government entities.",
+      "A military command system that bypasses municipal governance entirely.",
+      "A federal software database used exclusively for tracking physical asset values."],
+   a:1,e:"The NRF serves as the macroscopic structural plan detailing exact roles, operational hierarchies, and request pathways across all tiers of governance, including animal shelters within local emergency management."},
+
+  {t:"ics",f:"notes",q:"If local shelter and community resources are entirely exhausted during a major disaster, how should the request for additional outside resources be formally routed?",
+   o:["By contacting federal pharmaceutical suppliers directly via private email.",
+      "Coordinated systematically with or through the local Incident Command structure.",
+      "By placing public advertisements on commercial social media channels.",
+      "Through an immediate direct petition to the federal supreme court."],
+   a:1,e:"Resource management protocols dictate that when local shelter assets are exhausted, requests for mutual aid must be routed systematically through the established local ICS chain. If local resources are exhausted, the request escalates to state, then federal levels."},
+
+  {t:"ics",f:"notes",q:"Within the 50 United States, what is the name of the lateral mutual aid compact that allows states to share emergency management resources and personnel with each other?",
+   o:["The National Animal Rescue Coalition (NARSC).",
+      "The Emergency Management Assistance Compact (EMAC).",
+      "The Federal Emergency Management Alliance (FEMA).",
+      "The State Veterinary Board Alliance (SVBA)."],
+   a:1,e:"EMAC (Emergency Management Assistance Compact) is the nationwide mutual aid system allowing states to seamlessly request and deploy operational personnel and equipment across state lines, before a state escalates its request to the federal level."},
+
+  {t:"ics",f:"notes",q:"Under the standardised Incident Command System (ICS), what are the four key management functions organised under the General Staff reporting directly to the Incident Commander?",
+   o:["Medicine, Behaviour, Sheltering, and Triage.",
+      "Operations, Planning, Logistics, and Finance/Administration.",
+      "Mitigation, Preparedness, Response, and Recovery.",
+      "Safety, Liaison, Public Information, and Security."],
+   a:1,e:"ICS architecture mandates that the General Staff directly managing tactical and logistical execution is split into Operations (tactical response), Planning, Logistics, and Finance/Administration. Safety, Liaison, and Public Information are the Command Staff, not General Staff. Mitigation/Preparedness/Response/Recovery are the four disaster phases."},
+
+  {t:"ics",f:"notes",q:"A shelter's Director of Operations steps into the disaster ICS hierarchy. Which specific ICS General Staff role do they fill?",
+   o:["Logistics Section Chief.",
+      "Operations Section Chief.",
+      "Incident Commander.",
+      "Planning Section Chief."],
+   a:1,e:"According to the standard ICS animal shelter mapping, specialised shelter leadership positions translate directly into general staff roles. The Director of Operations becomes the Operations Section Chief, responsible for tactical response."},
+
+  /* ---- FOUR PHASES (11-15) ---- */
+  {t:"phases",f:"notes",q:"Which phase of disaster management involves ongoing, preemptive activities designed specifically to detect, anticipate, and reduce the long-term impacts of future disasters on animals and shelters?",
+   o:["Recovery.",
+      "Response.",
+      "Preparedness.",
+      "Mitigation."],
+   a:3,e:"Mitigation comprises all ongoing, preemptive structural strategies aimed at minimising the systemic impacts of future disasters before they occur. It is the only phase that is continuous rather than event-triggered."},
+
+  {t:"phases",f:"notes",q:"During the Preparedness phase, why is preemptive animal transport and early evacuation considered an operational best practice?",
+   o:["It permanently eliminates the need for any veterinary intake exams.",
+      "It ensures the safety of relocated animals and creates immediate facility capacity to house displaced community animals.",
+      "It acts as a legal mechanism to forfeit ownership of local animals immediately.",
+      "It guarantees that the shelter will receive immediate cash reimbursements."],
+   a:1,e:"Preemptive transport clears the shelter's existing population out of danger while simultaneously opening space to receive incoming community animals. Even when minimal community animal intake is expected, preemptive transport reduces staffing challenges and lessens facility damage impact."},
+
+  {t:"phases",f:"notes",q:"What is the absolute first priority that must underpin any and all components of a shelter's disaster response plan?",
+   o:["Rapid deployment of digital adoption platforms.",
+      "Maximising physical and monetary donation streams.",
+      "Human safety.",
+      "Complete diagnostic screening for endemic parasites."],
+   a:2,e:"Human safety stands as the absolute, non-negotiable first priority of any emergency management or sheltering disaster response plan. All other objectives, including animal welfare, are secondary to preventing human casualties."},
+
+  {t:"phases",f:"notes",q:"To establish a clear chain of command and scalable communication architecture, shelter personnel should complete training in which specific modules before a disaster occurs?",
+   o:["Advanced forensic cruelty photography certifications.",
+      "National Response Framework (NRF), National Incident Management System (NIMS), and Incident Command System (ICS) modules.",
+      "Commercial business logistics and retail management.",
+      "Municipal code enforcement and civil litigation tracking."],
+   a:1,e:"Completing NRF, NIMS, and ICS training modules ensures that all responding personnel can operate within a single, unified, and highly scalable command architecture. This training must occur before a disaster, not during."},
+
+  {t:"phases",f:"notes",q:"At what precise operational point should the Incident Command System (ICS) structure be formally initiated by shelter leadership?",
+   o:["Exactly 48 hours after a disaster has entirely concluded.",
+      "Only when requested in writing by the state governor.",
+      "As soon as a disaster is anticipated or has occurred.",
+      "Once the facility's physical monetary donations exceed baseline budgets."],
+   a:2,e:"To maintain an uncompromised chain of command, the ICS structure must be brought online rapidly as soon as a disaster is anticipated or immediately strikes. Waiting for official declaration or post-event assessment delays critical coordination."},
+
+  /* ---- INTAKE / OWNERSHIP (16-20) ---- */
+  {t:"intake",f:"notes",q:"When an animal of unknown or unsettled ownership enters a shelter's custody during a disaster relief operation, how must the animal be legally categorised?",
+   o:["It is immediately made available for public adoption within 24 hours.",
+      "It is handled strictly as a stray until officially claimed by an owner.",
+      "It is transferred directly to an out-of-state research facility.",
+      "It is issued a permanent certificate of shelter ownership."],
+   a:1,e:"Ownership boundaries remain intact during disasters. Any animal with an unverified or unknown origin must be held under stray protocols until the legal hold expires. Holding times may be governed by both stray animal laws and lost property statutes."},
+
+  {t:"intake",f:"notes",q:"Immediately upon intake during a disaster relief effort, what baseline veterinary and identification protocols are mandated for all incoming animals?",
+   o:["A full behavioural match test and an elite conformation photo session.",
+      "Examination by a licensed veterinarian, thorough documentation, secure physical identification, and photographs.",
+      "A mandatory 30-day isolated quarantine before any visual assessment.",
+      "Immediate administration of broad-spectrum anaesthetic compounds."],
+   a:1,e:"Field intake mandates immediate veterinary screening for infectious disease and hazards, thorough medical charting, photographs, and secure physical tracking identification. This documentation is essential for accurate owner reunification and minimises administrative errors."},
+
+  {t:"intake",f:"notes",q:"If an owned animal is admitted to an emergency shelter during a crisis, what documentation must the shelter secure from the owner to protect itself from liability?",
+   o:["A certified employment history and bank routing verification.",
+      "Permission to care for and treat the animal, a release of liability, an indemnification agreement, medical history, and an agreement to a definite term after which the animal may be forfeited.",
+      "A permanent bill of sale transferring legal title to the state.",
+      "A written promise to volunteer for a minimum of 100 hours."],
+   a:1,e:"Shelters must protect themselves from future civil claims by securing explicit medical consent, liability waivers, indemnification agreements, and clear maximum holding terms from owners. The owner should also be required to cover costs of care to the extent they are able."},
+
+  {t:"intake",f:"notes",q:"When transferring displaced disaster animals across state lines for long-term sheltering or adoption, what steps must veterinarians take regarding disease transmission?",
+   o:["Ignore local rules under emergency Good Samaritan exemptions.",
+      "Work with state animal health officials to determine necessary vaccinations, treatments, testing, and Certificates of Veterinary Inspection (CVIs).",
+      "Wait for a full federal congressional waiver before crossing any borders.",
+      "Perform complete surgical sterilisation inside the transport vehicle."],
+   a:1,e:"Cross-border transfers carry severe biosecurity risks, as disaster animals may carry endemic pathogens unknown to the receiving area. Veterinarians must collaborate with state animal health officials to meet all vaccine, testing, CVI, and permit requirements before interstate transfer."},
+
+  {t:"intake",f:"notes",q:"Why must emergency shelter managers consult with legal counsel regarding disaster holding times before adopting out recovered animals?",
+   o:["Holding times are completely unregulated across North America.",
+      "Holding times for animals lost in disasters may be influenced by lost property statutes in addition to stray animal laws.",
+      "To determine the maximum tax deduction allowed for the adoption fee.",
+      "To legally bypass municipal microchip scanning mandates."],
+   a:1,e:"Post-disaster ownership resolution is legally complex. Lost property statutes can intersect with or supersede traditional municipal stray hold laws. Shelters must seek legal counsel before adopting out or placing disaster animals."},
+
+  /* ---- FIELD OPERATIONS (21-25) ---- */
+  {t:"ops",f:"notes",q:"Which statement accurately describes the operational timeline and integration of Animal Search and Rescue (ASAR) missions?",
+   o:["ASAR operates completely independently of human SAR and must conclude before human teams deploy.",
+      "ASAR activities should be coordinated with human SAR operations and may continue after human SAR has ended.",
+      "ASAR teams are legally authorised to cross international borders without paperwork.",
+      "ASAR focuses exclusively on tracking wild avian populations."],
+   a:1,e:"Field rescue operations require ASAR integration with human rescue grids. Animal teams routinely extend their operations long after human search efforts have concluded, as animals may remain inaccessible or undiscovered for extended periods."},
+
+  {t:"ops",f:"notes",q:"What clinical protocol is recognised as the current gold standard for animal decontamination in the field?",
+   o:["High-pressure chemical alcohol spraying.",
+      "Bathing with soap and water followed by a clean water rinse.",
+      "Shaving the animal's entire coat down to the skin without washing.",
+      "Applying dry powder clay adsorbents exclusively."],
+   a:1,e:"Extensive testing confirms that basic bathing with soap and water followed by a meticulous clean water rinse is the most effective way to eliminate field contaminants. This simple protocol reduces or eliminates most contaminants effectively and is the gold standard."},
+
+  {t:"ops",f:"notes",q:"If field conditions require animal decontamination personnel to use respiratory protection, what are the strict OSHA requirements that must be met PRIOR to the incident?",
+   o:["A high-school diploma and a baseline physical fitness test.",
+      "Medical screening, fit testing, and formal training on respirators.",
+      "A valid state veterinary licence and a hazardous materials endorsement.",
+      "A signed waiver releasing the federal government from all health claims."],
+   a:1,e:"OSHA enforces a strict three-step prerequisite protocol for respirator use that must be completed BEFORE the incident: (1) medical screening, (2) accurate physical fit testing, and (3) formal operational training on the respirator. All three must be completed prior to the event."},
+
+  {t:"ops",f:"notes",q:"What represents the minimum acceptable personal protective equipment (PPE) required for personnel executing basic animal decontamination?",
+   o:["A standard cloth lab coat and disposable latex exam gloves.",
+      "Barrier protection, gloves, apron or water-resistant coveralls, goggles, boots, cap, and a barrier mask or face shield.",
+      "A fully enclosed Level-A military-grade gas mask with oxygen tanks.",
+      "No PPE is recommended to ensure the animal remains calm."],
+   a:1,e:"Minimum safe decontamination apparel requires comprehensive barrier protection: gloves, water-resistant aprons or suits, goggles, boots, caps, and masks or face shields. Standard exam gloves and a lab coat are insufficient for decontamination work."},
+
+  {t:"ops",f:"notes",q:"With whom must animal decontamination teams coordinate when establishing incident-specific decontamination protocols?",
+   o:["The local social services board and public relations coordinators.",
+      "Incident HAZMAT personnel and the ICS Safety Officer.",
+      "Regional agricultural breed registrars and feed store retailers.",
+      "National wildlife rehabilitation directors."],
+   a:1,e:"To prevent field cross-contamination and human exposure risks, all animal decontamination protocols must be vetted by HAZMAT teams and the ICS Safety Officer. Coordination between these two entities is explicitly described as imperative."},
+
+  /* ---- POST-DISASTER (26-30) ---- */
+  {t:"ptsd",f:"notes",q:"Animals subjected to unpredictable and uncontrollable aversive disaster events are at high risk of developing severe psychological distress. Which behavioural profile best characterises this post-disaster trauma?",
+   o:["Heightened social extraversion and immediate trainability.",
+      "Generalised fear and arousal, heightened vigilance, fear of specific stimuli, and passive avoidance or resignation.",
+      "Complete loss of predatory drive and an increase in maternal nesting habits.",
+      "Uniformly high levels of aggression toward known caretakers only."],
+   a:1,e:"The psychological profile of animal disaster trauma includes generalised hyperarousal, profound hypervigilance, fear of specific stimuli, and passive avoidance or learned resignation. This profile is analogous to post-traumatic stress responses in humans and other species."},
+
+  {t:"ptsd",f:"notes",q:"In the 2011 Fukushima earthquake study, how did the physiological stress markers of abandoned disaster dogs compare to the control group of non-affected homeless dogs?",
+   o:["Their urine cortisol levels were identical to the control group.",
+      "Their urine cortisol levels were 5 to 10 times higher, and the elevation persisted even after 10 weeks in the rescue centre.",
+      "Their cortisol levels plummeted to zero due to adrenal exhaustion.",
+      "They showed a temporary 2-fold spike that resolved within 24 hours."],
+   a:1,e:"Abandoned Fukushima dogs demonstrated extreme, long-term physiological stress, maintaining a 5 to 10 times increase in baseline urine cortisol even after 10 weeks of stabilisation in a rescue centre. This demonstrates that disaster trauma causes persistent neuroendocrine dysregulation not rapidly reversed by safe housing."},
+
+  {t:"ptsd",f:"notes",q:"Historical data from Hurricane Katrina demonstrated that an estimated 200,000 pets were displaced. What was the owner-pet reunification rate when no temporary co-located pet shelters were available?",
+   o:["Only 5%.",
+      "Exactly 25%.",
+      "Up to 50%.",
+      "95%."],
+   a:0,e:"Without pet-inclusive sheltering infrastructure during Hurricane Katrina, only 5% of displaced animals were reunited with their owners. This starkly low figure drives the recommendation for co-located or pet-friendly human emergency sheltering."},
+
+  {t:"ptsd",f:"notes",q:"When temporary pet-friendly or co-located emergency sheltering options were successfully deployed post-disaster, what happened to the owner-pet reunification metrics?",
+   o:["The reunification rate dropped to 0% due to record-keeping errors.",
+      "The reunification rate scaled up dramatically, reaching 40.2% and up to 70.1% across reporting shelters.",
+      "It caused a massive spike in long-term animal relinquishments.",
+      "The rate remained unchanged at 5%."],
+   a:1,e:"Establishing co-located or pet-friendly human shelters removed the primary barrier (people refusing evacuation without their pets), driving family reunification rates up to 40.2% and 70.1% across different reporting shelters. Co-located sheltering is the single most impactful operational intervention for reunification."},
+
+  {t:"ptsd",f:"notes",q:"During the prolonged Recovery phase, why are traditional shelter metrics like local adoption and fostering rates frequently compromised within the affected community?",
+   o:["Local residents face sustained housing instability, meaning fostering and adoption are unlikely to be immediate priorities.",
+      "Federal laws prohibit adoptions for 12 months following a disaster.",
+      "Animals lose their legal adoptability status permanently after a storm.",
+      "Shelters are forced to prioritise wildlife rehabilitation over companion animals."],
+   a:0,e:"Post-disaster recovery is slow. When the local human population faces acute housing loss and economic strain, community adoption and foster capacity plummets. Alternative strategies (out-of-area adoption events, increased transfer, shelter-neuter-return) should be used to manage longer length of stay."}
+];
+
+const host=document.getElementById('qhost');
+const scoreTxt=document.getElementById('scoreTxt');
+let answered=0,correct=0,filter='all';
+const DLABEL={legal:"Legal/Federal",ics:"ICS/NIMS",phases:"Four Phases",intake:"Intake/Ownership",ops:"Field Ops",ptsd:"Post-Disaster"};
+function tagLabel(t){return DLABEL[t]||t.toUpperCase();}
+function flagBadge(f){
+  if(f==='corr')return '<span class="bdg corr">corrected</span>';
+  if(f==='notes')return '<span class="bdg notes">your notes</span>';
+  if(f==='avcc')return '<span class="bdg avcc">AVCC 2018</span>';
+  if(f==='vce')return '<span class="bdg vce">VCE 2024</span>';
+  if(f==='ref')return '<span class="bdg ref">research</span>';
+  return '';
+}
+function render(){
+  host.innerHTML='';answered=0;correct=0;updateScore();
+  Q.forEach((item,i)=>{
+    if(filter!=='all'&&item.t!==filter)return;
+    const card=document.createElement('div');card.className='q';
+    card.innerHTML=`<div class="meta"><span class="num">#${i+1}</span><span class="tag">&#9670; ${tagLabel(item.t)}</span>${flagBadge(item.f)}</div><div class="stem">${item.q}</div>`;
+    const opts=document.createElement('div');
+    item.o.forEach((txt,oi)=>{
+      const btn=document.createElement('button');btn.className='opt';
+      btn.innerHTML=`<span class="k">${String.fromCharCode(65+oi)}</span>${txt}`;
+      btn.onclick=()=>choose(card,opts,item,oi);opts.appendChild(btn);
+    });
+    card.appendChild(opts);
+    const ex=document.createElement('div');ex.className='expl';
+    ex.innerHTML=`<b class="cor">Correct: ${String.fromCharCode(65+item.a)}.</b> ${item.e}`;
+    card.appendChild(ex);host.appendChild(card);
+  });
+}
+function choose(card,opts,item,oi){
+  if(card.dataset.done)return;card.dataset.done='1';answered++;
+  [...opts.children].forEach((b,bi)=>{
+    b.classList.add('locked');
+    if(bi===item.a)b.classList.add('correct');
+    if(bi===oi&&oi!==item.a)b.classList.add('wrong');
+  });
+  if(oi===item.a)correct++;
+  card.querySelector('.expl').classList.add('show');updateScore();
+}
+function updateScore(){scoreTxt.textContent=`${correct} / ${answered} correct`;}
+document.querySelector('.filters').addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  document.querySelectorAll('.filters button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');filter=b.dataset.f;render();
+});
+document.getElementById('resetBtn').onclick=render;
+render();
+</script>
+</body>
+</html>
