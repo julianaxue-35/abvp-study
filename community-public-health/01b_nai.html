@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Non-Accidental Injury | Animal Cruelty | ABVP Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#3d1a00;--ink2:#5c2f00;--paper:#fdf6ec;--paper2:#fffaf3;--line:#e8d8be;--muted:#7a5c38;--id:#9a6b12;--id-soft:#f5e8c5;--good:#1f7a4d;--bad:#b23b3b;--warn:#a8641a;--warn-soft:#f7e6cd;--ref:#1f6f8b;--ref-soft:#dcedf2;--shadow:0 1px 2px rgba(61,26,0,.08),0 8px 24px rgba(61,26,0,.06)}
+  *{box-sizing:border-box}html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;background-image:radial-gradient(circle at 1px 1px,rgba(61,26,0,.04) 1px,transparent 0);background-size:22px 22px}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+  header.top{background:var(--ink);color:var(--paper2);padding:26px 0 22px;border-bottom:4px solid var(--id)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#9ec9c2;margin:0 0 6px}
+  header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(24px,4vw,38px);margin:0;line-height:1.05}
+  header.top p.sub{margin:8px 0 0;color:#cfe3df;font-size:14px;max-width:78ch}
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--paper2);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button:hover{background:var(--paper);color:var(--ink)}
+  .tabrow button.active{background:var(--ink);color:var(--paper2)}
+  .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--id)}
+  main{padding:30px 0 80px}.panel{display:none;animation:fade .35s ease}.panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;color:#A48F6D}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:80ch}
+  h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:30px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;color:#A48F6D}
+  h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;color:#A48F6D;text-transform:uppercase;letter-spacing:.03em}
+  .card{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}
+  ul.hy{margin:8px 0;padding-left:0;list-style:none}
+  ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed #e6ddca;font-size:14px}
+  ul.hy li:last-child{border-bottom:0}
+  ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;border-radius:2px;background:var(--id);transform:rotate(45deg)}
+  .trap{background:#fdf3ed;border:1px solid #e8c9a8;border-left:4px solid var(--warn);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .trap b{color:var(--warn);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .corrbox{background:#e9f4ee;border:1px solid #bfe0cc;border-left:4px solid var(--good);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .corrbox b{color:var(--good);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .alertbox{background:var(--id-soft);border:1px solid #d9b0b0;border-left:4px solid var(--id);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .alertbox b{color:var(--id);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:var(--paper2);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp th{background:var(--ink);color:var(--paper2);font-weight:600;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase}
+  table.cmp tr:last-child td{border-bottom:0}
+  table.cmp td b{color:var(--ink)}
+  .bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+  .bdg.ref{background:var(--ref-soft);color:var(--ref)}
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--ink);color:var(--paper2);border-radius:14px;padding:14px 18px;margin-bottom:18px}
+  .mcqbar .filters{display:flex;gap:6px;flex-wrap:wrap}
+  .mcqbar .filters button{font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#d6e7e3;padding:6px 11px;border-radius:999px;cursor:pointer}
+  .mcqbar .filters button.on{background:var(--id);border-color:var(--id);color:#fff}
+  .score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}
+  .score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;color:#d6e7e3;padding:5px 10px;border-radius:8px;font-size:11px}
+  .q{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
+  .q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+  .q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--id-soft);color:var(--id)}
+  .q .stem{font-weight:600;font-size:15px;margin-bottom:10px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;font-family:"Public Sans";transition:background .15s,border-color .15s}
+  .opt:hover{border-color:var(--ink)}.opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}
+  .opt.correct{background:#e8f5ec;border-color:var(--good);color:#0d3d24}.opt.wrong{background:#fbe9e9;border-color:var(--bad);color:#5e1d1d}.opt.locked{cursor:default}
+  .expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:#f3efe3;border:1px solid var(--line);font-size:13.5px}
+  .expl.show{display:block}.expl b.cor{color:var(--good)}
+  footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
+</style>
+</head>
+<body>
+
+<nav style="background:#4a2800;padding:9px 18px;display:flex;align-items:center;gap:10px;font-family:'Public Sans',system-ui,sans-serif;font-size:13px;font-weight:500;border-bottom:2px solid #9a6b12;flex-wrap:wrap">
+  <a href="../index.html" style="color:#c9a86c;text-decoration:none;display:flex;align-items:center;gap:5px"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a>
+  <span style="color:#6b4a1a;font-size:11px">›</span>
+  <a href="../index.html#domain-pubh" style="color:#c9a86c;text-decoration:none">Community &amp; Public Health</a>
+  <span style="color:#6b4a1a;font-size:11px">›</span>
+  <a href="01_animal_cruelty.html" style="color:#c9a86c;text-decoration:none">Animal Cruelty</a>
+  <span style="color:#6b4a1a;font-size:11px">›</span>
+  <span style="color:#e8cfa0">Non-Accidental Injury</span>
+</nav>
+
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">Animal Cruelty Deep Dive &middot; Community &amp; Public Health</p>
+    <h1>Non-Accidental Injury (NAI)</h1>
+    <p class="sub">ASPCA forensic framework for recognising deliberately inflicted injuries — fracture patterns, internal trauma, and risk factors for the animal, history, and caretaker. Based on ASPCA NAI clinical guidelines (2020).</p>
+  </div>
+</header>
+
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="injuries"><span class="dot"></span>Injury Patterns</button>
+  <button data-p="riskfactors"><span class="dot"></span>Risk Factors</button>
+  <button data-p="mcq"><span class="dot" style="background:#0f3d3a"></span>MCQ (8 Qs)</button>
+</div></div></nav>
+
+<main><div class="wrap">
+
+<!-- ===== INJURY PATTERNS ===== -->
+<section class="panel show" id="injuries">
+  <h2 class="sec">NAI — Injury Patterns</h2>
+  <p class="lead">Non-Accidental Injury (NAI) refers to deliberate infliction of physical harm. The veterinarian's task is to distinguish NAI from accidental injury using the totality of clinical findings, history, and context.</p>
+
+  <div class="corrbox"><b>Core principle</b>No single finding confirms NAI. The diagnosis rests on the <em>pattern</em> of injuries combined with history inconsistency and risk factor assessment. Document everything — the combination of findings is what makes a legally defensible case.</div>
+
+  <h3>Fracture patterns most associated with NAI <span class="bdg ref">ASPCA NAI Guidelines 2020</span></h3>
+  <div class="card">
+    <table class="cmp">
+      <tr><th>Fracture feature</th><th>Why it suggests NAI</th></tr>
+      <tr><td><b>Multiple fractures</b></td><td>More than one fracture, especially in more than one body region, is inconsistent with a single fall or accident.</td></tr>
+      <tr><td><b>Different stages of healing</b></td><td>Acute + subacute + chronic fractures at the same visit = injuries at multiple time points. Not explainable by one event.</td></tr>
+      <tr><td><b>Bilateral fractures</b></td><td>E.g. bilateral rib fractures, bilateral limb fractures — trauma applied to both sides simultaneously or repeatedly.</td></tr>
+      <tr><td><b>Skull fracture</b></td><td>Requires significant force. Multiple or comminuted skull fractures are particularly suspicious.</td></tr>
+      <tr><td><b>Transverse fractures</b></td><td>Caused by direct perpendicular impact (hitting with an object). Spiral/oblique fractures may result from twisting forces (throwing, pulling).</td></tr>
+      <tr><td><b>Vertebral fractures</b></td><td>Uncommon from accidental falls; require high-energy mechanism. Suspicious when history is inconsistent.</td></tr>
+      <tr><td><b>Femur fractures</b></td><td>The femur is a strong bone — fracture requires significant force. Proximal femur fractures in young animals are a red flag.</td></tr>
+      <tr><td><b>Dental fractures</b></td><td>May indicate striking the face or muzzle. Multiple broken teeth in various healing stages.</td></tr>
+      <tr><td><b>Late-presenting fractures</b></td><td>Owner presenting an animal days or weeks after injury ("forgot" or "didn't notice") — delays treatment and suggests concealment.</td></tr>
+    </table>
+    <div class="trap"><b>Exam trap — accidental fractures do exist</b>Metabolic bone disease (nutritional secondary hyperparathyroidism, osteogenesis imperfecta), pathological fractures from neoplasia, and high-energy trauma (motor vehicle accident with consistent history) can produce multiple fractures without abuse. The key is history inconsistency + multiple healing stages + pattern distribution.</div>
+  </div>
+
+  <h3>Soft tissue and internal injuries <span class="bdg ref">ASPCA NAI Guidelines 2020</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Bruising over thorax, abdomen, or head/neck</b>: blunt trauma to these regions. Bruising may be under the fur — clip and examine skin directly.</li>
+      <li><b>Subconjunctival and scleral hemorrhages</b>: caused by sudden increase in intracranial or intrathoracic pressure (shaking, choking, blunt head trauma). Classic in shaken animal presentations.</li>
+      <li><b>Pneumothorax</b>: blunt thoracic trauma causing rib fractures that puncture the pleura, or direct puncture injuries. Presents as respiratory distress; detected on thoracic radiographs.</li>
+      <li><b>Ruptured diaphragm</b>: high-energy abdominal compression (stomping, kicking). GI contents in the thoracic cavity on radiographs.</li>
+      <li><b>Ruptured spleen or liver</b>: blunt abdominal trauma → hemoabdomen. Present with pale mucous membranes, tachycardia, abdominal pain, free fluid on ultrasound.</li>
+      <li><b>Damage to claws/nail beds</b>: avulsion, breakage, or burns of claws. May indicate dragging, restraint, or direct trauma to the feet. Clip nails carefully to preserve evidence.</li>
+    </ul>
+    <div class="alertbox"><b>Bruising in dark-coated animals</b>Surface bruising may be invisible. Always clip hair over suspicious regions and examine skin directly under good lighting. Wood's lamp may reveal fluorescent patterns. Histopathology of excised skin/subcutis is definitive for bruise dating.</div>
+  </div>
+
+  <h3>Radiographic survey protocol</h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Full-body skeletal survey (entire skeleton, not just the presenting limb): required to detect occult fractures in remote body regions.</li>
+      <li>Lateral and VD/DV views of thorax: detect rib fractures (best seen on oblique views), pneumothorax, hemothorax, diaphragmatic hernia.</li>
+      <li>Abdominal radiographs and/or ultrasound: free fluid, organ rupture.</li>
+      <li>Skull: nasal bones, mandible, cranium — fractures may not be apparent externally.</li>
+      <li>Document and label all radiographs with case ID, date, and view. Retain original DICOM files — they may be subpoenaed.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== RISK FACTORS ===== -->
+<section class="panel" id="riskfactors">
+  <h2 class="sec">NAI — Risk Factors</h2>
+  <p class="lead">The ASPCA NAI framework identifies three categories of risk factors: animal characteristics, history characteristics, and caretaker characteristics. High-risk cases often have multiple factors across all three categories.</p>
+
+  <h3>Animal risk factors <span class="bdg ref">ASPCA NAI Guidelines 2020</span></h3>
+  <div class="card">
+    <table class="cmp">
+      <tr><th>Risk factor</th><th>Notes</th></tr>
+      <tr><td><b>Dogs and cats &lt;2 years old</b></td><td>Young animals may provoke frustration-based abuse (crying, destructive behaviour, house-training accidents). Also at higher risk because they cannot escape.</td></tr>
+      <tr><td><b>Male dogs</b></td><td>More frequently victims of NAI in several studies. May relate to behaviour (reactivity, aggression) provoking physical punishment.</td></tr>
+      <tr><td><b>Mixed-breed dogs</b></td><td>Overrepresented in NAI cases relative to their prevalence in the population.</td></tr>
+      <tr><td><b>Staffordshire Bull Terrier type (purebred or mixed)</b></td><td>Specifically identified in UK and ASPCA data. May be associated with certain ownership demographics or use in fighting.</td></tr>
+      <tr><td><b>Cats and small dogs (&lt;15 lbs)</b></td><td>Physical vulnerability; cannot physically resist. Also easier to conceal injuries.</td></tr>
+      <tr><td><b>Fearful behaviour toward the caretaker</b></td><td>Cowering, hiding, flinching, urinating upon approach of the caretaker specifically (not strangers) is a red flag. Animals that are normally sociable but fear a specific person.</td></tr>
+    </table>
+  </div>
+
+  <h3>History risk factors <span class="bdg ref">ASPCA NAI Guidelines 2020</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Inconsistent history</b>: story changes between visits, between different staff members, or between the owner and accompanying person.</li>
+      <li><b>Varying history</b>: "it happened 3 days ago" becomes "it just happened" when pressed on timeline.</li>
+      <li><b>Absent history</b>: owner cannot or will not explain how the injury occurred.</li>
+      <li><b>Previous injury episodes</b>: multiple visits for trauma at different time points, especially if with inconsistent histories.</li>
+      <li><b>History that does not match the injury</b>: a minor stated mechanism (fell off a chair) producing severe injuries (skull fracture, ruptured spleen).</li>
+      <li><b>Delayed presentation</b>: significant injuries presented days to weeks after they occurred, with implausible explanations for the delay.</li>
+    </ul>
+    <div class="trap"><b>Exam trap — "the animal is accident-prone"</b>Owners who present repeatedly with injured animals and explain them away as a series of accidents warrant increased scrutiny. "Accident-prone" animals are an NAI red flag, not a normal clinical pattern.</div>
+  </div>
+
+  <h3>Caretaker risk factors <span class="bdg ref">ASPCA NAI Guidelines 2020</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>New to practice / uses multiple practices</b>: seeking care from multiple clinics to avoid detection of a pattern ("practice shopping").</li>
+      <li><b>Name or address discrepancies</b>: different person presents the animal under a different name or address than previous visits.</li>
+      <li><b>Reluctant history</b>: evasive, refuses to answer basic questions about how the injury occurred.</li>
+      <li><b>Aggressive or argumentative</b>: hostile toward staff, attempts to control the narrative, insists on being present during examination.</li>
+      <li><b>Behaving oddly</b>: flat affect, excessive indifference to the animal's injuries, or conversely, extreme overreaction.</li>
+      <li><b>Signs of domestic violence, child abuse, or elder abuse</b>: concurrent evidence of human family violence greatly increases the likelihood of animal abuse in the same household (The Link).</li>
+      <li><b>Delayed care</b>: waiting days or weeks before seeking veterinary treatment for obvious serious injuries.</li>
+    </ul>
+    <div class="corrbox"><b>Key principle — document, don't accuse</b>Document factually everything you observe about the history and the caretaker's behaviour in the medical record. Use objective language ("owner was unable to provide an explanation for the bilateral femur fractures"). Report to animal control. Do not confront the caretaker — this risks evidence contamination and personal safety.</div>
+  </div>
+</section>
+
+<!-- ===== MCQ ===== -->
+<section class="panel" id="mcq">
+  <h2 class="sec">MCQ — Non-Accidental Injury</h2>
+  <p class="lead">8 exam-style questions on NAI injury patterns and risk factors.</p>
+  <div class="mcqbar">
+    <div class="filters"><button class="on" onclick="filterQ(this,'all')">All (8)</button></div>
+    <div class="score"><span id="sc">0 / 0</span><button class="reset" onclick="resetAll()">Reset</button></div>
+  </div>
+  <div id="qlist">
+
+  <div class="q" data-tag="nai">
+    <div class="meta"><span class="num">Q1</span><span class="tag">NAI</span></div>
+    <p class="stem">Which fracture pattern is MOST consistent with non-accidental injury (NAI) rather than a single accidental event?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Isolated greenstick fracture of the distal radius in a 6-month-old puppy</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Multiple fractures in different anatomical regions, each in a different stage of healing</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Single transverse fracture of the femur with a consistent history of being hit by a car</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Bilateral carpal fractures in a 10-year-old dog with nutritional secondary hyperparathyroidism</button>
+    <div class="expl"><b class="cor">B is correct.</b> Multiple fractures in different stages of healing in different body regions indicate injuries occurring at multiple points in time — this cannot be explained by a single event and is the hallmark radiographic finding of NAI. Greenstick fractures are typical accidental fractures in young animals. A single femur fracture with a consistent history is not suspicious in isolation. Metabolic bone disease can produce multiple fractures but the history and blood work would support this diagnosis.</div>
+  </div>
+
+  <div class="q" data-tag="nai">
+    <div class="meta"><span class="num">Q2</span><span class="tag">NAI</span></div>
+    <p class="stem">Subconjunctival and scleral hemorrhages in a cat without external facial trauma are MOST consistent with:</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Hypertensive retinopathy from chronic kidney disease</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Sudden increase in intracranial or intrathoracic pressure from shaking or choking</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Primary coagulopathy causing spontaneous hemorrhage</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Anterior uveitis secondary to FIP</button>
+    <div class="expl"><b class="cor">B is correct.</b> Subconjunctival and scleral hemorrhages without external facial trauma are classic findings in shaken or choked animals. The sudden rise in intracranial/intrathoracic pressure forces blood through conjunctival and scleral vessels. This is a well-recognised NAI finding in both veterinary and human forensic medicine. While hypertension and coagulopathy are differentials, the NAI context makes shaking/choking the leading consideration.</div>
+  </div>
+
+  <div class="q" data-tag="nai">
+    <div class="meta"><span class="num">Q3</span><span class="tag">NAI</span></div>
+    <p class="stem">A dog presents with hemoabdomen, pale mucous membranes, and tachycardia. On abdominal radiographs there is free fluid and the diaphragm is not visible as a distinct line. The MOST likely injury consistent with blunt NAI is:</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Ruptured urinary bladder from urethral obstruction</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Ruptured spleen or liver AND diaphragmatic hernia from high-energy abdominal compression</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Splenic torsion with concurrent ascites from hypoproteinaemia</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Bile peritonitis from a ruptured common bile duct</button>
+    <div class="expl"><b class="cor">B is correct.</b> High-energy blunt abdominal compression (stomping, kicking) can simultaneously rupture abdominal organs causing hemoabdomen and tear the diaphragm causing a diaphragmatic hernia. The loss of a distinct diaphragmatic line on radiograph is a key indicator of diaphragmatic hernia. Both findings together in the NAI context point to a single high-energy compressive event.</div>
+  </div>
+
+  <div class="q" data-tag="nai">
+    <div class="meta"><span class="num">Q4</span><span class="tag">NAI</span></div>
+    <p class="stem">Which animal best fits the ASPCA NAI high-risk animal profile?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>8-year-old spayed female Labrador retriever, calm, friendly with owner</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>10-month-old intact male mixed-breed dog, 12 lbs, cowers and urinates when the owner approaches</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>4-year-old neutered male domestic shorthair cat, indoor only, normal physical exam</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>6-year-old spayed female Golden retriever, annual wellness exam, no injuries</button>
+    <div class="expl"><b class="cor">B is correct.</b> This dog hits multiple ASPCA NAI risk factors: age &lt;2 years, intact male, mixed breed, small (&lt;15 lbs), and showing fearful behaviour specifically toward the caretaker (cowering and urinating on approach). No single factor confirms NAI, but the combination of multiple risk factors in this animal warrants heightened vigilance.</div>
+  </div>
+
+  <div class="q" data-tag="nai">
+    <div class="meta"><span class="num">Q5</span><span class="tag">NAI</span></div>
+    <p class="stem">An owner brings in a dog with a femur fracture. They state the dog "fell off the couch yesterday." On exam you also note a 3-week-old healing rib fracture and fresh bruising on the dorsal thorax. Which of the following best describes your obligation?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Accept the history; couch falls can cause femur fractures in small dogs</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Confront the owner directly and demand an explanation for the rib fracture before treating</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Document all findings objectively, treat the animal, and report to animal control or law enforcement</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Withhold treatment until law enforcement arrives and takes a statement from the owner</button>
+    <div class="expl"><b class="cor">C is correct.</b> Multiple fractures in different healing stages with fresh bruising are incompatible with the stated mechanism. Document objectively ("owner stated animal fell from a couch; physical examination reveals a femur fracture, a 3-week-old healing rib fracture, and fresh dorsal thoracic bruising inconsistent with the stated history"). Treat the animal's injuries and report to animal control. Do not withhold emergency care, and do not confront the owner — this can compromise safety and evidence.</div>
+  </div>
+
+  <div class="q" data-tag="nai">
+    <div class="meta"><span class="num">Q6</span><span class="tag">NAI</span></div>
+    <p class="stem">When performing a full-body radiographic survey on a NAI suspect, which of the following is the MOST important reason for including the skull?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Skull radiographs are required by law in cruelty cases</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Skull fractures may be occult (not apparent externally) and require significant force — their detection strengthens the NAI diagnosis</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Skull radiographs identify the breed of the animal for documentation</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Dental radiographs are more sensitive and replace the need for skull films</button>
+    <div class="expl"><b class="cor">B is correct.</b> Skull fractures require substantial force and are inconsistent with most accidental injuries described by owners. They can be completely occult on external examination — no external scalp/fur injury. Including the skull in a full-body survey detects occult fractures that strengthen the forensic case. The skull views should include lateral, DV, and oblique projections to maximise fracture detection.</div>
+  </div>
+
+  <div class="q" data-tag="nai">
+    <div class="meta"><span class="num">Q7</span><span class="tag">NAI</span></div>
+    <p class="stem">Damage to the claws or nail beds of a cat presented as a cruelty case is MOST suggestive of:</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Onychomycosis from a chronic fungal infection</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Dragging, restraint, or direct trauma to the feet consistent with NAI</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Nutritional deficiency causing brittle nails</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Self-mutilation secondary to obsessive-compulsive disorder</button>
+    <div class="expl"><b class="cor">B is correct.</b> Nail bed avulsions, fractured claws, or burns of the claw tips are recognised NAI findings, associated with dragging (claws breaking as the animal is dragged across a surface), restraint (the animal clawing against a surface while restrained), or direct application of heat. Preserve the broken nail material as physical evidence — clip into a sealed, labelled envelope.</div>
+  </div>
+
+  <div class="q" data-tag="nai">
+    <div class="meta"><span class="num">Q8</span><span class="tag">NAI</span></div>
+    <p class="stem">An owner who brings their dog to a different veterinary clinic each visit and uses a different surname each time is exhibiting which NAI caretaker risk factor?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Financial difficulty making it necessary to seek the cheapest available clinic</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>"Practice shopping" — seeking care from multiple providers to prevent detection of a pattern of repeated injuries</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Dissatisfaction with veterinary care quality, a common and benign behaviour</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>A requirement for multiple opinions before agreeing to treatment</button>
+    <div class="expl"><b class="cor">B is correct.</b> Using multiple practices with name discrepancies is a recognised NAI caretaker risk factor, consistent with deliberate "practice shopping" to prevent any single clinic from accumulating a record of repeated injuries. This pattern should be documented. Clinicians who encounter such a pattern should check whether the animal has a microchip that might be registered under previous visits at other practices.</div>
+  </div>
+
+  </div><!-- /qlist -->
+</section>
+</div></main>
+
+<footer><div class="wrap">
+  <p>ABVP Shelter Medicine RVS Study Hub &middot; Animal Cruelty Deep Dive: Non-Accidental Injury</p>
+  <p>Source: ASPCA Non-Accidental Injury Clinical Guidelines (2020). Content is for exam preparation only.</p>
+</div></footer>
+
+<script>
+document.getElementById('tabrow').addEventListener('click',function(e){
+  const btn=e.target.closest('button[data-p]');
+  if(!btn)return;
+  document.querySelectorAll('.tabrow button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('show'));
+  document.getElementById(btn.dataset.p).classList.add('show');
+});
+let total=0,correct=0;
+function ans(btn,isCorrect){
+  const q=btn.closest('.q');if(q.dataset.locked)return;q.dataset.locked='1';total++;
+  const opts=q.querySelectorAll('.opt');opts.forEach(o=>o.classList.add('locked'));
+  btn.classList.add(isCorrect?'correct':'wrong');if(isCorrect)correct++;
+  else opts.forEach(o=>{if((o.getAttribute('onclick')||'').includes('true'))o.classList.add('correct');});
+  q.querySelector('.expl').classList.add('show');
+  document.getElementById('sc').textContent=correct+' / '+total;
+}
+function resetAll(){
+  total=0;correct=0;
+  document.querySelectorAll('.q').forEach(q=>{
+    delete q.dataset.locked;
+    q.querySelectorAll('.opt').forEach(o=>o.classList.remove('correct','wrong','locked'));
+    const expl=q.querySelector('.expl');if(expl)expl.classList.remove('show');
+  });
+  document.getElementById('sc').textContent='0 / 0';
+}
+function filterQ(btn,tag){
+  document.querySelectorAll('.mcqbar .filters button').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('#qlist .q').forEach(q=>{q.style.display=(tag==='all'||q.dataset.tag===tag)?'':'none';});
+}
+</script>
+</body>
+</html>

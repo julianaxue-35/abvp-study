@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animal Hoarding | Animal Cruelty | ABVP Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#3d1a00;--ink2:#5c2f00;--paper:#fdf6ec;--paper2:#fffaf3;--line:#e8d8be;--muted:#7a5c38;--id:#9a6b12;--id-soft:#f5e8c5;--good:#1f7a4d;--bad:#b23b3b;--warn:#a8641a;--warn-soft:#f7e6cd;--ref:#1f6f8b;--ref-soft:#dcedf2;--shadow:0 1px 2px rgba(61,26,0,.08),0 8px 24px rgba(61,26,0,.06)}
+  *{box-sizing:border-box}html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;background-image:radial-gradient(circle at 1px 1px,rgba(61,26,0,.04) 1px,transparent 0);background-size:22px 22px}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+  header.top{background:var(--ink);color:var(--paper2);padding:26px 0 22px;border-bottom:4px solid var(--id)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#9ec9c2;margin:0 0 6px}
+  header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(24px,4vw,38px);margin:0;line-height:1.05}
+  header.top p.sub{margin:8px 0 0;color:#cfe3df;font-size:14px;max-width:78ch}
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--paper2);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button:hover{background:var(--paper);color:var(--ink)}.tabrow button.active{background:var(--ink);color:var(--paper2)}.tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--id)}
+  main{padding:30px 0 80px}.panel{display:none;animation:fade .35s ease}.panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;color:#A48F6D}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:80ch}
+  h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:30px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;color:#A48F6D}
+  h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;color:#A48F6D;text-transform:uppercase;letter-spacing:.03em}
+  .card{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}
+  ul.hy{margin:8px 0;padding-left:0;list-style:none}
+  ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed #e6ddca;font-size:14px}
+  ul.hy li:last-child{border-bottom:0}
+  ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;border-radius:2px;background:var(--id);transform:rotate(45deg)}
+  .trap{background:#fdf3ed;border:1px solid #e8c9a8;border-left:4px solid var(--warn);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .trap b{color:var(--warn);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .corrbox{background:#e9f4ee;border:1px solid #bfe0cc;border-left:4px solid var(--good);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .corrbox b{color:var(--good);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .alertbox{background:var(--id-soft);border:1px solid #d9b0b0;border-left:4px solid var(--id);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .alertbox b{color:var(--id);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:var(--paper2);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp th{background:var(--ink);color:var(--paper2);font-weight:600;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase}
+  table.cmp tr:last-child td{border-bottom:0}
+  table.cmp td b{color:var(--ink)}
+  .bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+  .bdg.ref{background:var(--ref-soft);color:var(--ref)}
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--ink);color:var(--paper2);border-radius:14px;padding:14px 18px;margin-bottom:18px}
+  .mcqbar .filters button{font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#d6e7e3;padding:6px 11px;border-radius:999px;cursor:pointer}
+  .mcqbar .filters button.on{background:var(--id);border-color:var(--id);color:#fff}
+  .score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}
+  .score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;color:#d6e7e3;padding:5px 10px;border-radius:8px;font-size:11px}
+  .q{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
+  .q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+  .q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--id-soft);color:var(--id)}
+  .q .stem{font-weight:600;font-size:15px;margin-bottom:10px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;font-family:"Public Sans";transition:background .15s,border-color .15s}
+  .opt:hover{border-color:var(--ink)}.opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}
+  .opt.correct{background:#e8f5ec;border-color:var(--good);color:#0d3d24}.opt.wrong{background:#fbe9e9;border-color:var(--bad);color:#5e1d1d}.opt.locked{cursor:default}
+  .expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:#f3efe3;border:1px solid var(--line);font-size:13.5px}
+  .expl.show{display:block}.expl b.cor{color:var(--good)}
+  footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
+</style>
+</head>
+<body>
+
+<nav style="background:#4a2800;padding:9px 18px;display:flex;align-items:center;gap:10px;font-family:'Public Sans',system-ui,sans-serif;font-size:13px;font-weight:500;border-bottom:2px solid #9a6b12;flex-wrap:wrap">
+  <a href="../index.html" style="color:#c9a86c;text-decoration:none;display:flex;align-items:center;gap:5px"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a>
+  <span style="color:#6b4a1a;font-size:11px">›</span>
+  <a href="../index.html#domain-pubh" style="color:#c9a86c;text-decoration:none">Community &amp; Public Health</a>
+  <span style="color:#6b4a1a;font-size:11px">›</span>
+  <a href="01_animal_cruelty.html" style="color:#c9a86c;text-decoration:none">Animal Cruelty</a>
+  <span style="color:#6b4a1a;font-size:11px">›</span>
+  <span style="color:#e8cfa0">Animal Hoarding</span>
+</nav>
+
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">Animal Cruelty Deep Dive &middot; Community &amp; Public Health</p>
+    <h1>Animal Hoarding</h1>
+    <p class="sub">Patronek/Berry three-type classification, diagnostic criteria, 70–100% recidivism, human health impacts, multi-agency response, and shelter-level challenges in hoarding case management.</p>
+  </div>
+</header>
+
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="classification"><span class="dot"></span>Classification &amp; Criteria</button>
+  <button data-p="response"><span class="dot"></span>Response &amp; Shelter Impact</button>
+  <button data-p="mcq"><span class="dot" style="background:#0f3d3a"></span>MCQ (8 Qs)</button>
+</div></div></nav>
+
+<main><div class="wrap">
+
+<!-- ===== CLASSIFICATION ===== -->
+<section class="panel show" id="classification">
+  <h2 class="sec">Animal Hoarding — Classification &amp; Criteria</h2>
+  <p class="lead">Animal hoarding is a recognised syndrome characterised by accumulation of animals beyond the capacity to provide adequate care, combined with denial of the problem and ongoing deterioration of the environment. It is distinct from simple multi-animal neglect due to its psychological dimension and extremely high recidivism.</p>
+
+  <h3>Diagnostic criteria <span class="bdg ref">Patronek 1999 / Berry et al. 2005</span></h3>
+  <div class="card">
+    <p style="font-size:14px;margin-bottom:10px">All four criteria must be present for a diagnosis of animal hoarding:</p>
+    <ul class="hy">
+      <li><b>1. Accumulation of a large number of animals</b>: no specific minimum number defines hoarding — the relevant criterion is that the number exceeds what can be adequately cared for. Studies commonly involve 5 to 500+ animals.</li>
+      <li><b>2. Failure to provide minimum standards of nutrition, sanitation, shelter, and veterinary care</b>: the animals suffer as a result of the accumulation — starvation, disease, overcrowding, lack of treatment for obvious illness.</li>
+      <li><b>3. Denial of the problem</b>: the hoarder believes the animals are being adequately cared for despite overwhelming evidence to the contrary. This is not dishonesty — it is a cognitive distortion that is central to the syndrome.</li>
+      <li><b>4. Deteriorating environment for both animals and humans</b>: the living environment deteriorates to an unsafe state for both animals and the human inhabitants — accumulated faeces and urine, structural damage, fire hazards, zoonotic disease exposure.</li>
+    </ul>
+    <div class="trap"><b>Exam trap — no minimum number defines hoarding</b>There is no legally or medically established minimum animal count (e.g. "more than 15" or "more than 50") that defines hoarding. The defining features are failure of care, denial, and environmental deterioration — not a specific number. Do not rely on a number threshold.</div>
+  </div>
+
+  <h3>Three-type classification <span class="bdg ref">Berry et al. 2005</span></h3>
+  <div class="card">
+    <table class="cmp">
+      <tr><th>Type</th><th>Characteristics</th><th>Intervention prognosis</th></tr>
+      <tr>
+        <td><b>Type 1: Overwhelmed Caregiver</b></td>
+        <td>Began with manageable numbers; animals accumulated gradually (reproduction, rescue intake). May have been a capable caregiver at some point. <b>Aware</b> that the situation has deteriorated. May seek help. Social isolation and financial stress often precipitate decompensation.</td>
+        <td>Best prognosis of the three types. May respond to intervention, surrender some animals, and accept help. May not reoffend if root causes (poverty, social isolation) are addressed.</td>
+      </tr>
+      <tr>
+        <td><b>Type 2: Rescue Hoarder</b></td>
+        <td>Driven by a mission to "save" animals from euthanasia or the street. May have formal or informal rescue organisation. Solicits donations and animals from the public. Sincerely believes no one else can adequately care for the animals. Supporters may enable the behaviour and resist intervention. Often the most legally complex situation.</td>
+        <td>Moderate recidivism. Psychological treatment targeting the mission-based cognition is required. Public supporters may actively interfere with intervention.</td>
+      </tr>
+      <tr>
+        <td><b>Type 3: Exploiter Hoarder</b></td>
+        <td>Acquires animals for personal benefit, not from affection or mission. Lacks empathy for animals and people. Charismatic; skilled at manipulating authorities and the public. Denies any problem and refuses all intervention. Most likely to reoffend. May use animals for financial gain (donations, "adoption fees").</td>
+        <td>Highest recidivism. Psychological intervention is rarely accepted. Legal intervention and prohibition orders are required. Most resistant to intervention of all three types.</td>
+      </tr>
+    </table>
+    <div class="corrbox"><b>High-yield — exploiter hoarder has highest recidivism and least empathy</b>The exploiter hoarder is the most dangerous type: charismatic, manipulative, lacks empathy, refuses intervention, and has the highest reoffending rate. This profile is the most likely to be tested on exam questions about hoarding classification.</div>
+  </div>
+
+  <h3>Recidivism and psychological dimension <span class="bdg ref">Patronek 1999 / Berry et al. 2005</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Recidivism rate: 70–100%</b> without treatment targeting the underlying psychological disorder. This is one of the highest recidivism rates of any animal cruelty category.</li>
+      <li>Animal hoarding is now recognised in psychiatric literature as related to hoarding disorder (DSM-5), with attachment-based pathology and cognitive distortions around loss and control.</li>
+      <li>Legal intervention alone (fines, prohibition orders) without mandatory psychological treatment produces near-certain recidivism. Effective intervention requires mental health services, social services, and case management.</li>
+      <li>Hoarders who are ordered not to have animals frequently acquire them again, sometimes immediately after conviction. Prohibition orders must be actively monitored to have any effect.</li>
+    </ul>
+    <div class="corrbox"><b>70–100% recidivism — the exam number</b>This statistic is the most frequently tested fact about animal hoarding. Without psychological treatment, nearly all hoarders reoffend. Know this number.</div>
+  </div>
+</section>
+
+<!-- ===== RESPONSE ===== -->
+<section class="panel" id="response">
+  <h2 class="sec">Multi-Agency Response &amp; Shelter Impact</h2>
+
+  <h3>Human health impacts in hoarding environments <span class="bdg ref">Public Health Literature</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Zoonotic disease exposure</b>: dermatophytosis (ringworm — Microsporum canis from cats), Bartonella (cat scratch disease), Salmonella, Pasteurella multocida, Toxoplasma gondii, Cryptosporidium, and others. Ammonia from accumulated excrement causes respiratory irritation.</li>
+      <li><b>Ammonia and fecal contamination</b>: levels of ammonia in severely hoarded homes can reach concentrations that cause mucosal irritation and respiratory damage in both animals and humans. Buildings may be uninhabitable after seizure.</li>
+      <li><b>Structural damage</b>: urine and faeces degrade flooring, subfloor, drywall, and structural elements over time. Buildings may need partial or full demolition after long-term hoarding.</li>
+      <li><b>Human co-residents</b>: adults in hoarding households are at risk for self-neglect; children are at risk for neglect and abuse; elderly residents are at risk for elder abuse. Public health and social service agencies must be notified.</li>
+      <li><b>Fire hazard</b>: accumulated material (animal bedding, waste, newspapers) creates extreme fire load. Multiple fatalities (animal and human) have occurred in fires in hoarding households.</li>
+    </ul>
+  </div>
+
+  <h3>Multi-agency response requirements <span class="bdg ref">ASPCA / HSUS</span></h3>
+  <div class="card">
+    <p style="font-size:14px;margin-bottom:10px">Hoarding cases require coordination across multiple agencies simultaneously:</p>
+    <table class="cmp">
+      <tr><th>Agency</th><th>Role</th></tr>
+      <tr><td><b>Animal control / shelter</b></td><td>Seizure, triage, care, and evidence documentation of animals</td></tr>
+      <tr><td><b>Law enforcement</b></td><td>Criminal investigation, arrest if warranted, evidence collection</td></tr>
+      <tr><td><b>Public health department</b></td><td>Zoonotic disease assessment, environmental health inspection, potentially condemning the property</td></tr>
+      <tr><td><b>Mental health services</b></td><td>Psychological assessment and treatment of the hoarder — essential for any hope of preventing recidivism</td></tr>
+      <tr><td><b>Social services / adult protective services</b></td><td>If elderly, disabled, or vulnerable adults are in the home; child protective services if children present</td></tr>
+      <tr><td><b>Building/code enforcement</b></td><td>Structural safety assessment; condemnation of uninhabitable properties</td></tr>
+      <tr><td><b>Humane/rescue organisations</b></td><td>Capacity support for large animal numbers; species-specific expertise (rabbits, birds, reptiles)</td></tr>
+    </table>
+    <div class="alertbox"><b>Pre-establish MOUs before a hoarding case</b>Memoranda of understanding between all these agencies should be pre-established before a large hoarding case arrives. Attempting to coordinate agencies for the first time during an active seizure significantly reduces effectiveness. Most shelter directors in areas with known hoarding activity should have these relationships established in advance.</div>
+  </div>
+
+  <h3>Shelter challenges in hoarding cases <span class="bdg ref">ASV Guidelines / ASPCA</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Sheer animal numbers</b>: hoarding cases frequently involve 30–300+ animals, overwhelming normal intake capacity. Mutual aid agreements with other shelters, rescue organisations, and veterinary schools are essential.</li>
+      <li><b>Species variety</b>: cats are the most common hoarded species, but dogs, rabbits, birds, reptiles, and even livestock have been found in hoarding cases. Not all shelters have capacity or expertise for all species.</li>
+      <li><b>High disease prevalence</b>: animals from hoarding environments have extremely high rates of: upper respiratory infection (cats), parvovirus exposure, dermatophytosis, extreme ectoparasite burden, malnutrition, dental disease, and untreated injuries. Infectious disease triage and isolation protocols must be robust.</li>
+      <li><b>Behavioural sequelae</b>: animals raised in hoarding environments may have severely abnormal socialisation — either hyperattachment (never alone, over-stimulated by other animals) or fear-based behaviours (feral-like cats). Individual behavioural assessment is required.</li>
+      <li><b>Long legal hold periods</b>: hoarding animals are evidence animals and cannot be adopted out, transferred, or euthanised without court authorisation until the criminal case resolves — which may take months to years. This creates significant financial and space pressure on shelters.</li>
+      <li><b>Cost-of-care bonds</b>: in jurisdictions with cost-of-care bond statutes, shelters can petition courts to require hoarders to post bonds covering holding costs or forfeit the animals. This is a critical financial and legal tool in hoarding cases.</li>
+    </ul>
+    <div class="trap"><b>Exam trap — infectious disease containment in hoarding intake</b>Animals from hoarding environments must be triaged for infectious disease before entering the general shelter population. Mass intake of potentially URD-positive cats or parvo-exposed dogs without isolation protocols can devastate a shelter population. Establish a separate intake and holding area for hoarding case animals.</div>
+  </div>
+</section>
+
+<!-- ===== MCQ ===== -->
+<section class="panel" id="mcq">
+  <h2 class="sec">MCQ — Animal Hoarding</h2>
+  <p class="lead">8 exam-style questions on hoarding classification, criteria, recidivism, and shelter response.</p>
+  <div class="mcqbar">
+    <div class="filters"><button class="on" onclick="filterQ(this,'all')">All (8)</button></div>
+    <div class="score"><span id="sc">0 / 0</span><button class="reset" onclick="resetAll()">Reset</button></div>
+  </div>
+  <div id="qlist">
+
+  <div class="q" data-tag="hoarding">
+    <div class="meta"><span class="num">Q1</span><span class="tag">Hoarding</span></div>
+    <p class="stem">Without treatment targeting the underlying psychological disorder, what is the approximate recidivism rate for animal hoarding?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>10–20%</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>30–50%</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>50–60%</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">D</span>70–100%</button>
+    <div class="expl"><b class="cor">D is correct.</b> Animal hoarding has a recidivism rate of 70–100% without psychological intervention targeting the underlying disorder (Patronek 1999; Berry et al. 2005). This is one of the highest recidivism rates in any animal cruelty category. Legal intervention alone (fines, prohibition orders, animal surrender) is insufficient — mental health treatment, social services, and active monitoring of prohibition orders are all required to have any impact on reoffending.</div>
+  </div>
+
+  <div class="q" data-tag="hoarding">
+    <div class="meta"><span class="num">Q2</span><span class="tag">Hoarding</span></div>
+    <p class="stem">An individual runs a cat rescue organisation, sincerely believes she is saving cats from euthanasia, has 180 cats in her home, cannot provide adequate food or veterinary care, denies any problem, and has supporters who donate and defend her. Which hoarding type does she BEST represent?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Overwhelmed caregiver</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Rescue hoarder</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Exploiter hoarder</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Collector hoarder</button>
+    <div class="expl"><b class="cor">B is correct.</b> This is the rescue hoarder profile: a mission-driven individual who collects animals to "save" them, often with organisational structure, genuine belief in her mission, supporter networks, and denial of the problem. The presence of supporters who defend and enable the behaviour is characteristic of rescue hoarding and makes intervention legally and socially complex. The rescue hoarder type has moderate recidivism and requires psychological treatment focused on the mission-based cognition.</div>
+  </div>
+
+  <div class="q" data-tag="hoarding">
+    <div class="meta"><span class="num">Q3</span><span class="tag">Hoarding</span></div>
+    <p class="stem">Which hoarding type has the HIGHEST recidivism rate and is MOST resistant to intervention?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Overwhelmed caregiver</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Rescue hoarder</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Exploiter hoarder</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>All types have equivalent recidivism rates</button>
+    <div class="expl"><b class="cor">C is correct.</b> The exploiter hoarder has the highest recidivism rate and the worst prognosis. Key features: lacks empathy for animals and people, charismatic and manipulative, acquires animals for personal benefit (not mission or compassion), refuses all intervention, and is the most likely to immediately reoffend after legal action. This type requires both legal intervention (prohibition orders, active monitoring) and recognition that psychological treatment is typically rejected.</div>
+  </div>
+
+  <div class="q" data-tag="hoarding">
+    <div class="meta"><span class="num">Q4</span><span class="tag">Hoarding</span></div>
+    <p class="stem">Which of the following is a diagnostic criterion for animal hoarding?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Owning more than 15 animals of any species</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Failure to provide minimum standards of care combined with denial of the problem and a deteriorating environment for both animals and humans</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Refusing veterinary care for one or more animals on religious grounds</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Owning multiple species of animals simultaneously</button>
+    <div class="expl"><b class="cor">B is correct.</b> Animal hoarding is defined by four criteria: (1) large number of animals, (2) failure to provide minimum standards of care, (3) denial of the problem, and (4) deteriorating environment for animals and humans. There is NO specific number threshold (not 15, not 50, not any other number). The diagnostic criteria are about failure of care and denial, not a count. Multi-species ownership is common in normal multi-pet households and is not hoarding.</div>
+  </div>
+
+  <div class="q" data-tag="hoarding">
+    <div class="meta"><span class="num">Q5</span><span class="tag">Hoarding</span></div>
+    <p class="stem">A large hoarding seizure involves 120 cats with high suspected rates of upper respiratory disease. What is the MOST important intake consideration specific to this population?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>All cats should be integrated into the main shelter population to reduce stress from isolation</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Separate intake triage and isolation protocols to prevent introduction of infectious disease into the general shelter population</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Vaccination with modified live vaccines immediately on arrival to provide rapid protection</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Euthanise all clinically ill cats immediately to protect the healthy population</button>
+    <div class="expl"><b class="cor">B is correct.</b> Animals from hoarding environments have very high rates of infectious disease. Integrating them with the general shelter population without isolation protocols risks a shelter-wide epidemic. Establish a separate intake area with dedicated equipment and staff. Do not use modified live vaccines in actively ill or stressed animals (immunocompromised state may allow vaccine strain disease). Triage — treat treatable animals, euthanise only those for whom euthanasia is the most humane option after individual assessment.</div>
+  </div>
+
+  <div class="q" data-tag="hoarding">
+    <div class="meta"><span class="num">Q6</span><span class="tag">Hoarding</span></div>
+    <p class="stem">Which agency is MOST essential to engage in a hoarding case to address the underlying cause and reduce recidivism?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>The prosecutor's office, to ensure the highest criminal penalty is imposed</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>The building code enforcement department, to condemn the property</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Mental health services, to provide psychological assessment and treatment targeting the hoarding disorder</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>The media, to publicise the case and deter future offenders</button>
+    <div class="expl"><b class="cor">C is correct.</b> The defining feature of hoarding that distinguishes it from simple neglect is the underlying psychological disorder. Without mental health intervention targeting this disorder, recidivism is 70–100% regardless of criminal penalties, property condemnation, or animal removal. Mental health services are the most essential non-animal-welfare agency in any hoarding response. All other agencies are important but do not address the root cause.</div>
+  </div>
+
+  <div class="q" data-tag="hoarding">
+    <div class="meta"><span class="num">Q7</span><span class="tag">Hoarding</span></div>
+    <p class="stem">Which zoonotic disease is MOST commonly associated with hoarding of cats?</p>
+    <button class="opt" onclick="ans(this,true)"><span class="k">A</span>Dermatophytosis (ringworm — Microsporum canis)</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Rabies</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Brucellosis</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Leptospirosis</button>
+    <div class="expl"><b class="cor">A is correct.</b> Dermatophytosis (ringworm, caused primarily by Microsporum canis in cats) is extremely common in cat hoarding environments and readily transmits to humans (and shelter staff handling seized animals). Bartonella (cat scratch disease) is also common. Rabies is a concern for unvaccinated animals but is not the most common zoonosis in hoarding environments. Brucellosis is primarily a dog/ruminant disease. Leptospirosis is more associated with dogs and outdoor environments.</div>
+  </div>
+
+  <div class="q" data-tag="hoarding">
+    <div class="meta"><span class="num">Q8</span><span class="tag">Hoarding</span></div>
+    <p class="stem">A cost-of-care bond statute is MOST useful in a hoarding case because it:</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Immediately transfers legal ownership of seized animals to the shelter</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Requires the hoarder to post funds covering daily care costs or forfeit the animals, preventing prolonged evidence holds that financially strain the shelter</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Provides the shelter with government reimbursement for all cruelty case care costs</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Allows the shelter to euthanise animals without court authorisation after 30 days</button>
+    <div class="expl"><b class="cor">B is correct.</b> Hoarding cases frequently involve very long criminal proceedings (months to years) during which dozens to hundreds of animals are held as evidence at the shelter's expense. Cost-of-care bond statutes require the owner to post periodic bonds covering the daily care cost; failure to post results in forfeiture of the animals, allowing the shelter to proceed with adoption or other disposition. This is a critical legal tool for shelters managing expensive, prolonged hoarding holds.</div>
+  </div>
+
+  </div><!-- /qlist -->
+</section>
+</div></main>
+
+<footer><div class="wrap">
+  <p>ABVP Shelter Medicine RVS Study Hub &middot; Animal Cruelty Deep Dive: Animal Hoarding</p>
+  <p>Sources: Patronek GJ (1999) Hoarding of animals; Berry C et al. (2005) J Interpersonal Violence; ASPCA hoarding guidelines; HSUS hoarding resources. Content for exam preparation only.</p>
+</div></footer>
+
+<script>
+document.getElementById('tabrow').addEventListener('click',function(e){
+  const btn=e.target.closest('button[data-p]');
+  if(!btn)return;
+  document.querySelectorAll('.tabrow button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('show'));
+  document.getElementById(btn.dataset.p).classList.add('show');
+});
+let total=0,correct=0;
+function ans(btn,isCorrect){
+  const q=btn.closest('.q');if(q.dataset.locked)return;q.dataset.locked='1';total++;
+  const opts=q.querySelectorAll('.opt');opts.forEach(o=>o.classList.add('locked'));
+  btn.classList.add(isCorrect?'correct':'wrong');if(isCorrect)correct++;
+  else opts.forEach(o=>{if((o.getAttribute('onclick')||'').includes('true'))o.classList.add('correct');});
+  q.querySelector('.expl').classList.add('show');
+  document.getElementById('sc').textContent=correct+' / '+total;
+}
+function resetAll(){
+  total=0;correct=0;
+  document.querySelectorAll('.q').forEach(q=>{
+    delete q.dataset.locked;
+    q.querySelectorAll('.opt').forEach(o=>o.classList.remove('correct','wrong','locked'));
+    const expl=q.querySelector('.expl');if(expl)expl.classList.remove('show');
+  });
+  document.getElementById('sc').textContent='0 / 0';
+}
+function filterQ(btn,tag){
+  document.querySelectorAll('.mcqbar .filters button').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('#qlist .q').forEach(q=>{q.style.display=(tag==='all'||q.dataset.tag===tag)?'':'none';});
+}
+</script>
+</body>
+</html>

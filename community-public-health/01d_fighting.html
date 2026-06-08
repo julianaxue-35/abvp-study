@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animal Fighting | Animal Cruelty | ABVP Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#3d1a00;--ink2:#5c2f00;--paper:#fdf6ec;--paper2:#fffaf3;--line:#e8d8be;--muted:#7a5c38;--id:#9a6b12;--id-soft:#f5e8c5;--good:#1f7a4d;--bad:#b23b3b;--warn:#a8641a;--warn-soft:#f7e6cd;--ref:#1f6f8b;--ref-soft:#dcedf2;--shadow:0 1px 2px rgba(61,26,0,.08),0 8px 24px rgba(61,26,0,.06)}
+  *{box-sizing:border-box}html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;background-image:radial-gradient(circle at 1px 1px,rgba(61,26,0,.04) 1px,transparent 0);background-size:22px 22px}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+  header.top{background:var(--ink);color:var(--paper2);padding:26px 0 22px;border-bottom:4px solid var(--id)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#9ec9c2;margin:0 0 6px}
+  header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(24px,4vw,38px);margin:0;line-height:1.05}
+  header.top p.sub{margin:8px 0 0;color:#cfe3df;font-size:14px;max-width:78ch}
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--paper2);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button:hover{background:var(--paper);color:var(--ink)}.tabrow button.active{background:var(--ink);color:var(--paper2)}.tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--id)}
+  main{padding:30px 0 80px}.panel{display:none;animation:fade .35s ease}.panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;color:#A48F6D}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:80ch}
+  h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:30px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;color:#A48F6D}
+  h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;color:#A48F6D;text-transform:uppercase;letter-spacing:.03em}
+  .card{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}
+  ul.hy{margin:8px 0;padding-left:0;list-style:none}
+  ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed #e6ddca;font-size:14px}
+  ul.hy li:last-child{border-bottom:0}
+  ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;border-radius:2px;background:var(--id);transform:rotate(45deg)}
+  .trap{background:#fdf3ed;border:1px solid #e8c9a8;border-left:4px solid var(--warn);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .trap b{color:var(--warn);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .corrbox{background:#e9f4ee;border:1px solid #bfe0cc;border-left:4px solid var(--good);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .corrbox b{color:var(--good);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .alertbox{background:var(--id-soft);border:1px solid #d9b0b0;border-left:4px solid var(--id);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .alertbox b{color:var(--id);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:var(--paper2);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp th{background:var(--ink);color:var(--paper2);font-weight:600;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase}
+  table.cmp tr:last-child td{border-bottom:0}
+  table.cmp td b{color:var(--ink)}
+  .bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+  .bdg.ref{background:var(--ref-soft);color:var(--ref)}
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--ink);color:var(--paper2);border-radius:14px;padding:14px 18px;margin-bottom:18px}
+  .mcqbar .filters button{font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#d6e7e3;padding:6px 11px;border-radius:999px;cursor:pointer}
+  .mcqbar .filters button.on{background:var(--id);border-color:var(--id);color:#fff}
+  .score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}
+  .score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;color:#d6e7e3;padding:5px 10px;border-radius:8px;font-size:11px}
+  .q{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
+  .q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+  .q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--id-soft);color:var(--id)}
+  .q .stem{font-weight:600;font-size:15px;margin-bottom:10px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;font-family:"Public Sans";transition:background .15s,border-color .15s}
+  .opt:hover{border-color:var(--ink)}.opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}
+  .opt.correct{background:#e8f5ec;border-color:var(--good);color:#0d3d24}.opt.wrong{background:#fbe9e9;border-color:var(--bad);color:#5e1d1d}.opt.locked{cursor:default}
+  .expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:#f3efe3;border:1px solid var(--line);font-size:13.5px}
+  .expl.show{display:block}.expl b.cor{color:var(--good)}
+  footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
+</style>
+</head>
+<body>
+
+<nav style="background:#4a2800;padding:9px 18px;display:flex;align-items:center;gap:10px;font-family:'Public Sans',system-ui,sans-serif;font-size:13px;font-weight:500;border-bottom:2px solid #9a6b12;flex-wrap:wrap">
+  <a href="../index.html" style="color:#c9a86c;text-decoration:none;display:flex;align-items:center;gap:5px"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a>
+  <span style="color:#6b4a1a;font-size:11px">›</span>
+  <a href="../index.html#domain-pubh" style="color:#c9a86c;text-decoration:none">Community &amp; Public Health</a>
+  <span style="color:#6b4a1a;font-size:11px">›</span>
+  <a href="01_animal_cruelty.html" style="color:#c9a86c;text-decoration:none">Animal Cruelty</a>
+  <span style="color:#6b4a1a;font-size:11px">›</span>
+  <span style="color:#e8cfa0">Animal Fighting</span>
+</nav>
+
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">Animal Cruelty Deep Dive &middot; Community &amp; Public Health</p>
+    <h1>Animal Fighting</h1>
+    <p class="sub">Dogfighting and cockfighting — injury distribution, scene evidence, conditioning, legal framework, DNA forensics, and veterinary assessment of seized fighting animals.</p>
+  </div>
+</header>
+
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="dogfighting"><span class="dot"></span>Dogfighting</button>
+  <button data-p="cockfighting"><span class="dot"></span>Cockfighting</button>
+  <button data-p="legal"><span class="dot"></span>Legal &amp; DNA</button>
+  <button data-p="mcq"><span class="dot" style="background:#0f3d3a"></span>MCQ (8 Qs)</button>
+</div></div></nav>
+
+<main><div class="wrap">
+
+<!-- ===== DOGFIGHTING ===== -->
+<section class="panel show" id="dogfighting">
+  <h2 class="sec">Dogfighting — Recognition &amp; Assessment</h2>
+  <p class="lead">Dogfighting is organised combat between dogs, typically for gambling and entertainment. It is a federal felony under the Animal Welfare Act and co-occurs consistently with drug trafficking, illegal firearms, and organised crime. Veterinarians are essential in evidence collection and animal triage after seizures.</p>
+
+  <h3>Injury distribution in organised dogfighting <span class="bdg ref">Intarapanich et al. 2017 / ASPCA</span></h3>
+  <div class="card">
+    <p style="font-size:14px;margin-bottom:10px">The anatomical distribution of injuries in organised dogfighting is predictable and distinct from random-encounter dog bite injuries. Knowing this distribution is a testable exam point.</p>
+    <table class="cmp">
+      <tr><th>Body region</th><th>Significance</th></tr>
+      <tr><td><b>Face and muzzle</b></td><td>Primary target — dogs bite the face and head. Lacerations, punctures, ear tears, periorbital bruising common. Scarring of lips, cheeks, and nose.</td></tr>
+      <tr><td><b>Ears</b></td><td>Ear tears, notching, and lacerations are classic. Ears are both a target (biting) and a reason for dubbing in fighting operations (see Cockfighting tab for bird analogy).</td></tr>
+      <tr><td><b>Neck and scruff</b></td><td>Dogs attempt to get a grip on the neck/scruff. Deep punctures, scarring, and muscle damage in this region are highly characteristic.</td></tr>
+      <tr><td><b>Medial thighs</b></td><td>When dogs are locked onto each other, the inner thighs are exposed and frequently bitten. Scarring of the medial thighs bilaterally is a classic fighting dog finding.</td></tr>
+      <tr><td><b>Forelimbs (distal)</b></td><td>Less common than head/neck/thighs but fractures and lacerations of the forelimbs do occur during struggles.</td></tr>
+    </table>
+    <div class="corrbox"><b>High-yield — old scars + fresh wounds</b>The hallmark combination in a fighting dog is the presence of both old healed scars AND fresh/healing wounds at different sites. This combination — injuries at multiple time points in multiple locations — indicates repeated fighting exposure. A single fresh wound could be an accidental bite; old scars plus new wounds is the fighting dog pattern.</div>
+  </div>
+
+  <h3>Home surgical care evidence <span class="bdg ref">ASPCA</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Fighting dog operators frequently treat dogs' injuries themselves between fights to avoid veterinary scrutiny.</li>
+      <li>Evidence of home surgery: sutures with non-sterile technique (crude closure, infection), staples from an industrial stapler, suture material purchased without a prescription (nylon fishing line, dental floss).</li>
+      <li>Wounds in various stages of healing with evidence of prior closure (suture removal holes, staple track marks) are significant.</li>
+      <li>Antibiotic administration without prescription: amoxicillin obtained without veterinary oversight; injectable penicillin.</li>
+      <li>At a seizure scene: veterinary suture supplies, needles, injectable antibiotics in the drug seizure are corroborating evidence.</li>
+    </ul>
+  </div>
+
+  <h3>Conditioning and training equipment <span class="bdg ref">ASPCA / FBI</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Carpet mill (treadmill)</b>: a weighted slat mill or carpet-covered treadmill used to build cardiovascular endurance. Presence at a property is circumstantial evidence of fighting conditioning.</li>
+      <li><b>Jenny (jenny machine)</b>: a motorised rotating arm with a lure attached; the dog chases the lure in circles, building endurance and prey drive.</li>
+      <li><b>Spring pole</b>: a weighted spring attached to a high point; the dog bites a lure on the end and hangs, building jaw strength and grip.</li>
+      <li><b>Anabolic steroids</b>: used to increase muscle mass and aggression. Veterinary anabolic steroids (stanozolol, boldenone) found without prescription are evidence of conditioning.</li>
+      <li><b>Breaking stick</b>: a wedge-shaped piece of wood or plastic used to pry apart locked jaws during a fight. Presence is a near-definitive indicator of dogfighting.</li>
+      <li><b>Bait animals</b>: smaller, weaker animals (rabbits, cats, undersized dogs) used to train fighting dogs. Bait animals are found in various states of injury or death at fighting operations.</li>
+    </ul>
+    <div class="trap"><b>Exam trap — breaking stick is the most specific evidence</b>Many of the above items have legitimate alternative uses (treadmills, spring poles used in protection sport). The <em>breaking stick</em> has no legitimate function outside of dogfighting. Its presence at a premises is considered near-definitive evidence of dogfighting operations.</div>
+  </div>
+
+  <h3>Scene evidence and investigation <span class="bdg ref">ASPCA / FBI</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Fighting pit</b>: a box-shaped enclosure (typically 8×8 ft or 10×10 ft) with wooden sides 2–3 ft high, often carpet-lined (carpet provides traction). The pit may be permanent or portable.</li>
+      <li><b>Blood evidence in the pit</b>: the pit surface retains blood from multiple fights. This blood can be DNA-typed using STR profiling to link specific dogs to the scene.</li>
+      <li><b>Chains and tethers</b>: fighting dogs are often kept on heavy-gauge tethering chains in separate stations to prevent them from fighting between organised bouts. Multiple dogs on individual chains at separate stations is characteristic.</li>
+      <li><b>Photographic/video evidence</b>: fight videos and photographs on mobile devices. Law enforcement may locate these; veterinarians should document injuries that are consistent with what is depicted.</li>
+      <li><b>Gambling records</b>: scorecards, cash, mobile payment records linked to fight wagers.</li>
+      <li><b>Drug seizures</b>: illegal firearms and narcotics are nearly always found at dogfighting operations in law enforcement data.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== COCKFIGHTING ===== -->
+<section class="panel" id="cockfighting">
+  <h2 class="sec">Cockfighting — Recognition &amp; Assessment</h2>
+  <p class="lead">Cockfighting is organised fighting of roosters, a federal felony since 2008 under the Animal Welfare Act. Veterinarians may encounter cockfighting birds during cruelty investigations and must recognise the distinctive clinical signs.</p>
+
+  <h3>Clinical recognition of cockfighting birds <span class="bdg ref">ASPCA / USDA-APHIS</span></h3>
+  <div class="card">
+    <table class="cmp">
+      <tr><th>Finding</th><th>Significance</th></tr>
+      <tr><td><b>Dubbed birds</b></td><td>Surgical removal of the comb and wattles ("dubbing") to reduce bite targets during fights. Performed without anaesthesia in most operations. Scarred, flat crown where comb was removed is diagnostic.</td></tr>
+      <tr><td><b>Gaffs or slashers</b></td><td>Metal spurs (gaffs = sharp picks, slashers = curved blades) attached to the leg in place of or over the natural spur. May be found on the birds or separately at the scene.</td></tr>
+      <tr><td><b>Natural spur trimmed</b></td><td>The natural spur is clipped short to allow gaff attachment. Abnormally short spurs on an adult rooster with a dubbed comb = strong indicator.</td></tr>
+      <tr><td><b>Puncture wounds and lacerations</b></td><td>Head, face, neck, and flanks — from gaff and beak injuries. Multiple injuries in various stages of healing.</td></tr>
+      <tr><td><b>Conditioning evidence</b></td><td>Well-muscled birds with low body fat; may have been fed special conditioning diets or performance-enhancing supplements.</td></tr>
+    </table>
+    <div class="corrbox"><b>Key identification: dubbed + trimmed spurs = cockfighting</b>The combination of a dubbed comb (no comb/wattles) and trimmed natural spurs in an adult rooster is essentially diagnostic for a cockfighting bird. This is the testable combination for the exam.</div>
+  </div>
+
+  <h3>Scene evidence — cockfighting operations</h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Cockpit or arena</b>: a circular or oval ring, often with seating for spectators. May be a permanent structure or portable.</li>
+      <li><b>Multiple individual bird cages or conditioning areas</b>: roosters kept individually to prevent unsanctioned fighting and to manage conditioning.</li>
+      <li><b>Gaffs, slashers, leg wraps</b>: the attachment hardware for fighting spurs, along with bandaging used to secure them.</li>
+      <li><b>Conditioning supplements and drugs</b>: strychnine (a stimulant in this context), vitamins, and performance substances.</li>
+      <li><b>Gambling records and cash</b>: cockfighting events involve large gambling sums.</li>
+      <li><b>Zoonotic disease consideration</b>: cockfighting birds may carry avian influenza (H5N1, H5N2), Newcastle disease, and Salmonella — report suspected disease to state veterinarian and USDA-APHIS.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== LEGAL & DNA ===== -->
+<section class="panel" id="legal">
+  <h2 class="sec">Legal Framework &amp; DNA Evidence</h2>
+
+  <h3>Federal legal framework <span class="bdg ref">7 U.S.C. § 2156 / Animal Welfare Act</span></h3>
+  <div class="card">
+    <table class="cmp">
+      <tr><th>Prohibited act</th><th>Notes</th></tr>
+      <tr><td><b>Participating in dogfighting or cockfighting</b></td><td>Federal felony under 7 U.S.C. § 2156. Applies across state lines or involving interstate commerce.</td></tr>
+      <tr><td><b>Attending a fight</b></td><td>Spectators at dogfighting or cockfighting events commit a federal felony — even if not organisers.</td></tr>
+      <tr><td><b>Transporting animals for fighting</b></td><td>Moving a dog or rooster across state lines for fighting purposes is a separate federal felony charge.</td></tr>
+      <tr><td><b>Possessing animals for fighting</b></td><td>Owning a dog or bird with the intent of using it for fighting is a federal felony.</td></tr>
+      <tr><td><b>Manufacturing/selling fighting paraphernalia</b></td><td>Producing or selling gaffs, breaking sticks, or other equipment specifically for animal fighting.</td></tr>
+    </table>
+    <div class="corrbox"><b>Key dates for exam</b>Dogfighting became a federal felony in 1976. Cockfighting became a federal felony in 2008 (the Animal Fighting Prohibition Enforcement Act, later incorporated into the Farm Bill). Attending a fight became a federal felony in 2014.</div>
+  </div>
+
+  <h3>Co-occurring crime patterns <span class="bdg ref">FBI / ASPCA</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Law enforcement data consistently shows dogfighting co-occurring with: illegal firearms possession, drug trafficking (cocaine, methamphetamine), money laundering through gambling proceeds, gang activity, and child endangerment (children present at fights).</li>
+      <li>The veterinarian responding to a dogfighting seizure is entering a complex, multi-agency criminal environment. Personal safety protocols should be established in advance with law enforcement.</li>
+      <li>Mutual aid agreements and pre-established roles (veterinary triage lead, evidence collection team, law enforcement command) are essential for safe, effective response.</li>
+    </ul>
+  </div>
+
+  <h3>DNA and genetic evidence in fighting cases <span class="bdg ref">ASPCA / UC Davis Veterinary Genetics Lab</span></h3>
+  <div class="card">
+    <h4>Short Tandem Repeat (STR) profiling</h4>
+    <ul class="hy">
+      <li>STR profiling is the standard method for individual genetic identification in forensic casework — the same technology used in human forensics.</li>
+      <li>15–20 STR loci are amplified by PCR from a biological sample, generating a unique numerical profile for that individual.</li>
+      <li><b>Application in fighting cases</b>: blood found on the fighting pit surface, on a breaking stick, or on other equipment can be STR-profiled and matched to a known blood sample from a specific seized dog, establishing that the dog was present at the fight location.</li>
+      <li>Hair from a scene can also be STR-profiled if a root (follicle) is present, or mitochondrial DNA profiling used for shed hair shafts.</li>
+    </ul>
+    <h4>Chain of custody for biological samples</h4>
+    <ul class="hy">
+      <li>Swabs of blood on equipment: cotton or nylon swabs, allowed to air-dry, stored in paper (not plastic — plastic degrades DNA), labeled with: case number, location of sample on equipment, collector's name, date and time.</li>
+      <li>Reference samples from each seized dog: EDTA blood tube, labeled with animal ID tag number assigned at seizure. Refrigerated (not frozen for short-term; can be dried on FTA card for long-term storage).</li>
+      <li>Key labs: ASPCA Animal Crimes Unit partners with UC Davis Veterinary Genetics Laboratory and Texas A&amp;M Forensic Sciences for STR profiling of animal cruelty evidence.</li>
+      <li>Any break in chain of custody (unlabeled sample, unlogged transfer) can result in DNA evidence being inadmissible.</li>
+    </ul>
+    <div class="alertbox"><b>Store biological evidence in paper, not plastic</b>DNA degrades rapidly in sealed plastic containers due to moisture and heat. Biological samples for DNA analysis must be air-dried and stored in paper envelopes or bags. This is a common evidence-handling error that renders samples unusable.</div>
+  </div>
+
+  <h3>Veterinary assessment of seized fighting animals</h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Perform full forensic documentation before any cleaning or treatment (photograph, measure, describe all lesions).</li>
+      <li>Complete a canine dermal pathology body diagram (standardised form) marking the location of all scars (blue), wounds (red), and lesions on body silhouette views — this becomes part of the evidence record.</li>
+      <li>Full-body radiographic survey: fighting dogs may have old healed fractures from prior fights, embedded pellets (shot during training or punishment), or dental fractures.</li>
+      <li>Behavioural assessment: fighting experience does not determine euthanasia outcome. Dogs from fighting operations require individualised, validated behavioural assessment. Many are highly people-friendly despite fighting experience with other dogs.</li>
+      <li>Long-term legal hold: fighting dogs are evidence animals. All disposition decisions require court authorisation.</li>
+    </ul>
+    <div class="trap"><b>Exam trap — fighting dogs are not automatically unadoptable</b>Fighting exposure does not determine a dog's suitability for adoption or rehabilitation. Each dog must receive an individual behavioural assessment using a validated tool. Blanket euthanasia of seized fighting dogs has no scientific or ethical basis and has been successfully challenged legally in several high-profile cases.</div>
+  </div>
+</section>
+
+<!-- ===== MCQ ===== -->
+<section class="panel" id="mcq">
+  <h2 class="sec">MCQ — Animal Fighting</h2>
+  <p class="lead">8 exam-style questions on dogfighting, cockfighting, legal framework, and forensic evidence.</p>
+  <div class="mcqbar">
+    <div class="filters"><button class="on" onclick="filterQ(this,'all')">All (8)</button></div>
+    <div class="score"><span id="sc">0 / 0</span><button class="reset" onclick="resetAll()">Reset</button></div>
+  </div>
+  <div id="qlist">
+
+  <div class="q" data-tag="fighting">
+    <div class="meta"><span class="num">Q1</span><span class="tag">Fighting</span></div>
+    <p class="stem">In an organised dogfighting case, wounds are MOST characteristically distributed on which body regions?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Dorsal lumbar region and tail base</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Face/ears, neck/scruff, and medial thighs</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Distal limbs and ventral abdomen</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Dorsal thorax and perianal region</button>
+    <div class="expl"><b class="cor">B is correct.</b> Organised dogfighting produces a characteristic injury distribution: face and ears (primary bite targets), neck and scruff (grip zone), and medial thighs (exposed when dogs are locked together). This distribution, especially when combined with old scars and fresh wounds at the same sites, is the hallmark finding distinguishing organised fighting from a single dog-fight encounter. Intarapanich et al. (2017) validated this distribution in a systematic study of confirmed fighting dogs.</div>
+  </div>
+
+  <div class="q" data-tag="fighting">
+    <div class="meta"><span class="num">Q2</span><span class="tag">Fighting</span></div>
+    <p class="stem">Which piece of equipment found at a property is considered the MOST specific indicator of dogfighting operations?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>A weighted treadmill (carpet mill)</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>A spring pole attached to a tree</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>A breaking stick</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Multiple heavy-gauge tethering chains</button>
+    <div class="expl"><b class="cor">C is correct.</b> The breaking stick — a wedge-shaped implement used to pry apart locked dog jaws — has no legitimate purpose outside of dogfighting. Carpet mills, spring poles, and tethering chains are used in legitimate dog sports (weight pull, protection sport, hunting). The breaking stick is considered near-definitive evidence of dogfighting operations and is the single most specific item.</div>
+  </div>
+
+  <div class="q" data-tag="fighting">
+    <div class="meta"><span class="num">Q3</span><span class="tag">Fighting</span></div>
+    <p class="stem">An adult rooster has a flat, scarred crown where the comb once was, and abnormally short natural spurs. This presentation is MOST consistent with:</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>A genetic mutation causing comb agenesis</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Deliberate dubbing (comb and wattle removal) and spur trimming for cockfighting</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Frostbite damage to the comb from cold exposure</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Breed-typical appearance of a Silkie or Polish bantam</button>
+    <div class="expl"><b class="cor">B is correct.</b> Dubbing (surgical removal of the comb and wattles) combined with spur trimming (to allow gaff attachment) is the diagnostic combination for a cockfighting bird. Frostbite can damage combs but does not produce the clean scar of deliberate dubbing. Silkies have small crests but normal spurs. The combination of dubbed comb + short natural spur in an adult rooster is the exam-testable sign of a cockfighting bird.</div>
+  </div>
+
+  <div class="q" data-tag="fighting">
+    <div class="meta"><span class="num">Q4</span><span class="tag">Fighting</span></div>
+    <p class="stem">Under 7 U.S.C. § 2156 (Animal Welfare Act), which of the following is a federal felony?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Owning a dog that has previously been in a fight, even without the owner's knowledge</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Attending a dogfight or cockfight as a spectator</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Breeding pit bull-type dogs for sale</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Owning a breaking stick without proof of its intended use</button>
+    <div class="expl"><b class="cor">B is correct.</b> Since 2014, attending a dogfight or cockfight as a spectator is a federal felony under the Animal Welfare Act. This is a specific and testable legal point. Simply owning a dog with a fighting history (without knowledge or intent) is not the same as participating in fighting. Breeding pit bull-type dogs is legal. The breaking stick itself is a physical object — possession is evidence of fighting but the crime requires the fighting activity or intent.</div>
+  </div>
+
+  <div class="q" data-tag="fighting">
+    <div class="meta"><span class="num">Q5</span><span class="tag">Fighting</span></div>
+    <p class="stem">Blood recovered from the surface of a fighting pit is submitted for STR profiling. The profile matches a blood sample from Dog #14, one of 30 dogs seized from the property. This result:</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Proves Dog #14 was forced to fight, establishing intent without other evidence</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Establishes that Dog #14's blood was deposited in the fighting pit, supporting the conclusion that the dog was present at the fight location</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Is inadmissible because animal DNA evidence cannot be used in criminal proceedings</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Identifies the breed of Dog #14, which determines whether fighting charges apply</button>
+    <div class="expl"><b class="cor">B is correct.</b> STR profiling links biological material (blood on the pit surface) to a specific individual dog. This is powerful circumstantial evidence that the dog was present at the fight location. It does not, on its own, prove intent or force — but combined with the dog's injury pattern, the scene evidence, and other findings, it substantially strengthens the prosecution's case. Animal DNA evidence is admissible and has been used successfully in US criminal proceedings.</div>
+  </div>
+
+  <div class="q" data-tag="fighting">
+    <div class="meta"><span class="num">Q6</span><span class="tag">Fighting</span></div>
+    <p class="stem">When collecting DNA swabs from blood on a breaking stick, the swabs should be stored in:</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>A sealed plastic bag at room temperature</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>A paper envelope or bag, air-dried, with chain-of-custody label</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>A red-top tube with formalin preservative at 4°C</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>An EDTA tube frozen at −20°C</button>
+    <div class="expl"><b class="cor">B is correct.</b> Biological samples for DNA analysis must be air-dried and stored in paper — not plastic. Sealed plastic containers trap moisture, causing bacterial growth and DNA degradation that renders samples useless for profiling. Allow swabs to air-dry completely before placing in paper envelopes. Label with case number, location on the item, date, time, and collector's name. Log when transferred to the lab or law enforcement.</div>
+  </div>
+
+  <div class="q" data-tag="fighting">
+    <div class="meta"><span class="num">Q7</span><span class="tag">Fighting</span></div>
+    <p class="stem">Cockfighting became a federal felony in the United States in which year?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>1976</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>1994</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>2008</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>2014</button>
+    <div class="expl"><b class="cor">C is correct.</b> Cockfighting became a federal felony in 2008 under the Animal Fighting Prohibition Enforcement Act, which was later incorporated into the 2014 Farm Bill. Dogfighting became a federal felony earlier, in 1976. Attending a fight became a federal crime in 2014. These dates are specifically testable on specialty exams.</div>
+  </div>
+
+  <div class="q" data-tag="fighting">
+    <div class="meta"><span class="num">Q8</span><span class="tag">Fighting</span></div>
+    <p class="stem">A shelter receives 45 dogs seized from a dogfighting operation. What is the MOST appropriate approach to determining which dogs can be adopted?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Euthanise all 45 dogs — fighting dogs are irreversibly dog-aggressive and cannot be safely placed</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Conduct individualised, validated behavioural assessments on each dog — fighting history does not determine adoptability</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Use breed (pit bull type) as the primary determinant — all pit bulls from fighting operations must be euthanised</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Release all dogs to rescue organisations immediately to reduce holding costs</button>
+    <div class="expl"><b class="cor">B is correct.</b> The landmark Michael Vick case (2007) established the precedent that dogs from fighting operations require individualised behavioural assessment and should not be blanket euthanised. Many dogs from fighting operations are highly people-oriented. Each dog must receive an individual validated behavioural evaluation. Disposition decisions require court authorisation — releasing animals without court approval is destruction of evidence. Breed alone cannot determine adoptability.</div>
+  </div>
+
+  </div><!-- /qlist -->
+</section>
+</div></main>
+
+<footer><div class="wrap">
+  <p>ABVP Shelter Medicine RVS Study Hub &middot; Animal Cruelty Deep Dive: Animal Fighting</p>
+  <p>Sources: ASPCA Animal Fighting guidelines; Intarapanich et al. (2017) JAVMA; 7 U.S.C. § 2156; FBI Uniform Crime Reports; UC Davis Veterinary Genetics Lab. Content for exam preparation only.</p>
+</div></footer>
+
+<script>
+document.getElementById('tabrow').addEventListener('click',function(e){
+  const btn=e.target.closest('button[data-p]');
+  if(!btn)return;
+  document.querySelectorAll('.tabrow button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('show'));
+  document.getElementById(btn.dataset.p).classList.add('show');
+});
+let total=0,correct=0;
+function ans(btn,isCorrect){
+  const q=btn.closest('.q');if(q.dataset.locked)return;q.dataset.locked='1';total++;
+  const opts=q.querySelectorAll('.opt');opts.forEach(o=>o.classList.add('locked'));
+  btn.classList.add(isCorrect?'correct':'wrong');if(isCorrect)correct++;
+  else opts.forEach(o=>{if((o.getAttribute('onclick')||'').includes('true'))o.classList.add('correct');});
+  q.querySelector('.expl').classList.add('show');
+  document.getElementById('sc').textContent=correct+' / '+total;
+}
+function resetAll(){
+  total=0;correct=0;
+  document.querySelectorAll('.q').forEach(q=>{
+    delete q.dataset.locked;
+    q.querySelectorAll('.opt').forEach(o=>o.classList.remove('correct','wrong','locked'));
+    const expl=q.querySelector('.expl');if(expl)expl.classList.remove('show');
+  });
+  document.getElementById('sc').textContent='0 / 0';
+}
+function filterQ(btn,tag){
+  document.querySelectorAll('.mcqbar .filters button').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('#qlist .q').forEach(q=>{q.style.display=(tag==='all'||q.dataset.tag===tag)?'':'none';});
+}
+</script>
+</body>
+</html>
