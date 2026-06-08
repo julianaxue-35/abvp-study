@@ -104,7 +104,7 @@
   .bdg.ref{background:var(--ref-soft);color:var(--ref)}
   .bdg.corr{background:var(--good);color:#fff}
   /* mcq */
-  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--chrome);color:var(--onChrome);border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:54px;z-index:10}
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--chrome);color:var(--onChrome);border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:100px;z-index:10}
   .mcqbar .label{font-family:"JetBrains Mono",monospace;font-size:12px;color:#cfe0f1;display:flex;align-items:center;gap:8px}
   .mcqbar .label .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);display:inline-block}
   .score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}
@@ -124,7 +124,23 @@
   .expl.show{display:block}
   .expl b.cor{color:var(--good)}
   footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
-  @media(max-width:640px){.mcqbar{top:50px}.score{font-size:12px}}
+  @media(max-width:640px){.mcqbar{top:94px}.score{font-size:12px}}
+  /* ── page search ── */
+  .srch-wrap{position:sticky;top:54px;z-index:15;background:var(--paper2);border-bottom:1px solid var(--line);padding:5px 0}
+  .srch-row{display:flex;align-items:center;gap:8px;background:#fff;border:1.5px solid var(--line);border-radius:10px;padding:5px 11px;transition:border-color .15s}
+  .srch-row:focus-within{border-color:var(--ink)}
+  .srch-row svg{flex-shrink:0;opacity:.45}
+  .srch-row input{flex:1;border:none;outline:none;font-family:"Public Sans",system-ui,sans-serif;font-size:13.5px;color:var(--ink);background:transparent;min-width:0}
+  .srch-row input::placeholder{color:var(--muted);opacity:.7;font-size:13px}
+  #srchMeta{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);white-space:nowrap;padding-right:4px}
+  #srchClear{border:none;background:none;cursor:pointer;color:var(--muted);font-size:15px;padding:0 2px;line-height:1;display:none;flex-shrink:0}
+  .srch-out{padding:20px 0 60px}
+  .sr-group{margin-bottom:32px}
+  .sr-tab{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--ink);border-radius:999px;padding:4px 11px;display:inline-block;margin-bottom:10px}
+  .sr-ctx{font-size:12px;color:var(--muted);font-style:italic;margin:-2px 0 6px 2px}
+  .sr-item{margin:10px 0}
+  mark.sh{background:#fff176;color:inherit;border-radius:2px;padding:0 1px}
+  .srch-none{color:var(--muted);font-size:14px;padding:24px 0;font-style:italic}
 </style>
 </head>
 <body>
@@ -151,6 +167,12 @@
   <button data-p="pharm"><span class="dot"></span>Pharmacology</button>
   <button data-p="mcq"><span class="dot" style="background:var(--chrome2)"></span>MCQ Test Bank</button>
 </div></div></nav>
+<div class="srch-wrap"><div class="wrap"><div class="srch-row">
+<svg width="14" height="14" viewBox="0 0 15 15" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="m10.5 10.5 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+<input type="text" id="srchIn" placeholder="Search all tabs… e.g. IFA, FeLV, penalty" autocomplete="off" spellcheck="false">
+<span id="srchMeta"></span><button id="srchClear" title="Clear search">×</button>
+</div></div></div>
+<div class="srch-out" id="srchOut" style="display:none"><div class="wrap"><div id="srchList"></div></div></div>
 <main><div class="wrap">
 <section class="panel show" id="def">
   <h2 class="sec">Definitions: Anxiety, Fear, and Phobia</h2>
@@ -596,6 +618,132 @@ function choose(card,opts,item,oi){
 function updateScore(){scoreTxt.textContent=`${correct} / ${answered} correct`;}
 document.getElementById('resetBtn').onclick=render;
 render();
+</script>
+<script>
+(function(){
+  var inp=document.getElementById('srchIn');
+  if(!inp)return;
+  var meta=document.getElementById('srchMeta'),
+      clr=document.getElementById('srchClear'),
+      out=document.getElementById('srchOut'),
+      list=document.getElementById('srchList'),
+      mainEl=document.querySelector('main'),
+      panels=Array.from(document.querySelectorAll('.panel'));
+
+  /* map panel id -> tab label from the tabrow buttons */
+  var tabLabels={};
+  document.querySelectorAll('.tabrow button[data-p]').forEach(function(b){
+    tabLabels[b.getAttribute('data-p')]=b.textContent.replace(/\s+/g,' ').trim();
+  });
+
+  /* highlight matching text nodes inside a cloned element */
+  function hlNode(root,re){
+    var walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null);
+    var nodes=[],node;
+    while((node=walker.nextNode()))nodes.push(node);
+    nodes.forEach(function(t){
+      var p=t.parentElement;
+      if(!p||/^(SCRIPT|STYLE|INPUT|TEXTAREA|BUTTON)$/.test(p.tagName))return;
+      re.lastIndex=0;if(!re.test(t.textContent))return;re.lastIndex=0;
+      var f=document.createDocumentFragment(),last=0,m,txt=t.textContent;
+      while((m=re.exec(txt))!==null){
+        if(m.index>last)f.appendChild(document.createTextNode(txt.slice(last,m.index)));
+        var mk=document.createElement('mark');mk.className='sh';mk.textContent=m[0];f.appendChild(mk);
+        last=m.index+m[0].length;
+      }
+      if(last<txt.length)f.appendChild(document.createTextNode(txt.slice(last)));
+      t.parentNode.replaceChild(f,t);
+    });
+  }
+
+  /* get contextual heading for a matched block */
+  function getCtx(el){
+    if(el.classList.contains('q')){
+      var tag=el.querySelector('.tag');
+      return tag?'MCQ — '+tag.textContent.trim():null;
+    }
+    var prev=el.previousElementSibling;
+    while(prev){
+      if(/^H[2-4]$/.test(prev.tagName))return prev.textContent.replace(/\s+/g,' ').trim();
+      prev=prev.previousElementSibling;
+    }
+    return null;
+  }
+
+  function restore(){
+    if(out)out.style.display='none';
+    if(mainEl)mainEl.style.display='';
+    meta.textContent='';
+    clr.style.display='none';
+  }
+
+  var timer;
+  inp.addEventListener('input',function(){
+    clearTimeout(timer);
+    timer=setTimeout(function(){
+      var q=inp.value.trim();
+      if(!q){restore();return;}
+
+      clr.style.display='';
+      var re=new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi');
+
+      /* swap: hide main tabs, show results panel */
+      if(mainEl)mainEl.style.display='none';
+      out.style.display='block';
+      list.innerHTML='';
+
+      var total=0;
+      panels.forEach(function(panel){
+        var label=tabLabels[panel.id]||panel.id;
+        var blocks=Array.from(panel.querySelectorAll(
+          '.card,.q,.trap,.corrbox,.aubox,.alertbox,.verifybox,.refonly'
+        ));
+        var matched=[];
+        blocks.forEach(function(b){
+          re.lastIndex=0;
+          if(re.test(b.textContent))matched.push(b);
+        });
+        if(!matched.length)return;
+
+        /* tab group header */
+        var grp=document.createElement('div');grp.className='sr-group';
+        var badge=document.createElement('div');badge.className='sr-tab';
+        badge.textContent=label;grp.appendChild(badge);
+
+        matched.forEach(function(block){
+          var ctx=getCtx(block);
+          var item=document.createElement('div');item.className='sr-item';
+
+          if(ctx){
+            var ce=document.createElement('div');ce.className='sr-ctx';
+            ce.textContent='↳ '+ctx;item.appendChild(ce);
+          }
+
+          /* clone block, disable interactive controls, highlight */
+          var clone=block.cloneNode(true);
+          clone.querySelectorAll('button,input,select').forEach(function(el){
+            el.disabled=true;el.style.pointerEvents='none';
+          });
+          re.lastIndex=0;hlNode(clone,re);
+          item.appendChild(clone);
+          grp.appendChild(item);
+          total++;
+        });
+        list.appendChild(grp);
+      });
+
+      if(!total){
+        list.innerHTML='<p class="srch-none">No results for “'
+          +q.replace(/</g,'&lt;')+'”</p>';
+      }
+      meta.textContent=total+' result'+(total!==1?'s':'');
+    },220);
+  });
+
+  clr.addEventListener('click',function(){
+    inp.value='';inp.dispatchEvent(new Event('input'));inp.focus();
+  });
+})();
 </script>
 </body>
 </html>
