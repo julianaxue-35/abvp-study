@@ -118,6 +118,12 @@
   .sr-item{margin:10px 0}
   mark.sh{background:#fff176;color:inherit;border-radius:2px;padding:0 1px}
   .srch-none{color:var(--muted);font-size:14px;padding:24px 0;font-style:italic}
+  /* speed bar */
+  .spd-bar{display:flex;gap:5px;margin-top:8px;flex-wrap:wrap;align-items:center}
+  .spd-bar span{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--muted);margin-right:2px}
+  .spd-btn{font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid var(--line);background:#fff;color:var(--muted);padding:4px 9px;border-radius:999px;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+  .spd-btn:hover{border-color:var(--ink);color:var(--ink)}
+  .spd-btn.on{background:var(--ink);color:#fff;border-color:var(--ink)}
 </style>
 </head>
 <body>
@@ -2373,6 +2379,25 @@ render();
 
   clr.addEventListener('click',function(){
     inp.value='';inp.dispatchEvent(new Event('input'));inp.focus();
+  });
+})();
+</script>
+<script>
+(function(){
+  document.querySelectorAll('.card audio').forEach(function(audio){
+    var bar=document.createElement('div');bar.className='spd-bar';
+    var lbl=document.createElement('span');lbl.textContent='Speed:';bar.appendChild(lbl);
+    [1,1.25,1.5,1.75,2].forEach(function(rate){
+      var btn=document.createElement('button');btn.className='spd-btn'+(rate===1?' on':'');
+      btn.textContent=rate+'×';
+      btn.addEventListener('click',function(){
+        audio.playbackRate=rate;
+        bar.querySelectorAll('.spd-btn').forEach(function(b){b.classList.remove('on');});
+        btn.classList.add('on');
+      });
+      bar.appendChild(btn);
+    });
+    audio.after(bar);
   });
 })();
 </script>
