@@ -16,6 +16,7 @@
     --notes:#7a4fb5;--notes-soft:#ece3f7;
     --ref:#1f6f8b;--ref-soft:#dcedf2;
     --warn:#a8641a;--warn-soft:#f7e6cd;
+    --au:#1a5c8b;--au-soft:#d6eaf8;
     --shadow:0 1px 2px rgba(44,79,24,.08),0 8px 24px rgba(44,79,24,.06);
   }
   *{box-sizing:border-box}
@@ -30,128 +31,610 @@
   header.top p.sub{margin:8px 0 0;color:#d8f0c0;font-size:14px;max-width:78ch}
   .legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}
   .legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.25);color:#eaf4e0;display:flex;align-items:center;gap:6px}
+  .legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--paper2);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button:hover{background:var(--paper);color:var(--ink)}
+  .tabrow button.active{background:var(--ink);color:#fff}
+  .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--id)}
+  .tabrow button .dot.au{background:var(--au)}
   main{padding:30px 0 80px}
-  h2{font-family:"Fraunces",serif;font-weight:600;font-size:22px;margin:26px 0 10px;color:var(--ink)}
-  h3{font-family:"Fraunces",serif;font-weight:600;font-size:17px;margin:20px 0 8px;color:var(--ink2)}
-  .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px 26px;margin-bottom:20px;box-shadow:var(--shadow)}
-  .placeholder-card{background:var(--warn-soft);border:2px dashed var(--warn);border-radius:14px;padding:28px 28px 24px;margin:24px 0}
-  .placeholder-card h2{margin-top:0;color:var(--warn)}
-  .topic-list{list-style:none;padding:0;margin:16px 0 0}
-  .topic-list li{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
-  .topic-list li:last-child{border-bottom:none}
-  .topic-list .tag{font-family:"JetBrains Mono",monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
-    padding:3px 9px;border-radius:999px;background:var(--id-soft);color:var(--id);white-space:nowrap;margin-top:2px}
-  .topic-list .info{flex:1}
-  .topic-list .name{font-weight:600;font-size:14.5px;margin-bottom:2px}
-  .topic-list .desc{font-size:13px;color:var(--muted);line-height:1.45}
-  footer{background:var(--paper2);border-top:1px solid var(--line);padding:18px 0;font-size:12.5px;color:var(--muted);text-align:center}
+  .panel{display:none;animation:fade .35s ease}
+  .panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;letter-spacing:-.01em;color:var(--muted)}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:80ch}
+  h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:30px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;scroll-margin-top:64px;color:var(--id)}
+  h3.au-h{color:var(--au)}
+  h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;color:var(--ink2);text-transform:uppercase;letter-spacing:.03em}
+  .card{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}
+  .card.au{border-color:#a8cce4;background:#f0f8ff}
+  p.note{font-size:14px;margin:0 0 6px}
+  ul.hy{margin:8px 0;padding-left:0;list-style:none}
+  ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed var(--line);font-size:14px}
+  ul.hy li:last-child{border-bottom:0}
+  ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;border-radius:2px;background:var(--id);transform:rotate(45deg)}
+  ul.hy.au li:before{background:var(--au)}
+  .trap{background:#fdf3ed;border:1px solid #e8c9a8;border-left:4px solid var(--warn);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .trap b{color:var(--warn);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .corrbox{background:#e9f4ee;border:1px solid #bfe0cc;border-left:4px solid var(--good);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .corrbox b{color:var(--good);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .alertbox{background:var(--id-soft);border:1px solid #b8d8a0;border-left:4px solid var(--id);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .alertbox b{color:var(--id);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .aubox{background:#e8f4fb;border:1px solid #a8cce4;border-left:4px solid var(--au);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .aubox b{color:var(--au);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:var(--paper2);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp th{background:var(--ink);color:#fff;font-weight:600;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase}
+  table.cmp.au th{background:var(--au)}
+  table.cmp tr:last-child td{border-bottom:0}
+  table.cmp td b{color:var(--ink)}
+  .bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+  .bdg.ref{background:var(--ref-soft);color:var(--ref)}
+  .bdg.warn{background:var(--warn-soft);color:var(--warn)}
+  .bdg.notes{background:var(--notes-soft);color:var(--notes)}
+  .bdg.au{background:var(--au-soft);color:var(--au)}
+  .refonly{background:#fff8e8;border:1px solid #e0d080;border-left:4px solid #b8a000;border-radius:10px;padding:10px 14px;margin:0 0 20px;font-size:13px;color:#5a4d00}
+  .refonly b{color:#8a7000;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:4px}
+  /* mcq */
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--ink);color:#fff;border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:54px;z-index:10}
+  .mcqbar .filters{display:flex;gap:6px;flex-wrap:wrap}
+  .mcqbar .filters button{font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#c5e8a0;padding:6px 11px;border-radius:999px;cursor:pointer}
+  .mcqbar .filters button.on{background:var(--id);border-color:var(--id);color:#fff}
+  .score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}
+  .score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;color:#c5e8a0;padding:5px 10px;border-radius:8px;font-size:11px}
+  .q{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
+  .q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+  .q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--id-soft);color:var(--id)}
+  .q .stem{font-weight:600;font-size:15px;margin-bottom:10px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;font-family:"Public Sans";transition:background .15s,border-color .15s}
+  .opt:hover{border-color:var(--ink)}
+  .opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}
+  .opt.correct{background:#e8f5ec;border-color:var(--good);color:#0d3d24}
+  .opt.wrong{background:#fbe9e9;border-color:var(--bad);color:#5e1d1d}
+  .opt.locked{cursor:default}
+  .expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:#ecf4e6;border:1px solid var(--line);font-size:13.5px}
+  .expl.show{display:block}
+  .expl b.cor{color:var(--good)}
+  footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
+  @media(max-width:640px){.mcqbar{top:50px}.score{font-size:12px}}
 </style>
 </head>
 <body>
-<nav style="background:#2c4f18;padding:9px 18px;display:flex;align-items:center;gap:10px;font-family:'Public Sans',system-ui,sans-serif;font-size:13px;font-weight:500;border-bottom:2px solid #3F6B1E"><a href="../index.html" style="color:#a8d080;text-decoration:none;display:flex;align-items:center;gap:5px"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span style="color:#4a7a2a;font-size:11px">›</span><a href="../index.html#domain-policy" style="color:#a8d080;text-decoration:none">Animals &amp; Public Policy</a><span style="color:#4a7a2a;font-size:11px">›</span><span style="color:#d4f0b0">Legislation</span></nav>
+
+<!-- Back-nav bar -->
+<nav style="background:#2c4f18;padding:9px 18px;display:flex;align-items:center;gap:10px;font-family:'Public Sans',system-ui,sans-serif;font-size:13px;font-weight:500;border-bottom:2px solid #3F6B1E"><a href="../index.html" style="color:#a8d080;text-decoration:none;display:flex;align-items:center;gap:5px"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span style="color:#4a7030;font-size:11px">›</span><a href="../index.html#domain-policy" style="color:#a8d080;text-decoration:none">Animals &amp; Public Policy</a><span style="color:#4a7030;font-size:11px">›</span><span style="color:#dff0c8">Legislation</span></nav>
+
 <header class="top">
   <div class="wrap">
-    <p class="eyebrow">Animals &amp; Public Policy · Subdomain 3 of 4 · 25% of domain</p>
+    <p class="eyebrow">ABVP Shelter Medicine Practice RVS &middot; Animals &amp; Public Policy &middot; Subdomain 3 of 4</p>
     <h1>Legislation</h1>
-    <p class="sub">Federal and state animal laws, breed-specific legislation, TNR ordinances, and model ordinances — the statutory landscape shaping shelter practice.</p>
+    <p class="sub">US federal animal welfare laws (AWA, PACT Act), state and local policy (BSL, retail bans, TNR ordinances, preemption), and Victorian/Australian law reference (POCTA 1986, Domestic Animals Act 1994, Code of Practice). MCQ bank covers US law for ABVP exam. Victorian content is personal reference only.</p>
     <div class="legend">
-      <span><i style="background:#3F6B1E"></i>Federal law</span>
-      <span><i style="background:#7a4fb5"></i>State/local variation</span>
-      <span><i style="background:#a8641a"></i>Exam trap</span>
+      <span><i style="background:var(--ref)"></i>USDA/APHIS &middot; AVMA &middot; ASV</span>
+      <span><i style="background:#1a5c8b"></i>Victorian / Australian law</span>
+      <span><i style="background:var(--warn)"></i>Exam trap</span>
+      <span><i style="background:var(--good)"></i>High-yield point</span>
     </div>
   </div>
 </header>
-<main>
-  <div class="wrap">
-    <div class="placeholder-card">
-      <h2>🏛️ Content Under Development</h2>
-      <p>Detailed notes and interactive MCQs for this subdomain are being finalized. The topics below represent the exam-relevant legislation you should be able to speak to on the ABVP SMP RVS specialty exam. Study notes have been saved to your Dropbox OneNote folder for review.</p>
-    </div>
 
-    <div class="card">
-      <h2 style="margin-top:0">Topics to Study</h2>
-      <p style="color:var(--muted);font-size:14px;margin-top:-6px">Legislation accounts for ~25% of the Animals and Public Policy domain (≈ 6 questions on the 350-item exam).</p>
-      <ul class="topic-list">
-        <li>
-          <div class="tag">Federal</div>
-          <div class="info">
-            <div class="name">Animal Welfare Act (AWA)</div>
-            <div class="desc">Federal scope and enforcement by USDA-APHIS; what the AWA does and does NOT cover — companion animals and free-ranging animals are excluded. Key regulated activities: research, exhibition, transport, dealing.</div>
-          </div>
-        </li>
-        <li>
-          <div class="tag">Federal</div>
-          <div class="info">
-            <div class="name">PACT Act 2019</div>
-            <div class="desc">Preventing Animal Cruelty and Torture Act — first federal law explicitly protecting companion animals from cruelty. Criminalizes crushing, burning, drowning, suffocating, impaling, or seriously harming animals. Penalties up to 7 years federal imprisonment.</div>
-          </div>
-        </li>
-        <li>
-          <div class="tag">State/Local</div>
-          <div class="info">
-            <div class="name">Breed-Specific Legislation (BSL)</div>
-            <div class="desc">Ordinances restricting or banning specific breeds (most commonly "pit bull"-type dogs). AVMA, ASV, and HSUS oppose BSL on evidence grounds; Calgary model (owner accountability) cited as effective alternative. Know preemption laws — some states prohibit local BSL.</div>
-          </div>
-        </li>
-        <li>
-          <div class="tag">State/Local</div>
-          <div class="info">
-            <div class="name">Retail Pet Sale Bans &amp; Puppy Mill Regulations</div>
-            <div class="desc">State and local ordinances prohibiting pet stores from selling dogs/cats from commercial breeders; "adopt, don't shop" mandates. Enforcement varies; some require shelter-source-only sales.</div>
-          </div>
-        </li>
-        <li>
-          <div class="tag">State/Local</div>
-          <div class="info">
-            <div class="name">Anti-Tethering / Chaining Laws</div>
-            <div class="desc">Laws restricting continuous or unattended tethering of dogs. Vary greatly by state; some impose time limits, weather restrictions, or tether-type requirements.</div>
-          </div>
-        </li>
-        <li>
-          <div class="tag">State/Local</div>
-          <div class="info">
-            <div class="name">TNR / Community Cat Ordinances</div>
-            <div class="desc">Legal status of Trap-Neuter-Return programs varies by jurisdiction; some explicitly authorize, others prohibit abandonment (cats returned to field may be deemed abandoned). Know your state's position and AVMA guidance on community cats.</div>
-          </div>
-        </li>
-        <li>
-          <div class="tag">State/Local</div>
-          <div class="info">
-            <div class="name">Model Dog &amp; Cat Control Ordinances</div>
-            <div class="desc">NACA and HSUS model ordinances as frameworks for progressive shelter management. Cover licensing, impound procedures, adoption requirements, dangerous dog protocols, and TNR provisions.</div>
-          </div>
-        </li>
-        <li>
-          <div class="tag">State/Local</div>
-          <div class="info">
-            <div class="name">State vs. Local Preemption Laws</div>
-            <div class="desc">Some states preempt local governments from enacting breed-specific or other stricter animal control ordinances. Critical to understand when advising shelters on policy advocacy.</div>
-          </div>
-        </li>
-        <li>
-          <div class="tag">State/Local</div>
-          <div class="info">
-            <div class="name">Mandatory Microchipping Laws</div>
-            <div class="desc">Growing number of jurisdictions require microchipping at adoption or for certain breeds. Shelter-level implications: scanning on intake, compliance reporting, owner reunification duties.</div>
-          </div>
-        </li>
-      </ul>
-    </div>
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="federal"><span class="dot"></span>US Federal Laws</button>
+  <button data-p="state"><span class="dot"></span>State &amp; Local Policy</button>
+  <button data-p="victoria"><span class="dot au"></span>Victoria, Australia</button>
+  <button data-p="mcq"><span class="dot" style="background:#1a3d0a"></span>MCQ Test Bank</button>
+</div></div></nav>
 
-    <div class="card" style="border-color:var(--warn);background:var(--warn-soft)">
-      <h3 style="margin-top:0;color:var(--warn)">⚠ Likely Exam Traps</h3>
-      <ul style="margin:0;padding-left:18px;color:#5a3510;font-size:14px;line-height:1.6">
-        <li>The AWA does NOT protect companion animals — it regulates research, exhibition, transport, and commercial dealing only</li>
-        <li>The PACT Act (2019) was the FIRST federal law to protect companion animals from cruelty — not the AWA</li>
-        <li>BSL opposition is the consensus position of AVMA, ASV, and HSUS — questions may test whether you know the professional stance, not just the law</li>
-        <li>Returning cats to field under TNR may constitute "abandonment" in jurisdictions without explicit TNR authorization</li>
-        <li>State preemption laws can prohibit local BSL even if local officials support it</li>
-      </ul>
-    </div>
+<main><div class="wrap">
+
+<!-- ===================== US FEDERAL ===================== -->
+<section class="panel show" id="federal">
+  <h2 class="sec">US Federal Laws</h2>
+  <p class="lead">Federal animal welfare legislation is narrower than most assume — shelter operations, adoption, and stray management are almost entirely governed at state and local level. Two federal laws are most testable for the ABVP exam: the Animal Welfare Act and the PACT Act.</p>
+
+  <h3>Animal Welfare Act (AWA) <span class="bdg ref">7 U.S.C. §§ 2131–2159</span></h3>
+  <div class="card">
+    <p class="note">Enacted 1966; amended 1970, 1976, 1985, 1990, 2002, 2007, 2014. Administered and enforced by <b>USDA Animal and Plant Health Inspection Service (APHIS)</b>. The AWA is the primary federal statute regulating treatment of animals in commerce, research, and exhibition.</p>
+
+    <h4>Who the AWA covers</h4>
+    <table class="cmp">
+      <tr><th>Entity</th><th>Description</th></tr>
+      <tr><td><b>Class A dealers (breeders)</b></td><td>Breed animals for sale; must obtain USDA license if they have <b>4 or more breeding females</b> and sell to the public or to dealers/pet stores. Fewer than 4 breeding females = exempt.</td></tr>
+      <tr><td><b>Class B dealers (brokers)</b></td><td>Middlemen who buy and resell or transport animals; subject to licensure regardless of animal count</td></tr>
+      <tr><td><b>Research facilities</b></td><td>Any facility using regulated animals in research, testing, or teaching; must register with APHIS</td></tr>
+      <tr><td><b>Exhibitors</b></td><td>Zoos, circuses, marine mammal parks, roadside zoos that display animals to the public</td></tr>
+      <tr><td><b>Carriers and intermediate handlers</b></td><td>Airlines and transportation companies moving regulated animals in commerce</td></tr>
+    </table>
+
+    <h4>What the AWA does NOT cover</h4>
+    <ul class="hy">
+      <li><b>Companion animals kept solely as pets</b> — AWA does not regulate individual pet owners or companion animals not involved in commercial breeding/sales</li>
+      <li><b>Animals raised for food or fiber</b> — farm animals (cattle, pigs, poultry, sheep) are excluded even when used in research (with narrow exceptions)</li>
+      <li><b>Rats, mice, and birds bred for research</b> — explicitly excluded by 2002 amendment; a longstanding controversy (these represent ~95% of all research animals)</li>
+      <li><b>Cold-blooded species</b> — reptiles, amphibians, and fish are not covered</li>
+      <li><b>Shelter operations</b> — AWA does not govern shelter intake, hold periods, adoption policies, or euthanasia practices</li>
+    </ul>
+
+    <h4>Key requirements under AWA</h4>
+    <ul class="hy">
+      <li><b>Minimum standards:</b> space, environmental conditions, handling, sanitation, veterinary care — set by USDA regulation</li>
+      <li><b>Exercise for dogs:</b> dealers and research facilities must provide regular exercise opportunities</li>
+      <li><b>Psychological well-being for non-human primates:</b> enrichment plans required</li>
+      <li><b>Inspections:</b> APHIS inspectors conduct unannounced annual inspections; violations can result in fines, license revocation, or criminal charges</li>
+      <li><b>Record-keeping:</b> dealers must keep acquisition/disposition records for each animal for at least 1 year</li>
+    </ul>
+
+    <div class="trap"><b>Exam trap — licensing threshold is 4 breeding females</b>The AWA license threshold for Class A breeders is <b>4 or more breeding females</b> selling to the public. Breeders with 3 or fewer breeding females who sell directly to retail customers are exempt. Do not confuse "sells any animals commercially" with the actual numeric trigger.</div>
+    <div class="trap"><b>Exam trap — AWA does not cover shelters</b>There is no federal law governing shelter operations, stray hold periods, adoption requirements, or shelter euthanasia. These are entirely state/local matters. AWA covers commercial breeders and research — not shelters acting as animal welfare organizations.</div>
+    <div class="corrbox"><b>High-yield — enforcement agency is USDA APHIS</b>AVMA, ASPCA, and HSUS are professional/advocacy organizations — none enforce the AWA. USDA APHIS Animal Care is the federal enforcement body. Inspectors are federal employees who conduct facility inspections and issue citations.</div>
   </div>
-</main>
-<footer>
+
+  <h3>PACT Act (2019) <span class="bdg ref">Pub.L. 116-72 — signed December 9, 2019</span></h3>
+  <div class="card">
+    <p class="note">The <b>Preventing Animal Cruelty and Torture (PACT) Act</b> was the first federal law to directly criminalize companion animal cruelty. Before 2019, federal law only covered depictions of animal cruelty (the 2010 Animal Crush Video Prohibition Act); actual cruelty to companion animals was only a state crime.</p>
+
+    <h4>What the PACT Act prohibits</h4>
+    <ul class="hy">
+      <li><b>Animal crushing:</b> crushing, burning, drowning, suffocating, impaling, or otherwise seriously harming living non-human mammals, birds, reptiles, or amphibians in channels of interstate/foreign commerce</li>
+      <li><b>Sexual exploitation of animals</b></li>
+      <li><b>Creating/distributing crush videos</b> (extending the 2010 Act)</li>
+    </ul>
+
+    <h4>Penalties and exemptions</h4>
+    <table class="cmp">
+      <tr><th></th><th>Detail</th></tr>
+      <tr><td><b>Maximum penalty</b></td><td>Up to <b>7 years federal imprisonment</b> + fines</td></tr>
+      <tr><td><b>Jurisdiction trigger</b></td><td>Interstate or foreign commerce involved</td></tr>
+      <tr><td><b>Exempt activities</b></td><td>Legitimate veterinary/husbandry practices; wildlife hunting/trapping; pest control; medical/scientific research; animal agriculture</td></tr>
+    </table>
+
+    <div class="corrbox"><b>High-yield — PACT Act closes the federal companion animal gap</b>Before PACT, there was no federal criminal statute directly addressing companion animal cruelty. The PACT Act created this crime for acts in interstate commerce — relevant when cruelty crosses state lines or is posted/distributed online. It does not replace state cruelty laws; both can apply.</div>
+    <div class="trap"><b>Exam trap — maximum is 7 years, not life</b>The PACT Act maximum is <b>7 years</b>. Distinguish from state penalties (some states have 10+ years for aggravated cruelty). Also: routine veterinary procedures are always exempt — the exam may present a spay/neuter scenario as a PACT Act trap.</div>
+  </div>
+
+  <h3>Federal Coverage Gap: Shelters, Adoption &amp; Stray Management</h3>
+  <div class="card">
+    <div class="alertbox"><b>No federal shelter law exists</b>There is no federal statute governing: stray hold periods, shelter intake, live release requirements, euthanasia methods, adoption policies, foster care standards, spay/neuter mandates, or shelter oversight. All of these are governed exclusively at the state or local level. This is a fundamental structural fact about US animal law.</div>
+    <p class="note">The absence of federal shelter law means standards vary enormously — a 72-hour hold in one county, 10 days in a neighboring state, no statutory requirement in a third. This is why NACA/HSUS model ordinances and state-level legislative advocacy are so important for improving shelter standards nationally.</p>
+  </div>
+</section>
+
+<!-- ===================== STATE & LOCAL ===================== -->
+<section class="panel" id="state">
+  <h2 class="sec">State &amp; Local Policy</h2>
+  <p class="lead">The most consequential animal welfare legislation for shelter medicine happens at the state and local level. Five areas are highest-yield for the ABVP exam: BSL, retail pet sale bans, TNR ordinances, preemption, and model ordinances.</p>
+
+  <h3>Breed-Specific Legislation (BSL) <span class="bdg warn">Exam-frequent</span></h3>
+  <div class="card">
+    <p class="note">BSL encompasses any law that restricts or bans ownership, breeding, or importation of animals based solely on breed or phenotypic appearance rather than individual behavioral history. Most commonly targeted: pit bull–type dogs, Rottweilers, German Shepherds, Dobermans.</p>
+
+    <h4>Types of BSL</h4>
+    <table class="cmp">
+      <tr><th>Type</th><th>Description</th></tr>
+      <tr><td><b>Full breed ban</b></td><td>Complete prohibition on ownership; existing animals may be grandfathered, surrendered, or euthanized</td></tr>
+      <tr><td><b>Breed restriction</b></td><td>Ownership allowed but with conditions: mandatory muzzling, leashing, secure enclosures, liability insurance, sterilization, or registration fees</td></tr>
+      <tr><td><b>Housing restriction</b></td><td>Some municipalities or landlords prohibit certain breeds in rental housing (separate from ordinances)</td></tr>
+    </table>
+
+    <div class="corrbox"><b>AVMA and ASV both formally oppose BSL</b>Shared rationale: (1) evidence for effectiveness at reducing bites is insufficient; (2) breed identification — even by professionals — is unreliable; (3) individual behavioral history is a better bite-risk predictor than breed; (4) behavior-based dangerous animal laws are more effective, fair, and enforceable. ASPCA, AHA, and HSUS also oppose BSL.</div>
+
+    <h4>State preemption of BSL</h4>
+    <ul class="hy">
+      <li>More than <b>20 US states</b> have enacted laws that preempt local governments from passing BSL</li>
+      <li>States with BSL preemption include Texas, Florida, Illinois, Pennsylvania, and others</li>
+      <li>In states without preemption, municipalities can still enact BSL</li>
+    </ul>
+    <div class="trap"><b>Exam trap — breed identification is unreliable</b>Even trained shelter professionals consistently misidentify mixed-breed dogs as "pit bull–type" compared to DNA testing. This is one of the strongest scientific arguments against BSL — the target population cannot be reliably defined.</div>
+  </div>
+
+  <h3>Retail Pet Sale Bans <span class="bdg notes">Growing trend</span></h3>
+  <div class="card">
+    <p class="note">Laws prohibiting pet stores from selling commercially bred dogs, cats, and/or rabbits. Stores may only source animals from shelters or rescues. The goal is to cut off the retail pipeline incentivizing commercial mass breeding.</p>
+    <ul class="hy">
+      <li><b>California (effective 2019)</b> — first statewide retail pet sale ban; requires all pet stores to source dogs, cats, and rabbits from shelters or rescues only</li>
+      <li>More than <b>400 US cities and counties</b> have enacted similar local ordinances</li>
+      <li>Illinois, Maryland, New York, and other states have since enacted statewide bans</li>
+    </ul>
+    <div class="trap"><b>Exam trap — California was first statewide (2019)</b>Multiple cities had retail ban ordinances before California's AB 485, but California was the first state. Common distractor: confusing "first city" with "first state."</div>
+  </div>
+
+  <h3>TNR and Community Cat Ordinances <span class="bdg ref">No federal standard</span></h3>
+  <div class="card">
+    <p class="note">Trap-Neuter-Return (TNR) programs humanely trap free-roaming cats, sterilize them, and return them to their colony. Legal status varies enormously by jurisdiction.</p>
+    <table class="cmp">
+      <tr><th>Jurisdiction type</th><th>Approach</th></tr>
+      <tr><td><b>Formal municipal TNR program</b></td><td>City funds or endorses TNR; colony managers are registered; shelters support the program</td></tr>
+      <tr><td><b>No ordinance (default impound)</b></td><td>Free-roaming cats are impounded and held as strays; no TNR policy exists</td></tr>
+      <tr><td><b>Prohibition</b></td><td>Some jurisdictions explicitly prohibit feeding or returning feral cats to public spaces</td></tr>
+      <tr><td><b>Hybrid / permissive</b></td><td>TNR not prohibited but not formally endorsed; colony managers operate informally</td></tr>
+    </table>
+    <ul class="hy">
+      <li>No federal law addresses TNR — entirely a state/local matter</li>
+      <li>AVMA and ASV support TNR as one component of a comprehensive community cat management strategy</li>
+      <li>Wildlife agency concerns (bird predation) create tension with TNR in some jurisdictions</li>
+      <li>Some states require returned cats to be current on rabies vaccination</li>
+      <li>Returning cats to field in jurisdictions without TNR authorization may legally constitute "abandonment"</li>
+    </ul>
+  </div>
+
+  <h3>Anti-Tethering Laws <span class="bdg ref">State variation</span></h3>
+  <div class="card">
+    <p class="note">Laws restricting the tethering (chaining, tying out) of dogs. No federal standard exists. Common provisions:</p>
+    <ul class="hy">
+      <li>Prohibition on tethering for extended periods without supervision</li>
+      <li>Minimum tether length requirements (often 10–15 feet, or 3× the dog's body length)</li>
+      <li>Prohibition on logging chains or heavy chains that cause injury</li>
+      <li>Prohibition on tethering during severe weather (extreme temperatures, storms)</li>
+      <li>Requirements for shade, water, and shelter while tethered</li>
+      <li>Some states prohibit continuous tethering as primary confinement</li>
+    </ul>
+  </div>
+
+  <h3>State vs Local Preemption <span class="bdg warn">Policy trap</span></h3>
+  <div class="card">
+    <p class="note">Preemption occurs when a higher level of government (state) prevents a lower level (city, county) from enacting laws in a given area. In animal law, preemption cuts both ways:</p>
+    <table class="cmp">
+      <tr><th>Type</th><th>Effect</th></tr>
+      <tr><td><b>State preempts local BSL</b></td><td>Cities cannot enact breed bans — state law sets maximum restrictions (protects dog owners from patchwork local bans)</td></tr>
+      <tr><td><b>State preempts stronger local protection</b></td><td>Cities cannot enact animal welfare ordinances stricter than the state baseline (prevents local innovation in some jurisdictions)</td></tr>
+      <tr><td><b>No preemption</b></td><td>Local governments can enact any ordinance not prohibited by state law — stricter or different from the state baseline</td></tr>
+    </table>
+    <div class="trap"><b>Exam trap — preemption direction matters</b>State preemption can protect animals (stopping BSL) OR prevent stronger local protections (blocking stricter city ordinances). Context determines which way it cuts — this is a common conceptual trap.</div>
+  </div>
+
+  <h3>Model Ordinances <span class="bdg ref">NACA / HSUS frameworks</span></h3>
+  <div class="card">
+    <p class="note">Professional organizations publish model animal control ordinances that jurisdictions can adopt or adapt. Not binding law — advisory templates only.</p>
+    <ul class="hy">
+      <li><b>NACA</b> — model ordinances for animal control, dangerous animal declarations, and shelter operations</li>
+      <li><b>HSUS</b> — model ordinances for retail pet sale bans, anti-tethering, cat management, and TNR</li>
+      <li>Common elements: animal registration/licensing, vaccination requirements, bite reporting, dangerous animal procedures, stray holding periods, shelter operational standards</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== VICTORIA ===================== -->
+<section class="panel" id="victoria">
+  <h2 class="sec">Victoria, Australia — Legislation Reference</h2>
+  <div class="refonly"><b>Personal reference — not ABVP exam content</b>This section covers Victorian (Australian) animal welfare legislation for personal professional reference. The ABVP Shelter Medicine RVS exam is US-focused; this content is not expected on the exam. No MCQs are provided for this section. Legislation current as of 2024–2025.</div>
+
+  <h3 class="au-h">Prevention of Cruelty to Animals Act 1986 (POCTA) <span class="bdg au">Victoria, AU</span></h3>
+  <div class="card au">
+    <p class="note">Victoria's primary animal welfare protection statute. Administered and enforced by <b>Agriculture Victoria</b>. POCTA focuses on preventing cruelty and improving community standards of animal care.</p>
+
+    <h4>Scope of coverage</h4>
+    <ul class="hy au">
+      <li><b>All vertebrate species</b> other than humans: mammals, birds, reptiles, amphibians, fish</li>
+      <li><b>Certain crustaceans:</b> lobster, crabs, crayfish</li>
+      <li><b>Some cephalopods</b> in certain circumstances: octopi, squid, cuttlefish, nautilus</li>
+    </ul>
+
+    <h4>Key offences and penalties</h4>
+    <table class="cmp au">
+      <tr><th>Offence</th><th>Section</th><th>Individual</th><th>Body Corporate</th></tr>
+      <tr><td><b>Basic cruelty</b> — wounding, overworking, tormenting, overcrowding, abandoning, poisoning; failing to provide food/water/shelter/vet treatment</td><td>s.9</td><td>250 penalty units OR 12 months imprisonment</td><td>600 penalty units</td></tr>
+      <tr><td><b>Aggravated cruelty</b> — cruelty resulting in death or serious disablement of an animal</td><td>s.10</td><td>500 penalty units OR 2 years imprisonment</td><td>1,200 penalty units</td></tr>
+    </table>
+    <p class="note" style="font-size:12.5px;color:var(--muted)">One penalty unit ≈ AUD $192 (2024–25). Values indexed annually.</p>
+
+    <h4>Authorized inspectors and enforcement</h4>
+    <ul class="hy au">
+      <li>Victoria Police officers</li>
+      <li>Agriculture Victoria officers (State Government)</li>
+      <li>Conservation Regulator officers</li>
+      <li>RSPCA Victoria Inspectors (where authorized by the Minister)</li>
+      <li>Municipal Council officers</li>
+      <li>Game Management Authority officers</li>
+    </ul>
+    <p class="note">All inspectors have powers of entry, evidence collection, and seizure of animals.</p>
+
+    <h4>Control orders (s.12)</h4>
+    <div class="aubox"><b>Prohibition / control orders</b>Courts can impose control orders on individuals convicted of cruelty offences, including: mandatory conditions on how animals are kept, prohibition on owning or managing animals (temporarily, for up to 10 years, or permanently), and requirements to surrender animals. These orders serve both punitive and protective functions.</div>
+
+    <h4>Codes of Practice under POCTA</h4>
+    <p class="note">The Minister can approve welfare Codes of Practice for specific species. Compliance/non-compliance is relevant evidence in cruelty prosecutions. Key codes include: Code of Practice for the Private Keeping of Dogs; Code of Practice for the Private Keeping of Cats; Code of Practice for the Welfare of Wildlife During Rehabilitation; Code of Practice for Housing and Care of Laboratory Animals.</p>
+  </div>
+
+  <h3 class="au-h">Domestic Animals Act 1994 (DAA) <span class="bdg au">Victoria, AU</span></h3>
+  <div class="card au">
+    <p class="note">Primary Victorian statute governing registration, identification, and management of companion animals and licensing of domestic animal businesses. Administered locally by <b>municipal councils</b>, with policy oversight by Agriculture Victoria. Last major amendment: Domestic Animals Amendment (Reuniting Pets and Other Matters) Act 2022, effective 1 October 2022.</p>
+
+    <h4>Registration and microchipping</h4>
+    <ul class="hy au">
+      <li>Every dog and cat <b>over 3 months of age</b> must be registered with their local council</li>
+      <li><b>Microchipping is mandatory</b> — required for council registration</li>
+      <li>Dogs and cats <b>must be microchipped before being sold or given away</b></li>
+      <li>Microchips must meet Australian Standards; scanners must detect all prescribed permanent ID devices plus the 3 most common non-ISO devices</li>
+    </ul>
+
+    <h4>Impoundment provisions</h4>
+    <table class="cmp au">
+      <tr><th>Requirement</th><th>Standard</th></tr>
+      <tr><td><b>Scan on arrival</b></td><td>Shelters/pounds must scan all dogs and cats within 3 days of entry for microchip</td></tr>
+      <tr><td><b>Owner notification</b></td><td>If microchip or ID tag present: council must notify owner in writing within 4 days of impoundment</td></tr>
+      <tr><td><b>Mandatory hold period</b></td><td><b>8 days</b> — no unclaimed animal may be rehomed, euthanized, or otherwise disposed of before 8 days have elapsed</td></tr>
+      <tr><td><b>Found animal</b></td><td>Any person finding a stray dog or cat must hand it to local council as soon as possible</td></tr>
+    </table>
+
+    <div class="aubox"><b>Triple pre-rehoming requirement</b>If an unclaimed animal is selected for rehoming after the 8-day hold, it MUST be: (1) <b>microchipped</b>, (2) <b>vaccinated</b>, and (3) <b>desexed</b> — all three, before leaving the shelter or pound. This is a mandatory operational standard.</div>
+
+    <h4>Restricted breeds</h4>
+    <p class="note">The following breeds are restricted under the DAA. Breeding a restricted breed = criminal offence (max 6 months jail or 60 penalty units):</p>
+    <ul class="hy au">
+      <li>Pit Bull Terrier (American Pit Bull Terrier)</li>
+      <li>Presa Canario</li>
+      <li>Dogo Argentino</li>
+      <li>Japanese Tosa</li>
+      <li>Fila Brasileiro</li>
+    </ul>
+    <p class="note">Owners face strict conditions: mandatory desexing, microchipping, registration, secure enclosures, public muzzling, and liability insurance. Breed identification disputes go to VCAT (Victorian Civil and Administrative Tribunal).</p>
+
+    <h4>Cat management</h4>
+    <ul class="hy au">
+      <li>Councils can impose cat curfews (nighttime or 24-hour containment) under s.25 DAA</li>
+      <li>As of 2023–2024, the majority of Victorian councils have cat containment regulations</li>
+      <li>Agriculture Victoria funds a Targeted Cat Desexing Grant Program for high-intake council areas</li>
+      <li>Desexing exemptions available with written veterinary advice that desexing would significantly prejudice the animal's health</li>
+    </ul>
+
+    <h4>Section 84Y Agreements</h4>
+    <p class="note">Section 84Y provides the legal mechanism for councils to enter formal agreements with private shelters or rescue organisations to receive, retain, rehome, or dispose of stray animals on the council's behalf. This is the primary legal basis for municipal–non-profit shelter partnerships in Victoria.</p>
+
+    <h4>Mandatory outcome data reporting</h4>
+    <div class="aubox"><b>Animal fate dataset</b>All registered shelters and pounds must report animal fate data annually to Agriculture Victoria. The dataset tracks intake, returns to owners, adoptions, transfers, and euthanasia. Data is published publicly via interactive dashboards and Excel downloads on the Agriculture Victoria website. Full datasets available for 2023 and 2024 calendar years. This transparency mechanism is unique in Australia.</div>
+  </div>
+
+  <h3 class="au-h">Code of Practice — Dogs and Cats in Shelters and Pounds <span class="bdg au">Under DAA</span></h3>
+  <div class="card au">
+    <p class="note">Made under the Domestic Animals Act 1994. Sets minimum welfare standards for all registered shelters and pounds in Victoria. Non-compliance is relevant to regulatory action and licence conditions for domestic animal businesses.</p>
+
+    <h4>Housing standards</h4>
+    <table class="cmp au">
+      <tr><th>Species</th><th>Standard</th></tr>
+      <tr><td><b>Dogs (adults)</b></td><td>One dog per pen; one-third of pen area must be weatherproof with raised sleeping quarters</td></tr>
+      <tr><td><b>Cats</b></td><td>Maximum 8 cats per pen; minimum 2 m² floor area per cat; individual sleeping area for each cat; multi-housing only after desexing, vaccination, and quarantine</td></tr>
+    </table>
+
+    <h4>Feeding standards</h4>
+    <table class="cmp au">
+      <tr><th>Animal age</th><th>Minimum feeding frequency</th></tr>
+      <tr><td>Adults (over 6 months)</td><td>Once per day</td></tr>
+      <tr><td>4–6 months of age</td><td>Twice per day</td></tr>
+      <tr><td>Up to 4 months of age</td><td>Three times per day</td></tr>
+    </table>
+
+    <h4>Euthanasia requirements</h4>
+    <table class="cmp au">
+      <tr><th>Requirement</th><th>Standard</th></tr>
+      <tr><td><b>Preferred method</b></td><td>Barbiturate overdose (sodium pentobarbital)</td></tr>
+      <tr><td><b>Who performs</b></td><td>Must be carried out by a <b>veterinary practitioner</b></td></tr>
+      <tr><td><b>Location</b></td><td>Separate area from animal accommodation</td></tr>
+      <tr><td><b>Privacy</b></td><td>Must not be visible to any other animals or members of the public</td></tr>
+      <tr><td><b>Documentation</b></td><td>Method of euthanasia recorded for each individual animal</td></tr>
+    </table>
+    <div class="aubox"><b>Victorian vs US euthanasia standards</b>Victoria requires barbiturate overdose performed by a veterinarian — more restrictive than most US states, where certified euthanasia technicians (non-veterinarians) can perform euthanasia under written protocols. In the US, AVMA Guidelines (2020) list IV pentobarbital as preferred for dogs and cats but allow technician administration with appropriate training and oversight.</div>
+
+    <h4>Record-keeping</h4>
+    <ul class="hy au">
+      <li>All animals must be individually traceable through records</li>
+      <li>Records must include: microchip scan result on arrival, vaccination date and administrator, euthanasia method and date, final outcome</li>
+      <li>Data must be provided to Agriculture Victoria for the mandatory animal fate dataset</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== MCQ ===================== -->
+<section class="panel" id="mcq">
+  <h2 class="sec">MCQ Test Bank</h2>
+  <p class="lead">12 exam-style questions covering US federal and state animal welfare legislation for the ABVP exam. Victorian/Australian content is not included. Single best answer; rationale shown after selection.</p>
+
+  <div class="mcqbar">
+    <div class="filters">
+      <button class="on" data-f="all" onclick="filterQ(this,'all')">All (12)</button>
+      <button data-f="federal-awa" onclick="filterQ(this,'federal-awa')">AWA</button>
+      <button data-f="federal-pact" onclick="filterQ(this,'federal-pact')">PACT Act</button>
+      <button data-f="state-local" onclick="filterQ(this,'state-local')">State &amp; Local</button>
+    </div>
+    <div class="score"><span id="sc">0 / 0</span><button class="reset" onclick="resetAll()">Reset</button></div>
+  </div>
+
+  <div id="qlist">
+
+  <!-- Q1 -->
+  <div class="q" data-tag="federal-awa">
+    <div class="meta"><span class="num">Q1</span><span class="tag">federal-awa</span></div>
+    <p class="stem">Which federal agency is responsible for administering and enforcing the Animal Welfare Act (AWA)?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>The American Veterinary Medical Association (AVMA)</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>The ASPCA</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>USDA Animal and Plant Health Inspection Service (APHIS)</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>The Environmental Protection Agency (EPA)</button>
+    <div class="expl"><b class="cor">C is correct.</b> The AWA is enforced by USDA APHIS Animal Care, which employs federal inspectors who conduct unannounced inspections of licensed facilities. The AVMA and ASPCA are professional/advocacy organizations with no federal enforcement authority. The EPA regulates environmental matters, not animal welfare. Knowing the enforcement agency is a foundational AWA fact.</div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="q" data-tag="federal-awa">
+    <div class="meta"><span class="num">Q2</span><span class="tag">federal-awa</span></div>
+    <p class="stem">A breeder sells purebred dogs directly to the public from her home and has 3 breeding females. Under the Animal Welfare Act, she is:</p>
+    <button class="opt" onclick="ans(this,true)"><span class="k">A</span>Exempt from USDA licensing — the AWA license threshold requires 4 or more breeding females selling to the public</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Required to obtain a Class A dealer license because any commercial dog sale triggers AWA registration</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Required to register with APHIS as a research facility if she conducts health testing</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Subject to AWA only if she sells animals across state lines</button>
+    <div class="expl"><b class="cor">A is correct.</b> The AWA Class A dealer licensing threshold is 4 or more breeding females selling to the public or to dealers. A breeder with 3 or fewer breeding females who sells directly to the public is exempt from USDA licensing. This is a common exam trap — the intuitive assumption is that any commercial breeding requires a license. Option D is incorrect: interstate commerce is relevant to PACT Act jurisdiction, not to the AWA licensing threshold for small breeders.</div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="q" data-tag="federal-awa">
+    <div class="meta"><span class="num">Q3</span><span class="tag">federal-awa</span></div>
+    <p class="stem">Which of the following animals is EXPLICITLY excluded from AWA protection when used in biomedical research?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Non-human primates</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Dogs and cats</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Rats, mice, and birds bred for research use</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Guinea pigs and hamsters</button>
+    <div class="expl"><b class="cor">C is correct.</b> The 2002 Farm Bill amendment to the AWA explicitly excluded rats of the genus Rattus, mice of the genus Mus, and birds bred for research from AWA coverage — even though these animals constitute approximately 95% of all research animals in the US. This exclusion is a longstanding controversy. Non-human primates (A) have enhanced protections under AWA (psychological well-being requirements). Dogs, cats, guinea pigs, and hamsters are all covered by AWA in research settings.</div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="q" data-tag="federal-awa">
+    <div class="meta"><span class="num">Q4</span><span class="tag">federal-awa</span></div>
+    <p class="stem">A municipal animal shelter takes in stray dogs and cats, provides veterinary care, and places animals for adoption. Which statement BEST describes the shelter's relationship to the Animal Welfare Act?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>The shelter must register with USDA APHIS as a Class B dealer because it transfers animals to the public</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>The shelter is subject to AWA humane care standards because it houses companion animals</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>The shelter's operations are not covered by the AWA — shelter intake, holding, adoption, and euthanasia are governed entirely at state and local level</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>The shelter must comply with AWA standards if it euthanizes more than 100 animals per year</button>
+    <div class="expl"><b class="cor">C is correct.</b> Animal shelters — municipal or private — are not regulated under the AWA. The AWA covers commercial breeders, dealers, research facilities, exhibitors, and transportation carriers. Shelter operations (stray intake, holding periods, live release, adoption, foster, euthanasia) are governed entirely by state statutes and local ordinances. There is no federal animal shelter law in the United States. This is one of the most important structural facts about US animal welfare law.</div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="q" data-tag="federal-pact">
+    <div class="meta"><span class="num">Q5</span><span class="tag">federal-pact</span></div>
+    <p class="stem">The PACT Act (2019) was significant primarily because it:</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Created a federal animal cruelty registry analogous to sex offender registries</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Was the first federal law to directly criminalize companion animal cruelty (not just the depiction of cruelty)</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Extended Animal Welfare Act protections to rats, mice, and birds used in research</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Established federal minimum standards for shelter euthanasia methods</button>
+    <div class="expl"><b class="cor">B is correct.</b> Before the PACT Act, federal law only addressed depictions of animal cruelty (the 2010 Animal Crush Video Prohibition Act) — not the actual acts. The PACT Act closed this gap by making acts of animal crushing and sexual exploitation a federal crime in interstate or foreign commerce. Options A, C, and D describe things the PACT Act does not do.</div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="q" data-tag="federal-pact">
+    <div class="meta"><span class="num">Q6</span><span class="tag">federal-pact</span></div>
+    <p class="stem">A shelter veterinarian performs a routine spay on an owner-surrendered cat. Under the PACT Act, this procedure:</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Violates the PACT Act if done without documented owner consent on file</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Is explicitly exempt — legitimate veterinary and husbandry practices are excluded from PACT Act prohibitions</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Requires APHIS pre-approval as a surgical procedure</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Is regulated by PACT only if the cat was transported across state lines for the procedure</button>
+    <div class="expl"><b class="cor">B is correct.</b> The PACT Act explicitly excludes from its prohibitions: legitimate veterinary and animal husbandry practices, wildlife hunting and trapping conducted lawfully, pest control, and medical/scientific research. Routine surgery such as spaying is unambiguously a legitimate veterinary practice and is fully exempt. The PACT Act targets acts of cruelty (crushing, burning, drowning, suffocating, impaling, sexual exploitation) — not standard clinical care.</div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="q" data-tag="federal-pact">
+    <div class="meta"><span class="num">Q7</span><span class="tag">federal-pact</span></div>
+    <p class="stem">The maximum federal imprisonment penalty for a PACT Act violation is:</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>1 year</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>2 years</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>7 years</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Life imprisonment</button>
+    <div class="expl"><b class="cor">C is correct.</b> The PACT Act carries a maximum federal prison sentence of up to 7 years, plus fines. This is notably higher than many state animal cruelty penalties — though some states now have comparable or higher maximums for aggravated cruelty. The PACT Act does not provide for life imprisonment. The 7-year maximum reflects Congress's intent to treat animal cruelty as a serious federal crime comparable to many federal fraud and drug statutes.</div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="q" data-tag="state-local">
+    <div class="meta"><span class="num">Q8</span><span class="tag">state-local</span></div>
+    <p class="stem">Regarding Breed-Specific Legislation (BSL), which statement BEST reflects the positions of both the AVMA and ASV?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Both organizations support BSL as an effective tool for reducing dog bite incidents when targeted at high-risk breeds</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>The AVMA supports BSL; the ASV opposes it based on shelter-specific evidence</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Both organizations oppose BSL because breed identification is unreliable and individual behavior-based dangerous dog laws are more effective</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Neither organization has issued a formal position, as BSL is considered a political rather than scientific question</button>
+    <div class="expl"><b class="cor">C is correct.</b> Both the AVMA and ASV formally oppose BSL on shared grounds: (1) insufficient evidence that BSL reduces bite incidents; (2) visual breed identification — even by professionals — is unreliable and inconsistent with DNA testing; (3) individual behavioral history is a better bite-risk predictor than breed; (4) behavior-based dangerous dog laws are more effective, fair, and enforceable. ASPCA and AHA hold the same position. Option A is the opposite of their actual stance.</div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="q" data-tag="state-local">
+    <div class="meta"><span class="num">Q9</span><span class="tag">state-local</span></div>
+    <p class="stem">Which US state was the first to enact a statewide ban on the sale of commercially bred dogs, cats, and rabbits in pet stores?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>New York</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Illinois</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>California</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Oregon</button>
+    <div class="expl"><b class="cor">C is correct.</b> California's AB 485 (signed 2017, effective January 1, 2019) was the first statewide law requiring pet stores to source dogs, cats, and rabbits exclusively from shelters or rescues. Many cities had enacted local retail bans before this, but California was the first state-level law. Illinois, Maryland, and New York have since enacted similar statewide laws. The common distractor is confusing "first city to act" with "first state."</div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="q" data-tag="state-local">
+    <div class="meta"><span class="num">Q10</span><span class="tag">state-local</span></div>
+    <p class="stem">What is the federal legal status of Trap-Neuter-Return (TNR) programs for community cats in the United States?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>TNR is mandated by federal wildlife law as the preferred method for managing feral cat populations near protected bird habitat</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>TNR is prohibited by federal law because free-roaming cats are a listed threat to migratory birds under the Migratory Bird Treaty Act</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>No federal law addresses TNR — legality and implementation are determined entirely at the state and local level</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>TNR is regulated by USDA APHIS and requires a federal permit for community cat programs</button>
+    <div class="expl"><b class="cor">C is correct.</b> There is no federal law governing TNR programs. Whether TNR is legal, endorsed, or prohibited is entirely a matter of state statute and local ordinance. Some jurisdictions have formal municipal TNR programs; others prohibit feeding or returning feral cats; many have no policy. AVMA and ASV support TNR as one component of comprehensive community cat management. Federal wildlife law (Migratory Bird Treaty Act) creates tension with TNR in some contexts but has not resulted in a federal prohibition on TNR programs.</div>
+  </div>
+
+  <!-- Q11 -->
+  <div class="q" data-tag="state-local">
+    <div class="meta"><span class="num">Q11</span><span class="tag">state-local</span></div>
+    <p class="stem">A state legislature passes a law prohibiting its cities and counties from enacting any ordinance that restricts dog ownership based on breed. This is an example of:</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Federal preemption of state BSL</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>A model dangerous dog law adopted from the NACA framework</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>State preemption of local BSL</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>A constitutional challenge under the Fourteenth Amendment</button>
+    <div class="expl"><b class="cor">C is correct.</b> When a state legislature prevents cities and counties from enacting breed-based ordinances, this is state preemption of local BSL. More than 20 states have enacted such laws. Option A is wrong — there is no federal preemption of BSL (no federal law addresses it). Option B describes an advisory model document, not a legal preemption mechanism. This type of state preemption is generally viewed as protective of dog owners from patchwork local breed bans.</div>
+  </div>
+
+  <!-- Q12 -->
+  <div class="q" data-tag="state-local">
+    <div class="meta"><span class="num">Q12</span><span class="tag">state-local</span></div>
+    <p class="stem">Which organizations are the primary publishers of model animal control ordinances used by US municipalities?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>AVMA and ASPCA</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>USDA APHIS and the American Bar Association</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>NACA (National Animal Care and Control Association) and HSUS (Humane Society of the United States)</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>ASV and SAWA</button>
+    <div class="expl"><b class="cor">C is correct.</b> NACA and HSUS are the primary publishers of model animal control ordinances in the US. NACA focuses on animal control operational standards and professional practice; HSUS publishes model ordinances for retail pet bans, anti-tethering, cat management, and TNR. These are templates — not binding law — that local governments can adopt, adapt, or ignore. AVMA and ASV (A, D) focus on veterinary professional standards. USDA APHIS (B) enforces the AWA but does not write local ordinances.</div>
+  </div>
+
+  </div><!-- /qlist -->
+</section>
+
+</div></main>
+
+<footer><div class="wrap">
   <p>ABVP Shelter Medicine RVS Study Hub &middot; Animals &amp; Public Policy Domain &middot; Legislation (Subdomain 3 of 4)</p>
-</footer>
+  <p>US sources: Animal Welfare Act (7 U.S.C. §§ 2131–2159); PACT Act (Pub.L. 116-72, 2019); AVMA Position on BSL; HSUS/NACA model ordinances. Victorian sources: Prevention of Cruelty to Animals Act 1986; Domestic Animals Act 1994; DAA Code of Practice for the Management of Dogs and Cats in Shelters and Pounds; Agriculture Victoria (agriculture.vic.gov.au). Victorian content is for personal reference only — not ABVP exam material.</p>
+</div></footer>
+
+<script>
+document.getElementById('tabrow').addEventListener('click',function(e){
+  const btn=e.target.closest('button[data-p]');
+  if(!btn)return;
+  document.querySelectorAll('.tabrow button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('show'));
+  document.getElementById(btn.dataset.p).classList.add('show');
+});
+
+let total=0,correct=0;
+function ans(btn,isCorrect){
+  const q=btn.closest('.q');
+  if(q.dataset.locked)return;
+  q.dataset.locked='1';
+  total++;
+  const opts=q.querySelectorAll('.opt');
+  opts.forEach(o=>o.classList.add('locked'));
+  btn.classList.add(isCorrect?'correct':'wrong');
+  if(isCorrect)correct++;
+  else{
+    opts.forEach(o=>{
+      const fn=o.getAttribute('onclick')||'';
+      if(fn.includes('true'))o.classList.add('correct');
+    });
+  }
+  q.querySelector('.expl').classList.add('show');
+  document.getElementById('sc').textContent=correct+' / '+total;
+}
+
+function resetAll(){
+  total=0;correct=0;
+  document.querySelectorAll('.q').forEach(q=>{
+    delete q.dataset.locked;
+    q.querySelectorAll('.opt').forEach(o=>{
+      o.classList.remove('correct','wrong','locked');
+    });
+    const expl=q.querySelector('.expl');
+    if(expl)expl.classList.remove('show');
+  });
+  document.getElementById('sc').textContent='0 / 0';
+}
+
+function filterQ(btn,tag){
+  document.querySelectorAll('.mcqbar .filters button').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('#qlist .q').forEach(q=>{
+    q.style.display=(tag==='all'||q.dataset.tag===tag)?'':'none';
+  });
+}
+</script>
 </body>
 </html>

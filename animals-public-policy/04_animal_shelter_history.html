@@ -38,350 +38,692 @@
   .tabrow button.active{background:var(--ink);color:#fff}
   .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--id)}
   main{padding:30px 0 80px}
-  .panel{display:none}.panel.active{display:block}
-  h2{font-family:"Fraunces",serif;font-weight:600;font-size:22px;margin:26px 0 10px;color:var(--ink)}
-  h3{font-family:"Fraunces",serif;font-weight:600;font-size:17px;margin:20px 0 8px;color:var(--ink2)}
-  .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px 26px;margin-bottom:20px;box-shadow:var(--shadow)}
-  .bdg{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
-    padding:2px 8px;border-radius:999px;margin-right:6px;vertical-align:middle}
+  .panel{display:none;animation:fade .35s ease}
+  .panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;letter-spacing:-.01em;color:var(--muted)}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:80ch}
+  h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:30px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;scroll-margin-top:64px;color:var(--id)}
+  h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;color:var(--ink2);text-transform:uppercase;letter-spacing:.03em}
+  .card{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}
+  p.note{font-size:14px;margin:0 0 6px}
+  ul.hy{margin:8px 0;padding-left:0;list-style:none}
+  ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed var(--line);font-size:14px}
+  ul.hy li:last-child{border-bottom:0}
+  ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;border-radius:2px;background:var(--id);transform:rotate(45deg)}
+  .trap{background:#fdf3ed;border:1px solid #e8c9a8;border-left:4px solid var(--warn);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .trap b{color:var(--warn);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .corrbox{background:#e9f4ee;border:1px solid #bfe0cc;border-left:4px solid var(--good);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .corrbox b{color:var(--good);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .alertbox{background:var(--id-soft);border:1px solid #b8d8a0;border-left:4px solid var(--id);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .alertbox b{color:var(--id);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:var(--paper2);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp th{background:var(--ink);color:#fff;font-weight:600;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase}
+  table.cmp tr:last-child td{border-bottom:0}
+  table.cmp td b{color:var(--ink)}
+  .bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
   .bdg.notes{background:var(--notes-soft);color:var(--notes)}
   .bdg.ref{background:var(--ref-soft);color:var(--ref)}
   .bdg.warn{background:var(--warn-soft);color:var(--warn)}
-  table.cmp{width:100%;border-collapse:collapse;margin:10px 0 14px;font-size:13.5px}
-  table.cmp th{text-align:left;font-weight:600;font-size:12px;color:var(--muted);padding:6px 10px;border-bottom:2px solid var(--line)}
-  table.cmp td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
-  table.cmp tr:last-child td{border-bottom:none}
-  .timeline{list-style:none;padding:0;margin:10px 0}
-  .timeline li{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--line);align-items:flex-start}
-  .timeline li:last-child{border-bottom:none}
-  .timeline .year{font-family:"JetBrains Mono",monospace;font-size:11.5px;font-weight:700;color:var(--id);min-width:52px;padding-top:1px}
-  .timeline .body{flex:1;font-size:14px;line-height:1.5}
-  .timeline .body strong{color:var(--ink);font-weight:600}
-  .trap{background:var(--warn-soft);border-left:4px solid var(--warn);border-radius:0 10px 10px 0;padding:12px 16px;margin:12px 0;font-size:14px;color:#5a3510}
-  .trap strong{color:var(--warn)}
-  /* MCQ styles */
-  .mcq-bar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:20px}
-  .filter-btn{border:1px solid var(--line);background:var(--paper2);color:var(--muted);font-family:"Public Sans";font-size:12.5px;font-weight:500;padding:5px 13px;border-radius:999px;cursor:pointer}
-  .filter-btn.on{background:var(--id);color:#fff;border-color:var(--id)}
-  .q{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:14px;box-shadow:var(--shadow)}
-  .q.hidden{display:none}
-  .stem{font-weight:500;font-size:14.5px;margin-bottom:12px;line-height:1.45;color:var(--ink)}
-  .stem b{font-family:"Fraunces",serif;color:var(--muted);margin-right:8px;font-weight:600}
-  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:var(--paper);border-radius:9px;padding:10px 14px;margin-bottom:7px;cursor:pointer;font:inherit;font-size:14px;color:var(--ink);transition:background .12s,border-color .12s;line-height:1.4}
-  .opt:hover{background:var(--id-soft);border-color:var(--id)}
-  .opt.correct{background:#d1f0e0;border-color:var(--good);color:#0d4a2a}
-  .opt.wrong{background:#fce4e4;border-color:var(--bad);color:#5a1010}
-  .opt:disabled{cursor:default}
-  .opt .mk{float:right;font-weight:700}
-  .rat{background:var(--paper2);border-radius:8px;padding:10px 14px;margin-top:6px;font-size:13.5px;line-height:1.5;color:var(--ink2)}
-  .rat b{color:var(--ink)}
-  .score-bar{background:var(--id-soft);border-radius:12px;padding:14px 18px;margin-bottom:18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
-  .score-label{font-family:"Fraunces",serif;font-size:18px;font-weight:600;color:var(--ink)}
-  .score-label span{font-family:"Public Sans";font-size:13px;font-weight:400;color:var(--muted)}
-  .btn{font-family:"Public Sans";font-size:13.5px;font-weight:500;border:1px solid var(--line);background:#fff;border-radius:9px;padding:7px 14px;cursor:pointer}
-  .btn:hover{background:var(--paper2)}
-  footer{background:var(--paper2);border-top:1px solid var(--line);padding:18px 0;font-size:12.5px;color:var(--muted);text-align:center}
+  /* mcq */
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--ink);color:#fff;border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:54px;z-index:10}
+  .mcqbar .filters{display:flex;gap:6px;flex-wrap:wrap}
+  .mcqbar .filters button{font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#c5e8a0;padding:6px 11px;border-radius:999px;cursor:pointer}
+  .mcqbar .filters button.on{background:var(--id);border-color:var(--id);color:#fff}
+  .score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}
+  .score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;color:#c5e8a0;padding:5px 10px;border-radius:8px;font-size:11px}
+  .q{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
+  .q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+  .q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--id-soft);color:var(--id)}
+  .q .stem{font-weight:600;font-size:15px;margin-bottom:10px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;font-family:"Public Sans";transition:background .15s,border-color .15s}
+  .opt:hover{border-color:var(--ink)}
+  .opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}
+  .opt.correct{background:#e8f5ec;border-color:var(--good);color:#0d3d24}
+  .opt.wrong{background:#fbe9e9;border-color:var(--bad);color:#5e1d1d}
+  .opt.locked{cursor:default}
+  .expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:#ecf4e6;border:1px solid var(--line);font-size:13.5px}
+  .expl.show{display:block}
+  .expl b.cor{color:var(--good)}
+  footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
+  @media(max-width:640px){.mcqbar{top:50px}.score{font-size:12px}}
 </style>
 </head>
 <body>
-<nav style="background:#2c4f18;padding:9px 18px;display:flex;align-items:center;gap:10px;font-family:'Public Sans',system-ui,sans-serif;font-size:13px;font-weight:500;border-bottom:2px solid #3F6B1E"><a href="../index.html" style="color:#a8d080;text-decoration:none;display:flex;align-items:center;gap:5px"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span style="color:#4a7a2a;font-size:11px">›</span><a href="../index.html#domain-policy" style="color:#a8d080;text-decoration:none">Animals &amp; Public Policy</a><span style="color:#4a7a2a;font-size:11px">›</span><span style="color:#d4f0b0">Animal Shelter History</span></nav>
+
+<!-- Back-nav bar -->
+<nav style="background:#2c4f18;padding:9px 18px;display:flex;align-items:center;gap:10px;font-family:'Public Sans',system-ui,sans-serif;font-size:13px;font-weight:500;border-bottom:2px solid #3F6B1E"><a href="../index.html" style="color:#a8d080;text-decoration:none;display:flex;align-items:center;gap:5px"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span style="color:#4a7030;font-size:11px">›</span><a href="../index.html#domain-policy" style="color:#a8d080;text-decoration:none">Animals &amp; Public Policy</a><span style="color:#4a7030;font-size:11px">›</span><span style="color:#dff0c8">Animal Shelter History</span></nav>
+
 <header class="top">
   <div class="wrap">
-    <p class="eyebrow">Animals &amp; Public Policy · Subdomain 4 of 4 · 20% of domain</p>
+    <p class="eyebrow">ABVP Shelter Medicine Practice RVS · Animals &amp; Public Policy · Subdomain 4 of 4</p>
     <h1>Animal Shelter History</h1>
-    <p class="sub">From dog pounds and property law to no-kill paradigms — the evolution of sheltering in North America and the organizations that shaped modern shelter medicine.</p>
+    <p class="sub">The evolution of American animal sheltering: from the property-law era and the NYC pound, through the welfare movement, to national organizations, the No-Kill movement, and modern intake-reduction strategies. Exam weight: 20% of this domain.</p>
     <div class="legend">
-      <span><i style="background:#7a4fb5"></i>Your notes</span>
-      <span><i style="background:#1f6f8b"></i>Key org/date</span>
-      <span><i style="background:#a8641a"></i>Exam trap</span>
+      <span><i style="background:var(--ref)"></i>Core textbook (Miller &amp; Zawistowski)</span>
+      <span><i style="background:var(--notes)"></i>Lecture notes</span>
+      <span><i style="background:var(--warn)"></i>Exam trap</span>
+      <span><i style="background:var(--good)"></i>High-yield point</span>
     </div>
   </div>
 </header>
-<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow"></div></div></nav>
-<main><div class="wrap" id="main"></div></main>
-<footer>
+
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="early"><span class="dot"></span>Early Era</button>
+  <button data-p="movement"><span class="dot"></span>Welfare Movement</button>
+  <button data-p="orgs"><span class="dot"></span>National Organizations</button>
+  <button data-p="modern"><span class="dot"></span>Modern Paradigms</button>
+  <button data-p="mcq"><span class="dot" style="background:#1a3d0a"></span>MCQ Bank</button>
+</div></div></nav>
+
+<main><div class="wrap">
+
+<!-- ===================== EARLY ERA ===================== -->
+<section class="panel show" id="early">
+  <h2 class="sec">Early Era: Property Law and the Pound</h2>
+  <p class="lead">Before organized humane societies existed, American law treated animals almost exclusively as property. This framework determined who could be seized, how strays were managed, and — crucially — who profited from the system. Understanding the early era's incentive structure is the key to understanding why reforms were necessary.</p>
+
+  <h3>Animals as Property: What the Law Protected <span class="bdg ref">Miller &amp; Zawistowski</span></h3>
+  <div class="card">
+    <p class="note">The earliest American animal laws were written to protect livestock: horses, cattle, swine, and sheep. These animals had clear economic value and were owned by identifiable people. The law's purpose was property protection, not animal welfare.</p>
+    <ul class="hy">
+      <li><b>Dogs and cats were largely excluded</b> from early animal protection statutes because they were not considered to have significant monetary value as working livestock. A horse could be worth a season's income; a stray dog was worth nothing to the law.</li>
+      <li><b>Legal vacuum for companion animals:</b> without property-law standing, dogs and cats had no legal advocates. Cruelty to a dog was not a crime in most early jurisdictions — there was no financial harm to a third party to give the law a reason to act.</li>
+      <li><b>Ownership determined protection:</b> owned livestock had a legal owner who could sue for damages if the animal was harmed; stray or roaming dogs typically did not, leaving them fully outside the protection of the law.</li>
+    </ul>
+    <div class="trap"><b>Exam trap — property law ≠ animal welfare law</b>Early property laws protected animals only insofar as they protected their owners' economic interests. This is fundamentally different from welfare law. An owned horse was protected from theft and abuse because damaging it harmed the owner financially. A stray dog could be killed without legal consequence because no human's property interest was at stake. Reform required a conceptual shift: from protecting owners to protecting animals.</div>
+  </div>
+
+  <h3>The Poundmaster and the Dog Pound <span class="bdg ref">Miller &amp; Zawistowski</span></h3>
+  <div class="card">
+    <p class="note">As American cities grew through the 18th and 19th centuries, stray animals — particularly dogs — became a serious urban problem. Municipal governments responded by creating the pound system, but the pound's origins and its transformation are both exam-relevant.</p>
+    <ul class="hy">
+      <li><b>Original poundmaster role — livestock, not dogs:</b> the poundmaster was originally a livestock official. The pound was built to hold stray cattle, pigs, and horses that had wandered onto public roads or neighboring land. Owners paid an impound fee to reclaim their animals.</li>
+      <li><b>Urban growth shifted the problem:</b> as cities densified, livestock were gradually restricted and removed from urban environments. Dogs — which remained ubiquitous and survived by scavenging — replaced livestock as the primary stray animal problem. The pound system adapted, but the fee logic did not change.</li>
+      <li><b>Stray dogs on urban refuse:</b> in 19th-century American cities, packs of dogs survived by scavenging from refuse heaps and open sewers. Their association with rabies made mass killing of stray dogs considered a public health necessity, not a moral issue.</li>
+      <li><b>Dogcatchers were despised:</b> municipal dogcatchers were widely hated — not primarily for cruelty to animals, but because they captured <em>owned</em> animals indiscriminately alongside true strays, then demanded reclaim fees that functioned as ransom payments from pet owners.</li>
+    </ul>
+  </div>
+
+  <h3>NYC Pound: Iron Cage and East River Drowning <span class="bdg ref">Miller &amp; Zawistowski / historical record</span></h3>
+  <div class="card">
+    <p class="note">The New York City pound of the 1870s became the most notorious symbol of early American animal management. Its mass killing method — lowering an iron cage packed with dogs into the East River — became a galvanizing symbol for early reformers.</p>
+    <ul class="hy">
+      <li><b>Method:</b> captured dogs were packed into a large iron cage, which was then lowered by a derrick or boat into the East River, submerging the animals until they drowned. This was the official, city-sanctioned method of mass euthanasia for unclaimed strays.</li>
+      <li><b>Public reaction:</b> the drowning method was publicly visible — it occurred on the waterfront — and generated significant outrage among early welfare advocates. The issue was not that mass killing occurred, but that the method was prolonged, visible, and clearly distressing.</li>
+      <li><b>Reform impetus:</b> the publicity around the NYC pound's methods directly motivated reformers including Henry Bergh (ASPCA) and later Caroline Earle White to demand both more humane killing methods and systemic management reform.</li>
+    </ul>
+    <div class="corrbox"><b>High-yield — NYC pound as historical pivot point</b>The NYC pound 1870s is the canonical example of pre-reform American animal management. Know the method (iron cage, East River drowning), why it galvanized reformers (visible, prolonged cruelty — not merely the fact of killing), and what replaced it (ASPCA management of the pound; gas asphyxiation chamber introduced by Caroline Earle White at PennSPCA as the humane alternative).</div>
+  </div>
+
+  <h3>The Reclaim-Fee Corruption Problem <span class="bdg ref">Miller &amp; Zawistowski</span></h3>
+  <div class="card">
+    <p class="note">The most fundamental structural problem of the early pound system was financial: dogcatchers and poundmasters were compensated through reclaim fees or per-capture payments. This created perverse incentives that made the system inherently corrupt.</p>
+    <ul class="hy">
+      <li><b>How the fee system worked:</b> when a dog was captured and impounded, the owner paid a reclaim fee to retrieve the animal. The dogcatcher or poundmaster received a share of this fee, or was paid per animal captured. More captures equaled more income.</li>
+      <li><b>Perverse incentives:</b> dogcatchers had a direct financial incentive to capture as many animals as possible — including owned, licensed pets — because more captures meant more potential fee revenue. There was no financial incentive to be selective or to release animals quickly.</li>
+      <li><b>Extortion dynamic:</b> the reclaim fee felt like ransom to pet owners who had done nothing wrong. This is why dogcatchers were despised — the corrupt incentive structure, not simply the act of capturing dogs, was the public grievance.</li>
+      <li><b>The structural fix — licensing fees:</b> licensing fees charged to all dog owners provided stable revenue that did not depend on impoundment volume. This allowed organizations to hire salaried staff who had no personal financial stake in how many animals they captured, eliminating the perverse incentive at its source.</li>
+    </ul>
+    <div class="trap"><b>Exam trap — dogcatcher hostility was about the fee structure, not cruelty</b>The public despised dogcatchers primarily because of the reclaim-fee extortion scheme — capturing owned pets and holding them for ransom payment. The core problem was the misaligned financial incentive, not individual acts of cruelty. Reformers had to change the funding model (licensing fees + salaried staff), not simply train kinder dogcatchers. This distinction is directly testable.</div>
+  </div>
+</section>
+
+<!-- ===================== WELFARE MOVEMENT ===================== -->
+<section class="panel" id="movement">
+  <h2 class="sec">The Welfare Movement: Bergh, White, and the SPCA Model</h2>
+  <p class="lead">The American animal welfare movement of the mid-to-late 19th century was directly inspired by England's RSPCA and built on two founding figures whose contributions are frequently confused on the exam. Know both years, both founders, and what each organization actually innovated.</p>
+
+  <h3>The RSPCA as Template <span class="bdg ref">Historical / Miller &amp; Zawistowski</span></h3>
+  <div class="card">
+    <p class="note">The Royal Society for the Prevention of Cruelty to Animals (RSPCA) was founded in England in 1824 — decades before the American movement. It provided the organizational and legal model that American reformers directly sought to replicate.</p>
+    <ul class="hy">
+      <li>The RSPCA demonstrated that a private non-governmental organization could be granted legislative authority to investigate and prosecute animal cruelty — a model Henry Bergh explicitly sought to import to the United States.</li>
+      <li>Bergh observed the RSPCA's work during a diplomatic posting in Russia and returned determined to establish an equivalent American institution.</li>
+      <li>The RSPCA's proof-of-concept — that private advocacy backed by legal authority could drive systemic change — was the direct inspiration for the ASPCA's founding in 1866.</li>
+    </ul>
+  </div>
+
+  <h3>Henry Bergh and the ASPCA (1866) <span class="bdg ref">Miller &amp; Zawistowski</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Founded:</b> 1866, New York City.</li>
+      <li><b>Founder:</b> Henry Bergh.</li>
+      <li><b>Initial focus — working street horses, NOT companion animals:</b> Bergh's primary motivation was the visible suffering of draft horses on New York City's streets. Thousands of horses powered the city's transportation and commerce under grueling conditions — overworked, beaten, and left to die on city streets. Companion animals were not the founding priority.</li>
+      <li><b>Legislative authority:</b> Bergh secured a charter from the New York state legislature granting the ASPCA power to investigate and prosecute animal cruelty — the first such charter in the United States.</li>
+      <li><b>NYC pound takeover:</b> city officials, facing public criticism of the pound's methods, called on Bergh and the ASPCA to take over management of the NYC pound — the first transfer of municipal animal control authority to a private humane organization.</li>
+    </ul>
+    <div class="trap"><b>Exam trap — ASPCA's initial focus was STREET HORSES, not companion animals</b>The ASPCA was founded in 1866 by Henry Bergh, but its earliest enforcement actions and founding motivation centered on working draft horses — not dogs, cats, or companion animals. This is a classic distractor. The ASPCA later expanded its scope, but equine welfare was the founding impetus. Do not assume the ASPCA began as a companion animal organization.</div>
+  </div>
+
+  <h3>Caroline Earle White and the Pennsylvania SPCA (1868) <span class="bdg ref">Miller &amp; Zawistowski</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Founded:</b> 1868, Philadelphia. Two years after Bergh's ASPCA.</li>
+      <li><b>Founder:</b> Caroline Earle White. A prominent Philadelphia philanthropist motivated by the example of the ASPCA and the ongoing suffering of animals in Philadelphia's pound.</li>
+      <li><b>Key innovation — humane gas asphyxiation chamber:</b> White's most significant operational contribution was developing and implementing a humane gas asphyxiation chamber as a method of mass euthanasia, replacing the drowning method used at facilities like the NYC pound. This was a genuine technical advance in humane killing that spread to other organizations.</li>
+      <li><b>Scope:</b> White's PennSPCA had a broader focus on companion animals than Bergh's ASPCA initially did, and White also founded the American Anti-Vivisection Society.</li>
+    </ul>
+    <div class="trap"><b>Exam trap — Know both years and both founders cold</b>ASPCA = 1866 = Henry Bergh = New York City = initial focus on street horses. PennSPCA = 1868 = Caroline Earle White = Philadelphia = humane gas asphyxiation chamber. These are the two most commonly confused pairings on this subdomain. Never swap the founders, the years, or the cities.</div>
+  </div>
+
+  <h3>Licensing Fees: The Structural Operational Reform <span class="bdg ref">Miller &amp; Zawistowski</span></h3>
+  <div class="card">
+    <p class="note">The gas asphyxiation chamber addressed the cruelty of killing; licensing fees addressed the corrupt financial structure of the pound system. Together, these two innovations transformed humane animal management from a corrupt patronage system into a professional field.</p>
+    <ul class="hy">
+      <li><b>What licensing fees changed:</b> mandatory dog licensing created a stable revenue stream for the organization that did not depend on impoundment activity. License fees went to the organization's operating budget, not to individual dogcatchers.</li>
+      <li><b>Salaried staff replaced fee-dependent workers:</b> with reliable licensing revenue, organizations could hire staff on fixed salaries. Salaried employees had no personal financial incentive tied to how many animals they captured or how long they held them.</li>
+      <li><b>End of the reclaim-fee corruption cycle:</b> when the organization's income no longer depended on reclaim fees, the extortion dynamic collapsed. Dogcatchers could be held to professional standards rather than financial productivity metrics.</li>
+    </ul>
+    <div class="corrbox"><b>High-yield — licensing fees = the structural fix that broke the corrupt cycle</b>The gas asphyxiation chamber (White/PennSPCA) fixed the HOW of euthanasia. Licensing fees fixed the WHY of systemic corruption. Both are reform innovations but they addressed different dimensions of the problem. When an exam question asks which reform eliminated the reclaim-fee corruption, the answer is licensing fees enabling salaried staff — not the gas chamber, and not simply stricter dogcatcher training.</div>
+  </div>
+</section>
+
+<!-- ===================== NATIONAL ORGANIZATIONS ===================== -->
+<section class="panel" id="orgs">
+  <h2 class="sec">National Organizations and the CAWA Credential</h2>
+  <p class="lead">Multiple national organizations now define the field of animal sheltering, each with a distinct origin, membership, and function. The exam tests both organizational identity and the five CAWA domains in considerable detail — particularly the distinction between Domain 1 and Domain 2.</p>
+
+  <h3>Major Organizations: Origins and Roles <span class="bdg ref">Miller &amp; Zawistowski</span></h3>
+  <div class="card">
+    <table class="cmp">
+      <tr><th>Organization</th><th>Founded / Origin</th><th>Primary Role</th></tr>
+      <tr><td><b>AHA</b><br>American Humane Association</td><td>Late 1800s — originally focused on cross-country livestock transport welfare</td><td>Expanded to companion animal sheltering; dual mission (children and animals); originally the national umbrella for local humane societies</td></tr>
+      <tr><td><b>HSUS</b><br>Humane Society of the United States</td><td>1950s — breakaway from the AHA by members seeking more aggressive national advocacy</td><td>Largest animal protection organization in the US; national advocacy, legislation, public education; does NOT directly operate local shelters</td></tr>
+      <tr><td><b>NACA</b><br>National Animal Control Association</td><td>—</td><td>Represents animal control field professionals (officers, supervisors); provides training, standards, and policy advocacy for the animal control discipline</td></tr>
+      <tr><td><b>SAWA</b><br>Society of Animal Welfare Administrators</td><td>—</td><td>Represents shelter administrators and executives; developed and administers the CAWA (Certified Animal Welfare Administrator) credential</td></tr>
+      <tr><td><b>NFHS</b><br>National Federation of Humane Societies</td><td>—</td><td>Fosters collaboration and information sharing among humane societies, rescue organizations, and animal control agencies</td></tr>
+      <tr><td><b>ASPCA</b><br>(post-1994 national role)</td><td>Ended NYC municipal animal control contract 1994</td><td>Shifted to national model: grant-making, training and technical assistance, community outreach; no longer operates NYC municipal animal control</td></tr>
+    </table>
+    <div class="trap"><b>Exam trap — HSUS formed from AHA breakaway, NOT from ASPCA</b>HSUS was founded in the 1950s by individuals who broke away from the AHA (American Humane Association) — emphatically NOT from the ASPCA. The ASPCA is a completely separate organization founded by Henry Bergh in 1866, nearly a century before HSUS existed. The AHA → HSUS breakaway sequence is the most commonly tested organizational history fact in this section.</div>
+    <div class="corrbox"><b>High-yield — ASPCA 1994 operational pivot</b>In 1994, the ASPCA ended its long-standing contract to operate New York City's municipal animal control system — a role it had held since the 19th century. After 1994, the ASPCA shifted to a national capacity-building model: grants, training, and community programs rather than direct shelter operations. This is a frequently tested date and organizational transition.</div>
+  </div>
+
+  <h3>CAWA Credential: Five Domains <span class="bdg ref">SAWA / CAWA certification framework</span></h3>
+  <div class="card">
+    <p class="note">The Certified Animal Welfare Administrator (CAWA) credential is issued by SAWA and represents the professional standard for shelter leadership. All five domains are testable; Domains 1, 2, and 3 are the most frequently confused.</p>
+    <table class="cmp">
+      <tr><th>#</th><th>Domain</th><th>Key areas covered</th></tr>
+      <tr><td><b>1</b></td><td>Administration &amp; Management</td><td>Strategic planning, accounting and financial management, budgeting, nonprofit governance, regulatory compliance</td></tr>
+      <tr><td><b>2</b></td><td>Personnel Supervision &amp; Leadership</td><td>Recruitment and selection, staff training, performance evaluation, labor relations, workforce development</td></tr>
+      <tr><td><b>3</b></td><td>Public Relations &amp; Fundraising</td><td>Media relations, customer service, fundraising and development, community engagement, donor stewardship</td></tr>
+      <tr><td><b>4</b></td><td>Animal Care &amp; Treatment</td><td>Humane laws and regulations, shelter design and environment, animal health and welfare, veterinary standards</td></tr>
+      <tr><td><b>5</b></td><td>Problem Solving</td><td>Information analysis and synthesis, situational assessment, operational discretion, data-driven decision-making</td></tr>
+    </table>
+    <div class="trap"><b>Exam trap — Domain 1 vs Domain 2: which covers what?</b>Domain 1 (Administration &amp; Management) = organizational-level systems: strategic planning, accounting, budgeting, nonprofit rules. Domain 2 (Personnel Supervision &amp; Leadership) = people management: recruitment, selection, training, performance evaluation, labor relations. "Drafting the annual budget" → Domain 1. "Designing a hiring process" → Domain 2. "Revising the performance review system" → Domain 2. These two are the most commonly confused CAWA domains on the exam.</div>
+    <div class="corrbox"><b>High-yield — fundraising is Domain 3, NOT Domain 1</b>Fundraising and donor stewardship belong to Domain 3 (Public Relations &amp; Fundraising) — not to Domain 1 (Administration &amp; Management). A common error is classifying fundraising as an administrative/financial function. CAWA treats fundraising as a public relations and relationship-building competency, not an accounting one. Domain 1 manages existing funds; Domain 3 generates new ones through relationships.</div>
+  </div>
+</section>
+
+<!-- ===================== MODERN PARADIGMS ===================== -->
+<section class="panel" id="modern">
+  <h2 class="sec">Modern Paradigms: No-Kill and Intake Reduction</h2>
+  <p class="lead">The modern era of sheltering is defined by the No-Kill movement's challenge to euthanasia as routine population control, and by three concrete intake-reduction strategies. The well-organized shelter framework explicitly defines what a shelter is — and is not — expected to do.</p>
+
+  <h3>The No-Kill Movement <span class="bdg ref">Miller &amp; Zawistowski</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Credit — Ed Duvin's publication:</b> the No-Kill movement is credited to Ed Duvin's publication, which galvanized animal welfare constituencies to challenge the practice of euthanasia as routine population control. Duvin argued that killing healthy, adoptable animals was not a humane necessity but a failure of organizational will and community commitment.</li>
+      <li><b>Core argument:</b> shelters could — and should — end euthanasia of healthy, adoptable animals through intake reduction, increased adoption, foster programs, transfer networks, and community support programs.</li>
+      <li><b>Tension with ethical pillars:</b> removing euthanasia without reducing intake risks overcrowding and compromised welfare — a direct violation of the ethical pillars framework. The ethical debate between No-Kill goals and population management reality is central to modern shelter medicine.</li>
+    </ul>
+    <div class="trap"><b>Exam trap — No-Kill credited to Ed Duvin's PUBLICATION specifically</b>The No-Kill movement is attributed to Ed Duvin's publication — not to a named organization, a specific shelter that achieved a live-release rate benchmark, or a specific year. When the exam asks who or what galvanized the No-Kill movement, the answer is Ed Duvin's publication as the catalyzing event.</div>
+  </div>
+
+  <h3>Three Intake Reduction Strategies <span class="bdg ref">Miller &amp; Zawistowski</span></h3>
+  <div class="card">
+    <p class="note">Reducing intake is the most sustainable path to reducing euthanasia. Three primary strategies have been identified in the shelter medicine literature:</p>
+    <table class="cmp">
+      <tr><th>#</th><th>Strategy</th><th>Description</th></tr>
+      <tr><td><b>1</b></td><td>Keeping animals with their guardians</td><td>Diversion programs that prevent surrender: owner support resources, behavioral counseling, emergency foster during owner crises, community food banks for pet food, low-cost veterinary assistance. Addresses root causes of surrender rather than managing consequences.</td></tr>
+      <tr><td><b>2 — Cornerstone</b></td><td>Spay/Neuter programs</td><td>Community S/N reduces the population of unowned and litter-producing owned animals over time, producing durable long-term reductions in intake. Low-cost or no-cost community S/N clinics are the primary delivery mechanism.</td></tr>
+      <tr><td><b>3</b></td><td>TNR / Feral Freedom (return-to-field)</td><td>Targeting adult unsocialized (feral) cats for return-to-field instead of in-shelter management or euthanasia. TNR is the broad concept; Feral Freedom specifically targets adult unsocialized cats for return-to-field to provide reasonable quality of life and reduce shelter management burden.</td></tr>
+    </table>
+    <div class="corrbox"><b>High-yield — S/N is the CORNERSTONE of intake reduction</b>Spay/Neuter programs are explicitly the cornerstone of intake reduction. While keeping animals with guardians addresses individual situations and TNR addresses a specific population, S/N produces population-level change over time. When the exam ranks intake reduction strategies by foundational importance, S/N occupies the top position.</div>
+    <div class="trap"><b>Exam trap — Feral Freedom is NOT the same as generic TNR</b>TNR (Trap-Neuter-Return) is the broad community cat management concept. Feral Freedom is a specific named program targeting adult, unsocialized cats — acknowledging that these cats cannot be rehomed as indoor pets, have reasonable quality of life outdoors, and are better served by return-to-field than by in-shelter management or euthanasia. Feral Freedom = specific population (adult unsocialized cats) + specific rationale (QOL + shelter burden reduction). TNR = broad concept. The distinction is directly testable.</div>
+  </div>
+
+  <h3>The Well-Organized Shelter: 10 Core Functions <span class="bdg ref">Miller &amp; Zawistowski</span></h3>
+  <div class="card">
+    <p class="note">Miller and Zawistowski identify 10 core functions of a well-organized animal shelter. The exam tests both what this framework includes (especially euthanasia) and what it does NOT include (unlimited hold periods).</p>
+    <ul class="hy">
+      <li>Uniformly enforce laws related to public health and safety</li>
+      <li>Respond to nuisance complaints in a timely manner</li>
+      <li>Investigate complaints of animal cruelty, abuse, and neglect</li>
+      <li>Rescue mistreated and injured animals</li>
+      <li>Shelter stray and homeless animals</li>
+      <li>Work to reunite lost pets with their families</li>
+      <li>Place healthy, behaviourally sound animals in responsible homes</li>
+      <li><b>Euthanize suffering animals AND those that can be neither reclaimed nor adopted</b></li>
+      <li>Promote mandatory identification of both dogs and cats</li>
+      <li>Create incentives for the public to have pets sterilized</li>
+    </ul>
+    <p class="note" style="margin-top:10px">Additionally: deter future problems through community education programs.</p>
+    <div class="trap"><b>Exam trap — euthanizing unclaimed animals IS explicitly part of the well-organized shelter framework</b>A well-organized shelter explicitly includes euthanizing animals that can be neither reclaimed nor adopted as one of its 10 core functions. This is not a failure of the system — it is a defined operational responsibility. Do not conflate No-Kill aspirations with the operational definition of a well-organized shelter as described by Miller &amp; Zawistowski.</div>
+    <div class="trap"><b>Exam trap — unlimited hold periods are NOT part of the framework</b>The well-organized shelter framework does not include unlimited hold periods for unadoptable animals. Time-unlimited holding of animals that cannot be placed violates the ethical pillars (Pillar 1: no animal made worse; Pillar 3: equitable resource distribution). The framework explicitly includes euthanasia as the disposition for animals that cannot be reclaimed or adopted.</div>
+  </div>
+
+  <h3>Coalition Building <span class="bdg ref">Miller &amp; Zawistowski</span></h3>
+  <div class="card">
+    <p class="note">Modern shelters operate within a network of partnerships. Coalition building multiplies the impact of shelter resources and expands the safety net for animals beyond what any single organization can achieve.</p>
+    <ul class="hy">
+      <li><b>Joint adoption events:</b> co-hosted events between shelters and rescue groups expand adopter reach, improve placement rates for all participating organizations, and distribute event costs.</li>
+      <li><b>Shared transport vehicles:</b> transport networks move animals from high-intake regions to areas with greater adoption capacity. Sharing vehicles reduces per-organization cost and enables a live-release strategy that individual shelters could not sustain independently.</li>
+      <li><b>Co-funded community S/N clinics:</b> shelters, rescue groups, and animal control agencies pool funding to provide low-cost community spay/neuter, targeting intake at its source while distributing cost across coalition partners.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== MCQ ===================== -->
+<section class="panel" id="mcq">
+  <h2 class="sec">MCQ Bank — Animal Shelter History</h2>
+  <p class="lead">30 exam-style questions covering early pound era, the welfare movement, national organizations and CAWA domains, and modern paradigms. Select an answer to reveal the full explanation.</p>
+
+  <div class="mcqbar">
+    <div class="filters">
+      <button class="on" data-f="all" onclick="filterQ(this,'all')">All (30)</button>
+      <button data-f="early-era" onclick="filterQ(this,'early-era')">Early Era</button>
+      <button data-f="welfare-movement" onclick="filterQ(this,'welfare-movement')">Welfare Movement</button>
+      <button data-f="national-orgs" onclick="filterQ(this,'national-orgs')">National Orgs</button>
+      <button data-f="modern-paradigms" onclick="filterQ(this,'modern-paradigms')">Modern Paradigms</button>
+    </div>
+    <div class="score"><span id="sc">0 / 0</span><button class="reset" onclick="resetAll()">Reset</button></div>
+  </div>
+
+  <div id="qlist">
+
+  <!-- Q1 -->
+  <div class="q" data-tag="early-era">
+    <div class="meta"><span class="num">Q1</span><span class="tag">early-era</span></div>
+    <p class="stem">Why did the earliest American animal protection laws exclude dogs and cats from their coverage?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Dogs and cats were considered wild animals and therefore not subject to property statutes</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Early laws were written to protect animals as economic property; dogs and cats lacked the monetary value of livestock, so no owner's financial interest was legally at stake</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Dogs and cats were protected under separate federal statutes that predated state property laws</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Legislators believed dogs and cats could adequately fend for themselves and did not require legal protection</button>
+    <div class="expl"><b class="cor">B is correct.</b> The earliest American animal protection statutes were rooted in property law, not welfare principles. Livestock — horses, cattle, swine, sheep — had clear economic value and identifiable owners whose financial interests the law could protect. Dogs and cats, particularly strays, were not considered economically significant property. Because the legal rationale was the protection of owners' economic interests rather than animal welfare per se, companion animals fell entirely outside the law's scope. Option A is incorrect: stray dogs were not classified as wild animals; they simply lacked legal standing as property worth protecting.</div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="q" data-tag="early-era">
+    <div class="meta"><span class="num">Q2</span><span class="tag">early-era</span></div>
+    <p class="stem">What was the ORIGINAL function of the poundmaster in early American cities, before urban growth changed the nature of the stray animal problem?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Managing stray dogs and enforcing dog licensing ordinances</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Investigating complaints of cruelty to companion animals</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Impounding stray livestock — cattle, pigs, and horses — that had wandered onto public roads or neighboring property, releasing them upon payment of an impound fee</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Operating rabies vaccination programs for urban dogs under city contract</button>
+    <div class="expl"><b class="cor">C is correct.</b> The pound predates organized sheltering and was originally a livestock management institution. Poundmasters impounded stray cattle, pigs, and horses — animals with clear economic value and identifiable owners who would pay impound fees for their return. As American cities industrialized and densified, livestock were progressively removed from urban environments. Dogs — which remained abundant — then became the primary stray animal problem, and the pound system adapted to manage them using the same reclaim-fee logic originally designed for livestock. The transformation of the pound from a livestock facility to a dog management institution is a key historical transition on the exam.</div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="q" data-tag="early-era">
+    <div class="meta"><span class="num">Q3</span><span class="tag">early-era</span></div>
+    <p class="stem">How did urban growth in 19th-century American cities change the animal management problem municipalities faced?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Urban growth reduced the number of stray dogs by eliminating refuse piles that had sustained them</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>As livestock were removed from densifying cities, stray dogs — which survived by scavenging urban refuse — became the dominant public nuisance and public health concern requiring municipal management</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Urban growth prompted cat licensing as the primary animal control tool, displacing dog management</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Industrialization created demand for working dogs, resolving the stray problem through employment</button>
+    <div class="expl"><b class="cor">B is correct.</b> As American cities grew and industrialized through the 19th century, livestock that had previously roamed urban areas were progressively restricted or eliminated. However, dogs — which survived by scavenging from the abundant refuse of densely populated neighborhoods — remained and multiplied. Packs of roaming dogs were associated with rabies transmission and general public disorder. Municipal governments responded by adapting and expanding the pound system, originally designed for livestock, to manage stray dogs. This shift in target species while retaining the same corrupt fee structure was the context reformers inherited.</div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="q" data-tag="early-era">
+    <div class="meta"><span class="num">Q4</span><span class="tag">early-era</span></div>
+    <p class="stem">What was the method of mass killing used by the New York City pound in the 1870s that became a galvanizing symbol for early animal welfare reformers?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Intravenous injection of carbolic acid administered by city employees</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Sealed gas asphyxiation chambers constructed beneath the pound building</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Lowering an iron cage packed with dogs into the East River until the animals drowned</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Shooting by city police officers conducted behind closed doors in the pound yard</button>
+    <div class="expl"><b class="cor">C is correct.</b> The NYC pound of the 1870s used a large iron cage that was loaded with captured dogs and lowered by a derrick into the East River, where the animals drowned. This method was the official city-sanctioned approach to mass euthanasia of unclaimed strays. It was publicly visible and became a powerful symbol of institutional cruelty that motivated welfare reformers — including Henry Bergh and later Caroline Earle White — to demand both more humane killing methods and systemic reform of pound management. Gas asphyxiation (option B) was the reform that replaced drowning, introduced by Caroline Earle White at the Pennsylvania SPCA.</div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="q" data-tag="early-era">
+    <div class="meta"><span class="num">Q5</span><span class="tag">early-era</span></div>
+    <p class="stem">The public widely despised dogcatchers in 19th-century American cities. What was the PRIMARY reason for this hostility?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Dogcatchers were openly cruel to animals during capture, generating outrage at visible individual cruelty</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Dogcatchers operated without any legal authority, making their activities equivalent to theft</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Dogcatchers captured owned animals indiscriminately alongside strays, then demanded reclaim fees that functioned as ransom — a structurally corrupt incentive driven by per-capture compensation</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Dogcatchers were employed by rival sheltering organizations rather than by the city, creating conflicts of interest</button>
+    <div class="expl"><b class="cor">C is correct.</b> The primary source of public hostility toward dogcatchers was the reclaim-fee system, not cruelty to individual animals per se. Dogcatchers were compensated through reclaim fees or per-capture payments, giving them a financial incentive to impound as many dogs as possible — including well-cared-for, owned pets. Owners who wanted their animals back had to pay a fee indistinguishable from a ransom payment. The problem was structural: the compensation model made corrupt behavior financially rational. Reformers recognized that changing the funding model was the necessary fix — salaried staff with no personal financial stake in capture volume, funded through licensing fees rather than reclaim payments.</div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="q" data-tag="early-era">
+    <div class="meta"><span class="num">Q6</span><span class="tag">early-era</span></div>
+    <p class="stem">What was the CORE financial incentive problem in the early pound system that reformers needed to structurally eliminate?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Poundmasters were bribed by dog breeders to release purebred animals without documentation</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Dogcatchers and poundmasters were compensated through reclaim fees or per-capture payments, creating an incentive to maximize impoundments regardless of animal ownership status</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>City governments profited from selling impounded dogs to medical research laboratories</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Poundmasters received kickbacks from dog food suppliers in exchange for extended holding periods</button>
+    <div class="expl"><b class="cor">B is correct.</b> The reclaim-fee and per-capture compensation model directly misaligned the dogcatcher's financial interest (maximize captures and holds) with the public interest (fair, targeted enforcement). More captures meant more potential reclaim fees; releasing animals quickly or declining to capture borderline cases reduced income. This made corruption the rational financial behavior under the system. The structural fix was licensing fees — a stable revenue stream paid by all dog owners as a civic requirement, channeled to the organization rather than to individual workers — combined with salaried staff who had no personal financial stake in capture volume. This eliminated the perverse incentive at its source.</div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="q" data-tag="early-era">
+    <div class="meta"><span class="num">Q7</span><span class="tag">early-era</span></div>
+    <p class="stem">Before the welfare movement of the mid-to-late 1800s, which animal protection gap existed in American law?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Laws protected wild animals but had no provisions for owned livestock</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Federal law protected companion animals but state law did not, creating jurisdictional confusion</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Dogs, cats, and companion animals lacked legal standing; cruelty to them was not actionable because their suffering caused no cognizable financial harm to a human property owner</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Laws required rabies vaccination of all dogs but provided no civil penalty for non-compliance</button>
+    <div class="expl"><b class="cor">C is correct.</b> American law before the welfare movement was fundamentally property-based. Animals were protected only insofar as harm to them constituted harm to a human owner's economic interests. Livestock had this standing because they had clear monetary value; companion animals — particularly strays — did not. Cruelty to a stray dog was not legally actionable because no human suffered a cognizable financial loss. This gap meant the suffering of dogs, cats, and other companion animals was essentially invisible to the law. The founding of the ASPCA (1866) with state-backed authority to investigate and prosecute animal cruelty was the first institutional response to this gap in the United States.</div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="q" data-tag="welfare-movement">
+    <div class="meta"><span class="num">Q8</span><span class="tag">welfare-movement</span></div>
+    <p class="stem">Henry Bergh founded the ASPCA in 1866. What was its INITIAL primary focus?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Adoption and placement of stray dogs and cats in New York City homes</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Investigating complaints of cruelty to companion animals by individual private owners</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Protecting working street horses from overwork, beating, and inhumane treatment on New York City's streets</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Developing humane euthanasia methods to replace drowning in the NYC pound</button>
+    <div class="expl"><b class="cor">C is correct.</b> Henry Bergh's primary motivation in founding the ASPCA was the visible suffering of working draft horses on New York City's streets. Thousands of horses powered the city's transportation and commerce under brutal conditions — overworked, beaten, and left to die on city streets. Bergh observed humane societies in England during a diplomatic posting and was determined to replicate them in America to address equine suffering. The ASPCA's early enforcement actions focused overwhelmingly on horses. Companion animals (dogs and cats) became a more central part of the ASPCA's work later. Option D describes Caroline Earle White's innovation at the Pennsylvania SPCA, not Bergh's founding motivation.</div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="q" data-tag="welfare-movement">
+    <div class="meta"><span class="num">Q9</span><span class="tag">welfare-movement</span></div>
+    <p class="stem">In what year was the ASPCA founded, and by whom?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>1824, by William Wilberforce, in New York City</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>1868, by Caroline Earle White, in Philadelphia</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>1866, by Henry Bergh, in New York City</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>1894, by George Angell, in Boston</button>
+    <div class="expl"><b class="cor">C is correct.</b> The ASPCA was founded in 1866 by Henry Bergh in New York City. Bergh secured a charter from the New York state legislature granting the ASPCA authority to investigate and prosecute animal cruelty — the first such charter in the United States. Option B describes the Pennsylvania SPCA, founded two years later in 1868 by Caroline Earle White in Philadelphia — a completely separate organization. William Wilberforce (option A) was associated with the founding of England's RSPCA (1824). The paired dates ASPCA = 1866 and PennSPCA = 1868 are among the most tested facts in this subdomain.</div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="q" data-tag="welfare-movement">
+    <div class="meta"><span class="num">Q10</span><span class="tag">welfare-movement</span></div>
+    <p class="stem">Caroline Earle White founded the Pennsylvania SPCA in 1868. What specific operational innovation is she credited with introducing?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>The mandatory dog licensing fee system</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>A humane gas asphyxiation chamber as a method of mass euthanasia, replacing the drowning method</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>The first community spay/neuter program for shelter animals</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>The reclaim-fee system for recovering impounded animals from city pounds</button>
+    <div class="expl"><b class="cor">B is correct.</b> Caroline Earle White's most significant technical contribution was the development and implementation of a humane gas asphyxiation chamber at the Pennsylvania SPCA. This replaced the drowning method (most notoriously used at the NYC pound) with a faster, less prolonged killing method. This was a genuine innovation in humane euthanasia that spread to other organizations. Option A (licensing fees) is a related contemporaneous reform but is not specifically credited to White as her primary innovation. Option D (reclaim fees) was the old corrupt system that reforms were designed to eliminate — not an innovation attributed to White.</div>
+  </div>
+
+  <!-- Q11 -->
+  <div class="q" data-tag="welfare-movement">
+    <div class="meta"><span class="num">Q11</span><span class="tag">welfare-movement</span></div>
+    <p class="stem">How did the introduction of licensing fees transform the operational model of humane animal management organizations?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Licensing fees replaced all municipal funding, making humane societies fully self-sustaining</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Licensing fees provided stable organizational revenue allowing salaried staff who had no personal financial incentive tied to impoundment volume — eliminating the reclaim-fee corruption cycle</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Licensing fees funded the purchase of iron cages used in the transport of stray animals</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Licensing fees were paid as bonuses directly to dogcatchers who captured licensed animals</button>
+    <div class="expl"><b class="cor">B is correct.</b> The licensing fee reform was structural: it created revenue for the organization independent of how many animals were captured. With stable licensing revenue, organizations could employ staff on fixed salaries. Salaried employees had no personal financial stake in capture volume or hold duration — the perverse incentive at the heart of the old reclaim-fee system was eliminated. This is the operational reform that broke the corruption cycle; the gas asphyxiation chamber (White's PennSPCA innovation) addressed the cruelty of killing. Together they transformed the field. Option D describes the old system (per-capture payment to individual dogcatchers), not the reform.</div>
+  </div>
+
+  <!-- Q12 -->
+  <div class="q" data-tag="welfare-movement">
+    <div class="meta"><span class="num">Q12</span><span class="tag">welfare-movement</span></div>
+    <p class="stem">Which organization directly inspired American welfare reformers — particularly Henry Bergh — to establish the ASPCA?</p>
+    <button class="opt" onclick="ans(this,true)"><span class="k">A</span>The Royal Society for the Prevention of Cruelty to Animals (RSPCA), England, founded 1824</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>The American Humane Association (AHA), which had already established the organizational model domestically</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>The Humane Society of the United States (HSUS), which provided funding for Bergh's initial operations</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>The National Animal Control Association (NACA), which trained Bergh in humane field methods</button>
+    <div class="expl"><b class="cor">A is correct.</b> Henry Bergh explicitly modeled the ASPCA on England's RSPCA, which had been founded in 1824 and demonstrated that a private humane organization could be granted legislative authority to investigate and prosecute animal cruelty. Bergh observed the RSPCA's work during a diplomatic posting and returned determined to replicate the model in America. The AHA (option B) was founded after the ASPCA, not before. HSUS (option C) was founded in the 1950s — nearly a century after the ASPCA — and was itself a breakaway from the AHA. NACA (option D) is a modern professional association with no role in the 19th-century welfare movement.</div>
+  </div>
+
+  <!-- Q13 -->
+  <div class="q" data-tag="welfare-movement">
+    <div class="meta"><span class="num">Q13</span><span class="tag">welfare-movement</span></div>
+    <p class="stem">Which organization did New York City officials call on to take over management of the NYC pound, and why was this historically significant?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>The Pennsylvania SPCA — they had the only proven humane euthanasia chamber at the time</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>The ASPCA under Henry Bergh — this represented the first transfer of municipal animal control authority to a private humane organization in the United States</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>The American Humane Association — they had the largest national membership at the time</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>The HSUS — they were the only organization with federal authority to operate municipal facilities</button>
+    <div class="expl"><b class="cor">B is correct.</b> Facing public criticism over the brutal methods of the NYC pound, city officials called on Henry Bergh and the ASPCA to take over pound management. This was historically significant as the first instance of a private humane organization being granted authority over a municipal animal control function — establishing the template for public-private partnerships in animal control that would become common throughout the 20th century. The PennSPCA (option A) operated in Philadelphia, not New York. HSUS (option D) was not founded until the 1950s and has no federal authority over municipal facilities.</div>
+  </div>
+
+  <!-- Q14 -->
+  <div class="q" data-tag="welfare-movement">
+    <div class="meta"><span class="num">Q14</span><span class="tag">welfare-movement</span></div>
+    <p class="stem">Which pairing of innovations most completely transformed humane animal management in late 19th-century American cities?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Mandatory rabies vaccination + the reclaim-fee system</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>RSPCA model adoption + the iron cage East River drowning method</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Humane gas asphyxiation (replacing drowning) + licensing fees enabling salaried staff (replacing per-capture/reclaim-fee compensation)</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Spay/neuter programs + return-to-field for feral cats</button>
+    <div class="expl"><b class="cor">C is correct.</b> The gas asphyxiation chamber (introduced by Caroline Earle White at the PennSPCA) addressed the cruelty of the killing method, replacing the prolonged drowning used at facilities like the NYC pound. Licensing fees addressed the corrupt financial incentive structure by replacing per-capture and reclaim-fee compensation with stable, salary-based funding that removed the dogcatcher's personal financial stake in capture volume. Each innovation addressed a different dimension of the problem: one humane (how animals were killed) and one structural (why the system was corrupt). Option D describes modern intake reduction strategies, not 19th-century reform innovations.</div>
+  </div>
+
+  <!-- Q15 -->
+  <div class="q" data-tag="welfare-movement">
+    <div class="meta"><span class="num">Q15</span><span class="tag">welfare-movement</span></div>
+    <p class="stem">In what year was the Pennsylvania SPCA founded, and by whom?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>1866, by Henry Bergh, in New York City</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>1824, by Caroline Earle White, in Philadelphia</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>1868, by Caroline Earle White, in Philadelphia</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>1871, by Henry Bergh, in a Philadelphia expansion of the ASPCA</button>
+    <div class="expl"><b class="cor">C is correct.</b> The Pennsylvania SPCA was founded in 1868 by Caroline Earle White in Philadelphia — two years after Henry Bergh founded the ASPCA in New York (1866). Option A describes the ASPCA. Option B has the correct founder but the wrong year — 1824 is the founding year of England's RSPCA. Option D incorrectly attributes the PennSPCA to Bergh; it was an independent organization founded by White. Commit the pairing to memory: ASPCA = 1866 = Bergh = New York; PennSPCA = 1868 = White = Philadelphia.</div>
+  </div>
+
+  <!-- Q16 -->
+  <div class="q" data-tag="national-orgs">
+    <div class="meta"><span class="num">Q16</span><span class="tag">national-orgs</span></div>
+    <p class="stem">The American Humane Association (AHA) was originally focused on which animal welfare issue before expanding to companion animal sheltering?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Preventing cruelty to dogs and cats in urban pounds</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Welfare of livestock during cross-country rail transport</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Advocacy against the use of animals in medical research</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Training animal control officers in humane capture techniques</button>
+    <div class="expl"><b class="cor">B is correct.</b> The AHA was originally focused on the welfare of livestock during long-distance cross-country transport, particularly by rail. The transport of cattle, horses, and other livestock over hundreds of miles in cramped, unventilated cars without adequate food, water, or rest was a major animal welfare crisis of the late 19th century. The AHA advocated for humane transport regulations. Over time the organization expanded to include companion animal sheltering and, uniquely among major animal welfare organizations, child welfare as well. This livestock-transport origin differentiates the AHA from other organizations and is a frequently tested historical fact.</div>
+  </div>
+
+  <!-- Q17 -->
+  <div class="q" data-tag="national-orgs">
+    <div class="meta"><span class="num">Q17</span><span class="tag">national-orgs</span></div>
+    <p class="stem">The Humane Society of the United States (HSUS) was formed in the 1950s. Which organization did its founders break away from?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>The ASPCA</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>The American Humane Association (AHA)</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>The National Animal Control Association (NACA)</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>The Pennsylvania SPCA</button>
+    <div class="expl"><b class="cor">B is correct.</b> HSUS was founded in the 1950s by individuals who broke away from the AHA (American Humane Association) because they sought a more aggressive, nationally focused advocacy stance on animal welfare issues. They felt the AHA was insufficiently committed to national legislative advocacy. HSUS grew into the largest animal protection organization in the United States, focused on national advocacy, legislation, and public education rather than direct shelter operations. It is critically important to remember that HSUS separated from the AHA — NOT from the ASPCA. The ASPCA is an entirely separate organization with independent origins in 1866 under Henry Bergh.</div>
+  </div>
+
+  <!-- Q18 -->
+  <div class="q" data-tag="national-orgs">
+    <div class="meta"><span class="num">Q18</span><span class="tag">national-orgs</span></div>
+    <p class="stem">Which national organization specifically represents animal control field professionals — officers, supervisors, and administrators in animal control operations?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>SAWA (Society of Animal Welfare Administrators)</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>NACA (National Animal Control Association)</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>NFHS (National Federation of Humane Societies)</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>AHA (American Humane Association)</button>
+    <div class="expl"><b class="cor">B is correct.</b> NACA (National Animal Control Association) is the professional organization representing the animal control field — animal control officers, supervisors, and administrators in enforcement and field operations. NACA provides training, sets professional standards, and advocates for the animal control discipline. SAWA (option A) represents shelter administrators and executives and issues the CAWA credential — a leadership credential focused on organizational management, not field operations. NFHS (option C) focuses on collaboration among shelter and rescue organizations broadly. AHA (option D) is a broad national organization encompassing multiple animal welfare functions, not specifically an animal control professional association.</div>
+  </div>
+
+  <!-- Q19 -->
+  <div class="q" data-tag="national-orgs">
+    <div class="meta"><span class="num">Q19</span><span class="tag">national-orgs</span></div>
+    <p class="stem">Which organization developed and administers the CAWA (Certified Animal Welfare Administrator) credential?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>NACA (National Animal Control Association)</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>HSUS (Humane Society of the United States)</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>SAWA (Society of Animal Welfare Administrators)</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>ASPCA (American Society for the Prevention of Cruelty to Animals)</button>
+    <div class="expl"><b class="cor">C is correct.</b> SAWA (Society of Animal Welfare Administrators) is the national organization representing shelter administrators and executives. SAWA developed and administers the Certified Animal Welfare Administrator (CAWA) credential, which is organized around five competency domains: Administration &amp; Management; Personnel Supervision &amp; Leadership; Public Relations &amp; Fundraising; Animal Care &amp; Treatment; and Problem Solving. NACA (option A) represents animal control field professionals and does not issue the CAWA. HSUS (option B) and ASPCA (option D) are advocacy and direct service organizations, respectively — neither administers the CAWA credential.</div>
+  </div>
+
+  <!-- Q20 -->
+  <div class="q" data-tag="national-orgs">
+    <div class="meta"><span class="num">Q20</span><span class="tag">national-orgs</span></div>
+    <p class="stem">A shelter director is preparing for the CAWA exam and needs to know which domain covers strategic planning, accounting, financial management, and nonprofit governance. Which domain is correct?</p>
+    <button class="opt" onclick="ans(this,true)"><span class="k">A</span>Domain 1: Administration &amp; Management</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Domain 2: Personnel Supervision &amp; Leadership</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Domain 3: Public Relations &amp; Fundraising</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Domain 5: Problem Solving</button>
+    <div class="expl"><b class="cor">A is correct.</b> CAWA Domain 1 (Administration &amp; Management) covers organizational-level management functions: strategic planning, accounting, budgeting, financial management, nonprofit governance, and regulatory compliance. This is the domain concerned with running the organization as an institution. Domain 2 (Personnel Supervision &amp; Leadership) covers people management — recruitment, training, performance evaluation. Domain 3 covers public-facing functions including fundraising (not financial management of existing funds). Domain 5 covers analytical and operational problem-solving competencies. The most common exam confusion is between Domain 1 (organizational systems) and Domain 2 (people management).</div>
+  </div>
+
+  <!-- Q21 -->
+  <div class="q" data-tag="national-orgs">
+    <div class="meta"><span class="num">Q21</span><span class="tag">national-orgs</span></div>
+    <p class="stem">A new shelter director is developing a structured hiring process, designing a staff training curriculum, and revising the performance evaluation system. Which CAWA domain is MOST relevant to these activities?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Domain 1: Administration &amp; Management</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Domain 2: Personnel Supervision &amp; Leadership</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Domain 4: Animal Care &amp; Treatment</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Domain 5: Problem Solving</button>
+    <div class="expl"><b class="cor">B is correct.</b> CAWA Domain 2 (Personnel Supervision &amp; Leadership) covers all aspects of human resource management: recruitment and selection (hiring process design), staff training and development (curriculum design), performance evaluation, and labor relations. These are competencies involved in managing people within the organization. Domain 1 (Administration &amp; Management) covers organizational-level systems — budgeting, strategic planning, nonprofit governance — not individual employee management. This distinction (Domain 1 = organizational systems; Domain 2 = people management) is the single most commonly tested CAWA domain distinction on the exam.</div>
+  </div>
+
+  <!-- Q22 -->
+  <div class="q" data-tag="national-orgs">
+    <div class="meta"><span class="num">Q22</span><span class="tag">national-orgs</span></div>
+    <p class="stem">A shelter administrator is planning a media campaign to increase adoptions, overseeing donor stewardship activities, and improving customer service at the intake desk. Which CAWA domain covers these activities?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Domain 1: Administration &amp; Management</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Domain 2: Personnel Supervision &amp; Leadership</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Domain 3: Public Relations &amp; Fundraising</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Domain 4: Animal Care &amp; Treatment</button>
+    <div class="expl"><b class="cor">C is correct.</b> CAWA Domain 3 (Public Relations &amp; Fundraising) covers media relations, customer service, fundraising and development, community engagement, and donor stewardship. These are the outward-facing, public-communication competencies of shelter leadership. A common exam error is placing fundraising in Domain 1 (Administration &amp; Management) on the assumption that it is a financial management function. CAWA classifies fundraising under Public Relations — it is a communication and relationship-building competency, not an accounting function. Domain 1 covers management of existing financial resources (budgeting, accounting); Domain 3 covers generating new resources through relationships and communication.</div>
+  </div>
+
+  <!-- Q23 -->
+  <div class="q" data-tag="national-orgs">
+    <div class="meta"><span class="num">Q23</span><span class="tag">national-orgs</span></div>
+    <p class="stem">In 1994, the ASPCA made a major operational change. What was it, and what role did the organization shift toward?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>The ASPCA merged with the AHA to form a unified national advocacy body</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>The ASPCA transferred its laboratory animal advocacy program to HSUS</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>The ASPCA ended its contract to operate New York City's municipal animal control system and shifted to a national model of grant-making, training, and community outreach</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>The ASPCA closed its shelter operations entirely and became a purely legislative advocacy organization</button>
+    <div class="expl"><b class="cor">C is correct.</b> In 1994, the ASPCA ended its contract with New York City to operate the municipal animal control system — a role it had held since the 19th century when Henry Bergh took over the NYC pound. After 1994, the ASPCA transitioned to a national capacity-building model: providing grants to local shelters, offering training and technical assistance, and conducting community outreach and education. The ASPCA did not merge with AHA (option A), did not transfer programs to HSUS (option B), and did not cease operations (option D) — it changed from direct shelter operation to a national grant-making and training organization.</div>
+  </div>
+
+  <!-- Q24 -->
+  <div class="q" data-tag="national-orgs">
+    <div class="meta"><span class="num">Q24</span><span class="tag">national-orgs</span></div>
+    <p class="stem">Which national organization's primary mission is fostering collaboration and information sharing among humane societies, rescue organizations, and animal control agencies?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>SAWA (Society of Animal Welfare Administrators)</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>NACA (National Animal Control Association)</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>NFHS (National Federation of Humane Societies)</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>HSUS (Humane Society of the United States)</button>
+    <div class="expl"><b class="cor">C is correct.</b> The NFHS (National Federation of Humane Societies) is specifically focused on fostering collaboration, communication, and resource sharing among the full range of organizations in the sheltering ecosystem: humane societies, rescue groups, and animal control agencies. It functions as a connector and convener rather than a standards-setting or credentialing body. SAWA (option A) represents shelter administrators and issues the CAWA credential. NACA (option B) represents animal control field professionals specifically. HSUS (option D) is a large national advocacy organization focused primarily on legislation and public education, not specifically on inter-organization collaboration within the sheltering network.</div>
+  </div>
+
+  <!-- Q25 -->
+  <div class="q" data-tag="modern-paradigms">
+    <div class="meta"><span class="num">Q25</span><span class="tag">modern-paradigms</span></div>
+    <p class="stem">A shelter director wants to reduce future intake by addressing the root cause of unplanned litters in the surrounding community. Which strategy should be the FIRST priority according to the shelter medicine intake-reduction framework?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Expanding the shelter's kennel capacity to absorb higher intake without increasing euthanasia</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Developing or partnering in a community spay/neuter program, as S/N is the cornerstone strategy for durable intake reduction</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Implementing a Feral Freedom return-to-field program for all incoming cats</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Launching a social media adoption campaign to increase live-release rate without changing intake</button>
+    <div class="expl"><b class="cor">B is correct.</b> Community spay/neuter programs are identified as the cornerstone of intake reduction in the shelter medicine literature. Unplanned litters — in both owned and unowned animal populations — are the primary driver of shelter intake over time. S/N addresses this at the source, producing population-level reductions in intake that sustain over years. Expanding kennel capacity (option A) accommodates more animals but does not reduce how many enter the system. Feral Freedom (option C) targets adult unsocialized cats specifically and does not address litter production in the owned population. Adoption campaigns (option D) improve live-release outcomes but leave intake unchanged — intake reduction and outcome improvement are complementary but distinct goals.</div>
+  </div>
+
+  <!-- Q26 -->
+  <div class="q" data-tag="modern-paradigms">
+    <div class="meta"><span class="num">Q26</span><span class="tag">modern-paradigms</span></div>
+    <p class="stem">The No-Kill movement in American animal sheltering is credited to which of the following?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>The founding of HSUS in the 1950s and its national campaign against shelter euthanasia</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>The ASPCA's 1994 shift to national grant-making and community outreach programs</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Ed Duvin's publication, which galvanized animal welfare constituencies to challenge euthanasia as routine population control</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>The adoption of the ASV Guidelines for Standards of Care by the Association of Shelter Veterinarians</button>
+    <div class="expl"><b class="cor">C is correct.</b> The No-Kill movement is attributed to Ed Duvin's publication, which argued that euthanasia of healthy, adoptable animals was not a humane necessity but a failure of organizational will and community commitment. Duvin's writing galvanized constituencies within the animal welfare field to organize around ending euthanasia as routine population management. The movement is credited to his publication specifically — not to an organization, not to a specific shelter achieving a live-release rate benchmark, and not to a regulatory body. Options A, B, and D describe real events in shelter history but none is identified as the origin of the No-Kill movement.</div>
+  </div>
+
+  <!-- Q27 -->
+  <div class="q" data-tag="modern-paradigms">
+    <div class="meta"><span class="num">Q27</span><span class="tag">modern-paradigms</span></div>
+    <p class="stem">Of the three primary intake reduction strategies identified in shelter medicine, which is described as the CORNERSTONE?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Keeping animals with their guardians through owner support and surrender diversion programs</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>Community spay/neuter programs</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>Trap-Neuter-Return (TNR) and Feral Freedom programs for community cats</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Transfer transport networks moving animals from high-intake to high-adoption regions</button>
+    <div class="expl"><b class="cor">B is correct.</b> Community spay/neuter programs are explicitly identified as the cornerstone of intake reduction. While keeping animals with guardians (option A) and TNR/Feral Freedom (option C) are important complementary strategies, S/N programs address the root cause of shelter intake — uncontrolled reproduction in owned and unowned animal populations — and produce durable, population-level reductions in intake over time. Transfer networks (option D) are a live-release strategy that moves animals within the system without reducing the number entering it. When the exam asks which intake reduction strategy is most foundational, the answer is spay/neuter programs.</div>
+  </div>
+
+  <!-- Q28 -->
+  <div class="q" data-tag="modern-paradigms">
+    <div class="meta"><span class="num">Q28</span><span class="tag">modern-paradigms</span></div>
+    <p class="stem">How does the Feral Freedom program differ from generic Trap-Neuter-Return (TNR)?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Feral Freedom applies to owned outdoor cats; TNR applies only to unowned community cats</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Feral Freedom requires rabies vaccination but not sterilization; TNR requires both procedures</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Feral Freedom specifically targets adult unsocialized cats for return-to-field, acknowledging they cannot be rehomed as indoor pets but have reasonable quality of life outdoors, while reducing in-shelter management burden; TNR is the broader concept</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Feral Freedom is a municipal government program; TNR is operated exclusively by private rescue organizations</button>
+    <div class="expl"><b class="cor">C is correct.</b> TNR is the broad concept covering community cat management through trapping, sterilizing, and returning cats to outdoor territory. Feral Freedom is a specific named program targeting a defined population: adult, unsocialized (feral) cats who cannot be socialized for indoor adoption. The rationale: these cats have reasonable quality of life living independently outdoors; cannot be rehomed as companion animals; would otherwise consume shelter resources and face euthanasia; and are better served by neuter-and-return than in-shelter management. Feral Freedom specifically reduces the burden these cats place on shelter infrastructure. It is not synonymous with all TNR activity — it targets a specific population for a specific rationale.</div>
+  </div>
+
+  <!-- Q29 -->
+  <div class="q" data-tag="modern-paradigms">
+    <div class="meta"><span class="num">Q29</span><span class="tag">modern-paradigms</span></div>
+    <p class="stem">According to the Miller and Zawistowski framework, which of the following is explicitly included as one of the 10 core functions of a well-organized animal shelter?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Providing unlimited hold periods for all animals until placement is achieved</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Achieving a 90% or greater live-release rate for all animals regardless of health or behavior</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Euthanizing animals that are suffering AND animals that can be neither reclaimed nor adopted</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Operating a 24-hour emergency veterinary clinic accessible to all community members</button>
+    <div class="expl"><b class="cor">C is correct.</b> The Miller and Zawistowski definition of a well-organized shelter explicitly includes euthanizing both suffering animals and animals that can be neither reclaimed nor adopted. This is one of the 10 named core functions — presented as a legitimate and necessary shelter responsibility, not as a failure of the system. This is a critical exam trap: candidates who have absorbed No-Kill movement philosophy may incorrectly exclude euthanasia from the well-organized shelter framework. Options A and B reflect No-Kill aspirations or specific program metrics, not the operational framework as defined by Miller &amp; Zawistowski. Option D is not among the 10 defined functions.</div>
+  </div>
+
+  <!-- Q30 -->
+  <div class="q" data-tag="modern-paradigms">
+    <div class="meta"><span class="num">Q30</span><span class="tag">modern-paradigms</span></div>
+    <p class="stem">Which of the following BEST exemplifies coalition building as a modern sheltering strategy?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>A single shelter expanding its internal volunteer program to increase adoption event frequency</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>A shelter purchasing its own dedicated transport van to independently move animals to higher-demand markets</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>A humane society, three rescue groups, and the municipal animal control agency co-hosting monthly adoption events, sharing a transport vehicle on weekly transfer runs, and jointly funding a community spay/neuter clinic</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>A shelter applying independently for a federal capital grant to build a new kennel facility</button>
+    <div class="expl"><b class="cor">C is correct.</b> Coalition building refers to formal multi-organizational partnerships that pool resources, share infrastructure, and coordinate programs to achieve outcomes no single organization could accomplish independently. The scenario in option C exemplifies all three key coalition activities: joint adoption events (expanding placement reach across organizations), shared transport vehicle (reducing per-organization cost of transfer programs), and co-funded community S/N (distributing the cost of the cornerstone intake reduction strategy across partners). Options A, B, and D all describe single-organization activities — they may be beneficial, but they lack the defining feature of coalition building: cross-organizational collaboration and shared resource investment.</div>
+  </div>
+
+  </div><!-- /qlist -->
+</section>
+
+</div></main>
+
+<footer><div class="wrap">
   <p>ABVP Shelter Medicine RVS Study Hub &middot; Animals &amp; Public Policy Domain &middot; Animal Shelter History (Subdomain 4 of 4)</p>
-</footer>
+  <p>Sources: Miller L, Zawistowski S. Shelter Medicine for Veterinarians and Staff; ASV Guidelines for Standards of Care in Animal Shelters. Content is for exam preparation only.</p>
+</div></footer>
+
 <script>
-var TABS=[
-  {id:"early",   label:"Early Era",              icon:"🏛️"},
-  {id:"welfare", label:"Welfare Movement",        icon:"🕊️"},
-  {id:"orgs",    label:"National Organizations",  icon:"🏢"},
-  {id:"modern",  label:"Modern Paradigms",        icon:"♻️"},
-  {id:"mcq",     label:"MCQ Test Bank",           icon:"✏️", count:10}
-];
-
-var CONTENT={
-early:`
-<h2>Early Era: Property Law &amp; Dog Pounds</h2>
-<div class="card">
-  <h3>The Property Law Era</h3>
-  <span class="bdg notes">Notes</span>
-  <p>In the 19th century, animals were classified as <strong>property under common law</strong>. Livestock had economic value and some legal protections; dogs and cats were excluded from most property protections and had no legal status as companions.</p>
-  <ul>
-    <li>Livestock (cattle, horses) protected primarily because of their economic value to owners</li>
-    <li>Dogs and cats: no legal status as companion animals; feral/stray dogs seen as nuisances</li>
-    <li>Municipal response was primarily about <strong>public safety and nuisance control</strong>, not welfare</li>
-    <li>"Dog pound" operated by a <strong>poundmaster</strong> — a municipal employee whose role was impoundment and destruction, not adoption</li>
-  </ul>
-  <div class="trap"><strong>⚠ Context:</strong> Early sheltering was punitive and utilitarian — no concept of "adoptability" or owner reunification as a goal.</div>
-</div>
-<div class="card">
-  <h3>The Urban Stray Crisis</h3>
-  <p>Mid-19th century American cities faced a crisis of free-roaming dogs and cats, driven by rapid urbanization and limited sanitation. The public health framing (rabies, dog bites, filth) dominated municipal policy.</p>
-  <ul>
-    <li>New York City: tens of thousands of stray dogs impounded annually by the 1860s–1880s</li>
-    <li>Common disposal method: drowning in the <strong>East River</strong> (mass drowning of dogs became a public controversy in NYC)</li>
-    <li>Drowning was slow and visible — public outrage eventually drove adoption of "more humane" gas methods</li>
-    <li>Licensing fees introduced to fund impound operations → later became the revenue model for salaried municipal workers</li>
-  </ul>
-  <span class="bdg ref">Key date</span> <strong>1870s–1880s:</strong> East River drowning of NYC stray dogs became a catalyst for early animal welfare advocacy.
-</div>
-`,
-welfare:`
-<h2>The Welfare Movement</h2>
-<div class="card">
-  <h3>Henry Bergh &amp; the ASPCA (1866)</h3>
-  <span class="bdg ref">Key org</span>
-  <p>The American Society for the Prevention of Cruelty to Animals was founded in <strong>1866 in New York City</strong> by <strong>Henry Bergh</strong>, modeled on the RSPCA (UK). The ASPCA was the first animal welfare organization in the Western Hemisphere.</p>
-  <ul>
-    <li>Bergh lobbied successfully for New York's first animal cruelty statute (1866)</li>
-    <li>ASPCA given authority to investigate and prosecute animal cruelty — a law enforcement function</li>
-    <li>Focus initially on working horses (most visible animal suffering in urban environments)</li>
-    <li>ASPCA eventually took on NYC animal control contract — a role it held until <strong>1994</strong></li>
-  </ul>
-  <div class="trap"><strong>⚠ Exam trap:</strong> ASPCA founded 1866 by Henry Bergh in New York — not to be confused with the PennSPCA (1868) or HSUS (1950s).</div>
-</div>
-<div class="card">
-  <h3>Caroline Earle White &amp; the PennSPCA (1868)</h3>
-  <span class="bdg ref">Key org</span>
-  <p><strong>Caroline Earle White</strong> co-founded the Women's Branch of the Pennsylvania SPCA in <strong>1868</strong> — the first women-led animal welfare organization. She is credited with championing the move away from drowning toward more humane euthanasia methods.</p>
-  <ul>
-    <li>Advocated for <strong>humane gas asphyxiation chambers</strong> as an alternative to drowning</li>
-    <li>Established a shelter model focused on reducing suffering during impoundment</li>
-    <li>Also co-founded the American Anti-Vivisection Society (1883)</li>
-  </ul>
-</div>
-<div class="card">
-  <h3>Evolution of Euthanasia Methods</h3>
-  <p>As public opposition to visible, prolonged drowning grew, shelters transitioned to:</p>
-  <ul>
-    <li><strong>Electrocution</strong> (early 20th century) — considered "faster" but welfare outcomes poor</li>
-    <li><strong>Carbon monoxide (CO) gas chambers</strong> — widely used through the 20th century; now banned in many states</li>
-    <li><strong>Pentobarbital injection</strong> — current gold standard; recommended by AVMA Guidelines for Euthanasia and ACCES</li>
-  </ul>
-  <p>Municipal licensing fees → revenue to hire <strong>salaried workers</strong> → shift from volunteer/poundmaster model to professionalized shelter staff.</p>
-</div>
-`,
-orgs:`
-<h2>National Organizations</h2>
-<div class="card">
-  <h3>American Humane Association (AHA)</h3>
-  <span class="bdg ref">Key org</span>
-  <p>Founded in <strong>1877</strong>, AHA was originally focused on <strong>humane livestock transport</strong> — responding to railway cruelty to cattle. It later expanded to include sheltering and children's welfare.</p>
-  <ul>
-    <li>AHA was the first national animal welfare organization in the US</li>
-    <li>Developed early standards for shelter operations and euthanasia</li>
-    <li>Role in sheltering diminished as HSUS grew (1950s onward)</li>
-  </ul>
-</div>
-<div class="card">
-  <h3>Humane Society of the United States (HSUS)</h3>
-  <span class="bdg ref">Key org</span>
-  <p>HSUS was founded in <strong>1954</strong> by a group that broke away from the American Humane Association over policy disagreements. It is distinct from local humane societies and does not directly operate shelters.</p>
-  <ul>
-    <li>Founded as a national advocacy organization, not a shelter operator</li>
-    <li>Focuses on legislation, policy, and national campaigns</li>
-    <li>Publishes the widely used <em>Shelter Animal Count</em> data and sheltering guidelines</li>
-  </ul>
-  <div class="trap"><strong>⚠ Exam trap:</strong> HSUS formed from an AHA breakaway in 1954 — NOT from the ASPCA. Know the founding dates: AHA 1877 → ASPCA 1866 → HSUS 1954.</div>
-</div>
-<div class="card">
-  <h3>National Animal Care &amp; Control Association (NACA)</h3>
-  <span class="bdg ref">Key org</span>
-  <p>NACA represents animal control professionals (ACOs) — the field workforce that enforces animal ordinances and operates municipal impound facilities. Provides training, credentialing, and model ordinance guidance.</p>
-  <ul>
-    <li>Distinct from humane society organizations — NACA is the municipal/enforcement side</li>
-    <li>Produces Model Animal Control Ordinance frameworks used by cities and counties</li>
-    <li>Partners with HSUS on shelter reform and Best Friends Animal Society on no-kill initiatives</li>
-  </ul>
-</div>
-<div class="card">
-  <h3>SAWA &amp; the CAWA Credential</h3>
-  <span class="bdg notes">Key credential</span>
-  <p>The <strong>Society of Animal Welfare Administrators (SAWA)</strong> offers the <strong>Certified Animal Welfare Administrator (CAWA)</strong> credential for shelter managers and executives.</p>
-  <table class="cmp">
-    <tr><th>CAWA Credential Domain</th><th>Focus</th></tr>
-    <tr><td>Organizational Leadership</td><td>Board relations, strategic planning, organizational culture</td></tr>
-    <tr><td>Financial Management</td><td>Budgeting, auditing, revenue diversification</td></tr>
-    <tr><td>Human Resources</td><td>Hiring, training, compassion fatigue, compliance</td></tr>
-    <tr><td>Programs &amp; Services</td><td>Adoption, foster, TNR, outreach programs</td></tr>
-    <tr><td>Facility &amp; Operations</td><td>Safety, animal care standards, physical plant management</td></tr>
-  </table>
-  <div class="trap"><strong>⚠ Exam trap:</strong> Know all 5 CAWA domains — ABVP exam may test which domain a specific management task falls under.</div>
-</div>
-<div class="card">
-  <h3>ASPCA Ends NYC Contract (1994)</h3>
-  <span class="bdg ref">Key date</span>
-  <p>In <strong>1994</strong>, the ASPCA ended its 128-year contract to operate New York City's animal control services. NYC Animal Care Centers (ACC) took over as the municipal operator. This marked a broader national trend of separating animal welfare advocacy from municipal animal control.</p>
-  <ul>
-    <li>Separation of advocacy/welfare orgs from municipal contracts allowed each to focus on its mission</li>
-    <li>Many cities transitioned from SPCA-operated pounds to dedicated municipal AC agencies</li>
-  </ul>
-</div>
-`,
-modern:`
-<h2>Modern Paradigms</h2>
-<div class="card">
-  <h3>The No-Kill Movement</h3>
-  <span class="bdg notes">Notes</span>
-  <p>The no-kill movement emerged from the belief that euthanizing healthy and treatable animals in shelters is not an inevitable necessity. The philosophical groundwork was laid by activist and author <strong>Ed Duvin</strong>, whose 1989 essay <em>"In the Name of Mercy"</em> argued that the humane movement was complicit in mass killing.</p>
-  <ul>
-    <li><strong>Ed Duvin</strong>: credited as the intellectual origin of no-kill philosophy — know his name and that he was a writer/activist, not an organizational founder</li>
-    <li>No-Kill definition in practice: live release rate ≥ 90% (excludes irremediably suffering animals from the denominator in the Asilomar Accords model)</li>
-    <li>Best Friends Animal Society (founded 1984, Angel Canyon UT): major no-kill advocacy organization</li>
-    <li>Nathan Winograd: wrote <em>Redemption</em> (2007), operationalized the No Kill Equation — 11 programs for achieving no-kill</li>
-  </ul>
-  <div class="trap"><strong>⚠ Exam trap:</strong> No-Kill movement intellectual origin = Ed Duvin's writings, NOT a specific founding organization. Do not attribute it to Best Friends or Nathan Winograd alone.</div>
-</div>
-<div class="card">
-  <h3>Intake Reduction Strategies</h3>
-  <p>The paradigm shift from "better killing" to "fewer intakes" drove major programmatic innovations:</p>
-  <ul>
-    <li><strong>Spay/Neuter programs</strong>: community-wide S/N reduces shelter intake long-term; high-volume, low-cost (HVLCS) model made it accessible</li>
-    <li><strong>TNR (Trap-Neuter-Return)</strong>: community cat programs reduce feral/free-roaming cat intake and population over time</li>
-    <li><strong>Feral Freedom</strong>: specific return-to-field program for adult unsocialized cats — cats spayed/neutered and returned same day; distinct from TNR in scope and speed</li>
-    <li><strong>Diversion programs</strong>: behavior helplines, temporary foster/boarding, pet food pantries to keep pets in homes</li>
-  </ul>
-  <div class="trap"><strong>⚠ Exam trap:</strong> Feral Freedom ≠ TNR. Feral Freedom is a specific return-to-field model for adult unsocialized cats; TNR encompasses broader community cat colony management.</div>
-</div>
-<div class="card">
-  <h3>The Well-Organized Shelter</h3>
-  <span class="bdg ref">ASV / Shelter Medicine</span>
-  <p>Best Friends Animal Society's "10-Point No Kill Equation" and the ASV's standards frame the well-organized shelter as one that implements:</p>
-  <ol style="margin:0;padding-left:18px;font-size:14px;line-height:1.7">
-    <li>Feral cat TNR / return-to-field programs</li>
-    <li>High-volume / high-quality spay-neuter access</li>
-    <li>Rescue group partnerships and transfer programs</li>
-    <li>Foster care programs</li>
-    <li>Comprehensive adoption programs with extended hours</li>
-    <li>Pet retention / owner support programs</li>
-    <li>Medical and behavior rehabilitation</li>
-    <li>Proactive redemptions (owner reunification outreach)</li>
-    <li>Public relations and community engagement</li>
-    <li>Volunteer programs</li>
-  </ol>
-</div>
-<div class="card">
-  <h3>Coalition Building &amp; Public–Private Partnerships</h3>
-  <p>Modern no-kill communities typically involve formal collaboration across:</p>
-  <ul>
-    <li>Municipal animal control (AC) agencies</li>
-    <li>Private humane societies and SPCAs</li>
-    <li>Rescue groups and breed-specific rescues</li>
-    <li>Veterinary clinics (HVLCS partnerships)</li>
-    <li>Local government (funding, ordinance reform)</li>
-  </ul>
-  <p>The <strong>Austin, TX</strong> model (first major city to achieve "no-kill" status, ~2011) is often cited as the proof-of-concept for community-wide coalition approaches.</p>
-</div>
-`,
-mcq:""
-};
-
-var QS=[
-  {tag:"early",stem:"In 19th-century American cities, stray dogs impounded by municipal pounds were most commonly disposed of by which method?",opts:["Pentobarbital injection","Gas asphyxiation chamber","Drowning in rivers (e.g., the East River)","Electrocution"],ans:2,rat:"Before the welfare movement, mass drowning was the primary disposal method for stray dogs in cities like New York — visible and prolonged, which eventually galvanized public opposition. Gas chambers came later (associated with Caroline Earle White's advocacy), and barbiturate injection is the modern standard."},
-  {tag:"early",stem:"Which statement best describes the legal status of dogs and cats in the United States in the mid-19th century?",opts:["They were protected as sentient property with enforceable welfare rights","They were classified under the same property law protections as livestock","They had no meaningful legal status and were treated as nuisances","They were covered by the Animal Welfare Act from its inception"],ans:2,rat:"In the mid-19th century, dogs and cats had no recognized legal status as property. Livestock had protections tied to their economic value; companion animals were excluded. The Animal Welfare Act was not enacted until 1966."},
-  {tag:"welfare",stem:"The ASPCA was founded in 1866 by which individual?",opts:["Caroline Earle White","Nathan Winograd","Henry Bergh","Ed Duvin"],ans:2,rat:"Henry Bergh founded the ASPCA in New York City in 1866, modeled on the RSPCA. Caroline Earle White co-founded the Women's Branch of PennSPCA in 1868. Ed Duvin and Nathan Winograd are associated with the no-kill movement, decades later."},
-  {tag:"welfare",stem:"Caroline Earle White is BEST remembered in shelter history for which contribution?",opts:["Founding the ASPCA in 1866","Authoring 'In the Name of Mercy' — the intellectual foundation of no-kill","Advocating for humane gas asphyxiation as an alternative to drowning","Establishing the CAWA credentialing program through SAWA"],ans:2,rat:"White co-founded the Women's Branch of the Pennsylvania SPCA (1868) and championed humane gas chambers as an alternative to the then-common practice of drowning stray animals. 'In the Name of Mercy' was written by Ed Duvin, and the ASPCA was founded by Henry Bergh."},
-  {tag:"orgs",stem:"The Humane Society of the United States (HSUS) was formed in 1954 as a breakaway from which organization?",opts:["ASPCA","National Animal Care and Control Association (NACA)","American Humane Association (AHA)","Society of Animal Welfare Administrators (SAWA)"],ans:2,rat:"HSUS was founded in 1954 by a group that broke away from the American Humane Association (AHA) over policy disagreements. It is not affiliated with the ASPCA. NACA and SAWA are separate, later organizations."},
-  {tag:"orgs",stem:"In which year did the ASPCA end its long-running contract to operate New York City's animal control services?",opts:["1966","1977","1994","2001"],ans:2,rat:"The ASPCA ended its NYC animal control contract in 1994 after 128 years, transferring operations to what became NYC Animal Care Centers (ACC). This separation of advocacy from municipal impound function was part of a broader national trend."},
-  {tag:"orgs",stem:"The CAWA (Certified Animal Welfare Administrator) credential is awarded by which organization?",opts:["ASPCA","NACA","SAWA","Best Friends Animal Society"],ans:2,rat:"The CAWA is offered by the Society of Animal Welfare Administrators (SAWA). It has 5 domains: Organizational Leadership, Financial Management, Human Resources, Programs & Services, and Facility & Operations."},
-  {tag:"modern",stem:"The intellectual foundation of the no-kill movement is most directly attributed to which individual?",opts:["Henry Bergh","Ed Duvin","Nathan Winograd","Richard Avanzino"],ans:1,rat:"Ed Duvin's 1989 essay 'In the Name of Mercy' is credited as the philosophical catalyst for the no-kill movement, arguing that shelters were complicit in mass killing. Nathan Winograd later operationalized this in 'Redemption' (2007) and the No Kill Equation. Henry Bergh founded the ASPCA; Richard Avanzino led the San Francisco SPCA's no-kill transformation."},
-  {tag:"modern",stem:"Which of the following BEST distinguishes 'Feral Freedom' from standard TNR programs?",opts:["Feral Freedom requires colony registration; TNR does not","Feral Freedom returns only adult unsocialized cats the same day; TNR involves long-term colony management","Feral Freedom uses ear-notching; TNR relies on microchipping for identification","Feral Freedom is federally funded; TNR is locally funded"],ans:1,rat:"Feral Freedom is a return-to-field model specifically for adult unsocialized cats — they are spayed/neutered and returned to their capture location the same day. Standard TNR involves ongoing colony management (feeding, monitoring, trapping additional cats). Both use ear-tipping for identification."},
-  {tag:"modern",stem:"A shelter director wants to implement a 'no-kill' program. According to the Best Friends Animal Society No Kill Equation framework, which combination of programs is MOST essential?",opts:["Extended adoption hours and breed-specific rescue only","High-volume spay/neuter, foster care, rescue partnerships, proactive redemptions, and community TNR","Mandatory microchipping and increased adoption fees to reduce impulse adoptions","Reducing intake by banning owner surrenders and closing the shelter to strays"],ans:1,rat:"The No Kill Equation includes 11 programs; the core pillars are HVLCS spay/neuter, foster care, rescue/transfer partnerships, proactive owner reunification (redemptions), TNR/return-to-field, and comprehensive adoption programs. Banning owner surrenders or closing to strays transfers animals elsewhere — it doesn't reduce killing systemically."}
-];
-
-var activeTag="all";
-
-function buildMCQ(){
-  var answered={};
-  var correct=0;
-  var total=QS.length;
-
-  function html(){
-    var h='<div class="score-bar"><div class="score-label">'+correct+' / '+total+' correct <span>('+Object.keys(answered).length+' answered)</span></div><button class="btn" onclick="resetMCQ()">Reset</button></div>';
-    h+='<div class="mcq-bar"><button class="filter-btn'+(activeTag==="all"?" on":"")+'" onclick="filterMCQ(\'all\')">All ('+total+')</button>';
-    var tags=[...new Set(QS.map(function(q){return q.tag}))];
-    tags.forEach(function(t){
-      var n=QS.filter(function(q){return q.tag===t}).length;
-      h+='<button class="filter-btn'+(activeTag===t?" on":"")+'" onclick="filterMCQ(\''+t+'\')">'+t.charAt(0).toUpperCase()+t.slice(1).replace(/-/g,' ')+' ('+n+')</button>';
-    });
-    h+='</div>';
-    QS.forEach(function(q,qi){
-      var show=(activeTag==="all"||activeTag===q.tag);
-      h+='<div class="q'+(show?'':' hidden')+'" id="q'+qi+'">';
-      h+='<div class="stem"><b>Q'+(qi+1)+'</b>'+q.stem+'</div>';
-      q.opts.forEach(function(o,oi){
-        var cls="opt",mk="",dis="";
-        if(answered.hasOwnProperty(qi)){
-          dis="disabled";
-          if(oi===q.ans){cls+=" correct";mk='<span class="mk">✓</span>';}
-          else if(oi===answered[qi]){cls+=" wrong";mk='<span class="mk">✗</span>';}
-        }
-        h+='<button class="'+cls+'" '+dis+' onclick="ans('+qi+','+oi+')">'+String.fromCharCode(65+oi)+'. '+o+mk+'</button>';
-      });
-      if(answered.hasOwnProperty(qi)){
-        var isRight=answered[qi]===q.ans;
-        h+='<div class="rat"><b>'+(isRight?"Correct.":"Answer: "+String.fromCharCode(65+q.ans)+".")+'</b> '+q.rat+'</div>';
-      }
-      h+='</div>';
-    });
-    return h;
-  }
-
-  function render(){document.getElementById("mcq-mount").innerHTML=html();}
-
-  window.ans=function(qi,oi){
-    if(answered.hasOwnProperty(qi))return;
-    answered[qi]=oi;
-    if(oi===QS[qi].ans)correct++;
-    render();
-  };
-  window.resetMCQ=function(){answered={};correct=0;render();};
-  window.filterMCQ=function(t){activeTag=t;render();};
-
-  var mount=document.createElement("div");
-  mount.id="mcq-mount";
-  document.getElementById("main").appendChild(mount);
-  render();
-}
-
-function showTab(id){
-  document.querySelectorAll(".panel").forEach(function(p){p.classList.remove("active")});
-  document.querySelectorAll(".tabrow button").forEach(function(b){b.classList.remove("active")});
-  document.getElementById("panel-"+id).classList.add("active");
-  document.querySelector('[data-tab="'+id+'"]').classList.add("active");
-  if(id==="mcq"&&!document.getElementById("mcq-mount"))buildMCQ();
-}
-
-window.addEventListener("DOMContentLoaded",function(){
-  var tabrow=document.getElementById("tabrow");
-  var main=document.getElementById("main");
-  TABS.forEach(function(t,i){
-    var btn=document.createElement("button");
-    btn.setAttribute("data-tab",t.id);
-    btn.innerHTML='<span>'+t.icon+'</span> '+t.label+(t.count?' <span style="background:var(--id-soft);color:var(--id);border-radius:999px;padding:1px 7px;font-size:11px;font-weight:700">'+t.count+'</span>':'');
-    btn.onclick=function(){showTab(t.id)};
-    if(i===0)btn.classList.add("active");
-    tabrow.appendChild(btn);
-
-    var panel=document.createElement("div");
-    panel.className="panel"+(i===0?" active":"");
-    panel.id="panel-"+t.id;
-    if(t.id!=="mcq")panel.innerHTML=CONTENT[t.id];
-    main.appendChild(panel);
-  });
+document.getElementById('tabrow').addEventListener('click',function(e){
+  const btn=e.target.closest('button[data-p]');
+  if(!btn)return;
+  document.querySelectorAll('.tabrow button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('show'));
+  document.getElementById(btn.dataset.p).classList.add('show');
 });
+
+let total=0,correct=0;
+function ans(btn,isCorrect){
+  const q=btn.closest('.q');
+  if(q.dataset.locked)return;
+  q.dataset.locked='1';
+  total++;
+  const opts=q.querySelectorAll('.opt');
+  opts.forEach(o=>o.classList.add('locked'));
+  btn.classList.add(isCorrect?'correct':'wrong');
+  if(isCorrect)correct++;
+  else{
+    opts.forEach(o=>{
+      const fn=o.getAttribute('onclick')||'';
+      if(fn.includes('true'))o.classList.add('correct');
+    });
+  }
+  q.querySelector('.expl').classList.add('show');
+  document.getElementById('sc').textContent=correct+' / '+total;
+}
+
+function resetAll(){
+  total=0;correct=0;
+  document.querySelectorAll('.q').forEach(q=>{
+    delete q.dataset.locked;
+    q.querySelectorAll('.opt').forEach(o=>{
+      o.classList.remove('correct','wrong','locked');
+    });
+    const expl=q.querySelector('.expl');
+    if(expl)expl.classList.remove('show');
+  });
+  document.getElementById('sc').textContent='0 / 0';
+}
+
+function filterQ(btn,tag){
+  document.querySelectorAll('.mcqbar .filters button').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('#qlist .q').forEach(q=>{
+    q.style.display=(tag==='all'||q.dataset.tag===tag)?'':'none';
+  });
+}
 </script>
 </body>
 </html>
