@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Epidemiology and Biostats | Research and Biostatistics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --chrome:#b6848f; --chrome-ink:#ffffff;
+  --bg:#f6f2e9; --surface:#ffffff; --surface2:#fbf8f1;
+  --ink:#3a2b2e; --muted:#7a6a6d; --line:#e7ddd0;
+  --accent:#9c5f6f; --accent2:#c7a3ac;
+  --trap-bg:#fbeaef; --trap-line:#d98aa3; --trap-ink:#7d2f48;
+  --verify-bg:#eef2f6; --verify-line:#9bb3c7; --verify-ink:#33536b;
+  --badge-ref-bg:#efe6da; --badge-ref-ink:#7a5d3a;
+  --badge-asv-bg:#e3ece6; --badge-asv-ink:#3d6b50;
+  --badge-note-bg:#ede7ef; --badge-note-ink:#5e4a68;
+  --svg-box:#fbf8f1; --svg-strong:#9c5f6f; --svg-soft:#c7a3ac; --svg-faint:#ead9de;
+  --ok:#2f7d52; --no:#b1466f;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --chrome:#4a2f37; --chrome-ink:#f6f2e9;
+    --bg:#171213; --surface:#241d20; --surface2:#1e1719;
+    --ink:#f0e6e9; --muted:#b39aa0; --line:#382c30;
+    --accent:#cf93a3; --accent2:#7c5562;
+    --trap-bg:#39222a; --trap-line:#b1466f; --trap-ink:#f3c4d3;
+    --verify-bg:#1d2a33; --verify-line:#5b7d97; --verify-ink:#bcd6e7;
+    --badge-ref-bg:#332a1e; --badge-ref-ink:#d9bd8e;
+    --badge-asv-bg:#1f2e25; --badge-asv-ink:#9cc9ad;
+    --badge-note-bg:#2a2230; --badge-note-ink:#c8b2d2;
+    --svg-box:#1e1719; --svg-strong:#cf93a3; --svg-soft:#7c5562; --svg-faint:#33262b;
+    --ok:#6cc08c; --no:#e0789a;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Public Sans",system-ui,sans-serif;line-height:1.6;font-size:16px}
+header{background:var(--chrome);color:var(--chrome-ink);padding:34px 24px 26px}
+.wrap{max-width:980px;margin:0 auto}
+header .kicker{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;opacity:.85;margin:0 0 8px}
+header h1{font-family:"Fraunces",serif;font-weight:600;font-size:38px;line-height:1.05;margin:0}
+header p{margin:10px 0 0;max-width:64ch;opacity:.92;font-size:15px}
+nav{position:sticky;top:0;z-index:20;background:var(--surface);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;flex-wrap:wrap;gap:4px;padding:8px 24px}
+.tab{appearance:none;border:0;background:transparent;color:var(--muted);font-family:"Public Sans",sans-serif;font-weight:600;font-size:14px;padding:9px 13px;border-radius:8px;cursor:pointer}
+.tab:hover{color:var(--ink);background:var(--surface2)}
+.tab.active{color:var(--chrome-ink);background:var(--accent)}
+main{max-width:980px;margin:0 auto;padding:28px 24px 80px}
+.panel{display:none;animation:fade .25s ease}
+.panel.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+h2{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:6px 0 4px;color:var(--ink)}
+h3{font-family:"Fraunces",serif;font-weight:600;font-size:19px;margin:26px 0 6px}
+h4{font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin:18px 0 4px}
+p,li{font-size:15.5px}
+.lead{color:var(--muted);font-size:16px;max-width:70ch}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+th,td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--surface2);font-weight:600;color:var(--accent)}
+tbody tr:hover{background:var(--surface2)}
+.badge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:10.5px;font-weight:600;letter-spacing:.04em;padding:2px 7px;border-radius:999px;vertical-align:middle;margin-left:6px}
+.badge.ref{background:var(--badge-ref-bg);color:var(--badge-ref-ink)}
+.badge.asv{background:var(--badge-asv-bg);color:var(--badge-asv-ink)}
+.badge.note{background:var(--badge-note-bg);color:var(--badge-note-ink)}
+.box{border-radius:12px;padding:14px 16px;margin:14px 0;border-left:4px solid}
+.trap{background:var(--trap-bg);border-color:var(--trap-line)}
+.trap .lbl{color:var(--trap-ink)}
+.verifybox{background:var(--verify-bg);border-color:var(--verify-line)}
+.verifybox .lbl{color:var(--verify-ink)}
+.box .lbl{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+.box p{margin:0;font-size:14.5px}
+code,.mono{font-family:"JetBrains Mono",monospace;font-size:13.5px;background:var(--surface2);padding:1px 5px;border-radius:5px}
+.figwrap{background:var(--svg-box);border:1px solid var(--line);border-radius:14px;padding:16px;margin:18px 0;text-align:center}
+.figwrap svg{max-width:100%;height:auto}
+.figcap{font-size:12.5px;color:var(--muted);margin-top:8px;font-style:italic}
+ul{padding-left:20px}
+.hint{font-size:13px;color:var(--muted);font-style:italic}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 20px}
+.chip{appearance:none;border:1px solid var(--line);background:var(--surface);color:var(--muted);font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:600;padding:7px 12px;border-radius:999px;cursor:pointer}
+.chip:hover{color:var(--ink)}
+.chip.active{background:var(--accent);color:var(--chrome-ink);border-color:var(--accent)}
+.count{font-size:13px;color:var(--muted);margin-bottom:14px}
+.q{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:14px 0}
+.q .qtop{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.q .qn{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--accent);font-weight:600}
+.q .qtag{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--muted)}
+.q .stem{font-weight:500;margin:6px 0 12px;font-size:15.5px}
+.opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:var(--surface2);color:var(--ink);padding:10px 13px;border-radius:9px;margin:7px 0;cursor:pointer;font-size:14.5px;font-family:inherit}
+.opt:hover{border-color:var(--accent2)}
+.opt.correct{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 14%,transparent)}
+.opt.wrong{border-color:var(--no);background:color-mix(in srgb,var(--no) 14%,transparent)}
+.opt .ltr{font-family:"JetBrains Mono",monospace;font-weight:600;margin-right:9px;color:var(--accent)}
+.expl{margin-top:10px;font-size:14px;border-left:3px solid var(--accent2);padding:6px 12px;color:var(--muted);display:none}
+.expl.show{display:block}
+.foot{max-width:980px;margin:0 auto;padding:0 24px 60px;color:var(--muted);font-size:12.5px}
+  /* ── page search ── */
+  .srch-wrap{position:sticky;top:54px;z-index:15;background:var(--surface,var(--paper2,#f5f5f5));border-bottom:1px solid var(--line);padding:5px 0}
+  .srch-row{display:flex;align-items:center;gap:8px;background:#fff;border:1.5px solid var(--line);border-radius:10px;padding:5px 11px;transition:border-color .15s}
+  .srch-row:focus-within{border-color:var(--ink)}
+  .srch-row svg{flex-shrink:0;opacity:.45}
+  .srch-row input{flex:1;border:none;outline:none;font-family:"Public Sans",system-ui,sans-serif;font-size:13.5px;color:var(--ink);background:transparent;min-width:0}
+  .srch-row input::placeholder{color:var(--muted);opacity:.7;font-size:13px}
+  #srchMeta{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);white-space:nowrap;padding-right:4px}
+  #srchClear{border:none;background:none;cursor:pointer;color:var(--muted);font-size:15px;padding:0 2px;line-height:1;display:none;flex-shrink:0}
+  .srch-out{padding:20px 0 60px}
+  .sr-group{margin-bottom:32px}
+  .sr-tab{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--ink);border-radius:999px;padding:4px 11px;display:inline-block;margin-bottom:10px}
+  .sr-ctx{font-size:12px;color:var(--muted);font-style:italic;margin:-2px 0 6px 2px}
+  .sr-item{margin:10px 0}
+  mark.sh{background:#fff176;color:inherit;border-radius:2px;padding:0 1px}
+  .srch-none{color:var(--muted);font-size:14px;padding:24px 0;font-style:italic}
+</style>
+</head>
+<body>
+<nav style="background:#6b2a3c;padding:9px 18px;display:flex;align-items:center;gap:10px;font-family:'Public Sans',system-ui,sans-serif;font-size:13px;font-weight:500;border-bottom:2px solid #8A3A52"><a href="../index.html" style="color:#e8b0c4;text-decoration:none;display:flex;align-items:center;gap:5px"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span style="color:#7a3048;font-size:11px">›</span><a href="../index.html#domain-research" style="color:#e8b0c4;text-decoration:none">Research and Biostats</a><span style="color:#7a3048;font-size:11px">›</span><span style="color:#f5d8e4">Epidemiology and Biostats</span></nav>
+<header>
+  <div class="wrap">
+    <p class="kicker">Research and Biostatistics &bull; 6% of exam</p>
+    <h1>Epidemiology and Biostats</h1>
+    <p>The 54% half of the domain, built as methodology: how to measure disease frequency, quantify associations, track mortality, and run population surveillance. Operational shelter metrics live in Data and Analysis; diagnostic test characteristics live in the Study Design hub.</p>
+  </div>
+</header>
+
+<nav>
+  <div class="wrap">
+    <button class="tab active" data-tab="freq">Disease Frequency</button>
+    <button class="tab" data-tab="assoc">Association and Impact</button>
+    <button class="tab" data-tab="mort">Mortality and Morbidity</button>
+    <button class="tab" data-tab="surv">Surveillance</button>
+    <button class="tab" data-tab="bank">Question Bank</button>
+  </div>
+</nav>
+<div class="srch-wrap"><div class="wrap"><div class="srch-row">
+<svg width="14" height="14" viewBox="0 0 15 15" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="m10.5 10.5 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+<input type="text" id="srchIn" placeholder="Search all tabs… e.g. incidence, sensitivity, bias" autocomplete="off" spellcheck="false">
+<span id="srchMeta"></span><button id="srchClear" title="Clear search">×</button>
+</div></div></div>
+<div class="srch-out" id="srchOut" style="display:none"><div class="wrap"><div id="srchList"></div></div></div>
+
+<main>
+
+<!-- ============ FREQUENCY ============ -->
+<section class="panel active" id="freq">
+  <h2>Measures of Disease Frequency</h2>
+  <p class="lead">Two families of measure: incidence counts new disease over time (risk), prevalence counts existing disease at a moment (burden). Mixing them up is the most common error in this subdomain.</p>
+
+  <h3>Incidence <span class="badge ref">ref</span></h3>
+  <ul>
+    <li><b>Cumulative incidence (incidence risk):</b> the proportion of an at-risk group that develops new disease over a defined period. A dimensionless proportion, so the time period must always be stated. <span class="mono">CI = new cases / population at risk</span>.</li>
+    <li><b>Incidence rate (incidence density):</b> new cases divided by total <b>animal-time at risk</b>, giving cases per unit time (for example, cases per 100 dog-days). It accommodates animals entering and leaving at different times.</li>
+    <li><b>Attack rate:</b> cumulative incidence measured over the limited period of an outbreak.</li>
+  </ul>
+  <div class="box verifybox"><span class="lbl">Shelter note</span><p>Shelter populations are unstable, with widely varying lengths of stay, so the animal-time denominator of the incidence rate is the more rigorous choice. Cumulative incidence still tracks trends closely and is simpler for routine monitoring.</p></div>
+
+  <h4>The at-risk denominator</h4>
+  <p>Only animals capable of developing new disease belong in the denominator. Exclude animals already infected at the start, animals arriving already infected, animals that recovered before the interval, and animals removed so quickly they had no exposure opportunity.</p>
+
+  <div class="figwrap">
+    <svg viewBox="0 0 660 210" role="img" aria-label="Population at risk derivation for cumulative incidence">
+      <defs>
+        <marker id="arEbDenom" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+          <path d="M0,0 L7,3 L0,6 Z" fill="var(--svg-strong)"/>
+        </marker>
+      </defs>
+      <text x="330" y="20" text-anchor="middle" font-family="Fraunces,serif" font-size="15" fill="var(--ink)">Cumulative incidence of feline URI, August</text>
+      <rect x="20" y="42" width="170" height="50" rx="8" fill="var(--svg-faint)" stroke="var(--svg-soft)"/>
+      <text x="105" y="63" text-anchor="middle" font-size="12" fill="var(--ink)">Intake 111</text>
+      <text x="105" y="80" text-anchor="middle" font-size="11" fill="var(--muted)">minus 6 already infected</text>
+      <line x1="190" y1="67" x2="250" y2="67" stroke="var(--svg-strong)" stroke-width="2" marker-end="url(#arEbDenom)"/>
+      <rect x="255" y="42" width="120" height="50" rx="8" fill="var(--svg-box)" stroke="var(--svg-soft)"/>
+      <text x="315" y="72" text-anchor="middle" font-size="13" fill="var(--ink)">105 at risk</text>
+      <rect x="20" y="112" width="170" height="50" rx="8" fill="var(--svg-faint)" stroke="var(--svg-soft)"/>
+      <text x="105" y="133" text-anchor="middle" font-size="12" fill="var(--ink)">Resident 39</text>
+      <text x="105" y="150" text-anchor="middle" font-size="11" fill="var(--muted)">minus 11 infected, 3 recovered</text>
+      <line x1="190" y1="137" x2="250" y2="137" stroke="var(--svg-strong)" stroke-width="2" marker-end="url(#arEbDenom)"/>
+      <rect x="255" y="112" width="120" height="50" rx="8" fill="var(--svg-box)" stroke="var(--svg-soft)"/>
+      <text x="315" y="142" text-anchor="middle" font-size="13" fill="var(--ink)">25 at risk</text>
+      <line x1="375" y1="67" x2="430" y2="95" stroke="var(--svg-strong)" stroke-width="2" marker-end="url(#arEbDenom)"/>
+      <line x1="375" y1="137" x2="430" y2="105" stroke="var(--svg-strong)" stroke-width="2" marker-end="url(#arEbDenom)"/>
+      <rect x="435" y="78" width="205" height="48" rx="8" fill="var(--svg-strong)"/>
+      <text x="537" y="98" text-anchor="middle" font-size="12.5" fill="#fff">130 at risk, 35 new cases</text>
+      <text x="537" y="116" text-anchor="middle" font-size="12" fill="#fff">CI = 35 / 130 = 26.9%</text>
+    </svg>
+    <div class="figcap">Filtering the at-risk denominator. Reconstructed from your worked example. Original construction.</div>
+  </div>
+  <div class="box verifybox"><span class="lbl">Clarification</span><p>Excluding the recovered cats assumes they are immune. For feline URI (herpesvirus and calicivirus) recovered cats can be reinfected or relapse, so they are arguably still at risk. The exclusion is a valid simplification only if recurrent cases are tracked as a separate metric.</p></div>
+
+  <h3>Prevalence <span class="badge ref">ref</span></h3>
+  <ul>
+    <li><b>Point prevalence:</b> the proportion with disease at a single instant (for example, FeLV positivity on intake day).</li>
+    <li><b>Period prevalence:</b> the proportion with disease at any time during an interval.</li>
+  </ul>
+  <p>Prevalence reflects existing burden, which is what drives confirmatory-test interpretation, pharmacy budgeting, and housing planning.</p>
+
+  <h3>Linking incidence and prevalence <span class="badge ref">ref</span></h3>
+  <div class="figwrap">
+    <svg viewBox="0 0 520 230" role="img" aria-label="Reservoir model linking incidence and prevalence">
+      <defs>
+        <marker id="arEbRes" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+          <path d="M0,0 L7,3 L0,6 Z" fill="var(--svg-strong)"/>
+        </marker>
+      </defs>
+      <line x1="260" y1="20" x2="260" y2="70" stroke="var(--svg-strong)" stroke-width="2.5" marker-end="url(#arEbRes)"/>
+      <text x="270" y="42" font-size="12" fill="var(--svg-strong)">Incidence (new cases in)</text>
+      <rect x="160" y="72" width="200" height="80" rx="10" fill="var(--svg-faint)" stroke="var(--svg-soft)"/>
+      <text x="260" y="108" text-anchor="middle" font-size="13" fill="var(--ink)">Prevalence pool</text>
+      <text x="260" y="128" text-anchor="middle" font-size="11" fill="var(--muted)">existing cases</text>
+      <line x1="205" y1="152" x2="205" y2="200" stroke="var(--svg-strong)" stroke-width="2.5" marker-end="url(#arEbRes)"/>
+      <text x="120" y="190" font-size="11" fill="var(--muted)">recovery</text>
+      <line x1="315" y1="152" x2="315" y2="200" stroke="var(--svg-strong)" stroke-width="2.5" marker-end="url(#arEbRes)"/>
+      <text x="330" y="190" font-size="11" fill="var(--muted)">death or removal</text>
+    </svg>
+    <div class="figcap">Incidence fills the pool, recovery and death drain it. Original construction.</div>
+  </div>
+  <p>When prevalence is low and stable, <span class="mono">Prevalence &asymp; Incidence &times; average Duration</span>. A chronic, long-duration disease therefore shows a high prevalence relative to its incidence; a rapidly fatal or quickly resolving disease shows a low one.</p>
+</section>
+
+<!-- ============ ASSOCIATION ============ -->
+<section class="panel" id="assoc">
+  <h2>Measures of Association and Impact</h2>
+  <p class="lead">Association measures ask how strongly an exposure and an outcome travel together. The design dictates which measure you can compute, and ratio measures share a null value of 1.</p>
+
+  <h3>The 2x2 table <span class="badge ref">ref</span></h3>
+  <div class="figwrap">
+    <svg viewBox="0 0 560 250" role="img" aria-label="Exposure outcome 2x2 table with relative risk and odds ratio">
+      <defs>
+        <marker id="arEb2x2" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+          <path d="M0,0 L7,3 L0,6 Z" fill="var(--svg-strong)"/>
+        </marker>
+      </defs>
+      <text x="250" y="22" text-anchor="middle" font-size="12" fill="var(--muted)">Outcome</text>
+      <text x="180" y="44" text-anchor="middle" font-size="12" fill="var(--ink)">Diseased</text>
+      <text x="320" y="44" text-anchor="middle" font-size="12" fill="var(--ink)">Not diseased</text>
+      <text x="55" y="86" font-size="11" fill="var(--ink)">Exposed</text>
+      <text x="50" y="146" font-size="11" fill="var(--ink)">Unexposed</text>
+      <rect x="110" y="56" width="140" height="52" rx="6" fill="var(--svg-faint)" stroke="var(--svg-soft)"/>
+      <text x="180" y="87" text-anchor="middle" font-size="14" fill="var(--ink)">a</text>
+      <rect x="250" y="56" width="140" height="52" rx="6" fill="var(--svg-box)" stroke="var(--svg-soft)"/>
+      <text x="320" y="87" text-anchor="middle" font-size="14" fill="var(--ink)">b</text>
+      <rect x="110" y="116" width="140" height="52" rx="6" fill="var(--svg-box)" stroke="var(--svg-soft)"/>
+      <text x="180" y="147" text-anchor="middle" font-size="14" fill="var(--ink)">c</text>
+      <rect x="250" y="116" width="140" height="52" rx="6" fill="var(--svg-faint)" stroke="var(--svg-soft)"/>
+      <text x="320" y="147" text-anchor="middle" font-size="14" fill="var(--ink)">d</text>
+      <line x1="400" y1="82" x2="430" y2="82" stroke="var(--svg-strong)" stroke-width="2" marker-end="url(#arEb2x2)"/>
+      <text x="478" y="78" text-anchor="middle" font-size="11" fill="var(--svg-strong)">RR =</text>
+      <text x="478" y="93" text-anchor="middle" font-size="10.5" fill="var(--muted)">[a/(a+b)] / [c/(c+d)]</text>
+      <line x1="400" y1="142" x2="430" y2="142" stroke="var(--svg-strong)" stroke-width="2" marker-end="url(#arEb2x2)"/>
+      <text x="478" y="138" text-anchor="middle" font-size="11" fill="var(--svg-strong)">OR =</text>
+      <text x="478" y="153" text-anchor="middle" font-size="10.5" fill="var(--muted)">ad / bc</text>
+      <text x="250" y="210" text-anchor="middle" font-size="11.5" fill="var(--muted)">Cohort yields RR (uses row totals); case-control yields OR (cross-product)</text>
+    </svg>
+    <div class="figcap">The exposure-outcome 2x2 and the measures each design produces. Original construction.</div>
+  </div>
+
+  <h3>The measures <span class="badge ref">ref</span></h3>
+  <table>
+    <thead><tr><th>Measure</th><th>Definition</th><th>From</th><th>Null</th></tr></thead>
+    <tbody>
+      <tr><td>Relative risk (risk ratio)</td><td>Incidence in exposed / incidence in unexposed</td><td>Cohort, experimental</td><td>1</td></tr>
+      <tr><td>Odds ratio</td><td>Odds of exposure in cases / in controls (ad/bc)</td><td>Case-control</td><td>1</td></tr>
+      <tr><td>Prevalence ratio</td><td>Prevalence in exposed / unexposed</td><td>Cross-sectional</td><td>1</td></tr>
+      <tr><td>Attributable risk (risk difference)</td><td>Incidence exposed minus incidence unexposed</td><td>Cohort, experimental</td><td>0</td></tr>
+    </tbody>
+  </table>
+  <p>Above 1 means increased risk, below 1 means protection, for ratio measures. The <b>attributable risk</b> is an absolute measure of the excess risk carried by the exposure, useful for judging public-health impact rather than just strength of association.</p>
+  <div class="box trap"><span class="lbl">Exam trap</span><p>The odds ratio approximates the relative risk <b>only when the disease is rare</b>. With a common outcome the odds ratio overstates the relative risk. Case-control studies cannot yield a true relative risk because they sample on outcome, not on the population at risk.</p></div>
+</section>
+
+<!-- ============ MORTALITY ============ -->
+<section class="panel" id="mort">
+  <h2>Mortality and Morbidity</h2>
+  <p class="lead">Three death metrics that look similar and are routinely confused. The entire distinction is the denominator.</p>
+
+  <h3>Death metrics <span class="badge ref">ref</span></h3>
+  <table>
+    <thead><tr><th>Metric</th><th>Numerator</th><th>Denominator</th><th>Tells you</th></tr></thead>
+    <tbody>
+      <tr><td>Crude (all-cause) mortality rate</td><td>Deaths from any cause</td><td>Total population at risk of dying</td><td>Overall death burden</td></tr>
+      <tr><td>Cause-specific mortality rate</td><td>Deaths from one disease</td><td>Total population at risk of dying</td><td>Population threat of one disease</td></tr>
+      <tr><td>Case fatality rate</td><td>Deaths from one disease</td><td>Confirmed cases of that disease</td><td>Virulence or severity</td></tr>
+    </tbody>
+  </table>
+  <div class="box trap"><span class="lbl">High-yield trap</span><p>Cause-specific mortality and case fatality rate share a numerator but differ in denominator. Cause-specific mortality uses the <b>whole population</b>; case fatality rate uses only <b>confirmed cases</b>. A disease can have a high case fatality rate (very lethal once caught) yet a low cause-specific mortality (few animals catch it).</p></div>
+  <h4>Worked example</h4>
+  <p>Ten dogs are confirmed with parvovirus in an outbreak and four die. <span class="mono">Case fatality rate = 4 / 10 = 40%</span>. If those 10 cases occurred among 200 dogs at risk, the <span class="mono">cause-specific mortality = 4 / 200 = 2%</span>.</p>
+
+  <h3>Morbidity and the population approach <span class="badge ref">ref</span></h3>
+  <p>Morbidity is the occurrence of illness, captured by incidence or prevalence. Managing a shelter population means shifting from individual diagnostics to herd-scale reasoning.</p>
+  <table>
+    <thead><tr><th>Step</th><th>Individual animal</th><th>Population</th></tr></thead>
+    <tbody>
+      <tr><td>History</td><td>Individual patient history</td><td>Event history (transfers, intake surges)</td></tr>
+      <tr><td>Evaluation</td><td>Physical exam for clinical signs</td><td>Measure disease frequency, incidence, mortality</td></tr>
+      <tr><td>Diagnosis</td><td>Differential diagnosis list</td><td>Epidemiological hypotheses for the frequency</td></tr>
+      <tr><td>Testing</td><td>Targeted individual tests</td><td>Characterise rates by subgroup, subset testing</td></tr>
+      <tr><td>Plan</td><td>Individual treatment</td><td>Protocol change, monitor population incidence</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============ SURVEILLANCE ============ -->
+<section class="panel" id="surv">
+  <h2>Surveillance</h2>
+  <p class="lead">Surveillance is the ongoing systematic collection and interpretation of health data so problems are caught early and interventions can be judged. It is the population equivalent of an examination.</p>
+
+  <h3>Types of surveillance <span class="badge ref">ref</span></h3>
+  <ul>
+    <li><b>Passive:</b> the system waits for cases or reports to come to it. Cheap but under-detects.</li>
+    <li><b>Active:</b> the team deliberately seeks out cases (for example, routine intake testing or daily walk-throughs). More complete, more resource-intensive.</li>
+    <li><b>Syndromic:</b> tracks clinical syndromes (for example, coughing dogs) rather than confirmed diagnoses, for earlier warning.</li>
+    <li><b>Sentinel:</b> monitors a defined subset as an early indicator for the wider population.</li>
+  </ul>
+  <p>The <b>sensitivity of a surveillance system</b> is the proportion of true cases it actually detects. A passive system usually has lower sensitivity than an active one.</p>
+
+  <h3>Endemic, epidemic, and the epidemic curve <span class="badge ref">ref</span></h3>
+  <p><b>Endemic</b> is the usual, expected baseline level of a disease in a population. An <b>epidemic (outbreak)</b> is occurrence clearly in excess of that expected level. Plotting cases by time of onset produces an <b>epidemic curve</b>, whose shape suggests the mode of spread.</p>
+  <div class="figwrap">
+    <svg viewBox="0 0 600 220" role="img" aria-label="Epidemic curves: common source versus propagated">
+      <defs>
+        <marker id="arEbCurve" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+          <path d="M0,0 L7,3 L0,6 Z" fill="var(--svg-strong)"/>
+        </marker>
+      </defs>
+      <text x="150" y="22" text-anchor="middle" font-size="12.5" fill="var(--ink)">Common (point) source</text>
+      <line x1="40" y1="170" x2="280" y2="170" stroke="var(--svg-soft)" stroke-width="1.5"/>
+      <line x1="40" y1="170" x2="40" y2="50" stroke="var(--svg-soft)" stroke-width="1.5" marker-end="url(#arEbCurve)"/>
+      <rect x="70" y="150" width="16" height="20" fill="var(--svg-soft)"/>
+      <rect x="90" y="120" width="16" height="50" fill="var(--svg-strong)"/>
+      <rect x="110" y="90" width="16" height="80" fill="var(--svg-strong)"/>
+      <rect x="130" y="120" width="16" height="50" fill="var(--svg-strong)"/>
+      <rect x="150" y="150" width="16" height="20" fill="var(--svg-soft)"/>
+      <text x="150" y="190" text-anchor="middle" font-size="10.5" fill="var(--muted)">single sharp peak</text>
+      <text x="450" y="22" text-anchor="middle" font-size="12.5" fill="var(--ink)">Propagated source</text>
+      <line x1="330" y1="170" x2="580" y2="170" stroke="var(--svg-soft)" stroke-width="1.5"/>
+      <line x1="330" y1="170" x2="330" y2="50" stroke="var(--svg-soft)" stroke-width="1.5" marker-end="url(#arEbCurve)"/>
+      <rect x="350" y="140" width="14" height="30" fill="var(--svg-strong)"/>
+      <rect x="368" y="120" width="14" height="50" fill="var(--svg-strong)"/>
+      <rect x="400" y="110" width="14" height="60" fill="var(--svg-strong)"/>
+      <rect x="418" y="130" width="14" height="40" fill="var(--svg-strong)"/>
+      <rect x="452" y="95" width="14" height="75" fill="var(--svg-strong)"/>
+      <rect x="470" y="120" width="14" height="50" fill="var(--svg-strong)"/>
+      <rect x="504" y="135" width="14" height="35" fill="var(--svg-strong)"/>
+      <text x="455" y="190" text-anchor="middle" font-size="10.5" fill="var(--muted)">successive waves (one incubation apart)</text>
+    </svg>
+    <div class="figcap">Curve shape points to mechanism: one peak for a shared source, repeating waves for animal-to-animal spread. Original construction.</div>
+  </div>
+  <p>During an investigation a clear <b>case definition</b> lets cases be counted consistently by time, place and animal, and <b>attack rates</b> compared across subgroups point to the highest-risk group and the likely source.</p>
+  <div class="box verifybox"><span class="lbl">Scope boundary</span><p>This page covers surveillance and outbreak epidemiology as method. Operational outbreak prevention and response protocols live in the Infectious Disease hub; diagnostic test sensitivity, specificity and predictive values live in the Study Design hub.</p></div>
+</section>
+
+<!-- ============ BANK ============ -->
+<section class="panel" id="bank">
+  <h2>Question Bank</h2>
+  <p class="lead">Thirty single-best-answer items across the four topics. Tap an option to check it. Answers are spread evenly across A to D.</p>
+  <div class="chips" id="chips">
+    <button class="chip active" data-f="all">All</button>
+    <button class="chip" data-f="freq">Disease Frequency</button>
+    <button class="chip" data-f="assoc">Association and Impact</button>
+    <button class="chip" data-f="mort">Mortality and Morbidity</button>
+    <button class="chip" data-f="surv">Surveillance</button>
+  </div>
+  <div class="count" id="count"></div>
+  <div id="bankList"></div>
+</section>
+
+</main>
+
+<div class="foot">
+  Standalone study aid for the ABVP Shelter Medicine Practice RVS exam. Content reflects standard veterinary epidemiology and biostatistics reference. Source badges: <span class="badge ref">ref</span> standard reference, <span class="badge asv">asv</span> ASV guidance, <span class="badge note">note</span> scope note.
+</div>
+
+<script>
+const DLABEL={all:"All",freq:"Disease Frequency",assoc:"Association and Impact",mort:"Mortality and Morbidity",surv:"Surveillance"};
+const Q=[
+ {f:"freq",q:"Cumulative incidence (incidence risk) measures:",o:["The proportion of a population with disease at one point in time","The proportion of at-risk individuals who develop disease over a defined period","The number of deaths among confirmed cases","The average duration of disease"],a:1,e:"Cumulative incidence is the proportion of an at-risk group developing new disease over a stated period; a measure of risk."},
+ {f:"freq",q:"Incidence rate (incidence density) differs from cumulative incidence because its denominator is:",o:["The number of confirmed cases","The total population at one time point","Total animal-time at risk","The number of deaths"],a:2,e:"Incidence rate uses animal-time at risk, giving cases per unit time and accommodating varying follow-up."},
+ {f:"freq",q:"When calculating cumulative incidence of an in-shelter disease, which animals must be EXCLUDED from the at-risk denominator?",o:["Animals housed individually","Animals over six months of age","Vaccinated animals","Animals already infected at the start and those arriving already infected"],a:3,e:"The denominator includes only animals capable of developing new disease, so existing and incoming cases are excluded."},
+ {f:"freq",q:"Screening every cat for FeLV on intake day and reporting the proportion already infected measures:",o:["Point prevalence","Cumulative incidence","Case fatality rate","Incidence density"],a:0,e:"Disease present at a single time point in a population is point prevalence."},
+ {f:"freq",q:"A chronic, long-duration disease tends to have:",o:["Low prevalence relative to its incidence","Equal incidence and prevalence","High prevalence relative to its incidence","Zero prevalence"],a:2,e:"Prevalence is approximately incidence times duration, so long-duration disease accumulates a high prevalence."},
+ {f:"freq",q:"August intake is 111 cats, 6 arriving already infected. The Aug 1 resident census is 39, of which 11 are infected and 3 recovered before Aug 1. The population at risk is:",o:["120","130","105","25"],a:1,e:"Incoming at risk 111 minus 6 = 105; resident at risk 39 minus 11 minus 3 = 25; total 130."},
+ {f:"freq",q:"Which measure best expresses the probability that an individual animal will develop a disease?",o:["Incidence","Prevalence","Case fatality rate","Specificity"],a:0,e:"Incidence captures new disease over time, the measure of individual risk; prevalence reflects existing burden."},
+ {f:"freq",q:"Why is the incidence rate (animal-time) often preferred over simple cumulative incidence in shelters?",o:["It is easier to calculate by hand","It ignores length of stay","It measures existing disease burden","Shelter populations are unstable with widely varying lengths of stay"],a:3,e:"Animal-time denominators handle the variable follow-up created by differing lengths of stay."},
+ {f:"assoc",q:"In a cohort study, relative risk is calculated as:",o:["The odds of exposure in cases divided by controls","Deaths divided by confirmed cases","Incidence in the exposed divided by incidence in the unexposed","Existing cases divided by total population"],a:2,e:"Relative risk is the ratio of incidence in exposed to unexposed, available from cohort designs."},
+ {f:"assoc",q:"The odds ratio from a case-control study approximates the relative risk when:",o:["The sample is very small","Exposure is rare","The study is prospective","The disease is rare"],a:3,e:"Under the rare-disease assumption the odds ratio approximates the relative risk."},
+ {f:"assoc",q:"A relative risk of 1.0 indicates:",o:["No association between exposure and outcome","A strong protective effect","A doubling of risk","A statistically significant result"],a:0,e:"For a ratio measure the null value is 1, meaning no association."},
+ {f:"assoc",q:"The absolute excess risk in the exposed group compared with the unexposed is the:",o:["Odds ratio","Attributable risk (risk difference)","Relative risk","Prevalence ratio"],a:1,e:"Attributable risk is the difference in incidence between exposed and unexposed, an absolute measure."},
+ {f:"assoc",q:"A 2x2 table shows exposed cases 40, exposed non-cases 60, unexposed cases 20, unexposed non-cases 80. The relative risk is:",o:["1.0","0.5","2.0","4.0"],a:2,e:"Risk exposed 40/100 = 0.4; risk unexposed 20/100 = 0.2; RR = 0.4/0.2 = 2.0."},
+ {f:"assoc",q:"An odds ratio is statistically non-significant when its 95% confidence interval includes:",o:["0","0.5","2","1"],a:3,e:"Ratio measures have a null value of 1; an interval that includes 1 is not significant."},
+ {f:"assoc",q:"A relative risk of 0.6 for a vaccinated group indicates:",o:["A protective effect of vaccination","An increased risk from vaccination","No association","A case fatality rate of 60%"],a:0,e:"A relative risk below 1 indicates reduced risk, here a protective effect."},
+ {f:"mort",q:"Dividing the number of animals that die of a disease by the number of confirmed cases of that disease gives the:",o:["Crude mortality rate","Cause-specific mortality rate","Prevalence","Case fatality rate"],a:3,e:"Case fatality rate uses confirmed cases as its denominator and reflects disease severity."},
+ {f:"mort",q:"The denominator of the crude mortality rate is:",o:["Confirmed cases of one disease","The total population at risk of dying","Animals that recovered","Newly diagnosed cases"],a:1,e:"Crude mortality uses the whole at-risk population, not just cases."},
+ {f:"mort",q:"Which statement correctly distinguishes case fatality rate from mortality rate?",o:["They are identical","Mortality rate uses cases as the denominator","Case fatality rate uses cases as the denominator; mortality rate uses the whole population","Case fatality rate measures incidence"],a:2,e:"The key difference is the denominator: cases for case fatality rate, whole population for mortality rate."},
+ {f:"mort",q:"The number of deaths from parvovirus divided by the total population at risk during the interval is the:",o:["Cause-specific mortality rate","Case fatality rate","Attack rate","Point prevalence"],a:0,e:"Cause-specific mortality isolates deaths from one disease over the whole at-risk population."},
+ {f:"mort",q:"Ten dogs are confirmed with parvovirus and four die. The case fatality rate is:",o:["10%","40%","4%","25%"],a:1,e:"Case fatality rate = 4 deaths / 10 cases = 40%."},
+ {f:"mort",q:"Morbidity in a population is best described by:",o:["The death rate","The proportion of positive diagnostic tests","The incidence or prevalence of illness","The case fatality rate"],a:2,e:"Morbidity refers to the occurrence of illness, captured by incidence or prevalence."},
+ {f:"mort",q:"The proportion of the total shelter population that dies from any cause during a period is the:",o:["Crude (all-cause) mortality rate","Case fatality rate","Cause-specific mortality rate","Attack rate"],a:0,e:"All-cause death over the whole population is the crude mortality rate."},
+ {f:"surv",q:"A surveillance system in which the shelter actively seeks out cases rather than waiting for reports is:",o:["Passive surveillance","Syndromic only","Sentinel reporting","Active surveillance"],a:3,e:"Active surveillance involves deliberately seeking cases; passive relies on cases being reported in."},
+ {f:"surv",q:"In the population approach to disease, the equivalent of forming a differential diagnosis for an individual is:",o:["Performing a physical exam on each animal","Formulating epidemiological hypotheses about disease frequency","Treating each animal individually","Recording an individual history"],a:1,e:"At the population level the clinician forms hypotheses to explain the observed frequency and distribution of disease."},
+ {f:"surv",q:"A disease consistently present at a stable, expected baseline level in a population is described as:",o:["Endemic","Epidemic","Pandemic","Sporadic"],a:0,e:"Endemic refers to the usual expected baseline level; an excess above that is an epidemic or outbreak."},
+ {f:"surv",q:"An epidemic curve with a single sharp peak, cases clustered within one incubation period, suggests:",o:["A propagated animal-to-animal outbreak","An endemic pattern","A common (point) source exposure","A surveillance artifact"],a:2,e:"A single sharp peak within one incubation period is the signature of a common point-source exposure."},
+ {f:"surv",q:"Successive peaks of cases spaced about one incubation period apart on an epidemic curve suggest:",o:["A point-source outbreak","Random background variation","A non-infectious cause","A propagated (animal-to-animal) outbreak"],a:3,e:"Progressive waves spaced by the incubation period indicate animal-to-animal propagated spread."},
+ {f:"surv",q:"The primary purpose of establishing a case definition early in an outbreak investigation is to:",o:["Assign blame for the outbreak","Count cases consistently across the investigation","Calculate the case fatality rate","Replace diagnostic testing"],a:1,e:"A standard case definition lets investigators count cases consistently in time, place and animal."},
+ {f:"surv",q:"Attack rates calculated for different subgroups during an outbreak are used mainly to:",o:["Identify which groups are at highest risk","Measure long-term prevalence","Determine the case fatality rate","Estimate length of stay"],a:0,e:"Comparing attack rates across subgroups highlights the highest-risk groups and points to the source."},
+ {f:"surv",q:"The sensitivity of a surveillance system refers to:",o:["How quickly it reports","Its running cost","The proportion of true cases it detects","The number of staff required"],a:2,e:"Surveillance sensitivity is the proportion of actual cases the system successfully detects."}
+];
+const LTR=["A","B","C","D"];
+const bankList=document.getElementById("bankList");
+const countEl=document.getElementById("count");
+let filter="all";
+
+function render(){
+  bankList.innerHTML="";
+  let n=0;
+  Q.forEach((item,i)=>{
+    if(filter!=="all"&&item.f!==filter)return;
+    n++;
+    const card=document.createElement("div");
+    card.className="q";
+    let opts="";
+    item.o.forEach((t,j)=>{opts+=`<button class="opt" data-i="${i}" data-j="${j}"><span class="ltr">${LTR[j]}</span>${t}</button>`;});
+    card.innerHTML=`<div class="qtop"><span class="qn">Q${i+1}</span><span class="qtag">${DLABEL[item.f]}</span></div>
+      <div class="stem">${item.q}</div>${opts}
+      <div class="expl" id="e${i}">${item.e}</div>`;
+    bankList.appendChild(card);
+  });
+  countEl.textContent=`Showing ${n} question${n===1?"":"s"}`;
+}
+bankList.addEventListener("click",e=>{
+  const b=e.target.closest(".opt");
+  if(!b)return;
+  const i=+b.dataset.i, j=+b.dataset.j;
+  const card=b.closest(".q");
+  if(card.dataset.done)return;
+  card.dataset.done="1";
+  const correct=Q[i].a;
+  card.querySelectorAll(".opt").forEach(o=>{
+    const oj=+o.dataset.j;
+    if(oj===correct)o.classList.add("correct");
+    else if(oj===j)o.classList.add("wrong");
+    o.style.cursor="default";
+  });
+  document.getElementById("e"+i).classList.add("show");
+});
+document.getElementById("chips").addEventListener("click",e=>{
+  const c=e.target.closest(".chip");
+  if(!c)return;
+  document.querySelectorAll(".chip").forEach(x=>x.classList.remove("active"));
+  c.classList.add("active");
+  filter=c.dataset.f;
+  render();
+});
+document.querySelectorAll(".tab").forEach(t=>{
+  t.addEventListener("click",()=>{
+    document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
+    document.querySelectorAll(".panel").forEach(x=>x.classList.remove("active"));
+    t.classList.add("active");
+    document.getElementById(t.dataset.tab).classList.add("active");
+    window.scrollTo({top:0,behavior:"smooth"});
+  });
+});
+render();
+</script>
+<script>
+(function(){
+  var inp=document.getElementById('srchIn');
+  if(!inp)return;
+  var meta=document.getElementById('srchMeta'),
+      clr=document.getElementById('srchClear'),
+      out=document.getElementById('srchOut'),
+      list=document.getElementById('srchList'),
+      mainEl=document.querySelector('main'),
+      panels=Array.from(document.querySelectorAll('.panel'));
+
+  var tabLabels={};
+  document.querySelectorAll('button.tab[data-tab]').forEach(function(b){
+    tabLabels[b.getAttribute('data-tab')]=b.textContent.replace(/\s+/g,' ').trim();
+  });
+
+  function hlNode(root,re){
+    var walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null);
+    var nodes=[],node;
+    while((node=walker.nextNode()))nodes.push(node);
+    nodes.forEach(function(t){
+      var p=t.parentElement;
+      if(!p||/^(SCRIPT|STYLE|INPUT|TEXTAREA|BUTTON)$/.test(p.tagName))return;
+      re.lastIndex=0;if(!re.test(t.textContent))return;re.lastIndex=0;
+      var f=document.createDocumentFragment(),last=0,m,txt=t.textContent;
+      while((m=re.exec(txt))!==null){
+        if(m.index>last)f.appendChild(document.createTextNode(txt.slice(last,m.index)));
+        var mk=document.createElement('mark');mk.className='sh';mk.textContent=m[0];f.appendChild(mk);
+        last=m.index+m[0].length;
+      }
+      if(last<txt.length)f.appendChild(document.createTextNode(txt.slice(last)));
+      t.parentNode.replaceChild(f,t);
+    });
+  }
+
+  function getCtx(el){
+    if(el.classList.contains('q')){
+      var tag=el.querySelector('.tag,.lbl');
+      return tag?'MCQ — '+tag.textContent.trim():null;
+    }
+    var prev=el.previousElementSibling;
+    while(prev){
+      if(/^H[2-4]$/.test(prev.tagName))return prev.textContent.replace(/\s+/g,' ').trim();
+      prev=prev.previousElementSibling;
+    }
+    return null;
+  }
+
+  function restore(){
+    if(out)out.style.display='none';
+    if(mainEl)mainEl.style.display='';
+    meta.textContent='';clr.style.display='none';
+  }
+
+  var timer;
+  inp.addEventListener('input',function(){
+    clearTimeout(timer);
+    timer=setTimeout(function(){
+      var q=inp.value.trim();
+      if(!q){restore();return;}
+      clr.style.display='';
+      var re=new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi');
+      if(mainEl)mainEl.style.display='none';
+      out.style.display='block';
+      list.innerHTML='';
+      var total=0;
+      panels.forEach(function(panel){
+        var label=tabLabels[panel.id]||panel.id;
+        var blocks=Array.from(panel.querySelectorAll('.card,.q,.box,.trap,.corrbox,.aubox,.alertbox,.verifybox,.refonly'));
+        var matched=[];
+        blocks.forEach(function(b){re.lastIndex=0;if(re.test(b.textContent))matched.push(b);});
+        if(!matched.length)return;
+        var grp=document.createElement('div');grp.className='sr-group';
+        var badge=document.createElement('div');badge.className='sr-tab';badge.textContent=label;grp.appendChild(badge);
+        matched.forEach(function(block){
+          var ctx=getCtx(block);
+          var item=document.createElement('div');item.className='sr-item';
+          if(ctx){var ce=document.createElement('div');ce.className='sr-ctx';ce.textContent='↳ '+ctx;item.appendChild(ce);}
+          var clone=block.cloneNode(true);
+          clone.querySelectorAll('button,input,select').forEach(function(el){el.disabled=true;el.style.pointerEvents='none';});
+          re.lastIndex=0;hlNode(clone,re);
+          item.appendChild(clone);grp.appendChild(item);total++;
+        });
+        list.appendChild(grp);
+      });
+      if(!total)list.innerHTML='<p class="srch-none">No results for "'+q.replace(/</g,'&lt;')+'"</p>';
+      meta.textContent=total+' result'+(total!==1?'s':'');
+    },220);
+  });
+  clr.addEventListener('click',function(){inp.value='';inp.dispatchEvent(new Event('input'));inp.focus();});
+})();
+</script>
+</body>
+</html>

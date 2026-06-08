@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Study Design | Research and Biostatistics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --chrome:#b6848f; --chrome-ink:#ffffff;
+  --bg:#f6f2e9; --surface:#ffffff; --surface2:#fbf8f1;
+  --ink:#3a2b2e; --muted:#7a6a6d; --line:#e7ddd0;
+  --accent:#9c5f6f; --accent2:#c7a3ac;
+  --trap-bg:#fbeaef; --trap-line:#d98aa3; --trap-ink:#7d2f48;
+  --verify-bg:#eef2f6; --verify-line:#9bb3c7; --verify-ink:#33536b;
+  --badge-ref-bg:#efe6da; --badge-ref-ink:#7a5d3a;
+  --badge-asv-bg:#e3ece6; --badge-asv-ink:#3d6b50;
+  --badge-note-bg:#ede7ef; --badge-note-ink:#5e4a68;
+  --svg-box:#fbf8f1; --svg-strong:#9c5f6f; --svg-soft:#c7a3ac; --svg-faint:#ead9de;
+  --ok:#2f7d52; --no:#b1466f;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --chrome:#4a2f37; --chrome-ink:#f6f2e9;
+    --bg:#171213; --surface:#241d20; --surface2:#1e1719;
+    --ink:#f0e6e9; --muted:#b39aa0; --line:#382c30;
+    --accent:#cf93a3; --accent2:#7c5562;
+    --trap-bg:#39222a; --trap-line:#b1466f; --trap-ink:#f3c4d3;
+    --verify-bg:#1d2a33; --verify-line:#5b7d97; --verify-ink:#bcd6e7;
+    --badge-ref-bg:#332a1e; --badge-ref-ink:#d9bd8e;
+    --badge-asv-bg:#1f2e25; --badge-asv-ink:#9cc9ad;
+    --badge-note-bg:#2a2230; --badge-note-ink:#c8b2d2;
+    --svg-box:#1e1719; --svg-strong:#cf93a3; --svg-soft:#7c5562; --svg-faint:#33262b;
+    --ok:#6cc08c; --no:#e0789a;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Public Sans",system-ui,sans-serif;line-height:1.6;font-size:16px}
+header{background:var(--chrome);color:var(--chrome-ink);padding:34px 24px 26px}
+.wrap{max-width:980px;margin:0 auto}
+header .kicker{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;opacity:.85;margin:0 0 8px}
+header h1{font-family:"Fraunces",serif;font-weight:600;font-size:38px;line-height:1.05;margin:0}
+header p{margin:10px 0 0;max-width:64ch;opacity:.92;font-size:15px}
+nav{position:sticky;top:0;z-index:20;background:var(--surface);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;flex-wrap:wrap;gap:4px;padding:8px 24px}
+.tab{appearance:none;border:0;background:transparent;color:var(--muted);font-family:"Public Sans",sans-serif;font-weight:600;font-size:14px;padding:9px 13px;border-radius:8px;cursor:pointer}
+.tab:hover{color:var(--ink);background:var(--surface2)}
+.tab.active{color:var(--chrome-ink);background:var(--accent)}
+main{max-width:980px;margin:0 auto;padding:28px 24px 80px}
+.panel{display:none;animation:fade .25s ease}
+.panel.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+h2{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:6px 0 4px;color:var(--ink)}
+h3{font-family:"Fraunces",serif;font-weight:600;font-size:19px;margin:26px 0 6px}
+h4{font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin:18px 0 4px}
+p,li{font-size:15.5px}
+.lead{color:var(--muted);font-size:16px;max-width:70ch}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:16px 0}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+th,td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--surface2);font-weight:600;color:var(--accent)}
+tbody tr:hover{background:var(--surface2)}
+.badge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:10.5px;font-weight:600;letter-spacing:.04em;padding:2px 7px;border-radius:999px;vertical-align:middle;margin-left:6px}
+.badge.ref{background:var(--badge-ref-bg);color:var(--badge-ref-ink)}
+.badge.asv{background:var(--badge-asv-bg);color:var(--badge-asv-ink)}
+.badge.note{background:var(--badge-note-bg);color:var(--badge-note-ink)}
+.box{border-radius:12px;padding:14px 16px;margin:14px 0;border-left:4px solid}
+.trap{background:var(--trap-bg);border-color:var(--trap-line)}
+.trap .lbl{color:var(--trap-ink)}
+.verifybox{background:var(--verify-bg);border-color:var(--verify-line)}
+.verifybox .lbl{color:var(--verify-ink)}
+.box .lbl{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+.box p{margin:0;font-size:14.5px}
+code,.mono{font-family:"JetBrains Mono",monospace;font-size:13.5px;background:var(--surface2);padding:1px 5px;border-radius:5px}
+.figwrap{background:var(--svg-box);border:1px solid var(--line);border-radius:14px;padding:16px;margin:18px 0;text-align:center}
+.figwrap svg{max-width:100%;height:auto}
+.figcap{font-size:12.5px;color:var(--muted);margin-top:8px;font-style:italic}
+ul{padding-left:20px}
+.hint{font-size:13px;color:var(--muted);font-style:italic}
+/* question bank */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 20px}
+.chip{appearance:none;border:1px solid var(--line);background:var(--surface);color:var(--muted);font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:600;padding:7px 12px;border-radius:999px;cursor:pointer}
+.chip:hover{color:var(--ink)}
+.chip.active{background:var(--accent);color:var(--chrome-ink);border-color:var(--accent)}
+.count{font-size:13px;color:var(--muted);margin-bottom:14px}
+.q{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:14px 0}
+.q .qtop{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.q .qn{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--accent);font-weight:600}
+.q .qtag{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--muted)}
+.q .stem{font-weight:500;margin:6px 0 12px;font-size:15.5px}
+.opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:var(--surface2);color:var(--ink);padding:10px 13px;border-radius:9px;margin:7px 0;cursor:pointer;font-size:14.5px;font-family:inherit}
+.opt:hover{border-color:var(--accent2)}
+.opt.correct{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 14%,transparent)}
+.opt.wrong{border-color:var(--no);background:color-mix(in srgb,var(--no) 14%,transparent)}
+.opt .ltr{font-family:"JetBrains Mono",monospace;font-weight:600;margin-right:9px;color:var(--accent)}
+.expl{margin-top:10px;font-size:14px;border-left:3px solid var(--accent2);padding:6px 12px;color:var(--muted);display:none}
+.expl.show{display:block}
+.foot{max-width:980px;margin:0 auto;padding:0 24px 60px;color:var(--muted);font-size:12.5px}
+  /* ── page search ── */
+  .srch-wrap{position:sticky;top:54px;z-index:15;background:var(--surface,var(--paper2,#f5f5f5));border-bottom:1px solid var(--line);padding:5px 0}
+  .srch-row{display:flex;align-items:center;gap:8px;background:#fff;border:1.5px solid var(--line);border-radius:10px;padding:5px 11px;transition:border-color .15s}
+  .srch-row:focus-within{border-color:var(--ink)}
+  .srch-row svg{flex-shrink:0;opacity:.45}
+  .srch-row input{flex:1;border:none;outline:none;font-family:"Public Sans",system-ui,sans-serif;font-size:13.5px;color:var(--ink);background:transparent;min-width:0}
+  .srch-row input::placeholder{color:var(--muted);opacity:.7;font-size:13px}
+  #srchMeta{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);white-space:nowrap;padding-right:4px}
+  #srchClear{border:none;background:none;cursor:pointer;color:var(--muted);font-size:15px;padding:0 2px;line-height:1;display:none;flex-shrink:0}
+  .srch-out{padding:20px 0 60px}
+  .sr-group{margin-bottom:32px}
+  .sr-tab{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--ink);border-radius:999px;padding:4px 11px;display:inline-block;margin-bottom:10px}
+  .sr-ctx{font-size:12px;color:var(--muted);font-style:italic;margin:-2px 0 6px 2px}
+  .sr-item{margin:10px 0}
+  mark.sh{background:#fff176;color:inherit;border-radius:2px;padding:0 1px}
+  .srch-none{color:var(--muted);font-size:14px;padding:24px 0;font-style:italic}
+</style>
+</head>
+<body>
+<nav style="background:#6b2a3c;padding:9px 18px;display:flex;align-items:center;gap:10px;font-family:'Public Sans',system-ui,sans-serif;font-size:13px;font-weight:500;border-bottom:2px solid #8A3A52"><a href="../index.html" style="color:#e8b0c4;text-decoration:none;display:flex;align-items:center;gap:5px"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span style="color:#7a3048;font-size:11px">›</span><a href="../index.html#domain-research" style="color:#e8b0c4;text-decoration:none">Research and Biostats</a><span style="color:#7a3048;font-size:11px">›</span><span style="color:#f5d8e4">Study Design</span></nav>
+<header>
+  <div class="wrap">
+    <p class="kicker">Research and Biostatistics &bull; 6% of exam</p>
+    <h1>Study Design</h1>
+    <p>The 46% half of the Research and Biostatistics domain. Designs, inference, bias and validity, and the measures and tests each design produces. Built as a standalone reference; content is standard veterinary epidemiology and biostatistics.</p>
+  </div>
+</header>
+
+<nav>
+  <div class="wrap">
+    <button class="tab active" data-tab="designs">Study Designs</button>
+    <button class="tab" data-tab="inference">Statistical Inference</button>
+    <button class="tab" data-tab="bias">Bias and Validity</button>
+    <button class="tab" data-tab="tests">Tests and Measures</button>
+    <button class="tab" data-tab="bank">Question Bank</button>
+  </div>
+</nav>
+<div class="srch-wrap"><div class="wrap"><div class="srch-row">
+<svg width="14" height="14" viewBox="0 0 15 15" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="m10.5 10.5 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+<input type="text" id="srchIn" placeholder="Search all tabs… e.g. incidence, sensitivity, bias" autocomplete="off" spellcheck="false">
+<span id="srchMeta"></span><button id="srchClear" title="Clear search">×</button>
+</div></div></div>
+<div class="srch-out" id="srchOut" style="display:none"><div class="wrap"><div id="srchList"></div></div></div>
+
+<main>
+
+<!-- ============ DESIGNS ============ -->
+<section class="panel active" id="designs">
+  <h2>Study Designs</h2>
+  <p class="lead">Every design answers a different question and yields a different measure. The fastest exam hook is direction of reasoning: cohort reasons forward from exposure, case-control reasons backward from outcome, cross-sectional captures both at one instant.</p>
+
+  <h3>The organising framework <span class="badge ref">ref</span></h3>
+  <ul>
+    <li><b>Descriptive</b> studies describe who, what, where and when. No comparison group, so they generate hypotheses rather than test them.</li>
+    <li><b>Analytic observational</b> studies add a comparison group and measure an association, but the investigator only observes; the exposure is not assigned.</li>
+    <li><b>Experimental</b> studies have the investigator assign the intervention, ideally at random. This is the only category that establishes causation directly.</li>
+  </ul>
+
+  <h3>Descriptive studies <span class="badge ref">ref</span></h3>
+  <table>
+    <thead><tr><th>Design</th><th>Yields</th><th>Strength</th><th>Limitation</th></tr></thead>
+    <tbody>
+      <tr><td>Case report</td><td>Narrative</td><td>Flags the novel or rare</td><td>No denominator or comparison</td></tr>
+      <tr><td>Case series</td><td>Counts, pattern</td><td>Characterises a cluster</td><td>No comparison group</td></tr>
+      <tr><td>Cross-sectional (prevalence survey)</td><td>Prevalence</td><td>Fast, good for disease burden</td><td>Cannot show exposure preceded outcome</td></tr>
+      <tr><td>Ecological (correlational)</td><td>Group-level correlation</td><td>Uses existing aggregate data</td><td>Ecological fallacy</td></tr>
+    </tbody>
+  </table>
+  <div class="box trap"><span class="lbl">Exam trap</span><p>The <b>ecological fallacy</b>: an association seen between group-level rates does not prove the same association holds at the individual level. A case report or series can never prove a risk factor, because it has no comparison group.</p></div>
+
+  <h3>Analytic observational studies <span class="badge ref">ref</span></h3>
+  <p>These are the highest-yield items in the subdomain.</p>
+  <table>
+    <thead><tr><th>Feature</th><th>Cohort</th><th>Case-control</th><th>Analytic cross-sectional</th></tr></thead>
+    <tbody>
+      <tr><td>Start from</td><td>Exposure</td><td>Outcome (disease)</td><td>Both at once</td></tr>
+      <tr><td>Direction</td><td>Forward</td><td>Backward</td><td>Single time point</td></tr>
+      <tr><td>Primary measure</td><td>Relative risk, incidence</td><td>Odds ratio</td><td>Prevalence, prevalence ratio</td></tr>
+      <tr><td>Best for</td><td>Common outcomes, multiple outcomes</td><td>Rare disease, long latency</td><td>Disease burden, planning</td></tr>
+      <tr><td>Temporality established</td><td>Yes</td><td>Often unclear</td><td>No</td></tr>
+      <tr><td>Main bias risk</td><td>Loss to follow-up</td><td>Recall, selection</td><td>Reverse causation</td></tr>
+    </tbody>
+  </table>
+
+  <div class="figwrap">
+    <svg viewBox="0 0 640 230" role="img" aria-label="Direction of reasoning for cohort and case-control studies">
+      <defs>
+        <marker id="arSdDir" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+          <path d="M0,0 L7,3 L0,6 Z" fill="var(--svg-strong)"/>
+        </marker>
+      </defs>
+      <text x="320" y="22" text-anchor="middle" font-family="Fraunces,serif" font-size="16" fill="var(--ink)">Direction of reasoning</text>
+      <!-- cohort -->
+      <text x="20" y="60" font-family="JetBrains Mono,monospace" font-size="12" fill="var(--svg-strong)">COHORT</text>
+      <rect x="20" y="70" width="140" height="44" rx="8" fill="var(--svg-faint)" stroke="var(--svg-soft)"/>
+      <text x="90" y="97" text-anchor="middle" font-size="13" fill="var(--ink)">Exposure</text>
+      <line x1="170" y1="92" x2="450" y2="92" stroke="var(--svg-strong)" stroke-width="2" marker-end="url(#arSdDir)"/>
+      <rect x="460" y="70" width="140" height="44" rx="8" fill="var(--svg-faint)" stroke="var(--svg-soft)"/>
+      <text x="530" y="97" text-anchor="middle" font-size="13" fill="var(--ink)">Outcome</text>
+      <text x="310" y="84" text-anchor="middle" font-size="11" fill="var(--muted)">follow forward, measure incidence</text>
+      <!-- case-control -->
+      <text x="20" y="150" font-family="JetBrains Mono,monospace" font-size="12" fill="var(--svg-strong)">CASE-CONTROL</text>
+      <rect x="20" y="160" width="140" height="44" rx="8" fill="var(--svg-faint)" stroke="var(--svg-soft)"/>
+      <text x="90" y="187" text-anchor="middle" font-size="13" fill="var(--ink)">Exposure</text>
+      <line x1="450" y1="182" x2="170" y2="182" stroke="var(--svg-strong)" stroke-width="2" marker-end="url(#arSdDir)"/>
+      <rect x="460" y="160" width="140" height="44" rx="8" fill="var(--svg-faint)" stroke="var(--svg-soft)"/>
+      <text x="530" y="187" text-anchor="middle" font-size="13" fill="var(--ink)">Outcome</text>
+      <text x="310" y="174" text-anchor="middle" font-size="11" fill="var(--muted)">look back from cases, measure odds</text>
+    </svg>
+    <div class="figcap">Cohort starts from exposure and follows forward; case-control starts from the outcome and looks back. Original construction.</div>
+  </div>
+
+  <p><b>Cohort:</b> yields incidence and relative risk; establishes temporality; inefficient for rare outcomes. <b>Case-control:</b> yields the odds ratio; efficient for rare or slow diseases; prone to recall and selection bias; the odds ratio approximates relative risk only when the disease is rare. <b>Analytic cross-sectional:</b> yields prevalence; cannot establish temporality, so reverse causation is possible.</p>
+
+  <h3>Experimental studies <span class="badge ref">ref</span></h3>
+  <p>The investigator assigns the intervention. A <b>randomised controlled trial</b> allocates subjects at random to intervention or control. Randomisation balances known and unknown confounders, which is the source of the RCT's causal strength.</p>
+  <ul>
+    <li><b>Control group:</b> comparison without the intervention (placebo or standard of care).</li>
+    <li><b>Blinding:</b> single or double; reduces information, observer and placebo effects.</li>
+    <li><b>Intention-to-treat:</b> analyse subjects in their originally assigned group regardless of protocol completion, preserving the benefits of randomisation.</li>
+  </ul>
+  <div class="box verifybox"><span class="lbl">Boundary note</span><p>Research ethics and IACUC oversight (animals cannot consent; the agency acts as steward) sit at the boundary with the Animals and Public Policy (Ethics) domain. Folded in only briefly here; tell me if you want it expanded.</p></div>
+
+  <h3>Hierarchy of evidence and EBVM <span class="badge ref">ref</span></h3>
+  <div class="figwrap">
+    <svg viewBox="0 0 520 250" role="img" aria-label="Evidence pyramid">
+      <defs>
+        <marker id="arSdPyr" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+          <path d="M0,0 L7,3 L0,6 Z" fill="var(--svg-strong)"/>
+        </marker>
+      </defs>
+      <polygon points="260,20 330,70 190,70" fill="var(--svg-strong)"/>
+      <text x="260" y="55" text-anchor="middle" font-size="11" fill="#fff">Systematic review / meta-analysis</text>
+      <polygon points="190,72 330,72 360,112 160,112" fill="var(--svg-soft)"/>
+      <text x="260" y="97" text-anchor="middle" font-size="12" fill="var(--ink)">Randomised controlled trial</text>
+      <polygon points="160,114 360,114 388,154 132,154" fill="var(--svg-faint)"/>
+      <text x="260" y="139" text-anchor="middle" font-size="12" fill="var(--ink)">Cohort study</text>
+      <polygon points="132,156 388,156 414,196 106,196" fill="var(--svg-faint)"/>
+      <text x="260" y="181" text-anchor="middle" font-size="12" fill="var(--ink)">Case-control study</text>
+      <polygon points="106,198 414,198 440,236 80,236" fill="var(--svg-faint)"/>
+      <text x="260" y="222" text-anchor="middle" font-size="12" fill="var(--ink)">Case series, reports, expert opinion</text>
+      <line x1="468" y1="236" x2="468" y2="30" stroke="var(--svg-strong)" stroke-width="2" marker-end="url(#arSdPyr)"/>
+      <text x="486" y="140" font-size="11" fill="var(--muted)" transform="rotate(90,486,140)">increasing strength</text>
+    </svg>
+    <div class="figcap">Evidence hierarchy for therapy and causation questions. Original construction.</div>
+  </div>
+  <p><b>EBVM, the five A's:</b> Ask, Acquire, Appraise, Apply, Assess.</p>
+  <div class="box verifybox"><span class="lbl">Exam relevance</span><p>The study guide states some items come from journal <b>abstracts</b> (5-year lookback, 2021 to 2025). Reading an abstract to identify the design, the measure reported, and the main limitation is a directly tested skill.</p></div>
+</section>
+
+<!-- ============ INFERENCE ============ -->
+<section class="panel" id="inference">
+  <h2>Statistical Inference</h2>
+  <p class="lead">Hypothesis testing, confidence intervals, and the two ways a test can be wrong. The traps here are conceptual, not arithmetic.</p>
+
+  <h3>Hypothesis testing <span class="badge ref">ref</span></h3>
+  <ul>
+    <li><b>Null hypothesis (H0):</b> no difference or association (for example, relative risk = 1).</li>
+    <li><b>Alternative hypothesis (H1):</b> a difference or association exists.</li>
+    <li><b>p-value:</b> the probability of the observed data, or something more extreme, <b>if the null hypothesis were true</b>, compared to a preset alpha (commonly 0.05).</li>
+  </ul>
+  <div class="box trap"><span class="lbl">High-yield trap</span><p>A p-value is <b>not</b> the probability that the null hypothesis is true, and <b>not</b> the probability the result occurred by chance. It only says the data are unlikely under the null.</p></div>
+  <h4>Statistical vs clinical significance</h4>
+  <p>With a large enough sample, a trivially small, clinically meaningless difference can reach statistical significance. Always judge effect size, not just whether p is below 0.05.</p>
+
+  <h3>Confidence intervals <span class="badge ref">ref</span></h3>
+  <p>A 95% confidence interval is the range that would contain the true value 95% of the time on repeated sampling. It conveys both direction and magnitude, which a bare p-value does not.</p>
+  <ul>
+    <li>For a <b>ratio measure</b> (relative risk, odds ratio) the null value is <span class="mono">1</span>. An interval that includes 1 is not significant.</li>
+    <li>For a <b>difference measure</b> (mean or risk difference) the null value is <span class="mono">0</span>. An interval that includes 0 is not significant.</li>
+    <li>Interval <b>width is precision</b>; larger samples and lower variability narrow it.</li>
+  </ul>
+
+  <h3>Error types and power <span class="badge ref">ref</span></h3>
+  <div class="figwrap">
+    <svg viewBox="0 0 560 220" role="img" aria-label="Type I and Type II error matrix">
+      <defs>
+        <marker id="arSdErr" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+          <path d="M0,0 L7,3 L0,6 Z" fill="var(--svg-strong)"/>
+        </marker>
+      </defs>
+      <text x="300" y="22" text-anchor="middle" font-size="12" fill="var(--muted)">Truth</text>
+      <text x="200" y="44" text-anchor="middle" font-size="12" fill="var(--ink)">H0 true (no effect)</text>
+      <text x="420" y="44" text-anchor="middle" font-size="12" fill="var(--ink)">H0 false (real effect)</text>
+      <text x="40" y="100" font-size="12" fill="var(--ink)" transform="rotate(-90,40,150)">Test result</text>
+      <text x="92" y="92" font-size="11" fill="var(--ink)">Reject H0</text>
+      <text x="92" y="162" font-size="11" fill="var(--ink)">Fail to reject</text>
+      <rect x="150" y="60" width="200" height="60" rx="8" fill="var(--trap-bg)" stroke="var(--trap-line)"/>
+      <text x="250" y="86" text-anchor="middle" font-size="12.5" fill="var(--ink)">Type I error</text>
+      <text x="250" y="104" text-anchor="middle" font-size="11" fill="var(--muted)">alpha, false positive</text>
+      <rect x="360" y="60" width="180" height="60" rx="8" fill="var(--svg-faint)" stroke="var(--svg-soft)"/>
+      <text x="450" y="86" text-anchor="middle" font-size="12.5" fill="var(--ink)">Correct</text>
+      <text x="450" y="104" text-anchor="middle" font-size="11" fill="var(--muted)">power = 1 - beta</text>
+      <rect x="150" y="130" width="200" height="60" rx="8" fill="var(--svg-faint)" stroke="var(--svg-soft)"/>
+      <text x="250" y="156" text-anchor="middle" font-size="12.5" fill="var(--ink)">Correct</text>
+      <rect x="360" y="130" width="180" height="60" rx="8" fill="var(--trap-bg)" stroke="var(--trap-line)"/>
+      <text x="450" y="156" text-anchor="middle" font-size="12.5" fill="var(--ink)">Type II error</text>
+      <text x="450" y="174" text-anchor="middle" font-size="11" fill="var(--muted)">beta, false negative</text>
+      <line x1="540" y1="120" x2="540" y2="135" stroke="var(--svg-strong)" stroke-width="2" marker-end="url(#arSdErr)"/>
+    </svg>
+    <div class="figcap">The two ways an inference can be wrong. Original construction.</div>
+  </div>
+  <ul>
+    <li><b>Type I (alpha):</b> a false positive; concluding an effect exists when it does not.</li>
+    <li><b>Type II (beta):</b> a false negative; missing a real effect.</li>
+    <li><b>Power = 1 minus beta;</b> conventionally 0.80 or higher. It increases with larger sample size, larger true effect, higher alpha, and lower variability. Sample size is the main lever.</li>
+  </ul>
+  <p class="hint">Mnemonic: Type I is the false alarm (cried wolf); Type II is the miss (missed the wolf).</p>
+</section>
+
+<!-- ============ BIAS ============ -->
+<section class="panel" id="bias">
+  <h2>Bias and Validity</h2>
+  <p class="lead">Bias is systematic error built into the study; it does not shrink with a larger sample. Random error does. Keeping that line clear answers a surprising share of items.</p>
+
+  <h3>Bias <span class="badge ref">ref</span></h3>
+  <table>
+    <thead><tr><th>Bias</th><th>What happens</th></tr></thead>
+    <tbody>
+      <tr><td>Selection bias</td><td>Subjects selected in a way that distorts the exposure to outcome relationship</td></tr>
+      <tr><td>Information (measurement) bias</td><td>Systematic error in how exposure or outcome is measured or recorded</td></tr>
+      <tr><td>Misclassification</td><td>A form of information bias. Non-differential (errors equal across groups) usually biases toward the null; differential (errors differ by group) can bias either way</td></tr>
+      <tr><td>Recall bias</td><td>Cases remember exposures differently than controls; classic in case-control</td></tr>
+      <tr><td>Observer bias</td><td>The assessor's knowledge of group assignment influences the assessment</td></tr>
+    </tbody>
+  </table>
+  <div class="box trap"><span class="lbl">Exam trap</span><p>Random error reflects chance, shrinks with larger samples, and shows up as wider confidence intervals. <b>Bias is systematic and is not fixed by a larger sample.</b></p></div>
+
+  <h3>Confounding and effect modification <span class="badge ref">ref</span></h3>
+  <p>A <b>confounder</b> must meet all three criteria:</p>
+  <ul>
+    <li>associated with the exposure,</li>
+    <li>an independent risk factor for the outcome, and</li>
+    <li><b>not</b> on the causal pathway between exposure and outcome.</li>
+  </ul>
+  <p><b>Control by design:</b> randomisation (balances unknown confounders too), restriction, matching. <b>Control by analysis:</b> stratification (Mantel-Haenszel) and multivariable regression.</p>
+  <div class="box verifybox"><span class="lbl">Clarification</span><p><b>Effect modification</b> is different from confounding. Here the true effect genuinely differs across levels of a third variable (for example, a handling intervention helps adults but not puppies). It is a real finding to report by stratum, not a nuisance to adjust away.</p></div>
+
+  <h3>Validity, reliability and sampling <span class="badge ref">ref</span></h3>
+  <ul>
+    <li><b>Internal validity:</b> the study correctly measures what it set out to, free of bias and confounding.</li>
+    <li><b>External validity (generalisability):</b> results apply beyond the sample. A tightly controlled study can have high internal but low external validity.</li>
+    <li><b>Reliability (precision)</b> is consistency on repetition; <b>validity (accuracy)</b> is closeness to truth. A measure can be reliable but not valid. Observer agreement is quantified with the <b>kappa</b> statistic, which corrects for chance agreement.</li>
+  </ul>
+  <p><b>Probability sampling</b> (supports inference): simple random, systematic, stratified, cluster. <b>Non-probability sampling</b> (weaker): convenience, purposive. Convenience samples are a common source of selection bias and a frequent distractor for "what weakens generalisability".</p>
+</section>
+
+<!-- ============ TESTS ============ -->
+<section class="panel" id="tests">
+  <h2>Tests and Measures</h2>
+  <p class="lead">Diagnostic test characteristics with worked numbers, the measure each design produces, choosing a statistical test, and the line between association and causation.</p>
+
+  <h3>Diagnostic test evaluation <span class="badge ref">ref</span></h3>
+  <p>A diagnostic accuracy study compares a test against a reference standard in a 2x2 table.</p>
+  <div class="figwrap">
+    <svg viewBox="0 0 560 250" role="img" aria-label="Diagnostic 2x2 table with sensitivity and specificity">
+      <defs>
+        <marker id="arSdDx" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+          <path d="M0,0 L7,3 L0,6 Z" fill="var(--svg-strong)"/>
+        </marker>
+      </defs>
+      <text x="250" y="22" text-anchor="middle" font-size="12" fill="var(--muted)">True disease status</text>
+      <text x="180" y="44" text-anchor="middle" font-size="12" fill="var(--ink)">Present</text>
+      <text x="320" y="44" text-anchor="middle" font-size="12" fill="var(--ink)">Absent</text>
+      <text x="60" y="80" font-size="11" fill="var(--ink)">Test +</text>
+      <text x="60" y="140" font-size="11" fill="var(--ink)">Test -</text>
+      <rect x="110" y="56" width="140" height="52" rx="6" fill="var(--svg-faint)" stroke="var(--svg-soft)"/>
+      <text x="180" y="86" text-anchor="middle" font-size="13" fill="var(--ink)">TP</text>
+      <rect x="250" y="56" width="140" height="52" rx="6" fill="var(--svg-box)" stroke="var(--svg-soft)"/>
+      <text x="320" y="86" text-anchor="middle" font-size="13" fill="var(--ink)">FP</text>
+      <rect x="110" y="116" width="140" height="52" rx="6" fill="var(--svg-box)" stroke="var(--svg-soft)"/>
+      <text x="180" y="146" text-anchor="middle" font-size="13" fill="var(--ink)">FN</text>
+      <rect x="250" y="116" width="140" height="52" rx="6" fill="var(--svg-faint)" stroke="var(--svg-soft)"/>
+      <text x="320" y="146" text-anchor="middle" font-size="13" fill="var(--ink)">TN</text>
+      <line x1="180" y1="176" x2="180" y2="200" stroke="var(--svg-strong)" stroke-width="2" marker-end="url(#arSdDx)"/>
+      <text x="180" y="220" text-anchor="middle" font-size="11" fill="var(--svg-strong)">Sensitivity =</text>
+      <text x="180" y="236" text-anchor="middle" font-size="11" fill="var(--muted)">TP / (TP + FN)</text>
+      <line x1="320" y1="176" x2="320" y2="200" stroke="var(--svg-strong)" stroke-width="2" marker-end="url(#arSdDx)"/>
+      <text x="320" y="220" text-anchor="middle" font-size="11" fill="var(--svg-strong)">Specificity =</text>
+      <text x="320" y="236" text-anchor="middle" font-size="11" fill="var(--muted)">TN / (TN + FP)</text>
+      <text x="470" y="86" text-anchor="middle" font-size="11" fill="var(--svg-strong)">PPV = TP/(TP+FP)</text>
+      <text x="470" y="146" text-anchor="middle" font-size="11" fill="var(--svg-strong)">NPV = TN/(TN+FN)</text>
+    </svg>
+    <div class="figcap">The diagnostic 2x2. Sensitivity and specificity read down the columns; predictive values read across the rows. Original construction.</div>
+  </div>
+  <ul>
+    <li><b>Sensitivity = TP / (TP + FN):</b> of truly diseased animals, the proportion the test flags. A property of the test, prevalence-independent.</li>
+    <li><b>Specificity = TN / (TN + FP):</b> of truly healthy animals, the proportion cleared. Also prevalence-independent.</li>
+    <li><b>PPV = TP / (TP + FP)</b> and <b>NPV = TN / (TN + FN):</b> clinically useful, but they <b>depend on prevalence</b>.</li>
+  </ul>
+  <h4>Worked example</h4>
+  <p>100 truly infected cats: the test flags 90. 100 truly uninfected cats: the test flags 5. Then <span class="mono">Sensitivity = 90/100 = 90%</span>, <span class="mono">Specificity = 95/100 = 95%</span>. If only 20 of 1000 screened cats are truly infected (2% prevalence): true positives = 18, false positives = 49, so <span class="mono">PPV = 18/(18+49) = 27%</span>, despite a sensitive and specific test.</p>
+  <div class="box trap"><span class="lbl">High-yield trap</span><p>As prevalence falls, PPV falls (more positives are false positives) even though sensitivity and specificity are unchanged. This is why low-prevalence intake screening (for example, FeLV) needs confirmatory testing. Mnemonics: <b>SnNout</b> (sensitive, Negative rules out), <b>SpPin</b> (specific, Positive rules in).</p></div>
+
+  <h3>Measures of association by design <span class="badge ref">ref</span> <span class="badge note">note</span></h3>
+  <p class="hint">Full calculations live in your Data and Analysis material; here is only the design-to-measure mapping.</p>
+  <ul>
+    <li><b>Relative risk:</b> ratio of incidence in exposed to unexposed; from <b>cohort</b> and experimental designs. Null = 1.</li>
+    <li><b>Odds ratio:</b> from <b>case-control</b> designs; approximates relative risk when disease is rare. Null = 1.</li>
+    <li><b>Prevalence ratio:</b> from <b>cross-sectional</b> designs.</li>
+    <li><b>Attributable risk (risk difference):</b> absolute excess risk in the exposed; from cohort and experimental designs.</li>
+  </ul>
+
+  <h3>Choosing a statistical test <span class="badge ref">ref</span></h3>
+  <table>
+    <thead><tr><th>Comparison</th><th>Data type</th><th>Typical test</th></tr></thead>
+    <tbody>
+      <tr><td>Two groups, means</td><td>Continuous, normal</td><td>Independent t-test</td></tr>
+      <tr><td>Three or more groups, means</td><td>Continuous, normal</td><td>ANOVA</td></tr>
+      <tr><td>Groups, proportions</td><td>Categorical</td><td>Chi-square (Fisher if small)</td></tr>
+      <tr><td>Two continuous variables</td><td>Continuous</td><td>Pearson correlation, linear regression</td></tr>
+      <tr><td>Binary outcome, several predictors</td><td>Mixed</td><td>Logistic regression</td></tr>
+      <tr><td>Skewed or ordinal data</td><td>Non-normal, ranked</td><td>Non-parametric (Mann-Whitney, Kruskal-Wallis, Spearman)</td></tr>
+      <tr><td>Time to an event</td><td>Time-to-event</td><td>Survival analysis, Kaplan-Meier, log-rank</td></tr>
+    </tbody>
+  </table>
+  <div class="box verifybox"><span class="lbl">Shelter link</span><p>Kaplan-Meier and survival analysis are the proper tools for length-of-stay and time-to-outcome data, because they handle animals still in care (censored observations). This connects your Data and Analysis work to study-design methodology.</p></div>
+
+  <h3>Association vs causation <span class="badge ref">ref</span></h3>
+  <p>The <b>Bradford Hill considerations</b> help judge causality: temporality, strength, dose-response, consistency, plausibility, coherence, experimental evidence, specificity, analogy.</p>
+  <div class="box trap"><span class="lbl">Exam trap</span><p><b>Temporality</b> (cause precedes effect) is the one essential criterion. The rest are supporting considerations, not a checklist that all must be met. Association is never proof of causation.</p></div>
+</section>
+
+<!-- ============ BANK ============ -->
+<section class="panel" id="bank">
+  <h2>Question Bank</h2>
+  <p class="lead">Thirty single-best-answer items across the four topics. Tap an option to check it. Answers are spread evenly across A to D.</p>
+  <div class="chips" id="chips">
+    <button class="chip active" data-f="all">All</button>
+    <button class="chip" data-f="designs">Study Designs</button>
+    <button class="chip" data-f="inference">Statistical Inference</button>
+    <button class="chip" data-f="bias">Bias and Validity</button>
+    <button class="chip" data-f="tests">Tests and Measures</button>
+  </div>
+  <div class="count" id="count"></div>
+  <div id="bankList"></div>
+</section>
+
+</main>
+
+<div class="foot">
+  Standalone study aid for the ABVP Shelter Medicine Practice RVS exam. Content reflects standard veterinary epidemiology and biostatistics reference. Source badges: <span class="badge ref">ref</span> standard reference, <span class="badge asv">asv</span> ASV guidance, <span class="badge note">note</span> scope note.
+</div>
+
+<script>
+const DLABEL={all:"All",designs:"Study Designs",inference:"Statistical Inference",bias:"Bias and Validity",tests:"Tests and Measures"};
+const Q=[
+ {f:"designs",q:"Which study design is most efficient for investigating risk factors for a rare disease with a long latency period?",o:["Prospective cohort","Case-control","Cross-sectional survey","Ecological study"],a:1,e:"Case-control starts from the outcome, making it efficient for rare or slow-developing diseases."},
+ {f:"designs",q:"A shelter follows exposed and unexposed cats forward and compares the incidence in each group. Which measure can be calculated directly?",o:["Odds ratio only","Prevalence ratio","Positive predictive value","Relative risk"],a:3,e:"Cohort designs measure incidence in each group, allowing direct calculation of relative risk."},
+ {f:"designs",q:"Testing every cat for FeLV on the single day of intake to estimate the proportion already infected is which design?",o:["Cross-sectional (prevalence) survey","Retrospective cohort","Case series","Randomised trial"],a:0,e:"Measuring disease at one point in a defined population is a cross-sectional survey, yielding prevalence."},
+ {f:"designs",q:"A study finds counties with higher spay-neuter funding have lower intake, then concludes a funded individual is less likely to relinquish. This is:",o:["Recall bias","Ecological fallacy","Confounding by indication","Lead-time bias"],a:1,e:"Inferring an individual relationship from a group-level association is the ecological fallacy."},
+ {f:"designs",q:"In a case-control study, which measure of association is appropriate?",o:["Odds ratio","Relative risk","Incidence rate","Attributable risk"],a:0,e:"Selecting on outcome status yields the odds ratio, not incidence or relative risk."},
+ {f:"designs",q:"What is the principal advantage of randomisation in a controlled trial?",o:["It eliminates measurement error","It guarantees a large sample size","It removes the need for a control group","It balances known and unknown confounders across groups"],a:3,e:"Randomisation distributes confounders, including unmeasured ones, evenly between groups."},
+ {f:"designs",q:"Intention-to-treat analysis means subjects are analysed according to:",o:["Whether they completed the full protocol","The treatment they actually received","The group to which they were originally assigned","Their final clinical outcome"],a:2,e:"Analysing by original assigned group preserves the benefits of randomisation."},
+ {f:"designs",q:"For a question about treatment efficacy, which represents the highest level of evidence?",o:["Expert opinion","A single cohort study","Systematic review with meta-analysis","Case series"],a:2,e:"Systematic reviews and meta-analyses sit at the top of the evidence hierarchy for therapy questions."},
+ {f:"inference",q:"A p-value of 0.03 most accurately means:",o:["There is a 3% probability the null hypothesis is true","There is a 3% probability the result occurred by chance","If the null were true, data this extreme or more would occur about 3% of the time","The treatment effect is clinically important"],a:2,e:"The p-value is the probability of the observed data or more extreme, assuming the null is true."},
+ {f:"inference",q:"Which statement about p-values is FALSE?",o:["A small p-value indicates the data are unlikely under the null","The p-value is the probability that the null hypothesis is true","Statistical significance does not establish clinical importance","Alpha is set before the analysis"],a:1,e:"The p-value is not the probability the null is true; that is the classic misinterpretation."},
+ {f:"inference",q:"A Type I error occurs when an investigator:",o:["Fails to detect a true effect","Uses too small a sample size","Selects a biased control group","Concludes there is an effect when none truly exists"],a:3,e:"Type I error (alpha) is a false positive: rejecting a true null hypothesis."},
+ {f:"inference",q:"Statistical power is defined as:",o:["The probability of detecting a true effect when it exists","The probability of a Type I error","One minus the p-value","The width of the confidence interval"],a:0,e:"Power equals 1 minus beta, the probability of correctly detecting a real effect."},
+ {f:"inference",q:"Which change increases the statistical power of a study?",o:["Increasing the sample size","Decreasing the sample size","Increasing variability in the outcome","Lowering alpha from 0.05 to 0.01"],a:0,e:"Larger samples increase power; lowering alpha and higher variability reduce it."},
+ {f:"inference",q:"A study reports an odds ratio of 1.8 with a 95% CI of 0.9 to 3.4. How is this interpreted?",o:["A statistically significant positive association","A statistically significant protective effect","Not statistically significant, because the interval includes 0","Not statistically significant, because the interval includes 1"],a:3,e:"For a ratio measure the null value is 1; an interval crossing 1 is not significant at alpha 0.05."},
+ {f:"inference",q:"A very large study finds a statistically significant 0.1% difference in adoption rate between two layouts. Best interpretation?",o:["The difference is clinically important because p is below 0.05","Large samples can make trivial differences significant, so clinical relevance is judged separately","The study must contain a Type I error","The confidence interval must include the null"],a:1,e:"Large samples can detect tiny, clinically meaningless differences; significance is not importance."},
+ {f:"inference",q:"A narrower 95% confidence interval indicates:",o:["A larger p-value","A larger Type II error","A more precise estimate","A biased estimate"],a:2,e:"Interval width reflects precision; narrower means more precise, driven by larger samples and lower variability."},
+ {f:"bias",q:"In a case-control study, cases recall past exposures more thoroughly than controls. This is:",o:["Selection bias","Confounding","Effect modification","Recall bias"],a:3,e:"Differential recall between cases and controls is recall bias, a classic case-control weakness."},
+ {f:"bias",q:"Studying disease risk using only adopted animals, excluding those euthanised, most likely introduces:",o:["Selection bias","Recall bias","Random error","Effect modification"],a:0,e:"Restricting to a non-representative subgroup distorts the association; this is selection bias."},
+ {f:"bias",q:"Non-differential misclassification of exposure (errors equal across groups) typically:",o:["Biases the estimate away from the null","Biases the estimate toward the null","Has no effect on the estimate","Creates confounding"],a:1,e:"Non-differential misclassification usually dilutes associations, biasing toward the null."},
+ {f:"bias",q:"To be a confounder, a variable must be associated with the exposure, be an independent risk factor for the outcome, and:",o:["Lie on the causal pathway between exposure and outcome","Not lie on the causal pathway between exposure and outcome","Be measured after the outcome","Be randomly distributed"],a:1,e:"A confounder must not be an intermediate step on the causal pathway."},
+ {f:"bias",q:"When the true effect of an exposure genuinely differs across levels of a third variable, this is:",o:["Effect modification to be reported by stratum","Confounding to be removed","Selection bias","A Type I error"],a:0,e:"Effect modification is a real difference across strata and is described, not adjusted away."},
+ {f:"bias",q:"Which controls confounding at the ANALYSIS stage rather than the design stage?",o:["Randomisation","Restriction","Matching","Multivariable regression"],a:3,e:"Randomisation, restriction and matching are design methods; stratification and regression are analysis methods."},
+ {f:"bias",q:"Increasing the sample size of a study will reduce:",o:["Selection bias","Confounding","Random error","Information bias"],a:2,e:"Larger samples reduce random error but do not fix systematic bias or confounding."},
+ {f:"tests",q:"Sensitivity of a diagnostic test is:",o:["The proportion of test-positive animals that are truly diseased","The proportion of truly diseased animals that test positive","The proportion of truly healthy animals that test negative","A value independent of the reference standard"],a:1,e:"Sensitivity = TP/(TP+FN), the proportion of diseased animals correctly identified."},
+ {f:"tests",q:"A highly specific test is most useful clinically to:",o:["Rule a disease out when negative","Screen a whole population cheaply","Replace the reference standard","Rule a disease in when positive"],a:3,e:"SpPin: a specific test, when positive, helps rule the disease in."},
+ {f:"tests",q:"Using a fixed test, what happens to positive predictive value as disease prevalence decreases?",o:["PPV increases","PPV decreases","PPV is unchanged because it depends only on sensitivity","Specificity decreases"],a:1,e:"At lower prevalence a greater share of positives are false positives, so PPV falls; Se and Sp are unchanged."},
+ {f:"tests",q:"Which test characteristic is unaffected by disease prevalence?",o:["Sensitivity","Positive predictive value","Negative predictive value","Adoption rate"],a:0,e:"Sensitivity and specificity are properties of the test; PPV and NPV depend on prevalence."},
+ {f:"tests",q:"Of 100 truly infected cats a test flags 90 as positive; of 100 uninfected it flags 5. What is the sensitivity?",o:["47%","95%","90%","5%"],a:2,e:"Sensitivity = 90 true positives / 100 diseased = 90%."},
+ {f:"tests",q:"Which method best analyses time to adoption, including animals still in care at study end?",o:["Independent t-test","Chi-square test","Pearson correlation","Kaplan-Meier survival analysis"],a:3,e:"Survival analysis handles time-to-event data with censored (still in care) observations."},
+ {f:"tests",q:"Among the Bradford Hill considerations for causation, which is considered essential?",o:["Strength of association","Dose-response relationship","Temporality (cause precedes effect)","Analogy"],a:2,e:"Temporality is the one essential criterion; the cause must precede the effect."}
+];
+const LTR=["A","B","C","D"];
+const bankList=document.getElementById("bankList");
+const countEl=document.getElementById("count");
+let filter="all";
+
+function render(){
+  bankList.innerHTML="";
+  let n=0;
+  Q.forEach((item,i)=>{
+    if(filter!=="all"&&item.f!==filter)return;
+    n++;
+    const card=document.createElement("div");
+    card.className="q";
+    let opts="";
+    item.o.forEach((t,j)=>{opts+=`<button class="opt" data-i="${i}" data-j="${j}"><span class="ltr">${LTR[j]}</span>${t}</button>`;});
+    card.innerHTML=`<div class="qtop"><span class="qn">Q${i+1}</span><span class="qtag">${DLABEL[item.f]}</span></div>
+      <div class="stem">${item.q}</div>${opts}
+      <div class="expl" id="e${i}">${item.e}</div>`;
+    bankList.appendChild(card);
+  });
+  countEl.textContent=`Showing ${n} question${n===1?"":"s"}`;
+}
+bankList.addEventListener("click",e=>{
+  const b=e.target.closest(".opt");
+  if(!b)return;
+  const i=+b.dataset.i, j=+b.dataset.j;
+  const card=b.closest(".q");
+  if(card.dataset.done)return;
+  card.dataset.done="1";
+  const correct=Q[i].a;
+  card.querySelectorAll(".opt").forEach(o=>{
+    const oj=+o.dataset.j;
+    if(oj===correct)o.classList.add("correct");
+    else if(oj===j)o.classList.add("wrong");
+    o.style.cursor="default";
+  });
+  document.getElementById("e"+i).classList.add("show");
+});
+document.getElementById("chips").addEventListener("click",e=>{
+  const c=e.target.closest(".chip");
+  if(!c)return;
+  document.querySelectorAll(".chip").forEach(x=>x.classList.remove("active"));
+  c.classList.add("active");
+  filter=c.dataset.f;
+  render();
+});
+document.querySelectorAll(".tab").forEach(t=>{
+  t.addEventListener("click",()=>{
+    document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
+    document.querySelectorAll(".panel").forEach(x=>x.classList.remove("active"));
+    t.classList.add("active");
+    document.getElementById(t.dataset.tab).classList.add("active");
+    window.scrollTo({top:0,behavior:"smooth"});
+  });
+});
+render();
+</script>
+<script>
+(function(){
+  var inp=document.getElementById('srchIn');
+  if(!inp)return;
+  var meta=document.getElementById('srchMeta'),
+      clr=document.getElementById('srchClear'),
+      out=document.getElementById('srchOut'),
+      list=document.getElementById('srchList'),
+      mainEl=document.querySelector('main'),
+      panels=Array.from(document.querySelectorAll('.panel'));
+
+  var tabLabels={};
+  document.querySelectorAll('button.tab[data-tab]').forEach(function(b){
+    tabLabels[b.getAttribute('data-tab')]=b.textContent.replace(/\s+/g,' ').trim();
+  });
+
+  function hlNode(root,re){
+    var walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null);
+    var nodes=[],node;
+    while((node=walker.nextNode()))nodes.push(node);
+    nodes.forEach(function(t){
+      var p=t.parentElement;
+      if(!p||/^(SCRIPT|STYLE|INPUT|TEXTAREA|BUTTON)$/.test(p.tagName))return;
+      re.lastIndex=0;if(!re.test(t.textContent))return;re.lastIndex=0;
+      var f=document.createDocumentFragment(),last=0,m,txt=t.textContent;
+      while((m=re.exec(txt))!==null){
+        if(m.index>last)f.appendChild(document.createTextNode(txt.slice(last,m.index)));
+        var mk=document.createElement('mark');mk.className='sh';mk.textContent=m[0];f.appendChild(mk);
+        last=m.index+m[0].length;
+      }
+      if(last<txt.length)f.appendChild(document.createTextNode(txt.slice(last)));
+      t.parentNode.replaceChild(f,t);
+    });
+  }
+
+  function getCtx(el){
+    if(el.classList.contains('q')){
+      var tag=el.querySelector('.tag,.lbl');
+      return tag?'MCQ — '+tag.textContent.trim():null;
+    }
+    var prev=el.previousElementSibling;
+    while(prev){
+      if(/^H[2-4]$/.test(prev.tagName))return prev.textContent.replace(/\s+/g,' ').trim();
+      prev=prev.previousElementSibling;
+    }
+    return null;
+  }
+
+  function restore(){
+    if(out)out.style.display='none';
+    if(mainEl)mainEl.style.display='';
+    meta.textContent='';clr.style.display='none';
+  }
+
+  var timer;
+  inp.addEventListener('input',function(){
+    clearTimeout(timer);
+    timer=setTimeout(function(){
+      var q=inp.value.trim();
+      if(!q){restore();return;}
+      clr.style.display='';
+      var re=new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi');
+      if(mainEl)mainEl.style.display='none';
+      out.style.display='block';
+      list.innerHTML='';
+      var total=0;
+      panels.forEach(function(panel){
+        var label=tabLabels[panel.id]||panel.id;
+        var blocks=Array.from(panel.querySelectorAll('.card,.q,.box,.trap,.corrbox,.aubox,.alertbox,.verifybox,.refonly'));
+        var matched=[];
+        blocks.forEach(function(b){re.lastIndex=0;if(re.test(b.textContent))matched.push(b);});
+        if(!matched.length)return;
+        var grp=document.createElement('div');grp.className='sr-group';
+        var badge=document.createElement('div');badge.className='sr-tab';badge.textContent=label;grp.appendChild(badge);
+        matched.forEach(function(block){
+          var ctx=getCtx(block);
+          var item=document.createElement('div');item.className='sr-item';
+          if(ctx){var ce=document.createElement('div');ce.className='sr-ctx';ce.textContent='↳ '+ctx;item.appendChild(ce);}
+          var clone=block.cloneNode(true);
+          clone.querySelectorAll('button,input,select').forEach(function(el){el.disabled=true;el.style.pointerEvents='none';});
+          re.lastIndex=0;hlNode(clone,re);
+          item.appendChild(clone);grp.appendChild(item);total++;
+        });
+        list.appendChild(grp);
+      });
+      if(!total)list.innerHTML='<p class="srch-none">No results for "'+q.replace(/</g,'&lt;')+'"</p>';
+      meta.textContent=total+' result'+(total!==1?'s':'');
+    },220);
+  });
+  clr.addEventListener('click',function(){inp.value='';inp.dispatchEvent(new Event('input'));inp.focus();});
+})();
+</script>
+</body>
+</html>
