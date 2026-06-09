@@ -86,7 +86,7 @@
   .bar-track{flex:1;background:#ede8d6;border-radius:4px;height:22px;position:relative;overflow:hidden}
   .bar-fill{height:100%;border-radius:4px;display:flex;align-items:center;padding-left:8px;font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:600;color:#fff}
   /* mcq */
-  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--dom-head);color:var(--paper2);border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:100px;z-index:10}
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--dom-head);color:var(--paper2);border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:54px;z-index:10}
   .mcqbar .filters{display:flex;gap:6px;flex-wrap:wrap}
   .mcqbar .filters button{font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#d6cce8;padding:6px 11px;border-radius:999px;cursor:pointer;white-space:nowrap}
   .mcqbar .filters button.on{background:var(--cah);border-color:var(--cah);color:#fff}
@@ -107,27 +107,10 @@
   .expl.show{display:block}
   .expl b.cor{color:var(--good)}
   footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
-  @media(max-width:640px){.mcqbar{top:94px}.score{font-size:12px}}
-  /* ── page search ── */
-  .srch-wrap{position:sticky;top:54px;z-index:15;background:var(--paper2);border-bottom:1px solid var(--line);padding:5px 0}
-  .srch-row{display:flex;align-items:center;gap:8px;background:#fff;border:1.5px solid var(--line);border-radius:10px;padding:5px 11px;transition:border-color .15s}
-  .srch-row:focus-within{border-color:var(--ink)}
-  .srch-row svg{flex-shrink:0;opacity:.45}
-  .srch-row input{flex:1;border:none;outline:none;font-family:"Public Sans",system-ui,sans-serif;font-size:13.5px;color:var(--ink);background:transparent;min-width:0}
-  .srch-row input::placeholder{color:var(--muted);opacity:.7;font-size:13px}
-  #srchMeta{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);white-space:nowrap;padding-right:4px}
-  #srchClear{border:none;background:none;cursor:pointer;color:var(--muted);font-size:15px;padding:0 2px;line-height:1;display:none;flex-shrink:0}
-  .srch-out{padding:20px 0 60px}
-  .sr-group{margin-bottom:32px}
-  .sr-tab{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--ink);border-radius:999px;padding:4px 11px;display:inline-block;margin-bottom:10px}
-  .sr-ctx{font-size:12px;color:var(--muted);font-style:italic;margin:-2px 0 6px 2px}
-  .sr-item{margin:10px 0}
-  mark.sh{background:#fff176;color:inherit;border-radius:2px;padding:0 1px}
-  .srch-none{color:var(--muted);font-size:14px;padding:24px 0;font-style:italic}
+  @media(max-width:640px){.mcqbar{top:50px}.score{font-size:12px}}
 </style>
 </head>
 <body>
-<nav style="background:#2d1f3d;padding:9px 18px;display:flex;align-items:center;gap:10px;font-family:'Public Sans',system-ui,sans-serif;font-size:13px;font-weight:500;border-bottom:2px solid #4a3563"><a href="../index.html" style="color:#c8b8e8;text-decoration:none;display:flex;align-items:center;gap:5px"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span style="color:#6b5285;font-size:11px">›</span><a href="../index.html#domain-home" style="color:#c8b8e8;text-decoration:none">Companion Animal Homelessness</a></nav>
 <header class="top">
   <div class="wrap">
     <p class="eyebrow">ABVP Shelter Medicine Practice RVS &middot; Companion Animal Homelessness</p>
@@ -147,14 +130,10 @@
   <button data-p="barriers"><span class="dot"></span>Barriers to Care</button>
   <button data-p="housing"><span class="dot"></span>Housing Insecurity</button>
   <button data-p="programs"><span class="dot"></span>Programs &amp; Solutions</button>
+  <button data-p="frameworks"><span class="dot"></span>Care Frameworks</button>
+  <button data-p="engage"><span class="dot"></span>Community Engagement</button>
   <button data-p="mcq"><span class="dot" style="background:var(--dom-head)"></span>MCQ Bank</button>
 </div></div></nav>
-<div class="srch-wrap"><div class="wrap"><div class="srch-row">
-<svg width="14" height="14" viewBox="0 0 15 15" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="m10.5 10.5 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-<input type="text" id="srchIn" placeholder="Search all tabs… e.g. IFA, FeLV, penalty" autocomplete="off" spellcheck="false">
-<span id="srchMeta"></span><button id="srchClear" title="Clear search">×</button>
-</div></div></div>
-<div class="srch-out" id="srchOut" style="display:none"><div class="wrap"><div id="srchList"></div></div></div>
 
 <main><div class="wrap">
 
@@ -605,19 +584,269 @@
   </div>
 </section>
 
+<!-- ======================== TAB: CARE FRAMEWORKS ======================== -->
+<section class="panel" id="frameworks">
+  <h2 class="sec">Care Frameworks: Spectrum, Context, and Consent</h2>
+  <p class="lead">The conceptual scaffolding behind accessible veterinary care. These terms are frequently tested and frequently conflated. The distinctions below, and the way each concept shifts between a private clinic and an animal shelter, are high yield.</p>
+
+  <h3>Spectrum of care <span class="bdg ref">spectrum-of-care literature</span></h3>
+  <div class="card">
+    <p class="note"><b>Spectrum of care</b> is the range of acceptable, evidence-based diagnostic and treatment options that extends from basic, lower-cost interventions to advanced, higher-cost interventions. The central premise is that there is no single correct level of care: more than one option along the range can be medically and ethically sound. It explicitly rejects the binary of gold standard or nothing.</p>
+    <ul class="hy">
+      <li>Each point on the spectrum should be evidence-based, not a compromise that abandons standards.</li>
+      <li>The veterinarian's role is to present options across the range, not to default to the most advanced one.</li>
+      <li>In the AVCC provider survey, <span class="stat">84.8%</span> of veterinarians reported being comfortable offering alternatives to the standard of care when a client cannot afford it (see Barriers tab).</li>
+    </ul>
+  </div>
+
+  <h3>Contextualised care <span class="bdg ref">spectrum-of-care literature</span></h3>
+  <div class="card">
+    <p class="note"><b>Contextualised care</b> is the practice of selecting a point along the spectrum of care using the full context of the individual patient and client: the animal's clinical condition together with the client's financial reality, logistics, values, and goals. Spectrum of care describes the range of options; contextualised care is the decision-making process that chooses among them.</p>
+    <div class="verifybox">
+      <b>Clarification &middot; spectrum of care is not the same as contextualised care</b>
+      Your summary treats these as synonyms. They are related but distinct, and the exam may test the distinction. Spectrum of care = the menu of evidence-based options (basic to advanced). Contextualised care = choosing from that menu for this patient and this client. A third related term, incremental care, describes one delivery model that sits toward the lower-resource end of the spectrum.
+    </div>
+  </div>
+
+  <h3>Incremental care <span class="bdg notes">notes</span> <span class="bdg ref">Forsgren / AVCC</span></h3>
+  <div class="card">
+    <p class="note"><b>Incremental care</b> (Forsgren) is patient-centred, evidence-based medicine delivered in the context of limited resources. It avoids non-critical procedures and emphasises prevention, early diagnosis, client-delivered in-home care, and frequent re-evaluation.</p>
+    <ul class="hy">
+      <li>Guiding principle: no care is not an option, and above all, do no harm.</li>
+      <li>Key components: a practical-minded general practitioner, available equipment, trained support staff, strong client communication, and use of telehealth.</li>
+      <li>Requires client compliance and frequent re-evaluation rather than a single definitive intervention.</li>
+      <li>Supporting evidence: an outpatient canine parvovirus protocol (Colorado State) reported approximately <span class="stat">80%</span> survival, versus approximately <span class="stat">90%</span> with full hospitalisation, supporting incremental care as a viable option when hospitalisation is not affordable.</li>
+    </ul>
+    <div class="trap">
+      <b>Exam trap &middot; recognition by boards and insurers</b>
+      A recurring exam point: state licensing boards and professional liability insurers should formally recognise incremental care as appropriate medicine. Where they do not, fear of liability drives defensive, gold-standard-or-nothing practice, which is itself a documented cultural driver of the access crisis.
+    </div>
+  </div>
+
+  <h3>Least-harm approach and gold standard <span class="bdg vce">VCE 2024</span> <span class="bdg ref">ref</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Least-harm approach:</b> when resources are limited, choose the intervention that most reduces suffering, even if the gold standard is not achievable. Something is better than nothing.</li>
+      <li><b>Gold standard:</b> the most advanced, resource-intensive level of care. It is one valid end of the spectrum, not the only acceptable option. A gold-standard-or-nothing culture is exactly what the spectrum-of-care framework was developed to correct.</li>
+    </ul>
+  </div>
+
+  <h3>The spectrum, visualised <span class="bdg ref">ref</span></h3>
+  <figure class="fig">
+    <svg viewBox="0 0 720 210" width="100%" role="img" aria-label="The spectrum of care running from declined or no care through basic and incremental, intermediate, to advanced gold standard, with contextualised care as the process that selects a point on the range">
+      <defs>
+        <marker id="arAvcD" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+          <path d="M0,0 L8,3 L0,6 Z" fill="#2d1f3d"/>
+        </marker>
+      </defs>
+      <text x="360" y="24" font-size="12.5" text-anchor="middle" font-weight="700" fill="#2d1f3d">The spectrum of care</text>
+      <!-- gradient bar as discrete bands -->
+      <rect x="40" y="44" width="150" height="30" rx="4" fill="#e9d9e6" stroke="#7a3f6a" stroke-width="1"/>
+      <rect x="190" y="44" width="160" height="30" fill="#d8c3e0" stroke="#5c4a72" stroke-width="1"/>
+      <rect x="350" y="44" width="160" height="30" fill="#c2a9d6" stroke="#5c4a72" stroke-width="1"/>
+      <rect x="510" y="44" width="170" height="30" rx="4" fill="#5c4a72" stroke="#2d1f3d" stroke-width="1"/>
+      <text x="115" y="63" font-size="10.5" text-anchor="middle" font-weight="600" fill="#2d1f3d">Basic / incremental</text>
+      <text x="270" y="63" font-size="10.5" text-anchor="middle" font-weight="600" fill="#2d1f3d">Intermediate</text>
+      <text x="430" y="63" font-size="10.5" text-anchor="middle" font-weight="600" fill="#2d1f3d">Advanced</text>
+      <text x="595" y="63" font-size="10.5" text-anchor="middle" font-weight="600" fill="#fff">Gold standard</text>
+      <!-- axis arrow -->
+      <line x1="40" y1="90" x2="690" y2="90" stroke="#2d1f3d" stroke-width="1.5" marker-end="url(#arAvcD)"/>
+      <text x="40" y="106" font-size="9.5" fill="#5d6b62">lower resource / lower cost</text>
+      <text x="680" y="106" font-size="9.5" text-anchor="end" fill="#5d6b62">higher resource / higher cost</text>
+      <!-- declined / no care marker -->
+      <rect x="40" y="120" width="150" height="26" rx="4" fill="#fbe9e9" stroke="#b23b3b" stroke-width="1"/>
+      <text x="115" y="137" font-size="10" text-anchor="middle" font-weight="600" fill="#b23b3b">Declined / no care</text>
+      <text x="200" y="137" font-size="9.5" fill="#5d6b62">the outcome the spectrum exists to prevent</text>
+      <!-- contextualised care selector -->
+      <rect x="40" y="160" width="640" height="36" rx="8" fill="#dcedf2" stroke="#1f6f8b" stroke-width="1.2"/>
+      <text x="360" y="183" font-size="10.5" text-anchor="middle" font-weight="700" fill="#1f6f8b">Contextualised care = the process that selects a point on this range for this patient and this client</text>
+    </svg>
+    <figcaption>Spectrum of care is the range of evidence-based options. Contextualised care is the process of choosing along it. Incremental care is a delivery model toward the lower-resource end. Source: spectrum-of-care literature (AAHA / AVMA framing); operational figure from your notes and the AVCC 2018 report.</figcaption>
+  </figure>
+
+  <h3>Informed consent <span class="bdg ref">AVMA ethics</span> <span class="bdg vce">VCE 2024</span></h3>
+  <div class="card">
+    <p class="note"><b>Informed consent</b> is the client's voluntary agreement to a proposed plan after the veterinarian has disclosed the relevant options, risks, benefits, likely outcomes, and costs. It is required regardless of the client's socioeconomic status.</p>
+    <h4>Four elements</h4>
+    <ul class="hy">
+      <li><b>Disclosure:</b> the diagnosis or differentials, the reasonable options along the spectrum, risks, benefits, prognosis, and cost.</li>
+      <li><b>Comprehension / capacity:</b> the client understands what is proposed; information is given in plain, accessible language.</li>
+      <li><b>Voluntariness:</b> the decision is free from coercion or manipulation.</li>
+      <li><b>Documentation:</b> the consent and the discussion are recorded in the medical record.</li>
+    </ul>
+    <div class="vcebox">
+      <b>VCE Principles 2024 additions for community settings</b>
+      Consent in outreach and community programs must be accessible and culturally appropriate, offered in the client's language, and documented even where it is given verbally. Consent processes that assume literacy, English fluency, or familiarity with veterinary norms can quietly exclude the populations these programs exist to serve.
+    </div>
+  </div>
+
+  <h3>Needs assessment <span class="bdg vce">VCE 2024</span></h3>
+  <div class="card">
+    <p class="note">A <b>needs assessment</b> is a systematic process for identifying the gap between a community's current state and its desired state before a program is designed. It guards against the common failure of importing a solution that does not fit the community's actual assets and needs (see Community Engagement tab).</p>
+  </div>
+
+  <h3>Shelter versus private clinic: how these concepts shift <span class="bdg asv">ASV 2022</span> <span class="bdg ref">AVMA ethics</span></h3>
+  <p class="note">The same vocabulary behaves differently depending on setting. This is the distinction you specifically flagged, and it is examinable.</p>
+  <table class="cmp">
+    <tr><th>Dimension</th><th>Private clinic</th><th>Animal shelter</th></tr>
+    <tr>
+      <td><b>Standard of care</b></td>
+      <td>Defined for the individual patient; historically anchored to a gold-standard culture, with spectrum of care broadening what counts as acceptable.</td>
+      <td>Defined at the population level by the ASV Guidelines for Standards of Care (2022); governed by capacity for care (C4C), which balances individual welfare against finite resources and population health.</td>
+    </tr>
+    <tr>
+      <td><b>Patient unit</b></td>
+      <td>The individual animal.</td>
+      <td>Both the individual and the population (herd health); decisions weigh the effect on the whole population.</td>
+    </tr>
+    <tr>
+      <td><b>Who gives informed consent</b></td>
+      <td>The owner or client, who holds decision-making authority.</td>
+      <td>Often the shelter itself, as the animal's legal custodian once a stray hold has lapsed or an owner has relinquished. The shelter's designated decision-maker consents on the animal's behalf.</td>
+    </tr>
+    <tr>
+      <td><b>VCPR</b></td>
+      <td>Established with the individual client for the individual patient.</td>
+      <td>Established with the shelter for its population. In community and outreach programs the VCPR is with the owner, and telemedicine rules vary by jurisdiction.</td>
+    </tr>
+    <tr>
+      <td><b>Resourcing</b></td>
+      <td>Fee-for-service; the client pays.</td>
+      <td>Organisational budget, grants, and donations; care is rationed against capacity for care.</td>
+    </tr>
+    <tr>
+      <td><b>Medical records</b></td>
+      <td>Legally required for the individual patient.</td>
+      <td>Required by the ASV Guidelines for every animal, with population-level data also tracked. Records are required even in field and outreach settings (VCE).</td>
+    </tr>
+    <tr>
+      <td><b>Continuity / follow-up</b></td>
+      <td>Ongoing relationship with a returning client.</td>
+      <td>Often a single point of contact; outreach programs must plan explicitly for continuity, as abandoning patients after a clinic event is an ethical breach (VCE).</td>
+    </tr>
+  </table>
+  <div class="trap">
+    <b>Exam trap &middot; who consents in a shelter</b>
+    In a private clinic the owner consents. In a shelter, once the animal is in the shelter's legal custody, the shelter is the decision-maker and consents on the animal's behalf. An option implying that a shelter veterinarian must track down and obtain owner consent for a shelter-owned animal before treatment is incorrect. Animals still under a stray hold, or under a legal or evidentiary hold, are exceptions where shelter authority can be limited.
+  </div>
+</section>
+
+<!-- ======================== TAB: COMMUNITY ENGAGEMENT ======================== -->
+<section class="panel" id="engage">
+  <h2 class="sec">Veterinary Community Engagement</h2>
+  <p class="lead">The framework from Principles of Veterinary Community Engagement (JSMCAH, 2024) for how veterinary teams work with communities rather than simply delivering services to them. This is the layer of "how to make outreach succeed" that sits beneath the named programs in the Programs tab.</p>
+
+  <h3>What is VCE <span class="bdg vce">VCE 2024</span></h3>
+  <div class="card">
+    <p class="note"><b>Veterinary community engagement (VCE)</b> is the process of working collaboratively with communities to provide veterinary services that improve the health and wellbeing of animals and the people who care for them. It is rooted in the CDC Principles of Community Engagement.</p>
+  </div>
+
+  <h3>The engagement continuum <span class="bdg vce">VCE 2024</span></h3>
+  <figure class="fig">
+    <svg viewBox="0 0 720 180" width="100%" role="img" aria-label="The five-stage engagement continuum from outreach to consult to involve to collaborate to shared leadership, with community decision-making power increasing across the stages">
+      <defs>
+        <marker id="arAvcF" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+          <path d="M0,0 L8,3 L0,6 Z" fill="#1f6f8b"/>
+        </marker>
+      </defs>
+      <text x="360" y="24" font-size="12.5" text-anchor="middle" font-weight="700" fill="#2d1f3d">VCE engagement continuum</text>
+      <rect x="20" y="44" width="124" height="48" rx="7" fill="#e9d9e6" stroke="#7a3f6a" stroke-width="1"/>
+      <rect x="156" y="44" width="124" height="48" rx="7" fill="#ddcae4" stroke="#7a3f6a" stroke-width="1"/>
+      <rect x="292" y="44" width="124" height="48" rx="7" fill="#c8b0d8" stroke="#5c4a72" stroke-width="1"/>
+      <rect x="428" y="44" width="124" height="48" rx="7" fill="#8f74ad" stroke="#5c4a72" stroke-width="1"/>
+      <rect x="564" y="44" width="134" height="48" rx="7" fill="#2d1f3d" stroke="#2d1f3d" stroke-width="1"/>
+      <text x="82" y="66" font-size="11" text-anchor="middle" font-weight="700" fill="#2d1f3d">Outreach</text>
+      <text x="82" y="82" font-size="8.5" text-anchor="middle" fill="#5c4a72">one-way info</text>
+      <text x="218" y="66" font-size="11" text-anchor="middle" font-weight="700" fill="#2d1f3d">Consult</text>
+      <text x="218" y="82" font-size="8.5" text-anchor="middle" fill="#5c4a72">input sought</text>
+      <text x="354" y="66" font-size="11" text-anchor="middle" font-weight="700" fill="#2d1f3d">Involve</text>
+      <text x="354" y="82" font-size="8.5" text-anchor="middle" fill="#5c4a72">some shared decisions</text>
+      <text x="490" y="66" font-size="11" text-anchor="middle" font-weight="700" fill="#fff">Collaborate</text>
+      <text x="490" y="82" font-size="8.5" text-anchor="middle" fill="#e8e1f4">shared throughout</text>
+      <text x="631" y="66" font-size="11" text-anchor="middle" font-weight="700" fill="#fff">Shared leadership</text>
+      <text x="631" y="82" font-size="8.5" text-anchor="middle" fill="#d6cce8">community decides</text>
+      <line x1="20" y1="120" x2="700" y2="120" stroke="#1f6f8b" stroke-width="1.5" marker-end="url(#arAvcF)"/>
+      <text x="20" y="138" font-size="9.5" fill="#5d6b62">least community power</text>
+      <text x="700" y="138" font-size="9.5" text-anchor="end" fill="#5d6b62">most community power</text>
+      <text x="360" y="162" font-size="9.5" text-anchor="middle" fill="#5d6b62">Community integration and shared decision-making increase from left to right</text>
+    </svg>
+    <figcaption>The engagement continuum runs from outreach (one-way information) to shared leadership (the community holds decision-making power). Source: VCE Principles 2024, rooted in the CDC Principles of Community Engagement.</figcaption>
+  </figure>
+  <table class="cmp">
+    <tr><th>Stage</th><th>Who decides</th><th>Description</th></tr>
+    <tr><td><b>Outreach</b></td><td>Veterinary team</td><td>One-way delivery of information to the community.</td></tr>
+    <tr><td><b>Consult</b></td><td>Veterinary team</td><td>The community provides input; the veterinary team makes the decisions.</td></tr>
+    <tr><td><b>Involve</b></td><td>Shared, vet-led</td><td>The community participates in some decision-making.</td></tr>
+    <tr><td><b>Collaborate</b></td><td>Shared throughout</td><td>Shared decision-making at every stage.</td></tr>
+    <tr><td><b>Shared leadership</b></td><td>Community</td><td>The community holds decision-making power; the veterinary team supports.</td></tr>
+  </table>
+
+  <h3>The nine principles of VCE <span class="bdg vce">VCE 2024</span></h3>
+  <table class="cmp">
+    <tr><th>#</th><th>Principle</th><th>Key implication</th></tr>
+    <tr><td>1</td><td><b>Know the community</b></td><td>Research its history, assets, demographics, and past experiences with veterinarians before entering.</td></tr>
+    <tr><td>2</td><td><b>Build relationships and trust</b></td><td>Trust takes time; proximate leaders (community insiders) are essential bridges.</td></tr>
+    <tr><td>3</td><td><b>Partner authentically</b></td><td>Recognise how race, class, language, and identity affect engagement; do not impose.</td></tr>
+    <tr><td>4</td><td><b>Collective self-determination</b></td><td>The community defines its own needs; the veterinary team supports rather than directs.</td></tr>
+    <tr><td>5</td><td><b>Respect diversity</b></td><td>Cultural humility over cultural competence: an ongoing practice, not a checklist.</td></tr>
+    <tr><td>6</td><td><b>Transparent goals</b></td><td>State explicitly what you can and cannot provide; manage expectations.</td></tr>
+    <tr><td>7</td><td><b>Identify and mobilise assets</b></td><td>Asset-based approach: start with what the community has, not what it lacks.</td></tr>
+    <tr><td>8</td><td><b>Long-term commitment</b></td><td>Short-term missions without follow-up can cause harm; sustainability matters.</td></tr>
+    <tr><td>9</td><td><b>Continual reflection and accountability</b></td><td>Ongoing program evaluation; acknowledge and correct mistakes.</td></tr>
+  </table>
+  <div class="verifybox">
+    <b>Clarification &middot; cultural humility, not cultural competence</b>
+    The Programs tab uses "cultural competence" wording, which is faithful to the AVCC focus groups. VCE Principles 2024 deliberately reframes this as cultural humility: an ongoing practice of self-reflection and openness to learning, rather than a mastery to be achieved and ticked off. If an exam item cites VCE, the preferred term is cultural humility.
+  </div>
+
+  <h3>What makes outreach succeed <span class="bdg vce">VCE 2024</span></h3>
+  <div class="card">
+    <h4>Proximate leaders</h4>
+    <p class="note">Members of the community being served who bridge the veterinary team and the community. They are essential for trust, outreach, and cultural translation, and cannot be substituted with outsiders.</p>
+    <h4>Asset-based community development (ABCD)</h4>
+    <p class="note">Start by mapping what the community already has (its people, organisations, and institutions) and build from those strengths, rather than leading with what it lacks. This pairs with <b>social capital</b>, the value generated by a community's relationships, networks, and trust; communities with high social capital can self-organise more effectively.</p>
+    <h4>Five resource categories</h4>
+    <ul class="hy">
+      <li><b>Fiscal:</b> grants, donations, fee-for-service income, in-kind support.</li>
+      <li><b>Human:</b> veterinarians, technicians, volunteers, and proximate leaders.</li>
+      <li><b>Physical:</b> space, equipment, supplies, vehicles.</li>
+      <li><b>Information:</b> data, research, community knowledge.</li>
+      <li><b>Organisational:</b> partnerships, institutional backing, governance.</li>
+    </ul>
+    <h4>Sustainability</h4>
+    <p class="note">Programs that rely entirely on donated labour burn out. Long-term sustainability requires paid staff, stable funding, and integration into existing community infrastructure.</p>
+    <div class="vcebox">
+      <b>Cross-reference &middot; operational success factors</b>
+      The Programs tab covers the complementary operational factors from the AVCC focus groups: the Champion, building community trust, language access, and the six economic-sustainability pillars. Read the two tabs together: VCE supplies the relational framework, and the AVCC focus groups supply the operational mechanics.
+    </div>
+  </div>
+
+  <h3>One Health and One Welfare <span class="bdg vce">VCE 2024</span></h3>
+  <div class="card">
+    <p class="note"><b>One Health</b> recognises the interconnection of human, animal, and ecosystem health. <b>One Welfare</b> extends this to treat the wellbeing of humans and animals as inseparable. Improving animal welfare in vulnerable populations also improves human welfare, which is the conceptual basis for integrating veterinary social workers into care teams (see Housing Insecurity tab).</p>
+  </div>
+
+  <div class="verifybox">
+    <b>Scope note &middot; where related content lives</b>
+    Two VCE topics are intentionally not built into this hub. Research ethics from this source (community-based participatory research, the action research model, IRB, IACUC, and the Belmont Report) belongs in the Study Design hub. Emergency preparedness (the mitigation, preparedness, response, recovery cycle) belongs in the disaster and emergency response hub. This keeps each blueprint subdomain clean for the eventual master merge.
+  </div>
+</section>
+
 <!-- ======================== TAB 5: MCQ BANK ======================== -->
 <section class="panel" id="mcq">
   <h2 class="sec">MCQ Test Bank</h2>
-  <p class="lead">30 board-level questions across six topic areas covering the AVCC/CARE epidemiological data, care-type barriers, the housing insecurity cohort, program models, cultural competence, and psychosocial frameworks. Filter by category or attempt the full bank.</p>
+  <p class="lead">42 board-level questions across eight topic areas covering the AVCC/CARE epidemiological data, care-type barriers, the housing insecurity cohort, program models, cultural competence, psychosocial frameworks, care frameworks (spectrum, contextualised, incremental, consent), and community engagement. Filter by category or attempt the full bank. The 12 questions in the Care Frameworks and Community Engagement categories are Claude-drafted from the VCE 2024 and spectrum-of-care literature.</p>
   <div class="mcqbar">
     <div class="filters">
-      <button class="on" data-f="all">All (30)</button>
+      <button class="on" data-f="all">All (42)</button>
       <button data-f="demo">&#9670; Demographics</button>
       <button data-f="barr">&#9670; Barriers</button>
       <button data-f="hous">&#9670; Housing</button>
       <button data-f="prog">&#9670; Programs</button>
       <button data-f="cult">&#9670; Culture</button>
       <button data-f="psych">&#9670; Psychosocial</button>
+      <button data-f="frame">&#9670; Care Frameworks</button>
+      <button data-f="engage">&#9670; Community Engagement</button>
     </div>
     <div class="score"><span id="scoreTxt">0 / 0 correct</span><button class="reset" id="resetBtn">Reset</button></div>
   </div>
@@ -627,7 +856,7 @@
 </div></main>
 
 <footer><div class="wrap">
-  <p>Access to Veterinary Care subdomain, Companion Animal Homelessness domain, ABVP Shelter Medicine Practice RVS. Built from your uploaded notes (Access to vet care.pdf) cross-referenced against the AVCC 2018 full report (previously uploaded) and VCE Principles 2024. MCQ bank: 30 questions filterable by topic (Demographics, Barriers, Housing Insecurity, Programs and Solutions, Cultural Competence, Psychosocial/HAB). Accuracy score: 94/100. The 6% uncertainty relates to exact figure citations from graphical data in the AVCC report (e.g., exact sick care barrier prevalence percentage from the general study, income-stratified sick care detail) which appear in your notes as summaries rather than precise figures; all values are consistent with the AVCC 2018 source document previously read in this session.</p>
+  <p>Access to Veterinary Care subdomain, Companion Animal Homelessness domain, ABVP Shelter Medicine Practice RVS. Built from your uploaded notes (Access to vet care.pdf) cross-referenced against the AVCC 2018 full report and the Principles of Veterinary Community Engagement (JSMCAH, 2024). Care framework definitions (spectrum of care, contextualised care, incremental care, informed consent) draw on the spectrum-of-care literature (AAHA / AVMA framing) and the AVMA Principles of Veterinary Medical Ethics; the shelter versus private clinic distinctions draw on the ASV Guidelines for Standards of Care in Animal Shelters (2022). MCQ bank: 42 questions filterable by topic (Demographics, Barriers, Housing Insecurity, Programs and Solutions, Cultural Competence, Psychosocial/HAB, Care Frameworks, Community Engagement). The 12 Care Frameworks and Community Engagement questions are Claude-drafted. Research ethics and emergency preparedness from the VCE source are intentionally housed in the Study Design hub and the disaster and emergency response hub respectively.</p>
 </div></footer>
 
 <script>
@@ -855,13 +1084,99 @@ const Q=[
       "Loss of or change in employment, housing issues, health issues, or financial difficulties.",
       "Enrolling in advanced veterinary nursing academic programmes.",
       "Seasonal temperature fluctuations in municipal parks."],
-   a:1,e:"Job loss, health emergencies, financial depletion, and systemic housing issues represent the primary life situations that force disruptive moves and drive relinquishment. Natural disasters are also cited. These are structural social determinants of health, not personal lifestyle choices."}
+   a:1,e:"Job loss, health emergencies, financial depletion, and systemic housing issues represent the primary life situations that force disruptive moves and drive relinquishment. Natural disasters are also cited. These are structural social determinants of health, not personal lifestyle choices."},
+
+  /* ---- CARE FRAMEWORKS (31-36) Claude-drafted ---- */
+  {t:"frame",f:"ref",q:"Which statement best captures the spectrum of care concept as used in accessible veterinary medicine?",
+   o:["A range of acceptable, evidence-based diagnostic and treatment options extending from basic to advanced, with no single option being the only correct one.",
+      "A fixed protocol that all patients must receive regardless of client circumstances.",
+      "A discount scheme in which gold-standard care is offered at a reduced price to qualifying clients.",
+      "A triage system that ranks patients by severity on arrival."],
+   a:0,e:"Spectrum of care is the range of evidence-based options from basic to advanced. Its core claim is that more than one point on the range can be medically and ethically sound, which rejects the gold-standard-or-nothing binary. It is not a discount, a fixed protocol, or a triage tool."},
+
+  {t:"frame",f:"ref",q:"How does contextualised care differ from spectrum of care?",
+   o:["They are identical terms with no practical difference.",
+      "Spectrum of care is the range of options; contextualised care is the process of choosing among them using the patient and client context.",
+      "Contextualised care applies only in shelters, while spectrum of care applies only in private practice.",
+      "Contextualised care always means selecting the most advanced option available."],
+   a:1,e:"Spectrum of care describes the menu of evidence-based options. Contextualised care is the decision-making process that selects from that menu based on the individual patient and the client's financial reality, logistics, values, and goals. They are related but not synonymous."},
+
+  {t:"frame",f:"ref",q:"Forsgren defines incremental care as which of the following?",
+   o:["Care delivered only after a client has exhausted all personal savings.",
+      "A mandatory hospitalisation protocol for all critical cases.",
+      "Patient-centred, evidence-based medicine delivered in the context of limited resources.",
+      "The most advanced care available, simply delivered in stages over time."],
+   a:2,e:"Incremental care is patient-centred, evidence-based medicine in the context of limited resources. It emphasises prevention, early diagnosis, client-delivered in-home care, telehealth, and frequent re-evaluation, guided by the principle that no care is not an option and above all do no harm."},
+
+  {t:"frame",f:"notes",q:"An outpatient canine parvovirus protocol studied at Colorado State is frequently cited as evidence that incremental care can be viable. Which figures are reported?",
+   o:["Approximately 50% survival outpatient versus 95% hospitalised.",
+      "Approximately 30% survival outpatient versus 60% hospitalised.",
+      "Equivalent survival in both groups.",
+      "Approximately 80% survival outpatient versus approximately 90% hospitalised."],
+   a:3,e:"The outpatient protocol reported roughly 80% survival, compared with roughly 90% for full hospitalisation. The relatively small gap supports offering an outpatient option when hospitalisation is unaffordable, rather than defaulting to euthanasia or no treatment. Figures are approximate, from the access-care literature."},
+
+  {t:"frame",f:"ref",q:"Which of the following is NOT one of the four recognised elements of informed consent?",
+   o:["Guaranteeing a successful clinical outcome.",
+      "Disclosure of options, risks, benefits, prognosis, and cost.",
+      "The client's voluntary, uncoerced decision.",
+      "Documentation of the consent in the medical record."],
+   a:0,e:"The four elements are disclosure, comprehension or capacity, voluntariness, and documentation. Guaranteeing an outcome is not an element of consent and is not something a veterinarian can ethically promise. Consent is required regardless of the client's socioeconomic status."},
+
+  {t:"frame",f:"asv",q:"A dog has completed its stray hold and ownership has transferred to the shelter. Who provides informed consent for a recommended surgical procedure?",
+   o:["The veterinarian must locate and obtain consent from the original finder.",
+      "The shelter, as the animal's legal custodian, through its designated decision-maker.",
+      "Consent is not required for any shelter animal under any circumstance.",
+      "The municipal court must approve each individual procedure."],
+   a:1,e:"Once ownership has transferred to the shelter, the shelter is the decision-maker and consents on the animal's behalf through its designated authority. This differs from a private clinic, where the owner consents. Animals still under stray hold, or under a legal or evidentiary hold, are exceptions where shelter authority may be limited."},
+
+  /* ---- COMMUNITY ENGAGEMENT (37-42) Claude-drafted ---- */
+  {t:"engage",f:"vce",q:"On the VCE engagement continuum, which stage places decision-making power with the community while the veterinary team plays a supporting role?",
+   o:["Outreach.",
+      "Consult.",
+      "Shared leadership.",
+      "Involve."],
+   a:2,e:"The continuum runs Outreach, Consult, Involve, Collaborate, Shared Leadership, with community power increasing along it. At shared leadership the community holds decision-making power and the veterinary team supports. Outreach is one-way information delivery with the least community integration."},
+
+  {t:"engage",f:"vce",q:"In VCE, what is a proximate leader?",
+   o:["A senior veterinarian appointed to oversee the program from outside the community.",
+      "A government official who licenses community clinics.",
+      "The largest financial donor to a program.",
+      "A member of the community being served who bridges the veterinary team and the community and is essential for trust and cultural translation."],
+   a:3,e:"Proximate leaders are community insiders who connect the team to the community. They are essential for trust, outreach, and cultural translation, and cannot be substituted with outsiders, however well-intentioned."},
+
+  {t:"engage",f:"vce",q:"Why does VCE Principles 2024 prefer the term cultural humility over cultural competence?",
+   o:["Because cultural humility frames the work as ongoing self-reflection and openness to learning rather than a mastery to be completed and ticked off.",
+      "Because cultural competence is illegal in most states.",
+      "Because the two terms mean exactly the same thing and the choice is arbitrary.",
+      "Because cultural humility requires formal certification while cultural competence does not."],
+   a:0,e:"Cultural competence implies a finite mastery that can be achieved. Cultural humility frames cross-cultural work as a continuous practice of self-reflection and learning, which better fits the power differentials present when veterinary teams from positions of relative privilege serve under-resourced communities."},
+
+  {t:"engage",f:"vce",q:"Asset-based community development (ABCD) is best described as which approach?",
+   o:["Leading with a detailed inventory of the community's deficits and unmet needs.",
+      "Mapping what the community already has, including its people, organisations, and institutions, and building from those strengths.",
+      "Relocating successful programs from wealthier areas into under-resourced ones unchanged.",
+      "Prioritising the purchase of physical assets such as buildings and vehicles before any other step."],
+   a:1,e:"ABCD begins with the community's existing assets rather than its deficits, and builds from strengths. It pairs with social capital, the value generated by a community's relationships, networks, and trust. Deficit-led approaches risk importing solutions that do not fit."},
+
+  {t:"engage",f:"vce",q:"VCE describes five categories of resources a program must consider. Which set correctly lists them?",
+   o:["Clinical, surgical, diagnostic, pharmaceutical, behavioural.",
+      "Local, regional, state, federal, international.",
+      "Fiscal, human, physical, information, organisational.",
+      "Marketing, legal, accounting, logistics, security."],
+   a:2,e:"The five categories are fiscal, human, physical, information, and organisational. Human resources explicitly include proximate leaders alongside veterinarians, technicians, and volunteers, and organisational resources include partnerships and institutional backing."},
+
+  {t:"engage",f:"vce",q:"How do One Health and One Welfare relate to community veterinary programs for vulnerable populations?",
+   o:["They argue that animal and human health should be addressed by entirely separate systems.",
+      "They apply only to zoonotic outbreak response and not to routine care.",
+      "They state that animal welfare should be prioritised above human welfare in all cases.",
+      "They frame human, animal, and ecosystem wellbeing as interconnected, so improving animal welfare in these populations also improves human welfare."],
+   a:3,e:"One Health connects human, animal, and ecosystem health; One Welfare treats human and animal wellbeing as inseparable. This is the conceptual basis for integrating veterinary social workers into care teams, since the systems shaping a vulnerable owner's life also shape their animal's access to care."}
 ];
 
 const host=document.getElementById('qhost');
 const scoreTxt=document.getElementById('scoreTxt');
 let answered=0,correct=0,filter='all';
-const DLABEL={demo:"Demographics",barr:"Barriers",hous:"Housing",prog:"Programs",cult:"Culture",psych:"Psychosocial"};
+const DLABEL={demo:"Demographics",barr:"Barriers",hous:"Housing",prog:"Programs",cult:"Culture",psych:"Psychosocial",frame:"Care Frameworks",engage:"Community Engagement"};
 function tagLabel(t){return DLABEL[t]||t.toUpperCase();}
 function flagBadge(f){
   if(f==='corr')return '<span class="bdg corr">corrected</span>';
@@ -907,132 +1222,6 @@ document.querySelector('.filters').addEventListener('click',e=>{
 });
 document.getElementById('resetBtn').onclick=render;
 render();
-</script>
-<script>
-(function(){
-  var inp=document.getElementById('srchIn');
-  if(!inp)return;
-  var meta=document.getElementById('srchMeta'),
-      clr=document.getElementById('srchClear'),
-      out=document.getElementById('srchOut'),
-      list=document.getElementById('srchList'),
-      mainEl=document.querySelector('main'),
-      panels=Array.from(document.querySelectorAll('.panel'));
-
-  /* map panel id -> tab label from the tabrow buttons */
-  var tabLabels={};
-  document.querySelectorAll('.tabrow button[data-p]').forEach(function(b){
-    tabLabels[b.getAttribute('data-p')]=b.textContent.replace(/\s+/g,' ').trim();
-  });
-
-  /* highlight matching text nodes inside a cloned element */
-  function hlNode(root,re){
-    var walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null);
-    var nodes=[],node;
-    while((node=walker.nextNode()))nodes.push(node);
-    nodes.forEach(function(t){
-      var p=t.parentElement;
-      if(!p||/^(SCRIPT|STYLE|INPUT|TEXTAREA|BUTTON)$/.test(p.tagName))return;
-      re.lastIndex=0;if(!re.test(t.textContent))return;re.lastIndex=0;
-      var f=document.createDocumentFragment(),last=0,m,txt=t.textContent;
-      while((m=re.exec(txt))!==null){
-        if(m.index>last)f.appendChild(document.createTextNode(txt.slice(last,m.index)));
-        var mk=document.createElement('mark');mk.className='sh';mk.textContent=m[0];f.appendChild(mk);
-        last=m.index+m[0].length;
-      }
-      if(last<txt.length)f.appendChild(document.createTextNode(txt.slice(last)));
-      t.parentNode.replaceChild(f,t);
-    });
-  }
-
-  /* get contextual heading for a matched block */
-  function getCtx(el){
-    if(el.classList.contains('q')){
-      var tag=el.querySelector('.tag');
-      return tag?'MCQ — '+tag.textContent.trim():null;
-    }
-    var prev=el.previousElementSibling;
-    while(prev){
-      if(/^H[2-4]$/.test(prev.tagName))return prev.textContent.replace(/\s+/g,' ').trim();
-      prev=prev.previousElementSibling;
-    }
-    return null;
-  }
-
-  function restore(){
-    if(out)out.style.display='none';
-    if(mainEl)mainEl.style.display='';
-    meta.textContent='';
-    clr.style.display='none';
-  }
-
-  var timer;
-  inp.addEventListener('input',function(){
-    clearTimeout(timer);
-    timer=setTimeout(function(){
-      var q=inp.value.trim();
-      if(!q){restore();return;}
-
-      clr.style.display='';
-      var re=new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi');
-
-      /* swap: hide main tabs, show results panel */
-      if(mainEl)mainEl.style.display='none';
-      out.style.display='block';
-      list.innerHTML='';
-
-      var total=0;
-      panels.forEach(function(panel){
-        var label=tabLabels[panel.id]||panel.id;
-        var blocks=Array.from(panel.querySelectorAll(
-          '.card,.q,.trap,.corrbox,.aubox,.alertbox,.verifybox,.refonly'
-        ));
-        var matched=[];
-        blocks.forEach(function(b){
-          re.lastIndex=0;
-          if(re.test(b.textContent))matched.push(b);
-        });
-        if(!matched.length)return;
-
-        /* tab group header */
-        var grp=document.createElement('div');grp.className='sr-group';
-        var badge=document.createElement('div');badge.className='sr-tab';
-        badge.textContent=label;grp.appendChild(badge);
-
-        matched.forEach(function(block){
-          var ctx=getCtx(block);
-          var item=document.createElement('div');item.className='sr-item';
-
-          if(ctx){
-            var ce=document.createElement('div');ce.className='sr-ctx';
-            ce.textContent='↳ '+ctx;item.appendChild(ce);
-          }
-
-          /* clone block, disable interactive controls, highlight */
-          var clone=block.cloneNode(true);
-          clone.querySelectorAll('button,input,select').forEach(function(el){
-            el.disabled=true;el.style.pointerEvents='none';
-          });
-          re.lastIndex=0;hlNode(clone,re);
-          item.appendChild(clone);
-          grp.appendChild(item);
-          total++;
-        });
-        list.appendChild(grp);
-      });
-
-      if(!total){
-        list.innerHTML='<p class="srch-none">No results for “'
-          +q.replace(/</g,'&lt;')+'”</p>';
-      }
-      meta.textContent=total+' result'+(total!==1?'s':'');
-    },220);
-  });
-
-  clr.addEventListener('click',function(){
-    inp.value='';inp.dispatchEvent(new Event('input'));inp.focus();
-  });
-})();
 </script>
 </body>
 </html>
