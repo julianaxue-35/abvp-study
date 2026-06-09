@@ -333,6 +333,52 @@
     </svg>
     <figcaption>The five-section animal record structure. Phase A (9 intake items) and Phase B (ID triad) are collected at or before admission. Phase C (history) is gathered from the owner or transfer records. In-shelter care is updated continuously. Outcome data closes the file.</figcaption>
   </figure>
+
+  <h3>Microchip Standards and Scanning Protocol <span class="bdg asv">ASV 2022</span></h3>
+  <div class="card">
+    <h4>ISO 11784/11785 standard</h4>
+    <table class="cmp">
+      <thead><tr><th>Standard</th><th>Chip digits</th><th>Frequency</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td><b>ISO 11784/11785</b></td><td>15-digit</td><td>134.2 kHz</td><td>International standard; mandatory for export to most countries; adopted as the US preferred format</td></tr>
+        <tr><td><b>Legacy North American</b></td><td>9- or 10-digit</td><td>125 kHz</td><td>Older format still present in many sheltered animals; ISO-compatible universal scanners required to read both</td></tr>
+      </tbody>
+    </table>
+    <ul class="hy" style="margin-top:10px">
+      <li>The 15-digit ISO chip number format is: <b>country code (3 digits) + unique ID (12 digits)</b>. The country code for animals chipped in the US is typically 985 or 900.</li>
+      <li>ISO chips are <b>passive RFID</b> — no battery; powered entirely by the scanner's electromagnetic field at the moment of reading.</li>
+      <li>Most manufacturers use the same physical chip size (12 mm × 2 mm standard implantable transponder), regardless of the encoding standard.</li>
+    </ul>
+    <div class="trap"><b>Exam Trap: Chip format ≠ chip size</b> The ISO standard describes the data encoding and frequency, not the physical implant size. A 15-digit ISO chip and a 9-digit legacy chip may be physically identical in size and appearance. The format difference is only detectable on the scanner readout.</div>
+  </div>
+
+  <div class="card">
+    <h4>Universal scanner requirement and scanning technique</h4>
+    <ul class="hy">
+      <li><b>Universal (ISO-compatible) scanners</b> are required in all US shelters. A scanner that reads only one frequency will miss chips encoded at the other frequency, creating false negatives — the animal appears unchipped when it is not.</li>
+      <li><b>Forward and backward pass:</b> Scan the animal with a slow, deliberate pass from head to tail (forward), then tail to head (backward). Chips can migrate from the original implant site (standard site: between the shoulder blades) and may be found in the neck, limb, or flank.</li>
+      <li><b>Minimum scan count:</b> Scan <em>at least twice</em> before recording "no chip detected." A single negative scan is insufficient documentation.</li>
+      <li><b>Wet or dirty coats:</b> Microwave interference and signal attenuation can reduce scanner range. Dry the coat before scanning if possible, or use multiple scan passes at different angles.</li>
+      <li><b>Recording the result:</b> Enter the exact chip number (e.g., "985000012345678") or explicitly record "no chip detected on two-pass scan." Recording "microchip unknown" is not compliant — it does not distinguish between not scanning and scanning with a negative result.</li>
+    </ul>
+    <div class="trap"><b>Exam Trap: Non-ISO scanner = compliance failure</b> A shelter that uses only a 125 kHz legacy scanner will systematically fail to detect ISO 134.2 kHz chips. This is a recordkeeping and animal identification compliance failure regardless of whether the shelter has other protocols in place. Universal scanners are not optional.</div>
+    <div class="clarify" style="background:var(--ref-soft);border-left:3px solid var(--ref);padding:10px 14px;border-radius:8px;font-size:13.5px;margin-top:10px;"><b>What to do when chip is detected but number does not match a registry:</b> Record the chip number as found, note "chip number not found in searched registry/ies," and search multiple microchip registries (AAHA Universal Pet Microchip Lookup, Found Animals, PetLink, HomeAgain, 24PetWatch). No single registry is comprehensive. Document each registry searched.</div>
+  </div>
+
+  <h3>Physical Identification Methods: In-Shelter Tools <span class="bdg asv">ASV 2022</span></h3>
+  <div class="card">
+    <p>Microchips and the ID triad legally bind an animal to its digital record. Physical in-shelter ID tools serve a different function: real-time visual identification for daily care, to prevent animal mix-ups during housing moves, handling, and treatment.</p>
+    <table class="cmp">
+      <thead><tr><th>Method</th><th>Function</th><th>Limitations</th></tr></thead>
+      <tbody>
+        <tr><td><b>Cage card</b></td><td>Primary real-time in-shelter ID; attached to the enclosure door; displays name, ID number, dietary and medical instructions, track designation</td><td>Stays with the cage — NOT the animal. A cage swap without moving the card creates a dangerous ID mismatch. Cards can fall off or be damaged by animals.</td></tr>
+        <tr><td><b>Collar or tag</b></td><td>Travels with the animal through housing moves; color-coded collar systems can signal track, status (e.g., do not adopt), or ward</td><td>Can be chewed off, lost, or placed on the wrong animal. Should never be the sole ID method. Not suitable for cats (escape risk).</td></tr>
+        <tr><td><b>Color-coded band or wristband</b></td><td>Used in high-volume intake situations to distinguish individual animals quickly (e.g., litter identification)</td><td>Similar limitations to collars; intended as a temporary supplemental tool, not a permanent ID.</td></tr>
+        <tr><td><b>Intake photograph</b></td><td>Part of the mandatory Phase B ID triad; provides a permanent visual record for the digital file and supports owner reclaim verification</td><td>Static — does not reflect coat changes (shaving, illness). Should be supplemented with updated photos for long-stay animals.</td></tr>
+      </tbody>
+    </table>
+    <div class="trap"><b>Exam Trap: Cage card ID risk in high-volume settings</b> In shelters where animals are moved frequently between enclosures (during cleaning, behavioral assessment, or ward moves), the single greatest ID failure risk is a cage card that stays behind when an animal is moved. The correct protocol is to always move the cage card with the animal, confirm the card matches the animal at each new location, and update housing location records in the digital system simultaneously.</div>
+  </div>
 </section>
 
 <!-- ===================== TRACKING ===================== -->
@@ -499,12 +545,13 @@
 
   <div class="mcqbar">
     <div class="filters">
-      <button class="on" data-f="all">All 30</button>
+      <button class="on" data-f="all">All 35</button>
       <button data-f="mandate">ID Mandate</button>
       <button data-f="intake">Intake Data</button>
       <button data-f="idtriad">ID Triad</button>
       <button data-f="history">History</button>
       <button data-f="tracking">In-Shelter Tracking</button>
+      <button data-f="microchip">Microchip Standards</button>
     </div>
     <div class="score">
       <span id="scoreDisplay">0 / 0</span>
@@ -561,7 +608,12 @@ const Q = [
   {f:"tracking",q:"A stray dog undergoes emergency orthopedic surgery. Where must the pre-surgical findings, procedure, anesthetic protocol, and post-operative medications be documented?",o:["In the Phase C history log under past medical conditions","In-shelter care activities: medical findings, treatments, and procedures","In the Phase A fundamental intake age and sex metadata fields","In the final outcome type and date parameters"],a:1,e:"All clinical actions performed during the shelter stay, including emergency surgeries, are documented under in-shelter care activities: medical findings, treatments, and procedures. Pre-shelter medical history (Phase C) covers what happened before admission, not during."},
   {f:"intake",q:"An intake clerk enters 'Adult' for age/age category for a rabbit. Which component of the core dataset does this entry fulfill?",o:["One of the five Phase C historical context items","One of the nine Phase A mandatory fundamental intake items","The in-shelter care behavioral plan","The Phase B identification triad framework"],a:1,e:"Age or age category is item 5 of the nine mandatory Phase A fundamental intake items. 'Adult' is an appropriate age category entry. For SAC reporting purposes, the relevant cutoff is under 5 months (pediatric) versus 5 months and older (adult)."},
   {f:"history",q:"A dog transferred from an out-of-state shelter arrives with extensive documentation of its pre-shelter behavioral history. In which record section must this information be preserved?",o:["Outcome type metadata fields","Phase C history","In-shelter care location logs","Phase A fundamental intake physical descriptions"],a:1,e:"Historical behavioral information documented before the animal entered this shelter belongs in Phase C history, specifically under behavioral events and experiences. Transfer paperwork from another organization is treated the same as an owner-provided history."},
-  {f:"tracking",q:"A shelter manager wants to calculate how many times animals are moved between housing areas during their stay, to assess operational stress. Which record metric provides this timeline?",o:["Unique identifier and intake type","Housing locations by time, recorded under in-shelter care activities","Intake photographs paired with microchip scan results","Outcome type combined with the date of outcome"],a:1,e:"Housing locations by time is the only metric that records each move between areas with associated dates. Analyzing the frequency and pattern of housing moves from this field allows managers to assess operational disruption and its welfare impact on residents."}
+  {f:"tracking",q:"A shelter manager wants to calculate how many times animals are moved between housing areas during their stay, to assess operational stress. Which record metric provides this timeline?",o:["Unique identifier and intake type","Housing locations by time, recorded under in-shelter care activities","Intake photographs paired with microchip scan results","Outcome type combined with the date of outcome"],a:1,e:"Housing locations by time is the only metric that records each move between areas with associated dates. Analyzing the frequency and pattern of housing moves from this field allows managers to assess operational disruption and its welfare impact on residents."},
+  {f:"microchip",q:"A shelter uses a 125 kHz legacy scanner for all intake microchip scans. A stray dog reads as 'no chip detected.' The dog is later claimed by its owner who provides documentation of a 134.2 kHz ISO microchip implanted last year. What went wrong?",o:["The chip deactivated during impoundment stress","The shelter's legacy scanner cannot read ISO 134.2 kHz chips, producing a false negative","ISO chips are undetectable for the first 24 hours after a stressful event","The chip migrated to the tail and requires ultrasound localization"],a:1,e:"ISO microchips operate at 134.2 kHz. A 125 kHz legacy scanner cannot detect this frequency and returns a false negative. Universal (ISO-compatible) scanners reading both 125 kHz and 134.2 kHz are required in all shelters to prevent this failure."},
+  {f:"microchip",q:"An intake technician performs one forward pass over a stray cat with a universal scanner, gets no reading, and records 'no chip.' Why is this documentation non-compliant?",o:["One forward pass is the required protocol; backward passes are optional","At minimum two passes (forward and backward) are required before documenting 'no chip detected,' since chips frequently migrate from the interscapular implant site","Only credentialed staff may perform microchip scans, making any technician scan non-compliant","The scan must occur in a shielded room before the result can be documented"],a:1,e:"Chips commonly migrate from the standard interscapular implant site to the neck, flank, or limbs. A single-direction pass may miss a migrated chip. At minimum two passes in opposite directions are required before documenting 'no chip detected.'"},
+  {f:"microchip",q:"After scanning a stray dog twice and reading a 15-digit number, the number returns no matches across three microchip registries. What is the correct documentation?",o:["Record 'no chip' since the number is unregistered and therefore useless","Record the exact 15-digit chip number and note that it returned no match in the specific registries searched","Delete the entry and flag the dog as unidentified","Contact the DEA to report an unregistered implant"],a:1,e:"The chip number must be recorded exactly as read even if no registry match is found. No single registry is comprehensive. The owner may recognize the number, and documenting the registries searched creates a defensible intake record supporting owner reclaim."},
+  {f:"microchip",q:"During an intake shift, a dog is moved from Run 3 to Run 7 for cleaning but the cage card is left on Run 3. A second worker later medicates the new occupant of Run 3 using the card's instructions. What ID failure occurred?",o:["ISO chip frequency mismatch between the two dogs","Cage card identity mismatch — the card remained with the enclosure instead of traveling with the animal, causing medication to reach the wrong individual","Phase C history was not transferred between kennel runs","Phase A intake type was not updated to reflect the housing move"],a:1,e:"Cage cards identify the enclosure, not the animal. When an animal moves without its card, the card associates with the new occupant — a potentially dangerous error. Cage cards must travel with the animal through every housing move, with simultaneous digital housing location update."},
+  {f:"microchip",q:"A dog's ISO microchip number begins with '985.' What does this prefix signify?",o:["The dog was chipped with a 125 kHz legacy North American chip","'985' is a common ISO 11784 country-manufacturer prefix for chips implanted in the United States; the 15-digit format confirms this is an ISO-standard chip","The chip was implanted before 2005 and may be unreadable on modern scanners","It indicates a canine-specific encoding distinct from feline chips"],a:1,e:"The ISO 15-digit format includes a 3-digit country or manufacturer prefix. '985' and '900' are common prefixes for ISO chips implanted in the US. A 15-digit number beginning with 985 indicates an ISO 11784/11785-compliant chip requiring a universal 134.2 kHz-capable scanner."}
 ];
 
 let activeFilter = "all";
