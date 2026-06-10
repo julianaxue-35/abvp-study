@@ -211,6 +211,10 @@ var DOMAINS = [
   subs:[
    {name:"Epidemiology and Biostats",w:54,emoji:"📈",url:"research-biostats/epidemiology_biostats_hub.html"},
    {name:"Study Design",w:46,emoji:"🔬",url:"research-biostats/study_design_hub.html"}
+  ]},
+ {id:"supp",name:"Supplementary Material",color:"#5b584f",emoji:"🎧",
+  subs:[
+   {name:"Additional Podcasts",emoji:"🎧",url:"supplementary/additional_podcasts.html"}
   ]}
 ];
 
@@ -351,7 +355,7 @@ function renderHome(){
   var tots=0,readyDoms=0;
   DOMAINS.forEach(function(d){
     tots+=d.subs.length;
-    if(d.subs.some(function(s){return !!s.url;}))readyDoms++;
+    if(d.weight!==undefined&&d.subs.some(function(s){return !!s.url;}))readyDoms++;
   });
   var h='<div class="hero">';
   h+='<div class="hero-eye">2026 ABVP Exam Prep &middot; RVS</div>';
@@ -431,7 +435,7 @@ function renderDomain(id){
   h+='<div class="domain-title">'+d.emoji+' '+d.name+'</div>';
   h+='<div class="domain-pills">';
   h+='<div class="domain-pill">'+total+' topics</div>';
-  h+='<div class="domain-pill">'+d.weight+'% of exam</div>';
+  h+='<div class="domain-pill">'+(d.weight!==undefined?d.weight+'% of exam':'Supplementary')+'</div>';
   if(readySubs>0&&readySubs===total){
     h+='<div class="domain-pill rpill">✓ All ready</div>';
   }else if(readySubs>0){
