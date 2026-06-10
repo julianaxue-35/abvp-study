@@ -268,6 +268,19 @@ ul{padding-left:20px}
   </table>
   <p>Above 1 means increased risk, below 1 means protection, for ratio measures. The <b>attributable risk</b> is an absolute measure of the excess risk carried by the exposure, useful for judging public-health impact rather than just strength of association.</p>
   <div class="box trap"><span class="lbl">Exam trap</span><p>The odds ratio approximates the relative risk <b>only when the disease is rare</b>. With a common outcome the odds ratio overstates the relative risk. Case-control studies cannot yield a true relative risk because they sample on outcome, not on the population at risk.</p></div>
+
+  <h3>Number Needed to Treat (NNT) and Number Needed to Harm (NNH)</h3>
+  <p>These statistics translate relative measures into clinical terms — <b>how many animals must be treated (or exposed) to produce one additional beneficial (or harmful) outcome?</b> They bridge the gap between statistical significance and clinical relevance.</p>
+  <table>
+    <thead><tr><th>Statistic</th><th>Formula</th><th>Interpretation</th></tr></thead>
+    <tbody>
+      <tr><td><b>NNT</b></td><td>1 ÷ ARR</td><td>Animals needed to treat to prevent one additional case — <b>lower = more effective</b></td></tr>
+      <tr><td><b>NNH</b></td><td>1 ÷ ARI</td><td>Animals needed to expose before one additional harm occurs — <b>higher = safer</b></td></tr>
+    </tbody>
+  </table>
+  <p><b>ARR</b> (absolute risk reduction) = risk<sub>unexposed</sub> − risk<sub>treated</sub>. <b>ARI</b> (absolute risk increase) = risk<sub>exposed</sub> − risk<sub>unexposed</sub>. Both are derived directly from the 2×2 table.</p>
+  <div class="box verifybox"><span class="lbl">Worked example</span><p>A shelter trial shows URI incidence of 30% in unvaccinated cats and 10% in vaccinated cats. ARR = 30% − 10% = 0.20. NNT = 1 ÷ 0.20 = <b>5</b>. Five cats must be vaccinated to prevent one URI case.</p></div>
+  <div class="box trap"><span class="lbl">Exam trap</span><p>A <b>low NNT</b> is good (fewer animals needed per benefit). A <b>low NNH</b> is bad (harm occurs with very few exposures). Do not confuse direction. Also: two interventions with identical RR can have very different NNTs if baseline risk differs — always check the absolute risk difference.</p></div>
 </section>
 
 <!-- ============ MORTALITY ============ -->
@@ -391,6 +404,8 @@ const Q=[
  {f:"assoc",q:"A 2x2 table shows exposed cases 40, exposed non-cases 60, unexposed cases 20, unexposed non-cases 80. The relative risk is:",o:["1.0","0.5","2.0","4.0"],a:2,e:"Risk exposed 40/100 = 0.4; risk unexposed 20/100 = 0.2; RR = 0.4/0.2 = 2.0."},
  {f:"assoc",q:"An odds ratio is statistically non-significant when its 95% confidence interval includes:",o:["0","0.5","2","1"],a:3,e:"Ratio measures have a null value of 1; an interval that includes 1 is not significant."},
  {f:"assoc",q:"A relative risk of 0.6 for a vaccinated group indicates:",o:["A protective effect of vaccination","An increased risk from vaccination","No association","A case fatality rate of 60%"],a:0,e:"A relative risk below 1 indicates reduced risk, here a protective effect."},
+ {f:"assoc",q:"In a shelter trial, URI incidence is 30% in unvaccinated cats and 10% in vaccinated cats. The number needed to treat (NNT) is:",o:["3","5","10","20"],a:1,e:"ARR = 30% − 10% = 0.20. NNT = 1 ÷ ARR = 1 ÷ 0.20 = 5. Five cats must be vaccinated to prevent one URI case."},
+ {f:"assoc",q:"Number Needed to Treat (NNT) is derived from which statistic?",o:["Relative risk","Odds ratio","Absolute risk reduction (ARR)","P-value"],a:2,e:"NNT = 1 ÷ ARR. Using the absolute risk difference means two interventions with the same RR can still have very different NNTs if their baseline risks differ."},
  {f:"mort",q:"Dividing the number of animals that die of a disease by the number of confirmed cases of that disease gives the:",o:["Crude mortality rate","Cause-specific mortality rate","Prevalence","Case fatality rate"],a:3,e:"Case fatality rate uses confirmed cases as its denominator and reflects disease severity."},
  {f:"mort",q:"The denominator of the crude mortality rate is:",o:["Confirmed cases of one disease","The total population at risk of dying","Animals that recovered","Newly diagnosed cases"],a:1,e:"Crude mortality uses the whole at-risk population, not just cases."},
  {f:"mort",q:"Which statement correctly distinguishes case fatality rate from mortality rate?",o:["They are identical","Mortality rate uses cases as the denominator","Case fatality rate uses cases as the denominator; mortality rate uses the whole population","Case fatality rate measures incidence"],a:2,e:"The key difference is the denominator: cases for case fatality rate, whole population for mortality rate."},
