@@ -1535,10 +1535,11 @@
   <h3>The FeLV infection triad <span class="bdg notes">notes</span></h3>
   <div class="card">
     <ul class="hy">
-      <li><b>Abortive (20 to 30%):</b> a robust response clears the virus before dissemination. Antigen, IFA and PCR all negative.</li>
-      <li><b>Regressive (30 to 40%):</b> transient viraemia is suppressed but provirus integrates into marrow and organs. Antigen negative, IFA negative, PCR variable (low copy). Low disease risk and low shedding unless reactivated, possibly years later.</li>
+      <li><b>Abortive (20 to 30%):</b> a robust response clears the virus before dissemination. Antigen, IFA and PCR all negative; antibody is the only positive marker (the sole evidence of past infection).</li>
+      <li><b>Regressive (30 to 40%):</b> transient viraemia is suppressed but provirus integrates into marrow and organs. Antigen negative, IFA negative, PCR variable (low copy). Low disease risk and no shedding of infectious virus after the antigenaemic phase, unless reactivated (possibly years later); provirus remains infectious via blood transfusion.</li>
       <li><b>Progressive (30 to 40%):</b> the response fails, viraemia spreads to organs, the cat sheds and is continuously infectious and at high disease risk. Antigen, IFA and PCR generally positive.</li>
     </ul>
+    <div class="verifybox"><b>2020 AAFP update</b>These percentages are the historical (pre-2020) classification. Large field studies have since shown that <b>abortive infection is likely the most common outcome</b> after natural exposure under typical conditions, with progressive infection considerably less frequent than the older figures imply. The likelihood of each outcome depends on infection pressure and the cat's immune status.</div>
   </div>
 
   <figure class="fig">
@@ -1633,10 +1634,10 @@
   <div class="card">
     <ul class="hy">
       <li><b>Diagnostic windows:</b> retest after recent exposure because FeLV p27 antigenaemia can take up to <b>30 days</b> and an FIV antibody response up to <b>60 days</b>. An immediate post-exposure test can be falsely negative and compromise group housing.</li>
-      <li><b>Kittens (FIV antibody):</b> a positive under 6 months is almost always maternal antibody (vertical FIV is rare), so retest until 5 to 6 months; do not call them infected on a single positive.</li>
+      <li><b>Kittens (FIV antibody):</b> a positive under 6 months is almost always maternal antibody (vertical FIV is rare), so retest with PCR or repeat antibody testing — persistent positivity after 6 months indicates true infection; do not call them infected on a single positive.</li>
       <li><b>Don't pool or proxy-test</b>; group-housed cats must be FeLV-negative first; blood donors are screened for both and ideally FeLV by PCR to exclude regressive infection.</li>
     </ul>
-    <div class="trap"><b>Exam trap &middot; neonatal antigen flash</b>About 50% of unweaned kittens that test whole-blood FeLV-positive at intake turn negative by adoption age (maternal antigen transfer or a neonatal regressive state). <b>Never euthanise a healthy unweaned kitten on a single intake FeLV positive</b>; isolate from unrelated litters and retest at adoption age.</div>
+    <div class="trap"><b>Exam trap &middot; neonatal antigen flash</b>A substantial proportion of unweaned kittens that test whole-blood FeLV-antigen-positive at intake revert to negative by adoption age, because early transient antigenaemia often transitions to a regressive infection (typically within ~16 weeks). Note FeLV antigen testing is <b>not</b> confounded by maternal antibody (unlike FIV antibody testing). <b>Never euthanise a healthy unweaned kitten on a single intake FeLV positive</b>; isolate from unrelated litters and retest at adoption age.</div>
   </div>
 
   <!-- TESTING RECS TABLE -->
@@ -1645,7 +1646,7 @@
     <table class="cmp">
       <tr><th>Cat type</th><th>FeLV/FIV testing</th><th>FeLV vaccine</th><th>FIV vaccine</th></tr>
       <tr><td>Healthy, individually housed</td><td>Optional</td><td>Not recommended</td><td>Not recommended</td></tr>
-      <tr><td>Group-housed</td><td>Recommended (FIV optional if compatible, low stress)</td><td>Recommended</td><td>Not recommended</td></tr>
+      <tr><td>Short-term group-housed</td><td>Recommended (FIV optional if compatible, low stress)</td><td>Not recommended</td><td>Not recommended</td></tr>
       <tr><td>Foster</td><td>Recommended</td><td>Optional</td><td>Not recommended</td></tr>
       <tr><td>Resident cats in foster homes</td><td>Recommended</td><td>Recommended</td><td>Not recommended</td></tr>
       <tr><td>Long-term sanctuary</td><td>Recommended</td><td>Recommended</td><td>Not recommended</td></tr>
@@ -1661,7 +1662,7 @@
   <div class="card">
     <ul class="hy">
       <li>House FeLV-positive cats individually or grouped strictly by status. Both viruses are short-lived in the environment and are <b>not</b> airborne or spread by casual handling, so no special sanitation is needed; the real iatrogenic risk is transfusion and shared invasive instruments.</li>
-      <li><b>FeLV vaccine</b> is non-core, for at-risk cats only. Determine status first (no value vaccinating an infected cat; vaccination does not always prevent regressive infection). From 8 weeks, two doses 3 to 4 weeks apart.</li>
+      <li><b>FeLV vaccine</b> is non-core, for at-risk cats only. Determine status first (no value vaccinating an infected cat; vaccination does not always prevent regressive infection). From 8 weeks, two doses 3 to 4 weeks apart, then a single booster 1 year after the primary series (subsequent revaccination by lifestyle risk).</li>
       <li><b>FIV vaccine</b> is non-core and <b>not recommended in shelters</b>: it covers only subtypes A and D, and vaccine-induced antibody is indistinguishable from infection on common POC tests (IDEXX SNAP, Abaxis), persisting up to 8 years (PCR is unaffected).</li>
     </ul>
     <div class="trap"><b>Exam trap &middot; FISS vaccine site</b>Give the FeLV vaccine as low as possible on the left hind limb (just above the hock). Adjuvanted vaccines carry a rare risk of feline injection-site sarcoma; a distal-limb site means a later aggressive tumour can be removed with clean margins by hindlimb amputation.</div>
@@ -2248,7 +2249,7 @@ const Q=[
  // ================= FeLV / FIV =================
  {t:"fivfelv",f:"notes",q:"FeLV and FIV are classified as:",o:["FeLV oncornavirus and FIV lentivirus, both Retroviridae","Both herpesviruses","Both parvoviruses","Both coronaviruses"],a:0,e:"Both are retroviruses: FeLV is a gammaretrovirus (oncornavirus) and FIV is a lentivirus. Neither is zoonotic."},
  {t:"fivfelv",f:"notes",q:"The three outcomes of FeLV infection are:",o:["Abortive, regressive, progressive","Wet, dry, latent","Acute, peracute, chronic","Primary, secondary, tertiary"],a:0,e:"FeLV resolves to abortive (cleared), regressive (provirus latent in marrow) or progressive (systemic, shedding)."},
- {t:"fivfelv",f:"notes",q:"Abortive FeLV infection shows:",o:["Antigen, IFA and PCR all negative","All tests positive","IFA only positive","Antigen positive, PCR negative"],a:0,e:"A robust immune response clears the virus before dissemination, so antigen, IFA and PCR are all negative."},
+ {t:"fivfelv",f:"notes",q:"Abortive FeLV infection shows:",o:["Antigen, IFA and PCR all negative","All tests positive","IFA only positive","Antigen positive, PCR negative"],a:0,e:"A robust immune response clears the virus before dissemination, so antigen, IFA and PCR are all negative; antibody is the only positive marker."},
  {t:"fivfelv",f:"notes",q:"Regressive FeLV infection features:",o:["Provirus in marrow and organs, IFA negative, possible later reactivation","Continuous high shedding","No provirus present","Universally positive tests"],a:0,e:"Transient viraemia is suppressed but provirus persists in marrow; IFA is negative, PCR variable/low-copy, with low disease risk unless reactivated."},
  {t:"fivfelv",f:"notes",q:"Progressive FeLV infection features:",o:["Spread to multiple organs with shedding; antigen, IFA and PCR generally positive","Viral elimination","IFA negative throughout","No shedding"],a:0,e:"The immune response fails; viraemia spreads, the cat sheds and is continuously infectious, and antigen, IFA and PCR are generally positive."},
  {t:"fivfelv",f:"notes",q:"The primary FeLV transmission route is:",o:["Oronasal (grooming, shared dishes, nursing)","Bite wounds","Sexual","Aerosol over long distance"],a:0,e:"FeLV is the 'friendly-cat' virus, spread by social oronasal contact and efficient maternal/nursing transmission."},
@@ -2265,7 +2266,7 @@ const Q=[
  {t:"fivfelv",f:"notes",q:"A low proviral copy number on quantitative FeLV PCR indicates:",o:["Regressive infection and prolonged survival","Progressive infection","Abortive infection","Vaccine interference"],a:0,e:"Low copy number marks regressive infection (prolonged survival); high copy number marks progressive infection with higher morbidity/mortality."},
  {t:"fivfelv",f:"notes",q:"A kitten with a positive FIV antibody test should be:",o:["Retested until 5 to 6 months, when maternal antibody is gone","Euthanised","Adopted without retesting","Started on antivirals"],a:0,e:"Under 6 months a positive is almost always maternal antibody (vertical FIV is rare); retest until 5 to 6 months before calling it infected."},
  {t:"fivfelv",f:"ref",q:"After a known recent exposure, the recommended retest windows are:",o:["30 days for FeLV and 60 days for FIV","Same day for both","6 months for both","No retest is needed"],a:0,e:"FeLV p27 antigenaemia can take up to 30 days and FIV antibody up to 60 days; testing too early gives false negatives."},
- {t:"fivfelv",f:"ref",q:"An unweaned kitten tests whole-blood FeLV-antigen positive at intake. The best action is:",o:["Euthanise immediately to protect the population","Isolate from unrelated litters and retest at adoption age","Declare abortive infection and clear it","Treat with an antiviral"],a:1,e:"About half of FeLV-positive neonates revert by adoption age (antigen flash / neonatal regressive flux); never euthanise a healthy unweaned kitten on a single intake positive."},
+ {t:"fivfelv",f:"ref",q:"An unweaned kitten tests whole-blood FeLV-antigen positive at intake. The best action is:",o:["Euthanise immediately to protect the population","Isolate from unrelated litters and retest at adoption age","Declare abortive infection and clear it","Treat with an antiviral"],a:1,e:"Many FeLV-antigen-positive neonates revert by adoption age as early transient antigenaemia transitions to regressive infection (typically within ~16 weeks); never euthanise a healthy unweaned kitten on a single intake positive."},
  {t:"fivfelv",f:"notes",q:"In the environment, FeLV and FIV are:",o:["Short-lived, not airborne, not spread by casual handling","Extremely hardy for months","Spore-forming","Spread readily by HVAC"],a:0,e:"Both are fragile retroviruses; no special sanitation is needed, and they are not airborne or spread by casual contact."},
  {t:"fivfelv",f:"notes",q:"A key iatrogenic transmission route to prevent for FeLV/FIV is:",o:["Blood transfusion and contaminated invasive instruments","Shared air","Clean-glove handling","Sunlight exposure"],a:0,e:"Both transmit efficiently via transfusion and cross-contaminated invasive instruments."},
  {t:"fivfelv",f:"notes",q:"Pooling samples or testing one cat as a proxy for a group is:",o:["Not appropriate; it reduces test sensitivity","Cost-effective and recommended","Required for group housing","Equivalent to individual testing"],a:0,e:"Pooling lowers sensitivity and proxy testing is invalid; test cats individually."},
