@@ -132,7 +132,7 @@
   <div class="wrap">
     <p class="eyebrow">ABVP Shelter Medicine Practice RVS &middot; Physical Health of Animal</p>
     <h1>Infectious Disease Subdomain Hub</h1>
-    <p class="sub">Exam-depth study tool for the Infectious Disease subdomain (12% of the Physical Health of Animal domain, which is 29% of the exam). Canine Parvovirus (CPV) is the first disease built out. The MCQ Test Bank is a shared bank for all infectious diseases, filterable by disease, so distemper, panleukopenia, FIV/FeLV and the rest slot in later. Every claim is badged by source.</p>
+    <p class="sub">Exam-depth study tool for the Infectious Disease subdomain (12% of the Physical Health of Animal domain, which is 29% of the exam). Nine disease tabs (CPV, CDV, CIRD, CIV, Ringworm, FPV, FeLV/FIV, FIP, FURI) plus three foundational tabs — transmission &amp; control, outbreak management, and antimicrobial pharmacology. The MCQ Test Bank is shared and filterable by topic. Every claim is badged by source.</p>
     <div class="legend">
       <span><i style="background:var(--notes)"></i>Your CPV notes (Ch. 14)</span>
       <span><i style="background:var(--lit)"></i>Your lit review (case report)</span>
@@ -154,6 +154,9 @@
   <button data-p="fivfelv"><span class="dot"></span>FeLV &amp; FIV</button>
   <button data-p="fip"><span class="dot"></span>Feline Infectious Peritonitis (FIP)</button>
   <button data-p="furi"><span class="dot"></span>Feline URI (FURI)</button>
+  <button data-p="intro"><span class="dot" style="background:#7a4fb5"></span>Transmission &amp; Control</button>
+  <button data-p="outbreak"><span class="dot" style="background:#7a4fb5"></span>Outbreak Management</button>
+  <button data-p="pharm"><span class="dot" style="background:#7a4fb5"></span>Antimicrobial Pharmacology</button>
   <button data-p="mcq"><span class="dot" style="background:#0f3d3a"></span>MCQ Test Bank</button>
 </div></div></nav>
 <div class="srch-wrap"><div class="wrap"><div class="srch-row">
@@ -2000,10 +2003,182 @@
   </div>
 </section>
 
+<!-- ================= TRANSMISSION & CONTROL ================= -->
+<section class="panel" id="intro">
+  <h2 class="sec">Intro to Infectious Disease Transmission &amp; Control</h2>
+  <p class="lead">The cross-cutting framework underneath every disease tab: how transmission happens, what drives host susceptibility in a shelter, and the control and biosecurity principles that govern policy. Built from your "Intro to infectious disease transmission" notes, with gap-analysis additions badged as standard reference.</p>
+
+  <h3>The epidemiological triad <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <p class="note" style="color:var(--muted);margin:0 0 8px">Disease is the intersection of three sets of factors — change any one and you change transmission.</p>
+    <table class="cmp">
+      <tr><th>Host factors</th><th>Agent factors</th><th>Environmental factors</th></tr>
+      <tr><td>Species, age, sex; immune status; stress; genetics</td><td>Virulence; exposure dose &amp; duration; mutation rate; carrier states</td><td>Population density; sanitation; air quality; temperature fluctuations</td></tr>
+    </table>
+    <div class="trap"><b>Exam trap &middot; stress as a host factor</b>Physical housing metrics are not the only stressors. <b>Loud, unfamiliar noises, unpredictable events and novel stimuli</b> (e.g., adjacent construction) drive host immunosuppression, which can recrudesce latent carrier states such as <b>FHV-1</b> — producing a URI "outbreak" with no new pathogen and identical sanitation.</div>
+  </div>
+
+  <h3>Core principles of disease control <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Vigilant surveillance</b> and <b>rapid detection</b> of cases.</li>
+      <li><b>Isolation / removal</b> of infected individuals.</li>
+      <li><b>Mass immunization or treatment</b> of the at-risk population.</li>
+      <li><b>Robust husbandry</b> — nutrition, physical exercise, grooming — to support host resistance.</li>
+    </ul>
+  </div>
+
+  <h3>Carrier state vs environmental persistence <span class="bdg ref">std ref</span></h3>
+  <div class="card">
+    <p class="note" style="color:var(--muted);margin:0 0 8px">These two variables dictate <i>which</i> control lever matters most — contrast them rather than listing them.</p>
+    <table class="cmp">
+      <tr><th>Pathogen profile</th><th>Examples</th><th>Primary control lever</th></tr>
+      <tr><td><b>Long carrier state, low environmental persistence</b></td><td>Chlamydia felis, FHV-1</td><td>Intense host-to-host biosecurity and stress reduction</td></tr>
+      <tr><td><b>High environmental persistence, short shedding window</b></td><td>Feline calicivirus, parvoviruses</td><td>Aggressive chemical decontamination, not just isolation</td></tr>
+    </table>
+  </div>
+
+  <h3>Envelope status drives disinfection chemistry <span class="bdg ref">std ref</span></h3>
+  <div class="card">
+    <table class="cmp">
+      <tr><th>Virus type</th><th>Examples</th><th>Susceptible to</th><th>Needs</th></tr>
+      <tr><td><b>Enveloped</b> (lipid membrane)</td><td>FeLV, FIV, FIP / coronavirus</td><td>Standard detergents &amp; quaternary ammonium compounds</td><td>Routine cleaning is sufficient</td></tr>
+      <tr><td><b>Non-enveloped</b> (no membrane)</td><td>Feline panleukopenia (FPV), feline calicivirus (FCV), CPV</td><td class="no">Resistant to quats and alcohol</td><td>Oxidizing agents: accelerated hydrogen peroxide (AHP) or sodium hypochlorite (bleach, 1:32)</td></tr>
+    </table>
+    <div class="trap"><b>Exam trap &middot; quats vs non-enveloped viruses</b>A quaternary ammonium compound will <b>not</b> reliably kill calicivirus or parvovirus. The correct guidance is an oxidizing disinfectant (AHP or 1:32 bleach). Alcohol hand rubs likewise fail — use soap-and-water mechanical washing or AHP wipes.</div>
+  </div>
+
+  <h3>Biosecurity tiers — clean-to-dirty workflow <span class="bdg ref">std ref</span></h3>
+  <div class="card">
+    <p class="note" style="color:var(--muted);margin:0 0 8px">Staff become mechanical fomites unless daily husbandry and medical processing move strictly from the most to the least vulnerable population.</p>
+    <ul class="hy">
+      <li><b>1. Healthy kittens / neonates</b> (most vulnerable) →</li>
+      <li><b>2. Healthy adults</b> →</li>
+      <li><b>3. Stray / quarantine holding</b> →</li>
+      <li><b>4. Isolation (sick wards)</b> (most contaminated, done last)</li>
+    </ul>
+  </div>
+
+  <h3>Capacity for Care (C4C) &amp; policy framework <span class="bdg ref">std ref</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>C4C is dynamic, not a cage count:</b> it is the precise intersection of <b>physical holding space + staff hours for specialized care + financial resources</b>. If treating an infected population drops basic care of the general population below minimum standards, the shelter has <b>structurally exceeded its C4C</b>.</li>
+      <li><b>Policy questions before committing to long-term on-site treatment:</b> zoonotic risk; environmental persistence and ease of disinfection; herd susceptibility; <b>welfare during prolonged treatment and prognosis for recovery</b>; and whether resources and funds exist to treat <b>without compromising basic care for the general population</b>.</li>
+    </ul>
+    <div class="trap"><b>Exam trap &middot; the hoarding-cohort decision</b>For 30 seized cats with severe chronic stomatitis and suspected FCV carriage, the critical questions are welfare during treatment, prognosis, and whether on-site mass treatment compromises baseline care — <b>not</b> chew toys, nail trims, or rushing the cohort straight to public adoption.</div>
+  </div>
+</section>
+
+<!-- ================= OUTBREAK MANAGEMENT ================= -->
+<section class="panel" id="outbreak">
+  <h2 class="sec">Outbreak Management</h2>
+  <p class="lead">Defining and reading outbreaks, the epidemic-curve archetypes, herd-risk triage with titers, and the ASV-aligned alternatives to depopulation. Built from your "Outbreak management" notes, with gap-analysis additions badged as standard reference.</p>
+
+  <h3>Definition &amp; epidemic curves <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <p class="note" style="color:var(--muted);margin:0 0 8px">An <b>outbreak</b> = more cases than normally expected, or a marked increase in severity/duration. The curve shape reveals the exposure mechanism.</p>
+    <table class="cmp">
+      <tr><th>Curve</th><th>Shape</th><th>Mechanism</th></tr>
+      <tr><td><b>Point source</b></td><td>Brief exposure; swift peak then gradual decline</td><td>One simultaneous exposure (e.g., a single infectious litter admitted together)</td></tr>
+      <tr><td><b>Continuous common source</b></td><td>Sharp rise to a stable plateau until the source is removed</td><td>Extended exposure to one ongoing source (e.g., contaminated food/water)</td></tr>
+      <tr><td><b>Propagated</b></td><td>Rising successively higher peaks spaced by the incubation interval</td><td>Contagious animal-to-animal transmission</td></tr>
+    </table>
+    <div class="trap"><b>Exam trap &middot; reading a shifting curve</b>A point-source spike that later develops <b>successive higher peaks every ~3–4 days</b> has transitioned to a <b>propagated</b> outbreak — isolation or sanitation has failed. A propagated curve that flattens to a plateau means your <b>biosecurity barrier is leaky</b> (environmental persistence established, or staff cross-contaminating wards via poor PPE).</div>
+  </div>
+
+  <h3>Attack rates &amp; the clean break <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Attack rate = Ill / (Ill + Well).</b> Compare exposed vs unexposed groups and isolate the risk factor with the <b>greatest mathematical difference</b> in attack rate.</li>
+      <li><b>Clean break:</b> a temporary intake halt that lets staff isolate sick animals, perform risk assessment, and fully decontaminate receiving areas before new animals cross the threshold.</li>
+    </ul>
+  </div>
+
+  <h3>Titers for herd-risk triage <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>In <b>asymptomatic animals &gt;5 months old</b>, a positive antibody titer (CDV, CPV, FPV) correlates strongly with near-<b>sterilizing protection</b> → categorize as low risk and move toward adoption without mandatory quarantine.</li>
+      <li><b>Pitfalls:</b> false negatives are common in FPV titer tests; positive titers in animals <b>&lt;5 months</b> are unreliable (skewed by maternal antibody).</li>
+    </ul>
+    <div class="trap"><b>Exam trap &middot; shedding vs severity</b>Clinical severity is a <b>dangerous proxy</b> for transmission risk — mildly affected or recovering animals can shed heavily. Shedding load does <b>not</b> track linearly with clinical score. Isolation timelines must follow <b>pathogen-specific post-recovery shedding windows</b>, never visual resolution of signs.</div>
+  </div>
+
+  <h3>Cohort risk stratification — the alternative to depopulation <span class="bdg ref">std ref</span></h3>
+  <div class="card">
+    <p class="note" style="color:var(--muted);margin:0 0 8px">Depopulation is a last resort. The ASV-aligned alternative partitions the population into three rigid cohorts by intake timeline, location data, and titer status.</p>
+    <table class="cmp">
+      <tr><th>Cohort</th><th>Status</th><th>Pathway</th></tr>
+      <tr><td><b>Cohort 1</b></td><td>Confirmed affected</td><td>Isolation</td></tr>
+      <tr><td><b>Cohort 2</b></td><td>Exposed / high risk</td><td>Quarantine</td></tr>
+      <tr><td><b>Cohort 3</b></td><td>Unexposed / protected</td><td>Low-risk pathway (toward adoption)</td></tr>
+    </table>
+    <div class="trap"><b>Exam trap &middot; depopulation request</b>Even with a high-mortality VS-FCV outbreak and exceeded capacity, the answer is <b>deny depopulation as the initial response</b>: implement cohort stratification, create a clean break, use titers where appropriate, and — if legally obligated to receive animals — consult municipal administrators and legal counsel to temporarily restrict or divert intake while arranging offsite options.</div>
+  </div>
+
+  <h3>Chemical safety &amp; human factors <span class="bdg ref">std ref</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Do not over-concentrate disinfectants.</b> Stronger-than-label AHP or bleach is not more effective and leaves caustic residues causing respiratory-tract irritation, ocular sloughing and paw-pad ulceration — damaging mucosal barriers and <b>mimicking or worsening a URTD/CIRD outbreak</b>.</li>
+      <li><b>Human element:</b> outbreaks create compassion fatigue, overtime pressure and moral injury from euthanasia. Designate a <b>single media spokesperson</b> and pause social-media comments to avoid public arguments.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= ANTIMICROBIAL PHARMACOLOGY ================= -->
+<section class="panel" id="pharm">
+  <h2 class="sec">Antimicrobial Pharmacology &amp; Stewardship</h2>
+  <p class="lead">Clinical pharmacology, PK/PD efficacy predictors, resistance, and the regulatory framework (AMDUCA, ELDU, compounding, controlled substances) for shelter prescribing. Built from your "Pharmacology" notes, with gap-analysis additions badged as standard reference. Confirm all doses against a current formulary.</p>
+
+  <h3>PK/PD efficacy predictors <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <table class="cmp">
+      <tr><th>Class</th><th>Killing pattern</th><th>Predictor &amp; target</th></tr>
+      <tr><td><b>Beta-lactams</b></td><td>Time-dependent</td><td><b>Time &gt; MIC</b> — unbound drug above MIC for ≥40–50% of the dosing interval</td></tr>
+      <tr><td><b>Aminoglycosides</b></td><td>Concentration-dependent</td><td><b>Cmax/MIC</b> — peak plasma concentration 8–10× the MIC</td></tr>
+      <tr><td><b>Fluoroquinolones, macrolides, tetracyclines</b></td><td>Exposure-dependent</td><td><b>AUC/MIC</b> — typically ~100</td></tr>
+    </table>
+    <div class="trap"><b>Exam trap &middot; don't bolus a beta-lactam</b>Consolidating a beta-lactam into one large q24h bolus "to save handling" causes <b>treatment failure</b> — these are time-dependent drugs needing concentration above MIC for ~half the interval. Concentration-dependent killing (high single peak) applies to <b>aminoglycosides</b>, not penicillins.</div>
+  </div>
+
+  <h3>Breakpoints &amp; in vitro–in vivo discordance <span class="bdg ref">std ref</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Clinical breakpoint:</b> the concentration categorizing an isolate as Susceptible / Intermediate / Resistant, set from PK data. If a pathogen's MIC exceeds the breakpoint, the drug cannot reach a killing concentration in tissue <b>without systemic toxicity</b>.</li>
+      <li><b>Susceptibility ≠ cure.</b> A "susceptible" isolate can still fail clinically because of:
+        <ul class="hy" style="margin-left:14px">
+          <li><b>Anatomical barriers</b> — failure to penetrate sanctuary sites (blood–brain barrier, blood–prostate barrier, intracellular pathogens, consolidated lung).</li>
+          <li><b>Microenvironmental inactivation</b> — pus/purulent debris chelating aminoglycosides; low-O₂/acidic foci altering drug stability.</li>
+        </ul>
+      </li>
+    </ul>
+    <div class="trap"><b>Exam trap &middot; low MIC but treatment fails</b>A fluoroquinolone with an MIC well below the breakpoint that still fails in hemorrhagic pneumonia is most likely <b>not penetrating the consolidated lung</b> or is being <b>inactivated in the purulent microenvironment</b> — not "0% test correlation" and not a mythical cell-wall absence.</div>
+  </div>
+
+  <h3>Resistance: the Mutant Selection Window <span class="bdg ref">std ref</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>MPC</b> (mutant prevention concentration) inhibits first-step mutants, tested against a much higher bacterial load than the MIC.</li>
+      <li><b>Mutant Selection Window (MSW) = the zone between MIC and MPC.</b> Under-dosing, or spending too long inside this window, kills susceptible bacteria while <b>selectively letting resistant mutants replicate</b>. Dose to push plasma concentration <b>rapidly above the MPC</b>.</li>
+      <li><b>Innate vs acquired resistance:</b> innate is structural — e.g., obligate anaerobes lack the <b>oxygen-dependent transport</b> needed to take up aminoglycosides. Acquired resistance arises by mutation/gene transfer.</li>
+      <li><b>Antibiogram architecture:</b> use MIC₅₀/MIC₉₀ summary statistics; an antibiogram built on <b>fewer than 100 isolates</b> cannot support population-level confidence.</li>
+    </ul>
+  </div>
+
+  <h3>Regulatory framework: AMDUCA, ELDU &amp; compounding <span class="bdg notes">notes</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Extra-label drug use (ELDU)</b> under AMDUCA requires a valid <b>VCPR</b>, record-keeping for <b>2 years</b> (species, condition, dosage, duration, animal counts) <b>available to the FDA on request</b>, and specific labeling (prescribing vet's name/address, drug name, directions, warnings). Laypersons may not initiate ELDU.</li>
+      <li><b>Compounding:</b> manipulating an approved drug vs formulating from <b>bulk raw ingredients</b>. Bulk compounding for office stock is highly restricted and <b>skips FDA manufacturing/potency standards</b> — improper potency causes treatment failure, prolonged suffering and ultimately higher costs.</li>
+      <li><b>Controlled substances</b> are federally regulated (DEA); pharmacists may refuse scripts lacking an NPI. <b>When federal and state laws conflict, follow the stricter law.</b></li>
+    </ul>
+    <div class="trap"><b>Exam trap &middot; System 2 thinking</b>Shelter prescribing for large cohorts should move away from automated protocols toward a deliberate, evidence-based <b>System 2</b> process — matching drug choice to PK/PD, stewardship (MSW) and the regulatory framework.</div>
+  </div>
+</section>
+
 <!-- ================= MCQ ================= -->
 <section class="panel" id="mcq">
   <h2 class="sec">MCQ Test Bank</h2>
-  <p class="lead">Shared bank for the whole Infectious Disease subdomain. The Physical Health domain is 29% of the exam and infectious disease is 12% of that, so about 12 of 350 questions are infectious disease; doubled for practice that is roughly 24 per the live disease set. <b>286 questions across all ten diseases</b> (46 CPV, then 30 each for CDV, CIRD, CIV, Ringworm, FPV, FeLV/FIV, FIP and FURI) are loaded and filterable by disease. Use the chips to focus on one disease or review the whole subdomain.</p>
+  <p class="lead">Shared bank for the whole Infectious Disease subdomain. The Physical Health domain is 29% of the exam and infectious disease is 12% of that, so about 12 of 350 questions are infectious disease; doubled for practice that is roughly 24 per the live disease set. <b>307 questions</b> — the ten diseases (46 CPV, then 30 each for CDV, CIRD, CIV, Ringworm, FPV, FeLV/FIV, FIP and FURI) plus foundational sets on transmission &amp; control, outbreak management and antimicrobial pharmacology — are loaded and filterable. Use the chips to focus on one topic or review the whole subdomain.</p>
   <div class="mcqbar">
     <div class="filters">
       <button class="on" data-f="all">All</button>
@@ -2019,6 +2194,9 @@
       <button data-f="brucella">&#9670; Brucellosis</button>
       <button data-f="hemoplasma">&#9670; Hemoplasma</button>
       <button data-f="diarrhea">&#9670; Diarrhea Workup</button>
+      <button data-f="intro">&#9670; Transmission</button>
+      <button data-f="outbreak">&#9670; Outbreak</button>
+      <button data-f="pharm">&#9670; Pharmacology</button>
     </div>
     <div class="score"><span id="scoreTxt">0 / 0 correct</span><button class="reset" id="resetBtn">Reset</button></div>
   </div>
@@ -2028,7 +2206,7 @@
 </div></main>
 
 <footer><div class="wrap">
-  <p>This hub covers the complete Infectious Disease subdomain: CPV, CDV, CIRD, CIV, Ringworm, FPV, FeLV/FIV, FIP and FURI. The MCQ bank holds 286 questions, filterable by disease. Built from uploaded study notes and primary sources, with gap-analysis additions badged as standard reference and source corrections flagged inline.</p>
+  <p>This hub covers the complete Infectious Disease subdomain: CPV, CDV, CIRD, CIV, Ringworm, FPV, FeLV/FIV, FIP and FURI, plus foundational tabs on transmission &amp; control, outbreak management, and antimicrobial pharmacology. The MCQ bank holds 307 questions, filterable by topic. Built from uploaded study notes and primary sources, with gap-analysis additions badged as standard reference and source corrections flagged inline.</p>
 </div>
 </footer>
 
@@ -2348,13 +2526,27 @@ const Q=[
  {t:"diarrhea",f:"ref",q:"An unvaccinated 8-week-old puppy presents with acute, hemorrhagic diarrhea, vomiting, lethargy, and a CBC showing leukopenia. What is the highest-priority first action?",o:["Run a Giardia ELISA and treat empirically with fenbendazole","Immediately isolate the puppy and run a CPV fecal antigen ELISA — treat as CPV until proven otherwise","Move the puppy to the general population pending culture results","Administer oral metronidazole and observe for 48 hours before testing"],a:0,e:"An unvaccinated puppy with hemorrhagic diarrhea, vomiting, leukopenia, and lethargy is CPV until proven otherwise. Immediate isolation and CPV fecal antigen test are the first steps — delay in isolation allows exposure of susceptible animals in the population."},
  {t:"diarrhea",f:"ref",q:"A recently vaccinated dog tests positive on the IDEXX SNAP CPV fecal antigen test 3 days after receiving an MLV DAPP vaccine. How should this result be interpreted?",o:["This confirms active CPV infection; begin intensive treatment immediately","This is likely a vaccine-induced false positive; MLV CPV vaccine virus is shed in feces for up to 2 weeks post-vaccination; clinical signs and CBC (leukopenia) are needed to distinguish from true CPV","The test is unreliable and should be discarded","Transfer to an emergency hospital immediately"],a:1,e:"MLV CPV vaccine virus is shed in feces for up to 5 days and occasionally up to 2 weeks after vaccination, causing false-positive antigen tests. Clinical signs (severity of GI illness, leukopenia on CBC) and PCR confirmation are needed when the result is ambiguous."},
  {t:"diarrhea",f:"ref",q:"During a shelter diarrhea cluster affecting 5 dogs in the same intake ward, which disinfectant is appropriate for both Salmonella and CPV contamination?",o:["Quaternary ammonium compounds (quats) at standard dilution","Accelerated hydrogen peroxide (AHP) 1:32 with 10 min contact time","Bleach 1:100 with 5 min contact time","Isopropyl alcohol 70%"],a:1,e:"AHP 1:32 with ≥10 min contact is effective against both CPV (non-enveloped) and Salmonella. Quats FAIL against CPV. Bleach at 1:100 is too dilute for CPV (1:32 required). Alcohol does not reliably kill non-enveloped viruses like CPV."},
- {t:"diarrhea",f:"ref",q:"Which pathogen causing feline diarrhea requires 6% hydrogen peroxide or steam cleaning because standard bleach dilutions are ineffective?",o:["Tritrichomonas foetus","Campylobacter jejuni","Giardia duodenalis","Cryptosporidium spp."],a:3,e:"Cryptosporidium oocysts are highly resistant to chlorine disinfectants including standard bleach dilutions. Steam (≥60°C) or 6% hydrogen peroxide (30 min contact) are required. This is the most challenging pathogen to decontaminate in a shelter."}
+ {t:"diarrhea",f:"ref",q:"Which pathogen causing feline diarrhea requires 6% hydrogen peroxide or steam cleaning because standard bleach dilutions are ineffective?",o:["Tritrichomonas foetus","Campylobacter jejuni","Giardia duodenalis","Cryptosporidium spp."],a:3,e:"Cryptosporidium oocysts are highly resistant to chlorine disinfectants including standard bleach dilutions. Steam (≥60°C) or 6% hydrogen peroxide (30 min contact) are required. This is the most challenging pathogen to decontaminate in a shelter."},
+ // ================= Transmission & Control =================
+ {t:"intro",f:"notes",q:"A long-term cat ward sees an abrupt URI spike during a winter intake surge. Sanitation is unchanged and no new pathogen entered, but major construction (daily drilling, vibrations) just began next door. The primary driver is:",o:["Increased agent virulence from structural shifting of the building","Environmental stressors (loud, unfamiliar noise; unpredictable events) triggering host immunosuppression and recrudescence of latent carriers such as FHV-1","Mechanical vectors (fleas, mosquitoes) failing to circulate fresh air","Mutation of Mycoplasma into cell-wall-producing bacteria from vibration"],a:1,e:"Stress is a host factor in the epidemiological triad. Noise and unpredictability immunosuppress the resident population, recrudescing latent FHV-1 — an 'outbreak' with no new pathogen and identical sanitation."},
+ {t:"intro",f:"notes",q:"Thirty cats from a hoarding case arrive; 80% have severe painful chronic stomatitis and suspected FCV carriage. Before committing to long-term on-site mass treatment, the most critical questions are:",o:["Which chew toys are safe, and can nail trims precede antibiotic choice?","How hard is the agent to kill with alcohol, and will the cats need intensive grooming?","Welfare during prolonged treatment, prognosis for recovery, and whether resources and funds allow treatment without compromising basic care for the general population","Can the whole cohort go straight to general adoption to cut length of stay?"],a:2,e:"Capacity for Care is dynamic: if treating the infected cohort drops baseline care of the general population below minimum standards, C4C is exceeded. Welfare, prognosis and resource impact are the decisive questions."},
+ {t:"intro",f:"notes",q:"An intake room is contaminated with feline calicivirus (non-enveloped) and feline panleukopenia virus. A technician proposes a quaternary ammonium compound because it is cheap and pleasant-smelling. You should:",o:["Approve — quats reliably disrupt the capsids of non-enveloped shelter pathogens","Deny — non-enveloped viruses resist quats; use an oxidizing disinfectant (accelerated hydrogen peroxide or 1:32 bleach)","Switch to an alcohol hand-rub wipe-down, which sterilizes against parvovirus","Skip chemical disinfection and rely on daily brushing/grooming"],a:1,e:"Non-enveloped viruses (FCV, FPV/parvo) lack a lipid envelope and resist quats and alcohol. Effective decontamination requires an oxidizing agent — AHP or 1:32 bleach."},
+ // ================= Outbreak Management =================
+ {t:"outbreak",f:"notes",q:"An FPV epidemic curve shows a massive sharp peak on Day 1 with gradual decline, then from Day 8 a series of successively higher peaks ~3–4 days apart. Interpretation:",o:["Continuous common source that has mutated into an airborne pathogen","Began as a point source (e.g., one infectious litter admitted together) and, from an isolation/sanitation failure, transitioned to a propagated, animal-to-animal outbreak","Data error — FPV never causes multiple peaks because of maternal antibody","Steady-state fluctuations proving the quat disinfectant neutralized the virus"],a:1,e:"A point-source spike followed by successive incubation-spaced peaks signals transition to a propagated outbreak — isolation or sanitation has broken down."},
+ {t:"outbreak",f:"notes",q:"During a CDV outbreak, an asymptomatic 6-month-old dog housed with a shedding puppy has a strongly positive point-of-care CDV antibody titer. Best management:",o:["14-day quarantine, because positive titers over 5 months are usually false positives","Immediate euthanasia under depopulation guidelines","Because he is over 5 months and clinically normal, the positive titer correlates strongly with protection — categorize low risk and move toward adoption without mandatory quarantine","Invalid test — redraw blood only 14 days after exposure ends so maternal antibody wanes"],a:2,e:"In asymptomatic animals over 5 months, a positive CDV/CPV/FPV titer correlates with near-sterilizing protection. Maternal-antibody skew is the concern only in animals under 5 months."},
+ {t:"outbreak",f:"notes",q:"During concurrent S. zooepidemicus and FCV outbreaks, the supervisor orders accelerated hydrogen peroxide mixed at triple label concentration. Why intervene?",o:["Tripling concentration converts non-enveloped calicivirus into a point-source pathogen","Chemical agents lose all efficacy against Gram-positives at higher concentration","Stronger-than-label disinfectant is not more effective and causes harm — caustic residues irritate the respiratory tract and mucosa, increasing host susceptibility","Changing concentration is only permitted for vector-borne mange"],a:2,e:"Over-concentrating disinfectant adds no benefit and leaves caustic residues that damage respiratory and ocular mucosa and paw pads, raising susceptibility and mimicking a URTD/CIRD outbreak."},
+ {t:"outbreak",f:"ref",q:"A county shelter legally obligated to accept strays has a VS-FCV outbreak (50% mortality), exceeded isolation capacity, and maxed staff hours. The director demands total depopulation of all cats. Per ASV standards:",o:["Approve immediate building-wide depopulation as the standard response to high-morbidity outbreaks","Deny depopulation as the initial response — implement cohort risk stratification, create a clean break, use titers where appropriate, and consult municipal/legal counsel to temporarily restrict or divert intake while arranging offsite options","Stop all data collection and run PCR panels on healthy dogs","Open communal rooms to the public to speed adoptions and reduce crowding"],a:1,e:"Depopulation is a last resort. The alternative is cohort stratification (affected/exposed/unexposed), a clean break, titer triage, and — given a legal intake mandate — working with administrators and counsel to restrict or divert intake."},
+ // ================= Antimicrobial Pharmacology =================
+ {t:"pharm",f:"notes",q:"A vet uses an FDA-approved human antibiotic extra-label for deep pyoderma in 45 confiscated dogs (no veterinary alternative). Which statement on records/labeling is accurate?",o:["Shelter ownership exempts the vet from any individual drug records","ELDU records (condition treated, species, dosage, duration, number of animals) must be kept at least 2 years and made available to the FDA on request","Any volunteer may initiate the extra-label regimen without veterinary authorization","An NPI number must first be obtained from the DEA before dispensing"],a:1,e:"AMDUCA requires a valid VCPR, 2-year ELDU record-keeping (species, condition, dosage, duration, animal counts) available to the FDA, and proper labeling. Laypersons cannot initiate ELDU."},
+ {t:"pharm",f:"notes",q:"A technician asks to give the full daily dose of an oral beta-lactam as one large q24h bolus to save handling. You should:",o:["Approve — beta-lactams are concentration-dependent and best when peak is 8–10× MIC","Approve — penicillin frequency does not affect efficacy as long as AUC/MIC is 30–100","Deny — beta-lactams are time-dependent (Time > MIC); efficacy needs unbound drug above MIC for ~half the dosing interval, so consolidating doses causes failure","Deny — beta-lactams use oxygen-dependent transport active only in early morning"],a:2,e:"Beta-lactams are time-dependent: keep unbound concentration above MIC for ≥40–50% of the interval. A single large bolus lets levels fall below MIC and fails. Concentration-dependent (high peak) killing is the aminoglycoside pattern."},
+ {t:"pharm",f:"notes",q:"A director wants to replace an FDA-approved ophthalmic ointment with a paste mixed by a volunteer from bulk raw drug powders bought online. The primary hazard is:",o:["Bulk-compounded products skip standard manufacturing requirements, risking improper potency/safety that prolongs suffering, lengthens treatment and raises total costs","Bulk compounding is legal for food animals but banned for cats","Mixing bulk drugs converts acquired resistance into innate structural resistance","The FDA requires bulk-compounded drugs to be exact copies of commercial products"],a:0,e:"Compounding from bulk raw ingredients bypasses FDA manufacturing/potency standards. Poor potency causes treatment failure and more suffering, ultimately driving costs up — the opposite of the intended saving."},
+ {t:"pharm",f:"ref",q:"An isolate's MIC is well below the fluoroquinolone breakpoint, yet dogs with hemorrhagic pneumonia fail to improve on correct dosing. The most logical explanation is:",o:["Susceptibility testing has 0% true correlation with in vivo response","Fluoroquinolones lose all activity if given more often than every 48 h","The drug fails to penetrate the consolidated lung tissue, or is inactivated within the purulent microenvironment of the lesions","Innate resistance from an unmapped lack of cell walls"],a:2,e:"Susceptible-in-vitro can still fail in vivo: anatomical barriers (poor penetration of consolidated lung/sanctuary sites) and microenvironmental inactivation (purulent debris, low-O2/acidic foci) are the classic reasons."}
 ];
 
 const host=document.getElementById('qhost');
 const scoreTxt=document.getElementById('scoreTxt');
 let answered=0, correct=0, filter='all';
-const DLABEL={cpv:"CPV",cdv:"CDV",cird:"CIRD",civ:"CIV",rw:"Ringworm",fpv:"FPV",fivfelv:"FeLV / FIV",fip:"FIP",furi:"FURI",brucella:"Brucellosis",hemoplasma:"Hemoplasma",diarrhea:"Diarrhea Workup"};
+const DLABEL={cpv:"CPV",cdv:"CDV",cird:"CIRD",civ:"CIV",rw:"Ringworm",fpv:"FPV",fivfelv:"FeLV / FIV",fip:"FIP",furi:"FURI",brucella:"Brucellosis",hemoplasma:"Hemoplasma",diarrhea:"Diarrhea Workup",intro:"Transmission",outbreak:"Outbreak",pharm:"Pharmacology"};
 function tagLabel(t){return DLABEL[t]||t.toUpperCase();}
 function flagBadge(f){
   if(f==='corr')return '<span class="bdg corr">corrected</span>';
