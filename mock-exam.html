@@ -96,9 +96,9 @@
         <div><label>Total questions</label><input id="cfgTotal" type="number" value="350" min="20" max="700"></div>
         <div><label>Minutes / session</label><input id="cfgMins" type="number" value="180" min="10" max="360"></div>
         <div><label>Lunch (min, pausable)</label><input id="cfgLunch" type="number" value="60" min="0" max="120"></div>
-        <div><label>Include flashcards</label><select id="cfgCards"><option value="1" selected>Yes — mix in self-graded recall</option><option value="0">No — MCQs only</option></select></div>
+        <div><label>Include flashcard MCQs</label><select id="cfgCards"><option value="1" selected>Yes — add flashcard-derived MCQs</option><option value="0">No — hub MCQs only (cleanest)</option></select></div>
       </div>
-      <p style="font-size:13px;color:var(--muted);margin:6px 0 14px">The exam is split into two timed sessions with a self-paced lunch between. Questions are drawn randomly and <b>weighted to the 2026 blueprint</b> below. MCQs are auto-graded; flashcards are self-graded (Got it / Missed it). Nothing is marked right/wrong until your results — just like the real exam.</p>
+      <p style="font-size:13px;color:var(--muted);margin:6px 0 14px">The exam is split into two timed sessions with a self-paced lunch between. Every item is multiple-choice and auto-graded; questions are drawn randomly and <b>weighted to the 2026 blueprint</b> below. Flashcards have been reworded into MCQs (True/False items convert cleanly; others use auto-generated distractors, so turn them off for the highest-quality run). During the exam nothing is marked right/wrong — but you can hit <b>Pause</b> any time to review what you've done so far with reasoning.</p>
       <button class="btn" onclick="startExam()">Start exam day →</button>
       <span id="poolInfo" style="font-size:12.5px;color:var(--muted);margin-left:12px"></span>
     </div>
@@ -128,7 +128,9 @@
     <span class="pace on" id="pace">On pace</span>
     <div class="meta-r">
       <div><div class="sesslabel" id="sessLabel">Session 1</div><span id="progress">0 / 0</span></div>
-      <button class="btn alt sm" onclick="togglePalette()">≡ Review</button>
+      <button class="btn alt sm" onclick="pauseExam()">⏸ Pause</button>
+      <button class="btn alt sm" onclick="togglePalette()">≡ Palette</button>
+      <button class="btn alt sm" onclick="exitToHub()">← Hub</button>
     </div>
   </div></div></div>
 
@@ -162,6 +164,22 @@
   </div>
   <p style="font-size:12.5px;color:var(--muted)">The countdown is just a guide; the timer can be paused and Session 2 starts only when you click.</p>
 </div></div></div>
+
+<!-- ============ PAUSE / REVIEW-SO-FAR ============ -->
+<div id="pauseScreen" class="hidden"><div class="wrap">
+  <div class="card" style="text-align:center">
+    <h1 style="font-size:24px;margin:0">⏸ Paused — review so far</h1>
+    <p style="color:var(--muted);margin:6px 0" id="pauseSummary"></p>
+    <div style="margin:6px 0 0">
+      <button class="btn alt sm" onclick="filterPause('all')">All answered</button>
+      <button class="btn alt sm" onclick="filterPause('wrong')">Incorrect + reasoning</button>
+      <button class="btn alt sm" onclick="filterPause('right')">Correct</button>
+    </div>
+    <button class="btn" style="margin-top:12px" onclick="resumeExam()">▶ Resume exam</button>
+    <span style="font-size:12px;color:var(--muted);margin-left:10px">The timer is frozen.</span>
+  </div>
+  <div id="pauseList"></div>
+</div></div>
 
 <!-- ============ RESULTS ============ -->
 <div id="resultScreen" class="hidden"><div class="wrap">
@@ -204,7 +222,7 @@ function renderBlueprint(){
   document.getElementById('bpBody').innerHTML=DOM_ORDER.map(d=>
     `<tr><td>${d}</td><td>${window.MOCK.blueprint[d].pct}%</td><td>${c[d]}</td></tr>`).join('');
   document.getElementById('poolInfo').textContent=
-    window.MOCK.mcqs.length+' MCQs + '+window.MOCK.cards.length+' flashcards available';
+    window.MOCK.mcqs.length+' MCQs available ('+window.MOCK.mcqs.filter(function(q){return q.source==='fc';}).length+' reworded from flashcards)';
 }
 ['cfgTotal'].forEach(id=>document.getElementById(id).addEventListener('input',renderBlueprint));
 renderBlueprint();
@@ -218,10 +236,9 @@ function startExam(){
   S.lunchLeft=(parseInt(document.getElementById('cfgLunch').value)||60)*60;
   var need=counts(total), picked=[];
   DOM_ORDER.forEach(function(d){
-    var pool=window.MOCK.mcqs.filter(q=>q.domain===d);
-    if(useCards) pool=pool.concat(window.MOCK.cards.filter(c=>c.domain===d));
+    var pool=window.MOCK.mcqs.filter(q=>q.domain===d && (useCards||q.source!=='fc'));
     pool=shuffle(pool.slice());
-    // top up from MCQs if pool short
+    // top up from hub MCQs if pool short
     if(pool.length<need[d]) pool=pool.concat(shuffle(window.MOCK.mcqs.filter(q=>q.domain===d).slice()));
     picked=picked.concat(pool.slice(0,need[d]));
   });
@@ -294,7 +311,7 @@ function render(){
   var h='<div class="qhead"><span>Question '+(S.cur-r[0]+1)+'</span>'+
     '<span><span class="qtag">'+it.domain+'</span> '+
     '<span class="qtype">'+(it.type==='mcq'?'Multiple choice':'Flashcard (self-grade)')+'</span></span></div>';
-  h+='<div class="stem">'+esc(it.q)+'</div>';
+  h+='<div class="stem">'+esc((it.qpre||'')+it.q)+'</div>';
   if(it.type==='mcq'){
     it.o.forEach(function(opt,i){
       h+='<button class="opt'+(S.ans[S.cur]===i?' sel':'')+'" onclick="pick('+i+')">'+
@@ -357,6 +374,49 @@ function togglePalette(forceClose){
   document.getElementById('pgrid').innerHTML=g; p.classList.add('open');
 }
 function jump(i){S.cur=i;togglePalette(true);render();}
+
+/* ===================== pause / review-so-far / exit ===================== */
+function pauseExam(){
+  if(S.timer)clearInterval(S.timer);
+  S.pauseRemaining=Math.max(0,Math.round((S.sessEnd-Date.now())/1000));
+  document.getElementById('palette').classList.remove('open');
+  document.getElementById('examScreen').classList.add('hidden');
+  document.getElementById('pauseScreen').classList.remove('hidden');
+  window.scrollTo(0,0); buildPauseReview('all');
+}
+function resumeExam(){
+  document.getElementById('pauseScreen').classList.add('hidden');
+  document.getElementById('examScreen').classList.remove('hidden');
+  S.sessEnd=Date.now()+(S.pauseRemaining||0)*1000;
+  if(S.timer)clearInterval(S.timer); S.timer=setInterval(tick,1000); tick(); render();
+}
+var pauseData=[];
+function buildPauseReview(f){
+  pauseData=[];
+  S.items.forEach(function(it,i){ if(S.ans[i]===null)return; pauseData.push({it:it,i:i,correct:it.a===S.ans[i],a:S.ans[i]}); });
+  var n=pauseData.length, right=pauseData.filter(p=>p.correct).length;
+  document.getElementById('pauseSummary').textContent=
+    n+' answered so far · '+right+' correct · '+(n-right)+' incorrect — the exam itself stays unmarked; this view is just for you.';
+  filterPause(f||'all');
+}
+function filterPause(f){
+  var list=pauseData.filter(p=> f==='all'?true : f==='wrong'? !p.correct : p.correct);
+  document.getElementById('pauseList').innerHTML=list.map(function(p){
+    var it=p.it,h='<div class="rev" style="border-left:4px solid '+(p.correct?'var(--good)':'var(--bad)')+'">';
+    h+='<div style="font-size:12px;margin-bottom:4px">'+(p.correct?'<span class="corr">✓ Correct</span>':'<span class="wrong">✗ Incorrect</span>')+' · <span class="qtag">'+it.domain+'</span></div>';
+    h+='<div class="stem">'+esc((it.qpre||'')+it.q)+'</div>';
+    it.o.forEach(function(o,k){
+      var mark=(k===it.a)?'<span class="corr">✓ </span>':(k===p.a&&!p.correct?'<span class="wrong">✗ </span>':'');
+      var st=(k===it.a)?'font-weight:600;color:var(--good)':(k===p.a&&!p.correct?'color:var(--bad)':'color:var(--muted)');
+      h+='<div style="'+st+'">'+mark+String.fromCharCode(65+k)+'. '+esc(o)+'</div>';
+    });
+    if(!p.correct && it.e) h+='<div style="margin-top:6px;font-size:13px;background:#f3efe3;border-radius:8px;padding:8px"><b>Why:</b> '+esc(it.e)+'</div>';
+    return h+'</div>';
+  }).join('')||'<p style="color:var(--muted);text-align:center">No questions in this filter yet.</p>';
+}
+function exitToHub(){
+  if(confirm('Leave the mock exam and return to the Study Hub? Your current exam progress will be lost.')) location.href='index.html';
+}
 
 /* ===================== results ===================== */
 function showResults(){
