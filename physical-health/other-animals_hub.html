@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Other Animals in the Shelter | ABVP Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0f3d3a;--ink2:#15514c;--paper:#f4efe4;--paper2:#fbf8f1;
+    --line:#d9d0bd;--muted:#5d6b62;
+    --ac:#2f7d8c;--ac-soft:#d8ebee;
+    --id:#3c4a86;--id-soft:#e2e4f2;
+    --good:#1f7a4d;--bad:#b23b3b;
+    --notes:#7a4fb5;--notes-soft:#ece3f7;
+    --txt:#8a6d1f;--txt-soft:#f3ebcf;
+    --warn:#a8641a;--warn-soft:#f7e6cd;
+    --shadow:0 1px 2px rgba(15,61,58,.08),0 8px 24px rgba(15,61,58,.06);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Public Sans",system-ui,sans-serif;line-height:1.55;
+    background-image:radial-gradient(circle at 1px 1px,rgba(15,61,58,.04) 1px,transparent 0);background-size:22px 22px;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+  header.top{background:var(--ink);color:var(--paper2);padding:26px 0 22px;border-bottom:4px solid var(--ac)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#9ec9c2;margin:0 0 6px}
+  header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(26px,4.5vw,40px);margin:0;line-height:1.05}
+  header.top p.sub{margin:8px 0 0;color:#cfe3df;font-size:14px;max-width:80ch}
+  .legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}
+  .legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.25);color:#eaf4f1;display:flex;align-items:center;gap:6px}
+  .legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--paper2);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button:hover{background:var(--paper);color:var(--ink)}
+  .tabrow button.active{background:var(--ink);color:var(--paper2)}
+  .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--ac)}
+  main{padding:30px 0 80px}
+  .panel{display:none;animation:fade .35s ease}
+  .panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h2.sec{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin:0 0 4px;letter-spacing:-.01em}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 20px;max-width:80ch}
+  h3{font-family:"Fraunces",serif;font-weight:600;font-size:18.5px;margin:30px 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;scroll-margin-top:64px}
+  h4{font-family:"Public Sans";font-weight:700;font-size:14px;margin:18px 0 6px;color:var(--ink2);text-transform:uppercase;letter-spacing:.03em}
+  .card{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0}
+  ul.hy{margin:8px 0;padding-left:0;list-style:none}
+  ul.hy li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed #e6ddca;font-size:14px}
+  ul.hy li:last-child{border-bottom:0}
+  ul.hy li:before{content:"";position:absolute;left:4px;top:12px;width:9px;height:9px;border-radius:2px;background:var(--ac);transform:rotate(45deg)}
+  .trap{background:var(--warn-soft);border:1px solid #e6cfa6;border-left:4px solid var(--warn);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .trap b{color:var(--warn);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .clarify{background:var(--ac-soft);border:1px solid #b9d7dc;border-left:4px solid var(--ac);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .clarify b{color:var(--ac);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .zoo{background:#fdeef4;border:1px solid #f0c6d9;border-left:4px solid #c43e74;border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13.5px}
+  .zoo b{color:#c43e74;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  table.cmp{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:var(--paper2);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.cmp th,table.cmp td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp th{background:var(--ink);color:var(--paper2);font-weight:600;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase}
+  table.cmp tr:last-child td{border-bottom:0}
+  table.cmp td b{color:var(--ink)}
+  .bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+  .bdg.notes{background:var(--notes-soft);color:var(--notes)}
+  .bdg.txt{background:var(--txt-soft);color:var(--txt)}
+  .bdg.zoo{background:#fbe1ec;color:#c43e74}
+  .mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--ink);color:var(--paper2);border-radius:14px;padding:14px 18px;margin-bottom:18px;position:sticky;top:64px;z-index:10}
+  .mcqbar .filters{display:flex;gap:6px;flex-wrap:wrap}
+  .mcqbar .filters button{font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#d6e7e3;padding:6px 11px;border-radius:999px;cursor:pointer}
+  .mcqbar .filters button.on{background:var(--ac);border-color:var(--ac);color:#fff}
+  .score{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:14px;align-items:center}
+  .score .reset{cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;color:#d6e7e3;padding:5px 10px;border-radius:8px;font-size:11px}
+  .q{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
+  .q .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .q .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+  .q .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--ac-soft);color:var(--ac)}
+  .q .stem{font-weight:600;font-size:15px;margin-bottom:10px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;margin:7px 0;cursor:pointer;font-size:14px;font-family:"Public Sans";transition:background .15s,border-color .15s}
+  .opt:hover{border-color:var(--ink)}
+  .opt .k{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--muted);margin-right:8px}
+  .opt.correct{background:#e8f5ec;border-color:var(--good);color:#0d3d24}
+  .opt.wrong{background:#fbe9e9;border-color:var(--bad);color:#5e1d1d}
+  .opt.locked{cursor:default}
+  .expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:#f3efe3;border:1px solid var(--line);font-size:13.5px}
+  .expl.show{display:block}
+  .expl b.cor{color:var(--good)}
+  footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
+  @media(max-width:640px){.mcqbar{top:58px}.score{font-size:12px}}
+</style>
+</head>
+<body>
+<nav style="background:#0f3d3a;padding:16px 24px;display:flex;align-items:center;gap:12px;font-family:'Public Sans',system-ui,sans-serif;font-size:17px;font-weight:600;border-bottom:2px solid #1f5c4e;flex-wrap:wrap"><a href="../index.html" style="color:#9ec9c2;text-decoration:none;display:flex;align-items:center;gap:5px"><svg width="22" height="22" viewBox="0 0 15 15" fill="none"><path d="M9.5 11.5L5.5 7.5l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Study Hub</a><span style="color:#4a7a6e;font-size:15px">›</span><a href="../index.html#domain-phys" style="color:#9ec9c2;text-decoration:none">Physical Health of Animals</a><span style="color:#4a7a6e;font-size:15px">›</span><a href="nutrition_husbandry_hub.html" style="color:#9ec9c2;text-decoration:none">Nutrition &amp; Husbandry</a></nav>
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">ABVP Shelter Medicine Practice RVS &middot; Physical Health of Animal &middot; Nutrition &amp; Husbandry</p>
+    <h1>The Care of Other Animals in the Shelter</h1>
+    <p class="sub">Exam-depth coverage of non-cat/dog shelter species drawn in full from <em>The Care of Other Animals in the Animal Shelter</em> (34 pp). One tab per species: ferrets, rabbits, guinea pigs, small rodents, reptiles, and horses — biology, housing, diet, the full infectious-disease catalogue (with zoonoses flagged), non-infectious disease, and a species-filterable MCQ bank. High-yield exam traps are badged throughout.</p>
+    <div class="legend">
+      <span><i style="background:var(--notes)"></i>Source chapter / your notes</span>
+      <span><i style="background:var(--txt)"></i>Standard reference figure</span>
+      <span><i style="background:#c43e74"></i>Zoonotic</span>
+      <span><i style="background:var(--warn)"></i>Exam trap</span>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs"><div class="wrap"><div class="tabrow" id="tabrow">
+  <button class="active" data-p="ferret"><span class="dot"></span>Ferrets</button>
+  <button data-p="rabbit"><span class="dot"></span>Rabbits</button>
+  <button data-p="gp"><span class="dot"></span>Guinea Pigs</button>
+  <button data-p="rodent"><span class="dot"></span>Small Rodents</button>
+  <button data-p="reptile"><span class="dot"></span>Reptiles</button>
+  <button data-p="horse"><span class="dot"></span>Horses</button>
+  <button data-p="mcq"><span class="dot" style="background:#0f3d3a"></span>MCQ Test Bank</button>
+</div></div></nav>
+
+<main><div class="wrap">
+
+<!-- ============================================================ FERRETS -->
+<section class="panel show" id="ferret">
+  <h2 class="sec">Ferrets <span class="bdg notes">source chapter</span></h2>
+  <p class="lead">Obligate carnivores, predator species, and the only common shelter mammal in which canine distemper is 100% fatal. The ferret infectious-disease list is long; the exam-critical anchors are CDV (uniformly fatal), vaccine anaphylaxis, adrenocortical disease tied to early spay/neuter, and the requirement to house them away from prey species.</p>
+
+  <h3>Biology &amp; behaviour</h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Weight ~800–1200 g; lifespan 5–11 yr. <b>GI transit time 3–4 h</b> in adults (very fast). Sexual maturity ~6–12 mo; weaning ~6–8 wk; gestation 41–43 days.</li>
+      <li><b>Seasonal weight swing up to 40%</b> — lose weight in summer, regain in winter. Do not interpret as disease without context.</li>
+      <li>Musky odour is largely <b>sebaceous</b>, not anal-gland, in origin. Mark territory with urine, feces and anal-gland secretions even when group-housed.</li>
+      <li>Sleep in bursts; like to burrow under blankets and through tunnels/hammocks; strong instinct to dig. <b>Eyes adjust poorly to bright light</b> — give time to wake before lifting or risk being bitten.</li>
+      <li>Extremely curious and nearly fearless; will chew almost any material → <b>frequent GI foreign bodies/obstruction</b> (foam, rubber). Because of this curiosity they are <b>not significantly stressed by novel environments.</b></li>
+      <li>Play can turn aggressive when threatened (lunging, side-attacks, "dancing," clucking); defensive threats include hissing, screaming, jaw-snapping.</li>
+    </ul>
+  </div>
+
+  <h3>Housing, diet &amp; handling</h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Predators — must NOT be housed near birds, rodents or rabbits.</b> Secure, well-ventilated, ferret-proof wire cage; will burrow into and eat foam/mattress stuffing → obstruction. Usually litter-train to a corner. Can be group-housed (monitor for aggression).</li>
+      <li><b>Obligate carnivores:</b> diet high in meat-based protein and fat, low in carbohydrate and fibre. <b>Fat 15–20%, protein 30–35%.</b> Cat food is <b>not</b> protein-rich enough; high-quality kitten food is acceptable. Dry food available at all times.</li>
+      <li>Handling: gently restrain on the table one-handed; scruff and lift so all four feet leave the table to take temperature/auscultate. They often yawn when lifted — use the moment for an oral exam.</li>
+    </ul>
+  </div>
+
+  <h3>Preventive medicine &amp; vet exam</h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Vaccinate against <b>canine distemper (CDV)</b> and <b>rabies</b>. CDV: 3 doses q3–4 wk from 8 wk; adults 2 doses then annual boosters. Rabies vaccine licensed for ferrets &gt;12 wk; one booster if vaccine history unknown.</li>
+      <li><b>Dog CDV vaccine can induce distemper</b> — in Australia 1/3 of the dog dose is used; in the US a ferret-licensed CDV vaccine exists.</li>
+      <li>Heartworm preventive in endemic areas. Endoparasites rare; ectoparasites occur (Advantage / Frontline / Revolution by labelled age and dose).</li>
+      <li><b>Empirically treat all incoming ferrets for ear mites (<i>Otodectes cynotis</i>) before mixing</b> — mites are very common in ferrets.</li>
+      <li>Vet exam: check for fractured canines, peripheral lymph nodes (lymphoma is common with age), cardiac disease (a pronounced sinus arrhythmia is <b>normal</b>), GI foreign body, and <b>vulvar size in spayed jills</b> (enlargement = adrenal disease). Generalized alopecia (vs normal seasonal coat change) is a major indicator of adrenal disease.</li>
+    </ul>
+  </div>
+  <div class="trap"><b>Vaccine anaphylaxis in ferrets</b>Ferrets have a high prevalence of anaphylactic reaction to CDV and rabies vaccines, typically within <b>25 minutes</b>: vomiting, dyspnoea, nausea, drooling, tachycardia, erythema, hypotension, collapse. First-line: <b>diphenhydramine 2–4 mg/kg IM/IV</b>; severe cases need epinephrine, dexamethasone, oxygen. Monitor every vaccinated ferret for ~25 min.</div>
+
+  <h3>Key viral diseases</h3>
+  <table class="cmp">
+    <tr><th>Disease</th><th>Agent</th><th>Exam-critical facts</th></tr>
+    <tr><td><b>Canine distemper (CDV)</b></td><td>Morbillivirus (Paramyxoviridae)</td><td><b>100% fatal — no successful treatment.</b> Incubation 7–10 d (up to 56 d); shed from 7 d. Chin/lip dermatitis + inguinal/perianal dermatitis is <b>pathognomonic</b>; later footpad/nasal hyperkeratosis, seizures, blindness. Death 12–35 d. Anti-CDV hyperimmune serum may help if very early but <b>humane euthanasia is the best shelter option</b>; separate &amp; vaccinate exposed. CDV is a labile virus — heat, drying, detergents and disinfectants kill it.</td></tr>
+    <tr><td><b>Coronavirus — ECE</b><br>("green slime disease")</td><td>Ferret enteric coronavirus (FRECV)</td><td>Highly transmissible; <b>older ferrets get sick after exposure to young asymptomatic carriers.</b> Anorexia + lethargy in 48–72 h, profuse green mucoid diarrhoea, villus damage → maldigestion/seedy stool. Dx: RT-PCR of feces/intestine; <b>feline coronavirus PCR will NOT detect ferret coronavirus</b>; IHC of jejunum/ileum needed. Isolate until signs resolve; supportive care, highly digestible diet, opioids may speed recovery.</td></tr>
+    <tr><td><b>Coronavirus — FRSCV</b></td><td>Ferret systemic coronavirus (mutated FRECV)</td><td>Progressive pyogranulomatous systemic disease <b>resembling dry FIP.</b> Young ferrets (&lt;18 mo); weight loss, diarrhoea, abdominal masses, elevated temp. Mean course ~67 d, high mortality. Hypergammaglobulinaemia, anaemia, lymphopenia. <b>No treatment; poor prognosis; euthanasia recommended.</b></td></tr>
+    <tr><td><b>Aleutian disease (ADV)</b></td><td>Parvovirus</td><td>Chronic wasting; <b>prevalence ~8.5%.</b> Transmission ingestion/inhalation; sheds in saliva/urine/feces. Hallmark = <b>high gamma-globulin (hypergammaglobulinaemia).</b> Ataxia, ascending paresis, paraplegia. Dx PCR + CIEP. <b>No vaccine.</b> Immune-mediated; euthanasia for symptomatic shelter ferrets.</td></tr>
+    <tr><td><b>Influenza</b></td><td>Influenza A &amp; B</td><td><b>Zoonotic/reverse-zoonotic</b> — ferrets catch human strains (H1N1) and pass to other ferrets and people; aerosol transmission, shed 3–4 d. Signs mimic CDV early (differentiate by IFA/PCR/serology). Neonates can die of lower-airway obstruction. Supportive care; routine disinfection kills the virus; isolate.</td></tr>
+    <tr><td><b>Rabies</b></td><td>Lyssavirus</td><td>Rare; outdoor ferrets higher risk. Incubation 28–33 d then death 4–5 d later. Vaccinate all healthy shelter ferrets before adoption if status unknown.</td></tr>
+    <tr><td><b>Rotavirus</b></td><td>Rotavirus</td><td>Neonatal ferrets 2–8 wk: high morbidity/mortality. Adults: low morbidity, transient green mucoid diarrhoea. Bleach is effective.</td></tr>
+  </table>
+
+  <h3>Key bacterial &amp; GI diseases</h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Bacterial gastroenteritis (Campylobacter, E. coli, Salmonella) — zoonotic.</b> From raw/undercooked meat, stress, poor hygiene, crowding. Campy incubation &lt;24 h; E. coli/Salmonella up to days and can cause DIC and death within 24 h. <b>Do not delay antibiotics</b> even though campy can self-limit. Chloramphenicol covers all three; amoxicillin-clavulanate + a fluoroquinolone or aminoglycoside also first-line. <b>Immunosuppressed people and children should NOT handle infected ferrets.</b></li>
+      <li><b>Helicobacter mustelae</b> — essentially <b>all US ferrets are exposed</b>; spiral Gram-negative rod, causes gastritis/ulcers (gastric adenocarcinoma &amp; lymphoma association). Mostly asymptomatic until stressed. Dx: silver-stained gastric biopsy (definitive); response to therapy is NOT diagnostic. Triple therapy (e.g. clarithromycin + metronidazole + bismuth subsalicylate) 3–4 wk. <b>Isolation isn't realistic</b> (near-universal infection) — isolate only ferrets with GI signs.</li>
+      <li><b>Proliferative bowel disease (Lawsonia intracellularis)</b> — fecal-oral, young ferrets 10 wk–6 mo; thickened intestinal loops, mucoid/bloody diarrhoea, partial rectal prolapse. Only 1–3% of exposed develop signs (stress + nutrition triggers). Tx chloramphenicol or metronidazole 10–14 d. <i>Same agent causes wet tail in hamsters &amp; disease in swine/rabbits.</i></li>
+      <li><b>Listeriosis (L. monocytogenes)</b> — ubiquitous Gram-positive rod; ingestion/inhalation; CNS signs (ataxia, paresis, paralysis) 1–90 d. Treat with CNS-penetrating antibiotic (penicillin/chloramphenicol) or euthanise. <b>Raw diets recalled for Listeria</b> are a source.</li>
+      <li><b>Botulism (C. botulinum types A/B/C; type C usually fatal)</b> — from contaminated canned/meat food; descending flaccid paralysis (dysphagia, ataxia, ascending paresis, third-eyelid prolapse, respiratory paralysis) 12–96 h. Keep on the ddx for neuro signs.</li>
+      <li><b>Mycobacteriosis (M. bovis, avium, etc.) — ZOONOTIC.</b> Ferrets are sentinels for M. bovis in New Zealand. Weight loss, lymphadenopathy, draining lesions. Acid-fast stain/PCR/culture. <b>Not practical to treat in a shelter.</b></li>
+      <li><b>Mycoplasmosis</b> — host-specific; chronic non-productive cough, haemoptysis; high morbidity, low mortality. <b>Infection may be life-long</b>; segregate and inform adopters of recurrence risk.</li>
+    </ul>
+  </div>
+
+  <h3>Parasitic &amp; fungal diseases</h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Coccidiosis (Eimeria, Isospora)</b> — usually subclinical but outbreaks cause severe enteric disease/death; foul bloody diarrhoea, rectal prolapse, tenesmus. Sporulated oocysts resist most disinfectants → use <b>steam, 10% ammonia, or boiling water</b>; bleach/QAC/heat for cages.</li>
+      <li><b>Cryptosporidiosis (C. parvum) — ZOONOTIC.</b> Partial acid-fast; fecal-oral, highly contagious between stressed animals; self-limiting 2–3 wk. <b>Paromomycin</b> 125–165 mg/kg PO BID × 5 d (not curative). Oocysts resist bleach — destroy with 5% ammonia or 3% hydrogen peroxide ×20 min, or temp &lt;0 °C / &gt;65 °C.</li>
+      <li><b>Ear mites (Otodectes cynotis)</b> — very common; <b>treat all incoming ferrets empirically.</b> 1% ivermectin diluted 1:10 in propylene glycol, 400 µg/kg split between ears, repeat in 14 d; clean/disinfect environment.</li>
+      <li><b>Giardiasis — ZOONOTIC.</b> Diarrhoea; fenbendazole 50 mg/kg SID ×5 d or metronidazole 25 mg/kg BID ×5 d; gloves/masks; bleach/QAC.</li>
+      <li><b>Sarcoptic mange — ZOONOTIC.</b> Rarely infests ferrets (usually from dogs/fomites); generalized alopecia + intense pruritus or foot-confined disease; skin-scrape false-negatives common.</li>
+      <li><b>Toxoplasmosis</b> — from raw meat / cat feces; unlikely in shelters that don't feed raw.</li>
+      <li><b>Dermatophytosis (Microsporum canis, Trichophyton) — ZOONOTIC.</b> Kits/young/immunosuppressed; usually non-pruritic. Lime sulphur dips + systemic itraconazole/griseofulvin.</li>
+      <li><b>Systemic fungal disease</b> — <b>Blastomyces dermatitidis</b> (SE US, Mississippi/Ohio valleys), <b>Coccidioides immitis</b> (SW US), <b>Cryptococcus</b>. Respiratory + systemic signs. <b>Not contagious between ferrets</b> and unlikely to arise in a shelter unless exposed before entry.</li>
+    </ul>
+  </div>
+
+  <h3>Non-infectious disease &amp; spay/neuter</h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>~1/3 of ferrets &gt;3 yr develop one of the classic three neoplasias</b>, and often more than one if they live long enough:</li>
+      <li><b>Lymphoma (lymphocytic)</b> — lethargy, weight loss, cervical/popliteal lymphadenopathy; poor prognosis.</li>
+      <li><b>Insulinoma (beta-cell tumour)</b> — chronic increasing lethargy/weakness, hind-limb weakness, ptyalism/pawing at the mouth, hypoglycaemic collapse/seizures. <b>Glucose &lt;60 mg/dL.</b> Surgery + prednisone.</li>
+      <li><b>Adrenocortical disease</b> — <b>almost exclusively US ferrets, due to early-age spay/neuter.</b> Bilateral symmetrical alopecia from the <b>tail base progressing rostrally</b>, pruritus in 1/3, increased aggression; <b>jills get vulvar swelling</b>, hobs get prostatic hypertrophy/dysuria. Dx US or adrenal hormone panel; surgical or medical management.</li>
+      <li><b>Spay/neuter:</b> US shelters neuter as early as 6 wk (with first CDV vaccine). Ferrets are <b>induced ovulators</b> — an unbred jill develops <b>persistent oestrus → hyperestrogenism → non-regenerative anaemia and bone-marrow suppression.</b></li>
+      <li>Not a suitable pet for young children; ownership regulations vary by locality/state.</li>
+    </ul>
+  </div>
+  <div class="trap"><b>Adrenal disease ↔ early spay/neuter</b>The classic spayed-jill presentation — symmetrical tail-base alopecia advancing forward plus vulvar swelling — is adrenocortical disease, driven by gonadectomy at a very young age (the US norm). Distinguish from normal seasonal coat change, which is not accompanied by vulvar swelling.</div>
+</section>
+
+<!-- ============================================================ RABBITS -->
+<section class="panel" id="rabbit">
+  <h2 class="sec">Rabbits <span class="bdg notes">source chapter</span></h2>
+  <p class="lead">Hindgut-fermenting, obligate-nasal-breathing prey animals with continuously growing teeth. The exam anchors: oral penicillin is contraindicated (fatal dysbiosis), fipronil is contraindicated, RHDV is a reportable non-enveloped calicivirus, uterine adenocarcinoma drives routine spaying, and E. cuniculi is the dwarf-breed head-tilt. (Housing/welfare detail — ASV 2026 — lives in the Rabbit Housing tab of the Nutrition hub.)</p>
+
+  <h3>Anatomy &amp; biology</h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Size 1–7 kg. <b>Dental formula I 2/1 C 0/0 P 3/2 M 3/3 = 28</b>; the small second upper incisor is the <b>peg tooth</b>; teeth grow continuously — malocclusion and dental disease are common, so a thorough oral exam is essential.</li>
+      <li><b>Hindgut fermenters</b>: most nutrition from cecal fermentation; fibre passes as hard fecal pellets, non-fibre as <b>cecotrophs</b> eaten directly from the anus in the early morning — essential to wellbeing.</li>
+      <li>GIT = 10–20% of body weight; <b>cecum holds ~40% of ingesta</b> (most prominent abdominal organ). <b>Liver has 6 lobes — liver-lobe torsion occurs.</b> Thymus persists into adulthood (thymoma/thymic lymphoma reported).</li>
+      <li><b>Obligate nasal breathers</b> with a <b>small thoracic cavity</b> → URT disease causes severe signs; elevate the head intra-op to keep abdominal contents off the diaphragm under GA.</li>
+      <li><b>Fractional urinary calcium excretion 45–60%</b> (vs &lt;2% in most species) → prone to hypercalciuria, urolithiasis and "urine sludge." Calcium absorption is <b>vitamin-D-independent</b>.</li>
+      <li>Crepuscular prey species: flight response dominates behaviour; spend 30–70% of time foraging; territorial, scent-mark with urine/feces/chin-rubbing; social (groups of 2–3) but pairs can fight; whiskers very sensitive — dislike having the nose touched.</li>
+    </ul>
+  </div>
+
+  <h3>Diet, handling &amp; preventive health</h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Hay-based diet</b> — timothy/grass hay available at all times; <b>alfalfa only for pregnant, lactating or growing rabbits</b> (high Ca²⁺). Pellets ~¼ cup per 5 lb. <b>High water intake 120–150 mL/kg/day</b> — offer a sipper bottle and/or bowl and monitor.</li>
+      <li>Handling: <b>support the hindquarters</b> always — unsupported kicking causes vertebral fracture/luxation. Blood: cephalic/saphenous/femoral/jugular; <b>avoid ear-vein injection</b> (thrombosis &amp; pinna necrosis).</li>
+      <li><b>No routine vaccination in the US</b> (myxomatosis &amp; RVHD vaccines used in Europe). Intake exam to ID external parasites and treat before entering the general population. Antibiotics for rabbits: <b>doxycycline, TMS, fluoroquinolones.</b></li>
+      <li><b>Uterine adenocarcinoma in 50–80% of intact does &gt;3–4 yr</b> → ovariectomy/OVH recommended in all non-breeding does at <b>6–9 mo</b>. Males: low testicular-neoplasia incidence; neuter mainly for behaviour (urine marking).</li>
+    </ul>
+  </div>
+  <div class="trap"><b>Oral penicillin is contraindicated in rabbits</b>Enteral penicillin disrupts the cecal microbiome and causes fatal <i>Clostridium</i> overgrowth (antibiotic-associated enterotoxaemia). For rabbit syphilis use <b>injectable</b> penicillin G — enteral penicillin must never be given. The same dysbiosis risk applies to other narrow-spectrum Gram-positive oral antibiotics.</div>
+
+  <h3>Bacterial respiratory &amp; enteric disease</h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Pasteurella multocida</b> — most common isolate, &gt;50% of rabbits; non-spore-forming bipolar Gram-negative rod. "Snuffles," pneumonia, otitis externa/media/interna, abscesses, conjunctivitis (via nasolacrimal duct), torticollis, endocarditis, pyometra. Disease emerges with stress/crowding/pregnancy/poor nutrition. Symptomatic rabbits may stay with bonded, already-exposed mates but should be ≥6 ft from other rabbits or in a separate room. Survey of respiratory rabbits: 50% Pasteurella, 50% also Bordetella, 28% Pseudomonas, 17.4% Staphylococcus → <b>culture, don't assume Pasteurella.</b></li>
+      <li><b>Bordetella bronchiseptica</b> — often subclinical in rabbits but <b>rabbits are a reservoir that infects guinea pigs</b> → never co-house rabbits with guinea pigs. Also house rabbits away from rats (which carry M. pulmonis, Pasteurella, Pseudomonas, BB).</li>
+      <li><b>Enteropathogenic E. coli (EPEC)</b> — large outbreaks in weaning commercial rabbits; effaces cecal/colonic microvilli; watery diarrhoea; mortality &gt;50%; paintbrush hemorrhages on the cecal wall at necropsy. Supportive care + TMS/fluoroquinolone.</li>
+      <li><b>Tyzzer's disease (Clostridium piliforme)</b> — motile spore-forming obligate intracellular bacterium; weanlings crash from lethargy/anorexia/watery diarrhoea to acute death; <b>ante-mortem diagnosis is not possible</b> (won't grow in culture); necropsy = patchy liver/proximal-colon necrosis + myocardial lesions. Spores killed by <b>0.3% sodium hypochlorite or 80 °C ×30 min.</b></li>
+      <li><b>Proliferative enteritis (Lawsonia intracellularis)</b> — weanlings 2–4 mo, diarrhoea + wasting; chloramphenicol/macrolides; environmental disinfection.</li>
+    </ul>
+  </div>
+
+  <h3>Rabbit syphilis &amp; viral diseases</h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Treponema paraluiscuniculi (rabbit syphilis)</b> — highly contagious venereal spirochaete of rabbits; <b>NOT contagious to non-rabbit species, NOT zoonotic.</b> Crusting/ulceration/scabs of face &amp; anogenital region. Dx darkfield of skin scrapings. <b>Tx benzathine/procaine penicillin G (e.g. 42,000–60,000 U/kg SC q7d ×3 wk, or 40,000 U/kg IM q24h ×5–7 d) in ALL exposed rabbits — enteral penicillin must NOT be given.</b></li>
+      <li><b>Myxomatosis (Leporipoxvirus)</b> — enzootic in wild rabbits on the west coast of N. America (Oregon, California); arthropod-vector/direct contact. <b>Almost always fatal in domestic rabbits</b>: lethargy, fever, swollen eyelids, ocular/nasal discharge, skin lesions/hemorrhage. No vaccine in the US; immediate isolation + full PPE.</li>
+      <li><b>Rabbit haemorrhagic disease (RHDV1 &amp; 2, calicivirus) — REPORTABLE.</b> See box and algorithm below.</li>
+      <li><b>Rotavirus</b> — weanlings 2–4 mo; green-yellow watery diarrhoea; high morbidity, generally low mortality; isolate, reduce crowding, increase dietary fibre.</li>
+      <li><b>Shope fibroma &amp; rabbit (cottontail) papillomavirus</b> — arthropod-transmitted; wart-like skin tumours; fibromas regress ~by 6 mo; papillomas can progress to SCC and metastasize to lymph nodes. Surgical removal + arthropod control.</li>
+      <li><b>Rabies</b> — rare; nonspecific signs then paresis/paralysis/head tremor. <b>No licensed rabbit rabies vaccine in the US → protect outdoor-housed rabbits from wildlife.</b></li>
+      <li><b>Herpes simplex virus (HSV)</b> — reverse-zoonotic: humans with cold sores transmit to rabbits → encephalitis, severe neuro signs, death. Handle rabbits minimally during a human HSV outbreak.</li>
+    </ul>
+  </div>
+  <div class="trap"><b>RHDV — the high-yield calicivirus</b><b>Non-enveloped</b> calicivirus, <b>reportable</b>, affects only European/domestic rabbits; disease in rabbits &gt;2 mo (<b>neonates resistant</b>). Replicates in liver → hepatic necrosis + DIC. Morbidity/mortality high (mortality approaching 100%; range 40–100%). Sudden death with blood from orifices — but <b>absence of bleeding does NOT rule it out.</b> No US-licensed vaccine. <b>Disinfect with non-enveloped-virus agents: 0.5% sodium hypochlorite or 1% formalin.</b> Tx not recommended (high mortality + transmission risk); isolate, full PPE.</div>
+
+  <h3>The RHDV intake-quarantine algorithm <span class="bdg notes">Fig. 6</span></h3>
+  <div class="card">
+    <p style="margin:0 0 8px;font-size:14px">Routine incoming quarantine is <b>rarely indicated</b> for domestic shelter animals, but <b>RHDV2 is a severe risk to the general rabbit population</b>, so the decision is <b>risk-assessment based</b>:</p>
+    <ul class="hy">
+      <li><b>Trigger question:</b> is the shelter within <b>500 miles / 800 km of an area with RHD reported in the past 2 years?</b></li>
+      <li><b>If YES → individual risk assessment.</b> A rabbit is "at risk" if ANY of: outdoor / outdoor-wild/feral-rabbit exposure in the last 10 days; the general shelter rabbit population is unvaccinated; no proof of current RHDV2 vaccination. <b>At-risk rabbits → 10-day quarantine of incoming.</b></li>
+      <li><b>If NO (or "no" to all individual risks) → shelter assessment.</b> Does the shelter house &gt;1 rabbit / a bonded pair-trio? Can quarantine be done <b>without increasing length of stay?</b> If quarantine would lengthen stay or there's a single rabbit, <b>risks of quarantine outweigh benefits → may house in general population.</b></li>
+      <li><b>Either path then → enact risk-mitigation + closely monitor evolving regional risk.</b></li>
+      <li>Vaccine onset of immunity: Medgene (RHDV2) fully protective 14 d after the 2nd booster (35 d after initial); Filavac (RHDV1&amp;2) and Eravac (RHDV2) onset of immunity at 7 d.</li>
+    </ul>
+    <p style="margin:8px 0 0;font-size:13px;color:var(--muted)">Mitigation bundle: keep population within humane-care capacity; housing that meets material/space standards; consistent intake history; a case definition + response plan (immediate isolation, report to authorities); train field/shelter/volunteer staff; vaccinate incoming rabbits in affected regions; quarantine per assessment; biosecurity with PPE and low-to-high order of care; protect feed/browse/enrichment from contamination; sanitation targeting durable non-enveloped viruses; proactive LOS management to limit at-risk rabbits on site.</p>
+  </div>
+
+  <h3>Parasites — ectoparasites &amp; the fipronil trap</h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Fleas (Ctenocephalides)</b> — pruritus, self-biting, alopecia. <b>Fipronil must NOT be used on rabbits</b>; imidacloprid, lufenuron and selamectin are generally safe (selamectin is metabolized faster than in cats → different regimen).</li>
+      <li><b>Ticks</b> — in outdoor/wild-exposed rabbits; can transmit myxomatosis, papillomatosis, tularemia, Lyme, Rocky Mountain spotted fever. Remove mechanically; ivermectin 0.2–0.4 mg/kg for remainder. <b>Dog/cat tick products and flea/tick collars must NOT be used on rabbits.</b></li>
+      <li><b>Lice (Haemodipsus ventricosus)</b> — rare but heavy burdens → anaemia; can transmit tularemia; ivermectin q2 wk ×2–3.</li>
+      <li><b>Psoroptes cuniculi (ear mite)</b> — head-shaking, painful crusty aural discharge, head tilt; 3-wk life cycle, survives ~3 wk off host; <b>not transmissible to other species.</b> Ivermectin 0.2–0.44 mg/kg SC q10–14d ×3, or selamectin/imidacloprid/moxidectin. <b>Fipronil and insecticide baths/dips must NOT be used.</b></li>
+      <li><b>Cheyletiella parasitovorax (fur mite) — ZOONOTIC</b> ("walking dandruff") — contagious to people, dogs, cats; dry scaly pruritic dermatitis; tape prep; SC ivermectin (repeat 10–14 d) or selamectin.</li>
+    </ul>
+  </div>
+
+  <h3>Internal parasites &amp; E. cuniculi</h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Coccidia — the most common GI parasite of rabbits.</b> 12 Eimeria spp.; <b>E. stiedae is hepatic (bile-duct) — hepatic coccidiosis can be fatal in young rabbits</b> by obstructing liver function (↑AST/ALT/bile acids/total bilirubin; liver studded with encapsulated abscesses at necropsy). Intestinal Eimeria → diarrhoea, intussusception, weight loss. Severe disease in rabbits &lt;6 mo. Tx sulfadimethoxine, TMS, ponazuril, or amprolium in water; focus on young/pregnant/immunocompromised.</li>
+      <li><b>Cryptosporidiosis (C. parvum) — ZOONOTIC.</b> Self-limiting diarrhoea (4–5 d) in young rabbits; supportive care; PPE + handwashing.</li>
+      <li><b>Helminths:</b> <b>pinworms (Passalurus ambiguus)</b> common but usually non-pathogenic — ID of eggs should not automatically prompt treatment; benzimidazole if needed. <b>Cerebrospinal nematodiasis (Baylisascaris) — ZOONOTIC</b>, fatal/severe neuro disease (neural larva migrans). <b>Rabbits are the intermediate host for Taenia spp.</b> (cysts in SC/skeletal muscle) — praziquantel 5–10 mg/kg, repeat in 10 d.</li>
+      <li><b>Encephalitozoon cuniculi</b> — intracellular <b>microsporidian (a fungus)</b>; seroprevalence <b>7.5–84.7%.</b> Spores shed in urine for up to 3 mo; horizontal + transplacental transmission; targets brain, kidney, lung, lens, myocardium → head tilt, nystagmus, vestibular signs, paresis, uveitis, cataract, renal failure. <b>In dwarf breeds, head tilt is most often E. cuniculi; in standard breeds it's more likely Pasteurella or otitis.</b> Serology does NOT correlate with clinical severity and seroconversion is not protective; definitive Dx = histopath. <b>No treatment reliably clears it</b>; albendazole/fenbendazole/oxibendazole (7.5–20 mg/kg) ×30 d + NSAIDs may slow it — but these drugs are potentially toxic. Most disinfectants kill it. Zoonotic only to immunocompromised people.</li>
+    </ul>
+  </div>
+
+  <h3>Non-infectious disease</h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>GI stasis</b> — anorexia, weight loss, diarrhoea; <b>always check the teeth first</b>; may be precipitated by improper antibiotic use (dysbiosis).</li>
+      <li><b>Dental / URI</b> — excessive lacrimation + periocular crusting; rabbits have a <b>single ventral nasolacrimal gland per eye</b> (not a pair), so obstruction → epiphora; tear-duct flush with topical proparacaine.</li>
+      <li><b>Urinary sludge</b> — vitamin-D-independent calcium absorption + high dietary Ca (e.g. alfalfa) → sludge/sand in the bladder. Distinguish red urine: rabbit urine is often red/orange from <b>porphyrins</b> (intermittent, lasts 3–4 d) — use a <b>Wood's lamp</b> to differentiate porphyrinuria (fluoresces) from true hematuria.</li>
+      <li><b>Tularemia (Francisella tularensis, "rabbit fever") — ZOONOTIC, reportable in some states.</b> Mostly wild/outdoor rabbits; aerosol/direct contact/ectoparasites; diarrhoea, neuro signs, death.</li>
+      <li>Spay/neuter: castrate mainly for behaviour; <b>spaying is important — 80% of does &gt;4 yr develop uterine adenocarcinoma.</b></li>
+      <li>Adoption: nervous/shy rabbits should not be handled by children or unsupervised minors.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================================ GUINEA PIGS -->
+<section class="panel" id="gp">
+  <h2 class="sec">Guinea Pigs <span class="bdg notes">source chapter</span></h2>
+  <p class="lead">Monogastric herbivores that cannot synthesize vitamin C, develop ovarian cysts with age, and are uniquely vulnerable to Bordetella carried asymptomatically by rabbits, dogs and cats. They tolerate stress and illness poorly — a sick guinea pig has a guarded-to-grave prognosis.</p>
+
+  <h3>Biology &amp; husbandry</h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Weight 700–1200 g. <b>Dental formula 2(I 1/1 C 0/0 PM 1/1 M 3/3); elodont (continuously growing) teeth</b> — cheek-tooth overgrowth from low-fibre diet, congenital malocclusion or trauma. <b>The vet exam MUST include a thorough oral exam.</b></li>
+      <li>Monogastric herbivore with a <b>voluminous, very thin-walled cecum</b>; uses a mucous-trap method of colonic separation and practices <b>coprophagy multiple times daily.</b></li>
+      <li><b>Sow pubic symphysis</b> is fibrocartilaginous and relaxes before parturition, but <b>fuses permanently at ~7–8 mo if she has never had a litter → dystocia risk if bred for the first time after that age.</b></li>
+      <li>Crepuscular; startle/stampede/circle when frightened (trampling risk for young); develop <b>rigid preferences with age</b> — disrupt them and you get anorexia/GI upset. Social — house in pairs/small groups or harems (1 male : up to 10 females).</li>
+      <li>Housing: <b>solid floors</b> (wire → pododermatitis/fractures); mesh walls for ventilation; bedding shredded paper / newspaper pellets / hardwood — <b>pine &amp; cedar contraindicated</b> (aromatic compounds). Heat/humidity/draft sensitive but cold-tolerant: <b>65–79 °F, humidity &lt;50%, avoid &gt;80 °F.</b> Provide a hide box. <b>Don't jump → closed-top cage with ≥10-inch walls suffices.</b></li>
+    </ul>
+  </div>
+
+  <h3>Diet — vitamin C</h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Guinea pigs cannot synthesize vitamin C (lack L-gulonolactone oxidase) and must get it from the diet → scurvy without supplementation.</b> Supply via species-formulated guinea-pig pellets and fresh vegetables (kale, peppers, oranges). High water requirement ~100 mL/kg/day.</li>
+      <li>Grass-hay-based diet; give fruit sparingly (sugar → cecal dysbiosis). <b>Never feed muesli/seed-and-fruit mixes to elodont-toothed species</b> — they selectively pick out high-carb pieces and leave the fibre, reducing the lateral chewing needed to wear teeth → dental disease.</li>
+    </ul>
+  </div>
+  <div class="trap"><b>Vitamin C is non-negotiable in guinea pigs</b>Unlike rabbits and most mammals, guinea pigs lack the enzyme to make ascorbic acid. Plain rabbit pellets do not supply enough vitamin C; feed guinea-pig-specific, vitamin-C-formulated pellets plus fresh vegetables. Deficiency → scurvy (poor wound healing, bleeding, lethargy, painful gait).</div>
+
+  <h3>Respiratory disease</h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Bordetella bronchiseptica</b> — a major guinea-pig respiratory pathogen. <b>Rabbits, dogs, cats and non-human primates are asymptomatic carriers</b> that infect guinea pigs (sharing airspace can suffice). ~1-wk incubation; fibrinopurulent pneumonia/pleuritis, nasal-ocular discharge, dyspnoea, otitis, possible abortion. Tx TMS/doxycycline/fluoroquinolone + fluids + vitamin C. <b>Prevent exposure to other species.</b> Injectable BB bacterin (with a booster) has had moderate success in outbreaks but routine vaccination of all shelter guinea pigs is NOT recommended.</li>
+      <li><b>Adenoviral pneumonia</b> — necrotizing bronchopneumonia, 5–10 d incubation, <b>low morbidity but high mortality</b> (may die acutely); mostly lab populations.</li>
+      <li><b>Streptococcus pneumoniae / S. pyogenes / S. moniliformis / Haemophilus / Klebsiella</b> — poor husbandry is the major risk factor; bronchopneumonia, fibrinopurulent pleuritis, pericarditis; treat by culture.</li>
+    </ul>
+  </div>
+
+  <h3>GI &amp; systemic infectious disease</h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Tyzzer's disease (Clostridium piliforme)</b> — fecal-oral; young/stressed/immunocompromised; intestinal inflammation + focal hepatic necrosis; <b>can't culture on routine media</b>; treatment unrewarding → prevention by husbandry; euthanasia may be reasonable.</li>
+      <li><b>Salmonella typhimurium / enteritidis — ZOONOTIC.</b> Less common but high outbreak mortality; unkempt coat, weakness, diarrhoea, conjunctivitis, abortion; fecal-oral from contaminated feed/water. <b>Don't treat with antibiotics</b> (creates asymptomatic carriers + zoonotic risk) — supportive care for mild cases; euthanise severe cases or intermittent shedders.</li>
+      <li><b>Antibiotic-associated enterotoxaemia</b> — improper antibiotics (doxy/TMS/fluoroquinolone are appropriate; monitor for diarrhoea) → <b>Clostridium difficile overgrowth.</b></li>
+      <li><b>GI parasitism</b> — Eimeria caviae, Balantidium caviae, Paraspidodera; juveniles more affected. <b>Cryptosporidium wrairi — ZOONOTIC</b>, failure to thrive in young/immunosuppressed; no effective treatment; biosecurity as for ferret/rabbit crypto (oocysts destroyed by 5% ammonia or 3% H₂O₂ ×20 min, temp &lt;0 / &gt;65 °C).</li>
+      <li><b>Cervical lymphadenitis ("lumps")</b> — Streptococcus zooepidemicus (normal oropharyngeal/nasal flora) ± S. moniliformis (zoonotic); oral abrasions from dental malocclusion/rough feed let bacteria invade cervical nodes → abscesses that may rupture; advanced cases → pneumonia/metritis/septicaemia. Systemic antibiotics by C&amp;S ± surgical node removal.</li>
+      <li><b>LCMV (Lymphocytic choriomeningitis virus) — ZOONOTIC arenavirus.</b> Common in mice/hamsters/chinchillas, less so guinea pigs; meningitis + hind-limb paralysis; transmission via urine/saliva/feces, transplacental, biting insects; <b>euthanasia often warranted</b> (severity + zoonotic risk).</li>
+    </ul>
+  </div>
+
+  <h3>Dermatologic disease &amp; the zoonotic mite</h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Trixacarus caviae (sarcoptic mite) — ZOONOTIC.</b> Severe pruritus with white-to-yellow crusts and excoriations; <b>scratching so intense it can be confused with seizure activity.</b> Can lead to secondary fungal/bacterial infection; survives in the environment → reinfection without decontamination. Dx skin scrape; <b>ivermectin 0.2–0.4 mg/kg SQ q10–14d ×3 doses</b> + NSAID/antihistamine/analgesia. Temporarily infects humans → environmental decontamination required.</li>
+      <li><b>Chirodiscoides caviae (fur mite)</b> — milder dermatitis; heavy burdens → alopecia/crusts.</li>
+      <li><b>Lice (Gliricola porcelli, Gyropus ovalis), C. felis fleas, Demodex caviae (rare).</b></li>
+      <li><b>Dermatophytosis</b> — usually <b>Trichophyton mentagrophytes</b> (also M. canis, M. gypseum); <b>potentially zoonotic.</b> Circular alopecia/erythema/scaly crusts on nose/forehead/pinnae/around eyes/feet. <b>T. mentagrophytes does NOT fluoresce under Wood's lamp → fungal culture required.</b> Terbinafine &gt; itraconazole; correct overcrowding; clean with bleach 1:10.</li>
+    </ul>
+  </div>
+
+  <h3>Non-infectious disease</h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Ovarian cysts — 76% of guinea pigs by 5 yr.</b> Space-occupying cysts → decreased fertility, anorexia, abdominal distension, lethargy, <b>bilateral symmetrical truncal alopecia.</b></li>
+      <li><b>Bacterial conjunctivitis (Chlamydia caviae) — ZOONOTIC potential.</b> Inclusion conjunctivitis; keratoconjunctivitis, serous-to-purulent ocular discharge, chemosis, follicular hypertrophy, uveitis; usually self-limiting 3–4 wk; treat with topical tetracycline ophthalmic to limit spread.</li>
+      <li>Anorexia/weight loss/diarrhoea — full dental check (often needs GA).</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================================ SMALL RODENTS -->
+<section class="panel" id="rodent">
+  <h2 class="sec">Small Rodents <span class="bdg notes">source chapter</span></h2>
+  <p class="lead">Rats, mice, chinchillas, sugar gliders, hamsters and gerbils. Incessant chewers with continuously growing incisors. The exam anchors: wet tail (Lawsonia) in weanling hamsters, lifelong M. pulmonis respiratory disease in rats, and the zoonotic trio — rat-bite fever (S. moniliformis), LCMV and hantavirus.</p>
+
+  <h3>Biology, housing &amp; handling</h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Incessant chewers (incisors grow continually); mostly nocturnal except <b>gerbils (day-active)</b>; <b>sense of smell is the most acute sense</b> — staff must wash hands / change gloves after handling predator species or rodents will panic and bite.</li>
+      <li>Bite likelihood: <b>rats &amp; gerbils least likely to bite when startled; hamsters have a low startle threshold.</b></li>
+      <li>Sociality varies: rats live in mixed groups (introduce on neutral ground); <b>male mice aggressive together</b> (house as single male or with females); dwarf hamsters more social than golden/Chinese; <b>gerbils territorial in captivity → house individually unless a compatible pair in a large enclosure.</b> House only same-gender groups.</li>
+      <li>Escape-proof, well-ventilated enclosures (can chew through plastic); good climbers — provide tubes/ramps/cave structures; removable bottoms, high sides, secure locks. Substrate: shredded/recycled paper preferred; <b>cedar (and pine) anecdotally linked to respiratory/skin disease — avoid;</b> bacteria/respiratory irritation lower on paper bedding.</li>
+      <li>Most rodents omnivorous → species-specific pelleted diet + fresh foods; <b>avoid seed/fruit mixes (selective feeding).</b> Hamsters urinate in one corner; clean weekly. Scruffing works for hamsters but not rats; <b>tail restraint not recommended</b> for pet rodents.</li>
+      <li>Wellness exam: check for lumps (mammary/scent-gland masses are common and best treated small); no routine vaccination/testing. <b>Zoonotic risks: hantavirus, LCMV, and S. moniliformis (rat-bite fever).</b></li>
+    </ul>
+  </div>
+
+  <h3>Respiratory disease (rats &amp; mice)</h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Minute respiratory mycoplasmosis — Mycoplasma pulmonis = the most common major respiratory pathogen of rats &amp; mice.</b> Colonizes respiratory epithelium, nasal passages, middle ear → increased respiratory noise, porphyrin staining, sneezing, chattering, laboured breathing, head tilt; co-infections cause immunosuppression. <b>Intracellular → cannot be fully cleared; recrudescence is the rule.</b> Chronic bronchopneumonia &amp; bronchiectasis → pulmonary fibrosis &amp; right-heart disease with age. <b>Enrofloxacin 10 mg/kg + doxycycline 5 mg/kg controls but does not eliminate; sildenafil</b> may mitigate pulmonary fibrosis. Worsened by ↑environmental ammonia (&gt;19–25 ppm), cedar/pine substrate, vitamin A/E deficiency, tobacco smoke. Serology hard (young rats serong up to 4 mo post-exposure).</li>
+      <li><b>Sendai virus &amp; sialodacryoadenitis virus (SDAV)</b> — acute respiratory infection; sneezing, ocular porphyrin staining, conjunctivitis, keratitis; mild/self-limiting (2 wk–2 mo) in adults but neonates/weanlings die; often co-pathogens with M. pulmonis. SDAV → cervical salivary-gland inflammation/necrosis; tissues heal 7–10 d, signs resolve ~30 d.</li>
+      <li><b>Bacterial pneumonia (Streptococcus pneumoniae)</b> — most common bacterial pneumonia but seldom the sole agent (often with M. pulmonis / Sendai / CAR bacillus); more severe in juveniles (may die with no antemortem signs); also C. kutscheri in debilitated/immunosuppressed. Treat with beta-lactamase-resistant penicillins by C&amp;S.</li>
+    </ul>
+  </div>
+  <div class="zoo"><b>Rat-bite fever — Streptobacillus moniliformis</b>Primary cause of rat-bite fever in humans. Wild &amp; pet rats are asymptomatic carriers (nasopharynx, middle ear, respiratory tract; present in urine/blood). Transmission via bites, scratches, handling rat excreta, or contaminated food/water. Human signs (fever, headache, vomiting, myalgia) ~7 days post-exposure. Prevention: careful handling, hygiene, husbandry, PPE.</div>
+
+  <h3>GI disease — wet tail &amp; others</h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Wet tail — Lawsonia intracellularis</b> proliferative ileitis, the classic <b>pathogen of weanling hamsters (4–8 wk)</b> but any age under stress (breeding, overcrowding, poor nutrition, concurrent disease). Intracellular bacterium targeting dividing enterocytes → proliferative ileitis (spreads to jejunum/cecum/colon); called "enzootic intestinal adenocarcinoma." Acute (7–10 d): haemorrhagic diarrhoea, ill thrift, lethargy; subacute: hunched posture, palpable abdominal mass; <b>symptomatic hamsters may die within 48 h. Mortality ~90%.</b> Aggressive Tx (oral/SC/IO fluids, electrolytes, bismuth subsalicylate, nutrition) or humane euthanasia; empiric antibiotics — metronidazole, tetracycline, chloramphenicol, enrofloxacin, TMS. Survivors → intestinal obstruction/intussusception/rectal prolapse.</li>
+      <li><b>Salmonella (S. typhimurium) — ZOONOTIC.</b> Rare in mice/rats; <b>more severe in hamsters</b>; take precautions with rodent feces.</li>
+      <li><b>Clostridium difficile</b> — adult diarrhoea several days after antibiotics (especially <b>penicillins and lincomycin</b>); PCR diagnosis.</li>
+      <li><b>Clostridium piliforme (Tyzzer's)</b> — hamsters &amp; gerbils; acute death; driven by stress/crowding/poor husbandry; does NOT usually occur in healthy immunocompetent animals.</li>
+      <li><b>Taenia taeniaeformis (tapeworm) — ZOONOTIC.</b> Cats/dogs are definitive hosts, <b>rodents (and rabbits) are intermediate hosts</b>; hepatic cysts, gastric pH changes; a risk factor for <b>hepatic sarcoma in rats</b>; praziquantel 30 mg/kg PO q14d ×3 (caution with encysted larvae → host immune reaction).</li>
+    </ul>
+  </div>
+
+  <h3>Skin disease &amp; ectoparasites</h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Dermatophytosis (T. mentagrophytes) — ZOONOTIC.</b> Uncommon in pet mice/rats; patchy alopecia/crusting on face/head/neck/tail; usually minimal pruritus; <b>does NOT fluoresce under Wood's lamp.</b> Environmental decontamination + biosecurity.</li>
+      <li><b>Fur mites</b> — Radfordia ensifera (rats), Myobia musculi / M. musculinus / Radfordia affinis (mice); usually subclinical, heavy burdens → self-trauma/ulcerative dermatitis; Dx microscopy of mites/eggs on hair shafts; ivermectin or selamectin + environmental decontamination (pyrethroids or fipronil).</li>
+      <li><b>Ornithonyssus bacoti (tropical rat mite)</b> — rats/mice/gerbils/hamsters; heavy infestation → anaemia, debilitation, death; <b>will bite humans when the intended host is unavailable.</b></li>
+      <li><b>Staphylococcal dermatitis</b> — nude/strain mice at risk; local abscesses, conjunctivitis, ulceration, self-trauma on face/head; necrotizing dermatitis (streptococcal) on shoulder/lumbar/hip; treat by C&amp;S + debride/drain.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================================ REPTILES -->
+<section class="panel" id="reptile">
+  <h2 class="sec">Reptiles <span class="bdg notes">source chapter</span></h2>
+  <p class="lead">Shelters should provide <b>temporary housing only</b>, after reviewing local law (federal/state/county/municipal restrictions vary by species). Reptiles are poikilotherms that thermoregulate behaviourally — get the thermal gradient, UVB and disinfectant choices right and most short-term care is straightforward.</p>
+
+  <h3>Intake, ID &amp; basic husbandry</h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Review local laws before accepting any reptile/amphibian</b> — ownership may be restricted. If adequate husbandry can't be provided, find alternative placement (especially for legal-investigation animals).</li>
+      <li><b>Individualize ID and records — never group multiple reptiles under one ID.</b> Use temporary marking: non-toxic paint or fingernail polish.</li>
+      <li>Not social — <b>do not house with carnivorous mammals</b> (stress) or together (territorial aggression, cannibalism). Develop written husbandry/handling protocols.</li>
+      <li>Enclosure size ≥ <b>1–1.5× the animal's total body length</b>; <b>for snakes the enclosure perimeter must exceed the snake's total length.</b> Arboreal → vertical climbing space; terrestrial → horizontal space; aquatic → swimming + basking. Most common reptiles fit 10–20-gallon aquaria; small species in sealed ventilated containers; secure screen tops with weights/clips.</li>
+      <li>Substrate: clean recycled newspaper is best (also pebbles, sand, aspen chips, pelleted corn cob, rabbit pellets, cypress mulch); <b>cat litter must never be used.</b> Cage design: secure wire-mesh top, hiding place, heavy ceramic water bowl, focal secondary heat source.</li>
+    </ul>
+  </div>
+
+  <h3>Temperature, heating, humidity &amp; light</h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Ambient 80–85 °F (27–29 °C) with a secondary focal heat source ~10 °F warmer.</b> The animal must be able to <b>choose its body temperature from a gradient</b>: too cold → chronic hypothermia → immunosuppression, GI stasis, lethargy; too hot → hyperthermia, thermal burns, acute death.</li>
+      <li><b>Focal heating:</b> radiant heat from below (warms ventral surface, mimics a sun-warmed rock) + radiant heat from above (light bulbs, ceramic heat lamps). The resting surface <b>should not feel hot to the human hand after ~1 min</b>; heat sources never placed directly inside the enclosure.</li>
+      <li><b>Humidity 30–80% with a gradient if possible.</b></li>
+      <li><b>Lighting / UVB:</b> sunlight if possible; <b>no more than 10–14 h light/day.</b> UVB matters most for <b>herbivorous &amp; omnivorous</b> reptiles (skin synthesis of active vitamin D). <b>UVB wavelength 290–320 nm; bulb 12–18 inches from the animal; must NOT be filtered through glass or acrylic; replace bulb every 12 months</b> (output falls before visible light does).</li>
+    </ul>
+  </div>
+
+  <h3>Sanitation</h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Remove all animals before cleaning; remove gross contamination with mild detergent + water; then disinfect with <b>dilute bleach 1:32 or quaternary ammonium compounds.</b></li>
+      <li><b>Rinse enclosure surfaces thoroughly with clean water</b> after disinfection — reptile/amphibian skin is very sensitive.</li>
+      <li>Sanitize before housing a new group; <b>discard items that cannot be disinfected</b> (wood, cardboard).</li>
+    </ul>
+  </div>
+  <div class="trap"><b>Phenolics &amp; glutaraldehyde are toxic to reptiles and amphibians</b>These compounds — present in many common shelter disinfectants — must <b>never</b> be used in reptile/amphibian enclosures. Use dilute bleach (1:32) or QAC instead, and always rinse thoroughly with clean water because their skin is highly absorptive.</div>
+</section>
+
+<!-- ============================================================ HORSES -->
+<section class="panel" id="horse">
+  <h2 class="sec">Horses <span class="bdg notes">source chapter</span></h2>
+  <p class="lead">Trickle-feeding herd grazers whose physical health and behaviour are tightly coupled to a continuous high-fibre intake and conspecific company. Exam-relevant for the shelter setting: squamous gastric ulcers, colic, the quarantine pathogens (EHV, Salmonella, strangles), and a cluster of behaviour problems driven by underlying discomfort or management.</p>
+
+  <h3>Diet, water &amp; gastric health</h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Require continuous through-put of high-fibre, calorie-sparse forage</b> — they alternate eating and resting around the clock, rarely &gt;30–60 min of rest before resuming foraging.</li>
+      <li><b>Equine squamous gastric ulcer disease</b> — prevalence varies by breed/discipline: <b>17–39% in untrained/unworked horses, 66–100% in those in training/competition.</b> <b>Colic prevalence &gt;4% annually.</b></li>
+      <li>Provide <b>free access to water</b> (domestically managed). Freshly voided fecal balls should be slightly moist, not dry/crumbly — reduced water intake is a common cause of GI discomfort/dehydration colic. Horses drink less in cold weather or with sudden drops to below-freezing temps.</li>
+      <li>Stress behaviour from infrequent, calorie-dense, highly palatable grain meals: stomping, weaving, head-shaking, pawing, teeth-grinding, stress vocalization.</li>
+    </ul>
+  </div>
+
+  <h3>Social needs &amp; housing</h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Like to be with other horses; <b>more comfortable in outdoor enclosures with — or within sight of — other horses.</b> Under natural conditions eating and resting are conspicuously synchronized across herd members.</li>
+      <li>Indoor enclosure ≥ <b>100 sq ft</b>; give at least 1–several hours of daily turn-out to pasture/paddock — <b>not confined 24/7 to a stall.</b></li>
+    </ul>
+  </div>
+
+  <h3>Quarantine</h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Quarantine 2–3 weeks.</b></li>
+      <li><b>Equine herpes myeloencephalopathy (EHV) and Salmonella</b> — large proportions of latently infected horses shed under the stress of transport/management change.</li>
+      <li><b>Strangles (Streptococcus equi)</b> — common in auction and holding facilities that rescue horses pass through.</li>
+      <li>Isolation from other horses is stressful → provide visual contact with another equid, or a substitute (mirror, poster, companion-horse video, or another species for company).</li>
+      <li><b>Limit human handling during quarantine</b> — horses acclimate more efficiently with less human interaction, and minimal handling reduces both biosecurity risk and human-animal stress.</li>
+    </ul>
+  </div>
+
+  <h3>Behaviour problems in the shelter</h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Fear/alarm:</b> may aggress toward the handler rather than the scary stimulus; forced exposure to a feared species without gradual introduction → distress (locomotor stereotypies, frantic self-injurious escape, inappetence, restlessness, cowering depression).</li>
+      <li><b>Aggression:</b> most common cause is <b>underlying physical discomfort or illness</b> (often mislabelled misbehaviour). Horses learn aggression from punitive handling and inadvertent reinforcement of fear responses. <b>Intact adult males have a lower aggression threshold</b> → stallions need specialized housing + skilled non-confrontational handling; castrate non-breeding stallions (stallion-like behaviour takes weeks+ to fade; geldings may still react to mares).</li>
+      <li><b>Food urgency/aggression:</b> poor nutrition or starvation → food-urgent/aggressive horses that guard feeding areas, aggress at herd-mates, kick barriers; worse with infrequent palatable grain meals. Give <b>continuous all-forage diet + salt/trace-mineral licks.</b> Horses mark feed/water with feces.</li>
+      <li><b>Wood chewing / object licking</b> — sign of <b>salt/mineral deficiency.</b></li>
+      <li><b>Stereotypies:</b> locomotor (pacing, circling, weaving, pawing) — natural responses to physical/psychological discomfort; <b>should not be punished.</b> <b>Cribbing</b> (oral stereotypy — grasping a surface with the upper incisors, arching the neck, gulping air with a grunt) occurs around palatable grain meals; <b>2–10% of the population.</b></li>
+      <li><b>Sleep deprivation:</b> horses light-sleep standing but need <b>recumbent rest for REM sleep</b>; physical discomfort or insecurity → won't lie down; after 2–3 wk without recumbent rest they collapse into standing sleep → somnolence, dull attitude, hyperreactivity, repeated abandoned attempts to lie down.</li>
+      <li><b>Overhandled foal syndrome</b> — orphan foals over-bonded to humans: follow people like a dog, suckle clothing, vocalize to humans, initiate horse-play (rearing/bucking/mounting) with people → unsafe handling and limited trainability. <b>Limit human interaction; bucket-feed (not bottle); disassociate humans from mealtime (remote bucket filling); provide equine companionship.</b></li>
+      <li><b>Self-mutilation:</b> self-biting, kicking/slamming body parts against objects, pawing, frenetic weaving/pacing.</li>
+      <li>Relinquishment drivers: handling difficulties, aggression to humans/herd-mates, stereotypies/cribbing — <b>many trace to undiagnosed physical discomfort</b> often not relayed to the receiving organisation. (Of 187 slaughter-auction rescue prospects: 66 euthanised for medical problems, 26 for behaviour problems not responsive to training.)</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================================ MCQ -->
+<section class="panel" id="mcq">
+  <h2 class="sec">MCQ Test Bank — Other Animals</h2>
+  <p class="lead">Filter by species. Click an option to lock your answer and reveal the rationale. These questions are drawn directly from the source chapter; the same high-yield stems also appear under the "Other Animals" filter in the Nutrition &amp; Husbandry hub's main MCQ bank.</p>
+  <div class="mcqbar">
+    <div class="filters">
+      <button class="on" data-f="all">All</button>
+      <button data-f="ferret">Ferrets</button>
+      <button data-f="rabbit">Rabbits</button>
+      <button data-f="gp">Guinea Pigs</button>
+      <button data-f="rodent">Rodents</button>
+      <button data-f="reptile">Reptiles</button>
+      <button data-f="horse">Horses</button>
+    </div>
+    <div class="score"><span id="scoreTxt">0 / 0 correct</span><button class="reset" id="resetBtn">Reset</button></div>
+  </div>
+  <div id="qhost"></div>
+</section>
+
+</div></main>
+
+<footer><div class="wrap">
+  The Care of Other Animals in the Shelter &middot; ABVP Shelter Medicine Practice RVS prep. All content distilled from <em>The Care of Other Animals in the Animal Shelter</em> (Shelter Medicine for Veterinarians and Staff source chapter). Zoonoses and exam traps flagged inline. Companion to the <a href="nutrition_husbandry_hub.html" style="color:var(--ac)">Nutrition &amp; Husbandry hub</a>. &mdash; <a href="docs/care-of-other-animals-in-the-shelter.pdf" target="_blank" rel="noopener" style="color:var(--ac)">Open full source PDF (34 pp)</a>
+</div></footer>
+
+<script>
+const tabrow=document.getElementById('tabrow');
+tabrow.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.disabled)return;
+  [...tabrow.children].forEach(x=>x.classList.remove('active'));b.classList.add('active');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('show'));
+  document.getElementById(b.dataset.p).classList.add('show');window.scrollTo({top:0,behavior:'smooth'});});
+
+/* Other-animals MCQ bank. t = species filter; q stem; o options; a correct index; e rationale. */
+const Q=[
+/* ---- FERRETS ---- */
+{"t":"ferret","q":"Canine distemper virus is confirmed in a shelter ferret. What is the appropriate management?","o":["Isolate and treat with supportive care; some ferrets recover","Humane euthanasia — CDV is 100% fatal in ferrets — then separate exposed animals and vaccinate all healthy unvaccinated ferrets","Transfer to a specialty hospital for antiviral therapy","Give anti-canine-distemper hyperimmune serum and monitor 4 weeks"],"a":1,"e":"CDV has a 100% case-fatality rate in ferrets with no successful treatment. Euthanasia minimizes suffering and outbreak risk; vaccinate all healthy unvaccinated in-contact ferrets and separate exposed animals."},
+{"t":"ferret","q":"Twenty minutes after a CDV vaccine at intake, a ferret becomes lethargic with vomiting and collapse. Best first-line treatment?","o":["IV antivirals for presumed active CDV","Diphenhydramine 2–4 mg/kg IM/IV and supportive care; epinephrine for severe cases","Oral dextrose for hypoglycaemia","Aural ivermectin for a vestibular crisis"],"a":1,"e":"Ferrets have a high prevalence of vaccine anaphylaxis, typically within ~25 minutes of CDV or rabies vaccination. Diphenhydramine 2–4 mg/kg IM/IV is first-line; severe cases need epinephrine, dexamethasone and oxygen."},
+{"t":"ferret","q":"A 2-year-old spayed jill develops bilateral symmetrical alopecia starting at the tail base and progressing rostrally, plus vulvar swelling. Most likely diagnosis?","o":["Dermatophytosis","Adrenocortical disease","Aleutian disease","Normal seasonal weight fluctuation"],"a":1,"e":"Tail-base-to-head symmetrical alopecia plus vulvar swelling in a spayed female is classic adrenocortical disease — strongly associated with early-age spay/neuter and almost exclusive to US ferret populations."},
+{"t":"ferret","q":"Why does an unbred jill develop life-threatening anaemia if not spayed?","o":["Chronic blood loss from uterine adenocarcinoma","Ferrets are induced ovulators — persistent oestrus causes hyperestrogenism and bone-marrow suppression","Iron deficiency from an all-meat diet","Aleutian-disease-induced haemolysis"],"a":1,"e":"Ferrets are induced ovulators; an unbred jill stays in oestrus, and chronic hyperestrogenism causes non-regenerative anaemia and bone-marrow suppression. This is a key reason to spay shelter jills."},
+{"t":"ferret","q":"A ferret coronavirus enteritis (ECE) outbreak is suspected. Which statement is correct?","o":["A feline coronavirus PCR will reliably detect ferret coronavirus","Feline coronavirus PCR will NOT detect ferret coronavirus; diagnosis needs RT-PCR plus IHC of jejunum/ileum","ECE is uniformly fatal like FRSCV","Older ferrets are protected; only neonates get sick"],"a":1,"e":"Feline coronavirus PCR does not detect ferret coronavirus. ECE diagnosis requires ferret-specific RT-PCR and IHC of jejunum/ileum, since presence of virus alone isn't confirmatory. Older ferrets get sick after exposure to young asymptomatic carriers."},
+{"t":"ferret","q":"In which US-endemic regions should systemic fungal disease be on the ddx for a ferret with respiratory signs?","o":["Blastomyces in the SE/Mississippi-Ohio valleys and Coccidioides in the SW US","Only the Pacific Northwest","Anywhere — these fungi are contagious between ferrets","Only tropical climates"],"a":0,"e":"Blastomyces dermatitidis is endemic in the SE US and Mississippi/Ohio river valleys; Coccidioides immitis in the SW US. These fungi are NOT contagious between ferrets and are unlikely to arise in a shelter unless the ferret was exposed before entry."},
+{"t":"ferret","q":"A young shelter ferret has chronic mucoid/bloody diarrhoea, thickened intestinal loops and partial rectal prolapse. Which agent — also the cause of hamster wet tail — is most likely?","o":["Helicobacter mustelae","Lawsonia intracellularis (proliferative bowel disease)","Clostridium botulinum","Eimeria furonis"],"a":1,"e":"Lawsonia intracellularis causes proliferative bowel disease in young ferrets and is the same agent behind wet tail in hamsters (and disease in swine and rabbits). Treat with chloramphenicol or metronidazole plus stress reduction."},
+/* ---- RABBITS ---- */
+{"t":"rabbit","q":"Why is oral (enteral) penicillin contraindicated in rabbits?","o":["It is inactivated by rabbit gastric acid","It disrupts the cecal microbiome causing fatal Clostridium overgrowth (enterotoxaemia)","Rabbits are allergic to all beta-lactams","It causes irreversible renal failure"],"a":1,"e":"Enteral penicillin disrupts the cecal flora and causes fatal Clostridium overgrowth (antibiotic-associated enterotoxaemia). For rabbit syphilis, injectable penicillin G is used; oral penicillin must never be given."},
+{"t":"rabbit","q":"Which ectoparasiticide must NOT be used on rabbits?","o":["Imidacloprid","Selamectin","Fipronil","Ivermectin"],"a":2,"e":"Fipronil is contraindicated in rabbits (associated with toxicity/death). Imidacloprid, lufenuron and selamectin are generally safe; ivermectin is used for mites. Dog/cat flea-and-tick collars and insecticide dips must also be avoided."},
+{"t":"rabbit","q":"Which statement about RHDV is correct?","o":["It is an enveloped virus easily killed by standard QAC alone","It is a reportable, non-enveloped calicivirus; disinfect with 0.5% sodium hypochlorite or 1% formalin","Neonatal rabbits are the most susceptible age group","Absence of blood from the orifices reliably rules it out"],"a":1,"e":"RHDV is a reportable, non-enveloped calicivirus affecting rabbits >2 months (neonates are resistant). Because it is non-enveloped it resists many disinfectants — use 0.5% sodium hypochlorite or 1% formalin. Lack of orifice bleeding does NOT rule it out."},
+{"t":"rabbit","q":"A shelter is 300 miles from an area with RHD reported last year; its rabbits are unvaccinated and a new arrival had outdoor exposure 5 days ago. Per the algorithm, what applies?","o":["No quarantine — single domestic animals never need it","The rabbit is 'at risk' → 10-day quarantine of the incoming rabbit, plus risk-mitigation","Immediate euthanasia of the incoming rabbit","Vaccinate and place directly into the general population with no quarantine"],"a":1,"e":"Within 500 miles/800 km of recent RHD, do an individual risk assessment: outdoor exposure in the last 10 days, an unvaccinated general population, or no proof of RHDV2 vaccination each make a rabbit 'at risk' → 10-day quarantine of incoming at-risk rabbits plus risk-mitigation."},
+{"t":"rabbit","q":"A dwarf-breed rabbit presents with head tilt and nystagmus. Which is the MOST likely cause, versus a standard-breed rabbit?","o":["Pasteurella otitis in both breeds equally","Encephalitozoon cuniculi in the dwarf breed; Pasteurella/otitis is more likely in standard breeds","RHDV in both","Rabbit syphilis"],"a":1,"e":"In dwarf breeds, vestibular signs (head tilt) are most often caused by E. cuniculi; in standard breeds the cause is more likely Pasteurella multocida or otitis. E. cuniculi is an intracellular microsporidian (a fungus) with seroprevalence 7.5–84.7%."},
+{"t":"rabbit","q":"Routine antibiotic choices considered appropriate for rabbits include:","o":["Oral penicillin, lincomycin and clindamycin","Doxycycline, trimethoprim-sulfa and fluoroquinolones","Amoxicillin and ampicillin","Erythromycin and oral cephalexin"],"a":1,"e":"Doxycycline, TMS and fluoroquinolones are appropriate in rabbits. Narrow-spectrum oral antibiotics targeting Gram-positives (penicillins, lincomycin, clindamycin) risk fatal dysbiosis/enterotoxaemia."},
+{"t":"rabbit","q":"A rabbit's urine is red-orange. Best next step to distinguish porphyrinuria from true hematuria?","o":["Abdominal radiographs","Wood's lamp — porphyrins fluoresce while blood does not","Urine culture","Renal biopsy"],"a":1,"e":"Rabbit urine often contains porphyrins causing red/orange discoloration (intermittent, lasting 3–4 days). A Wood's lamp rapidly differentiates fluorescing porphyrinuria from true hematuria."},
+{"t":"rabbit","q":"Why is routine spaying recommended in shelter does by 6–9 months of age?","o":["To prevent rabbit syphilis","Because 50–80% of intact does over 3–4 years develop uterine adenocarcinoma","To eliminate Pasteurella carriage","To prevent E. cuniculi shedding"],"a":1,"e":"Uterine adenocarcinoma develops in 50–80% of intact does over 3–4 years, so ovariectomy/OVH is recommended in all non-breeding does at 6–9 months."},
+/* ---- GUINEA PIGS ---- */
+{"t":"gp","q":"Why is vitamin C supplementation essential for guinea pigs?","o":["They have an unusually high metabolic demand for it as an antioxidant","They cannot synthesize vitamin C (lack L-gulonolactone oxidase) and develop scurvy without dietary supply","They excrete it rapidly in alkaline urine","It is needed for cecotroph production"],"a":1,"e":"Guinea pigs lack L-gulonolactone oxidase and cannot make ascorbic acid, so it must come from the diet (guinea-pig-formulated pellets plus vegetables like kale, peppers, oranges). Deficiency causes scurvy."},
+{"t":"gp","q":"A guinea pig has severe pruritus with scratching so intense it mimics seizures. Skin scrape confirms a mite. Agent and zoonotic status?","o":["Psoroptes cuniculi; not zoonotic","Trixacarus caviae; ZOONOTIC — temporarily infects humans","Demodex caviae; no zoonotic risk","Cheyletiella; high zoonotic risk"],"a":1,"e":"Trixacarus caviae (sarcoptic mite) causes intense pruritus that can be confused with seizure activity and is zoonotic (temporary human skin lesions). Treat ivermectin 0.2–0.4 mg/kg SQ q10–14d ×3 and decontaminate the environment."},
+{"t":"gp","q":"Which species can asymptomatically carry Bordetella bronchiseptica and infect guinea pigs?","o":["Only other guinea pigs","Rabbits, dogs, cats and non-human primates","Only wild birds","Only reptiles"],"a":1,"e":"Bordetella has a broad host range; rabbits, dogs, cats and non-human primates can be asymptomatic carriers, and sharing airspace can be enough to infect guinea pigs. Prevent exposure of guinea pigs to these species."},
+{"t":"gp","q":"By 5 years of age, what proportion of guinea pigs develop ovarian cysts, and what is a classic sign?","o":["~10%; pruritus","~76%; bilateral symmetrical truncal alopecia with abdominal distension","~30%; head tilt","~50%; polyuria"],"a":1,"e":"About 76% of guinea pigs develop ovarian cysts by 5 years. Space-occupying cysts cause decreased fertility, anorexia, abdominal distension and bilateral symmetrical truncal (non-pruritic) alopecia."},
+{"t":"gp","q":"A guinea-pig coordinator proposes pine shavings as bedding. The correct response is:","o":["Pine is the preferred substrate","Pine and cedar are contraindicated (aromatic compounds) — use paper-based bedding or hardwood shavings","Pine is fine; only cedar is a problem","Both are fine if changed weekly"],"a":1,"e":"Pine and cedar shavings release aromatic compounds causing respiratory and skin disease in guinea pigs and small rodents. Use shredded/recycled paper or hardwood shavings."},
+/* ---- RODENTS ---- */
+{"t":"rodent","q":"What is 'wet tail', which hamsters are most affected, and the approximate untreated mortality?","o":["Bordetella in adults; 10%","Lawsonia intracellularis proliferative ileitis in weanlings (4–8 wk); ~90%","Rotavirus in neonates; 5%","Helicobacter gastritis in adults; rare mortality"],"a":1,"e":"Wet tail is Lawsonia intracellularis proliferative ileitis, classically in stressed weanling hamsters (4–8 weeks). Mortality approaches 90%; symptomatic hamsters may die within 48 h. Treat aggressively with fluids, electrolytes, bismuth and empiric antibiotics, or euthanise."},
+{"t":"rodent","q":"A rat has chronic respiratory noise and bronchopneumonia; enrofloxacin + doxycycline help but it relapses when stopped. Most likely agent?","o":["Sendai virus — self-limiting","Mycoplasma pulmonis — intracellular, lifelong, incurable; controlled but not eliminated","Streptococcus pneumoniae — cured by a longer course","Bordetella — eliminated by a 4-week course"],"a":1,"e":"M. pulmonis is the most common major respiratory pathogen of rats — an intracellular bacterium causing lifelong infection. Enrofloxacin + doxycycline controls signs but does not eliminate it; recrudescence on stopping antibiotics is the norm."},
+{"t":"rodent","q":"Which rodent-associated zoonosis is the primary cause of rat-bite fever in humans?","o":["Leptospira interrogans","Streptobacillus moniliformis","Yersinia pestis","Bordetella bronchiseptica"],"a":1,"e":"Streptobacillus moniliformis is the primary cause of rat-bite fever. Wild and pet rats are asymptomatic carriers (nasopharynx/middle ear/respiratory tract; present in urine and blood). Transmission via bites, scratches, excreta or contaminated food/water."},
+{"t":"rodent","q":"Which zoonoses are specifically flagged as risks when handling small rodents at wellness exam?","o":["Rabies, FIV and FeLV","Hantavirus, LCMV and Streptobacillus moniliformis (rat-bite fever)","Brucella and Q fever","Toxoplasma and Echinococcus"],"a":1,"e":"The chapter flags hantavirus, LCMV and S. moniliformis (rat-bite fever) as the zoonotic risks for small rodents. No routine vaccination or diagnostic testing is performed at the wellness exam."},
+/* ---- REPTILES ---- */
+{"t":"reptile","q":"Which disinfectants are specifically contraindicated in reptile and amphibian enclosures?","o":["Dilute bleach (1:32)","Quaternary ammonium compounds","Phenolic compounds and glutaraldehyde","Accelerated hydrogen peroxide"],"a":2,"e":"Phenolic compounds and glutaraldehyde are toxic to reptiles and amphibians and must never be used. Dilute bleach (1:32) and QAC are recommended, followed by thorough rinsing because their skin is highly absorptive."},
+{"t":"reptile","q":"Which statement about reptile UVB lighting is correct?","o":["UVB can be delivered through glass to reduce burns","UVB (290–320 nm) must not be filtered through glass/acrylic, sits 12–18 inches away, and the bulb is replaced every 12 months","UVB is most important for carnivorous snakes","Output stays constant until the visible light fails"],"a":1,"e":"UVB (290–320 nm) is essential mainly for herbivorous/omnivorous reptiles to synthesize active vitamin D. It must not pass through glass or acrylic (which block it), should be 12–18 inches from the animal, and the bulb replaced every 12 months because output declines before visible light does."},
+{"t":"reptile","q":"What thermal arrangement do reptiles require in a shelter enclosure?","o":["A single uniform temperature throughout","Ambient 80–85 °F with a secondary focal heat source ~10 °F warmer, so the animal can choose its temperature from a gradient","As hot as possible to speed metabolism","Room temperature with no supplemental heat"],"a":1,"e":"Reptiles thermoregulate behaviourally and need a gradient: ambient 80–85 °F (27–29 °C) plus a focal basking source ~10 °F warmer. Too cold causes immunosuppression and GI stasis; too hot causes thermal burns and acute death."},
+{"t":"reptile","q":"For record-keeping and intake of reptiles in a shelter, which is correct?","o":["Group several reptiles under one ID to save records","Individualize ID and records; use temporary non-toxic paint or nail polish; review local ownership laws before accepting","Reptiles are social and should be co-housed for comfort","Cat litter is the preferred substrate"],"a":1,"e":"Records must be individualized (never group multiple reptiles under one ID); temporary marking uses non-toxic paint or nail polish. Local laws must be reviewed before accepting reptiles, which are non-social and should not be co-housed or kept with carnivorous mammals. Cat litter must never be used."},
+/* ---- HORSES ---- */
+{"t":"horse","q":"What is the reported prevalence of equine squamous gastric ulcer disease in horses in training/competition versus untrained horses?","o":["Under 5% in both groups","17–39% in untrained/unworked horses rising to 66–100% in those in training/competition","Always 100% regardless of work","Higher in untrained horses"],"a":1,"e":"Squamous gastric ulcer disease affects roughly 17–39% of untrained/unworked horses and 66–100% of horses in training or competition, reflecting the impact of management and intermittent feeding on a trickle-feeding species."},
+{"t":"horse","q":"Which pathogens are the priority concern during equine intake quarantine (2–3 weeks)?","o":["Rabies and West Nile only","EHV (equine herpes myeloencephalopathy), Salmonella and strangles (S. equi)","FeLV and FIV","RHDV and myxomatosis"],"a":1,"e":"Quarantine runs 2–3 weeks. EHV and Salmonella have large numbers of latently infected shedders stressed by transport, and strangles (Streptococcus equi) is common in the auction/holding facilities rescue horses pass through."},
+{"t":"horse","q":"An orphan foal follows people like a dog, suckles clothing and initiates rearing/mounting play with humans. What is this and how is it managed?","o":["Normal foal play; no intervention needed","Overhandled foal syndrome — limit human interaction, bucket-feed rather than bottle-feed, disassociate humans from mealtime, and provide equine companionship","Colic — refer for surgery","Strangles — isolate and treat"],"a":1,"e":"Overhandled foal syndrome arises when orphan foals over-bond to humans, producing unsafe behaviour and limited trainability. Management: minimize human interaction, bucket-feed (not bottle), use remote bucket filling to disassociate humans from feeding, and provide equine companionship."},
+{"t":"horse","q":"A shelter horse paces and weaves in its stall. The correct interpretation/response is:","o":["Punish the behaviour to extinguish it","These are locomotor stereotypies — natural responses to physical/psychological discomfort that should not be punished; address the underlying cause and provide turn-out and forage","Confine the horse 24/7 to limit movement","Increase grain meals to provide more energy"],"a":1,"e":"Pacing, circling, weaving and pawing are locomotor stereotypies reflecting physical or psychological discomfort and should not be punished. Management addresses the underlying cause: continuous forage, turn-out (not 24/7 stalling), and equine company. Cribbing (an oral stereotypy) affects 2–10% of horses."},
+{"t":"horse","q":"A horse is chewing wood and licking objects. What deficiency does this most suggest?","o":["Protein deficiency","Salt/mineral deficiency","Vitamin C deficiency","Taurine deficiency"],"a":1,"e":"Wood chewing and object licking are signs of salt/mineral deficiency. Horses should have continuous access to an all-forage diet plus salt/trace-mineral licks."}
+];
+
+const host=document.getElementById('qhost');
+const scoreTxt=document.getElementById('scoreTxt');
+let answered=0, correct=0, filter='all';
+const DLABEL={ferret:"Ferrets",rabbit:"Rabbits",gp:"Guinea Pigs",rodent:"Small Rodents",reptile:"Reptiles",horse:"Horses"};
+function tagLabel(t){return DLABEL[t]||t.toUpperCase();}
+function render(){
+  host.innerHTML='';answered=0;correct=0;updateScore();
+  Q.forEach((item,i)=>{
+    if(filter!=='all' && item.t!==filter) return;
+    const card=document.createElement('div');card.className='q';
+    card.innerHTML=`<div class="meta"><span class="num">#${i+1}</span><span class="tag">&#9670; ${tagLabel(item.t)}</span></div><div class="stem">${item.q}</div>`;
+    const opts=document.createElement('div');
+    item.o.forEach((txt,oi)=>{
+      const btn=document.createElement('button');btn.className='opt';
+      btn.innerHTML=`<span class="k">${String.fromCharCode(65+oi)}</span>${txt}`;
+      btn.onclick=()=>choose(card,opts,item,oi);opts.appendChild(btn);
+    });
+    card.appendChild(opts);
+    const ex=document.createElement('div');ex.className='expl';
+    ex.innerHTML=`<b class="cor">Correct: ${String.fromCharCode(65+item.a)}.</b> ${item.e}`;
+    card.appendChild(ex);host.appendChild(card);
+  });
+}
+function choose(card,opts,item,oi){
+  if(card.dataset.done)return;card.dataset.done='1';answered++;
+  [...opts.children].forEach((b,bi)=>{b.classList.add('locked');
+    if(bi===item.a)b.classList.add('correct');
+    if(bi===oi && oi!==item.a)b.classList.add('wrong');});
+  if(oi===item.a)correct++;
+  card.querySelector('.expl').classList.add('show');updateScore();
+}
+function updateScore(){scoreTxt.textContent=`${correct} / ${answered} correct`;}
+document.querySelector('.filters').addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  document.querySelectorAll('.filters button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');filter=b.dataset.f;render();});
+document.getElementById('resetBtn').onclick=render;
+render();
+</script>
+</body>
+</html>
