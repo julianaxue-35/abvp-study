@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABVP SMP RVS — Mock Exam Day Simulator</title>
+<style>
+  :root{--ink:#0f3d3a;--ink2:#15514c;--paper:#f4efe4;--paper2:#fbf8f1;--line:#d9d0bd;--muted:#5d6b62;
+    --id:#3c4a86;--id-soft:#e2e4f2;--good:#1f7a4d;--bad:#b23b3b;--warn:#b5651d;--shadow:0 1px 2px rgba(15,61,58,.08),0 8px 24px rgba(15,61,58,.06);}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:"Public Sans",system-ui,Arial,sans-serif;line-height:1.5;
+    background-image:radial-gradient(circle at 1px 1px,rgba(15,61,58,.04) 1px,transparent 0);background-size:22px 22px;}
+  .wrap{max-width:980px;margin:0 auto;padding:0 16px}
+  h1{font-family:Georgia,serif;font-weight:700;margin:0}
+  .hidden{display:none!important}
+  button{font-family:inherit}
+  .btn{background:var(--ink);color:#fff;border:none;border-radius:9px;padding:10px 18px;font-weight:600;font-size:14px;cursor:pointer}
+  .btn:hover{background:var(--ink2)}
+  .btn.alt{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
+  .btn.alt:hover{border-color:var(--ink)}
+  .btn.sm{padding:7px 12px;font-size:13px}
+  .card{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:var(--shadow);margin:14px 0}
+  /* ---- start ---- */
+  header.top{background:var(--ink);color:var(--paper2);padding:24px 0}
+  header.top .sub{color:#cfe3df;font-size:14px;margin:6px 0 0}
+  .cfg{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:14px 0}
+  .cfg label{font-size:12.5px;font-weight:600;color:var(--muted);display:block;margin-bottom:4px;text-transform:uppercase;letter-spacing:.03em}
+  .cfg input,.cfg select{width:100%;padding:8px 10px;border:1.5px solid var(--line);border-radius:8px;font-size:14px;font-family:inherit;background:#fff}
+  table.bp{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+  table.bp td,table.bp th{padding:5px 9px;border-bottom:1px solid var(--line);text-align:left}
+  table.bp th{background:var(--ink);color:#fff;font-size:11.5px;text-transform:uppercase}
+  .tips li{margin:5px 0;font-size:13.5px}
+  /* ---- exam bar ---- */
+  .exambar{position:sticky;top:0;z-index:30;background:var(--ink);color:#fff;padding:10px 0;box-shadow:var(--shadow)}
+  .exambar .row{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .clock{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:24px;font-weight:700;letter-spacing:.02em}
+  .clock.low{color:#ffb3b3}
+  .pace{font-size:12px;padding:5px 11px;border-radius:999px;font-weight:700}
+  .pace.on{background:#1f7a4d;color:#fff}.pace.ahead{background:#3c4a86;color:#fff}.pace.behind{background:#b5651d;color:#fff}
+  .meta-r{margin-left:auto;font-size:13px;display:flex;gap:14px;align-items:center}
+  .sesslabel{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#9ec9c2}
+  /* ---- question ---- */
+  .qcard{position:relative}
+  .qhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-size:12px;color:var(--muted)}
+  .qtag{background:var(--id-soft);color:var(--id);border-radius:999px;padding:2px 9px;font-size:11px;font-weight:600}
+  .qtype{background:#efe7d4;color:var(--warn);border-radius:999px;padding:2px 9px;font-size:11px;font-weight:600}
+  .stem{font-size:16.5px;font-weight:600;margin:6px 0 16px;line-height:1.45}
+  .opt{display:block;width:100%;text-align:left;border:1.5px solid var(--line);background:#fff;border-radius:10px;padding:12px 14px;margin:8px 0;cursor:pointer;font-size:15px}
+  .opt:hover{border-color:var(--ink)}
+  .opt.sel{border-color:var(--ink);background:#eaf2ee;box-shadow:inset 0 0 0 1px var(--ink)}
+  .opt .k{font-family:"JetBrains Mono",monospace;font-weight:700;color:var(--muted);margin-right:9px}
+  .reveal{background:#f3efe3;border:1px solid var(--line);border-radius:10px;padding:14px;margin-top:8px;font-size:15px}
+  .selfgrade{display:flex;gap:10px;margin-top:12px}
+  .navrow{display:flex;gap:10px;align-items:center;margin-top:18px;flex-wrap:wrap}
+  .flagbtn.on{background:var(--warn);color:#fff}
+  /* ---- sketch pad ---- */
+  #sketch{position:absolute;inset:0;background:#fffef9;border-radius:14px;z-index:20;display:flex;flex-direction:column}
+  #sketch .sbar{display:flex;gap:10px;align-items:center;padding:10px 14px;border-bottom:1px solid var(--line);background:#f0ece0;border-radius:14px 14px 0 0}
+  #sketch .sbar b{font-size:13px}
+  #sketchCanvas{flex:1;width:100%;cursor:crosshair;touch-action:none;border-radius:0 0 14px 14px}
+  .sketchnote{font-size:11.5px;color:var(--bad);font-weight:600}
+  /* ---- palette ---- */
+  #palette{position:fixed;top:0;right:0;bottom:0;width:300px;background:var(--paper2);border-left:1px solid var(--line);box-shadow:-6px 0 24px rgba(0,0,0,.12);z-index:40;padding:16px;overflow:auto;transform:translateX(100%);transition:transform .2s}
+  #palette.open{transform:none}
+  .pgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:10px}
+  .pcell{aspect-ratio:1;border:1px solid var(--line);border-radius:6px;font-size:11px;display:flex;align-items:center;justify-content:center;cursor:pointer;background:#fff}
+  .pcell.ans{background:#dcebe2;border-color:var(--good)}
+  .pcell.flag{background:#f6e6cf;border-color:var(--warn)}
+  .pcell.cur{outline:2px solid var(--ink);font-weight:700}
+  .legend{display:flex;gap:12px;font-size:11px;margin-top:10px;flex-wrap:wrap}
+  .dot{width:11px;height:11px;border-radius:3px;display:inline-block;vertical-align:-1px;margin-right:3px}
+  /* ---- lunch / results ---- */
+  .big{font-size:46px;font-weight:700;font-family:"JetBrains Mono",monospace}
+  .scoregrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+  .scorebox{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px;text-align:center}
+  .scorebox .n{font-size:26px;font-weight:700}
+  .bar{height:8px;background:var(--line);border-radius:6px;overflow:hidden;margin-top:6px}
+  .bar>i{display:block;height:100%;background:var(--good)}
+  .rev{border:1px solid var(--line);border-radius:10px;padding:12px;margin:8px 0;background:#fff;font-size:14px}
+  .rev .stem{font-size:14.5px;margin-bottom:8px}
+  .rev .corr{color:var(--good);font-weight:600}.rev .wrong{color:var(--bad);font-weight:600}
+</style>
+</head>
+<body>
+
+<!-- ============ START ============ -->
+<div id="startScreen">
+  <header class="top"><div class="wrap">
+    <h1>ABVP SMP RVS — Mock Exam Day</h1>
+    <p class="sub">A blueprint-weighted, timed simulation of the 350-item Combined RVS Exam (two parts, one day) — with a pausable lunch, live pacing, and a Prometric-style sketch pad that hides the question while you calculate.</p>
+  </div></header>
+  <div class="wrap">
+    <div class="card">
+      <h3 style="margin-top:0">Set up your exam</h3>
+      <div class="cfg">
+        <div><label>Total questions</label><input id="cfgTotal" type="number" value="350" min="20" max="700"></div>
+        <div><label>Minutes / session</label><input id="cfgMins" type="number" value="180" min="10" max="360"></div>
+        <div><label>Lunch (min, pausable)</label><input id="cfgLunch" type="number" value="60" min="0" max="120"></div>
+        <div><label>Include flashcards</label><select id="cfgCards"><option value="1" selected>Yes — mix in self-graded recall</option><option value="0">No — MCQs only</option></select></div>
+      </div>
+      <p style="font-size:13px;color:var(--muted);margin:6px 0 14px">The exam is split into two timed sessions with a self-paced lunch between. Questions are drawn randomly and <b>weighted to the 2026 blueprint</b> below. MCQs are auto-graded; flashcards are self-graded (Got it / Missed it). Nothing is marked right/wrong until your results — just like the real exam.</p>
+      <button class="btn" onclick="startExam()">Start exam day →</button>
+      <span id="poolInfo" style="font-size:12.5px;color:var(--muted);margin-left:12px"></span>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:0">Exam-day tips</h3>
+      <ul class="tips">
+        <li><b>Pace:</b> at ~1 min/question you must average steady progress. The bar at the top tells you live whether you're <b>On pace, Ahead (slow down — you may be rushing), or Behind (speed up)</b>.</li>
+        <li><b>Flag & move on.</b> Don't burn 3 minutes on one item — flag it, answer your best guess, and return via the palette (≡) if time allows. Unanswered = wrong; a guess is never worse.</li>
+        <li><b>Calculations:</b> open the <b>Sketch pad</b> for metrics/biostats items. It covers the question while open (as in the real exam) — read and note the numbers first, then sketch.</li>
+        <li><b>3-option style:</b> the real ABVP stems are clinical vignettes, often a/b/c. Read the lead-in carefully (it sometimes completes the sentence).</li>
+        <li>Eat and hydrate at the lunch break — you control when it ends.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:0">2026 blueprint (auto-weighted)</h3>
+      <table class="bp"><thead><tr><th>Domain</th><th>% of exam</th><th id="bpTh">Questions</th></tr></thead><tbody id="bpBody"></tbody></table>
+    </div>
+  </div>
+</div>
+
+<!-- ============ EXAM ============ -->
+<div id="examScreen" class="hidden">
+  <div class="exambar"><div class="wrap"><div class="row">
+    <div class="clock" id="clock">--:--</div>
+    <span class="pace on" id="pace">On pace</span>
+    <div class="meta-r">
+      <div><div class="sesslabel" id="sessLabel">Session 1</div><span id="progress">0 / 0</span></div>
+      <button class="btn alt sm" onclick="togglePalette()">≡ Review</button>
+    </div>
+  </div></div></div>
+
+  <div class="wrap"><div class="card qcard" id="qcard">
+    <!-- question injected here -->
+    <div id="sketch" class="hidden">
+      <div class="sbar"><b>✏️ Sketch pad</b><span class="sketchnote">The question is hidden while this is open.</span>
+        <button class="btn alt sm" style="margin-left:auto" onclick="clearSketch()">Clear</button>
+        <button class="btn sm" onclick="toggleSketch()">Done</button></div>
+      <canvas id="sketchCanvas"></canvas>
+    </div>
+  </div></div>
+</div>
+
+<!-- palette -->
+<div id="palette">
+  <div style="display:flex;justify-content:space-between;align-items:center"><b>Question review</b><button class="btn alt sm" onclick="togglePalette()">✕</button></div>
+  <div class="legend"><span><i class="dot" style="background:#dcebe2"></i>Answered</span><span><i class="dot" style="background:#f6e6cf"></i>Flagged</span><span><i class="dot" style="background:#fff;border:1px solid var(--line)"></i>Unseen</span></div>
+  <div class="pgrid" id="pgrid"></div>
+  <button class="btn" style="width:100%;margin-top:16px" onclick="endSession()">End this session ▸</button>
+</div>
+
+<!-- ============ LUNCH ============ -->
+<div id="lunchScreen" class="hidden"><div class="wrap"><div class="card" style="text-align:center;margin-top:40px">
+  <h1 style="font-size:28px">🍽️ Lunch break</h1>
+  <p style="color:var(--muted)">Session 1 complete. Take your break — <b>you control when it ends</b>. Suggested time:</p>
+  <div class="big" id="lunchClock">60:00</div>
+  <div style="margin:18px 0;display:flex;gap:10px;justify-content:center">
+    <button class="btn alt" id="lunchPause" onclick="toggleLunch()">Pause</button>
+    <button class="btn" onclick="startSession(2)">Begin Session 2 →</button>
+  </div>
+  <p style="font-size:12.5px;color:var(--muted)">The countdown is just a guide; the timer can be paused and Session 2 starts only when you click.</p>
+</div></div></div>
+
+<!-- ============ RESULTS ============ -->
+<div id="resultScreen" class="hidden"><div class="wrap">
+  <div class="card" style="text-align:center">
+    <h1 style="font-size:26px;margin:0">Results</h1>
+    <div class="big" id="overallScore">—</div>
+    <p style="color:var(--muted);margin:0" id="overallSub"></p>
+  </div>
+  <div class="card"><h3 style="margin-top:0">By domain</h3><div class="scoregrid" id="domScores"></div></div>
+  <div class="card"><h3 style="margin-top:0">Pacing</h3><div id="pacingSummary" style="font-size:14px"></div></div>
+  <div class="card"><h3 style="margin-top:0">Review — missed &amp; flagged (<span id="revCount">0</span>)</h3>
+    <div style="margin-bottom:10px"><button class="btn alt sm" onclick="filterRev('all')">All</button>
+      <button class="btn alt sm" onclick="filterRev('wrong')">Incorrect only</button>
+      <button class="btn alt sm" onclick="filterRev('flag')">Flagged only</button></div>
+    <div id="revList"></div>
+  </div>
+  <div class="card" style="text-align:center"><button class="btn" onclick="location.reload()">↻ New mock exam</button></div>
+</div></div>
+
+<script src="mock-data.js"></script>
+<script>
+/* ===================== state ===================== */
+var S={items:[],ans:[],flag:[],seen:[],cur:0,session:1,half:0,
+       sessEnd:0,sessLen:0,timer:null,lunchTimer:null,lunchLeft:0,lunchPaused:false,
+       sessStartTs:0,sketchData:[null]};
+var DOM_ORDER=Object.keys(window.MOCK.blueprint);
+
+/* ===================== blueprint counts ===================== */
+function counts(total){
+  var bp=window.MOCK.blueprint, raw={}, sumPct=0;
+  DOM_ORDER.forEach(d=>sumPct+=bp[d].pct);
+  var floors={},rem=[],sum=0;
+  DOM_ORDER.forEach(d=>{var x=bp[d].pct/sumPct*total;floors[d]=Math.floor(x);sum+=floors[d];rem.push([d,x-Math.floor(x)]);});
+  rem.sort((a,b)=>b[1]-a[1]);
+  for(var i=0;sum<total;i++,sum++){floors[rem[i%rem.length][0]]++;}
+  return floors;
+}
+function renderBlueprint(){
+  var c=counts(parseInt(document.getElementById('cfgTotal').value)||350);
+  document.getElementById('bpBody').innerHTML=DOM_ORDER.map(d=>
+    `<tr><td>${d}</td><td>${window.MOCK.blueprint[d].pct}%</td><td>${c[d]}</td></tr>`).join('');
+  document.getElementById('poolInfo').textContent=
+    window.MOCK.mcqs.length+' MCQs + '+window.MOCK.cards.length+' flashcards available';
+}
+['cfgTotal'].forEach(id=>document.getElementById(id).addEventListener('input',renderBlueprint));
+renderBlueprint();
+
+/* ===================== build exam ===================== */
+function shuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function startExam(){
+  var total=Math.max(2,parseInt(document.getElementById('cfgTotal').value)||350);
+  var useCards=document.getElementById('cfgCards').value==='1';
+  S.sessLen=(parseInt(document.getElementById('cfgMins').value)||180)*60;
+  S.lunchLeft=(parseInt(document.getElementById('cfgLunch').value)||60)*60;
+  var need=counts(total), picked=[];
+  DOM_ORDER.forEach(function(d){
+    var pool=window.MOCK.mcqs.filter(q=>q.domain===d);
+    if(useCards) pool=pool.concat(window.MOCK.cards.filter(c=>c.domain===d));
+    pool=shuffle(pool.slice());
+    // top up from MCQs if pool short
+    if(pool.length<need[d]) pool=pool.concat(shuffle(window.MOCK.mcqs.filter(q=>q.domain===d).slice()));
+    picked=picked.concat(pool.slice(0,need[d]));
+  });
+  picked=shuffle(picked);
+  S.items=picked; S.ans=picked.map(()=>null); S.flag=picked.map(()=>false);
+  S.seen=picked.map(()=>false); S.sketchData=picked.map(()=>null);
+  S.half=Math.ceil(picked.length/2);
+  document.getElementById('startScreen').classList.add('hidden');
+  document.getElementById('examScreen').classList.remove('hidden');
+  startSession(1);
+}
+function sessRange(){ return S.session===1?[0,S.half]:[S.half,S.items.length]; }
+
+/* ===================== session / timer ===================== */
+function startSession(n){
+  S.session=n;
+  document.getElementById('lunchScreen').classList.add('hidden');
+  document.getElementById('examScreen').classList.remove('hidden');
+  if(S.lunchTimer){clearInterval(S.lunchTimer);S.lunchTimer=null;}
+  var r=sessRange(); S.cur=r[0];
+  S.sessEnd=Date.now()+S.sessLen*1000; S.sessStartTs=Date.now();
+  document.getElementById('sessLabel').textContent='Session '+n+' of 2';
+  if(S.timer)clearInterval(S.timer);
+  S.timer=setInterval(tick,1000); tick();
+  render();
+}
+function tick(){
+  var left=Math.max(0,Math.round((S.sessEnd-Date.now())/1000));
+  var m=Math.floor(left/60),s=left%60;
+  var cl=document.getElementById('clock');
+  cl.textContent=(m<10?'0':'')+m+':'+(s<10?'0':'')+s;
+  cl.classList.toggle('low',left<300);
+  // pacing
+  var r=sessRange(),nQ=r[1]-r[0],done=0;
+  for(var i=r[0];i<r[1];i++) if(S.ans[i]!==null) done++;
+  var elapsed=S.sessLen-left, expected=S.sessLen>0?elapsed/S.sessLen*nQ:0;
+  var p=document.getElementById('pace'), diff=done-expected;
+  if(diff>=2){p.className='pace ahead';p.textContent='Ahead — you can slow down';}
+  else if(diff<=-3){p.className='pace behind';p.textContent='Behind — speed up';}
+  else{p.className='pace on';p.textContent='On pace';}
+  document.getElementById('progress').textContent=(S.cur-r[0]+1)+' / '+nQ+'  ('+done+' answered)';
+  if(left<=0){ endSession(); }
+}
+function endSession(){
+  if(S.timer)clearInterval(S.timer);
+  togglePalette(true);
+  if(S.session===1 && S.lunchLeft>0){ showLunch(); }
+  else if(S.session===1){ startSession(2); }
+  else{ showResults(); }
+}
+
+/* ===================== lunch ===================== */
+function showLunch(){
+  document.getElementById('examScreen').classList.add('hidden');
+  document.getElementById('lunchScreen').classList.remove('hidden');
+  S.lunchPaused=false; renderLunch();
+  if(S.lunchTimer)clearInterval(S.lunchTimer);
+  S.lunchTimer=setInterval(function(){ if(!S.lunchPaused && S.lunchLeft>0){S.lunchLeft--;renderLunch();} },1000);
+}
+function renderLunch(){
+  var m=Math.floor(S.lunchLeft/60),s=S.lunchLeft%60;
+  document.getElementById('lunchClock').textContent=(m<10?'0':'')+m+':'+(s<10?'0':'')+s;
+}
+function toggleLunch(){ S.lunchPaused=!S.lunchPaused; document.getElementById('lunchPause').textContent=S.lunchPaused?'Resume':'Pause'; }
+
+/* ===================== render question ===================== */
+function render(){
+  var it=S.items[S.cur]; S.seen[S.cur]=true;
+  var r=sessRange();
+  var h='<div class="qhead"><span>Question '+(S.cur-r[0]+1)+'</span>'+
+    '<span><span class="qtag">'+it.domain+'</span> '+
+    '<span class="qtype">'+(it.type==='mcq'?'Multiple choice':'Flashcard (self-grade)')+'</span></span></div>';
+  h+='<div class="stem">'+esc(it.q)+'</div>';
+  if(it.type==='mcq'){
+    it.o.forEach(function(opt,i){
+      h+='<button class="opt'+(S.ans[S.cur]===i?' sel':'')+'" onclick="pick('+i+')">'+
+         '<span class="k">'+String.fromCharCode(65+i)+'</span>'+esc(opt)+'</button>';
+    });
+  } else {
+    var revealed=S.ans[S.cur]!==null;
+    h+='<button class="btn alt" id="revealBtn" onclick="revealCard()"'+(revealed?' style="display:none"':'')+'>Reveal answer</button>';
+    h+='<div id="cardAns" class="reveal'+(revealed?'':' hidden')+'"><b>Answer:</b> '+esc(it.a)+
+       '<div class="selfgrade"><button class="btn'+(S.ans[S.cur]==='got'?'':' alt')+'" onclick="grade(\'got\')" style="'+(S.ans[S.cur]==='got'?'background:var(--good)':'')+'">✓ Got it</button>'+
+       '<button class="btn'+(S.ans[S.cur]==='missed'?'':' alt')+'" onclick="grade(\'missed\')" style="'+(S.ans[S.cur]==='missed'?'background:var(--bad)':'')+'">✗ Missed it</button></div></div>';
+  }
+  h+='<div class="navrow">'+
+     '<button class="btn alt" onclick="go(-1)">‹ Prev</button>'+
+     '<button class="btn alt flagbtn'+(S.flag[S.cur]?' on':'')+'" onclick="toggleFlag()">⚑ '+(S.flag[S.cur]?'Flagged':'Flag')+'</button>'+
+     '<button class="btn alt" onclick="toggleSketch()">✏️ Sketch pad</button>'+
+     '<button class="btn" style="margin-left:auto" onclick="go(1)">Next ›</button></div>';
+  document.getElementById('qcard').innerHTML=h+document.getElementById('sketch').outerHTML;
+  document.getElementById('sketch').classList.add('hidden');
+  tick();
+}
+function esc(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function pick(i){S.ans[S.cur]=i;render();}
+function revealCard(){ if(S.ans[S.cur]===null) S.ans[S.cur]='seen'; var a=document.getElementById('cardAns');a.classList.remove('hidden');document.getElementById('revealBtn').style.display='none';}
+function grade(g){S.ans[S.cur]=g;render();}
+function toggleFlag(){S.flag[S.cur]=!S.flag[S.cur];render();}
+function go(d){var r=sessRange();var n=S.cur+d;if(n<r[0]||n>=r[1])return;S.cur=n;render();}
+
+/* ===================== sketch pad ===================== */
+var sketching=false,sctx=null;
+function toggleSketch(){
+  var sk=document.getElementById('sketch');
+  if(sk.classList.contains('hidden')){
+    sk.classList.remove('hidden'); initSketch();
+  } else { saveSketch(); sk.classList.add('hidden'); }
+}
+function initSketch(){
+  var cv=document.getElementById('sketchCanvas');
+  cv.width=cv.offsetWidth; cv.height=cv.offsetHeight;
+  sctx=cv.getContext('2d'); sctx.lineWidth=2.2; sctx.lineCap='round'; sctx.strokeStyle='#0f3d3a';
+  if(S.sketchData[S.cur]){var img=new Image();img.onload=function(){sctx.drawImage(img,0,0);};img.src=S.sketchData[S.cur];}
+  cv.onpointerdown=function(e){sketching=true;var p=pos(e,cv);sctx.beginPath();sctx.moveTo(p.x,p.y);};
+  cv.onpointermove=function(e){if(!sketching)return;var p=pos(e,cv);sctx.lineTo(p.x,p.y);sctx.stroke();};
+  cv.onpointerup=cv.onpointerleave=function(){sketching=false;};
+}
+function pos(e,cv){var r=cv.getBoundingClientRect();return {x:e.clientX-r.left,y:e.clientY-r.top};}
+function clearSketch(){var cv=document.getElementById('sketchCanvas');sctx.clearRect(0,0,cv.width,cv.height);S.sketchData[S.cur]=null;}
+function saveSketch(){try{S.sketchData[S.cur]=document.getElementById('sketchCanvas').toDataURL();}catch(e){}}
+
+/* ===================== palette ===================== */
+function togglePalette(forceClose){
+  var p=document.getElementById('palette');
+  if(forceClose){p.classList.remove('open');return;}
+  if(p.classList.contains('open')){p.classList.remove('open');return;}
+  var r=sessRange(),g='';
+  for(var i=r[0];i<r[1];i++){
+    var cls='pcell'+(S.ans[i]!==null?' ans':'')+(S.flag[i]?' flag':'')+(i===S.cur?' cur':'');
+    g+='<div class="'+cls+'" onclick="jump('+i+')">'+(i-r[0]+1)+'</div>';
+  }
+  document.getElementById('pgrid').innerHTML=g; p.classList.add('open');
+}
+function jump(i){S.cur=i;togglePalette(true);render();}
+
+/* ===================== results ===================== */
+function showResults(){
+  if(S.timer)clearInterval(S.timer); if(S.lunchTimer)clearInterval(S.lunchTimer);
+  document.getElementById('examScreen').classList.add('hidden');
+  document.getElementById('lunchScreen').classList.add('hidden');
+  document.getElementById('palette').classList.remove('open');
+  document.getElementById('resultScreen').classList.remove('hidden');
+  window.scrollTo(0,0);
+  // scoring: mcq correct; card got. graded = mcq answered + card got/missed
+  var domStat={}; DOM_ORDER.forEach(d=>domStat[d]={correct:0,graded:0});
+  var totC=0,totG=0;
+  S.items.forEach(function(it,i){
+    var a=S.ans[i],d=it.domain;
+    if(it.type==='mcq'){ if(a!==null){domStat[d].graded++;totG++; if(a===it.a){domStat[d].correct++;totC++;}} }
+    else { if(a==='got'||a==='missed'){domStat[d].graded++;totG++; if(a==='got'){domStat[d].correct++;totC++;}} }
+  });
+  var pct=totG?Math.round(totC/totG*100):0;
+  document.getElementById('overallScore').textContent=pct+'%';
+  document.getElementById('overallSub').textContent=totC+' / '+totG+' correct ('+S.items.length+' items, '+(S.items.length-totG)+' unanswered count as incorrect on the real exam)';
+  document.getElementById('domScores').innerHTML=DOM_ORDER.map(function(d){
+    var st=domStat[d],p=st.graded?Math.round(st.correct/st.graded*100):0;
+    return '<div class="scorebox"><div style="font-size:12px;color:var(--muted)">'+d+'</div>'+
+      '<div class="n">'+p+'%</div><div style="font-size:12px">'+st.correct+'/'+st.graded+'</div>'+
+      '<div class="bar"><i style="width:'+p+'%;background:'+(p>=70?'var(--good)':p>=50?'var(--warn)':'var(--bad)')+'"></i></div></div>';
+  }).join('');
+  // pacing
+  document.getElementById('pacingSummary').innerHTML=
+    'Items answered: <b>'+totG+' / '+S.items.length+'</b>. '+
+    'Unanswered items are scored as incorrect — on a real exam always guess. '+
+    'Aim to finish each session with a few minutes to revisit flagged questions.';
+  buildReview();
+}
+var revData=[];
+function buildReview(){
+  revData=[];
+  S.items.forEach(function(it,i){
+    var a=S.ans[i], wrong=(it.type==='mcq'? (a===null||a!==it.a) : (a!=='got'));
+    if(wrong||S.flag[i]) revData.push({it:it,i:i,wrong:wrong,flag:S.flag[i],a:a});
+  });
+  document.getElementById('revCount').textContent=revData.length;
+  filterRev('all');
+}
+function filterRev(f){
+  var list=revData.filter(r=> f==='all'?true : f==='wrong'?r.wrong : r.flag);
+  document.getElementById('revList').innerHTML=list.map(function(r){
+    var it=r.it,h='<div class="rev">';
+    if(r.flag)h+='<span class="qtype">⚑ flagged</span> ';
+    h+='<span class="qtag">'+it.domain+'</span><div class="stem">'+esc(it.q)+'</div>';
+    if(it.type==='mcq'){
+      it.o.forEach(function(o,k){
+        var mark=(k===it.a)?'<span class="corr">✓ </span>':(k===r.a?'<span class="wrong">✗ </span>':'');
+        var st=(k===it.a)?'font-weight:600':(k===r.a?'color:var(--bad)':'color:var(--muted)');
+        h+='<div style="'+st+'">'+mark+String.fromCharCode(65+k)+'. '+esc(o)+'</div>';
+      });
+      if(it.e)h+='<div style="margin-top:6px;font-size:13px;color:var(--muted)">'+esc(it.e)+'</div>';
+    } else {
+      h+='<div class="corr">Answer: '+esc(it.a)+'</div>';
+      h+='<div style="font-size:12.5px;color:var(--muted)">You marked: '+(r.a==='missed'?'missed':r.a==='got'?'got it':'not graded')+'</div>';
+    }
+    return h+'</div>';
+  }).join('')||'<p style="color:var(--muted)">Nothing to review here.</p>';
+}
+</script>
+</body>
+</html>
