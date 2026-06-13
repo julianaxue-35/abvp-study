@@ -93,11 +93,13 @@
     <div class="card">
       <h3 style="margin-top:0">Set up your exam</h3>
       <div class="cfg">
+        <div><label>Your initials</label><input id="cfgInit" type="text" maxlength="5" placeholder="e.g. JX" autocomplete="off" style="text-transform:uppercase"></div>
         <div><label>Total questions</label><input id="cfgTotal" type="number" value="350" min="20" max="700"></div>
         <div><label>Minutes / session</label><input id="cfgMins" type="number" value="180" min="10" max="360"></div>
         <div><label>Lunch (min, pausable)</label><input id="cfgLunch" type="number" value="60" min="0" max="120"></div>
         <div><label>Include flashcard MCQs</label><select id="cfgCards"><option value="1" selected>Yes — add flashcard-derived MCQs</option><option value="0">No — hub MCQs only (cleanest)</option></select></div>
       </div>
+      <div id="userStats" style="font-size:13px;color:var(--ink);margin:4px 0 10px;min-height:18px"></div>
       <p style="font-size:13px;color:var(--muted);margin:6px 0 14px">The exam is split into two timed sessions with a self-paced lunch between. Every item is multiple-choice and auto-graded; questions are drawn randomly and <b>weighted to the 2026 blueprint</b> below. Flashcards have been reworded into MCQs (True/False items convert cleanly; others use auto-generated distractors, so turn them off for the highest-quality run). During the exam nothing is marked right/wrong — but you can hit <b>Pause</b> any time to review what you've done so far with reasoning.</p>
       <button class="btn" onclick="startExam()">Start exam day →</button>
       <span id="poolInfo" style="font-size:12.5px;color:var(--muted);margin-left:12px"></span>
@@ -227,9 +229,32 @@ function renderBlueprint(){
 ['cfgTotal'].forEach(id=>document.getElementById(id).addEventListener('input',renderBlueprint));
 renderBlueprint();
 
+/* ===================== per-initials progress (localStorage) ===================== */
+function qid(it){var s=(it.q||'')+'|'+((it.o&&it.o[0])||'');var h=0;for(var i=0;i<s.length;i++){h=(h*31+s.charCodeAt(i))|0;}return 'q'+(h>>>0);}
+function ukey(init){return 'abvpmock:'+init.toUpperCase();}
+function loadUser(init){try{return JSON.parse(localStorage.getItem(ukey(init)))||{seen:{},runs:0};}catch(e){return {seen:{},runs:0};}}
+function saveUser(init,rec){try{localStorage.setItem(ukey(init),JSON.stringify(rec));}catch(e){}}
+function inExam(q,useCards){return !!window.MOCK.blueprint[q.domain] && (useCards||q.source!=='fc');}
+function showUserStats(){
+  var init=(document.getElementById('cfgInit').value||'').trim().toUpperCase();
+  var el=document.getElementById('userStats'); if(!init){el.textContent='';return;}
+  var rec=loadUser(init), seen=rec.seen||{}, useCards=document.getElementById('cfgCards').value==='1';
+  var total=0,mast=0,retry=0;
+  window.MOCK.mcqs.forEach(function(q){ if(!inExam(q,useCards))return; total++; var st=seen[qid(q)]; if(st==='correct')mast++; else if(st==='wrong')retry++; });
+  var fresh=total-mast-retry;
+  if(rec.runs) el.innerHTML='<b>Welcome back, '+init+'</b> ('+rec.runs+' run'+(rec.runs>1?'s':'')+') — <span style="color:var(--good)">'+mast+' mastered</span> · <span style="color:var(--warn)">'+retry+' to retry</span> · '+fresh+' new available. Your next exam pulls <b>wrong answers + new questions first</b>. <a href="#" onclick="resetUser(event)">reset</a>';
+  else el.innerHTML='<b>New: '+init+'</b> — progress will be saved under these initials so future runs skip what you\'ve mastered.';
+}
+function resetUser(e){e.preventDefault();var init=(document.getElementById('cfgInit').value||'').trim().toUpperCase();if(init&&confirm('Reset all saved progress for '+init+'?')){localStorage.removeItem(ukey(init));showUserStats();}}
+document.getElementById('cfgInit').addEventListener('input',showUserStats);
+document.getElementById('cfgCards').addEventListener('change',showUserStats);
+
 /* ===================== build exam ===================== */
 function shuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
 function startExam(){
+  var init=(document.getElementById('cfgInit').value||'').trim().toUpperCase();
+  if(!init){alert('Please enter your initials first so your progress can be saved.');document.getElementById('cfgInit').focus();return;}
+  S.user=init; S.rec=loadUser(init); var seen=S.rec.seen||{};
   var total=Math.max(2,parseInt(document.getElementById('cfgTotal').value)||350);
   var useCards=document.getElementById('cfgCards').value==='1';
   S.sessLen=(parseInt(document.getElementById('cfgMins').value)||180)*60;
@@ -237,10 +262,11 @@ function startExam(){
   var need=counts(total), picked=[];
   DOM_ORDER.forEach(function(d){
     var pool=window.MOCK.mcqs.filter(q=>q.domain===d && (useCards||q.source!=='fc'));
-    pool=shuffle(pool.slice());
-    // top up from hub MCQs if pool short
-    if(pool.length<need[d]) pool=pool.concat(shuffle(window.MOCK.mcqs.filter(q=>q.domain===d).slice()));
-    picked=picked.concat(pool.slice(0,need[d]));
+    var wrong=[],fresh=[],right=[];
+    pool.forEach(function(q){var st=seen[qid(q)]; if(st==='wrong')wrong.push(q); else if(st==='correct')right.push(q); else fresh.push(q);});
+    var sel=shuffle(wrong).concat(shuffle(fresh));        // retry wrong first, then new unseen
+    if(sel.length<need[d]) sel=sel.concat(shuffle(right)); // reuse mastered only if pool exhausted
+    picked=picked.concat(sel.slice(0,need[d]));
   });
   picked=shuffle(picked);
   S.items=picked; S.ans=picked.map(()=>null); S.flag=picked.map(()=>false);
@@ -434,9 +460,15 @@ function showResults(){
     if(it.type==='mcq'){ if(a!==null){domStat[d].graded++;totG++; if(a===it.a){domStat[d].correct++;totC++;}} }
     else { if(a==='got'||a==='missed'){domStat[d].graded++;totG++; if(a==='got'){domStat[d].correct++;totC++;}} }
   });
+  // persist per-initials progress: answered items recorded correct/wrong
+  if(S.user&&S.rec){
+    S.items.forEach(function(it,i){var a=S.ans[i];if(a===null)return;S.rec.seen[qid(it)]=(a===it.a)?'correct':'wrong';});
+    S.rec.runs=(S.rec.runs||0)+1; saveUser(S.user,S.rec);
+  }
   var pct=totG?Math.round(totC/totG*100):0;
   document.getElementById('overallScore').textContent=pct+'%';
-  document.getElementById('overallSub').textContent=totC+' / '+totG+' correct ('+S.items.length+' items, '+(S.items.length-totG)+' unanswered count as incorrect on the real exam)';
+  document.getElementById('overallSub').innerHTML=totC+' / '+totG+' correct ('+S.items.length+' items, '+(S.items.length-totG)+' unanswered count as incorrect on the real exam)'+
+    (S.user?'<br><span style="color:var(--good)">Saved for '+S.user+'.</span> Next time you enter '+S.user+', the ones you missed will return alongside fresh questions — mastered items are skipped until the pool runs out.':'');
   document.getElementById('domScores').innerHTML=DOM_ORDER.map(function(d){
     var st=domStat[d],p=st.graded?Math.round(st.correct/st.graded*100):0;
     return '<div class="scorebox"><div style="font-size:12px;color:var(--muted)">'+d+'</div>'+
