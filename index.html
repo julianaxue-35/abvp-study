@@ -137,6 +137,34 @@
 </style>
 </head>
 <body>
+<!-- PASSCODE GATE -->
+<div id="app-gate" style="position:fixed;inset:0;z-index:99999;background:#1F4842;display:flex;align-items:center;justify-content:center;padding:20px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
+  <div style="background:#fff;border-radius:14px;padding:28px 24px;max-width:340px;width:100%;text-align:center;box-shadow:0 10px 40px rgba(0,0,0,.3);">
+    <div style="font-size:21px;font-weight:800;color:#1F4842;">ABVP Study Hub</div>
+    <div style="font-size:13px;color:#4A5550;margin:4px 0 18px;">Enter passcode to continue</div>
+    <input id="gate-input" type="password" autocomplete="off" autocapitalize="off" placeholder="Passcode" style="width:100%;padding:11px;border:1px solid #DDD8CA;border-radius:8px;font-size:16px;text-align:center;margin-bottom:10px;box-sizing:border-box;">
+    <button id="gate-btn" style="width:100%;padding:11px;border:none;border-radius:8px;background:#1F4842;color:#fff;font-size:15px;font-weight:700;cursor:pointer;">Unlock</button>
+    <div id="gate-err" style="color:#8B2A1E;font-size:12px;margin-top:8px;height:14px;"></div>
+  </div>
+</div>
+<script>
+(function(){
+  var HASH='a93a7a58c68bef6b72efb1ffe7dbe937c653062781d257e709786d4df053b487';
+  var KEY='abvp_gate_v1';
+  var gate=document.getElementById('app-gate');
+  if(localStorage.getItem(KEY)===HASH){gate.parentNode.removeChild(gate);return;}
+  document.documentElement.style.overflow='hidden';
+  async function sha(s){var b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));return Array.from(new Uint8Array(b)).map(function(x){return x.toString(16).padStart(2,'0');}).join('');}
+  async function submit(){
+    var v=(document.getElementById('gate-input').value||'').trim();
+    if(await sha(v)===HASH){localStorage.setItem(KEY,HASH);document.documentElement.style.overflow='';gate.parentNode.removeChild(gate);}
+    else{document.getElementById('gate-err').textContent='Incorrect passcode';document.getElementById('gate-input').select();}
+  }
+  document.getElementById('gate-btn').addEventListener('click',submit);
+  document.getElementById('gate-input').addEventListener('keydown',function(e){if(e.key==='Enter')submit();});
+  try{document.getElementById('gate-input').focus();}catch(e){}
+})();
+</script>
 <div class="wrap" id="app"></div>
 <script>
 /* ---------- DATA ---------- */
