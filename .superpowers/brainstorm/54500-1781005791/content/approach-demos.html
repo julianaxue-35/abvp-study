@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Approach Demos</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;background:#e8eaed;font-size:14px}
+
+/* Approach switcher */
+.switcher{background:#1a1a1a;padding:12px 20px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.switcher .label{color:#888;font-size:12px;font-weight:600;margin-right:4px;letter-spacing:.04em;text-transform:uppercase}
+.sw-btn{background:transparent;border:1.5px solid #444;color:#888;padding:7px 16px;border-radius:7px;font-size:13px;font-weight:600;cursor:pointer;transition:all .15s;font-family:inherit}
+.sw-btn:hover{border-color:#777;color:#ccc}
+.sw-btn.active{background:#0f6e5e;border-color:#0f6e5e;color:#fff}
+.sw-note{color:#666;font-size:11.5px;margin-left:auto;font-style:italic}
+
+/* Demo frame */
+.demo{display:none;max-width:900px;margin:20px auto;border-radius:10px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.18)}
+.demo.show{display:block}
+
+/* ===================== SHARED CLINICAL CHROME ===================== */
+.app-header{background:#0f6e5e;padding:11px 18px;display:flex;align-items:center;gap:14px}
+.app-brand{color:#fff;font-weight:700;font-size:15px;display:flex;align-items:center;gap:9px}
+.app-brand .mark{background:rgba(255,255,255,.2);border-radius:7px;width:30px;height:30px;display:grid;place-items:center;font-size:15px}
+.app-tabs{display:flex;gap:2px;margin-left:auto}
+.app-tab{background:transparent;border:none;color:rgba(255,255,255,.6);padding:6px 13px;border-radius:5px;font-size:12.5px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .12s}
+.app-tab:hover{color:#fff;background:rgba(255,255,255,.12)}
+.app-tab.active{background:rgba(255,255,255,.22);color:#fff}
+.auto-saved{background:rgba(255,255,255,.12);border:none;color:rgba(255,255,255,.7);padding:5px 11px;border-radius:5px;font-size:11.5px;font-weight:600;cursor:pointer;font-family:inherit}
+
+.app-body{background:#f4f6f8;min-height:520px}
+
+/* Patient banner */
+.pt-banner{background:#e3f0ec;border-bottom:1.5px solid #b8d9cc;padding:10px 18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.pt-banner .name{font-size:18px;font-weight:700;color:#0a4f44}
+.pt-banner .meta{font-size:12px;color:#3d5248;display:flex;gap:12px;flex-wrap:wrap}
+.pt-banner .meta span b{color:#0a4f44}
+.pt-banner .actions{margin-left:auto;display:flex;gap:8px}
+.btn-save{background:#0f6e5e;color:#fff;border:none;border-radius:6px;padding:7px 14px;font-size:12.5px;font-weight:700;cursor:pointer;font-family:inherit}
+.btn-copy{background:#fff;color:#0a4f44;border:1.5px solid #0f6e5e;border-radius:6px;padding:6px 13px;font-size:12.5px;font-weight:600;cursor:pointer;font-family:inherit}
+
+/* Card */
+.card{background:#fff;border:1px solid #e1e4e8;border-radius:8px;padding:16px 18px;margin:14px 18px 0}
+.card:last-child{margin-bottom:14px}
+.card-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#0a4f44;border-bottom:1px dotted #e1e4e8;padding-bottom:8px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.card-title .num{background:#0f6e5e;color:#fff;width:18px;height:18px;border-radius:4px;display:grid;place-items:center;font-size:10px;flex-shrink:0}
+
+/* Form rows */
+.form-row{display:grid;grid-template-columns:140px 1fr;gap:10px;align-items:start;padding:6px 0;border-bottom:1px solid #f0f2f4}
+.form-row:last-child{border-bottom:none}
+.form-row label{font-size:12.5px;font-weight:600;color:#555;padding-top:6px}
+.form-row .field{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+input[type=text],input[type=date],input[type=number],select,textarea{
+  font-family:inherit;font-size:13px;border:1px solid #d0d7de;border-radius:5px;padding:6px 9px;background:#fff;color:#1a1a1a;width:100%;max-width:320px;transition:border-color .12s,box-shadow .12s}
+input:focus,select:focus,textarea:focus{outline:none;border-color:#0f6e5e;box-shadow:0 0 0 3px rgba(15,110,94,.1)}
+textarea{max-width:100%;min-height:40px;resize:vertical}
+select{max-width:180px;cursor:pointer}
+
+/* Option pills */
+.opt{border:1.5px solid #d0d7de;background:#fff;padding:5px 11px;border-radius:20px;font-size:12.5px;font-weight:600;color:#666;cursor:pointer;transition:all .1s;font-family:inherit}
+.opt:hover{border-color:#0f6e5e;color:#0a4f44}
+.opt.on{background:#0f6e5e;border-color:#0a4f44;color:#fff}
+.opt.on.abn{background:#b5462b;border-color:#8e3520;color:#fff}
+
+/* Note output */
+.note-out{background:#fff;border:1px solid #e1e4e8;border-radius:8px;padding:14px 16px;font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:12px;line-height:1.65;white-space:pre-wrap;max-height:300px;overflow:auto;color:#1a1a1a}
+
+/* ===================== APPROACH 1: collapsible chips ===================== */
+.chip-row{display:flex;flex-wrap:wrap;gap:6px;padding:2px 0}
+.chip{border:1.5px dashed #d0d7de;background:transparent;border-radius:20px;padding:4px 12px;font-size:12px;color:#888;cursor:pointer;transition:all .12s;display:inline-flex;align-items:center;gap:5px;font-family:inherit}
+.chip:hover{background:#f6f8fa;color:#333}
+.chip.open{border-style:solid;border-color:#0f6e5e;color:#0a4f44;background:#e8f5f1}
+.chip.has-val{border-style:solid;border-color:#d0d7de;color:#333}
+.chip-expand{max-height:0;overflow:hidden;transition:max-height .2s ease;width:100%}
+.chip-expand.open{max-height:80px;padding-top:5px}
+.chip-expand input,.chip-expand select,.chip-expand textarea{font-size:12px;max-width:100%;width:auto;min-width:200px}
+
+/* ===================== APPROACH 2 & 3: open exam rows ===================== */
+.exam-grid{display:grid;gap:0}
+.exam-row{display:grid;grid-template-columns:150px 1fr;gap:10px;align-items:center;padding:7px 0;border-bottom:1px solid #f0f2f4}
+.exam-row:last-child{border-bottom:none}
+.exam-row label{font-size:12.5px;font-weight:600;color:#555}
+.exam-row .field{display:flex;flex-wrap:wrap;gap:5px;align-items:center}
+.exam-row select{max-width:160px;font-size:12.5px;padding:5px 8px}
+.exam-row input[type=text]{max-width:220px;font-size:12.5px;padding:5px 8px}
+
+/* Approach 3 — batch table */
+.batch-table{width:100%;border-collapse:collapse;font-size:13px}
+.batch-table th{text-align:left;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#888;padding:8px 10px;border-bottom:2px solid #e1e4e8}
+.batch-table td{padding:8px 10px;border-bottom:1px solid #f0f2f4}
+.batch-table tr:last-child td{border-bottom:none}
+.batch-table input{max-width:160px;font-size:12.5px;padding:5px 8px}
+.batch-table .pill{font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;background:#e3f0ec;color:#0a4f44}
+
+/* Patient list (Approach 3 enhanced) */
+.pt-table{width:100%;border-collapse:collapse;font-size:13px}
+.pt-table th{text-align:left;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#888;padding:8px 10px;border-bottom:2px solid #e1e4e8;background:#f6f8fa}
+.pt-table td{padding:9px 10px;border-bottom:1px solid #f0f2f4}
+.pt-table tr:hover td{background:#f0f9f5}
+.btn-start-sm{background:#fff;border:1.5px solid #d0d7de;color:#333;padding:4px 11px;border-radius:5px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit}
+.btn-start-lg{background:#0f6e5e;border:none;color:#fff;padding:6px 14px;border-radius:5px;font-size:12.5px;font-weight:700;cursor:pointer;font-family:inherit}
+.status-done{background:#0f6e5e;color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px}
+.status-wait{background:#f0f2f4;color:#666;font-size:10px;font-weight:600;padding:2px 8px;border-radius:10px}
+.species-dog{background:#e3f0ec;color:#0a4f44;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px}
+.species-cat{background:#fdf0d5;color:#7a5000;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px}
+
+.notice{border-left:4px solid #0f6e5e;background:#e8f5f1;padding:9px 13px;border-radius:0 6px 6px 0;font-size:12.5px;margin:0 18px 0}
+.notice b{font-weight:700}
+
+.section-tabs{display:flex;gap:0;border-bottom:2px solid #e1e4e8;margin:0 18px}
+.section-tab{background:transparent;border:none;padding:9px 16px;font-size:13px;font-weight:600;color:#888;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;font-family:inherit;transition:color .12s}
+.section-tab:hover{color:#0a4f44}
+.section-tab.active{color:#0a4f44;border-bottom-color:#0f6e5e}
+</style>
+</head>
+<body>
+
+<div class="switcher">
+  <span class="label">Pick an approach:</span>
+  <button class="sw-btn active" onclick="switchApproach('a1',this)">① Visual only</button>
+  <button class="sw-btn" onclick="switchApproach('a2',this)">② Visual + Open exam</button>
+  <button class="sw-btn" onclick="switchApproach('a3',this)">③ Visual + Open exam + Batch polish</button>
+  <span class="sw-note">Click tabs inside each demo to explore</span>
+</div>
+
+<!-- ============================= APPROACH 1 ============================= -->
+<div class="demo show" id="a1">
+  <div class="app-header">
+    <div class="app-brand"><span class="mark">℞</span> Community Vaccination Records</div>
+    <div class="app-tabs">
+      <button class="app-tab" onclick="a1tab('patients',this)">① Patients</button>
+      <button class="app-tab" onclick="a1tab('batch',this)">② Day Setup</button>
+      <button class="app-tab active" onclick="a1tab('consult',this)">③ Consult</button>
+      <button class="app-tab" onclick="a1tab('register',this)">④ Register</button>
+    </div>
+    <button class="auto-saved" style="margin-left:12px">💾 Auto-saved</button>
+  </div>
+  <div class="app-body">
+
+    <!-- Patients tab -->
+    <div id="a1-patients" style="display:none;padding:14px 18px">
+      <div class="card" style="margin:0 0 14px">
+        <div class="card-title"><span class="num">1</span> Import Humanitix bookings</div>
+        <div style="border:2px dashed #d0d7de;border-radius:8px;padding:28px;text-align:center;background:#f8f9fa;cursor:pointer">
+          <div style="font-size:28px;margin-bottom:6px">📋</div>
+          <div style="font-weight:700;font-size:14px;color:#1a1a1a;margin-bottom:3px">Drop Humanitix export here, or click to choose</div>
+          <div style="font-size:12px;color:#888">.xlsx, .xls or .csv</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Batch tab -->
+    <div id="a1-batch" style="display:none;padding:14px 18px">
+      <div class="card" style="margin:0">
+        <div class="card-title"><span class="num">2</span> Day setup — batches &amp; vet</div>
+        <div class="form-row"><label>Clinic date</label><div class="field"><input type="date" value="2026-05-28"></div></div>
+        <div class="form-row"><label>Location</label><div class="field"><input type="text" placeholder="e.g. Coburg Scout Hall" value="Coburg Scout Hall" style="max-width:360px"></div></div>
+        <div class="form-row"><label>Vet on the day</label><div class="field">
+          <button class="opt on">Juliana Xue</button>
+          <button class="opt">Sarah Irwin</button>
+          <button class="opt">Tash Bassett</button>
+        </div></div>
+        <div style="margin-top:16px">
+          <div class="card-title" style="padding-bottom:8px;margin-bottom:12px">Vaccine batches</div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
+            <div style="border:1px solid #e1e4e8;border-radius:8px;padding:12px;background:#f8f9fa">
+              <div style="font-size:12px;font-weight:700;margin-bottom:8px;color:#1a1a1a">C3 (DHP) <span style="font-size:10px;color:#0a4f44;background:#e3f0ec;padding:2px 7px;border-radius:8px;font-weight:700">DOG</span></div>
+              <label style="font-size:11px;font-weight:600;color:#888;display:block;margin-bottom:4px">Batch #</label>
+              <input type="text" placeholder="e.g. BT123A" style="font-size:12px;max-width:100%;width:100%">
+              <label style="font-size:11px;font-weight:600;color:#888;display:block;margin:8px 0 4px">Expiry</label>
+              <input type="date" style="font-size:12px;max-width:100%;width:100%">
+            </div>
+            <div style="border:1px solid #e1e4e8;border-radius:8px;padding:12px;background:#f8f9fa">
+              <div style="font-size:12px;font-weight:700;margin-bottom:8px;color:#1a1a1a">Intranasal KC <span style="font-size:10px;color:#0a4f44;background:#e3f0ec;padding:2px 7px;border-radius:8px;font-weight:700">DOG</span></div>
+              <label style="font-size:11px;font-weight:600;color:#888;display:block;margin-bottom:4px">Batch #</label>
+              <input type="text" placeholder="e.g. KC456B" style="font-size:12px;max-width:100%;width:100%">
+              <label style="font-size:11px;font-weight:600;color:#888;display:block;margin:8px 0 4px">Expiry</label>
+              <input type="date" style="font-size:12px;max-width:100%;width:100%">
+            </div>
+            <div style="border:1px solid #e1e4e8;border-radius:8px;padding:12px;background:#f8f9fa">
+              <div style="font-size:12px;font-weight:700;margin-bottom:8px;color:#1a1a1a">F3 <span style="font-size:10px;color:#7a5000;background:#fdf0d5;padding:2px 7px;border-radius:8px;font-weight:700">CAT</span></div>
+              <label style="font-size:11px;font-weight:600;color:#888;display:block;margin-bottom:4px">Batch #</label>
+              <input type="text" placeholder="e.g. F3789C" style="font-size:12px;max-width:100%;width:100%">
+              <label style="font-size:11px;font-weight:600;color:#888;display:block;margin:8px 0 4px">Expiry</label>
+              <input type="date" style="font-size:12px;max-width:100%;width:100%">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Consult tab — collapsible chips -->
+    <div id="a1-consult" style="display:block">
+      <div class="pt-banner">
+        <div class="name">Biscuit</div>
+        <div class="meta">
+          <span><b>Dog</b></span>
+          <span>8 weeks · Male</span>
+          <span>Smith, Jane</span>
+          <span>0412 345 678</span>
+        </div>
+        <div class="actions">
+          <button class="btn-save">Save to Register</button>
+          <button class="btn-copy">Copy Note</button>
+        </div>
+      </div>
+
+      <div class="section-tabs">
+        <button class="section-tab active" onclick="a1section('hx',this)">History</button>
+        <button class="section-tab" onclick="a1section('exam',this)">Exam</button>
+        <button class="section-tab" onclick="a1section('plan',this)">Plan</button>
+        <button class="section-tab" onclick="a1section('note',this)">Note</button>
+      </div>
+
+      <!-- History -->
+      <div id="a1-hx">
+        <div class="card">
+          <div class="card-title">History</div>
+          <div class="form-row"><label>Vaccine history</label><div class="field"><button class="opt on">Not vaccinated</button><button class="opt">Previous vaccines</button><button class="opt">Unknown</button></div></div>
+          <div class="form-row"><label>EDUD status</label><div class="field"><button class="opt" onclick="this.classList.toggle('on')">Yes</button><button class="opt on">No</button></div></div>
+          <div class="form-row"><label>Other animals at home</label><div class="field"><button class="opt" onclick="this.classList.toggle('on')">Yes</button><button class="opt on">No</button></div></div>
+          <div class="form-row"><label>Chief complaint</label><div class="field"><textarea style="max-width:100%;width:360px" placeholder="Vaccination only / owner concerns…"></textarea></div></div>
+        </div>
+      </div>
+
+      <!-- Exam — COLLAPSIBLE CHIPS (Approach 1) -->
+      <div id="a1-exam" style="display:none">
+        <div class="notice" style="margin-top:14px"><b>Click each system to expand and fill in findings.</b> Leave closed if WNL — the note will record it as normal.</div>
+        <div class="card" style="margin-top:10px">
+          <div class="card-title">Physical Examination</div>
+          <div class="form-row">
+            <label>BCS</label>
+            <div class="field">
+              <select><option>4/9</option><option>5/9</option><option>3/9</option><option>6/9</option></select>
+            </div>
+          </div>
+          <div class="form-row">
+            <label>Temperature</label>
+            <div class="field"><input type="text" placeholder="38.5" style="max-width:100px"> °C</div>
+          </div>
+          <div class="form-row">
+            <label>Exam findings</label>
+            <div class="field" style="flex-direction:column;align-items:flex-start;gap:8px;width:100%">
+              <div style="font-size:12px;color:#888;font-style:italic;margin-bottom:2px">Click a system to expand:</div>
+              <div class="chip-row">
+                <button class="chip" onclick="toggleChip(this,'a1-eyes')">👁 Eyes <span>▾</span></button>
+                <button class="chip has-val" onclick="toggleChip(this,'a1-ears')">👂 Ears <span>▾</span></button>
+                <button class="chip" onclick="toggleChip(this,'a1-teeth')">🦷 Teeth <span>▾</span></button>
+                <button class="chip" onclick="toggleChip(this,'a1-resp')">🫁 Resp <span>▾</span></button>
+                <button class="chip" onclick="toggleChip(this,'a1-cardio')">❤️ Cardio <span>▾</span></button>
+                <button class="chip" onclick="toggleChip(this,'a1-abdomen')">Abdomen <span>▾</span></button>
+                <button class="chip" onclick="toggleChip(this,'a1-skin')">Skin <span>▾</span></button>
+                <button class="chip" onclick="toggleChip(this,'a1-lymph')">Lymph nodes <span>▾</span></button>
+                <button class="chip" onclick="toggleChip(this,'a1-msk')">MSK <span>▾</span></button>
+              </div>
+              <div class="chip-expand" id="a1-eyes"><input type="text" placeholder="Eye findings (leave blank = WNL)" style="width:300px"></div>
+              <div class="chip-expand" id="a1-ears"><input type="text" value="Mild wax bilateral" style="width:300px"></div>
+              <div class="chip-expand" id="a1-teeth"><textarea placeholder="Dental findings…" style="width:100%;min-height:36px"></textarea></div>
+              <div class="chip-expand" id="a1-resp"><input type="text" placeholder="Respiratory findings…" style="width:300px"></div>
+              <div class="chip-expand" id="a1-cardio"><input type="text" placeholder="Cardiovascular findings…" style="width:300px"></div>
+              <div class="chip-expand" id="a1-abdomen"><input type="text" placeholder="Abdominal findings…" style="width:300px"></div>
+              <div class="chip-expand" id="a1-skin"><input type="text" placeholder="Skin/coat findings…" style="width:300px"></div>
+              <div class="chip-expand" id="a1-lymph"><input type="text" placeholder="Lymph node findings…" style="width:300px"></div>
+              <div class="chip-expand" id="a1-msk"><input type="text" placeholder="Musculoskeletal findings…" style="width:300px"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Plan -->
+      <div id="a1-plan" style="display:none">
+        <div class="card">
+          <div class="card-title">Plan — vaccination &amp; recall</div>
+          <div class="form-row"><label>Visit type</label><div class="field"><select><option>Puppy 1st (&lt;10wk) ★</option><option>Puppy 2nd</option><option>Adult dog — annual</option></select></div></div>
+          <div class="form-row"><label>Vaccines today</label><div class="field"><button class="opt on">C3 (DHP)</button><button class="opt on">Intranasal KC</button></div></div>
+          <div class="form-row"><label>Next due</label><div class="field"><span style="font-size:12.5px;color:#555">2nd vacc:</span><input type="date" value="2026-06-25" style="max-width:160px"></div></div>
+          <div class="form-row"><label>Handouts</label><div class="field"><button class="opt on">Puppy pack</button><button class="opt">Parasite control</button><button class="opt">Diet guide</button></div></div>
+        </div>
+      </div>
+
+      <!-- Note output -->
+      <div id="a1-note" style="display:none">
+        <div class="card">
+          <div class="card-title">Generated SOAP Note</div>
+          <div class="note-out">Date: 28/05/2026
+Location: Coburg Scout Hall
+Vet: Juliana Xue
+
+SUBJECTIVE:
+Patient: Biscuit (Dog, 8 wks, M, not desexed)
+Owner: Smith, Jane  Ph: 0412 345 678
+Vaccination history: Not previously vaccinated
+Other animals at home: No
+EDUD: No
+
+OBJECTIVE:
+BCS: 4/9
+Temperature: 38.5°C
+Eyes: WNL
+Ears: Mild wax bilateral
+Teeth/mouth: WNL
+Respiratory: WNL
+Cardiovascular: Normal heart sounds
+Abdomen: WNL
+Skin/coat: WNL
+Lymph nodes: WNL
+Musculoskeletal: WNL
+Desexing tattoo: Not present
+
+ASSESSMENT:
+Healthy — vaccination consult. No significant abnormalities detected on physical exam.
+
+PLAN:
+- Injectable C3 (DHP)  [batch: BT123A]
+- Intranasal KC  [batch: KC456B]
+
+- Next due — 2nd vacc: 25 Jun 2026
+
+Handouts provided: Puppy pack
+
+Advised owner to monitor for adverse reactions post vaccination, including allergy signs, vomiting, diarrhoea, lethargy, to seek emergency care if needed.</div>
+          <div style="display:flex;gap:8px;margin-top:10px">
+            <button class="btn-save">Save to Register</button>
+            <button class="btn-copy">Copy Note</button>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /a1-consult -->
+
+    <!-- Register tab -->
+    <div id="a1-register" style="display:none;padding:14px 18px">
+      <div class="card" style="margin:0"><div class="card-title"><span class="num">4</span> Vaccination register</div><div style="color:#aaa;font-style:italic;font-size:13px;text-align:center;padding:20px">Saved consults appear here</div></div>
+    </div>
+
+  </div>
+</div><!-- /a1 -->
+
+
+<!-- ============================= APPROACH 2 ============================= -->
+<div class="demo" id="a2">
+  <div class="app-header">
+    <div class="app-brand"><span class="mark">℞</span> Community Vaccination Records</div>
+    <div class="app-tabs">
+      <button class="app-tab" onclick="a2tab('patients',this)">① Patients</button>
+      <button class="app-tab" onclick="a2tab('batch',this)">② Day Setup</button>
+      <button class="app-tab active" onclick="a2tab('consult',this)">③ Consult</button>
+      <button class="app-tab" onclick="a2tab('register',this)">④ Register</button>
+    </div>
+    <button class="auto-saved" style="margin-left:12px">💾 Auto-saved</button>
+  </div>
+  <div class="app-body">
+
+    <div id="a2-patients" style="display:none;padding:14px 18px">
+      <div class="card" style="margin:0 0 14px">
+        <div class="card-title"><span class="num">1</span> Import Humanitix bookings</div>
+        <div style="border:2px dashed #d0d7de;border-radius:8px;padding:28px;text-align:center;background:#f8f9fa;cursor:pointer">
+          <div style="font-size:28px;margin-bottom:6px">📋</div>
+          <div style="font-weight:700;font-size:14px;color:#1a1a1a;margin-bottom:3px">Drop Humanitix export here, or click to choose</div>
+          <div style="font-size:12px;color:#888">.xlsx, .xls or .csv</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="a2-batch" style="display:none;padding:14px 18px">
+      <div class="card" style="margin:0">
+        <div class="card-title"><span class="num">2</span> Day setup</div>
+        <div class="form-row"><label>Clinic date</label><div class="field"><input type="date" value="2026-05-28"></div></div>
+        <div class="form-row"><label>Location</label><div class="field"><input type="text" value="Coburg Scout Hall" style="max-width:360px"></div></div>
+        <div class="form-row"><label>Vet</label><div class="field"><button class="opt on">Juliana Xue</button><button class="opt">Sarah Irwin</button><button class="opt">Tash Bassett</button></div></div>
+        <div style="margin-top:16px">
+          <div class="card-title">Vaccine batches</div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
+            <div style="border:1px solid #e1e4e8;border-radius:8px;padding:12px;background:#f8f9fa">
+              <div style="font-size:12px;font-weight:700;margin-bottom:8px">C3 (DHP) <span class="species-dog">DOG</span></div>
+              <label style="font-size:11px;font-weight:600;color:#888;display:block;margin-bottom:4px">Batch #</label>
+              <input type="text" placeholder="BT123A" style="max-width:100%;width:100%;font-size:12px">
+              <label style="font-size:11px;font-weight:600;color:#888;display:block;margin:8px 0 4px">Expiry</label>
+              <input type="date" style="max-width:100%;width:100%;font-size:12px">
+            </div>
+            <div style="border:1px solid #e1e4e8;border-radius:8px;padding:12px;background:#f8f9fa">
+              <div style="font-size:12px;font-weight:700;margin-bottom:8px">Intranasal KC <span class="species-dog">DOG</span></div>
+              <label style="font-size:11px;font-weight:600;color:#888;display:block;margin-bottom:4px">Batch #</label>
+              <input type="text" placeholder="KC456B" style="max-width:100%;width:100%;font-size:12px">
+              <label style="font-size:11px;font-weight:600;color:#888;display:block;margin:8px 0 4px">Expiry</label>
+              <input type="date" style="max-width:100%;width:100%;font-size:12px">
+            </div>
+            <div style="border:1px solid #e1e4e8;border-radius:8px;padding:12px;background:#f8f9fa">
+              <div style="font-size:12px;font-weight:700;margin-bottom:8px">F3 <span class="species-cat">CAT</span></div>
+              <label style="font-size:11px;font-weight:600;color:#888;display:block;margin-bottom:4px">Batch #</label>
+              <input type="text" placeholder="F3789C" style="max-width:100%;width:100%;font-size:12px">
+              <label style="font-size:11px;font-weight:600;color:#888;display:block;margin:8px 0 4px">Expiry</label>
+              <input type="date" style="max-width:100%;width:100%;font-size:12px">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Consult — open exam rows -->
+    <div id="a2-consult" style="display:block">
+      <div class="pt-banner">
+        <div class="name">Biscuit</div>
+        <div class="meta">
+          <span><b>Dog</b></span>
+          <span>8 weeks · Male</span>
+          <span>Smith, Jane · 0412 345 678</span>
+        </div>
+        <div class="actions">
+          <button class="btn-save">Save to Register</button>
+          <button class="btn-copy">Copy Note</button>
+        </div>
+      </div>
+
+      <div class="section-tabs">
+        <button class="section-tab active" onclick="a2section('hx',this)">History</button>
+        <button class="section-tab" onclick="a2section('exam',this)">Exam</button>
+        <button class="section-tab" onclick="a2section('plan',this)">Plan</button>
+        <button class="section-tab" onclick="a2section('note',this)">Note</button>
+      </div>
+
+      <div id="a2-hx">
+        <div class="card">
+          <div class="card-title">History</div>
+          <div class="form-row"><label>Vaccine history</label><div class="field"><button class="opt on">Not vaccinated</button><button class="opt">Previous vaccines</button><button class="opt">Unknown</button></div></div>
+          <div class="form-row"><label>EDUD status</label><div class="field"><button class="opt">Yes</button><button class="opt on">No</button></div></div>
+          <div class="form-row"><label>Other animals at home</label><div class="field"><button class="opt">Yes</button><button class="opt on">No</button></div></div>
+          <div class="form-row"><label>Chief complaint</label><div class="field"><textarea style="max-width:100%;width:360px" placeholder="Vaccination only / owner concerns…"></textarea></div></div>
+        </div>
+      </div>
+
+      <!-- Exam — ALWAYS OPEN ROWS (Approach 2) -->
+      <div id="a2-exam" style="display:none">
+        <div class="card">
+          <div class="card-title">Physical Examination <span style="font-weight:400;font-size:10px;color:#888;text-transform:none;letter-spacing:0">— all fields visible, leave blank = WNL</span></div>
+          <div class="exam-grid">
+            <div class="exam-row"><label>BCS</label><div class="field"><select><option>— select —</option><option>1/9</option><option>2/9</option><option>3/9</option><option selected>4/9</option><option>5/9</option><option>6/9</option><option>7/9</option><option>8/9</option><option>9/9</option></select></div></div>
+            <div class="exam-row"><label>Temperature</label><div class="field"><input type="text" placeholder="38.5" style="max-width:90px"> <span style="font-size:12.5px;color:#888">°C</span></div></div>
+            <div class="exam-row"><label>Eyes</label><div class="field"><select><option>WNL</option><option>Discharge</option><option>Conjunctivitis</option><option>Other</option></select><input type="text" placeholder="notes…" style="max-width:200px"></div></div>
+            <div class="exam-row"><label>Ears</label><div class="field"><select><option>WNL</option><option selected>Mild wax</option><option>Otitis</option><option>Other</option></select><input type="text" placeholder="notes…" style="max-width:200px" value="bilateral"></div></div>
+            <div class="exam-row"><label>Teeth / mouth</label><div class="field"><select><option>WNL</option><option>Tartar</option><option>Gingivitis</option><option>Other</option></select><input type="text" placeholder="notes…" style="max-width:200px"></div></div>
+            <div class="exam-row"><label>Respiratory</label><div class="field"><select><option>WNL</option><option>Crackles</option><option>Wheeze</option><option>Increased effort</option><option>Other</option></select><input type="text" placeholder="notes…" style="max-width:200px"></div></div>
+            <div class="exam-row"><label>Cardiovascular</label><div class="field"><select><option>Normal heart sounds</option><option>Murmur</option><option>Arrhythmia</option><option>Other</option></select><input type="text" placeholder="grade / notes…" style="max-width:200px"></div></div>
+            <div class="exam-row"><label>Abdomen</label><div class="field"><select><option>WNL</option><option>Tense / painful</option><option>Mass</option><option>Other</option></select><input type="text" placeholder="notes…" style="max-width:200px"></div></div>
+            <div class="exam-row"><label>Skin / coat</label><div class="field"><select><option>WNL</option><option>Alopecia</option><option>Lesions</option><option>Parasites</option><option>Other</option></select><input type="text" placeholder="notes…" style="max-width:200px"></div></div>
+            <div class="exam-row"><label>Lymph nodes</label><div class="field"><select><option>WNL</option><option>Submandibular enlarged</option><option>Generalised</option><option>Other</option></select><input type="text" placeholder="notes…" style="max-width:200px"></div></div>
+            <div class="exam-row"><label>Musculoskeletal</label><div class="field"><select><option>WNL</option><option>Lameness</option><option>Pain</option><option>Other</option></select><input type="text" placeholder="notes…" style="max-width:200px"></div></div>
+            <div class="exam-row"><label>Desexing tattoo</label><div class="field"><button class="opt" onclick="this.classList.toggle('on')">Present</button><button class="opt on">Not present</button></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="a2-plan" style="display:none">
+        <div class="card">
+          <div class="card-title">Plan</div>
+          <div class="form-row"><label>Visit type</label><div class="field"><select><option>Puppy 1st (&lt;10wk) ★</option><option>Puppy 2nd</option><option>Adult — annual</option></select></div></div>
+          <div class="form-row"><label>Vaccines today</label><div class="field"><button class="opt on">C3 (DHP)</button><button class="opt on">Intranasal KC</button><button class="opt">Inj KC</button></div></div>
+          <div class="form-row"><label>Next due</label><div class="field"><span style="font-size:12.5px;color:#555;min-width:80px">2nd vacc:</span><input type="date" value="2026-06-25" style="max-width:160px"></div></div>
+          <div class="form-row"><label>Handouts</label><div class="field"><button class="opt on">Puppy pack</button><button class="opt">Parasite control</button><button class="opt">Diet guide</button></div></div>
+          <div class="form-row"><label>Additional notes</label><div class="field"><textarea style="max-width:100%;width:360px" placeholder="Worming, diet, recommendations…"></textarea></div></div>
+        </div>
+      </div>
+
+      <div id="a2-note" style="display:none">
+        <div class="card">
+          <div class="card-title">Generated SOAP Note</div>
+          <div class="note-out">Date: 28/05/2026
+Location: Coburg Scout Hall
+Vet: Juliana Xue
+
+SUBJECTIVE:
+Patient: Biscuit (Dog, 8 wks, M, not desexed)
+Owner: Smith, Jane  Ph: 0412 345 678
+Vaccination history: Not previously vaccinated
+Other animals at home: No
+EDUD: No
+
+OBJECTIVE:
+BCS: 4/9
+Temperature: 38.5°C
+Eyes: WNL
+Ears: Mild wax bilateral
+Teeth/mouth: WNL
+Respiratory: WNL
+Cardiovascular: Normal heart sounds
+Abdomen: WNL
+Skin/coat: WNL
+Lymph nodes: WNL
+Musculoskeletal: WNL
+Desexing tattoo: Not present
+
+ASSESSMENT:
+Healthy — vaccination consult. No significant abnormalities detected on physical exam.
+
+PLAN:
+- Injectable C3 (DHP)  [batch: BT123A]
+- Intranasal KC  [batch: KC456B]
+
+- Next due — 2nd vacc: 25 Jun 2026
+
+Handouts provided: Puppy pack
+
+Advised owner to monitor for adverse reactions post vaccination, including allergy signs, vomiting, diarrhoea, lethargy, to seek emergency care if needed.</div>
+          <div style="display:flex;gap:8px;margin-top:10px">
+            <button class="btn-save">Save to Register</button>
+            <button class="btn-copy">Copy Note</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="a2-register" style="display:none;padding:14px 18px">
+      <div class="card" style="margin:0"><div class="card-title"><span class="num">4</span> Vaccination register</div><div style="color:#aaa;font-style:italic;font-size:13px;text-align:center;padding:20px">Saved consults appear here</div></div>
+    </div>
+  </div>
+</div><!-- /a2 -->
+
+
+<!-- ============================= APPROACH 3 ============================= -->
+<div class="demo" id="a3">
+  <div class="app-header">
+    <div class="app-brand"><span class="mark">℞</span> Community Vaccination Records</div>
+    <div class="app-tabs">
+      <button class="app-tab active" onclick="a3tab('patients',this)">① Patients</button>
+      <button class="app-tab" onclick="a3tab('batch',this)">② Day Setup</button>
+      <button class="app-tab" onclick="a3tab('consult',this)">③ Consult</button>
+      <button class="app-tab" onclick="a3tab('register',this)">④ Register</button>
+    </div>
+    <button class="auto-saved" style="margin-left:12px">💾 Auto-saved</button>
+  </div>
+  <div class="app-body">
+
+    <!-- Patients — with prominent Start Consult button -->
+    <div id="a3-patients" style="display:block;padding:14px 18px">
+      <div style="display:flex;gap:10px;margin-bottom:12px;align-items:center;flex-wrap:wrap">
+        <input type="text" placeholder="Search by pet name, owner, or phone…" style="flex:1;min-width:200px;max-width:none">
+        <button class="btn-start-lg" style="padding:7px 16px">+ Walk-in</button>
+      </div>
+      <div style="display:flex;gap:16px;font-size:12.5px;color:#666;margin-bottom:10px">
+        <span><b style="color:#0f6e5e;font-size:16px">24</b> patients</span>
+        <span><b style="color:#0f6e5e;font-size:16px">5</b> done</span>
+        <span><b style="color:#0f6e5e;font-size:16px">19</b> waiting</span>
+      </div>
+      <div style="background:#fff;border:1px solid #e1e4e8;border-radius:8px;overflow:hidden">
+        <table class="pt-table">
+          <thead><tr><th>Pet</th><th>Species</th><th>Owner</th><th>Phone</th><th>Status</th><th></th></tr></thead>
+          <tbody>
+            <tr>
+              <td><b>Biscuit</b></td>
+              <td><span class="species-dog">DOG</span></td>
+              <td>Smith, Jane</td>
+              <td>0412 345 678</td>
+              <td><span class="status-wait">Waiting</span></td>
+              <td><button class="btn-start-lg" onclick="a3tab('consult',document.querySelector('#a3 .app-tab:nth-child(3)'))">Start →</button></td>
+            </tr>
+            <tr>
+              <td><b>Mochi</b></td>
+              <td><span class="species-cat">CAT</span></td>
+              <td>Nguyen, Tran</td>
+              <td>0498 765 432</td>
+              <td><span class="status-wait">Waiting</span></td>
+              <td><button class="btn-start-lg">Start →</button></td>
+            </tr>
+            <tr>
+              <td><b>Rex</b></td>
+              <td><span class="species-dog">DOG</span></td>
+              <td>Lee, Michael</td>
+              <td>0401 222 333</td>
+              <td><span class="status-done">✓ Done</span></td>
+              <td><button class="btn-start-sm">Open</button></td>
+            </tr>
+            <tr>
+              <td><b>Luna</b></td>
+              <td><span class="species-dog">DOG</span></td>
+              <td>Patel, Priya</td>
+              <td>0433 888 999</td>
+              <td><span class="status-wait">Waiting</span></td>
+              <td><button class="btn-start-lg">Start →</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Batch — table layout instead of cards -->
+    <div id="a3-batch" style="display:none;padding:14px 18px">
+      <div class="card" style="margin:0">
+        <div class="card-title"><span class="num">2</span> Day setup</div>
+        <div class="form-row"><label>Clinic date</label><div class="field"><input type="date" value="2026-05-28"></div></div>
+        <div class="form-row"><label>Location</label><div class="field"><input type="text" value="Coburg Scout Hall" style="max-width:360px"></div></div>
+        <div class="form-row"><label>Vet</label><div class="field"><button class="opt on">Juliana Xue</button><button class="opt">Sarah Irwin</button><button class="opt">Tash Bassett</button></div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Vaccine batches <span style="font-size:10px;font-weight:400;color:#888;text-transform:none;letter-spacing:0">— enter once at start of clinic</span></div>
+        <table class="batch-table">
+          <thead>
+            <tr><th>Product</th><th>Species</th><th>Batch #</th><th>Expiry</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>C3 (DHP)</b> — Injectable</td>
+              <td><span class="pill">Dog</span></td>
+              <td><input type="text" placeholder="e.g. BT123A" value="BT123A"></td>
+              <td><input type="date"></td>
+            </tr>
+            <tr>
+              <td><b>Intranasal KC</b></td>
+              <td><span class="pill">Dog</span></td>
+              <td><input type="text" placeholder="e.g. KC456B"></td>
+              <td><input type="date"></td>
+            </tr>
+            <tr>
+              <td><b>Injectable KC</b> (Bb/Pi)</td>
+              <td><span class="pill">Dog</span></td>
+              <td><input type="text" placeholder="optional"></td>
+              <td><input type="date"></td>
+            </tr>
+            <tr>
+              <td><b>F3</b> — Injectable</td>
+              <td><span class="species-cat" style="font-size:10px">Cat</span></td>
+              <td><input type="text" placeholder="e.g. F3789C"></td>
+              <td><input type="date"></td>
+            </tr>
+            <tr>
+              <td><b>F3i</b> — Inactivated</td>
+              <td><span class="species-cat" style="font-size:10px">Cat</span></td>
+              <td><input type="text" placeholder="FIV+ cats only"></td>
+              <td><input type="date"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Consult — same open rows as A2 -->
+    <div id="a3-consult" style="display:none">
+      <div class="pt-banner">
+        <div class="name">Biscuit</div>
+        <div class="meta">
+          <span><b>Dog</b></span>
+          <span>8 weeks · Male</span>
+          <span>Smith, Jane · 0412 345 678</span>
+        </div>
+        <div class="actions">
+          <button class="btn-save">Save to Register</button>
+          <button class="btn-copy">Copy Note</button>
+        </div>
+      </div>
+
+      <div class="section-tabs">
+        <button class="section-tab active" onclick="a3section('hx',this)">History</button>
+        <button class="section-tab" onclick="a3section('exam',this)">Exam</button>
+        <button class="section-tab" onclick="a3section('plan',this)">Plan</button>
+        <button class="section-tab" onclick="a3section('note',this)">Note</button>
+      </div>
+
+      <div id="a3-hx">
+        <div class="card">
+          <div class="card-title">History</div>
+          <div class="form-row"><label>Vaccine history</label><div class="field"><button class="opt on">Not vaccinated</button><button class="opt">Previous vaccines</button><button class="opt">Unknown</button></div></div>
+          <div class="form-row"><label>EDUD status</label><div class="field"><button class="opt">Yes</button><button class="opt on">No</button></div></div>
+          <div class="form-row"><label>Other animals at home</label><div class="field"><button class="opt">Yes</button><button class="opt on">No</button></div></div>
+          <div class="form-row"><label>Chief complaint</label><div class="field"><textarea style="max-width:100%;width:360px" placeholder="Vaccination only / owner concerns…"></textarea></div></div>
+        </div>
+      </div>
+
+      <div id="a3-exam" style="display:none">
+        <div class="card">
+          <div class="card-title">Physical Examination <span style="font-weight:400;font-size:10px;color:#888;text-transform:none;letter-spacing:0">— all fields visible, leave blank = WNL</span></div>
+          <div class="exam-grid">
+            <div class="exam-row"><label>BCS</label><div class="field"><select><option>— select —</option><option>1/9</option><option>2/9</option><option>3/9</option><option selected>4/9</option><option>5/9</option><option>6/9</option></select></div></div>
+            <div class="exam-row"><label>Temperature</label><div class="field"><input type="text" placeholder="38.5" style="max-width:90px"> <span style="font-size:12.5px;color:#888">°C</span></div></div>
+            <div class="exam-row"><label>Eyes</label><div class="field"><select><option>WNL</option><option>Discharge</option><option>Conjunctivitis</option><option>Other</option></select><input type="text" placeholder="notes…" style="max-width:200px"></div></div>
+            <div class="exam-row"><label>Ears</label><div class="field"><select><option>WNL</option><option selected>Mild wax</option><option>Otitis</option><option>Other</option></select><input type="text" placeholder="notes…" style="max-width:200px" value="bilateral"></div></div>
+            <div class="exam-row"><label>Teeth / mouth</label><div class="field"><select><option>WNL</option><option>Tartar</option><option>Gingivitis</option><option>Other</option></select><input type="text" placeholder="notes…" style="max-width:200px"></div></div>
+            <div class="exam-row"><label>Respiratory</label><div class="field"><select><option>WNL</option><option>Crackles</option><option>Wheeze</option><option>Other</option></select><input type="text" placeholder="notes…" style="max-width:200px"></div></div>
+            <div class="exam-row"><label>Cardiovascular</label><div class="field"><select><option>Normal heart sounds</option><option>Murmur</option><option>Arrhythmia</option><option>Other</option></select><input type="text" placeholder="grade / notes…" style="max-width:200px"></div></div>
+            <div class="exam-row"><label>Abdomen</label><div class="field"><select><option>WNL</option><option>Tense / painful</option><option>Mass</option><option>Other</option></select><input type="text" placeholder="notes…" style="max-width:200px"></div></div>
+            <div class="exam-row"><label>Skin / coat</label><div class="field"><select><option>WNL</option><option>Alopecia</option><option>Lesions</option><option>Parasites</option><option>Other</option></select><input type="text" placeholder="notes…" style="max-width:200px"></div></div>
+            <div class="exam-row"><label>Lymph nodes</label><div class="field"><select><option>WNL</option><option>Submandibular enlarged</option><option>Generalised</option><option>Other</option></select><input type="text" placeholder="notes…" style="max-width:200px"></div></div>
+            <div class="exam-row"><label>Musculoskeletal</label><div class="field"><select><option>WNL</option><option>Lameness</option><option>Pain</option><option>Other</option></select><input type="text" placeholder="notes…" style="max-width:200px"></div></div>
+            <div class="exam-row"><label>Desexing tattoo</label><div class="field"><button class="opt">Present</button><button class="opt on">Not present</button></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="a3-plan" style="display:none">
+        <div class="card">
+          <div class="card-title">Plan</div>
+          <div class="form-row"><label>Visit type</label><div class="field"><select><option>Puppy 1st (&lt;10wk) ★</option><option>Puppy 2nd</option><option>Adult — annual</option></select></div></div>
+          <div class="form-row"><label>Vaccines today</label><div class="field"><button class="opt on">C3 (DHP)</button><button class="opt on">Intranasal KC</button><button class="opt">Inj KC</button></div></div>
+          <div class="form-row"><label>Next due</label><div class="field"><span style="font-size:12.5px;color:#555;min-width:80px">2nd vacc:</span><input type="date" value="2026-06-25" style="max-width:160px"></div></div>
+          <div class="form-row"><label>Handouts</label><div class="field"><button class="opt on">Puppy pack</button><button class="opt">Parasite control</button><button class="opt">Diet guide</button></div></div>
+          <div class="form-row"><label>Additional notes</label><div class="field"><textarea style="max-width:100%;width:360px" placeholder="Worming, diet, recommendations…"></textarea></div></div>
+        </div>
+      </div>
+
+      <div id="a3-note" style="display:none">
+        <div class="card">
+          <div class="card-title">Generated SOAP Note</div>
+          <div class="note-out">Date: 28/05/2026
+Location: Coburg Scout Hall
+Vet: Juliana Xue
+
+SUBJECTIVE:
+Patient: Biscuit (Dog, 8 wks, M, not desexed)
+Owner: Smith, Jane  Ph: 0412 345 678
+
+OBJECTIVE:
+BCS: 4/9
+Ears: Mild wax bilateral
+[all other systems WNL]
+
+ASSESSMENT:
+Healthy — vaccination consult.
+
+PLAN:
+- Injectable C3 (DHP)  [batch: BT123A]
+- Intranasal KC  [batch: KC456B]
+- Next due — 2nd vacc: 25 Jun 2026
+Handouts: Puppy pack
+
+Advised owner to monitor for adverse reactions...</div>
+          <div style="display:flex;gap:8px;margin-top:10px">
+            <button class="btn-save">Save to Register</button>
+            <button class="btn-copy">Copy Note</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="a3-register" style="display:none;padding:14px 18px">
+      <div class="card" style="margin:0"><div class="card-title"><span class="num">4</span> Vaccination register</div><div style="color:#aaa;font-style:italic;font-size:13px;text-align:center;padding:20px">Saved consults appear here</div></div>
+    </div>
+
+  </div>
+</div><!-- /a3 -->
+
+<script>
+function switchApproach(id, btn) {
+  document.querySelectorAll('.demo').forEach(d => d.classList.remove('show'));
+  document.getElementById(id).classList.add('show');
+  document.querySelectorAll('.sw-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// Approach 1 tab switching
+function a1tab(name, btn) {
+  ['patients','batch','consult','register'].forEach(n => {
+    document.getElementById('a1-'+n).style.display = n===name ? 'block' : 'none';
+  });
+  document.querySelectorAll('#a1 .app-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+function a1section(name, btn) {
+  ['hx','exam','plan','note'].forEach(n => {
+    const el = document.getElementById('a1-'+n);
+    if(el) el.style.display = n===name ? 'block' : 'none';
+  });
+  document.querySelectorAll('#a1 .section-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// Approach 2
+function a2tab(name, btn) {
+  ['patients','batch','consult','register'].forEach(n => {
+    document.getElementById('a2-'+n).style.display = n===name ? 'block' : 'none';
+  });
+  document.querySelectorAll('#a2 .app-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+function a2section(name, btn) {
+  ['hx','exam','plan','note'].forEach(n => {
+    const el = document.getElementById('a2-'+n);
+    if(el) el.style.display = n===name ? 'block' : 'none';
+  });
+  document.querySelectorAll('#a2 .section-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// Approach 3
+function a3tab(name, btn) {
+  ['patients','batch','consult','register'].forEach(n => {
+    document.getElementById('a3-'+n).style.display = n===name ? 'block' : 'none';
+  });
+  document.querySelectorAll('#a3 .app-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+function a3section(name, btn) {
+  ['hx','exam','plan','note'].forEach(n => {
+    const el = document.getElementById('a3-'+n);
+    if(el) el.style.display = n===name ? 'block' : 'none';
+  });
+  document.querySelectorAll('#a3 .section-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// Collapsible chip toggle (Approach 1)
+function toggleChip(btn, targetId) {
+  const expand = document.getElementById(targetId);
+  const isOpen = expand.classList.contains('open');
+  expand.classList.toggle('open', !isOpen);
+  btn.classList.toggle('open', !isOpen);
+  const arrow = btn.querySelector('span');
+  if(arrow) arrow.textContent = isOpen ? '▾' : '▴';
+  if(!isOpen) {
+    const input = expand.querySelector('input,textarea,select');
+    if(input) input.focus();
+  }
+}
+
+// Generic opt pill toggle
+document.querySelectorAll('.opt').forEach(btn => {
+  if(!btn.onclick) btn.addEventListener('click', function(){
+    this.classList.toggle('on');
+  });
+});
+</script>
+</body>
+</html>
