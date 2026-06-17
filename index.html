@@ -83,7 +83,7 @@
   .placeholder h3{font-family:var(--serif);font-size:18px;color:var(--ink);margin:0 0 8px}
   .placeholder p{max-width:48ch;margin:0 auto 4px}
   .foot{margin-top:36px;font-size:12px;color:var(--faint);line-height:1.6}
-  @media(max-width:600px){h1.page{font-size:25px}.stat{flex:1}}
+  @media(max-width:600px){h1.page{font-size:25px}.stat{flex:1}.dtile-grid{grid-template-columns:1fr}}
   /* Hero */
   .hero{background:linear-gradient(135deg,#0f4c35 0%,#1a6e4f 45%,#0d3d6b 100%);padding:22px 20px 22px;margin:0 -20px}
   .hero-eye{font-size:10px;color:rgba(255,255,255,.55);letter-spacing:.14em;text-transform:uppercase;margin-bottom:5px}
@@ -96,7 +96,7 @@
   .hero-pill.rpill b{color:#6ee7b7}
   .hero-pill.rpill span{color:rgba(110,231,183,.75)}
   /* Search */
-  .search-wrap{position:relative;margin:16px 0 0}
+  .search-wrap{position:relative;margin:22px auto 20px;max-width:560px}
   .search-wrap svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);pointer-events:none;color:var(--faint)}
   .search-input{width:100%;padding:10px 18px 10px 40px;border-radius:999px;border:1.5px solid var(--line2);background:#fff;font-size:14px;font-family:var(--sans);outline:none}
   .search-input:focus{border-color:#0f3d3a}
@@ -108,9 +108,8 @@
   .dtile:not(.faded):hover{transform:translateY(-1px)}
   .dtile.faded{opacity:.6;cursor:default}
   .dtile-emoji{font-size:30px;margin-bottom:8px}
-  .dtile-name{font-size:13px;font-weight:700;color:#fff;line-height:1.25}
-  .dtile-count{font-size:10px;color:rgba(255,255,255,.6);margin-top:4px}
-  .dtile-badge{position:absolute;top:11px;right:11px;border-radius:20px;font-size:9px;font-weight:700;padding:2px 8px}
+  .dtile-name{font-size:15.5px;font-weight:700;color:#fff;line-height:1.25}
+  .dtile-count{font-size:12.5px;color:rgba(255,255,255,.82);margin-top:5px;letter-spacing:.01em}
   /* Domain header */
   .domain-header{padding:20px 24px 18px;margin:0 -20px 0}
   .domain-back{font-size:10px;color:rgba(255,255,255,.5);cursor:pointer;margin-bottom:4px;letter-spacing:.1em;text-transform:uppercase;display:inline-block}
@@ -370,10 +369,6 @@ function nav(view,a,b){S.view=view;S.dom=a;S.sub=b;if(view==="topic"){quizState=
 
 function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
 
-function dtileBadge(bgColor){
-  return {bg:"rgba(110,231,183,.2)",border:"rgba(110,231,183,.4)",text:"#6ee7b7"};
-}
-
 function render(){
   var app=document.getElementById("app");
   if(S.view==="home")app.innerHTML=renderHome();
@@ -395,7 +390,7 @@ function renderHome(){
   h+='<div class="hero-pill"><b>'+tots+'</b><span>Topics</span></div>';
   h+='<div class="hero-pill rpill"><b>'+readyDoms+'/7</b><span>Ready</span></div>';
   h+='</div></div>';
-  h+='<a href="mock-exam.html" style="display:block;margin:14px 0 2px;background:linear-gradient(135deg,#6ee7b7,#34d399);color:#0f3d3a;text-align:center;padding:14px;border-radius:12px;font-weight:700;text-decoration:none;font-size:15.5px;box-shadow:0 6px 18px rgba(15,61,58,.18)">📝 Take a Mock Exam Day &nbsp;·&nbsp; blueprint-weighted 350-item simulation →</a>';
+  h+='<a href="mock-exam.html" style="display:block;margin:14px 0 0;background:linear-gradient(135deg,#6ee7b7,#34d399);color:#0f3d3a;text-align:center;padding:15px 16px;border-radius:12px;text-decoration:none;box-shadow:0 6px 18px rgba(15,61,58,.18)"><span style="display:block;font-weight:800;font-size:16px;letter-spacing:-0.01em">📝 Take a Mock Exam Day&nbsp;&nbsp;→</span><span style="display:block;font-weight:500;font-size:12.5px;color:rgba(15,61,58,.72);margin-top:3px">Blueprint-weighted 350-item simulation</span></a>';
   h+='<div class="search-wrap">';
   h+='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>';
   h+='<input class="search-input" type="search" placeholder="Search topics… e.g. FeLV, ringworm, euthanasia" oninput="onSearch(this.value)" id="searchbox">';
@@ -414,7 +409,6 @@ function renderHome(){
     h+='<div class="dtile-emoji">'+d.emoji+'</div>';
     h+='<div class="dtile-name">'+d.name+'</div>';
     h+='<div class="dtile-count">'+d.subs.length+' topics'+(hasUrl?'':' · coming soon')+'</div>';
-    if(hasUrl){var b=dtileBadge(d.color);h+='<div class="dtile-badge" style="background:'+b.bg+';border:1px solid '+b.border+';color:'+b.text+'">✓</div>';}
     h+='</div>';
   });
   h+='</div></div>';
