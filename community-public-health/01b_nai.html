@@ -18,7 +18,7 @@
   header.top p.sub{margin:8px 0 0;color:#cfe3df;font-size:14px;max-width:78ch}
   nav.tabs{position:sticky;top:0;z-index:20;background:var(--paper2);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
   .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
-  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button{flex:0 0 auto;border:1px solid var(--line);background:#fff;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
   .tabrow button:hover{background:var(--paper);color:var(--ink)}
   .tabrow button.active{background:var(--ink);color:var(--paper2)}
   .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--id)}
@@ -63,6 +63,9 @@
   .expl{display:none;margin-top:10px;padding:11px 13px;border-radius:9px;background:#f3efe3;border:1px solid var(--line);font-size:13.5px}
   .expl.show{display:block}.expl b.cor{color:var(--good)}
   footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
+  /* readable line length + audio width */
+  main p,main ul,main ol{max-width:74ch}
+  .card audio{max-width:620px}
 </style>
 </head>
 <body>

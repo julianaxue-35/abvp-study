@@ -30,11 +30,12 @@
   header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(26px,4.5vw,40px);margin:0;line-height:1.05}
   header.top p.sub{margin:8px 0 0;color:#d8f0c0;font-size:14px;max-width:78ch}
   .legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}
+  .legend .lk{border:0;padding:5px 2px 5px 0;color:#fff;opacity:.65;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
   .legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.25);color:#eaf4e0;display:flex;align-items:center;gap:6px}
   .legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}
   nav.tabs{position:sticky;top:0;z-index:20;background:var(--paper2);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
   .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
-  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button{flex:0 0 auto;border:1px solid var(--line);background:#fff;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
   .tabrow button:hover{background:var(--paper);color:var(--ink)}
   .tabrow button.active{background:var(--ink);color:#fff}
   .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--id)}
@@ -116,6 +117,9 @@
   .sr-item{margin:10px 0}
   mark.sh{background:#fff176;color:inherit;border-radius:2px;padding:0 1px}
   .srch-none{color:var(--muted);font-size:14px;padding:24px 0;font-style:italic}
+  /* readable line length + audio width */
+  main p,main ul,main ol{max-width:74ch}
+  .card audio{max-width:620px}
 </style>
 </head>
 <body>
@@ -129,6 +133,7 @@
     <h1>Legislation</h1>
     <p class="sub">US federal animal welfare laws (AWA, PACT Act), state and local policy (BSL, retail bans, TNR ordinances, preemption), and Victorian/Australian law reference (POCTA 1986, Domestic Animals Act 1994, Code of Practice). MCQ bank covers US law for ABVP exam. Victorian content is personal reference only.</p>
     <div class="legend">
+      <span class="lk">Source key</span>
       <span><i style="background:var(--ref)"></i>USDA/APHIS &middot; AVMA &middot; ASV</span>
       <span><i style="background:#1a5c8b"></i>Victorian / Australian law</span>
       <span><i style="background:var(--warn)"></i>Exam trap</span>

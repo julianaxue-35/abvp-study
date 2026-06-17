@@ -30,11 +30,12 @@
   header.top h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(26px,4.5vw,40px);margin:0;line-height:1.05}
   header.top p.sub{margin:8px 0 0;color:#cfe3df;font-size:14px;max-width:80ch}
   .legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}
+  .legend .lk{border:0;padding:5px 2px 5px 0;color:#fff;opacity:.65;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
   .legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.25);color:#eaf4f1;display:flex;align-items:center;gap:6px}
   .legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}
   nav.tabs{position:sticky;top:0;z-index:20;background:var(--paper2);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
   .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
-  .tabrow button{flex:0 0 auto;border:1px solid transparent;background:transparent;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tabrow button{flex:0 0 auto;border:1px solid var(--line);background:#fff;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
   .tabrow button:hover{background:var(--paper);color:var(--ink)}
   .tabrow button.active{background:var(--ink);color:var(--paper2)}
   .tabrow button .dot{width:8px;height:8px;border-radius:50%;background:var(--ac)}
@@ -88,6 +89,9 @@
   .expl b.cor{color:var(--good)}
   footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12.5px}
   @media(max-width:640px){.mcqbar{top:58px}.score{font-size:12px}}
+  /* readable line length + audio width */
+  main p,main ul,main ol{max-width:74ch}
+  .card audio{max-width:620px}
 </style>
 </head>
 <body>
@@ -98,6 +102,7 @@
     <h1>The Care of Other Animals in the Shelter</h1>
     <p class="sub">Exam-depth coverage of non-cat/dog shelter species. The core six tabs (ferrets, rabbits, guinea pigs, small rodents, reptiles, horses) are drawn in full from <em>The Care of Other Animals in the Animal Shelter</em> (34 pp); the lower-yield <b>Avian</b> and <b>Wildlife</b> tabs are tighter, high-yield summaries from the Shelter Medicine Avian Care chapter and the HSVMA Wildlife Care Basics handbook, focused on zoonoses, shelter management, and rabies. Each tab covers biology, housing, infectious disease (zoonoses flagged), and non-infectious disease, with a species-filterable MCQ bank and exam traps badged throughout.</p>
     <div class="legend">
+      <span class="lk">Source key</span>
       <span><i style="background:var(--notes)"></i>Source chapter / your notes</span>
       <span><i style="background:var(--txt)"></i>Standard reference figure</span>
       <span><i style="background:#c43e74"></i>Zoonotic</span>
