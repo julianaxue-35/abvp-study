@@ -19,6 +19,12 @@ TARGETS = {
         ('access_vet_care.m4a', 'Access to Veterinary Care'),
     'companion-animal-homelessness/animal_transport_relocation_hub.html':
         ('animal_transport_relocation.m4a', 'Animal Transport and Transfer Programs'),
+    'companion-animal-homelessness/shelter_diversion_hub.html':
+        ('shelter_diversion.m4a', 'Shelter Diversion Programs'),
+    'companion-animal-homelessness/nonsurgical_sterilization_hub.html':
+        ('nonsurgical_sterilization.m4a', 'Non-surgical Sterilization'),
+    'companion-animal-homelessness/disaster_emergency_hub.html':
+        ('disaster_emergency.m4a', 'Disaster and Emergency Response'),
     'shelter-management/01_population_management.html':
         ('population_management.m4a', 'Population Management'),
     'physical-health/parasites_hub.html':
