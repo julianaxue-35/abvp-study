@@ -15,6 +15,10 @@ TARGETS = {
         ('sanitation_and_biosecurity.m4a', 'Sanitation and Biosecurity'),
     'companion-animal-homelessness/adoption_placement_hub.html':
         ('adoption_floor_work.m4a', 'Adoption Floor Work'),
+    'companion-animal-homelessness/access_vet_care_hub.html':
+        ('access_vet_care.m4a', 'Access to Veterinary Care'),
+    'companion-animal-homelessness/animal_transport_relocation_hub.html':
+        ('animal_transport_relocation.m4a', 'Animal Transport and Transfer Programs'),
     'shelter-management/01_population_management.html':
         ('population_management.m4a', 'Population Management'),
     'physical-health/parasites_hub.html':

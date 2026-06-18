@@ -10,6 +10,8 @@ FILES = [
     'physical-health/facility_shelter_design_hub.html',
     'physical-health/sanitation_biosecurity_hub.html',
     'companion-animal-homelessness/adoption_placement_hub.html',
+    'companion-animal-homelessness/access_vet_care_hub.html',
+    'companion-animal-homelessness/animal_transport_relocation_hub.html',
     'shelter-management/01_population_management.html',
     'supplementary/additional_podcasts.html',
     'physical-health/parasites_hub.html',
