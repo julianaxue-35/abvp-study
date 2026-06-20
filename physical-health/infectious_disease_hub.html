@@ -68,6 +68,21 @@
   table.cmp td b{color:var(--ink)}
   .fig{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0;box-shadow:var(--shadow)}
   .fig figcaption{font-size:12.5px;color:var(--muted);margin-top:8px;font-style:italic}
+  /* boxes-and-arrows flowchart */
+  .flow{display:flex;flex-direction:column;align-items:center;font-size:12.5px;line-height:1.4;}
+  .fnode{background:#fff;border:2px solid var(--notes);border-radius:10px;padding:8px 12px;text-align:center;max-width:600px;color:var(--ink);}
+  .fnode .fsub{font-size:11px;color:var(--muted);margin-top:3px;font-weight:400;}
+  .fnode.amber{border-color:var(--ref);background:var(--ref-soft);}
+  .fnode.red{border-color:var(--bad);background:#f7e4e4;}
+  .fnode.green{border-color:var(--good);background:#e8f5ec;}
+  .farrow{width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-top:9px solid var(--notes);margin:7px 0;}
+  .fsplit{display:flex;gap:12px;justify-content:center;align-items:stretch;flex-wrap:wrap;margin-top:2px;}
+  .fcol{display:flex;flex-direction:column;align-items:center;flex:1;min-width:200px;max-width:330px;}
+  .fcol .fnode{width:100%;}
+  .fout{border-radius:10px;padding:8px 12px;text-align:center;font-weight:700;width:100%;}
+  .fout.g{background:#e8f5ec;border:2px solid #bfe3cd;color:var(--good);}
+  .fout.a{background:var(--ref-soft);border:2px solid #e7c89a;color:var(--ref);}
+  .fout.r{background:#f7e4e4;border:2px solid #e7b3b3;color:var(--bad);}
   /* source badges */
   .bdg{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
   .bdg.notes{background:var(--notes-soft);color:var(--notes)}
@@ -648,6 +663,32 @@
     </ul>
   </div>
 
+  <!-- DIAGNOSTIC FLOWCHART -->
+  <h3>Diagnostic pathway &mdash; which test &amp; what each result means <span class="bdg ref">std ref</span></h3>
+  <figure class="fig">
+    <div class="flow">
+      <div class="fnode">Suspect CDV (signs, or a rise in CIRD / any neuro case)</div>
+      <div class="farrow"></div>
+      <div class="fnode">RT-PCR &mdash; the main test &middot; sample by phase: respiratory swab / buffy coat (acute) &middot; urine or rectal (GI) &middot; CSF / brain (neuro)</div>
+      <div class="farrow"></div>
+      <div class="fsplit">
+        <div class="fcol">
+          <div class="fnode green"><b>PCR negative</b></div>
+          <div class="farrow"></div>
+          <div class="fout g">CDV not supported<br><span style="font-weight:400;font-size:11px">shedding is intermittent &mdash; repeat if suspicion is high</span></div>
+        </div>
+        <div class="fcol">
+          <div class="fnode red"><b>PCR positive</b><div class="fsub">read the Ct (viral load) with vaccine history</div></div>
+          <div class="farrow"></div>
+          <div class="fout r">Low Ct (high load)<br><span style="font-weight:400;font-size:11px">wild-type likely &mdash; even if recently vaccinated &rarr; isolate, manage as a case</span></div>
+          <div class="farrow"></div>
+          <div class="fout a">High Ct (low load) &mdash; ambiguous<br><span style="font-weight:400;font-size:11px">recently MLV-vaccinated (&le;2 wk) &amp; no signs &rarr; likely vaccine virus, recheck &middot; signs present / not recently vaccinated &rarr; possible early or mild wild infection, correlate &amp; repeat</span></div>
+        </div>
+      </div>
+    </div>
+    <figcaption>CDV diagnostic pathway: read a positive RT-PCR by its Ct (viral load) together with vaccine history. Asymptomatic exposed dogs go to the serology &times; RT-PCR risk matrix (below). Only the canarypox-vectored recombinant vaccine is not detected on PCR; histopathology (inclusion bodies) confirms post-mortem.</figcaption>
+  </figure>
+
   <!-- RISK MATRIX -->
   <h3>Serology / PCR risk matrix <span class="bdg ref">std ref</span></h3>
   <div class="card">
@@ -680,7 +721,7 @@
       <li>Vaccinating all dogs and puppies at or before intake is the <b>single most important</b> CDV control measure, combined with management that lowers infectious dose and exposure.</li>
       <li><b>MLV CDV is preferred</b> (lower cost than recombinant; can competitively occupy viral binding sites, giving protection before humoral immunity develops). Recombinant (rCDV) can give faster protection in the face of maternal antibody.</li>
       <li>Onset of protection is rapid: rCDV has protected against challenge as early as hours to 1 week after administration, though full immunity may take 3 to 5 days. Early vaccination prevents severe neurologic disease and death.</li>
-      <li>Handling: CDV is labile, so reconstitute only shortly before use and do not leave at room temperature. Give SQ or IM; if any of an SC dose is not delivered, repeat a full dose immediately.</li>
+      <li>Handling: CDV is labile, so reconstitute only shortly before use and do not leave at room temperature. Give SQ or IM (the CDV vaccines available in Australia are given SC); if any of an SC dose is not delivered, repeat a full dose immediately.</li>
       <li>Pregnant dogs: use canarypox rCDV, because MLV in a naive dam can rarely infect fetuses (death, resorption, abortion). Dams with antibody will not be infected by vaccine virus.</li>
       <li>Non-canine species (ferrets, raccoons): use the purpose-built ferret rCDV vaccine, not MLV, to avoid adverse reactions.</li>
     </ul>
