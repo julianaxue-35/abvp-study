@@ -1859,25 +1859,137 @@
   <!-- DIAGNOSIS -->
   <h3>Diagnosis <span class="bdg notes">notes</span><span class="bdg ref">std ref</span></h3>
   <div class="card">
+    <p class="lead"><b>Why so many tests?</b> There is <b>no single antemortem test that confirms FIP</b> except immunohistochemistry on a lesion. Every other test is only <b>supportive</b>, so FIP is a <b>weight-of-evidence</b> diagnosis: you climb a ladder from cheap, non-specific screens up to the gold standard, and each rung carries its own famous exam trap. Read the table top-to-bottom &mdash; that order is exactly why the RT-PCR + S-gene assay shows up where it does (it is a confirmatory molecular step, <b>not</b> a front-line test).</p>
+    <table class="cmp">
+      <thead><tr><th>Tier</th><th>Test</th><th>What it shows</th><th>Performance / the exam trap</th></tr></thead>
+      <tbody>
+        <tr><td><b>1 &middot; Supportive bloodwork</b></td><td>FCoV <b>serology</b> (antibody titre)</td><td>Past FCoV exposure only</td><td><b>Cannot diagnose FIP</b> &mdash; can't separate FECV/FIPV, and advanced FIP can be <b>seronegative</b>. Titres are <b>not</b> useful for shelter management.</td></tr>
+        <tr><td><b>1 &middot; Supportive bloodwork</b></td><td><b>CBC</b></td><td>Non-regenerative anaemia, lymphopenia, thrombocytopenia</td><td>Non-specific; supports but never confirms.</td></tr>
+        <tr><td><b>1 &middot; Supportive bloodwork</b></td><td><b>Biochemistry</b> / serum electrophoresis</td><td>Low A:G ratio, <b>polyclonal gammopathy</b>, hyperbilirubinaemia</td><td>Serum <b>gamma-globulin elevation is more predictive than A:G or total protein</b>. Hyperbilirubinaemia is from haemolysis + hepatic vasculitis, not simple cholestasis.</td></tr>
+        <tr><td><b>2 &middot; Effusion (if present)</b></td><td>Effusion <b>gross + cytology</b></td><td>Straw-yellow, viscous, froths when shaken, protein &gt;3.5 g/dL, low cellularity</td><td>A <b>non-septic exudate</b> (modified transudate). The single most useful sample when fluid is present.</td></tr>
+        <tr><td><b>2 &middot; Effusion (if present)</b></td><td>Effusion <b>A:G ratio</b> (electrophoresis)</td><td>Globulin-rich effusion</td><td><b>&lt;0.8 consistent with FIP</b> (74% sens, 86% spec); <b>&lt;0.5 PPV 89%</b>; <b>&gt;1.0 NPV 91%</b>. Triage, not a diagnosis &mdash; see flowchart below.</td></tr>
+        <tr><td><b>2 &middot; Effusion (if present)</b></td><td><b>Rivalta test</b></td><td>High protein / fibrin / inflammatory mediators</td><td>Sens <b>91&ndash;98%</b>, spec <b>66&ndash;80%</b>. Cheap, cage-side; a <b>negative reassures</b>, but <b>false positives</b> with sepsis &amp; neoplasia.</td></tr>
+        <tr><td><b>2 &middot; Effusion (if present)</b></td><td><b>Imaging</b> (radiograph / ultrasound)</td><td>Pleural or peritoneal effusion; in dry FIP, mesenteric-LN and visceral nodules</td><td>Confirms/locates effusion, distinguishes ascites from other distension, and <b>guides centesis</b>. Non-specific in dry disease.</td></tr>
+        <tr><td><b>3 &middot; Molecular</b></td><td><b>Standard FCoV RT-PCR</b> (effusion / tissue)</td><td>Presence of FCoV RNA</td><td><b>The molecular paradox:</b> healthy cats carry FECV in circulating monocytes, so a positive confirms <b>exposure, not mutated FIPV</b>. <b>Not recommended on whole blood</b> &mdash; viraemia is usually too low to bio-type.</td></tr>
+        <tr><td><b>3 &middot; Molecular</b></td><td><b>RT-PCR + S-gene mutation assay</b></td><td>Spike-protein point mutations linked to the FECV&rarr;FIPV switch</td><td><b>High specificity but LOW sensitivity:</b> mutation is an individual, variable event &mdash; novel mutations in <b>3c/7a/7b</b> escape the primers, and the assay <b>misses Type II FCoV entirely</b>. Tissue is more reliable than effusion (higher viral copy number).</td></tr>
+        <tr><td><b>4 &middot; Gold standard</b></td><td><b>IHC</b> (tissue / necropsy)</td><td>FCoV antigen <b>inside macrophages</b> within pyogranulomatous lesions</td><td>The <b>definitive antemortem diagnosis</b> &mdash; finding virus in the very cell it must mutate to infect rules out bystander enteric FCoV. Needle-biopsy yield is patchy: <b>liver ~64%</b> (~36% false negatives), <b>FNA ~82%</b>; <b>IHC on needle samples is a poor supplement (sens only 11&ndash;38%)</b>.</td></tr>
+        <tr><td><b>4 &middot; Gold standard</b></td><td><b>Direct immunofluorescence</b> (on effusion)</td><td>FCoV antigen in effusion macrophages</td><td>Reported <b>100% specificity, 57&ndash;95% sensitivity</b> on antemortem effusion &mdash; but <b>only available in Europe and Australia</b>.</td></tr>
+      </tbody>
+    </table>
+    <div class="trap"><b>Exam trap &middot; read the ladder in order</b>The three classic traps map straight onto the tiers: serology never diagnoses (tier 1); a positive standard RT-PCR proves exposure, not FIP, and even the S-gene assay is specific-but-insensitive (tier 3); only IHC of antigen within macrophages in a lesion is definitive (tier 4). If an answer offers "a single positive blood PCR" or "a high titre" as a diagnosis, it is the distractor.</div>
+  </div>
+
+  <figure class="fig">
+    <svg viewBox="0 0 780 360" width="100%" role="img" aria-label="Effusion albumin to globulin ratio interpretation thresholds for FIP">
+      <defs><marker id="arAG" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0f3d3a"/></marker></defs>
+      <g font-family="Public Sans" font-size="12" text-anchor="middle" fill="#0f3d3a">
+        <!-- input -->
+        <rect x="160" y="8" width="460" height="44" rx="9" fill="#dcedf2" stroke="#1f6f8b"/>
+        <text x="390" y="27" font-weight="700">Suspect FIP effusion &middot; centesis &rarr; protein electrophoresis</text>
+        <text x="390" y="44" font-size="11">read the effusion albumin : globulin (A:G) ratio</text>
+        <!-- number line -->
+        <rect x="55"  y="84" width="170" height="26" fill="#f7e4e4" stroke="#b23b3b"/>
+        <rect x="225" y="84" width="170" height="26" fill="#fbf0d8" stroke="#c79a2a"/>
+        <rect x="395" y="84" width="170" height="26" fill="#eef0f8" stroke="#3c4a86"/>
+        <rect x="565" y="84" width="170" height="26" fill="#e8f5ec" stroke="#1f7a4d"/>
+        <text x="225" y="128" font-size="11" font-weight="700">0.5</text>
+        <text x="395" y="128" font-size="11" font-weight="700">0.8</text>
+        <text x="565" y="128" font-size="11" font-weight="700">1.0</text>
+        <text x="715" y="74" font-size="10.5" fill="#5a6b6a">A:G increasing &rarr;</text>
+        <!-- outcome boxes -->
+        <rect x="55"  y="150" width="170" height="150" rx="9" fill="#f7e4e4" stroke="#b23b3b"/>
+        <text x="140" y="174" font-weight="700" fill="#b23b3b">A:G &lt; 0.5</text>
+        <text x="140" y="196" font-size="11.5" font-weight="700">FIP LIKELY</text>
+        <text x="140" y="216" font-size="11">PPV &asymp; 89%</text>
+        <text x="140" y="240" font-size="10.5">Strongly supports</text>
+        <text x="140" y="255" font-size="10.5">FIP. Confirm with</text>
+        <text x="140" y="270" font-size="10.5">IHC on lesion /</text>
+        <text x="140" y="285" font-size="10.5">macrophages.</text>
+
+        <rect x="225" y="150" width="170" height="150" rx="9" fill="#fbf0d8" stroke="#c79a2a"/>
+        <text x="310" y="174" font-weight="700" fill="#a07a14">A:G 0.5 &ndash; 0.8</text>
+        <text x="310" y="196" font-size="11.5" font-weight="700">CONSISTENT</text>
+        <text x="310" y="211" font-size="11.5" font-weight="700">WITH FIP</text>
+        <text x="310" y="231" font-size="10.5">&lt;0.8 cutoff:</text>
+        <text x="310" y="246" font-size="10.5">74% sens, 86% spec.</text>
+        <text x="310" y="266" font-size="10.5">Supportive; confirm</text>
+        <text x="310" y="281" font-size="10.5">with IHC.</text>
+
+        <rect x="395" y="150" width="170" height="150" rx="9" fill="#eef0f8" stroke="#3c4a86"/>
+        <text x="480" y="174" font-weight="700" fill="#3c4a86">A:G 0.8 &ndash; 1.0</text>
+        <text x="480" y="196" font-size="11.5" font-weight="700">INDETERMINATE</text>
+        <text x="480" y="216" font-size="11">not consistent,</text>
+        <text x="480" y="231" font-size="11">not excluding</text>
+        <text x="480" y="251" font-size="10.5">Pursue Rivalta +</text>
+        <text x="480" y="266" font-size="10.5">RT-PCR/S-gene;</text>
+        <text x="480" y="281" font-size="10.5">keep CHF, lymphoma.</text>
+
+        <rect x="565" y="150" width="170" height="150" rx="9" fill="#e8f5ec" stroke="#1f7a4d"/>
+        <text x="650" y="174" font-weight="700" fill="#1f7a4d">A:G &gt; 1.0</text>
+        <text x="650" y="196" font-size="11.5" font-weight="700">FIP UNLIKELY</text>
+        <text x="650" y="216" font-size="11">NPV &asymp; 91%</text>
+        <text x="650" y="240" font-size="10.5">Strong evidence</text>
+        <text x="650" y="255" font-size="10.5">against FIP; look</text>
+        <text x="650" y="270" font-size="10.5">hard for another</text>
+        <text x="650" y="285" font-size="10.5">cause.</text>
+      </g>
+      <g stroke="#0f3d3a" stroke-width="1.4" fill="none" marker-end="url(#arAG)">
+        <path d="M390,52 L390,82"/>
+        <path d="M140,110 L140,148"/>
+        <path d="M310,110 L310,148"/>
+        <path d="M480,110 L480,148"/>
+        <path d="M650,110 L650,148"/>
+      </g>
+    </svg>
+    <figcaption>Effusion A:G ratio is a triage tool, not a diagnosis. A low ratio reflects the protein-rich, globulin-heavy FIP effusion. Per your notes: <b>&lt;0.8 is "consistent with FIP"</b> (74% sensitive, 86% specific), <b>&lt;0.5</b> sharpens this to ~89% positive predictive value, and <b>&gt;1.0</b> gives ~91% negative predictive value; the <b>0.8&ndash;1.0</b> band is indeterminate &mdash; escalate to Rivalta, RT-PCR/S-gene and ultimately IHC. Serum gamma-globulin elevation is actually more predictive than A:G or total protein. Sources: your FIP OneNote (FIP.pdf) and Berliner FIP.pdf.</figcaption>
+  </figure>
+
+  <!-- RIVALTA -->
+  <h3>Rivalta test &mdash; how to perform it <span class="bdg notes">notes</span><span class="bdg ref">std ref</span></h3>
+  <div class="card">
+    <p class="lead">A cheap, cage-side screen that needs no analyser: it asks whether the effusion is rich enough in protein, fibrin and inflammatory mediators to hold a droplet's shape in an acidic solution &mdash; the hallmark of an FIP exudate.</p>
     <ul class="hy">
-      <li><b>Serology cannot diagnose FIP:</b> it cannot distinguish FCoV/FECV/FIPV and only confirms past exposure; advanced FIP can even be seronegative (delayed response, antibody exhaustion, immune-complex interference).</li>
-      <li><b>Haematology/biochemistry:</b> non-regenerative anaemia, lymphopenia, thrombocytopenia, low albumin:globulin ratio, polyclonal gammopathy (gamma-globulin elevation is more predictive than A:G or total protein), and hyperbilirubinaemia.</li>
-      <li><b>Effusion analysis contributes more than bloodwork:</b> a classic FIP effusion is straw-yellow, viscous, froths when shaken (high protein, over 3.5 g/dL), and is low-cellularity (a modified transudate, lately reclassified as a non-septic exudate).</li>
+      <li><b>Fill the tube:</b> add ~7&ndash;8 mL of <b>distilled water</b> at room temperature to a clear, transparent test tube (a glass tube on a dark background reads best).</li>
+      <li><b>Acidify:</b> add <b>one drop of glacial (98%) acetic acid</b> and mix gently. This drops the pH so that normal, protein-poor fluid will disperse but an inflammatory exudate will not.</li>
+      <li><b>Layer the sample:</b> hold the tube upright and gently drop <b>one drop of the patient's effusion</b> onto the surface of the solution. Do not stir.</li>
+      <li><b>Read at the surface within seconds:</b> watch what the drop does as it falls.</li>
+      <li><b>NEGATIVE:</b> the drop <b>dissolves and disappears</b>, the solution stays clear &rarr; FIP suspicion <b>lowered</b> (this is the test's strength).</li>
+      <li><b>POSITIVE:</b> the drop <b>keeps its shape</b> &mdash; staying attached to the surface, drifting down as a "jellyfish", or sinking as a string-of-pearls precipitate &rarr; <b>supports FIP</b>.</li>
     </ul>
-    <div class="trap"><b>Exam trap &middot; effusion A:G and Rivalta</b>On effusion protein electrophoresis, an A:G ratio <b>under 0.5 has a positive predictive value of 89%</b>; an A:G <b>over 1 has a negative predictive value of 91%</b>. The <b>Rivalta test</b> is highly sensitive (91 to 98%) but low specificity (66 to 80%): a negative reliably lowers suspicion, but false positives occur with sepsis and neoplasia.</div>
-    <div class="trap"><b>Exam trap &middot; the molecular paradox</b>Because healthy cats carry FECV in circulating monocytes, a <b>positive standard FCoV RT-PCR on blood, effusion or tissue confirms only coronavirus exposure, not mutated FIPV</b>. Even the RT-PCR plus S-gene-mutation assay has <b>high specificity but low sensitivity</b>, because the mutation is an individual, variable event (mutations in 3c/7a/7b escape the primers) and it misses Type II FCoV entirely.</div>
-    <div class="trap"><b>Exam trap &middot; gold standard</b>The definitive antemortem diagnosis is <b>immunohistochemistry (or direct immunofluorescence) demonstrating FCoV antigen inside macrophages within pyogranulomatous lesions</b>. Needle biopsy sensitivity is limited by patchy lesions: liver biopsy ~64% (so ~36% false negatives), FNA ~82%.</div>
+    <div class="trap"><b>Exam trap &middot; interpret with the prevalence</b>Rivalta is <b>highly sensitive (91&ndash;98%) but poorly specific (66&ndash;80%)</b>: a <b>negative</b> reliably lowers suspicion, but <b>false positives</b> occur with <b>bacterial peritonitis/sepsis and lymphoma/neoplasia</b>. It performs best in <b>young cats (&lt;2 yr)</b> where pre-test probability is high; it is a screen, never a stand-alone diagnosis &mdash; IHC remains the gold standard.</div>
   </div>
 
   <!-- TREATMENT -->
-  <h3>Treatment <span class="bdg notes">notes</span><span class="bdg corr">corrected</span></h3>
+  <h3>Treatment <span class="bdg notes">notes</span><span class="bdg ref">std ref</span></h3>
   <div class="card">
     <ul class="hy">
       <li>Untreated FIP is ~100% fatal (days to weeks). Old palliative therapy (prednisolone, cyclophosphamide, interferon, polyprenyl immunostimulant) slows but does not change the outcome.</li>
-      <li>Modern antivirals achieve remission in effusive and non-effusive disease: the nucleoside analog <b>GS-441524</b>, the protease inhibitor <b>GC376</b>, and <b>remdesivir</b> (the prodrug of GS-441524). Effective therapy pairs antiviral drugs with measures to support host immunity.</li>
+      <li>Modern antivirals achieve remission in effusive and non-effusive disease: the nucleoside analog <b>GS-441524</b>, its prodrug <b>remdesivir</b> (the IV form), and the 3C-like protease inhibitor <b>GC376</b>. Effective therapy pairs the antiviral with supportive care for host immunity. A 2018&ndash;2024 systematic review of ~650 cases reported roughly <b>85% remission</b>.</li>
+      <li><b>Legal status (current):</b> there is still <b>no FDA-"approved"</b> FIP drug, but compounded oral GS-441524 is now <b>legally obtainable</b> &mdash; in the <b>US</b> under FDA enforcement discretion (Guidance #256, from 1 June 2024) and in <b>Australia</b> via veterinary prescription of legally compounded product. The old exam answer ("no legal treatment exists") is outdated.</li>
     </ul>
-    <div class="corrbox"><b>Corrected from your notes</b>Your notes list the protease inhibitor as "GS-376"; the correct designation is <b>GC376</b> (a 3C-like protease inhibitor). GS-441524 (nucleoside analog) and GC376 (protease inhibitor) are different drug classes.</div>
-    <div class="verifybox"><b>Dated update worth verifying</b>Your notes state there is no commercially approved FIP treatment in the US, which is the historical exam answer and remains true in that <b>no FDA-approved FIP drug exists</b>. However, since <b>1 June 2024</b> the FDA exercises enforcement discretion (Guidance for Industry #256) allowing veterinary-prescribed compounded oral GS-441524, so it is now legally obtainable in most US states. Confirm the current status for exam currency; a 2018 to 2024 systematic review of 650 cases reported ~85% success at GS-441524 5 to 10 mg/kg PO once daily.</div>
+    <p style="margin:12px 0 6px;font-weight:700">GS-441524 dosing &mdash; escalates with disease form</p>
+    <table class="cmp">
+      <thead><tr><th>FIP form</th><th>GS-441524 (oral, compounded)</th><th>GS-441524 (injectable SC)</th><th>Why higher</th></tr></thead>
+      <tbody>
+        <tr><td><b>Wet / dry</b> &mdash; no eye or CNS signs</td><td>~6 mg/kg PO q24h</td><td>~4&ndash;6 mg/kg SC q24h</td><td>Baseline systemic disease.</td></tr>
+        <tr><td><b>Ocular</b> (uveitis, chorioretinitis)</td><td>~8 mg/kg PO q24h</td><td>~8 mg/kg SC q24h</td><td>Blood&ndash;ocular barrier.</td></tr>
+        <tr><td><b>Neurological</b> (the hardest)</td><td>~10&ndash;15 mg/kg PO q24h</td><td>~10 mg/kg SC q24h</td><td>Blood&ndash;brain barrier; needs the highest dose.</td></tr>
+      </tbody>
+    </table>
+    <ul class="hy">
+      <li><b>Duration:</b> a minimum <b>84-day (12-week) continuous course</b>, then a 12-week observation period; treat to clinical + biochemical remission (normalising A:G, globulins, haematocrit, weight gain).</li>
+      <li><b>Relapse:</b> re-treat and <b>step the dose up</b> (commonly +5 mg/kg); persistent relapse often reflects CNS sequestration or underdosing as the cat gains weight.</li>
+      <li><b>Other agents:</b> <b>GC376</b> ~15 mg/kg SC q12h; <b>remdesivir</b> (IV) is used to load sick or inappetent cats (≈10&ndash;12 mg/kg IV q24h) before transitioning to oral GS-441524.</li>
+    </ul>
+    <p class="refonly" style="font-size:12px;font-style:italic;color:var(--muted);margin-top:8px">Doses are from published Pedersen/UC&nbsp;Davis field protocols and current compounded-product guidance (not in your FIP notes, which name the drugs only). Compounded products vary in concentration and bioavailability, so protocols differ between brands and are still evolving &mdash; verify against the product label and the latest guidance before clinical use.</p>
+    <div class="trap"><b>Exam trap &middot; why "treatable" &ne; "treat every shelter cat"</b>GS-441524 changed FIP from a death sentence to a curable disease in an <b>owned-pet</b> context, but for a <b>shelter</b> the barriers are operational, not pharmacological:
+      <ul class="hy" style="margin-top:8px">
+        <li><b>Cost:</b> a full compounded course commonly runs into the <b>hundreds-to-low-thousands of dollars per cat</b> (dose is weight-based and the cat <b>gains weight</b> through treatment, so the daily dose &mdash; and cost &mdash; climbs). Few shelters can fund this at scale against competing population needs.</li>
+        <li><b>Treatment period:</b> a <b>minimum 84-day (12-week) continuous daily</b> course, then a further <b>~12-week observation</b> window before "cure" is declared &mdash; roughly <b>6 months</b> of committed care with adherence, rechecks and bloodwork.</li>
+        <li><b>Length of stay (LOS):</b> that timeline is incompatible with shelter flow. A treated cat ties up a housing unit for months, <b>raising LOS, lowering capacity for care, and increasing crowding/disease risk for the whole population</b> &mdash; the opposite of the depopulation/throughput logic shelters run on.</li>
+        <li><b>The shelter resolution:</b> treatment is usually feasible only by <b>moving the cat out of the shelter system</b> &mdash; into a <b>foster home, rescue partner, or adopter</b> who funds and manages the course &mdash; rather than treating in-kennel. Where that pathway does not exist, humane euthanasia to prevent end-stage suffering remains the common shelter outcome.</li>
+      </ul>
+    </div>
   </div>
 
   <figure class="fig">
