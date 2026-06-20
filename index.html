@@ -245,6 +245,72 @@ var DOMAINS = [
   ]}
 ];
 
+/* ---------- SEARCH KEYWORDS ----------
+   Maps a subdomain's url to extra searchable terms (diseases, abbreviations,
+   synonyms) so e.g. "FPV" or "feline panleukopenia" routes to the right tab.
+   Keep all terms lowercase. Add freely — search matches name OR these. */
+var KW = {
+ // Physical Health
+ "physical-health/infectious_disease_hub.html":"fpv feline panleukopenia panleukopaenia panleuk virus parvo parvovirus cpv canine parvovirus felv feline leukemia leukaemia fiv feline immunodeficiency fip feline infectious peritonitis calicivirus fcv herpesvirus fhv-1 fhv uri upper respiratory cirdc kennel cough distemper cdv canine distemper ringworm dermatophytosis microsporum leptospirosis lepto brucellosis rabies giardia coronavirus influenza h3n2 bordetella mycoplasma streptococcus salmonella outbreak contagious zoonotic isolation quarantine",
+ "physical-health/sanitation_biosecurity_hub.html":"disinfection disinfectant cleaning sanitation bleach sodium hypochlorite accelerated hydrogen peroxide ahp rescue potassium peroxymonosulfate trifectant quaternary ammonium quat parvocidal fomite biosecurity contact time dwell time footbath ppe isolation laundry hygiene",
+ "physical-health/surgery_anesthesia_hub.html":"surgery surgical spay neuter castration ovariohysterectomy ohe anesthesia anaesthesia analgesia pain premedication sedation intubation hqhvsn sterilization aseptic perioperative",
+ "physical-health/vaccination_hub.html":"vaccine vaccination immunization fvrcp dapp dhpp da2pp core noncore non-core maternal antibody mda titer titre immunity modified live mlv killed adjuvant rabies vaccine panleukopenia vaccine herd immunity booster",
+ "physical-health/facility_shelter_design_hub.html":"facility housing cage kennel enclosure ventilation air changes hvac double compartment design square footage capacity density flooring drainage shelter design environment",
+ "physical-health/euthanasia_hub.html":"euthanasia pentobarbital pentobarbitone sodium pentobarbital humane killing intracardiac iv intraperitoneal captive bolt gas chamber avma euthanasia qol quality of life",
+ "physical-health/medical_health_hub.html":"medical non-infectious dental dentistry dermatology neoplasia cancer tumor endocrine diabetes kidney renal cardiac heart trauma wound fracture geriatric chronic disease",
+ "physical-health/nutrition_husbandry_hub.html":"nutrition diet feeding body condition score bcs obesity refeeding neonate orphan bottle feeding kitten milk replacer kmr husbandry weight malnutrition",
+ "physical-health/parasites_hub.html":"parasite flea tick mite mange demodex sarcoptes scabies heartworm dirofilaria hookworm roundworm toxocara tapeworm whipworm coccidia giardia ear mite otodectes deworming anthelmintic fenbendazole ascarid ectoparasite endoparasite",
+ // Shelter Management
+ "shelter-management/01_population_management.html":"population management capacity for care length of stay los flow daily rounds intake live release rate asilomar pathway planning",
+ "shelter-management/02_animal_id_tracking.html":"microchip identification collar tag tracking intake stats outcome live release euthanasia rate statistics kennel card",
+ "shelter-management/03_management_leadership.html":"leadership management staff volunteer team communication conflict organizational supervision",
+ "shelter-management/04_record_keeping.html":"records medical record documentation sop recordkeeping data entry database shelter software chameleon shelterluv",
+ "shelter-management/05_data_analysis.html":"data analysis statistics epidemiology metrics kpi trends reporting dashboard",
+ "shelter-management/07_regulatory.html":"regulation law compliance licensing inspection usda dea controlled drug standards",
+ "shelter-management/06_mental_health.html":"compassion fatigue burnout mental health self-care resiliency stress moral stress wellbeing wellness",
+ "shelter-management/09_resource_allocation.html":"funding grant budget fundraising donation resource finance development",
+ "shelter-management/08_liability.html":"liability negligence legal lawsuit insurance risk management bite",
+ // Behavioral Health
+ "behavioral-health/01_qol_needs_assessment.html":"quality of life qol needs assessment welfare five freedoms wellbeing",
+ "behavioral-health/02_animal_handling.html":"handling restraint low stress handling fear free force free capture",
+ "behavioral-health/03_assessment_decision_making.html":"behavior assessment evaluation safer decision making temperament test",
+ "behavioral-health/04_body_language.html":"body language calming signals fear aggression posture communication",
+ "behavioral-health/05_common_behaviour_problems.html":"behavior problem aggression resource guarding separation anxiety house soiling barrier frustration",
+ "behavioral-health/06_stress.html":"stress distress cortisol chronic stress acute stress fas fear anxiety stress",
+ "behavioral-health/07_facility_environment.html":"enrichment environment housing behavior noise sound visual barrier",
+ "behavioral-health/08_learning_theory.html":"learning theory operant conditioning classical conditioning reinforcement punishment desensitization counterconditioning",
+ "behavioral-health/09_behaviour_medications.html":"behavior medication psychopharmacology fluoxetine trazodone gabapentin ssri anxiolytic clomipramine",
+ "behavioral-health/10_behaviour_relinquishment.html":"relinquishment surrender owner surrender rehoming",
+ "behavioral-health/11_canine_enrichment.html":"canine enrichment dog enrichment toys puzzle feeder",
+ "behavioral-health/12_fear_phobias_anxiety.html":"fear phobia anxiety noise phobia thunderstorm",
+ "behavioral-health/13_shelter_animal_enrichment.html":"enrichment sensory enrichment social enrichment",
+ "behavioral-health/14_training_bmod_playgroups.html":"training behavior modification bmod playgroup socialization",
+ // Companion Animal Homelessness
+ "companion-animal-homelessness/spay_neuter_hub_2.html":"spay neuter sterilization tnr trap neuter return hqhvsn castration",
+ "companion-animal-homelessness/shelter_diversion_hub.html":"diversion intake diversion surrender prevention safety net pet retention rehoming",
+ "companion-animal-homelessness/adoption_placement_hub.html":"adoption placement foster open adoption matchmaking",
+ "companion-animal-homelessness/access_vet_care_hub.html":"access to care avc incremental care spectrum of care veterinary deserts affordability",
+ "companion-animal-homelessness/disaster_emergency_hub.html":"disaster emergency hurricane evacuation fema preparedness",
+ "companion-animal-homelessness/animal_transport_relocation_hub.html":"transport relocation transfer source shelter destination shelter cdc import",
+ "companion-animal-homelessness/nonsurgical_sterilization_hub.html":"nonsurgical sterilization chemical castration zeuterin calcium chloride contraception gonacon michelson",
+ // Community and Public Health
+ "community-public-health/01_animal_cruelty.html":"cruelty abuse neglect hoarding animal fighting forensics cruelty investigation",
+ "community-public-health/02_zoonotic_disease.html":"zoonosis zoonotic rabies leptospirosis toxoplasmosis ringworm bartonella cat scratch salmonella plague",
+ "community-public-health/03_animals_public_safety.html":"dog bite bite public safety dangerous dog dog attack breed",
+ "community-public-health/04_rabies.html":"rabies rabv quarantine post-exposure prophylaxis pep rabies vaccine exposure",
+ "community-public-health/05_reportable_emerging.html":"reportable notifiable emerging disease surveillance outbreak foreign animal disease",
+ // Animals and Public Policy
+ "animals-public-policy/01_ethics_animal_welfare.html":"ethics animal welfare utilitarianism rights moral one health euthanasia ethics",
+ "animals-public-policy/02_regulatory.html":"regulation policy oversight standards accreditation",
+ "animals-public-policy/03_legislation.html":"legislation law statute breed specific legislation bsl animal welfare act",
+ "animals-public-policy/04_animal_shelter_history.html":"history shelter history aspca humane movement no kill",
+ // Research and Biostats
+ "research-biostats/epidemiology_biostats_hub.html":"epidemiology biostatistics statistics prevalence incidence sensitivity specificity p value confidence interval odds ratio relative risk",
+ "research-biostats/study_design_hub.html":"study design randomized controlled trial rct cohort case control cross sectional bias confounding",
+ // Supplementary
+ "supplementary/additional_podcasts.html":"podcast audio listening"
+};
+
 /* SVG diagram for FeLV outcomes (self-contained) */
 var FELV_SVG = '<svg class="dia" viewBox="0 0 680 280" role="img" aria-label="FeLV infection outcomes and test result patterns">'
 +'<defs><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M2 1L8 5L2 9" fill="none" stroke="#5B584F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>'
@@ -424,7 +490,9 @@ function onSearch(q){
   var results=[];
   DOMAINS.forEach(function(d){
     d.subs.forEach(function(s){
-      if(s.name.toLowerCase().indexOf(ql)>=0)results.push({s:s,d:d});
+      var hay=s.name.toLowerCase()+" "+(KW[s.url]||"");
+      var toks=ql.split(/\s+/);
+      if(toks.every(function(t){return hay.indexOf(t)>=0;}))results.push({s:s,d:d});
     });
   });
   var h='<div class="search-results">';
