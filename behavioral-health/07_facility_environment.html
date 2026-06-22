@@ -167,6 +167,10 @@
   <button data-p="hou"><span class="dot"></span>Housing, Separation &amp; Space</button>
   <button data-p="rou"><span class="dot"></span>Routine &amp; Acoustic Environment</button>
   <button data-p="mcq"><span class="dot" style="background:var(--chrome2)"></span>MCQ Test Bank</button>
+
+<!-- JOURNAL-TAB:START -->
+<button data-p="journal"><span class="dot" style="background:var(--lit, #1f6f8b)"></span>Journal Articles</button>
+<!-- JOURNAL-TAB:END -->
 </div></div></nav>
 <div class="srch-wrap"><div class="wrap"><div class="srch-row">
 <svg width="14" height="14" viewBox="0 0 15 15" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="m10.5 10.5 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -313,6 +317,190 @@
   </div>
   <div id="qhost"></div>
 </section>
+
+
+<!-- JOURNAL-ARTICLES:START -->
+<style data-journal-css>
+/* ── Journal Articles section ─────────────────────────────────────────── */
+.ja-standalone {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 2px solid var(--line, #d9d0bd);
+}
+.ja-article {
+  margin-bottom: 24px;
+  padding: 20px 22px 18px;
+  background: var(--paper2, #fbf8f1);
+  border-radius: 10px;
+  box-shadow: var(--shadow, 0 1px 2px rgba(15,61,58,.08), 0 8px 24px rgba(15,61,58,.06));
+}
+.ja-cite {
+  margin: 0 0 10px;
+  line-height: 1.45;
+  font-size: 0.97em;
+}
+.ja-meta {
+  color: var(--muted, #5d6b62);
+  font-size: 0.875em;
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0.01em;
+}
+.ja-meta a {
+  color: var(--lit, #1f6f8b);
+  text-decoration: none;
+}
+.ja-meta a:hover {
+  text-decoration: underline;
+}
+.ja-abstract {
+  border-left: 3px solid var(--lit, #1f6f8b);
+  padding: 10px 14px;
+  margin: 0 0 18px;
+  background: var(--lit-soft, #dcedf2);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.925em;
+  line-height: 1.6;
+  color: var(--ink, #0f3d3a);
+}
+.ja-mcq {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line, #d9d0bd);
+}
+.ja-mcq + .ja-mcq {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.ja-q {
+  font-weight: 600;
+  font-size: 0.93em;
+  margin: 0 0 7px;
+  color: var(--ink, #0f3d3a);
+}
+.ja-opts {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ja-opt {
+  font-size: 0.9em;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: var(--ink2, #15514c);
+  background: transparent;
+}
+.ja-opt b {
+  display: inline-block;
+  min-width: 1.5em;
+  color: var(--muted, #5d6b62);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.88em;
+}
+.ja-ans {
+  margin-top: 4px;
+}
+.ja-ans summary {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 0.83em;
+  font-family: "JetBrains Mono", monospace;
+  padding: 3px 10px;
+  border: 1px solid var(--lit, #1f6f8b);
+  border-radius: 5px;
+  color: var(--lit, #1f6f8b);
+  background: transparent;
+  user-select: none;
+  list-style: none;
+}
+.ja-ans summary::-webkit-details-marker { display: none; }
+.ja-ans summary::marker { display: none; }
+.ja-ans summary:hover {
+  background: var(--lit-soft, #dcedf2);
+}
+.ja-ans[open] summary {
+  background: var(--lit-soft, #dcedf2);
+  margin-bottom: 6px;
+}
+.ja-ans-body {
+  font-size: 0.9em;
+  padding: 8px 12px;
+  background: var(--paper, #fdfaf4);
+  border: 1px solid var(--line, #d9d0bd);
+  border-radius: 6px;
+  line-height: 1.55;
+  color: var(--ink, #0f3d3a);
+}
+.ja-ans-correct {
+  font-weight: 600;
+  color: var(--good, #2f7d52);
+  display: block;
+  margin-bottom: 4px;
+}
+.ja-ans-rationale {
+  color: var(--ink2, #15514c);
+}
+</style>
+<section class="panel" id="journal">
+  <h2 class="sec">Additional Resources</h2>
+  <p class="lead">Journal Articles (2021–2026). Exam items are drawn from the abstract only — read each abstract, then self-test.</p>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>The effect of animal shelter sound on cat behaviour and welfare</b><br>
+    <span class="ja-meta">Eagan BH, Gordon E, Fraser D &middot; Animal Welfare &middot; 2021 &middot; <a href="https://doi.org/10.7120/09627286.30.4.006" target="_blank" rel="noopener">10.7120/09627286.30.4.006</a></span></p>
+    <div class="ja-abstract"><b>Abstract.</b> This investigation assessed how sound affected fearand maintenance-related behaviors in single-housed shelter cats. Two daily 30-minute observation sessions (morning and evening) occurred for 98 cats over ten days. Cat behaviour and presence of sound (classified by source) were recorded by instantaneous and one-zero sampling with 15-second intervals. Sessions were classified as 'quiet' or 'noisy' based on median sound levels. Statistical analysis included 70 cats with adequate comparable observations. Males demonstrated less fear and maintenance behavior than females. Morning sessions consistently had much more sound than evenings, and cats showed more fear behaviour and less maintenance behaviour in the mornings. Cats exhibited more fear responses during noisy morning sessions compared to quiet ones. When sound transitioned from quiet to noisy, fear-related behaviour increased; transitions from noisy to quiet showed decreased fear behaviours. The findings indicate that shelter cats vary significantly in responsiveness, and environmental sound substantially influences their conduct. The researchers conclude that reducing shelter noise levels may enhance overall welfare outcomes for cats.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">In Eagan et al. 2021, what time-of-day pattern was found in shelter cat fear behavior?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Fear behavior was higher in evening sessions, which had more sound</li>
+          <li class="ja-opt"><b>B.</b> Fear behavior was higher in morning sessions, which consistently had more sound</li>
+          <li class="ja-opt"><b>C.</b> Fear behavior was equal between morning and evening sessions regardless of sound level</li>
+          <li class="ja-opt"><b>D.</b> Fear behavior was highest at midday and declined in both morning and evening sessions</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Fear behavior was higher in morning sessions, which consistently had more sound</span>
+            <span class="ja-ans-rationale">The abstract states &#x27;morning sessions consistently had much more sound than evenings, and cats showed more fear behaviour and less maintenance behaviour in the mornings,&#x27; indicating sound level drove the time-of-day pattern.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">According to Eagan et al. 2021, what practical recommendation did the authors make based on their findings about shelter sound and cat welfare?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Cats should be housed in separate rooms from dogs to reduce fear</li>
+          <li class="ja-opt"><b>B.</b> All shelter cats should receive anxiolytics to reduce sound-related stress</li>
+          <li class="ja-opt"><b>C.</b> Reducing shelter noise levels may enhance welfare outcomes for cats</li>
+          <li class="ja-opt"><b>D.</b> Cats should be moved to quieter areas only during morning cleaning periods</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Reducing shelter noise levels may enhance welfare outcomes for cats</span>
+            <span class="ja-ans-rationale">The abstract concludes &#x27;reducing shelter noise levels may enhance overall welfare outcomes for cats,&#x27; based on the finding that noisy conditions were associated with increased fear behavior and decreased maintenance behavior.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In Eagan et al. 2021, what sex difference was found in shelter cat responses to sound?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Female cats showed less fear behavior than males in noisy conditions</li>
+          <li class="ja-opt"><b>B.</b> Male cats demonstrated less fear and maintenance behavior than females</li>
+          <li class="ja-opt"><b>C.</b> No sex differences were found in response to shelter sound</li>
+          <li class="ja-opt"><b>D.</b> Male cats had higher fear scores but lower maintenance behavior than females</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Male cats demonstrated less fear and maintenance behavior than females</span>
+            <span class="ja-ans-rationale">The abstract states &#x27;males demonstrated less fear and maintenance behavior than females,&#x27; suggesting female shelter cats may be more vulnerable to sound-related stress and may benefit most from noise reduction efforts.</span>
+          </div>
+        </details>
+      </div>
+  </div>
+</section>
+<!-- JOURNAL-ARTICLES:END -->
 
 </div></main>
 

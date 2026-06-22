@@ -143,6 +143,10 @@
   <button data-p="welfare"><span class="dot"></span>Welfare, Legal &amp; Perception</button>
   <button data-p="dogbites"><span class="dot"></span>Dog Bites &amp; Public Safety</button>
   <button data-p="mcq"><span class="dot" style="background:var(--ink)"></span>MCQ Bank (24)</button>
+
+<!-- JOURNAL-TAB:START -->
+<button data-p="journal"><span class="dot" style="background:var(--lit, #1f6f8b)"></span>Journal Articles</button>
+<!-- JOURNAL-TAB:END -->
 </div></div></nav>
 <div class="srch-wrap"><div class="wrap"><div class="srch-row">
 <svg width="14" height="14" viewBox="0 0 15 15" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="m10.5 10.5 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -572,6 +576,174 @@
   </div>
   <div id="qhost"></div>
 </section>
+
+
+<!-- JOURNAL-ARTICLES:START -->
+<style data-journal-css>
+/* ── Journal Articles section ─────────────────────────────────────────── */
+.ja-standalone {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 2px solid var(--line, #d9d0bd);
+}
+.ja-article {
+  margin-bottom: 24px;
+  padding: 20px 22px 18px;
+  background: var(--paper2, #fbf8f1);
+  border-radius: 10px;
+  box-shadow: var(--shadow, 0 1px 2px rgba(15,61,58,.08), 0 8px 24px rgba(15,61,58,.06));
+}
+.ja-cite {
+  margin: 0 0 10px;
+  line-height: 1.45;
+  font-size: 0.97em;
+}
+.ja-meta {
+  color: var(--muted, #5d6b62);
+  font-size: 0.875em;
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0.01em;
+}
+.ja-meta a {
+  color: var(--lit, #1f6f8b);
+  text-decoration: none;
+}
+.ja-meta a:hover {
+  text-decoration: underline;
+}
+.ja-abstract {
+  border-left: 3px solid var(--lit, #1f6f8b);
+  padding: 10px 14px;
+  margin: 0 0 18px;
+  background: var(--lit-soft, #dcedf2);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.925em;
+  line-height: 1.6;
+  color: var(--ink, #0f3d3a);
+}
+.ja-mcq {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line, #d9d0bd);
+}
+.ja-mcq + .ja-mcq {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.ja-q {
+  font-weight: 600;
+  font-size: 0.93em;
+  margin: 0 0 7px;
+  color: var(--ink, #0f3d3a);
+}
+.ja-opts {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ja-opt {
+  font-size: 0.9em;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: var(--ink2, #15514c);
+  background: transparent;
+}
+.ja-opt b {
+  display: inline-block;
+  min-width: 1.5em;
+  color: var(--muted, #5d6b62);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.88em;
+}
+.ja-ans {
+  margin-top: 4px;
+}
+.ja-ans summary {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 0.83em;
+  font-family: "JetBrains Mono", monospace;
+  padding: 3px 10px;
+  border: 1px solid var(--lit, #1f6f8b);
+  border-radius: 5px;
+  color: var(--lit, #1f6f8b);
+  background: transparent;
+  user-select: none;
+  list-style: none;
+}
+.ja-ans summary::-webkit-details-marker { display: none; }
+.ja-ans summary::marker { display: none; }
+.ja-ans summary:hover {
+  background: var(--lit-soft, #dcedf2);
+}
+.ja-ans[open] summary {
+  background: var(--lit-soft, #dcedf2);
+  margin-bottom: 6px;
+}
+.ja-ans-body {
+  font-size: 0.9em;
+  padding: 8px 12px;
+  background: var(--paper, #fdfaf4);
+  border: 1px solid var(--line, #d9d0bd);
+  border-radius: 6px;
+  line-height: 1.55;
+  color: var(--ink, #0f3d3a);
+}
+.ja-ans-correct {
+  font-weight: 600;
+  color: var(--good, #2f7d52);
+  display: block;
+  margin-bottom: 4px;
+}
+.ja-ans-rationale {
+  color: var(--ink2, #15514c);
+}
+</style>
+<section class="panel" id="journal">
+  <h2 class="sec">Additional Resources</h2>
+  <p class="lead">Journal Articles (2021–2026). Exam items are drawn from the abstract only — read each abstract, then self-test.</p>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Forensic Death Investigations of Dog Bite Injuries in 31 Cats</b><br>
+    <span class="ja-meta">Hsiou CL, Hsu CC, Liao PW, Yang FH, Lee AN, Huang WH &middot; Animals &middot; 2022 &middot; <a href="https://doi.org/10.3390/ani12182404" target="_blank" rel="noopener">10.3390/ani12182404</a></span></p>
+    <div class="ja-abstract"><b>Abstract.</b> This forensic veterinary study analyzed bite injury patterns in 31 necropsied cats and applied DNA analysis for species identification. Researchers found that puncture wounds, linear or small round contusions/abrasions, and lacerations/avulsions are characteristic bite-related injuries. The examination of 31 cats revealed the most commonly injured regions included the ventral thorax, hindlimbs, shoulder-to-dorsal thorax, back, abdomen, neck, and hip/tail/perineum. Canine mitochondrial DNA was successfully identified in wound swabs and hair samples from broken claws. The study provided an applicable method for canine DNA identification in cats and reference data for future veterinary forensic investigations of dog bite injuries.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">In a forensic necropsy study of 31 cats with suspected dog bite injuries, what molecular technique was used to confirm canine involvement?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Nuclear DNA STR profiling of saliva swabs</li>
+          <li class="ja-opt"><b>B.</b> Canine mitochondrial DNA identification from wound swabs and hair in broken claws</li>
+          <li class="ja-opt"><b>C.</b> Serological species-specific antibody testing</li>
+          <li class="ja-opt"><b>D.</b> Scanning electron microscopy of bite mark morphology</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Canine mitochondrial DNA identification from wound swabs and hair in broken claws</span>
+            <span class="ja-ans-rationale">Canine mitochondrial DNA was successfully identified in wound swabs and hair samples from broken claws, providing a forensic species identification method applicable in veterinary cruelty cases.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">Which anatomical regions were most commonly injured in cats with fatal dog bite injuries in this forensic investigation?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Head, ears, and orbital region</li>
+          <li class="ja-opt"><b>B.</b> Ventral thorax, hindlimbs, and shoulder-to-dorsal thorax area</li>
+          <li class="ja-opt"><b>C.</b> Distal limbs and paw pads exclusively</li>
+          <li class="ja-opt"><b>D.</b> Abdominal flank only</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Ventral thorax, hindlimbs, and shoulder-to-dorsal thorax area</span>
+            <span class="ja-ans-rationale">The ventral thorax, hindlimbs, and shoulder-to-dorsal thorax were among the most commonly injured regions, with additional involvement of back, abdomen, neck, and hip/tail/perineum.</span>
+          </div>
+        </details>
+      </div>
+  </div>
+</section>
+<!-- JOURNAL-ARTICLES:END -->
 
 </div></main>
 
