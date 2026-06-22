@@ -189,6 +189,10 @@
   <button data-p="accesscare"><span class="dot"></span>Accessible Care</button>
   <button data-p="progdesign"><span class="dot"></span>Program Design</button>
   <button data-p="mcq"><span class="dot" style="background:var(--dom-head)"></span>MCQ Bank</button>
+
+<!-- JOURNAL-TAB:START -->
+<button data-p="journal"><span class="dot" style="background:var(--lit, #1f6f8b)"></span>Journal Articles</button>
+<!-- JOURNAL-TAB:END -->
 </div></div></nav>
 
 <main><div class="wrap">
@@ -764,6 +768,190 @@
   </div>
   <div id="qhost"></div>
 </section>
+
+
+<!-- JOURNAL-ARTICLES:START -->
+<style data-journal-css>
+/* ── Journal Articles section ─────────────────────────────────────────── */
+.ja-standalone {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 2px solid var(--line, #d9d0bd);
+}
+.ja-article {
+  margin-bottom: 24px;
+  padding: 20px 22px 18px;
+  background: var(--paper2, #fbf8f1);
+  border-radius: 10px;
+  box-shadow: var(--shadow, 0 1px 2px rgba(15,61,58,.08), 0 8px 24px rgba(15,61,58,.06));
+}
+.ja-cite {
+  margin: 0 0 10px;
+  line-height: 1.45;
+  font-size: 0.97em;
+}
+.ja-meta {
+  color: var(--muted, #5d6b62);
+  font-size: 0.875em;
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0.01em;
+}
+.ja-meta a {
+  color: var(--lit, #1f6f8b);
+  text-decoration: none;
+}
+.ja-meta a:hover {
+  text-decoration: underline;
+}
+.ja-abstract {
+  border-left: 3px solid var(--lit, #1f6f8b);
+  padding: 10px 14px;
+  margin: 0 0 18px;
+  background: var(--lit-soft, #dcedf2);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.925em;
+  line-height: 1.6;
+  color: var(--ink, #0f3d3a);
+}
+.ja-mcq {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line, #d9d0bd);
+}
+.ja-mcq + .ja-mcq {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.ja-q {
+  font-weight: 600;
+  font-size: 0.93em;
+  margin: 0 0 7px;
+  color: var(--ink, #0f3d3a);
+}
+.ja-opts {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ja-opt {
+  font-size: 0.9em;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: var(--ink2, #15514c);
+  background: transparent;
+}
+.ja-opt b {
+  display: inline-block;
+  min-width: 1.5em;
+  color: var(--muted, #5d6b62);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.88em;
+}
+.ja-ans {
+  margin-top: 4px;
+}
+.ja-ans summary {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 0.83em;
+  font-family: "JetBrains Mono", monospace;
+  padding: 3px 10px;
+  border: 1px solid var(--lit, #1f6f8b);
+  border-radius: 5px;
+  color: var(--lit, #1f6f8b);
+  background: transparent;
+  user-select: none;
+  list-style: none;
+}
+.ja-ans summary::-webkit-details-marker { display: none; }
+.ja-ans summary::marker { display: none; }
+.ja-ans summary:hover {
+  background: var(--lit-soft, #dcedf2);
+}
+.ja-ans[open] summary {
+  background: var(--lit-soft, #dcedf2);
+  margin-bottom: 6px;
+}
+.ja-ans-body {
+  font-size: 0.9em;
+  padding: 8px 12px;
+  background: var(--paper, #fdfaf4);
+  border: 1px solid var(--line, #d9d0bd);
+  border-radius: 6px;
+  line-height: 1.55;
+  color: var(--ink, #0f3d3a);
+}
+.ja-ans-correct {
+  font-weight: 600;
+  color: var(--good, #2f7d52);
+  display: block;
+  margin-bottom: 4px;
+}
+.ja-ans-rationale {
+  color: var(--ink2, #15514c);
+}
+</style>
+<section class="panel" id="journal">
+  <h2 class="sec">Additional Resources</h2>
+  <p class="lead">Journal Articles (2021–2026). Exam items are drawn from the abstract only — read each abstract, then self-test.</p>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Unleashing insights from Toronto Humane Society’s urgent care fostering program a community case report</b><br>
+    <span class="ja-meta">Jacklyn J. Ellis, Dillon Dodson, Larisa Nagelberg and Rachel H. Bedder &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2024</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> The Urgent Care (UC) fostering program at the Toronto Humane Society (THS) supports individuals experiencing crisis situations (housing instability, fleeing interpersonal violence, or undergoing healthcare treatments), by providing a no-cost fostering service for their animal(s). All applications to THS’s UC program between January 1, 2020 and October 1, 2022 and all successful admissions to the program during this period were included in this study. There were 358 admissions of 328 unique animals, from 244 families. Seventy-four percent (n = 265) of admitted animals were reunited with their owner. The highest rates of reunion at the end of the program were linked to dogs, requests in support of people fleeing interpersonal violence, consistent or frequent communication with the client, and not requiring veterinary or behavioral care/training beyond standard levels. THS’s UC program presents an inexpensive and effective way to help support people undergoing temporary crises, preserving the human–animal bond, which may help them heal in the aftermath of these crises, and prevent the needless relinquishment of animals to shelters. Through writing this report, opportunities have been identified for improving the program to better serve our community, and details have been provided that might help other organizations operating or planning to launch a similar program.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">The Toronto Humane Society Urgent Care fostering program was designed to serve which population?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Stray animals with no known owner found in the city</li>
+          <li class="ja-opt"><b>B.</b> Individuals experiencing crisis situations such as housing instability, fleeing interpersonal violence, or undergoing healthcare treatments</li>
+          <li class="ja-opt"><b>C.</b> Animals surrendered due to owner behavioral problems</li>
+          <li class="ja-opt"><b>D.</b> Neonatal animals requiring intensive feeding support</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Individuals experiencing crisis situations such as housing instability, fleeing interpersonal violence, or undergoing healthcare treatments</span>
+            <span class="ja-ans-rationale">The abstract states the program supports &quot;individuals experiencing crisis situations (housing instability, fleeing interpersonal violence, or undergoing healthcare treatments).&quot;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the Toronto Humane Society Urgent Care fostering program study (2020–2022), what proportion of admitted animals were ultimately reunited with their owner?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> 52%</li>
+          <li class="ja-opt"><b>B.</b> 85%</li>
+          <li class="ja-opt"><b>C.</b> 74%</li>
+          <li class="ja-opt"><b>D.</b> 90%</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. 74%</span>
+            <span class="ja-ans-rationale">The abstract states &quot;Seventy-four percent (n = 265) of admitted animals were reunited with their owner.&quot;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">Which factor was associated with the HIGHEST rates of reunion in the Toronto Humane Society Urgent Care program?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Animals with no underlying medical conditions and microchipped before admission</li>
+          <li class="ja-opt"><b>B.</b> Dogs, requests linked to fleeing interpersonal violence, and consistent communication with the client</li>
+          <li class="ja-opt"><b>C.</b> Cats admitted by individuals undergoing healthcare treatments</li>
+          <li class="ja-opt"><b>D.</b> Animals requiring no behavioral care but with complex veterinary needs</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Dogs, requests linked to fleeing interpersonal violence, and consistent communication with the client</span>
+            <span class="ja-ans-rationale">The abstract links highest reunion rates to &quot;dogs, requests in support of people fleeing interpersonal violence, consistent or frequent communication with the client, and not requiring veterinary or behavioral care beyond standard levels.&quot;</span>
+          </div>
+        </details>
+      </div>
+  </div>
+</section>
+<!-- JOURNAL-ARTICLES:END -->
 
 </div></main>
 

@@ -133,6 +133,10 @@
   <button data-p="community"><span class="dot"></span>Community Engagement</button>
   <button data-p="planning"><span class="dot"></span>Planning and Protocols</button>
   <button data-p="mcq"><span class="dot" style="background:var(--ink)"></span>MCQ Bank (30)</button>
+
+<!-- JOURNAL-TAB:START -->
+<button data-p="journal"><span class="dot" style="background:var(--lit, #1f6f8b)"></span>Journal Articles</button>
+<!-- JOURNAL-TAB:END -->
 </div></div></nav>
 <div class="srch-wrap"><div class="wrap"><div class="srch-row">
 <svg width="14" height="14" viewBox="0 0 15 15" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="m10.5 10.5 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -581,6 +585,227 @@
   </div>
   <div id="qhost"></div>
 </section>
+
+
+<!-- JOURNAL-ARTICLES:START -->
+<style data-journal-css>
+/* ── Journal Articles section ─────────────────────────────────────────── */
+.ja-standalone {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 2px solid var(--line, #d9d0bd);
+}
+.ja-article {
+  margin-bottom: 24px;
+  padding: 20px 22px 18px;
+  background: var(--paper2, #fbf8f1);
+  border-radius: 10px;
+  box-shadow: var(--shadow, 0 1px 2px rgba(15,61,58,.08), 0 8px 24px rgba(15,61,58,.06));
+}
+.ja-cite {
+  margin: 0 0 10px;
+  line-height: 1.45;
+  font-size: 0.97em;
+}
+.ja-meta {
+  color: var(--muted, #5d6b62);
+  font-size: 0.875em;
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0.01em;
+}
+.ja-meta a {
+  color: var(--lit, #1f6f8b);
+  text-decoration: none;
+}
+.ja-meta a:hover {
+  text-decoration: underline;
+}
+.ja-abstract {
+  border-left: 3px solid var(--lit, #1f6f8b);
+  padding: 10px 14px;
+  margin: 0 0 18px;
+  background: var(--lit-soft, #dcedf2);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.925em;
+  line-height: 1.6;
+  color: var(--ink, #0f3d3a);
+}
+.ja-mcq {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line, #d9d0bd);
+}
+.ja-mcq + .ja-mcq {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.ja-q {
+  font-weight: 600;
+  font-size: 0.93em;
+  margin: 0 0 7px;
+  color: var(--ink, #0f3d3a);
+}
+.ja-opts {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ja-opt {
+  font-size: 0.9em;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: var(--ink2, #15514c);
+  background: transparent;
+}
+.ja-opt b {
+  display: inline-block;
+  min-width: 1.5em;
+  color: var(--muted, #5d6b62);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.88em;
+}
+.ja-ans {
+  margin-top: 4px;
+}
+.ja-ans summary {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 0.83em;
+  font-family: "JetBrains Mono", monospace;
+  padding: 3px 10px;
+  border: 1px solid var(--lit, #1f6f8b);
+  border-radius: 5px;
+  color: var(--lit, #1f6f8b);
+  background: transparent;
+  user-select: none;
+  list-style: none;
+}
+.ja-ans summary::-webkit-details-marker { display: none; }
+.ja-ans summary::marker { display: none; }
+.ja-ans summary:hover {
+  background: var(--lit-soft, #dcedf2);
+}
+.ja-ans[open] summary {
+  background: var(--lit-soft, #dcedf2);
+  margin-bottom: 6px;
+}
+.ja-ans-body {
+  font-size: 0.9em;
+  padding: 8px 12px;
+  background: var(--paper, #fdfaf4);
+  border: 1px solid var(--line, #d9d0bd);
+  border-radius: 6px;
+  line-height: 1.55;
+  color: var(--ink, #0f3d3a);
+}
+.ja-ans-correct {
+  font-weight: 600;
+  color: var(--good, #2f7d52);
+  display: block;
+  margin-bottom: 4px;
+}
+.ja-ans-rationale {
+  color: var(--ink2, #15514c);
+}
+</style>
+<section class="panel" id="journal">
+  <h2 class="sec">Additional Resources</h2>
+  <p class="lead">Journal Articles (2021–2026). Exam items are drawn from the abstract only — read each abstract, then self-test.</p>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Unlocking Collaborative Dynamics Exploring Veterinarian Leadership Relationships in Animal Shelters</b><br>
+    <span class="ja-meta">Clinton Ross Mauck, Marjorie Robin Vincent and Jyothi Vinnakota Robertson &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2025</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Introduction: Veterinarians and organizational leaders play crucial roles in the success of animal shelters. Although both groups share a common mission, differing priorities and perspectives may lead to challenges that affect organizational success. This study explored attitudes of veterinarians and leaders toward collaboration and provides recommendations to enhance organizational effectiveness. Methods: An online survey collected data from 179 veterinarians and leaders of animal sheltering organizations on attitudes toward veterinarian-leader collaboration between June and August 2023. A composite score of Likert-type items measured attitudes toward veterinarian-leader relationship effectiveness (ATVLRE). Statistical tests compared responses across groups, while qualitative analysis identified recurring themes. Results: Differences were identified in ATVLRE among non-veterinarian leaders, veterinarian leaders, and veterinarian non-leaders. Non-veterinarian leaders reported the highest positive ATVLRE (M = 4.0, SD = 0.6), followed by veterinarian leaders (M = 3.7, SD = 1.0) and veterinarian non-leaders (M = 3.1, SD = 0.9). Statistically significant differences were found between these groups, particularly between non-veterinarian leaders and veterinarian non-leaders (Cohen d = 1.1). The most reported challenge for veterinarian non-leaders was ‘lack of effective communication’ (70%; n = 31/44), compared to veterinarian leaders (54%; n = 27/50) and non-veterinarian leaders (27%; n = 22/27). Additionally, ‘differences in priorities or conflicting goals’ were the top challenge for veterinarian leaders (66%; n = 33/50), while non-veterinarian leaders most frequently cited ‘managing expectations and demands’ (55%; n = 45/82). Communication was the primary contributor to successful relationships across all groups (68%; n = 122/179). Conclusion: This study revealed distinct attitudes within animal shelters and identified the critical role of communication in effective collaboration. Despite divergent attitudes, all groups emphasized constructive communication for fostering successful veterinarian-leader relationships. Understanding role-based perceptions can guide strategies to enhance organizational effectiveness and improve animal welfare. Keywords: veterinarian; leadership; shelter medicine; animal shelter; communication T he success of animal shelters in the United States and Canada hinges on the collaborative relationship between veterinarians and organizational sibilities. Traditionally, leaders focus on areas such as inarians are responsible for the health and welfare of inarians also take on leadership roles, balancing medical decision-making with broader organizational needs.4 While veterinarian non-leaders, veterinarian leaders, and non-veterinarian leaders share the common goal of Attribution 4.0 International License (http://creativecommons.org/licenses/by/4.0/), allowing third parties to copy and redistribute the material in any medium or format and to remix, transform, and build upon the material for any purpose, even commercially, provided the original work is properly cited and states its license.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the study exploring veterinarian-leader collaboration in animal shelters, which group reported the HIGHEST positive attitudes toward veterinarian-leader relationship effectiveness (ATVLRE)?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Veterinarian non-leaders (M = 3.1)</li>
+          <li class="ja-opt"><b>B.</b> Veterinarian leaders (M = 3.7)</li>
+          <li class="ja-opt"><b>C.</b> Non-veterinarian leaders (M = 4.0)</li>
+          <li class="ja-opt"><b>D.</b> All groups reported equivalent ATVLRE scores</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Non-veterinarian leaders (M = 4.0)</span>
+            <span class="ja-ans-rationale">The abstract states: &#x27;Non-veterinarian leaders reported the highest positive ATVLRE (M = 4.0, SD = 0.6), followed by veterinarian leaders (M = 3.7) and veterinarian non-leaders (M = 3.1).&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">According to the shelter veterinarian-leader collaboration study, what was the most reported challenge specifically for VETERINARIAN NON-LEADERS?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Differences in priorities or conflicting goals</li>
+          <li class="ja-opt"><b>B.</b> Managing expectations and demands</li>
+          <li class="ja-opt"><b>C.</b> Lack of effective communication</li>
+          <li class="ja-opt"><b>D.</b> Insufficient resources for medical care</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Lack of effective communication</span>
+            <span class="ja-ans-rationale">The abstract states that the most reported challenge for veterinarian non-leaders was &#x27;lack of effective communication&#x27; (70%; n = 31/44), compared to the other groups whose top challenges differed.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the veterinarian-leader collaboration study, what was identified as the primary contributor to SUCCESSFUL RELATIONSHIPS across ALL groups?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Shared financial decision-making authority</li>
+          <li class="ja-opt"><b>B.</b> Clearly defined roles and organizational hierarchy</li>
+          <li class="ja-opt"><b>C.</b> Communication</li>
+          <li class="ja-opt"><b>D.</b> Alignment on euthanasia decision-making processes</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Communication</span>
+            <span class="ja-ans-rationale">The abstract states: &#x27;Communication was the primary contributor to successful relationships across all groups (68%; n = 122/179).&#x27;</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Veterinarian of Record Relationships for Animal Shelters Differences in Expectations between Veterinarians and Nonveterinarian Shelter Administrators</b><br>
+    <span class="ja-meta">Sara R. Almcrantz, Emily J. Walz and Terry G. Spencer &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2024</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Veterinarian of record relationships (VoRRs) are nonregulated business agreements between animal shelters, veterinarians, and distributors that allow resource-limited organizations to purchase wholesale medical supplies. Anecdotally, animal shelters report difficulty retaining veterinarians to serve as Veterinarians of record (VoRs) and veterinarians report reluctance to work with animal shelters, resulting in increased expenses for the organizations and diminished access to veterinary care for their populations. We distributed an anonymous, online survey to explore the motivations and expectations of a VoRR from the perspective of the animal shelter administrator and the potential VoR. The primary motivators to enter a VoRR and concerns about a VoRR differed between veterinarian and nonveterinarian respondents. Specifically, veterinarians were significantly more concerned than nonveterinarian administrators about adherence to the legal requirements to fulfill a veterinary-client-patient relationship (VCPR). Additionally, veterinarians expected significantly higher compensation for veterinary services than shelter administrators expected to provide. These findings suggest a potential disconnect between shelters and veterinarians regarding financial, legal, and ethical aspects of VoRRs, possibly leading to hesitance among veterinarians to engage in such roles. Describing these differences is the first step in determining how to bridge these expectation gaps toward the joint goal of improving welfare for animals in shelter settings.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the study on Veterinarian of Record Relationships (VoRRs) for animal shelters, what was the PRIMARY legal concern more frequently reported by VETERINARIANS than by nonveterinarian administrators?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Liability for negligent medical decisions made by shelter staff</li>
+          <li class="ja-opt"><b>B.</b> Adherence to legal requirements to fulfill a veterinary-client-patient relationship (VCPR)</li>
+          <li class="ja-opt"><b>C.</b> State licensing board restrictions on telepharmacy dispensing</li>
+          <li class="ja-opt"><b>D.</b> Controlled substance regulations for drug ordering and storage</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Adherence to legal requirements to fulfill a veterinary-client-patient relationship (VCPR)</span>
+            <span class="ja-ans-rationale">The abstract states: &#x27;Veterinarians were significantly more concerned than nonveterinarian administrators about adherence to the legal requirements to fulfill a veterinary-client-patient relationship (VCPR).&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">Which finding about compensation expectations was identified in the VoRR study between veterinarians and shelter administrators?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Shelter administrators expected to pay more than veterinarians demanded for VoR services</li>
+          <li class="ja-opt"><b>B.</b> Veterinarians expected significantly higher compensation for services than shelter administrators expected to provide</li>
+          <li class="ja-opt"><b>C.</b> Both groups agreed on compensation but disagreed on the scope of services</li>
+          <li class="ja-opt"><b>D.</b> There was no significant difference in compensation expectations between the two groups</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Veterinarians expected significantly higher compensation for services than shelter administrators expected to provide</span>
+            <span class="ja-ans-rationale">The abstract states: &#x27;Veterinarians expected significantly higher compensation for veterinary services than shelter administrators expected to provide,&#x27; suggesting a financial disconnect in VoRR expectations.</span>
+          </div>
+        </details>
+      </div>
+  </div>
+</section>
+<!-- JOURNAL-ARTICLES:END -->
 
 </div></main>
 <footer><div class="wrap">

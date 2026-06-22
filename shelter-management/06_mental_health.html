@@ -155,6 +155,10 @@
   <button data-p="env"><span class="dot"></span>Surgical Suite</button>
   <button data-p="mental"><span class="dot"></span>Mental Health</button>
   <button data-p="mcq"><span class="dot" style="background:var(--ink)"></span>MCQ Bank (30)</button>
+
+<!-- JOURNAL-TAB:START -->
+<button data-p="journal"><span class="dot" style="background:var(--lit, #1f6f8b)"></span>Journal Articles</button>
+<!-- JOURNAL-TAB:END -->
 </div></div></nav>
 <div class="srch-wrap"><div class="wrap"><div class="srch-row">
 <svg width="14" height="14" viewBox="0 0 15 15" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="m10.5 10.5 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -555,6 +559,243 @@
   </div>
   <div id="qhost"></div>
 </section>
+
+
+<!-- JOURNAL-ARTICLES:START -->
+<style data-journal-css>
+/* ── Journal Articles section ─────────────────────────────────────────── */
+.ja-standalone {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 2px solid var(--line, #d9d0bd);
+}
+.ja-article {
+  margin-bottom: 24px;
+  padding: 20px 22px 18px;
+  background: var(--paper2, #fbf8f1);
+  border-radius: 10px;
+  box-shadow: var(--shadow, 0 1px 2px rgba(15,61,58,.08), 0 8px 24px rgba(15,61,58,.06));
+}
+.ja-cite {
+  margin: 0 0 10px;
+  line-height: 1.45;
+  font-size: 0.97em;
+}
+.ja-meta {
+  color: var(--muted, #5d6b62);
+  font-size: 0.875em;
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0.01em;
+}
+.ja-meta a {
+  color: var(--lit, #1f6f8b);
+  text-decoration: none;
+}
+.ja-meta a:hover {
+  text-decoration: underline;
+}
+.ja-abstract {
+  border-left: 3px solid var(--lit, #1f6f8b);
+  padding: 10px 14px;
+  margin: 0 0 18px;
+  background: var(--lit-soft, #dcedf2);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.925em;
+  line-height: 1.6;
+  color: var(--ink, #0f3d3a);
+}
+.ja-mcq {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line, #d9d0bd);
+}
+.ja-mcq + .ja-mcq {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.ja-q {
+  font-weight: 600;
+  font-size: 0.93em;
+  margin: 0 0 7px;
+  color: var(--ink, #0f3d3a);
+}
+.ja-opts {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ja-opt {
+  font-size: 0.9em;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: var(--ink2, #15514c);
+  background: transparent;
+}
+.ja-opt b {
+  display: inline-block;
+  min-width: 1.5em;
+  color: var(--muted, #5d6b62);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.88em;
+}
+.ja-ans {
+  margin-top: 4px;
+}
+.ja-ans summary {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 0.83em;
+  font-family: "JetBrains Mono", monospace;
+  padding: 3px 10px;
+  border: 1px solid var(--lit, #1f6f8b);
+  border-radius: 5px;
+  color: var(--lit, #1f6f8b);
+  background: transparent;
+  user-select: none;
+  list-style: none;
+}
+.ja-ans summary::-webkit-details-marker { display: none; }
+.ja-ans summary::marker { display: none; }
+.ja-ans summary:hover {
+  background: var(--lit-soft, #dcedf2);
+}
+.ja-ans[open] summary {
+  background: var(--lit-soft, #dcedf2);
+  margin-bottom: 6px;
+}
+.ja-ans-body {
+  font-size: 0.9em;
+  padding: 8px 12px;
+  background: var(--paper, #fdfaf4);
+  border: 1px solid var(--line, #d9d0bd);
+  border-radius: 6px;
+  line-height: 1.55;
+  color: var(--ink, #0f3d3a);
+}
+.ja-ans-correct {
+  font-weight: 600;
+  color: var(--good, #2f7d52);
+  display: block;
+  margin-bottom: 4px;
+}
+.ja-ans-rationale {
+  color: var(--ink2, #15514c);
+}
+</style>
+<section class="panel" id="journal">
+  <h2 class="sec">Additional Resources</h2>
+  <p class="lead">Journal Articles (2021–2026). Exam items are drawn from the abstract only — read each abstract, then self-test.</p>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>“I‘m tired in my bones“_ Associations Between Adverse Childhood Experiences, Secondary Traumatic Stress, and Professional Quality of Life in Animal Shelter Workers</b><br>
+    <span class="ja-meta">Associations Between Adverse Childhood Experiences, Secondary Traumatic &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2025 &middot; <a href="https://doi.org/10.56771/jsmcah.v4.137" target="_blank" rel="noopener">10.56771/jsmcah.v4.137</a></span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Introduction Animal Shelter workers (ASW) provide direct care for animals that may be lost, homeless, neglected, or abused and may be at increased risk for occupational trauma.1 Animal shelter workers report higher anger, anxiety, depression and fatigue scores than the general population.2 Adverse Childhood Experiences (ACEs) are traumatic or stressful events that occur during childhood, potentially impacting a person's health and well-being throughout their life. ACEs are quantified as a count of adverse events ranging from 0 to 10. A score of 4 or higher indicates a clinically significant increase in risk for mental health conditions, chronic physical diseases, substance abuse, and shortened lifespan, with the higher the score, the greater the risk.3 It is estimated that 5-10% of the general population has a score of at least 4. This study sought to determine whether there is an association between ACEs score, secondary traumatic stress, professional quality of life measures, and method of co-regulation. Methods University of Tennessee College of Veterinary Medicine (UTCVM) collaborated with veterinary social workers from the College of Social Work to provide an on-site “lunch and learn” aimed to provide strategies to improve the mental health and well-being of ASW. Animal shelters located throughout the Tennessee Valley and within a 65-mile radius of Knoxville, Tennessee, were eligible for inclusion, and all full or part-time ASWs were invited to participate, regardless of their position or length of employment. ASWs were invited to participate in a ten-minute survey that combined indicators of adverse childhood events, secondary traumatic stress, and professional quality of life as measured by the ACEs scale, Secondary Traumatic Stress Scale (STSS), and Professional Quality of Life (PQoL) tools, respectively. Correlations were measured using Spearman’s rho. Results Surveys were collected and analyzed from 134 ASWs from 15 animal shelters. Over 50% of the ASWs had an ACEs score of 4 or greater, with a mean of 4 (SD 2.7) and mode of 5 (n=24). ACEs were significantly correlated with STSS scores, both for the total (r = 0.4, P &lt; 0.001) and on the subscales of intrusion (r = 0.3, P = 0.001), avoidance (r = 0.4, P &lt; 0.001), and arousal (r = 0.4, P &lt; 0.001). ACEs were also strongly correlated with PQoL) scores in burnout (r = 0.3, P &lt; 0.001) and trauma (r = 0.4, P &lt; 0.001), but not compassion (r=-0.1, p=0.433). As ACEs score increased, use of friends and family for emotional co-regulation decreased, both r = -0.2 and P = 0.006 and 0.023, respectively. Conclusion People who have more adverse childhood experiences may gravitate toward shelter work and rely more upon pets than family or friends for emotional co-regulation. ASW may benefit from mental health strategies that focus on self-compassion. DOWNLOADS PUBLISHED 2025-04-28 ISSUE Vol. 4 No. S1 (2025): 2025 ABVP Abstracts SECTION ABVP Abstracts LICENSE Copyright (c) 2025 The Authors This work is licensed under a Creative Commons Attribution 4.0 International License. HOW TO CITE Weisent J, Conklin S, DeBolt R, Strand E, Lufkin A, Norris J. “I‘m tired in my bones“: Associations Between Adverse Childhood Experiences, Secondary Traumatic Stress, and Professional Quality of Life in Animal Shelter Workers [Abstract]. JSMCAH. 2025;4(S1). doi:10.56771/jsmcah.v4.137 MORE CITATION FORMATS</div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the study examining ACEs and secondary traumatic stress in animal shelter workers (ASW) in Tennessee, what proportion of ASWs had an ACEs score of 4 or greater?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Approximately 5–10% (similar to the general population)</li>
+          <li class="ja-opt"><b>B.</b> Approximately 25%</li>
+          <li class="ja-opt"><b>C.</b> Over 50%</li>
+          <li class="ja-opt"><b>D.</b> Approximately 40%</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Over 50%</span>
+            <span class="ja-ans-rationale">The abstract states: &#x27;Over 50% of the ASWs had an ACEs score of 4 or greater,&#x27; compared to an estimated 5–10% in the general population — indicating a substantially elevated rate of adverse childhood experiences.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">According to the ACEs and shelter worker study, as ACEs score increased, what pattern was observed in methods of emotional co-regulation?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Reliance on professional mental health services increased significantly</li>
+          <li class="ja-opt"><b>B.</b> Use of friends and family for emotional co-regulation decreased</li>
+          <li class="ja-opt"><b>C.</b> Reliance on pets for co-regulation decreased significantly</li>
+          <li class="ja-opt"><b>D.</b> Both professional support and peer support decreased equally</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Use of friends and family for emotional co-regulation decreased</span>
+            <span class="ja-ans-rationale">The abstract states: &#x27;As ACEs score increased, use of friends and family for emotional co-regulation decreased (both r = -0.2 and P = 0.006 and 0.023, respectively),&#x27; suggesting a shift toward other sources such as pets.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the ACEs study of animal shelter workers, which ProQOL measure was NOT significantly correlated with ACEs score?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Burnout</li>
+          <li class="ja-opt"><b>B.</b> Secondary traumatic stress</li>
+          <li class="ja-opt"><b>C.</b> Compassion satisfaction</li>
+          <li class="ja-opt"><b>D.</b> Trauma subscale</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Compassion satisfaction</span>
+            <span class="ja-ans-rationale">The abstract reports that ACEs were correlated with burnout (r = 0.3) and trauma (r = 0.4), but NOT with compassion satisfaction (r = -0.1, p = 0.433).</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Measures of Well-Being in U.S. Animal Shelter Staff During 2023</b><br>
+    <span class="ja-meta">Peter J. Wolf, Maureen Gillespie and Chris Segrin &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2024</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Introduction: The demands of animal shelter work can take a toll on staff well-being. The years following the coronavirus pandemic have been especially demanding as shelters struggle to navigate a series of unprecedented challenges, including pandemic-related restrictions, the shortage of veterinary professionals, adoptions not keeping pace with increasing animal admissions (especially of dogs), the expiration of eviction moratoriums, and rising inflation. These factors create a context that is potentially deleterious to the well-being of shelter staff. Methods: We used an online survey to collect information from U.S. shelter staff (N = 243). Specifically, we used the Patient-Reported Outcomes Measurement Information System (PROMIS) and Professional Quality of Life (ProQOL) instruments to quantify various aspects of staff well-being. We also collected basic demographic information and details about participants’ experience in the animal welfare field. Results: PROMIS results reveal mean anger, anxiety, depression, and fatigue scores in the mild/moderate range, significantly higher than those of the general U.S. population. ProQOL results show that nearly half of shelter staff respondents (49.4%) recorded compassion satisfaction scores in the high range, with the remainder falling into the moderate (39.1%) or low (11.5%) range; 53.5% recorded burnout scores in the high range, with the remainder falling into the moderate (32.1%) or low (14.4%) range; and 90.9% recorded secondary traumatic stress scores in the high range, with the remainder falling into the moderate (8.2%) or low (0.8%) range. Conclusion: Although the shelter staff surveyed reported high levels of job satisfaction, their high burnout and secondary traumatic stress scores, and lower mental and physical health scores raise serious concerns about employee well-being and potential turnover following the coronavirus pandemic. If much of the trauma that comes with animal sheltering work cannot be avoided, policymakers should consider providing shelter staff with the resources necessary to mitigate its impact. Keywords: animal shelters; burnout; compassion fatigue; COVID-19; PROMIS; ProQOL; well-being A nimal shelter work encompasses a broad range of officer), whereas others are more administrative in nature (e.g. adoption coordinator and executive director). Each of these roles likely has its own stresses – those of an adoption coordinator being different from those of a shelter’s field serto the stresses associated with each role. But even in the largest shelters, where roles and responsibilities are more narrowly defined, the pressure to provide the best outcome for each animal in one’s care is likely felt by all shelter staff. Much of the information provided here was first published and posted on the BFAS website in September 2023. International License (http://creativecommons.org/licenses/by/4.0/), allowing third parties to copy and redistribute the material in any medium or format and to remix, transform, and build upon the material for any purpose, even commercially, provided the original work is properly cited and states its license.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the 2023 survey of U.S. animal shelter staff well-being using PROMIS and ProQOL instruments, what percentage of respondents had secondary traumatic stress scores in the HIGH range?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> 49.4%</li>
+          <li class="ja-opt"><b>B.</b> 53.5%</li>
+          <li class="ja-opt"><b>C.</b> 68.0%</li>
+          <li class="ja-opt"><b>D.</b> 90.9%</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: D. 90.9%</span>
+            <span class="ja-ans-rationale">The abstract reports that 90.9% of shelter staff recorded secondary traumatic stress scores in the high range — the highest of the three ProQOL subscales measured.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">According to the 2023 well-being survey of U.S. shelter staff, PROMIS scores for anger, anxiety, depression, and fatigue were found to be in what range compared to the general U.S. population?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> In the low/normal range, similar to the general U.S. population</li>
+          <li class="ja-opt"><b>B.</b> In the mild/moderate range, significantly higher than the general U.S. population</li>
+          <li class="ja-opt"><b>C.</b> In the severe range, significantly higher than the general U.S. population</li>
+          <li class="ja-opt"><b>D.</b> In the moderate/severe range, significantly lower than the general U.S. population</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. In the mild/moderate range, significantly higher than the general U.S. population</span>
+            <span class="ja-ans-rationale">The abstract states that &#x27;PROMIS results reveal mean anger, anxiety, depression, and fatigue scores in the mild/moderate range, significantly higher than those of the general U.S. population.&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the 2023 shelter staff well-being survey, what proportion of respondents recorded compassion satisfaction scores in the HIGH range on the ProQOL?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> 39.1%</li>
+          <li class="ja-opt"><b>B.</b> 49.4%</li>
+          <li class="ja-opt"><b>C.</b> 53.5%</li>
+          <li class="ja-opt"><b>D.</b> 90.9%</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. 49.4%</span>
+            <span class="ja-ans-rationale">The abstract states that &#x27;nearly half of shelter staff respondents (49.4%) recorded compassion satisfaction scores in the high range,&#x27; with the remainder in the moderate (39.1%) or low (11.5%) range.</span>
+          </div>
+        </details>
+      </div>
+  </div>
+</section>
+<!-- JOURNAL-ARTICLES:END -->
 
 </div></main>
 

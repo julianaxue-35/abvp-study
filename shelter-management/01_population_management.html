@@ -147,6 +147,10 @@
   <button data-p="outcomes"><span class="dot"></span>Outcomes &amp; Planning</button>
   <button data-p="foster"><span class="dot"></span>Foster Care</button>
   <button data-p="mcq"><span class="dot" style="background:var(--ink)"></span>MCQ Bank (61)</button>
+
+<!-- JOURNAL-TAB:START -->
+<button data-p="journal"><span class="dot" style="background:var(--lit, #1f6f8b)"></span>Journal Articles</button>
+<!-- JOURNAL-TAB:END -->
 </div></div></nav>
 <div class="srch-wrap"><div class="wrap"><div class="srch-row">
 <svg width="14" height="14" viewBox="0 0 15 15" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="m10.5 10.5 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -834,6 +838,174 @@
   </div>
   <div id="qhost"></div>
 </section>
+
+
+<!-- JOURNAL-ARTICLES:START -->
+<style data-journal-css>
+/* ── Journal Articles section ─────────────────────────────────────────── */
+.ja-standalone {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 2px solid var(--line, #d9d0bd);
+}
+.ja-article {
+  margin-bottom: 24px;
+  padding: 20px 22px 18px;
+  background: var(--paper2, #fbf8f1);
+  border-radius: 10px;
+  box-shadow: var(--shadow, 0 1px 2px rgba(15,61,58,.08), 0 8px 24px rgba(15,61,58,.06));
+}
+.ja-cite {
+  margin: 0 0 10px;
+  line-height: 1.45;
+  font-size: 0.97em;
+}
+.ja-meta {
+  color: var(--muted, #5d6b62);
+  font-size: 0.875em;
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0.01em;
+}
+.ja-meta a {
+  color: var(--lit, #1f6f8b);
+  text-decoration: none;
+}
+.ja-meta a:hover {
+  text-decoration: underline;
+}
+.ja-abstract {
+  border-left: 3px solid var(--lit, #1f6f8b);
+  padding: 10px 14px;
+  margin: 0 0 18px;
+  background: var(--lit-soft, #dcedf2);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.925em;
+  line-height: 1.6;
+  color: var(--ink, #0f3d3a);
+}
+.ja-mcq {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line, #d9d0bd);
+}
+.ja-mcq + .ja-mcq {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.ja-q {
+  font-weight: 600;
+  font-size: 0.93em;
+  margin: 0 0 7px;
+  color: var(--ink, #0f3d3a);
+}
+.ja-opts {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ja-opt {
+  font-size: 0.9em;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: var(--ink2, #15514c);
+  background: transparent;
+}
+.ja-opt b {
+  display: inline-block;
+  min-width: 1.5em;
+  color: var(--muted, #5d6b62);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.88em;
+}
+.ja-ans {
+  margin-top: 4px;
+}
+.ja-ans summary {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 0.83em;
+  font-family: "JetBrains Mono", monospace;
+  padding: 3px 10px;
+  border: 1px solid var(--lit, #1f6f8b);
+  border-radius: 5px;
+  color: var(--lit, #1f6f8b);
+  background: transparent;
+  user-select: none;
+  list-style: none;
+}
+.ja-ans summary::-webkit-details-marker { display: none; }
+.ja-ans summary::marker { display: none; }
+.ja-ans summary:hover {
+  background: var(--lit-soft, #dcedf2);
+}
+.ja-ans[open] summary {
+  background: var(--lit-soft, #dcedf2);
+  margin-bottom: 6px;
+}
+.ja-ans-body {
+  font-size: 0.9em;
+  padding: 8px 12px;
+  background: var(--paper, #fdfaf4);
+  border: 1px solid var(--line, #d9d0bd);
+  border-radius: 6px;
+  line-height: 1.55;
+  color: var(--ink, #0f3d3a);
+}
+.ja-ans-correct {
+  font-weight: 600;
+  color: var(--good, #2f7d52);
+  display: block;
+  margin-bottom: 4px;
+}
+.ja-ans-rationale {
+  color: var(--ink2, #15514c);
+}
+</style>
+<section class="panel" id="journal">
+  <h2 class="sec">Additional Resources</h2>
+  <p class="lead">Journal Articles (2021–2026). Exam items are drawn from the abstract only — read each abstract, then self-test.</p>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Revisiting Pre-Mortem Risk Factors for Mortality in Kittens Less Than 8 Weeks Old After Switching to a Foster Care-Based Kitten Rearing Model</b><br>
+    <span class="ja-meta">Revisiting Pre-Mortem Risk Factors for Mortality in &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2024 &middot; <a href="https://doi.org/10.56771/jsmcah.v3.97" target="_blank" rel="noopener">10.56771/jsmcah.v3.97</a></span></p>
+    <div class="ja-abstract"><b>Abstract.</b> The purpose of this study was to reassess predictors of mortality in underage kittens in a foster-care based kitten rearing model. The medical records of kittens &lt;8 weeks reared in a kitten nursery/foster-care based program in New York City during 2021 were examined. The data collected included signalment (estimated age and weight at intake, sex), physical findings (body condition score [BCS]), clinical signs (weight loss, anorexia, diarrhea, and upper respiratory tract infection [URI]), diagnoses (panleukopenia, trauma), how early in the feline breeding season the kitten entered (April-November), and whether the kitten had died or was euthanized. The data were analyzed using Cox proportional hazard modeling with 595 kittens to identify risk factors associated with any death or euthanasia. Elevated risk of dying was found for kittens in the lightest weight group (almost 12 times), exhibiting weight loss (6 times greater), exhibiting anorexia (15 times greater), diagnosed with trauma (5 times greater), and experiencing diarrhea (almost 3 times greater). These findings identify similar clinical signs that can serve as prognostic indicators for underage kitten survival in both a shelter/rescue setting and foster-care based setting and can aid in enhancing protocols for monitoring, intervention, and euthanasia decision-making. DOWNLOADS PUBLISHED 2024-05-20 ISSUE Vol. 3 No. S1 (2024): 2024 ABVP Abstracts SECTION ABVP Abstracts LICENSE Copyright (c) 2024 AK Bliss, ED Dolan, E Doyle This work is licensed under a Creative Commons Attribution 4.0 International License. HOW TO CITE Bliss A, Dolan E, Doyle E. Revisiting Pre-Mortem Risk Factors for Mortality in Kittens Less Than 8 Weeks Old After Switching to a Foster Care-Based Kitten Rearing Model [Abstract]. JSMCAH. 2024;3(S1). doi:10.56771/jsmcah.v3.97 MORE CITATION FORMATS The Journal of Shelter Medicine and Community Animal Health (JSMCAH) is a societypublished, open-access, continuous publication, peer-reviewed journal of the Association of Shelter Veterinarians. JSMCAH publishes research that advances shelter and community animal health, welfare, and access to veterinary care, promoting evidence-based practices to improve outcomes for animals and the people who care for them. Learn more &gt;&gt; ASV GUIDELINES Read The Association of Shelter Veterinarians’ Guidelines for Humane Rabbit Housing in Animal Shelters Read the second edition of The Guidelines for Standards of Care in Animal Shelters Print copies of the ASV Guidelines are available for a $50 donation to the ASV</div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the study reassessing mortality risk factors in underage kittens in a foster care-based program, which clinical sign was associated with the HIGHEST elevated risk of dying?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Diarrhea (almost 3 times greater risk)</li>
+          <li class="ja-opt"><b>B.</b> Weight loss (6 times greater risk)</li>
+          <li class="ja-opt"><b>C.</b> Anorexia (15 times greater risk)</li>
+          <li class="ja-opt"><b>D.</b> Trauma diagnosis (5 times greater risk)</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Anorexia (15 times greater risk)</span>
+            <span class="ja-ans-rationale">The abstract states that anorexia was associated with a 15 times greater elevated risk of dying — the highest hazard ratio among the clinical signs identified. Lightest weight group was nearly 12 times, weight loss 6 times, trauma 5 times, and diarrhea almost 3 times.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">The kitten mortality study used which analytical method to identify risk factors associated with death or euthanasia in 595 kittens?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Logistic regression with backwards variable selection</li>
+          <li class="ja-opt"><b>B.</b> Pearson Chi-Square testing and Mann-Whitney U tests</li>
+          <li class="ja-opt"><b>C.</b> Cox proportional hazard modeling</li>
+          <li class="ja-opt"><b>D.</b> Adjusted odds ratios using multivariable linear regression</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Cox proportional hazard modeling</span>
+            <span class="ja-ans-rationale">The abstract states: &#x27;The data were analyzed using Cox proportional hazard modeling with 595 kittens to identify risk factors associated with any death or euthanasia.&#x27;</span>
+          </div>
+        </details>
+      </div>
+  </div>
+</section>
+<!-- JOURNAL-ARTICLES:END -->
 
 </div></main>
 

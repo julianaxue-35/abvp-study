@@ -142,6 +142,10 @@
   <button data-p="ecto"><span class="dot"></span>Ectoparasites</button>
   <button data-p="vector"><span class="dot"></span>Vector-Borne &amp; Zoonotic</button>
   <button data-p="mcq"><span class="dot" style="background:#0f3d3a"></span>MCQ Test Bank</button>
+
+<!-- JOURNAL-TAB:START -->
+<button data-p="journal"><span class="dot" style="background:var(--lit, #1f6f8b)"></span>Journal Articles</button>
+<!-- JOURNAL-TAB:END -->
 </div></div></nav>
 <div class="srch-wrap"><div class="wrap"><div class="srch-row">
 <svg width="14" height="14" viewBox="0 0 15 15" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="m10.5 10.5 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -715,6 +719,296 @@
   </div>
   <div id="qhost"></div>
 </section>
+
+
+<!-- JOURNAL-ARTICLES:START -->
+<style data-journal-css>
+/* ── Journal Articles section ─────────────────────────────────────────── */
+.ja-standalone {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 2px solid var(--line, #d9d0bd);
+}
+.ja-article {
+  margin-bottom: 24px;
+  padding: 20px 22px 18px;
+  background: var(--paper2, #fbf8f1);
+  border-radius: 10px;
+  box-shadow: var(--shadow, 0 1px 2px rgba(15,61,58,.08), 0 8px 24px rgba(15,61,58,.06));
+}
+.ja-cite {
+  margin: 0 0 10px;
+  line-height: 1.45;
+  font-size: 0.97em;
+}
+.ja-meta {
+  color: var(--muted, #5d6b62);
+  font-size: 0.875em;
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0.01em;
+}
+.ja-meta a {
+  color: var(--lit, #1f6f8b);
+  text-decoration: none;
+}
+.ja-meta a:hover {
+  text-decoration: underline;
+}
+.ja-abstract {
+  border-left: 3px solid var(--lit, #1f6f8b);
+  padding: 10px 14px;
+  margin: 0 0 18px;
+  background: var(--lit-soft, #dcedf2);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.925em;
+  line-height: 1.6;
+  color: var(--ink, #0f3d3a);
+}
+.ja-mcq {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line, #d9d0bd);
+}
+.ja-mcq + .ja-mcq {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.ja-q {
+  font-weight: 600;
+  font-size: 0.93em;
+  margin: 0 0 7px;
+  color: var(--ink, #0f3d3a);
+}
+.ja-opts {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ja-opt {
+  font-size: 0.9em;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: var(--ink2, #15514c);
+  background: transparent;
+}
+.ja-opt b {
+  display: inline-block;
+  min-width: 1.5em;
+  color: var(--muted, #5d6b62);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.88em;
+}
+.ja-ans {
+  margin-top: 4px;
+}
+.ja-ans summary {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 0.83em;
+  font-family: "JetBrains Mono", monospace;
+  padding: 3px 10px;
+  border: 1px solid var(--lit, #1f6f8b);
+  border-radius: 5px;
+  color: var(--lit, #1f6f8b);
+  background: transparent;
+  user-select: none;
+  list-style: none;
+}
+.ja-ans summary::-webkit-details-marker { display: none; }
+.ja-ans summary::marker { display: none; }
+.ja-ans summary:hover {
+  background: var(--lit-soft, #dcedf2);
+}
+.ja-ans[open] summary {
+  background: var(--lit-soft, #dcedf2);
+  margin-bottom: 6px;
+}
+.ja-ans-body {
+  font-size: 0.9em;
+  padding: 8px 12px;
+  background: var(--paper, #fdfaf4);
+  border: 1px solid var(--line, #d9d0bd);
+  border-radius: 6px;
+  line-height: 1.55;
+  color: var(--ink, #0f3d3a);
+}
+.ja-ans-correct {
+  font-weight: 600;
+  color: var(--good, #2f7d52);
+  display: block;
+  margin-bottom: 4px;
+}
+.ja-ans-rationale {
+  color: var(--ink2, #15514c);
+}
+</style>
+<section class="panel" id="journal">
+  <h2 class="sec">Additional Resources</h2>
+  <p class="lead">Journal Articles (2021–2026). Exam items are drawn from the abstract only — read each abstract, then self-test.</p>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Prevalence of Gastrointestinal Parasites in Cats and Dogs on Intake to Northern Mississippi Shelters</b><br>
+    <span class="ja-meta">Prevalence of Gastrointestinal Parasites in Cats and Dogs on Intake &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2026</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Animal shelters frequently administer multiple anthelminthic therapies for gastrointestinal parasites to animals on intake, but superfluous use of anthelmintics may contribute to resistance over time. Literature results for gastrointestinal parasite prevalence vary by region. This study’s objective was to evaluate parasite prevalence in animals upon intake to Mississippi shelters and determine risk factors for parasitism. Fecal samples were obtained from cats and dogs and examined via passive floatation. Presence or absence of common parasite eggs was found along with descriptive characteristics of the animal. Multivariable, multilevel logistic regression (SAS9.4) was performed to test for associations (alpha = 0.05). Prevalence for overall parasitism in cats and dogs was 48% (95% confidence interval [CI]: 38.9%–57.2%) and 74% (95% CI: 69.6%–77.3%), respectively. Age and intake type were found to have significant associations with parasitism in cats (P = 0.027, P = 0.015). Age and sex were observed to have significant associations with parasitism in dogs (P = 0.035, P ≤ 0.0001). These findings suggest implications for targeted empirical anthelmintic therapy.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">A study evaluated gastrointestinal parasite prevalence in cats and dogs at northern Mississippi shelters using passive floatation. What were the overall prevalence rates for cats and dogs, respectively?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Cats 28%, dogs 54%</li>
+          <li class="ja-opt"><b>B.</b> Cats 48%, dogs 74%</li>
+          <li class="ja-opt"><b>C.</b> Cats 62%, dogs 81%</li>
+          <li class="ja-opt"><b>D.</b> Cats 35%, dogs 50%</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Cats 48%, dogs 74%</span>
+            <span class="ja-ans-rationale">The abstract reports &#x27;Prevalence for overall parasitism in cats and dogs was 48% (95% CI: 38.9%–57.2%) and 74% (95% CI: 69.6%–77.3%), respectively.&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the Mississippi shelter parasite prevalence study, which factors were found to have significant associations with parasitism in dogs?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Age and intake type</li>
+          <li class="ja-opt"><b>B.</b> Age and sex</li>
+          <li class="ja-opt"><b>C.</b> Sex and intake type</li>
+          <li class="ja-opt"><b>D.</b> Breed and intake type</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Age and sex</span>
+            <span class="ja-ans-rationale">The abstract states: &#x27;Age and sex were observed to have significant associations with parasitism in dogs (P = 0.035, P ≤ 0.0001),&#x27; whereas age and intake type were the significant factors for cats.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">The Mississippi shelter parasite study evaluated whether routine anthelminthic treatment on intake is warranted. What implication do the findings suggest?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Superfluous anthelmintic use is not a concern because resistance is rare in shelter populations</li>
+          <li class="ja-opt"><b>B.</b> The high parasite prevalence supports universal anthelmintic treatment of all animals on intake regardless of species or demographics</li>
+          <li class="ja-opt"><b>C.</b> The findings suggest implications for targeted empirical anthelmintic therapy based on risk factors</li>
+          <li class="ja-opt"><b>D.</b> Passive floatation is insufficiently sensitive to guide anthelmintic treatment decisions in shelters</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. The findings suggest implications for targeted empirical anthelmintic therapy based on risk factors</span>
+            <span class="ja-ans-rationale">The abstract concludes that &#x27;these findings suggest implications for targeted empirical anthelmintic therapy,&#x27; and the study was explicitly motivated by concern that &#x27;superfluous use of anthelmintics may contribute to resistance over time.&#x27;</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Zoonotic and Non Zoonotic Intestinal Parasites in Shelter Dogs at Admission and Before Discharge</b><br>
+    <span class="ja-meta">Zoonotic and Non-Zoonotic Intestinal Parasites in Shelter Dogs &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2023</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Introduction: The prevalence of intestinal parasites, notably zoonotic ascarids and hookworms, is higher in shelter dogs, compared to dogs in homes, making parasite control within shelter facilities a public health priority. Objective: The objective of the study reported here was to measure and compare the frequency of dogs infected with zoonotic or non-zoonotic intestinal parasites at admission and before discharge at a shelter facility. Methods: Ninety-two dogs were tested for diagnosis of intestinal parasites at admission and before discharge. Results: At admission, 50/92 (54%) dogs were diagnosed with intestinal parasites. Most dogs (43/50) were diagnosed with mono-infections with Ancylostoma spp., or co-infections with Ancylostoma spp. and Toxocara sp. or non-zoonotic parasites. Sixty-five dogs had a complete fecal study performed, which included an intake and exit sample analyzed for presence of parasite ova. Among the 65 study dogs, the frequency of dogs with intestinal parasites was lower before discharge (23 or 35%), compared to that at admission (33 or 50%) (P = 0.02). Fifty-one of 65 (78%) dogs were adopted, transferred to an outside rescue facility, or returned to their owners. Of these 51 dogs that left the shelter during the study period, 16/51 (31%) dogs were infected with intestinal parasites, and 8 of the 16 infected dogs were diagnosed with zoonotic parasites. Finally, among 37 dogs that tested negative and 28 that tested positive to zoonotic parasites at admission and re-tested later, four (11%) and six (21%) dogs, respectively, tested positive to zoonotic parasites when tested later. Conclusion: The frequency of shelter dogs infected with intestinal parasites at admission and before discharge was high (≥35%), and most infections were caused by Ancylostoma spp., an intestinal parasite in dogs that can be transmitted to humans, particularly children. We offer health policy options that shelter veterinarians/managers and local policymakers can consider for possible implementation and evaluation. Keywords: intestinal parasite; zoonotic parasite; dog, shelter; Toxocara; Ancylostoma A pproximately 3.1 million dogs enter shelter facilities each year.1 The prevalence of intestinal parasites, notably zoonotic ascarids and dogs in homes2,3 making parasite control within shelden of intestinal parasites in shelter facilities can be attributed to admission of free-roaming dogs with no Attribution 4.0 International License (http://creativecommons.org/licenses/by/4.0/), allowing third parties to copy and redistribute the material in any medium or format and to remix, transform, and build upon the material for any purpose, even commercially, provided the original work is properly cited and states its license.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">A shelter study tested 92 dogs for intestinal parasites at admission and compared frequency before discharge for 65 dogs with complete intake and exit samples. What was the parasite prevalence at admission and before discharge in those 65 dogs?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Admission 74%, discharge 48%</li>
+          <li class="ja-opt"><b>B.</b> Admission 54%, discharge 35%</li>
+          <li class="ja-opt"><b>C.</b> Admission 50%, discharge 23%</li>
+          <li class="ja-opt"><b>D.</b> Admission 35%, discharge 11%</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Admission 50%, discharge 23%</span>
+            <span class="ja-ans-rationale">The abstract states that among the 65 study dogs, &#x27;the frequency of dogs with intestinal parasites was lower before discharge (23 or 35%), compared to that at admission (33 or 50%) (P = 0.02),&#x27; representing 50% at admission and 35% at discharge.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the shelter intestinal parasite study, what was the most commonly identified parasite among dogs diagnosed with mono-infections or co-infections at admission?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Toxocara sp.</li>
+          <li class="ja-opt"><b>B.</b> Giardia spp.</li>
+          <li class="ja-opt"><b>C.</b> Ancylostoma spp.</li>
+          <li class="ja-opt"><b>D.</b> Trichuris spp.</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Ancylostoma spp.</span>
+            <span class="ja-ans-rationale">The abstract reports that &#x27;Most dogs (43/50) were diagnosed with mono-infections with Ancylostoma spp., or co-infections with Ancylostoma spp. and Toxocara sp. or non-zoonotic parasites,&#x27; identifying Ancylostoma as the predominant organism.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the shelter dog parasite study, among 51 dogs that left the shelter (adopted, transferred, or returned to owners) and were tested, what proportion were still infected with intestinal parasites at departure?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Approximately 8% (4/51)</li>
+          <li class="ja-opt"><b>B.</b> Approximately 16% (8/51)</li>
+          <li class="ja-opt"><b>C.</b> Approximately 31% (16/51)</li>
+          <li class="ja-opt"><b>D.</b> Approximately 50% (26/51)</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Approximately 31% (16/51)</span>
+            <span class="ja-ans-rationale">The abstract states that &#x27;16/51 (31%) dogs were infected with intestinal parasites&#x27; among the 51 dogs that left the shelter, with 8 of those 16 infected dogs diagnosed with zoonotic parasites.</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>estimating the dog population, responsible pet ownership, and intestinal parasitism in dogs in quito, eccuador</b><br>
+    <span class="ja-meta">Estimating the Dog Population, Responsible Pet Ownership, &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2022</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Introduction: In 2011, authorities of Quito, the capital city of Ecuador, approved an ordinance to promote public health and animal welfare through responsible pet ownership promotion. The population of dogs was not known, and the relationships between dog abundance, socioeconomic factors, prevalence of zoonotic gastrointestinal parasites, and pet ownership responsibility had not been investigated. The objectives of this study were (1) to estimate the human:dog (HD) ratio, (2) to examine the relationship between household factors and responsible pet ownership, and (3) to estimate the prevalence of households with one or more dogs infected with intestinal parasites in Quito, Ecuador. Methods: Space-based random sampling procedures were used for estimation of HD ratios in free-roaming dogs and confined owned dogs. The relationship between household factors and a Responsible Pet Ownership Index was examined using logistic regression. Dog fecal samples were tested for intestinal parasites. Results: Among stray dogs, the observed HD ratio was 58:1. Among dogs kept indoors, the observed HD ratio was 3.5:1. A positive interaction effect between number of dogs in study households and household living conditions (a proxy for household wealth) on responsible pet ownership was observed, which we discuss in this report. Prevalence of households with dogs infected with intestinal parasites was 28% (95% confidence interval [CI] = 21–37). Ancylostoma spp. was the most frequent intestinal parasite in study dogs kept indoors. Conclusion: This study provides new information that can be used by policy makers to formulate, implement, and evaluate public policies and education programs aimed at enhancing animal welfare and health in Ecuador. Keywords: Dogs; population; parasites; pet ownership; Ecuador, One Health; public health R esponsible pet ownership is a new social norm that is becoming more common in the growing, dog overpopulation, lack of responsible pet ownership, and the absence of animal shelter programs are continuing public health issues of concern in Quito, the capital city of Ecuador. In recent years, a number of organizations have ities in the city of Quito approved an ordinance (No. 048) to prevent cruel treatment of animals, promote responsible pet ownership, improve dog health, and reduce the risk of dog bites to people, dog defecation in public spaces, 4.0 International License (http://creativecommons.org/licenses/by/4.0/), allowing third parties to copy and redistribute the material in any medium or format and to remix, transform, and build upon the material for any purpose, even commercially, provided the original work is properly cited and states its license.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">A study in Quito, Ecuador estimated the human-to-dog (HD) ratio for stray dogs and confined owned dogs. What were those ratios, respectively?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Stray dogs 10:1; confined dogs 1.5:1</li>
+          <li class="ja-opt"><b>B.</b> Stray dogs 25:1; confined dogs 5:1</li>
+          <li class="ja-opt"><b>C.</b> Stray dogs 58:1; confined dogs 3.5:1</li>
+          <li class="ja-opt"><b>D.</b> Stray dogs 100:1; confined dogs 10:1</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Stray dogs 58:1; confined dogs 3.5:1</span>
+            <span class="ja-ans-rationale">The abstract reports &#x27;Among stray dogs, the observed HD ratio was 58:1. Among dogs kept indoors, the observed HD ratio was 3.5:1.&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the Quito, Ecuador dog population study, what was the prevalence of households with at least one dog infected with intestinal parasites?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> 10% (95% CI 5–17%)</li>
+          <li class="ja-opt"><b>B.</b> 28% (95% CI 21–37%)</li>
+          <li class="ja-opt"><b>C.</b> 48% (95% CI 38–58%)</li>
+          <li class="ja-opt"><b>D.</b> 74% (95% CI 68–80%)</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. 28% (95% CI 21–37%)</span>
+            <span class="ja-ans-rationale">The abstract states &#x27;Prevalence of households with dogs infected with intestinal parasites was 28% (95% CI = 21–37).&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the Quito dog population study, which intestinal parasite was found to be the most frequent in study dogs kept indoors?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Toxocara canis</li>
+          <li class="ja-opt"><b>B.</b> Giardia spp.</li>
+          <li class="ja-opt"><b>C.</b> Ancylostoma spp.</li>
+          <li class="ja-opt"><b>D.</b> Trichuris vulpis</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Ancylostoma spp.</span>
+            <span class="ja-ans-rationale">The abstract reports &#x27;Ancylostoma spp. was the most frequent intestinal parasite in study dogs kept indoors.&#x27;</span>
+          </div>
+        </details>
+      </div>
+  </div>
+</section>
+<!-- JOURNAL-ARTICLES:END -->
 
 </div></main>
 

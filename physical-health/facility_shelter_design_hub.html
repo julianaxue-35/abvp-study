@@ -144,6 +144,10 @@
   <button data-p="cohousing"><span class="dot"></span>Cohousing</button>
   <button data-p="environment"><span class="dot"></span>Environment &amp; Engineering</button>
   <button data-p="mcq"><span class="dot" style="background:#0f3d3a"></span>MCQ Test Bank</button>
+
+<!-- JOURNAL-TAB:START -->
+<button data-p="journal"><span class="dot" style="background:var(--lit, #1f6f8b)"></span>Journal Articles</button>
+<!-- JOURNAL-TAB:END -->
 </div></div></nav>
 <div class="srch-wrap"><div class="wrap"><div class="srch-row">
 <svg width="14" height="14" viewBox="0 0 15 15" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="m10.5 10.5 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -596,6 +600,190 @@
   </div>
   <div id="qhost"></div>
 </section>
+
+
+<!-- JOURNAL-ARTICLES:START -->
+<style data-journal-css>
+/* ── Journal Articles section ─────────────────────────────────────────── */
+.ja-standalone {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 2px solid var(--line, #d9d0bd);
+}
+.ja-article {
+  margin-bottom: 24px;
+  padding: 20px 22px 18px;
+  background: var(--paper2, #fbf8f1);
+  border-radius: 10px;
+  box-shadow: var(--shadow, 0 1px 2px rgba(15,61,58,.08), 0 8px 24px rgba(15,61,58,.06));
+}
+.ja-cite {
+  margin: 0 0 10px;
+  line-height: 1.45;
+  font-size: 0.97em;
+}
+.ja-meta {
+  color: var(--muted, #5d6b62);
+  font-size: 0.875em;
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0.01em;
+}
+.ja-meta a {
+  color: var(--lit, #1f6f8b);
+  text-decoration: none;
+}
+.ja-meta a:hover {
+  text-decoration: underline;
+}
+.ja-abstract {
+  border-left: 3px solid var(--lit, #1f6f8b);
+  padding: 10px 14px;
+  margin: 0 0 18px;
+  background: var(--lit-soft, #dcedf2);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.925em;
+  line-height: 1.6;
+  color: var(--ink, #0f3d3a);
+}
+.ja-mcq {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line, #d9d0bd);
+}
+.ja-mcq + .ja-mcq {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.ja-q {
+  font-weight: 600;
+  font-size: 0.93em;
+  margin: 0 0 7px;
+  color: var(--ink, #0f3d3a);
+}
+.ja-opts {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ja-opt {
+  font-size: 0.9em;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: var(--ink2, #15514c);
+  background: transparent;
+}
+.ja-opt b {
+  display: inline-block;
+  min-width: 1.5em;
+  color: var(--muted, #5d6b62);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.88em;
+}
+.ja-ans {
+  margin-top: 4px;
+}
+.ja-ans summary {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 0.83em;
+  font-family: "JetBrains Mono", monospace;
+  padding: 3px 10px;
+  border: 1px solid var(--lit, #1f6f8b);
+  border-radius: 5px;
+  color: var(--lit, #1f6f8b);
+  background: transparent;
+  user-select: none;
+  list-style: none;
+}
+.ja-ans summary::-webkit-details-marker { display: none; }
+.ja-ans summary::marker { display: none; }
+.ja-ans summary:hover {
+  background: var(--lit-soft, #dcedf2);
+}
+.ja-ans[open] summary {
+  background: var(--lit-soft, #dcedf2);
+  margin-bottom: 6px;
+}
+.ja-ans-body {
+  font-size: 0.9em;
+  padding: 8px 12px;
+  background: var(--paper, #fdfaf4);
+  border: 1px solid var(--line, #d9d0bd);
+  border-radius: 6px;
+  line-height: 1.55;
+  color: var(--ink, #0f3d3a);
+}
+.ja-ans-correct {
+  font-weight: 600;
+  color: var(--good, #2f7d52);
+  display: block;
+  margin-bottom: 4px;
+}
+.ja-ans-rationale {
+  color: var(--ink2, #15514c);
+}
+</style>
+<section class="panel" id="journal">
+  <h2 class="sec">Additional Resources</h2>
+  <p class="lead">Journal Articles (2021–2026). Exam items are drawn from the abstract only — read each abstract, then self-test.</p>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>The Inclusion of Cat Dens in a Population of Shelter Cats and their Effect on Upper Respiratory Infection and Length of Stay</b><br>
+    <span class="ja-meta">The Inclusion of Cat Dens in a Population of Shelter Cats &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2025</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Introduction: Feline upper respiratory infection (URI) is common in high-density populations, such as those in animal shelters. URI treatment delays time to adoption, often resulting in welfare concerns and significant expenditure of shelter labor, medication, and foster care resources. The purpose of this pragmatic, randomized controlled trial was to determine if the presence of enrichment via a consistent hiding den (i.e. feral den) throughout a cat’s time in shelter reduces their URI incidence and time to adoption. Methods: Cats enrolled in this study were assigned either a den or no den and tracked from shelter intake to outcome (i.e. adoption, return to owner, and euthanasia). Cats in both groups received the usual standard of care and were monitored daily by shelter staff. The impact of a cat den on both URI occurrence and length of stay (LOS) was modeled using logistic regression and competing risks regression models, respectively. A mediation analysis was also performed to assess the den’s effect on LOS through URI occurrence. Results: The impact of a cat den on LOS was mediated through a decreased probability of URI. Participant cats assigned to the den group had a 33.7% lower incidence of URI diagnosis compared to those in the control group. For cats who developed URI, the presence of a den did not significantly affect the severity of disease when compared to the control group. Cats diagnosed with URI while in shelter were 27.2% less likely to be adopted at any given time when compared to cats with no URI, regardless of den presence. Conclusion: Cats who did not experience URI while in shelter were adopted at higher rates, thus experienced shorter LOS. Since the presence of a hiding den was significantly associated with lower URI incidence, their inclusion in kennel enclosures may have positive welfare, LOS, and adoption implications for shelter cats. Keywords: shelter; feral den; housing; stress; hiding; enrichment; euthanasia; infectious disease; contagion; live outcome A n estimated 2.9 million domestic cats entered shelters and rescues across the U.S. in 2024.1 While 37% fewer cats experienced non-live outcomes (e.g. euthanasia) in 2024 as compared to 2019, comes since 2021, with 273,000 cats euthanized in U.S. shelters in 2024.1,2 As illness is a primary cause of suffering and a reason for euthanasia, it is important to recognize what factors may contribute to feline illness to decrease its occurrence and severity in shelters, as well as maximize and expedite adoption and other live outcomes (e.g. returning to owner). Likewise, it is essential for shelters International License (http://creativecommons.org/licenses/by/4.0/), allowing third parties to copy and redistribute the material in any medium or format and to remix, transform, and build upon the material for any purpose, even commercially, provided the original work is properly cited and states its license.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">A randomized controlled trial examined whether providing a hiding den reduced URI incidence in shelter cats. What was the effect of a cat den on URI incidence compared to the control group?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Cats assigned a den had a 10% lower incidence of URI diagnosis</li>
+          <li class="ja-opt"><b>B.</b> Cats assigned a den had a 33.7% lower incidence of URI diagnosis</li>
+          <li class="ja-opt"><b>C.</b> Cats assigned a den had a 50% lower incidence of URI diagnosis</li>
+          <li class="ja-opt"><b>D.</b> Den presence had no significant effect on URI incidence</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Cats assigned a den had a 33.7% lower incidence of URI diagnosis</span>
+            <span class="ja-ans-rationale">The abstract states: &#x27;Participant cats assigned to the den group had a 33.7% lower incidence of URI diagnosis compared to those in the control group.&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the shelter cat den RCT, what was the relationship between URI diagnosis and adoption rate, regardless of den presence?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Cats diagnosed with URI were 33.7% more likely to be adopted at any given time</li>
+          <li class="ja-opt"><b>B.</b> URI diagnosis had no significant effect on adoption rates</li>
+          <li class="ja-opt"><b>C.</b> Cats diagnosed with URI while in shelter were 27.2% less likely to be adopted at any given time compared to cats with no URI</li>
+          <li class="ja-opt"><b>D.</b> Cats diagnosed with URI were adopted more quickly due to increased human-animal interaction during treatment</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Cats diagnosed with URI while in shelter were 27.2% less likely to be adopted at any given time compared to cats with no URI</span>
+            <span class="ja-ans-rationale">The abstract states: &#x27;Cats diagnosed with URI while in shelter were 27.2% less likely to be adopted at any given time when compared to cats with no URI, regardless of den presence.&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">The shelter cat den RCT found that the effect of den presence on length of stay (LOS) was mediated through which mechanism?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Dens directly shortened LOS by reducing stress behaviors visible to potential adopters</li>
+          <li class="ja-opt"><b>B.</b> The den&#x27;s effect on LOS was mediated through a decreased probability of URI occurrence</li>
+          <li class="ja-opt"><b>C.</b> Dens shortened LOS by reducing the severity of URI when it occurred</li>
+          <li class="ja-opt"><b>D.</b> Dens reduced LOS by increasing the frequency of staff-initiated adoption assessments</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. The den&#x27;s effect on LOS was mediated through a decreased probability of URI occurrence</span>
+            <span class="ja-ans-rationale">The abstract explicitly states: &#x27;The impact of a cat den on LOS was mediated through a decreased probability of URI,&#x27; and notes that for cats who did develop URI, den presence did not significantly affect disease severity.</span>
+          </div>
+        </details>
+      </div>
+  </div>
+</section>
+<!-- JOURNAL-ARTICLES:END -->
 
 </div></main>
 

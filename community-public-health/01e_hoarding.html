@@ -89,6 +89,10 @@
   <button class="active" data-p="classification"><span class="dot"></span>Classification &amp; Criteria</button>
   <button data-p="response"><span class="dot"></span>Response &amp; Shelter Impact</button>
   <button data-p="mcq"><span class="dot" style="background:#0f3d3a"></span>MCQ (11 Qs)</button>
+
+<!-- JOURNAL-TAB:START -->
+<button data-p="journal"><span class="dot" style="background:var(--lit, #1f6f8b)"></span>Journal Articles</button>
+<!-- JOURNAL-TAB:END -->
 </div></div></nav>
 
 <main><div class="wrap">
@@ -371,6 +375,243 @@
 
   </div><!-- /qlist -->
 </section>
+
+<!-- JOURNAL-ARTICLES:START -->
+<style data-journal-css>
+/* ── Journal Articles section ─────────────────────────────────────────── */
+.ja-standalone {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 2px solid var(--line, #d9d0bd);
+}
+.ja-article {
+  margin-bottom: 24px;
+  padding: 20px 22px 18px;
+  background: var(--paper2, #fbf8f1);
+  border-radius: 10px;
+  box-shadow: var(--shadow, 0 1px 2px rgba(15,61,58,.08), 0 8px 24px rgba(15,61,58,.06));
+}
+.ja-cite {
+  margin: 0 0 10px;
+  line-height: 1.45;
+  font-size: 0.97em;
+}
+.ja-meta {
+  color: var(--muted, #5d6b62);
+  font-size: 0.875em;
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0.01em;
+}
+.ja-meta a {
+  color: var(--lit, #1f6f8b);
+  text-decoration: none;
+}
+.ja-meta a:hover {
+  text-decoration: underline;
+}
+.ja-abstract {
+  border-left: 3px solid var(--lit, #1f6f8b);
+  padding: 10px 14px;
+  margin: 0 0 18px;
+  background: var(--lit-soft, #dcedf2);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.925em;
+  line-height: 1.6;
+  color: var(--ink, #0f3d3a);
+}
+.ja-mcq {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line, #d9d0bd);
+}
+.ja-mcq + .ja-mcq {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.ja-q {
+  font-weight: 600;
+  font-size: 0.93em;
+  margin: 0 0 7px;
+  color: var(--ink, #0f3d3a);
+}
+.ja-opts {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ja-opt {
+  font-size: 0.9em;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: var(--ink2, #15514c);
+  background: transparent;
+}
+.ja-opt b {
+  display: inline-block;
+  min-width: 1.5em;
+  color: var(--muted, #5d6b62);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.88em;
+}
+.ja-ans {
+  margin-top: 4px;
+}
+.ja-ans summary {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 0.83em;
+  font-family: "JetBrains Mono", monospace;
+  padding: 3px 10px;
+  border: 1px solid var(--lit, #1f6f8b);
+  border-radius: 5px;
+  color: var(--lit, #1f6f8b);
+  background: transparent;
+  user-select: none;
+  list-style: none;
+}
+.ja-ans summary::-webkit-details-marker { display: none; }
+.ja-ans summary::marker { display: none; }
+.ja-ans summary:hover {
+  background: var(--lit-soft, #dcedf2);
+}
+.ja-ans[open] summary {
+  background: var(--lit-soft, #dcedf2);
+  margin-bottom: 6px;
+}
+.ja-ans-body {
+  font-size: 0.9em;
+  padding: 8px 12px;
+  background: var(--paper, #fdfaf4);
+  border: 1px solid var(--line, #d9d0bd);
+  border-radius: 6px;
+  line-height: 1.55;
+  color: var(--ink, #0f3d3a);
+}
+.ja-ans-correct {
+  font-weight: 600;
+  color: var(--good, #2f7d52);
+  display: block;
+  margin-bottom: 4px;
+}
+.ja-ans-rationale {
+  color: var(--ink2, #15514c);
+}
+</style>
+<section class="panel" id="journal">
+  <h2 class="sec">Additional Resources</h2>
+  <p class="lead">Journal Articles (2021–2026). Exam items are drawn from the abstract only — read each abstract, then self-test.</p>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>A Retrospective, Descriptive Study Of Medical Conditions and Outcomes of Cats Relinquished to an Urban, Limited Admission Shelter from Hoarding Environments</b><br>
+    <span class="ja-meta">A Retrospective, Descriptive Study Of Medical Conditions &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2025</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Introduction: Animal hoarding is a complex, often underrecognized public health problem affecting the health and welfare of humans and animals. Limited peer review literature exists on the conditions, outcomes, and resources needed to care for cats from hoarding environments in shelter settings. This study investigated intake medical conditions and outcomes of cats surrendered from hoarding environments to the New York City sheltering programs of the American Society for the Prevention of Cruelty to Animals (ASPCA). The objectives of this study were to (1) describe the prevalence of medical conditions at intake; (2) identify associations between medical conditions and outcomes; (3) summarize key interventions provided prior to outcome; and (4) compare outcomes of cats surrendered from hoarding environments to other owner/guardian surrendered (OGS) cats. Methods: This retrospective, descriptive study examined case records of cats voluntarily surrendered from hoarding cases to ASPCA sheltering programs between January 1, 2021, and July 31, 2023. Demographic, medical, and outcome data were collected on 613 cats relinquished in 34 case groups. Outcome data were compared to 775 non-hoarded OGS cats in-shelter during the same time period. Results: Only 27.4% of cats were already altered on intake. Dental disease was the most common medical condition (52.8%); 20.3% had moderate to severe disease requiring dentistry procedures. On intake, cats also had otitis externa (33.3%), Upper respiratory infection (URI) (23.8%), ocular disease (21.9%), dermatitis (19.9%), ectoparasites (17.6%), diarrhea (14.2%), dermatophytosis (10.1%), and matting/unkempt fur (4.1%). Once analyzed for interactions, body condition score (BCS) 1–2 (emaciation) at intake (P &lt; 0.001), moderate to severe dental disease (P = 0.007), and increased number of medical conditions per cat (P &lt; 0.001) were associated with non-live outcomes. Over half of cats (57.8%) went to foster homes. Most (63.1%) required antibiotics, and a third (36.4%) received psychopharmaceuticals. Difference in median length of stay (LOS) between hoarded and non-hoarded OGS cats was significant (52 days vs. 28 days; P &lt; 0.001). Proportions of live outcomes for hoarded (89.2%) and nonhoarded cats (88.3%) did not significantly differ (P = 0.6). When euthanasia was the outcome, OGS cats were more often euthanized for medical conditions (64.8%) compared to hoarded cats (45.9%). Behavioral euthanasia rates were significantly higher for hoarded than OGS cats (47.5% vs. 25%; P = 0.017). Conclusion: The significant need in hoarded cat populations for dentistry and spay/neuter procedures and the significantly longer LOS of hoarded cats suggests organizations working with these populations need to proactively strategize to optimize care delivery without negatively impacting shelter capacity for care. Harm reduction approaches to hoarding employ a collaborative, staged means to reduce populations in the home, including offering surrender of some animals and the provision of spay/neuter and/or other services for remaining animals. This approach, in addition to improving animal welfare, enables the shelter to better manage capacity and resources. Keywords: animal hoarding; shelter medicine; dental disease; harm reduction Attribution 4.0 International License (http://creativecommons.org/licenses/by/4.0/), allowing third parties to copy and redistribute the material in any medium or format and to remix, transform, and build upon the material for any purpose, even commercially, provided the original work is properly cited and states its license.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the retrospective descriptive study of cats surrendered from hoarding environments to ASPCA sheltering programs, what was the most common medical condition at intake?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Upper respiratory infection (23.8%)</li>
+          <li class="ja-opt"><b>B.</b> Otitis externa (33.3%)</li>
+          <li class="ja-opt"><b>C.</b> Dental disease (52.8%)</li>
+          <li class="ja-opt"><b>D.</b> Dermatophytosis (10.1%)</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Dental disease (52.8%)</span>
+            <span class="ja-ans-rationale">The abstract states that dental disease was the most common medical condition, present in 52.8% of cats, with 20.3% having moderate to severe disease requiring dentistry procedures.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In this ASPCA hoarding study, how did the median length of stay (LOS) for hoarded cats compare to non-hoarded owner/guardian surrendered (OGS) cats?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Hoarded cats had a shorter LOS (28 days vs. 52 days, P &lt; 0.001)</li>
+          <li class="ja-opt"><b>B.</b> Hoarded cats had a longer LOS (52 days vs. 28 days, P &lt; 0.001)</li>
+          <li class="ja-opt"><b>C.</b> LOS was similar between hoarded and non-hoarded OGS cats (P = 0.6)</li>
+          <li class="ja-opt"><b>D.</b> Hoarded cats had a longer LOS only when euthanasia was the outcome</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Hoarded cats had a longer LOS (52 days vs. 28 days, P &lt; 0.001)</span>
+            <span class="ja-ans-rationale">The abstract reports that the median LOS for hoarded cats was 52 days versus 28 days for non-hoarded OGS cats, a significant difference (P &lt; 0.001).</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">Which intake characteristic was associated with non-live outcomes in hoarded cats in the ASPCA retrospective study?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Presence of ectoparasites at intake</li>
+          <li class="ja-opt"><b>B.</b> Dermatophytosis (ringworm) diagnosis</li>
+          <li class="ja-opt"><b>C.</b> Body condition score 1–2 (emaciation) at intake</li>
+          <li class="ja-opt"><b>D.</b> Behavioral euthanasia due to aggression</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Body condition score 1–2 (emaciation) at intake</span>
+            <span class="ja-ans-rationale">The abstract states that body condition score (BCS) 1–2 (emaciation) at intake (P &lt; 0.001), moderate to severe dental disease (P = 0.007), and increased number of medical conditions per cat (P &lt; 0.001) were associated with non-live outcomes.</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>A Retrospective Study of Cat Hoarding Cases and Their Management Through Voluntary Spay Neuter and Relinquishment In New York City</b><br>
+    <span class="ja-meta">A Retrospective Study of Cat Hoarding Cases and Their &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2024</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Introduction: Animal hoarding cases are complex sources of shelter intake. Cases require significant planning, collaboration, and resources, often from multiple responding organizations. Study objectives included description of cat hoarding cases in New York City not criminally pursued, case outcomes when managed by a spay/neuter and relinquishment program utilizing a collaborative approach with caregivers, and characteristics or interventions leading to better outcomes. Methods: Data were extracted from the American Society for the Prevention of Cruelty to Animal’s Community Engagement (CE) case files. Eligible cases were retrieved using a keyword search and screened for inclusion criteria. Client demographics, case factors, and outcomes were described with descriptive statistics. Data were further analyzed using adjusted logistic regression models to investigate variables predictive of outcomes. Results: The study population included 79 cases with a median population size of 22 cats. The majority of clients were female, lived alone, and had high levels of social vulnerability. Object hoarding was reported in 29.1% of cases and unsanitary conditions in 68.4% of cases. Almost one-third (30.4%) identified as rescuers or community cat caregivers. At the time of the first interaction with CE, 88.6% of clients were interested in spay/neuter and 76.0% in surrender services. Social service agencies were involved in the initial CE intervention in 26.4% of cases. Successful outcomes were defined as cases in which clients were left with a manageable population of cats, or all cats were removed. Successful outcomes were achieved in 67.1% of cases after the first CE intervention. Recidivism occurred in 41.5% of these cases. Clients who showed an initial interest in surrender were 10 times more likely (OR 10.0, P = 0.014) to experience a successful outcome than clients not interested in surrender. Significant predictors of re-collection included clients identifying as rescuers (OR 4.8, P = 0.039) and the involvement of human service agencies during or after the CE intervention (OR 6.1, P = 0.041). Conclusion: Results demonstrate animal hoarding cases involving cooperative caregivers and rescuers can be successfully managed by programs using a collaborative approach with clients. The high rates of initial interest in spay/neuter and surrender in caregivers suggest a need to expand access to veterinary care and strategically manage case intake into shelters. Further interdisciplinary research is needed on how mental health, social service, and animal service providers can attain successful outcomes long-term and reduce recidivism in animal hoarding cases. Keywords: animal hoarding; access to care; humane investigations; harm reduction; social vulnerability index A nimal hoarding was first described in scientific lit- Department of Health and Mental Hygiene and the American Society for the Prevention of Cruelty to Animals (ASPCA).1 Since then, despite being found in many communities around the world,2–11 animal hoarding International License (http://creativecommons.org/licenses/by/4.0/), allowing third parties to copy and redistribute the material in any medium or format and to remix, transform, and build upon the material for any purpose, even commercially, provided the original work is properly cited and states its license.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the NYC retrospective study of cat hoarding cases managed through a voluntary spay/neuter and relinquishment program, what proportion of clients showed initial interest in surrender services?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> 29.1%</li>
+          <li class="ja-opt"><b>B.</b> 41.5%</li>
+          <li class="ja-opt"><b>C.</b> 67.1%</li>
+          <li class="ja-opt"><b>D.</b> 76.0%</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: D. 76.0%</span>
+            <span class="ja-ans-rationale">The abstract states that at the time of the first interaction with Community Engagement (CE), 76.0% of clients were interested in surrender services, while 88.6% were interested in spay/neuter.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">According to the NYC cat hoarding retrospective study, which factor was associated with the highest odds ratio for a successful case outcome?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Social service agency involvement at the initial intervention</li>
+          <li class="ja-opt"><b>B.</b> Client identifying as a rescuer or community cat caregiver</li>
+          <li class="ja-opt"><b>C.</b> Client&#x27;s initial interest in surrendering cats</li>
+          <li class="ja-opt"><b>D.</b> Presence of object hoarding alongside cat hoarding</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Client&#x27;s initial interest in surrendering cats</span>
+            <span class="ja-ans-rationale">The abstract states that clients who showed an initial interest in surrender were 10 times more likely (OR 10.0, P = 0.014) to experience a successful outcome than clients not interested in surrender — the highest OR reported.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the NYC cat hoarding study, what was a significant predictor of recidivism (re-collection) following an initially successful case outcome?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Client living alone and high levels of social vulnerability</li>
+          <li class="ja-opt"><b>B.</b> Client identifying as a rescuer (OR 4.8) or involvement of human service agencies (OR 6.1)</li>
+          <li class="ja-opt"><b>C.</b> Presence of unsanitary conditions at the time of first contact</li>
+          <li class="ja-opt"><b>D.</b> Client&#x27;s initial interest in spay/neuter rather than surrender</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Client identifying as a rescuer (OR 4.8) or involvement of human service agencies (OR 6.1)</span>
+            <span class="ja-ans-rationale">The abstract reports that significant predictors of recidivism included clients identifying as rescuers (OR 4.8, P = 0.039) and the involvement of human service agencies during or after the CE intervention (OR 6.1, P = 0.041).</span>
+          </div>
+        </details>
+      </div>
+  </div>
+</section>
+<!-- JOURNAL-ARTICLES:END -->
+
 </div></main>
 
 <footer><div class="wrap">

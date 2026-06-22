@@ -128,6 +128,10 @@
   <button data-p="dea"><span class="dot"></span>Controlled Substances</button>
   <button data-p="zoonotic"><span class="dot"></span>Zoonotic Reporting</button>
   <button data-p="mcq"><span class="dot" style="background:var(--ink)"></span>MCQ Bank (30)</button>
+
+<!-- JOURNAL-TAB:START -->
+<button data-p="journal"><span class="dot" style="background:var(--lit, #1f6f8b)"></span>Journal Articles</button>
+<!-- JOURNAL-TAB:END -->
 </div></div></nav>
 <div class="srch-wrap"><div class="wrap"><div class="srch-row">
 <svg width="14" height="14" viewBox="0 0 15 15" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="m10.5 10.5 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -352,6 +356,227 @@
   </div>
   <div id="qhost"></div>
 </section>
+
+
+<!-- JOURNAL-ARTICLES:START -->
+<style data-journal-css>
+/* ── Journal Articles section ─────────────────────────────────────────── */
+.ja-standalone {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 2px solid var(--line, #d9d0bd);
+}
+.ja-article {
+  margin-bottom: 24px;
+  padding: 20px 22px 18px;
+  background: var(--paper2, #fbf8f1);
+  border-radius: 10px;
+  box-shadow: var(--shadow, 0 1px 2px rgba(15,61,58,.08), 0 8px 24px rgba(15,61,58,.06));
+}
+.ja-cite {
+  margin: 0 0 10px;
+  line-height: 1.45;
+  font-size: 0.97em;
+}
+.ja-meta {
+  color: var(--muted, #5d6b62);
+  font-size: 0.875em;
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0.01em;
+}
+.ja-meta a {
+  color: var(--lit, #1f6f8b);
+  text-decoration: none;
+}
+.ja-meta a:hover {
+  text-decoration: underline;
+}
+.ja-abstract {
+  border-left: 3px solid var(--lit, #1f6f8b);
+  padding: 10px 14px;
+  margin: 0 0 18px;
+  background: var(--lit-soft, #dcedf2);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.925em;
+  line-height: 1.6;
+  color: var(--ink, #0f3d3a);
+}
+.ja-mcq {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line, #d9d0bd);
+}
+.ja-mcq + .ja-mcq {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.ja-q {
+  font-weight: 600;
+  font-size: 0.93em;
+  margin: 0 0 7px;
+  color: var(--ink, #0f3d3a);
+}
+.ja-opts {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ja-opt {
+  font-size: 0.9em;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: var(--ink2, #15514c);
+  background: transparent;
+}
+.ja-opt b {
+  display: inline-block;
+  min-width: 1.5em;
+  color: var(--muted, #5d6b62);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.88em;
+}
+.ja-ans {
+  margin-top: 4px;
+}
+.ja-ans summary {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 0.83em;
+  font-family: "JetBrains Mono", monospace;
+  padding: 3px 10px;
+  border: 1px solid var(--lit, #1f6f8b);
+  border-radius: 5px;
+  color: var(--lit, #1f6f8b);
+  background: transparent;
+  user-select: none;
+  list-style: none;
+}
+.ja-ans summary::-webkit-details-marker { display: none; }
+.ja-ans summary::marker { display: none; }
+.ja-ans summary:hover {
+  background: var(--lit-soft, #dcedf2);
+}
+.ja-ans[open] summary {
+  background: var(--lit-soft, #dcedf2);
+  margin-bottom: 6px;
+}
+.ja-ans-body {
+  font-size: 0.9em;
+  padding: 8px 12px;
+  background: var(--paper, #fdfaf4);
+  border: 1px solid var(--line, #d9d0bd);
+  border-radius: 6px;
+  line-height: 1.55;
+  color: var(--ink, #0f3d3a);
+}
+.ja-ans-correct {
+  font-weight: 600;
+  color: var(--good, #2f7d52);
+  display: block;
+  margin-bottom: 4px;
+}
+.ja-ans-rationale {
+  color: var(--ink2, #15514c);
+}
+</style>
+<section class="panel" id="journal">
+  <h2 class="sec">Additional Resources</h2>
+  <p class="lead">Journal Articles (2021–2026). Exam items are drawn from the abstract only — read each abstract, then self-test.</p>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>A Retrospective Study of Canine Outcomes and Length of Stay in a Midwestern Shelter Subject to Breed-Specific Legislation</b><br>
+    <span class="ja-meta">A Retrospective Study of Canine Outcomes and Length of Stay in &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2026</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Introduction: Breed-specific legislation (BSL) is intended to restrict or reduce the ownership of selected breeds of dogs within a municipality. These laws frequently aim at ‘bully breeds’ such as the American Pit Bull Terrier and other pure or mixed breeds with similar phenotypic characteristics, which are heavily represented in animal shelters nationwide. This retrospective cohort study investigated differences in outcomes and length of stay (LOS) for legislated dogs versus dogs of other breeds in a managed admission municipal shelter subject to BSL. Methods: Retrospective outcome data from January 1, 2022 through December 31, 2022 were analyzed. The study population included 764 adult dogs of which 118 were legislated breeds. Results: Analysis of the full study population found legislated dogs were more likely to be euthanized (x2(4) = 23.76, p &lt; 0.001) and experience a longer LOS (U = 32858.50, z = -2.385, p = 0.017). Non-legislated breeds were more likely to be adopted (x2(4) = 23.760, p &lt; 0.001). In a weight-matched subset of dogs weighing 14.1–30.6 kg (n = 424, including 339 nonlegislated and 85 legislated dogs), there was no longer a significant difference between the groups in the rate of live versus non-live outcomes (X2(1) = 2.022, p = 0.179); however, legislated dogs experienced a significantly longer LOS to adoption (U = 2039.00, Z = -2.04, p = 0.041) and return-to-owner (U = 1725.50, Z = -3.33, p = 0.001) and a reduced likelihood of adoption (x2(3) = 11.454, p = 0.010). Additional analysis performed for 80 dogs whose first outcome was euthanasia revealed non-legislated dogs were significantly more likely to be euthanized for medical reasons than legislated dogs, and there were no significant differences in euthanasia for aggressive behavior or behavioral evidence of poor quality of life (x2(2) = 6.528, p = 0.038). Conclusion: Shelter dogs subject to BSL generally experience barriers to live outcomes. In this shelter, staff endeavored to find live outcomes for these dogs, including transport and reunification. Overturning BSL would support increased live outcomes, including family reunification, for legislated dogs. Keywords: retrospective studies; dogs; pit bull; phenotype; public health; quality of life; euthanasia B reed-specific legislation (BSL) regulates dog ownership by restricting ownership of select breeds. BSL ostensibly exists to protect public health and safety by targeting breeds perceived to be more dangerature suggests breed-specific bans do not improve public safety.2,3 Wyker and Gupta found that BSL in Missouri had not reduced emergency room admissions for dog bite injuries, a finding consistent with reports they cited from Canada, Spain, Ireland, Scotland, The Netherlands, and Denmark.3 BSL also diverts resources from more fruitful International License (http://creativecommons.org/licenses/by/4.0/), allowing third parties to copy and redistribute the material in any medium or format and to remix, transform, and build upon the material for any purpose, even commercially, provided the original work is properly cited and states its license.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the retrospective cohort study of canine outcomes in a shelter subject to breed-specific legislation (BSL), what happened to differences in live versus non-live outcomes when the analysis was restricted to a weight-matched subset?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Legislated dogs remained significantly more likely to be euthanized</li>
+          <li class="ja-opt"><b>B.</b> Non-legislated dogs became significantly more likely to have non-live outcomes</li>
+          <li class="ja-opt"><b>C.</b> The significant difference in live versus non-live outcome rates was no longer present</li>
+          <li class="ja-opt"><b>D.</b> The difference in live outcomes increased significantly in the weight-matched subset</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. The significant difference in live versus non-live outcome rates was no longer present</span>
+            <span class="ja-ans-rationale">The abstract states that in the weight-matched subset (14.1–30.6 kg), there was no longer a significant difference between groups in the rate of live versus non-live outcomes (X²(1) = 2.022, p = 0.179), though legislated dogs still experienced significantly longer LOS to adoption and return-to-owner.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the same BSL retrospective cohort study, which finding about euthanasia reasons was observed among the 80 dogs whose first outcome was euthanasia?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Legislated dogs were significantly more likely to be euthanized for aggressive behavior</li>
+          <li class="ja-opt"><b>B.</b> Non-legislated dogs were significantly more likely to be euthanized for medical reasons</li>
+          <li class="ja-opt"><b>C.</b> There were no differences in euthanasia reasons between legislated and non-legislated dogs</li>
+          <li class="ja-opt"><b>D.</b> Legislated dogs were significantly more likely to be euthanized for poor quality of life</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Non-legislated dogs were significantly more likely to be euthanized for medical reasons</span>
+            <span class="ja-ans-rationale">The abstract states that non-legislated dogs were significantly more likely to be euthanized for medical reasons than legislated dogs, and there were no significant differences in euthanasia for aggressive behavior or behavioral evidence of poor quality of life.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">Which conclusion did the authors draw about breed-specific legislation (BSL) based on findings from this retrospective cohort study?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> BSL is an effective strategy for improving public safety outcomes in managed admission shelters</li>
+          <li class="ja-opt"><b>B.</b> Overturning BSL would support increased live outcomes, including family reunification, for legislated dogs</li>
+          <li class="ja-opt"><b>C.</b> BSL primarily increases euthanasia for aggressive behavior in affected breeds</li>
+          <li class="ja-opt"><b>D.</b> Weight-matching eliminates all disparities between legislated and non-legislated dogs</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Overturning BSL would support increased live outcomes, including family reunification, for legislated dogs</span>
+            <span class="ja-ans-rationale">The abstract concludes that &#x27;overturning BSL would support increased live outcomes, including family reunification, for legislated dogs,&#x27; as legislated dogs generally experience barriers to live outcomes.</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Canine Outcomes and Length of Stay in a Midwestern Shelter Affected by Breed Specific Legislation</b><br>
+    <span class="ja-meta">Canine Outcomes and Length of Stay in a Midwestern Shelter Affected... https://jsmcah.org/index.php/jasv/article/view/101 &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2024 &middot; <a href="https://doi.org/10.56771/jsmcah.v3.101" target="_blank" rel="noopener">10.56771/jsmcah.v3.101</a></span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Breed specific legislation (BSL) is intended to restrict or reduce the ownership of selected breeds of dogs within a municipality. These laws frequently aim at “bully breeds” such as the American Pit Bull Terrier and other pure or mixed breeds with similar phenotypic characteristics which are heavily represented in shelters nationwide. This study describes differences in outcomes and length of stay (LOS) for banned dogs versus dogs of other breeds in a managed admission municipal shelter subject to BSL. It was hypothesized that dogs subject to legislation would have fewer live outcomes and a longer LOS when compared to non-legislated dogs. Retrospective outcome data from 1/1/2022 through 12/31/2022 was analyzed. The study population included 764 adult dogs of which 118 were affected by legislation. The legislated and non-legislated groups were found to be demographically equivalent considering age group, sex, previous alteration status, and intake frequency, but legislated dogs had a significantly heavier body weight compared to non-legislated dogs. Initial Pearson Chi-Square testing revealed a statistically significant increase in euthanasia for legislated dogs and adoptions for non-legislated dogs. After controlling for body weight, there was a statistically significant increase in adoption for the nonlegislated group, and increased return to owner (RTO) for legislated dogs, however there wasn’t a statistically significant difference in total live outcomes. Mann-Whitney U Testing demonstrated a statistically significant increase in LOS for legislated dogs compared to non-legislated dogs in the full study population, but after controlling for weight their LOS was no longer significantly different. In the body weight controlled group however, LOS was still significantly longer for legislated dogs versus nonlegislated dogs with adoption and RTO outcomes. Euthanasia reasons were evaluated for 80 dogs whose first outcome was euthanasia. Pearson Chi Square testing showed legislated dogs in this group were no more likely to be euthanized for aggression than the non-legislated dogs. In this population, dogs subject to BSL were less likely to be adopted but more likely to RTO. It is suspected shelter staff prevented euthanasia of some legislated dogs through heightened efforts to facilitate RTO even though there was not a formal protocol in place to do so. After controlling for body weight, LOS was equivalent between legislated and non-legislated groups, although the legislated dogs did experience increased LOS before live outcomes. Importantly, legislated dogs were not significantly more likely to be euthanized due to aggressive behavior than non-legislated dogs in this population. These findings indicate that dogs targeted by BSL should be considered an at-risk group within the shelter population and shelters should endeavor to develop specific strategies to reduce LOS and provide best outcomes for these dogs. In many jurisdictions, overturning BSL could be a powerful approach to protecting this at-risk population. DOWNLOADS PUBLISHED 2024-05-20 ISSUE Vol. 3 No. S1 (2024): 2024 ABVP Abstracts SECTION ABVP Abstracts LICENSE Copyright (c) 2024 SK Walker, L Powell This work is licensed under a Creative Commons Attribution 4.0 International License. HOW TO CITE Walker S, Powell L. Canine Outcomes and Length of Stay in a Midwestern Shelter Affected by Breed Specific Legislation [Abstract]. JSMCAH. 2024;3(S1). do</div>
+      <div class="ja-mcq">
+        <p class="ja-q">In this study of canine outcomes in a managed admission shelter subject to BSL, what was found regarding euthanasia for aggressive behavior in legislated versus non-legislated dogs?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Legislated dogs were significantly more likely to be euthanized for aggression</li>
+          <li class="ja-opt"><b>B.</b> Non-legislated dogs were significantly more likely to be euthanized for aggression</li>
+          <li class="ja-opt"><b>C.</b> Legislated dogs were not significantly more likely to be euthanized for aggressive behavior</li>
+          <li class="ja-opt"><b>D.</b> Euthanasia for aggression was equally distributed regardless of BSL status or body weight</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Legislated dogs were not significantly more likely to be euthanized for aggressive behavior</span>
+            <span class="ja-ans-rationale">The abstract states that Pearson Chi Square testing showed legislated dogs in the euthanasia group were no more likely to be euthanized for aggression than non-legislated dogs — an important finding undermining a key rationale for BSL.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In this BSL study, after controlling for body weight, what was found about overall length of stay (LOS) for legislated versus non-legislated dogs in the full population?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> LOS remained significantly longer for legislated dogs in all outcome categories</li>
+          <li class="ja-opt"><b>B.</b> LOS became equivalent between groups overall, although legislated dogs still had longer LOS before live outcomes</li>
+          <li class="ja-opt"><b>C.</b> LOS became shorter for legislated dogs after weight-adjustment</li>
+          <li class="ja-opt"><b>D.</b> There was no significant difference in LOS at baseline before weight-adjustment</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. LOS became equivalent between groups overall, although legislated dogs still had longer LOS before live outcomes</span>
+            <span class="ja-ans-rationale">The abstract states that after controlling for weight, LOS was no longer significantly different for the full study population, though legislated dogs did experience increased LOS before live outcomes (adoption and RTO).</span>
+          </div>
+        </details>
+      </div>
+  </div>
+</section>
+<!-- JOURNAL-ARTICLES:END -->
 
 </div></main>
 <footer><div class="wrap"><p>ABVP Shelter Medicine Practice RVS &middot; Shelter Management &middot; Subdomain 7: Regulation and Legal Framework &middot; Source: Shelter Medicine for Veterinarians and Staff 2nd Ed., Ch. 6. Exam: November 2026.</p></div></footer>

@@ -150,6 +150,10 @@
   <button data-p="marketing"><span class="dot"></span>Marketing</button>
   <button data-p="postadopt"><span class="dot"></span>Post-Adoption</button>
   <button data-p="mcq"><span class="dot" style="background:var(--dom-head)"></span>MCQ Bank</button>
+
+<!-- JOURNAL-TAB:START -->
+<button data-p="journal"><span class="dot" style="background:var(--lit, #1f6f8b)"></span>Journal Articles</button>
+<!-- JOURNAL-TAB:END -->
 </div></div></nav>
 <div class="srch-wrap"><div class="wrap"><div class="srch-row">
 <svg width="14" height="14" viewBox="0 0 15 15" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="m10.5 10.5 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -645,6 +649,614 @@
   </div>
   <div id="qhost"></div>
 </section>
+
+
+<!-- JOURNAL-ARTICLES:START -->
+<style data-journal-css>
+/* ── Journal Articles section ─────────────────────────────────────────── */
+.ja-standalone {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 2px solid var(--line, #d9d0bd);
+}
+.ja-article {
+  margin-bottom: 24px;
+  padding: 20px 22px 18px;
+  background: var(--paper2, #fbf8f1);
+  border-radius: 10px;
+  box-shadow: var(--shadow, 0 1px 2px rgba(15,61,58,.08), 0 8px 24px rgba(15,61,58,.06));
+}
+.ja-cite {
+  margin: 0 0 10px;
+  line-height: 1.45;
+  font-size: 0.97em;
+}
+.ja-meta {
+  color: var(--muted, #5d6b62);
+  font-size: 0.875em;
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0.01em;
+}
+.ja-meta a {
+  color: var(--lit, #1f6f8b);
+  text-decoration: none;
+}
+.ja-meta a:hover {
+  text-decoration: underline;
+}
+.ja-abstract {
+  border-left: 3px solid var(--lit, #1f6f8b);
+  padding: 10px 14px;
+  margin: 0 0 18px;
+  background: var(--lit-soft, #dcedf2);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.925em;
+  line-height: 1.6;
+  color: var(--ink, #0f3d3a);
+}
+.ja-mcq {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line, #d9d0bd);
+}
+.ja-mcq + .ja-mcq {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.ja-q {
+  font-weight: 600;
+  font-size: 0.93em;
+  margin: 0 0 7px;
+  color: var(--ink, #0f3d3a);
+}
+.ja-opts {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ja-opt {
+  font-size: 0.9em;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: var(--ink2, #15514c);
+  background: transparent;
+}
+.ja-opt b {
+  display: inline-block;
+  min-width: 1.5em;
+  color: var(--muted, #5d6b62);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.88em;
+}
+.ja-ans {
+  margin-top: 4px;
+}
+.ja-ans summary {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 0.83em;
+  font-family: "JetBrains Mono", monospace;
+  padding: 3px 10px;
+  border: 1px solid var(--lit, #1f6f8b);
+  border-radius: 5px;
+  color: var(--lit, #1f6f8b);
+  background: transparent;
+  user-select: none;
+  list-style: none;
+}
+.ja-ans summary::-webkit-details-marker { display: none; }
+.ja-ans summary::marker { display: none; }
+.ja-ans summary:hover {
+  background: var(--lit-soft, #dcedf2);
+}
+.ja-ans[open] summary {
+  background: var(--lit-soft, #dcedf2);
+  margin-bottom: 6px;
+}
+.ja-ans-body {
+  font-size: 0.9em;
+  padding: 8px 12px;
+  background: var(--paper, #fdfaf4);
+  border: 1px solid var(--line, #d9d0bd);
+  border-radius: 6px;
+  line-height: 1.55;
+  color: var(--ink, #0f3d3a);
+}
+.ja-ans-correct {
+  font-weight: 600;
+  color: var(--good, #2f7d52);
+  display: block;
+  margin-bottom: 4px;
+}
+.ja-ans-rationale {
+  color: var(--ink2, #15514c);
+}
+</style>
+<section class="panel" id="journal">
+  <h2 class="sec">Additional Resources</h2>
+  <p class="lead">Journal Articles (2021–2026). Exam items are drawn from the abstract only — read each abstract, then self-test.</p>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Post-Adoption Behavior and Adopter Satisfaction of Shelter Kittens Identified as Undersocialized Prior to Adoption</b><br>
+    <span class="ja-meta">Post-Adoption Behavior and Adopter Satisfaction of Shelter &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2026</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Introduction: Undersocialized kittens pose an ethical challenge for shelters. Although undersocialized kittens (especially those under 12 weeks) are thought to adapt better than undersocialized adults, data on their long-term welfare and adopter satisfaction are limited. This study examines behavioral outcomes and adopter experiences for Undersocial and Control kittens, above and below 12 weeks of age. Methods: At least 1 year after placement, a survey was administered to adopters of kittens who were &gt;1 and &lt;7 months old at intake. Multinomial logistic regressions and Fisher’s exact tests were conducted to identify significant differences between groups (Undersocial&lt;12 weeks, Undersocial&gt;12 weeks, Control&lt;12 weeks, and Control&gt;12 weeks) in reported behavioral traits (8 traits, 1–5 Likert scale), responses to situational social interactions (approach and petting, from owner and stranger), and adopter experience (satisfaction 1–5 Likert scale, categorical classification of feelings toward the cats, and categorical classification of what type of environment would make the cat happiest). Results: Of the 724 adopters surveyed, overall differences between groups were minimal. Fearfulness was the only trait significantly associated with group: Control&lt;12 weeks kittens were 71% less likely and Control&gt;12 weeks kittens were 65% less likely to be rated as fearful compared to Undersocial&lt;12 weeks kittens. Responses to stranger approach and petting also differed: Undersocial&lt;12 weeks kittens were more likely to react negatively than Control&lt;12 weeks kittens. Owner-directed behaviors (approach and petting) showed no meaningful differences between groups. Adopter satisfaction was high across all groups (95–98%), most adopters described loving their kittens (96–99%) and thought their kitten would be happiest in a traditional home environment (89–93%). Conclusion: Both age groups of Undersocial kittens were more fearful and wary of strangers, but all groups formed strong bonds with adopters. There was no notable difference between Undersocial kitten age groups, suggesting adoption is a viable, welfare-positive option when intake sources and resources allow. Keywords: feline; socialization period; human-animal bond; adoptability; welfare; feral; behavior; petting; approach; traits; shelter P athway planning for undersocialized kittens prestens not socialized to humans during the sensitive period of 2–8 weeks of age may struggle to adapt to life social bonds; however, after this period, socialization efforts require increasing time and effort, and may have insufficient results.3,4a Previous research5 has indicated that be socialized by the American Society for the Prevention International License (http://creativecommons.org/licenses/by/4.0/), allowing third parties to copy and redistribute the material in any medium or format and to remix, transform, and build upon the material for any purpose, even commercially, provided the original work is properly cited and states its license.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">In this study of 724 adopters of undersocial and control kittens, which behavioral trait showed the most significant difference between groups?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Affection toward the owner</li>
+          <li class="ja-opt"><b>B.</b> Fearfulness</li>
+          <li class="ja-opt"><b>C.</b> Enjoyment of owner-directed petting</li>
+          <li class="ja-opt"><b>D.</b> Destructive behavior</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Fearfulness</span>
+            <span class="ja-ans-rationale">The abstract states: &#x27;Fearfulness was the only trait significantly associated with group&#x27;: Control kittens (both age groups) were 65–71% less likely to be rated as fearful compared to Undersocial&lt;12 weeks kittens.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">What did this study find regarding adopter satisfaction across Undersocial and Control kitten groups at least one year after placement?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Adopter satisfaction was significantly lower for undersocial kitten adopters (70–80%) compared to control kitten adopters (95–98%)</li>
+          <li class="ja-opt"><b>B.</b> Adopter satisfaction was high across all groups (95–98%) with no notable difference between undersocial and control kittens</li>
+          <li class="ja-opt"><b>C.</b> Satisfaction was high for undersocial kittens under 12 weeks but dropped significantly for those over 12 weeks</li>
+          <li class="ja-opt"><b>D.</b> Most adopters of undersocial kittens reported regretting the adoption compared to control kitten adopters</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Adopter satisfaction was high across all groups (95–98%) with no notable difference between undersocial and control kittens</span>
+            <span class="ja-ans-rationale">The abstract reports: &#x27;Adopter satisfaction was high across all groups (95–98%), most adopters described loving their kittens (96–99%) and thought their kitten would be happiest in a traditional home environment (89–93%).&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">What overall conclusion did this study reach about adoption as a pathway for undersocialized kittens?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Undersocial kittens should be redirected to TNR or barn placement regardless of age</li>
+          <li class="ja-opt"><b>B.</b> Undersocial kittens over 12 weeks have poor outcomes and should not be adopted</li>
+          <li class="ja-opt"><b>C.</b> Adoption is a viable, welfare-positive option for undersocialized kittens when intake sources and resources allow</li>
+          <li class="ja-opt"><b>D.</b> There was no meaningful difference in outcomes between undersocial and control kittens across all measures</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Adoption is a viable, welfare-positive option for undersocialized kittens when intake sources and resources allow</span>
+            <span class="ja-ans-rationale">The abstract concludes: &#x27;Both age groups of Undersocial kittens were more fearful and wary of strangers, but all groups formed strong bonds with adopters...suggesting adoption is a viable, welfare-positive option when intake sources and resources allow.&#x27;</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Shelter to Home Surveys of Early Post-Adoption Experiences with More Than 22,000 Dog and Cat Adopters</b><br>
+    <span class="ja-meta">with More Than 22,000 Dog and Cat Adopters &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2026</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Introduction: Understanding the early post-adoption experience is critical to supporting animal welfare, strengthening the human–animal bond, and improving shelter practices. While most adopters report high satisfaction, behavioural and care-related challenges are common. This study used the Petszel platform to evaluate early post-adoption outcomes across more than 22,000 dog and cat adopters from 112 shelters and rescue organisations in 40 United States (U.S.) states. Methods: Surveys were distributed automatically on Day 1, Week 1, and Month 1 post-adoption. Adopters were asked about general satisfaction, specific behaviours, veterinary care, and microchip registration. Responses were included only if the pet was in the home at time of survey. Data were summarised by species and time point using descriptive statistics. Results: Over 94% rated their experience positively (score of 4 or 5 out of 5) at all time points. However, more than 78% of dog adopters and 50% of cat adopters also reported at least one challenge. Among dogs, common issues included house soiling (32%), play biting (34%), leash pulling (28%), and separation distress/anxiety (24%). Among cats, the most frequent challenges were fear or hiding (19%), introduction to existing pets (10%), anxiety in specific situations (9%); destructive chewing/scratching (8%) and urinating and/or defecating outside the litter box (5%) were both reported slightly less commonly. By Month 1, 56% of cat adopters and 66% of dog adopters reported completing their pet’s first veterinary visit. Microchip registration was reported by 61% of cat and 62% of dog adopters by Week 1. Nearly half of dog adopters reported no plans for formal training by Month 1. Conclusion: Despite high satisfaction ratings, many adopters faced behavioural or care challenges. These findings suggest that general satisfaction measures may obscure important challenges as animals settle into their new homes. Species-specific counselling, proactive veterinary engagement, and further microchip registration guidance may better support post-adoption success. Keywords: pet adoption; cat behaviour; dog behaviour; animal shelter; human-animal bond; post-adoption; adoption satisfaction A doption from animal shelters is one of the most (U.S.) acquire dogs and cats.1 Understanding veterinarians, and potential adopters. Knowing what happens once a pet enters a new home can inform adoption processes, guide targeted follow-up support, improve animal welfare, help prospective owners anticipate common to the shelter.2–5 4.0 International License (http://creativecommons.org/licenses/by/4.0/), allowing third parties to copy and redistribute the material in any medium or format and to remix, transform, and build upon the material for any purpose, even commercially, provided the original work is properly cited and states its license.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">This study used the Petszel platform to survey more than 22,000 dog and cat adopters from 112 shelters. What was the overall satisfaction rate reported at all post-adoption time points?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Over 85% rated their experience as a 4 or 5 out of 5</li>
+          <li class="ja-opt"><b>B.</b> Over 94% rated their experience as a 4 or 5 out of 5</li>
+          <li class="ja-opt"><b>C.</b> Over 75% rated their experience positively, but satisfaction decreased sharply by Month 1</li>
+          <li class="ja-opt"><b>D.</b> Satisfaction varied widely by species, with dogs averaging 80% and cats averaging 65%</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Over 94% rated their experience as a 4 or 5 out of 5</span>
+            <span class="ja-ans-rationale">The abstract states: &#x27;Over 94% rated their experience positively (score of 4 or 5 out of 5) at all time points.&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">Despite high overall satisfaction, what percentage of dog adopters and cat adopters reported at least one behavioral or care challenge post-adoption?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> More than 50% of dog adopters and more than 30% of cat adopters</li>
+          <li class="ja-opt"><b>B.</b> More than 78% of dog adopters and more than 50% of cat adopters</li>
+          <li class="ja-opt"><b>C.</b> More than 60% of dog adopters and more than 40% of cat adopters</li>
+          <li class="ja-opt"><b>D.</b> More than 90% of dog adopters and more than 70% of cat adopters</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. More than 78% of dog adopters and more than 50% of cat adopters</span>
+            <span class="ja-ans-rationale">The abstract states: &#x27;more than 78% of dog adopters and 50% of cat adopters also reported at least one challenge,&#x27; highlighting a disconnect between satisfaction scores and actual difficulties.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">By Month 1 post-adoption, what percentage of dog adopters and cat adopters reported completing their pet&#x27;s first veterinary visit?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Dog adopters: 80%; cat adopters: 75%</li>
+          <li class="ja-opt"><b>B.</b> Dog adopters: 45%; cat adopters: 38%</li>
+          <li class="ja-opt"><b>C.</b> Dog adopters: 66%; cat adopters: 56%</li>
+          <li class="ja-opt"><b>D.</b> Dog adopters: 56%; cat adopters: 66%</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Dog adopters: 66%; cat adopters: 56%</span>
+            <span class="ja-ans-rationale">The abstract reports: &#x27;By Month 1, 56% of cat adopters and 66% of dog adopters reported completing their pet&#x27;s first veterinary visit.&#x27;</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Observed Benefits of a Rehome Web Application For Harder-To-Adopt Pet Populations</b><br>
+    <span class="ja-meta">John Cornelison, Sue Neal and Kevin Horecka &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2025</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Introduction: Owner-to-owner rehoming platforms such as Home-Home.org, Getyourpet. com, and Rehome.adoptapet.com (hereafter, Rehome) were launched in 2016 and 2017 as alternatives to traditional shelter intake. Previous research identified characteristics that predict an animal’s likelihood of successful diversion from shelter intake via person-to-person rehoming platforms. These findings suggested that certain populations – specifically senior animals and large dogs – have lower odds of diversion. This study builds on this by evaluating whether harder-to-adopt animals can benefit from being listed on Rehome. Methods: Using data from Rehome and 23 shelters participating in the Human Animal Support Services (HASS) initiative, this study used Cox regression, chi-square tests, and two outcome metrics: median length of stay (LOS) and adoption rate. Analyses focused on harder-to-adopt animals – defined as senior cats, senior dogs, and large dogs – and compared adoption rates between animals listed on Rehome and those surrendered to shelters. Results: Animals on Rehome had longer LOS than animals in the shelter. Cox regression results further indicated that animals on Rehome had lower probabilities of adoption at any given time compared to those in shelters. Overall, adoption rates were higher in shelters, although considerable variability existed among shelters; whereas Rehome’s performance remained relatively stable. In some regions, Rehome had higher adoption rates than the corresponding local shelter. Conclusion: The results imply that harder-to-adopt animals have a better chance of finding a new home in shelters than through an online rehoming website. However, harder-to-adopt animals still find success on Rehome. Considering that Rehome results in efficiency gains for shelter systems and a reduced-stress environment for animals, if properly expanded and utilized by shelter communities, Rehome could serve as a useful complementary tool for shelters. It may also help reduce shelter intakes, especially of animals traditionally classified as harder-to-adopt. Keywords: online rehoming, peer-to-peer rehoming, senior cats, senior dogs, large dogs, animal shelter, animal adoption, animal length of stay, animal welfare A lthough stray animals constitute the majority of shelter intakes, owner-relinquished animals account for approximately 25–35%1–3 of admissions. Understanding the reasons for relinquishment can highlight intervention opportunities to prevent shelter intake. Owner-related factors, such as health issues or housing restrictions, are common reasons for animal surrender;4–6 however, these decisions often involve complex, multifaceted considerations.7,8 Weiss and colleagues9 found that 37% of rehomed animals were placed with friends or family, while 36% were surrendered to shelters, a preferred option. Identifying and providing alternative 4.0 International License (http://creativecommons.org/licenses/by/4.0/), allowing third parties to copy and redistribute the material in any medium or format and to remix, transform, and build upon the material for any purpose, even commercially, provided the original work is properly cited and states its license.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">This study compared adoption outcomes for harder-to-adopt animals (senior cats, senior dogs, large dogs) on the Rehome platform versus animals surrendered to shelters. What was the primary finding regarding adoption rates?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Rehome had consistently higher adoption rates than shelters for all harder-to-adopt animals</li>
+          <li class="ja-opt"><b>B.</b> Overall adoption rates were higher in shelters, though considerable variability existed among shelters</li>
+          <li class="ja-opt"><b>C.</b> Rehome and shelters had equivalent adoption rates for senior animals but Rehome performed better for large dogs</li>
+          <li class="ja-opt"><b>D.</b> Senior cats had higher adoption rates on Rehome while large dogs performed better in shelters</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Overall adoption rates were higher in shelters, though considerable variability existed among shelters</span>
+            <span class="ja-ans-rationale">The abstract states: &#x27;Overall, adoption rates were higher in shelters, although considerable variability existed among shelters; whereas Rehome&#x27;s performance remained relatively stable.&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">Regarding length of stay (LOS) for harder-to-adopt animals, what did Cox regression results indicate when comparing Rehome to shelter placement?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Animals on Rehome had shorter LOS than animals in the shelter</li>
+          <li class="ja-opt"><b>B.</b> LOS was equivalent between Rehome and shelter for senior animals only</li>
+          <li class="ja-opt"><b>C.</b> Animals on Rehome had longer LOS and lower probabilities of adoption at any given time compared to those in shelters</li>
+          <li class="ja-opt"><b>D.</b> LOS on Rehome was shorter but adoption probability was also lower</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Animals on Rehome had longer LOS and lower probabilities of adoption at any given time compared to those in shelters</span>
+            <span class="ja-ans-rationale">The abstract states that &#x27;Animals on Rehome had longer LOS than animals in the shelter. Cox regression results further indicated that animals on Rehome had lower probabilities of adoption at any given time compared to those in shelters.&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">Despite poorer overall adoption rate performance compared to shelters, what did the authors conclude about the role of the Rehome platform?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Rehome should be discontinued as it performs worse than shelters across all metrics</li>
+          <li class="ja-opt"><b>B.</b> Rehome is only beneficial for senior cats and should not be promoted for large dogs</li>
+          <li class="ja-opt"><b>C.</b> If properly expanded and utilized, Rehome could serve as a useful complementary tool and help reduce shelter intakes</li>
+          <li class="ja-opt"><b>D.</b> Rehome is most effective as a primary placement mechanism, not a supplementary one</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. If properly expanded and utilized, Rehome could serve as a useful complementary tool and help reduce shelter intakes</span>
+            <span class="ja-ans-rationale">The abstract concludes that &#x27;if properly expanded and utilized by shelter communities, Rehome could serve as a useful complementary tool for shelters&#x27; and may help reduce shelter intakes of harder-to-adopt animals.</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Optimising Shelter Outcomes Using Technology, Foster Care and External Networks A Community Case Study of Community- Centred Adoptions in an Australian Cat Shelter</b><br>
+    <span class="ja-meta">Optimising Shelter Outcomes Using Technology, Foster Care &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2025</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> This study presents an initial in-depth analysis of foster-led adoptions via a digital platform in an Australian shelter context, where adoptions have traditionally occurred on-site. COVID-19 prompted the development of new adoption initiatives that complied with restrictive government guidelines. Between 2018 and 2024, shelter-based adoptions (n = 30,292) reduced from 80 to 60%, with adoptions through foster care, pet shops and community engagement becoming increasingly important. Growth in foster-based and pet shop adoptions supported shelter operations, accelerating the introduction of new services. Incorporating Adopets®, a digital platform compatible with Shelter BuddyPro® and relatively new to Australia, streamlined remote adoption processes, eliminated the need for in-person visits and reduced adoption barriers, notably decision fatigue. Following its implementation, off-site adoptions doubled compared to pre-pandemic levels, peaking at 40% (n = 13,713), with foster care consistently outperforming pet shop placements. In 2023, the median on-site stay for cats and kittens was 6 days and 28 days for those in foster care. In 2024, despite a 467-animal increase in intake, the median shelter stay dropped to 5 days and 24 days for those in foster care. These results highlight how incorporating technology-enabled strategies offer a replicable framework for community-centred, scalable shelter operations in Australian shelters.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">This Australian shelter study examined adoption pathways from 2018 to 2024. What was the primary driver that prompted the development of new off-site adoption initiatives?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> A strategic plan to increase foster-based adoptions to 50% of total placements</li>
+          <li class="ja-opt"><b>B.</b> COVID-19 restrictions requiring compliance with government guidelines</li>
+          <li class="ja-opt"><b>C.</b> Overcrowding at the shelter resulting in decreased on-site capacity</li>
+          <li class="ja-opt"><b>D.</b> Implementation of the Adopets digital platform by shelter management</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. COVID-19 restrictions requiring compliance with government guidelines</span>
+            <span class="ja-ans-rationale">The abstract states: &#x27;COVID-19 prompted the development of new adoption initiatives that complied with restrictive government guidelines.&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">Following implementation of the Adopets digital platform at this Australian shelter, what happened to off-site adoptions compared to pre-pandemic levels?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Off-site adoptions increased by 20% above pre-pandemic levels</li>
+          <li class="ja-opt"><b>B.</b> Off-site adoptions remained stable, while on-site adoptions increased</li>
+          <li class="ja-opt"><b>C.</b> Off-site adoptions doubled, peaking at 40% of total adoptions (n=13,713)</li>
+          <li class="ja-opt"><b>D.</b> Off-site adoptions tripled and permanently replaced on-site adoptions</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Off-site adoptions doubled, peaking at 40% of total adoptions (n=13,713)</span>
+            <span class="ja-ans-rationale">The abstract states: &#x27;Following its implementation, off-site adoptions doubled compared to pre-pandemic levels, peaking at 40% (n=13,713), with foster care consistently outperforming pet shop placements.&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In 2024, what impact did the technology-enabled adoption strategy have on median shelter stay despite increased intake?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> The median shelter stay for cats increased from 6 days to 10 days due to higher intake</li>
+          <li class="ja-opt"><b>B.</b> Despite a 467-animal increase in intake, the median on-site stay for cats dropped from 6 days to 5 days</li>
+          <li class="ja-opt"><b>C.</b> The median shelter stay for cats in foster care increased from 28 days to 35 days</li>
+          <li class="ja-opt"><b>D.</b> Median shelter stay remained unchanged at 6 days for on-site cats and 28 days for foster cats</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Despite a 467-animal increase in intake, the median on-site stay for cats dropped from 6 days to 5 days</span>
+            <span class="ja-ans-rationale">The abstract reports that in 2024, despite a 467-animal increase in intake, the median shelter stay dropped to 5 days on-site and 24 days for cats in foster care, compared to 6 and 28 days respectively in 2023.</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Post-Adoption Behavior and Adopter Satisfaction of Cats Across Socialization Likelihoods</b><br>
+    <span class="ja-meta">Post-Adoption Behavior and Adopter Satisfaction of Cats Across &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2025</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Introduction: Cats with questionable sociability are routinely adopted into typical home environments, but there has been no published investigation into the welfare of these cats in their adoptive homes or the quality of the adopter experience. The objective of this study was to assess differences in post-adoption behavior and well-being between cats based on their likelihood of being socialized, as well as differences in adopter experience. Methods: This prospective behavioral study surveyed adopters of cats assessed via the Feline Spectrum Assessment (FSA) and a randomly sampled control group (those never suspected of being undersocial) of cats with intake and adoption dates during the same period. Adopters reported on behavioral traits, situational behaviors, and adopter satisfaction. Results: As the likelihood of being undersocial increased, cats were more fearful, less affectionate, and less amenable to approach and petting (more so by strangers, but also by their owners). Adopters of FSA cats reported being slightly less satisfied than control cat adopters. As the likelihood of being undersocial increased adopters were less likely to report a traditional home environment as the best environment for their pet than control cats. Conclusion: This study provides evidence that cats never suspected of being undersocialized experience better welfare than undersocial cats, and their adopters are more satisfied. These results are more pronounced for cats found more likely to be undersocial by the FSA. Although it is becoming increasingly possible to find adoptive homes for poorly socialized cats, it does not appear to be in the best interest of many of these cats or adopters. The results of the FSA may be helpful for making pathway decisions for each cat; evidence suggests that at least FSA 1&amp;2 cats should be slated for Trap Neuter Return (TNR) or barn placement unless significant progress is made in shelter. Keywords: feline; adoptability; human-animal bond; welfare; feral; behavior; Feline Spectrum Assessment; petting; approach; traits; shelter T he most appropriate management strategy to ter environment varies based on many factors. Perhaps the most important of these is the cat’s level of socialization to people. Some people support attemptvival challenges2,3 not experienced by owned indoor cats. Others argue that socialization and adoption are not in the best interests of adult cats that are poorly socialized, as these cats typically experience poor welfare in shelter or traditional home environments4, and that these efforts end of the spectrum.a International License (http://creativecommons.org/licenses/by/4.0/), allowing third parties to copy and redistribute the material in any medium or format and to remix, transform, and build upon the material for any purpose, even commercially, provided the original work is properly cited and states its license.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">This prospective study used the Feline Spectrum Assessment (FSA) to evaluate post-adoption outcomes for cats of varying socialization likelihood. What was the overall conclusion regarding welfare and adopter satisfaction for undersocial versus control cats?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Undersocial cats adapted well to home environments and adopters reported equal satisfaction</li>
+          <li class="ja-opt"><b>B.</b> Cats never suspected of being undersocialized experienced better welfare and their adopters were more satisfied</li>
+          <li class="ja-opt"><b>C.</b> FSA cats showed no behavioral differences from control cats once placed in homes</li>
+          <li class="ja-opt"><b>D.</b> Undersocial cats showed better welfare outcomes in homes than in shelters</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Cats never suspected of being undersocialized experienced better welfare and their adopters were more satisfied</span>
+            <span class="ja-ans-rationale">The abstract concludes: &#x27;This study provides evidence that cats never suspected of being undersocialized experience better welfare than undersocial cats, and their adopters are more satisfied.&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In this study comparing FSA-assessed cats to control cats, how did increasing likelihood of being undersocialized affect cats&#x27; behavioral traits post-adoption?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Cats became more fearful but equally affectionate to their owners over time</li>
+          <li class="ja-opt"><b>B.</b> As likelihood of being undersocial increased, cats were more fearful, less affectionate, and less amenable to approach and petting</li>
+          <li class="ja-opt"><b>C.</b> Undersocial cats were less fearful but more destructive than control cats in home environments</li>
+          <li class="ja-opt"><b>D.</b> No significant differences in behavioral traits were observed between FSA and control cat groups</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. As likelihood of being undersocial increased, cats were more fearful, less affectionate, and less amenable to approach and petting</span>
+            <span class="ja-ans-rationale">The abstract states: &#x27;As the likelihood of being undersocial increased, cats were more fearful, less affectionate, and less amenable to approach and petting (more so by strangers, but also by their owners).&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">Based on these post-adoption findings, what placement pathway did the authors recommend for FSA 1&amp;2 cats (most likely to be undersocial)?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Long-term foster care with experienced cat handlers</li>
+          <li class="ja-opt"><b>B.</b> Standard adoption into home environments with post-adoption behavioral support</li>
+          <li class="ja-opt"><b>C.</b> Trap Neuter Return (TNR) or barn placement unless significant progress is made in shelter</li>
+          <li class="ja-opt"><b>D.</b> Adoption into homes with no other pets to reduce competition and stress</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Trap Neuter Return (TNR) or barn placement unless significant progress is made in shelter</span>
+            <span class="ja-ans-rationale">The abstract states: &#x27;evidence suggests that at least FSA 1&amp;2 cats should be slated for Trap Neuter Return (TNR) or barn placement unless significant progress is made in shelter.&#x27;</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>The Effect of Kennel Viewing on the Adoption of Slow-Track Dogs</b><br>
+    <span class="ja-meta">Social Compassion &amp; SCIL, Laguna Beach, CA, USA &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2025</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> The Orange County (California) animal shelter allowed adopters to peruse dog kennels until early 2020 but suspended visitor access to dog kennels during the COVID-19 pandemic. Except for a late 2023 pilot program, the restrictions remained in place through 2023. Then, in January 2024, partial daily viewing sessions were instituted. We study the effect of this change on adoptions of dogs with length of stay (LOS) ≥ 9, who account for 42% of adoptions but 72% of inventory excluding dogs returned to owner. Adoption counts in 2024 are 40% higher than expected in viewing sessions using 2023 as a reference, or 57% higher using 2022 as a reference, and these results are statistically significant (P = 0.009, P = 0.0009, respectively). Adoption rates are computed as a percent of inventory (equivalently, adoption probabilities per animal per session). In the period 2019–2024 but excluding 2020, adoption rates were 1.04% – 1.18% per session (with an average of 1.10%) in viewing sessions versus. 0.68% – 0.80% (with an average of 0.74%) in non-viewing sessions. The evidence suggests that kennel viewing enhances opportunities for increasing adoptions of dogs with LOS ≥ 9.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">This study examined the effect of reinstating kennel viewing sessions in January 2024 at the Orange County shelter on dogs with LOS ≥9 days. What was the approximate increase in adoption counts in 2024 viewing sessions compared to 2023 as a reference?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> 20% higher than expected</li>
+          <li class="ja-opt"><b>B.</b> 57% higher than expected</li>
+          <li class="ja-opt"><b>C.</b> 40% higher than expected</li>
+          <li class="ja-opt"><b>D.</b> 72% higher than expected</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. 40% higher than expected</span>
+            <span class="ja-ans-rationale">The abstract states: &#x27;Adoption counts in 2024 are 40% higher than expected in viewing sessions using 2023 as a reference, or 57% higher using 2022 as a reference, and these results are statistically significant.&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the period 2019–2024 (excluding 2020), what were the comparative adoption rates per session for dogs with LOS ≥9 during viewing versus non-viewing sessions?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> 1.04–1.18% per session during viewing vs 0.68–0.80% during non-viewing</li>
+          <li class="ja-opt"><b>B.</b> 2.0–2.5% per session during viewing vs 1.0–1.2% during non-viewing</li>
+          <li class="ja-opt"><b>C.</b> 0.68–0.80% per session during viewing vs 0.40–0.55% during non-viewing</li>
+          <li class="ja-opt"><b>D.</b> 1.5–2.0% per session during viewing vs 0.90–1.10% during non-viewing</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: A. 1.04–1.18% per session during viewing vs 0.68–0.80% during non-viewing</span>
+            <span class="ja-ans-rationale">The abstract states: &#x27;adoption rates were 1.04%–1.18% per session (with an average of 1.10%) in viewing sessions versus 0.68%–0.80% (with an average of 0.74%) in non-viewing sessions.&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">Dogs with LOS ≥9 at the Orange County shelter account for what proportions of adoptions and of current inventory (excluding return-to-owner dogs)?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> 42% of adoptions and 72% of inventory</li>
+          <li class="ja-opt"><b>B.</b> 72% of adoptions and 42% of inventory</li>
+          <li class="ja-opt"><b>C.</b> 50% of adoptions and 60% of inventory</li>
+          <li class="ja-opt"><b>D.</b> 60% of adoptions and 50% of inventory</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: A. 42% of adoptions and 72% of inventory</span>
+            <span class="ja-ans-rationale">The abstract states that dogs with LOS ≥9 &#x27;account for 42% of adoptions but 72% of inventory excluding dogs returned to owner,&#x27; making them a disproportionately large fraction of the shelter&#x27;s population.</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>A Mixed Methods Exploration Of Opportunities For Barriers And Bias During Off Site Animal Adoption Events</b><br>
+    <span class="ja-meta">Lexis H. Ly, Kelsea Brown, Emily Yau, Becky Kenworthy, Sheila Segurson &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2024</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Introduction: Adopters and animal shelter leaders are calling for higher equity in services provided by animal shelters to their communities. Specifically, restrictive pet adoption processes have been proposed as a threat to equitable service. The study had three specific goals: (1) to describe the basic characteristics of off-site adoption events, (2) to describe the adoption processes in use by shelters and to determine if there is any potential for unconscious bias in these processes, and (3) to determine if adoption practices differ depending on the characteristics of the animal shelter. Methods: A total of 484 participants reported on how they conduct adoption events and their adopter selection procedures. Characteristics of organisations and their adoption event procedures were described and compared across organisation size using Chi-squared tests. Qualitative responses to open-ended questions asking about screening procedures were analysed through inductive thematic analysis. Results: Commonly, adoption events were held weekly (n = 158, 33.1%) in locally owned stores (n = 259, 54.4%), with volunteers engaging directly with potential adopters (n = 423, 88.5%). Just under half responded that adopters could take pets straight home from the event (n = 229, 47.8%) and that the adoption process does not require a home visit (n = 276, 57.7%). Qualitative analysis revealed three major groups of themes: ‘methods of selection’, ‘information gathered by the animal shelter’, ‘information provided by the animal shelter’. The sub-theme of ‘Vibes’ (coded for 39.4% participants, n = 175) encompassed decision-making based on intuition or feeling when meeting or observing potential adopters face-to-face. Generally, larger organisations held adoption events more frequently, were more likely to let adopters take animals straight home, and did not require a home visit. However, both types of organisations showed a potential for implicit bias when selecting adopters. Conclusion: Our results suggest that procedures of adoption events in animal shelters vary across organisation, with some practices differing based on organisation size. Given that our results suggest possibility for implicit bias when screening adopters during adoption events, we conclude that there is a need for increased awareness, research, and training to address the issue of implicit bias in animal sheltering organisations. Keywords: animal shelter; implicit bias; shelter management; capacity for care I n 2006 and 2021, two different articles in the New York Times scrutinised the difficult process of adopting animals from shelters and rescues from the public perspective.1,2 Both articles, although 15 having children, having too small a yard) that eventually deterred people from adoption altogether. Similar International License (http://creativecommons.org/licenses/by/4.0/), allowing third parties to copy and redistribute the material in any medium or format and to remix, transform, and build upon the material for any purpose, even commercially, provided the original work is properly cited and states its license.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">A study of 484 shelter participants examined off-site adoption events. Which sub-theme, identified through inductive thematic analysis, reflected adoption decisions based on intuition or gut feeling when meeting potential adopters face-to-face?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Home visit requirement</li>
+          <li class="ja-opt"><b>B.</b> Information provided by the animal shelter</li>
+          <li class="ja-opt"><b>C.</b> Vibes</li>
+          <li class="ja-opt"><b>D.</b> Adopter income screening</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Vibes</span>
+            <span class="ja-ans-rationale">The abstract explicitly names &#x27;Vibes&#x27; (coded for 39.4% of participants, n=175) as the sub-theme encompassing decision-making based on intuition or feeling when meeting potential adopters face-to-face.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In this mixed-methods study of off-site adoption events, how did adoption practices differ between larger and smaller sheltering organizations?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Larger organizations were more likely to require a home visit before finalizing adoptions</li>
+          <li class="ja-opt"><b>B.</b> Larger organizations held events more frequently and were more likely to let adopters take animals straight home</li>
+          <li class="ja-opt"><b>C.</b> Smaller organizations held adoption events more frequently but required more screening</li>
+          <li class="ja-opt"><b>D.</b> Organization size had no effect on any adoption event practices</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Larger organizations held events more frequently and were more likely to let adopters take animals straight home</span>
+            <span class="ja-ans-rationale">The abstract states that larger organizations held adoption events more frequently, were more likely to let adopters take animals straight home, and did not require a home visit compared to smaller organizations.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">What was the primary conclusion of this study regarding implicit bias in off-site adoption events?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Implicit bias was only present in large organizations, not smaller ones</li>
+          <li class="ja-opt"><b>B.</b> Adoption event procedures were standardized across all shelter types</li>
+          <li class="ja-opt"><b>C.</b> Both types of organizations showed potential for implicit bias when selecting adopters, highlighting a need for awareness and training</li>
+          <li class="ja-opt"><b>D.</b> The qualitative analysis found no evidence of bias in adoption screening procedures</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Both types of organizations showed potential for implicit bias when selecting adopters, highlighting a need for awareness and training</span>
+            <span class="ja-ans-rationale">The abstract concludes that both types of organizations showed potential for implicit bias when screening adopters during adoption events, and calls for increased awareness, research, and training to address the issue.</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>The Increasing Adoption Potential of Undersocialized Cats and Kittens- Blessing or Curse?</b><br>
+    <span class="ja-meta">The Increasing Adoption Potential of Undersocialized Cats and Kittens:... https://jsmcah.org/index.php/jasv/article/view/94 &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2024 &middot; <a href="https://doi.org/10.56771/jsmcah.v3.94" target="_blank" rel="noopener">10.56771/jsmcah.v3.94</a></span></p>
+    <div class="ja-abstract"><b>Abstract.</b> The most appropriate management strategy for a cat entering a shelter environment varies based on many factors. Perhaps the most important of these is the cat's level of socialization to people. For unsocialized/poorly socialized cats, pathways such as TNR or alternative placement are typically considered more appropriate for their quality of life. This is particularly true for older cats, outside of the socialization phase. However, as supply of cats have declined and rates of pet ownership have increased, there is increasing pressure for shelters to find homes for cats with socialization histories that would not have been deemed adoptable previously, and adopters are more willing to adopt poorly socialized cats. There has been no investigation of the well-being of poorly socialized cats in their adoptive homes or the experience of these adopters. Adopters of 57 adult cats identified as undersocialized and 155 control cats (not suspected of being undersocialized) were surveyed about their cat’s behaviour and their own satisfaction. Control cats were rated as less fearful, more affectionate, more likely to engage when approached (by either a stranger or their adopter), and more likely to enjoy petting (by either a stranger or their adopter) than undesocialized cats. Owners of control cats also reported greater satisfaction and were more likely to state that their cat would be happier in a home environment than regularly fed outdoors. Adopters of 134 kittens identified as undersocialized and 591 control kittens (not suspected of being undersocialized) were surveyed about their kitten’s behaviour and their own satisfaction. In this survey, control kittens were rated as less fearful, and more likely to engage when approached by a stranger or enjoy a stranger petting them, but there was no difference in ratings of affection, relationship with their owner (either by engaging when approached or enjoyment of petting), adopter satisfaction, or what environment the adopter states the kitten would be happier. Results suggest that although it is becoming more possible to place undersocialized cats in homes, these environments may not be in the best interests of the cats’ or adopters’ quality-of-life. Results for undersocialized kittens suggest that while they may still be prone to fear, particularly towards strangers, both the kitten and the owners have good quality-of-life and satisfaction post-adoption. DOWNLOADS PUBLISHED 2024-05-20 ISSUE Vol. 3 No. S1 (2024): 2024 ABVP Abstracts SECTION ABVP Abstracts LICENSE Copyright (c) 2024 JJ Ellis, N Furgala, KJ Janke This work is licensed under a Creative Commons Attribution 4.0 International License. HOW TO CITE Ellis J, Furgala N, Janke K. The Increasing Adoption Potential of Undersocialized Cats and Kittens: Blessing or Curse? [Abstract]. JSMCAH. 2024;3(S1). doi:10.56771/jsmcah.v3.94 MORE CITATION FORMATS The Journal of Shelter Medicine and Community Animal Health (JSMCAH) is a societypublished, open-access, continuous publication, peer-reviewed journal of the Association of Shelter Veterinarians. JSMCAH publishes research that advances shelter and community animal health, welfare, and access to veterinary care, promoting evidence-</div>
+      <div class="ja-mcq">
+        <p class="ja-q">This study surveyed adopters of undersocialized adult cats (n=57) and control cats (n=155) about behavior and satisfaction. How did control cats compare to undersocialized adult cats in adopter-reported behavioral outcomes?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Control cats were equally fearful but more affectionate than undersocialized cats</li>
+          <li class="ja-opt"><b>B.</b> Control cats were rated as less fearful, more affectionate, more likely to engage when approached, and more likely to enjoy petting than undersocialized cats</li>
+          <li class="ja-opt"><b>C.</b> Undersocialized cats were less fearful outdoors but less affectionate indoors compared to controls</li>
+          <li class="ja-opt"><b>D.</b> No significant differences were found between control and undersocialized adult cat behavioral ratings</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Control cats were rated as less fearful, more affectionate, more likely to engage when approached, and more likely to enjoy petting than undersocialized cats</span>
+            <span class="ja-ans-rationale">The abstract states: &#x27;Control cats were rated as less fearful, more affectionate, more likely to engage when approached (by either a stranger or their adopter), and more likely to enjoy petting (by either a stranger or their adopter) than unsocialized cats.&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">Regarding kitten outcomes in this study, what key difference was found between control kittens and undersocialized kittens in adopter surveys?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Undersocialized kittens showed no differences in any behavioral measure compared to control kittens</li>
+          <li class="ja-opt"><b>B.</b> Control kittens were rated as less fearful and more receptive to strangers, but adopter satisfaction and owner-relationship measures were similar between groups</li>
+          <li class="ja-opt"><b>C.</b> Undersocialized kittens were more fearful overall and less affectionate toward their owners than control kittens</li>
+          <li class="ja-opt"><b>D.</b> Adopter satisfaction was significantly lower for undersocialized kitten adopters compared to control kitten adopters</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Control kittens were rated as less fearful and more receptive to strangers, but adopter satisfaction and owner-relationship measures were similar between groups</span>
+            <span class="ja-ans-rationale">The abstract reports that control kittens were rated as less fearful and more likely to engage with/enjoy petting by a stranger, &#x27;but there was no difference in ratings of affection, relationship with their owner...adopter satisfaction, or what environment the adopter states the kitten would be happier.&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">What contextual pressure is described in this abstract as driving the trend toward adopting poorly socialized cats?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Mandatory live release rate requirements imposed by municipal governments</li>
+          <li class="ja-opt"><b>B.</b> A decline in cat supply combined with increased rates of pet ownership creating shelter pressure to find homes for previously non-adoptable cats</li>
+          <li class="ja-opt"><b>C.</b> A shortage of outdoor cat colonies available for TNR programs</li>
+          <li class="ja-opt"><b>D.</b> Adopters specifically seeking out fearful cats for therapeutic companionship</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. A decline in cat supply combined with increased rates of pet ownership creating shelter pressure to find homes for previously non-adoptable cats</span>
+            <span class="ja-ans-rationale">The abstract states: &#x27;as supply of cats have declined and rates of pet ownership have increased, there is increasing pressure for shelters to find homes for cats with socialization histories that would not have been deemed adoptable previously.&#x27;</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Factors Affecting the Likelihood of Dogs and Cats Returning to Their Owners at a Municipal Animal Shelter in the United States</b><br>
+    <span class="ja-meta">Factors Affecting the Likelihood of Dogs and Cats Returning to &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2023</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Introduction: Animal shelters consider return-to-owner (RTO) as an ideal outcome for animals, owners, and shelters. Methods to increase RTO likelihood are frequently discussed by shelter professionals nationwide. Some of these methods are evidence-based, while others are anecdotally successful. This retrospective study aimed to provide evidence for commonly suggested methods, as well as identify additional factors influencing RTO likelihood. Methods: Data from 5,960 dog and 3,489 cat impounds were obtained from a large municipal animal shelter in Utah, USA. Directed acyclic graphs were developed to visualize causal assumptions, which were used to identify confounders for adjustment in the logistic regression while modeling the associations between study variables and RTO outcomes for both dogs and cats. Results: Dogs and cats with microchips, older animals, healthy animals, neutered animals, and animals brought to the shelter via another public agency were more likely to return to their owners. Animal sex and season of impound did not affect either dogs’ or cats’ RTO likelihood. Conclusion: The characteristics influencing RTO likelihood were similar for both dogs and cats. These influences provide support for existing shelter practices, such as facilitating widespread microchipping and waiving reclamation fees, while also encouraging implementation of new practices, such as modifying stray hold periods based on source type or health status. Limitations of the study included the presence of incomplete information in the database and concerns with the generalizability of results to other shelters. Keywords: return to owner; reclaim; RTO; directed acyclic graphs; DAGs; microchip A n estimated 4.4 million animals enter United States (US) animal shelters each year.1 These animals enter for various reasons: An estimated 23.7% are relinquished by owners, 11.9% are transferred from other shelhowever, come to shelters as stray animals.1 Animals become stray for many reasons, but in the US, many stray dogs and cats are lost or escaped pets.2 When these pets enter a shelter, returning them to their owners is an ideal outcome.3 Return to owner (RTO) is a metric used by animal shelters to measure how many animals who enter the shelter are subsequently reunited with their owners. Many resources aimed at improving RTO programs exist,4,5,a,b and ­improving a. Return to Home Challenge Resources. Maddie’s Fund. Accessed International License (http://creativecommons.org/licenses/by/4.0/), allowing third parties to copy and redistribute the material in any medium or format and to remix, transform, and build upon the material for any purpose, even commercially, provided the original work is properly cited and states its license.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">This retrospective study of 5,960 dog and 3,489 cat impounds at a Utah municipal shelter examined factors affecting return-to-owner (RTO) likelihood. Which animal characteristics were associated with higher RTO likelihood for BOTH dogs and cats?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Microchipped, older, healthy, neutered, and brought in by another public agency</li>
+          <li class="ja-opt"><b>B.</b> Microchipped, younger, healthy, intact, and owner-surrendered</li>
+          <li class="ja-opt"><b>C.</b> Microchipped, older, injured, neutered, and found as a stray</li>
+          <li class="ja-opt"><b>D.</b> Non-microchipped, younger, healthy, neutered, and brought in by another public agency</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: A. Microchipped, older, healthy, neutered, and brought in by another public agency</span>
+            <span class="ja-ans-rationale">The abstract states that dogs and cats with microchips, older animals, healthy animals, neutered animals, and animals brought to the shelter via another public agency were more likely to return to their owners.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In this Utah shelter study, which two variables did NOT affect RTO likelihood for either dogs or cats?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Microchip status and health status</li>
+          <li class="ja-opt"><b>B.</b> Animal age and neuter status</li>
+          <li class="ja-opt"><b>C.</b> Animal sex and season of impound</li>
+          <li class="ja-opt"><b>D.</b> Source type and microchip status</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Animal sex and season of impound</span>
+            <span class="ja-ans-rationale">The abstract explicitly states: &#x27;Animal sex and season of impound did not affect either dogs&#x27; or cats&#x27; RTO likelihood.&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">What directed acyclic graphs (DAGs) methodology was used in this study, and why?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> To model the financial costs of reclaiming animals from shelters</li>
+          <li class="ja-opt"><b>B.</b> To visualize causal assumptions and identify confounders for adjustment in the logistic regression</li>
+          <li class="ja-opt"><b>C.</b> To map geographic patterns of stray animal impoundment across Utah</li>
+          <li class="ja-opt"><b>D.</b> To determine optimal stray hold periods based on animal species</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. To visualize causal assumptions and identify confounders for adjustment in the logistic regression</span>
+            <span class="ja-ans-rationale">The abstract states that &#x27;Directed acyclic graphs were developed to visualize causal assumptions, which were used to identify confounders for adjustment in the logistic regression while modeling the associations between study variables and RTO outcomes.&#x27;</span>
+          </div>
+        </details>
+      </div>
+  </div>
+</section>
+<!-- JOURNAL-ARTICLES:END -->
 
 </div></main>
 

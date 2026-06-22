@@ -178,6 +178,10 @@
   <button data-p="outbreak"><span class="dot" style="background:#7a4fb5"></span>Outbreak Management</button>
   <button data-p="pharm"><span class="dot" style="background:#7a4fb5"></span>Antimicrobial Pharmacology</button>
   <button data-p="mcq"><span class="dot" style="background:#0f3d3a"></span>MCQ Test Bank</button>
+
+<!-- JOURNAL-TAB:START -->
+<button data-p="journal"><span class="dot" style="background:var(--lit, #1f6f8b)"></span>Journal Articles</button>
+<!-- JOURNAL-TAB:END -->
 </div></div></nav>
 <div class="srch-wrap"><div class="wrap"><div class="srch-row">
 <svg width="14" height="14" viewBox="0 0 15 15" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="m10.5 10.5 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -2384,6 +2388,709 @@
   </div>
   <div id="qhost"></div>
 </section>
+
+
+<!-- JOURNAL-ARTICLES:START -->
+<style data-journal-css>
+/* ── Journal Articles section ─────────────────────────────────────────── */
+.ja-standalone {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 2px solid var(--line, #d9d0bd);
+}
+.ja-article {
+  margin-bottom: 24px;
+  padding: 20px 22px 18px;
+  background: var(--paper2, #fbf8f1);
+  border-radius: 10px;
+  box-shadow: var(--shadow, 0 1px 2px rgba(15,61,58,.08), 0 8px 24px rgba(15,61,58,.06));
+}
+.ja-cite {
+  margin: 0 0 10px;
+  line-height: 1.45;
+  font-size: 0.97em;
+}
+.ja-meta {
+  color: var(--muted, #5d6b62);
+  font-size: 0.875em;
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0.01em;
+}
+.ja-meta a {
+  color: var(--lit, #1f6f8b);
+  text-decoration: none;
+}
+.ja-meta a:hover {
+  text-decoration: underline;
+}
+.ja-abstract {
+  border-left: 3px solid var(--lit, #1f6f8b);
+  padding: 10px 14px;
+  margin: 0 0 18px;
+  background: var(--lit-soft, #dcedf2);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.925em;
+  line-height: 1.6;
+  color: var(--ink, #0f3d3a);
+}
+.ja-mcq {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line, #d9d0bd);
+}
+.ja-mcq + .ja-mcq {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.ja-q {
+  font-weight: 600;
+  font-size: 0.93em;
+  margin: 0 0 7px;
+  color: var(--ink, #0f3d3a);
+}
+.ja-opts {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ja-opt {
+  font-size: 0.9em;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: var(--ink2, #15514c);
+  background: transparent;
+}
+.ja-opt b {
+  display: inline-block;
+  min-width: 1.5em;
+  color: var(--muted, #5d6b62);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.88em;
+}
+.ja-ans {
+  margin-top: 4px;
+}
+.ja-ans summary {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 0.83em;
+  font-family: "JetBrains Mono", monospace;
+  padding: 3px 10px;
+  border: 1px solid var(--lit, #1f6f8b);
+  border-radius: 5px;
+  color: var(--lit, #1f6f8b);
+  background: transparent;
+  user-select: none;
+  list-style: none;
+}
+.ja-ans summary::-webkit-details-marker { display: none; }
+.ja-ans summary::marker { display: none; }
+.ja-ans summary:hover {
+  background: var(--lit-soft, #dcedf2);
+}
+.ja-ans[open] summary {
+  background: var(--lit-soft, #dcedf2);
+  margin-bottom: 6px;
+}
+.ja-ans-body {
+  font-size: 0.9em;
+  padding: 8px 12px;
+  background: var(--paper, #fdfaf4);
+  border: 1px solid var(--line, #d9d0bd);
+  border-radius: 6px;
+  line-height: 1.55;
+  color: var(--ink, #0f3d3a);
+}
+.ja-ans-correct {
+  font-weight: 600;
+  color: var(--good, #2f7d52);
+  display: block;
+  margin-bottom: 4px;
+}
+.ja-ans-rationale {
+  color: var(--ink2, #15514c);
+}
+</style>
+<section class="panel" id="journal">
+  <h2 class="sec">Additional Resources</h2>
+  <p class="lead">Journal Articles (2021–2026). Exam items are drawn from the abstract only — read each abstract, then self-test.</p>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Canine Parvovirus Monoclonal Antibody and Length of Treatment, Cost of Treatment, and Mortality in A Shelter Setting</b><br>
+    <span class="ja-meta">Canine Parvovirus Monoclonal Antibody and Length of Treatment &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2025</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Introduction: Canine parvovirus (CPV-2) is a leading cause of morbidity and mortality in dogs, with often lengthy and expensive treatment that can still end in fatality. In a shelter setting, the length and cost of treatment are important and related factors in being able to provide care for dogs affected with CPV-2. This study examined the addition of canine parvovirus monoclonal antibody (CPMA) to an established treatment program on the length of treatment, cost of treatment, and mortality in a shelter setting. Methods: This retrospective observational study examined 94 cases of parvovirus diagnosed via IDEXX SNAP testing in a limited admission shelter between the years 2022 and 2024. All cases were treated with the shelter’s standard parvovirus treatment protocol, and 51 of those cases additionally received CPMA. The median length of treatment, average cost of treatment, and mortality rate were compared between those treated with CPMA versus those that were not. Results: Of the 94 cases examined, 43 were not treated with CPMA and 51 were. The median length of treatment of the CPMA group was 3 days (95% confidence interval, CI [3.3–4.5]) compared to 6.5 days (95% CI [5.5–7.4]) for the control group, a significant decrease for dogs treated with CPMA. The average cost of treatment for the CPMA treated group was $962 (95% CI [$848–$1,140]) compared to $1,447 (95% CI [$1,243–$1,658]) for the control group, also showing a significant decrease. The mortality rate of the CPMA treated group was 6% compared to 12% for the control group; this was lower but ultimately not statistically significant. Conclusion: The addition of CPMA to established treatment plans for CPV-2 was associated with a significant decrease in the length and cost of treatment, but no significant decrease in the mortality rate. Keywords: canine; parvovirus; monoclonal; antibody; cost of care; animal shelter S ince its emergence in 1978, canine parvovirus (CPV-2) has been a leading cause of morbidity and mortality in dogs.1,2 The most susceptible dogs are generally less than 6 months of age, although older dogs are at risk if unvaccinated. After the first few weeks of life, dogs in this age range born to vaccinated mothers have waning maternal antibodies that do not provide full protection but interfere with responses to vaccination.2,3 Puppies born to unvaccinated mothers who are naïve to CPV-2 do not have any antibody protection until vaccination.2,3 Comorbidities such as intestinal parasites and environmental stressors, such as overcrowding, may predispose or exacerbate disease development; thus, animals in a shelter environment may be more susceptible to developing parvoviral enteritis.1,3 Animals may also Attribution 4.0 International License (http://creativecommons.org/licenses/by/4.0/), allowing third parties to copy and redistribute the material in any medium or format and to remix, transform, and build upon the material for any purpose, even commercially, provided the original work is properly cited and states its license.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">A retrospective study at a limited-admission shelter compared dogs with CPV-2 treated with standard protocol alone (n=43) versus standard protocol plus canine parvovirus monoclonal antibody (CPMA, n=51). What was the median length of treatment in the CPMA group?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> 1 day</li>
+          <li class="ja-opt"><b>B.</b> 3 days</li>
+          <li class="ja-opt"><b>C.</b> 6.5 days</li>
+          <li class="ja-opt"><b>D.</b> 10 days</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. 3 days</span>
+            <span class="ja-ans-rationale">The abstract reports &#x27;The median length of treatment of the CPMA group was 3 days (95% CI [3.3–4.5]) compared to 6.5 days (95% CI [5.5–7.4]) for the control group,&#x27; representing a significant decrease.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In a shelter study comparing CPMA-treated versus non-CPMA-treated dogs with canine parvovirus, which outcome showed a statistically significant difference between groups?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Mortality rate (6% vs 12%)</li>
+          <li class="ja-opt"><b>B.</b> Average cost of treatment ($962 vs $1,447)</li>
+          <li class="ja-opt"><b>C.</b> Both mortality rate and cost of treatment</li>
+          <li class="ja-opt"><b>D.</b> Neither mortality rate nor cost of treatment</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Average cost of treatment ($962 vs $1,447)</span>
+            <span class="ja-ans-rationale">The abstract states the cost difference was significant, while &#x27;The mortality rate of the CPMA treated group was 6% compared to 12% for the control group; this was lower but ultimately not statistically significant.&#x27; Only cost (and length) of treatment showed statistical significance.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">Based on a retrospective study of 94 CPV-2 cases in a limited-admission shelter (2022–2024), what was the mortality rate for dogs treated with CPMA added to standard treatment?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> 2%</li>
+          <li class="ja-opt"><b>B.</b> 6%</li>
+          <li class="ja-opt"><b>C.</b> 12%</li>
+          <li class="ja-opt"><b>D.</b> 18%</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. 6%</span>
+            <span class="ja-ans-rationale">The abstract directly states: &#x27;The mortality rate of the CPMA treated group was 6% compared to 12% for the control group,&#x27; though this difference was not statistically significant.</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Clinical effects of Canine Parvovirus Monoclonal Antibody treatment in naturally occurring parvovirus infection in sheltered dogs</b><br>
+    <span class="ja-meta">The Ohio State &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2025 &middot; <a href="https://doi.org/10.56771/jsmcah.v4.141" target="_blank" rel="noopener">10.56771/jsmcah.v4.141</a></span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Introduction Canine parvovirus (CPV) is a highly contagious, often fatal virus that can be particularly devastating in vulnerable populations such as sheltered dogs. Treatment is often costprohibitive for shelters and requires puppies to be isolated for days to weeks during a time when socialization is critical1. Elanco’s Canine Parvovirus Monoclonal Antibody (CPMA), the first therapeutic to directly target CPV, demonstrated strong therapeutic efficacy in controlled studies with experimentally infected beagles.2 This study aimed to retrospectively assess the clinical effectiveness of CPMA in treating naturally occurring CPV cases in a shelter setting. We hypothesized that CPMA administration would shorten hospitalization times and allow for a faster return to normal social interactions. Methods In July 2023, a shelter in central Ohio (Gigi’s) introduced CPMA to their standard of care (SOC) treatment algorithm for all dogs admitted to their Parvo Treatment Center. Data from electronic medical records between June 2020 and May 2024 regarding vital parameters, medication use, time until feces tested negative via a parvovirus SNAP test for two consecutive days, length of hospitalization (days), and survival were retrospectively analyzed to compare between dogs who received SOC treatment alone (n=49) and those receiving SOC treatment plus CPMA (n=63). Modified clinical scores (MCS, 0-11) and weighted medication scores were calculated for every day of hospitalization. Results CPV infected dogs receiving CPMA in addition to SOC treatment had significantly shorter hospitalization times (median 2 days vs 4 days; Mann-Whitney, p=0.0233) and time to two consecutively negative SNAP tests (Mann-Whitney, p&lt;0.0001) compared to dogs who received SOC treatment alone. Survival rates were comparable in both groups (82% vs 78%; Fisher’s exact test, p=0.6350). Only one dog was reported to have an adverse event (non-fatal) immediately following CPMA administration. MCSs at the start of treatment were statistically similar between CPMA + SOC and SOC-treated dogs (2.5 vs. 3, p=0.1751). For dogs with minimal clinical illness on intake (MCS = 0-1), the difference in time to two consecutively negative SNAP tests between dogs receiving CPMA in addition to SOC (n=19) and dogs receiving SOC treatment alone (n=10) was substantial (median 3 days vs 6.5 days; Mann-Whitney, p&lt;0.0120). Conclusion These findings are the first to demonstrate the clinical efficacy and safety of CPMA against naturally occurring CPV infection. The significant reduction in time CPMAtreated puppies spent in isolation has positive and profound financial and behavioral health implications, particularly for dogs with low morbidity at the time of treatment. These results will inform future, prospective clinical trials with CPMA. Financial Support and Conflict of Interests M.W. is funded by a National Institute of Health T35 grant (2T35OD010977). J.A.W.’s laboratory has been funded by EveryCat Health Foundation, Morris Animal Foundation, American Kennel Club’s Canine Health Foundation, Nestle Purina, FDA, and National Institutes of Health. She has received speaker honorariums from Royal Canin, Hill’s Pet Nutrition, Nestle Purina, and DVM360. J.A.W. has salary support from the National Institute of Allergy and Infectious Disease Mentored Clinical Scientist Research Career Development Award (K08AI153550). H.H. and M.E.H. are paid employees of Gigi’s. M.E.H. has received speaker honorariums for Royal Canin, Hill’s Pet Nutrition, Elanco, DVM360, Virbac, Ceva, and FearFree. DOWNLOADS REFERENCES 1. Appel LD, Barr SC. Canine Parvovirus and Coronavirus. In: Miller L, Hurley K, eds. Infectious disease management in animal s</div>
+      <div class="ja-mcq">
+        <p class="ja-q">A retrospective study at an Ohio shelter compared dogs with naturally occurring CPV infection treated with standard of care (SOC) alone (n=49) versus SOC plus CPMA (n=63). What was the median hospitalization time for CPMA-treated dogs?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> 1 day</li>
+          <li class="ja-opt"><b>B.</b> 2 days</li>
+          <li class="ja-opt"><b>C.</b> 4 days</li>
+          <li class="ja-opt"><b>D.</b> 7 days</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. 2 days</span>
+            <span class="ja-ans-rationale">The abstract reports &#x27;CPV infected dogs receiving CPMA in addition to SOC treatment had significantly shorter hospitalization times (median 2 days vs 4 days; Mann-Whitney, p=0.0233)&#x27; compared to dogs receiving SOC alone.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In a study assessing CPMA effectiveness in naturally occurring CPV cases in a shelter setting, what was the survival rate comparison between SOC+CPMA and SOC-alone groups?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> 100% (CPMA) vs 78% (SOC alone) — statistically significant difference</li>
+          <li class="ja-opt"><b>B.</b> 82% (CPMA) vs 78% (SOC alone) — not statistically significant</li>
+          <li class="ja-opt"><b>C.</b> 82% (CPMA) vs 60% (SOC alone) — statistically significant difference</li>
+          <li class="ja-opt"><b>D.</b> 70% (CPMA) vs 78% (SOC alone) — CPMA group had worse survival</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. 82% (CPMA) vs 78% (SOC alone) — not statistically significant</span>
+            <span class="ja-ans-rationale">The abstract states &#x27;Survival rates were comparable in both groups (82% vs 78%; Fisher&#x27;s exact test, p=0.6350),&#x27; indicating no statistically significant survival difference.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">Among dogs with minimal clinical illness on intake (MCS = 0–1) in the CPMA shelter study, what was the finding regarding time to two consecutively negative parvovirus SNAP tests?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> No significant difference was found between CPMA+SOC and SOC-alone dogs in this subgroup</li>
+          <li class="ja-opt"><b>B.</b> Dogs with MCS 0–1 receiving CPMA had substantially shorter time to two negative SNAP tests (median 3 vs 6.5 days, p=0.0120)</li>
+          <li class="ja-opt"><b>C.</b> Dogs with MCS 0–1 receiving CPMA had longer time to two negative SNAP tests than SOC-alone dogs</li>
+          <li class="ja-opt"><b>D.</b> This subgroup analysis was not performed in the study</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Dogs with MCS 0–1 receiving CPMA had substantially shorter time to two negative SNAP tests (median 3 vs 6.5 days, p=0.0120)</span>
+            <span class="ja-ans-rationale">The abstract states that for dogs with MCS = 0–1, &#x27;the difference in time to two consecutively negative SNAP tests between dogs receiving CPMA in addition to SOC (n=19) and dogs receiving SOC treatment alone (n=10) was substantial (median 3 days vs 6.5 days; Mann-Whitney, p&lt;0.0120).&#x27;</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Effects of Deferred Puppy Intake on Incidence of Canine Parvovirus Infection and Survival A Community Case Study</b><br>
+    <span class="ja-meta">Parvovirus Infection and Survival: A Community Case Study &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2025</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Canine parvovirus (CPV) threatens many canine populations, particularly those in underfunded, rural shelters, as well as the supporting organizations that transfer/transport puppies from these shelters. This study investigates the impact of a deferred puppy intake protocol on CPV incidence and outcomes among puppies transferred from a rural shelter to a supporting organization in central Ohio (Gigi’s). Rather than housing surrendered puppies within their building, the rural shelter requested that community members defer the surrender of unwanted or stray puppies. Community members then maintained possession until the next scheduled Gigi’s transport, allowing puppies to be directly placed into a clean crate and loaded onto the transport vehicle. After implementation of this protocol, CPV incidence decreased from 47% (18/38) to 9% (9/103) (P &lt; .001). Survival rates increased but this change was not statistically significant (13/18; 72% vs. 8/9; 89%, P = .17). In general, puppies developing CPV after transport were more likely to survive than those diagnosed prior to transport (3/9; 33% vs. 18/18; 100%, P &lt; .001). More stray puppies (20/64; 31%) than owner surrendered puppies (7/77; 9%) were diagnosed with clinical CPV (P &lt; .001). These findings support the effectiveness of deferred intake strategies on mitigating CPV transmission and early illness identification on CPV survival.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">A community case study evaluated a deferred puppy intake protocol at a rural shelter transferring puppies to a supporting organization. What was the CPV incidence before versus after protocol implementation?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Decreased from 72% to 33%</li>
+          <li class="ja-opt"><b>B.</b> Decreased from 47% to 9%</li>
+          <li class="ja-opt"><b>C.</b> Decreased from 31% to 9%</li>
+          <li class="ja-opt"><b>D.</b> Increased from 9% to 47%</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Decreased from 47% to 9%</span>
+            <span class="ja-ans-rationale">The abstract states: &#x27;After implementation of this protocol, CPV incidence decreased from 47% (18/38) to 9% (9/103) (P &lt; .001).&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the deferred puppy intake case study, which group of puppies was more likely to be diagnosed with clinical CPV?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Owner-surrendered puppies (31%) compared to stray puppies (9%)</li>
+          <li class="ja-opt"><b>B.</b> Stray puppies (31%) compared to owner-surrendered puppies (9%)</li>
+          <li class="ja-opt"><b>C.</b> Stray puppies (9%) compared to owner-surrendered puppies (31%)</li>
+          <li class="ja-opt"><b>D.</b> Both groups had equal CPV incidence of approximately 20%</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Stray puppies (31%) compared to owner-surrendered puppies (9%)</span>
+            <span class="ja-ans-rationale">The abstract explicitly states: &#x27;More stray puppies (20/64; 31%) than owner surrendered puppies (7/77; 9%) were diagnosed with clinical CPV (P &lt; .001).&#x27;</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Effects of Deferred Puppy Intake on Incidence of Canine Parvovirus Infection and Survival_ a Community Case Study</b><br>
+    <span class="ja-meta">Parvovirus Infection and Survival: a Community Case &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2025 &middot; <a href="https://doi.org/10.56771/jsmcah.v4.140" target="_blank" rel="noopener">10.56771/jsmcah.v4.140</a></span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Introduction Many rural community shelters rely on the transfer of clinically healthy puppies to other organizations as a strategy to reduce the risk of a Canine Parvovirus (CPV) outbreak1. This approach potentially puts the receiving organizations at risk of CPV transmission during transport and subsequent introduction of the virus into their own populations. To address these challenges, this report examines the implementation of a deferred intake protocol for puppies transferred from a rural, open-admission shelter to Gigi’s, a wellresourced, managed-intake shelter in Ohio. The primary objectives were to determine if this shift in protocol could: 1. reduce the incidence of CPV infections among transferred puppies and 2. improve survival rates among those that developed CPV. Secondary objectives included an analysis of factors associated with CPV incidence and survival rates, including intake type, duration of time spent in puppy-specific housing at the originating shelter, and the timing of CPV detection in relation to the transfer process. Case Description In November and December of 2023, Gigi’s medical staff noted an increase in CPV infections in dogs who had been transferred from a single rural shelter partner. This prompted an intake protocol shift for dogs from this shelter. The primary protocol changes involved increasing transfer frequency from biweekly to weekly and requesting that local community members surrendering stray or unwanted puppies retain custody until the next scheduled weekly transport. This strategy minimized the risk of CPV exposure by eliminating the need to house puppies at the partner shelter. If community housing was not an option, the puppy was housed in the designated Puppy room at the partner shelter until the next scheduled transport day. Puppies showing clinical signs of CPV at any point before, during, or after transfer had stools immediately tested for CPV. Puppies testing positive were isolated and treated at Gigi’s adjacent Parvo Treatment Center which has been treating CPV according to established standards of hospitalized care2 in addition to a single intravenous dose of a commercially available monoclonal antibody treatment3 since July, 2023. Data analysis To determine effects of the protocol change, records were reviewed for all puppies transferred from this single partner shelter to Gigi’s between November 6, 2023, to February 20, 2024. Data on Non-deferred (November 6 to December 16, 2023) and Deferred (December 17, 2023, to February 20, 2024) puppies were compared for CPV incidence and survival, as well as intake type, timing of CPV diagnosis, and Puppy room housing. Outcomes After implementation of the deferred intake protocol, CPV incidence in puppies transferred from this partner shelter decreased from 47% (18/38) to 9% (9/103); (P&lt;0.001). Survival rates for puppies who developed CPV were not statistically different for Non-deferred puppies (13/18; 72%) compared to Deferred puppies (8/9; 89%); (P=0.17). Overall survival rates did correlate significantly with timing of CPV detection as puppies developing CPV after transport (18/18; 100%) were more likely to survive than those diagnosed prior to transport (3/9; 33%); (P&lt;0.001). Stray puppies (20/64; 31%) were more likely than owner-surrendered puppies (7/77; 9%) to develop CPV infections (P&lt;0.001). Puppies with a history of being housed in the partner’s Puppy room were 13 times more likely to develop CPV infections than puppies who had no history of being housed in the Puppy room [20/40; 50% vs. 7/10; 7% (P&lt;0.0001; OR= 13.4, CI=5.01-36.02)]. Conclusion Minimizing the time young puppies are shelter-housed is a critical consideration for orga</div>
+      <div class="ja-mcq">
+        <p class="ja-q">In a detailed case study of deferred puppy intake at a rural shelter, puppies with a history of being housed in the partner shelter&#x27;s Puppy room were how much more likely to develop CPV than those with no such housing history?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> 2 times more likely (OR = 2.1)</li>
+          <li class="ja-opt"><b>B.</b> 5 times more likely (OR = 5.0)</li>
+          <li class="ja-opt"><b>C.</b> 13 times more likely (OR = 13.4)</li>
+          <li class="ja-opt"><b>D.</b> No significant difference was found between housing history groups</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. 13 times more likely (OR = 13.4)</span>
+            <span class="ja-ans-rationale">The abstract states: &#x27;Puppies with a history of being housed in the partner&#x27;s Puppy room were 13 times more likely to develop CPV infections than puppies who had no history of being housed in the Puppy room [20/40; 50% vs. 7/10; 7% (P&lt;0.0001; OR=13.4, CI=5.01-36.02)].&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">A case study examined deferred puppy intake to reduce CPV transmission. Regarding timing of CPV detection and survival, which finding is supported by the abstract?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Puppies diagnosed with CPV before transport survived at higher rates (100%) than those diagnosed after transport (33%)</li>
+          <li class="ja-opt"><b>B.</b> Puppies diagnosed with CPV after transport survived at higher rates (100%) than those diagnosed before transport (33%)</li>
+          <li class="ja-opt"><b>C.</b> Timing of CPV detection relative to transport had no significant effect on survival</li>
+          <li class="ja-opt"><b>D.</b> Puppies diagnosed after transport had poorer survival due to delayed treatment</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Puppies diagnosed with CPV after transport survived at higher rates (100%) than those diagnosed before transport (33%)</span>
+            <span class="ja-ans-rationale">The abstract states: &#x27;Overall survival rates did correlate significantly with timing of CPV detection as puppies developing CPV after transport (18/18; 100%) were more likely to survive than those diagnosed prior to transport (3/9; 33%); (P&lt;0.001).&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">What primary protocol change was made as the deferred puppy intake intervention at the rural partner shelter in this case study?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Partner shelter began vaccinating all puppies for CPV before transfer</li>
+          <li class="ja-opt"><b>B.</b> Transfer frequency was decreased from weekly to biweekly to allow longer monitoring periods</li>
+          <li class="ja-opt"><b>C.</b> Community members surrendering puppies retained custody until the next scheduled weekly transport, minimizing shelter housing time</li>
+          <li class="ja-opt"><b>D.</b> Puppies were quarantined at the receiving shelter for 14 days before entering the general population</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Community members surrendering puppies retained custody until the next scheduled weekly transport, minimizing shelter housing time</span>
+            <span class="ja-ans-rationale">The abstract describes the key intervention as &#x27;requesting that local community members surrendering stray or unwanted puppies retain custody until the next scheduled weekly transport. This strategy minimized the risk of CPV exposure by eliminating the need to house puppies at the partner shelter.&#x27;</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Management of a Feline Bordetellosis Outbreak in a Limited-Admission Animal Shelter in the Southeast US</b><br>
+    <span class="ja-meta">Elizabeth Fuller, Kathleen V. Makolinski, Miranda Tipton and Elizabeth A. Berliner &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2025</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Feline bordetellosis is a respiratory disease caused by Bordetella bronchiseptica, a primary pathogen in domestic cats, dogs, and other species, particularly in densely housed populations. This case report outlines the management of an outbreak of B. bronchiseptica in cats in a suburban, limited-admission animal shelter in the Southeastern United States in October 2023. A group of 43 cats were managed, with 93% (40/43) morbidity and 100% (43/43) live outcomes (adoption) for treated cats. Outbreak management included recognition, case identification, risk assessment, diagnosis and treatment, decontamination, population management, documentation, and communication. The establishment of an offsite isolation facility and targeted treatment based on diagnostic testing were key to timely resolution. With proactive management and in collaboration with shelter medicine specialists, resolution of this outbreak occurred in 45 days.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">A case report described management of a feline Bordetella bronchiseptica outbreak in a limited-admission shelter in October 2023. What was the morbidity rate among the 43 affected cats?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> 50% (21/43 cats affected)</li>
+          <li class="ja-opt"><b>B.</b> 75% (32/43 cats affected)</li>
+          <li class="ja-opt"><b>C.</b> 93% (40/43 cats affected)</li>
+          <li class="ja-opt"><b>D.</b> 100% (43/43 cats affected)</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. 93% (40/43 cats affected)</span>
+            <span class="ja-ans-rationale">The abstract states: &#x27;A group of 43 cats were managed, with 93% (40/43) morbidity and 100% (43/43) live outcomes (adoption) for treated cats.&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the feline bordetellosis outbreak case report at a southeastern US shelter, which interventions were identified as key to the timely resolution of the outbreak?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Mass culling of affected cats and deep cleaning of all shelter areas</li>
+          <li class="ja-opt"><b>B.</b> The establishment of an offsite isolation facility and targeted treatment based on diagnostic testing</li>
+          <li class="ja-opt"><b>C.</b> Prophylactic antibiotic treatment of all shelter cats and suspension of new intakes for 60 days</li>
+          <li class="ja-opt"><b>D.</b> Vaccination of all cats with the intranasal Bordetella vaccine and quarantine in place</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. The establishment of an offsite isolation facility and targeted treatment based on diagnostic testing</span>
+            <span class="ja-ans-rationale">The abstract directly states: &#x27;The establishment of an offsite isolation facility and targeted treatment based on diagnostic testing were key to timely resolution,&#x27; with outbreak resolution occurring in 45 days.</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Success of Outpatient Treatment for Canine Parvovirus in a Subsidized Community Medicine Clinic in Florida</b><br>
+    <span class="ja-meta">Veronica H. Accornero, Carolyn Brown, Margaret R. Slater, Christina Hawkins &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2025</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Introduction: Typical inpatient treatment for canine parvovirus (CPV) is expensive and unaffordable for many pet owners. Outpatient treatment may be a viable alternative when hospitalization is inaccessible due to finances or other barriers. This study aimed to determine survival for dogs receiving a once-daily clinic visit outpatient treatment protocol for CPV in a community medicine clinic. Potential predictors of survival, as well as owner-reported treatment satisfaction and feasibility, were also examined. Methods: Within a prospective, observational design, data including patient history, clinical signs, treatments received, and treatment outcome were captured in the medical record. Owners were invited to complete a survey about their treatment experience. Survival and survey responses were summarized using counts and percentages. Logistic regression modeling was used to evaluate potential predictors of survival. Results: During the study period of October 1, 2021, to September 30, 2023, 113 dogs met the inclusion criteria and were treated with the once-daily outpatient CPV protocol. Of these, 73 survived, 23 died, two were euthanized during treatment, and 15 were lost to follow-up. Seventy-four percent (73/98, 95% confidence interval, 65%–83%) of those with a known outcome survived. Requiring and receiving ≥ 2 days of subcutaneous fluids, having pale mucous membranes at baseline, and being referred for and receiving weekend treatment at a partner clinic predicted decreased survival, while having ≥ 3 total once-daily clinic visits was associated with increased survival. Most owners reported that the treatments were easy to administer and that they had a positive experience and were satisfied with the treatment. Conclusion: Findings build upon existing research showing good outcomes with lower-cost CPV treatment, adding another evidence-based option to tailor treatment to the needs and preferences of the patient, client, clinic, and community. Offering outpatient treatment within a spectrum of care approach can increase access to care for more dogs with parvovirus. Keywords: dogs; survival; access to care; lower cost; spectrum of care; client perspective V eterinary care supports the health and well-being of animals lack this necessary care.1 According to a 2018 national survey of pet owners, approximately 28% particularly true for preventative care such as vaccines and medical exams, which are critical for the prevention of communicable diseases and early detection and treatment of other conditions.2 Canine parvovirus (CPV) is a highly contagious virus that is common in puppies and young dogs, with mortality Attribution 4.0 International License (http://creativecommons.org/licenses/by/4.0/), allowing third parties to copy and redistribute the material in any medium or format and to remix, transform, and build upon the material for any purpose, even commercially, provided the original work is properly cited and states its license.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">A prospective observational study evaluated once-daily outpatient CPV treatment at a community medicine clinic in Florida (October 2021–September 2023, n=113). What was the survival rate among dogs with a known outcome?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> 55% (54/98)</li>
+          <li class="ja-opt"><b>B.</b> 65% (64/98)</li>
+          <li class="ja-opt"><b>C.</b> 74% (73/98)</li>
+          <li class="ja-opt"><b>D.</b> 90% (88/98)</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. 74% (73/98)</span>
+            <span class="ja-ans-rationale">The abstract states: &#x27;Seventy-four percent (73/98, 95% confidence interval, 65%–83%) of those with a known outcome survived,&#x27; with 73 surviving, 23 dying, 2 euthanized, and 15 lost to follow-up.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the outpatient CPV treatment study, which clinical finding at baseline was associated with decreased survival?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Having a body temperature above normal</li>
+          <li class="ja-opt"><b>B.</b> Having pale mucous membranes at baseline</li>
+          <li class="ja-opt"><b>C.</b> Being under 3 months of age</li>
+          <li class="ja-opt"><b>D.</b> Having a history of prior CPV vaccination</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Having pale mucous membranes at baseline</span>
+            <span class="ja-ans-rationale">The abstract identifies predictors of decreased survival including &#x27;having pale mucous membranes at baseline,&#x27; along with requiring ≥2 days of subcutaneous fluids and being referred for weekend treatment at a partner clinic.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the outpatient CPV treatment study at a subsidized community medicine clinic, which factor was associated with INCREASED survival probability?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Requiring subcutaneous fluids on ≥2 days of treatment</li>
+          <li class="ja-opt"><b>B.</b> Having pale mucous membranes at presentation</li>
+          <li class="ja-opt"><b>C.</b> Having ≥3 total once-daily clinic visits</li>
+          <li class="ja-opt"><b>D.</b> Being referred for weekend treatment at a partner clinic</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Having ≥3 total once-daily clinic visits</span>
+            <span class="ja-ans-rationale">The abstract states that &#x27;having ≥3 total once-daily clinic visits was associated with increased survival,&#x27; while pale mucous membranes, ≥2 days of SQ fluids, and weekend referral were associated with decreased survival.</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Treatment and Outcomes of Sheltered Cats with Feline Panleukopenia using Canine Parvovirus Monoclonal Antibody (CPMA)</b><br>
+    <span class="ja-meta">Treatment and Outcomes of Sheltered Cats with Feline Panleukopenia u... file:///Users/jxue/Library/CloudStorage/Dropbox/work%20docs/ABV... &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2025 &middot; <a href="https://doi.org/10.56771/jsmcah.v4.132" target="_blank" rel="noopener">10.56771/jsmcah.v4.132</a></span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Introduction Feline panleukopenia virus (FPV) remains a serious threat to shelter cat health and welfare, with mortality in kittens as high as 90%.1 Treatment with immunoglobulins and/ or hyperimmune serum has been described previously as having the therapeutic effect of canine immunoglobulin fragments in FPV-infected cats.2 Canine parvovirus monoclonal antibody (CPMA) is commercially available for intravenous use in dogs to treat canine parvovirus; however, no peer-reviewed data are available for its use in cats. For these reasons, Charleston Animal Society adopted the use of CPMA in cats as an experimental treatment with hopes that it would improve live outcomes and shorten the treatment course for panleukopenia. Methods Treatment and Outcomes of Sheltered Cats with Feline Panleukopenia u... file:///Users/jxue/Library/CloudStorage/Dropbox/work%20docs/ABV... Charleston Animal Society is a private, government-contracted, open-intake shelter with a 2024 intake of 9,877 dogs and cats. In 2024, feline intake was 6,766 with a non-live outcome of 7.6%. Charleston Animal Society routinely treats kittens and cats for panleukopenia. Cats with a positive point-of-care canine parvovirus antigen test result (Snap Parvovirus, IDEXX) in combination with clinical signs (vomiting, diarrhea, lethargy) were diagnosed with panleukopenia by a veterinarian or licensed veterinary technician. Standard treatment included antibiotics (oral or parenteral), fluids (subcutaneous or intravenous), anti-emetics, and treatment for diarrhea. Other symptomatic treatments were administered as needed based on the patient’s exam. CPMA was added to the standard treatment protocol midway through 2024; it was given subcutaneously at 0.2ml/kg based on anecdotal reports from other shelter veterinarians. Operational and clinical outcomes for cats treated prior to and after the inclusion of CPMA were compared. Results Fifty-five cats were diagnosed with and treated for panleukopenia; 31 cats were treated prior to the adoption of CPMA, and 24 were treated with a protocol that included CPMA (Table 1). Median age at diagnosis (2 months) and median age of mortality (1 month) were the same for both groups. Median time to clinical resolution and treatment discontinuation was 3.5 days shorter for the CPMA-treated group. Overall survival rate was 85.5%; there was no statistically significant difference (Fisher exact, p=0.270) in mortality rate between those treated with CPMA (20.8%, n=5) and those without CPMA (9.7%, n=3). Overall, no adverse effects were attributed to the administration or use of CPMA. Treatment and Outcomes of Sheltered Cats with Feline Panleukopenia u... file:///Users/jxue/Library/CloudStorage/Dropbox/work%20docs/ABV... Conclusion The use of CPMA in the treatment of panleukopenia, in conjunction with a full protocol of supportive care, can be considered. No evident negative outcomes were noted in the CPMA-treated kittens, and the treatment course for these patients was approximately 3 days shorter. For shelters looking to decrease the length of stay in isolation to treat panleukopenia, CPMA may be helpful. Financial Support and Conflict of Interests BD is a consultant for Elanco Animal Health. DOWNLOADS Treatment and Outcomes of Sheltered Cats with Feline Panleukopenia u... file:///Users/jxue/Library/CloudStorage/Dropbox/work%20docs/ABV... REFERENCES 1. Truyen, U., Addie, D., Belak. S. et al. Feline panleukopenia ABCD guidelines on prevention and management. Journal of Feline Medicine and Surgery 2009; 11 (7): 2. Pei, Z., Sun, M., and Zhang, X., et al. Canine immunoglobulin F(ab’)2 fragments protect cats against feline parvovirus infection. International Immunopharmacology 2020 4 of</div>
+      <div class="ja-mcq">
+        <p class="ja-q">A retrospective study at Charleston Animal Society compared outcomes for cats with feline panleukopenia treated with standard of care (SOC, n=31) versus SOC plus CPMA (n=24). What was the finding regarding mortality rate between groups?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> CPMA significantly reduced mortality from 9.7% to 20.8% (Fisher exact, p=0.05)</li>
+          <li class="ja-opt"><b>B.</b> There was no statistically significant difference in mortality rate between the CPMA (20.8%) and non-CPMA (9.7%) groups (Fisher exact, p=0.270)</li>
+          <li class="ja-opt"><b>C.</b> CPMA significantly reduced mortality from 20.8% to 9.7% (Fisher exact, p&lt;0.05)</li>
+          <li class="ja-opt"><b>D.</b> Both groups had identical mortality rates of approximately 15%</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. There was no statistically significant difference in mortality rate between the CPMA (20.8%) and non-CPMA (9.7%) groups (Fisher exact, p=0.270)</span>
+            <span class="ja-ans-rationale">The abstract states: &#x27;There was no statistically significant difference (Fisher exact, p=0.270) in mortality rate between those treated with CPMA (20.8%, n=5) and those without CPMA (9.7%, n=3).&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the Charleston Animal Society study of CPMA use in feline panleukopenia, what was the difference in median time to clinical resolution between CPMA-treated and non-CPMA-treated cats?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> CPMA-treated cats had resolution 1 day sooner</li>
+          <li class="ja-opt"><b>B.</b> CPMA-treated cats had resolution 3.5 days sooner</li>
+          <li class="ja-opt"><b>C.</b> CPMA-treated cats had resolution 7 days sooner</li>
+          <li class="ja-opt"><b>D.</b> There was no difference in time to clinical resolution between groups</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. CPMA-treated cats had resolution 3.5 days sooner</span>
+            <span class="ja-ans-rationale">The abstract reports: &#x27;Median time to clinical resolution and treatment discontinuation was 3.5 days shorter for the CPMA-treated group,&#x27; although there was no statistically significant difference in mortality.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">The Charleston Animal Society retrospective study used CPMA subcutaneously in cats with feline panleukopenia. What rationale was provided for this off-label use?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> CPMA is approved for cats with panleukopenia based on controlled feline trials</li>
+          <li class="ja-opt"><b>B.</b> CPV monoclonal antibody is commercially approved for dogs, and prior reports suggested canine immunoglobulin fragments may have therapeutic effect in FPV-infected cats</li>
+          <li class="ja-opt"><b>C.</b> CPMA was chosen because feline-specific monoclonal antibodies were no longer commercially available</li>
+          <li class="ja-opt"><b>D.</b> CPMA was used because it was less expensive than standard hyperimmune serum treatments</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. CPV monoclonal antibody is commercially approved for dogs, and prior reports suggested canine immunoglobulin fragments may have therapeutic effect in FPV-infected cats</span>
+            <span class="ja-ans-rationale">The abstract explains: &#x27;Treatment with immunoglobulins and/or hyperimmune serum has been described previously as having the therapeutic effect of canine immunoglobulin fragments in FPV-infected cats,&#x27; motivating the experimental off-label use of the commercially available canine product.</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Animal Shelter Wastewater Sampling for Pathogens With Epidemic Potential</b><br>
+    <span class="ja-meta">Midwestern &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2024 &middot; <a href="https://doi.org/10.56771/jsmcah.v3.100" target="_blank" rel="noopener">10.56771/jsmcah.v3.100</a></span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Canine distemper virus (CDV), canine parvovirus (CPV), and Streptococcus zooepidemicus (S. zoo) represent a range of infectious agents that can cause epidemic disease in dogs, particularly those housed in animal shelters. Outbreaks of disease associated with these agents are relatively common in shelters, resulting in isolation, quarantine, euthanasia, and in some cases, shelter closure in efforts to manage the outbreak. In recent years, outbreaks of CDV and S. zoo have been particularly challenging for shelters in Arizona. Wastewater-based epidemiology (WBE) has proven useful in disease monitoring and outbreak prediction in human populations, including congregate locations, and we hypothesized that it may also be useful in surveillance and prediction for agents responsible for either gastrointestinal (GI) or respiratory disease in shelter animals. Our specific aims were to develop and validate a protocol for detecting infectious agents from wastewater samples collected from shelter run sections and to investigate associations with agent burden and counts of animals with clinical signs. Once protocols for sampling and preparation were optimized, environmental wastewater samples were collected weekly between November 2023 and April 2024 at a large open intake municipal animal shelter in Phoenix, Arizona. The samples were collected from seven drains located in seven run sections in three separate buildings, and were evaluated for the presence of the three agent nucleic acids using quantitative, multiplex PCR. The counts of dogs actively showing GI and respiratory symptoms, graded as mild, moderate, and severe, were collected the afternoon of the day of sampling. Biosafety committee approval was granted for the viruses in this study. Shedding of CPV was found to be widespread and variable over time. S. zoo was detected five times on five different weeks in five different run sections. CDV was found once. There were only six dogs reported with GI signs during the study period. Counts of respiratory disease ranged from 42-132 dogs per run section with most cases being mild in severity and reported in the isolation run section. There is no apparent association between counts of either respiratory or GI cases and the three agents detected through wastewater sampling. During the study there was a single incident of a S. zoo PCR positive dog being isolated and later dying at the shelter. S. zoo was detected through wastewater sampling the week prior to the incident, however, in a run section located in a different building than where the PCR positive dog was housed. To the authors’ knowledge, this study is the first of its kind to develop protocols to detect critical pathogens in wastewater samples from an animal shelter. CPV has been the pathogen most frequently detected, which we speculate may be largely due to the shedding typically observed in dogs post-vaccination, given the absence of GI signs. Further investigation is warranted to better characterize the absence of amplifiable CDV nucleic acids and to examine these samples for other common shelter pathogens. DOWNLOADS PUBLISHED 2024-05-20 ISSUE Vol. 3 No. S1 (2024): 2024 ABVP Abstracts SECTION ABVP Abstracts LICENSE Copyright (c) 2024 A Rosales, N Bradley, RE Kreisler, N Haley This work is licensed under a Creative Commons Attribution 4.0 International License. HOW TO CITE Rosales A, Bradley N, Kreisler R, Haley N. Animal Shelter Wastewater Sampling for Pathogens With</div>
+      <div class="ja-mcq">
+        <p class="ja-q">A study developed wastewater-based epidemiology (WBE) protocols for an animal shelter to detect CDV, CPV, and S. zooepidemicus. What was the primary finding regarding CPV in wastewater samples?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> CPV was not detectable in any wastewater samples during the study period</li>
+          <li class="ja-opt"><b>B.</b> CPV shedding was widespread and variable over time</li>
+          <li class="ja-opt"><b>C.</b> CPV was detected in only one run section across all buildings</li>
+          <li class="ja-opt"><b>D.</b> CPV nucleic acid levels correlated strongly with counts of gastrointestinal clinical signs</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. CPV shedding was widespread and variable over time</span>
+            <span class="ja-ans-rationale">The abstract states &#x27;Shedding of CPV was found to be widespread and variable over time.&#x27; Notably, only six dogs showed GI signs during the study, suggesting much of the CPV detection was from post-vaccination shedding.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In a wastewater surveillance study at a Phoenix municipal shelter, what was the relationship between counts of respiratory or GI disease and the three pathogens detected through wastewater sampling?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Respiratory case counts correlated strongly with CPV wastewater levels</li>
+          <li class="ja-opt"><b>B.</b> GI case counts correlated strongly with S. zoo wastewater detections</li>
+          <li class="ja-opt"><b>C.</b> There was no apparent association between clinical case counts and the three agents detected</li>
+          <li class="ja-opt"><b>D.</b> CDV wastewater levels predicted respiratory disease outbreaks one week in advance</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. There was no apparent association between clinical case counts and the three agents detected</span>
+            <span class="ja-ans-rationale">The abstract explicitly states: &#x27;There is no apparent association between counts of either respiratory or GI cases and the three agents detected through wastewater sampling.&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">Regarding Streptococcus zooepidemicus (S. zoo) detection during the shelter wastewater surveillance study conducted November 2023–April 2024, which statement is best supported by the abstract?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> S. zoo was detected every week of the study in the isolation run section</li>
+          <li class="ja-opt"><b>B.</b> S. zoo was detected five times across five different weeks in five different run sections</li>
+          <li class="ja-opt"><b>C.</b> S. zoo was the most frequently detected pathogen in all buildings</li>
+          <li class="ja-opt"><b>D.</b> S. zoo wastewater detection led to immediate identification of the infected dog</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. S. zoo was detected five times across five different weeks in five different run sections</span>
+            <span class="ja-ans-rationale">The abstract states &#x27;S. zoo was detected five times on five different weeks in five different run sections.&#x27; The one clinical incident involved a dog in a different building from where S. zoo was detected in wastewater.</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Prospective SARS-COV2 Surveillance in Shelter Cats Undergoing Ovariohysterectomy at a Veterinary Teaching Hospital</b><br>
+    <span class="ja-meta">Patrick C. Carney, Nina Thompson and Pati J. Kirch &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2024</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> A total of 113 intact female shelter cats between approximately 5 and 18 months of age presented to a veterinary teaching hospital for ovariohysterectomy were surveilled for severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) via polymerase chain reaction (PCR) and serology in an observational cross-sectional design to preliminarily assess risks of animal-to-human transmission. Swabs were obtained from the conjunctiva, oropharynx, rectum, and haircoat for PCR analysis. One cat (0.9%) had a low-positive rectal PCR result for SARS-CoV2, but was negative on subsequent testing and did not seroconvert. All other cats were negative on all PCR samples and serology. In the study population, the risk of COVID-19 transmission, both conspecific and zoonotic, appears low.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">A prospective cross-sectional SARS-CoV-2 surveillance study enrolled 113 intact female shelter cats undergoing ovariohysterectomy at a veterinary teaching hospital. What was the overall conclusion regarding transmission risk?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> The risk of zoonotic and conspecific COVID-19 transmission was high, warranting mandatory PPE for all surgical staff</li>
+          <li class="ja-opt"><b>B.</b> In the study population, the risk of COVID-19 transmission, both conspecific and zoonotic, appeared low</li>
+          <li class="ja-opt"><b>C.</b> Transmission risk could not be assessed because all cats tested PCR-negative</li>
+          <li class="ja-opt"><b>D.</b> Zoonotic risk was high but conspecific transmission risk among cats was low</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. In the study population, the risk of COVID-19 transmission, both conspecific and zoonotic, appeared low</span>
+            <span class="ja-ans-rationale">The abstract concludes: &#x27;In the study population, the risk of COVID-19 transmission, both conspecific and zoonotic, appears low.&#x27; Only one cat (0.9%) had a low-positive rectal PCR result, which was negative on subsequent testing.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In a prospective SARS-CoV-2 surveillance study of 113 shelter cats undergoing spay surgery, which sites were sampled for PCR analysis?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Oropharynx and nasal passages only</li>
+          <li class="ja-opt"><b>B.</b> Conjunctiva, oropharynx, rectum, and haircoat</li>
+          <li class="ja-opt"><b>C.</b> Blood, urine, and oropharyngeal swabs</li>
+          <li class="ja-opt"><b>D.</b> Conjunctiva and oropharynx only</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Conjunctiva, oropharynx, rectum, and haircoat</span>
+            <span class="ja-ans-rationale">The abstract specifies: &#x27;Swabs were obtained from the conjunctiva, oropharynx, rectum, and haircoat for PCR analysis,&#x27; representing a comprehensive multi-site sampling approach.</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Retrospective Comparison of Polymerase Chain Reaction and Culture Based Identification for Diagnosis of Microsporum canis and Trichophyton Spp in Shelter Cats and Dogs</b><br>
+    <span class="ja-meta">Retrospective Comparison of Polymerase Chain Reaction &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2024</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Introduction: Canine and feline dermatophytosis is challenging to manage in shelter settings because of its transmissibility, potential for zoonosis and labour-intensive treatment. An efficient and accurate initial diagnostic plan is essential to confirm infection, prevent outbreaks and ensure public safety. While quantitative polymerase chain reaction (PCR) has gained attention for its rapid turnaround time, studies have shown variable sensitivity. This study aimed to assess the performance of PCR in detecting Microsporum canis and Trichophyton spp. in shelter cats and dogs when compared to culture-based identification. Methods: Between 1 June 2015 and 10 January 2023, 125,939 cats and dogs entered 34 sheltering locations in coastal Western Canada. Of these, 246 animals (48 dogs, 198 cats) had both culture and PCR results, and sufficient records for analysis. Toothbrush samples were collected for dermatophyte test medium (DTM)/enhanced sporulation agar (ESA) bi-plates at a central shelter location and submitted for PCR at a referral laboratory before treatment was initiated. The diagnostic accuracy of PCR was evaluated using the reference standard of a 14-day culture result combined with P-scoring, a semi-quantitative method to assess DTM culture colonies. Results: Culture readings identified 72/246 (29.27%) lesional animals as positive (63 cats [31.81%] and 9 dogs [18.75%]). PCR demonstrated an overall sensitivity of 86.1% and specificity of 94.8% for both animal species combined. PCR for M. canis showed a sensitivity of 86.4% and a specificity of 97.8%, while PCR for Trichophyton spp. showed a sensitivity of 84.6% and specificity of 97.9%. DTM/ESA culture was highly efficient, with positive results available within 7 days for most cases (59/63 cats [93.6%] and 9/9 dogs [100%]). Conclusion: The variability in dermatophyte PCR sensitivity across recent studies highlights the risks of reliance on PCR as a sole diagnostic tool for suspect animals, especially when considering the demonstrated efficacy of in-house culture. Keywords: ringworm; dogs; cats; shelter medicine; diagnostic methods; public health D ermatophytosis is a fungal skin infection affecting many species of animals. The most commonly isolated dermatophytes in cats and dogs are Microsporum canis (M. canis), Trichophyton spp. and Microsporum gypseum (M. gypseum).1,2 Although dermatophytosis is not a life-threatening disease, it is highly misdiagnosed cases in animal shelters can lead to outbreaks or community transmission, potentially leading to devastating consequences for the shelter and the affected animals.2 A system of screening and diagnostic tests is 4.0 International License (http://creativecommons.org/licenses/by/4.0/), allowing third parties to copy and redistribute the material in any medium or format and to remix, transform, and build upon the material for any purpose, even commercially, provided the original work is properly cited and states its license.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">A retrospective study at 34 shelter locations in coastal Western Canada compared PCR to culture-based diagnosis for dermatophytosis in 246 animals. What was the overall PCR sensitivity and specificity for detecting Microsporum canis and Trichophyton spp. combined?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Sensitivity 65%, specificity 75%</li>
+          <li class="ja-opt"><b>B.</b> Sensitivity 86.1%, specificity 94.8%</li>
+          <li class="ja-opt"><b>C.</b> Sensitivity 95%, specificity 80%</li>
+          <li class="ja-opt"><b>D.</b> Sensitivity 100%, specificity 86.1%</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Sensitivity 86.1%, specificity 94.8%</span>
+            <span class="ja-ans-rationale">The abstract states: &#x27;PCR demonstrated an overall sensitivity of 86.1% and specificity of 94.8% for both animal species combined.&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the shelter dermatophytosis diagnostic study comparing PCR to DTM/ESA culture, how efficient was DTM/ESA culture in providing positive results?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Culture required at least 21 days to yield positive results in most cases</li>
+          <li class="ja-opt"><b>B.</b> Culture was highly efficient, with positive results available within 7 days for most cases (93.6% of cats and 100% of dogs)</li>
+          <li class="ja-opt"><b>C.</b> Culture required 14 days for all positive results, making PCR the preferred rapid test</li>
+          <li class="ja-opt"><b>D.</b> Culture had a high false-positive rate that compromised its usefulness as a reference standard</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Culture was highly efficient, with positive results available within 7 days for most cases (93.6% of cats and 100% of dogs)</span>
+            <span class="ja-ans-rationale">The abstract states: &#x27;DTM/ESA culture was highly efficient, with positive results available within 7 days for most cases (59/63 cats [93.6%] and 9/9 dogs [100%]).&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">Based on the retrospective shelter dermatophytosis study, what was the prevalence of culture-confirmed dermatophyte infection among the 246 animals with both culture and PCR results?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> 10% (25/246)</li>
+          <li class="ja-opt"><b>B.</b> 29% (72/246)</li>
+          <li class="ja-opt"><b>C.</b> 50% (123/246)</li>
+          <li class="ja-opt"><b>D.</b> 75% (184/246)</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. 29% (72/246)</span>
+            <span class="ja-ans-rationale">The abstract reports: &#x27;Culture readings identified 72/246 (29.27%) lesional animals as positive (63 cats [31.81%] and 9 dogs [18.75%]).&#x27;</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Discovery of Influenza A (H7N2) in a Cat After Admission to an Animal Shelter a Case Report</b><br>
+    <span class="ja-meta">Elizabeth Roberts, Carolyn Allen, Robin Brennen, Aleisha Swartz, Brenda Dines &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2023</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> This case report describes the discovery of a low pathogenic avian lineage influenza A (H7N2) (A/feline/New York/16-040082-1/2016) infecting a cat in a shelter environment. Low pathogenic avian influenza virus H7N2 had previously circulated in poultry and farmed waterfowl and had reportedly been eradicated from live bird markets in 2006. Its appearance in a cat caused concern for the local cat population and had the potential to negatively impact the agricultural industry and human health. The first cat diagnosed presented to the shelter with no apparent clinical signs. Later, conjunctivitis developed and then upper respiratory congestion, which progressed to severe pneumonia that was unresponsive to treatment and characterized by dyspnea, tachypnea, and collapse. A second cat, who had entered the shelter 17 days earlier and had died at an emergency clinic, was later considered to be the index case. The second cat had similarly arrived with no apparent clinical signs, developed respiratory congestion leading to pneumonia with tachypnea and dyspnea, and tested positive for influenza A. Clinical consultation and diagnostic testing through multiple organizations identified the virus as an avian lineage H7N2 influenza virus.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">A case report described discovery of influenza A (H7N2) in cats at an animal shelter. Which statement about the clinical presentation of the first diagnosed cat is best supported by the abstract?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> The first cat presented with severe pneumonia, dyspnea, and tachypnea upon shelter admission</li>
+          <li class="ja-opt"><b>B.</b> The first cat presented with no apparent clinical signs, later developing conjunctivitis, upper respiratory congestion, and severe pneumonia</li>
+          <li class="ja-opt"><b>C.</b> The first cat presented with conjunctivitis alone and fully recovered without complications</li>
+          <li class="ja-opt"><b>D.</b> The first cat was immediately identified as the index case due to its respiratory signs at intake</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. The first cat presented with no apparent clinical signs, later developing conjunctivitis, upper respiratory congestion, and severe pneumonia</span>
+            <span class="ja-ans-rationale">The abstract states &#x27;The first cat diagnosed presented to the shelter with no apparent clinical signs. Later, conjunctivitis developed and then upper respiratory congestion, which progressed to severe pneumonia that was unresponsive to treatment and characterized by dyspnea, tachypnea, and collapse.&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the case report of influenza A (H7N2) in shelter cats, what was the background of this virus prior to the shelter outbreak?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> H7N2 had been continuously circulating in live bird markets up to the time of the outbreak</li>
+          <li class="ja-opt"><b>B.</b> H7N2 had previously circulated in poultry and farmed waterfowl and had reportedly been eradicated from live bird markets in 2006</li>
+          <li class="ja-opt"><b>C.</b> H7N2 had been previously documented in domestic cats in multiple prior outbreaks</li>
+          <li class="ja-opt"><b>D.</b> H7N2 was a high pathogenic avian influenza strain known for widespread mortality in birds</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. H7N2 had previously circulated in poultry and farmed waterfowl and had reportedly been eradicated from live bird markets in 2006</span>
+            <span class="ja-ans-rationale">The abstract specifies: &#x27;Low pathogenic avian influenza virus H7N2 had previously circulated in poultry and farmed waterfowl and had reportedly been eradicated from live bird markets in 2006,&#x27; making its reappearance in cats notable.</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Incidence, Seroprevalence, and In-shelter Transmission of SARS-CoV-2 in Cats</b><br>
+    <span class="ja-meta">Incidence, Seroprevalence, and In-shelter Transmission of SARS-CoV-2... https://jsmcah.org/index.php/jasv/article/view/50 &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2023 &middot; <a href="https://doi.org/10.56771/jsmcah.v2.50" target="_blank" rel="noopener">10.56771/jsmcah.v2.50</a></span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Cats are susceptible to infection with SARS-CoV-2 and can transmit the virus to humans. Experimentally infected cats shed virus for 5-10 days and generate antibodies within 7 days, while naive cats cohoused with these cats shed virus orally within 24 hours. Shelters intake cats from SARS-CoV-2 endemic communities and house them in close proximity, creating the opportunity for shelter-acquired disease. Shelter cat populations could serve as a reservoir for the virus, where it might mutate and spill back into human populations. This study aimed to determine the incidence and seroprevalence of SARS-CoV-2 in cats housed in a shelter. Cats over 1 kg undergoing anesthesia between April and December 2020 in a large shelter were enrolled in the study using convenience sampling. Pharyngeal, conjunctival, and serum samples were collected. The pharyngeal/conjunctival swabs were analyzed by Real-Time PCR using N1 and N2 probes derived from the virus's nucleocapsid protein (N) portion. One sample positive for N1 within the 40 cycles specified by CDC protocol but only positive for N2 after 41 cycles (late rise) was sequenced. The seroprevalence of SARS-CoV-2 antibodies was assessed using the cPass SARS-CoV-2 Neutralization Antibody Detection Kit. During the study period, 7,179 cats entered the shelter, and 350 were sampled. Most sampled cats were owner surrender (45%) or stray (43%), which was different (P&lt;0.0001) from the overall population (26% owner surrender and 64% stray). Seven (2%) samples were PCR positive (95%CI 0.8-4.0%), 199 (57%) were negative, and 144 (41%) were inconclusive. Of the inconclusive samples, 85 (59%) were positive for N1 but negative for N2. The median length of stay before sampling (LOSBS) was 4 days (IQR 1-10) for all sampled cats and 13 days (IQR 5-22) for PCR-positive cats. Of the 131 serum samples tested to date, 11 (8%) were positive (95%CI 4.3-14.5). The median LOSBS for antibody-positive cats was 5 (IQR 1-5; range 1-8). One positive cat with a LOSBS of 5 days was PCR and antibody positive. The cat with a sequenced sample had a LOSBS of 13 days, was antibody negative, and had both base pair deletions and substitutions in the N2 target probe region. Consistent with in-shelter transmission, the median LOSBS for cats positive by PCR was greater than the documented SARS-CoV-2 infectious period. All but one of the seropositive cats had a LOSBS of 5 days or less, suggesting the previous infection was community-acquired. The sequenced sample was credibly from a shelter-acquired infection, and the base pair deletions and substitutions were consistent with a felinespecific strain circulating in the shelter. DOWNLOADS PUBLISHED 2023-06-16 ISSUE Vol. 2 No. S1 (2023): 2023 ABVP Abstracts SECTION ABVP Abstracts LICENSE This work is licensed under a Creative Commons Attribution 4.0 International License. HOW TO CITE Badang L, Bradley-Siemens N, Okwumabua O, Kreisler R. Incidence, Seroprevalence, and In-shelter Transmission of SARS-CoV-2 in Cats [Abstract]. JSMCAH. 2023;2(S1). doi:10.56771/jsmcah.v2.50 MORE CITATION FORMATS MOST READ ARTICLES BY THE SAME AUTHOR(S) • H. Herendeen, J. Turner, R. Kreisler, Veterinary Clinician's Opinions and Experiences with the Feline Ovarian Pedicle Tie [</div>
+      <div class="ja-mcq">
+        <p class="ja-q">A study assessed SARS-CoV-2 incidence and seroprevalence in shelter cats during April–December 2020. What percentage of pharyngeal/conjunctival samples were PCR-positive for SARS-CoV-2?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> 0% (no PCR-positive cats were identified)</li>
+          <li class="ja-opt"><b>B.</b> 2% (95% CI 0.8–4.0%)</li>
+          <li class="ja-opt"><b>C.</b> 8% (95% CI 4.3–14.5%)</li>
+          <li class="ja-opt"><b>D.</b> 41% (95% CI not reported)</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. 2% (95% CI 0.8–4.0%)</span>
+            <span class="ja-ans-rationale">The abstract states: &#x27;Seven (2%) samples were PCR positive (95%CI 0.8-4.0%),&#x27; while 8% were antibody-positive and 41% were inconclusive PCR results.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In a shelter SARS-CoV-2 cat surveillance study, what was the median length of stay before sampling (LOSBS) for antibody-positive cats, and what did this suggest?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Median LOSBS of 13 days, suggesting most seropositive cats acquired infection in the shelter</li>
+          <li class="ja-opt"><b>B.</b> Median LOSBS of 5 days (IQR 1–5), suggesting most seropositive cats had community-acquired prior infection</li>
+          <li class="ja-opt"><b>C.</b> Median LOSBS of 1 day, suggesting infection occurred during intake procedures</li>
+          <li class="ja-opt"><b>D.</b> Median LOSBS of 30 days, suggesting prolonged shelter exposure was required for seroconversion</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Median LOSBS of 5 days (IQR 1–5), suggesting most seropositive cats had community-acquired prior infection</span>
+            <span class="ja-ans-rationale">The abstract states: &#x27;The median LOSBS for antibody-positive cats was 5 (IQR 1-5; range 1-8). All but one of the seropositive cats had a LOSBS of 5 days or less, suggesting the previous infection was community-acquired.&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the shelter SARS-CoV-2 cat study, which finding provided evidence credibly consistent with in-shelter transmission?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> The high overall seroprevalence (57%) indicated widespread shelter exposure</li>
+          <li class="ja-opt"><b>B.</b> A sequenced sample from a cat with a length of stay of 13 days had base pair deletions and substitutions in the N2 target probe region, consistent with a feline-specific shelter strain</li>
+          <li class="ja-opt"><b>C.</b> All PCR-positive cats had a length of stay of under 1 day, ruling out shelter-acquired infection</li>
+          <li class="ja-opt"><b>D.</b> No PCR-positive cats had detectable antibodies, indicating rapid viral clearance before seroconversion</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. A sequenced sample from a cat with a length of stay of 13 days had base pair deletions and substitutions in the N2 target probe region, consistent with a feline-specific shelter strain</span>
+            <span class="ja-ans-rationale">The abstract reports: &#x27;The sequenced sample was credibly from a shelter-acquired infection, and the base pair deletions and substitutions were consistent with a feline-specific strain circulating in the shelter.&#x27; This cat had a LOSBS of 13 days, exceeding the typical SARS-CoV-2 infectious period.</span>
+          </div>
+        </details>
+      </div>
+  </div>
+</section>
+<!-- JOURNAL-ARTICLES:END -->
 
 </div></main>
 

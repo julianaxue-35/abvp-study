@@ -145,6 +145,10 @@
   <button data-p="stress"><span class="dot"></span>Stress &amp; Handling</button>
   <button data-p="dsd"><span class="dot"></span>Repro Pathology &amp; DSD</button>
   <button data-p="mcq"><span class="dot" style="background:#0f3d3a"></span>MCQ Test Bank</button>
+
+<!-- JOURNAL-TAB:START -->
+<button data-p="journal"><span class="dot" style="background:var(--lit, #1f6f8b)"></span>Journal Articles</button>
+<!-- JOURNAL-TAB:END -->
 </div></div></nav>
 <div class="srch-wrap"><div class="wrap"><div class="srch-row">
 <svg width="14" height="14" viewBox="0 0 15 15" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="m10.5 10.5 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -875,6 +879,714 @@
   </div>
   <div id="qhost"></div>
 </section>
+
+
+<!-- JOURNAL-ARTICLES:START -->
+<style data-journal-css>
+/* ── Journal Articles section ─────────────────────────────────────────── */
+.ja-standalone {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 2px solid var(--line, #d9d0bd);
+}
+.ja-article {
+  margin-bottom: 24px;
+  padding: 20px 22px 18px;
+  background: var(--paper2, #fbf8f1);
+  border-radius: 10px;
+  box-shadow: var(--shadow, 0 1px 2px rgba(15,61,58,.08), 0 8px 24px rgba(15,61,58,.06));
+}
+.ja-cite {
+  margin: 0 0 10px;
+  line-height: 1.45;
+  font-size: 0.97em;
+}
+.ja-meta {
+  color: var(--muted, #5d6b62);
+  font-size: 0.875em;
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0.01em;
+}
+.ja-meta a {
+  color: var(--lit, #1f6f8b);
+  text-decoration: none;
+}
+.ja-meta a:hover {
+  text-decoration: underline;
+}
+.ja-abstract {
+  border-left: 3px solid var(--lit, #1f6f8b);
+  padding: 10px 14px;
+  margin: 0 0 18px;
+  background: var(--lit-soft, #dcedf2);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.925em;
+  line-height: 1.6;
+  color: var(--ink, #0f3d3a);
+}
+.ja-mcq {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line, #d9d0bd);
+}
+.ja-mcq + .ja-mcq {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.ja-q {
+  font-weight: 600;
+  font-size: 0.93em;
+  margin: 0 0 7px;
+  color: var(--ink, #0f3d3a);
+}
+.ja-opts {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ja-opt {
+  font-size: 0.9em;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: var(--ink2, #15514c);
+  background: transparent;
+}
+.ja-opt b {
+  display: inline-block;
+  min-width: 1.5em;
+  color: var(--muted, #5d6b62);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.88em;
+}
+.ja-ans {
+  margin-top: 4px;
+}
+.ja-ans summary {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 0.83em;
+  font-family: "JetBrains Mono", monospace;
+  padding: 3px 10px;
+  border: 1px solid var(--lit, #1f6f8b);
+  border-radius: 5px;
+  color: var(--lit, #1f6f8b);
+  background: transparent;
+  user-select: none;
+  list-style: none;
+}
+.ja-ans summary::-webkit-details-marker { display: none; }
+.ja-ans summary::marker { display: none; }
+.ja-ans summary:hover {
+  background: var(--lit-soft, #dcedf2);
+}
+.ja-ans[open] summary {
+  background: var(--lit-soft, #dcedf2);
+  margin-bottom: 6px;
+}
+.ja-ans-body {
+  font-size: 0.9em;
+  padding: 8px 12px;
+  background: var(--paper, #fdfaf4);
+  border: 1px solid var(--line, #d9d0bd);
+  border-radius: 6px;
+  line-height: 1.55;
+  color: var(--ink, #0f3d3a);
+}
+.ja-ans-correct {
+  font-weight: 600;
+  color: var(--good, #2f7d52);
+  display: block;
+  margin-bottom: 4px;
+}
+.ja-ans-rationale {
+  color: var(--ink2, #15514c);
+}
+</style>
+<section class="panel" id="journal">
+  <h2 class="sec">Additional Resources</h2>
+  <p class="lead">Journal Articles (2021–2026). Exam items are drawn from the abstract only — read each abstract, then self-test.</p>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Find My Cat’ Using AirTags to Establish Home Ranges of Feral Cats on St. Kitts</b><br>
+    <span class="ja-meta">Emily Hunt, Sarah Hooper, Andrea Peda and Ryan Cavanaugh &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2026</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Feral cats occupy home ranges that vary in size based on many factors, primarily sex, cat population density, and landscape productivity. As part of a companion study assessing the abundance of feral cats on St. Kitts, we analyzed the feasibility of a lightweight, cost-effective method for tracking their movements. In this observational study, we aim to determine the effectiveness of using Apple AirTags to track movements of feral cats. Quick-release collars with AirTags attached were placed on cats trapped for trap-neuter-return (TNR) during surgery ‘spay’ days while they were still heavily sedated in recovery from anesthesia. The results yielded limited success due to inconsistent location updates, likely because of insufficient numbers of Apple devices within range for the AirTags to ‘ping’ off of, as well as the abilities of feral cats to disable the quick-release mechanism. However, despite the issues encountered, our estimates were consistent with existing data, suggesting that sex and reproductive status impact the home ranges of feral cats. Further efforts with this method should be conducted in a region with a higher density of Apple devices, as knowledge of feral cat home ranges could provide valuable insight for TNR advocates and planning of trapping events.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">Why did the AirTag-based tracking study of feral cats on St. Kitts achieve only limited success?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> AirTags were too heavy for the quick-release collars and fell off immediately</li>
+          <li class="ja-opt"><b>B.</b> Insufficient nearby Apple devices to relay location pings, and cats disabled the quick-release mechanism</li>
+          <li class="ja-opt"><b>C.</b> Battery life of AirTags was too short to capture full home ranges</li>
+          <li class="ja-opt"><b>D.</b> Local regulations prohibited placement of tracking devices on feral cats</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Insufficient nearby Apple devices to relay location pings, and cats disabled the quick-release mechanism</span>
+            <span class="ja-ans-rationale">The abstract attributes limited success to &quot;inconsistent location updates, likely because of insufficient numbers of Apple devices within range&quot; and &quot;the abilities of feral cats to disable the quick-release mechanism.&quot;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">Despite limited tracking success, what did home range estimates from the AirTag study suggest about feral cat biology?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Colony density was the sole factor determining feral cat home range size on St. Kitts</li>
+          <li class="ja-opt"><b>B.</b> Sex and reproductive status impact the home ranges of feral cats</li>
+          <li class="ja-opt"><b>C.</b> Feral cats on islands have smaller home ranges than mainland populations regardless of sex</li>
+          <li class="ja-opt"><b>D.</b> Landscape productivity was not associated with home range size in this population</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Sex and reproductive status impact the home ranges of feral cats</span>
+            <span class="ja-ans-rationale">The abstract states that despite limitations, estimates were &quot;consistent with existing data, suggesting that sex and reproductive status impact the home ranges of feral cats.&quot;</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>decrease in proportion of sterilized dogs entering animal welfare organizations in the US post pandemic</b><br>
+    <span class="ja-meta">Samantha Hill, Lexis H. Ly 2, John Cornelison and Julie K. Levy &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2025</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Introduction: The SARS-CoV-2 (COVID-19) pandemic disrupted spay and neuter services for owned and unowned animals in the United States; however, the impact of this deficit on animal welfare organizations’ intake and capacity has not been reported. This study examined nationwide data for trends in sterilization status of dogs entering animal shelters and rescue organizations in 2019–2023. Methods: A retrospective analysis was conducted using a national database for dogs admitted as owner surrenders or strays and outcomed to adoption in 2019–2023. Descriptive statistics were used for prealter status as a function of region, intake type, age, size, sex, and length of stay, and binary logistic regression to evaluate predictors of prealtered status. Results: A total of 1,136,021 dogs admitted to 256 U.S. shelters and rescues across 46 states and Washington D.C. met the study criteria. The proportion of dogs entering shelters prealtered declined from 33.2% in 2019 to 22.3% in 2023, with varied decreases across regions, intake types, and size groups. Prealtered dogs had shorter median length of stay to adoption compared to unaltered dogs. Multiple factors influenced the odds of a dog being prealtered. For example, there were higher odds of being prealtered among senior and male dogs, and lower odds among juveniles and stray dogs. Lower dog intake partially offset the total number of unaltered dogs admitted from 185,138 dogs in 2019 to 173,314 in 2023. Conclusion: The percentage of dogs prealtered at intake decreased year over year post-pandemic, which may impact time spent in care. Animal welfare organizations should consider assessing prealter status at intake to predict shelter capacity and identify trends in access to sterilization services. Keywords: animal welfare; shelter medicine; access to care; spay; neuter; population management; capacity for care; reproductive control; animal shelter I n the year 2024, 2,877,000 dogs entered shelter and rescue organizations in the U.S. from community sources (i.e. stray and owner surrender); an additional 680,000 dogs were transferred among organizations.1 While intakes stay (LOS) until adoption increased from 9 to 14 days for small dogs, 10 to 18 days for medium dogs, and 11 to 20 days for large dogs.1 Long stays in animal shelters can negous research has investigated multiple factors that impact LOS including intake type, dog phenotype, behavior, medical condition, and organizational policies.4–9 Another potential contributor to increased LOS is access to timely spay and neuter services. In North America, adoption policies typically include spay/neuter International License (http://creativecommons.org/licenses/by/4.0/), allowing third parties to copy and redistribute the material in any medium or format and to remix, transform, and build upon the material for any purpose, even commercially, provided the original work is properly cited and states its license.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the retrospective analysis of US shelter dogs (2019–2023), how did the proportion of dogs entering shelters prealtered change over the study period?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Increased from 22.3% in 2019 to 33.2% in 2023</li>
+          <li class="ja-opt"><b>B.</b> Remained stable at approximately 28% throughout the study period</li>
+          <li class="ja-opt"><b>C.</b> Declined from 33.2% in 2019 to 22.3% in 2023</li>
+          <li class="ja-opt"><b>D.</b> Declined from 45% in 2019 to 33% in 2023</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Declined from 33.2% in 2019 to 22.3% in 2023</span>
+            <span class="ja-ans-rationale">The abstract states &quot;The proportion of dogs entering shelters prealtered declined from 33.2% in 2019 to 22.3% in 2023.&quot;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">Which intake characteristic was associated with LOWER odds of a dog being prealtered at shelter entry in the post-pandemic retrospective study?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Senior age and male sex</li>
+          <li class="ja-opt"><b>B.</b> Large body size and owner-surrender intake type</li>
+          <li class="ja-opt"><b>C.</b> Juvenile age and stray intake type</li>
+          <li class="ja-opt"><b>D.</b> Female sex and prior shelter admission</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Juvenile age and stray intake type</span>
+            <span class="ja-ans-rationale">The abstract reports &quot;lower odds among juveniles and stray dogs&quot; as factors associated with a dog being unaltered at intake.</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Management of Free-Roaming Cat Populations In Slovakia Attitudinal Perspectives of Residents Engaged With Unowned Cats A Community Case Report</b><br>
+    <span class="ja-meta">Noema Gajdoš-Kmecová1, Ann Enright, Ivana Božíková3, Daniela Takáčová4 &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2025</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Individuals working with unowned cats are key stakeholders in cat population management, yet comprehensive data on their involvement in Slovakia are lacking. This study aimed to characterize Slovaks engaged in unowned cat management through an online survey assessing demographics, attitudes toward management practices, challenges, and educational priorities. A total of 276 responses were analyzed, with most respondents being women (89%), 61% aged 31–50 years, and 52% involved in this work for less than 5 years. The majority (75%) were unaffiliated with any official organization. Factor analysis revealed not only generalized views on domestic cat behavior but also concom flicting attitudes toward population management. Cluster analysis using respondents’ factor scores identified a smaller subset (16%) who exhibited stronger opinions, suggesting greater emotional investment. Respondents expressed interest in further education, particularly Trap- Neuter-Return program planning and strategies for cats unsuitable for rehoming. Despite financial constraints being the main difficulty, education was largely accessible to most. These findings highlight the potential benefits of training courses for volunteers, covering domestic cat biology, data collection, impact assessment, and financial planning. Such education could enhance decision-making and funding opportunities, ultimately supporting more effective urban cat management in Slovakia.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the survey of Slovaks engaged in unowned cat management, what was the MOST commonly cited difficulty?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Lack of access to educational resources</li>
+          <li class="ja-opt"><b>B.</b> Opposition from local government authorities</li>
+          <li class="ja-opt"><b>C.</b> Financial constraints</li>
+          <li class="ja-opt"><b>D.</b> Insufficient volunteer recruitment</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Financial constraints</span>
+            <span class="ja-ans-rationale">The abstract states &quot;financial constraints being the main difficulty&quot; reported by respondents in the Slovak survey.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">Which demographic characteristic best describes the majority of Slovak respondents involved in unowned cat management?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Men aged over 50, affiliated with official organizations</li>
+          <li class="ja-opt"><b>B.</b> Women aged 31–50, mostly unaffiliated with official organizations</li>
+          <li class="ja-opt"><b>C.</b> Equal sex distribution, majority aged under 30</li>
+          <li class="ja-opt"><b>D.</b> Women aged under 30, affiliated with national cat welfare organizations</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Women aged 31–50, mostly unaffiliated with official organizations</span>
+            <span class="ja-ans-rationale">The abstract reports 89% were women, 61% were aged 31–50, and 75% were unaffiliated with any official organization.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">What educational topic generated the greatest interest among Slovak respondents engaged in cat population management?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Domestic cat nutrition and preventive health care</li>
+          <li class="ja-opt"><b>B.</b> Legislative advocacy for animal welfare policy reform</li>
+          <li class="ja-opt"><b>C.</b> Trap-Neuter-Return program planning and strategies for cats unsuitable for rehoming</li>
+          <li class="ja-opt"><b>D.</b> Data analysis and statistical reporting of colony outcomes</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Trap-Neuter-Return program planning and strategies for cats unsuitable for rehoming</span>
+            <span class="ja-ans-rationale">The abstract states respondents expressed particular interest in &quot;Trap-Neuter-Return program planning and strategies for cats unsuitable for rehoming.&quot;</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Successful Control of Feral Cat Populations Through Trap-Neuterreturn and Long-term Monitoring on a Remote Island in Hong Kong A Community Case Study</b><br>
+    <span class="ja-meta">Neuterreturn and Long-term Monitoring on a Remote Island in &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2025</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Cat colonies are common in SE Asia and are a result of irresponsible pet ownership, high abandonment rates, and a lack of legislation limiting pet shop breeding. The Society for the Prevention of Cruelty to Animals (SPCA) in Hong Kong Special Administrative Region controls feral cat populations by providing trap-neuter-return (TNR) services, under the Cat Colony Care Program (CCCP). During CCCP programs cats are caught, assessed on behavioural/health grounds, and (1) neutered and returned to the colony location, (2) placed in rehoming programs for public adoption, or (3) euthanized. In this longitudinal study we present representative desexing and observational survey results for a feral cat population on a remote island in Hong Kong Special Administrative Region that was subject to action under the CCCP. Results from desexing data and surveys show initial high cat numbers, close to public restaurants and walkways (n &gt; 100). However, as the program progresses, a decrease in cat abundance is documented until only a single individual was sighted between 2019 and 2023. This case study is an example of a successful population control program for island cats in Asia, and highlights the fact that TNR programs coupled with consistent, long-term monitoring, public awareness programs, and cat removal for re-homing can reduce feral animal numbers.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the Hong Kong SPCA Cat Colony Care Program case study, what outcomes did the TNR program achieve on the remote island?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Cat population stabilized at approximately 50 individuals after 5 years</li>
+          <li class="ja-opt"><b>B.</b> Population declined from over 100 cats to a single individual sighted between 2019 and 2023</li>
+          <li class="ja-opt"><b>C.</b> Population was entirely eliminated through euthanasia within 2 years</li>
+          <li class="ja-opt"><b>D.</b> Cat numbers increased initially before stabilizing at a lower equilibrium</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Population declined from over 100 cats to a single individual sighted between 2019 and 2023</span>
+            <span class="ja-ans-rationale">The abstract states the program documented a decrease from initial high cat numbers (n &gt; 100) until &quot;only a single individual was sighted between 2019 and 2023.&quot;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">Under the Hong Kong SPCA Cat Colony Care Program, cats were triaged into which three categories?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Returned to colony, transferred to mainland shelters, or microchipped and released</li>
+          <li class="ja-opt"><b>B.</b> Neutered and returned, placed in rehoming programs, or euthanized</li>
+          <li class="ja-opt"><b>C.</b> Neutered and returned, held in long-term foster care, or transferred overseas</li>
+          <li class="ja-opt"><b>D.</b> Returned to colony, neutered and rehomed, or transferred to wildlife reserves</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Neutered and returned, placed in rehoming programs, or euthanized</span>
+            <span class="ja-ans-rationale">The abstract states cats were either &quot;(1) neutered and returned to the colony location, (2) placed in rehoming programs for public adoption, or (3) euthanized.&quot;</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Trap–Neuter–Return and Return-to-Field Programs for Managing Community Cats at Florida Animal Shelters</b><br>
+    <span class="ja-meta">Trap–Neuter–Return and Return-to-Field Programs for Managing &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2025</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Introduction: The purpose of this study was to determine the extent to which Florida shelters utilize community cat programs for traditional trap–neuter–return (TNR), in which the original intent was to return the cat to its neighborhood following spay/neuter and return-to-field (RTF), in which return to the neighborhood was deemed the most appropriate outcome after a cat’s admission to the shelter as a free-roaming stray. Methods: Florida animal shelters admitting 200 or more cats in 2019 were surveyed on practices related to the management of community cats. Results were correlated with cat admission and outcome data and rural versus urban locations. Results: Surveys were received from 110 of the 116 animal shelters admitting 200 or more cats in 2019 (95% response rate), of which 58 shelters (53%) performed TNR (55 shelters; 50%) and/or RTF (33; 30%). Shelter-based programs were available in 31 of 35 (89%) urban counties surveyed compared to only seven of 21 (33%) rural counties where cat shelter admissions and euthanasia rates were higher (P &lt; 0.0001). TNR/RTF programs were more common in shelters admitting higher numbers of cats and reporting higher live outcome rates for cats. Shelters commonly collaborated with other organizations and volunteers to carry out the programs, including for transporting cats to and from the field, performing spay/neuter surgery, and funding surgery costs. TNR/RTF programs provided rabies vaccination (100% of TNR and RTF programs), feline panleukopenia virus, herpesvirus and calicivirus vaccination (80% TNR; 88% RTF), FeLV testing (44% TNR; 41% RTF), FIV testing (43% TNR; 41% RTF), internal parasite control (56% TNR; 84% RTF), external parasite control (76% TNR; 88% RTF), treatment of illnesses/injuries (91% TNR; 97% RTF), and humane euthanasia (85% TNR; 88% RTF). Conclusion: Shelters using the option of TNR and/or RTF programs for community cats had higher live outcome rates for cats than shelters without such programs. Expansion of shelter-based TNR/RTF programs in conjunction with community-based programs to support pet retention and to increase access to veterinary care are opportunities to reduce unnecessary admission and euthanasia of cats in shelters and deaths of kittens born in the wild. Regional collaborations between urban organizations where programs are well established and supported by community engagement could be expanded to support neighboring rural communities where resources are scarce, thereby creating a statewide safety net, not only for community cats but for all cats and dogs. Keywords: spay; neuter; animal shelter; community cats; feline welfare; shelter medicine; animal shelter outcomes; trap–neuter–return; return-to-field A pproximately 3.3 million cats entered animal shelters in the US in 2023.1 Free-roaming stray and two-thirds of cat admissions. Population control of the estimated 74 million owned pet cats is accomplished largely by a spay and neuter rate of 85%.2 In contrast, the ing community cats is less than 10%, making this population the main source of new kitten births.3–5 4.0 International License (http://creativecommons.org/licenses/by/4.0/), allowing third parties to copy and redistribute the material in any medium or format and to remix, transform, and build upon the material for any purpose, even commercially, provided the original work is properly cited and states its license.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the Florida shelter survey, what proportion of shelters admitted 200 or more cats in 2019 performed TNR and/or RTF programs?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> 33% of surveyed shelters</li>
+          <li class="ja-opt"><b>B.</b> 75% of surveyed shelters</li>
+          <li class="ja-opt"><b>C.</b> 95% of surveyed shelters</li>
+          <li class="ja-opt"><b>D.</b> 53% of surveyed shelters</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: D. 53% of surveyed shelters</span>
+            <span class="ja-ans-rationale">The abstract states 58 of 110 responding shelters (53%) performed TNR (50%) and/or RTF (30%) programs.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">The Florida shelter survey found that TNR/RTF programs were more commonly available in urban versus rural counties. What was the disparity?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> 89% of urban counties had programs vs 33% of rural counties</li>
+          <li class="ja-opt"><b>B.</b> 75% of urban counties had programs vs 50% of rural counties</li>
+          <li class="ja-opt"><b>C.</b> 60% of urban counties had programs vs 20% of rural counties</li>
+          <li class="ja-opt"><b>D.</b> 95% of urban counties had programs vs 65% of rural counties</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: A. 89% of urban counties had programs vs 33% of rural counties</span>
+            <span class="ja-ans-rationale">The abstract reports programs were available in 31 of 35 (89%) urban counties versus only 7 of 21 (33%) rural counties.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">Which service was provided by 100% of both TNR AND RTF programs in the Florida shelter survey?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> FeLV testing</li>
+          <li class="ja-opt"><b>B.</b> Internal parasite control</li>
+          <li class="ja-opt"><b>C.</b> Rabies vaccination</li>
+          <li class="ja-opt"><b>D.</b> FIV testing</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Rabies vaccination</span>
+            <span class="ja-ans-rationale">The abstract specifically notes rabies vaccination was provided by 100% of TNR and 100% of RTF programs, the only service reaching full coverage across both program types.</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Using My Tools for the Goodness of the World and Making a Difference HQHVSN Veterinarians on Remote-Area Volunteerism and the Impacts of Spaycations</b><br>
+    <span class="ja-meta">“Using My Tools for the Goodness of the World and Making &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2025</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Introduction: Veterinarians skilled in High Quality High Volume Spay Neuter (HQHVSN) are frequently invited to volunteer their surgical services in distant low-resource communities on trips casually known as “spaycations.” This research explores HQHVSN veterinarians’ motivations for choosing whether or not to participate in spaycations and their perceptions of the impacts these clinics have on communities they visit to answer the research questions “why do HQHVSN veterinarians go on spaycations?” and “are spaycations a good thing?” Methods: Veterinarians who work in or are trained in HQHVSN were invited to complete an online questionnaire containing open-ended questions relating to their thoughts and experiences regarding spaycations. Respondents were asked to discuss their perceptions of spaycations’ impacts on the volunteer veterinarians themselves as well as on the animals, clients, communities, veterinary practitioners and animal populations in the areas visited. A reflexive thematic analysis was conducted in which the veterinarians’ responses were coded inductively for semantic themes using a critical realist approach. Results: Forty-three veterinarians responded to the survey, and over two-thirds (30/43; 70%) had been on spaycation. Most responding veterinarians were motivated by a desire to make a difference and give back to communities in need as well as the desire to travel and to experience other cultures. Thematic analysis generated four main themes: HQHVSN is a special skill set; spaycations are expensive; “I don’t have data but…”: the uncertain population impact of spaycations; and colonialism is an ever-present risk. Conclusion: This study’s findings show that for veterinarians, spaycations can be an opportunity for altruism that also enriches their work as veterinarians and as HQHVSN practitioners. However, study themes highlight some potential pitfalls of spaycations including the pressures placed on volunteers, the high cost of spaycations, the questionable or un-evaluated efficacy of spaycation clinics and the potential for colonialism and “savior” attitudes. The compelling nature of these trips necessitates conscientious and culturally-sensitive leadership and planning to provide safe, sustainable, community-centered programs with a focus on long-term solutions. Keywords: HQHVSN; spaycation; volunteer; voluntourism; spay; neuter; colonialism; mentorship; reflexive thematic analysis V eterinarians skilled in High Quality High Volume Spay Neuter (HQHVSN) are frequently invited low-resource communities. These volunteer-dependent remote-area spay neuter programs have become casually paper to represent these projects. Spaycations vary greatly of clinics in the target community, additional veterinary International License (http://creativecommons.org/licenses/by/4.0/), allowing third parties to copy and redistribute the material in any medium or format and to remix, transform, and build upon the material for any purpose, even commercially, provided the original work is properly cited and states its license.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the qualitative study of HQHVSN veterinarians and spaycations (43 respondents), what proportion had actually participated in a spaycation?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Over two-thirds (70%)</li>
+          <li class="ja-opt"><b>B.</b> About half (50%)</li>
+          <li class="ja-opt"><b>C.</b> Under one-third (30%)</li>
+          <li class="ja-opt"><b>D.</b> Nearly all respondents (90%)</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: A. Over two-thirds (70%)</span>
+            <span class="ja-ans-rationale">The abstract states &quot;over two-thirds (30/43; 70%) had been on spaycation&quot; among the 43 veterinarians who responded.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">Which of the following was identified as one of the FOUR main themes from the reflexive thematic analysis in the HQHVSN spaycation study?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Spaycations improve host-country veterinary licensure outcomes</li>
+          <li class="ja-opt"><b>B.</b> Local government resistance limits spaycation effectiveness</li>
+          <li class="ja-opt"><b>C.</b> The uncertain population impact of spaycations</li>
+          <li class="ja-opt"><b>D.</b> Remote surgical complications exceed domestic rates</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. The uncertain population impact of spaycations</span>
+            <span class="ja-ans-rationale">The abstract lists four themes: HQHVSN is a special skill set; spaycations are expensive; &quot;I don&#x27;t have data but...&quot;: the uncertain population impact of spaycations; and colonialism is an ever-present risk.</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Comparison of Ear Tipping Techniques to Identify Sterilized Community Cats A Randomized Controlled Trial</b><br>
+    <span class="ja-meta">Emma Vitello, Rebecca Erhart, Madelin Session, Amanda Xu, Aimee Dalrymple &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2024</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Introduction: Many methods are used for ear tipping, but the majority of practitioners have experience with only one. This study sought the most effective method of ear tipping, with the primary outcome being breakthrough bleeding, and secondary outcomes being immediate bleeding, duration, conformation to target length, cosmesis, client satisfaction, and tipper preference. Methods: This randomized controlled trial, conducted between June 2022 and February 2023, enrolled cats at least 6 months old presented for Trap-Neuter-Return to one of seven techniques. Techniques were combinations of cutting tools, including Mayo scissors (MS), wood burning tool (WBT), and scalpel blade (SB), and hemostatic agents, including styptic gel (gel) and compounded hemostatic paste (CHP), and hemostat (H). Removal of 1 cm of the left ear pinna was timed, and breakthrough bleeding, the primary outcome measure, was blindly assessed. Client satisfaction was captured at discharge, 1 day, and 1 month, and cosmesis determined by three blinded independent raters. Results: There were 252 cats from 80 unique colonies, with 36 per group, across 8 clinic days. The overall rate of breakthrough bleeding was 7% (95% confidence interval [CI]: 4–11%) and differed by technique (P &lt; 0.0001). Neither WBT+H nor MS+H had any occurrences (95% CI: 0–10%), while SB+H/gel had the most (29%, 95% CI: 15–48%). The median time was 10 s (interquartile range [IQR] 7, 13). Tips were greater than target with WBT+H (33%, odds ratio [OR]: 3.8, P &lt; 0.0001) as compared to SB+H. While SB+H had the highest mean cosmesis score (5.12/6, standard deviation [SD]: 0.87), WBT+H (4.4/6, SD 1.07) scored significantly lower (P = 0.002). Clients were satisfied with 88% (95% CI: 83–92%) of the ear tips at disthis article can be accessed charge (although response rate was insufficient for 24-hour and 1-month post), and there were no associations with technique. All 4 tippers preferred SB+H/CHP. Conclusion: No technique was superior in all measures. While WBT+H and MS+H were superior by the primary outcome, SB+H/CHP was unanimously preferred by tippers. Keywords: community cats; trap-neuter-return; TNR; ear tipping; randomized controlled trial; stray cats; feral cats; feline medicine E ar tipping is the practice of excising the distal pinna of cats to indicate that they have been sterilized.1 While other identification methods have been employed, ear tipping remains the most effective2 and is recommended by the Association of Shelter Veterinarians (ASV).3 Ear tipping allows identification of sterilized enabling trappers to focus their efforts on populations that the population is being managed.5,6 Individual cats laparotomy if presented to a Trap-Neuter-Return (TNR) International License (http://creativecommons.org/licenses/by/4.0/), allowing third parties to copy and redistribute the material in any medium or format and to remix, transform, and build upon the material for any purpose, even commercially, provided the original work is properly cited and states its license.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the randomized controlled trial comparing ear tipping techniques, what was the PRIMARY outcome measure?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Procedure time in seconds</li>
+          <li class="ja-opt"><b>B.</b> Client satisfaction at discharge</li>
+          <li class="ja-opt"><b>C.</b> Breakthrough bleeding after leaving the ear tip station</li>
+          <li class="ja-opt"><b>D.</b> Cosmesis rated by independent blinded raters</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Breakthrough bleeding after leaving the ear tip station</span>
+            <span class="ja-ans-rationale">The abstract identifies breakthrough bleeding as the primary outcome measure, defined as bleeding after leaving the ear tip station.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">Which ear tipping technique had the HIGHEST rate of breakthrough bleeding in this RCT?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Wood burning tool with hemostat (WBT+H)</li>
+          <li class="ja-opt"><b>B.</b> Mayo scissors with hemostat (MS+H)</li>
+          <li class="ja-opt"><b>C.</b> Scalpel blade with hemostat and hemostatic gel (SB+H/gel)</li>
+          <li class="ja-opt"><b>D.</b> Mayo scissors with compounded hemostatic paste (MS+H/CHP)</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Scalpel blade with hemostat and hemostatic gel (SB+H/gel)</span>
+            <span class="ja-ans-rationale">The abstract reports SB+H/gel had the highest breakthrough bleeding rate at 29% (95% CI 15–48%), while WBT+H and MS+H had zero occurrences.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">Regarding tipper preference in the ear tipping RCT, which technique was unanimously preferred by all four practitioners?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Wood burning tool with hemostat (WBT+H)</li>
+          <li class="ja-opt"><b>B.</b> Mayo scissors with hemostat and gel (MS+H/gel)</li>
+          <li class="ja-opt"><b>C.</b> Scalpel blade with hemostat and hemostatic gel (SB+H/gel)</li>
+          <li class="ja-opt"><b>D.</b> Scalpel blade with hemostat and compounded hemostatic paste (SB+H/CHP)</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: D. Scalpel blade with hemostat and compounded hemostatic paste (SB+H/CHP)</span>
+            <span class="ja-ans-rationale">The abstract states &quot;All 4 tippers preferred SB+H/CHP,&quot; i.e., scalpel blade with hemostat and compounded hemostatic paste.</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Spaycations_ A Qualitative Study of Veterinarians’ Motivations And Perceived Impacts of Remote Volunteer Spay Neuter</b><br>
+    <span class="ja-meta">Spaycations: A Qualitative Study of Veterinarians’ &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2024 &middot; <a href="https://doi.org/10.56771/jsmcah.v3.102" target="_blank" rel="noopener">10.56771/jsmcah.v3.102</a></span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Increasingly, veterinarians skilled in High Quality High Volume Spay Neuter (HQHVSN) are invited to volunteer their surgical services in distant low-resource communities on trips that have become casually known as “spaycations.” While these trips are numerous, there is little research on veterinarians’ motivations for participating and their perceptions of the impacts these clinics have on communities they visit. The current study was open to veterinarians who work in or are trained in HQHVSN whether or not they had been on a spaycation trip. For the purpose of this study, a spaycation is defined as an unpaid or minimally paid trip from a high resource area to a low or moderate resource country or area to provide spay neuter services that is organized by someone other than the individual surgeon. Forty-one veterinarians responded to an electronic questionnaire containing open-ended questions relating to their thoughts and experiences regarding spaycations and their impacts on the volunteer veterinarians as well as on the animals, clients, communities, veterinary practitioners, and animal populations in the areas visited. A reflexive thematic analysis was conducted in which the veterinarians’ responses were coded inductively for semantic themes using a critical realist approach. Respondents had participated in a variety of spaycations around the world over the past 20 years. Most responding veterinarians were motivated by a desire to make a difference and give back to communities in need as well as the desire to travel and to experience other cultures. Many enjoyed bonding with and learning from other vets and team members on the spaycation, and said that while the trips were exhausting they were also paradoxically energizing, and that they renewed their professional passion. Many veterinarians were concerned by the financial and time commitments associated with participating in spaycations, and these costs had prevented some veterinarians from participating. Further reasons for not participating in spaycations included concerns about stress and burnout and about the continual expectation for veterinarians to volunteer their time. Some veterinarians presented concerns about spaycations producing damaging interactions with the local communities including cultural misunderstandings, distrust, the creation of dependence, colonialism, and White Savior syndrome. Local involvement in the spay neuter event varied, with some events entirely planned and staffed locally and involving training and mentorship of local veterinary professionals and students, while other spaycations included little local involvement. Veterinarians varied in their estimation of the animal population impact of the spaycation and agreed that recurrent or ongoing interventions are necessary for appreciable and sustainable population impacts, but that health impacts on individual animals and their families were important and visible even after a single trip. Thematic analysis identified three main themes, HQHVSN is a special skill set, Colonialism and Cost and Value. Spaycations are a unique way for HQHVSN veterinarians to use their distinctive skills in communities of need. The compelling nature of these trips necessitates conscientious and culturally-sensitive leadership and planning to provide safe, sustainable, community-centered programs with a focus on long-term solutions. DOWNLOADS PUBLISHED 2024-05-20 ISSUE Vol. 3 No. S1 (2024): 2024 ABVP Abstracts SECTION</div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the qualitative study of spaycations, what were the PRIMARY motivations reported by veterinarians for participating?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Financial compensation and professional continuing education credits</li>
+          <li class="ja-opt"><b>B.</b> Desire to make a difference, give back to communities, travel, and experience other cultures</li>
+          <li class="ja-opt"><b>C.</b> Requirement by their employer or professional licensing board</li>
+          <li class="ja-opt"><b>D.</b> Access to unique surgical cases not available in their home practice</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Desire to make a difference, give back to communities, travel, and experience other cultures</span>
+            <span class="ja-ans-rationale">The abstract states most veterinarians were motivated by &quot;a desire to make a difference and give back to communities in need as well as the desire to travel and to experience other cultures.&quot;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">Which thematic concern about spaycations related to socio-political dynamics was identified in the qualitative study?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Veterinarians displacing local practitioners permanently from the market</li>
+          <li class="ja-opt"><b>B.</b> Language barriers reducing surgical safety in host communities</li>
+          <li class="ja-opt"><b>C.</b> Colonialism and White Savior syndrome arising from spaycation dynamics</li>
+          <li class="ja-opt"><b>D.</b> Host communities refusing to continue TNR after spaycation visits</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Colonialism and White Savior syndrome arising from spaycation dynamics</span>
+            <span class="ja-ans-rationale">The abstract identifies colonialism and White Savior syndrome as concerns raised by veterinarians, along with cultural misunderstandings and creation of dependence.</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>When You Cannot Put That Cat Back Where It Came From The Call for a ‘Working Cat Program’ Implementation</b><br>
+    <span class="ja-meta">Simone Guerios, Katie Houston, Michaela Oglesby, Megan Farinha &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2024</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Introduction: Operation Catnip’s (OC) Working Cat Program (WCP) was created to contribute to life-saving efforts for poorly socialized unowned cats that cannot return to their original location and in turn relocation needs to be implemented. The goal of this study was to evaluate the OC’s WCP, a cat management program, conducted in Florida from January 1, 2019, to December 1, 2023. Methods: Data from cats enrolled in the OC’s WCP were retrieved from electronic records and analyzed using descriptive statistics. Cat adopters were surveyed to assess satisfaction with their adoptions and to evaluate the broader outcomes of the program. Results: A total of 968 cats were enrolled in 5 years of the program. In total, 99% (n = 959) of the cats had a live release rate (959), where 90% (862) were ‘hired’ (adopted into non-traditional homes), 9.9% (95) were transferred to rescue groups (to be adopted into traditional homes), and 2 were returned to their original location (return to field). 85% of the adopters who responded to a post-adoption survey (329/387) were very or completely satisfied with their adopted cat’s performance, and only 10% (40/387) were not or were somewhat satisfied with their adopted cat’s performance. Conclusion: Implementing cat management programs like OC’s WCP is a viable and successful way to provide positive live outcomes to cats unsuitable for traditional adoption, as an alternative to euthanasia. Keywords: pet overpopulation; shelter medicine; cat relinquishment; euthanasia; feral cats; community cats; fearful cats H istorically, shelters have faced the challenge of finding solutions to reduce the euthanasia of cats in good general health that are poorly socialized. Over the past four decades, robust high-impact Trap-Neucessful strategy for managing the unowned, free-roaming similar capacity, where community cats are trapped, transported to a shelter or low-cost clinic, sterilized, vaccinated, ear-tipped, and returned to the location where they were trapped. The main difference is that RTF programs are shelter-based and TNVR programs are community-based. With RTF programs, cats are admitted to shelters as ‘strays’ through animal control field services or public 4.0 International License (http://creativecommons.org/licenses/by/4.0/), allowing third parties to copy and redistribute the material in any medium or format and to remix, transform, and build upon the material for any purpose, even commercially, provided the original work is properly cited and states its license.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">Operation Catnip’s Working Cat Program (WCP) was specifically created for which population of cats?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Socialized stray cats requiring temporary foster care before adoption</li>
+          <li class="ja-opt"><b>B.</b> Poorly socialized unowned cats that cannot return to their original location</li>
+          <li class="ja-opt"><b>C.</b> Feral kittens under 8 weeks of age suitable for socialization</li>
+          <li class="ja-opt"><b>D.</b> Owned cats surrendered by families undergoing housing crises</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Poorly socialized unowned cats that cannot return to their original location</span>
+            <span class="ja-ans-rationale">The abstract states the WCP &quot;was created to contribute to life-saving efforts for poorly socialized unowned cats that cannot return to their original location.&quot;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In Operation Catnip’s Working Cat Program (2019–2023), what was the live release rate among the 968 enrolled cats?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> 75%</li>
+          <li class="ja-opt"><b>B.</b> 85%</li>
+          <li class="ja-opt"><b>C.</b> 90%</li>
+          <li class="ja-opt"><b>D.</b> 99%</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: D. 99%</span>
+            <span class="ja-ans-rationale">The abstract states &quot;99% (n = 959) of the cats had a live release rate&quot; across the 5-year program.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the post-adoption survey of Working Cat Program adopters, what proportion were very or completely satisfied with their cat’s performance?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> 75%</li>
+          <li class="ja-opt"><b>B.</b> 85%</li>
+          <li class="ja-opt"><b>C.</b> 90%</li>
+          <li class="ja-opt"><b>D.</b> 99%</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. 85%</span>
+            <span class="ja-ans-rationale">The abstract states &quot;85% of the adopters who responded to a post-adoption survey (329/387) were very or completely satisfied with their adopted cat’s performance.&quot;</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Who Cares Exploring the Demographics and Proportion of People Providing Care for Community Cats in Seven Study Communities in the United States</b><br>
+    <span class="ja-meta">Who Cares? Exploring the Demographics and Proportion &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2024</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Introduction: While several studies have evaluated the demographics of pet ownership in the US, few studies have explored the demographics and proportion of the population that feed community cats. This research examines these questions in seven geographically diverse study communities. The concept of capacity for caring is advanced as a way to quantify a community’s ability and willingness to provide for community cats. Methods: A web-based panel survey was distributed and received 6,318 responses. The survey was administered in seven different study communities as part of a larger survey. Individuals were asked a series of demographic and socioeconomic questions as well as whether they fed community cats. Results: The profile of people feeding community cats is diverse with Black and Hispanic respondents emerging as more likely to feed cats than White respondents. Results indicate that an average of 30% of people feed community cats, and that most feed three or fewer cats. Significant variation in the proportion of people feeding cats is seen across the seven study communities, perhaps driven by the number of cats in the different communities. Confirming findings of previous studies, individuals who have pets of their own are also significantly more likely to feed community cats. Conclusion: The results indicate that communities have a relatively high capacity to care for community cats. This research also adds an equity perspective to programs aimed at removal of community cats from their spaces. Cat caregivers are diverse and generally reflect their respective communities. Policymakers should consider the impact to the cats and their caregivers before implementing programs that target removal of community cats from their outdoor homes. Keywords: community cats; feral cats; feeding cats; DEI I n the United States, stray cat intakes greatly exceed the number of owner surrendered intakes and contribute disproportionately to the number of the animals euthwho share their community.2 When considering programs such as returning socialized cats to the field, some groups may be concerned that there will not be anyone caring for the cats. One way to consider this is to explore a community’s Capacity for Caring, a measure of the potential proportion of the community that would provide for cats they do not own. Identifying the proportion of community members providing care for these animals as well as explorvide much insight into the capacity for caring. Attribution 4.0 International License (http://creativecommons.org/licenses/by/4.0/), allowing third parties to copy and redistribute the material in any medium or format and to remix, transform, and build upon the material for any purpose, even commercially, provided the original work is properly cited and states its license.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the seven-community US survey on community cat caregiving demographics, approximately what proportion of respondents reported feeding community cats?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> About 10%</li>
+          <li class="ja-opt"><b>B.</b> About 30%</li>
+          <li class="ja-opt"><b>C.</b> About 50%</li>
+          <li class="ja-opt"><b>D.</b> About 75%</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. About 30%</span>
+            <span class="ja-ans-rationale">The abstract states &quot;an average of 30% of people feed community cats&quot; across the seven study communities.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">Regarding racial/ethnic demographics of community cat caregivers in this seven-community survey, which finding was reported?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> White respondents were significantly more likely to feed community cats than Black or Hispanic respondents</li>
+          <li class="ja-opt"><b>B.</b> Black and Hispanic respondents were more likely to feed community cats than White respondents</li>
+          <li class="ja-opt"><b>C.</b> No significant racial or ethnic differences in cat feeding behavior were observed</li>
+          <li class="ja-opt"><b>D.</b> Asian respondents showed the highest rates of community cat feeding across all communities</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Black and Hispanic respondents were more likely to feed community cats than White respondents</span>
+            <span class="ja-ans-rationale">The abstract states &quot;Black and Hispanic respondents emerging as more likely to feed cats than White respondents&quot; in this survey.</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>A Cat Is a Cat Attachment to Community Cats Transcends Ownership Status</b><br>
+    <span class="ja-meta">Sue M. Neal,2 and Peter J. Wolf 3 &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2023</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Introduction: Despite the considerable recent interest in the human–animal bond, the relationship between community cat caregivers and the cats they care for has received relatively little attention. In addition, the instruments typically used to measure the human–animal bond contain questions specific to in-home interactions with pets or interactions representative of specific behavior traits of the animal (e.g. lap-sitting), effectively excluding community cat caregivers. Methods: Using a slightly modified version of the Comfort from Companion Animals Scale, we surveyed community cat caregivers in Jefferson County, Kentucky, to measure the degree to which they are attached to the cats in their care. Participants for the online survey were recruited via email from a nonprofit organization that provides sterilization and wellness care for community cats in the area. Results: Of the 329 individuals who participated in the survey, 295 (90.2%) indicated that they had provided food, water, or shelter to one or more community cats currently or within the recent past. These caregivers tend to identify as white, female, and middle-class. Levels of attachment to the cats in their care (mean: 39.6, standard deviation [SD]: 5.9) are nearly identical to those previously reported by cat owners (mean: 39.6, SD: 4.8). Monthly expenditures and other sacrifices made as part of their caregiving duties provide further evidence of the strong attachment these individuals feel for community cats. Conclusion: The fact that community cats are unowned in no way diminishes the strength of the bond caregivers feel. Such findings have clear policy implications – validating, for example, the common practice of returning healthy cats lacking identification (i.e. collar or microchip), regardless of perceived level of sociability, to where they were found, following sterilization and vaccination. Keywords: attachment; community cats; free-roaming cats; human–animal bond; trap-neuter-return A s noted in their most recent ‘free-roaming cat position statement’, published in May 2023, the American Association of Feline Practitioners (AAFP) ‘supports the humane management of free-roaming cats’ in part because the organization recognizes the importance of ‘free-roaming cat caregivers and their human–animal bond’.1 This is particularly noteworthy because the AAFP’s previous statement, published in 2012, made no mention of caregivers.2 In recent years, the human–animal bond, particularly the interaction between humans and their companion animals, has garnered significant attention, even as research findings often challenge the perceived health benefits for humans.3,a Despite a. Herzog H. Are pets as good for us as we think they are? Psychology 06/National%20Shelter%20Data%20Set%202023_updated_6.12.2023. Attribution 4.0 International License (http://creativecommons.org/licenses/by/4.0/), allowing third parties to copy and redistribute the material in any medium or format and to remix, transform, and build upon the material for any purpose, even commercially, provided the original work is properly cited and states its license.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">A survey of community cat caregivers in Jefferson County, Kentucky used a modified version of which instrument to measure human–cat attachment?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Lexington Attachment to Pets Scale</li>
+          <li class="ja-opt"><b>B.</b> Comfort from Companion Animals Scale</li>
+          <li class="ja-opt"><b>C.</b> Monash Dog Owner Relationship Scale</li>
+          <li class="ja-opt"><b>D.</b> Pet Attitude Scale</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Comfort from Companion Animals Scale</span>
+            <span class="ja-ans-rationale">The abstract states the study used a slightly modified version of the Comfort from Companion Animals Scale to measure attachment in community cat caregivers.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the study of community cat caregivers in Jefferson County, how did caregiver attachment scores compare to those of cat owners?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Caregivers had significantly higher attachment scores than cat owners</li>
+          <li class="ja-opt"><b>B.</b> Caregivers had significantly lower attachment scores than cat owners</li>
+          <li class="ja-opt"><b>C.</b> Caregiver attachment scores were nearly identical to those of cat owners</li>
+          <li class="ja-opt"><b>D.</b> Caregiver scores varied too widely to compare to cat owners</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Caregiver attachment scores were nearly identical to those of cat owners</span>
+            <span class="ja-ans-rationale">The abstract reports caregiver attachment mean of 39.6 (SD 5.9) versus cat owner mean of 39.6 (SD 4.8), described as &quot;nearly identical.&quot;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">What policy implication does the attachment study of community cat caregivers most directly support?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Mandatory trap-euthanize programs for unsocialized community cats</li>
+          <li class="ja-opt"><b>B.</b> Registering all community cat caregivers with local government</li>
+          <li class="ja-opt"><b>C.</b> Returning healthy cats lacking identification to where they were found following sterilization and vaccination</li>
+          <li class="ja-opt"><b>D.</b> Requiring indoor housing of all cats regardless of sociability</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Returning healthy cats lacking identification to where they were found following sterilization and vaccination</span>
+            <span class="ja-ans-rationale">The abstract states the findings validate &quot;the common practice of returning healthy cats lacking identification ... to where they were found, following sterilization and vaccination.&quot;</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Prevalence of and Exposure Factors for Infectious Diseases in Free Roaming Cats From Two Florida Counties</b><br>
+    <span class="ja-meta">Prevalence of and Exposure Factors for Infectious Diseases in &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2023</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Introduction: Ninety-nine deceased free-roaming cats (FRCs) from two nonadjacent counties (Volusia and Alachua) in Florida were used to determine the prevalence of and associated exposure to pathogens postmortem, including Feline Leukemia Virus (FeLV), Feline Immunodeficiency Virus (FIV), Dirofilaria immitis, Mycoplasma haemofelis, Mycoplasma haemominutum, and Cytauxzoon felis. Methods: Humanely euthanized FRCs or those FRCs found dead in the community were submitted for postmortem examinations. Blood samples from these FRCs were analyzed using a combination of antibody, antigen, and polymerase chain reaction (PCR) assays. Results: Male cats were at higher risk of infection for FeLV and FIV, intact cats were less likely to be infected with FeLV, and cats in the Volusia county were more likely to be infected with FIV. Mycoplasma haemominutum had the highest prevalence of all surveyed pathogens in this study, and infections were only identified in male cats. Conclusion: FRCs in this study had similar or higher prevalence rates of infections compared to studies assessing FRCs enrolled in trap-neuter-return programs from Florida. Keywords: feral; free-roaming cats; infectious disease; pathogens F ree-roaming cats (FRCs) are all around us and include feral, stray, abandoned, and any cat that is not confined to a house or enclosure. While there are many trap-neuter-return (TNR) programs throughout among FRCs. The exact population of the FRCs cannot be reported with confidence in the United States.1 Unfortunately, due to the COVID-19 pandemic, there were restrictions in ability for many agencies to provide TNR services. FRCs pose several problems to society including but not limited to predation of wildlife, public nuisance diseases.2,3 Although FRCs present society with a large number of issues, we still must consider the health and of life. Multiple studies have assessed FRCs for infectious and zoonotic diseases; however, these have been largely limited to prevalence of infectious diseases from samples collected as part of TNR programs. Locations where these 4.0 International License (http://creativecommons.org/licenses/by/4.0/), allowing third parties to copy and redistribute the material in any medium or format and to remix, transform, and build upon the material for any purpose, even commercially, provided the original work is properly cited and states its license.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the postmortem study of free-roaming cats from Volusia and Alachua counties in Florida, which pathogen had the HIGHEST prevalence?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Feline Leukemia Virus (FeLV)</li>
+          <li class="ja-opt"><b>B.</b> Feline Immunodeficiency Virus (FIV)</li>
+          <li class="ja-opt"><b>C.</b> Dirofilaria immitis</li>
+          <li class="ja-opt"><b>D.</b> Mycoplasma haemominutum</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: D. Mycoplasma haemominutum</span>
+            <span class="ja-ans-rationale">The abstract explicitly states &quot;Mycoplasma haemominutum had the highest prevalence of all surveyed pathogens in this study.&quot;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">Regarding sex-based infection risk in the Florida free-roaming cat postmortem study, which finding was reported?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Female cats were at higher risk for both FeLV and FIV infection</li>
+          <li class="ja-opt"><b>B.</b> Male cats were at higher risk of infection for both FeLV and FIV</li>
+          <li class="ja-opt"><b>C.</b> Sex was not associated with risk for any of the pathogens tested</li>
+          <li class="ja-opt"><b>D.</b> Male cats were at higher risk for FeLV only; sex was not associated with FIV</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Male cats were at higher risk of infection for both FeLV and FIV</span>
+            <span class="ja-ans-rationale">The abstract states &quot;Male cats were at higher risk of infection for FeLV and FIV&quot; as a finding of the study.</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Randomized Controlled Trial to Compare Ear Tipping Methods for Community Cats</b><br>
+    <span class="ja-meta"> &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2023 &middot; <a href="https://doi.org/10.56771/jsmcah.v2.55" target="_blank" rel="noopener">10.56771/jsmcah.v2.55</a></span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Methods for ear tipping are variable. The majority of practitioners have experience with only a single method, and so are not able to directly compare methods. The aim of this study was to find the most effective method of ear tipping, with the predetermined primary outcome measure incidence of breakthrough bleeding (bleeding after leaving the ear tip station), and secondary outcome measures of procedure time, conformation to 1 cm target, client satisfaction, ear tipper preference, and cosmesis. Free-roaming cats over the age of six months presented for trap-neuter-return at Midwestern University were enrolled from June 2022 to February 2023 and randomly assigned via block randomization to one of seven experimental groups: wood burning tool with hemostat (WBT+H), scalpel blade and hemostat (SB+H) with commercially available hemostatic gel (SB+H/gel), SB+H with compounded hemostatic paste (SB+H/ CHP), Mayo scissors and hemostat (MS+H) with gel (MS+H/gel), MS+H with CHP (MS+H/CHP), Mayo scissors only with gel (MS/gel), and MS with CHP (MS/CHP). One cm was removed from the distal pinna of the left ear according to the assigned experimental condition. The process was timed, and the ear was photographed for rating of cosmesis by a panel of three independent raters based on the straightness of line and angle of ear tip in relation to the vertical axis of the ear. Clients were surveyed at discharge regarding their satisfaction with the ear tip and the researchers were surveyed at the end of the study regarding their method preference. Fisher’s exact tests and logistic regression were used to compare binary data and linear regression for continuous. The overall rate of breakthrough bleeding was 7% (95%CI 4.4-11.3%), and there were differences between the methods (P &lt; 0.0001). Neither WBT+H nor MS+H had any occurrences (95%CI 0-9.7%), while SB+H/gel had the highest rate (29%, 95%CI 15.1-47.5%). The median procedure time was 10s (IQR 7-13, range 3-30), and while there was a statistical difference between tools (P = 0.0001), a maximum difference of 27s was not considered clinically significant. Ears were more likely to be tipped greater than 1 cm when MS (OR = 2.6 , P = 0.031) or WBT+H was used (OR 3.4, P = 0.015) as compared to SB+H. Ears were more likely to be tipped less than 1 cm when SB+H (OR = 10.4, P = 0.026) or MS+H was used (OR = 10.8, P = 0.024). Clients were satisfied with 88% (95%CI 83-92%) of the ear tips, but increased satisfaction was not found to be associated with the size of the tip (P = 0.575) nor equipment (P = 0.881). SB+H had the highest mean cosmesis score (5.12/6, SD 0.87), with WBT+H (4.4/6, SD 1.07) and MS (4.7/6, SD 0.97) significantly lower, P &lt; 0.0001 and P = 0.014, respectively. All four people performing ear tips preferred SB+H/CHP. Different ear tipping methods had different benefits and drawbacks. WBT+H was superior by our primary outcome measure, breakthrough bleeding, but inferior in our secondary outcome measures of cosmesis and tips greater than 1 cm. SB+H yielded the greatest cosmesis but often resulted in ear tips less than 1 cm, and when used with gel, had the greatest risk of breakthrough bleeding. DOWNLOADS PUBLISHED 2023-06-16 ISSUE Vol. 2 No. S1 (2023): 2023 ABVP Abstracts SECTION ABVP Abstracts LICENSE This work is licensed under a Creative Commons Attribution 4.0 International License. HOW TO CITE Vitello E, Erhart R, Session M, Xu A, Dalrymple A, Kreisler R. Rando</div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the Midwestern University RCT comparing ear tipping methods, what was the overall incidence of breakthrough bleeding across all groups?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> 29% (95% CI 15.1–47.5%)</li>
+          <li class="ja-opt"><b>B.</b> 7% (95% CI 4.4–11.3%)</li>
+          <li class="ja-opt"><b>C.</b> 12% (95% CI 8–18%)</li>
+          <li class="ja-opt"><b>D.</b> 0% for all techniques tested</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. 7% (95% CI 4.4–11.3%)</span>
+            <span class="ja-ans-rationale">The abstract states &quot;The overall rate of breakthrough bleeding was 7% (95%CI 4.4-11.3%)&quot; across all experimental groups.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the ear tipping RCT at Midwestern University, which technique was associated with the HIGHEST cosmesis score?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Wood burning tool with hemostat (WBT+H)</li>
+          <li class="ja-opt"><b>B.</b> Mayo scissors with compounded hemostatic paste (MS+H/CHP)</li>
+          <li class="ja-opt"><b>C.</b> Scalpel blade with hemostat (SB+H)</li>
+          <li class="ja-opt"><b>D.</b> Mayo scissors only with hemostatic gel (MS/gel)</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Scalpel blade with hemostat (SB+H)</span>
+            <span class="ja-ans-rationale">The abstract states &quot;SB+H had the highest mean cosmesis score (5.12/6, SD 0.87),&quot; while WBT+H and MS scored significantly lower.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">What was the median procedure time for ear tipping across all techniques in the Midwestern University RCT?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> 30 seconds (IQR 20–40)</li>
+          <li class="ja-opt"><b>B.</b> 27 seconds (IQR 15–35)</li>
+          <li class="ja-opt"><b>C.</b> 10 seconds (IQR 7–13)</li>
+          <li class="ja-opt"><b>D.</b> 45 seconds (IQR 30–60)</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. 10 seconds (IQR 7–13)</span>
+            <span class="ja-ans-rationale">The abstract reports &quot;The median procedure time was 10s (IQR 7-13, range 3-30)&quot; across all groups.</span>
+          </div>
+        </details>
+      </div>
+  </div>
+</section>
+<!-- JOURNAL-ARTICLES:END -->
 
 </div></main>
 
