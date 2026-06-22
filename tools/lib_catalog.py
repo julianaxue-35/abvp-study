@@ -6,7 +6,6 @@ single-source-of-truth JSON catalog of journal abstracts + MCQs.
 """
 
 import json
-import os
 from pathlib import Path
 
 # Repo root is one level up from this file (tools/ is directly under repo root).
@@ -91,9 +90,13 @@ def validate_record(rec: dict) -> list:
     sp = rec["subdomain_page"]
     if not sp:
         problems.append("subdomain_page must not be empty")
+    elif Path(sp).is_absolute():
+        problems.append(f"subdomain_page {sp!r} must be a relative path, not absolute")
     else:
-        full_path = _REPO_ROOT / sp
-        if not full_path.exists():
+        full_path = (_REPO_ROOT / sp).resolve()
+        if not full_path.is_relative_to(_REPO_ROOT):
+            problems.append(f"subdomain_page {sp!r} escapes the repo root")
+        elif not full_path.exists():
             problems.append(
                 f"subdomain_page {sp!r} does not exist under repo root {_REPO_ROOT}"
             )
