@@ -144,6 +144,10 @@
   <button data-p="risk"><span class="dot"></span>Risk Reduction &amp; Occ. Health</button>
   <button data-p="oneh"><span class="dot"></span>One Health</button>
   <button data-p="mcq"><span class="dot" style="background:#0f3d3a"></span>MCQ Test Bank</button>
+
+<!-- JOURNAL-TAB:START -->
+<button data-p="journal"><span class="dot" style="background:var(--lit, #1f6f8b)"></span>Journal Articles</button>
+<!-- JOURNAL-TAB:END -->
 </div></div></nav>
 <div class="srch-wrap"><div class="wrap"><div class="srch-row">
 <svg width="14" height="14" viewBox="0 0 15 15" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="m10.5 10.5 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -910,6 +914,190 @@
 
   </div><!-- /qlist -->
 </section>
+
+
+<!-- JOURNAL-ARTICLES:START -->
+<style data-journal-css>
+/* ── Journal Articles section ─────────────────────────────────────────── */
+.ja-standalone {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 2px solid var(--line, #d9d0bd);
+}
+.ja-article {
+  margin-bottom: 24px;
+  padding: 20px 22px 18px;
+  background: var(--paper2, #fbf8f1);
+  border-radius: 10px;
+  box-shadow: var(--shadow, 0 1px 2px rgba(15,61,58,.08), 0 8px 24px rgba(15,61,58,.06));
+}
+.ja-cite {
+  margin: 0 0 10px;
+  line-height: 1.45;
+  font-size: 0.97em;
+}
+.ja-meta {
+  color: var(--muted, #5d6b62);
+  font-size: 0.875em;
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0.01em;
+}
+.ja-meta a {
+  color: var(--lit, #1f6f8b);
+  text-decoration: none;
+}
+.ja-meta a:hover {
+  text-decoration: underline;
+}
+.ja-abstract {
+  border-left: 3px solid var(--lit, #1f6f8b);
+  padding: 10px 14px;
+  margin: 0 0 18px;
+  background: var(--lit-soft, #dcedf2);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.925em;
+  line-height: 1.6;
+  color: var(--ink, #0f3d3a);
+}
+.ja-mcq {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line, #d9d0bd);
+}
+.ja-mcq + .ja-mcq {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.ja-q {
+  font-weight: 600;
+  font-size: 0.93em;
+  margin: 0 0 7px;
+  color: var(--ink, #0f3d3a);
+}
+.ja-opts {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ja-opt {
+  font-size: 0.9em;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: var(--ink2, #15514c);
+  background: transparent;
+}
+.ja-opt b {
+  display: inline-block;
+  min-width: 1.5em;
+  color: var(--muted, #5d6b62);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.88em;
+}
+.ja-ans {
+  margin-top: 4px;
+}
+.ja-ans summary {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 0.83em;
+  font-family: "JetBrains Mono", monospace;
+  padding: 3px 10px;
+  border: 1px solid var(--lit, #1f6f8b);
+  border-radius: 5px;
+  color: var(--lit, #1f6f8b);
+  background: transparent;
+  user-select: none;
+  list-style: none;
+}
+.ja-ans summary::-webkit-details-marker { display: none; }
+.ja-ans summary::marker { display: none; }
+.ja-ans summary:hover {
+  background: var(--lit-soft, #dcedf2);
+}
+.ja-ans[open] summary {
+  background: var(--lit-soft, #dcedf2);
+  margin-bottom: 6px;
+}
+.ja-ans-body {
+  font-size: 0.9em;
+  padding: 8px 12px;
+  background: var(--paper, #fdfaf4);
+  border: 1px solid var(--line, #d9d0bd);
+  border-radius: 6px;
+  line-height: 1.55;
+  color: var(--ink, #0f3d3a);
+}
+.ja-ans-correct {
+  font-weight: 600;
+  color: var(--good, #2f7d52);
+  display: block;
+  margin-bottom: 4px;
+}
+.ja-ans-rationale {
+  color: var(--ink2, #15514c);
+}
+</style>
+<section class="panel" id="journal">
+  <h2 class="sec">Additional Resources</h2>
+  <p class="lead">Journal Articles (2021–2026). Exam items are drawn from the abstract only — read each abstract, then self-test.</p>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Genetically Similar High-Risk Strains of Carbapenemase-Producing Enterobacterales in Humans and Companion Animals, United States</b><br>
+    <span class="ja-meta">Xiaoli L, James AE, Stahl AL, Okumura M, Cole SD, Dietrich JM, Leeper MM, Putney JK, Walters MS, Stanton RA &middot; Emerging Infectious Diseases &middot; 2026 &middot; <a href="https://doi.org/10.3201/eid3203.251458" target="_blank" rel="noopener">10.3201/eid3203.251458</a></span></p>
+    <div class="ja-abstract"><b>Abstract.</b> To elucidate the zoonotic potential of carbapenemase-producing carbapenem-resistant Enterobacterales (CP-CRE) in US companion animals (i.e., dogs and cats), we queried the National Center for Biotechnology Pathogen Detection database to identify One Health clusters containing CP-CRE isolates from companion animals and humans. The 11 One Health clusters we found included most (69% [169/246]) publicly available CP-CRE sequences from US companion animals and were from 8 internationally disseminated, high-risk sequence types from 3 bacterial species (Escherichia coli, Klebsiella pneumoniae, and Enterobacter cloacae). All clustered isolates had New Delhi metallo-β-lactamase-family carbapenemases, and most (92%) carried the blaNDM-5 allele. The One Health clusters included several closely related subclusters with geographically linked isolates from both humans and companion animals. Those results suggest that CP-CRE is an emerging One Health issue and that direct or indirect transmission of CP-CRE is occurring between humans and companion animals in the United States.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">A genomic epidemiology study found 11 One Health clusters linking CP-CRE isolates from US companion animals and humans. Which carbapenemase family was carried by all clustered isolates?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Klebsiella pneumoniae carbapenemase (KPC)</li>
+          <li class="ja-opt"><b>B.</b> Oxacillinase-48 (OXA-48)</li>
+          <li class="ja-opt"><b>C.</b> New Delhi metallo-β-lactamase (NDM-family)</li>
+          <li class="ja-opt"><b>D.</b> Verona integron-mediated metallo-β-lactamase (VIM)</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. New Delhi metallo-β-lactamase (NDM-family)</span>
+            <span class="ja-ans-rationale">All clustered isolates carried New Delhi metallo-β-lactamase (NDM)-family carbapenemases, with 92% carrying the specific blaNDM-5 allele, representing the most common carbapenemase type in companion animal-associated CP-CRE in the US.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">The study identifies CP-CRE in companion animals as an emerging One Health issue. What proportion of publicly available US companion animal CP-CRE sequences were included in the identified One Health clusters (shared with humans)?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> 10%</li>
+          <li class="ja-opt"><b>B.</b> 30%</li>
+          <li class="ja-opt"><b>C.</b> 69%</li>
+          <li class="ja-opt"><b>D.</b> 92%</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. 69%</span>
+            <span class="ja-ans-rationale">The 11 One Health clusters included 69% (169/246) of all publicly available CP-CRE sequences from US companion animals, demonstrating that most companion animal CP-CRE in the US is genetically linked to human strains.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">For shelter medicine, the finding of CP-CRE shared between companion animals and humans is important because it means shelter dogs and cats could be a source of transmission to which population?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Only immunocompetent healthy adults with no prior antibiotic exposure</li>
+          <li class="ja-opt"><b>B.</b> Shelter staff, adopters, volunteers, and veterinary personnel — particularly those who are immunocompromised or have had recent antibiotic exposure</li>
+          <li class="ja-opt"><b>C.</b> Only other companion animals in the shelter but not humans</li>
+          <li class="ja-opt"><b>D.</b> Wild animal species in adjacent habitats</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Shelter staff, adopters, volunteers, and veterinary personnel — particularly those who are immunocompromised or have had recent antibiotic exposure</span>
+            <span class="ja-ans-rationale">CP-CRE transmission between companion animals and humans represents a direct zoonotic risk for shelter staff, volunteers, adopters, and veterinary personnel, with greatest risk to immunocompromised individuals or those with recent healthcare contact.</span>
+          </div>
+        </details>
+      </div>
+  </div>
+</section>
+<!-- JOURNAL-ARTICLES:END -->
 
 </div></main>
 

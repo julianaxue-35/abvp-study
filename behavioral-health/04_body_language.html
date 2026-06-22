@@ -168,6 +168,10 @@
   <button data-p="fdev"><span class="dot"></span>Feline Development</button>
   <button data-p="fcom"><span class="dot"></span>Feline Communication</button>
   <button data-p="mcq"><span class="dot" style="background:var(--chrome2)"></span>MCQ Test Bank</button>
+
+<!-- JOURNAL-TAB:START -->
+<button data-p="journal"><span class="dot" style="background:var(--lit, #1f6f8b)"></span>Journal Articles</button>
+<!-- JOURNAL-TAB:END -->
 </div></div></nav>
 <div class="srch-wrap"><div class="wrap"><div class="srch-row">
 <svg width="14" height="14" viewBox="0 0 15 15" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="m10.5 10.5 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -495,6 +499,190 @@
   </div>
   <div id="qhost"></div>
 </section>
+
+<!-- JOURNAL-ARTICLES:START -->
+<style data-journal-css>
+/* ── Journal Articles section ─────────────────────────────────────────── */
+.ja-standalone {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 2px solid var(--line, #d9d0bd);
+}
+.ja-article {
+  margin-bottom: 24px;
+  padding: 20px 22px 18px;
+  background: var(--paper2, #fbf8f1);
+  border-radius: 10px;
+  box-shadow: var(--shadow, 0 1px 2px rgba(15,61,58,.08), 0 8px 24px rgba(15,61,58,.06));
+}
+.ja-cite {
+  margin: 0 0 10px;
+  line-height: 1.45;
+  font-size: 0.97em;
+}
+.ja-meta {
+  color: var(--muted, #5d6b62);
+  font-size: 0.875em;
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0.01em;
+}
+.ja-meta a {
+  color: var(--lit, #1f6f8b);
+  text-decoration: none;
+}
+.ja-meta a:hover {
+  text-decoration: underline;
+}
+.ja-abstract {
+  border-left: 3px solid var(--lit, #1f6f8b);
+  padding: 10px 14px;
+  margin: 0 0 18px;
+  background: var(--lit-soft, #dcedf2);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.925em;
+  line-height: 1.6;
+  color: var(--ink, #0f3d3a);
+}
+.ja-mcq {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line, #d9d0bd);
+}
+.ja-mcq + .ja-mcq {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.ja-q {
+  font-weight: 600;
+  font-size: 0.93em;
+  margin: 0 0 7px;
+  color: var(--ink, #0f3d3a);
+}
+.ja-opts {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ja-opt {
+  font-size: 0.9em;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: var(--ink2, #15514c);
+  background: transparent;
+}
+.ja-opt b {
+  display: inline-block;
+  min-width: 1.5em;
+  color: var(--muted, #5d6b62);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.88em;
+}
+.ja-ans {
+  margin-top: 4px;
+}
+.ja-ans summary {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 0.83em;
+  font-family: "JetBrains Mono", monospace;
+  padding: 3px 10px;
+  border: 1px solid var(--lit, #1f6f8b);
+  border-radius: 5px;
+  color: var(--lit, #1f6f8b);
+  background: transparent;
+  user-select: none;
+  list-style: none;
+}
+.ja-ans summary::-webkit-details-marker { display: none; }
+.ja-ans summary::marker { display: none; }
+.ja-ans summary:hover {
+  background: var(--lit-soft, #dcedf2);
+}
+.ja-ans[open] summary {
+  background: var(--lit-soft, #dcedf2);
+  margin-bottom: 6px;
+}
+.ja-ans-body {
+  font-size: 0.9em;
+  padding: 8px 12px;
+  background: var(--paper, #fdfaf4);
+  border: 1px solid var(--line, #d9d0bd);
+  border-radius: 6px;
+  line-height: 1.55;
+  color: var(--ink, #0f3d3a);
+}
+.ja-ans-correct {
+  font-weight: 600;
+  color: var(--good, #2f7d52);
+  display: block;
+  margin-bottom: 4px;
+}
+.ja-ans-rationale {
+  color: var(--ink2, #15514c);
+}
+</style>
+<section class="panel" id="journal">
+  <h2 class="sec">Additional Resources</h2>
+  <p class="lead">Journal Articles (2021–2026). Exam items are drawn from the abstract only — read each abstract, then self-test.</p>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Online Training Using an Educational Video Improves Human Ability To Identify and Rate Kitten Fear Behavior</b><br>
+    <span class="ja-meta">To Identify and Rate Kitten Fear Behavior &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2024</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Introduction: Fear is a negative emotional state that can influence early behavioral development and lead to impairments in animal welfare. For young kittens, excessive fear early in life can instill lasting fearfulness leading to behavioral issues such as aggression, negative impacts on the human–animal bond, potential mistreatment, relinquishment to shelters, and/or euthanasia. Therefore, it is crucial that caretakers can accurately identify when their kittens might be experiencing fear in order to respond appropriately. Methods: We used an online survey to determine: (1) whether members of the general public (n = 761) can accurately identify and rate different severities of fear behavior in young kittens in short video clips (i.e. no fear requiring no intervention, mild fear requiring awareness of possible intervention, and moderate fear requiring immediate intervention); and (2) whether an educational video offering specialized training on identifying kitten behavior can improve human ability to correctly rate kitten behavior in comparison to a general kitten care video. Results: Using mixed logistic regression models, we found no difference at baseline in correct ratings between the two video groups across all fear categories. However, participants who received the specialized behavior training had significantly greater odds of being correct after video training for all three categories compared to participants who received the general kitten care video. Additionally, previous experience with cats and participant personality impacted ratings. Conclusions: Overall, the current study demonstrates that concise and specialized training in identifying kitten behavior is a useful tool for improving human ability to identify and rate fear levels in kittens. This training approach can help strengthen caretaker understanding of kitten behavior to ensure interactions with potentially fear-provoking stimuli are properly mitigated to reduce related welfare impacts. Thus, these types of educational resources are encouraged within shelters, veterinary clinics, research settings, and foster and adoptive homes to improve the welfare of kittens. Keywords: cat; behavior identification; observer rating; welfare; education F ear is a negative emotional state that can directly impair animal welfare and influence behavioral development, leading to higher levels of fearfulness and welfare impairments later in life (e.g. reviewed by1). Heightened fearfulness can also cause behavioral issues in cats, such as aggression.2 It can also lead to negmistreatment by caretakers, relinquishment to shelters, and/or euthanasia.3–5 A key factor to preventing fear 4.0 International License (http://creativecommons.org/licenses/by/4.0/), allowing third parties to copy and redistribute the material in any medium or format and to remix, transform, and build upon the material for any purpose, even commercially, provided the original work is properly cited and states its license.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the online survey study on kitten fear behavior recognition, what did participants who received the specialized behavior training video show compared to those who received the general kitten care video?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> No difference in correct ratings after training, though baseline differed between groups</li>
+          <li class="ja-opt"><b>B.</b> Significantly greater odds of correctly rating all three kitten fear categories after training</li>
+          <li class="ja-opt"><b>C.</b> Significantly greater odds of correctly rating moderate fear only, not mild or no-fear categories</li>
+          <li class="ja-opt"><b>D.</b> Greater accuracy only if they had prior experience with cats before the study</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Significantly greater odds of correctly rating all three kitten fear categories after training</span>
+            <span class="ja-ans-rationale">The abstract states that &#x27;participants who received the specialized behavior training had significantly greater odds of being correct after video training for all three categories compared to participants who received the general kitten care video.&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">According to the kitten fear behavior study, which additional factors influenced participants&#x27; ratings of kitten fear behavior beyond the type of training video received?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Participant age and professional veterinary training</li>
+          <li class="ja-opt"><b>B.</b> Geographic region and frequency of cat ownership</li>
+          <li class="ja-opt"><b>C.</b> Previous experience with cats and participant personality</li>
+          <li class="ja-opt"><b>D.</b> Duration of video clip viewed and number of kittens shown</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Previous experience with cats and participant personality</span>
+            <span class="ja-ans-rationale">The abstract states: &#x27;Additionally, previous experience with cats and participant personality impacted ratings,&#x27; beyond the effect of the training video type.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">The kitten fear recognition study classified fear into three severity categories. Which of the following correctly describes these categories?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> No fear, mild fear, and severe fear requiring immediate veterinary intervention</li>
+          <li class="ja-opt"><b>B.</b> No fear requiring no intervention, mild fear requiring awareness of possible intervention, and moderate fear requiring immediate intervention</li>
+          <li class="ja-opt"><b>C.</b> Latent fear, active fear, and panic requiring sedation</li>
+          <li class="ja-opt"><b>D.</b> Mild anxiety, moderate anxiety, and severe anxiety with associated aggression</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. No fear requiring no intervention, mild fear requiring awareness of possible intervention, and moderate fear requiring immediate intervention</span>
+            <span class="ja-ans-rationale">The abstract specifies the three categories as: &#x27;no fear requiring no intervention, mild fear requiring awareness of possible intervention, and moderate fear requiring immediate intervention.&#x27;</span>
+          </div>
+        </details>
+      </div>
+  </div>
+</section>
+<!-- JOURNAL-ARTICLES:END -->
+
 </div></main>
 <footer><div class="wrap">
   Body Language subdomain hub &middot; Behavioural Health domain &middot; ABVP Shelter Medicine Practice RVS, November 2026. Content badged by source: your uploaded notes and textbook or published references (AVSAB position, tail-lateralisation literature, allorubbing terms). In-house SVG schematics are original didactic constructions. Supports light and dark mode.

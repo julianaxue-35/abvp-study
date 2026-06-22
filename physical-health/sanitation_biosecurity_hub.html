@@ -144,6 +144,10 @@
   <button data-p="protocols"><span class="dot"></span>Protocols &amp; Workflow</button>
   <button data-p="biosecurity"><span class="dot"></span>Biosecurity Infrastructure</button>
   <button data-p="mcq"><span class="dot" style="background:#0f3d3a"></span>MCQ Test Bank</button>
+
+<!-- JOURNAL-TAB:START -->
+<button data-p="journal"><span class="dot" style="background:var(--lit, #1f6f8b)"></span>Journal Articles</button>
+<!-- JOURNAL-TAB:END -->
 </div></div></nav>
 <div class="srch-wrap"><div class="wrap"><div class="srch-row">
 <svg width="14" height="14" viewBox="0 0 15 15" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="m10.5 10.5 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -493,6 +497,190 @@
   </div>
   <div id="qhost"></div>
 </section>
+
+
+<!-- JOURNAL-ARTICLES:START -->
+<style data-journal-css>
+/* ── Journal Articles section ─────────────────────────────────────────── */
+.ja-standalone {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 2px solid var(--line, #d9d0bd);
+}
+.ja-article {
+  margin-bottom: 24px;
+  padding: 20px 22px 18px;
+  background: var(--paper2, #fbf8f1);
+  border-radius: 10px;
+  box-shadow: var(--shadow, 0 1px 2px rgba(15,61,58,.08), 0 8px 24px rgba(15,61,58,.06));
+}
+.ja-cite {
+  margin: 0 0 10px;
+  line-height: 1.45;
+  font-size: 0.97em;
+}
+.ja-meta {
+  color: var(--muted, #5d6b62);
+  font-size: 0.875em;
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0.01em;
+}
+.ja-meta a {
+  color: var(--lit, #1f6f8b);
+  text-decoration: none;
+}
+.ja-meta a:hover {
+  text-decoration: underline;
+}
+.ja-abstract {
+  border-left: 3px solid var(--lit, #1f6f8b);
+  padding: 10px 14px;
+  margin: 0 0 18px;
+  background: var(--lit-soft, #dcedf2);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.925em;
+  line-height: 1.6;
+  color: var(--ink, #0f3d3a);
+}
+.ja-mcq {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line, #d9d0bd);
+}
+.ja-mcq + .ja-mcq {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.ja-q {
+  font-weight: 600;
+  font-size: 0.93em;
+  margin: 0 0 7px;
+  color: var(--ink, #0f3d3a);
+}
+.ja-opts {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ja-opt {
+  font-size: 0.9em;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: var(--ink2, #15514c);
+  background: transparent;
+}
+.ja-opt b {
+  display: inline-block;
+  min-width: 1.5em;
+  color: var(--muted, #5d6b62);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.88em;
+}
+.ja-ans {
+  margin-top: 4px;
+}
+.ja-ans summary {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 0.83em;
+  font-family: "JetBrains Mono", monospace;
+  padding: 3px 10px;
+  border: 1px solid var(--lit, #1f6f8b);
+  border-radius: 5px;
+  color: var(--lit, #1f6f8b);
+  background: transparent;
+  user-select: none;
+  list-style: none;
+}
+.ja-ans summary::-webkit-details-marker { display: none; }
+.ja-ans summary::marker { display: none; }
+.ja-ans summary:hover {
+  background: var(--lit-soft, #dcedf2);
+}
+.ja-ans[open] summary {
+  background: var(--lit-soft, #dcedf2);
+  margin-bottom: 6px;
+}
+.ja-ans-body {
+  font-size: 0.9em;
+  padding: 8px 12px;
+  background: var(--paper, #fdfaf4);
+  border: 1px solid var(--line, #d9d0bd);
+  border-radius: 6px;
+  line-height: 1.55;
+  color: var(--ink, #0f3d3a);
+}
+.ja-ans-correct {
+  font-weight: 600;
+  color: var(--good, #2f7d52);
+  display: block;
+  margin-bottom: 4px;
+}
+.ja-ans-rationale {
+  color: var(--ink2, #15514c);
+}
+</style>
+<section class="panel" id="journal">
+  <h2 class="sec">Additional Resources</h2>
+  <p class="lead">Journal Articles (2021–2026). Exam items are drawn from the abstract only — read each abstract, then self-test.</p>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Integrated Protocols for HPAI Mitigation in Free-Roaming Cat Colonies and HQHVSN Clinics_ A Biosecurity Framework</b><br>
+    <span class="ja-meta">Cat Colonies and HQHVSN Clinics: A Biosecurity &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2025 &middot; <a href="https://doi.org/10.56771/jsmcah.v4.135" target="_blank" rel="noopener">10.56771/jsmcah.v4.135</a></span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Introduction Highly pathogenic avian influenza (HPAI), which has a marked morbidity and mortality in cats, poses a significant risk to free-roaming cat populations due to frequent contact with wild birds. Managing these risks is critical to maintaining both individual and population health. Veterinarians and organizations involved in high-quality, high-volume spay/neuter (HQHVSN) settings where biosecurity challenges are amplified and freeroaming cats are frequent patients are poised to help with both mitigation and surveillance concerns. This protocol effort seeks to use evidence-based strategies to mitigate HPAI transmission in feral cat colonies while ensuring safe and efficient HQHVSN operations. Case Description This integrated approach involved implementing comprehensive protocols in regional HQHVSN facilities serving urban and rural feral cat populations. Key interventions included: 1. Facility Layout and Traffic Flow: ◦ Designated intake areas for feral cats, shelter animals, and community pets with clear signage to prevent crossover. ◦ Isolation and quarantine spaces for sick or newly arrived cats, away from high-traffic zones. ◦ Controlled access to feral cat holding and isolation areas using limited personnel entry. 2. Personnel Hygiene and PPE: ◦ Mandatory handwashing and availability of alcohol-based sanitizers. ◦ Staff adherence to PPE protocols, including gloves, gowns, and N95 masks during outbreaks. ◦ Clinic-only scrubs and footwear to prevent pathogen transfer to personal pets. 3. Cleaning and Disinfection Protocols: ◦ Written SOPs for daily and between-patient cleaning using effective disinfectants. ◦ Dedicated equipment for different animal groups to minimize fomite spread. 4. Patient Management: ◦ Grouped scheduling to separate high-risk feral cat surgeries from routine procedures. ◦ Immediate isolation of cats with respiratory or neurological symptoms. ◦ Planning protocols for ante and post-mortem testing 5. Public and Staff Education: ◦ Training for volunteers and caretakers on biosecurity practices. ◦ Guidance for colony caregivers on safe feeding practices and monitoring for signs of illness. 6. Monitoring and Wildlife Control: ◦ Surveillance of colony cats and reporting of unexplained illnesses. ◦ Rodent control and deterrents to reduce wildlife interaction near colonies and clinic areas. Outcomes It is hoped that organizations may reduce the risk of HPAI transmission in HQHVSN facilities to both staff and patients by following the protocol. Additionally, the goal is to assist caretakers and feral cat colonies managed through the facility during a regional avian influenza outbreak. Colony caregivers should have improved awareness and thus compliance with biosecurity measures if these efforts are started before an outbreak occurs. The goal is for every facility to maintain uninterrupted surgical services while minimizing cross-contamination risks. Conclusion Proactive biosecurity measures are essential for mitigating HPAI risks in feral cat colonies and HQHVSN clinics. Clear protocols for facility management, staff hygiene, and public education effectively reduce transmission risks, safeguarding both animal and public health. These strategies offer a replicable model for other veterinary and shelter organizations.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">An integrated HPAI biosecurity protocol for HQHVSN clinics serving feral cat colonies described several key intervention categories. Which of the following was listed as a personnel hygiene measure in the protocol?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Weekly serological testing of all clinic staff for influenza A</li>
+          <li class="ja-opt"><b>B.</b> Mandatory handwashing, alcohol-based sanitizers, PPE (gloves, gowns, N95 masks during outbreaks), and clinic-only scrubs and footwear</li>
+          <li class="ja-opt"><b>C.</b> Prophylactic antiviral treatment for all staff working with feral cats</li>
+          <li class="ja-opt"><b>D.</b> Routine PCR surveillance of staff nasal swabs before entering feral cat areas</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Mandatory handwashing, alcohol-based sanitizers, PPE (gloves, gowns, N95 masks during outbreaks), and clinic-only scrubs and footwear</span>
+            <span class="ja-ans-rationale">The abstract lists under Personnel Hygiene and PPE: &#x27;Mandatory handwashing and availability of alcohol-based sanitizers,&#x27; &#x27;Staff adherence to PPE protocols, including gloves, gowns, and N95 masks during outbreaks,&#x27; and &#x27;Clinic-only scrubs and footwear to prevent pathogen transfer to personal pets.&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">The HPAI mitigation protocol for HQHVSN clinics serving feral cat populations described a patient management strategy. Which approach was included in the protocol for scheduling and patient triage?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Feral cat surgeries were cancelled during any regional HPAI outbreak to prevent exposure</li>
+          <li class="ja-opt"><b>B.</b> Grouped scheduling to separate high-risk feral cat surgeries from routine procedures, with immediate isolation of cats showing respiratory or neurological symptoms</li>
+          <li class="ja-opt"><b>C.</b> All feral cats received prophylactic oseltamivir before surgery during outbreak periods</li>
+          <li class="ja-opt"><b>D.</b> Feral cats were placed with shelter animals in shared holding areas to maximize throughput</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Grouped scheduling to separate high-risk feral cat surgeries from routine procedures, with immediate isolation of cats showing respiratory or neurological symptoms</span>
+            <span class="ja-ans-rationale">The abstract describes under Patient Management: &#x27;Grouped scheduling to separate high-risk feral cat surgeries from routine procedures&#x27; and &#x27;Immediate isolation of cats with respiratory or neurological symptoms.&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">What was the primary stated goal of implementing integrated HPAI biosecurity protocols in HQHVSN facilities serving feral cat colonies, according to this protocol report?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> To eradicate HPAI from all feral cat colonies within the catchment area within one year</li>
+          <li class="ja-opt"><b>B.</b> To maintain uninterrupted surgical services while minimizing cross-contamination risks and reducing HPAI transmission risk to both staff and patients</li>
+          <li class="ja-opt"><b>C.</b> To transition feral cat management from TNR to lethal control during HPAI outbreaks</li>
+          <li class="ja-opt"><b>D.</b> To replace routine PCR surveillance with wastewater monitoring for HPAI detection in feral colonies</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. To maintain uninterrupted surgical services while minimizing cross-contamination risks and reducing HPAI transmission risk to both staff and patients</span>
+            <span class="ja-ans-rationale">The abstract states: &#x27;The goal is for every facility to maintain uninterrupted surgical services while minimizing cross-contamination risks&#x27; and that organizations may &#x27;reduce the risk of HPAI transmission in HQHVSN facilities to both staff and patients by following the protocol.&#x27;</span>
+          </div>
+        </details>
+      </div>
+  </div>
+</section>
+<!-- JOURNAL-ARTICLES:END -->
 
 </div></main>
 

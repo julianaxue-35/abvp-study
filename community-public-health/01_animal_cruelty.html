@@ -143,6 +143,10 @@
   <button data-p="shelter"><span class="dot"></span>Shelter Role</button>
   <button data-p="topics"><span class="dot" style="background:#5a8a3a"></span>Topic Deep Dives</button>
   <button data-p="mcq"><span class="dot" style="background:#0f3d3a"></span>MCQ Test Bank</button>
+
+<!-- JOURNAL-TAB:START -->
+<button data-p="journal"><span class="dot" style="background:var(--lit, #1f6f8b)"></span>Journal Articles</button>
+<!-- JOURNAL-TAB:END -->
 </div></div></nav>
 <div class="srch-wrap"><div class="wrap"><div class="srch-row">
 <svg width="14" height="14" viewBox="0 0 15 15" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="m10.5 10.5 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -827,6 +831,227 @@
 
   <div class="corrbox" style="margin-top:24px"><b>Exam relevance</b>These five topics are consistently under-covered in standard shelter medicine texts but are directly testable on the ABVP exam. NAI risk factors, criminal neglect clinical signs, dogfighting injury patterns, hoarding classification types, and the sexual abuse forensic protocol have all appeared on specialty board exams.</div>
 </section>
+
+
+<!-- JOURNAL-ARTICLES:START -->
+<style data-journal-css>
+/* ── Journal Articles section ─────────────────────────────────────────── */
+.ja-standalone {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 2px solid var(--line, #d9d0bd);
+}
+.ja-article {
+  margin-bottom: 24px;
+  padding: 20px 22px 18px;
+  background: var(--paper2, #fbf8f1);
+  border-radius: 10px;
+  box-shadow: var(--shadow, 0 1px 2px rgba(15,61,58,.08), 0 8px 24px rgba(15,61,58,.06));
+}
+.ja-cite {
+  margin: 0 0 10px;
+  line-height: 1.45;
+  font-size: 0.97em;
+}
+.ja-meta {
+  color: var(--muted, #5d6b62);
+  font-size: 0.875em;
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0.01em;
+}
+.ja-meta a {
+  color: var(--lit, #1f6f8b);
+  text-decoration: none;
+}
+.ja-meta a:hover {
+  text-decoration: underline;
+}
+.ja-abstract {
+  border-left: 3px solid var(--lit, #1f6f8b);
+  padding: 10px 14px;
+  margin: 0 0 18px;
+  background: var(--lit-soft, #dcedf2);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.925em;
+  line-height: 1.6;
+  color: var(--ink, #0f3d3a);
+}
+.ja-mcq {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line, #d9d0bd);
+}
+.ja-mcq + .ja-mcq {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.ja-q {
+  font-weight: 600;
+  font-size: 0.93em;
+  margin: 0 0 7px;
+  color: var(--ink, #0f3d3a);
+}
+.ja-opts {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ja-opt {
+  font-size: 0.9em;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: var(--ink2, #15514c);
+  background: transparent;
+}
+.ja-opt b {
+  display: inline-block;
+  min-width: 1.5em;
+  color: var(--muted, #5d6b62);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.88em;
+}
+.ja-ans {
+  margin-top: 4px;
+}
+.ja-ans summary {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 0.83em;
+  font-family: "JetBrains Mono", monospace;
+  padding: 3px 10px;
+  border: 1px solid var(--lit, #1f6f8b);
+  border-radius: 5px;
+  color: var(--lit, #1f6f8b);
+  background: transparent;
+  user-select: none;
+  list-style: none;
+}
+.ja-ans summary::-webkit-details-marker { display: none; }
+.ja-ans summary::marker { display: none; }
+.ja-ans summary:hover {
+  background: var(--lit-soft, #dcedf2);
+}
+.ja-ans[open] summary {
+  background: var(--lit-soft, #dcedf2);
+  margin-bottom: 6px;
+}
+.ja-ans-body {
+  font-size: 0.9em;
+  padding: 8px 12px;
+  background: var(--paper, #fdfaf4);
+  border: 1px solid var(--line, #d9d0bd);
+  border-radius: 6px;
+  line-height: 1.55;
+  color: var(--ink, #0f3d3a);
+}
+.ja-ans-correct {
+  font-weight: 600;
+  color: var(--good, #2f7d52);
+  display: block;
+  margin-bottom: 4px;
+}
+.ja-ans-rationale {
+  color: var(--ink2, #15514c);
+}
+</style>
+<section class="panel" id="journal">
+  <h2 class="sec">Additional Resources</h2>
+  <p class="lead">Journal Articles (2021–2026). Exam items are drawn from the abstract only — read each abstract, then self-test.</p>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Animal Cruelty in New York City: Cruelty Cases Presented to the ASPCA in Partnership with the NYPD 2013–2022</b><br>
+    <span class="ja-meta">Caldwell S, Patterson-Kane E, Brandler E, Gupta M, Lockwood R &middot; Animals &middot; 2025 &middot; <a href="https://doi.org/10.3390/ani15050662" target="_blank" rel="noopener">10.3390/ani15050662</a></span></p>
+    <div class="ja-abstract"><b>Abstract.</b> The research examined companion animal abuse reports in New York City over a nine-year period (2013–2022). The ASPCA received 2,783 cases involving 5,745 animals through collaboration with the NYPD. The majority involved dogs (82%), followed by cats (15%) and other species (4%). Dogs were most frequently reported for suspected neglect, representing 63% of canine cases. Cats showed a different pattern, with 58% of feline cases involving suspected non-accidental injury. Referral sources included law enforcement (37%), municipal shelters (14%), and veterinarians (11%). The authors concluded that neglect represents a commonly documented form of animal abuse, while cat abuse appears less well understood and may be under-reported or more severe.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">In a nine-year review of ASPCA-NYPD animal cruelty cases in New York City, what was the most common type of abuse documented in canine cases?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Non-accidental injury</li>
+          <li class="ja-opt"><b>B.</b> Neglect</li>
+          <li class="ja-opt"><b>C.</b> Poisoning</li>
+          <li class="ja-opt"><b>D.</b> Abandonment</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Neglect</span>
+            <span class="ja-ans-rationale">63% of dog cases involved suspected neglect, while cats showed a different pattern with 58% involving suspected non-accidental injury—a key distinction for forensic triage.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the ASPCA-NYPD cruelty case series (2013–2022), which referral source contributed the highest proportion of animal cruelty cases?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Municipal animal shelters (14%)</li>
+          <li class="ja-opt"><b>B.</b> Veterinarians (11%)</li>
+          <li class="ja-opt"><b>C.</b> Law enforcement (37%)</li>
+          <li class="ja-opt"><b>D.</b> General public reporting directly (49%)</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Law enforcement (37%)</span>
+            <span class="ja-ans-rationale">Law enforcement was the largest referral source at 37%, followed by municipal shelters (14%) and veterinarians (11%). This highlights the critical role of inter-agency partnerships in cruelty case identification.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">A 2025 retrospective analysis of NYC animal cruelty cases found that feline cases disproportionately involved suspected non-accidental injury rather than neglect. What percentage of cat cases involved suspected non-accidental injury?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> 15%</li>
+          <li class="ja-opt"><b>B.</b> 37%</li>
+          <li class="ja-opt"><b>C.</b> 58%</li>
+          <li class="ja-opt"><b>D.</b> 82%</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. 58%</span>
+            <span class="ja-ans-rationale">58% of feline cases involved suspected non-accidental injury—a stark contrast to dogs (63% neglect). The authors note cat abuse may be under-reported or more severe.</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Animal Abuse Investigations: Challenges and Recommendations to Improve Animal and Human Welfare</b><br>
+    <span class="ja-meta">Niemiec R, Kogan LR &middot; Animals &middot; 2024 &middot; <a href="https://doi.org/10.3390/ani14243602" target="_blank" rel="noopener">10.3390/ani14243602</a></span></p>
+    <div class="ja-abstract"><b>Abstract.</b> The research explores systemic barriers affecting animal cruelty case management in Colorado through interviews with 24 law enforcement and Bureau of Animal Protection personnel. Researchers identified four primary obstacles: a lack of places to take removed animals and resources to care for them; difficulties collaborating with district attorneys; insufficient training on case procedures; and inadequate investigative staff. The study recommends expanding temporary housing capacity, enhancing professional training, employing specialized investigators and mental health professionals, and potentially amending state statutes. Significantly, the authors advocate implementing a trauma-informed model to address psychological impacts on workers handling these distressing cases, recognizing the interconnected welfare of animals, professionals, and communities.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">Interviews with 24 Colorado law enforcement and animal protection personnel identified which barrier as a primary obstacle in animal cruelty investigations?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Lack of public awareness about reporting cruelty</li>
+          <li class="ja-opt"><b>B.</b> A lack of places to take removed animals and resources to care for them</li>
+          <li class="ja-opt"><b>C.</b> Excessive veterinary forensic evidence requirements</li>
+          <li class="ja-opt"><b>D.</b> Absence of state animal cruelty statutes</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. A lack of places to take removed animals and resources to care for them</span>
+            <span class="ja-ans-rationale">The most immediate practical obstacle identified was insufficient housing capacity and resources for animals removed during investigations—a shelter medicine concern directly relevant to cruelty response.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">What novel welfare framework do Niemiec and Kogan (2024) recommend implementing for personnel conducting animal cruelty investigations?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> A wildlife-centered conservation framework</li>
+          <li class="ja-opt"><b>B.</b> A trauma-informed model to address psychological impacts on investigators</li>
+          <li class="ja-opt"><b>C.</b> A purely legal compliance model focused on statute enforcement</li>
+          <li class="ja-opt"><b>D.</b> A One Health framework focused solely on zoonotic disease risk</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. A trauma-informed model to address psychological impacts on investigators</span>
+            <span class="ja-ans-rationale">The authors advocate a trauma-informed model recognizing the psychological toll on animal cruelty investigators, acknowledging the interconnected welfare of animals, professionals, and communities.</span>
+          </div>
+        </details>
+      </div>
+  </div>
+</section>
+<!-- JOURNAL-ARTICLES:END -->
 
 </div></main>
 

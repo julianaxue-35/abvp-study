@@ -138,6 +138,10 @@
   <button data-p="pain"><span class="dot"></span>Pain Management</button>
   <button data-p="emergency"><span class="dot"></span>Emergency &amp; Response</button>
   <button data-p="mcq"><span class="dot" style="background:#0f3d3a"></span>MCQ Test Bank</button>
+
+<!-- JOURNAL-TAB:START -->
+<button data-p="journal"><span class="dot" style="background:var(--lit, #1f6f8b)"></span>Journal Articles</button>
+<!-- JOURNAL-TAB:END -->
 </div></div></nav>
 <div class="srch-wrap"><div class="wrap"><div class="srch-row">
 <svg width="14" height="14" viewBox="0 0 15 15" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="m10.5 10.5 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -449,6 +453,333 @@
   </div>
   <div id="qhost"></div>
 </section>
+
+
+<!-- JOURNAL-ARTICLES:START -->
+<style data-journal-css>
+/* ── Journal Articles section ─────────────────────────────────────────── */
+.ja-standalone {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 2px solid var(--line, #d9d0bd);
+}
+.ja-article {
+  margin-bottom: 24px;
+  padding: 20px 22px 18px;
+  background: var(--paper2, #fbf8f1);
+  border-radius: 10px;
+  box-shadow: var(--shadow, 0 1px 2px rgba(15,61,58,.08), 0 8px 24px rgba(15,61,58,.06));
+}
+.ja-cite {
+  margin: 0 0 10px;
+  line-height: 1.45;
+  font-size: 0.97em;
+}
+.ja-meta {
+  color: var(--muted, #5d6b62);
+  font-size: 0.875em;
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0.01em;
+}
+.ja-meta a {
+  color: var(--lit, #1f6f8b);
+  text-decoration: none;
+}
+.ja-meta a:hover {
+  text-decoration: underline;
+}
+.ja-abstract {
+  border-left: 3px solid var(--lit, #1f6f8b);
+  padding: 10px 14px;
+  margin: 0 0 18px;
+  background: var(--lit-soft, #dcedf2);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.925em;
+  line-height: 1.6;
+  color: var(--ink, #0f3d3a);
+}
+.ja-mcq {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line, #d9d0bd);
+}
+.ja-mcq + .ja-mcq {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.ja-q {
+  font-weight: 600;
+  font-size: 0.93em;
+  margin: 0 0 7px;
+  color: var(--ink, #0f3d3a);
+}
+.ja-opts {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ja-opt {
+  font-size: 0.9em;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: var(--ink2, #15514c);
+  background: transparent;
+}
+.ja-opt b {
+  display: inline-block;
+  min-width: 1.5em;
+  color: var(--muted, #5d6b62);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.88em;
+}
+.ja-ans {
+  margin-top: 4px;
+}
+.ja-ans summary {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 0.83em;
+  font-family: "JetBrains Mono", monospace;
+  padding: 3px 10px;
+  border: 1px solid var(--lit, #1f6f8b);
+  border-radius: 5px;
+  color: var(--lit, #1f6f8b);
+  background: transparent;
+  user-select: none;
+  list-style: none;
+}
+.ja-ans summary::-webkit-details-marker { display: none; }
+.ja-ans summary::marker { display: none; }
+.ja-ans summary:hover {
+  background: var(--lit-soft, #dcedf2);
+}
+.ja-ans[open] summary {
+  background: var(--lit-soft, #dcedf2);
+  margin-bottom: 6px;
+}
+.ja-ans-body {
+  font-size: 0.9em;
+  padding: 8px 12px;
+  background: var(--paper, #fdfaf4);
+  border: 1px solid var(--line, #d9d0bd);
+  border-radius: 6px;
+  line-height: 1.55;
+  color: var(--ink, #0f3d3a);
+}
+.ja-ans-correct {
+  font-weight: 600;
+  color: var(--good, #2f7d52);
+  display: block;
+  margin-bottom: 4px;
+}
+.ja-ans-rationale {
+  color: var(--ink2, #15514c);
+}
+</style>
+<section class="panel" id="journal">
+  <h2 class="sec">Additional Resources</h2>
+  <p class="lead">Journal Articles (2021–2026). Exam items are drawn from the abstract only — read each abstract, then self-test.</p>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Burkholderia-Associated Ocular Disease in Cats</b><br>
+    <span class="ja-meta">Becky L. Morrow,2,3* and Diana Ruggiero &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2025</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Introduction: Upper respiratory tract disease (URTD) is common in cats, particularly in multicat environments such as shelters. The disease can lead to severe ocular pathology and, in some cases, may require enucleation due to endophthalmitis or panophthalmitis. Methods: Eyes from 16 young cats with URTD that were enucleated because of severe ocular disease (previously ruptured or markedly buphthalmic eyes) were evaluated using Next Generation DNA Sequencing (NGS) with universal bacterial primers to evaluate the entire bacterial population. Eyes were assessed for the presence of feline herpesvirus-1 (FHV-1) and feline calicivirus (FCV) by qPCR and RT-qPCR, respectively. Results: All eyes had a high relative abundance of Burkholderia, ranging from 43.8 to 98.3%. Burkholderia was the most abundant bacterial genus in 15 of the 16 samples (94%). Of the 16 samples, 8 were positive for FHV-1 (50%), while 1 was positive for FCV (6%). Conclusion: This study identified an organism that has not been previously associated with severe ocular disease in cats with URTD, and provides a new approach to understanding pathogens by evaluating entire bacterial populations rather than targeting specific microorganisms. Keywords: upper respiratory tract disease; cats; eye; DNA sequencing; ocular disease; Burkholderia; panophthalmitis; endophthalmitis U pper respiratory tract disease (URTD) is common in cats, particularly in multi-cat environments such as shelters. Pathogens most frequently found in cats with URTD are Feline herpesvirus-1 (FHV-1), Feline calicivirus (FCV), Mycoplasma datella bronchiseptica (B. bronchiseptica). Prevalence of infection reaches as high as 59% with FHV-1, 67% with FCV, 24% with C. felis, 84% with M. felis, and 33% with B. bronchiseptica.1–4 Of the two viruses causing URTD, FCV is often dis- 48% of cats with conjunctivitis, with no accompanying co-infection with M. felis, C. felis, or FHV-1 in over one third of those cats.5 FHV-1 is the most frequent cause of conjunctivitis and is the only primary viral pathogen that causes feline keratitis.6–8 Ulceration of the conjunctiva and cornea secondary to FHV-1 can lead to symblepharon, adhesions between the palpebral conjunctiva and other structures of the eye that can result in reduced vision.9 There is also evidence that FHV-1 is associated with anterior uveitis,10 which can result in synechiae, adhesions of Commons Attribution 4.0 International License (http://creativecommons.org/licenses/by/4.0/), allowing third parties to copy and redistribute the material in any medium or format and to remix, transform, and build upon the material for any purpose, even commercially, provided the original work is properly cited and states its license.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">In a study using Next Generation DNA Sequencing on enucleated eyes from cats with severe upper respiratory tract disease (URTD), which bacterial genus was identified as the predominant organism?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Mycoplasma</li>
+          <li class="ja-opt"><b>B.</b> Chlamydophila</li>
+          <li class="ja-opt"><b>C.</b> Burkholderia</li>
+          <li class="ja-opt"><b>D.</b> Bordetella</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Burkholderia</span>
+            <span class="ja-ans-rationale">The abstract reports that &#x27;all eyes had a high relative abundance of Burkholderia, ranging from 43.8 to 98.3%&#x27; and that Burkholderia was the most abundant bacterial genus in 15 of 16 samples (94%).</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the Burkholderia ocular disease study, eyes from 16 cats with URTD that required enucleation were tested by qPCR for feline herpesvirus-1 (FHV-1) and feline calicivirus (FCV). What proportion were positive for FHV-1?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> 6% (1/16)</li>
+          <li class="ja-opt"><b>B.</b> 25% (4/16)</li>
+          <li class="ja-opt"><b>C.</b> 50% (8/16)</li>
+          <li class="ja-opt"><b>D.</b> 94% (15/16)</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. 50% (8/16)</span>
+            <span class="ja-ans-rationale">The abstract states that &#x27;Of the 16 samples, 8 were positive for FHV-1 (50%), while 1 was positive for FCV (6%).&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">What methodological approach did the Burkholderia ocular disease study use to characterize the bacterial populations in enucleated cat eyes, and what was the key advantage noted?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Standard aerobic culture; allowed rapid identification of common shelter pathogens</li>
+          <li class="ja-opt"><b>B.</b> Species-specific PCR panels; confirmed Mycoplasma as the dominant pathogen</li>
+          <li class="ja-opt"><b>C.</b> Next Generation DNA Sequencing with universal bacterial primers; evaluated entire bacterial populations rather than targeting specific organisms</li>
+          <li class="ja-opt"><b>D.</b> Fluorescence in situ hybridization; quantified viral co-infections alongside bacteria</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Next Generation DNA Sequencing with universal bacterial primers; evaluated entire bacterial populations rather than targeting specific organisms</span>
+            <span class="ja-ans-rationale">The abstract describes the use of &#x27;Next Generation DNA Sequencing (NGS) with universal bacterial primers to evaluate the entire bacterial population,&#x27; which the authors note provides &#x27;a new approach to understanding pathogens by evaluating entire bacterial populations rather than targeting specific microorganisms.&#x27;</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>A Retrospective Review of Morbidity and Mortality in ‘Good Samaritan’ Animals Admitted to a Tertiary Referral Veterinary Health Center From 2014 to 2022 Postmortem Examination</b><br>
+    <span class="ja-meta">A Retrospective Review of Morbidity and Mortality in ‘Good &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2024</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Introduction: Good Samaritan animals are frequently encountered at veterinary teaching hospitals and provide a useful indirect surveillance tool for monitoring major morbidity and mortality in unattended animals. Methods: Retrospective study. Good Samaritan animals’ medical and postmortem examination records were searched from the OSU VMC medical record database and the OSU CVM Anatomic pathology database and identified 100 cases from 2014 to 2022. Results: One hundred Good Samaritan animals that underwent postmortem examination were identified. These included 59 cats, 36 dogs, 2 raccoons, 1 squirrel, 1 bat, and 1 opossum with mean and median ages of 2.61 years and 1 year, respectively. The most predominant cause of death or major morbidity requiring euthanasia was euthanasia for rabies test (n = 19) in cats and vehicular trauma (n = 16) in dogs. Other mortality and significant morbidities include trauma (n = 15) followed by infectious disease (n = 5) in cats and infectious disease (n = 12) and neoplasia (n = 2) in dogs. Brain tissue from 51 animals was submitted to the Ohio Department of Health for rabies tests, and all had negative results. In 17 canines and felines with infectious diseases, dogs had viral (n = 6), parasitic (n = 5), and bacterial (n = 1) etiologies, while cats had bacterial (n = 2) and viral (n = 1), fungal (n = 1), and mixed (n = 1) etiologies. Conclusion: Epidemiological review of morbidity and mortality in Good Samaritan animals submitted for postmortem examination helps to characterize the types and severity of vehicular trauma and infectious diseases in stray animals. Young and intact animals were important demographic factors in Good Samaritan dogs and cats. The rabies test results tightly correlate with a trend of rabies test results in dogs and cats in Franklin County. Keywords: Good Samaritan animals; trauma; infectious disease; stray animals ‘G ood Samaritan animals’ typically refer to animals found injured, sick, or distressed by individuals who provide assistance or bring them to a veterinary facility for care. It is a unique patient population that exists only in veterinary medicine and seeks immediate medical care without identifiable owners. The American Animal Hospital Association recommends the practice of a Uniform Good Samaritan Law such as the following: ‘Any veterinarian or veterinary technician who, in good faith, renders emergency care, without remuneration or expectation of remuneration, to a sick or injured animal shall not be liable for any civil damages resulting from his or her acts or omission, except for such damages as International License (http://creativecommons.org/licenses/by/4.0/), allowing third parties to copy and redistribute the material in any medium or format and to remix, transform, and build upon the material for any purpose, even commercially, provided the original work is properly cited and states its license.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">In a retrospective review of 100 Good Samaritan animals submitted for postmortem examination at OSU VMC (2014–2022), what was the most predominant cause of death or major morbidity in cats?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Vehicular trauma</li>
+          <li class="ja-opt"><b>B.</b> Infectious disease</li>
+          <li class="ja-opt"><b>C.</b> Euthanasia for rabies testing</li>
+          <li class="ja-opt"><b>D.</b> Neoplasia</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Euthanasia for rabies testing</span>
+            <span class="ja-ans-rationale">The abstract states that the most predominant cause of death or major morbidity requiring euthanasia was &#x27;euthanasia for rabies test (n = 19)&#x27; in cats, compared to vehicular trauma (n = 16) as the leading cause in dogs.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the Good Samaritan animal retrospective study, brain tissue from 51 animals was submitted for rabies testing. What were the results?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Three animals tested positive for rabies virus</li>
+          <li class="ja-opt"><b>B.</b> All animals tested negative for rabies</li>
+          <li class="ja-opt"><b>C.</b> Results were inconclusive due to sample degradation</li>
+          <li class="ja-opt"><b>D.</b> Positive cases were found only among raccoons and bats</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. All animals tested negative for rabies</span>
+            <span class="ja-ans-rationale">The abstract explicitly states that &#x27;all had negative results&#x27; for the 51 animals whose brain tissue was submitted to the Ohio Department of Health for rabies tests.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the Good Samaritan animal study, which infectious disease etiologies were identified in dogs (n = 17 canines and felines with infectious diseases)?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Dogs had bacterial, fungal, and mixed etiologies</li>
+          <li class="ja-opt"><b>B.</b> Dogs had viral, parasitic, and bacterial etiologies</li>
+          <li class="ja-opt"><b>C.</b> Dogs had viral and fungal etiologies only</li>
+          <li class="ja-opt"><b>D.</b> Dogs had parasitic and mixed etiologies only</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Dogs had viral, parasitic, and bacterial etiologies</span>
+            <span class="ja-ans-rationale">The abstract specifies that among the 17 canines and felines with infectious diseases, &#x27;dogs had viral (n = 6), parasitic (n = 5), and bacterial (n = 1) etiologies.&#x27;</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Renal alterations in cats (Felis catus) housed in shelters and affected by systemic AA-amyloidosis: Clinicopathological data, histopathology, and ultrastructural features</b><br>
+    <span class="ja-meta">Ferri F, Ferro S, Benali SL, Aresu L, Muscardin L, Porporato F, Rossi F, Guglielmetti C, Gallo E, Palizzotto C, Callegari C, Ricagno S, Mazza M, Coppola LM, Gerardi G, Lavatelli F, Caminito S, Mazzini G, Palladini G, Merlini G, Zini E &middot; Veterinary Pathology &middot; 2024 &middot; <a href="https://doi.org/10.1177/03009858241257903" target="_blank" rel="noopener">10.1177/03009858241257903</a></span></p>
+    <div class="ja-abstract"><b>Abstract.</b> AA-amyloidosis is frequent in shelter cats, and chronic kidney disease is the foremost cause of death. The aims were to describe kidney laboratory and microscopic findings in shelter cats with AA-amyloidosis. Cats were included if kidney specimens were collected post-mortem and laboratory data were available within 6 months before death. Renal lesions were evaluated with optical and electron microscopy. Mass spectrometry was used to characterize amyloid. Nine domestic short-hair cats were included; 4 females and 5 males with a median age of 8 years (range = 2–13). All cats had blood analyses and urinalyses available. Serum creatinine concentrations were increased in 6 cats and symmetric dimethylarginine was increased in all of the cats. All of the cats had proteinuria. Eight of 9 cats had amyloid in the medulla, and 9 had amyloid in the cortex (glomeruli). All cats had amyloid in the interstitium. Six cats had concurrent interstitial nephritis and 1 had membranoproliferative glomerulonephritis. All cats had extrarenal amyloid deposits. Amyloid was AA in each case. Mass spectrometry confirmed amyloid was AA in each case. In conclusion, renal deposition of amyloid occurs in both cortex and medulla in shelter cats and is associated with azotemia and proteinuria. Renal involvement of systemic AA-amyloidosis should be considered in shelter cats with chronic kidney disease. The cat represents a natural model of renal AA-amyloidosis.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">In shelter cats with systemic AA-amyloidosis, which laboratory finding was present in ALL nine cats in this study?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Elevated serum creatinine</li>
+          <li class="ja-opt"><b>B.</b> Elevated symmetric dimethylarginine (SDMA) and proteinuria</li>
+          <li class="ja-opt"><b>C.</b> Hypoalbuminemia</li>
+          <li class="ja-opt"><b>D.</b> Hyperglobulinemia only</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Elevated symmetric dimethylarginine (SDMA) and proteinuria</span>
+            <span class="ja-ans-rationale">Both elevated SDMA and proteinuria were present in all nine cats. Serum creatinine was elevated in only 6/9 cats. SDMA, being a more sensitive early marker of GFR decline, was universally elevated.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In this case series of shelter cats with AA-amyloidosis, amyloid was deposited in which renal locations?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Medulla only, with cortex spared</li>
+          <li class="ja-opt"><b>B.</b> Cortex (glomeruli) only</li>
+          <li class="ja-opt"><b>C.</b> Both cortex (glomeruli) and medulla, with all cats also having interstitial deposits</li>
+          <li class="ja-opt"><b>D.</b> Renal pelvis and collecting ducts exclusively</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Both cortex (glomeruli) and medulla, with all cats also having interstitial deposits</span>
+            <span class="ja-ans-rationale">Eight of nine cats had medullary amyloid, all nine had cortical/glomerular amyloid, and all cats had interstitial amyloid deposits, demonstrating widespread renal involvement in both cortex and medulla.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">A shelter veterinarian sees a middle-aged domestic shorthair cat with CKD, proteinuria, and elevated SDMA. Which diagnosis should be considered given this study&#x27;s findings about shelter cat populations?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Hyperthyroidism as the underlying cause of CKD</li>
+          <li class="ja-opt"><b>B.</b> Systemic AA-amyloidosis as a common cause of CKD in shelter cats</li>
+          <li class="ja-opt"><b>C.</b> FIV-associated nephropathy</li>
+          <li class="ja-opt"><b>D.</b> Pyelonephritis from ascending Escherichia coli infection</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Systemic AA-amyloidosis as a common cause of CKD in shelter cats</span>
+            <span class="ja-ans-rationale">This study found AA-amyloidosis is frequent in shelter cats and that it should be considered in shelter cats with CKD, azotemia, and proteinuria. Chronic inflammation common in shelter environments may drive the acute-phase SAA protein production underlying AA-amyloidosis.</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Low-Cost Veterinary Clinical Diagnostics</b><br>
+    <span class="ja-meta">Ryane E. Englar and Sharon M. Dial &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2023</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> L ow-cost veterinary clinical diagnostics is a concise, protocol-based textbook highlighting the incredible value of practical, low-cost, point-ofcare diagnostic testing methods. The authors’ expertise and passion for combining pedagogy with functional and relatable resources for clinical practice are evident in the structure of the text. The result is a book with easily digestible content applicable to students learning these concepts for the first time as well as experienced technicians and veterinarians interested in optimizing the value of quick assessment tests in clinical practice. The textbook is divided into six sections. Readers may be tempted to skip over Part 1: Patient Care Considerations to dive into the more application-based sections that follow; however, these readers would miss out on a most eloquent and thoughtful discussion of so-called ‘gold standard’ approaches to clinical care. This well-referenced chapter carefully lays out the origins of the ‘gold standard’ along with its limitations. It concludes with a rational explanation of why the veterinary profession must fully embrace a spectrum of care approach and actively teach it to up-and-coming veterinary professionals. The second chapter dives into common communication strategies with plenty of practical examples and sample verbiage to demonstrate key concepts. Parts 2 through 5 of the textbook discuss quick assessment tests involving blood, urine, feces, and bodily fluids, covering 17 diagnostic tests. Each chapter begins</div>
+      <div class="ja-mcq">
+        <p class="ja-q">The textbook &#x27;Low-Cost Veterinary Clinical Diagnostics&#x27; is structured into six sections. What concept does Part 1 (Patient Care Considerations) introduce that the review highlights as particularly important?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> A systematic approach to blood sample collection in resource-limited settings</li>
+          <li class="ja-opt"><b>B.</b> A critique of the &#x27;gold standard&#x27; concept in clinical care and rationale for a spectrum of care approach</li>
+          <li class="ja-opt"><b>C.</b> Specific low-cost alternatives to PCR testing for common feline pathogens</li>
+          <li class="ja-opt"><b>D.</b> Triage protocols for high-volume shelter intake diagnostics</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. A critique of the &#x27;gold standard&#x27; concept in clinical care and rationale for a spectrum of care approach</span>
+            <span class="ja-ans-rationale">The abstract describes Part 1 as containing &#x27;a most eloquent and thoughtful discussion of so-called &#x27;gold standard&#x27; approaches to clinical care,&#x27; laying out &#x27;the origins of the &#x27;gold standard&#x27; along with its limitations&#x27; and concluding &#x27;with a rational explanation of why the veterinary profession must fully embrace a spectrum of care approach.&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">According to the review of &#x27;Low-Cost Veterinary Clinical Diagnostics,&#x27; how many diagnostic tests are covered in Parts 2 through 5 of the textbook?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> 6 diagnostic tests</li>
+          <li class="ja-opt"><b>B.</b> 12 diagnostic tests</li>
+          <li class="ja-opt"><b>C.</b> 17 diagnostic tests</li>
+          <li class="ja-opt"><b>D.</b> 24 diagnostic tests</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. 17 diagnostic tests</span>
+            <span class="ja-ans-rationale">The abstract states that &#x27;Parts 2 through 5 of the textbook discuss quick assessment tests involving blood, urine, feces, and bodily fluids, covering 17 diagnostic tests.&#x27;</span>
+          </div>
+        </details>
+      </div>
+  </div>
+</section>
+<!-- JOURNAL-ARTICLES:END -->
 
 </div></main>
 

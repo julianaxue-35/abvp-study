@@ -143,6 +143,10 @@
   <button data-p="species"><span class="dot"></span>Special Populations &amp; Species</button>
   <button data-p="human"><span class="dot"></span>Human Factors</button>
   <button data-p="mcq"><span class="dot" style="background:#0f3d3a"></span>MCQ Test Bank</button>
+
+<!-- JOURNAL-TAB:START -->
+<button data-p="journal"><span class="dot" style="background:var(--lit, #1f6f8b)"></span>Journal Articles</button>
+<!-- JOURNAL-TAB:END -->
 </div></div></nav>
 <div class="srch-wrap"><div class="wrap"><div class="srch-row">
 <svg width="14" height="14" viewBox="0 0 15 15" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="m10.5 10.5 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -580,6 +584,476 @@
   </div>
   <div id="qhost"></div>
 </section>
+
+
+<!-- JOURNAL-ARTICLES:START -->
+<style data-journal-css>
+/* ── Journal Articles section ─────────────────────────────────────────── */
+.ja-standalone {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 2px solid var(--line, #d9d0bd);
+}
+.ja-article {
+  margin-bottom: 24px;
+  padding: 20px 22px 18px;
+  background: var(--paper2, #fbf8f1);
+  border-radius: 10px;
+  box-shadow: var(--shadow, 0 1px 2px rgba(15,61,58,.08), 0 8px 24px rgba(15,61,58,.06));
+}
+.ja-cite {
+  margin: 0 0 10px;
+  line-height: 1.45;
+  font-size: 0.97em;
+}
+.ja-meta {
+  color: var(--muted, #5d6b62);
+  font-size: 0.875em;
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0.01em;
+}
+.ja-meta a {
+  color: var(--lit, #1f6f8b);
+  text-decoration: none;
+}
+.ja-meta a:hover {
+  text-decoration: underline;
+}
+.ja-abstract {
+  border-left: 3px solid var(--lit, #1f6f8b);
+  padding: 10px 14px;
+  margin: 0 0 18px;
+  background: var(--lit-soft, #dcedf2);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.925em;
+  line-height: 1.6;
+  color: var(--ink, #0f3d3a);
+}
+.ja-mcq {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line, #d9d0bd);
+}
+.ja-mcq + .ja-mcq {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.ja-q {
+  font-weight: 600;
+  font-size: 0.93em;
+  margin: 0 0 7px;
+  color: var(--ink, #0f3d3a);
+}
+.ja-opts {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ja-opt {
+  font-size: 0.9em;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: var(--ink2, #15514c);
+  background: transparent;
+}
+.ja-opt b {
+  display: inline-block;
+  min-width: 1.5em;
+  color: var(--muted, #5d6b62);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.88em;
+}
+.ja-ans {
+  margin-top: 4px;
+}
+.ja-ans summary {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 0.83em;
+  font-family: "JetBrains Mono", monospace;
+  padding: 3px 10px;
+  border: 1px solid var(--lit, #1f6f8b);
+  border-radius: 5px;
+  color: var(--lit, #1f6f8b);
+  background: transparent;
+  user-select: none;
+  list-style: none;
+}
+.ja-ans summary::-webkit-details-marker { display: none; }
+.ja-ans summary::marker { display: none; }
+.ja-ans summary:hover {
+  background: var(--lit-soft, #dcedf2);
+}
+.ja-ans[open] summary {
+  background: var(--lit-soft, #dcedf2);
+  margin-bottom: 6px;
+}
+.ja-ans-body {
+  font-size: 0.9em;
+  padding: 8px 12px;
+  background: var(--paper, #fdfaf4);
+  border: 1px solid var(--line, #d9d0bd);
+  border-radius: 6px;
+  line-height: 1.55;
+  color: var(--ink, #0f3d3a);
+}
+.ja-ans-correct {
+  font-weight: 600;
+  color: var(--good, #2f7d52);
+  display: block;
+  margin-bottom: 4px;
+}
+.ja-ans-rationale {
+  color: var(--ink2, #15514c);
+}
+</style>
+<section class="panel" id="journal">
+  <h2 class="sec">Additional Resources</h2>
+  <p class="lead">Journal Articles (2021–2026). Exam items are drawn from the abstract only — read each abstract, then self-test.</p>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Community factors and animal shelter outcomes</b><br>
+    <span class="ja-meta">Reese LA &middot; Journal of Applied Animal Welfare Science &middot; 2024 &middot; <a href="https://doi.org/10.1080/10888705.2022.2063021" target="_blank" rel="noopener">10.1080/10888705.2022.2063021</a></span></p>
+    <div class="ja-abstract"><b>Abstract.</b> This research explores connections between the nature of a community, the type of animal shelter it has, how animals arrive at the shelter, and outcomes for the animals in terms of adoption or euthanasia. Based on data from Shelter Animals Count, the study concludes that the nature of the local community is related to the type of shelter it is served by, how dogs arrive at the shelter, and directly to outcomes. Areas with greater economic stress and lower educational attainment are more likely to have a municipal shelter, which increases stray intake, and ultimately euthanasia. Community economic stress is also directly associated with lower adoption and higher euthanasia rates. The findings of the study suggest a multi-pronged strategy to increase adoptions and reduce euthanasia focusing on both animal shelters but also using a One Health approach to improve the welfare of both humans and non-human animals.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">According to Reese 2024, what type of shelter is more likely to serve communities with greater economic stress and lower educational attainment?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Private non-profit shelter</li>
+          <li class="ja-opt"><b>B.</b> Breed-specific rescue organization</li>
+          <li class="ja-opt"><b>C.</b> Municipal animal shelter</li>
+          <li class="ja-opt"><b>D.</b> Veterinary school teaching shelter</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Municipal animal shelter</span>
+            <span class="ja-ans-rationale">The abstract states &#x27;areas with greater economic stress and lower educational attainment are more likely to have a municipal shelter, which increases stray intake, and ultimately euthanasia,&#x27; linking socioeconomic factors to shelter type and outcomes.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">What approach did Reese 2024 recommend to increase adoptions and reduce euthanasia in animal shelters?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Focusing exclusively on shelter program improvements such as foster networks and matching systems</li>
+          <li class="ja-opt"><b>B.</b> A multi-pronged strategy including a One Health approach to improve welfare of both humans and animals</li>
+          <li class="ja-opt"><b>C.</b> Requiring all municipalities to transition from municipal to private non-profit shelter models</li>
+          <li class="ja-opt"><b>D.</b> Targeted marketing campaigns to increase adoption rates in high-euthanasia communities</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. A multi-pronged strategy including a One Health approach to improve welfare of both humans and animals</span>
+            <span class="ja-ans-rationale">The abstract recommends &#x27;a multi-pronged strategy to increase adoptions and reduce euthanasia focusing on both animal shelters but also using a One Health approach to improve the welfare of both humans and non-human animals,&#x27; recognizing that community conditions must also be addressed.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In Reese 2024, how was community economic stress directly associated with animal shelter outcomes?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Community economic stress was associated with higher adoption rates as shelters were better supported</li>
+          <li class="ja-opt"><b>B.</b> Community economic stress was associated with lower euthanasia rates due to community engagement</li>
+          <li class="ja-opt"><b>C.</b> Community economic stress was directly associated with lower adoption and higher euthanasia rates</li>
+          <li class="ja-opt"><b>D.</b> Community economic stress had no direct effect on outcomes after controlling for shelter type</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Community economic stress was directly associated with lower adoption and higher euthanasia rates</span>
+            <span class="ja-ans-rationale">The abstract states &#x27;community economic stress is also directly associated with lower adoption and higher euthanasia rates,&#x27; demonstrating that economic conditions directly affect animal outcomes independent of shelter type.</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Renal amyloid-A amyloidosis in cats: Characterization of proteinuria and biomarker discovery, and associations with kidney histology</b><br>
+    <span class="ja-meta">Palizzotto C, Ferri F, Callegari C, Rossi F, Manfredi M, Carcangiu L, Gerardi G, Ferro S, Cavicchioli L, Müller E, Weiss M, Vogt AC, Lavatelli F, Ricagno S, Hurley K, Zini E &middot; Journal of Veterinary Internal Medicine &middot; 2024 &middot; <a href="https://doi.org/10.1111/jvim.16920" target="_blank" rel="noopener">10.1111/jvim.16920</a></span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Background: Systemic AA amyloidosis recently was shown to have a high prevalence in shelter cats in Italy and was associated with azotemia and proteinuria. Objectives: To investigate urine protein profiles and identify diagnostic biomarkers in cats with renal AA amyloidosis. Animals: Twenty-nine shelter cats. Methods: Case-control study. Cats with renal proteinuria that died or were euthanized between 2018 and 2021 were included. Histology was used to characterize renal damage; immunohistochemistry confirmed AA amyloidosis. Urine protein-to-creatinine (UPC) and urine amyloid A-to-creatinine (UAAC) ratios were calculated. Urine protein profiling was done using sodium dodecyl sulfate-agarose gel electrophoresis (SDS-AGE) and liquid chromatography-mass spectrometry (LC-MS). Results: Nineteen cats had AA amyloidosis. Affected cats had higher UPC and UAAC ratios than unaffected cats. Mixed proteinuria was identified in 89.4% of affected cats. LC-MS identified 63 potential biomarkers; urine apolipoprotein C-III was higher in cats with AA amyloidosis. AA amyloidosis was associated with glomerulosclerosis and interstitial fibrosis. Conclusions and Clinical Relevance: Renal AA amyloidosis in shelter cats is associated with mixed proteinuria, specific kidney lesions, and elevated urine biomarkers. Urine apolipoprotein C-III may assist in diagnosis. Further research is needed regarding the role of lipid transport proteins in this condition.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">A 2024 JVIM study investigated renal AA amyloidosis in shelter cats in Italy. What type of proteinuria was most common in affected cats?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Purely glomerular proteinuria</li>
+          <li class="ja-opt"><b>B.</b> Purely tubular proteinuria</li>
+          <li class="ja-opt"><b>C.</b> Mixed proteinuria (identified in 89.4% of affected cats)</li>
+          <li class="ja-opt"><b>D.</b> No proteinuria — only azotemia was present</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Mixed proteinuria (identified in 89.4% of affected cats)</span>
+            <span class="ja-ans-rationale">Mixed proteinuria (both glomerular and tubular components) was identified in 89.4% of affected shelter cats. This pattern reflects the combined glomerular and interstitial/tubular kidney damage seen in AA amyloidosis.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the shelter cat AA amyloidosis study (Palizzotto et al. 2024), which urinary biomarker was significantly elevated in affected cats on LC-MS analysis?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Urinary albumin-to-creatinine ratio only</li>
+          <li class="ja-opt"><b>B.</b> Urine apolipoprotein C-III</li>
+          <li class="ja-opt"><b>C.</b> Urine creatinine kinase</li>
+          <li class="ja-opt"><b>D.</b> Urinary immunoglobulin light chains</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Urine apolipoprotein C-III</span>
+            <span class="ja-ans-rationale">LC-MS identified 63 potential biomarkers, with urine apolipoprotein C-III notably higher in cats with AA amyloidosis. This finding points toward a role for lipid transport proteins in the disease process.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">What histologic lesions were associated with renal AA amyloidosis in the Italian shelter cat study (Palizzotto et al. 2024)?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Membranoproliferative glomerulonephritis and tubular necrosis</li>
+          <li class="ja-opt"><b>B.</b> Glomerulosclerosis and interstitial fibrosis</li>
+          <li class="ja-opt"><b>C.</b> Mesangial proliferation and papillary necrosis</li>
+          <li class="ja-opt"><b>D.</b> Diffuse amyloid deposition only in tubular lumens</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Glomerulosclerosis and interstitial fibrosis</span>
+            <span class="ja-ans-rationale">AA amyloidosis in shelter cats was associated with glomerulosclerosis and interstitial fibrosis on histology. These findings explain the mixed (glomerular and tubular) proteinuria pattern observed in affected cats.</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Animal sheltering: A scoping literature review grounded in institutional ethnography</b><br>
+    <span class="ja-meta">Koralesky KE, Rankin JM, Fraser D &middot; Animal Welfare &middot; 2023 &middot; <a href="https://doi.org/10.1017/awf.2022.4" target="_blank" rel="noopener">10.1017/awf.2022.4</a></span></p>
+    <div class="ja-abstract"><b>Abstract.</b> The authors examined research on animal sheltering through an institutional ethnography lens, focusing on actual work practices. They reviewed literature on three main areas: shelter staff experiences, animal relinquishment, and length of stay in shelters. Key findings reveal that euthanasia-related stress dominates research on staff, yet focus group participants emphasized decision-making tensions rather than the act itself. Research on relinquishment relies heavily on surveys and database records with significant limitations. Length of stay studies focus on animal characteristics like breed and color, overlooking actual work processes like veterinary treatment and behavioral modification. The authors conclude that institutional ethnography offers valuable insights by examining concrete work activities that current quantitative approaches overlook, potentially leading to better support for both animals and staff.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">According to Koralesky et al. 2023, what aspect of shelter staff experience has dominated existing research but may not reflect what staff themselves emphasize?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Compassion satisfaction from successful adoptions</li>
+          <li class="ja-opt"><b>B.</b> Physical safety concerns during animal handling</li>
+          <li class="ja-opt"><b>C.</b> Euthanasia-related stress, while staff emphasized decision-making tensions</li>
+          <li class="ja-opt"><b>D.</b> Financial compensation and career development</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Euthanasia-related stress, while staff emphasized decision-making tensions</span>
+            <span class="ja-ans-rationale">The abstract states &#x27;euthanasia-related stress dominates research on staff, yet focus group participants emphasized decision-making tensions rather than the act itself,&#x27; highlighting a gap between research focus and staff experience.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In Koralesky et al. 2023, what limitation did the authors identify in existing research on length of stay for shelter animals?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Studies were too short-term to capture seasonal patterns</li>
+          <li class="ja-opt"><b>B.</b> Studies focused on animal characteristics like breed and color while overlooking actual work processes</li>
+          <li class="ja-opt"><b>C.</b> Length of stay data was not available from most shelters</li>
+          <li class="ja-opt"><b>D.</b> Studies only examined cats, not dogs</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Studies focused on animal characteristics like breed and color while overlooking actual work processes</span>
+            <span class="ja-ans-rationale">The abstract states &#x27;length of stay studies focus on animal characteristics like breed and color, overlooking actual work processes like veterinary treatment and behavioral modification,&#x27; which institutional ethnography could better illuminate.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">What methodological lens did Koralesky et al. 2023 use to review the shelter literature, and what did they conclude it could offer?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Systematic review methodology; it showed current evidence was sufficient</li>
+          <li class="ja-opt"><b>B.</b> Institutional ethnography; it offers insights into concrete work activities that quantitative approaches overlook</li>
+          <li class="ja-opt"><b>C.</b> Meta-analysis; it could synthesize quantitative shelter outcome data</li>
+          <li class="ja-opt"><b>D.</b> Grounded theory; it could develop new sheltering frameworks from scratch</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Institutional ethnography; it offers insights into concrete work activities that quantitative approaches overlook</span>
+            <span class="ja-ans-rationale">The abstract states the authors used &#x27;institutional ethnography&#x27; and conclude &#x27;it offers valuable insights by examining concrete work activities that current quantitative approaches overlook, potentially leading to better support for both animals and staff.&#x27;</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Quantification of a shelter cat population: Trends in intake, length of stay and outcome data of cats in seven Dutch shelters between 2006 and 2021</b><br>
+    <span class="ja-meta">van der Leij WJR, Vernooij JCM, Vinke CM, Corbee RJ, Hesselink JW &middot; PLoS ONE &middot; 2023 &middot; <a href="https://doi.org/10.1371/journal.pone.0285938" target="_blank" rel="noopener">10.1371/journal.pone.0285938</a></span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Shelters utilize metrics for self-assessment to enhance animal population health and identify disease outbreak risk factors. However, broader metric applications are needed for benchmarking and developing best practices. This retrospective study analyzed data from seven Dutch shelters over 2006–2021, examining intake sources, outcomes, and length of stay for over 74,000 cats. Key findings demonstrate that feline intake decreased by 39% per 1,000 residents, while euthanasia cases declined approximately 50%. Length of stay showed reducing trends, and return-to-owner rates increased alongside the risk-based live release rate. The researchers conclude these metrics effectively monitor shelter management, animal health and welfare, and can measure progress both nationally and across Europe.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">In a retrospective analysis of seven Dutch animal shelters over 15 years (2006–2021), which outcome trend was observed for cats?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Intake increased by 39% per 1,000 residents while euthanasia increased</li>
+          <li class="ja-opt"><b>B.</b> Intake decreased by 39% per 1,000 residents and euthanasia declined approximately 50%</li>
+          <li class="ja-opt"><b>C.</b> Length of stay increased while live release rate decreased</li>
+          <li class="ja-opt"><b>D.</b> Return-to-owner rates declined despite improved population management</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Intake decreased by 39% per 1,000 residents and euthanasia declined approximately 50%</span>
+            <span class="ja-ans-rationale">The study found intake fell 39% per 1,000 residents and euthanasia declined ~50% over the study period, alongside improving length-of-stay and return-to-owner metrics.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">Which statement best reflects the purpose of population-level shelter metrics such as those analyzed across seven Dutch shelters?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> They are used exclusively to assess individual animal welfare during a single shelter stay</li>
+          <li class="ja-opt"><b>B.</b> They enable shelter self-assessment, benchmarking across facilities, and monitoring progress in population health management</li>
+          <li class="ja-opt"><b>C.</b> They primarily document disease incidence rather than outcome or length-of-stay trends</li>
+          <li class="ja-opt"><b>D.</b> They are only applicable in high-intake open-admission municipal shelters</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. They enable shelter self-assessment, benchmarking across facilities, and monitoring progress in population health management</span>
+            <span class="ja-ans-rationale">The authors emphasized that these metrics serve self-assessment, benchmarking, and tracking of shelter management progress nationally and across Europe—beyond individual animal assessment.</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Behavioral rehabilitation of extremely fearful dogs: Report on the efficacy of a treatment protocol</b><br>
+    <span class="ja-meta">Collins K, Miller K, Zverina L, Patterson-Kane E, Cussen V, Reid P &middot; Applied Animal Behaviour Science &middot; 2022 &middot; <a href="https://doi.org/10.1016/j.applanim.2022.105689" target="_blank" rel="noopener">10.1016/j.applanim.2022.105689</a></span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Some dogs entering shelters exhibit extreme fearfulness, often after experiencing cruelty or neglect. Dogs displaying extreme fearfulness are difficult to assess and treat using the tools and protocols available in most shelters. Without effective treatment, these dogs have an unacceptably poor quality of life and are unlikely to be successfully adopted. Treatment protocols using behavior modification techniques such as desensitization, counterconditioning and operant conditioning were developed to reduce fear of stimuli that pet dogs typically experience in adoptive homes. From 2013–2020, outcomes were recorded for dogs that went through this behavioral rehabilitation program. The graduation rate from the program was 86 % (380/441). Graduated dogs spent an average of 96 (SD=55) days in the program, experiencing an average of 78 specific treatment sessions. They showed a significant improvement in behavior in a standardized behavior assessment (df=440, t = 28.3836, p = 0.001) before meeting criteria for placement. Once offered for adoption, they had a 99 % adoption rate and a 96 % adopter satisfaction rate. These results indicate that an appropriately designed behavioral rehabilitation program for dogs displaying extreme fear in a shelter setting can prove highly successful, resulting in improved quality of life and reduced need for behavioral euthanasia.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the ASPCA Behavioral Rehabilitation Center study (Collins et al. 2022), what was the graduation rate from the behavioral rehabilitation program for extremely fearful shelter dogs?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> A) 72% (318/441)</li>
+          <li class="ja-opt"><b>B.</b> B) 86% (380/441)</li>
+          <li class="ja-opt"><b>C.</b> C) 94% (415/441)</li>
+          <li class="ja-opt"><b>D.</b> D) 99% (437/441)</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. B) 86% (380/441)</span>
+            <span class="ja-ans-rationale">The abstract states: &#x27;The graduation rate from the program was 86 % (380/441).&#x27; The 99% figure refers to the adoption rate among graduates, not graduation from the program.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">According to Collins et al. 2022, which behavior modification techniques were central to the ASPCA behavioral rehabilitation protocol for extremely fearful shelter dogs?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> A) Flooding, positive punishment, and operant conditioning</li>
+          <li class="ja-opt"><b>B.</b> B) Desensitization, counterconditioning, and operant conditioning</li>
+          <li class="ja-opt"><b>C.</b> C) Systematic desensitization alone with no food reinforcement</li>
+          <li class="ja-opt"><b>D.</b> D) Response substitution and differential reinforcement of incompatible behavior only</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. B) Desensitization, counterconditioning, and operant conditioning</span>
+            <span class="ja-ans-rationale">The abstract explicitly names &#x27;desensitization, counterconditioning and operant conditioning&#x27; as the core techniques used to reduce fear of stimuli that pet dogs typically encounter in adoptive homes.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">The Collins et al. 2022 study found that graduated dogs had a significant improvement in standardized behavior assessment scores before placement. What does this finding most directly support regarding shelter behavioral rehabilitation programs?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> A) All extremely fearful shelter dogs should be immediately euthanized due to poor prognosis</li>
+          <li class="ja-opt"><b>B.</b> B) Simple enrichment and time in the shelter environment alone are sufficient to rehabilitate extremely fearful dogs</li>
+          <li class="ja-opt"><b>C.</b> C) An appropriately designed behavioral rehabilitation program can significantly reduce fear and improve adoption outcomes even for the most fearful dogs</li>
+          <li class="ja-opt"><b>D.</b> D) Psychopharmacology alone without behavior modification is adequate for fearful dog rehabilitation</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. C) An appropriately designed behavioral rehabilitation program can significantly reduce fear and improve adoption outcomes even for the most fearful dogs</span>
+            <span class="ja-ans-rationale">The abstract concludes: &#x27;an appropriately designed behavioral rehabilitation program for dogs displaying extreme fear in a shelter setting can prove highly successful, resulting in improved quality of life and reduced need for behavioral euthanasia.&#x27; The paper also showed that time in environment without treatment (delayed-onset group) was insufficient—behavior modification protocols specifically drove improvement.</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Effect of a provincial feline onychectomy ban on cat intake and euthanasia in a British Columbia animal shelter system</b><br>
+    <span class="ja-meta">Ellis A, van Haaften K, Protopopova A, Gordon E &middot; Journal of Feline Medicine and Surgery &middot; 2022 &middot; <a href="https://doi.org/10.1177/1098612X211043820" target="_blank" rel="noopener">10.1177/1098612X211043820</a></span></p>
+    <div class="ja-abstract"><b>Abstract.</b> This research examined whether a provincial ban on elective cat declawing affected shelter intake and euthanasia outcomes. The study analyzed British Columbia SPCA records from 36 months before (May 2015–April 2018; n=41,157) and after (May 2018–April 2021; n=33,430) the provincial ban on onychectomy. Destructive behavior was found to be an uncommon reason for surrender (0.18% of surrendered cats) during the study period. There was no statistically significant difference in the number of cats surrendered for destructive scratching behavior after the provincial ban on elective onychectomy. The proportion of owner-requested euthanasias decreased after the ban. The total number of cats surrendered, the shelter live release rate and average length of stay all remained stable or improved following the ban, though causation could not be determined.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">In Ellis et al. 2022, what proportion of surrendered cats were relinquished specifically for destructive scratching behavior in the British Columbia shelter system?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> 12.4%</li>
+          <li class="ja-opt"><b>B.</b> 3.7%</li>
+          <li class="ja-opt"><b>C.</b> 0.18%</li>
+          <li class="ja-opt"><b>D.</b> 1.5%</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. 0.18%</span>
+            <span class="ja-ans-rationale">The abstract states that &#x27;destructive behavior was found to be an uncommon reason for surrender (0.18% of surrendered cats),&#x27; directly refuting concerns that an onychectomy ban would increase relinquishment for scratching.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">What did Ellis et al. 2022 find regarding owner-requested euthanasia following British Columbia&#x27;s ban on elective onychectomy?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Owner-requested euthanasia increased significantly after the ban</li>
+          <li class="ja-opt"><b>B.</b> Owner-requested euthanasia was unchanged by the ban</li>
+          <li class="ja-opt"><b>C.</b> Owner-requested euthanasia decreased after the ban</li>
+          <li class="ja-opt"><b>D.</b> Owner-requested euthanasia was too rare to analyze</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Owner-requested euthanasia decreased after the ban</span>
+            <span class="ja-ans-rationale">The abstract states &#x27;the proportion of owner-requested euthanasias decreased after the ban,&#x27; one of several positive shelter outcomes observed following the provincial onychectomy ban.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">According to Ellis et al. 2022, what happened to overall shelter metrics (live release rate and length of stay) following British Columbia&#x27;s feline onychectomy ban?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Live release rate decreased and length of stay increased significantly</li>
+          <li class="ja-opt"><b>B.</b> Both metrics worsened substantially, consistent with increased relinquishment</li>
+          <li class="ja-opt"><b>C.</b> Live release rate and length of stay remained stable or improved</li>
+          <li class="ja-opt"><b>D.</b> Metrics improved only for kittens, while adult cat outcomes worsened</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Live release rate and length of stay remained stable or improved</span>
+            <span class="ja-ans-rationale">The abstract states &#x27;the total number of cats surrendered, the shelter live release rate and average length of stay all remained stable or improved following the ban,&#x27; though causation could not be determined.</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>A multidisciplinary investigation of chronic animal abuse: Collaboration between veterinary forensics and forensic anthropology</b><br>
+    <span class="ja-meta">Smith-Blackmore M, Bethard JD &middot; Journal of Forensic Sciences &middot; 2021 &middot; <a href="https://doi.org/10.1111/1556-4029.14576" target="_blank" rel="noopener">10.1111/1556-4029.14576</a></span></p>
+    <div class="ja-abstract"><b>Abstract.</b> The study describes a case involving an injured juvenile female mixed breed dog discovered in an urban area. The animal was deemed to have irreparable injuries and was humanely euthanized. A forensic veterinarian collaborated with a forensic anthropologist to document skeletal trauma sustained before death. The examination revealed numerous injuries in various stages of healing diagnostic of non-accidental injuries. The authors conclude that forensic anthropologists can provide valuable support in analyzing bone remains in veterinary forensic cases involving suspected abuse.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">In a 2021 Journal of Forensic Sciences case report, what skeletal finding in a juvenile dog was diagnostic of chronic non-accidental injury?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> A single acute perimortem fracture of the femur</li>
+          <li class="ja-opt"><b>B.</b> Numerous injuries in various stages of healing, indicating repeated traumatic episodes</li>
+          <li class="ja-opt"><b>C.</b> Pathological fractures consistent with metabolic bone disease</li>
+          <li class="ja-opt"><b>D.</b> Evidence of a single high-velocity impact to the cranium</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Numerous injuries in various stages of healing, indicating repeated traumatic episodes</span>
+            <span class="ja-ans-rationale">Numerous injuries in various stages of healing are diagnostic of repeated trauma over time—a hallmark of chronic non-accidental injury—as opposed to a single acute traumatic event.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">What role did the forensic anthropologist play in the multidisciplinary animal abuse investigation described by Smith-Blackmore and Bethard (2021)?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Performed chemical toxicology screening of tissue samples</li>
+          <li class="ja-opt"><b>B.</b> Provided expertise in analyzing bone remains to document skeletal trauma</li>
+          <li class="ja-opt"><b>C.</b> Conducted behavioral assessment of the dog prior to euthanasia</li>
+          <li class="ja-opt"><b>D.</b> Managed legal documentation and chain of custody</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Provided expertise in analyzing bone remains to document skeletal trauma</span>
+            <span class="ja-ans-rationale">The forensic anthropologist contributed expertise in skeletal analysis to document bone trauma, complementing the forensic veterinarian&#x27;s examination—a methodology applicable to cases with skeletonized or badly injured remains.</span>
+          </div>
+        </details>
+      </div>
+  </div>
+</section>
+<!-- JOURNAL-ARTICLES:END -->
 
 </div></main>
 

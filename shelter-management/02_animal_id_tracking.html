@@ -143,6 +143,10 @@
   <button data-p="tracking"><span class="dot"></span>In-Shelter Tracking</button>
   <button data-p="stats"><span class="dot"></span>Stats and Analysis</button>
   <button data-p="mcq"><span class="dot" style="background:var(--ink)"></span>MCQ Bank (30)</button>
+
+<!-- JOURNAL-TAB:START -->
+<button data-p="journal"><span class="dot" style="background:var(--lit, #1f6f8b)"></span>Journal Articles</button>
+<!-- JOURNAL-TAB:END -->
 </div></div></nav>
 <div class="srch-wrap"><div class="wrap"><div class="srch-row">
 <svg width="14" height="14" viewBox="0 0 15 15" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="m10.5 10.5 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -580,6 +584,190 @@
   </div>
   <div id="qhost"></div>
 </section>
+
+
+<!-- JOURNAL-ARTICLES:START -->
+<style data-journal-css>
+/* ── Journal Articles section ─────────────────────────────────────────── */
+.ja-standalone {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 2px solid var(--line, #d9d0bd);
+}
+.ja-article {
+  margin-bottom: 24px;
+  padding: 20px 22px 18px;
+  background: var(--paper2, #fbf8f1);
+  border-radius: 10px;
+  box-shadow: var(--shadow, 0 1px 2px rgba(15,61,58,.08), 0 8px 24px rgba(15,61,58,.06));
+}
+.ja-cite {
+  margin: 0 0 10px;
+  line-height: 1.45;
+  font-size: 0.97em;
+}
+.ja-meta {
+  color: var(--muted, #5d6b62);
+  font-size: 0.875em;
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0.01em;
+}
+.ja-meta a {
+  color: var(--lit, #1f6f8b);
+  text-decoration: none;
+}
+.ja-meta a:hover {
+  text-decoration: underline;
+}
+.ja-abstract {
+  border-left: 3px solid var(--lit, #1f6f8b);
+  padding: 10px 14px;
+  margin: 0 0 18px;
+  background: var(--lit-soft, #dcedf2);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.925em;
+  line-height: 1.6;
+  color: var(--ink, #0f3d3a);
+}
+.ja-mcq {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line, #d9d0bd);
+}
+.ja-mcq + .ja-mcq {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.ja-q {
+  font-weight: 600;
+  font-size: 0.93em;
+  margin: 0 0 7px;
+  color: var(--ink, #0f3d3a);
+}
+.ja-opts {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ja-opt {
+  font-size: 0.9em;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: var(--ink2, #15514c);
+  background: transparent;
+}
+.ja-opt b {
+  display: inline-block;
+  min-width: 1.5em;
+  color: var(--muted, #5d6b62);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.88em;
+}
+.ja-ans {
+  margin-top: 4px;
+}
+.ja-ans summary {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 0.83em;
+  font-family: "JetBrains Mono", monospace;
+  padding: 3px 10px;
+  border: 1px solid var(--lit, #1f6f8b);
+  border-radius: 5px;
+  color: var(--lit, #1f6f8b);
+  background: transparent;
+  user-select: none;
+  list-style: none;
+}
+.ja-ans summary::-webkit-details-marker { display: none; }
+.ja-ans summary::marker { display: none; }
+.ja-ans summary:hover {
+  background: var(--lit-soft, #dcedf2);
+}
+.ja-ans[open] summary {
+  background: var(--lit-soft, #dcedf2);
+  margin-bottom: 6px;
+}
+.ja-ans-body {
+  font-size: 0.9em;
+  padding: 8px 12px;
+  background: var(--paper, #fdfaf4);
+  border: 1px solid var(--line, #d9d0bd);
+  border-radius: 6px;
+  line-height: 1.55;
+  color: var(--ink, #0f3d3a);
+}
+.ja-ans-correct {
+  font-weight: 600;
+  color: var(--good, #2f7d52);
+  display: block;
+  margin-bottom: 4px;
+}
+.ja-ans-rationale {
+  color: var(--ink2, #15514c);
+}
+</style>
+<section class="panel" id="journal">
+  <h2 class="sec">Additional Resources</h2>
+  <p class="lead">Journal Articles (2021–2026). Exam items are drawn from the abstract only — read each abstract, then self-test.</p>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Tag! You’re Home! Reunification of Pet Cats With Their Owners Using a Community Engagement Approach A Community Case Report</b><br>
+    <span class="ja-meta">Aimee M. Dalrymple, Nina E. Stively and Rachael E. Kreisler &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2025</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Return to Owner (RTO) rates for cats in shelters are reported as low as 5.3%. However, the percentage of recovered pet cats located within their own neighborhoods is much higher. Loudoun County Animal Services, an open-admission shelter with an annual intake of 2,300 animals (46% cats), developed the Tag! You’re Home! Program (TYHP). This program encourages finders to return un-microchipped healthy social adult cats to their neighborhoods with a collar containing the shelter’s contact information. Finders can return them for intake after 5 days. Between 7/1/2022 and 12/31/2023, 476 stray cats were admitted, 253 (53%) of which were adults. Of the 32 cats enrolled in TYHP as an alternative to intake, 31% were confirmed RTO via owner contact, 31% did not require additional services, 19% were brought back for intake, 13% were kept by finders, and 6% were rehomed by finders. For the cats admitted, the adult RTO rate was 28%. Cats returned to owners through the shelter were found a median of 0.27 km (interquartile range 0.07–2.5), or approximately 2.7 city blocks, from home. Over 80% of TYHP cats did not require shelter intake, with a 31% confirmed RTO rate. The TYHP reduced the intake of adult stray cats by 9% while maintaining similar RTO rates.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the Tag! You&#x27;re Home! Program (TYHP) community case report, what percentage of program enrollees did NOT require shelter intake (i.e., were handled entirely in the community)?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> 31%</li>
+          <li class="ja-opt"><b>B.</b> 53%</li>
+          <li class="ja-opt"><b>C.</b> More than 80%</li>
+          <li class="ja-opt"><b>D.</b> 9%</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. More than 80%</span>
+            <span class="ja-ans-rationale">The abstract states: &#x27;Over 80% of TYHP cats did not require shelter intake,&#x27; demonstrating the program&#x27;s effectiveness at keeping cats out of the shelter system.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">According to the TYHP case report, at what median distance from home were adult stray cats that were returned to their owners through the shelter found?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> 0.07 km (approximately 0.7 city blocks)</li>
+          <li class="ja-opt"><b>B.</b> 0.27 km (approximately 2.7 city blocks)</li>
+          <li class="ja-opt"><b>C.</b> 2.5 km (approximately 25 city blocks)</li>
+          <li class="ja-opt"><b>D.</b> 1.0 km (approximately 10 city blocks)</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. 0.27 km (approximately 2.7 city blocks)</span>
+            <span class="ja-ans-rationale">The abstract states: &#x27;Cats returned to owners through the shelter were found a median of 0.27 km (interquartile range 0.07–2.5), or approximately 2.7 city blocks, from home.&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">The TYHP program enrolled cats meeting which criteria as an alternative to immediate shelter intake?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> All stray cats, including kittens and those with identification</li>
+          <li class="ja-opt"><b>B.</b> Microchipped stray cats only, to expedite owner reunification</li>
+          <li class="ja-opt"><b>C.</b> Unhealthy or injured cats requiring veterinary triage</li>
+          <li class="ja-opt"><b>D.</b> Un-microchipped healthy social adult cats</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: D. Un-microchipped healthy social adult cats</span>
+            <span class="ja-ans-rationale">The abstract states the program &#x27;encourages finders to return un-microchipped healthy social adult cats to their neighborhoods with a collar containing the shelter&#x27;s contact information.&#x27;</span>
+          </div>
+        </details>
+      </div>
+  </div>
+</section>
+<!-- JOURNAL-ARTICLES:END -->
 
 </div></main>
 

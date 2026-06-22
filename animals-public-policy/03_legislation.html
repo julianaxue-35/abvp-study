@@ -147,6 +147,10 @@
   <button data-p="state"><span class="dot"></span>State &amp; Local Policy</button>
   <button data-p="victoria"><span class="dot au"></span>Victoria, Australia</button>
   <button data-p="mcq"><span class="dot" style="background:#1a3d0a"></span>MCQ Test Bank</button>
+
+<!-- JOURNAL-TAB:START -->
+<button data-p="journal"><span class="dot" style="background:var(--lit, #1f6f8b)"></span>Journal Articles</button>
+<!-- JOURNAL-TAB:END -->
 </div></div></nav>
 <div class="srch-wrap"><div class="wrap"><div class="srch-row">
 <svg width="14" height="14" viewBox="0 0 15 15" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="m10.5 10.5 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -827,6 +831,174 @@
 
   </div><!-- /qlist -->
 </section>
+
+
+<!-- JOURNAL-ARTICLES:START -->
+<style data-journal-css>
+/* ── Journal Articles section ─────────────────────────────────────────── */
+.ja-standalone {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 2px solid var(--line, #d9d0bd);
+}
+.ja-article {
+  margin-bottom: 24px;
+  padding: 20px 22px 18px;
+  background: var(--paper2, #fbf8f1);
+  border-radius: 10px;
+  box-shadow: var(--shadow, 0 1px 2px rgba(15,61,58,.08), 0 8px 24px rgba(15,61,58,.06));
+}
+.ja-cite {
+  margin: 0 0 10px;
+  line-height: 1.45;
+  font-size: 0.97em;
+}
+.ja-meta {
+  color: var(--muted, #5d6b62);
+  font-size: 0.875em;
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0.01em;
+}
+.ja-meta a {
+  color: var(--lit, #1f6f8b);
+  text-decoration: none;
+}
+.ja-meta a:hover {
+  text-decoration: underline;
+}
+.ja-abstract {
+  border-left: 3px solid var(--lit, #1f6f8b);
+  padding: 10px 14px;
+  margin: 0 0 18px;
+  background: var(--lit-soft, #dcedf2);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.925em;
+  line-height: 1.6;
+  color: var(--ink, #0f3d3a);
+}
+.ja-mcq {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line, #d9d0bd);
+}
+.ja-mcq + .ja-mcq {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.ja-q {
+  font-weight: 600;
+  font-size: 0.93em;
+  margin: 0 0 7px;
+  color: var(--ink, #0f3d3a);
+}
+.ja-opts {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ja-opt {
+  font-size: 0.9em;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: var(--ink2, #15514c);
+  background: transparent;
+}
+.ja-opt b {
+  display: inline-block;
+  min-width: 1.5em;
+  color: var(--muted, #5d6b62);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.88em;
+}
+.ja-ans {
+  margin-top: 4px;
+}
+.ja-ans summary {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 0.83em;
+  font-family: "JetBrains Mono", monospace;
+  padding: 3px 10px;
+  border: 1px solid var(--lit, #1f6f8b);
+  border-radius: 5px;
+  color: var(--lit, #1f6f8b);
+  background: transparent;
+  user-select: none;
+  list-style: none;
+}
+.ja-ans summary::-webkit-details-marker { display: none; }
+.ja-ans summary::marker { display: none; }
+.ja-ans summary:hover {
+  background: var(--lit-soft, #dcedf2);
+}
+.ja-ans[open] summary {
+  background: var(--lit-soft, #dcedf2);
+  margin-bottom: 6px;
+}
+.ja-ans-body {
+  font-size: 0.9em;
+  padding: 8px 12px;
+  background: var(--paper, #fdfaf4);
+  border: 1px solid var(--line, #d9d0bd);
+  border-radius: 6px;
+  line-height: 1.55;
+  color: var(--ink, #0f3d3a);
+}
+.ja-ans-correct {
+  font-weight: 600;
+  color: var(--good, #2f7d52);
+  display: block;
+  margin-bottom: 4px;
+}
+.ja-ans-rationale {
+  color: var(--ink2, #15514c);
+}
+</style>
+<section class="panel" id="journal">
+  <h2 class="sec">Additional Resources</h2>
+  <p class="lead">Journal Articles (2021–2026). Exam items are drawn from the abstract only — read each abstract, then self-test.</p>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Playing the Cards You are delt Implementing Feline Lifesaving Programs and Practices Despite Restrictive Ordinance Provisions</b><br>
+    <span class="ja-meta">Programs and Practices Despite Restrictive Ordinance Provisions &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2024</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Trap-neuter-return (TNR) programs enjoy strong public support in the U.S. These programs have been shown to successfully increase live release rates and decrease euthanasia rates of cats in animal shelters. However, local laws can impede the implementation of TNR programs. In cooperation with St. Tammany Parish Department of Animal Services, this community case study describes the results of various programs and practices implemented to increase feline lifesaving despite restrictive ordinance provisions, as well as those associated with subsequent ordinance revisions. The St. Tammany Parish Department of Animal Services provided detailed data for the period of January 2015 through December 2023 (e.g. intake, live outcomes, and euthanasia) and information regarding various programs and practices related to feline lifesaving. The data was then examined for general trends. In addition, St. Tammany Parish’s Ordinance No. 21-4618, which includes both the original provisions and revised provisions, was examined for those likely to affect the shelter’s feline admissions and outcomes. The data suggests that the programs and practices implemented were associated with considerable increases in live outcomes for cats (from 26.4 to 95.4%) and corresponding reductions in euthanasia rates (from 71.1 to 3.0%). The adoption of revised ordinance provisions to reduce barriers for community cat management was associated with relatively little change; however, these provisions were generally positive in nature, removing an apparent requirement to impound at-large cats and facilitating the operation of a community cat program (CCP). This community case study illustrates the potential for animal shelters to substantially improve feline lifesaving regardless of possible legal impediments.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the St. Tammany Parish community case study on feline lifesaving despite restrictive ordinances, what live outcome rate for cats was achieved by December 2023, compared to the starting point in January 2015?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Increased from 50.0% to 80.0%</li>
+          <li class="ja-opt"><b>B.</b> Increased from 26.4% to 95.4%</li>
+          <li class="ja-opt"><b>C.</b> Increased from 40.0% to 75.0%</li>
+          <li class="ja-opt"><b>D.</b> Increased from 10.0% to 60.0%</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Increased from 26.4% to 95.4%</span>
+            <span class="ja-ans-rationale">The abstract states that programs were associated with &#x27;considerable increases in live outcomes for cats (from 26.4 to 95.4%) and corresponding reductions in euthanasia rates (from 71.1 to 3.0%).&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">According to the St. Tammany Parish case study, what was the effect of adopting revised ordinance provisions to reduce barriers for community cat management?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> The revised provisions were associated with the largest single improvement in feline live outcomes</li>
+          <li class="ja-opt"><b>B.</b> The provisions resulted in a significant increase in community cat program (CCP) intake</li>
+          <li class="ja-opt"><b>C.</b> The provisions were associated with relatively little change, though generally positive in removing barriers</li>
+          <li class="ja-opt"><b>D.</b> The provisions had no measurable effect on feline admissions or outcomes</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. The provisions were associated with relatively little change, though generally positive in removing barriers</span>
+            <span class="ja-ans-rationale">The abstract states that &#x27;the adoption of revised ordinance provisions to reduce barriers for community cat management was associated with relatively little change; however, these provisions were generally positive in nature, removing an apparent requirement to impound at-large cats and facilitating the operation of a community cat program.&#x27;</span>
+          </div>
+        </details>
+      </div>
+  </div>
+</section>
+<!-- JOURNAL-ARTICLES:END -->
 
 </div></main>
 

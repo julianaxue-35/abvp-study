@@ -142,6 +142,10 @@
   <button data-p="rabbit"><span class="dot"></span>Rabbit Housing</button>
   <button data-p="other"><span class="dot"></span>Other Animals</button>
   <button data-p="mcq"><span class="dot" style="background:#0f3d3a"></span>MCQ Test Bank</button>
+
+<!-- JOURNAL-TAB:START -->
+<button data-p="journal"><span class="dot" style="background:var(--lit, #1f6f8b)"></span>Journal Articles</button>
+<!-- JOURNAL-TAB:END -->
 </div></div></nav>
 <div class="srch-wrap"><div class="wrap"><div class="srch-row">
 <svg width="14" height="14" viewBox="0 0 15 15" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="m10.5 10.5 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -899,6 +903,296 @@
   </div>
   <div id="qhost"></div>
 </section>
+
+
+<!-- JOURNAL-ARTICLES:START -->
+<style data-journal-css>
+/* ── Journal Articles section ─────────────────────────────────────────── */
+.ja-standalone {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 2px solid var(--line, #d9d0bd);
+}
+.ja-article {
+  margin-bottom: 24px;
+  padding: 20px 22px 18px;
+  background: var(--paper2, #fbf8f1);
+  border-radius: 10px;
+  box-shadow: var(--shadow, 0 1px 2px rgba(15,61,58,.08), 0 8px 24px rgba(15,61,58,.06));
+}
+.ja-cite {
+  margin: 0 0 10px;
+  line-height: 1.45;
+  font-size: 0.97em;
+}
+.ja-meta {
+  color: var(--muted, #5d6b62);
+  font-size: 0.875em;
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0.01em;
+}
+.ja-meta a {
+  color: var(--lit, #1f6f8b);
+  text-decoration: none;
+}
+.ja-meta a:hover {
+  text-decoration: underline;
+}
+.ja-abstract {
+  border-left: 3px solid var(--lit, #1f6f8b);
+  padding: 10px 14px;
+  margin: 0 0 18px;
+  background: var(--lit-soft, #dcedf2);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.925em;
+  line-height: 1.6;
+  color: var(--ink, #0f3d3a);
+}
+.ja-mcq {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line, #d9d0bd);
+}
+.ja-mcq + .ja-mcq {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.ja-q {
+  font-weight: 600;
+  font-size: 0.93em;
+  margin: 0 0 7px;
+  color: var(--ink, #0f3d3a);
+}
+.ja-opts {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ja-opt {
+  font-size: 0.9em;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: var(--ink2, #15514c);
+  background: transparent;
+}
+.ja-opt b {
+  display: inline-block;
+  min-width: 1.5em;
+  color: var(--muted, #5d6b62);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.88em;
+}
+.ja-ans {
+  margin-top: 4px;
+}
+.ja-ans summary {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 0.83em;
+  font-family: "JetBrains Mono", monospace;
+  padding: 3px 10px;
+  border: 1px solid var(--lit, #1f6f8b);
+  border-radius: 5px;
+  color: var(--lit, #1f6f8b);
+  background: transparent;
+  user-select: none;
+  list-style: none;
+}
+.ja-ans summary::-webkit-details-marker { display: none; }
+.ja-ans summary::marker { display: none; }
+.ja-ans summary:hover {
+  background: var(--lit-soft, #dcedf2);
+}
+.ja-ans[open] summary {
+  background: var(--lit-soft, #dcedf2);
+  margin-bottom: 6px;
+}
+.ja-ans-body {
+  font-size: 0.9em;
+  padding: 8px 12px;
+  background: var(--paper, #fdfaf4);
+  border: 1px solid var(--line, #d9d0bd);
+  border-radius: 6px;
+  line-height: 1.55;
+  color: var(--ink, #0f3d3a);
+}
+.ja-ans-correct {
+  font-weight: 600;
+  color: var(--good, #2f7d52);
+  display: block;
+  margin-bottom: 4px;
+}
+.ja-ans-rationale {
+  color: var(--ink2, #15514c);
+}
+</style>
+<section class="panel" id="journal">
+  <h2 class="sec">Additional Resources</h2>
+  <p class="lead">Journal Articles (2021–2026). Exam items are drawn from the abstract only — read each abstract, then self-test.</p>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Who Let the Dogs Out? A Cross-Sectional Knowledge, Attitudes, and Practices Survey Reveals Caregiver Behavior and a Value-Action Gap in Ownership Practices as Potential Contributors to Free-Roaming Dog Populations in Fiji</b><br>
+    <span class="ja-meta">Quimby C, Dhillon J, Tunabuna TN, Hoopes JH &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2026 &middot; <a href="https://doi.org/10.56771/jsmcah.v5.166" target="_blank" rel="noopener">10.56771/jsmcah.v5.166</a></span></p>
+    <div class="ja-abstract"><b>Abstract.</b> This research examined dog population dynamics in Fiji through household surveys. The investigators found that 37% of households owned dogs for protection or companionship, while 54% fed stray animals. Despite favorable attitudes toward sterilization and licensing, uptake remained minimal due to awareness gaps. High levels of caregiver behavior and community dog feeding, compounded by low desexing rates contributed to the free-roaming dog problem. The study identified a significant disconnect between what residents valued and their actual practices—people expressed support for preventive care but failed to implement these measures consistently. The researchers concluded that traditional control methods like culling misaligned with community preferences, and recommended community-driven, evidence-based approaches to responsible ownership as essential for effective dog population management programs.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">A KAP survey of dog ownership practices in Fiji found what proportion of households fed stray animals?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> 37%</li>
+          <li class="ja-opt"><b>B.</b> 54%</li>
+          <li class="ja-opt"><b>C.</b> 21%</li>
+          <li class="ja-opt"><b>D.</b> 68%</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. 54%</span>
+            <span class="ja-ans-rationale">The abstract states &#x27;while 54% fed stray animals,&#x27; identifying this as the proportion of households engaging in community dog feeding behavior.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">The KAP survey of Fijian dog owners identified what key gap as contributing to free-roaming dog populations?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> A lack of access to licensed dog breeders</li>
+          <li class="ja-opt"><b>B.</b> A value-action gap where residents supported sterilization and licensing but uptake remained minimal</li>
+          <li class="ja-opt"><b>C.</b> Insufficient municipal sheltering capacity</li>
+          <li class="ja-opt"><b>D.</b> Absence of rabies vaccination awareness</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. A value-action gap where residents supported sterilization and licensing but uptake remained minimal</span>
+            <span class="ja-ans-rationale">The abstract identifies &#x27;a value-action gap&#x27; where &#x27;Despite favorable attitudes toward sterilization and licensing, uptake remained minimal due to awareness gaps&#x27; as the key finding.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">The authors of this Fijian dog population study concluded that which approach is most aligned with community preferences for managing free-roaming dogs?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Lethal culling programs with community outreach</li>
+          <li class="ja-opt"><b>B.</b> Import restrictions on exotic breeds</li>
+          <li class="ja-opt"><b>C.</b> Community-driven, evidence-based approaches to responsible ownership</li>
+          <li class="ja-opt"><b>D.</b> Municipal pound networks with compulsory licensing</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Community-driven, evidence-based approaches to responsible ownership</span>
+            <span class="ja-ans-rationale">The abstract states: &#x27;traditional control methods like culling misaligned with community preferences, and recommended community-driven, evidence-based approaches to responsible ownership as essential for effective dog population management programs.&#x27;</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Implementation and Evaluation of Nutritional Management Improvements for Elderly Community Cats on a University Campus</b><br>
+    <span class="ja-meta">Implementation and Evaluation of Nutritional Management &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2025</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Although the nutritional management of domestic pet cats has been widely studied, research on the dietary needs of community cats, especially older individuals, remains limited, mainly due to environmental and biological challenges that prevent many cats from reaching advanced age. This case study examines the nutritional assessment and the implementation of feeding improvement strategies for a group of community cats, mostly elderly (11/13), living at the Faculty of Philosophy and Human Sciences (FAFICH) in the Pampulha campus of the Federal University of Minas Gerais (UFMG), Brazil. Data collection from October 2022 to July 2024 included demographic documentation, photographic records, direct observations, and caregiver interviews. Key strategies implemented: 1) installing feeding stations to protect dry food from stray dogs, 2) nutritional and body condition assessments, 3) creation of a Solidarity Food Bank to ensure food through donations. The diet consisted of ad libitum dry kitten food and a daily wet food meal. An innovative positive reinforcement self-weighing system was introduced for regular weight monitoring. During the study, cats’ body condition improved significantly, food security was achieved, and caregiver-cat bonds strengthened, showing the importance of targeted interventions to improve community cats’ general welfare, especially older ones.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">A case study examined nutritional management of community cats at a Brazilian university campus. What proportion of the 13 cats in the group were classified as elderly?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> 5 of 13 (approximately 38%)</li>
+          <li class="ja-opt"><b>B.</b> 8 of 13 (approximately 62%)</li>
+          <li class="ja-opt"><b>C.</b> 11 of 13 (approximately 85%)</li>
+          <li class="ja-opt"><b>D.</b> All 13 (100%)</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. 11 of 13 (approximately 85%)</span>
+            <span class="ja-ans-rationale">The abstract states the group consisted of &#x27;community cats, mostly elderly (11/13),&#x27; corresponding to approximately 85% of the 13 cats studied.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the UFMG campus community cat nutritional management study, which innovative system was introduced for monitoring cat body weight?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> A trap-weigh-release protocol using humane traps fitted with digital scales</li>
+          <li class="ja-opt"><b>B.</b> A positive reinforcement self-weighing system for regular weight monitoring</li>
+          <li class="ja-opt"><b>C.</b> Remote camera-based body condition scoring by off-site nutritionists</li>
+          <li class="ja-opt"><b>D.</b> Monthly sedation and manual weighing by veterinary students</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. A positive reinforcement self-weighing system for regular weight monitoring</span>
+            <span class="ja-ans-rationale">The abstract specifically mentions that &#x27;an innovative positive reinforcement self-weighing system was introduced for regular weight monitoring&#x27; as one of the key strategies implemented.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">According to the UFMG community cat case study, what diet was provided to the cats following the nutritional management improvements?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Ad libitum wet food with weekly dry food supplementation</li>
+          <li class="ja-opt"><b>B.</b> Restricted-calorie senior dry food twice daily</li>
+          <li class="ja-opt"><b>C.</b> Ad libitum dry kitten food and a daily wet food meal</li>
+          <li class="ja-opt"><b>D.</b> Raw diet with vitamin supplementation provided by caregivers</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Ad libitum dry kitten food and a daily wet food meal</span>
+            <span class="ja-ans-rationale">The abstract states that &#x27;The diet consisted of ad libitum dry kitten food and a daily wet food meal&#x27; as part of the implemented nutritional improvement strategies.</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Assessment of the Accuracy of Visual Weight Estimates of Cats</b><br>
+    <span class="ja-meta"> &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2023 &middot; <a href="https://doi.org/10.56771/jsmcah.v2.54" target="_blank" rel="noopener">10.56771/jsmcah.v2.54</a></span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Visual estimation of cat weight is commonly performed during trap-neuter-return (TNR) events where cats are brought in humane traps of various models with differing weights. These cats are typically asocial and cannot be safely handled before the induction of anesthesia. Weight estimate accuracy is important since it determines the anesthetic induction dose. This study measured the accuracy of the visual weight estimates made by various veterinary professionals involved in the program, including a veterinarian, veterinary students of all years, and several veterinary technicians, and explored whether there were variables that systematically predicted percent deviation of estimate from actual weight. Subjects estimated the weight and noted the posture (standing, sitting, crouching, laying). Cat demographics, including actual weight (kg), body condition score (BCS), coat color, solid or patterned coat, sex and pregnancy status were recorded. Age was not considered due to the correlation with weight. Accuracy was measured as the percent of estimates within 20% (PW20) and 10% (PW10). Linear regression clustered on cat was used to evaluate whether cat posture or demographic variables were associated with the percent deviation between estimated and actual weight. Potential association between the deviation and student experience as measured by student year, previous technician experience, and experience with TNRs was evaluated using linear regression. A total of 315 cats and 647 estimates were evaluated for this study from 5 TNR clinics held at Midwestern University between May 2022 and October 2022. A veterinarian provided 142 visual weight estimates, veterinary students 310, and a veterinary technician 195. The median weight was 2.7 kg (IQR 2.0-3.5). Veterinarians had a PW20/PW10 of 54%/32%, veterinary students 43%/23%, and veterinary technicians 35%/16%. Heavier cats tended to be underestimated, while lighter cats tended to be overestimated. The percent deviation decreased by 15% (95% CI -18 to -12%) per kg from a high of 45% at 1 kg, crossing 0% at approximately 4 kg, then decreasing to -43% at 7 kg. The mean difference, which did not vary by the actual weight, was 0.5 kg (SD 0.8) for cats under 3.5 kg. At weights of 3.5 or greater, the difference decreased by -0.9 kg for each additional kg of actual weight. There were several predictors of percent deviation from actual weight. The weight of female cats tended to be overestimated by 9% (95% CI 1-16%, P = 0.020), females that were pregnant underestimated by 22% (-39 to -5%), and cats with a BCS less than 5 overestimated by 10% (95% CI 2-18%, P = 0.012). There was no significant systematic variation by cat posture, color or coat pattern. Student experience did not significantly impact the deviation in their estimates. As measured by the PW20 and PW10, the veterinarian was the most accurate at visual weight estimates, although only slightly more than half of the cats were estimated within 20%. There were predictors of percent deviation, but those predictors are often only determined after anesthesia is induced. Difference between estimated and actual weights for cats under 3.5 kg was similar, with the larger difference in percent deviation for lighter cats being due to the smaller denominator of the actual weight. Cats over 3.5 kg tended to be underestimated in weight, with both difference and deviation increasing. DOWNLOADS PUBLISHED 2023-06-16 ISSUE Vol. 2 No. S1 (2023): 2023 ABVP Abstracts</div>
+      <div class="ja-mcq">
+        <p class="ja-q">In a study of 315 cats across 5 TNR clinics, which professional group achieved the highest accuracy in visual weight estimates (PW20/PW10)?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Veterinary technicians (35%/16%)</li>
+          <li class="ja-opt"><b>B.</b> Veterinary students (43%/23%)</li>
+          <li class="ja-opt"><b>C.</b> Veterinarians (54%/32%)</li>
+          <li class="ja-opt"><b>D.</b> Experienced TNR volunteers (61%/40%)</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Veterinarians (54%/32%)</span>
+            <span class="ja-ans-rationale">The abstract reports PW20/PW10 values of 54%/32% for the veterinarian, 43%/23% for veterinary students, and 35%/16% for the veterinary technician — making veterinarians the most accurate group.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the TNR visual weight estimation study, how did body weight affect the direction of estimation error?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Heavier cats were overestimated; lighter cats were underestimated</li>
+          <li class="ja-opt"><b>B.</b> Heavier cats were underestimated; lighter cats were overestimated</li>
+          <li class="ja-opt"><b>C.</b> Estimation error was random and not associated with actual weight</li>
+          <li class="ja-opt"><b>D.</b> Only cats above 5 kg showed systematic estimation bias</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Heavier cats were underestimated; lighter cats were overestimated</span>
+            <span class="ja-ans-rationale">The abstract states &#x27;Heavier cats tended to be underestimated, while lighter cats tended to be overestimated,&#x27; with the percent deviation crossing zero at approximately 4 kg.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In the visual weight estimation study of cats at TNR clinics, which of the following cat characteristics was associated with overestimation of weight?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Male sex</li>
+          <li class="ja-opt"><b>B.</b> Coat pattern (patterned vs solid)</li>
+          <li class="ja-opt"><b>C.</b> Body condition score less than 5</li>
+          <li class="ja-opt"><b>D.</b> Cat posture (standing vs crouching)</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Body condition score less than 5</span>
+            <span class="ja-ans-rationale">The abstract found that &#x27;cats with a BCS less than 5 [were] overestimated by 10% (95% CI 2–18%, P = 0.012),&#x27; while posture, color, and coat pattern showed no significant association.</span>
+          </div>
+        </details>
+      </div>
+  </div>
+</section>
+<!-- JOURNAL-ARTICLES:END -->
 
 </div></main>
 
