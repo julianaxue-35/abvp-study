@@ -143,7 +143,7 @@
   <button data-p="mcq"><span class="dot" style="background:#0f3d3a"></span>MCQ Test Bank</button>
 
 <!-- JOURNAL-TAB:START -->
-<button data-p="journal"><span class="dot" style="background:var(--lit)"></span>Journal Articles</button>
+<button data-p="journal"><span class="dot" style="background:var(--lit, #1f6f8b)"></span>Journal Articles</button>
 <!-- JOURNAL-TAB:END -->
 </div></div></nav>
 <div class="srch-wrap"><div class="wrap"><div class="srch-row">
@@ -627,12 +627,17 @@
 <!-- JOURNAL-ARTICLES:START -->
 <style data-journal-css>
 /* ── Journal Articles section ─────────────────────────────────────────── */
+.ja-standalone {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 2px solid var(--line, #d9d0bd);
+}
 .ja-article {
   margin-bottom: 24px;
   padding: 20px 22px 18px;
-  background: var(--paper2);
+  background: var(--paper2, #fbf8f1);
   border-radius: 10px;
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow, 0 1px 2px rgba(15,61,58,.08), 0 8px 24px rgba(15,61,58,.06));
 }
 .ja-cite {
   margin: 0 0 10px;
@@ -640,32 +645,32 @@
   font-size: 0.97em;
 }
 .ja-meta {
-  color: var(--muted);
+  color: var(--muted, #5d6b62);
   font-size: 0.875em;
   font-family: "JetBrains Mono", monospace;
   letter-spacing: 0.01em;
 }
 .ja-meta a {
-  color: var(--lit);
+  color: var(--lit, #1f6f8b);
   text-decoration: none;
 }
 .ja-meta a:hover {
   text-decoration: underline;
 }
 .ja-abstract {
-  border-left: 3px solid var(--lit);
+  border-left: 3px solid var(--lit, #1f6f8b);
   padding: 10px 14px;
   margin: 0 0 18px;
-  background: var(--lit-soft);
+  background: var(--lit-soft, #dcedf2);
   border-radius: 0 6px 6px 0;
   font-size: 0.925em;
   line-height: 1.6;
-  color: var(--ink);
+  color: var(--ink, #0f3d3a);
 }
 .ja-mcq {
   margin-top: 14px;
   padding-top: 14px;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--line, #d9d0bd);
 }
 .ja-mcq + .ja-mcq {
   margin-top: 10px;
@@ -675,7 +680,7 @@
   font-weight: 600;
   font-size: 0.93em;
   margin: 0 0 7px;
-  color: var(--ink);
+  color: var(--ink, #0f3d3a);
 }
 .ja-opts {
   list-style: none;
@@ -689,13 +694,13 @@
   font-size: 0.9em;
   padding: 4px 8px;
   border-radius: 5px;
-  color: var(--ink2);
+  color: var(--ink2, #15514c);
   background: transparent;
 }
 .ja-opt b {
   display: inline-block;
   min-width: 1.5em;
-  color: var(--muted);
+  color: var(--muted, #5d6b62);
   font-family: "JetBrains Mono", monospace;
   font-size: 0.88em;
 }
@@ -708,9 +713,9 @@
   font-size: 0.83em;
   font-family: "JetBrains Mono", monospace;
   padding: 3px 10px;
-  border: 1px solid var(--lit);
+  border: 1px solid var(--lit, #1f6f8b);
   border-radius: 5px;
-  color: var(--lit);
+  color: var(--lit, #1f6f8b);
   background: transparent;
   user-select: none;
   list-style: none;
@@ -718,29 +723,29 @@
 .ja-ans summary::-webkit-details-marker { display: none; }
 .ja-ans summary::marker { display: none; }
 .ja-ans summary:hover {
-  background: var(--lit-soft);
+  background: var(--lit-soft, #dcedf2);
 }
 .ja-ans[open] summary {
-  background: var(--lit-soft);
+  background: var(--lit-soft, #dcedf2);
   margin-bottom: 6px;
 }
 .ja-ans-body {
   font-size: 0.9em;
   padding: 8px 12px;
-  background: var(--paper);
-  border: 1px solid var(--line);
+  background: var(--paper, #fdfaf4);
+  border: 1px solid var(--line, #d9d0bd);
   border-radius: 6px;
   line-height: 1.55;
-  color: var(--ink);
+  color: var(--ink, #0f3d3a);
 }
 .ja-ans-correct {
   font-weight: 600;
-  color: var(--good);
+  color: var(--good, #2f7d52);
   display: block;
   margin-bottom: 4px;
 }
 .ja-ans-rationale {
-  color: var(--ink2);
+  color: var(--ink2, #15514c);
 }
 </style>
 <section class="panel" id="journal">

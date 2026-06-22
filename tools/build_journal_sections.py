@@ -64,20 +64,29 @@ def _abstract_html(text: str) -> str:
 
 def render_tab_button() -> str:
     """Return the tab button HTML for the Journal Articles tab."""
-    return '<button data-p="journal"><span class="dot" style="background:var(--lit)"></span>Journal Articles</button>'
+    return '<button data-p="journal"><span class="dot" style="background:var(--lit, #1f6f8b)"></span>Journal Articles</button>'
 
 
 def render_styles() -> str:
-    """Return a <style data-journal-css> block for journal section styling."""
+    """Return a <style data-journal-css> block for journal section styling.
+
+    Every var(--x) includes a literal fallback so this section renders
+    correctly on pages that do not define the variable.
+    """
     return """\
 <style data-journal-css>
 /* ── Journal Articles section ─────────────────────────────────────────── */
+.ja-standalone {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 2px solid var(--line, #d9d0bd);
+}
 .ja-article {
   margin-bottom: 24px;
   padding: 20px 22px 18px;
-  background: var(--paper2);
+  background: var(--paper2, #fbf8f1);
   border-radius: 10px;
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow, 0 1px 2px rgba(15,61,58,.08), 0 8px 24px rgba(15,61,58,.06));
 }
 .ja-cite {
   margin: 0 0 10px;
@@ -85,32 +94,32 @@ def render_styles() -> str:
   font-size: 0.97em;
 }
 .ja-meta {
-  color: var(--muted);
+  color: var(--muted, #5d6b62);
   font-size: 0.875em;
   font-family: "JetBrains Mono", monospace;
   letter-spacing: 0.01em;
 }
 .ja-meta a {
-  color: var(--lit);
+  color: var(--lit, #1f6f8b);
   text-decoration: none;
 }
 .ja-meta a:hover {
   text-decoration: underline;
 }
 .ja-abstract {
-  border-left: 3px solid var(--lit);
+  border-left: 3px solid var(--lit, #1f6f8b);
   padding: 10px 14px;
   margin: 0 0 18px;
-  background: var(--lit-soft);
+  background: var(--lit-soft, #dcedf2);
   border-radius: 0 6px 6px 0;
   font-size: 0.925em;
   line-height: 1.6;
-  color: var(--ink);
+  color: var(--ink, #0f3d3a);
 }
 .ja-mcq {
   margin-top: 14px;
   padding-top: 14px;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--line, #d9d0bd);
 }
 .ja-mcq + .ja-mcq {
   margin-top: 10px;
@@ -120,7 +129,7 @@ def render_styles() -> str:
   font-weight: 600;
   font-size: 0.93em;
   margin: 0 0 7px;
-  color: var(--ink);
+  color: var(--ink, #0f3d3a);
 }
 .ja-opts {
   list-style: none;
@@ -134,13 +143,13 @@ def render_styles() -> str:
   font-size: 0.9em;
   padding: 4px 8px;
   border-radius: 5px;
-  color: var(--ink2);
+  color: var(--ink2, #15514c);
   background: transparent;
 }
 .ja-opt b {
   display: inline-block;
   min-width: 1.5em;
-  color: var(--muted);
+  color: var(--muted, #5d6b62);
   font-family: "JetBrains Mono", monospace;
   font-size: 0.88em;
 }
@@ -153,9 +162,9 @@ def render_styles() -> str:
   font-size: 0.83em;
   font-family: "JetBrains Mono", monospace;
   padding: 3px 10px;
-  border: 1px solid var(--lit);
+  border: 1px solid var(--lit, #1f6f8b);
   border-radius: 5px;
-  color: var(--lit);
+  color: var(--lit, #1f6f8b);
   background: transparent;
   user-select: none;
   list-style: none;
@@ -163,35 +172,39 @@ def render_styles() -> str:
 .ja-ans summary::-webkit-details-marker { display: none; }
 .ja-ans summary::marker { display: none; }
 .ja-ans summary:hover {
-  background: var(--lit-soft);
+  background: var(--lit-soft, #dcedf2);
 }
 .ja-ans[open] summary {
-  background: var(--lit-soft);
+  background: var(--lit-soft, #dcedf2);
   margin-bottom: 6px;
 }
 .ja-ans-body {
   font-size: 0.9em;
   padding: 8px 12px;
-  background: var(--paper);
-  border: 1px solid var(--line);
+  background: var(--paper, #fdfaf4);
+  border: 1px solid var(--line, #d9d0bd);
   border-radius: 6px;
   line-height: 1.55;
-  color: var(--ink);
+  color: var(--ink, #0f3d3a);
 }
 .ja-ans-correct {
   font-weight: 600;
-  color: var(--good);
+  color: var(--good, #2f7d52);
   display: block;
   margin-bottom: 4px;
 }
 .ja-ans-rationale {
-  color: var(--ink2);
+  color: var(--ink2, #15514c);
 }
 </style>"""
 
 
-def render_panel(records: list) -> str:
-    """Return the inner HTML of a <section class="panel" id="journal"> element."""
+def render_panel(records: list, standalone: bool = False) -> str:
+    """Return a <section> element containing journal article cards.
+
+    If standalone is True, the section uses class "ja-standalone" (visible
+    inline) instead of class "panel" (hidden until tab click).
+    """
 
     # Sort by year desc, then title asc
     sorted_records = sorted(records, key=lambda r: (-r["year"], r["title"].lower()))
@@ -257,8 +270,13 @@ def render_panel(records: list) -> str:
 
     articles_html = "\n".join(articles_html_parts)
 
+    if standalone:
+        section_attrs = 'id="journal" class="ja-standalone"'
+    else:
+        section_attrs = 'class="panel" id="journal"'
+
     return f"""\
-<section class="panel" id="journal">
+<section {section_attrs}>
   <h2 class="sec">Additional Resources</h2>
   <p class="lead">Journal Articles (2021–2026). Exam items are drawn from the abstract only — read each abstract, then self-test.</p>
 {articles_html}
@@ -271,7 +289,16 @@ def render_panel(records: list) -> str:
 
 def inject(page_path: str) -> bool:
     """
-    Inject the Journal Articles tab button and panel section into the given page.
+    Inject the Journal Articles section into the given page.
+
+    Two layouts are supported:
+      - Tabbed SPA (has id="tabrow"): inject a tab button (JOURNAL-TAB markers)
+        AND a hidden panel (<section class="panel" id="journal">) inside
+        main>.wrap (JOURNAL-ARTICLES markers).
+      - No-tab page (has <main> but no id="tabrow"): inject ONLY a visible
+        standalone section (<section id="journal" class="ja-standalone">)
+        at the end of <main> content (JOURNAL-ARTICLES markers). No tab button
+        is injected.
 
     page_path is a relative path from the repo root (e.g.
     'physical-health/surgery_anesthesia_hub.html').
@@ -287,92 +314,105 @@ def inject(page_path: str) -> bool:
     content = abs_path.read_text(encoding="utf-8")
 
     # ----------------------------------------------------------------
-    # Validate template: must have #tabrow and <main> with .wrap
+    # Detect layout
     # ----------------------------------------------------------------
-    if not re.search(r'<div[^>]+class=["\'][^"\']*\btabrow\b[^"\']*["\'][^>]*id="tabrow"', content) and \
-       not re.search(r'<div[^>]+id="tabrow"', content):
-        print(f"  [SKIP] {page_path}: no #tabrow div found — not matching expected template")
+    has_tabrow = bool(re.search(r'id="tabrow"', content))
+    has_main = "<main>" in content
+
+    if not has_main:
+        print(f"  [SKIP] {page_path}: no <main> element found — not matching expected template")
         return False
 
-    if "<main>" not in content:
+    if not has_tabrow and not has_main:
         print(f"  [SKIP] {page_path}: no <main> element found — not matching expected template")
         return False
 
     # ----------------------------------------------------------------
-    # Build new content fragments
+    # Load records
     # ----------------------------------------------------------------
-    # We'll collect records for this page at call time (caller passes them)
-    # but inject() needs records — we'll call it with records already set.
-    # Actually, inject() is called from _inject_page() which passes records.
-    # We'll restructure: inject() accepts records as second param.
-    # But the spec says inject(page_path) — let's load from catalog here.
     all_records = load_catalog(str(_CATALOG_PATH))
     records = [r for r in all_records if r["subdomain_page"] == page_path]
     if not records:
         print(f"  [SKIP] {page_path}: no catalog records for this page")
         return False
 
-    tab_button_html = render_tab_button()
     styles_html = render_styles()
-    panel_html = render_panel(records)
-
-    tab_region = f"{TAB_START}\n{tab_button_html}\n{TAB_END}"
-    panel_region = f"{PANEL_START}\n{styles_html}\n{panel_html}\n{PANEL_END}"
 
     # ----------------------------------------------------------------
-    # TAB injection: idempotent replacement or fresh insert
+    # TABBED layout
     # ----------------------------------------------------------------
-    if TAB_START in content:
-        # Replace existing region
-        content = re.sub(
-            re.escape(TAB_START) + r".*?" + re.escape(TAB_END),
-            tab_region,
-            content,
-            flags=re.DOTALL,
-        )
+    if has_tabrow:
+        tab_button_html = render_tab_button()
+        panel_html = render_panel(records, standalone=False)
+
+        tab_region = f"{TAB_START}\n{tab_button_html}\n{TAB_END}"
+        panel_region = f"{PANEL_START}\n{styles_html}\n{panel_html}\n{PANEL_END}"
+
+        # TAB injection: idempotent replacement or fresh insert
+        if TAB_START in content:
+            content = re.sub(
+                re.escape(TAB_START) + r".*?" + re.escape(TAB_END),
+                tab_region,
+                content,
+                flags=re.DOTALL,
+            )
+        else:
+            tabrow_open_match = re.search(r'<div[^>]+id="tabrow"[^>]*>', content)
+            if not tabrow_open_match:
+                print(f"  [SKIP] {page_path}: cannot locate #tabrow open tag")
+                return False
+
+            search_start = tabrow_open_match.end()
+            close_div_match = re.search(r"</div>", content[search_start:])
+            if not close_div_match:
+                print(f"  [SKIP] {page_path}: cannot find closing </div> for #tabrow")
+                return False
+
+            insert_pos = search_start + close_div_match.start()
+            content = content[:insert_pos] + "\n" + tab_region + "\n" + content[insert_pos:]
+
+        # PANEL injection: idempotent replacement or fresh insert
+        if PANEL_START in content:
+            content = re.sub(
+                re.escape(PANEL_START) + r".*?" + re.escape(PANEL_END),
+                panel_region,
+                content,
+                flags=re.DOTALL,
+            )
+        else:
+            # Find </div></main> (close of main > .wrap) and insert before it.
+            main_close_match = re.search(r"</div>\s*</main>", content)
+            if not main_close_match:
+                print(f"  [SKIP] {page_path}: cannot locate </div></main> anchor")
+                return False
+
+            insert_pos = main_close_match.start()
+            content = content[:insert_pos] + "\n" + panel_region + "\n\n" + content[insert_pos:]
+
+    # ----------------------------------------------------------------
+    # NO-TAB (standalone) layout
+    # ----------------------------------------------------------------
     else:
-        # Find the closing </div> of the #tabrow div and insert before it.
-        # Pattern: locate id="tabrow" then find the matching </div>
-        tabrow_open_match = re.search(r'<div[^>]+id="tabrow"[^>]*>', content)
-        if not tabrow_open_match:
-            print(f"  [SKIP] {page_path}: cannot locate #tabrow open tag")
-            return False
+        panel_html = render_panel(records, standalone=True)
+        panel_region = f"{PANEL_START}\n{styles_html}\n{panel_html}\n{PANEL_END}"
 
-        # Find the </div></div></nav> after the tabrow
-        # The tabrow is the innermost div, so the first </div> after its content
-        # closes it.  Then comes </div></nav>.
-        # We search from the end of the tabrow open tag.
-        search_start = tabrow_open_match.end()
-        close_div_match = re.search(r"</div>", content[search_start:])
-        if not close_div_match:
-            print(f"  [SKIP] {page_path}: cannot find closing </div> for #tabrow")
-            return False
+        # PANEL injection: idempotent replacement or fresh insert
+        if PANEL_START in content:
+            content = re.sub(
+                re.escape(PANEL_START) + r".*?" + re.escape(PANEL_END),
+                panel_region,
+                content,
+                flags=re.DOTALL,
+            )
+        else:
+            # Insert before </main> (standalone pages may not have </div></main>)
+            main_close_match = re.search(r"</main>", content)
+            if not main_close_match:
+                print(f"  [SKIP] {page_path}: cannot locate </main> anchor")
+                return False
 
-        insert_pos = search_start + close_div_match.start()
-        content = content[:insert_pos] + "\n" + tab_region + "\n" + content[insert_pos:]
-
-    # ----------------------------------------------------------------
-    # PANEL injection: idempotent replacement or fresh insert
-    # ----------------------------------------------------------------
-    if PANEL_START in content:
-        # Replace existing region
-        content = re.sub(
-            re.escape(PANEL_START) + r".*?" + re.escape(PANEL_END),
-            panel_region,
-            content,
-            flags=re.DOTALL,
-        )
-    else:
-        # Find </div></main> (the close of main > .wrap) and insert before it.
-        # The template has exactly one <main><div class="wrap"> pair.
-        # Find the last </div> before </main>.
-        main_close_match = re.search(r"</div>\s*</main>", content)
-        if not main_close_match:
-            print(f"  [SKIP] {page_path}: cannot locate </div></main> anchor")
-            return False
-
-        insert_pos = main_close_match.start()
-        content = content[:insert_pos] + "\n" + panel_region + "\n\n" + content[insert_pos:]
+            insert_pos = main_close_match.start()
+            content = content[:insert_pos] + "\n" + panel_region + "\n\n" + content[insert_pos:]
 
     # ----------------------------------------------------------------
     # Write back
