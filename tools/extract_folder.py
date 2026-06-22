@@ -777,6 +777,12 @@ def extract_abstract(text: str):
 
 def clean_abstract(text: str) -> str:
     """Clean up extracted abstract text: fix whitespace, remove page artefacts."""
+    # --- Fix 1: de-hyphenate line-wrapped words (BEFORE whitespace collapse) ---
+    # pdftotext -layout often splits a word across a line break with a hyphen,
+    # e.g. "culmi-\n   nating" → should be "culminating".
+    # Rule: lowercase-letter + hyphen at end of line, followed by lowercase on next line.
+    text = re.sub(r'([a-zA-Z])-\s*\n\s*([a-z])', r'\1\2', text)
+
     # --- Fix 2: strip date/correspondence metadata noise (BEFORE joining lines) ---
     # JSMCAH two-column PDFs use -layout which places each row's right-column
     # content at the end of the same text line, separated by many spaces.
@@ -881,6 +887,15 @@ def clean_abstract(text: str) -> str:
 
     # Collapse multiple spaces
     text = re.sub(r" {2,}", " ", text)
+
+    # --- Fix 1b: de-hyphenate collapsed form "culmi- nating" (after whitespace collapse) ---
+    # After joining lines, some artifacts become "word- word" (hyphen + space between
+    # lowercase fragments). Only join when BOTH sides are lowercase — this preserves
+    # legitimate hyphenated compounds like "spay-neuter" (no space after hyphen) and
+    # "high-Volume" (uppercase continuation). Pattern: lowercase char, hyphen, one-or-more
+    # spaces, lowercase char.
+    text = re.sub(r'([a-z])-\s+([a-z])', r'\1\2', text)
+
     # Fix common run-together words from PDF layout
     text = text.strip()
     return text
@@ -1034,10 +1049,58 @@ def extract_year(text: str, filename: str):
     return None
 
 
+def _clean_authors_string(authors: str) -> str:
+    """
+    Clean an author string extracted from PDF text for display.
+
+    Steps:
+    1. Cut at the first ";" — everything from the first semicolon onward is
+       affiliation / address noise.
+    2. Strip trailing superscript digits and asterisks from each name token
+       (e.g. "Guilfoyle1*" → "Guilfoyle", "Sokol2" → "Sokol").
+    3. Collapse whitespace and trim.
+    4. If the result is empty or clearly junk, return "".
+    """
+    if not authors:
+        return ""
+
+    # Step 1: cut at first semicolon
+    if ";" in authors:
+        authors = authors[: authors.index(";")]
+
+    # Step 2: strip trailing digit-runs and asterisks from each token
+    # Match a word boundary followed by a name token ending in digits/asterisks.
+    # We target tokens that end in [0-9*]+ where the preceding char is a letter.
+    authors = re.sub(r'([A-Za-z])(\d+\*?|\*)', r'\1', authors)
+
+    # Step 3: collapse whitespace and trim
+    authors = re.sub(r'\s+', ' ', authors).strip()
+    # Strip any trailing commas or "and" fragments left after cut
+    authors = authors.rstrip(",").strip()
+    if authors.lower().endswith(" and"):
+        authors = authors[:-4].strip()
+
+    # Step 4: sanity check — if the remaining string still looks like an address
+    # (digits at start, or contains institution keywords that crept in before the ";")
+    if re.match(r'^\d', authors):
+        return ""
+    _AFF_KW = re.compile(
+        r'\b(?:University|Society|Diagnostics|Hospital|Institute|College|'
+        r'Department|LLC|Inc|Ltd|Laboratory|Humane)\b',
+        re.IGNORECASE,
+    )
+    if _AFF_KW.search(authors):
+        # Cut at the first affiliation keyword token
+        m = _AFF_KW.search(authors)
+        authors = authors[: m.start()].strip().rstrip(",").strip()
+
+    return authors
+
+
 def extract_authors(text: str) -> str:
     """
     Try to extract author names from PDF text (first page).
-    Returns a string or "" if not found.
+    Returns a cleaned string or "" if not found.
     """
     # Authors typically appear after the title (first 1-2 lines) and before abstract
     # They often follow the pattern: Firstname Lastname1 and Firstname Lastname2
@@ -1059,7 +1122,8 @@ def extract_authors(text: str) -> str:
                 candidate_lines.append(stripped)
 
     if candidate_lines:
-        return "; ".join(candidate_lines[:2])
+        raw = "; ".join(candidate_lines[:2])
+        return _clean_authors_string(raw)
 
     # Try simpler: look for lines with multiple capitalized names
     for line in lines[1:15]:
@@ -1075,7 +1139,7 @@ def extract_authors(text: str) -> str:
         # Author-like: starts with capital letter, contains name patterns
         names = re.findall(r"[A-Z][a-z]+(?:\s+[A-Z]\.?)?\s+[A-Z][a-z]+", stripped)
         if len(names) >= 1:
-            return stripped
+            return _clean_authors_string(stripped)
 
     return ""
 
@@ -1332,6 +1396,29 @@ def process_pdfs() -> None:
             "note": note if note else "ok",
         })
         print(f"    -> OK (year={year}, page={subdomain_page}, abstract={abs_status})")
+
+    # --- Problem 3: carry over existing MCQs so re-extraction is non-destructive ---
+    # Load the current catalog (if present) and build a map of id → mcqs.
+    existing_mcqs: dict = {}
+    if Path(CATALOG_PATH).exists():
+        try:
+            existing = lib_catalog.load_catalog(CATALOG_PATH)
+            for existing_rec in existing:
+                eid = existing_rec.get("id", "")
+                mcqs = existing_rec.get("mcqs", [])
+                if eid and mcqs:
+                    existing_mcqs[eid] = mcqs
+        except Exception:
+            pass  # corrupted catalog — start fresh, no MCQs to carry over
+
+    mcqs_restored = 0
+    for rec in records:
+        if rec["id"] in existing_mcqs:
+            rec["mcqs"] = existing_mcqs[rec["id"]]
+            mcqs_restored += 1
+
+    if mcqs_restored:
+        print(f"  (restored MCQs for {mcqs_restored} record(s) from existing catalog)")
 
     # Save catalog
     lib_catalog.save_catalog(CATALOG_PATH, records)
