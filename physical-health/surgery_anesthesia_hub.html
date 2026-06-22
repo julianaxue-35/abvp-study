@@ -141,6 +141,10 @@
   <button data-p="periop"><span class="dot"></span>Pain &amp; Post-Op</button>
   <button data-p="pharm"><span class="dot"></span>Anesthetic Pharmacology</button>
   <button data-p="mcq"><span class="dot" style="background:#0f3d3a"></span>MCQ Test Bank</button>
+
+<!-- JOURNAL-TAB:START -->
+<button data-p="journal"><span class="dot" style="background:var(--lit)"></span>Journal Articles</button>
+<!-- JOURNAL-TAB:END -->
 </div></div></nav>
 <div class="srch-wrap"><div class="wrap"><div class="srch-row">
 <svg width="14" height="14" viewBox="0 0 15 15" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="m10.5 10.5 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -618,6 +622,662 @@
   </div>
   <div id="qhost"></div>
 </section>
+
+
+<!-- JOURNAL-ARTICLES:START -->
+<style data-journal-css>
+/* ── Journal Articles section ─────────────────────────────────────────── */
+.ja-article {
+  margin-bottom: 24px;
+  padding: 20px 22px 18px;
+  background: var(--paper2);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+.ja-cite {
+  margin: 0 0 10px;
+  line-height: 1.45;
+  font-size: 0.97em;
+}
+.ja-meta {
+  color: var(--muted);
+  font-size: 0.875em;
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0.01em;
+}
+.ja-meta a {
+  color: var(--lit);
+  text-decoration: none;
+}
+.ja-meta a:hover {
+  text-decoration: underline;
+}
+.ja-abstract {
+  border-left: 3px solid var(--lit);
+  padding: 10px 14px;
+  margin: 0 0 18px;
+  background: var(--lit-soft);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.925em;
+  line-height: 1.6;
+  color: var(--ink);
+}
+.ja-mcq {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.ja-mcq + .ja-mcq {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.ja-q {
+  font-weight: 600;
+  font-size: 0.93em;
+  margin: 0 0 7px;
+  color: var(--ink);
+}
+.ja-opts {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ja-opt {
+  font-size: 0.9em;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: var(--ink2);
+  background: transparent;
+}
+.ja-opt b {
+  display: inline-block;
+  min-width: 1.5em;
+  color: var(--muted);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.88em;
+}
+.ja-ans {
+  margin-top: 4px;
+}
+.ja-ans summary {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 0.83em;
+  font-family: "JetBrains Mono", monospace;
+  padding: 3px 10px;
+  border: 1px solid var(--lit);
+  border-radius: 5px;
+  color: var(--lit);
+  background: transparent;
+  user-select: none;
+  list-style: none;
+}
+.ja-ans summary::-webkit-details-marker { display: none; }
+.ja-ans summary::marker { display: none; }
+.ja-ans summary:hover {
+  background: var(--lit-soft);
+}
+.ja-ans[open] summary {
+  background: var(--lit-soft);
+  margin-bottom: 6px;
+}
+.ja-ans-body {
+  font-size: 0.9em;
+  padding: 8px 12px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  line-height: 1.55;
+  color: var(--ink);
+}
+.ja-ans-correct {
+  font-weight: 600;
+  color: var(--good);
+  display: block;
+  margin-bottom: 4px;
+}
+.ja-ans-rationale {
+  color: var(--ink2);
+}
+</style>
+<section class="panel" id="journal">
+  <h2 class="sec">Additional Resources</h2>
+  <p class="lead">Journal Articles (2021–2026). Exam items are drawn from the abstract only — read each abstract, then self-test.</p>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Secondary Vulvar Hemorrhage After Ovariohysterectomy Case Report of a Poorly Understood Complication</b><br>
+    <span class="ja-meta">Colleen Guilfoyle1*, Set Sokol2 and Erin Katribe1; Best Friends Animal Society, 5001 Angel Canyon Rd Kanab, UT, USA; 2Antech Diagnostics, Mars Petcare Science &amp; &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2026</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Secondary vulvar hemorrhage, also commonly referred to as uterine artery erosion, is a poorly understood postoperative complication of ovariohysterectomy. This report describes a case involving delayed vulvar hemorrhage beginning 6 days after an adult dog was spayed, culmi- nating in fatal bleeding during a rescue procedure on day 12 post-operatively. A hemoabdomen was not present. Histopathology of the uterine stump revealed suppurative and chronic mural inflammation with vascular involvement. This is the first histopathologic description of this condition. The fatal outcome underscores the need for greater understanding of processes involved in delayed vulvar bleeding post-ovariohysterectomy. Additionally, early recognition and prompt surgical intervention may support better patient outcomes in suspected cases of secondary vulvar hemorrhage.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">What was the timeline and fatal outcome described in this case report of secondary vulvar hemorrhage after ovariohysterectomy?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Hemorrhage began within 24 hours of surgery and resolved with medical management</li>
+          <li class="ja-opt"><b>B.</b> Delayed vulvar hemorrhage began 6 days post-spay and resulted in fatal bleeding during a rescue procedure on day 12</li>
+          <li class="ja-opt"><b>C.</b> Hemorrhage occurred on day 3 post-operatively and was successfully managed by re-ligation of the uterine stump</li>
+          <li class="ja-opt"><b>D.</b> Fatal hemoabdomen developed within 48 hours of surgery in an otherwise healthy adult dog</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Delayed vulvar hemorrhage began 6 days post-spay and resulted in fatal bleeding during a rescue procedure on day 12</span>
+            <span class="ja-ans-rationale">The abstract describes &#x27;delayed vulvar hemorrhage beginning 6 days after an adult dog was spayed, culminating in fatal bleeding during a rescue procedure on day 12 post-operatively.&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">What histopathologic finding was reported in this case, representing a first-of-its-kind description?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Granulomatous reaction to suture material at the uterine stump</li>
+          <li class="ja-opt"><b>B.</b> Suppurative and chronic mural inflammation with vascular involvement of the uterine stump</li>
+          <li class="ja-opt"><b>C.</b> Neoplastic infiltration of the ovarian pedicle resulting in vessel erosion</li>
+          <li class="ja-opt"><b>D.</b> Fibrinoid necrosis of the uterine artery secondary to ligature pressure</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Suppurative and chronic mural inflammation with vascular involvement of the uterine stump</span>
+            <span class="ja-ans-rationale">The abstract states &#x27;Histopathology of the uterine stump revealed suppurative and chronic mural inflammation with vascular involvement&#x27; and notes &#x27;This is the first histopathologic description of this condition.&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">What clinical feature distinguished this case from a typical post-spay hemorrhagic complication?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> The dog was a geriatric patient with known coagulopathy</li>
+          <li class="ja-opt"><b>B.</b> Hemorrhage was external (vulvar) and a hemoabdomen was not present</li>
+          <li class="ja-opt"><b>C.</b> The hemorrhage was identified incidentally on imaging without clinical signs</li>
+          <li class="ja-opt"><b>D.</b> The dog had undergone a laparoscopic ovariohysterectomy rather than an open procedure</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Hemorrhage was external (vulvar) and a hemoabdomen was not present</span>
+            <span class="ja-ans-rationale">The abstract specifies &#x27;A hemoabdomen was not present,&#x27; and the bleeding presented as vulvar hemorrhage rather than intraabdominal bleeding, which distinguishes this from more commonly recognized post-OHE hemorrhagic complications.</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Evaluation of Autoligation of the Spermatic Cord for Castration of Small Adult Dogs</b><br>
+    <span class="ja-meta">Kirk P. Miller1,2*, Wendi L. Rekers2, Emily A. Ferrell2, Margaret E. Wixson2 and Milan; Department of Clinical Sciences, College of Veterinary Medicine, Oregon State University, Corvallis, OR, USA; &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2025</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Introduction: Traditionally, when performing a canine castration, the spermatic cord is dou- ble ligated prior to removing the testicles. Double ligation with suture is thought to prevent hemorrhagic complications and has been considered necessary to prevent morbidity and mor- tality when performing these procedures. A relatively new technique has emerged where the spermatic cord is ligated on itself, or autoligated, in a manner similar to the way that feline spermatic cords are ligated when performing cat neuters. The purpose of this study was to evaluate the rate of complications across a large number of dogs whose spermatic cords were autoligated rather than double ligated with suture. At the time of the study there was no peer-reviewed publication of this scale providing information about post-operative complica- tions that could result from using this specific technique. Methods: This case series included 215 shelter-owned dogs that underwent autoligation of the spermatic cord during routine open castration. Inclusion criteria included age of 5 months or older and body weight of 25 lbs (11.4 kg) or less. Age was obtained from records, when available, or estimated based on size, breed, and dentition. The primary outcome measure was defined as hemorrhage from the testicular pedicle, as the primary potential complica- tion that would be expected from a novel or unproven ligation method. Thus, patients were monitored for intraoperative hemorrhage, postoperative bleeding, or development of a scrotal hematoma. Incisional bruising was also found but not attributed to bleeding from the testic- ular pedicle unless noticed to be overtly greater than what is observed with traditional canine castration surgery. Results: There were no intraoperative hemorrhage-related complications in any dog. In addi- tion, none of the patients experienced postoperative bleeding nor did any patient develop a scrotal hematoma. Minor complications were all mild and self-limiting. These included peri-incisional bruising in 10/215 (4.7%) and scrotal bruising in 8/215 (3.7%) for an overall complication rate of 18/215 (8.4%). No dog required hospitalization or medical care related to any surgical complication. Conclusion: No severe complications were seen in this case series of 215 patients. Calculating the upper limit of the 95% exact binomial confidence interval suggests a maximum risk of 1.7% that severe complications would be encountered in performing this procedure. Therefore, the results of this study indicate that autoligation of the spermatic cord is a safe technique when used in the open castration of adult dogs that weigh 25 pounds (11.4 kg) or less. Anecdotally, many shelter veterinarians report using this technique and this publication serves to establish the safety of this practice, particularly for those practicing in high-quality/high-volume spay and neuter operations. Keywords: canine; dog; castration; neuter; orchiectomy; autoligation; spermatic cord T raditionally, when performing a canine castration, the spermatic cord is double ligated with suture prior to removing the testicles.1 Double ligation is thought to prevent hemorrhagic complications and has International License (http://creativecommons.org/licenses/by/4.0/), allowing third parties to copy and redistribute the material in any medium or format and to remix, transform, and build upon the material for any purpose, even commercially, provided the original work is properly cited and states its license.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">What was the upper limit of the 95% exact binomial confidence interval for the risk of severe complications from spermatic cord autoligation reported in this study?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> 8.4%</li>
+          <li class="ja-opt"><b>B.</b> 4.7%</li>
+          <li class="ja-opt"><b>C.</b> 1.7%</li>
+          <li class="ja-opt"><b>D.</b> 3.7%</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. 1.7%</span>
+            <span class="ja-ans-rationale">The abstract states &#x27;Calculating the upper limit of the 95% exact binomial confidence interval suggests a maximum risk of 1.7% that severe complications would be encountered in performing this procedure.&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">What study design was used to evaluate autoligation of the spermatic cord in this publication?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Retrospective chart review of a private referral hospital database</li>
+          <li class="ja-opt"><b>B.</b> Randomized controlled trial comparing autoligation with double ligation</li>
+          <li class="ja-opt"><b>C.</b> Case series of 215 shelter-owned dogs undergoing open castration</li>
+          <li class="ja-opt"><b>D.</b> Multicenter observational cohort study across five HQHVSN shelters</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Case series of 215 shelter-owned dogs undergoing open castration</span>
+            <span class="ja-ans-rationale">The abstract describes the study as &#x27;This case series included 215 shelter-owned dogs that underwent autoligation of the spermatic cord during routine open castration.&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">What was the primary conclusion regarding autoligation of the spermatic cord in dogs weighing 25 pounds or less?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Autoligation is not recommended due to an unacceptable risk of scrotal hematoma</li>
+          <li class="ja-opt"><b>B.</b> Autoligation is a safe technique, with no severe complications in this case series</li>
+          <li class="ja-opt"><b>C.</b> Autoligation is equivalent to double ligation only when performed by experienced surgeons</li>
+          <li class="ja-opt"><b>D.</b> Autoligation should be reserved for cats; dogs require double ligation regardless of weight</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Autoligation is a safe technique, with no severe complications in this case series</span>
+            <span class="ja-ans-rationale">The abstract concludes &#x27;the results of this study indicate that autoligation of the spermatic cord is a safe technique when used in the open castration of adult dogs that weigh 25 pounds (11.4 kg) or less,&#x27; with no severe complications seen.</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Impact of Peripheral Warming and Insulation Using Highly-Insulating Materials on Core Temperature in Cats During Anesthesia_ A Multi-Arm Randomized Trial</b><br>
+    <span class="ja-meta">Impact of Peripheral Warming and Insulation Using Highly-Insulating ...       https://jsmcah.org/index.php/jasv/article/view/134; Impact of Peripheral Warming and Insulation Using &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2025 &middot; <a href="https://doi.org/10.56771/jsmcah.v4.134" target="_blank" rel="noopener">10.56771/jsmcah.v4.134</a></span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Introduction It is estimated that 71% of feline patients experience hypothermia during anesthesia,1 a condition that significantly impacts postoperative recovery.2 Veterinary clinics commonly cover feline extremities during anesthesia to decrease the rate of heat loss, with cotton toddler socks being the most frequent material. However, this is ineffective, possibly due to poor insulation.3 The objective of this study was to evaluate whether covering the extremities of cats with highly-insulating materials with or without active warming slows the rate of temperature decrease during anesthesia. Methods Female cats undergoing ovariohysterectomy in a veterinary student surgical program were block randomized to active warming (insulation with heating element), passive insulation (insulation only), or control (no covering). Insulating devices comprised two layers of down blanket. Core body temperature was recorded every minute from induction through recovery. Multivariable linear regression was used to evaluate the rate of temperature decrease and lowest recorded temperature. Results Forty-nine female cats were enrolled. In the first 30 minutes, controls decreased by 0.12 °F/min, passive 0.11 °F/min and active 0.09 °F/min, all P &lt; 0.0001. After 30 minutes, temperature decline slowed, with rates of 0.05 °F/min for controls, 0.03 °F/min for passive, and 0.01 °F/min for active. After two hours, the lowest recorded temperatures were predicted to be 1.2 °F and 1.9 °F, higher in the passive and active groups, respectively (both P = 0.001). Conclusion Covering the extremities of cats undergoing anesthesia with highly-insulating materials slows core temperature decrease and results in a lowest temperature between 1 and 2 °F greater than controls. While active warming has a greater effect than passive insulation, the absolute difference in lowest temperature, 0.7 °F, may not justify the additional challenges of adding a heating source. Financial Support and Conflict of Interests Financial support was provided by Midwestern University startup funds. DOWNLOADS REFERENCES 1. Redondo JI, Suesta P, Gil L, Soler G, Serra I, Soler C. Retrospective study of the preva-lence of postanaesthetic hypothermia in cats. Veterinary Record. 2012 Feb;170(8):206–206. 2. Pottie RG, Dart CM, Perkins NR, Hodgson DR. Effect of hypothermia on recovery from general anaesthesia in the dog. Aust Vet J. 2007 Apr;85(4):158–62. 3. Kreisler RE, MacDonald LJ, Mensing RN, Hoffmann ER, Keary CG, Padilla KN, et al. Ef-fects of peripheral active warming and passive insulation on core body temperature during feline ovariohysterectomy: a multi-arm randomized clinical trial. Journal of Fe-line Medicine and Surgery. 2023 Mar 3;25(3). PUBLISHED 2025-04-28 ISSUE Vol. 4 No. S1 (2025): 2025 ABVP Abstracts SECTION ABVP Abstracts LICENSE Copyright (c) 2025 The Authors This work is licensed under a Creative Commons Attribution 4.0 International License. HOW TO CITE Boules J, Khanezarrin M, Costa R, Kreisler R. Impact of Peripheral Warming and Insulation Using Highly- Insulating Materials on Core Temperature in Cats During Anesthesia: A Multi-Arm Randomized Trial</div>
+      <div class="ja-mcq">
+        <p class="ja-q">What was the objective of this multi-arm randomized trial on peripheral warming in anesthetized cats?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> To determine whether core temperature at induction predicts postoperative recovery time</li>
+          <li class="ja-opt"><b>B.</b> To compare active warming versus passive insulation versus no covering on core temperature during anesthesia</li>
+          <li class="ja-opt"><b>C.</b> To evaluate whether cotton toddler socks reduce heat loss compared with no covering</li>
+          <li class="ja-opt"><b>D.</b> To assess whether preoperative warming prevents hypothermia during feline ovariohysterectomy</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. To compare active warming versus passive insulation versus no covering on core temperature during anesthesia</span>
+            <span class="ja-ans-rationale">The abstract states &#x27;The objective of this study was to evaluate whether covering the extremities of cats with highly-insulating materials with or without active warming slows the rate of temperature decrease during anesthesia,&#x27; testing three arms: active warming, passive insulation, and control.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">After two hours of anesthesia, what were the predicted lowest recorded core temperatures in the passive and active insulation groups relative to the control group?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> 0.5 °F and 0.7 °F higher than controls, respectively</li>
+          <li class="ja-opt"><b>B.</b> 1.2 °F and 1.9 °F higher than controls, respectively</li>
+          <li class="ja-opt"><b>C.</b> 2.5 °F and 3.8 °F higher than controls, respectively</li>
+          <li class="ja-opt"><b>D.</b> No significant difference from controls was detected at two hours</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. 1.2 °F and 1.9 °F higher than controls, respectively</span>
+            <span class="ja-ans-rationale">The abstract reports &#x27;the lowest recorded temperatures were predicted to be 1.2 °F and 1.9 °F, higher in the passive and active groups, respectively (both P = 0.001)&#x27; after two hours.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">What was the study&#x27;s conclusion regarding active warming versus passive insulation with highly-insulating materials in anesthetized cats?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Active warming was dramatically superior; passive insulation offered no clinically meaningful benefit</li>
+          <li class="ja-opt"><b>B.</b> Passive insulation was equivalent to active warming and is the preferred method due to simplicity</li>
+          <li class="ja-opt"><b>C.</b> Active warming had a greater effect, but the absolute difference in lowest temperature (0.7 °F) may not justify the added complexity of a heating source</li>
+          <li class="ja-opt"><b>D.</b> Neither method meaningfully reduced the rate of core temperature decline compared with controls</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Active warming had a greater effect, but the absolute difference in lowest temperature (0.7 °F) may not justify the added complexity of a heating source</span>
+            <span class="ja-ans-rationale">The abstract concludes &#x27;While active warming has a greater effect than passive insulation, the absolute difference in lowest temperature, 0.7 °F, may not justify the additional challenges of adding a heating source.&#x27;</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>An Accessible Surgical Technique for Corneal Dermoid Removal as an Alternative to Enucleation A Case Report</b><br>
+    <span class="ja-meta">Sarah Flanders, DVM1, Matthew Chavkin, DVM, MS, DACVO2 and Brian DiGangi, DVM,; MS, DABVP (Canine &amp; Feline Practice, Shelter Medicine Practice)3 &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2024</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Corneal dermoids compromise ocular health and comfort. Dermoids are made up of cuta- neous tissues, often including long hairs. When these hairs contact the cornea or other sur- rounding tissues, they can result in pain and discomfort. In resource-limited environments, veterinarians often perform enucleation of the affected eye to relieve the discomfort associated with corneal dermoids. This report describes a novel surgical technique to remove a canine corneal dermoid in a shelter using readily available equipment and basic surgical principles. Successful outcome supports an alternative to enucleation and/or referral for treatment of cor- neal dermoids. Although this procedure may result in decreased corneal clarity at the surgical site, the clinical outcome is acceptable and should be considered when access to specialized equipment and care is not feasible.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">What was the primary goal of the surgical technique described in this case report?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> To demonstrate a referral pathway for advanced ocular surgery in shelter dogs</li>
+          <li class="ja-opt"><b>B.</b> To describe a novel corneal dermoid removal technique using readily available equipment as an alternative to enucleation</li>
+          <li class="ja-opt"><b>C.</b> To compare lamellar keratectomy outcomes with those of total enucleation in a controlled trial</li>
+          <li class="ja-opt"><b>D.</b> To evaluate long-term corneal clarity outcomes across a series of dermoid resection cases</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. To describe a novel corneal dermoid removal technique using readily available equipment as an alternative to enucleation</span>
+            <span class="ja-ans-rationale">The abstract states the report &#x27;describes a novel surgical technique to remove a canine corneal dermoid in a shelter using readily available equipment and basic surgical principles&#x27; and frames it explicitly &#x27;as an alternative to enucleation and/or referral.&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">What is an expected trade-off of the described corneal dermoid removal technique according to the abstract?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Increased risk of postoperative endophthalmitis requiring systemic antibiotics</li>
+          <li class="ja-opt"><b>B.</b> Permanent loss of menace response on the affected side</li>
+          <li class="ja-opt"><b>C.</b> Possible decreased corneal clarity at the surgical site, considered an acceptable clinical outcome</li>
+          <li class="ja-opt"><b>D.</b> Higher rates of recurrence compared with enucleation at six-month follow-up</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Possible decreased corneal clarity at the surgical site, considered an acceptable clinical outcome</span>
+            <span class="ja-ans-rationale">The abstract notes &#x27;this procedure may result in decreased corneal clarity at the surgical site&#x27; but states &#x27;the clinical outcome is acceptable and should be considered when access to specialized equipment and care is not feasible.&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">In what setting was this corneal dermoid removal technique demonstrated?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> A university veterinary ophthalmology referral center</li>
+          <li class="ja-opt"><b>B.</b> A privately-owned specialty surgical practice</li>
+          <li class="ja-opt"><b>C.</b> A shelter environment with limited equipment</li>
+          <li class="ja-opt"><b>D.</b> A field triage unit during a large-scale animal rescue</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. A shelter environment with limited equipment</span>
+            <span class="ja-ans-rationale">The abstract specifies the technique was performed &#x27;in a shelter using readily available equipment&#x27; and is recommended &#x27;when access to specialized equipment and care is not feasible.&#x27;</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Anesthetic and Analgesic Protocols in Spay Neuter Clinics A 2017 Survey of Practices and Preferences in the United States</b><br>
+    <span class="ja-meta">Anesthetic and Analgesic Protocols in Spay-Neuter Clinics: A; 2017 Survey of Practices and Preferences in the United States &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2024</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Introduction: The advancement of spay-neuter procedures has been vital to the reduction of euthanized dogs and cats. Even though many spay-neuter clinics and shelters have adopted anesthesia protocols that align with best practices, there is currently little published data reporting trends among these clinics in the United States. The aim of this study was to provide data on the most commonly used high-quality, high-volume spay-neuter (HQHVSN) anes- thetic/analgesic protocols. Methods: In 2017, a voluntary, anonymous web-based survey was distributed to shelters/clin- ics through the HQHVSN veterinarians’ listserv and the Association of Shelter Veterinarians (ASV) listserv. Results: One hundred and six facilities participated in the survey spanning 36 states in the United States. The most commonly used canine anesthesia premedication was acepromazine paired with an opioid, with acepromazine/hydromorphone and acepromazine/butorphanol representing 26% (24/91) and 23% (23/91) of the responses, respectively. Ketamine/midaz- olam was the most commonly used canine induction anesthetic representing 39% (35/91) of the responses. The most commonly used feline protocol was a total intramuscular anesthetic combination such as dexmedetomidine/ketamine/butorphanol (DKT) or Telazol/butorpha- nol/dexmedetomidine (TTDex) accounting for 39% (35/91) and 33% (30/91) of the responses, respectively. The majority of respondents administered an injectable nonsteroidal anti-inflam- matory drug (NSAID) to their canine and feline patients at 63% (67/106) and 59% (63/106)), respectively. Only 26% (25/98) of respondents used to-go-home (TGH) medications, and only 40% (41/102) of respondents used local anesthetics. Overall protocol satisfaction was 86% (59/66). Conclusion: This survey identified that across a wide range of spay-neuter clinics, there exists significant trends with regard to anesthetic and analgesic protocols. These results can be used as primary, historical data to which future studies can compare. Keywords: HQHVSN, analgesic protocols, multimodal analgesia, spay-neuter anesthesia I n recent decades, shelter medicine has seen remark- able advancements, primarily attributed to the adop- tion of best practices and a strong commitment to upholding high standards of animal welfare.1 The evolu- tion of spay-neuter services has had a significant impact on the pet overpopulation problem and has encouraged progressive animal sheltering practices. Since its incep- tion in the early 2000s, the Association of Shelter Veter- inarians (ASV) has had a strong goal to advance spay/ neuter programs. In the ASV’s 2016 Veterinary Medical Care Guidelines for Spay-Neuter Programs, the term Attribution 4.0 International License (http://creativecommons.org/licenses/by/4.0/), allowing third parties to copy and redistribute the material in any medium or format and to remix, transform, and build upon the material for any purpose, even commercially, provided the original work is properly cited and states its license.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">What was the most commonly used canine induction anesthetic reported in this 2017 HQHVSN survey?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Acepromazine/hydromorphone (26% of respondents)</li>
+          <li class="ja-opt"><b>B.</b> Propofol alone (47% of respondents)</li>
+          <li class="ja-opt"><b>C.</b> Ketamine/midazolam (39% of respondents)</li>
+          <li class="ja-opt"><b>D.</b> Dexmedetomidine/ketamine/butorphanol (33% of respondents)</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Ketamine/midazolam (39% of respondents)</span>
+            <span class="ja-ans-rationale">The abstract states &#x27;Ketamine/midazolam was the most commonly used canine induction anesthetic representing 39% (35/91) of the responses.&#x27; The other percentages cited in the distractors refer to premedications or feline protocols.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">What proportion of surveyed HQHVSN facilities provided to-go-home (TGH) pain medications to their patients?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> 63% for both dogs and cats</li>
+          <li class="ja-opt"><b>B.</b> Only 26% of respondents</li>
+          <li class="ja-opt"><b>C.</b> 59% for cats and 63% for dogs</li>
+          <li class="ja-opt"><b>D.</b> 86% of respondents</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Only 26% of respondents</span>
+            <span class="ja-ans-rationale">The abstract states &#x27;Only 26% (25/98) of respondents used to-go-home (TGH) medications,&#x27; highlighting a gap in post-discharge analgesia despite otherwise favorable protocol satisfaction.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">How many facilities participated in this 2017 survey of HQHVSN anesthetic and analgesic practices?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> 142 facilities across 50 states</li>
+          <li class="ja-opt"><b>B.</b> 215 facilities in the northeastern United States</li>
+          <li class="ja-opt"><b>C.</b> 106 facilities spanning 36 states</li>
+          <li class="ja-opt"><b>D.</b> 88 facilities enrolled from ASV-accredited clinics only</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. 106 facilities spanning 36 states</span>
+            <span class="ja-ans-rationale">The abstract reports &#x27;One hundred and six facilities participated in the survey spanning 36 states in the United States.&#x27; The other numbers appear elsewhere in surgery/anesthesia articles but describe different study populations.</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Evaluation of Autoligation of The Spermatic Cord for Castration of Small Adult Dogs</b><br>
+    <span class="ja-meta">Department of Clinical Sciences, Oregon State University College of Veterinary Medicine,; Corvallis, Oregon, USA; and Oregon Humane Society, Portland, Oregon, USA &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2024 &middot; <a href="https://doi.org/10.56771/jsmcah.v3.95" target="_blank" rel="noopener">10.56771/jsmcah.v3.95</a></span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Traditionally, when performing a canine castration, the spermatic cord is double ligated prior to removing the testicles. Double ligation with suture is thought to prevent hemorrhagic complications and has been considered necessary to prevent morbidity and mortality when performing these procedures. A relatively new technique has emerged where the spermatic cord is ligated on itself, or autoligated, in a manner similar to the way that feline spermatic cords are ligated when performing cat neuters. The purpose of the present study was to evaluate the rate of complications across a large number of dogs whose spermatic cords were autoligated rather than double ligated with suture. This prospective clinical study included 215 shelter-owned dogs that underwent autoligation of the spermatic cord during routine castration. Inclusion criteria included age of 5 months or older, and body weight of 11.4 kg or less. Age was obtained from records, when available, or estimated based on size, breed, and dentition. The primary outcome measure was defined as hemorrhage from the testicular pedicle, as the primary potential complication that would be expected from a novel or unproven ligation method. Thus, patients were monitored for intraoperative hemorrhage, postoperative bleeding, or development of a scrotal hematoma. Incisional bruising was also noted, but not attributed to bleeding from the testicular pedicle unless noted to be overtly greater than what is observed with traditional canine castration surgery. There were no intraoperative hemorrhage-related complications in any dog. Additionally, none of the patients experienced postoperative bleeding nor did any patient develop a scrotal hematoma. Minor complications were all mild and self-limiting. These included peri-incisional bruising in 10/215 (4.7%) and scrotal bruising in 8/215 (3.7%) for an overall complication rate of 18/215 (8.4%). No dog required hospitalization or medical care related to any surgical complication. The results of this study indicate that autoligation of the spermatic cord is a safe technique when utilized in the castration of adult dogs that weigh 11.4 kg or less. Anecdotally, many shelter veterinarians report using this technique and this publication serves to establish the safety of this practice, particularly for those practicing in high- quality/high-volume spay and neuter operations. DOWNLOADS PUBLISHED 2024-05-20 ISSUE Vol. 3 No. S1 (2024): 2024 ABVP Abstracts SECTION ABVP Abstracts LICENSE Copyright (c) 2024 KP Miller, WL Rekers, EA Ferrell, ME Wixson, M Milovancev This work is licensed under a Creative Commons Attribution 4.0 International License. HOW TO CITE Miller K, Rekers W, Ferrell E, Wixson M, Milovancev M. Evaluation of Autoligation of The Spermatic Cord for Castration of Small Adult Dogs [Abstract]. JSMCAH. 2024;3(S1). doi:10.56771/jsmcah.v3.95 MORE CITATION FORMATS The Journal of Shelter Medicine and Community Animal Health (JSMCAH) is a society- published, open-access, continuous publication, peer-reviewed journal of the Association of Evaluation of Autoligatio</div>
+      <div class="ja-mcq">
+        <p class="ja-q">What was the primary outcome measure evaluated in this prospective study of canine spermatic cord autoligation?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Time to discharge compared with double-ligation castration</li>
+          <li class="ja-opt"><b>B.</b> Hemorrhage from the testicular pedicle, including intraoperative and postoperative bleeding and scrotal hematoma</li>
+          <li class="ja-opt"><b>C.</b> Recurrence of cryptorchidism in autoligated dogs over a 12-month period</li>
+          <li class="ja-opt"><b>D.</b> Overall surgeon comfort level with the autoligation technique</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Hemorrhage from the testicular pedicle, including intraoperative and postoperative bleeding and scrotal hematoma</span>
+            <span class="ja-ans-rationale">The abstract explicitly states &#x27;The primary outcome measure was defined as hemorrhage from the testicular pedicle, as the primary potential complication that would be expected from a novel or unproven ligation method.&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">What inclusion criteria defined the study population in this autoligation castration study?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Dogs aged 12 months or older weighing at least 20 kg</li>
+          <li class="ja-opt"><b>B.</b> Dogs aged 5 months or older weighing 11.4 kg or less</li>
+          <li class="ja-opt"><b>C.</b> Intact male dogs of any age weighing under 25 kg with ASA 1-2 status</li>
+          <li class="ja-opt"><b>D.</b> Dogs 6–18 months of age regardless of body weight</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Dogs aged 5 months or older weighing 11.4 kg or less</span>
+            <span class="ja-ans-rationale">The abstract states &#x27;Inclusion criteria included age of 5 months or older, and body weight of 11.4 kg or less.&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">What was the overall minor complication rate and the nature of complications observed in this autoligation study?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> 0% complication rate; no adverse events of any kind were recorded</li>
+          <li class="ja-opt"><b>B.</b> 18/215 (8.4%) mild, self-limiting complications (peri-incisional and scrotal bruising); no hemorrhage-related complications</li>
+          <li class="ja-opt"><b>C.</b> 12/215 (5.6%) complications including three cases of scrotal hematoma requiring drainage</li>
+          <li class="ja-opt"><b>D.</b> 15/215 (7.0%) complications including one case of hospitalization for hemorrhage</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. 18/215 (8.4%) mild, self-limiting complications (peri-incisional and scrotal bruising); no hemorrhage-related complications</span>
+            <span class="ja-ans-rationale">The abstract reports &#x27;peri-incisional bruising in 10/215 (4.7%) and scrotal bruising in 8/215 (3.7%) for an overall complication rate of 18/215 (8.4%)&#x27; and specifies all were &#x27;mild and self-limiting&#x27;; no dog required hospitalization.</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Evaluation of Local Anesthetic Blockade in Cats Undergoing Castration in a High-Quality, High-Volume Spay_Neuter Setting_ A Randomized, Blinded, Placebo-Controlled Trial</b><br>
+    <span class="ja-meta">Undergoing Castration in a High-Quality, High-Volume; Spay/Neuter Setting: A Randomized, Blinded, Placebo- &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2024 &middot; <a href="https://doi.org/10.56771/jsmcah.v3.96" target="_blank" rel="noopener">10.56771/jsmcah.v3.96</a></span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Sustainable high-quality, high-volume spay/neuter (HQHVSN) clinic operations require optimal efficiency and resource-management, and humane patient care. Locoregional anesthesia is not standard across HQHVSN protocols because evidence that these techniques are safe, efficient, and cost-effective in the HQHVSN environment is lacking. The objective of this study was to compare the analgesic efficacy of local anesthesia to placebo in cats castrated in a HQHVSN setting. Eighty-eight shelter-owned male cats presenting to a HQHVSN clinic in the northeastern US between August 2019 and October 2020 were enrolled in this blinded, randomized, placebo-controlled trial. Inclusion criteria included estimated age ≥6 weeks and ≤8 years, body weight ≥3 pounds, and ASA 1 status. Cats were assigned via simple randomization to receive an intratesticular injection of saline placebo (Group SP; n=32), lidocaine 1mg/kg (Group L; n=34), or a mixture of lidocaine 1mg/kg and bupivacaine 1mg/kg (Group LB; n=22) prior to routine castration. Standard HQHVSN protocols for anesthesia and surgery were followed. Indicators of analgesic efficacy included perioperative heart rates, requirements for additional anesthesia, surgeon satisfaction with anesthetic depth and tissue quality, and postoperative pain scores and incisional complications. Treatment groups did not differ in demographic characteristics or baseline heart rate. Group SP showed a significant elevation in heart rate in response to surgical stimulus compared to Groups L (p=0.006) and LB (p=0.002) and to their baseline heart rate (p&lt;0.001). Perioperative heart rates measured in Groups L and LB did not differ. Surgeon-reported unsatisfactory anesthetic depth during castration occurred more frequently in Group SP (z=2.68; p=0.044). Additional anesthetic requirements, surgeon satisfaction with tissue quality, and postoperative pain and incision scores were statistically similar between groups. Despite the short duration between intratesticular injection to near completion of castration (median [IQR]=5.0 [3.0-7.0] minutes), local anesthesia was effective at decreasing nociception compared to placebo without increasing the frequency of incisional complications. These perioperative benefits support the inclusion of local blocks in multimodal anesthesia/analgesia protocols for HQHVSN clinics. Additional materials and labor costs for administering intratesticular blocks were estimated at $1.07-$1.19 per 4kg cat at the study location. DOWNLOADS PUBLISHED 2024-05-20 ISSUE Vol. 3 No. S1 (2024): 2024 ABVP Abstracts SECTION ABVP Abstracts LICENSE Copyright (c) 2024 ME Stone, S Lutz-Boulting, JM Scarlett, EA Berliner This work is licensed under a Creative Commons Attribution 4.0 International License. HOW TO CITE Stone M, Lutz-Boulting S, Scarlett J, Berliner E. Evaluation of Local Anesthetic Blockade in Cats Undergoing Castration in a High-Quality, High-Volume Spay/Neuter Setting: A Randomized, Blinded, Placebo-Controlled Trial [Abstract]. JSMCAH. 2024;3(S1). doi:10.56771/jsmcah.v3.96 MORE CITATION FORMATS The Journal of Shelter Medicine and Community Animal Health (JSMCAH) is a society-</div>
+      <div class="ja-mcq">
+        <p class="ja-q">What study design was used to evaluate intratesticular local anesthetic blockade in cats undergoing HQHVSN castration?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Retrospective observational cohort using clinic records from 2017–2020</li>
+          <li class="ja-opt"><b>B.</b> Blinded, randomized, placebo-controlled trial enrolling 88 shelter-owned male cats</li>
+          <li class="ja-opt"><b>C.</b> Prospective case series of 215 cats receiving intratesticular lidocaine at one clinic</li>
+          <li class="ja-opt"><b>D.</b> Cross-sectional survey of HQHVSN surgeons regarding local anesthetic use</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Blinded, randomized, placebo-controlled trial enrolling 88 shelter-owned male cats</span>
+            <span class="ja-ans-rationale">The abstract describes &#x27;a blinded, randomized, placebo-controlled trial&#x27; with &#x27;88 shelter-owned male cats&#x27; assigned to saline placebo, lidocaine, or lidocaine/bupivacaine groups.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">Compared to the saline placebo group, cats receiving intratesticular local anesthetic in this study showed which of the following perioperative differences?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Significantly lower postoperative pain scores and fewer incisional complications</li>
+          <li class="ja-opt"><b>B.</b> No difference in any measured parameter, including heart rate and surgeon-reported anesthetic depth</li>
+          <li class="ja-opt"><b>C.</b> Significantly attenuated heart rate response to surgical stimulus and less frequent unsatisfactory anesthetic depth</li>
+          <li class="ja-opt"><b>D.</b> Significantly longer surgery times due to the additional injection step</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Significantly attenuated heart rate response to surgical stimulus and less frequent unsatisfactory anesthetic depth</span>
+            <span class="ja-ans-rationale">The abstract reports &#x27;Group SP showed a significant elevation in heart rate in response to surgical stimulus compared to Groups L (p=0.006) and LB (p=0.002)&#x27; and &#x27;Surgeon-reported unsatisfactory anesthetic depth during castration occurred more frequently in Group SP (z=2.68; p=0.044).&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">What was the estimated additional cost per cat for administering intratesticular local anesthetic blocks at the study location?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> $0.25–$0.50 per cat</li>
+          <li class="ja-opt"><b>B.</b> $1.07–$1.19 per 4 kg cat</li>
+          <li class="ja-opt"><b>C.</b> $4.50–$6.00 per cat</li>
+          <li class="ja-opt"><b>D.</b> $10–$15 per cat</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. $1.07–$1.19 per 4 kg cat</span>
+            <span class="ja-ans-rationale">The abstract states &#x27;Additional materials and labor costs for administering intratesticular blocks were estimated at $1.07–$1.19 per 4kg cat at the study location.&#x27;</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Inefficacy of Dilute Epinephrine in Preventing Feline Scrotal Hematomas Results From a Randomized Control Trial</b><br>
+    <span class="ja-meta">Emma Vitello1*, Sara Sheffer1, Jeffrey Norris2 and Rachael Kreisler 3; Midwestern University College of Veterinary Medicine, Glendale, AZ, USA; 2Department of Pharmacology, &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2024</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Introduction: The authors previously investigated the use of epinephrine at 1:400,000 dilution to prevent scrotal hematoma but found no significant reduction in hematomas. We hypothe- sized that higher concentrations of epinephrine would reduce the incidence of hematomas. Methods: Male cats trapped for Midwestern University College of Veterinary Medicine’s Trap- Neuter-Return program were assigned to one of three treatment groups in this randomized con- trol trial: LRS control (A), 1:40,000 epinephrine (B), or 1:120,000 epinephrine (C). Each patient received 0.2 mL of treatment as a topical wash within the scrotum. Veterinarians blinded to the treatment group assessed for the presence and severity of hematoma at three stages. Results: 398 cats were enrolled into groups A (n = 136), B (n = 133), and C (n = 129). Number of hematomas occurring in each group were 15 (11%, 95% confidence interval [CI]: 6–18%), 12 (9%, 95% CI: 5–15%), and 8 (6%, 95% CI: 3–12%), respectively. There was no difference in the incidence of scrotal hematoma (P = 0.397) or scrotal hematoma requiring treatment (P = 1.0). Weight was the only variable associated with the risk of hematoma (odds ratio [OR]: 7.3; 95% CI: 3.9–13.9; P &lt; 0.0001). Conclusion: Despite its vasoconstrictive effects, dilute epinephrine as a topical wash was not effective in preventing feline scrotal hematomas. Keywords: feline medicine; TNR; trap-neuter-return; scrotal hematoma; epinephrine; community cats; preventative medicine S crotal hematomas are the most common postsurgical complication in the immediate postoperative period for cats in veterinary general practice1 and are partic- ularly problematic in high quality, high volume spay-neuter settings because of the potential to disrupt clinic opera- tions.2 Ice packs and manual mechanical pressure are effec- tive treatments, but inconvenient and time consuming.2 Epinephrine induces vasoconstriction, but is not commonly utilized for hemostasis because of concerns regarding tis- sue necrosis.3–7 Although tissue necrosis is documented at 1:10,000 dilution of epinephrine, this effect is not supported in systematic reviews on the use of epinephrine for hemo- stasis.8–10 This study follows up on previous work from our group that suggested dilute epinephrine (1:400,000) reduced the incidence of scrotal hematoma by extending the range of concentrations evaluated up to 1:40,000.2 Methods Intact male free-roaming cats, excluding cryptorchids, presented for neuter at Midwestern University College of International License (http://creativecommons.org/licenses/by/4.0/), allowing third parties to copy and redistribute the material in any medium or format and to remix, transform, and build upon the material for any purpose, even commercially, provided the original work is properly cited and states its license.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">What was the primary finding of this randomized controlled trial of dilute epinephrine for prevention of feline scrotal hematomas?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Epinephrine at 1:40,000 significantly reduced hematoma incidence compared with the LRS control group</li>
+          <li class="ja-opt"><b>B.</b> Both epinephrine concentrations were equally effective, reducing hematoma rates by more than 50%</li>
+          <li class="ja-opt"><b>C.</b> Neither epinephrine concentration (1:40,000 or 1:120,000) significantly reduced the incidence of scrotal hematoma compared with LRS control</li>
+          <li class="ja-opt"><b>D.</b> Epinephrine at 1:120,000 prevented hematoma but caused tissue necrosis in 3% of cats</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Neither epinephrine concentration (1:40,000 or 1:120,000) significantly reduced the incidence of scrotal hematoma compared with LRS control</span>
+            <span class="ja-ans-rationale">The abstract concludes &#x27;dilute epinephrine as a topical wash was not effective in preventing feline scrotal hematomas,&#x27; reporting no significant difference in hematoma incidence between LRS control (11%), 1:40,000 (9%), and 1:120,000 (6%) groups (P = 0.397).</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">Which variable was significantly associated with the risk of scrotal hematoma in this study?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Surgeon experience level (OR: 4.1; P = 0.012)</li>
+          <li class="ja-opt"><b>B.</b> Cat age at the time of neuter (OR: 2.8; P = 0.03)</li>
+          <li class="ja-opt"><b>C.</b> Ambient temperature at the clinic on the day of surgery</li>
+          <li class="ja-opt"><b>D.</b> Cat body weight (OR: 7.3; 95% CI: 3.9–13.9; P &lt; 0.0001)</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: D. Cat body weight (OR: 7.3; 95% CI: 3.9–13.9; P &lt; 0.0001)</span>
+            <span class="ja-ans-rationale">The abstract states &#x27;Weight was the only variable associated with the risk of hematoma (odds ratio [OR]: 7.3; 95% CI: 3.9–13.9; P &lt; 0.0001).&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">How many cats were enrolled in this randomized controlled trial evaluating epinephrine for scrotal hematoma prevention?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> 88 cats divided into two groups</li>
+          <li class="ja-opt"><b>B.</b> 215 cats from a single HQHVSN clinic</li>
+          <li class="ja-opt"><b>C.</b> 398 cats assigned to three treatment groups</li>
+          <li class="ja-opt"><b>D.</b> 142 cats enrolled from a TNR program</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. 398 cats assigned to three treatment groups</span>
+            <span class="ja-ans-rationale">The abstract states &#x27;398 cats were enrolled into groups A (n = 136), B (n = 133), and C (n = 129),&#x27; representing the LRS control, 1:40,000 epinephrine, and 1:120,000 epinephrine groups.</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Incidence of Perioperative Hypothermia in a HighQuality HighVolume Spay Neuter Setting and Association With Environmental Temperature</b><br>
+    <span class="ja-meta">Volume Spay/Neuter Setting and Association With Environmental; Jennifer Rodriguez-Diaz1, Galina Hayes2*, Leslie Appel3, Nicole Buote2 and Michelle Moyal4 &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2023</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Introduction: Perioperative inadvertent hypothermia (PIH) can prolong anesthetic recovery times. Study goals included determining PIH incidence (rectal temperature&lt;36°C (96.8°F)) in the high-quality high-volume spay/neuter (HQHVSN) setting and evaluating associations between environmental temperature and PIH incidence. Secondary objectives included evalu- ating associations between PIH incidence, anesthesia recovery times, and postoperative pain. Methods: Prospective observational cohort study conducted at five HQHVSN shelters enrolling dogs undergoing ovariohysterectomy or castration and cats undergoing ovariohysterectomy. Blankets and electric heating pads were only used routinely in the immediate postoperative period. Regression models were used to evaluate associations between PIH incidence, environ- mental temperature, and pain data. Results: One hundred and forty dogs undergoing 65 castrations and 75 ovariohysterectomies, and 161 cats were enrolled. Mean surgical times were 19.6 (8.0) min (canine ovariohysterec- tomies), 7.2 (3.0) min (canine castrations), and 10.6 (3.6) min (feline ovariohysterectomies). PIH incidence was 22% (95% CI = 17–27). The risk of developing PIH was associated with environmental temperature, with a 22% increase in the odds of experiencing PIH for each degree centigrade decrease in environmental temperature (OR = 1.22, 95% CI = 1.03–1.44, P = 0.02) over a recorded range of 15.6–26.1°C (60.1–79.0°F). In cats, PIH was associated with a prolongation of time to extubation by 3.8 min (95% CI 2.27–5.37, P = 0.01). On aver- age, each degree centigrade reduction in rectal temperature at extubation was associated with an increase in pain scale of 0.51 units (95% CI = 0.06–0.97, P = 0.03) for both species. In dogs, each degree centigrade reduction in rectal temperature at extubation was associated with a reduction in mechanical threshold (indicating increased sensitivity to pain) of 1.40 N (95% CI = 0.44–2.35, P = 0.004). Conclusion: PIH is common in a spay/neuter population despite rapid surgical times and is associated with prolonged anesthetic recovery in cats and increased postoperative pain in cats and dogs. Raising the environmental temperature in operative and recovery areas may reduce incidence. Keywords: Peri-operative; hypothermia; cats; dogs; spay; neuter; anesthesia; surgery P erioperative inadvertent hypothermia (PIH) occurs in cats and dogs when core temperatures fall in association with anesthesia and surgery.1,2 This may occur due to radiant, conductive, or evaporative heat loss in conjunction with anesthesia-related vasodila- tion and loss of normal thermoregulatory mechanisms. Anesthesia-related vasodilation can cause redistribu- tion of heat from the core to periphery resulting in core 4.0 International License (http://creativecommons.org/licenses/by/4.0/), allowing third parties to copy and redistribute the material in any medium or format and to remix, transform, and build upon the material for any purpose, even commercially, provided the original work is properly cited and states its license.</div>
+      <div class="ja-mcq">
+        <p class="ja-q">What was the incidence of perioperative inadvertent hypothermia (PIH) in the HQHVSN population studied?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> 71% (95% CI = 66–76)</li>
+          <li class="ja-opt"><b>B.</b> 22% (95% CI = 17–27)</li>
+          <li class="ja-opt"><b>C.</b> 8% (95% CI = 5–12)</li>
+          <li class="ja-opt"><b>D.</b> 45% (95% CI = 38–52)</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. 22% (95% CI = 17–27)</span>
+            <span class="ja-ans-rationale">The abstract reports &#x27;PIH incidence was 22% (95% CI = 17–27),&#x27; defined as rectal temperature below 36 °C, across 140 dogs and 161 cats in five HQHVSN shelters.</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">How did environmental temperature relate to PIH risk in this study?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Environmental temperature was not significantly associated with PIH incidence</li>
+          <li class="ja-opt"><b>B.</b> Each 1 °C decrease in environmental temperature was associated with a 22% increase in odds of PIH</li>
+          <li class="ja-opt"><b>C.</b> PIH was only significantly associated with environmental temperature in cats, not dogs</li>
+          <li class="ja-opt"><b>D.</b> A 5 °C decrease in environmental temperature doubled the odds of PIH</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Each 1 °C decrease in environmental temperature was associated with a 22% increase in odds of PIH</span>
+            <span class="ja-ans-rationale">The abstract states &#x27;a 22% increase in the odds of experiencing PIH for each degree centigrade decrease in environmental temperature (OR = 1.22, 95% CI = 1.03–1.44, P = 0.02).&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">What postoperative consequence of hypothermia was demonstrated specifically in cats in this study?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Increased incisional complication rate requiring reoperation</li>
+          <li class="ja-opt"><b>B.</b> Prolongation of time to extubation by a mean of 3.8 minutes</li>
+          <li class="ja-opt"><b>C.</b> A statistically significant reduction in mechanical pain threshold</li>
+          <li class="ja-opt"><b>D.</b> Longer hospitalization exceeding 4 hours post-recovery</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. Prolongation of time to extubation by a mean of 3.8 minutes</span>
+            <span class="ja-ans-rationale">The abstract states &#x27;In cats, PIH was associated with a prolongation of time to extubation by 3.8 min (95% CI 2.27–5.37, P = 0.01).&#x27; The mechanical threshold finding was specific to dogs.</span>
+          </div>
+        </details>
+      </div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Veterinary Clinician&#x27;s Opinions and Experiences with the Feline Ovarian Pedicle Tie</b><br>
+    <span class="ja-meta">Veterinary Clinician&#x27;s Opinions and Experiences with the Feline Ovaria...       https://jsmcah.org/index.php/jasv/article/view/51; Veterinary Clinician&#x27;s Opinions and Experiences with the &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2023 &middot; <a href="https://doi.org/10.56771/jsmcah.v2.51" target="_blank" rel="noopener">10.56771/jsmcah.v2.51</a></span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Ligation of the feline ovarian pedicle is commonly performed by autoligation, also known as the pedicle tie. This technique is faster than double ligation with suture, has a very low risk of hemorrhage-related complications, and has been suggested as an acceptable standard in all practice settings. However, although it has been demonstrated to be appropriate for novice surgeons under supervision, fewer institutions teach autoligation than double ligation. This study aimed to determine the opinions and experiences of general practitioners regarding the feline ovarian pedicle tie. An anonymous 23-question online survey entitled “Veterinary Clinician's Opinions and Experiences with Surgical Spay/Neuter Techniques” was advertised to veterinarians performing feline ovariohysterectomies via social media posts that also encouraged sharing and cross-posting. The survey questions, most of which presented non- exclusive answer options resulting in percentages summing to greater than 100%, probed the opinions and experiences of veterinarians regarding the technique. There were 142 respondents, with 77 indicating the use of the pedicle tie and 65 indicating no use. Of those who used the pedicle tie, most reported learning from either a dedicated high-quality high volume (HQHV) educational setting (32%) or a colleague/ mentor (32%). Nearly half used it in all cases, although 20% did not use it for pregnant cats. They had used it for a median of 5 (IQ 3-8) years, and 99% were comfortable teaching the technique to others. Of those who did not use the pedicle tie, 60% reported that it meets the standard of care (SOC), 14% reported that it does not, and 26% that it sometimes meets SOC. Most veterinarians not performing the pedicle tie thought it was appropriate for unowned cats or cats in HQHV programs (77-82%), but only 55% thought it was appropriate for owned cats in general practice. The most common reasons given for not using the technique were that they had not learned it in vet school (51%), followed by the fact that they had not seen it used before (34%) and that while they had seen it done, they were nervous to try (28%). Seventy-four percent of those who did not use autoligation of the feline ovarian pedicle used autoligation of the testicular pedicle, either the pedicle tie (40%) or figure 8 (34%). Of those who believed that the pedicle tie does not meet SOC, 78% indicated it was because they had not seen it used, and 67% because it was not taught in vet school. However, 89% reported that an expensive commercially available device with similar positive attributes, specifically reduced procedure time, met SOC. Veterinarians using the pedicle tie graduated more recently (P = 0.040), with the median year of graduation in 2011 (IQR 2004-2016) as compared to 2007 (IQR 1998-2014). The greatest barrier to performing the technique or considering it SOC is a lack of familiarity with the method and the fact that it is not taught routinely in veterinary school. There is an encouraging trend, with more recent graduates being more likely to perform the technique; however, there remains an opportunity to increase use. DOWNLOADS PUBLISHED 2023-06-16 ISSUE Vol. 2 No. S1 (2023): 2023 ABVP Abstracts SECTION ABVP Abstracts LICENSE This work is licensed under a Creative Commons Attribution 4.0 International License. HOW TO CITE Herendeen H, Turner J, Kreisler R. Veterinary Clinician’s Op</div>
+      <div class="ja-mcq">
+        <p class="ja-q">What was the most common reason veterinarians gave for NOT performing the feline ovarian pedicle tie?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Concern about an unacceptable risk of hemorrhage-related complications</li>
+          <li class="ja-opt"><b>B.</b> Belief that it does not meet the standard of care in any practice setting</li>
+          <li class="ja-opt"><b>C.</b> They had not learned it in veterinary school (reported by 51% of non-users)</li>
+          <li class="ja-opt"><b>D.</b> Lack of confidence in their suture-placement accuracy</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. They had not learned it in veterinary school (reported by 51% of non-users)</span>
+            <span class="ja-ans-rationale">The abstract states &#x27;The most common reasons given for not using the technique were that they had not learned it in vet school (51%), followed by the fact that they had not seen it used before (34%).&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">What survey finding best describes the relationship between year of graduation and use of the feline ovarian pedicle tie?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> Year of graduation was not significantly associated with use of the pedicle tie</li>
+          <li class="ja-opt"><b>B.</b> Older graduates (pre-2000) were more likely to use the pedicle tie than recent graduates</li>
+          <li class="ja-opt"><b>C.</b> Veterinarians using the pedicle tie graduated more recently (median 2011 vs. 2007 for non-users, P = 0.040)</li>
+          <li class="ja-opt"><b>D.</b> Recent graduates were less likely to use the pedicle tie due to lack of high-volume experience</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: C. Veterinarians using the pedicle tie graduated more recently (median 2011 vs. 2007 for non-users, P = 0.040)</span>
+            <span class="ja-ans-rationale">The abstract reports &#x27;Veterinarians using the pedicle tie graduated more recently (P = 0.040), with the median year of graduation in 2011 (IQR 2004–2016) as compared to 2007 (IQR 1998–2014) for non-users.&#x27;</span>
+          </div>
+        </details>
+      </div>
+      <div class="ja-mcq">
+        <p class="ja-q">Among veterinarians who did not use the feline pedicle tie, what proportion believed the technique meets the standard of care?</p>
+        <ul class="ja-opts">
+          <li class="ja-opt"><b>A.</b> 14% believed it meets standard of care; 60% did not</li>
+          <li class="ja-opt"><b>B.</b> 60% believed it meets standard of care; 14% did not</li>
+          <li class="ja-opt"><b>C.</b> 26% believed it meets standard of care; 74% did not</li>
+          <li class="ja-opt"><b>D.</b> 82% believed it meets standard of care for owned cats in general practice</li>
+        </ul>
+        <details class="ja-ans">
+          <summary>Show answer</summary>
+          <div class="ja-ans-body">
+            <span class="ja-ans-correct">Answer: B. 60% believed it meets standard of care; 14% did not</span>
+            <span class="ja-ans-rationale">The abstract states &#x27;Of those who did not use the pedicle tie, 60% reported that it meets the standard of care (SOC), 14% reported that it does not, and 26% that it sometimes meets SOC.&#x27;</span>
+          </div>
+        </details>
+      </div>
+  </div>
+</section>
+<!-- JOURNAL-ARTICLES:END -->
 
 </div></main>
 
