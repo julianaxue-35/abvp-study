@@ -1,8 +1,9 @@
 # Extract Report — ABVP Journal Folder PDFs
 Total PDFs processed: 96
-Records written to catalog: **95**
-Abstract uncertain (included): 12
-Excluded (no abstract / bad year / validation error): 1
+Records written to catalog: **86**
+Abstract uncertain (included): 1
+Excluded (no abstract / byline-only / bad year / validation error): 10
+Byline-only (needs web abstract): 9
 
 ## Per-file results
 | Filename | Year | Subdomain Page | Abstract | Note |
@@ -15,8 +16,8 @@ Excluded (no abstract / bad year / validation error): 1
 | A Retrospective Study of Canine Outcomes and Length of Stay in a Midwestern Shelter Subject to Breed-Specific Legislation.pdf | 2026 | shelter-management/07_regulatory.html | yes | ok |
 | A Retrospective Study of Cat Hoarding Cases and Their Management Through Voluntary Spay Neuter and Relinquishment In New York City.pdf | 2024 | community-public-health/01e_hoarding.html | yes | ok |
 | A Retrospective, Descriptive Study Of Medical Conditions and Outcomes of Cats Relinquished to an Urban, Limited Admission Shelter from Hoarding Environments.pdf | 2025 | community-public-health/01e_hoarding.html | yes | ok |
-| An  Inconvenient Truth targeted TNR  Enjoys  a Track  Record Unmatched by Lethal Methods for Managing Free Roaming Cats.pdf | 2022 | companion-animal-homelessness/spay_neuter_hub_2.html | uncertain | ok |
-| An ASV Critique The 2024 WSAVA Guidelines for the Control Of Reproduction in Dogs and Cats.pdf | 2024 | physical-health/surgery_anesthesia_hub.html | uncertain | ok |
+| An  Inconvenient Truth targeted TNR  Enjoys  a Track  Record Unmatched by Lethal Methods for Managing Free Roaming Cats.pdf | N/A | EXCLUDED | uncertain | Byline-only — needs web abstract: matched known byline-only ID list |
+| An ASV Critique The 2024 WSAVA Guidelines for the Control Of Reproduction in Dogs and Cats.pdf | N/A | EXCLUDED | uncertain | Byline-only — needs web abstract: matched known byline-only ID list |
 | An Accessible Surgical Technique for Corneal Dermoid Removal as an Alternative to Enucleation A Case Report.pdf | 2024 | physical-health/surgery_anesthesia_hub.html | yes | ok |
 | An Opportunity to Increase Access to Pyometra Treatment [Abstract] _ Journal of Shelter Medicine and Community Animal Health.pdf | 2023 | companion-animal-homelessness/access_vet_care_hub.html | yes | ok |
 | Anesthetic and Analgesic Protocols in Spay Neuter Clinics A 2017 Survey of Practices and Preferences in the United States.pdf | 2024 | physical-health/surgery_anesthesia_hub.html | yes | ok |
@@ -28,16 +29,16 @@ Excluded (no abstract / bad year / validation error): 1
 | Canine Outcomes and Length of Stay in a Midwestern Shelter Affected by Breed Specific Legislation [Abstract] _ Journal of Shelter Medicine and Community Animal Health.pdf | 2024 | shelter-management/07_regulatory.html | yes | ok |
 | Canine Parvovirus Monoclonal Antibody and Length of Treatment, Cost of Treatment, and Mortality in A Shelter Setting.pdf | 2025 | physical-health/infectious_disease_hub.html | yes | ok |
 | Cat Friendly (End-of-Life) Decision MakingEuthanasia how to avoid it and when to use it to support cat welfare.pdf | N/A | EXCLUDED | NO | No extractable abstract; excluded from catalog |
-| Cat friendly principles for those working with unowned cats.pdf | 2023 | companion-animal-homelessness/spay_neuter_hub_2.html | uncertain | ok |
+| Cat friendly principles for those working with unowned cats.pdf | N/A | EXCLUDED | uncertain | Byline-only — needs web abstract: matched known byline-only ID list |
 | Clinical effects of Canine Parvovirus Monoclonal Antibody treatment in naturally occurring parvovirus infection in sheltered dogs [Abstract] _ Journal of Shelter Medicine and Community Animal Health.pdf | 2025 | physical-health/infectious_disease_hub.html | yes | ok |
 | Comparison of Ear Tipping Techniques to Identify Sterilized Community Cats A Randomized Controlled Trial.pdf | 2024 | companion-animal-homelessness/spay_neuter_hub_2.html | yes | ok |
-| Comparison of the Number of Dog Adoptions in a Pilot ProgramThat Restored Limited Visitor Access to Kennels A Community Case Report.pdf | 2024 | companion-animal-homelessness/adoption_placement_hub.html | uncertain | ok |
+| Comparison of the Number of Dog Adoptions in a Pilot ProgramThat Restored Limited Visitor Access to Kennels A Community Case Report.pdf | N/A | EXCLUDED | yes | Byline-only — needs web abstract: matched known byline-only ID list |
 | Discovery of Influenza A (H7N2) in a Cat After Admission to an Animal Shelter a Case Report.pdf | 2023 | physical-health/infectious_disease_hub.html | yes | ok |
 | Does Perioperative Administration of Rabies Vaccine in Dogs Undergoing Surgical Sterilization Induce an Adequate Antibody Response_ [Abstract] _ Journal of Shelter Medicine and Community Animal Health.pdf | 2024 | physical-health/vaccination_hub.html | yes | ok |
 | Dog Acquisition in Lower-Income Communities as Consumer Behavior An Exploratory Qualitative Study.pdf | 2024 | companion-animal-homelessness/access_vet_care_hub.html | yes | ok |
 | Effects of Deferred Puppy Intake on Incidence of Canine Parvovirus Infection and Survival A Community Case Study.pdf | 2025 | physical-health/infectious_disease_hub.html | yes | ok |
 | Effects of Deferred Puppy Intake on Incidence of Canine Parvovirus Infection and Survival_ a Community Case Study [Abstract] _ Journal of Shelter Medicine and Community Animal Health.pdf | 2025 | physical-health/infectious_disease_hub.html | yes | ok |
-| Ethics Committees for Animal Shelters.pdf | 2025 | animals-public-policy/01_ethics_animal_welfare.html | uncertain | ok |
+| Ethics Committees for Animal Shelters.pdf | N/A | EXCLUDED | uncertain | Byline-only — needs web abstract: matched known byline-only ID list |
 | Evaluation of Autoligation of The Spermatic Cord for Castration of Small Adult Dogs [Abstract] _ Journal of Shelter Medicine and Community Animal Health.pdf | 2024 | physical-health/surgery_anesthesia_hub.html | yes | ok |
 | Evaluation of Autoligation of the Spermatic Cord for Castration of Small Adult Dogs.pdf | 2025 | physical-health/surgery_anesthesia_hub.html | yes | ok |
 | Evaluation of Local Anesthetic Blockade in Cats Undergoing Castration in a High-Quality, High-Volume Spay_Neuter Setting_ A Randomized, Blinded, Placebo-Controlled Trial [Abstract] _ Journal of Shelter Medicine and Community Animal Health.pdf | 2024 | physical-health/surgery_anesthesia_hub.html | yes | ok |
@@ -56,13 +57,13 @@ Excluded (no abstract / bad year / validation error): 1
 | Low-Cost Veterinary Clinical Diagnostics.pdf | 2023 | physical-health/medical_health_hub.html | uncertain | ok |
 | Management of Free-Roaming Cat Populations In Slovakia Attitudinal Perspectives of Residents Engaged With Unowned Cats A Community Case Report.pdf | 2025 | companion-animal-homelessness/spay_neuter_hub_2.html | yes | ok |
 | Management of a Feline Bordetellosis Outbreak in a Limited-Admission Animal Shelter in the Southeast US.pdf | 2025 | physical-health/infectious_disease_hub.html | yes | ok |
-| Managing cat populations based on an understanding of cat lifestyle and population dynamics.pdf | 2023 | companion-animal-homelessness/spay_neuter_hub_2.html | uncertain | ok |
+| Managing cat populations based on an understanding of cat lifestyle and population dynamics.pdf | N/A | EXCLUDED | uncertain | Byline-only — needs web abstract: matched known byline-only ID list |
 | Measures of Well-Being in U.S. Animal Shelter Staff During 2023.pdf | 2024 | shelter-management/06_mental_health.html | yes | ok |
 | Model Selection for Examining the Association Between Dog Intake Quantity and Socioeconomic and Geographic Conditions.pdf | 2026 | shelter-management/05_data_analysis.html | yes | ok |
 | Observed Benefits of a Rehome Web Application For Harder-To-Adopt Pet Populations.pdf | 2025 | companion-animal-homelessness/adoption_placement_hub.html | yes | ok |
 | Online Training Using an Educational Video Improves Human Ability To Identify and Rate Kitten Fear Behavior.pdf | 2024 | behavioral-health/04_body_language.html | yes | ok |
 | Optimising Shelter Outcomes Using Technology, Foster Care and External Networks A Community Case Study of Community- Centred Adoptions in an Australian Cat Shelter.pdf | 2025 | companion-animal-homelessness/adoption_placement_hub.html | yes | ok |
-| Outcomes for kittens born to free-roaming unowned cats.pdf | 2023 | companion-animal-homelessness/spay_neuter_hub_2.html | uncertain | ok |
+| Outcomes for kittens born to free-roaming unowned cats.pdf | N/A | EXCLUDED | uncertain | Byline-only — needs web abstract: matched known byline-only ID list |
 | Playing the Cards You are delt Implementing Feline Lifesaving Programs and Practices Despite Restrictive Ordinance Provisions.pdf | 2024 | animals-public-policy/03_legislation.html | yes | ok |
 | Post-Adoption Behavior and Adopter Satisfaction of Cats Across Socialization Likelihoods.pdf | 2025 | companion-animal-homelessness/adoption_placement_hub.html | yes | ok |
 | Post-Adoption Behavior and Adopter Satisfaction of Shelter Kittens Identified as Undersocialized Prior to Adoption.pdf | 2026 | companion-animal-homelessness/adoption_placement_hub.html | yes | ok |
@@ -78,10 +79,10 @@ Excluded (no abstract / bad year / validation error): 1
 | Sheltering Domestic Rabbits (Oryctolagus cuniculus) in Canada and the USA during the COVID-19 Pandemic and RHDV2 Emergence A Cross-Sectional Mixed-Methods Survey of Intake, Care, and Management (2017–2022).pdf | 2026 | physical-health/other-animals_hub.html | yes | ok |
 | Spaycations_ A Qualitative Study of Veterinarians’ Motivations And Perceived Impacts of Remote Volunteer Spay Neuter [Abstract] _ Journal of Shelter Medicine and Community Animal Health.pdf | 2024 | companion-animal-homelessness/spay_neuter_hub_2.html | yes | ok |
 | Success of Outpatient Treatment for Canine Parvovirus in a Subsidized Community Medicine Clinic in Florida.pdf | 2025 | physical-health/infectious_disease_hub.html | yes | ok |
-| Successful Control of Feral Cat Populations Through Trap-Neuterreturn and Long-term Monitoring on a Remote Island in Hong Kong A Community Case Study.pdf | 2025 | companion-animal-homelessness/spay_neuter_hub_2.html | uncertain | ok |
+| Successful Control of Feral Cat Populations Through Trap-Neuterreturn and Long-term Monitoring on a Remote Island in Hong Kong A Community Case Study.pdf | 2025 | companion-animal-homelessness/spay_neuter_hub_2.html | yes | ok |
 | Tag! You’re Home! Reunification of Pet Cats With Their Owners Using a Community Engagement Approach A Community Case Report.pdf | 2025 | shelter-management/02_animal_id_tracking.html | yes | ok |
-| Telemedicine, Access to Veterinary Healthcare, and Animal Welfare.pdf | 2023 | companion-animal-homelessness/access_vet_care_hub.html | uncertain | ok |
-| The Effect of Kennel Viewing on the Adoption of Slow-Track Dogs.pdf | 2025 | companion-animal-homelessness/adoption_placement_hub.html | uncertain | ok |
+| Telemedicine, Access to Veterinary Healthcare, and Animal Welfare.pdf | N/A | EXCLUDED | uncertain | Byline-only — needs web abstract: matched known byline-only ID list |
+| The Effect of Kennel Viewing on the Adoption of Slow-Track Dogs.pdf | 2025 | companion-animal-homelessness/adoption_placement_hub.html | yes | ok |
 | The Effects of Passage Through Vaccine Vial Septa on Needle Sharpness [Abstract] _ Journal of Shelter Medicine and Community Animal Health.pdf | 2024 | physical-health/vaccination_hub.html | yes | ok |
 | The Inclusion of Cat Dens in a Population of Shelter Cats and their Effect on Upper Respiratory Infection and Length of Stay.pdf | 2025 | physical-health/facility_shelter_design_hub.html | yes | ok |
 | The Increasing Adoption Potential of Undersocialized Cats and Kittens- Blessing or Curse? [Abstract] .pdf | 2024 | companion-animal-homelessness/adoption_placement_hub.html | yes | ok |
@@ -101,20 +102,19 @@ Excluded (no abstract / bad year / validation error): 1
 | Zoonotic and Non Zoonotic Intestinal Parasites in Shelter Dogs at Admission and Before Discharge.pdf | 2023 | physical-health/parasites_hub.html | yes | ok |
 | decrease in proportion of sterilized dogs entering animal welfare organizations in the US post pandemic.pdf | 2025 | companion-animal-homelessness/spay_neuter_hub_2.html | yes | ok |
 | estimating the dog population, responsible pet ownership, and intestinal parasitism in dogs in quito, eccuador.pdf | 2022 | physical-health/parasites_hub.html | yes | ok |
-| identifying solutions for ‘inbetweener’ cats.pdf | 2023 | companion-animal-homelessness/adoption_placement_hub.html | uncertain | ok |
+| identifying solutions for ‘inbetweener’ cats.pdf | N/A | EXCLUDED | uncertain | Byline-only — needs web abstract: only byline/affiliations — 219 chars prose after stripping |
 | “I‘m tired in my bones“_ Associations Between Adverse Childhood Experiences, Secondary Traumatic Stress, and Professional Quality of Life in Animal Shelter Workers [Abstract] _ Journal of Shelter Medicine and Community Animal Health.pdf | 2025 | shelter-management/06_mental_health.html | yes | ok |
 
 ## Mapping distribution by subdomain
 
-- `animals-public-policy/01_ethics_animal_welfare.html`: 1
 - `animals-public-policy/03_legislation.html`: 1
 - `behavioral-health/04_body_language.html`: 1
 - `behavioral-health/09_behaviour_medications.html`: 1
 - `community-public-health/01e_hoarding.html`: 2
-- `companion-animal-homelessness/access_vet_care_hub.html`: 10
-- `companion-animal-homelessness/adoption_placement_hub.html`: 11
+- `companion-animal-homelessness/access_vet_care_hub.html`: 9
+- `companion-animal-homelessness/adoption_placement_hub.html`: 9
 - `companion-animal-homelessness/shelter_diversion_hub.html`: 1
-- `companion-animal-homelessness/spay_neuter_hub_2.html`: 17
+- `companion-animal-homelessness/spay_neuter_hub_2.html`: 13
 - `physical-health/facility_shelter_design_hub.html`: 1
 - `physical-health/infectious_disease_hub.html`: 12
 - `physical-health/medical_health_hub.html`: 3
@@ -122,7 +122,7 @@ Excluded (no abstract / bad year / validation error): 1
 - `physical-health/other-animals_hub.html`: 1
 - `physical-health/parasites_hub.html`: 3
 - `physical-health/sanitation_biosecurity_hub.html`: 1
-- `physical-health/surgery_anesthesia_hub.html`: 11
+- `physical-health/surgery_anesthesia_hub.html`: 10
 - `physical-health/vaccination_hub.html`: 4
 - `research-biostats/study_design_hub.html`: 1
 - `shelter-management/01_population_management.html`: 1
@@ -135,4 +135,13 @@ Excluded (no abstract / bad year / validation error): 1
 
 ## Excluded files
 
+- **An  Inconvenient Truth targeted TNR  Enjoys  a Track  Record Unmatched by Lethal Methods for Managing Free Roaming Cats.pdf**: Byline-only — needs web abstract: matched known byline-only ID list
+- **An ASV Critique The 2024 WSAVA Guidelines for the Control Of Reproduction in Dogs and Cats.pdf**: Byline-only — needs web abstract: matched known byline-only ID list
 - **Cat Friendly (End-of-Life) Decision MakingEuthanasia how to avoid it and when to use it to support cat welfare.pdf**: No extractable abstract; excluded from catalog
+- **Cat friendly principles for those working with unowned cats.pdf**: Byline-only — needs web abstract: matched known byline-only ID list
+- **Comparison of the Number of Dog Adoptions in a Pilot ProgramThat Restored Limited Visitor Access to Kennels A Community Case Report.pdf**: Byline-only — needs web abstract: matched known byline-only ID list
+- **Ethics Committees for Animal Shelters.pdf**: Byline-only — needs web abstract: matched known byline-only ID list
+- **Managing cat populations based on an understanding of cat lifestyle and population dynamics.pdf**: Byline-only — needs web abstract: matched known byline-only ID list
+- **Outcomes for kittens born to free-roaming unowned cats.pdf**: Byline-only — needs web abstract: matched known byline-only ID list
+- **Telemedicine, Access to Veterinary Healthcare, and Animal Welfare.pdf**: Byline-only — needs web abstract: matched known byline-only ID list
+- **identifying solutions for ‘inbetweener’ cats.pdf**: Byline-only — needs web abstract: only byline/affiliations — 219 chars prose after stripping

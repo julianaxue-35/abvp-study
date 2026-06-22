@@ -662,20 +662,29 @@ def extract_abstract(text: str):
     # and grab text until next heading.
 
     end_markers = [
-        r"^\s*(?:1\.?\s*)?Introduction\b",
+        # Require section-heading form: keyword at start of line followed by
+        # optional whitespace then EITHER a colon OR end-of-line (i.e. the word
+        # alone on the line).  Using \b only would fire on body-text phrases like
+        # "methods for tracking…" or "introduction of…", truncating abstracts.
+        r"^\s*(?:1\.?\s*)?Introduction\s*(?::|$)",
         r"^\s*Keywords?\s*:",
-        r"^\s*Background\b",
-        r"^\s*(?:1\.?\s*)?Methods?\b",
-        r"^\s*References?\b",
+        r"^\s*Background\s*(?::|$)",
+        r"^\s*(?:1\.?\s*)?Methods?\s*(?::|$)",
+        r"^\s*Results?\s*(?::|$)",
+        r"^\s*Discussion\s*(?::|$)",
+        r"^\s*Conclusions?\s*(?::|$)",
+        r"^\s*References?\s*(?::|$)",
         r"^\s*Table\s+\d+",
     ]
     end_re = re.compile("|".join(end_markers), re.IGNORECASE | re.MULTILINE)
 
     # Match "Abstract" as a standalone heading (possibly after article type line)
     # In JSMCAH format, "Abstract" appears right before the abstract text on the
-    # same section.
+    # same section.  Some two-column PDFs have metadata (Received:…) appended
+    # after many spaces on the same line as the heading — allow trailing non-word
+    # content before the newline.
     abstract_heading_re = re.compile(
-        r"(?:^|\n)\s*(?:Abstract|Summary)\s*\n",
+        r"(?:^|\n)\s*(?:Abstract|Summary)[ \t]*(?:[^\S\n]{5,}\S[^\n]*)?\n",
         re.IGNORECASE,
     )
 
@@ -698,9 +707,11 @@ def extract_abstract(text: str):
     m = abs_caps_re.search(text)
     if m:
         start = m.end()
-        # Find ending — could be "Keywords" or a long gap or end of doc section
+        # Find ending — could be "Keywords" or a long gap or end of doc section.
+        # NOTE: do NOT include a "N of M" page-number pattern here because
+        # the $ metachar with MULTILINE would inadvertently match mid-abstract.
         end_m = re.search(
-            r"\n\s*(?:Keywords?|Citation:|https?://|$\s*\d+\s+of\s+\d+)",
+            r"\n\s*(?:Keywords?|Citation:)\s",
             text[start:],
             re.IGNORECASE | re.MULTILINE,
         )
@@ -766,28 +777,224 @@ def extract_abstract(text: str):
 
 def clean_abstract(text: str) -> str:
     """Clean up extracted abstract text: fix whitespace, remove page artefacts."""
-    # Remove lines that look like URL artefacts or page numbers
+    # --- Fix 2: strip date/correspondence metadata noise (BEFORE joining lines) ---
+    # JSMCAH two-column PDFs use -layout which places each row's right-column
+    # content at the end of the same text line, separated by many spaces.
+    # Metadata labels (Received/Revised/Accepted/Published/Correspondence/
+    # Funding/Editor/Reviewers) appear in the right column alongside abstract
+    # prose in the left column.  Strategy:
+    #
+    # (a) For lines with BOTH left-column prose AND right-column metadata:
+    #     strip from the first occurrence of ≥10 spaces followed by a metadata
+    #     keyword onwards (right-column fragment at end of line).
+    #
+    # (b) For lines that are ENTIRELY a right-column fragment (i.e. the first
+    #     non-space character is at column ≥70, meaning no left-column content):
+    #     skip the line entirely if it matches a metadata/address pattern.
+    #
+    # We use the column position heuristic: if len(line) - len(line.lstrip()) ≥ 70
+    # then there is no left-column content on this line.
+
+    # For lines with LEFT-column prose AND right-column content:
+    # Strip everything after ≥40 consecutive spaces (that's where the right column starts).
+    # This handles metadata labels, reviewer names, addresses, email fragments, etc.
+    right_col_any_re = re.compile(r"\s{40,}.*$")
+
+    # Metadata/address keywords for right-col-only lines (leading_spaces ≥ 70)
+    _meta_kw = re.compile(
+        r"(?:Received|Revised|Accepted|Published|Correspondence|Funding|"
+        r"Email|Editor|Reviewers?|Citation|PO Box|P\.O\. Box)\s*[:,]?",
+        re.IGNORECASE,
+    )
+
     lines = text.split("\n")
     cleaned = []
     for line in lines:
+        # Strip form-feed characters (PDF page breaks in pdftotext output)
+        line = line.replace("\x0c", "")
         stripped = line.strip()
-        # Skip URL-only lines, page number lines, journal citation footers
-        if re.match(r"^https?://\S+$", stripped):
+        if not stripped:
             continue
-        if re.match(r"^\d+\s+of\s+\d+\s*$", stripped):
+        # Skip URL-only lines, page header lines (title + URL), page number lines,
+        # and journal citation footers.
+        if re.match(r"^https?://\S+", stripped):
+            continue
+        # Lines that contain a URL — these are page headers from pdftotext layout
+        # (after form-feed removal the title+URL line reads as "Title... https://url")
+        if re.search(r"\s+https?://\S+", stripped):
+            continue
+        # Page number lines: "N of M" optionally followed by date/time stamps
+        if re.match(r"^\d+\s+of\s+\d+\b", stripped):
             continue
         if re.match(r"^Journal of Shelter Medicine", stripped, re.IGNORECASE):
             continue
         if re.match(r"^Citation:\s+Journal", stripped, re.IGNORECASE):
             continue
-        cleaned.append(stripped)
+        # Skip lines that consist ONLY of a metadata label + date/name.
+        # These appear when the raw abstract text starts with a right-column
+        # metadata line that has been stripped of its leading whitespace.
+        # Examples: "Received: 31 October 2025", "Correspondence", "*Emily Hunt"
+        if re.match(
+            r"^(?:Received|Revised|Accepted|Published|Correspondence|Funding|"
+            r"Editor|Reviewers?)\s*:?\s*\S[^\n]{0,80}$",
+            stripped,
+            re.IGNORECASE,
+        ):
+            continue
+        # Detect lines whose first non-space char is at column ≥70 (right-col only).
+        # These are lines where there is NO left-column content, only right-column
+        # metadata/address/reviewer text.  Skip them entirely.
+        leading_spaces = len(line) - len(line.lstrip(" "))
+        if leading_spaces >= 70:
+            # Skip: metadata keyword, names/addresses (starting uppercase), email
+            # fragments (containing @, or ending in .edu/.com/.org etc.), or any
+            # short fragment that is clearly not abstract prose.
+            if (
+                _meta_kw.search(stripped)
+                or re.match(r"^\*?[A-Z]", stripped)
+                or re.search(r"@|\.edu\b|\.com\b|\.org\b|\.net\b", stripped, re.IGNORECASE)
+                or len(stripped) < 60  # very short right-col-only fragments are noise
+            ):
+                continue
+        # Strip right-column content from end of lines that have left-column prose.
+        # Any content after ≥40 consecutive spaces is right-column artefact.
+        line = right_col_any_re.sub("", line)
+        stripped = line.strip()
+        if stripped:
+            cleaned.append(stripped)
 
     text = " ".join(cleaned)
+
+    # After joining, also strip any remaining inline date-metadata fragments.
+    # Only match the specific pattern: label + colon + date string (e.g. "31 October 2025")
+    # or "label: short-word-run" that looks like a date/name, NOT followed by regular prose.
+    # We match: label, colon, optional spaces, then up to ~60 non-semicolon chars that end at
+    # a digit-year (for date lines) or at the next metadata label.
+    inline_date_re = re.compile(
+        r"(?:Received|Revised|Accepted|Published)\s*:\s*\d[^;]{0,60}?(?=\s+[A-Z]|\s*(?:Received|Revised|Accepted|Published|Correspondence)|$)",
+        re.IGNORECASE,
+    )
+    text = inline_date_re.sub("", text)
+
+    # Remove standalone email addresses (word@word.tld patterns)
+    text = re.sub(r"\b[\w.+-]+@[\w.-]+\.\w{2,}\b", "", text)
+
     # Collapse multiple spaces
     text = re.sub(r" {2,}", " ", text)
     # Fix common run-together words from PDF layout
     text = text.strip()
     return text
+
+
+# ---------------------------------------------------------------------------
+# Fix 3: byline-only detection
+# ---------------------------------------------------------------------------
+
+# Article-type header words that often appear at the top of no-abstract pages.
+_ARTICLE_TYPE_RE = re.compile(
+    r"^\s*(?:OPINION|SPECIAL|COMMUNITY|REVIEW|RESEARCH|ORIGINAL|BRIEF|COMMENTARY|"
+    r"EDITORIAL|LETTER|PERSPECTIVE)\s*(?:ARTICLE|REPORT|COMMUNICATION)?\s*$",
+    re.IGNORECASE | re.MULTILINE,
+)
+
+# Lines that look like author names or affiliations (not prose).
+# Use word boundaries for institution keywords to avoid false matches on words
+# like "sheltered", "animal welfare" (which are genuine prose), "society" etc.
+_AFFILIATION_LINE_RE = re.compile(
+    r"^(?:[A-Z][a-z]+ )+[A-Z][a-z]+\d*(?:\s*[,;]\s*(?:[A-Z][a-z]+ )*[A-Z][a-z]+\d*)*\s*$|"
+    r"\b(?:University|College|Institute|School of |Department of |Faculty of |Hospital|"
+    r"Laboratory|Humane Society|Inc\.|Ltd\.)\b",
+    re.IGNORECASE,
+)
+
+# A keywords line.
+_KEYWORDS_LINE_RE = re.compile(r"^\s*keywords?\s*:", re.IGNORECASE)
+
+
+def is_byline_only(abstract: str) -> tuple:
+    """
+    Return (True, reason) when the extracted text contains no real abstract prose.
+
+    Heuristic: after removing article-type headers, keywords lines, and
+    author-name/affiliation lines, if < ~250 chars of prose remain the record
+    is considered byline-only and should be excluded.
+
+    Also returns True when the text is dominated by a Keywords block with no
+    preceding prose (< 80 chars before "Keywords:").
+
+    Returns (False, "") when real content is present.
+    """
+    text = abstract.strip()
+    if not text:
+        return (True, "empty text")
+
+    # Check: dominated by a Keywords line at the start
+    kw_match = _KEYWORDS_LINE_RE.search(text)
+    if kw_match and kw_match.start() < 120:
+        before_kw = text[: kw_match.start()].strip()
+        # If almost nothing precedes the Keywords line it's not a real abstract
+        if len(before_kw) < 80:
+            return (True, "only keywords list (no prose before Keywords:)")
+
+    # Strip article-type header lines
+    remaining = _ARTICLE_TYPE_RE.sub("", text)
+
+    # Strip keyword lines
+    lines_after = []
+    for line in remaining.split("\n"):
+        if _KEYWORDS_LINE_RE.match(line):
+            continue
+        lines_after.append(line)
+    remaining = "\n".join(lines_after)
+
+    # Strip affiliation-like lines
+    prose_lines = []
+    for line in remaining.split("\n"):
+        stripped = line.strip()
+        if not stripped:
+            continue
+        if _AFFILIATION_LINE_RE.search(stripped) and len(stripped) < 200:
+            continue
+        prose_lines.append(stripped)
+
+    prose = " ".join(prose_lines).strip()
+
+    # Remove any residual article-type words at the very start
+    prose = re.sub(
+        r"^(?:OPINION|SPECIAL|COMMUNITY|REVIEW|ORIGINAL|BRIEF|COMMENTARY|"
+        r"EDITORIAL|LETTER|PERSPECTIVE)\s+(?:ARTICLE|REPORT|COMMUNICATION)?\s*",
+        "",
+        prose,
+        flags=re.IGNORECASE,
+    ).strip()
+
+    if len(prose) < 250:
+        return (True, f"only byline/affiliations — {len(prose)} chars prose after stripping")
+
+    return (False, "")
+
+
+# Known IDs that are definitely byline-only (belt-and-suspenders guard).
+# These are prefix-matched against the generated slug (which may be longer due to
+# the 80-char truncation in make_slug).
+_KNOWN_BYLINE_ONLY_PREFIXES = [
+    "an-inconvenient-truth",          # "An Inconvenient Truth targeted TNR..."
+    "an-asv-critique",                 # "An ASV Critique The 2024 WSAVA..."
+    "ethics-committees-for-animal",    # "Ethics Committees for Animal Shelters"
+    "telemedicine-access-to-veterinary",  # "Telemedicine, Access to Vet Healthcare..."
+    "cat-friendly-principles-for",     # "Cat friendly principles for those working..."
+    "managing-cat-populations",        # "Managing cat populations based on..."
+    "outcomes-for-kittens-born",       # "Outcomes for kittens born to free-roaming..."
+    "identifying-solutions-for",       # "identifying solutions for 'inbetweener' cats"
+    "comparison-of-the-number-of-dog", # "Comparison of the Number of Dog Adoptions..."
+]
+
+
+def _is_known_byline_only(slug: str) -> bool:
+    """Return True if slug starts with any known byline-only prefix."""
+    return any(slug.startswith(p) for p in _KNOWN_BYLINE_ONLY_PREFIXES)
+
+NEEDS_WEB_ABSTRACT_PATH = str(TOOLS_DIR / "needs_web_abstract.md")
 
 
 # ---------------------------------------------------------------------------
@@ -987,6 +1194,7 @@ def process_pdfs() -> None:
 
     records = []
     report_rows = []
+    needs_web: list = []  # byline-only records for needs_web_abstract.md
     used_slugs: set[str] = set()
 
     for pdf_path in pdf_files:
@@ -1012,6 +1220,28 @@ def process_pdfs() -> None:
             print(f"    -> EXCLUDED (no abstract)")
             continue
 
+        # Fix 3: Check for byline-only / no-real-abstract records.
+        # Derive a slug now (before we know if we'll keep the record) for the
+        # known-slugs guard.  We'll re-derive it properly below if we keep it.
+        _candidate_slug = make_slug(title)
+        byline_only, byline_reason = is_byline_only(abstract)
+        if byline_only or _is_known_byline_only(_candidate_slug):
+            reason = byline_reason or "matched known byline-only ID list"
+            needs_web.append({
+                "filename": filename,
+                "title": title,
+                "reason": reason,
+            })
+            report_rows.append({
+                "filename": filename,
+                "year": "N/A",
+                "subdomain_page": "EXCLUDED",
+                "abs_status": abs_status,
+                "note": f"Byline-only — needs web abstract: {reason}",
+            })
+            print(f"    -> EXCLUDED (byline-only: {reason[:60]})")
+            continue
+
         # Extract metadata
         year = extract_year(text, filename) or extract_year_from_citation(text)
         authors = extract_authors(text)
@@ -1030,7 +1260,7 @@ def process_pdfs() -> None:
                     "year": "N/A",
                     "subdomain_page": "EXCLUDED",
                     "abs_status": abs_status,
-                    "note": f"Year not in 2021-2026 range; excluded from catalog",
+                    "note": "Year not in 2021-2026 range; excluded from catalog",
                 })
                 print(f"    -> EXCLUDED (year out of range)")
                 continue
@@ -1108,21 +1338,26 @@ def process_pdfs() -> None:
     print(f"\nSaved {len(records)} records to {CATALOG_PATH}")
 
     # Write report
-    write_report(report_rows, records)
+    write_report(report_rows, records, needs_web)
     print(f"Report written to {REPORT_PATH}")
 
+    # Write needs_web_abstract.md
+    if needs_web:
+        _write_needs_web(needs_web)
+        print(f"needs_web_abstract.md: {len(needs_web)} entries → {NEEDS_WEB_ABSTRACT_PATH}")
 
-def write_report(rows: list, records: list) -> None:
+
+def write_report(rows: list, records: list, needs_web: list) -> None:
     """Write extract_report.md."""
     lines = []
     lines.append("# Extract Report — ABVP Journal Folder PDFs\n")
     lines.append(f"Total PDFs processed: {len(rows)}\n")
-    total_ok = sum(1 for r in rows if r["abs_status"] in ("yes", "uncertain") and r["subdomain_page"] not in ("EXCLUDED",))
     total_uncertain = sum(1 for r in rows if r["abs_status"] == "uncertain" and r["subdomain_page"] not in ("EXCLUDED",))
     total_excluded = sum(1 for r in rows if r["subdomain_page"] == "EXCLUDED" or r.get("note", "").startswith("VALIDATION"))
     lines.append(f"Records written to catalog: **{len(records)}**\n")
     lines.append(f"Abstract uncertain (included): {total_uncertain}\n")
-    lines.append(f"Excluded (no abstract / bad year / validation error): {total_excluded}\n\n")
+    lines.append(f"Excluded (no abstract / byline-only / bad year / validation error): {total_excluded}\n")
+    lines.append(f"Byline-only (needs web abstract): {len(needs_web)}\n\n")
 
     lines.append("## Per-file results\n")
     lines.append("| Filename | Year | Subdomain Page | Abstract | Note |\n")
@@ -1148,6 +1383,26 @@ def write_report(rows: list, records: list) -> None:
             lines.append(f"- **{r['filename']}**: {r.get('note', 'excluded')}\n")
 
     with open(REPORT_PATH, "w", encoding="utf-8") as fh:
+        fh.writelines(lines)
+
+
+def _write_needs_web(needs_web: list) -> None:
+    """Write tools/needs_web_abstract.md listing byline-only records."""
+    lines = []
+    lines.append("# Needs Web Abstract\n\n")
+    lines.append(
+        "These records were excluded from `journal-catalog.json` because the PDF "
+        "contains only a byline / article-type header / keywords list — no real abstract "
+        "prose.  Fetch the abstract from the journal website and add the record manually.\n\n"
+    )
+    lines.append("| Filename | Derived Title | Reason |\n")
+    lines.append("|----------|--------------|--------|\n")
+    for item in needs_web:
+        fn = item["filename"].replace("|", "\\|")
+        title = item["title"].replace("|", "\\|")
+        reason = item["reason"].replace("|", "\\|")
+        lines.append(f"| {fn} | {title} | {reason} |\n")
+    with open(NEEDS_WEB_ABSTRACT_PATH, "w", encoding="utf-8") as fh:
         fh.writelines(lines)
 
 
