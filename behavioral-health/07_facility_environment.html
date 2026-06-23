@@ -184,6 +184,20 @@
 <section class="panel show" id="env">
   <h2 class="sec">Environmental Management &amp; Mental Health</h2>
   <p class="lead">The shelter must actively engineer its environment to minimise the stimuli that induce fear, stress, and frustration, and to support mental health and wellbeing. This is a required component of care backed by written policy and protocol, not an informal aspiration.</p>
+   <div class="card" data-podcast-card style="border-left:4px solid #0f3d3a;background:#eef3f1;border-radius:8px;padding:14px 16px;margin:16px 0">
+     <h4 style="margin:0 0 6px;display:flex;align-items:center;gap:8px;color:#0f3d3a">🎧 NotebookLM Podcast</h4>
+     <p style="color:#5d6b62;margin:0 0 8px;font-size:14px">Facility and Environment</p>
+     <audio controls preload="metadata" style="width:100%">
+       <source src="audio/facility_environment.m4a" type="audio/mp4">
+     </audio>
+     <div data-speed-controls style="margin-top:10px;display:flex;gap:6px;align-items:center;flex-wrap:wrap">
+       <span style="font-size:12px;color:#5d6b62;margin-right:2px">Speed</span>
+       <button type="button" onclick="setRate(this,1)" style="font:inherit;font-size:12px;padding:3px 10px;border:1px solid #b9cdc6;border-radius:6px;cursor:pointer;background:#0f3d3a;color:#fff">1×</button>
+       <button type="button" onclick="setRate(this,1.25)" style="font:inherit;font-size:12px;padding:3px 10px;border:1px solid #b9cdc6;border-radius:6px;cursor:pointer;background:#fff;color:#0f3d3a">1.25×</button>
+       <button type="button" onclick="setRate(this,1.5)" style="font:inherit;font-size:12px;padding:3px 10px;border:1px solid #b9cdc6;border-radius:6px;cursor:pointer;background:#fff;color:#0f3d3a">1.5×</button>
+       <button type="button" onclick="setRate(this,2)" style="font:inherit;font-size:12px;padding:3px 10px;border:1px solid #b9cdc6;border-radius:6px;cursor:pointer;background:#fff;color:#0f3d3a">2×</button>
+     </div>
+   </div>
 
   <div class="card">
     <h4>The directive</h4>
@@ -442,63 +456,28 @@
 .ja-ans-rationale {
   color: var(--ink2, #15514c);
 }
+/* ── Journal self-test (pages without an MCQ bank) ── */
+.ja-quiz { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line, #d9d0bd); }
+.ja-quiz-h { font-family: "Fraunces", serif; font-weight: 600; font-size: 18px; margin: 0 0 12px; color: var(--ink, #0f3d3a); }
+.ja-qcard { background: var(--paper2, #fbf8f1); border: 1px solid var(--line, #d9d0bd); border-radius: 12px; padding: 14px 16px; margin: 12px 0; }
+.ja-qstem { font-weight: 600; font-size: 0.95em; margin-bottom: 10px; color: var(--ink, #0f3d3a); }
+.ja-qopt { display: block; width: 100%; text-align: left; cursor: pointer; font: inherit; font-size: 0.9em; padding: 8px 11px; margin: 5px 0; border: 1px solid var(--line, #d9d0bd); border-radius: 8px; background: var(--paper, #fdfaf4); color: var(--ink, #0f3d3a); }
+.ja-qopt b { color: var(--muted, #5d6b62); font-family: "JetBrains Mono", monospace; margin-right: 4px; }
+.ja-qopt:hover:not(.locked) { border-color: var(--lit, #1f6f8b); }
+.ja-qopt.locked { cursor: default; }
+.ja-qopt.correct { background: #e9f4ee; border-color: var(--good, #2f7d52); }
+.ja-qopt.wrong { background: #f8e9e9; border-color: var(--bad, #b23b3b); }
+.ja-qexpl { font-size: 0.88em; margin-top: 8px; padding: 9px 12px; background: var(--lit-soft, #dcedf2); border-radius: 8px; color: var(--ink2, #15514c); line-height: 1.5; }
 </style>
 <section class="panel" id="journal">
   <h2 class="sec">Additional Resources</h2>
-  <p class="lead">Journal Articles (2021–2026). Exam items are drawn from the abstract only — read each abstract, then self-test.</p>
+  <p class="lead">Journal Articles (2021–2026) — exam items are drawn from the abstract only. Read each abstract here; self-test questions are in the MCQ Test Bank.</p>
   <div class="card ja-article">
     <p class="ja-cite"><b>The effect of animal shelter sound on cat behaviour and welfare</b><br>
     <span class="ja-meta">Eagan BH, Gordon E, Fraser D &middot; Animal Welfare &middot; 2021 &middot; <a href="https://doi.org/10.7120/09627286.30.4.006" target="_blank" rel="noopener">10.7120/09627286.30.4.006</a></span></p>
     <div class="ja-abstract"><b>Abstract.</b> This investigation assessed how sound affected fearand maintenance-related behaviors in single-housed shelter cats. Two daily 30-minute observation sessions (morning and evening) occurred for 98 cats over ten days. Cat behaviour and presence of sound (classified by source) were recorded by instantaneous and one-zero sampling with 15-second intervals. Sessions were classified as 'quiet' or 'noisy' based on median sound levels. Statistical analysis included 70 cats with adequate comparable observations. Males demonstrated less fear and maintenance behavior than females. Morning sessions consistently had much more sound than evenings, and cats showed more fear behaviour and less maintenance behaviour in the mornings. Cats exhibited more fear responses during noisy morning sessions compared to quiet ones. When sound transitioned from quiet to noisy, fear-related behaviour increased; transitions from noisy to quiet showed decreased fear behaviours. The findings indicate that shelter cats vary significantly in responsiveness, and environmental sound substantially influences their conduct. The researchers conclude that reducing shelter noise levels may enhance overall welfare outcomes for cats.</div>
-      <div class="ja-mcq">
-        <p class="ja-q">In Eagan et al. 2021, what time-of-day pattern was found in shelter cat fear behavior?</p>
-        <ul class="ja-opts">
-          <li class="ja-opt"><b>A.</b> Fear behavior was higher in evening sessions, which had more sound</li>
-          <li class="ja-opt"><b>B.</b> Fear behavior was higher in morning sessions, which consistently had more sound</li>
-          <li class="ja-opt"><b>C.</b> Fear behavior was equal between morning and evening sessions regardless of sound level</li>
-          <li class="ja-opt"><b>D.</b> Fear behavior was highest at midday and declined in both morning and evening sessions</li>
-        </ul>
-        <details class="ja-ans">
-          <summary>Show answer</summary>
-          <div class="ja-ans-body">
-            <span class="ja-ans-correct">Answer: B. Fear behavior was higher in morning sessions, which consistently had more sound</span>
-            <span class="ja-ans-rationale">The abstract states &#x27;morning sessions consistently had much more sound than evenings, and cats showed more fear behaviour and less maintenance behaviour in the mornings,&#x27; indicating sound level drove the time-of-day pattern.</span>
-          </div>
-        </details>
-      </div>
-      <div class="ja-mcq">
-        <p class="ja-q">According to Eagan et al. 2021, what practical recommendation did the authors make based on their findings about shelter sound and cat welfare?</p>
-        <ul class="ja-opts">
-          <li class="ja-opt"><b>A.</b> Cats should be housed in separate rooms from dogs to reduce fear</li>
-          <li class="ja-opt"><b>B.</b> All shelter cats should receive anxiolytics to reduce sound-related stress</li>
-          <li class="ja-opt"><b>C.</b> Reducing shelter noise levels may enhance welfare outcomes for cats</li>
-          <li class="ja-opt"><b>D.</b> Cats should be moved to quieter areas only during morning cleaning periods</li>
-        </ul>
-        <details class="ja-ans">
-          <summary>Show answer</summary>
-          <div class="ja-ans-body">
-            <span class="ja-ans-correct">Answer: C. Reducing shelter noise levels may enhance welfare outcomes for cats</span>
-            <span class="ja-ans-rationale">The abstract concludes &#x27;reducing shelter noise levels may enhance overall welfare outcomes for cats,&#x27; based on the finding that noisy conditions were associated with increased fear behavior and decreased maintenance behavior.</span>
-          </div>
-        </details>
-      </div>
-      <div class="ja-mcq">
-        <p class="ja-q">In Eagan et al. 2021, what sex difference was found in shelter cat responses to sound?</p>
-        <ul class="ja-opts">
-          <li class="ja-opt"><b>A.</b> Female cats showed less fear behavior than males in noisy conditions</li>
-          <li class="ja-opt"><b>B.</b> Male cats demonstrated less fear and maintenance behavior than females</li>
-          <li class="ja-opt"><b>C.</b> No sex differences were found in response to shelter sound</li>
-          <li class="ja-opt"><b>D.</b> Male cats had higher fear scores but lower maintenance behavior than females</li>
-        </ul>
-        <details class="ja-ans">
-          <summary>Show answer</summary>
-          <div class="ja-ans-body">
-            <span class="ja-ans-correct">Answer: B. Male cats demonstrated less fear and maintenance behavior than females</span>
-            <span class="ja-ans-rationale">The abstract states &#x27;males demonstrated less fear and maintenance behavior than females,&#x27; suggesting female shelter cats may be more vulnerable to sound-related stress and may benefit most from noise reduction efforts.</span>
-          </div>
-        </details>
-      </div>
   </div>
+
 </section>
 <!-- JOURNAL-ARTICLES:END -->
 
@@ -720,5 +699,123 @@ render();
   });
 })();
 </script>
+<script data-speed-js>
+function setRate(btn,r){
+  var row=btn.parentNode, card=row.parentNode;
+  var a=card.querySelector("audio"); if(a){a.playbackRate=r;}
+  var b=row.querySelectorAll("button");
+  for(var i=0;i<b.length;i++){b[i].style.background="#fff";b[i].style.color="#0f3d3a";}
+  btn.style.background="#0f3d3a"; btn.style.color="#fff";
+}
+</script>
+<script data-floating-player>
+/* Floating podcast control — follows scroll on the left edge so you can
+   control the episode while reading the notes. Compact column: skip back 15s,
+   play/pause, skip forward 15s. Controls whichever episode is active and
+   shows its title. */
+(function(){
+  var audios = Array.prototype.slice.call(document.querySelectorAll('audio'));
+  if(!audios.length) return;
+  var active = null;
+
+  var PLAY = '<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+  var PAUSE = '<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>';
+  var ARROW_BACK = '<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>';
+  var ARROW_FWD = '<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 5V1l5 5-5 5V7c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6h2c0 4.42-3.58 8-8 8s-8-3.58-8-8 3.58-8 8-8z"/></svg>';
+
+  var wrap = document.createElement('div');
+  wrap.id = 'floatPlayer';
+  wrap.style.cssText = 'position:fixed;left:0;top:50%;transform:translateY(-50%);z-index:99999;display:none;align-items:center;font-family:inherit';
+
+  var col = document.createElement('div');
+  col.style.cssText = 'display:flex;flex-direction:column;flex:0 0 auto;box-shadow:2px 2px 12px rgba(0,0,0,.28);border-radius:0 16px 16px 0;overflow:hidden';
+
+  function mkBtn(html, h, aria){
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('aria-label', aria);
+    b.style.cssText = 'width:54px;height:'+h+'px;border:none;background:#0f3d3a;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:1px;padding:0;font-family:inherit;font-size:11px;font-weight:700';
+    b.innerHTML = html;
+    return b;
+  }
+
+  var rew = mkBtn(ARROW_BACK + '<span>15</span>', 32, 'Skip back 15 seconds');
+  var btn = mkBtn(PLAY, 50, 'Play or pause podcast');
+  var fwd = mkBtn('<span>15</span>' + ARROW_FWD, 32, 'Skip forward 15 seconds');
+  btn.style.borderTop = '1px solid rgba(255,255,255,.14)';
+  fwd.style.borderTop = '1px solid rgba(255,255,255,.14)';
+
+  col.appendChild(rew);
+  col.appendChild(btn);
+  col.appendChild(fwd);
+
+  var label = document.createElement('div');
+  label.style.cssText = 'max-width:0;overflow:hidden;white-space:nowrap;background:#0f3d3a;color:#fff;font-size:12px;line-height:1.3;border-radius:0 8px 8px 0;transition:max-width .3s ease,padding .3s ease;padding:0;box-shadow:2px 2px 12px rgba(0,0,0,.28);margin-left:-1px';
+
+  wrap.appendChild(col);
+  wrap.appendChild(label);
+  document.body.appendChild(wrap);
+
+  var hideT;
+  function showLabel(){ clearTimeout(hideT); label.style.maxWidth='230px'; label.style.padding='8px 14px 8px 10px'; }
+  function hideLabel(){ label.style.maxWidth='0'; label.style.padding='0'; }
+  wrap.addEventListener('mouseenter', showLabel);
+  wrap.addEventListener('mouseleave', hideLabel);
+
+  function titleFor(a){
+    var card = a.closest('[data-podcast-card]');
+    if(card){ var p = card.querySelector('p'); if(p) return p.textContent.trim(); }
+    var prev = a.previousElementSibling;
+    while(prev){ if(prev.tagName === 'P') return prev.textContent.trim(); prev = prev.previousElementSibling; }
+    var src = a.querySelector('source');
+    if(src){ return (src.getAttribute('src')||'').split('/').pop().replace(/\.[^.]+$/,'').replace(/_/g,' '); }
+    return 'Podcast';
+  }
+
+  function render(){
+    if(!active){ wrap.style.display='none'; return; }
+    wrap.style.display = 'flex';
+    var playing = !active.paused && !active.ended;
+    btn.innerHTML = playing ? PAUSE : PLAY;
+    label.textContent = titleFor(active);
+  }
+
+  function skip(sec){
+    if(!active) return;
+    var d = active.duration;
+    var t = active.currentTime + sec;
+    if(isFinite(d)) t = Math.min(d, t);
+    active.currentTime = Math.max(0, t);
+  }
+
+  audios.forEach(function(a){
+    a.addEventListener('play', function(){
+      audios.forEach(function(o){ if(o !== a) o.pause(); });
+      active = a; render();
+      showLabel(); hideT = setTimeout(hideLabel, 2500);
+    });
+    a.addEventListener('pause', render);
+    a.addEventListener('ended', render);
+  });
+
+  btn.addEventListener('click', function(){
+    if(!active) return;
+    if(active.paused) active.play(); else active.pause();
+  });
+  rew.addEventListener('click', function(){ skip(-15); });
+  fwd.addEventListener('click', function(){ skip(15); });
+})();
+</script>
+<!-- JOURNAL-BANK:START -->
+<script data-journal-bank>
+(function(){try{
+  if(typeof Q!=='undefined' && Array.isArray(Q)){
+    var JJ=[{"q": "A study of 98 shelter cats found that noisy conditions were associated with increased fear behavior and decreased maintenance behavior. What is the most actionable welfare recommendation from these findings?", "o": ["Rotate cats between noisy and quiet areas to promote desensitization", "Administer anxiolytics during morning cleaning periods when sound peaks", "Reduce shelter noise levels as a practical strategy to improve cat welfare", "House cats and dogs in adjacent areas to acclimate cats to environmental sound"], "a": 2, "e": "The researchers explicitly conclude that reducing shelter noise levels may enhance overall welfare outcomes for cats. Sound was modifiable and directly linked to fear behavior — making noise reduction the most direct and practical intervention."}, {"q": "In this shelter sound study, morning sessions had significantly more sound than evenings, and cats showed more fear behavior in the mornings. What does this pattern suggest about noise management?", "o": ["Fear behavior is driven by circadian rhythms, not sound — morning cleaning should proceed normally", "Noise during morning routines (cleaning, feeding) is a modifiable welfare risk that warrants targeted reduction strategies", "Evening sessions should be restructured to match morning sound levels for consistency", "The morning–evening pattern shows cats habituate to sound quickly and no intervention is needed"], "a": 1, "e": "Morning sessions had more sound AND more fear behavior; when sound decreased (evening or quiet transitions), fear decreased. Since morning noise comes largely from human activity, targeted noise reduction strategies during morning routines are a practical welfare intervention."}, {"q": "Male cats in this shelter sound study showed less fear and maintenance behavior than females. What is the correct interpretation of this finding for shelter practice?", "o": ["Male cats should be housed in noisier areas since they are less sensitive to sound", "Female cats should receive anxiolytics prophylactically due to universal higher sensitivity", "Individual variation in sound sensitivity exists by sex; a one-size approach to noise management may not be sufficient for all cats", "Sex is the primary predictor of fear behavior and should override housing location decisions"], "a": 2, "e": "Sex differences in fear and maintenance behavior highlight that shelter cats vary significantly in responsiveness to sound — a finding the authors explicitly note. This supports individualized welfare monitoring rather than uniform protocols based on aggregate data."}];
+    JJ.forEach(function(m){Q.push({t:"journal",f:"journal",q:m.q,o:m.o,a:m.a,e:m.e});});
+    if(typeof render==='function'){render();}
+  }
+}catch(e){}})();
+</script>
+<!-- JOURNAL-BANK:END -->
 </body>
 </html>

@@ -22,9 +22,31 @@ from pathlib import Path
 _TOOLS_DIR = Path(__file__).resolve().parent
 _REPO_ROOT = _TOOLS_DIR.parent
 _CATALOG_PATH = _TOOLS_DIR / "journal-catalog.json"
+_SYNTH_PATH = _TOOLS_DIR / "synthesized_mcqs.json"
 
 sys.path.insert(0, str(_TOOLS_DIR))
 from lib_catalog import load_catalog  # noqa: E402
+
+
+def load_synth():
+    """Load synthesized cross-study MCQs (list of dicts with subdomain_page)."""
+    if _SYNTH_PATH.exists():
+        return json.loads(_SYNTH_PATH.read_text(encoding="utf-8"))
+    return []
+
+
+def page_questions(page, all_records, synth):
+    """All journal questions for a page: per-article mcqs + synthesized ones."""
+    qs = []
+    for r in all_records:
+        if r["subdomain_page"] == page:
+            for m in r.get("mcqs", []):
+                qs.append({"q": m["q"], "o": m["o"], "a": m["a"], "e": m["e"]})
+    for s in synth:
+        if s.get("subdomain_page") == page:
+            qs.append({"q": s["q"], "o": s["o"], "a": s["a"], "e": s["e"]})
+    return qs
+
 
 # ---------------------------------------------------------------------------
 # Idempotency markers
@@ -33,6 +55,8 @@ TAB_START = "<!-- JOURNAL-TAB:START -->"
 TAB_END = "<!-- JOURNAL-TAB:END -->"
 PANEL_START = "<!-- JOURNAL-ARTICLES:START -->"
 PANEL_END = "<!-- JOURNAL-ARTICLES:END -->"
+BANK_START = "<!-- JOURNAL-BANK:START -->"
+BANK_END = "<!-- JOURNAL-BANK:END -->"
 
 # Letter labels
 _LETTERS = ["A", "B", "C", "D"]
@@ -196,11 +220,26 @@ def render_styles() -> str:
 .ja-ans-rationale {
   color: var(--ink2, #15514c);
 }
+/* ── Journal self-test (pages without an MCQ bank) ── */
+.ja-quiz { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line, #d9d0bd); }
+.ja-quiz-h { font-family: "Fraunces", serif; font-weight: 600; font-size: 18px; margin: 0 0 12px; color: var(--ink, #0f3d3a); }
+.ja-qcard { background: var(--paper2, #fbf8f1); border: 1px solid var(--line, #d9d0bd); border-radius: 12px; padding: 14px 16px; margin: 12px 0; }
+.ja-qstem { font-weight: 600; font-size: 0.95em; margin-bottom: 10px; color: var(--ink, #0f3d3a); }
+.ja-qopt { display: block; width: 100%; text-align: left; cursor: pointer; font: inherit; font-size: 0.9em; padding: 8px 11px; margin: 5px 0; border: 1px solid var(--line, #d9d0bd); border-radius: 8px; background: var(--paper, #fdfaf4); color: var(--ink, #0f3d3a); }
+.ja-qopt b { color: var(--muted, #5d6b62); font-family: "JetBrains Mono", monospace; margin-right: 4px; }
+.ja-qopt:hover:not(.locked) { border-color: var(--lit, #1f6f8b); }
+.ja-qopt.locked { cursor: default; }
+.ja-qopt.correct { background: #e9f4ee; border-color: var(--good, #2f7d52); }
+.ja-qopt.wrong { background: #f8e9e9; border-color: var(--bad, #b23b3b); }
+.ja-qexpl { font-size: 0.88em; margin-top: 8px; padding: 9px 12px; background: var(--lit-soft, #dcedf2); border-radius: 8px; color: var(--ink2, #15514c); line-height: 1.5; }
 </style>"""
 
 
-def render_panel(records: list, standalone: bool = False) -> str:
-    """Return a <section> element containing journal article cards.
+def render_panel(records: list, standalone: bool = False, quiz_html: str = "") -> str:
+    """Return a <section> with abstract-only journal cards (no inline MCQs).
+
+    The self-test questions now live in the page's MCQ Test Bank (or, on
+    pages without a bank, in the quiz block appended via quiz_html).
 
     If standalone is True, the section uses class "ja-standalone" (visible
     inline) instead of class "panel" (hidden until tab click).
@@ -224,47 +263,13 @@ def render_panel(records: list, standalone: bool = False) -> str:
         else:
             doi_part = ""
 
-        # Abstract
         abstract_html = _abstract_html(rec["abstract"])
-
-        # MCQs
-        mcq_html_parts = []
-        for mcq in rec.get("mcqs", []):
-            q_text = _e(mcq["q"])
-            options = mcq["o"]
-            answer_idx = mcq["a"]
-            rationale = _e(mcq["e"])
-            correct_letter = _LETTERS[answer_idx]
-            correct_option = _e(options[answer_idx])
-
-            opts_items = "\n".join(
-                f'          <li class="ja-opt"><b>{_LETTERS[i]}.</b> {_e(opt)}</li>'
-                for i, opt in enumerate(options)
-            )
-
-            mcq_block = f"""\
-      <div class="ja-mcq">
-        <p class="ja-q">{q_text}</p>
-        <ul class="ja-opts">
-{opts_items}
-        </ul>
-        <details class="ja-ans">
-          <summary>Show answer</summary>
-          <div class="ja-ans-body">
-            <span class="ja-ans-correct">Answer: {_e(correct_letter)}. {correct_option}</span>
-            <span class="ja-ans-rationale">{rationale}</span>
-          </div>
-        </details>
-      </div>"""
-            mcq_html_parts.append(mcq_block)
-
-        mcq_section = "\n" + "\n".join(mcq_html_parts) if mcq_html_parts else ""
 
         article_block = f"""\
   <div class="card ja-article">
     <p class="ja-cite"><b>{title}</b><br>
     <span class="ja-meta">{authors} &middot; {journal} &middot; {year}{doi_part}</span></p>
-    <div class="ja-abstract"><b>Abstract.</b> {abstract_html}</div>{mcq_section}
+    <div class="ja-abstract"><b>Abstract.</b> {abstract_html}</div>
   </div>"""
         articles_html_parts.append(article_block)
 
@@ -278,9 +283,68 @@ def render_panel(records: list, standalone: bool = False) -> str:
     return f"""\
 <section {section_attrs}>
   <h2 class="sec">Additional Resources</h2>
-  <p class="lead">Journal Articles (2021–2026). Exam items are drawn from the abstract only — read each abstract, then self-test.</p>
+  <p class="lead">Journal Articles (2021–2026) — exam items are drawn from the abstract only. Read each abstract here; self-test questions are in the MCQ Test Bank.</p>
 {articles_html}
+{quiz_html}
 </section>"""
+
+
+def render_bank_script(questions: list) -> str:
+    """JS block that pushes journal questions into the page's existing Q bank.
+
+    Appended before </body>; relies on the page's classic-script-scope `Q`
+    array and `render()` function. Tagged t/f = "journal" so they show a
+    JOURNAL tag in the bank. Idempotent via BANK markers.
+    """
+    payload = json.dumps(questions, ensure_ascii=False)
+    return f"""\
+<script data-journal-bank>
+(function(){{try{{
+  if(typeof Q!=='undefined' && Array.isArray(Q)){{
+    var JJ={payload};
+    JJ.forEach(function(m){{Q.push({{t:"journal",f:"journal",q:m.q,o:m.o,a:m.a,e:m.e}});}});
+    if(typeof render==='function'){{render();}}
+  }}
+}}catch(e){{}}}})();
+</script>"""
+
+
+def render_quiz_block(questions: list) -> str:
+    """Self-contained interactive journal quiz for pages WITHOUT an MCQ bank."""
+    payload = json.dumps(questions, ensure_ascii=False)
+    return f"""\
+  <div class="ja-quiz">
+    <h3 class="ja-quiz-h">Journal Self-Test</h3>
+    <div id="jaQuizHost"></div>
+  </div>
+  <script data-journal-quiz>
+  (function(){{
+    var JQ={payload};
+    var host=document.getElementById('jaQuizHost'); if(!host||!JQ.length) return;
+    var L=["A","B","C","D"];
+    JQ.forEach(function(item,i){{
+      var card=document.createElement('div'); card.className='ja-qcard';
+      var stem=document.createElement('div'); stem.className='ja-qstem';
+      stem.textContent=(i+1)+'. '+item.q; card.appendChild(stem);
+      var done=false;
+      item.o.forEach(function(opt,oi){{
+        var b=document.createElement('button'); b.className='ja-qopt';
+        b.innerHTML='<b>'+L[oi]+'.</b> '+opt;
+        b.onclick=function(){{
+          if(done) return; done=true;
+          var kids=card.querySelectorAll('.ja-qopt');
+          for(var k=0;k<kids.length;k++){{kids[k].classList.add('locked');}}
+          kids[item.a].classList.add('correct');
+          if(oi!==item.a) b.classList.add('wrong');
+          var ex=document.createElement('div'); ex.className='ja-qexpl';
+          ex.innerHTML='<b>Answer: '+L[item.a]+'.</b> '+item.e; card.appendChild(ex);
+        }};
+        card.appendChild(b);
+      }});
+      host.appendChild(card);
+    }});
+  }})();
+  </script>"""
 
 
 # ---------------------------------------------------------------------------
@@ -328,13 +392,19 @@ def inject(page_path: str) -> bool:
         return False
 
     # ----------------------------------------------------------------
-    # Load records
+    # Load records + questions
     # ----------------------------------------------------------------
     all_records = load_catalog(str(_CATALOG_PATH))
+    synth = load_synth()
     records = [r for r in all_records if r["subdomain_page"] == page_path]
     if not records:
         print(f"  [SKIP] {page_path}: no catalog records for this page")
         return False
+
+    questions = page_questions(page_path, all_records, synth)
+    has_bank = bool(re.search(r"const Q=\[", content))
+    # On bank pages questions go into the bank; otherwise into an in-panel quiz.
+    quiz_html = "" if has_bank else render_quiz_block(questions)
 
     styles_html = render_styles()
 
@@ -343,7 +413,7 @@ def inject(page_path: str) -> bool:
     # ----------------------------------------------------------------
     if has_tabrow:
         tab_button_html = render_tab_button()
-        panel_html = render_panel(records, standalone=False)
+        panel_html = render_panel(records, standalone=False, quiz_html=quiz_html)
 
         tab_region = f"{TAB_START}\n{tab_button_html}\n{TAB_END}"
         panel_region = f"{PANEL_START}\n{styles_html}\n{panel_html}\n{PANEL_END}"
@@ -393,7 +463,7 @@ def inject(page_path: str) -> bool:
     # NO-TAB (standalone) layout
     # ----------------------------------------------------------------
     else:
-        panel_html = render_panel(records, standalone=True)
+        panel_html = render_panel(records, standalone=True, quiz_html=quiz_html)
         panel_region = f"{PANEL_START}\n{styles_html}\n{panel_html}\n{PANEL_END}"
 
         # PANEL injection: idempotent replacement or fresh insert
@@ -413,6 +483,24 @@ def inject(page_path: str) -> bool:
 
             insert_pos = main_close_match.start()
             content = content[:insert_pos] + "\n" + panel_region + "\n\n" + content[insert_pos:]
+
+    # ----------------------------------------------------------------
+    # Bank push script (pages with a `const Q=[` MCQ Test Bank)
+    # ----------------------------------------------------------------
+    # Remove any existing bank block first (idempotent / handles transitions).
+    content = re.sub(
+        re.escape(BANK_START) + r".*?" + re.escape(BANK_END) + r"\n?",
+        "",
+        content,
+        flags=re.DOTALL,
+    )
+    if has_bank and questions:
+        bank_region = f"{BANK_START}\n{render_bank_script(questions)}\n{BANK_END}"
+        body_close = content.rfind("</body>")
+        if body_close != -1:
+            content = content[:body_close] + bank_region + "\n" + content[body_close:]
+        else:
+            print(f"  [WARN] {page_path}: no </body> for bank script")
 
     # ----------------------------------------------------------------
     # Write back

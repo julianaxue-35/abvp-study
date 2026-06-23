@@ -701,47 +701,28 @@
 .ja-ans-rationale {
   color: var(--ink2, #15514c);
 }
+/* ── Journal self-test (pages without an MCQ bank) ── */
+.ja-quiz { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line, #d9d0bd); }
+.ja-quiz-h { font-family: "Fraunces", serif; font-weight: 600; font-size: 18px; margin: 0 0 12px; color: var(--ink, #0f3d3a); }
+.ja-qcard { background: var(--paper2, #fbf8f1); border: 1px solid var(--line, #d9d0bd); border-radius: 12px; padding: 14px 16px; margin: 12px 0; }
+.ja-qstem { font-weight: 600; font-size: 0.95em; margin-bottom: 10px; color: var(--ink, #0f3d3a); }
+.ja-qopt { display: block; width: 100%; text-align: left; cursor: pointer; font: inherit; font-size: 0.9em; padding: 8px 11px; margin: 5px 0; border: 1px solid var(--line, #d9d0bd); border-radius: 8px; background: var(--paper, #fdfaf4); color: var(--ink, #0f3d3a); }
+.ja-qopt b { color: var(--muted, #5d6b62); font-family: "JetBrains Mono", monospace; margin-right: 4px; }
+.ja-qopt:hover:not(.locked) { border-color: var(--lit, #1f6f8b); }
+.ja-qopt.locked { cursor: default; }
+.ja-qopt.correct { background: #e9f4ee; border-color: var(--good, #2f7d52); }
+.ja-qopt.wrong { background: #f8e9e9; border-color: var(--bad, #b23b3b); }
+.ja-qexpl { font-size: 0.88em; margin-top: 8px; padding: 9px 12px; background: var(--lit-soft, #dcedf2); border-radius: 8px; color: var(--ink2, #15514c); line-height: 1.5; }
 </style>
 <section class="panel" id="journal">
   <h2 class="sec">Additional Resources</h2>
-  <p class="lead">Journal Articles (2021–2026). Exam items are drawn from the abstract only — read each abstract, then self-test.</p>
+  <p class="lead">Journal Articles (2021–2026) — exam items are drawn from the abstract only. Read each abstract here; self-test questions are in the MCQ Test Bank.</p>
   <div class="card ja-article">
     <p class="ja-cite"><b>Forensic Death Investigations of Dog Bite Injuries in 31 Cats</b><br>
     <span class="ja-meta">Hsiou CL, Hsu CC, Liao PW, Yang FH, Lee AN, Huang WH &middot; Animals &middot; 2022 &middot; <a href="https://doi.org/10.3390/ani12182404" target="_blank" rel="noopener">10.3390/ani12182404</a></span></p>
     <div class="ja-abstract"><b>Abstract.</b> This forensic veterinary study analyzed bite injury patterns in 31 necropsied cats and applied DNA analysis for species identification. Researchers found that puncture wounds, linear or small round contusions/abrasions, and lacerations/avulsions are characteristic bite-related injuries. The examination of 31 cats revealed the most commonly injured regions included the ventral thorax, hindlimbs, shoulder-to-dorsal thorax, back, abdomen, neck, and hip/tail/perineum. Canine mitochondrial DNA was successfully identified in wound swabs and hair samples from broken claws. The study provided an applicable method for canine DNA identification in cats and reference data for future veterinary forensic investigations of dog bite injuries.</div>
-      <div class="ja-mcq">
-        <p class="ja-q">In a forensic necropsy study of 31 cats with suspected dog bite injuries, what molecular technique was used to confirm canine involvement?</p>
-        <ul class="ja-opts">
-          <li class="ja-opt"><b>A.</b> Nuclear DNA STR profiling of saliva swabs</li>
-          <li class="ja-opt"><b>B.</b> Canine mitochondrial DNA identification from wound swabs and hair in broken claws</li>
-          <li class="ja-opt"><b>C.</b> Serological species-specific antibody testing</li>
-          <li class="ja-opt"><b>D.</b> Scanning electron microscopy of bite mark morphology</li>
-        </ul>
-        <details class="ja-ans">
-          <summary>Show answer</summary>
-          <div class="ja-ans-body">
-            <span class="ja-ans-correct">Answer: B. Canine mitochondrial DNA identification from wound swabs and hair in broken claws</span>
-            <span class="ja-ans-rationale">Canine mitochondrial DNA was successfully identified in wound swabs and hair samples from broken claws, providing a forensic species identification method applicable in veterinary cruelty cases.</span>
-          </div>
-        </details>
-      </div>
-      <div class="ja-mcq">
-        <p class="ja-q">Which anatomical regions were most commonly injured in cats with fatal dog bite injuries in this forensic investigation?</p>
-        <ul class="ja-opts">
-          <li class="ja-opt"><b>A.</b> Head, ears, and orbital region</li>
-          <li class="ja-opt"><b>B.</b> Ventral thorax, hindlimbs, and shoulder-to-dorsal thorax area</li>
-          <li class="ja-opt"><b>C.</b> Distal limbs and paw pads exclusively</li>
-          <li class="ja-opt"><b>D.</b> Abdominal flank only</li>
-        </ul>
-        <details class="ja-ans">
-          <summary>Show answer</summary>
-          <div class="ja-ans-body">
-            <span class="ja-ans-correct">Answer: B. Ventral thorax, hindlimbs, and shoulder-to-dorsal thorax area</span>
-            <span class="ja-ans-rationale">The ventral thorax, hindlimbs, and shoulder-to-dorsal thorax were among the most commonly injured regions, with additional involvement of back, abdomen, neck, and hip/tail/perineum.</span>
-          </div>
-        </details>
-      </div>
   </div>
+
 </section>
 <!-- JOURNAL-ARTICLES:END -->
 
@@ -1069,5 +1050,16 @@ function setRate(btn,r){
   fwd.addEventListener('click', function(){ skip(15); });
 })();
 </script>
+<!-- JOURNAL-BANK:START -->
+<script data-journal-bank>
+(function(){try{
+  if(typeof Q!=='undefined' && Array.isArray(Q)){
+    var JJ=[{"q": "In forensic necropsy of cats with suspected dog bite injuries, which combination of injury types was found to be characteristic?", "o": ["Skull fractures, orbital injuries, and bilateral limb fractures", "Puncture wounds, linear or small round contusions/abrasions, and lacerations/avulsions", "Deep incised wounds and clean-edged lacerations typical of sharp-force trauma", "Diffuse internal hemorrhage without external wounds due to crushing force"], "a": 1, "e": "Puncture wounds, linear/small round contusions or abrasions, and lacerations/avulsions are the characteristic bite-related injury pattern. Recognizing this triad helps distinguish dog bite trauma from other causes of injury or death in forensic cases."}, {"q": "This forensic study of 31 cats used canine mitochondrial DNA from wound swabs and hair in broken claws to confirm species involvement. What is the practical implication for cruelty investigations?", "o": ["Mitochondrial DNA cannot identify individual dogs, so it is insufficient for legal proceedings", "DNA collection from bite wounds and broken claw hair provides a viable method for species identification in dog bite forensic cases", "Only nuclear DNA STR profiling provides species identification; mitochondrial DNA is insufficiently specific", "Canine DNA degrades rapidly in wounds, making collection viable only within 1 hour of death"], "a": 1, "e": "Canine mitochondrial DNA was successfully identified from wound swabs and hair in broken claws — providing a validated forensic method for species identification. This is applicable in cruelty investigations where dog involvement must be confirmed scientifically."}, {"q": "Which body regions were most commonly injured in fatal dog bite cases in cats, and why is this pattern forensically important?", "o": ["Head and neck exclusively — important for distinguishing from strangulation injuries", "Distal limbs and tail — suggesting the cat was fleeing and injuries are likely accidental", "Ventral thorax, hindlimbs, and shoulder-to-dorsal thorax — a pattern reflecting predatory grip and shake that informs injury interpretation", "Abdominal flank only — consistent with a single bite and useful for ruling out sustained attack"], "a": 2, "e": "The ventral thorax, hindlimbs, and shoulder-to-dorsal thorax were most commonly affected — a distribution consistent with a predatory grip-and-shake attack. Recognizing this distribution helps forensic examiners distinguish typical dog bite injury patterns from other trauma mechanisms."}];
+    JJ.forEach(function(m){Q.push({t:"journal",f:"journal",q:m.q,o:m.o,a:m.a,e:m.e});});
+    if(typeof render==='function'){render();}
+  }
+}catch(e){}})();
+</script>
+<!-- JOURNAL-BANK:END -->
 </body>
 </html>

@@ -1039,63 +1039,64 @@
 .ja-ans-rationale {
   color: var(--ink2, #15514c);
 }
+/* ── Journal self-test (pages without an MCQ bank) ── */
+.ja-quiz { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line, #d9d0bd); }
+.ja-quiz-h { font-family: "Fraunces", serif; font-weight: 600; font-size: 18px; margin: 0 0 12px; color: var(--ink, #0f3d3a); }
+.ja-qcard { background: var(--paper2, #fbf8f1); border: 1px solid var(--line, #d9d0bd); border-radius: 12px; padding: 14px 16px; margin: 12px 0; }
+.ja-qstem { font-weight: 600; font-size: 0.95em; margin-bottom: 10px; color: var(--ink, #0f3d3a); }
+.ja-qopt { display: block; width: 100%; text-align: left; cursor: pointer; font: inherit; font-size: 0.9em; padding: 8px 11px; margin: 5px 0; border: 1px solid var(--line, #d9d0bd); border-radius: 8px; background: var(--paper, #fdfaf4); color: var(--ink, #0f3d3a); }
+.ja-qopt b { color: var(--muted, #5d6b62); font-family: "JetBrains Mono", monospace; margin-right: 4px; }
+.ja-qopt:hover:not(.locked) { border-color: var(--lit, #1f6f8b); }
+.ja-qopt.locked { cursor: default; }
+.ja-qopt.correct { background: #e9f4ee; border-color: var(--good, #2f7d52); }
+.ja-qopt.wrong { background: #f8e9e9; border-color: var(--bad, #b23b3b); }
+.ja-qexpl { font-size: 0.88em; margin-top: 8px; padding: 9px 12px; background: var(--lit-soft, #dcedf2); border-radius: 8px; color: var(--ink2, #15514c); line-height: 1.5; }
 </style>
 <section class="panel" id="journal">
   <h2 class="sec">Additional Resources</h2>
-  <p class="lead">Journal Articles (2021–2026). Exam items are drawn from the abstract only — read each abstract, then self-test.</p>
+  <p class="lead">Journal Articles (2021–2026) — exam items are drawn from the abstract only. Read each abstract here; self-test questions are in the MCQ Test Bank.</p>
   <div class="card ja-article">
     <p class="ja-cite"><b>Genetically Similar High-Risk Strains of Carbapenemase-Producing Enterobacterales in Humans and Companion Animals, United States</b><br>
     <span class="ja-meta">Xiaoli L, James AE, Stahl AL, Okumura M, Cole SD, Dietrich JM, Leeper MM, Putney JK, Walters MS, Stanton RA &middot; Emerging Infectious Diseases &middot; 2026 &middot; <a href="https://doi.org/10.3201/eid3203.251458" target="_blank" rel="noopener">10.3201/eid3203.251458</a></span></p>
     <div class="ja-abstract"><b>Abstract.</b> To elucidate the zoonotic potential of carbapenemase-producing carbapenem-resistant Enterobacterales (CP-CRE) in US companion animals (i.e., dogs and cats), we queried the National Center for Biotechnology Pathogen Detection database to identify One Health clusters containing CP-CRE isolates from companion animals and humans. The 11 One Health clusters we found included most (69% [169/246]) publicly available CP-CRE sequences from US companion animals and were from 8 internationally disseminated, high-risk sequence types from 3 bacterial species (Escherichia coli, Klebsiella pneumoniae, and Enterobacter cloacae). All clustered isolates had New Delhi metallo-β-lactamase-family carbapenemases, and most (92%) carried the blaNDM-5 allele. The One Health clusters included several closely related subclusters with geographically linked isolates from both humans and companion animals. Those results suggest that CP-CRE is an emerging One Health issue and that direct or indirect transmission of CP-CRE is occurring between humans and companion animals in the United States.</div>
-      <div class="ja-mcq">
-        <p class="ja-q">A genomic epidemiology study found 11 One Health clusters linking CP-CRE isolates from US companion animals and humans. Which carbapenemase family was carried by all clustered isolates?</p>
-        <ul class="ja-opts">
-          <li class="ja-opt"><b>A.</b> Klebsiella pneumoniae carbapenemase (KPC)</li>
-          <li class="ja-opt"><b>B.</b> Oxacillinase-48 (OXA-48)</li>
-          <li class="ja-opt"><b>C.</b> New Delhi metallo-β-lactamase (NDM-family)</li>
-          <li class="ja-opt"><b>D.</b> Verona integron-mediated metallo-β-lactamase (VIM)</li>
-        </ul>
-        <details class="ja-ans">
-          <summary>Show answer</summary>
-          <div class="ja-ans-body">
-            <span class="ja-ans-correct">Answer: C. New Delhi metallo-β-lactamase (NDM-family)</span>
-            <span class="ja-ans-rationale">All clustered isolates carried New Delhi metallo-β-lactamase (NDM)-family carbapenemases, with 92% carrying the specific blaNDM-5 allele, representing the most common carbapenemase type in companion animal-associated CP-CRE in the US.</span>
-          </div>
-        </details>
-      </div>
-      <div class="ja-mcq">
-        <p class="ja-q">The study identifies CP-CRE in companion animals as an emerging One Health issue. What proportion of publicly available US companion animal CP-CRE sequences were included in the identified One Health clusters (shared with humans)?</p>
-        <ul class="ja-opts">
-          <li class="ja-opt"><b>A.</b> 10%</li>
-          <li class="ja-opt"><b>B.</b> 30%</li>
-          <li class="ja-opt"><b>C.</b> 69%</li>
-          <li class="ja-opt"><b>D.</b> 92%</li>
-        </ul>
-        <details class="ja-ans">
-          <summary>Show answer</summary>
-          <div class="ja-ans-body">
-            <span class="ja-ans-correct">Answer: C. 69%</span>
-            <span class="ja-ans-rationale">The 11 One Health clusters included 69% (169/246) of all publicly available CP-CRE sequences from US companion animals, demonstrating that most companion animal CP-CRE in the US is genetically linked to human strains.</span>
-          </div>
-        </details>
-      </div>
-      <div class="ja-mcq">
-        <p class="ja-q">For shelter medicine, the finding of CP-CRE shared between companion animals and humans is important because it means shelter dogs and cats could be a source of transmission to which population?</p>
-        <ul class="ja-opts">
-          <li class="ja-opt"><b>A.</b> Only immunocompetent healthy adults with no prior antibiotic exposure</li>
-          <li class="ja-opt"><b>B.</b> Shelter staff, adopters, volunteers, and veterinary personnel — particularly those who are immunocompromised or have had recent antibiotic exposure</li>
-          <li class="ja-opt"><b>C.</b> Only other companion animals in the shelter but not humans</li>
-          <li class="ja-opt"><b>D.</b> Wild animal species in adjacent habitats</li>
-        </ul>
-        <details class="ja-ans">
-          <summary>Show answer</summary>
-          <div class="ja-ans-body">
-            <span class="ja-ans-correct">Answer: B. Shelter staff, adopters, volunteers, and veterinary personnel — particularly those who are immunocompromised or have had recent antibiotic exposure</span>
-            <span class="ja-ans-rationale">CP-CRE transmission between companion animals and humans represents a direct zoonotic risk for shelter staff, volunteers, adopters, and veterinary personnel, with greatest risk to immunocompromised individuals or those with recent healthcare contact.</span>
-          </div>
-        </details>
-      </div>
   </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Shelter dogs as reservoirs of international clones of Escherichia coli carrying mcr-1.1 and bla(CTX-M) resistance genes in Lima, Peru</b><br>
+    <span class="ja-meta">Ayzanoa B, Salvatierra G, Cuicapuza D, Furlan JPR, Sellera FP, Chavez L, Esposito F, Tsukayama P, Lincopan N &middot; Veterinary Microbiology &middot; 2025 &middot; <a href="https://doi.org/10.1016/j.vetmic.2025.110543" target="_blank" rel="noopener">10.1016/j.vetmic.2025.110543</a></span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Antimicrobial resistance (AMR) poses a critical public health threat worldwide, particularly at the human-animal interface where cross-transmission of critical priority Enterobacterales, such as Escherichia coli, have become increasingly reported. Worryingly, E. coli encoding extended-spectrum β-lactamases (ESBLs) has been documented in companion animals worldwide. Conversely, the presence of mcr genes, which confer resistance to polymyxins, in bacteria from pets remains more infrequent. In this study, we sequenced and reported on the first genomic data of E. coli strains carrying mcr-1 and/or blaCTX-M genes isolated from rectal swabs of stray dogs in a shelter in the city of Lima, Peru. Antimicrobial susceptibility revealed that E. coli strains exhibited a multidrug resistance profile. In addition to mcr-1 and blaCTX-M genes, other clinically relevant resistance determinants were identified, with notably presence of blaTEM-176 and the novel blaSCO-2 variant. The association of mcr-1.1 and IncI2 plasmid was confirmed. Several virulence genes were detected, classifying strains as putative extraintestinal pathogenic E. coli. Multilocus sequence typing prediction recognized diverse sequence types (ST), including ST155, ST189, ST657, ST746, ST1140, ST3014, and ST7188. This study represents the first report of mcr-positive E. coli in dogs from Peru, emphasizing the need for continuous surveillance and genomic characterization to better understand the transmission dynamics of these critical resistance genes at the human-animal interface. Furthermore, our results provide evidence that stray, and shelter dogs could be a reservoir for the spread of WHO priority pathogens, and/or polymyxin and β-lactam resistance genes, which is a public health and One Health concern that requires appropriate management strategies.</div>
+  </div>
+  <div class="ja-quiz">
+    <h3 class="ja-quiz-h">Journal Self-Test</h3>
+    <div id="jaQuizHost"></div>
+  </div>
+  <script data-journal-quiz>
+  (function(){
+    var JQ=[{"q": "The detection of mcr-1 and blaCTX-M genes in shelter dogs in Peru is most significant because:", "o": ["It confirms that shelter dogs cause most E. coli infections in people in South America", "It demonstrates that shelter dogs can harbor WHO-priority antimicrobial resistance genes on mobile genetic elements linked to international high-risk clone lineages", "It proves that colistin use in companion animals should be banned globally", "It shows that blaCTX-M infections in dogs are untreatable with any currently available antibiotic"], "a": 1, "e": "mcr-1 confers resistance to colistin (a last-resort antibiotic) and is plasmid-mediated (mobile), while blaCTX-M confers extended-spectrum beta-lactamase activity. Their presence in shelter dogs matching international high-risk clones establishes shelters as nodes in a global AMR transmission network — a One Health priority."}, {"q": "From a One Health shelter management perspective, the finding of plasmid-mediated colistin resistance (mcr-1) in Lima shelter dogs implies:", "o": ["Colistin should be used to treat all shelter dogs as a prophylactic measure", "Shelter dogs pose no AMR risk as long as they are not in contact with immunocompromised humans", "AMR surveillance programs in shelters are warranted globally, as shelter dog populations may serve as reservoirs for resistance genes of human medical importance", "The finding is limited to Peru and has no implications for shelters in other countries"], "a": 2, "e": "The strains matched international clone lineages, demonstrating cross-border AMR transmission pathways. This supports implementing AMR surveillance in shelter populations globally — not just in resource-limited settings — as part of a One Health approach."}, {"q": "Genomic analysis identified 11 One Health clusters linking carbapenem-resistant Enterobacterales (CP-CRE) from US companion animals and humans. What does this finding mean for shelter medicine practice?", "o": ["CP-CRE in companion animals is exclusively acquired from human healthcare settings and poses no outgoing zoonotic risk", "CP-CRE transmission is occurring between humans and companion animals, making shelter animals a potential source for staff, volunteers, and adopters", "CP-CRE in companion animals remains genetically distinct from human strains, suggesting parallel but independent evolution", "Only dogs carry CP-CRE; cats in shelters do not require AMR surveillance"], "a": 1, "e": "The One Health clusters show that genetically similar high-risk CP-CRE strains are shared between companion animals and humans in the US. Direct or indirect transmission is occurring — meaning shelter animals can be both recipients and sources of resistant organisms for humans in contact with them."}, {"q": "All CP-CRE isolates in the One Health clusters from this study carried which carbapenemase type, and what is the relevance of this for treatment?", "o": ["KPC (Klebsiella pneumoniae carbapenemase) — treatable with newer beta-lactam/beta-lactamase inhibitor combinations", "OXA-48 — significant in Europe but rarely reported in North American companion animals", "NDM (New Delhi metallo-beta-lactamase) — a metallo-enzyme not inhibited by clavulanate-type inhibitors, with very limited treatment options", "VIM (Verona integron-mediated metallo-beta-lactamase) — most common AMR gene in shelter populations"], "a": 2, "e": "All clustered isolates carried NDM-family carbapenemases (92% specifically blaNDM-5). NDM enzymes are metallo-beta-lactamases not inhibited by standard beta-lactamase inhibitors, leaving very few treatment options — making prevention and infection control the primary strategy."}, {"q": "What proportion of all publicly available US companion animal CP-CRE sequences were captured within the human-linked One Health clusters in this study?", "o": ["A small minority (~10%), suggesting most companion animal CP-CRE is not shared with humans", "About one-third (~30%), indicating occasional cross-species sharing", "The majority (~69%), indicating that most companion animal CP-CRE in the US is genetically linked to human strains", "Nearly all (~92%), identical to the proportion carrying blaNDM-5"], "a": 2, "e": "69% (169/246) of publicly available US companion animal CP-CRE sequences fell within the 11 human-linked clusters. This is the majority — meaning One Health transmission is not a rare exception but the predominant epidemiological pattern for CP-CRE in US companion animals."}];
+    var host=document.getElementById('jaQuizHost'); if(!host||!JQ.length) return;
+    var L=["A","B","C","D"];
+    JQ.forEach(function(item,i){
+      var card=document.createElement('div'); card.className='ja-qcard';
+      var stem=document.createElement('div'); stem.className='ja-qstem';
+      stem.textContent=(i+1)+'. '+item.q; card.appendChild(stem);
+      var done=false;
+      item.o.forEach(function(opt,oi){
+        var b=document.createElement('button'); b.className='ja-qopt';
+        b.innerHTML='<b>'+L[oi]+'.</b> '+opt;
+        b.onclick=function(){
+          if(done) return; done=true;
+          var kids=card.querySelectorAll('.ja-qopt');
+          for(var k=0;k<kids.length;k++){kids[k].classList.add('locked');}
+          kids[item.a].classList.add('correct');
+          if(oi!==item.a) b.classList.add('wrong');
+          var ex=document.createElement('div'); ex.className='ja-qexpl';
+          ex.innerHTML='<b>Answer: '+L[item.a]+'.</b> '+item.e; card.appendChild(ex);
+        };
+        card.appendChild(b);
+      });
+      host.appendChild(card);
+    });
+  })();
+  </script>
 </section>
 <!-- JOURNAL-ARTICLES:END -->
 

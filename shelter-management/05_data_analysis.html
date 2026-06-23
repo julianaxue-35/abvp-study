@@ -675,84 +675,64 @@
 .ja-ans-rationale {
   color: var(--ink2, #15514c);
 }
+/* ── Journal self-test (pages without an MCQ bank) ── */
+.ja-quiz { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line, #d9d0bd); }
+.ja-quiz-h { font-family: "Fraunces", serif; font-weight: 600; font-size: 18px; margin: 0 0 12px; color: var(--ink, #0f3d3a); }
+.ja-qcard { background: var(--paper2, #fbf8f1); border: 1px solid var(--line, #d9d0bd); border-radius: 12px; padding: 14px 16px; margin: 12px 0; }
+.ja-qstem { font-weight: 600; font-size: 0.95em; margin-bottom: 10px; color: var(--ink, #0f3d3a); }
+.ja-qopt { display: block; width: 100%; text-align: left; cursor: pointer; font: inherit; font-size: 0.9em; padding: 8px 11px; margin: 5px 0; border: 1px solid var(--line, #d9d0bd); border-radius: 8px; background: var(--paper, #fdfaf4); color: var(--ink, #0f3d3a); }
+.ja-qopt b { color: var(--muted, #5d6b62); font-family: "JetBrains Mono", monospace; margin-right: 4px; }
+.ja-qopt:hover:not(.locked) { border-color: var(--lit, #1f6f8b); }
+.ja-qopt.locked { cursor: default; }
+.ja-qopt.correct { background: #e9f4ee; border-color: var(--good, #2f7d52); }
+.ja-qopt.wrong { background: #f8e9e9; border-color: var(--bad, #b23b3b); }
+.ja-qexpl { font-size: 0.88em; margin-top: 8px; padding: 9px 12px; background: var(--lit-soft, #dcedf2); border-radius: 8px; color: var(--ink2, #15514c); line-height: 1.5; }
 </style>
 <section class="panel" id="journal">
   <h2 class="sec">Additional Resources</h2>
-  <p class="lead">Journal Articles (2021–2026). Exam items are drawn from the abstract only — read each abstract, then self-test.</p>
+  <p class="lead">Journal Articles (2021–2026) — exam items are drawn from the abstract only. Read each abstract here; self-test questions are in the MCQ Test Bank.</p>
   <div class="card ja-article">
     <p class="ja-cite"><b>Model Selection for Examining the Association Between Dog Intake Quantity and Socioeconomic and Geographic Conditions</b><br>
     <span class="ja-meta">Intake Quantity and Socioeconomic and Geographic Conditions &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2026</span></p>
     <div class="ja-abstract"><b>Abstract.</b> Introduction: Dog intake to government shelters reflects both community conditions and local animal management practices, yet predictors of intake in Japan have not been evaluated at a national scale. The objective of this study was to identify community-level socioeconomic and geographic predictors of dog intake to government shelters in Japan, stratified by intake type (owner-unknown vs. owner-relinquished) and administrative setting (urban vs. non-urban). Methods: Publicly available municipal and prefectural data were used to model dog intake counts for 2022. Separate generalised linear models were developed for owner-unknown and owner-relinquished intake in urban areas (designated and core cities; n = 82) and non-urban areas (n = 47). Socioeconomic-related explanatory variables tested included the proportions of low-income households, older adults’ households, owner-occupied households, and individuals with higher education levels. Geographically related explanatory variables included the proportion of vacant houses, cultivated land area, the highest temperature, and the lowest temperature. Results: Intake rates varied widely across regions. In urban areas, higher owner-unknown intake was associated with lower education level (incidence rate ratio [IRR] = 0.28, 85% confidence interval [CI]: 0.18–0.43) and higher cultivated land area (IRR = 1.34, 85% CI: 1.03–1.73). In non-urban areas, owner-unknown intake was higher in areas with more vacant housing (IRR = 14.64, 85% CI: 7.54–28.40), more cultivated land (IRR = 2.27, 85% CI: 1.58–3.25), and higher lowest temperature (IRR = 1.12, 85% CI: 1.04–1.20). Urban owner-relinquished intake was associated with owner-occupied housing (IRR = 1.64, 85% CI: 1.22–2.20). Nonurban owner-relinquished intake was higher in areas with a greater proportion of low-income households (IRR = 1.73, 85% CI: 1.03–2.89). Conclusion: Supported predictors differed by intake type and administrative setting, suggesting that intake prevention strategies may be more effective when tailored to local context and dominant intake pathway. The associations observed in this study can serve as a basis for informing future policy development and further research. Keywords: animal shelters; animal welfare; companion animals; stray animals; animal abandonment; animal rescue; animal control; animal relinquishment; canine; models I n Japan, both governmental and private animal organisations take in dogs. While private organisations are allowed autonomy in the animals they choose to take in, local governments are obliged to take in all dogs when owners cannot keep them, or ownership is unknown under the national1 Act on Welfare and Management of Animals (Act on Welfare of Animals) (Act No. 105 of 1973) and the2 Act on Rabies Prevention Law (Act No. 247 of 1950). Following intake, under the Act on Welfare of Animals, authorities are required to make efforts to locate and return animals that are presumed to have an owner. For animals that are presumed Attribution 4.0 International License (http://creativecommons.org/licenses/by/4.0/), allowing third parties to copy and redistribute the material in any medium or format and to remix, transform, and build upon the material for any purpose, even commercially, provided the original work is properly cited and states its license.</div>
-      <div class="ja-mcq">
-        <p class="ja-q">In the Japanese shelter dog intake modeling study, what socioeconomic factor was associated with higher owner-unknown dog intake in urban areas?</p>
-        <ul class="ja-opts">
-          <li class="ja-opt"><b>A.</b> Higher proportion of low-income households</li>
-          <li class="ja-opt"><b>B.</b> Higher proportion of older adult households</li>
-          <li class="ja-opt"><b>C.</b> Lower education level</li>
-          <li class="ja-opt"><b>D.</b> Higher proportion of owner-occupied households</li>
-        </ul>
-        <details class="ja-ans">
-          <summary>Show answer</summary>
-          <div class="ja-ans-body">
-            <span class="ja-ans-correct">Answer: C. Lower education level</span>
-            <span class="ja-ans-rationale">The abstract states that in urban areas, higher owner-unknown intake was associated with lower education level (IRR = 0.28 for education, meaning lower education predicted more intake).</span>
-          </div>
-        </details>
-      </div>
-      <div class="ja-mcq">
-        <p class="ja-q">In the Japanese dog intake modeling study, what was the primary conclusion regarding intake prevention strategies?</p>
-        <ul class="ja-opts">
-          <li class="ja-opt"><b>A.</b> A single national-level policy is sufficient to address all intake types uniformly</li>
-          <li class="ja-opt"><b>B.</b> Intake prevention strategies may be more effective when tailored to local context and dominant intake pathway</li>
-          <li class="ja-opt"><b>C.</b> Socioeconomic factors are more important than geographic factors in predicting all types of intake</li>
-          <li class="ja-opt"><b>D.</b> Owner-relinquished and owner-unknown intakes share the same predictors and require similar strategies</li>
-        </ul>
-        <details class="ja-ans">
-          <summary>Show answer</summary>
-          <div class="ja-ans-body">
-            <span class="ja-ans-correct">Answer: B. Intake prevention strategies may be more effective when tailored to local context and dominant intake pathway</span>
-            <span class="ja-ans-rationale">The abstract concludes: &#x27;Supported predictors differed by intake type and administrative setting, suggesting that intake prevention strategies may be more effective when tailored to local context and dominant intake pathway.&#x27;</span>
-          </div>
-        </details>
-      </div>
   </div>
   <div class="card ja-article">
     <p class="ja-cite"><b>Harnessing Big Data in the Animal Welfare Industry Utilizing Data Science to Improve Regulatory Oversight of Commercial Dog Breeding</b><br>
     <span class="ja-meta">Clinton Ross Mauck , Jyothi Vinnakota Robertson and Marjorie Robin Vincent &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2023</span></p>
     <div class="ja-abstract"><b>Abstract.</b> Introduction: In the age of Big Data, the animal welfare industry stands to benefit from datadriven decision making, particularly in commercial dog breeding. Despite its potential, many organizations and regulatory bodies, such as the United States Department of Agriculture (USDA), face significant challenges in organizing and using it effectively. The existing challenges limit the extent to which the vast amount of data collected by the USDA can be used to improve regulatory oversight and promote animal welfare. This study explored the potential of leveraging publicly-available inspection report data to inform animal welfare standards and identify areas of improvement. Methods: We formulated an innovative approach for extracting, cleaning, and structuring data from the Public Search Tool (PST) database. Our approach involved the use of customized web-scraping tools and data manipulation techniques, including automatic data retrieval, transformation of inspection reports into a text-friendly format, and pattern recognition for collating pertinent data elements. We conducted descriptive statistical analyses on the assembled dataset to set the stage for a comprehensive exploration of inspection reports from Class ‘A’ commercial dog breeding facilities. Results: Our study produced an extensive dataset detailing compliance with animal welfare standards at Class ‘A’ commercial dog breeding facilities across the United States from 2014 to 2023. Preliminary analysis revealed prevalent areas of non-compliance, such as inadequate veterinary care and substandard housing conditions. The dataset facilitated a deep analysis of animal welfare practices within the commercial dog breeding industry, providing insights across geographical locations and facility sizes. Conclusion: Our study underscores the potential of harnessing Big Data to inform regulatory decisions and improve animal welfare within commercial dog breeding. It introduces a method to transform publicly available data into an accessible format. This allows us to go beyond anecdotal evidence into comprehensive assessments, facilitating constructive dialogue and effective policy-making. Further research leveraging advancements is recommended to deepen insights and encourage collaborative efforts to elevate animal welfare standards. Keywords: Commercial Dog Breeding; USDA Inspection Compliance; Canine Welfare; Big Data; Data Science I n the age of Big Data, the acquisition and evaluation of data has become a critical component of business and industry.1–4 Big data refers to extremely reveal patterns, trends, and associations. Big data analytics has proven effective in diverse fields where it has revolutionized processes, improved operational efficiency, animal welfare industry, big data analytics offers unprecedented opportunities for organizations and regulatory bodies to apply data-driven approaches in the formation International License (http://creativecommons.org/licenses/by/4.0/), allowing third parties to copy and redistribute the material in any medium or format and to remix, transform, and build upon the material for any purpose, even commercially, provided the original work is properly cited and states its license.</div>
-      <div class="ja-mcq">
-        <p class="ja-q">In the Big Data study on USDA inspection reports for commercial dog breeding, what were the most prevalent areas of non-compliance revealed by the preliminary analysis?</p>
-        <ul class="ja-opts">
-          <li class="ja-opt"><b>A.</b> Inadequate record-keeping and overcrowded housing conditions</li>
-          <li class="ja-opt"><b>B.</b> Inadequate veterinary care and substandard housing conditions</li>
-          <li class="ja-opt"><b>C.</b> Failure to report disease outbreaks and improper waste disposal</li>
-          <li class="ja-opt"><b>D.</b> Lack of socialization programs and inadequate exercise requirements</li>
-        </ul>
-        <details class="ja-ans">
-          <summary>Show answer</summary>
-          <div class="ja-ans-body">
-            <span class="ja-ans-correct">Answer: B. Inadequate veterinary care and substandard housing conditions</span>
-            <span class="ja-ans-rationale">The abstract states that &#x27;preliminary analysis revealed prevalent areas of non-compliance, such as inadequate veterinary care and substandard housing conditions.&#x27;</span>
-          </div>
-        </details>
-      </div>
-      <div class="ja-mcq">
-        <p class="ja-q">The Big Data study on commercial dog breeding used data from which time period, and from which type of breeding facility?</p>
-        <ul class="ja-opts">
-          <li class="ja-opt"><b>A.</b> 2010 to 2020, from Class &#x27;B&#x27; research dog facilities</li>
-          <li class="ja-opt"><b>B.</b> 2014 to 2023, from Class &#x27;A&#x27; commercial dog breeding facilities</li>
-          <li class="ja-opt"><b>C.</b> 2018 to 2024, from all USDA-licensed dog breeding facilities</li>
-          <li class="ja-opt"><b>D.</b> 2005 to 2023, from Class &#x27;A&#x27; and Class &#x27;B&#x27; commercial dog facilities</li>
-        </ul>
-        <details class="ja-ans">
-          <summary>Show answer</summary>
-          <div class="ja-ans-body">
-            <span class="ja-ans-correct">Answer: B. 2014 to 2023, from Class &#x27;A&#x27; commercial dog breeding facilities</span>
-            <span class="ja-ans-rationale">The abstract states the dataset covered &#x27;compliance with animal welfare standards at Class &#x27;A&#x27; commercial dog breeding facilities across the United States from 2014 to 2023.&#x27;</span>
-          </div>
-        </details>
-      </div>
   </div>
+  <div class="ja-quiz">
+    <h3 class="ja-quiz-h">Journal Self-Test</h3>
+    <div id="jaQuizHost"></div>
+  </div>
+  <script data-journal-quiz>
+  (function(){
+    var JQ=[{"q": "Analysis of USDA APHIS inspection data from commercial dog breeding facilities revealed that the most prevalent non-compliance categories were:", "o": ["Overcrowding and excessive breeding frequency", "Inadequate veterinary care and substandard housing/sanitation", "Record-keeping violations and failure to provide socialization", "Escape risks and transportation standard violations"], "a": 1, "e": "Across facilities inspected 2014–2023, inadequate veterinary care and substandard housing/sanitation were the top non-compliance categories, representing the most actionable targets for regulatory intervention."}, {"q": "The primary advantage of applying data science to commercial dog breeding regulatory data is:", "o": ["It replaces the need for on-site inspections by regulators", "It allows facilities to self-report non-compliance without penalty", "It identifies systemic patterns of non-compliance across large numbers of facilities that manual oversight would miss", "It reduces the cost of USDA licensing fees for compliant breeders"], "a": 2, "e": "Big data analysis enables pattern detection at scale — identifying which facility types, regions, or timeframes cluster with non-compliance — allowing regulators to target oversight more efficiently than case-by-case manual review."}, {"q": "Research modeling dog intake to Japanese government shelters found that predictors of intake differed by intake type and geographic setting. What is the most important operational implication for shelter intake prevention programs?", "o": ["Urban and rural areas share the same core risk factors, so one national campaign is sufficient", "Owner-relinquished dogs and strays have identical risk profiles and can be addressed with the same intervention", "Prevention strategies must be tailored by intake type (stray vs. owner-relinquished) and by geographic context (urban vs. non-urban)", "Socioeconomic factors are not predictive of intake in high-income countries"], "a": 2, "e": "The study showed that stray vs. owner-relinquished intake had different socioeconomic and geographic predictors, and those predictors also varied urban vs. non-urban. A single undifferentiated prevention campaign is therefore unlikely to be maximally effective."}, {"q": "In a national-scale model of dog shelter intake, owner-relinquished intake in non-urban areas was associated with which factor?", "o": ["Higher cultivated land use and lower temperatures", "Low-income households", "Owner-occupied housing rates", "Vacant housing and agricultural land"], "a": 1, "e": "Owner-relinquished intake in non-urban areas correlated with low-income households, suggesting that poverty-related hardship (e.g., inability to afford veterinary care or housing that allows pets) drives surrenders in rural settings."}];
+    var host=document.getElementById('jaQuizHost'); if(!host||!JQ.length) return;
+    var L=["A","B","C","D"];
+    JQ.forEach(function(item,i){
+      var card=document.createElement('div'); card.className='ja-qcard';
+      var stem=document.createElement('div'); stem.className='ja-qstem';
+      stem.textContent=(i+1)+'. '+item.q; card.appendChild(stem);
+      var done=false;
+      item.o.forEach(function(opt,oi){
+        var b=document.createElement('button'); b.className='ja-qopt';
+        b.innerHTML='<b>'+L[oi]+'.</b> '+opt;
+        b.onclick=function(){
+          if(done) return; done=true;
+          var kids=card.querySelectorAll('.ja-qopt');
+          for(var k=0;k<kids.length;k++){kids[k].classList.add('locked');}
+          kids[item.a].classList.add('correct');
+          if(oi!==item.a) b.classList.add('wrong');
+          var ex=document.createElement('div'); ex.className='ja-qexpl';
+          ex.innerHTML='<b>Answer: '+L[item.a]+'.</b> '+item.e; card.appendChild(ex);
+        };
+        card.appendChild(b);
+      });
+      host.appendChild(card);
+    });
+  })();
+  </script>
 </section>
 <!-- JOURNAL-ARTICLES:END -->
 

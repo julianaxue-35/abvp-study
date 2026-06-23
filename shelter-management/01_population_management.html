@@ -963,100 +963,64 @@
 .ja-ans-rationale {
   color: var(--ink2, #15514c);
 }
+/* ── Journal self-test (pages without an MCQ bank) ── */
+.ja-quiz { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line, #d9d0bd); }
+.ja-quiz-h { font-family: "Fraunces", serif; font-weight: 600; font-size: 18px; margin: 0 0 12px; color: var(--ink, #0f3d3a); }
+.ja-qcard { background: var(--paper2, #fbf8f1); border: 1px solid var(--line, #d9d0bd); border-radius: 12px; padding: 14px 16px; margin: 12px 0; }
+.ja-qstem { font-weight: 600; font-size: 0.95em; margin-bottom: 10px; color: var(--ink, #0f3d3a); }
+.ja-qopt { display: block; width: 100%; text-align: left; cursor: pointer; font: inherit; font-size: 0.9em; padding: 8px 11px; margin: 5px 0; border: 1px solid var(--line, #d9d0bd); border-radius: 8px; background: var(--paper, #fdfaf4); color: var(--ink, #0f3d3a); }
+.ja-qopt b { color: var(--muted, #5d6b62); font-family: "JetBrains Mono", monospace; margin-right: 4px; }
+.ja-qopt:hover:not(.locked) { border-color: var(--lit, #1f6f8b); }
+.ja-qopt.locked { cursor: default; }
+.ja-qopt.correct { background: #e9f4ee; border-color: var(--good, #2f7d52); }
+.ja-qopt.wrong { background: #f8e9e9; border-color: var(--bad, #b23b3b); }
+.ja-qexpl { font-size: 0.88em; margin-top: 8px; padding: 9px 12px; background: var(--lit-soft, #dcedf2); border-radius: 8px; color: var(--ink2, #15514c); line-height: 1.5; }
 </style>
 <section class="panel" id="journal">
   <h2 class="sec">Additional Resources</h2>
-  <p class="lead">Journal Articles (2021–2026). Exam items are drawn from the abstract only — read each abstract, then self-test.</p>
+  <p class="lead">Journal Articles (2021–2026) — exam items are drawn from the abstract only. Read each abstract here; self-test questions are in the MCQ Test Bank.</p>
   <div class="card ja-article">
     <p class="ja-cite"><b>Revisiting Pre-Mortem Risk Factors for Mortality in Kittens Less Than 8 Weeks Old After Switching to a Foster Care-Based Kitten Rearing Model</b><br>
     <span class="ja-meta">Revisiting Pre-Mortem Risk Factors for Mortality in &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2024 &middot; <a href="https://doi.org/10.56771/jsmcah.v3.97" target="_blank" rel="noopener">10.56771/jsmcah.v3.97</a></span></p>
     <div class="ja-abstract"><b>Abstract.</b> The purpose of this study was to reassess predictors of mortality in underage kittens in a foster-care based kitten rearing model. The medical records of kittens &lt;8 weeks reared in a kitten nursery/foster-care based program in New York City during 2021 were examined. The data collected included signalment (estimated age and weight at intake, sex), physical findings (body condition score [BCS]), clinical signs (weight loss, anorexia, diarrhea, and upper respiratory tract infection [URI]), diagnoses (panleukopenia, trauma), how early in the feline breeding season the kitten entered (April-November), and whether the kitten had died or was euthanized. The data were analyzed using Cox proportional hazard modeling with 595 kittens to identify risk factors associated with any death or euthanasia. Elevated risk of dying was found for kittens in the lightest weight group (almost 12 times), exhibiting weight loss (6 times greater), exhibiting anorexia (15 times greater), diagnosed with trauma (5 times greater), and experiencing diarrhea (almost 3 times greater). These findings identify similar clinical signs that can serve as prognostic indicators for underage kitten survival in both a shelter/rescue setting and foster-care based setting and can aid in enhancing protocols for monitoring, intervention, and euthanasia decision-making. DOWNLOADS PUBLISHED 2024-05-20 ISSUE Vol. 3 No. S1 (2024): 2024 ABVP Abstracts SECTION ABVP Abstracts LICENSE Copyright (c) 2024 AK Bliss, ED Dolan, E Doyle This work is licensed under a Creative Commons Attribution 4.0 International License. HOW TO CITE Bliss A, Dolan E, Doyle E. Revisiting Pre-Mortem Risk Factors for Mortality in Kittens Less Than 8 Weeks Old After Switching to a Foster Care-Based Kitten Rearing Model [Abstract]. JSMCAH. 2024;3(S1). doi:10.56771/jsmcah.v3.97 MORE CITATION FORMATS The Journal of Shelter Medicine and Community Animal Health (JSMCAH) is a societypublished, open-access, continuous publication, peer-reviewed journal of the Association of Shelter Veterinarians. JSMCAH publishes research that advances shelter and community animal health, welfare, and access to veterinary care, promoting evidence-based practices to improve outcomes for animals and the people who care for them. Learn more &gt;&gt; ASV GUIDELINES Read The Association of Shelter Veterinarians’ Guidelines for Humane Rabbit Housing in Animal Shelters Read the second edition of The Guidelines for Standards of Care in Animal Shelters Print copies of the ASV Guidelines are available for a $50 donation to the ASV</div>
-      <div class="ja-mcq">
-        <p class="ja-q">In the study reassessing mortality risk factors in underage kittens in a foster care-based program, which clinical sign was associated with the HIGHEST elevated risk of dying?</p>
-        <ul class="ja-opts">
-          <li class="ja-opt"><b>A.</b> Diarrhea (almost 3 times greater risk)</li>
-          <li class="ja-opt"><b>B.</b> Weight loss (6 times greater risk)</li>
-          <li class="ja-opt"><b>C.</b> Anorexia (15 times greater risk)</li>
-          <li class="ja-opt"><b>D.</b> Trauma diagnosis (5 times greater risk)</li>
-        </ul>
-        <details class="ja-ans">
-          <summary>Show answer</summary>
-          <div class="ja-ans-body">
-            <span class="ja-ans-correct">Answer: C. Anorexia (15 times greater risk)</span>
-            <span class="ja-ans-rationale">The abstract states that anorexia was associated with a 15 times greater elevated risk of dying — the highest hazard ratio among the clinical signs identified. Lightest weight group was nearly 12 times, weight loss 6 times, trauma 5 times, and diarrhea almost 3 times.</span>
-          </div>
-        </details>
-      </div>
-      <div class="ja-mcq">
-        <p class="ja-q">The kitten mortality study used which analytical method to identify risk factors associated with death or euthanasia in 595 kittens?</p>
-        <ul class="ja-opts">
-          <li class="ja-opt"><b>A.</b> Logistic regression with backwards variable selection</li>
-          <li class="ja-opt"><b>B.</b> Pearson Chi-Square testing and Mann-Whitney U tests</li>
-          <li class="ja-opt"><b>C.</b> Cox proportional hazard modeling</li>
-          <li class="ja-opt"><b>D.</b> Adjusted odds ratios using multivariable linear regression</li>
-        </ul>
-        <details class="ja-ans">
-          <summary>Show answer</summary>
-          <div class="ja-ans-body">
-            <span class="ja-ans-correct">Answer: C. Cox proportional hazard modeling</span>
-            <span class="ja-ans-rationale">The abstract states: &#x27;The data were analyzed using Cox proportional hazard modeling with 595 kittens to identify risk factors associated with any death or euthanasia.&#x27;</span>
-          </div>
-        </details>
-      </div>
   </div>
   <div class="card ja-article">
     <p class="ja-cite"><b>Shelter Worker&#x27;s Experiences and Perceptions of Capacity for Care (C4C)</b><br>
     <span class="ja-meta">Hobson S, Bateman S, Coe JB, Oblak ML &middot; Journal of Applied Animal Welfare Science &middot; 2023 &middot; <a href="https://doi.org/10.1080/10888705.2021.1910033" target="_blank" rel="noopener">10.1080/10888705.2021.1910033</a></span></p>
     <div class="ja-abstract"><b>Abstract.</b> Capacity for Care (C4C) is a shelter population management strategy which utilizes managed intake to optimize in-shelter populations based on housing capacity and available resources. The purpose of this study was to (1) understand staff experiences using managed intake, (2) explore staff perceptions of how the C4C model has been regarded by other staff at their facility, and (3) explore the response of community members who are attempting to relinquish their cats, as perceived by the staff who are communicating with cat owners and scheduling relinquishment. Participants recruited from shelters who practiced C4C participated in a semi-structured interview and completed a written survey to share their experiences and perceptions of C4C. Based on the perceptions of the participants, evidence suggests the waitlist may decrease the admission of owned cats to the shelter as a result of advising cat owners about alternatives to relinquishment. Additional investigation would help clarify how managed intake affects community cats awaiting shelter admission.</div>
-      <div class="ja-mcq">
-        <p class="ja-q">According to Hobson et al. 2023, what effect did the Capacity for Care (C4C) managed intake waitlist appear to have on owned cat relinquishment?</p>
-        <ul class="ja-opts">
-          <li class="ja-opt"><b>A.</b> The waitlist increased relinquishment by frustrating owners who could not access shelter services</li>
-          <li class="ja-opt"><b>B.</b> The waitlist decreased admission of owned cats as owners found alternatives during the wait</li>
-          <li class="ja-opt"><b>C.</b> The waitlist had no measurable effect on relinquishment rates</li>
-          <li class="ja-opt"><b>D.</b> The waitlist only reduced relinquishment for dogs, not cats</li>
-        </ul>
-        <details class="ja-ans">
-          <summary>Show answer</summary>
-          <div class="ja-ans-body">
-            <span class="ja-ans-correct">Answer: B. The waitlist decreased admission of owned cats as owners found alternatives during the wait</span>
-            <span class="ja-ans-rationale">The abstract states &#x27;evidence suggests the waitlist may decrease the admission of owned cats to the shelter as a result of advising cat owners about alternatives to relinquishment,&#x27; suggesting managed intake serves a diversion function.</span>
-          </div>
-        </details>
-      </div>
-      <div class="ja-mcq">
-        <p class="ja-q">What three objectives did Hobson et al. 2023 aim to address regarding the Capacity for Care model in animal shelters?</p>
-        <ul class="ja-opts">
-          <li class="ja-opt"><b>A.</b> Measure animal health outcomes, staff turnover, and adoption rates under C4C</li>
-          <li class="ja-opt"><b>B.</b> Understand staff experiences, explore perceptions of C4C among staff, and explore responses of community members attempting relinquishment</li>
-          <li class="ja-opt"><b>C.</b> Compare C4C to traditional open-admission models on euthanasia rates, length of stay, and disease incidence</li>
-          <li class="ja-opt"><b>D.</b> Identify the optimal shelter capacity threshold and staffing ratio for C4C implementation</li>
-        </ul>
-        <details class="ja-ans">
-          <summary>Show answer</summary>
-          <div class="ja-ans-body">
-            <span class="ja-ans-correct">Answer: B. Understand staff experiences, explore perceptions of C4C among staff, and explore responses of community members attempting relinquishment</span>
-            <span class="ja-ans-rationale">The abstract states the study aimed to &#x27;understand staff experiences using managed intake, explore staff perceptions of how the C4C model has been regarded, and explore the response of community members attempting to relinquish their cats.&#x27;</span>
-          </div>
-        </details>
-      </div>
-      <div class="ja-mcq">
-        <p class="ja-q">In Hobson et al. 2023, what gap in knowledge did the authors identify regarding C4C and managed intake?</p>
-        <ul class="ja-opts">
-          <li class="ja-opt"><b>A.</b> How C4C affects shelter dog outcomes compared to cat outcomes</li>
-          <li class="ja-opt"><b>B.</b> Whether C4C reduces staff compassion fatigue and burnout</li>
-          <li class="ja-opt"><b>C.</b> How managed intake affects community cats awaiting shelter admission</li>
-          <li class="ja-opt"><b>D.</b> Whether the waitlist model is legally defensible in all jurisdictions</li>
-        </ul>
-        <details class="ja-ans">
-          <summary>Show answer</summary>
-          <div class="ja-ans-body">
-            <span class="ja-ans-correct">Answer: C. How managed intake affects community cats awaiting shelter admission</span>
-            <span class="ja-ans-rationale">The abstract states &#x27;additional investigation would help clarify how managed intake affects community cats awaiting shelter admission,&#x27; identifying an unresolved question about the impact of C4C on unowned cats who cannot access shelter services.</span>
-          </div>
-        </details>
-      </div>
   </div>
+  <div class="ja-quiz">
+    <h3 class="ja-quiz-h">Journal Self-Test</h3>
+    <div id="jaQuizHost"></div>
+  </div>
+  <script data-journal-quiz>
+  (function(){
+    var JQ=[{"q": "In a foster-based kitten program, which two pre-mortem risk factors were most strongly associated with mortality in kittens under 8 weeks?", "o": ["Diarrhea and trauma", "Weight loss and trauma", "Low body weight and anorexia", "Anorexia and diarrhea"], "a": 2, "e": "Being in the lightest weight quartile (~12x increased risk) and anorexia (~15x increased risk) were the strongest predictors of mortality, far exceeding diarrhea (~3x), trauma (~5x), or weight loss (~6x)."}, {"q": "A foster coordinator wants to build a triage protocol to flag the neonatal kittens (<8 weeks) most at risk of dying. Based on mortality risk factor data, the two criteria that should trigger highest-priority intervention are:", "o": ["Presence of diarrhea and history of trauma", "Being in the lowest body weight quartile and showing anorexia", "Weight loss over 24 hours and elevated respiratory rate", "Age under 1 week and outdoor origin (stray)"], "a": 1, "e": "Anorexia (15x risk) and lowest weight quartile (12x risk) were the top two independent predictors of mortality and should anchor any neonatal triage protocol. Other factors (diarrhea, trauma, weight loss) are also significant but carry lower hazard ratios."}, {"q": "A shelter implementing Capacity for Care (C4C) added a waitlist for owned-cat admissions. What was the observed effect on owned-cat intake?", "o": ["Owned-cat intake increased as publicity about the waitlist attracted more surrenders", "Owned-cat intake was unchanged; owners waited and eventually surrendered anyway", "Owned-cat intake appeared to decrease, as owners were redirected toward community alternatives", "Owned-cat intake decreased but community stray intake increased proportionally"], "a": 2, "e": "The waitlist appeared to decrease owned-cat intake by redirecting owners toward community alternatives (rehoming, behavioral support, etc.) rather than surrender — a key mechanism by which C4C can reduce admission pressure without simply turning animals away."}, {"q": "After implementing Capacity for Care, what gap in knowledge was identified regarding its effects?", "o": ["Whether C4C reduces euthanasia rates in owner-relinquished animals", "Whether staff perceive C4C as ethical", "Whether limiting owned-cat admissions affects community (stray) cat intake", "Whether C4C improves animal health outcomes during housing"], "a": 2, "e": "While the waitlist appeared to reduce owned-cat intake, the effect on community/stray cat intake was unclear and identified as an evidence gap — an important consideration because diverting one intake stream could shift pressure to another."}];
+    var host=document.getElementById('jaQuizHost'); if(!host||!JQ.length) return;
+    var L=["A","B","C","D"];
+    JQ.forEach(function(item,i){
+      var card=document.createElement('div'); card.className='ja-qcard';
+      var stem=document.createElement('div'); stem.className='ja-qstem';
+      stem.textContent=(i+1)+'. '+item.q; card.appendChild(stem);
+      var done=false;
+      item.o.forEach(function(opt,oi){
+        var b=document.createElement('button'); b.className='ja-qopt';
+        b.innerHTML='<b>'+L[oi]+'.</b> '+opt;
+        b.onclick=function(){
+          if(done) return; done=true;
+          var kids=card.querySelectorAll('.ja-qopt');
+          for(var k=0;k<kids.length;k++){kids[k].classList.add('locked');}
+          kids[item.a].classList.add('correct');
+          if(oi!==item.a) b.classList.add('wrong');
+          var ex=document.createElement('div'); ex.className='ja-qexpl';
+          ex.innerHTML='<b>Answer: '+L[item.a]+'.</b> '+item.e; card.appendChild(ex);
+        };
+        card.appendChild(b);
+      });
+      host.appendChild(card);
+    });
+  })();
+  </script>
 </section>
 <!-- JOURNAL-ARTICLES:END -->
 

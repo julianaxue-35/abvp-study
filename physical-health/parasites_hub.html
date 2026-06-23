@@ -844,275 +844,48 @@
 .ja-ans-rationale {
   color: var(--ink2, #15514c);
 }
+/* ── Journal self-test (pages without an MCQ bank) ── */
+.ja-quiz { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line, #d9d0bd); }
+.ja-quiz-h { font-family: "Fraunces", serif; font-weight: 600; font-size: 18px; margin: 0 0 12px; color: var(--ink, #0f3d3a); }
+.ja-qcard { background: var(--paper2, #fbf8f1); border: 1px solid var(--line, #d9d0bd); border-radius: 12px; padding: 14px 16px; margin: 12px 0; }
+.ja-qstem { font-weight: 600; font-size: 0.95em; margin-bottom: 10px; color: var(--ink, #0f3d3a); }
+.ja-qopt { display: block; width: 100%; text-align: left; cursor: pointer; font: inherit; font-size: 0.9em; padding: 8px 11px; margin: 5px 0; border: 1px solid var(--line, #d9d0bd); border-radius: 8px; background: var(--paper, #fdfaf4); color: var(--ink, #0f3d3a); }
+.ja-qopt b { color: var(--muted, #5d6b62); font-family: "JetBrains Mono", monospace; margin-right: 4px; }
+.ja-qopt:hover:not(.locked) { border-color: var(--lit, #1f6f8b); }
+.ja-qopt.locked { cursor: default; }
+.ja-qopt.correct { background: #e9f4ee; border-color: var(--good, #2f7d52); }
+.ja-qopt.wrong { background: #f8e9e9; border-color: var(--bad, #b23b3b); }
+.ja-qexpl { font-size: 0.88em; margin-top: 8px; padding: 9px 12px; background: var(--lit-soft, #dcedf2); border-radius: 8px; color: var(--ink2, #15514c); line-height: 1.5; }
 </style>
 <section class="panel" id="journal">
   <h2 class="sec">Additional Resources</h2>
-  <p class="lead">Journal Articles (2021–2026). Exam items are drawn from the abstract only — read each abstract, then self-test.</p>
+  <p class="lead">Journal Articles (2021–2026) — exam items are drawn from the abstract only. Read each abstract here; self-test questions are in the MCQ Test Bank.</p>
   <div class="card ja-article">
     <p class="ja-cite"><b>Prevalence of Gastrointestinal Parasites in Cats and Dogs on Intake to Northern Mississippi Shelters</b><br>
     <span class="ja-meta">Prevalence of Gastrointestinal Parasites in Cats and Dogs on Intake &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2026</span></p>
     <div class="ja-abstract"><b>Abstract.</b> Animal shelters frequently administer multiple anthelminthic therapies for gastrointestinal parasites to animals on intake, but superfluous use of anthelmintics may contribute to resistance over time. Literature results for gastrointestinal parasite prevalence vary by region. This study’s objective was to evaluate parasite prevalence in animals upon intake to Mississippi shelters and determine risk factors for parasitism. Fecal samples were obtained from cats and dogs and examined via passive floatation. Presence or absence of common parasite eggs was found along with descriptive characteristics of the animal. Multivariable, multilevel logistic regression (SAS9.4) was performed to test for associations (alpha = 0.05). Prevalence for overall parasitism in cats and dogs was 48% (95% confidence interval [CI]: 38.9%–57.2%) and 74% (95% CI: 69.6%–77.3%), respectively. Age and intake type were found to have significant associations with parasitism in cats (P = 0.027, P = 0.015). Age and sex were observed to have significant associations with parasitism in dogs (P = 0.035, P ≤ 0.0001). These findings suggest implications for targeted empirical anthelmintic therapy.</div>
-      <div class="ja-mcq">
-        <p class="ja-q">A study evaluated gastrointestinal parasite prevalence in cats and dogs at northern Mississippi shelters using passive floatation. What were the overall prevalence rates for cats and dogs, respectively?</p>
-        <ul class="ja-opts">
-          <li class="ja-opt"><b>A.</b> Cats 28%, dogs 54%</li>
-          <li class="ja-opt"><b>B.</b> Cats 48%, dogs 74%</li>
-          <li class="ja-opt"><b>C.</b> Cats 62%, dogs 81%</li>
-          <li class="ja-opt"><b>D.</b> Cats 35%, dogs 50%</li>
-        </ul>
-        <details class="ja-ans">
-          <summary>Show answer</summary>
-          <div class="ja-ans-body">
-            <span class="ja-ans-correct">Answer: B. Cats 48%, dogs 74%</span>
-            <span class="ja-ans-rationale">The abstract reports &#x27;Prevalence for overall parasitism in cats and dogs was 48% (95% CI: 38.9%–57.2%) and 74% (95% CI: 69.6%–77.3%), respectively.&#x27;</span>
-          </div>
-        </details>
-      </div>
-      <div class="ja-mcq">
-        <p class="ja-q">In the Mississippi shelter parasite prevalence study, which factors were found to have significant associations with parasitism in dogs?</p>
-        <ul class="ja-opts">
-          <li class="ja-opt"><b>A.</b> Age and intake type</li>
-          <li class="ja-opt"><b>B.</b> Age and sex</li>
-          <li class="ja-opt"><b>C.</b> Sex and intake type</li>
-          <li class="ja-opt"><b>D.</b> Breed and intake type</li>
-        </ul>
-        <details class="ja-ans">
-          <summary>Show answer</summary>
-          <div class="ja-ans-body">
-            <span class="ja-ans-correct">Answer: B. Age and sex</span>
-            <span class="ja-ans-rationale">The abstract states: &#x27;Age and sex were observed to have significant associations with parasitism in dogs (P = 0.035, P ≤ 0.0001),&#x27; whereas age and intake type were the significant factors for cats.</span>
-          </div>
-        </details>
-      </div>
-      <div class="ja-mcq">
-        <p class="ja-q">The Mississippi shelter parasite study evaluated whether routine anthelminthic treatment on intake is warranted. What implication do the findings suggest?</p>
-        <ul class="ja-opts">
-          <li class="ja-opt"><b>A.</b> Superfluous anthelmintic use is not a concern because resistance is rare in shelter populations</li>
-          <li class="ja-opt"><b>B.</b> The high parasite prevalence supports universal anthelmintic treatment of all animals on intake regardless of species or demographics</li>
-          <li class="ja-opt"><b>C.</b> The findings suggest implications for targeted empirical anthelmintic therapy based on risk factors</li>
-          <li class="ja-opt"><b>D.</b> Passive floatation is insufficiently sensitive to guide anthelmintic treatment decisions in shelters</li>
-        </ul>
-        <details class="ja-ans">
-          <summary>Show answer</summary>
-          <div class="ja-ans-body">
-            <span class="ja-ans-correct">Answer: C. The findings suggest implications for targeted empirical anthelmintic therapy based on risk factors</span>
-            <span class="ja-ans-rationale">The abstract concludes that &#x27;these findings suggest implications for targeted empirical anthelmintic therapy,&#x27; and the study was explicitly motivated by concern that &#x27;superfluous use of anthelmintics may contribute to resistance over time.&#x27;</span>
-          </div>
-        </details>
-      </div>
   </div>
   <div class="card ja-article">
     <p class="ja-cite"><b>New insight into genetic diversity of zoonotic-potential Ancylostoma ceylanicum in stray cats living in Bangkok, Thailand, based on deep amplicon sequencing</b><br>
     <span class="ja-meta">Jitsamai W, Kamkong P, Traub RJ, Taweethavonsawat P &middot; Zoonoses and Public Health &middot; 2024 &middot; <a href="https://doi.org/10.1111/zph.13102" target="_blank" rel="noopener">10.1111/zph.13102</a></span></p>
     <div class="ja-abstract"><b>Abstract.</b> Study characterized hookworms from stray cats in Bangkok. Of 56 hookworm-positive fecal samples, 96.4% were identified as Ancylostoma ceylanicum and 1.8% as A. caninum. Deep amplicon sequencing of the partial COI gene revealed 19 haplotypes (AC01-AC19) with three considered zoonotic. The predominant haplotype AC01 was clustered with H01-a zoonotic haplotype. Researchers concluded that deep amplicon sequencing effectively determined genetic variation, zoonotic potential, and host-parasite relationships.</div>
-      <div class="ja-mcq">
-        <p class="ja-q">In Bangkok stray cats, which hookworm species predominated (96.4% of positive samples) and is known to have zoonotic potential for cutaneous larva migrans in humans?</p>
-        <ul class="ja-opts">
-          <li class="ja-opt"><b>A.</b> Ancylostoma caninum</li>
-          <li class="ja-opt"><b>B.</b> Ancylostoma braziliense</li>
-          <li class="ja-opt"><b>C.</b> Ancylostoma ceylanicum</li>
-          <li class="ja-opt"><b>D.</b> Uncinaria stenocephala</li>
-        </ul>
-        <details class="ja-ans">
-          <summary>Show answer</summary>
-          <div class="ja-ans-body">
-            <span class="ja-ans-correct">Answer: C. Ancylostoma ceylanicum</span>
-            <span class="ja-ans-rationale">Ancylostoma ceylanicum comprised 96.4% of hookworm-positive samples. Unlike A. caninum which typically causes cutaneous larva migrans, A. ceylanicum can actually establish patent intestinal infections in humans in addition to cutaneous migration.</span>
-          </div>
-        </details>
-      </div>
-      <div class="ja-mcq">
-        <p class="ja-q">Deep amplicon sequencing of the COI gene in A. ceylanicum from Bangkok stray cats identified 19 haplotypes. What aspect of the predominant haplotype AC01 is particularly concerning from a public health perspective?</p>
-        <ul class="ja-opts">
-          <li class="ja-opt"><b>A.</b> It is resistant to common anthelmintics including fenbendazole</li>
-          <li class="ja-opt"><b>B.</b> It was clustered with a known zoonotic haplotype (H01), indicating human infection potential</li>
-          <li class="ja-opt"><b>C.</b> It exclusively infects immunocompromised individuals</li>
-          <li class="ja-opt"><b>D.</b> It represents an entirely new species unrelated to other Ancylostoma</li>
-        </ul>
-        <details class="ja-ans">
-          <summary>Show answer</summary>
-          <div class="ja-ans-body">
-            <span class="ja-ans-correct">Answer: B. It was clustered with a known zoonotic haplotype (H01), indicating human infection potential</span>
-            <span class="ja-ans-rationale">The predominant haplotype AC01 clustered with H01, a known zoonotic haplotype, indicating that the most common hookworm in Bangkok stray cats has confirmed zoonotic potential for human infection.</span>
-          </div>
-        </details>
-      </div>
-      <div class="ja-mcq">
-        <p class="ja-q">For TNR (trap-neuter-return) programs managing stray cat colonies in Southeast Asia, this study suggests which intervention should be considered beyond sterilization?</p>
-        <ul class="ja-opts">
-          <li class="ja-opt"><b>A.</b> Monthly bathing to remove hookworm larvae from fur</li>
-          <li class="ja-opt"><b>B.</b> Antiparasitic treatment for hookworms given the high prevalence of zoonotic A. ceylanicum in stray cat feces</li>
-          <li class="ja-opt"><b>C.</b> Fencing all colony sites to prevent human contact</li>
-          <li class="ja-opt"><b>D.</b> Mass vaccination against hookworm using experimental vaccines</li>
-        </ul>
-        <details class="ja-ans">
-          <summary>Show answer</summary>
-          <div class="ja-ans-body">
-            <span class="ja-ans-correct">Answer: B. Antiparasitic treatment for hookworms given the high prevalence of zoonotic A. ceylanicum in stray cat feces</span>
-            <span class="ja-ans-rationale">Given 96.4% of hookworm-positive stray cats carried zoonotic-potential A. ceylanicum, antiparasitic treatment (e.g., with fenbendazole or pyrantel) should be integrated into TNR programs to reduce human exposure risk.</span>
-          </div>
-        </details>
-      </div>
   </div>
   <div class="card ja-article">
     <p class="ja-cite"><b>Zoonotic and Non Zoonotic Intestinal Parasites in Shelter Dogs at Admission and Before Discharge</b><br>
     <span class="ja-meta">Zoonotic and Non-Zoonotic Intestinal Parasites in Shelter Dogs &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2023</span></p>
     <div class="ja-abstract"><b>Abstract.</b> Introduction: The prevalence of intestinal parasites, notably zoonotic ascarids and hookworms, is higher in shelter dogs, compared to dogs in homes, making parasite control within shelter facilities a public health priority. Objective: The objective of the study reported here was to measure and compare the frequency of dogs infected with zoonotic or non-zoonotic intestinal parasites at admission and before discharge at a shelter facility. Methods: Ninety-two dogs were tested for diagnosis of intestinal parasites at admission and before discharge. Results: At admission, 50/92 (54%) dogs were diagnosed with intestinal parasites. Most dogs (43/50) were diagnosed with mono-infections with Ancylostoma spp., or co-infections with Ancylostoma spp. and Toxocara sp. or non-zoonotic parasites. Sixty-five dogs had a complete fecal study performed, which included an intake and exit sample analyzed for presence of parasite ova. Among the 65 study dogs, the frequency of dogs with intestinal parasites was lower before discharge (23 or 35%), compared to that at admission (33 or 50%) (P = 0.02). Fifty-one of 65 (78%) dogs were adopted, transferred to an outside rescue facility, or returned to their owners. Of these 51 dogs that left the shelter during the study period, 16/51 (31%) dogs were infected with intestinal parasites, and 8 of the 16 infected dogs were diagnosed with zoonotic parasites. Finally, among 37 dogs that tested negative and 28 that tested positive to zoonotic parasites at admission and re-tested later, four (11%) and six (21%) dogs, respectively, tested positive to zoonotic parasites when tested later. Conclusion: The frequency of shelter dogs infected with intestinal parasites at admission and before discharge was high (≥35%), and most infections were caused by Ancylostoma spp., an intestinal parasite in dogs that can be transmitted to humans, particularly children. We offer health policy options that shelter veterinarians/managers and local policymakers can consider for possible implementation and evaluation. Keywords: intestinal parasite; zoonotic parasite; dog, shelter; Toxocara; Ancylostoma A pproximately 3.1 million dogs enter shelter facilities each year.1 The prevalence of intestinal parasites, notably zoonotic ascarids and dogs in homes2,3 making parasite control within shelden of intestinal parasites in shelter facilities can be attributed to admission of free-roaming dogs with no Attribution 4.0 International License (http://creativecommons.org/licenses/by/4.0/), allowing third parties to copy and redistribute the material in any medium or format and to remix, transform, and build upon the material for any purpose, even commercially, provided the original work is properly cited and states its license.</div>
-      <div class="ja-mcq">
-        <p class="ja-q">A shelter study tested 92 dogs for intestinal parasites at admission and compared frequency before discharge for 65 dogs with complete intake and exit samples. What was the parasite prevalence at admission and before discharge in those 65 dogs?</p>
-        <ul class="ja-opts">
-          <li class="ja-opt"><b>A.</b> Admission 74%, discharge 48%</li>
-          <li class="ja-opt"><b>B.</b> Admission 54%, discharge 35%</li>
-          <li class="ja-opt"><b>C.</b> Admission 50%, discharge 35%</li>
-          <li class="ja-opt"><b>D.</b> Admission 35%, discharge 11%</li>
-        </ul>
-        <details class="ja-ans">
-          <summary>Show answer</summary>
-          <div class="ja-ans-body">
-            <span class="ja-ans-correct">Answer: C. Admission 50%, discharge 35%</span>
-            <span class="ja-ans-rationale">The abstract states that among the 65 study dogs, &#x27;the frequency of dogs with intestinal parasites was lower before discharge (23 or 35%), compared to that at admission (33 or 50%) (P = 0.02),&#x27; representing 50% at admission and 35% at discharge.</span>
-          </div>
-        </details>
-      </div>
-      <div class="ja-mcq">
-        <p class="ja-q">In the shelter intestinal parasite study, what was the most commonly identified parasite among dogs diagnosed with mono-infections or co-infections at admission?</p>
-        <ul class="ja-opts">
-          <li class="ja-opt"><b>A.</b> Toxocara sp.</li>
-          <li class="ja-opt"><b>B.</b> Giardia spp.</li>
-          <li class="ja-opt"><b>C.</b> Ancylostoma spp.</li>
-          <li class="ja-opt"><b>D.</b> Trichuris spp.</li>
-        </ul>
-        <details class="ja-ans">
-          <summary>Show answer</summary>
-          <div class="ja-ans-body">
-            <span class="ja-ans-correct">Answer: C. Ancylostoma spp.</span>
-            <span class="ja-ans-rationale">The abstract reports that &#x27;Most dogs (43/50) were diagnosed with mono-infections with Ancylostoma spp., or co-infections with Ancylostoma spp. and Toxocara sp. or non-zoonotic parasites,&#x27; identifying Ancylostoma as the predominant organism.</span>
-          </div>
-        </details>
-      </div>
-      <div class="ja-mcq">
-        <p class="ja-q">In the shelter dog parasite study, among 51 dogs that left the shelter (adopted, transferred, or returned to owners) and were tested, what proportion were still infected with intestinal parasites at departure?</p>
-        <ul class="ja-opts">
-          <li class="ja-opt"><b>A.</b> Approximately 8% (4/51)</li>
-          <li class="ja-opt"><b>B.</b> Approximately 16% (8/51)</li>
-          <li class="ja-opt"><b>C.</b> Approximately 31% (16/51)</li>
-          <li class="ja-opt"><b>D.</b> Approximately 50% (26/51)</li>
-        </ul>
-        <details class="ja-ans">
-          <summary>Show answer</summary>
-          <div class="ja-ans-body">
-            <span class="ja-ans-correct">Answer: C. Approximately 31% (16/51)</span>
-            <span class="ja-ans-rationale">The abstract states that &#x27;16/51 (31%) dogs were infected with intestinal parasites&#x27; among the 51 dogs that left the shelter, with 8 of those 16 infected dogs diagnosed with zoonotic parasites.</span>
-          </div>
-        </details>
-      </div>
   </div>
   <div class="card ja-article">
     <p class="ja-cite"><b>estimating the dog population, responsible pet ownership, and intestinal parasitism in dogs in quito, eccuador</b><br>
     <span class="ja-meta">Estimating the Dog Population, Responsible Pet Ownership, &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2022</span></p>
     <div class="ja-abstract"><b>Abstract.</b> Introduction: In 2011, authorities of Quito, the capital city of Ecuador, approved an ordinance to promote public health and animal welfare through responsible pet ownership promotion. The population of dogs was not known, and the relationships between dog abundance, socioeconomic factors, prevalence of zoonotic gastrointestinal parasites, and pet ownership responsibility had not been investigated. The objectives of this study were (1) to estimate the human:dog (HD) ratio, (2) to examine the relationship between household factors and responsible pet ownership, and (3) to estimate the prevalence of households with one or more dogs infected with intestinal parasites in Quito, Ecuador. Methods: Space-based random sampling procedures were used for estimation of HD ratios in free-roaming dogs and confined owned dogs. The relationship between household factors and a Responsible Pet Ownership Index was examined using logistic regression. Dog fecal samples were tested for intestinal parasites. Results: Among stray dogs, the observed HD ratio was 58:1. Among dogs kept indoors, the observed HD ratio was 3.5:1. A positive interaction effect between number of dogs in study households and household living conditions (a proxy for household wealth) on responsible pet ownership was observed, which we discuss in this report. Prevalence of households with dogs infected with intestinal parasites was 28% (95% confidence interval [CI] = 21–37). Ancylostoma spp. was the most frequent intestinal parasite in study dogs kept indoors. Conclusion: This study provides new information that can be used by policy makers to formulate, implement, and evaluate public policies and education programs aimed at enhancing animal welfare and health in Ecuador. Keywords: Dogs; population; parasites; pet ownership; Ecuador, One Health; public health R esponsible pet ownership is a new social norm that is becoming more common in the growing, dog overpopulation, lack of responsible pet ownership, and the absence of animal shelter programs are continuing public health issues of concern in Quito, the capital city of Ecuador. In recent years, a number of organizations have ities in the city of Quito approved an ordinance (No. 048) to prevent cruel treatment of animals, promote responsible pet ownership, improve dog health, and reduce the risk of dog bites to people, dog defecation in public spaces, 4.0 International License (http://creativecommons.org/licenses/by/4.0/), allowing third parties to copy and redistribute the material in any medium or format and to remix, transform, and build upon the material for any purpose, even commercially, provided the original work is properly cited and states its license.</div>
-      <div class="ja-mcq">
-        <p class="ja-q">A study in Quito, Ecuador estimated the human-to-dog (HD) ratio for stray dogs and confined owned dogs. What were those ratios, respectively?</p>
-        <ul class="ja-opts">
-          <li class="ja-opt"><b>A.</b> Stray dogs 10:1; confined dogs 1.5:1</li>
-          <li class="ja-opt"><b>B.</b> Stray dogs 25:1; confined dogs 5:1</li>
-          <li class="ja-opt"><b>C.</b> Stray dogs 58:1; confined dogs 3.5:1</li>
-          <li class="ja-opt"><b>D.</b> Stray dogs 100:1; confined dogs 10:1</li>
-        </ul>
-        <details class="ja-ans">
-          <summary>Show answer</summary>
-          <div class="ja-ans-body">
-            <span class="ja-ans-correct">Answer: C. Stray dogs 58:1; confined dogs 3.5:1</span>
-            <span class="ja-ans-rationale">The abstract reports &#x27;Among stray dogs, the observed HD ratio was 58:1. Among dogs kept indoors, the observed HD ratio was 3.5:1.&#x27;</span>
-          </div>
-        </details>
-      </div>
-      <div class="ja-mcq">
-        <p class="ja-q">In the Quito, Ecuador dog population study, what was the prevalence of households with at least one dog infected with intestinal parasites?</p>
-        <ul class="ja-opts">
-          <li class="ja-opt"><b>A.</b> 10% (95% CI 5–17%)</li>
-          <li class="ja-opt"><b>B.</b> 28% (95% CI 21–37%)</li>
-          <li class="ja-opt"><b>C.</b> 48% (95% CI 38–58%)</li>
-          <li class="ja-opt"><b>D.</b> 74% (95% CI 68–80%)</li>
-        </ul>
-        <details class="ja-ans">
-          <summary>Show answer</summary>
-          <div class="ja-ans-body">
-            <span class="ja-ans-correct">Answer: B. 28% (95% CI 21–37%)</span>
-            <span class="ja-ans-rationale">The abstract states &#x27;Prevalence of households with dogs infected with intestinal parasites was 28% (95% CI = 21–37).&#x27;</span>
-          </div>
-        </details>
-      </div>
-      <div class="ja-mcq">
-        <p class="ja-q">In the Quito dog population study, which intestinal parasite was found to be the most frequent in study dogs kept indoors?</p>
-        <ul class="ja-opts">
-          <li class="ja-opt"><b>A.</b> Toxocara canis</li>
-          <li class="ja-opt"><b>B.</b> Giardia spp.</li>
-          <li class="ja-opt"><b>C.</b> Ancylostoma spp.</li>
-          <li class="ja-opt"><b>D.</b> Trichuris vulpis</li>
-        </ul>
-        <details class="ja-ans">
-          <summary>Show answer</summary>
-          <div class="ja-ans-body">
-            <span class="ja-ans-correct">Answer: C. Ancylostoma spp.</span>
-            <span class="ja-ans-rationale">The abstract reports &#x27;Ancylostoma spp. was the most frequent intestinal parasite in study dogs kept indoors.&#x27;</span>
-          </div>
-        </details>
-      </div>
   </div>
   <div class="card ja-article">
     <p class="ja-cite"><b>Giardia duodenalis in colony stray cats from Italy</b><br>
     <span class="ja-meta">Guadano Procesi I, Carnio A, Berrilli F, Montalbano Di Filippo M, Scarito A, Amoruso C, Barni M, Ruffini M, Barlozzari G, Scarpulla M, De Liberato C &middot; Zoonoses and Public Health &middot; 2022 &middot; <a href="https://doi.org/10.1111/zph.12894" target="_blank" rel="noopener">10.1111/zph.12894</a></span></p>
     <div class="ja-abstract"><b>Abstract.</b> Study detected and genetically characterized G. duodenalis from stray cat colonies in central Italy (2018–2019). Of 133 fecal samples, 47 samples (35.3%) were positive for G. duodenalis cysts. Molecular analysis revealed 37 were positive for zoonotic Assemblage A and 2 showed a mixed infection (A + B). Sequence analysis identified Sub-assemblage AII and AIII variants. The authors noted all positive cats resulted to be infected with zoonotic assemblages, indicating stray cats as a potential human giardiasis source.</div>
-      <div class="ja-mcq">
-        <p class="ja-q">In a survey of 133 fecal samples from Italian stray cat colonies, what proportion were positive for Giardia duodenalis?</p>
-        <ul class="ja-opts">
-          <li class="ja-opt"><b>A.</b> 5%</li>
-          <li class="ja-opt"><b>B.</b> 15%</li>
-          <li class="ja-opt"><b>C.</b> 35%</li>
-          <li class="ja-opt"><b>D.</b> 60%</li>
-        </ul>
-        <details class="ja-ans">
-          <summary>Show answer</summary>
-          <div class="ja-ans-body">
-            <span class="ja-ans-correct">Answer: C. 35%</span>
-            <span class="ja-ans-rationale">35.3% (47/133) of fecal samples from stray cat colonies were positive for G. duodenalis cysts, a significant prevalence with public health relevance given that all positive cats harbored zoonotic assemblages.</span>
-          </div>
-        </details>
-      </div>
-      <div class="ja-mcq">
-        <p class="ja-q">All Giardia-positive stray cats in this Italian colony study were infected with which assemblage type, confirming their zoonotic potential?</p>
-        <ul class="ja-opts">
-          <li class="ja-opt"><b>A.</b> Assemblage C and D (host-adapted canine assemblages)</li>
-          <li class="ja-opt"><b>B.</b> Assemblage E (livestock assemblage)</li>
-          <li class="ja-opt"><b>C.</b> Assemblage A (zoonotic)</li>
-          <li class="ja-opt"><b>D.</b> Assemblage F (host-adapted feline assemblage)</li>
-        </ul>
-        <details class="ja-ans">
-          <summary>Show answer</summary>
-          <div class="ja-ans-body">
-            <span class="ja-ans-correct">Answer: C. Assemblage A (zoonotic)</span>
-            <span class="ja-ans-rationale">All positive cats were infected with zoonotic Assemblage A (Sub-assemblages AII and AIII) or mixed A+B infections. No host-adapted feline assemblages (F) were detected, confirming that these stray cats represent a public health risk for human giardiasis.</span>
-          </div>
-        </details>
-      </div>
-      <div class="ja-mcq">
-        <p class="ja-q">A shelter veterinarian is asked about the public health risk of adopting out cats from a stray cat colony known to have high Giardia prevalence. Based on this study&#x27;s findings, the appropriate guidance is:</p>
-        <ul class="ja-opts">
-          <li class="ja-opt"><b>A.</b> No risk; feline Giardia assemblages are exclusively host-specific and cannot infect humans</li>
-          <li class="ja-opt"><b>B.</b> Stray cats from colonies can carry zoonotic Giardia assemblages (A/B) and should be tested and treated before adoption, especially where adopters include immunocompromised individuals or young children</li>
-          <li class="ja-opt"><b>C.</b> Only cats with diarrhea shed zoonotic Giardia; formed fecal output means no risk</li>
-          <li class="ja-opt"><b>D.</b> Giardia from cats is only a risk to dogs, not to humans</li>
-        </ul>
-        <details class="ja-ans">
-          <summary>Show answer</summary>
-          <div class="ja-ans-body">
-            <span class="ja-ans-correct">Answer: B. Stray cats from colonies can carry zoonotic Giardia assemblages (A/B) and should be tested and treated before adoption, especially where adopters include immunocompromised individuals or young children</span>
-            <span class="ja-ans-rationale">This study found all Giardia-positive stray colony cats harbored zoonotic Assemblage A, establishing them as a potential source of human giardiasis. Pre-adoption testing and treatment, plus handwashing guidance for adopters, is warranted.</span>
-          </div>
-        </details>
-      </div>
   </div>
+
 </section>
 <!-- JOURNAL-ARTICLES:END -->
 
@@ -1471,5 +1244,16 @@ function setRate(btn,r){
   fwd.addEventListener('click', function(){ skip(15); });
 })();
 </script>
+<!-- JOURNAL-BANK:START -->
+<script data-journal-bank>
+(function(){try{
+  if(typeof Q!=='undefined' && Array.isArray(Q)){
+    var JJ=[{"q": "A shelter in the southern United States is reviewing its intake anthelmintic protocol. Based on regional prevalence data from northern Mississippi shelters, what does the evidence suggest about blanket treatment of all incoming animals?", "o": ["Blanket anthelmintic treatment is not justified because prevalence is below 20% in both species", "Prevalence is high in dogs (majority infected) but low in cats, so only dogs should receive empiric treatment", "Prevalence is high in both species (nearly half of cats, nearly three-quarters of dogs), supporting empiric treatment—but targeted risk-based approaches could reduce unnecessary anthelmintic use", "Fecal testing should always replace empiric treatment regardless of regional prevalence"], "a": 2, "e": "The study found overall parasitism prevalence of 48% in cats and 74% in dogs at intake. This high burden supports empiric anthelmintic therapy, but the authors note that superfluous use risks resistance. Age, intake type (cats), and sex (dogs) were risk factors, suggesting targeted protocols could be refined."}, {"q": "Risk factor analysis from a Mississippi shelter intake study found that age and intake type were significantly associated with parasitism in cats, while age and sex were associated in dogs. What is the practical implication for shelter intake triage?", "o": ["All animals should receive identical anthelmintic protocols regardless of signalment", "Risk stratification by age, sex, and intake type (stray vs. surrendered) can help target treatment and reduce unnecessary anthelmintic use", "Sex is the most important risk factor in both species and should drive all treatment decisions", "Passive fecal flotation is sufficient for all animals and no empiric treatment is needed"], "a": 1, "e": "The study identified specific risk factors (age and intake type in cats; age and sex in dogs) that predict parasitism. This supports risk-stratified empiric treatment protocols as a way to maintain effective parasite control while reducing unnecessary anthelmintic exposure that could promote resistance."}, {"q": "A shelter dog is found to be negative for intestinal parasites on admission fecal testing. Before discharge, should the dog be re-tested?", "o": ["No—a negative admission test reliably predicts negative status at discharge", "Yes—11% of dogs negative at admission tested positive for zoonotic parasites on later testing, indicating shelter-acquired or latent infection", "Only if the dog shows clinical signs of parasitism during its stay", "Only if the dog had known exposure to other infected dogs in communal housing"], "a": 1, "e": "Among dogs that tested negative for zoonotic parasites at admission and were re-tested later, 11% were positive on later testing. Among those positive at admission, 21% were still positive later. This indicates that admission testing alone is insufficient and that shelter-acquired or incubating infections can emerge, supporting pre-discharge testing."}, {"q": "The most common intestinal parasites found in shelter dogs in this Brazilian study were zoonotic. What is the primary public health implication when these dogs leave the shelter for adoption or rescue transfer?", "o": ["The risk is low because adopters are typically adults who are not susceptible to dog-transmitted parasites", "Significant zoonotic risk persists at discharge—about one-third of dogs leaving were still infected, with half of infected dogs carrying zoonotic species like Ancylostoma spp.", "Since parasites are eliminated by the shelter's standard anthelmintic protocol, discharge risk is negligible", "The risk is limited to dogs adopted into households with other dogs, not those placed with human families"], "a": 1, "e": "Of 51 dogs that left the shelter during the study, 31% (16/51) were infected with intestinal parasites, and 8 of those 16 had zoonotic infections (primarily Ancylostoma spp., which can cause cutaneous larva migrans especially in children). This highlights the need for effective pre-discharge parasite treatment protocols."}, {"q": "A city in a lower-income country is designing a dog population management program. Survey data from Quito, Ecuador showed stray dogs exist at a human:dog ratio of 58:1, while confined dogs are at 3.5:1. What does this pattern most directly imply for disease control planning?", "o": ["Stray dogs pose minimal public health risk because their low population density reduces contact rates with humans", "Interventions targeting owned/confined dogs will have the greatest impact because their density is higher", "The large difference in stray vs. confined dog density suggests that promoting responsible ownership and confinement is a key lever for reducing free-roaming dog populations and associated zoonotic risk", "Dog population ratios are unreliable indicators of parasite prevalence and should not guide policy"], "a": 2, "e": "A 58:1 human-to-stray dog ratio vs. 3.5:1 for confined dogs indicates that confined owned dogs are far more densely distributed. Programs that convert free-roaming dogs to owned, confined animals with responsible care (including parasite control) address both population management and zoonotic risk reduction simultaneously."}, {"q": "Responsible pet ownership (RPO) in Quito was found to have a positive interaction effect between number of dogs and household living conditions (a proxy for wealth). What does this suggest for designing community education programs?", "o": ["RPO education programs should focus exclusively on wealthier households since they have more dogs", "The interaction suggests that socioeconomic factors modify the relationship between dog ownership and responsible practices—programs should be tailored to household context rather than applying a one-size-fits-all approach", "Households with more dogs are always less responsible owners, so limiting dog ownership per household is the priority", "Wealth is unrelated to RPO once awareness campaigns are implemented"], "a": 1, "e": "A positive interaction between number of dogs and household wealth on RPO means the effect of having more dogs on responsible ownership differed by socioeconomic status. This highlights that effective RPO programs need to be context-sensitive and address the practical barriers (economic, educational) that vary across communities."}, {"q": "A TNR program in Italy tests fecal samples from managed stray cat colonies and finds a substantial proportion positive for Giardia duodenalis. Molecular typing reveals all positive samples carry zoonotic assemblages. What is the primary public health implication?", "o": ["The finding is of limited concern because Giardia in cats rarely causes human infection", "Stray cat colonies may serve as a reservoir for human giardiasis, particularly for colony caregivers and others with contact exposure", "Only cats with diarrhea should be considered infectious; asymptomatic carriers pose no zoonotic risk", "The zoonotic assemblages found (A and B) are not transmissible via the fecal-oral route to humans"], "a": 1, "e": "The Italian study found 35.3% prevalence of G. duodenalis in stray cat colonies, with all positive samples belonging to zoonotic Assemblage A (sub-assemblages AII and AIII) or mixed A+B. Since all detections were of human-infectious assemblages, colony cats represent a potential source of human giardiasis—particularly relevant for caregivers, veterinary staff, and children with colony exposure."}, {"q": "When managing a TNR program, Giardia testing and treatment protocols need to be considered. What does the Italian stray cat colony study suggest about the feasibility of relying on clinical signs alone to identify Giardia-positive animals for treatment?", "o": ["Clinical signs are a reliable screening tool because most Giardia-positive cats show visible diarrhea", "Clinical signs alone are insufficient—studies of asymptomatic colony cats can detect high prevalence, indicating subclinical carriage is common", "Only kittens under 6 months show subclinical Giardia infection; adult cats with positive tests are always symptomatic", "PCR testing of colony cats is impractical and fecal flotation is too insensitive to guide treatment"], "a": 1, "e": "The study detected 35.3% prevalence in colony stray cats through systematic sampling, not clinical presentation. This demonstrates that subclinical Giardia carriage is common—relying solely on clinical signs would miss a large proportion of infected cats and underestimate zoonotic exposure risk."}, {"q": "Hookworm-positive stray cats in Bangkok were found to carry predominantly Ancylostoma ceylanicum rather than the more commonly taught A. caninum. What is the clinical significance of this finding for public health?", "o": ["A. ceylanicum is less pathogenic than A. caninum and poses lower zoonotic risk, so this finding is reassuring", "A. ceylanicum can cause true intestinal infection in humans (not just cutaneous larva migrans), making it a more complete zoonotic parasite than A. caninum", "Both species cause identical disease in humans, so species identification has no clinical impact", "A. ceylanicum only infects cats and has no documented human transmission"], "a": 1, "e": "Unlike A. caninum, which in humans typically causes only cutaneous larva migrans (self-limiting skin migration), A. ceylanicum can establish full intestinal infection in humans—making it a more significant zoonotic threat. The Bangkok study found 96.4% of hookworm-positive stray cats carried A. ceylanicum with the dominant haplotype clustering with a known zoonotic strain."}, {"q": "Deep amplicon sequencing of hookworms from Bangkok stray cats identified 19 haplotypes, with the predominant one clustering with a known zoonotic haplotype. What does this finding suggest for surveillance programs in urban free-roaming cat populations?", "o": ["Standard morphological identification of hookworm eggs is sufficient for zoonotic risk assessment", "Molecular characterization adds important information—species-level and even haplotype-level identification reveals zoonotic potential that cannot be assessed by conventional fecal examination alone", "The high genetic diversity found indicates low transmission between cats and humans", "Because A. ceylanicum is restricted to tropical Asia, these findings are irrelevant outside Southeast Asia"], "a": 1, "e": "The study demonstrated that deep amplicon sequencing of the COI gene could identify species, haplotypes, and zoonotic potential that are invisible to routine fecal flotation or even standard PCR. The predominant haplotype (AC01) clustered with H01, a known zoonotic haplotype, reinforcing the value of molecular surveillance for characterizing One Health risks in free-roaming cat populations."}];
+    JJ.forEach(function(m){Q.push({t:"journal",f:"journal",q:m.q,o:m.o,a:m.a,e:m.e});});
+    if(typeof render==='function'){render();}
+  }
+}catch(e){}})();
+</script>
+<!-- JOURNAL-BANK:END -->
 </body>
 </html>
