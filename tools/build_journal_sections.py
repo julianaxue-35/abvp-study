@@ -40,11 +40,17 @@ def page_questions(page, all_records, synth):
     qs = []
     for r in all_records:
         if r["subdomain_page"] == page:
+            # Optional bank_topic lets an article's MCQs sit under a page's
+            # existing topic filter (e.g. "hw" Heartworm) instead of the
+            # default "journal" tag. Badge stays "journal" for provenance.
+            topic = r.get("bank_topic", "journal")
             for m in r.get("mcqs", []):
-                qs.append({"q": m["q"], "o": m["o"], "a": m["a"], "e": m["e"]})
+                qs.append({"q": m["q"], "o": m["o"], "a": m["a"], "e": m["e"],
+                           "t": topic, "f": "journal"})
     for s in synth:
         if s.get("subdomain_page") == page:
-            qs.append({"q": s["q"], "o": s["o"], "a": s["a"], "e": s["e"]})
+            qs.append({"q": s["q"], "o": s["o"], "a": s["a"], "e": s["e"],
+                       "t": s.get("bank_topic", "journal"), "f": "journal"})
     return qs
 
 
@@ -293,8 +299,10 @@ def render_bank_script(questions: list) -> str:
     """JS block that pushes journal questions into the page's existing Q bank.
 
     Appended before </body>; relies on the page's classic-script-scope `Q`
-    array and `render()` function. Tagged t/f = "journal" so they show a
-    JOURNAL tag in the bank. Idempotent via BANK markers.
+    array and `render()` function. Each question carries its own `t` (topic
+    filter, default "journal") and `f` (badge, "journal"); a bank_topic in the
+    catalog routes an article under a native page filter (e.g. "hw").
+    Idempotent via BANK markers.
     """
     payload = json.dumps(questions, ensure_ascii=False)
     return f"""\
@@ -302,7 +310,7 @@ def render_bank_script(questions: list) -> str:
 (function(){{try{{
   if(typeof Q!=='undefined' && Array.isArray(Q)){{
     var JJ={payload};
-    JJ.forEach(function(m){{Q.push({{t:"journal",f:"journal",q:m.q,o:m.o,a:m.a,e:m.e}});}});
+    JJ.forEach(function(m){{Q.push({{t:m.t||"journal",f:m.f||"journal",q:m.q,o:m.o,a:m.a,e:m.e}});}});
     if(typeof render==='function'){{render();}}
   }}
 }}catch(e){{}}}})();
