@@ -592,15 +592,15 @@
 "type": "mcq",
 "domain": "Physical Health",
 "sub": "Nutrition & Husbandry",
-"q": "A veterinary student with no prior TNR experience is estimating feral cat weights at a spay/neuter clinic. Compared to a veterinarian, how should you characterize their expected accuracy?",
+"q": "At a TNR clinic, veterinary students of varying year levels are estimating feral cat weights for anesthetic dosing. Based on this study, how does a senior student's accuracy compare to a first-year student?",
 "o": [
-"Comparable accuracy, since student experience level did not significantly affect estimate deviation",
-"Significantly less accurate due to limited clinical exposure",
-"More accurate for lighter cats but less accurate for heavier cats",
-"Equally accurate if they received hands-on TNR training previously"
+"Senior students are substantially more accurate because clinical experience directly improves weight estimation",
+"Student year level was not a significant predictor of estimation accuracy — all students performed similarly regardless of experience level",
+"First-year students overestimate more often because they have not yet calibrated to typical feline body types",
+"Senior students are more accurate only for cats with a BCS less than 5"
 ],
-"a": 0,
-"e": "The study found no significant association between student year, previous technician experience, or TNR experience and estimation accuracy. While veterinarians had the highest overall PW20 (54%), student experience level per se was not a significant predictor of deviation.",
+"a": 1,
+"e": "The study found no significant association between student year, previous technician experience, or TNR experience and the deviation between estimated and actual weight. While veterinarians had the highest PW20 overall (54% vs 43% for students), within the student group, experience level did not significantly predict accuracy. This means additional TNR clinic experience alone should not be expected to substantially improve a student's weight estimation precision.",
 "source": "journal"
 },
 {
@@ -1584,13 +1584,13 @@
 "sub": "Mental Health & Self-Care",
 "q": "A shelter director reviewing the 2023 wellbeing survey data wants to prioritize staff support programming. Based on the findings, which concern should receive the highest urgency?",
 "o": [
-"Compassion satisfaction is low, so recognition and reward programs are the top need",
-"Depression scores are within normal range, suggesting clinical intervention is rarely needed",
-"Secondary traumatic stress is nearly universal among staff, warranting trauma-informed support as a systemic priority",
+"Burnout affected over half of staff (53.5%), so workload reduction is the single most urgent intervention",
+"Compassion satisfaction was high in nearly half of staff, confirming overall wellbeing is acceptable and no systemic action is warranted",
+"Secondary traumatic stress is nearly universal among staff (90.9%), warranting trauma-informed support as a systemic priority",
 "Burnout is moderate, and reducing workload alone is sufficient to address staff wellbeing"
 ],
 "a": 2,
-"e": "With STS affecting ~91% of staff — higher even than burnout rates — trauma-informed organizational strategies (not just workload reduction or recognition programs) are the evidence-based priority.",
+"e": "With STS affecting ~91% of staff — far exceeding burnout (53.5%) — and depression, anxiety, and fatigue scores elevated above the general population, trauma-informed organisational strategies are the evidence-based priority. High compassion satisfaction in some staff does not offset the near-universal STS burden.",
 "source": "journal"
 },
 {
@@ -3502,15 +3502,15 @@
 "type": "mcq",
 "domain": "Companion Animal Homelessness",
 "sub": "Spay-Neuter",
-"q": "The bioeconomic model showed that removal produces faster initial population declines than TNR. What critical limitation of removal should be communicated alongside this finding?",
+"q": "The bioeconomic model found that removal produces faster initial population declines than sterilization-based approaches, yet sterilization proved more economical at higher program intensities. What is the most important practical implication of this trade-off for communities planning free-roaming cat management?",
 "o": [
-"Removal is limited only by cost; if sufficient funding is available, removal is always the preferred long-term strategy",
-"Removal produces faster initial decline, but without eradication it may not sustain population reduction and can fail to deliver lasting control—making it a poor long-term strategy unless complete removal is achievable",
-"Removal is limited because it requires more personnel than TNR and shelters lack staffing capacity",
-"The faster initial decline from removal is a statistical artifact of modeling and has not been confirmed in field studies"
+"Communities should always choose removal because speed of population decline outweighs cost considerations",
+"Communities that prioritise long-term cost-effectiveness and can sustain high program intensity have an economic argument for sterilization-based approaches, even though removal achieves faster initial results",
+"Removal and sterilization are equivalent on both speed and cost at all intensity levels, so the choice is arbitrary",
+"Sterilization-based methods are only economical when combined with lethal removal in a hybrid program"
 ],
 "a": 1,
-"e": "The companion paper (Hurley & Levy 2022) and this model together show that removal short of eradication may actually magnify concerns rather than solve them, as immigration and reproduction fill the vacuum. Removal's speed advantage is meaningful only if the program can achieve and maintain complete removal.",
+"e": "The model showed removal achieves faster initial population declines, but sterilization-based strategies proved potentially more economical at higher program intensities. Among five scenarios achieving comparable 45% reductions, sterilization cost substantially less than removal-only. Communities can use this evidence to weigh speed of decline against long-term cost when choosing management approaches.",
 "source": "journal"
 },
 {
@@ -4207,15 +4207,15 @@
 "type": "mcq",
 "domain": "Companion Animal Homelessness",
 "sub": "Adoption & Placement",
-"q": "In a prospective study of cats adopted from rehoming centres, what was found about the prevalence of HCM in this unselected population over a median follow-up of 5.6 years?",
+"q": "In a prospective study of 107 cats adopted from UK rehoming centres, what was found about the burden of HCM over a median follow-up of 5.6 years?",
 "o": [
-"HCM was rare — less than 5% of cats developed it over the follow-up period",
-"HCM prevalence was substantial, with cardiovascular events occurring in about 21% of affected cats",
-"All cats that were echocardiographically normal at baseline remained disease-free",
-"HCM was only detected in cats over 10 years old, suggesting it is exclusively a geriatric disease"
+"HCM was rare in this unselected population, affecting fewer than 5% of cats",
+"HCM prevalence was substantial (~37% of cats were affected), and cardiovascular events occurred in 21% of those with HCM",
+"All cats that were echocardiographically normal at baseline remained free of HCM throughout follow-up",
+"HCM was detected only in cats already showing clinical signs at the time of adoption"
 ],
 "a": 1,
-"e": "The study found a substantial prevalence of HCM in this unselected rehoming population, with 21% of HCM-positive cats experiencing cardiovascular events. Additionally, 19 cats developed HCM during follow-up despite being normal or equivocal at baseline.",
+"e": "At baseline 21 cats had HCM; 19 additional cats developed HCM during follow-up, giving a total of 40/107 (~37%) affected — a substantial prevalence in this unselected rehoming population. Cardiovascular events (a separate statistic) occurred in 21% of the HCM-positive cats. Both findings highlight the importance of cardiac screening at adoption.",
 "source": "journal"
 },
 {
@@ -4252,15 +4252,15 @@
 "type": "mcq",
 "domain": "Physical Health",
 "sub": "Euthanasia",
-"q": "What histologic lesions are characteristically found in the kidneys of shelter cats with AA amyloidosis?",
+"q": "What histologic lesions are characteristically associated with renal AA amyloidosis in shelter cats, based on this case-control study?",
 "o": [
-"Lymphoplasmacytic interstitial nephritis without amyloid deposits in the cortex",
-"Glomerulosclerosis and interstitial fibrosis, associated with amyloid deposits in both cortex and medulla",
+"Lymphoplasmacytic interstitial nephritis without glomerular involvement",
+"Glomerulosclerosis and interstitial fibrosis, confirmed alongside amyloid deposits by immunohistochemistry",
 "Membranoproliferative glomerulonephritis as the predominant lesion without tubular involvement",
 "Subcapsular cortical infarcts with renal arteritis"
 ],
 "a": 1,
-"e": "AA amyloidosis in this study was associated with glomerulosclerosis and interstitial fibrosis. Amyloid was confirmed by immunohistochemistry and mass spectrometry. These lesions reflect the progressive, destructive nature of amyloid deposition in renal tissue and explain the association with azotemia, proteinuria, and ultimately CKD. Recognizing this histologic pattern is important for understanding prognosis in affected shelter cats.",
+"e": "In this case-control study of 29 shelter cats (19 with AA amyloidosis), renal AA amyloidosis was associated with glomerulosclerosis and interstitial fibrosis. Amyloid was confirmed by immunohistochemistry and mass spectrometry (LC-MS). Affected cats also had higher UPC and urine amyloid A-to-creatinine ratios, and mixed proteinuria was present in 89.4% of affected cats. Recognizing this histologic pattern supports identification of a distinct CKD pathway in shelter cat populations.",
 "source": "journal"
 },
 {
@@ -4897,15 +4897,15 @@
 "type": "mcq",
 "domain": "Physical Health",
 "sub": "Parasites",
-"q": "Hookworm-positive stray cats in Bangkok were found to carry predominantly Ancylostoma ceylanicum rather than the more commonly taught A. caninum. What is the clinical significance of this finding for public health?",
+"q": "A surveillance study of hookworms in Bangkok stray cats found 96.4% of hookworm-positive samples were Ancylostoma ceylanicum, and the predominant haplotype (AC01) clustered with a known zoonotic haplotype. What is the primary implication of this finding for public health surveillance?",
 "o": [
-"A. ceylanicum is less pathogenic than A. caninum and poses lower zoonotic risk, so this finding is reassuring",
-"A. ceylanicum can cause true intestinal infection in humans (not just cutaneous larva migrans), making it a more complete zoonotic parasite than A. caninum",
-"Both species cause identical disease in humans, so species identification has no clinical impact",
-"A. ceylanicum only infects cats and has no documented human transmission"
+"The high prevalence of A. ceylanicum confirms that stray cats in Bangkok pose no zoonotic risk because this species is host-specific to cats",
+"Stray cats in Bangkok are a significant reservoir of zoonotic-potential hookworms, with the predominant circulating haplotype genetically linked to a known zoonotic strain",
+"Surveillance using standard fecal flotation is sufficient to characterize zoonotic risk from hookworms in stray cat populations",
+"Genetic diversity among haplotypes indicates low hookworm transmission between cats and humans"
 ],
 "a": 1,
-"e": "Unlike A. caninum, which in humans typically causes only cutaneous larva migrans (self-limiting skin migration), A. ceylanicum can establish full intestinal infection in humans—making it a more significant zoonotic threat. The Bangkok study found 96.4% of hookworm-positive stray cats carried A. ceylanicum with the dominant haplotype clustering with a known zoonotic strain.",
+"e": "Of 56 hookworm-positive fecal samples from Bangkok stray cats, 96.4% were A. ceylanicum, with 19 haplotypes identified by deep amplicon sequencing. Three haplotypes were considered zoonotic, and the dominant haplotype AC01 clustered with H01, a known zoonotic haplotype. This demonstrates that Bangkok stray cats carry predominantly zoonotic-potential hookworm strains, making them a public health concern for communities with human-cat contact exposure.",
 "source": "journal"
 },
 {
