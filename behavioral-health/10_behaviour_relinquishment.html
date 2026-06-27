@@ -192,6 +192,10 @@
   <button data-p="tiny"><span class="dot"></span>Tiny Spirit Programme</button>
   <button data-p="welf"><span class="dot"></span>Behavioural Welfare</button>
   <button data-p="mcq"><span class="dot" style="background:var(--chrome2)"></span>MCQ Test Bank</button>
+
+<!-- JOURNAL-TAB:START -->
+<button data-p="journal"><span class="dot" style="background:var(--lit, #1f6f8b)"></span>Journal Articles</button>
+<!-- JOURNAL-TAB:END -->
 </div></div></nav>
 <div class="srch-wrap"><div class="wrap"><div class="srch-row">
 <svg width="14" height="14" viewBox="0 0 15 15" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="m10.5 10.5 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -502,6 +506,230 @@
   </div>
   <div id="qhost"></div>
 </section>
+
+
+<!-- JOURNAL-ARTICLES:START -->
+<style data-journal-css>
+/* ── Journal Articles section ─────────────────────────────────────────── */
+.ja-standalone {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 2px solid var(--line, #d9d0bd);
+}
+.ja-article {
+  margin-bottom: 24px;
+  padding: 20px 22px 18px;
+  background: var(--paper2, #fbf8f1);
+  border-radius: 10px;
+  box-shadow: var(--shadow, 0 1px 2px rgba(15,61,58,.08), 0 8px 24px rgba(15,61,58,.06));
+}
+.ja-cite {
+  margin: 0 0 10px;
+  line-height: 1.45;
+  font-size: 0.97em;
+}
+.ja-meta {
+  color: var(--muted, #5d6b62);
+  font-size: 0.875em;
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0.01em;
+}
+.ja-meta a {
+  color: var(--lit, #1f6f8b);
+  text-decoration: none;
+}
+.ja-meta a:hover {
+  text-decoration: underline;
+}
+.ja-abstract {
+  border-left: 3px solid var(--lit, #1f6f8b);
+  padding: 10px 14px;
+  margin: 0 0 18px;
+  background: var(--lit-soft, #dcedf2);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.925em;
+  line-height: 1.6;
+  color: var(--ink, #0f3d3a);
+}
+.ja-mcq {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line, #d9d0bd);
+}
+.ja-mcq + .ja-mcq {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.ja-q {
+  font-weight: 600;
+  font-size: 0.93em;
+  margin: 0 0 7px;
+  color: var(--ink, #0f3d3a);
+}
+.ja-opts {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ja-opt {
+  font-size: 0.9em;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: var(--ink2, #15514c);
+  background: transparent;
+}
+.ja-opt b {
+  display: inline-block;
+  min-width: 1.5em;
+  color: var(--muted, #5d6b62);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.88em;
+}
+.ja-ans {
+  margin-top: 4px;
+}
+.ja-ans summary {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 0.83em;
+  font-family: "JetBrains Mono", monospace;
+  padding: 3px 10px;
+  border: 1px solid var(--lit, #1f6f8b);
+  border-radius: 5px;
+  color: var(--lit, #1f6f8b);
+  background: transparent;
+  user-select: none;
+  list-style: none;
+}
+.ja-ans summary::-webkit-details-marker { display: none; }
+.ja-ans summary::marker { display: none; }
+.ja-ans summary:hover {
+  background: var(--lit-soft, #dcedf2);
+}
+.ja-ans[open] summary {
+  background: var(--lit-soft, #dcedf2);
+  margin-bottom: 6px;
+}
+.ja-ans-body {
+  font-size: 0.9em;
+  padding: 8px 12px;
+  background: var(--paper, #fdfaf4);
+  border: 1px solid var(--line, #d9d0bd);
+  border-radius: 6px;
+  line-height: 1.55;
+  color: var(--ink, #0f3d3a);
+}
+.ja-ans-correct {
+  font-weight: 600;
+  color: var(--good, #2f7d52);
+  display: block;
+  margin-bottom: 4px;
+}
+.ja-ans-rationale {
+  color: var(--ink2, #15514c);
+}
+/* ── Journal self-test (pages without an MCQ bank) ── */
+.ja-quiz { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line, #d9d0bd); }
+.ja-quiz-h { font-family: "Fraunces", serif; font-weight: 600; font-size: 18px; margin: 0 0 12px; color: var(--ink, #0f3d3a); }
+.ja-qcard { background: var(--paper2, #fbf8f1); border: 1px solid var(--line, #d9d0bd); border-radius: 12px; padding: 14px 16px; margin: 12px 0; }
+.ja-qstem { font-weight: 600; font-size: 0.95em; margin-bottom: 10px; color: var(--ink, #0f3d3a); }
+.ja-qopt { display: block; width: 100%; text-align: left; cursor: pointer; font: inherit; font-size: 0.9em; padding: 8px 11px; margin: 5px 0; border: 1px solid var(--line, #d9d0bd); border-radius: 8px; background: var(--paper, #fdfaf4); color: var(--ink, #0f3d3a); }
+.ja-qopt b { color: var(--muted, #5d6b62); font-family: "JetBrains Mono", monospace; margin-right: 4px; }
+.ja-qopt:hover:not(.locked) { border-color: var(--lit, #1f6f8b); }
+.ja-qopt.locked { cursor: default; }
+.ja-qopt.correct { background: #e9f4ee; border-color: var(--good, #2f7d52); }
+.ja-qopt.wrong { background: #f8e9e9; border-color: var(--bad, #b23b3b); }
+.ja-qexpl { font-size: 0.88em; margin-top: 8px; padding: 9px 12px; background: var(--lit-soft, #dcedf2); border-radius: 8px; color: var(--ink2, #15514c); line-height: 1.5; }
+/* ── Journal source badge (self-contained so it renders on any bank page) ── */
+.bdg.journal {
+  display: inline-block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9.5px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 999px;
+  vertical-align: middle;
+  white-space: nowrap;
+  background: var(--lit-soft, #dcedf2);
+  color: var(--lit, #1f6f8b);
+}
+</style>
+<section class="panel" id="journal">
+  <h2 class="sec">Additional Resources</h2>
+  <p class="lead">Journal Articles (2021–2026) — exam items are drawn from the abstract only. Read each abstract here; self-test questions are in the MCQ Test Bank.</p>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Human-cat emotional closeness and unacceptable behavior in cats: A Brazilian perspective</b><br>
+    <span class="ja-meta">Franck &middot; Journal of Veterinary Behavior &middot; 2022</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Evidence supports that cats’ behavior influences the level of emotional closeness between the animals and the owners. In some circumstances, a bad relationship can result in neglecting, mistreating, or abandoning the animal. We aimed to assess the level of emotional closeness between the owners and their cats in Brazil, evaluating some specific human-cat interactions based on the cat-owner relationship scale (CORS), and the association between the owner's level of emotional closeness and the presence of unacceptable behavior in Brazilian cats. A cross-sectional study design was used to selected Brazilian cat owners through snowball sampling in social networks. Owners answered an online survey adapted from the (CORS) containing additional questions regarding the cat-owner environment and behavior. Five hundred owners answered the survey, and the mean cat-owner level of emotional closeness in our population was 3.94 ± 0.66. Most of the interviewees were female, and the level of emotional closeness was higher in this group than in male owners. As expected, factors such as having other pets, attributing more characteristics to the animal, and frequent visits to the veterinarian were directly associated with a higher level of emotional closeness by the owner. No association was found between the owner's emotional closeness level and the presence of aggression, excessive vocalization, or inappropriate elimination in the cat. Surprisingly, owners of cats that do not scratch the furniture had a lower level of emotional closeness compared to those reporting this inappropriate behavior. In summary, the human-cat emotional bond in our Brazilian cohort was considered medium to high. Our study adds new insights into cat-human emotional bonds and confirms this interaction in Brazil.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Returning a Shelter Dog: The Role of Owner Expectations and Dog Behavior</b><br>
+    <span class="ja-meta">Powell, Lee, Reinhard, Morris, Satriale, Serpell, Watson &middot; Animals &middot; 2022</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Millions of animals are adopted from animal shelters in the United States each year, although some are returned post-adoption, which can decrease both the animals’ chances of future adoptions and the owners’ willingness to adopt again. In this study, we investigated the impact of adopter expectations for ownership and animal behavioral problems on post-adoptive dog returns at a large animal shelter in South Carolina. Between June–September 2021, 132 dog adopters completed a survey about their expectations for ownership through Qualtrics. Twenty-nine adopters returned their dogs to the shelter within three months of adoption, with a median length of ownership of eight days. Owners completed follow-up questionnaires about their perceptions of adoption and dog behavior at two days, two weeks, and four months post-adoption. Categorical principal component analysis revealed three factors pertaining to adopters’ expectations for ownership. Independent t-tests showed returning owners had significantly higher expectations for dog behavior and health (t = −2.32, p = 0.02) and the human–dog bond compared with non-returning owners (t = −2.36, p = 0.02). Expectations for ownership responsibilities did not differ between the groups. Two-thirds of adopters experienced dog behavioral problems post-adoption, although training difficulty decreased significantly between two days and four months (F = 5.22, p = 0.01) and nonsocial fear decreased between two weeks and four months post-adoption (X2 = 10.17, p = 0.01). Shelters may benefit from utilizing adoption counselling to ensure adopters understand the potential for dog behavioral problems in the early stages of ownership and develop appropriate expectations for the human–dog relationship. Post-adoption behavioral support may also help some owners to overcome behavioral difficulties as their dogs adapt to the new environment.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Saving normal: A new look at behavioral incompatibilities and dog relinquishment to shelters</b><br>
+    <span class="ja-meta">Patronek, Gary &middot; Journal of Veterinary Behavior &middot; 2022</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Abstract In this review, we challenge the perception that behavioral incompatibilities are an important factor driving relinquishment of dogs to shelters. This belief dates at least to the 1970’s, when, in response to pet overpopulation, shelters and researchers began to collect reasons for relinquishment. We review studies on reported reasons for relinquishment, the prevalence of corresponding behaviors among owned dogs, and epidemiological analyses to determine the extent to which this perception is supported by data. With respect to analyzing reasons for relinquishment, when trying to get a handle on a new and complex problem, it is common to begin by reducing the data into categories of presumably similar items (“lumping”). However, lumping is prone to unconscious bias, and inevitably discounts differences among reasons. Additionally, we found that lumped-together behavioral  incompatibilities were often compared to other reasons for relinquishment which had been split into smaller categories, giving a distorted impression of the relative weight of the behavioral reasons. This would tend to reinforce any impression relinquished dogs are behaviorally different from the owned population they are drawn from. We found only 2 epidemiological studies that compared a probability sample (control group) of owned dogs with relinquished dogs to assess risk associated with various behaviors. Neither study provides compelling evidence that particular behavioral incompatibilities are a strong determining factor in the decision to relinquish most dogs.   Our review of studies of behaviors in owned dogs, moreover, reinforces what we already know from daily life – that dogs can and do live successfully in homes without expressing some ideal of canine behavior. Behavioral assessment and modification, along with restricting the potential adopter pool, can delay or limit adoption, and is often justified by shelters, in part, to prevent returns, despite the small proportion of all adopted dogs being returned for behavioral reasons (∼6%–9%). Delays in adoption extend dogs’ exposure to the stress of a shelter environment where their behavior may deteriorate, reduce the capacity of the shelter, and consume scarce staff time. A comprehensive view of the relinquishment data may help shelters reconsider the value of behavior evaluations relative to the welfare of the entire shelter population and better tailor their investment in behavior modification to their particular circumstances.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>My Cat and Me—A Study of Cat Owner Perceptions of Their Bond and Relationship</b><br>
+    <span class="ja-meta">Ines M &middot; Animals &middot; 2021</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Cats form close emotional relationships with humans, yet little is known about this. This study characterized different types of relationship that cats might establish with their owners. Data were analyzed from 3994 responses to a questionnaire developed using expressions of social support and attachment in relation to everyday cat–owner interactions. Principal component analysis reduced the items to four factors: the “owner’s emotional investment in the cat”, “cat’s acceptance of others”, “cat’s need for owner proximity” and “cat’s aloofness”. Cluster identified three groups of owners with two of these each sub-divided into two. The    “open relationship bond” was characterized by a lightly emotionally invested owner and an avoidant cat. The “remote association” and “casual relationship” were characterized by an emotionally remote owner but differed in the cat’s acceptance of others. The “co-dependent” and “friendship” relationship were characterized by an emotionally invested owner but differed in the cat’s acceptance of others and need to maintain owner proximity. In conclusion, as with any complex social relationship, the type of cat–owner bond that develops is the product of the dynamic that exists between both the individuals involved, along with certain personality features, of which, the wider sociability of the cat and owner expectations may be particularly important.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Pandemic Puppies: Characterising Motivations and Behaviours of UK Owners Who Purchased Puppies during the 2020 COVID-19 Pandemic</b><br>
+    <span class="ja-meta">Packer, R &middot; Animals &middot; 2021</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Widespread media reports suggest that unusually high numbers of the public purchased, or sought to purchase, puppies following the first ‘lockdown’ phase of the COVID-19 pandemic in the UK, dubbed “Pandemic Puppies”. This study aimed to explore this phenomenon by comparing pre-purchase motivations and behaviours, and purchase behaviours of UK owners purchasing puppies aged &lt; 16 weeks from 23 March 2020–31 December 2020 with those of owners who purchased puppies during the same date-period in 2019. An online survey was conducted during November-December 2020, from  which 5517 valid responses were analysed (2019 puppies: n = 1148; 2020 ‘Pandemic Puppies’: n = 4369). Over 1 in 10 Pandemic Puppy owners had not considered purchasing a puppy before the   pandemic, and 2 in 5 felt their decision to purchase a puppy had been influenced by the pandemic, most commonly by having more time to care for a dog (86.7%). Multivariable logistic regression models revealed that Pandemic Puppy owners were more likely to be first-time dog owners and have children in their household, were less likely to seek out a breeder that performed health testing on their breeding dog(s) or view their puppy in-person, and were more likely to pay a deposit without seeing their puppy. At purchase, Pandemic Puppies were more likely to be younger, delivered or collected    from outside their breeders’ property, seen without their littermates, and cost &gt; £2000 compared with 2019 puppies. Changes in puppy purchasing during the pandemic raise welfare concerns for this unique population, including relinquishment, behavioural problems and poor health.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Reducing Dog Relinquishment to Rescue Centres Due to Behaviour Problems: Identifying Cases to Target with an Advice Intervention at the Point of Relinquishment Request</b><br>
+    <span class="ja-meta">Powdrill-Wells, Taylor, Melfi &middot; Animals &middot; 2021</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Behaviour problems are a leading reason for dogs being relinquished to rescue centres across the world every year. The aim of this study was to investigate whether free behavioural advice would be accepted at the point of an owner requesting to relinquish their dog for behavioural reasons. The call records of 1131 relinquishment requests were reviewed and analysed to establish if the offer of free behaviour advice was accepted. The results showed that advice was accepted in 24.4% of relinquishment requests and behavioural problem was a significant predictor of whether advice was accepted (p &lt; 0.001). The odds of advice being accepted were 5.755 times (95% CI: 2.835–11.681; p &lt; 0.001) greater for a relinquishment request due to problems with general management behaviours compared to aggression between dogs in the home, representing 4.2% and 20.2% of overall relinquishment requests. These data suggest that owners are prepared to accept behaviour advice at the point of relinquishment request, so advice interventions could have potential to impact the levels of dog relinquishment to rescue centres. The impact of an intervention offering behaviour advice may be limited by overall levels of advice acceptance by owners and therefore complimentary proactive solutions to reduce behavioural relinquishments should also be considered.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>The Dog– Owner Relationship: Refinement and Validation of the Italian C/DORS for Dog Owners and Correlation with the LAPS</b><br>
+    <span class="ja-meta">Riggio, G &middot; Animals &middot; 2021</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> The Cat/Dog–Owner Relationship Scale (C/DORS) can be administered to both dog and cat owners. However, the scale as a whole has never been validated on a sample of dog owners. Furthermore, it has never been translated into Italian. The aim of this study was to translate the C/DORS into Italian, modify its response scale in order to improve the degree of response variability, and test its validity and reliability on a sample of dog-owners. Exploratory factor analysis revealed the same three-factor structure (Perceived Emotional Closeness = PEC, Pet–Owner Interactions = POI, Perceived Costs = PC) as     the original English version, although some items had to be removed because of low- or cross-loadings. The validity of the construct was confirmed by confirmatory factor analysis, by the correlations between each of the subscales and the C/DORS total score, and by the correlations with the Lexington Attachment to Pets Scale. Cronbach’s α values for each subscale were above acceptable levels. Student owners scored higher on PEC and POI than owners with other occupations. Owners of dogs with behavioural problems scored lower on PEC and higher on PC. Keeping the dog outdoor was associated with lower POI. Finally, pet dog owners scored higher on PEC than AAI dog owners.</div>
+  </div>
+  <div class="ja-quiz">
+    <h3 class="ja-quiz-h">Journal Self-Test</h3>
+    <div id="jaQuizHost"></div>
+  </div>
+  <script data-journal-quiz>
+  (function(){
+    var JQ=[{"q": "Compared with non-returning owners, owners who returned their dogs had:", "o": ["Lower expectations for dog behavior", "Higher expectations for dog behavior/health and the human–dog bond", "Identical expectations", "Higher expectations for ownership responsibilities"], "a": 1, "e": "Returning owners had significantly higher behavior/health and bond expectations.", "t": "journal", "f": "journal"}, {"q": "Expectations for ownership responsibilities between returning and non-returning owners:", "o": ["Did not differ between groups", "Were significantly higher in returners", "Were significantly lower in returners", "Were the strongest predictor of return"], "a": 0, "e": "Ownership-responsibility expectations did not differ between the groups.", "t": "journal", "f": "journal"}, {"q": "The median length of ownership before dogs were returned was:", "o": ["Eight days", "Three months", "One day", "Four months"], "a": 0, "e": "Returns occurred at a median of eight days post-adoption.", "t": "journal", "f": "journal"}, {"q": "How many factors did principal component analysis reduce the cat-owner relationship items to?", "o": ["Two", "Three", "Four", "Seven"], "a": 2, "e": "PCA reduced items to four factors, including owner emotional investment and cat aloofness/proximity needs.", "t": "journal", "f": "journal"}, {"q": "The study concluded the type of cat-owner bond is primarily the product of what?", "o": ["The cat's breed alone", "The dynamic between both individuals plus personality and owner expectations", "The owner's age", "Whether the cat is indoor or outdoor"], "a": 1, "e": "The bond emerges from the dynamic between cat and owner, shaped by sociability and owner expectations.", "t": "journal", "f": "journal"}, {"q": "Emotional closeness was associated with aggression, excessive vocalisation, or inappropriate elimination:", "o": ["Strongly positive", "No association found", "Strongly negative", "Only with aggression"], "a": 1, "e": "No association was found between closeness and those unacceptable behaviours.", "t": "journal", "f": "journal"}, {"q": "Owners of cats that did NOT scratch furniture had:", "o": ["Higher emotional closeness", "Lower emotional closeness", "No measurable bond", "More aggression"], "a": 1, "e": "Surprisingly, owners of non-scratching cats reported lower closeness.", "t": "journal", "f": "journal"}, {"q": "Higher emotional closeness was reported by:", "o": ["Male owners", "Female owners", "Owners with no other pets", "Owners avoiding vet visits"], "a": 1, "e": "Female owners (and frequent vet visitors) showed higher closeness.", "t": "journal", "f": "journal"}, {"q": "What perception does this review challenge?", "o": ["That behavioral incompatibilities strongly drive relinquishment", "That dogs are never relinquished", "That shelters are overcrowded", "That microchips improve RTO"], "a": 0, "e": "It challenges the belief that behavioral incompatibilities are a major driver of relinquishment.", "t": "journal", "f": "journal"}, {"q": "What proportion of adopted dogs are returned for behavioral reasons?", "o": ["About 6-9%", "About 50%", "About 30%", "About 80%"], "a": 0, "e": "Only about 6-9% of adopted dogs are returned for behavioral reasons.", "t": "journal", "f": "journal"}, {"q": "What did the authors say about delaying adoption for behavior evaluation/modification?", "o": ["It improves welfare", "It extends shelter stress, reduces capacity, and consumes staff time", "It has no downsides", "It eliminates returns"], "a": 1, "e": "Delays prolong exposure to shelter stress, reduce capacity, and consume scarce staff time.", "t": "journal", "f": "journal"}, {"q": "What proportion of relinquishment requests resulted in acceptance of free behaviour advice?", "o": ["about 24%", "about 50%", "about 75%", "about 5%"], "a": 0, "e": "Advice was accepted in 24.4% of requests.", "t": "journal", "f": "journal"}, {"q": "Advice was most likely to be accepted for which problem type?", "o": ["aggression between dogs in the home", "general management behaviour problems", "separation anxiety", "all types equally"], "a": 1, "e": "Odds of acceptance were ~5.8x higher for general management vs in-home dog aggression.", "t": "journal", "f": "journal"}, {"q": "The study concluded that behaviour advice at relinquishment:", "o": ["should never be offered", "is universally rejected", "could reduce relinquishment but its impact may be limited, so complementary solutions are also needed", "eliminates relinquishment entirely"], "a": 2, "e": "Owners accept advice, but limited uptake means proactive solutions are also required.", "t": "journal", "f": "journal"}, {"q": "What factor structure did the Italian C/DORS show in dog owners?", "o": ["A new five-factor structure", "The same three-factor structure (PEC, POI, PC) as the English version", "A single global factor", "No reliable structure"], "a": 1, "e": "It reproduced the original three-factor structure: Perceived Emotional Closeness, Pet-Owner Interactions, Perceived Costs.", "t": "journal", "f": "journal"}, {"q": "Owners of dogs with behavioural problems scored how on the subscales?", "o": ["Higher PEC and lower PC", "No difference", "Higher POI", "Lower PEC and higher Perceived Costs"], "a": 3, "e": "They scored lower on Perceived Emotional Closeness and higher on Perceived Costs.", "t": "journal", "f": "journal"}, {"q": "How did pet dog owners compare with AAI dog owners on emotional closeness?", "o": ["Pet owners scored higher on Perceived Emotional Closeness", "AAI owners scored higher on PEC", "No difference in PEC", "Students scored lowest"], "a": 0, "e": "Pet dog owners scored higher on Perceived Emotional Closeness than AAI dog owners.", "t": "journal", "f": "journal"}, {"q": "Compared with 2019 buyers, Pandemic Puppy owners were more likely to:", "o": ["Seek health-tested breeders", "View the puppy in person", "Be first-time owners and pay a deposit without seeing the puppy", "Collect older puppies"], "a": 2, "e": "They were more often first-time owners and paid deposits without an in-person viewing.", "t": "journal", "f": "journal"}, {"q": "Welfare concerns raised for Pandemic Puppies included:", "o": ["Reduced relinquishment", "Relinquishment, behavioural problems and poor health", "Improved health screening", "Lower purchase costs"], "a": 1, "e": "The authors flagged relinquishment, behavioural problems and poor health risks.", "t": "journal", "f": "journal"}, {"q": "What proportion of Pandemic Puppy owners felt their decision was influenced by the pandemic?", "o": ["About 2 in 5", "About 9 in 10", "About 1 in 100", "None"], "a": 0, "e": "Two in five reported the pandemic influenced their purchase decision.", "t": "journal", "f": "journal"}];
+    var host=document.getElementById('jaQuizHost'); if(!host||!JQ.length) return;
+    var L=["A","B","C","D"];
+    JQ.forEach(function(item,i){
+      var card=document.createElement('div'); card.className='ja-qcard';
+      var stem=document.createElement('div'); stem.className='ja-qstem';
+      stem.textContent=(i+1)+'. '+item.q; card.appendChild(stem);
+      var done=false;
+      item.o.forEach(function(opt,oi){
+        var b=document.createElement('button'); b.className='ja-qopt';
+        b.innerHTML='<b>'+L[oi]+'.</b> '+opt;
+        b.onclick=function(){
+          if(done) return; done=true;
+          var kids=card.querySelectorAll('.ja-qopt');
+          for(var k=0;k<kids.length;k++){kids[k].classList.add('locked');}
+          kids[item.a].classList.add('correct');
+          if(oi!==item.a) b.classList.add('wrong');
+          var ex=document.createElement('div'); ex.className='ja-qexpl';
+          ex.innerHTML='<b>Answer: '+L[item.a]+'.</b> '+item.e; card.appendChild(ex);
+        };
+        card.appendChild(b);
+      });
+      host.appendChild(card);
+    });
+  })();
+  </script>
+</section>
+<!-- JOURNAL-ARTICLES:END -->
 
 </div></main>
 

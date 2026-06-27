@@ -191,6 +191,10 @@
   <button data-p="cat"><span class="dot"></span>Cat &amp; Feral Handling</button>
   <button data-p="evid"><span class="dot"></span>Stress-Reduction Evidence</button>
   <button data-p="mcq"><span class="dot" style="background:var(--chrome2)"></span>MCQ Test Bank</button>
+
+<!-- JOURNAL-TAB:START -->
+<button data-p="journal"><span class="dot" style="background:var(--lit, #1f6f8b)"></span>Journal Articles</button>
+<!-- JOURNAL-TAB:END -->
 </div></div></nav>
 <div class="srch-wrap"><div class="wrap"><div class="srch-row">
 <svg width="14" height="14" viewBox="0 0 15 15" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="m10.5 10.5 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -563,6 +567,221 @@
   </div>
   <div id="qhost"></div>
 </section>
+
+
+<!-- JOURNAL-ARTICLES:START -->
+<style data-journal-css>
+/* ── Journal Articles section ─────────────────────────────────────────── */
+.ja-standalone {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 2px solid var(--line, #d9d0bd);
+}
+.ja-article {
+  margin-bottom: 24px;
+  padding: 20px 22px 18px;
+  background: var(--paper2, #fbf8f1);
+  border-radius: 10px;
+  box-shadow: var(--shadow, 0 1px 2px rgba(15,61,58,.08), 0 8px 24px rgba(15,61,58,.06));
+}
+.ja-cite {
+  margin: 0 0 10px;
+  line-height: 1.45;
+  font-size: 0.97em;
+}
+.ja-meta {
+  color: var(--muted, #5d6b62);
+  font-size: 0.875em;
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0.01em;
+}
+.ja-meta a {
+  color: var(--lit, #1f6f8b);
+  text-decoration: none;
+}
+.ja-meta a:hover {
+  text-decoration: underline;
+}
+.ja-abstract {
+  border-left: 3px solid var(--lit, #1f6f8b);
+  padding: 10px 14px;
+  margin: 0 0 18px;
+  background: var(--lit-soft, #dcedf2);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.925em;
+  line-height: 1.6;
+  color: var(--ink, #0f3d3a);
+}
+.ja-mcq {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line, #d9d0bd);
+}
+.ja-mcq + .ja-mcq {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.ja-q {
+  font-weight: 600;
+  font-size: 0.93em;
+  margin: 0 0 7px;
+  color: var(--ink, #0f3d3a);
+}
+.ja-opts {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ja-opt {
+  font-size: 0.9em;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: var(--ink2, #15514c);
+  background: transparent;
+}
+.ja-opt b {
+  display: inline-block;
+  min-width: 1.5em;
+  color: var(--muted, #5d6b62);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.88em;
+}
+.ja-ans {
+  margin-top: 4px;
+}
+.ja-ans summary {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 0.83em;
+  font-family: "JetBrains Mono", monospace;
+  padding: 3px 10px;
+  border: 1px solid var(--lit, #1f6f8b);
+  border-radius: 5px;
+  color: var(--lit, #1f6f8b);
+  background: transparent;
+  user-select: none;
+  list-style: none;
+}
+.ja-ans summary::-webkit-details-marker { display: none; }
+.ja-ans summary::marker { display: none; }
+.ja-ans summary:hover {
+  background: var(--lit-soft, #dcedf2);
+}
+.ja-ans[open] summary {
+  background: var(--lit-soft, #dcedf2);
+  margin-bottom: 6px;
+}
+.ja-ans-body {
+  font-size: 0.9em;
+  padding: 8px 12px;
+  background: var(--paper, #fdfaf4);
+  border: 1px solid var(--line, #d9d0bd);
+  border-radius: 6px;
+  line-height: 1.55;
+  color: var(--ink, #0f3d3a);
+}
+.ja-ans-correct {
+  font-weight: 600;
+  color: var(--good, #2f7d52);
+  display: block;
+  margin-bottom: 4px;
+}
+.ja-ans-rationale {
+  color: var(--ink2, #15514c);
+}
+/* ── Journal self-test (pages without an MCQ bank) ── */
+.ja-quiz { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line, #d9d0bd); }
+.ja-quiz-h { font-family: "Fraunces", serif; font-weight: 600; font-size: 18px; margin: 0 0 12px; color: var(--ink, #0f3d3a); }
+.ja-qcard { background: var(--paper2, #fbf8f1); border: 1px solid var(--line, #d9d0bd); border-radius: 12px; padding: 14px 16px; margin: 12px 0; }
+.ja-qstem { font-weight: 600; font-size: 0.95em; margin-bottom: 10px; color: var(--ink, #0f3d3a); }
+.ja-qopt { display: block; width: 100%; text-align: left; cursor: pointer; font: inherit; font-size: 0.9em; padding: 8px 11px; margin: 5px 0; border: 1px solid var(--line, #d9d0bd); border-radius: 8px; background: var(--paper, #fdfaf4); color: var(--ink, #0f3d3a); }
+.ja-qopt b { color: var(--muted, #5d6b62); font-family: "JetBrains Mono", monospace; margin-right: 4px; }
+.ja-qopt:hover:not(.locked) { border-color: var(--lit, #1f6f8b); }
+.ja-qopt.locked { cursor: default; }
+.ja-qopt.correct { background: #e9f4ee; border-color: var(--good, #2f7d52); }
+.ja-qopt.wrong { background: #f8e9e9; border-color: var(--bad, #b23b3b); }
+.ja-qexpl { font-size: 0.88em; margin-top: 8px; padding: 9px 12px; background: var(--lit-soft, #dcedf2); border-radius: 8px; color: var(--ink2, #15514c); line-height: 1.5; }
+/* ── Journal source badge (self-contained so it renders on any bank page) ── */
+.bdg.journal {
+  display: inline-block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9.5px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 999px;
+  vertical-align: middle;
+  white-space: nowrap;
+  background: var(--lit-soft, #dcedf2);
+  color: var(--lit, #1f6f8b);
+}
+</style>
+<section class="panel" id="journal">
+  <h2 class="sec">Additional Resources</h2>
+  <p class="lead">Journal Articles (2021–2026) — exam items are drawn from the abstract only. Read each abstract here; self-test questions are in the MCQ Test Bank.</p>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Effects of Changing Veterinary Handling Techniques on Canine Behaviour and Physiology Part 1: Physiological Measurements</b><br>
+    <span class="ja-meta">Squair &middot; Animals &middot; 2023</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Signs of distress in dogs are often normalized during routine veterinary care, creating an animal welfare concern. We sought to test whether targeted interventions during veterinary visits affect physiological indicators of stress in dogs. Some 28 dogs were examined within four visits across 8 weeks. All dogs received the same care during the first visit and were then randomized into control and intervention groups for visits 2–4. In the intervention group, 14 dogs underwent procedures designed to reduce stress and to enlist their collaboration during examination. The 14 dogs in the control group received routine care. At each visit, heart rate (HR), serum cortisol (CORT), neutrophil lymphocyte ratio (NLR), and creatine kinase (CK) were measured. A composite stress index based on the summed standardized scores for these markers was constructed. No differences in HR, NLR, and CK parameters between groups were found, and both groups had a decrease in CORT by visit four. However, the intervention group showed a greater overall decrease in CORT between the first and fourth visit than the control group (p &lt; 0.04). The composite stress index differed between the first and fourth visits for the intervention group, but not for the control group (Intervention p = 0.03; Control p= 0.288). There was a tendency for the composite stress index to worsen at visit four vs. visit one for the control group. The findings suggest that dogs that participated in adaptive, collaborative exams and procedures designed to minimize fear had a greater reduction in stress over time compared to those receiving standard care.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Assessing the Relationship Between Emotional States of Dogs and Their Human Handlers, Using Simultaneous Behavioral and Cardiac Measures</b><br>
+    <span class="ja-meta">Grigg &middot;  &middot; 2022</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Negative stress due to human handling has been reported for a number of domestic animals, including dogs. Many companion dogs display significant stress during routine care in the veterinary clinic, risking injury to staff and potentially compromising the quality of care that these dogs receive. On the other hand, positive interactions with humans can have a beneficial effect on dogs, particularly in stressful situations such as animal shelters. Research has shown that dogs can detect human emotions through visual, auditory, and chemical channels, and that dogs will exhibit emotional contagion, particularly with familiar humans. This study investigated relationships between emotional states of dogs and unfamiliar human handlers, using simultaneous measures of cardiac activity and behavior, during two sessions of three consecutive routine handling sets. Measures of cardiac activity included mean heart rate (HRmean), and two measures of heart rate variability (HRV): the root mean square of successive differences between normal heartbeats (RMSSD); and the high frequency absolute power component of HRV, log transformed (HFlog). We also assessed human handlers' emotional state during handling sessions following an intervention designed to reduce stress, compared with sessions conducted on a different day and following a control activity. Polar H10 cardiac sensors were used to simultaneously record cardiac activity for both canine and human participants, and behavioral data were collected via digital video. The strongest influence on the dogs' stress levels in our study was found to be increasing familiarity with the setting and the handler; HRmean and SI decreased, and HRV (as RMSSD) increased, significantly from the first to the third handling set. Canine HRV (as HFlog) was also highest in set 3, although the difference was not statistically significant. There were no strong patterns found in the human cardiac data across handling set, session, or by pre-handling activity. We did not find consistent support for emotional contagion between the dogs and their handlers in this study, perhaps due to the brief time that the dogs spent with the handlers. Recommendations for application to dog handling, and limitations of our methods, are described.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Effect of cooperative care training on physiological parameters and compliance in dogs undergoing a veterinary examination – A pilot study</b><br>
+    <span class="ja-meta">Wess, L &middot; Applied Animal Behaviour Science &middot; 2022</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> One way to reduce fear and lack of compliance during veterinary procedures is ‘cooperative care training’, training animals to voluntarily participate in husbandry and medical care. Here we assessed the effects of cooperative care training on heart rate (HR), heart rate variability (HRV), tympanic membrane temperature (TMT) and compliance (i.e., all steps of the examination completed) of dogs during a veterinary examination. A blinded controlled trial with 47 dogs (training group (TG): 26; control group (CG): 21) was carried out. Forty dogs completed the study (TG: 22, CG:18). Dogs and their owners    took part in a standardized veterinary visit twice (visit interval: 140 ± 23 days). In between, the TG took part in cooperative care training (10 ± 2 group training sessions, additional training at home). Linear mixed models were calculated (fixed effects HR/HRV: group* visit* period, TMT: group* visit; random effect: dogID). Compliance (completed steps of exam) was analyzed using McNemar tests. HR/HRV   was higher/lower during the veterinary examination compared to the waiting room (period: p &lt; 0.001), indicating that the examination was more stressful. No significant differences in HR/HRV regarding group*visit were found. TMT, taken at the end of each examination, resulted in a significant group*visit interaction (p = 0.008); stress appeared increased during visit 2 in the CG whereas in the TG a heterogeneous pattern, with 42% of dogs with reduced rightward bias, was observed. Compliance was lower in the TG during the second visit (p = 0.04). Trainer and owners claimed observable improvement of behavior during training and a decrease in HR between visits correlated significantly with trainer perception of high training success (rs = −0.52, p = 0.049). Overall, transfer of trained     skills to the veterinary examination performed by a team blinded to the group allocation was poor. TMT analyses and HR/HRV data within the training group, suggest that the training had differing effects  on the dogs based on their previous tolerance of handling and their progress made during training. Further research how to optimize training programs, including desensitization and counterconditioning, and their outcomes is needed.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Behavior Education and Intervention Program at a Small Shelter I. Effect on Behavior Knowledge and
+Safety</b><br>
+    <span class="ja-meta">Lilly, Leanne M &middot; Animals &middot; 2021</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Behavior knowledge is a critical component of shelter staff and volunteer training. Canine behavior knowledge was assessed at a small shelter before and after a six-month program of educational    seminars and real-time case interventions for staff and volunteers. Participants were asked to complete surveys assessing their knowledge of body language, motivation, and training methodology, as well  as rank their own comfort with these topics. Staff and volunteers who participated in the program and interacted with the dogs were compared to board members (who do not interact with the dogs) and feline-only volunteers. Prior to the program, both groups demonstrated poor scores and self-assessments did not correlate with knowledge scores. Those who participated in the program were more     likely to be high performers on the post-program survey, odds ratio: 1.594 (95%CI 1.10–2.137) p = 0.002. Psychometric evaluation of the survey answers themselves illustrated gaps in behavior knowledge   in shelter members and suggests that both seminar and case interventions can improve this. Formalized behavior education and measurement of behavior knowledge may facilitate the mission of     shelters and safety there-in.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Two Ends of the Leash: Relations Between Personality of Shelter Volunteers and On-leash Walking Behavior With Shelter Dogs</b><br>
+    <span class="ja-meta">Shih &middot; Frontiers in Psychology &middot; 2021</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Human personality influences the way people interact with dogs. This study investigated the associations between the personality of animal shelter volunteers and behavior during on-leash walks with shelter dogs. Video recording and a canine leash tension meter were used to monitor the on-leash walking. Personality was measured in five dimensions (neurotic, extroverted, open, agreeable and conscientious) with the NEO Five-Factor Inventory (NEO-FFI). Neurotic volunteers pulled the leash harder and tended to interact with dogs using more body language; dogs being walked by neurotic volunteers in turn displayed more lip-licking and body shaking and were more likely to be rated as well-behaved. Extroverted volunteers were associated with stronger maximal leash tension at both the human and dog ends of the leash, and they praised the dog more, often in a high pitched voice. These volunteers eliciting more tail-wagging and body shaking by the dog. Extroverted volunteers were also more tolerant of different dog behaviors. Volunteers with personalities characterized by “openness to experiences” were less likely to verbally attract the attention of dogs, praise dogs and talk to them in a high-pitched voice; however, dogs walked by these volunteers were more likely to pull on the leash, and engaged in more lip-licking but less sniffing. “Agreeable” volunteers liked to verbally attract the attention of the dogs and more commonly initiated hand gestures and physical contact, causing the dogs to pull less frequently; dogs in these dyads displayed more gazing and lip-licking behaviors. Conscientious volunteers were less likely to pull the leash and tended to have more physical contact with the dogs but did not favor verbal communication and did not use a high pitched voice.</div>
+  </div>
+  <div class="ja-quiz">
+    <h3 class="ja-quiz-h">Journal Self-Test</h3>
+    <div id="jaQuizHost"></div>
+  </div>
+  <script data-journal-quiz>
+  (function(){
+    var JQ=[{"q": "Which physiological marker showed a greater decrease in the intervention group?", "o": ["Creatine kinase", "Heart rate", "Serum cortisol (CORT)", "Neutrophil-lymphocyte ratio"], "a": 2, "e": "The intervention group showed a greater decrease in serum cortisol from visit 1 to 4.", "t": "journal", "f": "journal"}, {"q": "The composite stress index differed between first and fourth visits for which group?", "o": ["Control only", "Intervention only", "Both equally", "Neither"], "a": 1, "e": "The composite index changed significantly for the intervention group, not the control.", "t": "journal", "f": "journal"}, {"q": "The findings suggest collaborative, fear-minimizing exams:", "o": ["Increased stress", "Produced a greater reduction in stress over time vs standard care", "Had no effect", "Worsened cortisol"], "a": 1, "e": "Dogs in adaptive, collaborative exams had greater stress reduction than standard-care dogs.", "t": "journal", "f": "journal"}, {"q": "What had the strongest influence on dogs' stress levels during handling?", "o": ["The handler's resting heart rate", "Increasing familiarity with the setting and the handler", "Time of day the session occurred", "The dog's breed"], "a": 1, "e": "Stress measures improved as dogs became more familiar with the setting and handler across handling sets.", "t": "journal", "f": "journal"}, {"q": "What did the study find regarding emotional contagion between dogs and unfamiliar handlers?", "o": ["No consistent support for emotional contagion was found", "Strong emotional contagion was confirmed", "Handlers consistently mirrored dog stress", "Contagion increased with each handling set"], "a": 0, "e": "The brief contact yielded no consistent evidence of dog-handler emotional contagion.", "t": "journal", "f": "journal"}, {"q": "From the first to the third handling set, canine heart rate variability (RMSSD):", "o": ["Decreased", "Increased significantly", "Remained unchanged", "Became erratic"], "a": 1, "e": "HRV (RMSSD) rose significantly by set 3, indicating reduced stress with familiarity.", "t": "journal", "f": "journal"}, {"q": "Neurotic shelter volunteers were associated with what during on-leash walks?", "o": ["Lighter leash tension", "Pulling the leash harder", "Ignoring the dog", "No measurable effect"], "a": 1, "e": "Neurotic volunteers pulled the leash harder and used more body language.", "t": "journal", "f": "journal"}, {"q": "Extroverted volunteers were linked to which leash-tension pattern?", "o": ["Stronger maximal tension at both the human and dog ends", "Weakest tension overall", "No tension at either end", "Tension that could not be measured"], "a": 0, "e": "Extroverts produced stronger maximal tension at both ends and praised dogs more.", "t": "journal", "f": "journal"}, {"q": "Dogs walked by volunteers high in 'openness' were more likely to do what?", "o": ["Sit calmly", "Sniff more", "Pull on the leash", "Stop walking"], "a": 2, "e": "Open volunteers verbally engaged less, and their dogs pulled more and sniffed less.", "t": "journal", "f": "journal"}, {"q": "Before the education program, staff/volunteer self-assessments of behavior knowledge:", "o": ["Correlated well with knowledge scores", "Did not correlate with knowledge scores", "Were perfect predictors", "Were not collected"], "a": 1, "e": "Self-assessment did not match actual measured knowledge scores.", "t": "journal", "f": "journal"}, {"q": "Participants who completed the program were:", "o": ["Less likely to be high performers", "Unchanged in performance", "More likely to be high performers post-program (OR 1.594)", "Worse off than non-participants"], "a": 2, "e": "Program participation raised the odds of being a high performer (OR 1.594).", "t": "journal", "f": "journal"}, {"q": "The authors concluded that formalized behavior education:", "o": ["Wastes shelter resources", "May facilitate the shelter mission and improve safety", "Reduces safety", "Only benefits cat staff"], "a": 1, "e": "Education and knowledge measurement may support the shelter mission and safety.", "t": "journal", "f": "journal"}, {"q": "How well did cooperative care training transfer to the actual veterinary examination?", "o": ["Excellent", "Poor", "Moderate", "Perfect"], "a": 1, "e": "Transfer of trained skills to the blinded vet examination was overall poor.", "t": "journal", "f": "journal"}, {"q": "How did compliance in the training group compare at the second visit?", "o": ["Higher than controls", "Unchanged", "Lower (p=0.04)", "Perfect"], "a": 2, "e": "Compliance was significantly lower in the training group during the second visit (p=0.04).", "t": "journal", "f": "journal"}, {"q": "HR/HRV data indicated the examination, versus the waiting room, was:", "o": ["Relaxing", "More stressful", "Identical", "Sleep-inducing"], "a": 1, "e": "Higher HR and lower HRV during the exam indicated it was more stressful than the waiting room.", "t": "journal", "f": "journal"}];
+    var host=document.getElementById('jaQuizHost'); if(!host||!JQ.length) return;
+    var L=["A","B","C","D"];
+    JQ.forEach(function(item,i){
+      var card=document.createElement('div'); card.className='ja-qcard';
+      var stem=document.createElement('div'); stem.className='ja-qstem';
+      stem.textContent=(i+1)+'. '+item.q; card.appendChild(stem);
+      var done=false;
+      item.o.forEach(function(opt,oi){
+        var b=document.createElement('button'); b.className='ja-qopt';
+        b.innerHTML='<b>'+L[oi]+'.</b> '+opt;
+        b.onclick=function(){
+          if(done) return; done=true;
+          var kids=card.querySelectorAll('.ja-qopt');
+          for(var k=0;k<kids.length;k++){kids[k].classList.add('locked');}
+          kids[item.a].classList.add('correct');
+          if(oi!==item.a) b.classList.add('wrong');
+          var ex=document.createElement('div'); ex.className='ja-qexpl';
+          ex.innerHTML='<b>Answer: '+L[item.a]+'.</b> '+item.e; card.appendChild(ex);
+        };
+        card.appendChild(b);
+      });
+      host.appendChild(card);
+    });
+  })();
+  </script>
+</section>
+<!-- JOURNAL-ARTICLES:END -->
 
 </div></main>
 

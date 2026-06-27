@@ -185,6 +185,10 @@
   <button data-p="frameworks"><span class="dot"></span>Welfare Frameworks</button>
   <button data-p="assess"><span class="dot"></span>Assessing Needs &amp; QOL</button>
   <button data-p="mcq"><span class="dot" style="background:var(--chrome2)"></span>MCQ Test Bank</button>
+
+<!-- JOURNAL-TAB:START -->
+<button data-p="journal"><span class="dot" style="background:var(--lit, #1f6f8b)"></span>Journal Articles</button>
+<!-- JOURNAL-TAB:END -->
 </div></div></nav>
 <div class="srch-wrap"><div class="wrap"><div class="srch-row">
 <svg width="14" height="14" viewBox="0 0 15 15" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="m10.5 10.5 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -367,6 +371,261 @@
   </div>
   <div id="qhost"></div>
 </section>
+
+<!-- JOURNAL-ARTICLES:START -->
+<style data-journal-css>
+/* ── Journal Articles section ─────────────────────────────────────────── */
+.ja-standalone {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 2px solid var(--line, #d9d0bd);
+}
+.ja-article {
+  margin-bottom: 24px;
+  padding: 20px 22px 18px;
+  background: var(--paper2, #fbf8f1);
+  border-radius: 10px;
+  box-shadow: var(--shadow, 0 1px 2px rgba(15,61,58,.08), 0 8px 24px rgba(15,61,58,.06));
+}
+.ja-cite {
+  margin: 0 0 10px;
+  line-height: 1.45;
+  font-size: 0.97em;
+}
+.ja-meta {
+  color: var(--muted, #5d6b62);
+  font-size: 0.875em;
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0.01em;
+}
+.ja-meta a {
+  color: var(--lit, #1f6f8b);
+  text-decoration: none;
+}
+.ja-meta a:hover {
+  text-decoration: underline;
+}
+.ja-abstract {
+  border-left: 3px solid var(--lit, #1f6f8b);
+  padding: 10px 14px;
+  margin: 0 0 18px;
+  background: var(--lit-soft, #dcedf2);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.925em;
+  line-height: 1.6;
+  color: var(--ink, #0f3d3a);
+}
+.ja-mcq {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line, #d9d0bd);
+}
+.ja-mcq + .ja-mcq {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.ja-q {
+  font-weight: 600;
+  font-size: 0.93em;
+  margin: 0 0 7px;
+  color: var(--ink, #0f3d3a);
+}
+.ja-opts {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ja-opt {
+  font-size: 0.9em;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: var(--ink2, #15514c);
+  background: transparent;
+}
+.ja-opt b {
+  display: inline-block;
+  min-width: 1.5em;
+  color: var(--muted, #5d6b62);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.88em;
+}
+.ja-ans {
+  margin-top: 4px;
+}
+.ja-ans summary {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 0.83em;
+  font-family: "JetBrains Mono", monospace;
+  padding: 3px 10px;
+  border: 1px solid var(--lit, #1f6f8b);
+  border-radius: 5px;
+  color: var(--lit, #1f6f8b);
+  background: transparent;
+  user-select: none;
+  list-style: none;
+}
+.ja-ans summary::-webkit-details-marker { display: none; }
+.ja-ans summary::marker { display: none; }
+.ja-ans summary:hover {
+  background: var(--lit-soft, #dcedf2);
+}
+.ja-ans[open] summary {
+  background: var(--lit-soft, #dcedf2);
+  margin-bottom: 6px;
+}
+.ja-ans-body {
+  font-size: 0.9em;
+  padding: 8px 12px;
+  background: var(--paper, #fdfaf4);
+  border: 1px solid var(--line, #d9d0bd);
+  border-radius: 6px;
+  line-height: 1.55;
+  color: var(--ink, #0f3d3a);
+}
+.ja-ans-correct {
+  font-weight: 600;
+  color: var(--good, #2f7d52);
+  display: block;
+  margin-bottom: 4px;
+}
+.ja-ans-rationale {
+  color: var(--ink2, #15514c);
+}
+/* ── Journal self-test (pages without an MCQ bank) ── */
+.ja-quiz { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line, #d9d0bd); }
+.ja-quiz-h { font-family: "Fraunces", serif; font-weight: 600; font-size: 18px; margin: 0 0 12px; color: var(--ink, #0f3d3a); }
+.ja-qcard { background: var(--paper2, #fbf8f1); border: 1px solid var(--line, #d9d0bd); border-radius: 12px; padding: 14px 16px; margin: 12px 0; }
+.ja-qstem { font-weight: 600; font-size: 0.95em; margin-bottom: 10px; color: var(--ink, #0f3d3a); }
+.ja-qopt { display: block; width: 100%; text-align: left; cursor: pointer; font: inherit; font-size: 0.9em; padding: 8px 11px; margin: 5px 0; border: 1px solid var(--line, #d9d0bd); border-radius: 8px; background: var(--paper, #fdfaf4); color: var(--ink, #0f3d3a); }
+.ja-qopt b { color: var(--muted, #5d6b62); font-family: "JetBrains Mono", monospace; margin-right: 4px; }
+.ja-qopt:hover:not(.locked) { border-color: var(--lit, #1f6f8b); }
+.ja-qopt.locked { cursor: default; }
+.ja-qopt.correct { background: #e9f4ee; border-color: var(--good, #2f7d52); }
+.ja-qopt.wrong { background: #f8e9e9; border-color: var(--bad, #b23b3b); }
+.ja-qexpl { font-size: 0.88em; margin-top: 8px; padding: 9px 12px; background: var(--lit-soft, #dcedf2); border-radius: 8px; color: var(--ink2, #15514c); line-height: 1.5; }
+/* ── Journal source badge (self-contained so it renders on any bank page) ── */
+.bdg.journal {
+  display: inline-block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9.5px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 999px;
+  vertical-align: middle;
+  white-space: nowrap;
+  background: var(--lit-soft, #dcedf2);
+  color: var(--lit, #1f6f8b);
+}
+</style>
+<section class="panel" id="journal">
+  <h2 class="sec">Additional Resources</h2>
+  <p class="lead">Journal Articles (2021–2026) — exam items are drawn from the abstract only. Read each abstract here; self-test questions are in the MCQ Test Bank.</p>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>A mixed-methods analysis of similarities and differences in animal shelter staff, dog behavior professionals, and the public in determining kenneled dog welfare</b><br>
+    <span class="ja-meta">Andrukonis &middot; Journal of Applied Animal Welfare Science &middot; 2023</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> The ability of animal shelter employees to identify poor welfare states in kenneled dogs is crucial for the mitigation of suffering. Animal shelter employees (n = 28), animal behavior professional (n = 49), and the general public (n = 41) watched 10 videos of kenneled dogs then rated the welfare of the dogs, stated the rationale for their score, indicated how they would improve the welfare, and rated the feasibility of improvements. Professionals gave slightly lower (poorer) welfare scores compared to the public (z = -1.998, p = 0.046). Shelter employees (z = -5.976, p &lt; 0.001) and professionals (z = 9.047, p &lt; 0.001) used body language and behavior to explain their welfare scores more than the public. All three populations mentioned the addition of enrichment to improve the welfare, however, shelter employees (z = -5.748, p &lt; 0.001) and professionals (z = 6.046, p &lt; 0.001) mentioned it significantly more. There were no significant differences in the perceived feasibility of changes. Future research should explore possible reasons for the lack of welfare improvements within animal shelters.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Rethinking the utility of the Five Domains model</b><br>
+    <span class="ja-meta">Hampton &middot; Animal Welfare &middot; 2023</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> The Five Domains model is influential in contemporary studies of animal welfare. It was originally presented as a conceptual model to understand the types of impact that procedures may impose on experimental animals. Its application has since broadened to cover a wide range of animal species and forms of animal use. However, it has also increasingly been applied as an animal welfare assessment tool, which is the focus of this paper. Several critical limitations associated with this approach have not been widely acknowledged, including that: (1) it relies upon expert or stakeholder opinion, with little transparency around the selection of these individuals; (2) quantitative scoring is typically attempted despite the absence of clear principles for aggregation of welfare measures and few attempts to account for uncertainty; (3) there have been few efforts to measure the repeatability of findings; and (4) it does not consider indirect and unintentional impacts such as those imposed on non-target animals. These deficiencies lead to concerns surrounding testability, repeatability and the potential for manipulation. We provide suggestions for refinement of how the Five Domains model is applied to partially address these limitations. We argue that the Five Domains model is useful for systematic consideration of all sources of possible welfare compromise and enhancement, but is not, in its current state, fit-for-purpose as an assessment tool. We argue for wider acknowledgment of the operational limits of using the model as an assessment tool, prioritisation of the studies needed for its validation, and encourage improvements to this approach.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Testing the Accuracy of Wearable Technology to Assess Sleep Behaviour in Domestic Dogs: A Prospective Tool for Animal Welfare Assessment in Kennels</b><br>
+    <span class="ja-meta">Schork &middot; Animals &middot; 2023</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Sleep is a physiological process that has been shown to impact both physical and psychological heath of individuals when compromised; hence, it has the potential to be used as an indicator of animal welfare. Nonetheless, evaluating sleep in non-human species normally involves manipulation of the subjects (i.e., placement of electrodes on the cranium), and most studies are conducted in a laboratory setting, which limits the generalisability of information obtained, and the species investigated. In this study, we evaluated an alternative method of assessing sleep behaviour in domestic dogs, using a wearable sensor, and compared the measurements obtained to behavioural observations to evaluate accuracy. Differences between methods ranged from 0.13% to 59.3% for diurnal observations and 0.1% to 95.9% for nocturnal observations for point-by-point observations. Comparisons between methods showed significant differences in certain behaviours, such as inactivity and activity for diurnal recordings. However, total activity and total sleep recorded did not differ statistically between methods. Overall, the wearable technology tested was found to be a useful, and a less-time consuming, tool in comparison to direct behavioural observations for the evaluation of behaviours and their indication of wellbeing in dogs. The agreement between the wearable technology and directly observed data ranged from 75% to 99% for recorded behaviours, and these results are similar to previous findings in the literature.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Welfare and quality of life assessments for shelter cats: A scoping review</b><br>
+    <span class="ja-meta">Lamon &middot; Applied Animal Behaviour Science &middot; 2023</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Review article: https://www.sciencedirect.com/science/article/pii/S016815912200257X</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Beyond “Doing Better”: Ordinal Rating Scales to Monitor Behavioural Indicators of Well-Being in Cats</b><br>
+    <span class="ja-meta">Ellis &middot; Animals &middot; 2022</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Safeguarding the well-being of cats is essential to the mission of any responsible animal shelter. Environmental enrichment and behaviour modification are often key to this goal. Measuring response to these interventions is essential to ensure strategies are successful. There are often many staff and volunteers involved in these efforts, and a lack of standardised language can make monitoring progress difficult. Ordinal rating scales of key behaviours can be a useful way to summarise observations and ensure that common language is used. However, it is crucial that these scales have good interobserver agreement and reliability, so operational definitions and training systems are important. This paper presents a method for evaluating four different expressions of cat welfare on a 0–5 scale: modified Fear, Anxiety, and Stress score; Response to Petting score; Participation in Play score; and Food Intake Summary score. All scales showed almost perfect average interobserver agreement (linear weighted κ) and excellent average interobserver reliability (interclass correlation coefficient). These scales may prove useful to other shelters, or any other environment where evaluating response to interventions is important to the welfare of cats, such as research facilities or home environments. The exceptional interobserver agreement and reliability of this study compared with some others highlights the importance of standardised training programs.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Dog welfare using the Shelter Quality Protocol in long-term shelters in Minas Gerais State, Brazil</b><br>
+    <span class="ja-meta">Diana Cuglovici &middot;  &middot; 2022</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Abstract In shelters, dogs must cope with various stressors, and low adoption rates can result in overcrowded facilities. This study aimed to generate a descriptive analysis of dog welfare in a sample of long-term shelters in Minas Gerais State, Brazil, under municipal public authority or non-governmental organizations. Using the Shelter Quality Protocol (SQP), 588 dogs and 201 enclosures were evaluated in 19 shelters in 13 cities from November 2019 to January 2020, generating a descriptive analysis that identified these establishments’ critical aspects. The predominant welfare hazards identified in shelter management were a lack of rehoming and admission policies, preventive healthcare programs, and trained staff; and, in shelter environments, bedding inadequacy, surfaces that were difficult to keep clean, behavioral problems, and a lack of rehabilitation programs. We found many critical design aspects in the 19 shelters from Minas Gerais State and in dog management procedures that resulted in poor well-being, which must be promptly corrected to provide optimal welfare to the housed dogs.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Pampered pets or poor bastards? The welfare of dogs kept as companion animals</b><br>
+    <span class="ja-meta">Meyer, I &middot; Applied Animal Behaviour Science &middot; 2022</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Over the past two centuries, the typical life of dogs has changed dramatically, especially in the Global North. Dogs have moved into human homes, becoming human companions. In many respects, this change seems to have led to improvements in dog welfare. However, the shift into family homes from the free-roaming lifestyle characteristic of dogs as they lived and co-evolved with humans in the     past, has created a typically more confined and isolated lifestyle for dogs. In addition, over the same period, selective breeding of dogs, largely driven by human aesthetic ideals and concepts of breed  purity, has transformed dog populations. In this discussion paper, based on a narrative literature review, we compare the welfare of companion dogs with that of modern village dogs. We adopt this comparison because dogs have lived in ways resembling village dog life for most of their history. As such, the comparison may serve as a good basis for assessing the effects of the ‘petification’ of dogs.     We argue that compared to the typical village dog, the typical modern suburban or urban companion dog experiences good welfare in a number of respects. This is especially the case when it comes to security, satisfaction of nutritional needs (though companion dogs have problems with a high prevalence of obesity), and proper veterinary care. However, in other ways the modern companion dog often suffers from a range of human-created challenges leading to poor welfare. We examine two key challenges for companion dogs: 1) unrealistic social demands that can lead to anxiety, depression, and aggression, and 2) ill devised breeding schemes that result in breeding-related diseases for many companion dogs.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Quality of Life Measurement in Dogs and Cats: A Scoping Review of Generic Tools</b><br>
+    <span class="ja-meta">Fulmer &middot; Animals &middot; 2022</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Quality of life (QoL) assessment in companion animals is an essential aspect of veterinary medicine that helps guide treatment decisions and ensures optimal animal welfare. Veterinarians and pet owners can use disease-specific or generic QoL assessment tools to evaluate an individual animal’s QoL. The aim of this scoping review was to identify and assess published generic QoL assessment tools suitable for use in either dogs or cats. A literature search identified 82 relevant publications, nine of which contained appropriate generic QoL assessment tools in accordance with inclusion and exclusion criteria. Each tool was assessed for evidence of psychometric evaluation including statistical analysis, reliability and validity. Commonly included items were determined to highlight potential important aspects of dog or cat QoL. Five of the nine publications used a statistical method such as factor analysis to determine tool design and structure. Although at least one aspect of reliability and validity was assessed   for seven of the tools, none were validated across all measures. Two of the publications contained minimal to no statistical analysis. Common items for both dogs and cats included those regarding activity level, the desire for interaction and appetite. In addition, common items for cats included those regarding mood and grooming. This scoping review identified and evaluated currently available generic QoL assessment tools, providing a reference point for future tool development and validation.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Space, time, and context drive anticipatory behavior: Considerations for understanding the behavior of animals in human care</b><br>
+    <span class="ja-meta">Krebs &middot; Frontiers &middot; 2022</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Animal-based measures reflecting the welfare state of individuals are critical for ensuring the well-being of animals under human care. Anticipatory behavior is one potential animal-based measure that has gained traction in recent years, as it is theorized to relate to animals' reward sensitivity. It is of particular interest as an assessment for animals living under human care, as the predictability of the captive environment lends itself to the development of this class of behaviors. Animals are likely to exhibit anticipation in locations related to the anticipated event, often in temporally predictable time frames, and before specific contexts they experience in their day-to-day management. In this sense and under certain circumstances, anticipatory behaviors are likely to drive observed behavioral or space use patterns of animals under human care. Drawing conclusions from such data without identifying anticipation may result in misleading conclusions. Here we discuss how space, time, and context are related to patterns of anticipatory behaviors in animals under human care, how unidentified anticipation may alter conclusions regarding animal behavior or welfare under certain circumstances.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Using a Delphi method to estimate the relevance of indicators for the assessment of shelter dog welfare</b><br>
+    <span class="ja-meta">Berteselli &middot; Animal Welfare &middot; 2022</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> The European regulatory framework lacks standardisation as regards the minimum requirements for shelter facilities, making defining welfare standards for dogs challenging. Dog (Canis familiaris) welfare assessments should consist of a comprehensive set of measurements that allow the calculation of an overall ‘welfare score.’ The Shelter Quality protocol was developed for the purpose of assessing shelter dog welfare. The study aims to establish a standardised system for evaluating shelter dog welfare by obtaining agreement from experts on the weighting of different measures contributing to an overall welfare score. The Delphi technique is a widely used method for establishing consensus among experts. Two Delphi procedures were implemented and we compared their effectiveness in achieving expert consensus by evaluating rounds’ numbers required to reach consensus and the response and attrition rates. Expert consensus was achieved in Delphi 1 when the standard deviation in the expert weightings was ≤ 5. This was achieved easily for the welfare score weightings of the four principles: ‘Good feeding’, ‘Good housing’, ‘Good Health’, and ‘Appropriate behaviour.’ Animal-based measures were found to reach consensus more quickly than resource-based measures. In Delphi 2, we used the coefficient of variation to determine consensus. No statistical differences were found between the two Delphi methods for attrition rate, response rate or number of participants. Continuing rounds until a consensus is reached is recommended as this method balances time and participant fatigue. A standardised scoring system is provided, using a single overall score of welfare that can be used to compare welfare standards between shelters.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Welfare Through Competence: A Framework for Animal- Centric Technology Design</b><br>
+    <span class="ja-meta">Webber S &middot; Frontiers &middot; 2022</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Digital technologies offer new ways to ensure that animals can lead a good life in managed settings. As interactive enrichment and smart environments appear in zoos, farms, shelters, kennels and vet facilities, it is essential that the design of such technologies be guided by clear, scientifically-grounded understandings of what animals  need and want, to be successful in improving their wellbeing. The field of Animal-Computer Interaction proposes that this can be achieved by centering animals as stakeholders in technology design, but there remains a need for robust methods to support interdisciplinary teams in placing animals' interests at the heart of design projects. Responding to this gap, we present the Welfare through Competence framework, which is grounded in contemporary animal welfare science, established technology design practices and applied expertise in animal-centered design. The framework brings together the “Five Domains of Animal Welfare” model and the “Coe Individual Competence” model, and provides a structured approach to defining animal-centric objectives and refining them through the course of a design project. In this paper, we demonstrate how design teams can use this framework to promote positive animal welfare in a range of managed settings. These much-needed methodological advances contribute a new theoretical foundation to debates around the possibility of animal-centered design, and offer a practical agenda for creating technologies that support a good life for animals.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Deep Learning Classification of Canine Behavior Using a Single Collar- Mounted Accelerometer: Real-World
+Validation</b><br>
+    <span class="ja-meta">Chambers, R &middot; Animals &middot; 2021</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Collar-mounted canine activity monitors can use accelerometer data to estimate dog activity levels, step counts, and distance traveled. With recent advances in machine learning and embedded computing, much more nuanced and accurate behavior classification has become possible, giving these affordable consumer devices the potential to improve the efficiency and effectiveness of pet healthcare. Here, we describe a novel deep learning algorithm that classifies dog behavior at sub-second resolution using commercial pet activity monitors. We built machine learning training databases from more than 5000 videos of more than 2500 dogs and ran the algorithms in production on more than 11 million days of device data. We then surveyed project participants representing 10,550 dogs, which provided 163,110 event responses to validate real-world detection of eating and drinking behavior. The resultant algorithm displayed a sensitivity and specificity for detecting drinking behavior (0.949 and 0.999, respectively) and eating behavior (0.988, 0.983). We also demonstrated detection of licking (0.772, 0.990), petting (0.305, 0.991), rubbing (0.729, 0.996), scratching (0.870, 0.997), and sniffing (0.610, 0.968). We show that the devices’ position on the collar had no measurable impact on performance. In production, users reported a true positive rate of 95.3% for eating (among 1514 users), and of 94.9% for drinking (among 1491 users). The study demonstrates the accurate detection of important health-related canine behaviors using a collar-mounted accelerometer. We trained and validated our algorithms on a large and realistic training dataset, and we assessed and confirmed accuracy in production via user validation.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Welfare and quality of life assessments for shelter dogs: A scoping review</b><br>
+    <span class="ja-meta">Lamon, T &middot; Applied Animal Behaviour Science &middot; 2021</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> The aim of this scoping review was to consolidate information pertaining to welfare and quality of life assessments of shelter dogs. Specific objectives were to identify and characterize types of welfare assessment instruments, discuss circumstances where welfare and quality of life assessments are used, and identify research gaps. A comprehensive search strategy was implemented in five databases. Literature published globally between the years 2000 and 2020 was identified using specific search terms. Abstracts and full papers were screened, relevant articles obtained, and welfare assessment methods characterized. Of 670 unique citations identified, 43 met the inclusion criteria of including a welfare or quality of life assessment for shelter dogs. There were 16 different assessment tools used    to evaluate welfare and quality of life in shelter dogs. Ethogram-based assessment tools, five of which were validated, were used in 37 publications. Physiological based assessment methods were used to assess welfare in 26 publications. Overall, assessment tools were used to either evaluate a dog’s acclimation to the shelter environment or evaluate welfare interventions. Several validated tools were identified that could be useful to shelters depending on need. The Multi-Operator Qualitative Behavioral Assessment and the Quality of Life Assessment are tools allowing for quick welfare assessments     by shelter staff, while the Shelter Quality Protocol and the Shelter Quality Protocol 2 are more comprehensive welfare assessments, which require some experience or training in shelter management. The review identified few papers that evaluated the effects of chronic stress on dogs housed in a shelter environment long-term. Therefore, welfare of these dogs should be a priority for future studies. The range of assessment methods underscores the complexity of evaluating welfare and quality of life in different types of sheltering environments.</div>
+  </div>
+  <div class="ja-quiz">
+    <h3 class="ja-quiz-h">Journal Self-Test</h3>
+    <div id="jaQuizHost"></div>
+  </div>
+  <script data-journal-quiz>
+  (function(){
+    var JQ=[{"q": "How did total activity and total sleep recorded by the wearable compare to direct observation?", "o": ["Significantly different", "Did not differ statistically", "Wearable detected none", "Observation detected none"], "a": 1, "e": "Total activity and total sleep did not differ statistically between methods.", "t": "journal", "f": "journal"}, {"q": "The agreement between wearable and directly observed data ranged approximately:", "o": ["10-25%", "50-60%", "75-99%", "Below 50%"], "a": 2, "e": "Agreement ranged from about 75% to 99% for recorded behaviors.", "t": "journal", "f": "journal"}, {"q": "The authors concluded the wearable technology was:", "o": ["Inaccurate and unusable", "A useful, less time-consuming tool for welfare-related behavior assessment", "Valid only in laboratories", "Worse than cranial electrodes"], "a": 1, "e": "The device was a useful, less time-consuming alternative to direct observation for welfare assessment.", "t": "journal", "f": "journal"}, {"q": "The authors conclude that, in its current state, the Five Domains model is:", "o": ["A fully validated welfare assessment tool", "Useful for systematic consideration but not fit-for-purpose as an assessment tool", "Obsolete and should be discarded", "Applicable only to laboratory animals"], "a": 1, "e": "They judge it valuable for systematically considering welfare but not yet fit-for-purpose for assessment.", "t": "journal", "f": "journal"}, {"q": "Which is a cited limitation of using the model as an assessment tool?", "o": ["Reliance on expert/stakeholder opinion with limited transparency", "It ignores physical health entirely", "It cannot be applied beyond wildlife", "It overemphasizes uncertainty"], "a": 0, "e": "Dependence on opaquely selected expert opinion is among the key limitations raised.", "t": "journal", "f": "journal"}, {"q": "What do the authors recommend?", "o": ["Abandoning the model entirely", "Using it only for quantitative scoring", "Prioritising validation studies and acknowledging its operational limits", "Restricting it to experimental procedures"], "a": 2, "e": "They call for validation studies and wider acknowledgment of the model's operational limits as an assessment tool.", "t": "journal", "f": "journal"}, {"q": "Using the Shelter Quality Protocol in Brazilian long-term shelters, the predominant shelter-management welfare hazards were:", "o": ["Lack of rehoming/admission policies, preventive healthcare, and trained staff", "Overcrowding caused by excessively high adoption rates", "Excessive veterinary spending per dog", "Over-reliance on volunteer foster homes"], "a": 0, "e": "Management hazards centered on absent rehoming/admission policies, preventive healthcare programs, and trained staff.", "t": "journal", "f": "journal"}, {"q": "Which environmental hazards did the study flag in the shelter housing?", "o": ["Excellent bedding but poor ventilation", "Bedding inadequacy and surfaces difficult to keep clean", "Adequate rehabilitation programs but small enclosures", "Low stocking density with high enrichment"], "a": 1, "e": "Environmental hazards included inadequate bedding, hard-to-clean surfaces, behavioral problems, and lack of rehabilitation programs.", "t": "journal", "f": "journal"}, {"q": "What standardized instrument was used to evaluate the 588 dogs and 201 enclosures?", "o": ["AAHA accreditation checklist", "Five Freedoms audit form", "Shelter Quality Protocol (SQP)", "ASPCA Meet Your Match"], "a": 2, "e": "The welfare assessment was conducted with the Shelter Quality Protocol.", "t": "journal", "f": "journal"}, {"q": "Interobserver agreement and reliability of the four rating scales were?", "o": ["Poor", "Moderate", "Almost perfect agreement and excellent reliability", "Not assessed"], "a": 2, "e": "All scales showed almost perfect agreement and excellent interobserver reliability.", "t": "journal", "f": "journal"}, {"q": "Which is NOT one of the four welfare scales described?", "o": ["Modified Fear, Anxiety, and Stress score", "Response to Petting score", "Participation in Play score", "Body Condition Score"], "a": 3, "e": "The four scales were FAS, Response to Petting, Participation in Play, and Food Intake — not BCS.", "t": "journal", "f": "journal"}, {"q": "The exceptional reliability was attributed primarily to?", "o": ["Standardised training programs", "Larger cages", "Sedation", "Using only one observer"], "a": 0, "e": "Standardised training and operational definitions drove the high reliability.", "t": "journal", "f": "journal"}, {"q": "This paper on welfare and quality-of-life assessment for shelter cats is a:", "o": ["Randomised trial", "Scoping review", "Case report", "Cohort study"], "a": 1, "e": "It is described as a scoping review.", "t": "journal", "f": "journal"}, {"q": "The review's welfare and quality-of-life assessment focus is on which population?", "o": ["Owned pet cats", "Shelter cats", "Feral dogs", "Laboratory rodents"], "a": 1, "e": "It reviews welfare/QOL assessment specifically for shelter cats.", "t": "journal", "f": "journal"}, {"q": "Of the 82 publications screened, how many contained appropriate generic QoL assessment tools?", "o": ["82", "Nine", "Five", "Two"], "a": 1, "e": "Nine publications met inclusion criteria for generic QoL tools.", "t": "journal", "f": "journal"}, {"q": "How many of the nine QoL tools were validated across all reliability and validity measures?", "o": ["All nine", "Seven", "Two", "None"], "a": 3, "e": "None of the tools were validated across all measures.", "t": "journal", "f": "journal"}, {"q": "Which items were common QoL indicators for both dogs and cats?", "o": ["Activity level, desire for interaction, and appetite", "Coat color and length", "Breed and pedigree", "Microchip status"], "a": 0, "e": "Common items for both species included activity level, desire for interaction, and appetite.", "t": "journal", "f": "journal"}, {"q": "The Welfare through Competence framework combines the Five Domains model with which model?", "o": ["Coe Individual Competence model", "Maslow's hierarchy of needs", "The Five Freedoms", "The HACCP model"], "a": 0, "e": "The framework merges the Five Domains model with the Coe Individual Competence model.", "t": "journal", "f": "journal"}, {"q": "Whom does the framework aim to center as stakeholders in technology design?", "o": ["Shelter staff", "Animals", "Veterinarians", "Software engineers"], "a": 1, "e": "Animal-Computer Interaction centers animals as stakeholders in design.", "t": "journal", "f": "journal"}, {"q": "The framework responds to a methodological gap in which field?", "o": ["Animal-Computer Interaction", "Molecular genetics", "Epidemiology", "Clinical pharmacology"], "a": 0, "e": "It addresses the need for robust animal-centered methods in Animal-Computer Interaction.", "t": "journal", "f": "journal"}, {"q": "Compared with the public, professionals gave kenneled-dog welfare scores that were?", "o": ["Higher (better)", "Slightly lower (poorer)", "Identical", "Not scored"], "a": 1, "e": "Professionals gave slightly lower (poorer) welfare scores than the public (p=0.046).", "t": "journal", "f": "journal"}, {"q": "Shelter employees and professionals more often used what to justify their welfare scores?", "o": ["Body language and behavior", "Kennel size", "Adoption statistics", "The dog's age"], "a": 0, "e": "Both expert groups cited body language and behavior more than the public did.", "t": "journal", "f": "journal"}, {"q": "What improvement did all three groups commonly propose for welfare?", "o": ["Euthanasia", "Addition of enrichment", "More cleaning staff", "Larger building"], "a": 1, "e": "All three populations mentioned adding enrichment, though experts did so more often.", "t": "journal", "f": "journal"}, {"q": "What technique did the study use to obtain expert agreement on welfare-measure weightings?", "o": ["Systematic meta-analysis", "Delphi consensus method", "Randomized controlled trial", "Cluster sampling"], "a": 1, "e": "Two Delphi procedures were used to build expert consensus on the welfare-score weightings.", "t": "journal", "f": "journal"}, {"q": "Which type of measure reached consensus faster?", "o": ["Resource-based measures", "Genetic measures", "Animal-based measures", "Financial measures"], "a": 2, "e": "Animal-based measures achieved consensus more quickly than resource-based measures.", "t": "journal", "f": "journal"}, {"q": "What does the resulting scoring system produce?", "o": ["A single overall welfare score allowing comparison between shelters", "Separate uncombinable scores", "Only a feeding score", "A pass/fail rating with no number"], "a": 0, "e": "The study delivered one overall welfare score usable to compare welfare standards across shelters.", "t": "journal", "f": "journal"}, {"q": "Which tools were highlighted as allowing quick welfare assessments by shelter staff?", "o": ["Shelter Quality Protocol and SQP2", "Physiological cortisol panels", "Ethogram coding only", "Multi-Operator Qualitative Behavioral Assessment and the Quality of Life Assessment"], "a": 3, "e": "MO-QBA and the QoL Assessment were noted as quick staff tools; the Shelter Quality Protocols are more comprehensive.", "t": "journal", "f": "journal"}, {"q": "Which assessment type was most commonly used across the reviewed publications?", "o": ["Ethogram-based tools", "Owner questionnaires", "Blood biomarkers", "Genetic testing"], "a": 0, "e": "Ethogram-based tools were used in 37 of the publications.", "t": "journal", "f": "journal"}, {"q": "Which area was identified as a key research gap?", "o": ["Vaccination response", "Adoption rates", "Effects of chronic stress on long-term sheltered dogs", "Shelter nutrition"], "a": 2, "e": "Few papers examined chronic stress in long-term sheltered dogs, flagged as a future priority.", "t": "journal", "f": "journal"}, {"q": "Which behaviors did the collar accelerometer algorithm detect most accurately?", "o": ["Sniffing and licking", "Eating and drinking", "Petting and rubbing", "Scratching only"], "a": 1, "e": "Eating and drinking showed the highest sensitivity/specificity (e.g., eating 0.988/0.983).", "t": "journal", "f": "journal"}, {"q": "What was the effect of the collar device's position on detection performance?", "o": ["No measurable impact on performance", "Doubled the error rate", "Required head-mounted placement", "Only worked on the chest"], "a": 0, "e": "Position on the collar had no measurable impact on performance.", "t": "journal", "f": "journal"}, {"q": "Which behavior had the lowest detection sensitivity?", "o": ["Eating", "Drinking", "Scratching", "Petting"], "a": 3, "e": "Petting had the lowest sensitivity (0.305).", "t": "journal", "f": "journal"}, {"q": "In which respects did the authors argue companion dogs have good welfare versus village dogs?", "o": ["Security, nutrition, and veterinary care", "Freedom from social demands", "Absence of breeding disease", "Free-roaming opportunity"], "a": 0, "e": "Companion dogs were said to fare well on security, nutritional needs, and veterinary care.", "t": "journal", "f": "journal"}, {"q": "What nutrition-related welfare problem was specifically noted in companion dogs?", "o": ["Malnutrition", "High prevalence of obesity", "Vitamin deficiency", "Chronic dehydration"], "a": 1, "e": "Despite met nutritional needs, companion dogs have a high prevalence of obesity.", "t": "journal", "f": "journal"}, {"q": "What comparison group did the authors use to assess the 'petification' of dogs?", "o": ["Wolves", "Laboratory beagles", "Modern village dogs", "Zoo canids"], "a": 2, "e": "They compared companion dog welfare to that of modern village dogs, resembling historic dog life.", "t": "journal", "f": "journal"}, {"q": "Anticipatory behavior is proposed as an animal-based measure related to what?", "o": ["Disease resistance", "Reward sensitivity", "Genetic diversity", "Reproductive status"], "a": 1, "e": "Anticipatory behavior is theorized to reflect animals' reward sensitivity.", "t": "journal", "f": "journal"}, {"q": "What risk do the authors warn about when interpreting space- and time-use data?", "o": ["Overfeeding", "Unidentified anticipation leading to misleading welfare conclusions", "Equipment failure", "Observer fatigue"], "a": 1, "e": "Failing to identify anticipation can produce misleading conclusions about behavior or welfare.", "t": "journal", "f": "journal"}, {"q": "Why is the managed/captive environment conducive to anticipatory behavior?", "o": ["Its predictability", "Its randomness", "Chronic food deprivation", "High population density"], "a": 0, "e": "The predictability of managed environments fosters development of anticipatory behaviors.", "t": "journal", "f": "journal"}];
+    var host=document.getElementById('jaQuizHost'); if(!host||!JQ.length) return;
+    var L=["A","B","C","D"];
+    JQ.forEach(function(item,i){
+      var card=document.createElement('div'); card.className='ja-qcard';
+      var stem=document.createElement('div'); stem.className='ja-qstem';
+      stem.textContent=(i+1)+'. '+item.q; card.appendChild(stem);
+      var done=false;
+      item.o.forEach(function(opt,oi){
+        var b=document.createElement('button'); b.className='ja-qopt';
+        b.innerHTML='<b>'+L[oi]+'.</b> '+opt;
+        b.onclick=function(){
+          if(done) return; done=true;
+          var kids=card.querySelectorAll('.ja-qopt');
+          for(var k=0;k<kids.length;k++){kids[k].classList.add('locked');}
+          kids[item.a].classList.add('correct');
+          if(oi!==item.a) b.classList.add('wrong');
+          var ex=document.createElement('div'); ex.className='ja-qexpl';
+          ex.innerHTML='<b>Answer: '+L[item.a]+'.</b> '+item.e; card.appendChild(ex);
+        };
+        card.appendChild(b);
+      });
+      host.appendChild(card);
+    });
+  })();
+  </script>
+</section>
+<!-- JOURNAL-ARTICLES:END -->
+
 </div></main>
 <footer><div class="wrap">
   QOL and Needs Assessment subdomain hub &middot; Behavioural Health domain &middot; ABVP Shelter Medicine Practice RVS, November 2026. Your QOL notes (one page) supplied the foundations. The Five Freedoms, the Five Domains and Table 1 (adapted from Mellor), the ranking format, Capacity for Care, and the behaviour assessment versus evaluation definitions are from the ASV Standards of Care 2022 (Introduction, Behavior, and glossary) and are badged ASV. The QOL scales (HHHHHMM or Villalobos Pawspice, McMillan, Kiddie and Collins, Lamon) are standard references and are badged ref; the HHHHHMM components are reproduced as commonly published and not independently re-verified. The repetitive draft MCQ set was deduplicated and rebalanced. In-house SVG schematics are original didactic constructions. Supports light and dark mode.

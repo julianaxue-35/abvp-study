@@ -72,6 +72,10 @@
   <button data-p="models"><span class="dot"></span>Playgroup Models</button>
   <button data-p="play"><span class="dot"></span>Play &amp; Conflict</button>
   <button data-p="mcq"><span class="dot" style="background:var(--chrome2)"></span>MCQ Test Bank</button>
+
+<!-- JOURNAL-TAB:START -->
+<button data-p="journal"><span class="dot" style="background:var(--lit, #1f6f8b)"></span>Journal Articles</button>
+<!-- JOURNAL-TAB:END -->
 </div></div></nav>
 <div class="srch-wrap"><div class="wrap"><div class="srch-row">
 <svg width="14" height="14" viewBox="0 0 15 15" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="m10.5 10.5 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -287,6 +291,250 @@
   </div>
   <div id="qhost"></div>
 </section>
+
+<!-- JOURNAL-ARTICLES:START -->
+<style data-journal-css>
+/* ── Journal Articles section ─────────────────────────────────────────── */
+.ja-standalone {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 2px solid var(--line, #d9d0bd);
+}
+.ja-article {
+  margin-bottom: 24px;
+  padding: 20px 22px 18px;
+  background: var(--paper2, #fbf8f1);
+  border-radius: 10px;
+  box-shadow: var(--shadow, 0 1px 2px rgba(15,61,58,.08), 0 8px 24px rgba(15,61,58,.06));
+}
+.ja-cite {
+  margin: 0 0 10px;
+  line-height: 1.45;
+  font-size: 0.97em;
+}
+.ja-meta {
+  color: var(--muted, #5d6b62);
+  font-size: 0.875em;
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0.01em;
+}
+.ja-meta a {
+  color: var(--lit, #1f6f8b);
+  text-decoration: none;
+}
+.ja-meta a:hover {
+  text-decoration: underline;
+}
+.ja-abstract {
+  border-left: 3px solid var(--lit, #1f6f8b);
+  padding: 10px 14px;
+  margin: 0 0 18px;
+  background: var(--lit-soft, #dcedf2);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.925em;
+  line-height: 1.6;
+  color: var(--ink, #0f3d3a);
+}
+.ja-mcq {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line, #d9d0bd);
+}
+.ja-mcq + .ja-mcq {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.ja-q {
+  font-weight: 600;
+  font-size: 0.93em;
+  margin: 0 0 7px;
+  color: var(--ink, #0f3d3a);
+}
+.ja-opts {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ja-opt {
+  font-size: 0.9em;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: var(--ink2, #15514c);
+  background: transparent;
+}
+.ja-opt b {
+  display: inline-block;
+  min-width: 1.5em;
+  color: var(--muted, #5d6b62);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.88em;
+}
+.ja-ans {
+  margin-top: 4px;
+}
+.ja-ans summary {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 0.83em;
+  font-family: "JetBrains Mono", monospace;
+  padding: 3px 10px;
+  border: 1px solid var(--lit, #1f6f8b);
+  border-radius: 5px;
+  color: var(--lit, #1f6f8b);
+  background: transparent;
+  user-select: none;
+  list-style: none;
+}
+.ja-ans summary::-webkit-details-marker { display: none; }
+.ja-ans summary::marker { display: none; }
+.ja-ans summary:hover {
+  background: var(--lit-soft, #dcedf2);
+}
+.ja-ans[open] summary {
+  background: var(--lit-soft, #dcedf2);
+  margin-bottom: 6px;
+}
+.ja-ans-body {
+  font-size: 0.9em;
+  padding: 8px 12px;
+  background: var(--paper, #fdfaf4);
+  border: 1px solid var(--line, #d9d0bd);
+  border-radius: 6px;
+  line-height: 1.55;
+  color: var(--ink, #0f3d3a);
+}
+.ja-ans-correct {
+  font-weight: 600;
+  color: var(--good, #2f7d52);
+  display: block;
+  margin-bottom: 4px;
+}
+.ja-ans-rationale {
+  color: var(--ink2, #15514c);
+}
+/* ── Journal self-test (pages without an MCQ bank) ── */
+.ja-quiz { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line, #d9d0bd); }
+.ja-quiz-h { font-family: "Fraunces", serif; font-weight: 600; font-size: 18px; margin: 0 0 12px; color: var(--ink, #0f3d3a); }
+.ja-qcard { background: var(--paper2, #fbf8f1); border: 1px solid var(--line, #d9d0bd); border-radius: 12px; padding: 14px 16px; margin: 12px 0; }
+.ja-qstem { font-weight: 600; font-size: 0.95em; margin-bottom: 10px; color: var(--ink, #0f3d3a); }
+.ja-qopt { display: block; width: 100%; text-align: left; cursor: pointer; font: inherit; font-size: 0.9em; padding: 8px 11px; margin: 5px 0; border: 1px solid var(--line, #d9d0bd); border-radius: 8px; background: var(--paper, #fdfaf4); color: var(--ink, #0f3d3a); }
+.ja-qopt b { color: var(--muted, #5d6b62); font-family: "JetBrains Mono", monospace; margin-right: 4px; }
+.ja-qopt:hover:not(.locked) { border-color: var(--lit, #1f6f8b); }
+.ja-qopt.locked { cursor: default; }
+.ja-qopt.correct { background: #e9f4ee; border-color: var(--good, #2f7d52); }
+.ja-qopt.wrong { background: #f8e9e9; border-color: var(--bad, #b23b3b); }
+.ja-qexpl { font-size: 0.88em; margin-top: 8px; padding: 9px 12px; background: var(--lit-soft, #dcedf2); border-radius: 8px; color: var(--ink2, #15514c); line-height: 1.5; }
+/* ── Journal source badge (self-contained so it renders on any bank page) ── */
+.bdg.journal {
+  display: inline-block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9.5px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 999px;
+  vertical-align: middle;
+  white-space: nowrap;
+  background: var(--lit-soft, #dcedf2);
+  color: var(--lit, #1f6f8b);
+}
+</style>
+<section class="panel" id="journal">
+  <h2 class="sec">Additional Resources</h2>
+  <p class="lead">Journal Articles (2021–2026) — exam items are drawn from the abstract only. Read each abstract here; self-test questions are in the MCQ Test Bank.</p>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Obedience training helps encourage potential owners to adopt shelter dogs</b><br>
+    <span class="ja-meta">Tunaityte &middot; Journal of Veterinary Behavior &middot; 2024</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Stray animals are one of the contributors to animal welfare issues worldwide. They endanger the health of both animals and humans as spreaders of infectious diseases. Many stray dogs end up in shelters. Despite increasing public education about dog welfare and the importance of adoption, the number of dogs in animal shelters is not decreasing. Therefore, it is important to find suitable methods of training dogs so that they are more desirable for adoption, thus improving both dogs and people welfare. A total of three obedience training experiments with shelter dogs were carried out using modified methodologies from international scientists. The results reveal that shelter dogs respond better to treats, verbal praise, and stroking as opposed to clicker training alone. After applying these methods, dogs living in shelters were trained to sit on cue after a brief period of time. The learned “sit” request was found to be retained by the dog even after a change of training location and/or trainer. These findings might help train dogs faster and increase adoptability as basic obedience is shown to be a highly desirable behavior among potential pet guardians. By training canines with positive behavior traits like obedience and composure, in animal shelters, adoption rates can be increased.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Understanding kitten fostering and socialisation practices using mixed methods</b><br>
+    <span class="ja-meta">Graham et al. &middot; Animal Welfare &middot; 2024</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Many companion kittens entering shelters are fostered by volunteer community members during the sensitive period for socialisation (~2 to 9 weeks of age) when early experiences are critical to behavioural development. Using a mixed-method survey, we explored current fostering practices relevant to kitten behavioural development and welfare. Foster caretaker participants (n = 487) described their fostering practices and reported providing kittens with a majority of recommended socialisation experiences, such as handling and exposure to various toys and exploratory items. In open-ended text responses, foster caretakers described how they adapted socialisation practices for fearful kittens and the supports and challenges they perceived to impact their ability to properly socialise kittens. Some non-recommended techniques (e.g. flooding) were reported for socialising fearful kittens, with a decreased odds of reporting non-recommended techniques for participants with a higher level of agreeableness personality trait and an increased odds of reporting if fostering practices had been impacted by the COVID-19 pandemic. Foster caretakers reported feeling supported through shelter-supplied resources, personal knowledge, external support, and having access to socialisation opportunities; however, faced personal (e.g. time constraints), shelter-specific (e.g. lack of shelter support), and kitten-specific challenges (e.g. kitten illness). This study highlights the perspectives of foster caretakers as related to optimal socialisation, behavioural development, and welfare. To identify opportunities for improvement it is important to investigate the socialisation guidelines provided to foster caretakers, with the ultimate goal of enhancing kitten behavioural development for improved welfare, long-term adoption, and caretaker satisfaction.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Effects of early social separation on the behaviour of kittens of the domestic cat</b><br>
+    <span class="ja-meta">Martinez-Byer et al. &middot; Applied Animal Behaviour Science &middot; 2023</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> For many mammals the presence of the mother and/or siblings is an important component of an individual's early developmental environment, and lack of these social influences can have long-lasting effects on morphological, physiological, and behavioural development. Surprisingly, little is known about the effects of premature maternal and sibling separation in the domestic cat, even though hand-raising is rather common due to the large number of orphaned and rescued kittens. In this study we assessed 62 nine-week-old kittens (32 mother-reared, 14 orphans hand-raised with siblings and 16 hand-raised orphan singletons) in three behavioural tests: a handling (struggle) test, a food defence (meat) test, and a separation/confinement test. Additionally, we used infrared thermography to evaluate stress-induced changes in eye and nose temperatures in the separation/confinement test. We found no differences in body weight between groups at weaning at 9 weeks of age, but we found behavioural differences between the control and the two orphan groups in all three tests. Compared to control, mother-reared kittens, orphans raised with siblings and orphan singletons struggled sooner in the struggle test, plus vocalised more and exhibited greater locomotor activity in the separation/confinement test. In the meat test, only the orphans raised with siblings, but not the singletons, started consuming the raw meat stimulus sooner than control individuals. Facial thermography showed a general trend for eye and nose temperatures to decrease in response to the separation/confinement test, with no differences between rearing conditions. Our findings show that the early social environment is influential in shaping the long-term behaviour and physiology of kittens. The behavioural differences between mother-reared and hand-raised individuals should be considered for the well-being of the animals when fostering and during the adoption process. Our results suggest that, as expected, developing without the presence of the mother and raised by humans (with or without siblings) has an effect on the behaviour of kittens to weaning age and possibly even into adult life.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Reducing barking in a Brazilian animal shelter: A practical intervention</b><br>
+    <span class="ja-meta">Baldan &middot; Applied Animal Behaviour Science &middot; 2023</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Barking is a common problem in animal shelters. Loud noise is an irritant and stressful to both humans and other animals. In the present study, we tested a positive reinforcement intervention using food delivery with 70 dogs at a municipal animal shelter in Pirassununga, state of São Paulo, Brazil. The experiment consisted of three conditions with three daily phases: pre-intervention (A1), intervention (B), and post-intervention (A2). The intervention consisted of the experimenter (ALB) entering the building in which dogs were housed, stopping at each of its 12 kennels (between 4 and 6 dogs in each kennel), and delivering food to the dogs after they had ceased barking. After the first study condition with its single experimenter, we conducted two other conditions to test the generalization of the intervention with novel stimuli. In Condition 2, the experimenter was accompanied by a student; and in Condition 3, the experimenter was with the same student and a shelter employee. Continuous sound levels (Leq dB) and duration of barking were measured pre- and post-intervention throughout the study’s three conditions as well as the amount of time needed to carry out the intervention each day. We found that, on average, both Leq dB and barking duration reduced following the intervention with a decrease in both measures from the beginning to the end of the study. Furthermore, intervention implementation time shortened across the study’s conditions, with less than three minutes needed for the intervention to be carried out in Condition 3. In total, our findings suggest that the Barking Reduction Protocol (BRP) is an effective, low-effort intervention that reduces dog barking in the animal shelter. When considering the many issues that compromise the daily lives of shelter dogs, this intervention may be a useful tool in changing dogs’ barking behavior in response to people and improve their welfare as they await adoption.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Canine Socialisation: A Narrative Systematic Review</b><br>
+    <span class="ja-meta">McEvoy &middot; Animals &middot; 2022</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> There are over 10 million pet dogs in the UK alone, and they have become a member of modern human families. If not properly socialised as puppies, dogs have a higher risk of problematic behaviours during adulthood, yet socialisation studies are lacking. Much of the experimental research was carried out at least 50 years ago, and the importance of socialisation was demonstrated so clearly that further studies with unsocialised controls would be deemed unethical. In this review, the aim was to evaluate all literature relevant to canine socialisation. This review used PRISMA-P guidelines to identify 29 studies: 14 were questionnaire-based studies (two of which also had a testing element), 15 included some form of experimental manipulation relating to socialisation, and one was a purely observational study. Based on this literature review, we recommend future research into minimum necessary socialisation levels, as well as breed differences in the timing of effective socialisation. Such studies will help owners and breeders produce well-adjusted adult dogs.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Is there hope beyond fear? Effects of social rehabilitation on unsocialised stray dogs</b><br>
+    <span class="ja-meta">Casaca &middot; Applied Animal Behaviour Science &middot; 2022</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Unsocialised stray dogs are dogs that live freely in urban areas with limited to no direct human contact. If left free to roam, they may present a public safety problem, since they can facilitate the spread of zoonotic diseases and resort to aggressive behaviours towards humans. If captured, their chance of rehoming into human families is low as a consequence of their low sociability towards humans. In the present study, we aimed to determine if the implementation of a rehabilitation and training program could render unsocialised stray dogs to develop the skills needed for a successful adoption. Six unsocialised stray dogs (Group Stray) and 12 socialized shelter dogs (C1: Group Control 1, n = 6; C2: Group Control 2, n = 6), housed at a shelter in Portugal, participated in the study. Stray and C2 dogs went through 40 days of social rehabilitation and 40 days of leash training protocols. The behaviour of all groups was assessed for general behaviour in the home pen (General Behaviour Assessment – GB), sociability towards humans (Sociability Test – ST) and leash behaviour (Leash Test – LT). Behaviour assessment was performed at three time-points: before any intervention (GB1, ST1), after social rehabilitation (GB2, ST2, and LT1) and after leash training (GB3, ST3, and LT2). Tests were video recorded and further analysed by different observers. The rehabilitation and training sessions were also recorded every ten days to analyse the dog’s body posture overtime. Results showed that the stray dogs’ sociability towards humans improved from ST1 to ST3. Additionally, their general behaviour in the home pen also improved: from GB1 to GB3 the strays started to be found less often at the back of their home pens in a fearful body posture and more often in the front of the home pens in a neutral body posture. Similar changes in body posture were also found during social rehabilitation sessions. As for leash behaviour, no significant changes were found between LT1 to LT2 for either group. Importantly, there was large individual variation for Group Stray, with some dogs still showing intense fear of humans by the end of the study, while others were already interacting with the shelter staff and could be walked on a leash inside the shelter facilities. Our study suggests that with appropriate training and rehabilitation, some unsocialised stray dogs have the potential to become adoptable dogs. In conclusion, there may be hope beyond fear.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>One- and Two-Month-Old Dog Puppies Exhibit Behavioural Synchronization with Humans Independently of Familiarity</b><br>
+    <span class="ja-meta">Duranton &middot; Animals &middot; 2022</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Behavioural synchronization is a widespread skill in social species as it helps increase group cohesion among individuals. Such a phenomenon is involved in social interactions between conspecifics as well as between individuals from different species. Most importantly, familiarity and affiliation between interacting partners influence the degree of behavioural synchronization they would exhibit with each other. For example, in human–dog dyads, the more a dog is affiliated with its human partner, the more it behaves in a synchronous way with them. However, little is known about the ontogeny of such a behaviour, especially from an interspecific perspective. The aim of the present study was thus to investigate the existence and modalities of activity synchrony, a type of behavioural synchronization, between humans and puppies. To do so, we observed 29 dog puppies interacting with two different humans (familiar and unfamiliar experimenters). Puppy movements and general activity in relation to the human ones were observed. Results evidenced that puppies did exhibit locomotor synchrony with humans, but familiarity did not affect its degree. It is the first time that activity synchrony with human walk is evidenced in puppies, highly suggesting that dogs’ ability to behave in synchronization with humans seems to be genetically selected through the process of domestication, while the effect of familiarity on it might develop later during the individual ontogeny.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Personalized dominance – a questionnaire- based analysis of the associations among personality traits and social rank of companion dogs</b><br>
+    <span class="ja-meta">Vekony, K &middot; Applied Animal Behaviour Science &middot; 2022</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> In case of social animals often we can observe dominance hierarchies among the group members around limited resources. Once stabilized, hierarchy can help the access to these resources – in favour of the dominant individuals – without serious conflict or harm. While we can easily identify the limited resources in nature, in case of companion dogs, all essential resources are provided by the owner thus shortcutting competition. While it seems that its original function is not present in companion dogs, dominance hierarchies were still described in dog groups. As everyday competition for essential resources is seldom part of the lives of most companion dogs, our aim was to find what traits might be related to the formation of these hierarchies and the rank of the individuals. We designed an online survey for owners of multiple dogs to assess i) the dominance relationship between the co-habiting dogs via their everyday interactions and ii) their personalities using the Canine Big Five questionnaire.  We received responses for 1082 dogs. Four of the five personality traits had a significant association with dominance: while more extroverted (p = 0.0003), conscientious (p = 0.0006), and open (p =   0.0088) dogs scored higher on dominance, more agreeable dogs scored lower (p &lt; 0.0001). In accordance with previous studies, we also found that older dogs tend to be more dominant (p = 0.001). We also found a small but not negligible number of dog-pairs that had no difference in their dominance scores. Although our study is not suitable for detecting causality, the results show that there is a  complex association between owner-perceived dominance and personality in group-living companion dogs.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>The Potential Impact of a Dog Training Program on the Animal Adoptions in an Italian Shelter</b><br>
+    <span class="ja-meta">d&#x27;Angelo &middot; Animals &middot; 2022</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> One of the main concerns of the human–dog relationship is today associated with the quality life inside the kennels, which are very often regarded as animal dump where dogs are exiled, representing a burden on society. In the present study we sought to investigate the importance of performing an appropriate behavioral program on the adoption chances within an Italian shelter, near Naples (Ottaviano). In this respect, we enrolled 555 adopted dogs of different ages, who followed a tailored-4-month lasting training program between 2018 and 2020. Once entered there, they were carefully examined by the veterinary behaviorist, and directed towards a suited training program, to improve living conditions. We documented a higher number of both adult and senior dogs who left the kennel and were adopted, compared to the age-matched untrained animals (n = 479), housed in the same kennel from 2015 to 2017. Taken together, the present data highlight an important role for training in improving the natural attitudes of the companion dogs, thus pointing towards a better human–animal bond.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Factors influencing owner- reported approaches to training dogs enrolled in the Generation Pup longitudinal study</b><br>
+    <span class="ja-meta">Woodward, J. &middot; Applied Animal Behaviour Science &middot; 2021</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> The majority of owners use rewards (e.g. treats and praise) when training their dogs. However, many additionally use aversive methods (e.g. physical reprimands, sound/spray distractions) which can compromise the welfare of dogs. The aim of this study was to identify factors associated with owner-reported use of aversive training methods. A study was conducted using data provided by owners living in the UK or Republic of Ireland participating in a longitudinal study (‘Generation Pup’). Data from a registration questionnaire completed when puppies were ≤16 weeks of age, and a follow-up questionnaire completed when dogs were nine-months of age were analysed. Responses to questions about owners’ intended/actual use of different training methods at each time point were grouped into two categories. ‘Reward only’ training: positive reinforcement (PR; increasing behaviour through application of rewarding stimulus) and/or negative punishment (NP; decreasing behaviour through removal of rewarding stimulus), and’ reward and aversive’ training: &gt;2 methods of positive punishment (PP; decreasing behaviour by application of aversive stimulus) and/or negative reinforcement (NR; increasing behaviour through removal of aversive stimulus). Associations between training approach (’reward only’ / ‘reward and aversive’) and potential owner-related risk factors were modelled using multivariable logistic regression. Data from 2154 owners at registration were collected, and a follow-up questionnaire for 9-month-old dogs were completed by 976 owners. At registration, 99.7 % of owners reported their intention to use PR and/or NP, and 84.1 % intended to use PP and/or NR. At 9 months, 99.7 % of owners reported using PR and/or NP, and 74.2 % used PP and/or NR. Data were available for 161 owners at both time points, of which 80 % reported the same training approach in both questionnaires. At 9 months, not attending training or puppy classes in the previous 2-months (Odds Ratio = 3.16, 95 % Confidence Interval = 2.18–4.59, P &lt; 0.001), and not having dog-related employment (Odds Ratio = 2.70, 95 % Confidence Interval = 1.53–4.77, P = 0.001) were associated with increased odds of reporting a reward and aversive approach. Owners aged 55 years or more were twice as likely as those younger than 55 (Odds Ratio = 1.93, 95 % Confidence Interval = 1.29–2.87, P = 0.001), and male owners were three times as likely as female owners (Odds Ratio = 3.10, 95 % Confidence Interval = 1.52–6.36, P = 0.002) to use a reward and aversive training approach. Owners   reporting a reward and aversive training approach was common within this cohort. Increased awareness of optimal training approaches for dogs is needed, especially for older, male owners, who have not accessed puppy training classes.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Interactions between the Public and Assistance Dog Handlers and Trainers</b><br>
+    <span class="ja-meta">McManus, B &middot; Animals &middot; 2021</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> This research aimed to explore the experiences of handlers and trainers of disability assistance dogs in terms of the types of interactions they had with members of the Aotearoa NZ (NZ) public and how these interactions were perceived, interpreted, and managed. A qualitative method, guided by an interpretive approach and social constructionism, was utilised to collect data via semi-structured  interviews with six handlers and six trainers of assistance dogs. Data were analysed using thematic analysis with the social model of disability as the theoretical base. Findings indicated that participants regularly faced a complex range of unique interactions due to various factors such as the public’s lack of knowledge and understanding of the dog’s role and right of access to public places. While participants encountered brief friendly comments about the dog and its role, other encounters involved long conversations, invasive personal questions, interference with their dogs, and denied access to businesses, cafés, restaurants, and public transport. These findings underpin the need to provide more education to the public on the etiquette of engaging with handlers and their assistance dogs and  more support for businesses to understand the legal rights of handlers. Through education and support to change societal attitudes and remove structural barriers, disabled people using assistance dogs may be able to independently participate in community life and be fully included without hindrance.</div>
+  </div>
+  <div class="ja-quiz">
+    <h3 class="ja-quiz-h">Journal Self-Test</h3>
+    <div id="jaQuizHost"></div>
+  </div>
+  <script data-journal-quiz>
+  (function(){
+    var JQ=[{"q": "In the Barking Reduction Protocol, food was delivered to shelter dogs when they:", "o": ["Approached the kennel front", "Had ceased barking", "Made eye contact", "Sat on command"], "a": 1, "e": "The positive-reinforcement intervention delivered food only after dogs stopped barking.", "t": "journal", "f": "journal"}, {"q": "The intervention's effect on continuous sound level and barking duration was:", "o": ["Both increased", "Both unchanged", "Only sound level decreased", "Both Leq dB and barking duration decreased"], "a": 3, "e": "Average Leq dB and barking duration both fell following the intervention across all conditions.", "t": "journal", "f": "journal"}, {"q": "The authors characterized the Barking Reduction Protocol as:", "o": ["An effective, low-effort tool requiring under three minutes by Condition 3", "Effective only with a single familiar experimenter", "Too labour-intensive for shelters", "Effective only short-term"], "a": 0, "e": "Implementation time shortened to under three minutes, supporting it as an effective low-effort welfare intervention.", "t": "journal", "f": "journal"}, {"q": "Which training approach did shelter dogs respond best to?", "o": ["Clicker training alone", "Treats, verbal praise, and stroking", "Aversive correction", "No reinforcement"], "a": 1, "e": "Dogs responded better to treats, verbal praise, and stroking than to clicker alone.", "t": "journal", "f": "journal"}, {"q": "Was the learned 'sit' retained after changing trainer or location?", "o": ["Yes, it was retained", "No, it was lost", "Only with the same trainer", "Only in the same room"], "a": 0, "e": "The 'sit' was retained even after a change of location and/or trainer.", "t": "journal", "f": "journal"}, {"q": "What outcome do the authors link to teaching basic obedience in shelters?", "o": ["Lower adoption rates", "Increased adoptability/adoption rates", "No effect on adoption", "Higher relinquishment"], "a": 1, "e": "Basic obedience is a desirable trait that can increase adoptability.", "t": "journal", "f": "journal"}, {"q": "Compared with mother-reared kittens, how did hand-raised orphan kittens behave in the struggle (handling) test?", "o": ["Struggled sooner", "Struggled later", "Showed no response", "Became immobile"], "a": 0, "e": "Both orphan groups struggled sooner than mother-reared controls.", "t": "journal", "f": "journal"}, {"q": "At 9 weeks of age (weaning), how did body weight compare across the three rearing groups?", "o": ["Orphans heaviest", "Singletons lightest", "No body-weight differences", "Mother-reared heaviest"], "a": 2, "e": "No body-weight differences were found between groups at weaning.", "t": "journal", "f": "journal"}, {"q": "In the meat (food-defence) test, which group started eating the raw meat sooner than controls?", "o": ["Orphan singletons only", "Orphans raised with siblings only", "Both orphan groups", "Neither orphan group"], "a": 1, "e": "Only orphans raised with siblings ate sooner; singletons did not.", "t": "journal", "f": "journal"}, {"q": "The sensitive period for kitten socialisation cited in the study is approximately:", "o": ["Birth to 1 week", "3 to 6 months", "~2 to 9 weeks", "6 to 12 months"], "a": 2, "e": "The abstract identifies ~2 to 9 weeks as the sensitive socialisation period.", "t": "journal", "f": "journal"}, {"q": "Which non-recommended technique did some foster caretakers report using for fearful kittens?", "o": ["Flooding", "Counter-conditioning", "Gradual desensitisation", "Clicker training"], "a": 0, "e": "Some caretakers reported flooding, a non-recommended technique.", "t": "journal", "f": "journal"}, {"q": "A higher agreeableness personality trait in caretakers was associated with what?", "o": ["More flooding", "Decreased odds of reporting non-recommended techniques", "No association", "Reduced handling"], "a": 1, "e": "Higher agreeableness lowered the odds of reporting non-recommended techniques.", "t": "journal", "f": "journal"}, {"q": "Which owner group was MORE likely to report a 'reward and aversive' training approach?", "o": ["Young female owners attending classes", "Older male owners not attending classes", "Dog-related professionals", "No group differed"], "a": 1, "e": "Owners ≥55, male, not attending classes, without dog-related jobs had higher odds of aversive methods.", "t": "journal", "f": "journal"}, {"q": "Not attending a puppy or training class in the prior two months was associated with:", "o": ["Higher odds of using aversive methods", "Lower odds of aversive methods", "No association", "Reward-only training"], "a": 0, "e": "Non-attendance roughly tripled the odds (OR 3.16) of a reward-and-aversive approach.", "t": "journal", "f": "journal"}, {"q": "At 9 months, what proportion of owners used positive punishment and/or negative reinforcement?", "o": ["0%", "25%", "74.2%", "100%"], "a": 2, "e": "74.2% used PP and/or NR at 9 months, despite reward methods being near-universal.", "t": "journal", "f": "journal"}, {"q": "A key barrier reported by assistance dog handlers and trainers was:", "o": ["The public's lack of knowledge of the dog's role and access rights", "Excessive financial support", "Too much privacy", "Over-trained dogs"], "a": 0, "e": "Difficulties stemmed largely from public unfamiliarity with the dog's role and legal access.", "t": "journal", "f": "journal"}, {"q": "The authors' main recommendation was to:", "o": ["Ban assistance dogs from public spaces", "Increase public education and business support on handlers' legal rights", "Remove legal access rights", "Make no changes"], "a": 1, "e": "They called for public education and business support to remove structural barriers.", "t": "journal", "f": "journal"}, {"q": "Which personality trait was associated with LOWER owner-perceived dominance?", "o": ["Extroversion", "Conscientiousness", "Agreeableness", "Openness"], "a": 2, "e": "More agreeable dogs scored lower on dominance; extroversion, conscientiousness, and openness scored higher.", "t": "journal", "f": "journal"}, {"q": "How did age relate to dominance?", "o": ["Younger dogs were more dominant", "Older dogs tended to be more dominant", "No relationship", "U-shaped relationship"], "a": 1, "e": "Older dogs tended to be more dominant, consistent with prior studies.", "t": "journal", "f": "journal"}, {"q": "How many of the Big Five personality traits showed a significant association with dominance?", "o": ["Two", "Three", "Four", "Five"], "a": 2, "e": "Four of the five traits (extroversion, conscientiousness, openness, agreeableness) were significantly associated.", "t": "journal", "f": "journal"}, {"q": "In an Italian shelter, what was the main effect of a 4-month behavioral training program on adoption outcomes?", "o": ["No change in adoption rates", "Higher adoption numbers of adult and senior dogs", "Increased adoptions only among puppies", "Shorter stays for aggressive dogs only"], "a": 1, "e": "Trained adult and senior dogs were adopted in greater numbers than untrained age-matched controls.", "t": "journal", "f": "journal"}, {"q": "What did the authors conclude about training and the human-animal bond?", "o": ["Training improves dogs' natural attitudes and supports a better bond", "Training had no measurable behavioral benefit", "Bonding depends only on dog age", "Kennel housing alone improves adoptability"], "a": 0, "e": "They concluded training improves companion dogs' natural attitudes, strengthening the human-animal bond.", "t": "journal", "f": "journal"}, {"q": "What is the main welfare consequence of inadequate puppy socialisation per the review?", "o": ["Reduced lifespan", "Higher risk of problematic adult behaviours", "Improved trainability", "No effect"], "a": 1, "e": "Poorly socialised puppies have a higher risk of problem behaviours in adulthood.", "t": "journal", "f": "journal"}, {"q": "Why are modern controlled studies using unsocialised controls lacking?", "o": ["Funding shortages", "They would now be considered unethical", "Lack of researcher interest", "Regulatory bans on dogs"], "a": 1, "e": "Early work showed socialisation's importance so clearly that unsocialised-control studies are deemed unethical.", "t": "journal", "f": "journal"}, {"q": "What research priority did the review recommend?", "o": ["Minimum necessary socialisation levels and breed timing differences", "Banning early socialisation", "Standardising kennel size", "Cloning well-adjusted dogs"], "a": 0, "e": "Authors call for research on minimum necessary socialisation and breed-specific timing.", "t": "journal", "f": "journal"}, {"q": "What behavior did 1- and 2-month-old puppies show toward humans?", "o": ["No synchrony", "Locomotor (activity) synchrony", "Synchrony only with familiar humans", "Active avoidance"], "a": 1, "e": "Puppies exhibited locomotor synchrony with human walking.", "t": "journal", "f": "journal"}, {"q": "How did familiarity with the human affect the puppies' synchrony?", "o": ["It increased synchrony", "It abolished synchrony", "It did not affect the degree of synchrony", "Only unfamiliar humans elicited it"], "a": 2, "e": "Familiarity did not influence the degree of synchrony in the puppies.", "t": "journal", "f": "journal"}, {"q": "What does this finding suggest about the origin of dog-human synchronization?", "o": ["It is purely learned in adulthood", "It appears genetically selected through domestication", "It requires extensive training", "It is unique to familiar dyads"], "a": 1, "e": "Early, familiarity-independent synchrony suggests selection via domestication, with familiarity effects developing later.", "t": "journal", "f": "journal"}, {"q": "What was the main aim of the study with unsocialised stray dogs?", "o": ["Test a new vaccine", "Determine if rehabilitation/training could make them adoptable", "Measure litter size", "Compare diets"], "a": 1, "e": "The study tested whether rehabilitation and training could build the skills needed for adoption.", "t": "journal", "f": "journal"}, {"q": "How did the stray dogs' sociability toward humans change?", "o": ["It worsened over time", "It improved from ST1 to ST3", "It showed no change", "Only leash behavior improved"], "a": 1, "e": "Stray dogs' sociability toward humans improved across the testing time-points.", "t": "journal", "f": "journal"}, {"q": "What did the authors note about individual variation among the strays?", "o": ["All dogs responded identically", "Large variation: some stayed fearful while others became handleable", "No dogs improved at all", "Only puppies improved"], "a": 1, "e": "There was large individual variation; some strays remained intensely fearful while others could be leash-walked.", "t": "journal", "f": "journal"}];
+    var host=document.getElementById('jaQuizHost'); if(!host||!JQ.length) return;
+    var L=["A","B","C","D"];
+    JQ.forEach(function(item,i){
+      var card=document.createElement('div'); card.className='ja-qcard';
+      var stem=document.createElement('div'); stem.className='ja-qstem';
+      stem.textContent=(i+1)+'. '+item.q; card.appendChild(stem);
+      var done=false;
+      item.o.forEach(function(opt,oi){
+        var b=document.createElement('button'); b.className='ja-qopt';
+        b.innerHTML='<b>'+L[oi]+'.</b> '+opt;
+        b.onclick=function(){
+          if(done) return; done=true;
+          var kids=card.querySelectorAll('.ja-qopt');
+          for(var k=0;k<kids.length;k++){kids[k].classList.add('locked');}
+          kids[item.a].classList.add('correct');
+          if(oi!==item.a) b.classList.add('wrong');
+          var ex=document.createElement('div'); ex.className='ja-qexpl';
+          ex.innerHTML='<b>Answer: '+L[item.a]+'.</b> '+item.e; card.appendChild(ex);
+        };
+        card.appendChild(b);
+      });
+      host.appendChild(card);
+    });
+  })();
+  </script>
+</section>
+<!-- JOURNAL-ARTICLES:END -->
+
 </div></main>
 <footer><div class="wrap">
   Training, BMOD and Playgroups subdomain hub &middot; Behavioural Health domain &middot; ABVP Shelter Medicine Practice RVS, November 2026. Content is from your Training and BMOD for Shelter Dogs + Playgroup notes (PDF). The DPFL vs SPA comparison table is adapted from the docx. ASV playgroup guideline (optimise safety by limiting numbers based on training, space, and resources) is badged ASV. Overlapping content (reward-based training and DSCC in Learning Theory; fluoxetine and gabapentin in Behaviour Medications; fear physiology and flooding in Stress; enrichment in Shelter Animal Enrichment) is cross-referenced rather than duplicated. Answer positions were redistributed from a B-heavy key. In-house construction. Supports light and dark mode.

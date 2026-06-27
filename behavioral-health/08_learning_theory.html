@@ -190,6 +190,10 @@
   <button data-p="operant"><span class="dot"></span>Operant &amp; Humane Training</button>
   <button data-p="practice"><span class="dot"></span>Into Practice</button>
   <button data-p="mcq"><span class="dot" style="background:var(--chrome2)"></span>MCQ Test Bank</button>
+
+<!-- JOURNAL-TAB:START -->
+<button data-p="journal"><span class="dot" style="background:var(--lit, #1f6f8b)"></span>Journal Articles</button>
+<!-- JOURNAL-TAB:END -->
 </div></div></nav>
 <div class="srch-wrap"><div class="wrap"><div class="srch-row">
 <svg width="14" height="14" viewBox="0 0 15 15" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="m10.5 10.5 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -427,6 +431,256 @@
   </div>
   <div id="qhost"></div>
 </section>
+
+<!-- JOURNAL-ARTICLES:START -->
+<style data-journal-css>
+/* ── Journal Articles section ─────────────────────────────────────────── */
+.ja-standalone {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 2px solid var(--line, #d9d0bd);
+}
+.ja-article {
+  margin-bottom: 24px;
+  padding: 20px 22px 18px;
+  background: var(--paper2, #fbf8f1);
+  border-radius: 10px;
+  box-shadow: var(--shadow, 0 1px 2px rgba(15,61,58,.08), 0 8px 24px rgba(15,61,58,.06));
+}
+.ja-cite {
+  margin: 0 0 10px;
+  line-height: 1.45;
+  font-size: 0.97em;
+}
+.ja-meta {
+  color: var(--muted, #5d6b62);
+  font-size: 0.875em;
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0.01em;
+}
+.ja-meta a {
+  color: var(--lit, #1f6f8b);
+  text-decoration: none;
+}
+.ja-meta a:hover {
+  text-decoration: underline;
+}
+.ja-abstract {
+  border-left: 3px solid var(--lit, #1f6f8b);
+  padding: 10px 14px;
+  margin: 0 0 18px;
+  background: var(--lit-soft, #dcedf2);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.925em;
+  line-height: 1.6;
+  color: var(--ink, #0f3d3a);
+}
+.ja-mcq {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line, #d9d0bd);
+}
+.ja-mcq + .ja-mcq {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.ja-q {
+  font-weight: 600;
+  font-size: 0.93em;
+  margin: 0 0 7px;
+  color: var(--ink, #0f3d3a);
+}
+.ja-opts {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ja-opt {
+  font-size: 0.9em;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: var(--ink2, #15514c);
+  background: transparent;
+}
+.ja-opt b {
+  display: inline-block;
+  min-width: 1.5em;
+  color: var(--muted, #5d6b62);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.88em;
+}
+.ja-ans {
+  margin-top: 4px;
+}
+.ja-ans summary {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 0.83em;
+  font-family: "JetBrains Mono", monospace;
+  padding: 3px 10px;
+  border: 1px solid var(--lit, #1f6f8b);
+  border-radius: 5px;
+  color: var(--lit, #1f6f8b);
+  background: transparent;
+  user-select: none;
+  list-style: none;
+}
+.ja-ans summary::-webkit-details-marker { display: none; }
+.ja-ans summary::marker { display: none; }
+.ja-ans summary:hover {
+  background: var(--lit-soft, #dcedf2);
+}
+.ja-ans[open] summary {
+  background: var(--lit-soft, #dcedf2);
+  margin-bottom: 6px;
+}
+.ja-ans-body {
+  font-size: 0.9em;
+  padding: 8px 12px;
+  background: var(--paper, #fdfaf4);
+  border: 1px solid var(--line, #d9d0bd);
+  border-radius: 6px;
+  line-height: 1.55;
+  color: var(--ink, #0f3d3a);
+}
+.ja-ans-correct {
+  font-weight: 600;
+  color: var(--good, #2f7d52);
+  display: block;
+  margin-bottom: 4px;
+}
+.ja-ans-rationale {
+  color: var(--ink2, #15514c);
+}
+/* ── Journal self-test (pages without an MCQ bank) ── */
+.ja-quiz { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line, #d9d0bd); }
+.ja-quiz-h { font-family: "Fraunces", serif; font-weight: 600; font-size: 18px; margin: 0 0 12px; color: var(--ink, #0f3d3a); }
+.ja-qcard { background: var(--paper2, #fbf8f1); border: 1px solid var(--line, #d9d0bd); border-radius: 12px; padding: 14px 16px; margin: 12px 0; }
+.ja-qstem { font-weight: 600; font-size: 0.95em; margin-bottom: 10px; color: var(--ink, #0f3d3a); }
+.ja-qopt { display: block; width: 100%; text-align: left; cursor: pointer; font: inherit; font-size: 0.9em; padding: 8px 11px; margin: 5px 0; border: 1px solid var(--line, #d9d0bd); border-radius: 8px; background: var(--paper, #fdfaf4); color: var(--ink, #0f3d3a); }
+.ja-qopt b { color: var(--muted, #5d6b62); font-family: "JetBrains Mono", monospace; margin-right: 4px; }
+.ja-qopt:hover:not(.locked) { border-color: var(--lit, #1f6f8b); }
+.ja-qopt.locked { cursor: default; }
+.ja-qopt.correct { background: #e9f4ee; border-color: var(--good, #2f7d52); }
+.ja-qopt.wrong { background: #f8e9e9; border-color: var(--bad, #b23b3b); }
+.ja-qexpl { font-size: 0.88em; margin-top: 8px; padding: 9px 12px; background: var(--lit-soft, #dcedf2); border-radius: 8px; color: var(--ink2, #15514c); line-height: 1.5; }
+/* ── Journal source badge (self-contained so it renders on any bank page) ── */
+.bdg.journal {
+  display: inline-block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9.5px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 999px;
+  vertical-align: middle;
+  white-space: nowrap;
+  background: var(--lit-soft, #dcedf2);
+  color: var(--lit, #1f6f8b);
+}
+</style>
+<section class="panel" id="journal">
+  <h2 class="sec">Additional Resources</h2>
+  <p class="lead">Journal Articles (2021–2026) — exam items are drawn from the abstract only. Read each abstract here; self-test questions are in the MCQ Test Bank.</p>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Free-ranging dogs quickly learn to recognize a rewarding person</b><br>
+    <span class="ja-meta">Nandi &middot; Applied Animal Behavior Science &middot; 2024</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Individual human recognition is important for species that live in close proximity to humans. Numerous studies on domesticated species and urban-adapted birds have highlighted this ability. One such species which is heavily reliant on humans is the free-ranging dog. Very little knowledge exists on the amount of time taken by free-ranging dogs to learn and remember individual humans. Due to their territorial nature, they have a high probability of encountering the same people multiple times on the streets. Being able to distinguish individual humans might be helpful in making decisions regarding people from whom to beg for food or social reward. We investigated if free-ranging dogs are capable of identifying the person rewarding them and the amount of time required for them to learn it. We conducted field trials on randomly selected adult free-ranging dogs in West Bengal, India. On Day 1, a choice test was conducted. The experimenter chosen did not provide reward while the other experimenter provided a piece of boiled chicken followed by petting. The person giving reward on Day 1 served as the correct choice on four subsequent days of training. Day 6 was the test day when none of the experimenters had a reward. We analyzed the choice made by the dogs, the time taken to approach during the choice tests, and the socialization index, which was calculated based on the intensity of affiliative behaviour shown towards the experimenters. The dogs made correct choices at a significantly higher rate on the fifth and sixth days, as compared to Day 2, suggesting learning. This is the first study aiming to understand the time taken for individual human recognition in free-ranging dogs, and can serve as the scaffold for future studies to understand the dog-human relationship in open environments, like urban ecosystems.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Impact of Classical Counterconditioning (Quiet Kennel Exercise) on Barking in Kenneled Dogs—A Pilot Study</b><br>
+    <span class="ja-meta">Zurlinden &middot; Animals &middot; 2023</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Excessive barking is a major source of noise pollution in dog kennels and negatively impacts welfare. Because resources are often limited, minimizing barking in the simplest and most easily implementable way is imperative. This pilot study implemented a Quiet Kennel Exercise (QKE) that utilized classical counterconditioning to change the dogs’ negative emotional state (which can lead to barking) to a more positive emotional state. Therefore, barking motivation is reduced, so barking should decrease. This study aims to show proof of concept that decreasing barking through classical counterconditioning is effective. It was conducted in one ward of day-time boarding kennels at North Carolina State University College of Veterinary Medicine. Data was collected three times per day and included decibel readings, number of dogs present, and number of dogs barking during a 5-day initial baseline and 10-day intervention period. During baseline, people passing through the ward acted as they normally would. During intervention, passersby were asked to simply toss each dog a treat regardless of the dogs’ behaviors in the kennel. Descriptive results show improvement in maximum level of barking after QKE, fewer dogs barking over time, dogs barking less each time, and the most improvement noted in the afternoon.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>The effects of cue modality on reliability and generalization of training outcomes with domestic dog</b><br>
+    <span class="ja-meta">Anderson &middot; Journal of Veterinary Behavior &middot; 2023</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Gestural and vocal communication between humans and dogs have each been widely studied. However, when training dogs humans use a combination of gestural and vocal cues. The use of this compound stimulus raises questions regarding the reliability of responses when the quality of 1 component of the compound stimulus (e.g., the gestural or vocal component of the cue) worsens or is removed. Furthermore, limited research has examined stimulus generalization in dogs trained with a combination of gesture and vocal cues. For this study, we conducted 2 experiments. In experiment 1, we assessed the reliability of responding to gestural-only, vocal-only, and combined presentation of cues. In experiment 2, we assessed the effects of cue modality on the generalization of learned behaviors across 3 novel conditions. For both experiments, we found no statistically significant differences across conditions. However, in Experiment 2, we did find differences in the number of trials required to meet generalization criteria based on cue modality and that in all 3 novel situations, dogs consistently generalized more readily when presented with the combined cues. These differences suggest that the presentation of the combination of vocal and gestural cues may increase the reliability of correct responses across novel situations.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Effects of learning an increasing number of odors on olfactory learning, memory and generalization in detection
+dogs</b><br>
+    <span class="ja-meta">Waggoner, P &middot; Applied Animal Behaviour Science &middot; 2022</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Detection dogs continue to represent the most effective technology for the detection of explosives and other contraband. As the number of target odors and their variants that detection dogs are    required to learn continues to increase, understanding the capacity for odor learning and the effects on performance of training on an increasing number of target odors on performance is critical. In the present study, we examined dogs’ ability to learn an increasing number of odor discriminations and the effects of learning new odors on the recall of previously trained odors. We trained dogs to respond  to up to 40 odors in an odor discrimination task over the span of 16 months. Odors were trained in sets of 10 every three months. Recall of previously trained subsets was assessed at intervals of &lt; 1, 4,  and 12 months since last exposure, and after learning 10, 20, 30, and 40 cumulative odors. We assessed the effects of training on these large numbers of target odors on generalization to untrained, but related, target odors. In addition to assessing performance in an odor discrimination task, we also evaluated the effects of learning many odor discriminations and the passage of time on performance in  an operationally relevant search task. Dogs rapidly learned new odor discriminations across the 40 odors, with little to no decrease in the recall of previously trained odors or generalization to related  odors. Further, dogs recalled odors not experienced within 12 months with 100% accuracy and no increase in false alarm rate. The results indicate that the limits of odor identification recall capabilities of dogs were not challenged by training on a cumulative total of 40 odor discriminations nor by up to a 12-month gap in exposure to those odors, therefore establishing the robust capabilities of dogs for learning and remembering many odor identifications.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>How spontaneous is spontaneous quantity discrimination in companion dogs?</b><br>
+    <span class="ja-meta">Simona, N &middot; Applied Animal Behaviour Science &middot; 2022</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Although quantity discrimination and the factors affecting it have been widely studied in the domestic dog using a variety of paradigms, little attention has been given to the possible effects of the used paradigm itself. In the present study, we employed a paradigm in which naïve companion dogs were repeatedly presented with a free choice between two quantities of food (2vs.4, more difficult comparison, and 1 vs.8, simpler comparison). Dogs did not undergo any previous training and could freely choose to feed from either plate. After the choice was made, the second plate was withdrawn without letting the dog to eat its content. We hypothesized that a preference for the larger quantity of food may emerge as a consequence of experiencing the experimental procedure, and may not be expressed by the dogs on their first choice (hypothesis 1). If so, rewards experienced in the first trial may affect behaviour on subsequent trials (hypothesis 2). Data were analysed using generalized linear mixed models. Both hypothesis 1 (general performance P &lt; 0.0001, i.e., above chance level; first choice P = 0.06, i.e., chance level) and 2 (P = 0.001) were confirmed by the experimental results. The difficulty of the numerical comparison and the neuter status of the dogs had a significant effect on the overall performance, but not on the first choice nor on the likelihood of redirecting after the first  trial. The results suggest that domestic dogs are highly sensitive to the results of their experience and adjust their behaviour accordingly, even after one single event. Future studies may help to  disentangle the role of the food seen vs. eaten by the dog and the possible role of unintentional human feedback after the first choice.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Pet dogs’ Behavioural Reaction to Their Caregiver’s Interactions with a Third Party: Join in or Interrupt?</b><br>
+    <span class="ja-meta">Karl, S. &middot; Animals &middot; 2022</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Pet dogs are promising candidates to study attachment-related and potentially jealousy-like behaviours in non-human animals, as they form a strong and stable bond with their human caregivers who   often engage in affiliative interactions with diverse social partners. Nevertheless, it is still debated whether non-human animals are capable of experiencing such complex emotions. Even though    caregivers frequently report observations of jealousy-like behaviours in dogs, behavioural studies in dogs have thus far led to contradictory results. Adding to this complexity, dogs appear extraordinarily skilled in understanding humans’ communicative behaviour and can flexibly and diversely interact with them in social contexts. Here, we aimed at investigating (1) whether dogs indeed respond in a jealousy-consistent manner when seeing their caregiver interact in an affiliative way with a remotely controlled, realistic-looking fake dog, or (2) whether they would rather synchronize their reaction to   the fake dog with the caregiver’s behaviour, or (3) whether they respond directly to the caregiver without paying much attention to the third party. To address what drives the dogs’ behaviours in this  triadic situation, we compared four groups of dogs who first observed and then joined the interaction of either the caregiver or a stranger greeting or medically examining the fake dog. We found that the dogs initially responded negatively or neutrally when the fake dog entered the room but changed to more positive reactions when the caregiver approached the fake dog, especially if initiating a positive interaction. When being released, more dogs showed friendly behaviours towards the fake dog when the caregiver—rather than the stranger—was interacting with it. At the same time, however, the     dogs tried to block the interaction of the caregiver with the fake dog more often than the one of the stranger. In conclusion, we did not find clear evidence for jealousy-like behaviours in dogs during the human–fake dog interactions, but we observed indicators of behavioural synchronization with the caregivers, suggesting that the caregivers’ affiliative behaviours directed at a third party may more often facilitate positive than negative interactions in dogs.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Responses to spoken words by domestic dogs: A new instrument for use with dog owners</b><br>
+    <span class="ja-meta">Reeve, C &middot; Applied Animal Behaviour Science &middot; 2022</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Dogs serve many roles in people’s lives, whether as valued family members or trained workers. Their ability to respond to human nonverbal and verbal cues is central to these roles. We aimed to develop     a comprehensive owner-reported inventory of words to which owners believe their dogs respond differentially and consistently. Our tool was modeled after the MacArthur-Bates Communicative Development Inventory (Fenson et al., 2007), a parent-report checklist that assesses infants’ understanding and development of early language. The validity, reliability and usability of our measure was assessed with 165 owners of dogs of various ages and breeds. Owners identified words to which they believed their dogs responded. They reported that, on average, their dogs responded to 89 words (78 from the lists provided plus 11 added by them), half of which were commands. To examine potential owner- and dog-related predictors of words reported, owners also answered questions about their   dogs and themselves. None of the owner characteristics measured uniquely predicted the number of words reported, but dogs’ professional work status, how quickly they reportedly learn new tricks, and their breed type did. A Principal Component Analysis revealed that words to which dogs reportedly respond encompassed three distinct types: General Words, Verbs (Commands), and Nouns. Thus, based on owner reports, dogs seem to vary greatly not only in the number but also in the kinds of words to which they purportedly respond. Our inventory is intended for use in research on human-dog communication designed to address a variety of research questions.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>The Neurobiology of Behavior and Its Applicability for Animal Welfare: A Review</b><br>
+    <span class="ja-meta">Coria-Avila &middot; Animals &middot; 2022</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Understanding the foundations of the neurobiology of behavior and well-being can help us better achieve animal welfare. Behavior is the expression of several physiological, endocrine, motor and emotional responses that are coordinated by the central nervous system from the processing of internal and external stimuli. In mammals, seven basic emotional systems have been described that when activated by the right stimuli evoke positive or negative innate responses that evolved to facilitate biological fitness. This review describes the process of how those neurobiological systems can directly influence animal welfare. We also describe examples of the interaction between primary (innate) and secondary (learned) processes that influence behavior.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Using Live and Video Stimuli to Localize Face and Object Processing Regions of the Canine Brain</b><br>
+    <span class="ja-meta">Gillette, K. &middot; Animals &middot; 2022</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Previous research to localize face areas in dogs’ brains has generally relied on static images or videos. However, most dogs do not naturally engage with two-dimensional images, raising the question of whether dogs perceive such images as representations of real faces and objects. To measure the equivalency of live and two-dimensional stimuli in the dog’s brain, during functional magnetic resonance imaging (fMRI) we presented dogs and humans with live-action stimuli (actors and objects) as well as videos of the same actors and objects. The dogs (n = 7) and humans (n = 5) were presented with 20 s blocks of faces and objects in random order. In dogs, we found significant areas of increased activation in the putative dog face area, and in humans, we found significant areas of increased activation in    the fusiform face area to both live and video stimuli. In both dogs and humans, we found areas of significant activation in the posterior superior temporal sulcus (ectosylvian fissure in dogs) and the lateral occipital complex (entolateral gyrus in dogs) to both live and video stimuli. Of these regions of interest, only the area along the ectosylvian fissure in dogs showed significantly more activation to live faces than to video faces, whereas, in humans, both the fusiform face area and posterior superior temporal sulcus responded significantly more to live conditions than video conditions. However, using the    video conditions alone, we were able to localize all regions of interest in both dogs and humans. Therefore, videos can be used to localize these regions of interest, though live conditions may be more salient.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Personality and Cognitive Profiles of Animal- Assisted Intervention Dogs and Pet Dogs in an Unsolvable Task</b><br>
+    <span class="ja-meta">Piotti, P &middot; Animals &middot; 2021</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Dogs are biologically predisposed to communicate with humans in cooperative contexts. They show individual differences in dog–human communication and inhibition, potentially enhanced by life experience, e.g., Animal-Assisted Interventions. This study aimed to investigate whether dogs’ personality, defined by biologically meaningful neural circuits described in the Reinforcement Sensitivity Theory of Personality (RST), predicted dogs’ communication, task orientation, emotional state, and approach of an unsolvable task. We also investigated the differences between dogs experienced in Animal-Assisted Interventions (AAI) and inexperienced dogs. The results indicated that a high sensitivity to the RST personality trait related to managing uncertainty (Behavioural Inhibition System, BIS) predicted fewer task orientations but increased referential and non-referential looking, which we interpreted as a way to obtain directions from the owner. Conversely, a high sensitivity to the traits reflecting tendencies to approach rewards (Behavioural Approach System, BAS) and avoid punishment (Fight–Flight–Freeze System, FFFS) predicted lower looking. High sensitivity to the FFFS also predicted more frequent task orientations, which we interpreted as frustration. Finally, the dogs in the AAI program looked more at their owner and were less oriented towards the task. These results provide empirical evidence of individual differences tied to the psychobiological personality traits in canine cognitive skills. Understanding such cognitive profiles may have an enormous impact on activities that rely upon dog–human collaborative interaction.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>The effectiveness of visual and auditory elements of a compound stimulus in controlling behavior in the domestic dog (Canis familiaris)</b><br>
+    <span class="ja-meta">Gibsone &middot; Journal of Veterinary Behavior &middot; 2021</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> This study measured the responses of dogs to signals delivered via hand and voice signals. The study sought to determine whether dogs would display differential stimulus control when switching from a compound stimulus (auditory-visual) cue to presentation of only one of its elements. Twelve dogs performed a target behavior in response to a 2-element compound stimulus composed of a hand (visual modality) signal and a voice (auditory modality) signal. The mean percent correct responses to the visual element (M = 56.5, SD = 20.74) and the auditory element (M = 67.5, SD = 21.57) were both significantly lower than the 85% correct for the compound stimulus, P &lt; 0.017. There was also evidence of a preference for one of the elements of the compound stimulus. The mean percent correct for the more favoured element (M = 77.25, SD = 12.53) was significantly higher than for the less favoured element (M = 46.75, SD = 17.2), P &lt; 0.001. The identity of the favoured element was not consistent across the animals with 75% preferring the auditory element and 25% the visual element. This study contributes to an understanding of factors related to the stimulus control of learned behaviors. The differential control of behavior by alternative cues has implications for the training of assistance or service and other working animals with multiple cues. The results would strongly suggest that training with a compound stimulus is not appropriate if only elements of the compound stimulus are to be subsequently used.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>The effects of social and non- social distracting stimuli on dogs with different levels of social competence – Empirical evidence for a canine model of autism</b><br>
+    <span class="ja-meta">Galambos, A &middot; Applied Animal Behaviour Science &middot; 2021</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> The dog (Canis familiaris) has been proposed as a model of numerous human psychiatric diseases, including autism spectrum disorder (ASD). A recent account of the mechanisms underlying autistic behaviour in humans suggests that the core social symptoms of autism are rooted in impaired social motivation. Here we aimed to investigate the plausibility of this motivational explanation in dogs –     that is, to study whether a decrease in social motivation (specifically, in the attentional weight assigned to social stimuli) is related to ASD-like behaviours in dogs. Based on the diagnostic criteria of ASD,    we have developed a questionnaire (Interspecific Social Responsiveness Survey – ISRS) to assess those aspects of social skills in dogs that may relate to ASD-like behaviours. Analysis of the responses was carried out using a sample of 1343 dogs, and the exploratory factor analysis of the 26 items produced a three-factor solution accounting for 41.3% of the variance. A subsample of subjects (N = 20 adult  dogs with varying ISRS scores) were then trained to use a touchscreen in a visual cue-response association task. During the test phase, dogs had to perform the same motor task (nose poke response)    while exposed to non-social and social distracting stimuli (10 trials in a semi-random order). The behavioural performance of the dogs (measured by looking times and response latency) with different   levels of social competence varied in terms of how they responded to the distracting stimuli. The pattern of results revealed that subjects with higher level of social competence showed a stronger distinction between the social and non-social distractors, manifesting in increased looking at the social (but task-irrelevant) stimulus and in reduced orientation toward the touchscreen. Our findings correspond with those previously found in human ASD studies, and further confirm the idea that domestic dogs represent a promising model for the study of human-analogue forms of social-motivational deficits.</div>
+  </div>
+  <div class="ja-quiz">
+    <h3 class="ja-quiz-h">Journal Self-Test</h3>
+    <div id="jaQuizHost"></div>
+  </div>
+  <script data-journal-quiz>
+  (function(){
+    var JQ=[{"q": "The Quiet Kennel Exercise (QKE) reduced barking by using which mechanism?", "o": ["Punishment", "Classical counterconditioning to shift emotional state", "Bark collars", "Debarking surgery"], "a": 1, "e": "QKE used classical counterconditioning to convert a negative emotional state to positive.", "t": "journal", "f": "journal"}, {"q": "During the intervention, passersby were asked to:", "o": ["Ignore the dogs entirely", "Toss each dog a treat regardless of its behavior", "Reprimand barking dogs", "Treat only quiet dogs"], "a": 1, "e": "Passersby tossed each dog a treat irrespective of behavior, the counterconditioning stimulus.", "t": "journal", "f": "journal"}, {"q": "Descriptive results suggested barking over the intervention:", "o": ["Increased over time", "Worsened in the afternoon", "Was unchanged", "Improved, with the most improvement in the afternoon"], "a": 3, "e": "Fewer dogs barked and barking decreased, with the greatest improvement in the afternoon.", "t": "journal", "f": "journal"}, {"q": "When comparing gestural-only, vocal-only, and combined cues for response reliability, the study found:", "o": ["Combined cues significantly more reliable", "No statistically significant differences across conditions", "Vocal cues clearly superior", "Gestural cues clearly superior"], "a": 1, "e": "Reliability of responding did not differ significantly across the three cue conditions.", "t": "journal", "f": "journal"}, {"q": "Across novel situations, dogs generalized learned behaviours most readily when given:", "o": ["Vocal-only cues", "Gestural-only cues", "Combined gesture-plus-vocal cues", "No cue"], "a": 2, "e": "Dogs consistently generalized more readily and met criteria in fewer trials with combined cues.", "t": "journal", "f": "journal"}, {"q": "A practical implication of the findings is that:", "o": ["Vocal cues should be dropped in training", "Gestures alone maximize generalization", "Cue modality has no effect on training", "Combining vocal and gestural cues may increase reliable responding across novel situations"], "a": 3, "e": "The compound cue presentation may enhance reliability of correct responses in new contexts.", "t": "journal", "f": "journal"}, {"q": "What did free-ranging dogs demonstrate across the trial days?", "o": ["No ability to distinguish the experimenters", "Learning to identify the rewarding person", "Preference for the non-rewarding person", "Avoidance of all humans"], "a": 1, "e": "Correct choices rose significantly by days 5 and 6 versus day 2, indicating learning.", "t": "journal", "f": "journal"}, {"q": "On which days were correct choices significantly higher than on Day 2?", "o": ["Days 5 and 6", "Day 1 only", "Never significant", "Day 3 only"], "a": 0, "e": "Dogs chose the previously rewarding person significantly more often on days 5 and 6.", "t": "journal", "f": "journal"}, {"q": "What reward marked the correct experimenter?", "o": ["A toy", "Boiled chicken followed by petting", "Verbal praise only", "A ball"], "a": 1, "e": "The rewarding experimenter gave boiled chicken followed by petting.", "t": "journal", "f": "journal"}, {"q": "How many basic emotional systems does the review describe in mammals?", "o": ["Three", "Five", "Seven", "Ten"], "a": 2, "e": "Seven basic emotional systems were described in mammals.", "t": "journal", "f": "journal"}, {"q": "Behavior is coordinated by which system processing internal and external stimuli?", "o": ["The endocrine glands alone", "The central nervous system", "The digestive system", "The immune system"], "a": 1, "e": "The central nervous system coordinates the responses underlying behavior.", "t": "journal", "f": "journal"}, {"q": "The review highlights interaction between which two process types influencing behavior?", "o": ["Primary (innate) and secondary (learned)", "Acute and chronic", "Aerobic and anaerobic", "Genetic and epigenetic"], "a": 0, "e": "It examines interplay of primary (innate) and secondary (learned) processes.", "t": "journal", "f": "journal"}, {"q": "Dogs with higher social competence showed what response to social vs non-social distractors?", "o": ["A stronger distinction, looking more at social stimuli", "No difference between distractor types", "Less looking at all stimuli", "Complete avoidance of the task"], "a": 0, "e": "Higher-competence dogs more strongly distinguished distractors, looking more at the social stimulus.", "t": "journal", "f": "journal"}, {"q": "The findings support dogs as a model for which human condition?", "o": ["Parkinson's disease", "Epilepsy", "Autism spectrum disorder / social-motivational deficits", "Depression only"], "a": 2, "e": "Results mirror human ASD studies, supporting a canine model of social-motivational deficits.", "t": "journal", "f": "journal"}, {"q": "The ISRS questionnaire factor analysis produced:", "o": ["A one-factor solution", "A three-factor solution", "A five-factor solution", "No interpretable factors"], "a": 1, "e": "Exploratory factor analysis of the 26 items yielded a three-factor solution.", "t": "journal", "f": "journal"}, {"q": "How did dogs experienced in Animal-Assisted Interventions differ from pet dogs on the unsolvable task?", "o": ["Ignored their owner", "Solved the task faster", "Looked more at their owner and were less task-oriented", "Showed more aggression"], "a": 2, "e": "AAI dogs looked more at their owner and were less oriented toward the task.", "t": "journal", "f": "journal"}, {"q": "High sensitivity to the Behavioural Inhibition System (BIS) predicted:", "o": ["More referential looking and fewer task orientations", "More task orientations", "Less looking at the owner", "Faster task completion"], "a": 0, "e": "BIS sensitivity predicted fewer task orientations but increased referential/non-referential looking.", "t": "journal", "f": "journal"}, {"q": "The study's overall conclusion about canine cognitive skills was that they reflect:", "o": ["No link to personality", "Individual differences tied to psychobiological personality traits", "Breed alone determining behavior", "Age as the only predictor"], "a": 1, "e": "Findings provided evidence of individual differences tied to psychobiological personality traits.", "t": "journal", "f": "journal"}, {"q": "Responses to a single element (visual or auditory alone) compared with the full compound stimulus were:", "o": ["Higher", "The same", "Significantly lower", "Undetectable"], "a": 2, "e": "Single-element accuracy was significantly below the 85% achieved with the compound cue.", "t": "journal", "f": "journal"}, {"q": "Across the dogs, the favoured element of the compound stimulus was:", "o": ["Always auditory", "Always visual", "Not consistent (75% auditory, 25% visual)", "Absent in all dogs"], "a": 2, "e": "Preference varied by dog: 75% favoured the auditory and 25% the visual element.", "t": "journal", "f": "journal"}, {"q": "A key training implication of the findings is that:", "o": ["Compound cues should always be used", "Training with a compound stimulus is inappropriate if only single elements will later be used", "Cues are irrelevant", "Only voice cues work"], "a": 1, "e": "Compound-stimulus training is unsuitable when individual elements are used later alone.", "t": "journal", "f": "journal"}, {"q": "On average, how many words did owners report their dogs respond to?", "o": ["About 30", "About 50", "About 89", "About 150"], "a": 2, "e": "Owners reported dogs responded to ~89 words on average (78 listed plus 11 added).", "t": "journal", "f": "journal"}, {"q": "How many distinct word categories did the Principal Component Analysis reveal?", "o": ["Two", "Three", "Four", "Five"], "a": 1, "e": "Three types emerged: General Words, Verbs (Commands), and Nouns.", "t": "journal", "f": "journal"}, {"q": "Which factors uniquely predicted the number of words reported?", "o": ["Owner age and education", "Owner gender", "Dog work status, learning speed, and breed type", "Owner income"], "a": 2, "e": "No owner characteristics predicted word count; dog professional work status, learning speed, and breed type did.", "t": "journal", "f": "journal"}, {"q": "On their very first choice, dogs' preference for the larger food quantity was at what level?", "o": ["Well above chance", "At chance level", "Below chance", "Perfect"], "a": 1, "e": "First-choice performance was at chance (P=0.06); above-chance preference emerged only with experience.", "t": "journal", "f": "journal"}, {"q": "What did the results suggest drives dogs' quantity choices?", "o": ["An innate, fixed number sense", "Sensitivity to recent experience and outcomes", "Breed alone", "Coat colour"], "a": 1, "e": "Dogs adjusted behaviour based on outcomes, even after a single trial, confirming experience-sensitivity.", "t": "journal", "f": "journal"}, {"q": "Which factors significantly affected overall performance?", "o": ["Owner sex and time of day", "Comparison difficulty and neuter status", "Coat colour and age", "Plate colour"], "a": 1, "e": "Numerical comparison difficulty and neuter status significantly affected overall (but not first-choice) performance.", "t": "journal", "f": "journal"}, {"q": "After up to a 12-month gap in exposure, recall of previously trained odors was:", "o": ["About 50% accurate", "About 75% accurate", "100% accurate", "Severely degraded"], "a": 2, "e": "Dogs recalled odors unexposed for 12 months with 100% accuracy and no rise in false alarms.", "t": "journal", "f": "journal"}, {"q": "Up to how many cumulative odor discriminations were dogs trained on?", "o": ["10", "20", "40", "100"], "a": 2, "e": "Odors were trained in sets of 10 up to a cumulative total of 40 over 16 months.", "t": "journal", "f": "journal"}, {"q": "What effect did learning new odors have on recall of previously trained odors?", "o": ["Severe interference", "Little to no decrease", "Complete loss", "Sharp rise in false alarms"], "a": 1, "e": "Dogs showed little to no decrease in recall of prior odors when learning new ones.", "t": "journal", "f": "journal"}, {"q": "Could video stimuli alone localize all face/object processing regions of interest?", "o": ["No, only live stimuli worked", "Yes, videos localized all the ROIs", "Only in humans", "Only in dogs"], "a": 1, "e": "Using video conditions alone, all ROIs were localized in both dogs and humans.", "t": "journal", "f": "journal"}, {"q": "Which dog region responded significantly more to live faces than to video faces?", "o": ["Entolateral gyrus", "Putative dog face area", "The area along the ectosylvian fissure", "Caudate nucleus"], "a": 2, "e": "Only the ectosylvian fissure area showed greater activation to live than video faces.", "t": "journal", "f": "journal"}, {"q": "Overall, live stimuli were suggested to be:", "o": ["Less salient than video", "More salient than video", "Identical to video everywhere", "Aversive to dogs"], "a": 1, "e": "Videos sufficed for localization, but live conditions may be more salient.", "t": "journal", "f": "journal"}, {"q": "Did the study find clear evidence for jealousy-like behaviours in dogs?", "o": ["Yes, strong evidence", "No clear evidence", "Only in male dogs", "Only toward strangers"], "a": 1, "e": "No clear evidence of jealousy-like behaviour was found in the triadic interactions.", "t": "journal", "f": "journal"}, {"q": "The dogs' behaviour was best explained by:", "o": ["Jealousy", "Behavioural synchronization with caregivers", "Fear of the fake dog", "Food motivation"], "a": 1, "e": "Indicators pointed to behavioural synchronization with the caregiver.", "t": "journal", "f": "journal"}, {"q": "Dogs showed more friendly behaviour toward the fake dog when it was approached by:", "o": ["A stranger", "The caregiver", "No one", "Another dog"], "a": 1, "e": "More dogs were friendly toward the fake dog when the caregiver interacted with it.", "t": "journal", "f": "journal"}];
+    var host=document.getElementById('jaQuizHost'); if(!host||!JQ.length) return;
+    var L=["A","B","C","D"];
+    JQ.forEach(function(item,i){
+      var card=document.createElement('div'); card.className='ja-qcard';
+      var stem=document.createElement('div'); stem.className='ja-qstem';
+      stem.textContent=(i+1)+'. '+item.q; card.appendChild(stem);
+      var done=false;
+      item.o.forEach(function(opt,oi){
+        var b=document.createElement('button'); b.className='ja-qopt';
+        b.innerHTML='<b>'+L[oi]+'.</b> '+opt;
+        b.onclick=function(){
+          if(done) return; done=true;
+          var kids=card.querySelectorAll('.ja-qopt');
+          for(var k=0;k<kids.length;k++){kids[k].classList.add('locked');}
+          kids[item.a].classList.add('correct');
+          if(oi!==item.a) b.classList.add('wrong');
+          var ex=document.createElement('div'); ex.className='ja-qexpl';
+          ex.innerHTML='<b>Answer: '+L[item.a]+'.</b> '+item.e; card.appendChild(ex);
+        };
+        card.appendChild(b);
+      });
+      host.appendChild(card);
+    });
+  })();
+  </script>
+</section>
+<!-- JOURNAL-ARTICLES:END -->
+
 </div></main>
 <footer><div class="wrap">
   Learning Theory subdomain hub &middot; Behavioural Health domain &middot; ABVP Shelter Medicine Practice RVS, November 2026. Content is from your Learning Theory notes (originally prepared for MANZCVS behaviour and trimmed to ABVP scope). The four operant quadrants, the negative versus positive punishment distinction, and the LIMA, Humane Hierarchy, and desensitisation and counter-conditioning framing were added from standard behaviour references and the ASV Standards of Care 2022 (section 9.7), and are badged ref or ASV. Deep molecular neurobiology was summarised rather than reproduced. The draft 2 ft and 42 sq ft housing figures were omitted because they conflict with ASV. In-house SVG schematics are original didactic constructions. Supports light and dark mode.

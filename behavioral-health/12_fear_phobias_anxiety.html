@@ -192,6 +192,10 @@
   <button data-p="storm"><span class="dot"></span>Noise &amp; Storm Phobia</button>
   <button data-p="pharm"><span class="dot"></span>Pharmacology</button>
   <button data-p="mcq"><span class="dot" style="background:var(--chrome2)"></span>MCQ Test Bank</button>
+
+<!-- JOURNAL-TAB:START -->
+<button data-p="journal"><span class="dot" style="background:var(--lit, #1f6f8b)"></span>Journal Articles</button>
+<!-- JOURNAL-TAB:END -->
 </div></div></nav>
 <div class="srch-wrap"><div class="wrap"><div class="srch-row">
 <svg width="14" height="14" viewBox="0 0 15 15" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="m10.5 10.5 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -589,6 +593,245 @@
   </div>
   <div id="qhost"></div>
 </section>
+
+<!-- JOURNAL-ARTICLES:START -->
+<style data-journal-css>
+/* ── Journal Articles section ─────────────────────────────────────────── */
+.ja-standalone {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 2px solid var(--line, #d9d0bd);
+}
+.ja-article {
+  margin-bottom: 24px;
+  padding: 20px 22px 18px;
+  background: var(--paper2, #fbf8f1);
+  border-radius: 10px;
+  box-shadow: var(--shadow, 0 1px 2px rgba(15,61,58,.08), 0 8px 24px rgba(15,61,58,.06));
+}
+.ja-cite {
+  margin: 0 0 10px;
+  line-height: 1.45;
+  font-size: 0.97em;
+}
+.ja-meta {
+  color: var(--muted, #5d6b62);
+  font-size: 0.875em;
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0.01em;
+}
+.ja-meta a {
+  color: var(--lit, #1f6f8b);
+  text-decoration: none;
+}
+.ja-meta a:hover {
+  text-decoration: underline;
+}
+.ja-abstract {
+  border-left: 3px solid var(--lit, #1f6f8b);
+  padding: 10px 14px;
+  margin: 0 0 18px;
+  background: var(--lit-soft, #dcedf2);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.925em;
+  line-height: 1.6;
+  color: var(--ink, #0f3d3a);
+}
+.ja-mcq {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line, #d9d0bd);
+}
+.ja-mcq + .ja-mcq {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.ja-q {
+  font-weight: 600;
+  font-size: 0.93em;
+  margin: 0 0 7px;
+  color: var(--ink, #0f3d3a);
+}
+.ja-opts {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ja-opt {
+  font-size: 0.9em;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: var(--ink2, #15514c);
+  background: transparent;
+}
+.ja-opt b {
+  display: inline-block;
+  min-width: 1.5em;
+  color: var(--muted, #5d6b62);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.88em;
+}
+.ja-ans {
+  margin-top: 4px;
+}
+.ja-ans summary {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 0.83em;
+  font-family: "JetBrains Mono", monospace;
+  padding: 3px 10px;
+  border: 1px solid var(--lit, #1f6f8b);
+  border-radius: 5px;
+  color: var(--lit, #1f6f8b);
+  background: transparent;
+  user-select: none;
+  list-style: none;
+}
+.ja-ans summary::-webkit-details-marker { display: none; }
+.ja-ans summary::marker { display: none; }
+.ja-ans summary:hover {
+  background: var(--lit-soft, #dcedf2);
+}
+.ja-ans[open] summary {
+  background: var(--lit-soft, #dcedf2);
+  margin-bottom: 6px;
+}
+.ja-ans-body {
+  font-size: 0.9em;
+  padding: 8px 12px;
+  background: var(--paper, #fdfaf4);
+  border: 1px solid var(--line, #d9d0bd);
+  border-radius: 6px;
+  line-height: 1.55;
+  color: var(--ink, #0f3d3a);
+}
+.ja-ans-correct {
+  font-weight: 600;
+  color: var(--good, #2f7d52);
+  display: block;
+  margin-bottom: 4px;
+}
+.ja-ans-rationale {
+  color: var(--ink2, #15514c);
+}
+/* ── Journal self-test (pages without an MCQ bank) ── */
+.ja-quiz { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line, #d9d0bd); }
+.ja-quiz-h { font-family: "Fraunces", serif; font-weight: 600; font-size: 18px; margin: 0 0 12px; color: var(--ink, #0f3d3a); }
+.ja-qcard { background: var(--paper2, #fbf8f1); border: 1px solid var(--line, #d9d0bd); border-radius: 12px; padding: 14px 16px; margin: 12px 0; }
+.ja-qstem { font-weight: 600; font-size: 0.95em; margin-bottom: 10px; color: var(--ink, #0f3d3a); }
+.ja-qopt { display: block; width: 100%; text-align: left; cursor: pointer; font: inherit; font-size: 0.9em; padding: 8px 11px; margin: 5px 0; border: 1px solid var(--line, #d9d0bd); border-radius: 8px; background: var(--paper, #fdfaf4); color: var(--ink, #0f3d3a); }
+.ja-qopt b { color: var(--muted, #5d6b62); font-family: "JetBrains Mono", monospace; margin-right: 4px; }
+.ja-qopt:hover:not(.locked) { border-color: var(--lit, #1f6f8b); }
+.ja-qopt.locked { cursor: default; }
+.ja-qopt.correct { background: #e9f4ee; border-color: var(--good, #2f7d52); }
+.ja-qopt.wrong { background: #f8e9e9; border-color: var(--bad, #b23b3b); }
+.ja-qexpl { font-size: 0.88em; margin-top: 8px; padding: 9px 12px; background: var(--lit-soft, #dcedf2); border-radius: 8px; color: var(--ink2, #15514c); line-height: 1.5; }
+/* ── Journal source badge (self-contained so it renders on any bank page) ── */
+.bdg.journal {
+  display: inline-block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9.5px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 999px;
+  vertical-align: middle;
+  white-space: nowrap;
+  background: var(--lit-soft, #dcedf2);
+  color: var(--lit, #1f6f8b);
+}
+</style>
+<section class="panel" id="journal">
+  <h2 class="sec">Additional Resources</h2>
+  <p class="lead">Journal Articles (2021–2026) — exam items are drawn from the abstract only. Read each abstract here; self-test questions are in the MCQ Test Bank.</p>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Attachment style and social behavior in dogs from commercial breeding kennels</b><br>
+    <span class="ja-meta">Stahl &middot; Applied Animal Behavior Science &middot; 2024</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Much of the demand for purebred dogs in the USA is met by commercial breeding kennels (CBKs). In CBKs, adult dogs have been reported to exhibit signs of fear towards strangers. Social fear is a particular welfare concern as it may lead to acute and chronic stress in the kennel, and later, after dogs are retired and rehomed. Studies on pet and shelter dogs have shown that the type of attachment style dogs have with their caretakers is associated with their social behavior towards strangers. Thus, the aims of this study were to characterize the attachment styles of dogs from CBKs to their caretakers, and investigate relationships between the types of attachment styles observed and social fear behaviors in the dogs. Forty-eight adult dogs were tested from three CBKs in Indiana, USA. Twenty (41.67%) dogs were classified as secure, 16 (33.33%) as insecure ambivalent, 9 (18.75%) as insecure avoidant, and 3 (6.25%) as insecure disorganized. Generalized linear mixed-effects models showed that secure and ambivalent dogs approached the stranger more frequently (X2 = 24.636, p &lt; 0.001), and solicited contact more frequently (X2 = 13.092, p = 0.004) than did avoidant dogs. Wilcoxon Signed-Rank Tests showed that secure, ambivalent, and avoidant dogs all initially approached the stranger more quickly in the Paired-Effect test (when the caretaker was present) than in the Stranger Arena test (p &lt; 0.05). Secure and ambivalent dogs also spent more time in proximity to (p &lt; 0.001) and solicited more contact from (p &lt; 0.01) the stranger in the Paired-Effect test than in the Stranger Arena test. These results suggest that there is an association between type of attachment style and fear behaviors towards a stranger in this sample of dogs. Understanding connections between attachment style and social fear, and their implications for stress and welfare in dogs from CBKs may help inform breeders’ socialization, social interactions, and related management practices. This in turn may help to reduce dogs’ social fear and enhance their long-term welfare outcomes in the kennel. These insights may also aid rehoming efforts, as breeders could potentially inform new owners about behaviors they might expect from their dogs, which might help avoid mismatches in expectations, and in so doing, help keep dogs in their homes.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Impact of early socialisation in foster care on kitten behaviour.</b><br>
+    <span class="ja-meta">Campbell, Arnott, Graham, Niel, Ward, Ma &middot; Applied Animal Behaviour Science &middot; 2024</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Objectives: The critical socialisation period for kittens is estimated to be 2–7 weeks of age. Kittens reared in shelters often have poorer outcomes due to high rates of infectious disease. Therefore, many shelters are reliant on foster care programs to improve kitten survival rates and behaviour. However, little is known about the impact of specific early socialisation factors on kitten behaviour and health. Methods: During a 23-month period, 598 kitten foster carers completed a kitten socialisation questionnaire. The relationships between kitten weight/age at intake, days in care, singleton status, and the presence or absence of the queen during care on kitten behaviour and disease incidence were explored. Associations with exposure to noise, adults, children, location where the kitten was kept in the home, time spent alone, and ringworm treat- ment were also investigated. Results: Overall being kept in social areas of the house with less noise/activity and spending some time alone was associated with positive kitten behaviour. There was no difference in fear or anxiety responses for bottle fed kittens, singletons and those without the queen. Ringworm treatment was associated with more fearful behaviour in kittens. Conclusions: and relevance: Future foster carers should be encouraged to keep kittens in social areas of the house, whilst also ensuring kittens can spend some time alone. If the home is loud, carers should slowly introduce the kitten/s to the louder and busier areas of the house before being housed there all the time. Training of carers to use more positive reinforcement techniques for administering ringworm treatment may benefit kitten behaviour</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Potential Benefits of a ‘Trauma-Informed Care’ Approach to Improve the Assessment and Management of Dogs Presented with Anxiety Disorders</b><br>
+    <span class="ja-meta">Corridan &middot; Animals &middot; 2024</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Dog caregiver reporting on the spectrum of fearful–aggressive behaviours often describes ‘unpredictable’ or ‘exaggerated’ responses to a situation/animal/person. A possible explanation for these behavioural responses considers that the dog is reacting to triggered memories for which the dog has a negative association. For many dogs undergoing veterinary behavioural treatment or rehabilitation through a canine rescue organisation, the assessing clinician relies on “proxy” reporting of the history/background by a caregiver (dog owner, foster carer, or shelter personnel). Detailed information on the event or circumstances resulting in this negative association may be limited or absent altogether. Consideration of a trauma-informed care (TIC) approach, currently applied in a wide range of human psychology and social care fields, may be helpful in guiding the clinical approach taken. The literature relating to adverse early experience (AEE) and trauma-informed care (TIC) in puppies/dogs compared to children/adults was evaluated to identify common themes and conclusions identified across both species. In the absence of known/identifiable trauma, behavioural assessment and management should consider that a ‘problem’ dog may behave as it does, as the result of previous trauma. The dog can then be viewed through a lens of empathy and understanding, often lacking for dogs presenting with impulsive, reactive, or aggressive behaviours. Assessment must avoid re-traumatising the animal through exposure to triggering stimuli and, treatment options should include counselling of caregivers on the impact of adverse early experiences, consideration of the window of tolerance, and TIC behavioural modification techniques.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>An investigation into the effectiveness of various professionals and behavior modification programs, with or without medication, for the treatment of canine fears</b><br>
+    <span class="ja-meta">Dinwoodie &middot; Journal of Veterinary Behavior &middot; 2022</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> In this follow up study, we investigate a subset of 1,308 dogs whose owners (n = 1,048) described as having at least one form of fearful/anxious behavior. Using a self-reported questionnaire, owners were also asked to indicate the resolutions employed, including training methods and equipment, behavior modification programs, behavior modification and training techniques, medications, and forms of alternative medicine. Owners sought professional help for 50% of the fearful or anxious dogs. Nearly a quarter of the dogs were brought to a veterinarian for help; 15% of which were diagnosed with a medical condition contributing to the dog's misbehavior. Overall, reward-based training, mental stimulation, and habituation were associated with increased odds of improvement. For the specific fear/anxiety-based problems, various consultants and techniques or treatments were found beneficial. Inanimate fears benefited from the use of benzodiazepines, herbal remedies, and dietary changes. Animate fears had increased odds of improvement if the dog was brought to a behavior consultant, use of a relaxation protocol, and systematic desensitization. Situational fears benefitted from mental stimulation, a relaxation protocol, and short, frequent training sessions. Generalized anxiety had increased odds of improvement with nutraceutical therapy and enrollment in dog sporting activities. Negative odds of improvement were found if the dog had pre-existing aggression in conditions involving inanimate fears, situational anxiety, and post-traumatic stress disorder. Neutering (male or female) reduced odds of improvement for animate fears, as did consultation with a veterinarian or non-veterinary behaviorist and the use of benzodiazepines. Changes in management had a negative effect on treatment of situational fear/anxiety. Consulting a trainer and hormone therapy reduced odds of improvement with generalized anxiety disorder. Paradoxically, odds of improvement for post-traumatic stress disorder were reduced when increasing a dog's exercise level was employed in treatment.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Secure base effect in former shelter dogs and other family dogs: Strangers do not provide security in a problem-solving task</b><br>
+    <span class="ja-meta">Cimarelli &middot; PLoS One &middot; 2022</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Domestic dogs display behavioural patterns towards their owners that fulfil the four criteria of attachment. As such, they use their owners as a secure base, exploring the environment and manipulating objects more when accompanied by their owners than when alone. Although there are some indications that owners serve as a better secure base than other human beings, the evidence regarding a strong owner-stranger differentiation in a manipulative context is not straightforward. In the present study, we conducted two experiments in which pet dogs were tested in an object-manipulation task in the presence of the owner and of a stranger, varying how the human partner would behave (i.e. remaining silent or encouraging the dog, Experiment 1), and when alone (Experiment 2). Further, to gain   a better insight into the mechanisms behind a potential owner-stranger differentiation, we investigated the effect of dogs' previous life history (i.e. having lived in a shelter or having lived in the same household since puppyhood). Overall, we found that strangers do not provide a secure base effect and that former shelter dogs show a stronger owner-stranger differentiation than other family dogs. As former shelter dogs show more behavioural signs correlated with anxiety towards the novel environment and the stranger, we concluded that having been re-homed does not necessarily affect the likelihood of forming a secure bond with the new owner but might have an impact on how dogs interact with novel stimuli, including unfamiliar humans. These results confirm the owner's unique role in providing security to their dogs and have practical implications for the bond formation in pet dogs with a past in a shelter.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Age- dependent changes in dogs’ (Canis familiaris) separation- related behaviours in a longitudinal study</b><br>
+    <span class="ja-meta">Marx, A. &middot; Applied Animal Behaviour Science &middot; 2021</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Separation related problems (SRP) caused by distress associated with separation from the preferred member of the social group, can be characterised by their symptoms e.g., excessive vocalisation. In  dogs’ separation whines, nonlinear phenomena (NLP) (abrupt changes in the resonance of the vocal folds) might occur, which could be adaptive in communicating aroused inner states. Previously, using a separation test we found that more dogs that were classified as having SRP by their owner have NLP in their whines than nonaffected dogs and that NLP ratio increases with age, which suggests that separation stress might intensify with age. We repeated the separation test 21.19 ± 9.37 months later with 32 dogs from the previous study to investigate longitudinally how separation behaviour and vocalisations change with age. Beside   behaviour, we measured the acoustic structure of the whines (jitter - small-scale irregularity of the pitch, entropy - vocal harshness, call length, pitch (f0) related parameters, and the spectral components) and calculated the NLP ratio. We formed clusters based on the dogs’ behaviour changes from the first test to the second, to see individual ageing patterns. Finally, we compared the dogs’ behaviour and   the acoustic structure of their whines in the two occasions. We found that dogs could be clustered by the changes in their separation behaviour. 41 % of the dogs were stable over time, 38 % improved, and 16 % showed an increase in their separation behaviours. 3 % switched from barking to whining. Interestingly, SRP dogs were stable, some of them even showed improvement in their separation behaviour. On the contrary, we also found that SRP dogs tended to have an increased NLP ratio with age from test 1 to test 2 (p = 0.09), showed less escape-related behaviour (p = 0.01), but tended to spend more time passively whining at the door through which the owner left the room (p = 0.05), than non-SRP dogs. The behavioural and vocal results suggest elevated stress levels in SRP dogs with age, although they did not decline but mostly stayed stable in their separation behaviour, confirming that there could be a connection between SRP status, age, and NLP. However, together with the results of the clustering that showed that there are different patterns in dogs’ separation behaviour, we emphasise the  importance of individual level longitudinal investigations in order to facilitate the early diagnosis of SRP and to provide a solid basis for the development of individualised treatment plan for SRP dogs.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Digital Dogsitter® reduces vocalization in dogs suffering from separation- related problems</b><br>
+    <span class="ja-meta">Tiira, K &middot; Applied Animal Behaviour Science &middot; 2021</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Separation-related behaviour problems are common in domestic dogs. Vocalization is one of the most common symptoms in dogs, and neighbors often complain about dog barking and howling. We investigated the effect of digital application Digital Dogsitter® on the dogs’ vocalization (barking, howling, whining) when left alone. Digital Dogsitter® is an application, used via laptop or pc, and it  activates as a reaction to the dog’s vocalization and then plays a short owner-recorded feedback. Altogether 40 participants who had a laptop/pc at home and a dog that suffered from separation related symptoms, specifically vocalization, completed the study. Dogs’ vocalization (when alone at home) was recorded before and after using Digital Dogsitter® for two weeks, in order to investigate whether Digital Dogsitter® reduces dog’s vocalization. The amount of total dog vocalization noise (in milliseconds) was significantly reduced (P &lt; 0.001, N = 40) after using Digital Dogsitter® for two weeks. The reduction in the dogs’ vocalization after Digital Dogsitter® was 95.7%, which is very large compared to earlier studies. Owners’ opinions were also asked, and only 9.4% of the owners felt that no improvement was seen. Finally, we wanted to know, whether the effect of Digital Dogsitter® was long lasting, and sent a questionnaire to participants an average of eight months after the first study. Out  of 35 participants that responded, 68.7% felt that Digital Dogsitter® did reduce the vocalization either rather well / extremely well, and only 14.3% felt, that no long-lasting effect was noticed. In addition, after eight months the owners also reported significantly less dogs’ destructive behavior compared to the starting situation. Digital Dogsitter® clearly reduces dogs’ vocalization, possibly also alleviating the separation-related stress.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Pet dogs home alone: A video- based study</b><br>
+    <span class="ja-meta">Stephan, G &middot; Applied Animal Behaviour Science &middot; 2021</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Many dogs are left alone at home by their owners for several hours on a daily basis. This practice is known to be a possible source of complication in dog keeping. Behaviourists and veterinarians are frequently consulted due to excessive vocalisations, destructive behaviour and house-soiling of dogs left alone by their owners. These observations are thought to be symptoms of a disorder which most authors refer to as separation anxiety or separation related behaviour. Little is known about dogs, which showed mostly inconspicuous behaviour during separation, and possible effects of the presence of conspecifics in multi-dog households, which may help coping with separation. Therefore, we videotaped 32 dogs in single-dog and 45 dogs in multi-dog households left home alone as part of their usual routine. We performed a continuous sampling of location, posture, vocalization, and various other behaviours. Calculating and comparing percentages of observation time we tested possible effects of familiar conspecifics, and investigated the effects of sex and neuter status, variables that are discussed to have an influence on the onset of separation anxiety. In general, our dogs showed low physical activity as well as a low vocal activity, independent from the time being alone. Male dogs in multi-dog households showed a significantly higher vocal activity. A further sex related difference was that male dogs were more prone to stay at the exit-door. This bias may be due to sex-specific motivations but seems to get stronger with increasing duration of separation. Dogs in multi-dog households showed a significant higher activity (single dog: 15.3 ± 14.3, multi-dog: 27.5 ± 26.1 mean ± SD). The major difference in activity was found in the first hour of being alone and interactions with other pets played only a marginal role even in multi-dog households (0.24 ± 0.6). Whining was not reduced by the presence of familiar conspecifics. Further research is needed to see if familiar conspecifics facilitate coping with separation from humans in this context. Our data suggest rather the opposite.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Review of epidemiological, pathological, genetic, and epigenetic factors that may contribute to the development of separation anxiety in dogs</b><br>
+    <span class="ja-meta">Meneses &middot; JAVMA &middot; 2021</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Review article: https://avmajournals.avma.org/view/journals/javma/259/10/javma.20.08.0462.xml</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Risk-factors associated with veterinary- related fear and aggression in owned domestic dogs</b><br>
+    <span class="ja-meta">Stellato, A. &middot; Applied Animal Behaviour Science &middot; 2021</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Fear and aggression in dogs within veterinary clinics can lead to canine welfare impairments and pose a safety concern for veterinary staff. However, few studies have explored potential underlying causes for this fear and aggression. We used an online cross-sectional survey targeted to current dog owners to examine risk-factors associated with fear and aggression within veterinary clinics. The factors we assessed in the survey were related to dog characteristics (e.g., sex, breed), fear and aggression responses in everyday scenarios (e.g., stranger-directed fear), experiences at the veterinary clinic (e.g., frequency of visits), training, early socialization, and owner demographics (e.g., gender, age). Data were analyzed using mixed linear regression models, with participant as a random effect to account for multiple dogs within the same household. For fear within veterinary clinics, dogs (n = 1346) were significantly more likely to be rated as fearful by their owners if they were neutered at ≤1 year of age; received their first nail trim at an older age; were rated as having severe non-social fear, or stranger-directed fear and aggression, or as being stressed or aggressive during body handling; had a negative change in behaviour after an aversive clinic experience; and if owners indicated being nervous during situations within the veterinary clinic. For aggression within veterinary clinics, dogs (n = 1776) were more likely to be rated as aggressive if they were reported to be fearful of the veterinary clinic, fearful of feet toweling, or stressed or aggressive during body handling, if the owner reported using positive punishment during routine training, or if any of the following had occurred during clinic visits: examination shortened, use of towel restraint or muzzling, dog bite directed at staff member, general use of positive punishment on the dog, and if the owner indicated being nervous during situations within the veterinary clinic. Random effects for participant were significant for both fear and aggression   models, with intra-class correlation coefficients of 0.36 (CI: 0.21−0.54, p = 0.0004) and 0.16 (CI: 0.06−0.36, p = 0.017), respectively, indicating some correlation in behaviour amongst dogs owned by the same person. These results suggest that both fear and aggression within veterinary clinics are related to dog personality, previous early experiences and veterinary clinic experiences, and owner experiences during veterinary visits. These findings can be used to generate hypotheses for future research aimed at preventing the development of fear and aggression within a veterinary setting.</div>
+  </div>
+  <div class="ja-quiz">
+    <h3 class="ja-quiz-h">Journal Self-Test</h3>
+    <div id="jaQuizHost"></div>
+  </div>
+  <script data-journal-quiz>
+  (function(){
+    var JQ=[{"q": "Which approaches were broadly associated with increased odds of improvement across fearful/anxious dogs?", "o": ["Punishment-based training", "Neutering and benzodiazepines", "Increased exercise for all fears", "Reward-based training, mental stimulation, and habituation"], "a": 3, "e": "Reward-based training, mental stimulation, and habituation were broadly linked to improvement.", "t": "journal", "f": "journal"}, {"q": "Pre-existing aggression had what effect on improvement odds for inanimate/situational fears and PTSD?", "o": ["Improved odds", "No effect", "Negative (reduced) odds", "Complete resolution"], "a": 2, "e": "Pre-existing aggression was associated with negative (reduced) odds of improvement.", "t": "journal", "f": "journal"}, {"q": "For post-traumatic stress disorder, increasing the dog's exercise level was associated with:", "o": ["Improved odds of improvement", "Reduced odds of improvement", "No change", "Complete resolution"], "a": 1, "e": "Paradoxically, increasing exercise reduced odds of improvement for PTSD.", "t": "journal", "f": "journal"}, {"q": "Trauma-informed care proposes that a 'problem' dog's reactive behaviour may stem from:", "o": ["Genetics only", "Previous trauma or adverse early experience", "Poor diet", "Insufficient exercise"], "a": 1, "e": "TIC frames exaggerated or unpredictable responses as possible reactions to triggered negative memories/trauma.", "t": "journal", "f": "journal"}, {"q": "A core trauma-informed assessment/treatment principle is to:", "o": ["Avoid re-traumatising the dog through exposure to triggering stimuli", "Maximize exposure to triggers", "Disregard caregiver history", "Rely on aversive punishment"], "a": 0, "e": "Assessment must avoid re-traumatising the animal and respect its window of tolerance.", "t": "journal", "f": "journal"}, {"q": "Clinicians often reconstruct a dog's history through:", "o": ["Routine blood panels", "Genetic testing", "'Proxy' reporting from owners, foster carers, or shelter staff", "The dog's own self-report"], "a": 2, "e": "Background information typically relies on proxy reporting by caregivers, which may be limited or absent.", "t": "journal", "f": "journal"}, {"q": "Which attachment style was most prevalent among the commercial-breeding-kennel dogs tested?", "o": ["Insecure avoidant", "Secure", "Insecure disorganized", "Insecure ambivalent"], "a": 1, "e": "Twenty of 48 dogs (41.67%) were classified secure, the largest group.", "t": "journal", "f": "journal"}, {"q": "Relative to insecure-avoidant dogs, how did secure and ambivalent dogs behave toward a stranger?", "o": ["No measurable difference", "Approached and solicited contact more frequently", "Showed more aggression", "Withdrew toward the exit"], "a": 1, "e": "Secure/ambivalent dogs approached and solicited contact significantly more than avoidant dogs.", "t": "journal", "f": "journal"}, {"q": "What effect did caretaker presence (Paired-Effect vs Stranger Arena) have on approach to the stranger?", "o": ["Dogs approached the stranger faster when the caretaker was present", "Caretaker presence delayed approach", "No dogs approached in either test", "Only avoidant dogs approached"], "a": 0, "e": "All groups approached more quickly when the caretaker was present, a secure-base effect.", "t": "journal", "f": "journal"}, {"q": "Which foster-housing arrangement was associated with positive kitten behaviour?", "o": ["isolated quiet rooms with no human contact", "social areas of the house with less noise/activity and some time alone", "loud busy areas continuously", "outdoor kennels"], "a": 1, "e": "Social-area housing with lower noise plus some alone time predicted positive behaviour.", "t": "journal", "f": "journal"}, {"q": "For bottle-fed kittens, singletons, and queen-absent kittens, fear/anxiety responses were:", "o": ["markedly worse in singletons", "not different across these groups", "lowest in bottle-fed kittens", "absent when the queen was present"], "a": 1, "e": "No difference in fear/anxiety was found for these groups.", "t": "journal", "f": "journal"}, {"q": "Ringworm treatment was associated with:", "o": ["calmer kittens", "no behavioural change", "more fearful behaviour", "improved socialisation"], "a": 2, "e": "Ringworm treatment correlated with more fearful kitten behaviour.", "t": "journal", "f": "journal"}, {"q": "Dogs neutered at what age were more likely to be rated fearful within veterinary clinics?", "o": ["≤1 year of age", "Over 5 years of age", "Never neutered", "Neuter age was unrelated"], "a": 0, "e": "Neutering at ≤1 year was among the risk factors for veterinary-related fear.", "t": "journal", "f": "journal"}, {"q": "Owner use of which training method was associated with aggression in the veterinary clinic?", "o": ["Positive reinforcement", "Positive punishment", "Clicker training", "No training at all"], "a": 1, "e": "Owner-reported positive punishment was linked to higher odds of clinic aggression.", "t": "journal", "f": "journal"}, {"q": "Owners being nervous during veterinary visits was associated with which finding in their dogs?", "o": ["No effect", "More fear and aggression", "Less fear", "Calmer handling"], "a": 1, "e": "Owner nervousness was a risk factor for both fear and aggression at the clinic.", "t": "journal", "f": "journal"}, {"q": "Over the longitudinal follow-up, what proportion of dogs were stable in their separation behaviour?", "o": ["41%", "100%", "0%", "16%"], "a": 0, "e": "41% were stable, 38% improved, and 16% increased their separation behaviours.", "t": "journal", "f": "journal"}, {"q": "With age, dogs with separation-related problems tended to show what change in their whines?", "o": ["Decreased NLP ratio", "Increased nonlinear phenomena (NLP) ratio", "No vocalisation", "Only increased barking"], "a": 1, "e": "SRP dogs tended toward an increased NLP ratio with age, suggesting intensifying stress.", "t": "journal", "f": "journal"}, {"q": "What did the authors emphasise as important for diagnosing and treating SRP?", "o": ["Individual-level longitudinal investigation", "Group housing", "Immediate rehoming", "Medication alone"], "a": 0, "e": "They stressed individual-level longitudinal study for early diagnosis and tailored treatment.", "t": "journal", "f": "journal"}, {"q": "After two weeks of use, what happened to dogs' alone-time vocalization with the Digital Dogsitter?", "o": ["Increased markedly", "Reduced by ~95.7%", "No measurable change", "Changed only in senior dogs"], "a": 1, "e": "Total vocalization noise fell significantly with a 95.7% reduction.", "t": "journal", "f": "journal"}, {"q": "How does the Digital Dogsitter application operate?", "o": ["Dispenses food treats on a timer", "Emits a continuous ultrasonic tone", "Plays owner-recorded feedback triggered by the dog's vocalization", "Delivers a mild static correction"], "a": 2, "e": "It activates in response to vocalization and plays short owner-recorded feedback.", "t": "journal", "f": "journal"}, {"q": "At the ~8-month follow-up, owners also reported a change in what other behavior?", "o": ["Reduced destructive behavior", "Increased aggression", "Marked weight gain", "Loss of appetite"], "a": 0, "e": "Owners reported significantly less destructive behavior versus baseline.", "t": "journal", "f": "journal"}, {"q": "What was the effect of familiar conspecifics on whining in dogs left home alone?", "o": ["Whining was eliminated", "Whining was halved", "Whining was not reduced by familiar conspecifics", "Whining increased house-soiling"], "a": 2, "e": "Whining was not reduced by the presence of familiar conspecifics.", "t": "journal", "f": "journal"}, {"q": "How did activity in multi-dog households compare with single-dog households?", "o": ["Lower activity", "Higher overall activity", "Identical activity", "No vocalization at all"], "a": 1, "e": "Dogs in multi-dog households showed significantly higher activity (27.5 vs 15.3).", "t": "journal", "f": "journal"}, {"q": "Overall, the dogs' behavior when alone was characterized by:", "o": ["Constant high activity throughout", "Activity peaking in the final hour", "Uniformly high vocal activity", "Generally low physical and vocal activity"], "a": 3, "e": "Dogs generally showed low physical and vocal activity regardless of time alone.", "t": "journal", "f": "journal"}, {"q": "This review examines factors contributing to separation anxiety in dogs, including:", "o": ["Only dietary factors", "Epidemiological, pathological, genetic and epigenetic factors", "Only surgical factors", "Vaccine reactions"], "a": 1, "e": "The review spans epidemiological, pathological, genetic and epigenetic contributors.", "t": "journal", "f": "journal"}, {"q": "The canine condition reviewed is:", "o": ["Noise phobia", "Inter-dog aggression", "Separation anxiety", "Cognitive dysfunction"], "a": 2, "e": "The review focuses on the development of separation anxiety in dogs.", "t": "journal", "f": "journal"}, {"q": "In the object-manipulation task, strangers:", "o": ["Provided a strong secure base", "Did not provide a secure base effect", "Were preferred over owners", "Were not tested"], "a": 1, "e": "Strangers failed to provide a secure base, confirming the owner's unique role.", "t": "journal", "f": "journal"}, {"q": "Compared with other family dogs, former shelter dogs showed:", "o": ["No owner-stranger differentiation", "Weaker owner-stranger differentiation", "Stronger owner-stranger differentiation", "A preference for strangers"], "a": 2, "e": "Former shelter dogs showed stronger owner-stranger differentiation.", "t": "journal", "f": "journal"}, {"q": "The authors concluded that having been re-homed:", "o": ["Prevents secure bonds with new owners", "Does not necessarily prevent a secure bond but may affect interaction with novel stimuli", "Eliminates all anxiety", "Makes dogs prefer strangers"], "a": 1, "e": "Re-homing did not preclude secure bonding but affected responses to novel stimuli/humans.", "t": "journal", "f": "journal"}];
+    var host=document.getElementById('jaQuizHost'); if(!host||!JQ.length) return;
+    var L=["A","B","C","D"];
+    JQ.forEach(function(item,i){
+      var card=document.createElement('div'); card.className='ja-qcard';
+      var stem=document.createElement('div'); stem.className='ja-qstem';
+      stem.textContent=(i+1)+'. '+item.q; card.appendChild(stem);
+      var done=false;
+      item.o.forEach(function(opt,oi){
+        var b=document.createElement('button'); b.className='ja-qopt';
+        b.innerHTML='<b>'+L[oi]+'.</b> '+opt;
+        b.onclick=function(){
+          if(done) return; done=true;
+          var kids=card.querySelectorAll('.ja-qopt');
+          for(var k=0;k<kids.length;k++){kids[k].classList.add('locked');}
+          kids[item.a].classList.add('correct');
+          if(oi!==item.a) b.classList.add('wrong');
+          var ex=document.createElement('div'); ex.className='ja-qexpl';
+          ex.innerHTML='<b>Answer: '+L[item.a]+'.</b> '+item.e; card.appendChild(ex);
+        };
+        card.appendChild(b);
+      });
+      host.appendChild(card);
+    });
+  })();
+  </script>
+</section>
+<!-- JOURNAL-ARTICLES:END -->
+
 </div></main>
 <footer><div class="wrap">
   Fear, Phobias, and Anxiety Disorders subdomain hub &middot; Behavioural Health domain &middot; ABVP Shelter Medicine Practice RVS, November 2026. Content badged by source: your uploaded notes (PDF), and standard reference where docx introduces concepts (kindling effect, acepromazine contraindication for noise and storm phobia) not present verbatim in your PDF. Pharmacology figures (SSRI 2 to 4 weeks onset up to 8 weeks max, TCA dose reductions of 10 to 25% with fluoxetine and 50% with sertraline, 5 to 6 week fluoxetine washout before MAOI, minimum 6-month treatment duration) reproduced as your notes record them; cross-reference the Behaviour Medications subdomain for the full formulary. In-house SVG schematics are original didactic constructions. Supports light and dark mode.
