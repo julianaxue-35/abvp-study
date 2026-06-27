@@ -198,6 +198,7 @@
   <button data-p="intro"><span class="dot" style="background:#7a4fb5"></span>Transmission &amp; Control</button>
   <button data-p="outbreak"><span class="dot" style="background:#7a4fb5"></span>Outbreak Management</button>
   <button data-p="pharm"><span class="dot" style="background:#7a4fb5"></span>Antimicrobial Pharmacology</button>
+  <button data-p="dxstrat"><span class="dot" style="background:#7a4fb5"></span>Diagnostic Testing Strategy</button>
   <button data-p="mcq"><span class="dot" style="background:#0f3d3a"></span>MCQ Test Bank</button>
 
 <!-- JOURNAL-TAB:START -->
@@ -928,7 +929,7 @@
       <li><b>Only CDV vaccine induces sterilising immunity.</b> The others reduce infection rate, shedding duration and severity but do not prevent colonisation, shedding or signs.</li>
       <li>Vaccine failure still occurs (handling, storage, administration, immunosuppression, maternal antibody). Dogs vaccinated against Bordetella can shed attenuated organism for ~2 weeks.</li>
     </ul>
-    <div class="trap"><b>Exam trap &middot; IN vaccine given SQ</b>The most significant CIRD vaccination error is giving a live intranasal Bordetella vaccine subcutaneously. Consequences: local cellulitis and abscessation, and potentially <b>acute hepatocellular necrosis and hepatic failure</b>. Treat with doxycycline (5 to 10 mg/kg PO SID for at least 5 days); local gentamicin has no proven added benefit over systemic antibiotics.</div>
+    <div class="trap"><b>Exam trap &middot; IN vaccine given SQ</b>The most significant CIRD vaccination error is giving a live intranasal Bordetella vaccine subcutaneously. Consequences: local cellulitis and abscessation, and potentially <b>acute hepatocellular necrosis and hepatic failure</b>. Treat with doxycycline (<b>5 mg/kg PO BID or 10 mg/kg PO SID</b> for at least 5 days); local gentamicin has no proven added benefit over systemic antibiotics.</div>
   </div>
 
   <!-- SANITATION -->
@@ -2393,6 +2394,88 @@
   </div>
 </section>
 
+<!-- ================= DIAGNOSTIC TESTING STRATEGY ================= -->
+<section class="panel" id="dxstrat">
+  <h2 class="sec">Diagnostic Testing Strategy</h2>
+  <p class="lead">The cross-cutting logic of <i>why, who, and how many</i> to test in a shelter — the strategy layer above the per-disease diagnostics. The core test-characteristics maths (sensitivity, specificity, PPV/NPV, and how prevalence shifts predictive value) lives in the <b>Research &amp; Biostatistics → Study Design</b> hub; this tab applies it to infectious-disease decisions. Built from gap-analysis of <i>Infectious Disease Management in Animal Shelters</i> Ch 4 (DiGangi).</p>
+
+  <h3>Two reasons to test an individual: screening vs diagnosis <span class="bdg ref">std ref</span></h3>
+  <div class="card">
+    <table class="cmp">
+      <tr><th></th><th>Screening</th><th>Diagnosis</th></tr>
+      <tr><td><b>Goal</b></td><td>Detect subclinical disease in a defined population</td><td>Confirm/explain disease in a clinically ill animal</td></tr>
+      <tr><td><b>Best timing</b></td><td>At intake; diseases with a long pre-clinical phase</td><td>When clinical signs are already present</td></tr>
+      <tr><td><b>Examples</b></td><td>Heartworm, FeLV/FIV, dermatophyte culture at intake</td><td>Parvo antigen ELISA on a vomiting puppy</td></tr>
+    </table>
+  </div>
+
+  <h3>Direct vs indirect tests <span class="bdg ref">std ref</span></h3>
+  <div class="card">
+    <table class="cmp">
+      <tr><th>Type</th><th>Detects</th><th>Examples</th><th>Key limitation</th></tr>
+      <tr><td><b>Direct</b></td><td>The pathogen itself (antigen, nucleic acid, organism)</td><td>Culture, antigen ELISA, PCR</td><td>Presence ≠ viability or causation; PCR also detects dead organisms &amp; recent MLV vaccine</td></tr>
+      <tr><td><b>Indirect</b></td><td>The host's immune response</td><td>Antibody titer, serology</td><td>A single titer can't separate past exposure from current infection, or maternal from vaccine/infection antibody</td></tr>
+    </table>
+    <div class="trap"><b>Exam trap &middot; neither tells you "live" or "now"</b>A positive PCR does not prove a live organism or that it caused the signs; a positive antibody titer does not prove current disease. Interpret every result against pre-test probability (signalment, signs, exposure).</div>
+  </div>
+
+  <h3>Strategy by consequence of error — build for PPV or NPV <span class="bdg ref">std ref</span></h3>
+  <div class="card">
+    <p class="note" style="color:var(--muted);margin:0 0 8px">Prevalence (pre-test probability) drives predictive value — see the Study Design hub for the maths. Choose the strategy by which error hurts most.</p>
+    <ul class="hy">
+      <li><b>When a false negative is costly</b> (you must not miss a case): build a <b>high-NPV</b> strategy — repeat or parallel testing, or a more sensitive confirmatory test.</li>
+      <li><b>When a false positive is costly</b> (a positive triggers euthanasia or depopulation): build a <b>high-PPV</b> strategy — raise pre-test probability before you test.</li>
+      <li><b>Signature shelter example:</b> if a positive parvo test means euthanasia, <b>restrict testing to dogs with clinical GI signs</b> rather than screening every intake. Testing only higher-prevalence (clinically ill) dogs raises PPV and minimises false-positive euthanasia.</li>
+    </ul>
+  </div>
+
+  <h3>Surveillance testing — "detect at least one" <span class="bdg ref">std ref · Table 4.6</span></h3>
+  <div class="card">
+    <p class="note" style="color:var(--muted);margin:0 0 8px">The mathematical goal of surveillance testing is to <b>detect at least one affected animal — not to estimate prevalence.</b> Sample size is set from the <i>lowest assumed infection rate</i> you want to be able to catch, for a ≥90% probability of detecting one positive.</p>
+    <table class="cmp">
+      <tr><th>Assumed infection rate</th><th>Animals to test (≥90% chance of detecting ≥1)</th></tr>
+      <tr><td>2%</td><td>120</td></tr>
+      <tr><td>5%</td><td>45</td></tr>
+      <tr><td>10%</td><td>25</td></tr>
+      <tr><td>15–20%</td><td>15</td></tr>
+      <tr><td>25–30%</td><td>10</td></tr>
+      <tr><td>40%</td><td>5</td></tr>
+    </table>
+    <div class="trap"><b>Exam trap</b>The lower the prevalence you want to be able to catch, the <b>more</b> animals you must test. Detecting a 2% problem needs 120 animals; catching a 25–30% problem needs only 10.</div>
+  </div>
+
+  <h3>Outbreak testing — tier the population, sample a few <span class="bdg ref">std ref</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li><b>Testing every animal is rarely necessary.</b> Stratify by exposure into four tiers — <b>(1) presumed infected → (2) exposed and at risk → (3) exposed but not at risk → (4) not yet exposed</b> — and test to answer a specific question in the relevant tier.</li>
+      <li>To <b>confirm the agent</b> in a GI or respiratory outbreak, a <b>minimum of 3–6 samples</b> is generally sufficient (adapted from human outbreak-investigation guidance) — you do not need to test the whole ward.</li>
+      <li>Collect from <b>clinically affected</b> animals (highest pre-test probability) to identify the pathogen.</li>
+    </ul>
+  </div>
+
+  <h3>Serology &amp; titer toolbox <span class="bdg ref">std ref</span></h3>
+  <div class="card">
+    <table class="cmp">
+      <tr><th>Method</th><th>Use</th></tr>
+      <tr><td><b>HI</b> (haemagglutination inhibition)</td><td>Gold-standard titer for <b>parvoviruses (CPV/FPV)</b></td></tr>
+      <tr><td><b>VN</b> (virus neutralisation)</td><td>Gold-standard titer for <b>canine distemper (CDV)</b></td></tr>
+      <tr><td><b>IFA</b> (immunofluorescence)</td><td>Rabies brain (direct IFA), FeLV (p27 in WBC)</td></tr>
+      <tr><td><b>Western blot</b></td><td>Confirmatory for FIV, <i>Borrelia</i></td></tr>
+      <tr><td><b>IHC</b> (immunohistochemistry)</td><td>FIP, CDV, CPV — frequently on post-mortem tissue</td></tr>
+    </table>
+    <div class="trap"><b>Exam trap &middot; titer caveats</b>Titers are <b>not comparable across labs or methods</b>; a single titer can't distinguish past exposure from current infection; the "protective" cut-off differs by pathogen; and in pups/kittens a titer can't separate maternal antibody from vaccine/infection antibody. A positive antibody result alone is not a diagnosis.</div>
+  </div>
+
+  <h3>Pooled / batch testing <span class="bdg ref">std ref</span></h3>
+  <div class="card">
+    <ul class="hy">
+      <li>Pooling samples (e.g. several gut segments at necropsy, or grouped fecal samples) can <b>raise sensitivity</b> for a hard-to-detect agent and <b>lower cost</b> when screening a low-prevalence population.</li>
+      <li>For parvo at necropsy, pooling duodenum + jejunum + colon raises antigen-test sensitivity over a single segment.</li>
+    </ul>
+    <p class="note" style="color:var(--muted);margin:8px 0 0">See also the new <b>Diagnostic (post-mortem) necropsy technique</b> block in Community &amp; Public Health → Animal Cruelty (forensic hub) for sample collection, fixation and shipping.</p>
+  </div>
+</section>
+
 <!-- ================= MCQ ================= -->
 <section class="panel" id="mcq">
   <h2 class="sec">MCQ Test Bank</h2>
@@ -2752,7 +2835,7 @@
 </div></main>
 
 <footer><div class="wrap">
-  <p>This hub covers the complete Infectious Disease subdomain: CPV, CDV, CIRD, CIV, Ringworm, FPV, FeLV/FIV, FIP and FURI, plus foundational tabs on transmission &amp; control, outbreak management, and antimicrobial pharmacology. The MCQ bank holds 304 questions, filterable by topic. Built from uploaded study notes and primary sources, with gap-analysis additions badged as standard reference and source corrections flagged inline.</p>
+  <p>This hub covers the complete Infectious Disease subdomain: CPV, CDV, CIRD, CIV, Ringworm, FPV, FeLV/FIV, FIP and FURI, plus foundational tabs on transmission &amp; control, outbreak management, antimicrobial pharmacology, and diagnostic testing strategy. The MCQ bank holds 304 questions, filterable by topic. Built from uploaded study notes and primary sources, with gap-analysis additions badged as standard reference and source corrections flagged inline.</p>
 </div>
 </footer>
 
