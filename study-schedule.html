@@ -1,0 +1,431 @@
+<!doctype html>
+<!--
+  ============================================================
+  ABVP Study Hub — Study Schedule
+  Copyright (c) 2026 Juliana Xue.
+
+  The original content, writing, design, and compilation of
+  this study hub are the intellectual property of Juliana Xue.
+  They are licensed to her current employer for use ONLY for
+  as long as she remains engaged there; that right of use ends
+  automatically when her engagement ends.
+
+  Except for that limited employer use-licence, no part of
+  Juliana Xue's original work may be copied, modified,
+  distributed, or used without her express written permission.
+  ============================================================
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Study Schedule — Shelter Medicine RVS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Spline+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F6F2E9; --paper2:#EFEADD; --ink:#21201B; --soft:#5B584F; --faint:#8C887C;
+    --card:#FFFDF8; --line:rgba(33,32,27,0.12); --line2:rgba(33,32,27,0.2);
+    --ok:#0F6E56; --okbg:#E1F5EE; --no:#9A3B23; --nobg:#FAECE7;
+    --gold:#9a6a1c; --goldbg:#f6edd8;
+    --serif:"Fraunces",Georgia,serif; --sans:"Spline Sans",-apple-system,sans-serif;
+    --r:12px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 20px 80px}
+  .crumb{font-size:13px;color:var(--soft);margin:22px 0 6px;display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+  .crumb a{cursor:pointer;color:var(--soft);text-decoration:none;border-bottom:1px solid transparent}
+  .crumb a:hover{border-bottom-color:var(--line2);color:var(--ink)}
+  .crumb .sep{color:var(--faint)}
+
+  .hero{background:linear-gradient(135deg,#0f4c35 0%,#1a6e4f 45%,#0d3d6b 100%);padding:24px 22px;margin:0 -20px;border-radius:0 0 14px 14px}
+  .hero-eye{font-size:10px;color:rgba(255,255,255,.55);letter-spacing:.14em;text-transform:uppercase;margin-bottom:5px}
+  .hero-title{font-family:var(--serif);font-size:34px;font-weight:600;color:#fff;line-height:1.1;margin:0 0 16px}
+  .hero-pills{display:flex;gap:10px;flex-wrap:wrap}
+  .hero-pill{background:rgba(255,255,255,.15);border-radius:10px;padding:8px 16px;text-align:center;min-width:96px}
+  .hero-pill b{display:block;font-size:21px;font-weight:700;color:#fff;line-height:1.05}
+  .hero-pill span{font-size:9px;color:rgba(255,255,255,.62);text-transform:uppercase;letter-spacing:.08em;margin-top:3px;display:block}
+  .hero-pill.rpill{background:rgba(110,231,183,.18);border:1px solid rgba(110,231,183,.4)}
+  .hero-pill.rpill b{color:#6ee7b7}
+  .hero-pill.rpill span{color:rgba(110,231,183,.78)}
+
+  h2.sec{font-family:var(--serif);font-weight:600;font-size:23px;letter-spacing:-0.01em;margin:38px 0 6px}
+  .lede{color:var(--soft);max-width:70ch;margin:0 0 18px}
+  h3.sub{font-family:var(--serif);font-weight:600;font-size:17px;margin:24px 0 8px}
+
+  .card{background:var(--card);border:0.5px solid var(--line);border-radius:var(--r);padding:18px 20px;margin:14px 0}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .rhythm{margin:0;padding:0;list-style:none}
+  .rhythm li{display:flex;gap:12px;padding:9px 0;border-bottom:0.5px solid var(--line)}
+  .rhythm li:last-child{border-bottom:0}
+  .rhythm .day{font-weight:600;color:var(--ok);min-width:78px;font-size:13.5px;padding-top:1px}
+  .rhythm .rest{color:var(--faint)}
+  .rhythm .what{font-size:14.5px}
+  .rhythm .what small{color:var(--soft);font-size:12.5px}
+
+  table.sched{width:100%;border-collapse:collapse;margin:8px 0 10px;font-size:13.5px}
+  table.sched th,table.sched td{text-align:left;padding:9px 11px;border-bottom:0.5px solid var(--line);vertical-align:top}
+  table.sched th{font-weight:600;color:var(--soft);font-size:11.5px;text-transform:uppercase;letter-spacing:.04em;background:var(--paper2)}
+  table.sched td.wk{font-family:var(--serif);font-weight:600;white-space:nowrap}
+  table.sched td.dt{color:var(--soft);white-space:nowrap;font-size:12.5px}
+  table.sched tr.done td{opacity:.5}
+  table.sched tr.done td.tk{opacity:1}
+  .tk{width:30px;text-align:center}
+  .tk input{width:18px;height:18px;cursor:pointer;accent-color:var(--ok)}
+  .dom{display:inline-block;font-weight:600}
+  .wt{display:inline-block;font-size:11px;font-weight:600;padding:2px 8px;border-radius:7px;background:var(--okbg);color:var(--ok);margin-left:6px;vertical-align:1px}
+  .phase-band td{background:linear-gradient(90deg,var(--paper2),transparent);font-family:var(--serif);font-weight:600;font-size:14px;color:var(--ink);padding:11px}
+  .mock td{background:#fbf6ec}
+  .mock .wt{background:var(--goldbg);color:var(--gold)}
+  .examrow td{background:#0f4c35;color:#fff;font-family:var(--serif);font-weight:600;font-size:15px;text-align:center}
+
+  .principles{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:10px 0}
+  .pr{background:var(--card);border:0.5px solid var(--line);border-left:3px solid var(--ok);border-radius:10px;padding:13px 16px}
+  .pr b{font-family:var(--serif);display:block;margin-bottom:3px}
+  .pr p{margin:0;font-size:13.8px;color:var(--soft)}
+
+  .bar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:var(--paper2);border-radius:10px;padding:12px 16px;margin:18px 0}
+  .bar .prog{flex:1;min-width:160px;height:8px;border-radius:999px;background:#fff;overflow:hidden}
+  .bar .prog i{display:block;height:100%;background:var(--ok);width:0;border-radius:999px;transition:width .3s}
+  .bar .lbl{font-size:13px;color:var(--soft)}
+  .bar .lbl b{color:var(--ink)}
+  .btn{font-family:var(--sans);font-size:13px;font-weight:500;border:0.5px solid var(--line2);background:var(--card);border-radius:9px;padding:7px 14px;cursor:pointer}
+  .btn:hover{background:var(--paper)}
+
+  .foot{margin-top:40px;font-size:12px;color:var(--faint);line-height:1.6;border-top:0.5px solid var(--line);padding-top:16px}
+
+  @media(max-width:680px){
+    .grid2,.principles{grid-template-columns:1fr}
+    .hero-title{font-size:27px}
+    table.sched{font-size:12.5px}
+    table.sched th,table.sched td{padding:7px 7px}
+  }
+  @media print{
+    body{background:#fff;font-size:11px}
+    .hero{background:#0f4c35 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .no-print{display:none !important}
+    .card,.pr{break-inside:avoid}
+    table.sched tr{break-inside:avoid}
+    .wrap{padding-bottom:10px}
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="crumb">
+    <a href="index.html">← Study Hub</a><span class="sep">/</span><span>Study Schedule</span>
+  </div>
+
+  <div class="hero">
+    <div class="hero-eye">ABVP Combined Exam · Shelter Medicine RVS</div>
+    <div class="hero-title">Study Schedule to Exam Day</div>
+    <div class="hero-pills">
+      <div class="hero-pill"><b>Sat 7 Nov</b><span>Exam day</span></div>
+      <div class="hero-pill rpill"><b id="countdown">—</b><span>Days to go</span></div>
+      <div class="hero-pill"><b>19</b><span>Study weeks</span></div>
+      <div class="hero-pill"><b>5×350</b><span>Mock Qs</span></div>
+    </div>
+  </div>
+
+  <div class="bar no-print">
+    <span class="lbl"><b id="doneCount">0</b> / <span id="totalCount">0</span> weeks ticked off</span>
+    <div class="prog"><i id="progBar"></i></div>
+    <button class="btn" onclick="window.print()">🖨 Print / Save PDF</button>
+    <button class="btn" onclick="resetTicks()">Reset ticks</button>
+  </div>
+
+  <p class="lede">Built from this weekend (27 Jun) to exam day. Time is allocated <b>by exam weight</b> — the
+  domains worth the most points get the most weeks. <b>Physical Health is trimmed to a 2-week finish-and-consolidate
+  pass</b> since you're already ~80% through it; those freed weeks went to Shelter Management, Behavioral Health, and a
+  final consolidation week. Each week mixes <b>content review</b> (your hub pages), <b>MCQ practice</b> (your question
+  bank), and <b>journal abstracts</b>. The final fortnight is reserved for <b>five 350-question mock exams</b> and
+  tapering. Tick a week's box when you finish it — your progress saves on this device.</p>
+
+  <!-- ============ WEEKLY RHYTHM ============ -->
+  <h2 class="sec">Your weekly rhythm</h2>
+  <p class="lede">A repeatable template for every content week (Weeks 1–17). Built around <b>1–2 hrs on weeknights</b>
+  with <b>Friday as your rest night</b> (take a second midweek if you need it), plus one bigger <b>5–8 hr weekend block</b>.
+  The single highest-yield habit is the one in bold: <b>log every wrong MCQ and why you missed it</b>, then re-test those before the exam.</p>
+
+  <div class="grid2">
+    <div class="card">
+      <h3 class="sub" style="margin-top:0">Weeknights · 1–2 hrs</h3>
+      <ul class="rhythm">
+        <li><span class="day">Mon</span><span class="what">Read this week's <b>hub pages</b> — active recall (cover the text, recite it back). <small>Focal domain</small></span></li>
+        <li><span class="day">Tue</span><span class="what">Finish the reading + condense into a <b>1-page summary sheet</b> you'll skim in November.</span></li>
+        <li><span class="day">Wed</span><span class="what"><b>25–35 MCQs</b> on the focal domain → log every wrong answer with the reason. <small>Want a 2nd rest night? Rest here & shift these MCQs to the weekend</small></span></li>
+        <li><span class="day">Thu</span><span class="what"><b>5 journal abstracts</b> (focal domain) + <b>15 spaced-review MCQs</b> from an earlier domain.</span></li>
+        <li><span class="day rest">Fri</span><span class="what rest">Rest night.</span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="sub" style="margin-top:0">Weekend · 5–8 hrs total</h3>
+      <ul class="rhythm">
+        <li><span class="day">Deep dive</span><span class="what">Go hard on the week's <b>hardest / highest-yield topics</b> — protocols, dosing, decision trees, numbers.</span></li>
+        <li><span class="day">MCQs</span><span class="what"><b>60–100 questions</b>: focal domain + a spaced-review block from an earlier domain. Review <b>every</b> wrong answer.</span></li>
+        <li><span class="day">Abstracts</span><span class="what"><b>8–10 journal abstracts</b> tied to the focal domain — current-practice / "what changed" questions.</span></li>
+        <li><span class="day">Self-check</span><span class="what">Re-test last week's logged errors. Did they stick? Rest the other weekend day if you're fried.</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============ THE TABLE ============ -->
+  <h2 class="sec">Week by week</h2>
+  <p class="lede">Domain weeks are sized to exam weight, adjusted for what you've already covered:
+  <b>Physical Health 29%</b> (2 wks — finish & consolidate, since you're ~80% done), <b>Shelter Mgmt 18%</b> (4),
+  <b>Behavioral 16%</b> (4), <b>Homelessness 12%</b> (2), <b>Community/Public Health 11%</b> (2),
+  <b>Policy 7%</b> (1), <b>Research/Biostats 6%</b> (1, placed first as a foundation), plus a <b>consolidation week</b> before the mocks.</p>
+
+  <table class="sched" id="schedTable">
+    <thead>
+      <tr><th class="tk">✓</th><th>Week</th><th>Dates</th><th>Focus</th><th>Do this</th><th>Spaced review</th></tr>
+    </thead>
+    <tbody>
+      <tr class="phase-band"><td colspan="6">Kickoff weekend — orient & diagnose</td></tr>
+      <tr>
+        <td class="tk"><input type="checkbox" data-wk="k0"></td>
+        <td class="wk">Wknd</td><td class="dt">27–28 Jun</td>
+        <td><span class="dom">Set-up</span></td>
+        <td>Open your error-log doc. Skim the full 7-domain map. Run a <b>50-question diagnostic in <a href="mock-exam.html">mock-exam.html</a></b> (set <i>Total questions = 50</i>) — it auto-pulls a blueprint-weighted mix across all 7 domains to expose weak spots. <small>Different from the per-topic MCQs in each hub page.</small></td>
+        <td>—</td>
+      </tr>
+
+      <tr class="phase-band"><td colspan="6">Phase 1 · Content + MCQs + abstracts (Weeks 1–17)</td></tr>
+
+      <tr>
+        <td class="tk"><input type="checkbox" data-wk="1"></td>
+        <td class="wk">Wk 1</td><td class="dt">29 Jun–5 Jul</td>
+        <td><span class="dom">Research &amp; Biostats</span><span class="wt">6%</span></td>
+        <td>Study design, bias, sensitivity/specificity/PPV, p-values & CIs, basic epi. <b>Do it first</b> — it powers every journal abstract you read after.</td>
+        <td>—</td>
+      </tr>
+
+      <tr>
+        <td class="tk"><input type="checkbox" data-wk="2"></td>
+        <td class="wk">Wk 2</td><td class="dt">6–12 Jul</td>
+        <td><span class="dom">Physical Health</span><span class="wt">29%</span></td>
+        <td><b>Finish the last ~20%:</b> close out whichever sub-hubs you haven't done (infectious dz, vax, surgery/anes, parasites, nutrition, facility design, euthanasia, other species).</td>
+        <td>15 Q biostats</td>
+      </tr>
+      <tr>
+        <td class="tk"><input type="checkbox" data-wk="3"></td>
+        <td class="wk">Wk 3</td><td class="dt">13–19 Jul</td>
+        <td><span class="dom">Physical Health</span><span class="wt">29%</span></td>
+        <td><b>Consolidate the whole domain</b> with heavy MCQs (it's 29% of the exam — prove it sticks). Build your 1-page P-Health summary sheets.</td>
+        <td>15 Q biostats</td>
+      </tr>
+
+      <tr>
+        <td class="tk"><input type="checkbox" data-wk="4"></td>
+        <td class="wk">Wk 4</td><td class="dt">20–26 Jul</td>
+        <td><span class="dom">Shelter Management</span><span class="wt">18%</span></td>
+        <td>Population management + <b>Asilomar Accords</b> (4 categories, Live Release Rate, SAC).</td>
+        <td>20 Q P-Health</td>
+      </tr>
+      <tr>
+        <td class="tk"><input type="checkbox" data-wk="5"></td>
+        <td class="wk">Wk 5</td><td class="dt">27 Jul–2 Aug</td>
+        <td><span class="dom">Shelter Management</span><span class="wt">18%</span></td>
+        <td>Animal ID & tracking, intake/flow, length-of-stay drivers.</td>
+        <td>15 Q P-Health</td>
+      </tr>
+      <tr>
+        <td class="tk"><input type="checkbox" data-wk="6"></td>
+        <td class="wk">Wk 6</td><td class="dt">3–9 Aug</td>
+        <td><span class="dom">Shelter Management</span><span class="wt">18%</span></td>
+        <td>Capacity for Care, data & metrics, intake-to-outcome flow.</td>
+        <td>15 Q P-Health</td>
+      </tr>
+      <tr>
+        <td class="tk"><input type="checkbox" data-wk="7"></td>
+        <td class="wk">Wk 7</td><td class="dt">10–16 Aug</td>
+        <td><span class="dom">Shelter Management</span><span class="wt">18%</span></td>
+        <td>Operations & staffing, record-keeping, <b>consolidate the domain</b> + MCQs.</td>
+        <td>15 Q P-Health</td>
+      </tr>
+
+      <tr>
+        <td class="tk"><input type="checkbox" data-wk="8"></td>
+        <td class="wk">Wk 8</td><td class="dt">17–23 Aug</td>
+        <td><span class="dom">Behavioral Health</span><span class="wt">16%</span></td>
+        <td>Behavioral assessment + fear / anxiety / stress (FAS), cooperative care.</td>
+        <td>20 Q shelter mgmt</td>
+      </tr>
+      <tr>
+        <td class="tk"><input type="checkbox" data-wk="9"></td>
+        <td class="wk">Wk 9</td><td class="dt">24–30 Aug</td>
+        <td><span class="dom">Behavioral Health</span><span class="wt">16%</span></td>
+        <td>Enrichment, housing & arousal, behavior modification, psychopharm.</td>
+        <td>15 Q shelter mgmt</td>
+      </tr>
+      <tr>
+        <td class="tk"><input type="checkbox" data-wk="10"></td>
+        <td class="wk">Wk 10</td><td class="dt">31 Aug–6 Sep</td>
+        <td><span class="dom">Behavioral Health</span><span class="wt">16%</span></td>
+        <td>Dog vs cat behavior, playgroups, behavioral pathways & decision-making.</td>
+        <td>15 Q P-Health</td>
+      </tr>
+      <tr>
+        <td class="tk"><input type="checkbox" data-wk="11"></td>
+        <td class="wk">Wk 11</td><td class="dt">7–13 Sep</td>
+        <td><span class="dom">Behavioral Health</span><span class="wt">16%</span></td>
+        <td>Behavioral euthanasia decision-making, <b>consolidate the domain</b> + MCQs.</td>
+        <td>15 Q shelter mgmt</td>
+      </tr>
+
+      <tr>
+        <td class="tk"><input type="checkbox" data-wk="12"></td>
+        <td class="wk">Wk 12</td><td class="dt">14–20 Sep</td>
+        <td><span class="dom">Companion Animal Homelessness</span><span class="wt">12%</span></td>
+        <td>Intake diversion, community programs, TNR / community cats.</td>
+        <td>20 Q behavioral</td>
+      </tr>
+      <tr>
+        <td class="tk"><input type="checkbox" data-wk="13"></td>
+        <td class="wk">Wk 13</td><td class="dt">21–27 Sep</td>
+        <td><span class="dom">Companion Animal Homelessness</span><span class="wt">12%</span></td>
+        <td>Foster, adoption, return-to-owner, the access-to-care landscape.</td>
+        <td>15 Q shelter mgmt</td>
+      </tr>
+
+      <tr>
+        <td class="tk"><input type="checkbox" data-wk="14"></td>
+        <td class="wk">Wk 14</td><td class="dt">28 Sep–4 Oct</td>
+        <td><span class="dom">Community &amp; Public Health</span><span class="wt">11%</span></td>
+        <td>Zoonoses, One Health, rabies, disease surveillance.</td>
+        <td>20 Q homelessness</td>
+      </tr>
+      <tr>
+        <td class="tk"><input type="checkbox" data-wk="15"></td>
+        <td class="wk">Wk 15</td><td class="dt">5–11 Oct</td>
+        <td><span class="dom">Community &amp; Public Health</span><span class="wt">11%</span></td>
+        <td>Disaster response, cruelty/forensics interface, dangerous-dog & bite issues.</td>
+        <td>15 Q behavioral</td>
+      </tr>
+
+      <tr>
+        <td class="tk"><input type="checkbox" data-wk="16"></td>
+        <td class="wk">Wk 16</td><td class="dt">12–18 Oct</td>
+        <td><span class="dom">Animals &amp; Public Policy</span><span class="wt">7%</span></td>
+        <td>Legislation, ordinances, advocacy, ethics.</td>
+        <td>20 Q community/PH</td>
+      </tr>
+
+      <tr>
+        <td class="tk"><input type="checkbox" data-wk="17"></td>
+        <td class="wk">Wk 17</td><td class="dt">19–25 Oct</td>
+        <td><span class="dom">Consolidation + catch-up</span></td>
+        <td><b>Cumulative review of all 7 domains.</b> Re-test your whole error log and revisit your single weakest domain. Mixed MCQs across everything to find any remaining gaps.</td>
+        <td>Mixed — all domains</td>
+      </tr>
+
+      <tr class="phase-band"><td colspan="6">Phase 2 · Mock-exam fortnight — 5 × 350 Q + taper</td></tr>
+
+      <tr class="mock">
+        <td class="tk"><input type="checkbox" data-wk="m1"></td>
+        <td class="wk">Wk 18</td><td class="dt">26–30 Oct</td>
+        <td><span class="dom">Mocks 1 &amp; 2</span><span class="wt">700 Q</span></td>
+        <td>Split each 350-Q mock across two evenings (175 + 175). <b>Mock 1</b> Mon/Tue, rest Wed, <b>Mock 2</b> Thu/Fri. Review every miss into the error log.</td>
+        <td>Error log</td>
+      </tr>
+      <tr class="mock">
+        <td class="tk"><input type="checkbox" data-wk="m2"></td>
+        <td class="wk">Wknd</td><td class="dt">31 Oct–1 Nov</td>
+        <td><span class="dom">Mocks 3 &amp; 4</span><span class="wt">700 Q</span></td>
+        <td><b>Full 350-Q timed simulations</b> — one Sat, one Sun, single sitting each, exam conditions. Use <a href="mock-exam.html">mock-exam.html</a>. Full review after each.</td>
+        <td>Error log</td>
+      </tr>
+      <tr class="mock">
+        <td class="tk"><input type="checkbox" data-wk="m3"></td>
+        <td class="wk">Wk 19</td><td class="dt">2–4 Nov</td>
+        <td><span class="dom">Mock 5 + review</span><span class="wt">350 Q</span></td>
+        <td>Mon: consolidate Mocks 3–4 weak areas. <b>Mock 5</b> split Tue/Wed (175 + 175). Re-test your most-missed topics.</td>
+        <td>Top weak topics</td>
+      </tr>
+      <tr class="mock">
+        <td class="tk"><input type="checkbox" data-wk="taper"></td>
+        <td class="wk">Taper</td><td class="dt">5–6 Nov</td>
+        <td><span class="dom">Wind down</span></td>
+        <td>Thu: light review of your 1-page summary sheets only — <b>no new material</b>. Fri: <b>rest</b>, logistics, gear, sleep. Trust the prep.</td>
+        <td>Summary sheets</td>
+      </tr>
+
+      <tr class="examrow"><td colspan="6">🎯  Saturday 7 November — EXAM DAY</td></tr>
+    </tbody>
+  </table>
+
+  <!-- ============ PRINCIPLES ============ -->
+  <h2 class="sec">Principles that make this work</h2>
+  <div class="principles">
+    <div class="pr"><b>Active recall &gt; re-reading</b><p>Cover the page and say it out loud, or self-quiz. Reading passively feels productive but barely sticks.</p></div>
+    <div class="pr"><b>The error log is the engine</b><p>Every wrong MCQ goes in a running list with <i>why</i> you missed it. Re-testing those is the single highest-yield hour you'll spend.</p></div>
+    <div class="pr"><b>Spaced review beats cramming</b><p>The "spaced review" column drags old domains forward so they're still warm in November — that's why P-Health (done in July) keeps reappearing.</p></div>
+    <div class="pr"><b>Protect the rest nights</b><p>2 rest nights/week is in the plan on purpose. Burnout in September costs you more than the hours you'd save.</p></div>
+    <div class="pr"><b>Mocks build stamina, not just knowledge</b><p>The two full single-sitting sims (31 Oct / 1 Nov) train pacing and focus for a long exam day — treat them like the real thing.</p></div>
+    <div class="pr"><b>Taper, don't cram</b><p>No new material in the last 48 hrs. Skim summaries, sleep well. Cramming the night before trades recall for anxiety.</p></div>
+  </div>
+
+  <p class="lede" style="margin-top:20px">Falling behind a week? Don't try to claw it all back — <b>shrink the next domain's reading, keep the MCQs</b>.
+  Questions expose gaps faster than re-reading fills them. Week 17 has built-in flex for exactly this.</p>
+
+  <div class="foot">
+    Personal study planner for the 2026 ABVP Combined Exam (Shelter Medicine RVS). Exam weightings per ABVP domain blueprint.
+    Schedule is a planning aid — adjust freely to fit your week.<br>
+    © 2026 Juliana Xue. Original work; see the Study Hub for full licensing terms.
+  </div>
+
+</div>
+
+<script>
+  // Live countdown to exam morning
+  (function(){
+    var exam = new Date(2026, 10, 7, 9, 0, 0); // 7 Nov 2026, 9am
+    var now = new Date();
+    var days = Math.max(0, Math.ceil((exam - now) / 86400000));
+    var el = document.getElementById('countdown');
+    if (el) el.textContent = days;
+  })();
+
+  // Persist week ticks on this device
+  var KEY = 'abvp-schedule-ticks-v1';
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch(e){ return {}; } }
+  function save(s){ try { localStorage.setItem(KEY, JSON.stringify(s)); } catch(e){} }
+
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('#schedTable input[type=checkbox]'));
+  var state = load();
+
+  function refresh(){
+    var done = 0;
+    boxes.forEach(function(b){
+      var on = !!state[b.dataset.wk];
+      b.checked = on;
+      var tr = b.closest('tr');
+      if (on){ tr.classList.add('done'); done++; } else { tr.classList.remove('done'); }
+    });
+    document.getElementById('doneCount').textContent = done;
+    document.getElementById('totalCount').textContent = boxes.length;
+    document.getElementById('progBar').style.width = (boxes.length ? (done/boxes.length*100) : 0) + '%';
+  }
+
+  boxes.forEach(function(b){
+    b.addEventListener('change', function(){
+      state[b.dataset.wk] = b.checked;
+      save(state); refresh();
+    });
+  });
+
+  window.resetTicks = function(){
+    if (!confirm('Clear all ticked weeks?')) return;
+    state = {}; save(state); refresh();
+  };
+
+  refresh();
+</script>
+</body>
+</html>
