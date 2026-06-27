@@ -656,6 +656,20 @@
 .ja-qopt.correct { background: #e9f4ee; border-color: var(--good, #2f7d52); }
 .ja-qopt.wrong { background: #f8e9e9; border-color: var(--bad, #b23b3b); }
 .ja-qexpl { font-size: 0.88em; margin-top: 8px; padding: 9px 12px; background: var(--lit-soft, #dcedf2); border-radius: 8px; color: var(--ink2, #15514c); line-height: 1.5; }
+/* ── Journal source badge (self-contained so it renders on any bank page) ── */
+.bdg.journal {
+  display: inline-block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9.5px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 999px;
+  vertical-align: middle;
+  white-space: nowrap;
+  background: var(--lit-soft, #dcedf2);
+  color: var(--lit, #1f6f8b);
+}
 </style>
 <section class="panel" id="journal">
   <h2 class="sec">Additional Resources</h2>
@@ -664,6 +678,11 @@
     <p class="ja-cite"><b>Integrated Protocols for HPAI Mitigation in Free-Roaming Cat Colonies and HQHVSN Clinics_ A Biosecurity Framework</b><br>
     <span class="ja-meta">Cat Colonies and HQHVSN Clinics: A Biosecurity &middot; Journal of Shelter Medicine and Community Animal Health &middot; 2025 &middot; <a href="https://doi.org/10.56771/jsmcah.v4.135" target="_blank" rel="noopener">10.56771/jsmcah.v4.135</a></span></p>
     <div class="ja-abstract"><b>Abstract.</b> Introduction Highly pathogenic avian influenza (HPAI), which has a marked morbidity and mortality in cats, poses a significant risk to free-roaming cat populations due to frequent contact with wild birds. Managing these risks is critical to maintaining both individual and population health. Veterinarians and organizations involved in high-quality, high-volume spay/neuter (HQHVSN) settings where biosecurity challenges are amplified and freeroaming cats are frequent patients are poised to help with both mitigation and surveillance concerns. This protocol effort seeks to use evidence-based strategies to mitigate HPAI transmission in feral cat colonies while ensuring safe and efficient HQHVSN operations. Case Description This integrated approach involved implementing comprehensive protocols in regional HQHVSN facilities serving urban and rural feral cat populations. Key interventions included: 1. Facility Layout and Traffic Flow: ◦ Designated intake areas for feral cats, shelter animals, and community pets with clear signage to prevent crossover. ◦ Isolation and quarantine spaces for sick or newly arrived cats, away from high-traffic zones. ◦ Controlled access to feral cat holding and isolation areas using limited personnel entry. 2. Personnel Hygiene and PPE: ◦ Mandatory handwashing and availability of alcohol-based sanitizers. ◦ Staff adherence to PPE protocols, including gloves, gowns, and N95 masks during outbreaks. ◦ Clinic-only scrubs and footwear to prevent pathogen transfer to personal pets. 3. Cleaning and Disinfection Protocols: ◦ Written SOPs for daily and between-patient cleaning using effective disinfectants. ◦ Dedicated equipment for different animal groups to minimize fomite spread. 4. Patient Management: ◦ Grouped scheduling to separate high-risk feral cat surgeries from routine procedures. ◦ Immediate isolation of cats with respiratory or neurological symptoms. ◦ Planning protocols for ante and post-mortem testing 5. Public and Staff Education: ◦ Training for volunteers and caretakers on biosecurity practices. ◦ Guidance for colony caregivers on safe feeding practices and monitoring for signs of illness. 6. Monitoring and Wildlife Control: ◦ Surveillance of colony cats and reporting of unexplained illnesses. ◦ Rodent control and deterrents to reduce wildlife interaction near colonies and clinic areas. Outcomes It is hoped that organizations may reduce the risk of HPAI transmission in HQHVSN facilities to both staff and patients by following the protocol. Additionally, the goal is to assist caretakers and feral cat colonies managed through the facility during a regional avian influenza outbreak. Colony caregivers should have improved awareness and thus compliance with biosecurity measures if these efforts are started before an outbreak occurs. The goal is for every facility to maintain uninterrupted surgical services while minimizing cross-contamination risks. Conclusion Proactive biosecurity measures are essential for mitigating HPAI risks in feral cat colonies and HQHVSN clinics. Clear protocols for facility management, staff hygiene, and public education effectively reduce transmission risks, safeguarding both animal and public health. These strategies offer a replicable model for other veterinary and shelter organizations.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Impact of the Application of Gaseous Ozone on Selected Pathogens Found in Animal Shelters and Other Facilities</b><br>
+    <span class="ja-meta">Vojtkovska &middot; Animals &middot; 2023</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Correctly selecting disinfection procedures is crucial in facilities housing a high number of animals as it directly affects their health. The aim of this study was to verify the virucidal effect of gaseous ozone delivered by commercially available generators under controlled experimental conditions on a selection of viral pathogens (feline coronavirus, canine coronavirus, feline calicivirus, feline parvovirus) commonly found in shelters and other facilities. Two ozone generators with outputs of 3.5 g/h and 20 g/h were used to produce ozone. Virus viability after the application of ozone was evaluated by examining for typical pathogen-specific cytopathic effects on the CRFK (Crandell–Rees Feline Kidney) cell line post-incubation. No cytopathic effect was observed in feline coronavirus after the 2-h application of ozone; in canine coronavirus, the absence of a cytopathic effect was observed after the 4-h application of ozone. The absence of a cytopathic effect in feline calicivirus was observed after the 6-h application of ozone; the viability of feline parvovirus was not impaired even by the 6-h application of ozone. The results of the study confirm lower resistance to the application of gaseous ozone in enveloped viruses.</div>
   </div>
 
 </section>
@@ -976,17 +995,6 @@ function setRate(btn,r){
   fwd.addEventListener('click', function(){ skip(15); });
 })();
 </script>
-<!-- JOURNAL-BANK:START -->
-<script data-journal-bank>
-(function(){try{
-  if(typeof Q!=='undefined' && Array.isArray(Q)){
-    var JJ=[{"q": "An HQHVSN clinic that regularly serves feral cat colonies wants to implement HPAI biosecurity protocols. Which approach best reflects the published framework for reducing transmission risk while maintaining surgical throughput?", "o": ["Suspend all feral cat surgeries during any regional avian influenza outbreak until the risk passes", "Implement proactive protocols before outbreaks occur—covering facility layout, personnel hygiene/PPE, cleaning SOPs, patient cohorting, and caregiver education", "Focus exclusively on PPE for surgical staff, as fomite transmission through equipment is the primary risk", "Test all incoming feral cats serologically for influenza A before scheduling surgery"], "a": 1, "e": "The published biosecurity framework recommends a multi-component proactive approach: designated intake areas, isolation spaces, N95/gown/glove PPE protocols during outbreaks, written disinfection SOPs, grouped scheduling to separate high-risk animals, and early caregiver education—all aimed at maintaining uninterrupted surgical services while minimizing cross-contamination."}, {"q": "A colony caregiver asks what they should do to reduce HPAI risk in their managed feral cat population. According to the published HPAI biosecurity framework, what is the most important guidance?", "o": ["Vaccinate all colony cats with the available avian influenza vaccine before wild bird season", "Remove all colony cats from outdoor areas and house them indoors year-round", "Monitor for unexplained illness, control rodents and wildlife access near feeding stations, and follow safe feeding practices", "Stop feeding colonies during active RHDV2 or influenza outbreaks to discourage aggregation"], "a": 2, "e": "The framework recommends that colony caregivers monitor for and report unexplained illness, implement rodent/wildlife deterrents near feeding and colony areas, and follow safe feeding practices. Starting education before outbreak onset improves caregiver compliance with biosecurity measures."}];
-    JJ.forEach(function(m){Q.push({t:"journal",f:"journal",q:m.q,o:m.o,a:m.a,e:m.e});});
-    if(typeof render==='function'){render();}
-  }
-}catch(e){}})();
-</script>
-<!-- JOURNAL-BANK:END -->
 <!-- ip-notice-footer -->
 <footer style="margin:2rem 0 0;padding:14px 16px;border-top:1px solid rgba(128,128,128,.35);text-align:center;font-size:12px;line-height:1.55;color:#888;font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">
   &copy; 2026 Juliana Xue. The original content, design &amp; compilation of this
@@ -995,5 +1003,37 @@ function setRate(btn,r){
   Cited third-party materials (journal abstracts, openly-licensed images, etc.)
   remain the property of their respective owners.
 </footer>
+<!-- JOURNAL-BANK:START -->
+<script data-journal-bank>
+(function(){try{
+  // Teach the page's badge/label helpers about journal-sourced questions so
+  // they render a "journal" source badge (the page templates predate this tag).
+  if(typeof flagBadge==='function' && !flagBadge.__journalPatched){
+    var _fb=flagBadge;
+    window.flagBadge=function(f){return f==='journal'?'<span class="bdg journal">journal</span>':_fb(f);};
+    window.flagBadge.__journalPatched=true;
+  }
+  if(typeof tagLabel==='function' && !tagLabel.__journalPatched){
+    var _tl=tagLabel;
+    window.tagLabel=function(t){return t==='journal'?'Journal':_tl(t);};
+    window.tagLabel.__journalPatched=true;
+  }
+  // Add a "Journal Articles" chip to the topic-filter bar so the journal
+  // questions can be isolated (they otherwise sit at the end of the bank).
+  var _fbar=document.querySelector('.filters');
+  if(_fbar && !_fbar.querySelector('[data-f="journal"]')){
+    var _jb=document.createElement('button');
+    _jb.setAttribute('data-f','journal');
+    _jb.textContent='Journal Articles';
+    _fbar.appendChild(_jb);
+  }
+  if(typeof Q!=='undefined' && Array.isArray(Q)){
+    var JJ=[{"q": "An HQHVSN clinic that regularly serves feral cat colonies wants to implement HPAI biosecurity protocols. Which approach best reflects the published framework for reducing transmission risk while maintaining surgical throughput?", "o": ["Suspend all feral cat surgeries during any regional avian influenza outbreak until the risk passes", "Implement proactive protocols before outbreaks occur—covering facility layout, personnel hygiene/PPE, cleaning SOPs, patient cohorting, and caregiver education", "Focus exclusively on PPE for surgical staff, as fomite transmission through equipment is the primary risk", "Test all incoming feral cats serologically for influenza A before scheduling surgery"], "a": 1, "e": "The published biosecurity framework recommends a multi-component proactive approach: designated intake areas, isolation spaces, N95/gown/glove PPE protocols during outbreaks, written disinfection SOPs, grouped scheduling to separate high-risk animals, and early caregiver education—all aimed at maintaining uninterrupted surgical services while minimizing cross-contamination.", "t": "journal", "f": "journal"}, {"q": "A colony caregiver asks what they should do to reduce HPAI risk in their managed feral cat population. According to the published HPAI biosecurity framework, what is the most important guidance?", "o": ["Vaccinate all colony cats with the available avian influenza vaccine before wild bird season", "Remove all colony cats from outdoor areas and house them indoors year-round", "Monitor for unexplained illness, control rodents and wildlife access near feeding stations, and follow safe feeding practices", "Stop feeding colonies during active RHDV2 or influenza outbreaks to discourage aggregation"], "a": 2, "e": "The framework recommends that colony caregivers monitor for and report unexplained illness, implement rodent/wildlife deterrents near feeding and colony areas, and follow safe feeding practices. Starting education before outbreak onset improves caregiver compliance with biosecurity measures.", "t": "journal", "f": "journal"}, {"q": "Which virus was NOT inactivated by gaseous ozone even after 6 hours?", "o": ["Feline calicivirus", "Feline parvovirus", "Feline coronavirus", "Canine coronavirus"], "a": 1, "e": "Feline parvovirus (a non-enveloped virus) remained viable even after 6 hours of ozone.", "t": "journal", "f": "journal"}, {"q": "What general pattern of ozone susceptibility did the study confirm?", "o": ["Non-enveloped viruses are more susceptible", "Enveloped viruses are more resistant", "Enveloped viruses showed lower resistance to ozone", "All viruses were equally resistant"], "a": 2, "e": "Results confirmed lower resistance to ozone in enveloped viruses.", "t": "journal", "f": "journal"}, {"q": "After how long of ozone application did feline coronavirus show no cytopathic effect?", "o": ["2 hours", "4 hours", "6 hours", "Not inactivated"], "a": 0, "e": "Feline coronavirus showed no cytopathic effect after 2 hours of ozone application.", "t": "journal", "f": "journal"}];
+    JJ.forEach(function(m){Q.push({t:m.t||"journal",f:m.f||"journal",q:m.q,o:m.o,a:m.a,e:m.e});});
+    if(typeof render==='function'){render();}
+  }
+}catch(e){}})();
+</script>
+<!-- JOURNAL-BANK:END -->
 </body>
 </html>
