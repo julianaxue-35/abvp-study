@@ -238,6 +238,20 @@ def render_styles() -> str:
 .ja-qopt.correct { background: #e9f4ee; border-color: var(--good, #2f7d52); }
 .ja-qopt.wrong { background: #f8e9e9; border-color: var(--bad, #b23b3b); }
 .ja-qexpl { font-size: 0.88em; margin-top: 8px; padding: 9px 12px; background: var(--lit-soft, #dcedf2); border-radius: 8px; color: var(--ink2, #15514c); line-height: 1.5; }
+/* ── Journal source badge (self-contained so it renders on any bank page) ── */
+.bdg.journal {
+  display: inline-block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9.5px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 999px;
+  vertical-align: middle;
+  white-space: nowrap;
+  background: var(--lit-soft, #dcedf2);
+  color: var(--lit, #1f6f8b);
+}
 </style>"""
 
 
@@ -308,6 +322,27 @@ def render_bank_script(questions: list) -> str:
     return f"""\
 <script data-journal-bank>
 (function(){{try{{
+  // Teach the page's badge/label helpers about journal-sourced questions so
+  // they render a "journal" source badge (the page templates predate this tag).
+  if(typeof flagBadge==='function' && !flagBadge.__journalPatched){{
+    var _fb=flagBadge;
+    window.flagBadge=function(f){{return f==='journal'?'<span class="bdg journal">journal</span>':_fb(f);}};
+    window.flagBadge.__journalPatched=true;
+  }}
+  if(typeof tagLabel==='function' && !tagLabel.__journalPatched){{
+    var _tl=tagLabel;
+    window.tagLabel=function(t){{return t==='journal'?'Journal':_tl(t);}};
+    window.tagLabel.__journalPatched=true;
+  }}
+  // Add a "Journal Articles" chip to the topic-filter bar so the journal
+  // questions can be isolated (they otherwise sit at the end of the bank).
+  var _fbar=document.querySelector('.filters');
+  if(_fbar && !_fbar.querySelector('[data-f="journal"]')){{
+    var _jb=document.createElement('button');
+    _jb.setAttribute('data-f','journal');
+    _jb.textContent='Journal Articles';
+    _fbar.appendChild(_jb);
+  }}
   if(typeof Q!=='undefined' && Array.isArray(Q)){{
     var JJ={payload};
     JJ.forEach(function(m){{Q.push({{t:m.t||"journal",f:m.f||"journal",q:m.q,o:m.o,a:m.a,e:m.e}});}});
@@ -411,8 +446,15 @@ def inject(page_path: str) -> bool:
 
     questions = page_questions(page_path, all_records, synth)
     has_bank = bool(re.search(r"const Q=\[", content))
-    # On bank pages questions go into the bank; otherwise into an in-panel quiz.
-    quiz_html = "" if has_bank else render_quiz_block(questions)
+    # Route questions into the page's MCQ bank only when its filter bar uses
+    # event delegation on .filters — that is the only case where a dynamically
+    # injected "Journal Articles" chip gets wired up. Pages that bind filter
+    # clicks per-button at load (a dynamic chip would be dead) or that have no
+    # filter bar get a discoverable, self-contained in-panel "Journal Self-Test".
+    has_delegated_filter = has_bank and bool(
+        re.search(r"""querySelector\(["']\.filters["']\)\.addEventListener\(["']click""", content))
+    use_bank = has_delegated_filter
+    quiz_html = "" if use_bank else render_quiz_block(questions)
 
     styles_html = render_styles()
 
@@ -502,7 +544,7 @@ def inject(page_path: str) -> bool:
         content,
         flags=re.DOTALL,
     )
-    if has_bank and questions:
+    if use_bank and questions:
         bank_region = f"{BANK_START}\n{render_bank_script(questions)}\n{BANK_END}"
         body_close = content.rfind("</body>")
         if body_close != -1:
