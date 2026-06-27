@@ -5811,6 +5811,27906 @@
 {
 "type": "mcq",
 "domain": "Physical Health",
+"sub": "Parasites",
+"q": "In this meta-analysis of non-arsenical (moxidectin + doxycycline) heartworm treatment, by what time point had 99% of dogs achieved antigen-negative status (pre-post analysis)?",
+"o": [
+"3 months",
+"6 months",
+"12 months",
+"24 months"
+],
+"a": 2,
+"e": "Pre-post analysis revealed 99% of dogs reached antigen-negative status by 12 months (95% CI: 99-100%, moderate certainty).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "According to the comparative studies in this review, from what point onward were antigen-negative conversion rates of the moxi-doxy protocol comparable to melarsomine?",
+"o": [
+"From 1 month forward",
+"From 9 months forward (strongest evidence at 18 months)",
+"Only after 36 months",
+"They were never comparable"
+],
+"a": 1,
+"e": "Comparative studies showed antigen-negative conversion comparable to melarsomine from 9 months forward, with the strongest evidence at 18 months — reflecting the slower, time-dependent adulticidal effect.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "What is the authors' overall conclusion about the non-arsenical moxidectin-doxycycline protocol?",
+"o": [
+"It is superior to melarsomine and should replace it as first-line",
+"It appears well-tolerated and is a practical alternative when melarsomine is unavailable or contraindicated, though more high-quality RCTs are needed",
+"It is ineffective and should not be used",
+"It is only appropriate for stage 3-4 (severe) disease"
+],
+"a": 1,
+"e": "The combination appears well-tolerated and represents a practical alternative when melarsomine is unavailable or contraindicated; the authors still call for additional high-quality randomized trials with extended monitoring.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "What was the evidence base (number of studies, dogs, and predominant disease stage) underpinning this systematic review?",
+"o": [
+"6 studies, 100 dogs, predominantly stage 3-4",
+"14 studies, 358 dogs, primarily stage 1-2",
+"40 studies, over 1000 dogs, all stages equally",
+"2 studies, 50 dogs, stage 4 only"
+],
+"a": 1,
+"e": "The review searched six databases plus grey literature through November 2024 and included 14 studies with 358 dogs, primarily stage 1-2 disease.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "In FeLV-positive cats at the referral center, the most common associated diagnosis was:",
+"o": [
+"Chronic kidney disease",
+"Neoplasia",
+"Diabetes mellitus",
+"Hypertrophic cardiomyopathy"
+],
+"a": 1,
+"e": "Neoplasia accounted for 76% of diagnoses, the most common.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "The most common laboratory abnormality in FeLV-positive cats was:",
+"o": [
+"Anemia (mostly nonregenerative)",
+"Thrombocytosis",
+"Hypernatremia",
+"Leukocytosis"
+],
+"a": 0,
+"e": "Anemia occurred in 71%, of which 74% were nonregenerative.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Regarding age, cats diagnosed with neoplasia were:",
+"o": [
+"Significantly older",
+"No different in age",
+"Significantly younger",
+"Uniformly geriatric"
+],
+"a": 2,
+"e": "Neoplasia was more likely in younger cats (<4 years).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Infectious canine distemper virus could be isolated from shelter dogs:",
+"o": [
+"Throughout the entire monitoring period",
+"Within the first two weeks around peak viral RNA excretion",
+"Only after 60 days of monitoring",
+"Only in RT-PCR-negative dogs"
+],
+"a": 1,
+"e": "Virus isolation succeeded only within the first two weeks, near peak viral RNA (lowest Ct).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "The median duration of a positive RT-PCR result was approximately:",
+"o": [
+"34 days",
+"7 days",
+"6 days",
+"90 days"
+],
+"a": 0,
+"e": "Median positive-test duration was 34 days, with 25% still positive after 62 days.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "The study proposed which functional marker for the end of infectious risk?",
+"o": [
+"First negative antibody titer",
+"Peak viral RNA excretion and the surrounding days",
+"Resolution of all clinical signs",
+"62 days post-intake"
+],
+"a": 1,
+"e": "Peak RNA excretion and days around it correlated with the end of recoverable infectious virus.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Moxi-doxy is recommended primarily as:",
+"o": [
+"First-line therapy preferred over melarsomine",
+"An alternative when arsenical treatment is unavailable or inaccessible",
+"A preventative only",
+"A microfilaricide only"
+],
+"a": 1,
+"e": "Moxi-doxy is a viable alternative to no treatment when melarsomine cannot be used.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "The most effective non-arsenical regimen described is:",
+"o": [
+"Doxycycline 28 days plus monthly topical moxidectin until NAD",
+"Single-dose ivermectin",
+"Three-dose melarsomine",
+"Doxycycline for 7 days only"
+],
+"a": 0,
+"e": "Doxycycline q12-24h for 28 days with monthly moxidectin repeated until no antigen detected.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Per the review, the safest and most effective heartworm adulticide remains:",
+"o": [
+"Moxi-doxy",
+"Melarsomine (arsenical)",
+"Surgical extraction",
+"Ivermectin alone"
+],
+"a": 1,
+"e": "The three-dose melarsomine protocol is still the safest, most effective treatment.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Transfer Programs",
+"q": "Post-transport canine parvovirus incidence among the relocated puppies was approximately:",
+"o": [
+"2.3%",
+"23%",
+"8%",
+"0.5%"
+],
+"a": 0,
+"e": "Incidence of post-transport CPV in 4088 puppies was 2.3%.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Transfer Programs",
+"q": "Risk of post-transport CPV was lower in puppies that were:",
+"o": [
+"Younger than 8 weeks",
+"13–17 weeks of age",
+"Vaccinated only once",
+"Transported in winter"
+],
+"a": 1,
+"e": "Older age (13–17 and 18–19 weeks) and summer transport were associated with lower CPV risk.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Transfer Programs",
+"q": "The number and timing of pre-transport vaccinations were:",
+"o": [
+"Not associated with post-transport CPV counts",
+"Strongly protective",
+"The dominant risk factor",
+"Inversely related to age"
+],
+"a": 0,
+"e": "Vaccine number/timing showed no association; transport timing should weigh other factors.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Comparing isopropyl alcohol versus water rinse, perioperative rectal temperature:",
+"o": [
+"Did not differ significantly between groups",
+"Was significantly lower with alcohol",
+"Was significantly lower with water",
+"Was unmeasurable"
+],
+"a": 0,
+"e": "Mean rectal temperature differences were nonsignificant at every time point.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "The clinical conclusion regarding rinse choice was:",
+"o": [
+"Alcohol causes more hypothermia and should be avoided",
+"Either rinse produces the same degree of temperature change",
+"Water reliably prevents hypothermia",
+"Rinse agent is the main driver of hypothermia"
+],
+"a": 1,
+"e": "Both agents gave equivalent temperature change; other hypothermia factors matter more.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Across both species, the puppies and kittens experienced:",
+"o": [
+"Perioperative hypothermia regardless of rinse agent",
+"Hyperthermia",
+"Stable normothermia",
+"No measurable change"
+],
+"a": 0,
+"e": "Temperatures fell to ~35-36 °C in all groups, reflecting perioperative hypothermia.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Seroprevalence of Toxoplasma gondii antibodies among the sampled shelter cats was approximately:",
+"o": [
+"28.6%",
+"71%",
+"5%",
+"50%"
+],
+"a": 0,
+"e": "24 of 84 cats were seropositive (28.6%).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "The definitive host of Toxoplasma gondii is:",
+"o": [
+"Dogs",
+"Members of the Felidae family (cats)",
+"Rodents",
+"Birds"
+],
+"a": 1,
+"e": "Felids are the definitive host of this zoonotic parasite.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "A key limitation acknowledged by the authors was:",
+"o": [
+"An excessively large sample",
+"Reliance on PCR only",
+"Small sample size limiting statistical significance",
+"Absence of a commercial test"
+],
+"a": 2,
+"e": "The limited sample prevented statistically significant results; framed as a pilot study.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "The two most commonly cited barriers to veterinary care that telehealth aimed to address were:",
+"o": [
+"Cost and transportation",
+"Language and literacy",
+"Insurance and licensing",
+"Time and weather"
+],
+"a": 0,
+"e": "Cost and transportation were the cited barriers in underserved communities.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "The proportion of clients reporting they could not have afforded an in-person appointment was:",
+"o": [
+"25%",
+"58%",
+"10%",
+"90%"
+],
+"a": 1,
+"e": "58% said they could not have afforded in-person care; ~25% lacked transportation.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "Client and veterinary student experiences with telehealth were:",
+"o": [
+"Overwhelmingly negative",
+"Mixed and neutral",
+"Overwhelmingly positive",
+"Not assessed"
+],
+"a": 2,
+"e": "Both client and student experiences were overwhelmingly positive.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "The most common motivations reported by foster caregivers were:",
+"o": [
+"Financial compensation",
+"Animal- or community-based reasons",
+"Career advancement",
+"Tax benefits"
+],
+"a": 1,
+"e": "Most cited animal- or community-based motives, e.g., giving an animal love.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "Compared with females, male caregivers were:",
+"o": [
+"Less likely to foster for emotional support",
+"More likely to foster for emotional support",
+"Equally likely to foster for emotional support",
+"Less likely to own pets"
+],
+"a": 0,
+"e": "Males had lower odds of fostering for emotional support (OR 0.12).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "Caregivers aged 18–29 were most likely to expect:",
+"o": [
+"Companionship, emotional support, and meeting community members",
+"Financial gain",
+"Professional training credit",
+"Reduced household workload"
+],
+"a": 0,
+"e": "Young caregivers had higher odds of expecting companionship, emotional support, and social connection.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Compared with non-returning owners, owners who returned their dogs had:",
+"o": [
+"Lower expectations for dog behavior",
+"Higher expectations for dog behavior/health and the human–dog bond",
+"Identical expectations",
+"Higher expectations for ownership responsibilities"
+],
+"a": 1,
+"e": "Returning owners had significantly higher behavior/health and bond expectations.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Expectations for ownership responsibilities between returning and non-returning owners:",
+"o": [
+"Did not differ between groups",
+"Were significantly higher in returners",
+"Were significantly lower in returners",
+"Were the strongest predictor of return"
+],
+"a": 0,
+"e": "Ownership-responsibility expectations did not differ between the groups.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "The median length of ownership before dogs were returned was:",
+"o": [
+"Eight days",
+"Three months",
+"One day",
+"Four months"
+],
+"a": 0,
+"e": "Returns occurred at a median of eight days post-adoption.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Population Management",
+"q": "During COVID-19 (vs the same months of 2019), shelter intake of dogs and cats was:",
+"o": [
+"Significantly lower",
+"Significantly higher",
+"Unchanged",
+"Higher for dogs only"
+],
+"a": 0,
+"e": "Intake of both dogs and cats fell significantly during the pandemic.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Population Management",
+"q": "During the pandemic, the overall rate of adoption and euthanasia:",
+"o": [
+"Increased dramatically",
+"Did not differ, though absolute numbers fell with intake",
+"Fell to zero",
+"Doubled"
+],
+"a": 1,
+"e": "Rates were unchanged, but absolute adoptions and euthanasias dropped with lower intake.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Population Management",
+"q": "The proportion of dogs and cats housed in foster care between 2019 and 2020:",
+"o": [
+"Increased significantly",
+"Decreased significantly",
+"Did not significantly differ in the sample",
+"Was not assessed"
+],
+"a": 2,
+"e": "Despite expansion efforts, the foster-care proportion did not significantly change.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Nutrition & Husbandry",
+"q": "Factors significantly associated with lower daily weight gain in shelter/foster kittens were:",
+"o": [
+"Male sex and pyrexia",
+"Lethargy and being female",
+"Vaccination and diet",
+"Age and breed"
+],
+"a": 1,
+"e": "Lethargy and female sex were significantly linked to lower daily weight gain.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Nutrition & Husbandry",
+"q": "Compared with catteries and laboratories, average daily weight gain in shelter/foster kittens was:",
+"o": [
+"Higher than reported in those settings",
+"Lower than those settings",
+"Identical",
+"Not comparable"
+],
+"a": 0,
+"e": "Despite shelter challenges, average daily weight gain exceeded cattery/lab reports.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Nutrition & Husbandry",
+"q": "Mortality among the study kittens was approximately:",
+"o": [
+"2.5%",
+"25%",
+"10%",
+"50%"
+],
+"a": 0,
+"e": "Five of 203 kittens (2.5%) died or were euthanized.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "The molecular findings in this shelter FIP outbreak provided support for which theory of pathogenesis?",
+"o": [
+"Circulating virulent–avirulent theory",
+"Strictly internal-mutation theory",
+"Host genetic-susceptibility theory",
+"Bacterial co-infection theory"
+],
+"a": 0,
+"e": "Shared and divergent S1/S2 mutations supported a circulating virulent–avirulent theory.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Diagnosis of FIP in the three cats was confirmed by:",
+"o": [
+"PCR alone",
+"Necropsy with histopathology and immunohistochemistry",
+"Serology only",
+"Clinical signs alone"
+],
+"a": 1,
+"e": "FIP was confirmed by necropsy, histopathology, and immunohistochemistry.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "The S1/S2 cleavage-site mutation shared by two cats and previously associated with FIP was:",
+"o": [
+"R790S",
+"R793S",
+"R790G",
+"Delta-3c"
+],
+"a": 0,
+"e": "Two cats shared R790S, a mutation previously linked to FIP development.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Shelter Diversion",
+"q": "From 2008-2019 in BC SPCA shelters, which relinquishment reasons rose in proportion over time?",
+"o": [
+"Financial problems",
+"Guardian health",
+"Housing issues",
+"\"Too many\" dogs and behavior"
+],
+"a": 3,
+"e": "\"Too many\" (OR 1.16) and \"behavior\" (OR 1.34) increased, while financial problems declined (OR 0.94).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Shelter Diversion",
+"q": "What was the single most commonly reported primary reason for dog relinquishment?",
+"o": [
+"Having too many dogs (19%)",
+"Housing issues (17%)",
+"Dog behavior (10%)",
+"Financial issues (10%)"
+],
+"a": 0,
+"e": "\"Too many dogs\" at 19% was the top reported reason, ahead of housing (17%).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Shelter Diversion",
+"q": "The authors highlight improving pet-inclusive housing as an intervention especially for which setting?",
+"o": [
+"Rural areas only",
+"Small population centers",
+"Large population centers",
+"Medium centers only"
+],
+"a": 2,
+"e": "Housing-issue surrenders were predicted in larger centers, so pet-inclusive housing was flagged for large population centers.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Shelter Diversion",
+"q": "Which CIMD factor predicted increased odds of surrendering pit bull-labeled dogs in both study areas?",
+"o": [
+"Situational Vulnerability",
+"Ethnocultural Composition",
+"Economic Dependency",
+"Residential Instability"
+],
+"a": 0,
+"e": "Situational Vulnerability predicted higher odds of pit bull-labeled dog surrender in both Metro Vancouver and Kamloops.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Shelter Diversion",
+"q": "In Metro Vancouver, increased owner-surrender risk for multiple owner-related reasons was predicted by which factor (versus Residential Instability in Kamloops)?",
+"o": [
+"Economic Dependency",
+"Situational Vulnerability",
+"Residential Instability",
+"Ethnocultural Composition"
+],
+"a": 3,
+"e": "Ethnocultural Composition drove owner-related surrenders in Vancouver, whereas Residential Instability did so in Kamloops.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Shelter Diversion",
+"q": "What does the study conclude about provision of animal services for vulnerable groups?",
+"o": [
+"It should be uniform province-wide",
+"It may need to be location-specific",
+"It has no effect on retention",
+"It is unnecessary"
+],
+"a": 1,
+"e": "Differing predictors across areas suggest services like veterinary care should be tailored by location.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Shelter Diversion",
+"q": "For puppies and kittens, how did the outgoing (adoption) community's Situational Vulnerability compare to the incoming (surrender) community's?",
+"o": [
+"Lower / less vulnerable",
+"Higher / more vulnerable",
+"Identical",
+"Not measured"
+],
+"a": 0,
+"e": "Median outgoing SV quintiles were significantly lower, supporting flow of animals from more to less vulnerable communities.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Shelter Diversion",
+"q": "How many of the four CIMD dimensions differed significantly between surrendering and adopting communities?",
+"o": [
+"One",
+"Two",
+"Three",
+"All four"
+],
+"a": 2,
+"e": "Three dimensions differed (Ethnocultural Composition, Situational Vulnerability, Economic Dependency); Residential Instability did not.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Shelter Diversion",
+"q": "The authors argue animal sheltering is best considered from which framework?",
+"o": [
+"Cost-benefit only",
+"One Welfare",
+"Free-market",
+"Eradication"
+],
+"a": 1,
+"e": "The data are presented as further support for a One Welfare perspective on sheltering.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Which agent did viral metagenomics implicate as most likely responsible for the shelter vomiting outbreak?",
+"o": [
+"Rotavirus I",
+"Norovirus GVI",
+"Feline astrovirus",
+"Carnivore bocaparvovirus 3"
+],
+"a": 2,
+"e": "Feline astrovirus was present in all pools at high prevalence and temporally tied to the outbreak.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What did testing of asymptomatic control cats housed in the same areas reveal?",
+"o": [
+"None were shedding the virus",
+"About 56% were also shedding astrovirus",
+"All were shedding rotavirus",
+"They cleared infection in 24 hours"
+],
+"a": 1,
+"e": "5 of 9 (56%) clinically unaffected control cats also shed astrovirus, indicating significant asymptomatic shedding.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Fecal samples collected ~1 year before and after the outbreak supported which conclusion?",
+"o": [
+"Astrovirus is a normal commensal in this shelter",
+"Astrovirus was only temporarily associated with the outbreak",
+"The outbreak was caused by panleukopenia",
+"Shedding lasted under 24 hours"
+],
+"a": 1,
+"e": "No astrovirus was detected before or after, so the virus was temporarily linked to the outbreak rather than commensal.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Which factor carried roughly a 13-fold increased risk of death in underage nursery kittens?",
+"o": [
+"Diarrhea",
+"Anorexia",
+"Diagnosis of panleukopenia",
+"Upper respiratory infection"
+],
+"a": 2,
+"e": "Panleukopenia diagnosis (and being in the lightest weight group) conferred ~13x greater mortality risk.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Upper respiratory infection (URI) was associated with approximately what increase in mortality risk?",
+"o": [
+"Almost four-fold",
+"Two-fold",
+"Ten-fold",
+"No increase"
+],
+"a": 0,
+"e": "URI was associated with almost a four-fold increased risk of death.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "The identified pre-mortem signs are intended to support which shelter decisions?",
+"o": [
+"Adoption pricing",
+"Monitoring, intervention, and euthanasia decision-making",
+"Transport scheduling",
+"Vaccine selection"
+],
+"a": 1,
+"e": "The authors frame the prognostic indicators as aids for monitoring, intervention, and euthanasia decisions.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "How did the median price owners were willing to pay compare with the actual cost of vaccination?",
+"o": [
+"It exceeded the actual cost",
+"It equaled the actual cost",
+"It was less than the actual cost",
+"Owners refused to pay anything"
+],
+"a": 2,
+"e": "Willingness-to-pay (median ~25 birr) was below the real cost, supporting the need for subsidized or free vaccine.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "What vaccination coverage threshold is cited as needed for canine rabies elimination?",
+"o": [
+"40%",
+"70%",
+"90%",
+"100%"
+],
+"a": 1,
+"e": "The 70% coverage threshold is the stated target for canine rabies elimination.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "Which delivery strategy did results support incorporating to maximize coverage?",
+"o": [
+"Central-point clinics only",
+"Door-to-door vaccination plus subsidies",
+"Mandatory quarantine",
+"Online registration only"
+],
+"a": 1,
+"e": "Many owners were unwilling to travel, so door-to-door vaccination combined with subsidies was endorsed.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "How many themes did the meeting identify around shelter medicine program sustainability?",
+"o": [
+"Two",
+"Three",
+"Four",
+"Six"
+],
+"a": 2,
+"e": "Four themes emerged: external pressure, funder expectations, time horizons, and perceptions of shelters/veterinarians.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "Which was NOT one of the identified sustainability themes?",
+"o": [
+"Funder expectations",
+"Vaccine supply shortages",
+"Time horizons",
+"External pressure from leadership and stakeholders"
+],
+"a": 1,
+"e": "Vaccine supply was not a theme; the four were external pressure, funder expectations, time horizons, and perceptions.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "The discussion focused on sustaining shelter medicine in which context?",
+"o": [
+"Private specialty practice",
+"Academic/veterinary curriculum training",
+"Pharmaceutical research",
+"Municipal animal control budgets"
+],
+"a": 1,
+"e": "The meeting addressed long-term success of shelter medicine curricula in academic training.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "What was the observed human:dog ratio among stray (free-roaming) dogs in Quito?",
+"o": [
+"3.5:1",
+"10:1",
+"58:1",
+"100:1"
+],
+"a": 2,
+"e": "Free-roaming dogs showed a 58:1 HD ratio, versus 3.5:1 for indoor-kept dogs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "What was the prevalence of households with dogs infected with intestinal parasites?",
+"o": [
+"28%",
+"12%",
+"50%",
+"5%"
+],
+"a": 0,
+"e": "28% of households (95% CI 21-37) had one or more dogs infected with intestinal parasites.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Which intestinal parasite was most frequent in indoor-kept dogs?",
+"o": [
+"Toxocara spp.",
+"Ancylostoma spp.",
+"Giardia spp.",
+"Dipylidium caninum"
+],
+"a": 1,
+"e": "Ancylostoma spp. (zoonotic hookworm) was the most frequent parasite in dogs kept indoors.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "What was the feline heartworm antigen seroprevalence among the 586 cats tested?",
+"o": [
+"1.2%",
+"12%",
+"5.8%",
+"0.1%"
+],
+"a": 0,
+"e": "Seroprevalence of heartworm antigen was 1.2% despite the high local canine prevalence.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Which clinical findings were significantly associated with heartworm-positive cats?",
+"o": [
+"Polyuria and weight gain",
+"Vomiting and abnormal lung sounds",
+"Lameness and fever",
+"Jaundice and pruritus"
+],
+"a": 1,
+"e": "Heartworm-positive results were significantly associated with vomiting and abnormal lung sounds.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Because treatment options for infected cats are limited, what do the authors emphasize?",
+"o": [
+"Routine surgical extraction",
+"Annual euthanasia screening",
+"Regular prophylaxis and client education",
+"Discontinuing testing"
+],
+"a": 2,
+"e": "With limited treatment, prevention via prophylaxis and owner education is prioritized.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Research & Biostats",
+"sub": "Epidemiology & Biostats",
+"q": "What is the authors' main conclusion about applying a Ricker model to TNR programs?",
+"o": [
+"It is inappropriate for assessing TNR effectiveness",
+"It is the gold standard for TNR",
+"It accurately predicts cat population stability",
+"It should replace stochastic models"
+],
+"a": 0,
+"e": "The authors conclude the Ricker model is inappropriate for evaluating TNR effectiveness.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Research & Biostats",
+"sub": "Epidemiology & Biostats",
+"q": "Why does the Ricker model fail for free-roaming cat populations?",
+"o": [
+"It underestimates kitten survival",
+"It predicts wild population swings inconsistent with observed stability",
+"It ignores vaccination",
+"It requires fishery licenses"
+],
+"a": 1,
+"e": "The model predicts large population swings that don't match the relative stability of real free-roaming cat populations.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Research & Biostats",
+"sub": "Epidemiology & Biostats",
+"q": "Which alternative model do the authors favor for predicting needed sterilization effort?",
+"o": [
+"A simple linear regression",
+"A deterministic Ricker variant",
+"A stochastic model accounting for cat movement in and out",
+"A fisheries yield model"
+],
+"a": 2,
+"e": "A stochastic model that accounts for immigration/emigration of cats is deemed better suited.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Animals & Public Policy",
+"sub": "Ethics",
+"q": "Through what ethical lens does the paper frame management of cats living beyond domesticity?",
+"o": [
+"Strict utilitarianism",
+"Moral pluralism",
+"Legal positivism",
+"Economic determinism"
+],
+"a": 1,
+"e": "The article advances moral pluralism in managing human-cat-wildlife interactions.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Animals & Public Policy",
+"sub": "Ethics",
+"q": "The central policy tension reviewed is between cat eradication advocates and proponents of what alternative?",
+"o": [
+"Trap-neuter-return (TNR)",
+"Mandatory indoor confinement",
+"Lethal baiting",
+"Wildlife relocation"
+],
+"a": 0,
+"e": "The conflict is between eradication advocates and supporters of TNR variants.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Animals & Public Policy",
+"sub": "Ethics",
+"q": "What outcome do the authors warn this cat-wildlife conflict risks producing?",
+"o": [
+"Rapid consensus",
+"A management stalemate",
+"Immediate eradication",
+"Total deregulation"
+],
+"a": 1,
+"e": "They note the conflict raises the prospect of stalemate and seek ways to move beyond it.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Shelter Diversion",
+"q": "Which is NOT a reported benefit of triage and appointment-based shelter admission?",
+"o": [
+"Improved staff morale",
+"Reduced disease rates",
+"Increased euthanasia",
+"Substantially reduced euthanasia"
+],
+"a": 2,
+"e": "Reported outcomes included reduced euthanasia, lower disease, and better morale; euthanasia decreased, not increased.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Shelter Diversion",
+"q": "Unmanaged, unscheduled admission frequently leads to what consequence?",
+"o": [
+"Animal influx exceeding capacity, causing crowding and disease",
+"Lower intake than capacity",
+"Improved customer experience",
+"Faster adoptions"
+],
+"a": 0,
+"e": "Unscheduled intake often pushes influx beyond capacity, producing crowding, stress, disease, and euthanasia.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Shelter Diversion",
+"q": "The article draws a parallel between shelter triage/appointment models and practices in which sector?",
+"o": [
+"Manufacturing",
+"Human healthcare",
+"Agriculture",
+"Retail logistics"
+],
+"a": 1,
+"e": "Triage and appointment-based services are explicitly likened to those long used in human healthcare.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What is the central thesis of this critical review?",
+"o": [
+"Training has no role in animal welfare",
+"Training itself can function as a form of behavioral enrichment",
+"Training must replace all other enrichment",
+"Enrichment and training are mutually exclusive"
+],
+"a": 1,
+"e": "The review argues training can be conceptualized and used as a form of behavioral enrichment.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Why is framing training as enrichment useful in captive/shelter settings?",
+"o": [
+"It guarantees adoption",
+"It removes the need for housing standards",
+"It provides cognitive and behavioral stimulation that can improve welfare",
+"It eliminates veterinary care"
+],
+"a": 2,
+"e": "Training delivers cognitive engagement and stimulation, supporting welfare like other enrichment.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Compared with large dogs, small dogs had markedly higher odds (7.8x) of biting which area inside their own household?",
+"o": [
+"Head only",
+"Limbs",
+"Trunk",
+"Tail"
+],
+"a": 1,
+"e": "Small dogs had ~7.8x the odds of biting limbs inside their household versus large dogs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Outside the household, which factor increased the odds a bitten dog sought medical treatment?",
+"o": [
+"Being bitten by a female",
+"Being bitten by a small dog",
+"Being bitten by a male dog",
+"Being a guard-dog victim"
+],
+"a": 2,
+"e": "Dogs bitten outside the household by males had ~2.5x the odds of seeking medical treatment.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "The study concluded which biting-dog traits influence bite location and treatment need?",
+"o": [
+"Coat color and age",
+"Diet and vaccination status",
+"Sex and size",
+"Microchip status"
+],
+"a": 2,
+"e": "The biting dog's sex and size influenced both bite area and the need for treatment.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "How did fecal cortisol metabolite (FCM) levels of recently sheltered dogs compare to pet dogs?",
+"o": [
+"Lower",
+"Higher",
+"Identical",
+"Undetectable"
+],
+"a": 1,
+"e": "Recently sheltered dogs had higher FCM than pet dogs, and levels continued to rise.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "Unexpectedly, dogs with a good rehoming prognosis showed what FCM pattern?",
+"o": [
+"Higher average FCM than poor-prognosis dogs",
+"Lower average FCM than poor-prognosis dogs",
+"No measurable FCM",
+"FCM equal to pet dogs"
+],
+"a": 0,
+"e": "Good-prognosis dogs had higher average FCM, possibly reflecting allostasis differences.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "The authors concluded that fecal cortisol metabolites were:",
+"o": [
+"Useless for assessing shelter adaptability",
+"Valid only when measured in serum",
+"Of sufficient resolution and useful for evaluating adaptability",
+"Unaffected by sex"
+],
+"a": 2,
+"e": "FCM had sufficient resolution and was useful for evaluating dogs' adaptability to shelter conditions.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Which approaches were broadly associated with increased odds of improvement across fearful/anxious dogs?",
+"o": [
+"Punishment-based training",
+"Neutering and benzodiazepines",
+"Increased exercise for all fears",
+"Reward-based training, mental stimulation, and habituation"
+],
+"a": 3,
+"e": "Reward-based training, mental stimulation, and habituation were broadly linked to improvement.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Pre-existing aggression had what effect on improvement odds for inanimate/situational fears and PTSD?",
+"o": [
+"Improved odds",
+"No effect",
+"Negative (reduced) odds",
+"Complete resolution"
+],
+"a": 2,
+"e": "Pre-existing aggression was associated with negative (reduced) odds of improvement.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "For post-traumatic stress disorder, increasing the dog's exercise level was associated with:",
+"o": [
+"Improved odds of improvement",
+"Reduced odds of improvement",
+"No change",
+"Complete resolution"
+],
+"a": 1,
+"e": "Paradoxically, increasing exercise reduced odds of improvement for PTSD.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Body Language",
+"q": "Which stress signs were veterinary students LEAST likely to identify?",
+"o": [
+"Aggressiveness",
+"Stereotypies",
+"Excessive barking",
+"Yawning, low activity, and paw raising"
+],
+"a": 3,
+"e": "Subtle signs like yawning, low activity, and paw raising were less often recognized.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Body Language",
+"q": "Which factor was associated with greater ability to identify canine stress signs?",
+"o": [
+"Student gender",
+"Attachment level to pets",
+"Understanding of stress physiology and dog ownership",
+"Birth year"
+],
+"a": 2,
+"e": "Grasp of the psycho-physiological basis of stress plus dog ownership improved identification.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Body Language",
+"q": "The authors concluded that for veterinary students:",
+"o": [
+"No further training is needed",
+"Additional training in canine stress may be beneficial",
+"Stress recognition is innate",
+"Only women can identify stress"
+],
+"a": 1,
+"e": "Findings suggest additional canine-stress training would benefit students.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "Was there a significant difference in serum serotonin (5-HT) among behavioral-response categories?",
+"o": [
+"No significant difference",
+"Yes, a strong difference",
+"Only in males",
+"Data unavailable"
+],
+"a": 0,
+"e": "No significant difference in 5-HT was found across behavioral-response categories.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "What was found regarding correlation between serum tryptophan (TRP) and serotonin (5-HT)?",
+"o": [
+"Strong positive correlation",
+"No correlation",
+"Strong negative correlation",
+"Perfect correlation"
+],
+"a": 1,
+"e": "No correlation between TRP and 5-HT serum concentrations was found.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "The study concluded serum serotonin:",
+"o": [
+"Reliably predicts behavioral stress response",
+"Does not appear associated with behavioral stress response",
+"Replaces behavioral assessment",
+"Equals tryptophan levels"
+],
+"a": 1,
+"e": "Serum 5-HT did not appear associated with a dog's behavioral response to stress.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "During the Stranger test, dogs tested with a male stranger had scores that were:",
+"o": [
+"Lower than with female strangers",
+"Significantly higher than with female strangers",
+"Identical to female strangers",
+"Unmeasurable"
+],
+"a": 1,
+"e": "Dogs tested with a male stranger scored significantly higher (more concerning) than with females.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "What was the effect size of stranger sex on scores?",
+"o": [
+"Small to moderate",
+"Large",
+"Negative",
+"None"
+],
+"a": 0,
+"e": "The effect of stranger sex on scores was small to moderate.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "The authors' practical conclusion for shelters was:",
+"o": [
+"Stop all stranger testing",
+"Use only female testers",
+"Findings do not warrant adjustments to how tests are conducted or interpreted",
+"Use only male testers"
+],
+"a": 2,
+"e": "Despite the difference, findings did not warrant changes to shelter testing practice.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Learning Theory",
+"q": "The Quiet Kennel Exercise (QKE) reduced barking by using which mechanism?",
+"o": [
+"Punishment",
+"Classical counterconditioning to shift emotional state",
+"Bark collars",
+"Debarking surgery"
+],
+"a": 1,
+"e": "QKE used classical counterconditioning to convert a negative emotional state to positive.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Learning Theory",
+"q": "During the intervention, passersby were asked to:",
+"o": [
+"Ignore the dogs entirely",
+"Toss each dog a treat regardless of its behavior",
+"Reprimand barking dogs",
+"Treat only quiet dogs"
+],
+"a": 1,
+"e": "Passersby tossed each dog a treat irrespective of behavior, the counterconditioning stimulus.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Learning Theory",
+"q": "Descriptive results suggested barking over the intervention:",
+"o": [
+"Increased over time",
+"Worsened in the afternoon",
+"Was unchanged",
+"Improved, with the most improvement in the afternoon"
+],
+"a": 3,
+"e": "Fewer dogs barked and barking decreased, with the greatest improvement in the afternoon.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What was the main conclusion about early neurological stimulation (ENS) and puppy stress responses?",
+"o": [
+"ENS strongly reduced stress",
+"ENS may not provide the purported benefits",
+"ENS increased disease",
+"ENS improved adoption rates"
+],
+"a": 1,
+"e": "Results suggested this ENS protocol may not deliver its purported stress-response benefits.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Did treatment group (ENS, held, control) affect the behavioral test outcomes?",
+"o": [
+"Yes, ENS was clearly superior",
+"No, treatment did not affect the results",
+"Only the held group improved",
+"Control performed best"
+],
+"a": 1,
+"e": "Treatment group did not affect the stranger-approach or isolation test results.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Puppies were more affiliative toward a stranger:",
+"o": [
+"Before isolation and before transport",
+"Only in the control group",
+"After isolation and after transport",
+"Never"
+],
+"a": 2,
+"e": "Puppies were more affiliative post-isolation and post-transport than before.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Animal Handling",
+"q": "Which physiological marker showed a greater decrease in the intervention group?",
+"o": [
+"Creatine kinase",
+"Heart rate",
+"Serum cortisol (CORT)",
+"Neutrophil-lymphocyte ratio"
+],
+"a": 2,
+"e": "The intervention group showed a greater decrease in serum cortisol from visit 1 to 4.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Animal Handling",
+"q": "The composite stress index differed between first and fourth visits for which group?",
+"o": [
+"Control only",
+"Intervention only",
+"Both equally",
+"Neither"
+],
+"a": 1,
+"e": "The composite index changed significantly for the intervention group, not the control.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Animal Handling",
+"q": "The findings suggest collaborative, fear-minimizing exams:",
+"o": [
+"Increased stress",
+"Produced a greater reduction in stress over time vs standard care",
+"Had no effect",
+"Worsened cortisol"
+],
+"a": 1,
+"e": "Dogs in adaptive, collaborative exams had greater stress reduction than standard-care dogs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Which type of object play developed first across breeds?",
+"o": [
+"Social object play",
+"Solitary object play",
+"No object play was observed",
+"Group play"
+],
+"a": 1,
+"e": "Solitary object play emerged first, with social object play developing later.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Welsh Terriers showed what pattern relative to Vizslas and Poodles?",
+"o": [
+"Earlier onset of many behaviors",
+"Later onset of many behaviors",
+"Identical timing",
+"No play at all"
+],
+"a": 1,
+"e": "Onset of many object-play behaviors occurred later in Welsh Terriers.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "The study found a significant three-way interaction among:",
+"o": [
+"Breed, developmental age, and play context",
+"Coat color, sex, and age",
+"Diet, breed, and weight",
+"Litter size and sex only"
+],
+"a": 0,
+"e": "There was a significant interaction between breed, developmental age, and play context.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "QOL & Needs Assessment",
+"q": "How did total activity and total sleep recorded by the wearable compare to direct observation?",
+"o": [
+"Significantly different",
+"Did not differ statistically",
+"Wearable detected none",
+"Observation detected none"
+],
+"a": 1,
+"e": "Total activity and total sleep did not differ statistically between methods.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "QOL & Needs Assessment",
+"q": "The agreement between wearable and directly observed data ranged approximately:",
+"o": [
+"10-25%",
+"50-60%",
+"75-99%",
+"Below 50%"
+],
+"a": 2,
+"e": "Agreement ranged from about 75% to 99% for recorded behaviors.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "QOL & Needs Assessment",
+"q": "The authors concluded the wearable technology was:",
+"o": [
+"Inaccurate and unusable",
+"A useful, less time-consuming tool for welfare-related behavior assessment",
+"Valid only in laboratories",
+"Worse than cranial electrodes"
+],
+"a": 1,
+"e": "The device was a useful, less time-consuming alternative to direct observation for welfare assessment.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "After four weeks, enriched commercial-breeding dams differed from controls primarily by:",
+"o": [
+"Having lower hair cortisol",
+"Scoring higher on the stranger approach (sociability) test",
+"Barking less in kennels",
+"Gaining more body weight"
+],
+"a": 1,
+"e": "Enriched dams scored significantly higher on the stranger approach test, indicating greater affiliative behaviour toward unfamiliar people.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What did hair cortisol results show between the enriched and control groups?",
+"o": [
+"A significant decrease in enriched dams",
+"A significant increase in controls",
+"No significant between-group difference",
+"Cortisol was not measured"
+],
+"a": 2,
+"e": "There was no significant difference in percentage change of hair cortisol, suggesting longer protocols may be needed for chronic stress effects.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "In the attention bias test, control (non-enriched) dams compared with enriched dams:",
+"o": [
+"Looked more frequently toward the negative threatening stimulus",
+"Ate more from the food bowl",
+"Ignored the umbrella entirely",
+"Approached strangers more readily"
+],
+"a": 0,
+"e": "Control dams looked more frequently toward the negative stimulus, the first evidence of attention bias indicating affective state in dogs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "In the Barking Reduction Protocol, food was delivered to shelter dogs when they:",
+"o": [
+"Approached the kennel front",
+"Had ceased barking",
+"Made eye contact",
+"Sat on command"
+],
+"a": 1,
+"e": "The positive-reinforcement intervention delivered food only after dogs stopped barking.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "The intervention's effect on continuous sound level and barking duration was:",
+"o": [
+"Both increased",
+"Both unchanged",
+"Only sound level decreased",
+"Both Leq dB and barking duration decreased"
+],
+"a": 3,
+"e": "Average Leq dB and barking duration both fell following the intervention across all conditions.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "The authors characterized the Barking Reduction Protocol as:",
+"o": [
+"An effective, low-effort tool requiring under three minutes by Condition 3",
+"Effective only with a single familiar experimenter",
+"Too labour-intensive for shelters",
+"Effective only short-term"
+],
+"a": 0,
+"e": "Implementation time shortened to under three minutes, supporting it as an effective low-effort welfare intervention.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Learning Theory",
+"q": "When comparing gestural-only, vocal-only, and combined cues for response reliability, the study found:",
+"o": [
+"Combined cues significantly more reliable",
+"No statistically significant differences across conditions",
+"Vocal cues clearly superior",
+"Gestural cues clearly superior"
+],
+"a": 1,
+"e": "Reliability of responding did not differ significantly across the three cue conditions.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Learning Theory",
+"q": "Across novel situations, dogs generalized learned behaviours most readily when given:",
+"o": [
+"Vocal-only cues",
+"Gestural-only cues",
+"Combined gesture-plus-vocal cues",
+"No cue"
+],
+"a": 2,
+"e": "Dogs consistently generalized more readily and met criteria in fewer trials with combined cues.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Learning Theory",
+"q": "A practical implication of the findings is that:",
+"o": [
+"Vocal cues should be dropped in training",
+"Gestures alone maximize generalization",
+"Cue modality has no effect on training",
+"Combining vocal and gestural cues may increase reliable responding across novel situations"
+],
+"a": 3,
+"e": "The compound cue presentation may enhance reliability of correct responses in new contexts.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "Compared with matched pet dogs in homes, shelter dogs showed:",
+"o": [
+"Lower urinary cortisol/creatinine ratios",
+"Higher nocturnal activity and higher UCCRs, especially early on",
+"No measurable differences",
+"Reduced body shaking throughout"
+],
+"a": 1,
+"e": "Shelter dogs had higher nocturnal activity and UCCRs than pet dogs, most marked during the first days.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "Over the first two weeks in-shelter, nocturnal activity and UCCRs:",
+"o": [
+"Steadily increased",
+"Remained constant",
+"Decreased, suggesting partial adaptation",
+"Exceeded pet-dog values by day 12"
+],
+"a": 2,
+"e": "Both measures declined over nights, indicating dogs partly adapted to the shelter after two weeks.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "Regarding body weight, shelter dogs after 12 days:",
+"o": [
+"Significantly lost body weight compared with intake",
+"Significantly gained weight",
+"Showed no weight change",
+"Were not weighed"
+],
+"a": 0,
+"e": "Shelter dogs significantly lost body weight by day 12 relative to intake.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Body Language",
+"q": "How accurately did laypeople match QBA descriptors to their definitions?",
+"o": [
+"At chance level",
+"Substantially above chance, but only ~50% (vet set) and ~33% (shelter set) correct",
+"Near-perfect accuracy",
+"Worse than chance"
+],
+"a": 1,
+"e": "Matching was above chance yet modest, averaging 50% for the veterinary set and 33% for the shelter set.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Body Language",
+"q": "Which descriptor set was matched more accurately?",
+"o": [
+"The veterinary QBA set",
+"The shelter QBA set",
+"Both equally",
+"Neither was tested"
+],
+"a": 0,
+"e": "The veterinary set (~50%) was matched more accurately than the shelter set (~33%).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Body Language",
+"q": "Matching performance was positively correlated with participants':",
+"o": [
+"Education level",
+"Age",
+"Experience with dogs",
+"Native language"
+],
+"a": 2,
+"e": "Greater experience with dogs predicted better descriptor-definition matching.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "QOL & Needs Assessment",
+"q": "The authors conclude that, in its current state, the Five Domains model is:",
+"o": [
+"A fully validated welfare assessment tool",
+"Useful for systematic consideration but not fit-for-purpose as an assessment tool",
+"Obsolete and should be discarded",
+"Applicable only to laboratory animals"
+],
+"a": 1,
+"e": "They judge it valuable for systematically considering welfare but not yet fit-for-purpose for assessment.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "QOL & Needs Assessment",
+"q": "Which is a cited limitation of using the model as an assessment tool?",
+"o": [
+"Reliance on expert/stakeholder opinion with limited transparency",
+"It ignores physical health entirely",
+"It cannot be applied beyond wildlife",
+"It overemphasizes uncertainty"
+],
+"a": 0,
+"e": "Dependence on opaquely selected expert opinion is among the key limitations raised.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "QOL & Needs Assessment",
+"q": "What do the authors recommend?",
+"o": [
+"Abandoning the model entirely",
+"Using it only for quantitative scoring",
+"Prioritising validation studies and acknowledging its operational limits",
+"Restricting it to experimental procedures"
+],
+"a": 2,
+"e": "They call for validation studies and wider acknowledgment of the model's operational limits as an assessment tool.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "The main conclusion of this scoping review was that:",
+"o": [
+"Early neutering clearly worsens bitch behaviour",
+"Late neutering clearly improves behaviour",
+"There is a lack of evidence on whether pre- vs post-pubertal neutering affects bitch behaviour",
+"Neutering has no behavioural effect at all"
+],
+"a": 2,
+"e": "The review found insufficient evidence to document the impact of neutering before or after puberty on behaviour.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Most of the included studies classified bitches by:",
+"o": [
+"Pubertal status (pre- vs postpubertal)",
+"Age at neutering",
+"Breed",
+"Body weight"
+],
+"a": 1,
+"e": "Eleven of the 13 studies classified bitches by age at neutering rather than by pubertal status.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "How many publications were retained for inclusion out of those reviewed?",
+"o": [
+"13",
+"130",
+"2",
+"1048"
+],
+"a": 0,
+"e": "Of 1048 publications reviewed, 13 met inclusion criteria.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "Which is described as a non-invasive method of measuring cortisol in dogs?",
+"o": [
+"Hair assay",
+"Blood",
+"Saliva",
+"Urine"
+],
+"a": 0,
+"e": "The review groups hair and fecal assays as non-invasive, versus invasive blood, saliva, and urine sampling.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "Cortisol levels in dogs were noted to be influenced by environmental factors including:",
+"o": [
+"Altitude",
+"Shelter conditions, human interaction, and music",
+"Coat colour",
+"Breed alone"
+],
+"a": 1,
+"e": "The review highlights shelter conditions, human interaction, and music as environmental influences on cortisol.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "A clinical condition tied to abnormal cortisol discussed in the review is:",
+"o": [
+"Diabetes insipidus",
+"Hypothyroidism",
+"Cushing's disease",
+"Canine parvovirus"
+],
+"a": 2,
+"e": "Cushing's disease is highlighted as a condition reflecting abnormal cortisol levels.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Trauma-informed care proposes that a 'problem' dog's reactive behaviour may stem from:",
+"o": [
+"Genetics only",
+"Previous trauma or adverse early experience",
+"Poor diet",
+"Insufficient exercise"
+],
+"a": 1,
+"e": "TIC frames exaggerated or unpredictable responses as possible reactions to triggered negative memories/trauma.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "A core trauma-informed assessment/treatment principle is to:",
+"o": [
+"Avoid re-traumatising the dog through exposure to triggering stimuli",
+"Maximize exposure to triggers",
+"Disregard caregiver history",
+"Rely on aversive punishment"
+],
+"a": 0,
+"e": "Assessment must avoid re-traumatising the animal and respect its window of tolerance.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Clinicians often reconstruct a dog's history through:",
+"o": [
+"Routine blood panels",
+"Genetic testing",
+"'Proxy' reporting from owners, foster carers, or shelter staff",
+"The dog's own self-report"
+],
+"a": 2,
+"e": "Background information typically relies on proxy reporting by caregivers, which may be limited or absent.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "The most frequently reported reason owners chose behavioral euthanasia was:",
+"o": [
+"Separation anxiety",
+"House soiling",
+"Human-directed aggression, especially toward household adults",
+"Excessive barking"
+],
+"a": 2,
+"e": "Human-directed aggression, particularly toward adults in the household, was the top reported reason.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "Regarding bite history, the majority of these dogs had:",
+"o": [
+"Never bitten",
+"Bitten and broken skin, sometimes in multiple or severe incidents",
+"Only growled without contact",
+"Shown problems for under a week"
+],
+"a": 1,
+"e": "Most dogs with human- or animal-directed aggression had bitten and broken skin, often repeatedly or severely.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "Most dogs had displayed the problem behaviours for:",
+"o": [
+"Over a year before euthanasia",
+"Only a few days",
+"About one week",
+"Only since the day of adoption"
+],
+"a": 0,
+"e": "Most dogs had lived in their homes and shown problem behaviours for over a year prior to euthanasia.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Dogs preferred para rubber feeding toys that were:",
+"o": [
+"Blue and beef-scented",
+"Yellow and vanilla-scented",
+"Red and unscented",
+"Showed no preference"
+],
+"a": 1,
+"e": "Dogs preferred yellow over blue toys and vanilla over beef scent.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "After one month of feeding-toy use, the most notable significant behavioural change was:",
+"o": [
+"A nearly threefold reduction in excitation behaviour",
+"Increased excitation",
+"More aggression",
+"No change"
+],
+"a": 0,
+"e": "Excitation behaviour decreased nearly threefold, a statistically significant reduction (p=0.003).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Para rubber was favoured over plastic and silicone because it is:",
+"o": [
+"Edible and digestible",
+"Cheaper than alternatives",
+"Flexible and tooth-tolerant, making it safer",
+"Completely odourless"
+],
+"a": 2,
+"e": "Natural para rubber's flexibility and tolerance of animal teeth make it safer than plastic or silicone.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Body Language",
+"q": "Reviewing popular online videos of human-dog play, petting, and hugging, the study observed:",
+"o": [
+"Mostly relaxed, comfortable dogs",
+"A high number of stress-related behaviours in dogs",
+"No communication problems",
+"Only aggressive humans"
+],
+"a": 1,
+"e": "A high prevalence of stress-related behaviours was identified across the reviewed interaction videos.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Body Language",
+"q": "The authors conclude that humans tend to:",
+"o": [
+"Misunderstand the body language and vocalizations dogs show during interactions",
+"Accurately interpret all dog signals",
+"Avoid hugging dogs altogether",
+"Communicate with dogs only verbally"
+],
+"a": 0,
+"e": "Many concerning human behaviours arose because people did not understand dogs' communicative signals.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Body Language",
+"q": "The paper advocates for:",
+"o": [
+"Banning hugging entirely",
+"Reducing all play sessions",
+"Increased education for adults and children in canine communication",
+"Ignoring dog body language"
+],
+"a": 2,
+"e": "The authors call for greater education in canine communication and respecting dogs' agency.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Which attachment style was most prevalent among the commercial-breeding-kennel dogs tested?",
+"o": [
+"Insecure avoidant",
+"Secure",
+"Insecure disorganized",
+"Insecure ambivalent"
+],
+"a": 1,
+"e": "Twenty of 48 dogs (41.67%) were classified secure, the largest group.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Relative to insecure-avoidant dogs, how did secure and ambivalent dogs behave toward a stranger?",
+"o": [
+"No measurable difference",
+"Approached and solicited contact more frequently",
+"Showed more aggression",
+"Withdrew toward the exit"
+],
+"a": 1,
+"e": "Secure/ambivalent dogs approached and solicited contact significantly more than avoidant dogs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What effect did caretaker presence (Paired-Effect vs Stranger Arena) have on approach to the stranger?",
+"o": [
+"Dogs approached the stranger faster when the caretaker was present",
+"Caretaker presence delayed approach",
+"No dogs approached in either test",
+"Only avoidant dogs approached"
+],
+"a": 0,
+"e": "All groups approached more quickly when the caretaker was present, a secure-base effect.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "How did owners of HSHA-affected dogs rate their own quality of life versus control owners?",
+"o": [
+"Significantly lower",
+"Significantly higher",
+"Identical",
+"Not assessed"
+],
+"a": 0,
+"e": "HSHA owners reported significantly lower QoL, citing stress, injuries, and emotional distress.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Compared with controls, HSHA dogs showed:",
+"o": [
+"Better welfare and fewer health issues",
+"Lower well-being and more frequent physical health problems",
+"No behavioral differences",
+"Only digestive benefits"
+],
+"a": 1,
+"e": "HSHA dogs had lower well-being plus more injuries and digestive problems.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "What did the authors emphasize as the key to improving HSHA outcomes?",
+"o": [
+"Surgical correction",
+"Early diagnosis and effective management",
+"Rehoming to rural areas",
+"Dietary supplementation alone"
+],
+"a": 1,
+"e": "Early diagnosis/management was stressed to prevent relinquishment or euthanasia.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Learning Theory",
+"q": "What did free-ranging dogs demonstrate across the trial days?",
+"o": [
+"No ability to distinguish the experimenters",
+"Learning to identify the rewarding person",
+"Preference for the non-rewarding person",
+"Avoidance of all humans"
+],
+"a": 1,
+"e": "Correct choices rose significantly by days 5 and 6 versus day 2, indicating learning.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Learning Theory",
+"q": "On which days were correct choices significantly higher than on Day 2?",
+"o": [
+"Days 5 and 6",
+"Day 1 only",
+"Never significant",
+"Day 3 only"
+],
+"a": 0,
+"e": "Dogs chose the previously rewarding person significantly more often on days 5 and 6.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Learning Theory",
+"q": "What reward marked the correct experimenter?",
+"o": [
+"A toy",
+"Boiled chicken followed by petting",
+"Verbal praise only",
+"A ball"
+],
+"a": 1,
+"e": "The rewarding experimenter gave boiled chicken followed by petting.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Which toy did shelter dogs engage with longest?",
+"o": [
+"Tennis ball",
+"Nylabone",
+"Stuffed (soft) toy",
+"Flying disc"
+],
+"a": 2,
+"e": "Dogs engaged over eight times longer with the stuffed toy than other toys.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What was the effect of applying a dog's preferred scent to its toys?",
+"o": [
+"Reduced engagement",
+"Increased engagement with both most- and least-preferred toys",
+"No effect",
+"Only affected the tennis ball"
+],
+"a": 1,
+"e": "Scent boosted engagement, with the biggest gain (13.7x) on least-preferred toys.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "On average, what fraction of the 15-minute session did dogs spend interacting with toys?",
+"o": [
+"About 3.35%",
+"About 35%",
+"About 70%",
+"The entire session"
+],
+"a": 0,
+"e": "Dogs interacted with toys only 3.35% of the session on average.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Did the MSWO preference test predict in-home toy engagement?",
+"o": [
+"Yes, strongly",
+"No",
+"Only for puppies",
+"Only for beef scent"
+],
+"a": 1,
+"e": "MSWO did not predict in-home toy engagement.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What happened to overall activity and play with increasing dog age?",
+"o": [
+"Increased",
+"Declined",
+"Unchanged",
+"Peaked in old age"
+],
+"a": 1,
+"e": "Overall activity and play declined with age.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What was the practical conclusion about scent enrichment?",
+"o": [
+"A single universal scent works best",
+"Personalized, individual-preference scenting can enhance welfare",
+"Scent has no welfare value",
+"Only novel scents help"
+],
+"a": 1,
+"e": "No single scent was universally preferred; individualized preference raised activity, supporting personalized enrichment.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Which sound did dogs actively avoid?",
+"o": [
+"Classical music",
+"Conspecific agonistic vocalizations",
+"Dog-directed speech",
+"Relaxing music"
+],
+"a": 1,
+"e": "Dogs avoided agonistic vocalizations and increased owner attention-seeking.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What effect did prior familiarity with classical music have?",
+"o": [
+"Dogs avoided it more",
+"Familiar dogs spent about twice as long in the sound zone and were more relaxed",
+"No effect at all",
+"Increased agonistic behavior"
+],
+"a": 1,
+"e": "Prior-exposure dogs spent twice as much time in the sound zone and showed more relaxed behaviors.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Did any supposedly 'positive' stimulus produce a clear preference?",
+"o": [
+"Yes, classical music",
+"Yes, relaxing music",
+"No clear preference emerged",
+"Yes, dog-directed speech"
+],
+"a": 2,
+"e": "None of the positive stimuli produced a clear preference; dogs may even prefer silence.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Were there behavioral differences between fearful and control dogs during home separation?",
+"o": [
+"Fearful dogs were much more distressed",
+"No differences were found between fearful and control dogs",
+"Controls were more distressed",
+"Only aggressive dogs differed"
+],
+"a": 1,
+"e": "No differences were found between fearful dogs and controls.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Which change during the owner's absence was interpreted as a stress indicator?",
+"o": [
+"Increased exploration",
+"Decreased exploration that did not fully recover",
+"More play",
+"Sleeping"
+],
+"a": 1,
+"e": "Reduced exploration during absence, with incomplete recovery after return, indicated stress.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "What methodological contribution did the study make?",
+"o": [
+"Showed separation can be evaluated in a naturalistic home setting",
+"Proved medication efficacy",
+"Validated cortisol assays",
+"Required a novel laboratory"
+],
+"a": 0,
+"e": "It demonstrated separation reactions can be assessed in the dog's own home rather than a novel place.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Which early-life factor was associated with LOWER odds of separation-related behaviour?",
+"o": [
+"Aversive/punishment training",
+"Sleeping >=9 h/night plus overnight crate/room confinement at <=16 weeks",
+"Fussing on return",
+"Poor house-training"
+],
+"a": 1,
+"e": "Puppies with >=9 h sleep and enclosed overnight space were less likely to develop SRBs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Owners who 'fussed' over puppies in response to bad behaviour on return had puppies that were:",
+"o": [
+"Less likely to show SRBs",
+"About six times more likely to show SRBs",
+"Unaffected",
+"Only affected if crated"
+],
+"a": 1,
+"e": "Fussing was linked to roughly six-fold higher odds of SRBs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "What was found for dog breed, sex, and source?",
+"o": [
+"Strong predictors of SRBs",
+"No significant association with SRB occurrence",
+"Breed was protective",
+"Source was the main driver"
+],
+"a": 1,
+"e": "Breed, sex and source showed no significant association with SRB occurrence.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Which training approach did shelter dogs respond best to?",
+"o": [
+"Clicker training alone",
+"Treats, verbal praise, and stroking",
+"Aversive correction",
+"No reinforcement"
+],
+"a": 1,
+"e": "Dogs responded better to treats, verbal praise, and stroking than to clicker alone.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Was the learned 'sit' retained after changing trainer or location?",
+"o": [
+"Yes, it was retained",
+"No, it was lost",
+"Only with the same trainer",
+"Only in the same room"
+],
+"a": 0,
+"e": "The 'sit' was retained even after a change of location and/or trainer.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What outcome do the authors link to teaching basic obedience in shelters?",
+"o": [
+"Lower adoption rates",
+"Increased adoptability/adoption rates",
+"No effect on adoption",
+"Higher relinquishment"
+],
+"a": 1,
+"e": "Basic obedience is a desirable trait that can increase adoptability.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "In the Dog Aging Project sample, what proportion of dogs met the threshold for at least one (or >=2) moderate-to-serious behavior problems?",
+"o": [
+"About 25%",
+"About 50%",
+"About 99%",
+"About 10%"
+],
+"a": 2,
+"e": "99.12% of dogs met the threshold for at least one problem.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Which behavior category had the HIGHEST prevalence (>=2 moderate-to-serious occurrences)?",
+"o": [
+"Aggression (55.6%)",
+"Separation and attachment behaviors (85.9%)",
+"Fear and anxiety (49.9%)",
+"Housesoiling (4.1%)"
+],
+"a": 1,
+"e": "Separation/attachment behaviors were highest at 85.9%.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Which behavior category had the LOWEST prevalence?",
+"o": [
+"Housesoiling (4.1%)",
+"Aggression",
+"Fear and anxiety",
+"Separation and attachment"
+],
+"a": 0,
+"e": "Housesoiling was lowest at 4.1%.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "Did diffuser dog-appeasing pheromone produce significant stress-reducing cardiovascular changes in hospitalized dogs?",
+"o": [
+"Yes, marked blood-pressure reduction",
+"No significant clinically relevant changes",
+"Yes, sharply lowered heart rate",
+"It worsened stress"
+],
+"a": 1,
+"e": "DAP produced no significant or clinically relevant cardiovascular stress-reduction effects.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "What did the placebo group's heart-rate pattern at arrival (T0) indicate?",
+"o": [
+"Deep relaxation",
+"Stress upon arrival in the hospital",
+"Hypothermia",
+"No autonomic response"
+],
+"a": 1,
+"e": "Heart-rate changes at baseline versus later timepoints suggested arrival stress.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "What study design was used?",
+"o": [
+"Retrospective uncontrolled",
+"Prospective, paired, randomized, double-blinded",
+"Single-blind case series",
+"Open-label cohort"
+],
+"a": 1,
+"e": "It was a prospective, paired, randomized, double-blinded study of ten dogs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "Into which two personality groups were the dogs classified?",
+"o": [
+"Dominant vs submissive",
+"Introvert vs extrovert",
+"Bold vs shy",
+"Reactive vs calm"
+],
+"a": 1,
+"e": "Dogs were assigned to introvert or extrovert groups.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "What proportion of the 46 dogs were assessed as extroverts?",
+"o": [
+"39%",
+"61%",
+"24%",
+"50%"
+],
+"a": 1,
+"e": "28 of 46 dogs (61%) showed extrovert traits; 18 (39%) were introverts.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "Which statistical method built the temperament-assessment model?",
+"o": [
+"Logistic regression on counts of extrovert/introvert traits",
+"Linear regression of body weight",
+"Chi-square only",
+"Kaplan-Meier survival analysis"
+],
+"a": 0,
+"e": "Logistic regression used numbers of extrovert and introvert traits to predict a dichotomous temperament outcome.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "QOL & Needs Assessment",
+"q": "Using the Shelter Quality Protocol in Brazilian long-term shelters, the predominant shelter-management welfare hazards were:",
+"o": [
+"Lack of rehoming/admission policies, preventive healthcare, and trained staff",
+"Overcrowding caused by excessively high adoption rates",
+"Excessive veterinary spending per dog",
+"Over-reliance on volunteer foster homes"
+],
+"a": 0,
+"e": "Management hazards centered on absent rehoming/admission policies, preventive healthcare programs, and trained staff.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "QOL & Needs Assessment",
+"q": "Which environmental hazards did the study flag in the shelter housing?",
+"o": [
+"Excellent bedding but poor ventilation",
+"Bedding inadequacy and surfaces difficult to keep clean",
+"Adequate rehabilitation programs but small enclosures",
+"Low stocking density with high enrichment"
+],
+"a": 1,
+"e": "Environmental hazards included inadequate bedding, hard-to-clean surfaces, behavioral problems, and lack of rehabilitation programs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "QOL & Needs Assessment",
+"q": "What standardized instrument was used to evaluate the 588 dogs and 201 enclosures?",
+"o": [
+"AAHA accreditation checklist",
+"Five Freedoms audit form",
+"Shelter Quality Protocol (SQP)",
+"ASPCA Meet Your Match"
+],
+"a": 2,
+"e": "The welfare assessment was conducted with the Shelter Quality Protocol.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "What was the study's overall conclusion about predicting successful dog adoptions?",
+"o": [
+"Dog personality alone reliably predicts adoption success",
+"Human and dog personality showed strong matching correlations",
+"Personality (dog or human) alone cannot sufficiently determine successful adoption",
+"Matching neuroticism guarantees post-adoption retention"
+],
+"a": 2,
+"e": "The authors concluded adoption success is multifactorial and personality alone is insufficient.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "How strong were the correlations between human and dog personality domains?",
+"o": [
+"Weak (roughly -0.11 to 0.16)",
+"Strong positive",
+"Strong negative",
+"Near-perfect"
+],
+"a": 0,
+"e": "Spearman coefficients (-0.11 to 0.16) showed only weak human-dog personality associations.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "How was the dog Training Focus domain related to human-animal attachment (LAPS)?",
+"o": [
+"Attachment decreased as Training Focus increased",
+"Attachment increased as Training Focus increased",
+"No relationship was found",
+"Motivation, not Training Focus, was the strongest predictor"
+],
+"a": 1,
+"e": "Higher dog Training Focus was associated with higher owner attachment scores.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Animal Handling",
+"q": "What had the strongest influence on dogs' stress levels during handling?",
+"o": [
+"The handler's resting heart rate",
+"Increasing familiarity with the setting and the handler",
+"Time of day the session occurred",
+"The dog's breed"
+],
+"a": 1,
+"e": "Stress measures improved as dogs became more familiar with the setting and handler across handling sets.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Animal Handling",
+"q": "What did the study find regarding emotional contagion between dogs and unfamiliar handlers?",
+"o": [
+"No consistent support for emotional contagion was found",
+"Strong emotional contagion was confirmed",
+"Handlers consistently mirrored dog stress",
+"Contagion increased with each handling set"
+],
+"a": 0,
+"e": "The brief contact yielded no consistent evidence of dog-handler emotional contagion.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Animal Handling",
+"q": "From the first to the third handling set, canine heart rate variability (RMSSD):",
+"o": [
+"Decreased",
+"Increased significantly",
+"Remained unchanged",
+"Became erratic"
+],
+"a": 1,
+"e": "HRV (RMSSD) rose significantly by set 3, indicating reduced stress with familiarity.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "Into which three major categories did the review group canine behavioral test stimuli?",
+"o": [
+"Visual, auditory, and olfactory",
+"Human-oriented, environmental, and motivator-oriented",
+"Physical, cognitive, and social",
+"Fear, aggression, and sociability"
+],
+"a": 1,
+"e": "The dog-centric framework grouped 29 subcategories into human-oriented, environmental, and motivator-oriented stimuli.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "What was the review's main conclusion about behavioral testing methods?",
+"o": [
+"Tests are already fully standardized",
+"No common features exist across protocols",
+"Despite heterogeneity, common stimuli emerged, yielding a practical framework",
+"Only one valid test type exists"
+],
+"a": 2,
+"e": "Methodological heterogeneity persisted but common stimuli allowed a practical organizing framework.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "Which four new behavior domains did the modified (WDC-BARQ) questionnaire add?",
+"o": [
+"Aggression, Fear, Separation, Excitability",
+"Playfulness, Impulsivity, Distractibility, and Basophobia",
+"Trainability, Chasing, Energy, Sociability",
+"Extraversion, Neuroticism, Amicability, Motivation"
+],
+"a": 1,
+"e": "EFA extracted four new working-dog domains: Playfulness, Impulsivity, Distractibility, and Basophobia (plus Food focus).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "What did the authors conclude about the WDC-BARQ?",
+"o": [
+"It replaced behavioral testing entirely",
+"It failed validity testing",
+"It successfully expands the C-BARQ for working dog populations",
+"The original C-BARQ already captured all relevant domains"
+],
+"a": 2,
+"e": "The modified instrument extended C-BARQ measurement to dimensions relevant to working dogs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "In this study, 'Basophobia' refers to fear of:",
+"o": [
+"Water",
+"Falling",
+"Noise",
+"Strangers"
+],
+"a": 1,
+"e": "Basophobia was defined as fear of falling.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "Which Assistance Dog Test Battery model best predicted working outcomes?",
+"o": [
+"The 3-week model",
+"The 10-week model",
+"Both performed equally",
+"Neither model predicted outcomes"
+],
+"a": 1,
+"e": "The 10-week model (AUC 0.84) substantially outperformed the 3-week model and prior state-of-the-art.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "What practical benefit did the authors propose for assistance dog organizations?",
+"o": [
+"Increasing breeding rates",
+"Replacing veterinary exams",
+"Eliminating the need for trainers",
+"Reducing training costs by guiding which dogs to withdraw"
+],
+"a": 3,
+"e": "Model predictions can guide early withdrawal decisions, lowering training costs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "The 10-week ADTB model predicted outcomes with an AUC of approximately:",
+"o": [
+"0.50",
+"0.74",
+"0.84",
+"0.95"
+],
+"a": 2,
+"e": "The 10-week model achieved an ROC AUC of 0.84 (vs 0.74 at 3 weeks).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "When the UK guide-dog Puppy Profiling Assessment was applied to the US (GDB) population, what was found?",
+"o": [
+"All subtests predicted success",
+"No subtest provided predictive value for ultimate success",
+"The same five subtests predicted success as in the UK",
+"Only the noise subtest predicted success"
+],
+"a": 1,
+"e": "Unlike the UK findings, no subtest predicted guide-dog success in the US population.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "What does the study imply about standardized working-dog behavior tests?",
+"o": [
+"They must be re-validated across different programs and populations",
+"They generalize universally",
+"Puppy age is irrelevant to results",
+"Behavior testing should be abandoned"
+],
+"a": 0,
+"e": "Failure to generalize highlights the need to re-assess test validity across programs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "What did the study reveal about error in citizen-science behavior testing?",
+"o": [
+"Citizen-science error is always random and evens out",
+"Tester identity was associated with outcomes, indicating systematic error",
+"Citizen scientists matched trained researchers exactly",
+"Large sample size eliminated all error"
+],
+"a": 1,
+"e": "Tester (citizen vs trained) was linked to outcomes, so error was not purely random.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "What did the authors recommend in response to these findings?",
+"o": [
+"Abandon citizen science entirely",
+"Assume error remains random",
+"Introduce controls/quality checks to detect tester effects",
+"Use only owners as testers"
+],
+"a": 2,
+"e": "Quality checks and preliminary analyses are needed to catch systematic tester effects.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "In which tests was tester identity associated with outcomes?",
+"o": [
+"All subtests equally",
+"The Alone Time Test and the Three-Toy Test",
+"None of the tests",
+"Only a retrieve test"
+],
+"a": 1,
+"e": "Tester effects appeared specifically in the Alone Time Test and the Three-Toy Test.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "How did the presence of people in the room affect enrichment item use by colony cats?",
+"o": [
+"Increased item use",
+"Had no effect",
+"Significantly decreased item use",
+"Affected only female cats"
+],
+"a": 2,
+"e": "People being present significantly reduced use across all enrichment categories.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Cats seized or signed over from hoarding/cruelty cases preferentially used which enrichment type?",
+"o": [
+"Vertical surfaces",
+"Soft resting surfaces",
+"Enclosed spaces",
+"No enrichment at all"
+],
+"a": 2,
+"e": "Hoarding/cruelty-case cats used enclosed (security) spaces more.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "As length of stay increased, cats used more of which enrichment?",
+"o": [
+"Vertical surfaces",
+"Soft resting surfaces",
+"Enclosed boxes",
+"Food puzzles"
+],
+"a": 0,
+"e": "Use of vertical (vantage) surfaces rose with longer time in the shelter.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "How were hair (HCC) and nail (NCC) cortisol concentrations related in cats?",
+"o": [
+"Significantly positively correlated (rs ~0.70)",
+"Inversely correlated",
+"Not correlated at all",
+"Correlated only in males"
+],
+"a": 0,
+"e": "HCC and NCC were significantly associated (rs = 0.70).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "Cats with litterbox issues showed which cortisol pattern?",
+"o": [
+"Lower cortisol concentrations",
+"Increased HCC and NCC",
+"No change in cortisol",
+"Changes only in nail cortisol"
+],
+"a": 1,
+"e": "Litterbox issues were associated with significantly higher hair and nail cortisol.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "What was the clinical takeaway regarding these cortisol measures?",
+"o": [
+"HCC is the single most reliable stress measure",
+"NCC may improve chronic-stress detection, while HCC variability warrants caution",
+"Neither measure related to stress",
+"Cortisol cannot be measured in cats"
+],
+"a": 1,
+"e": "NCC showed promise for identifying chronic stress; HCC varied widely, urging caution.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What was the key finding about cats and the Kanizsa (illusory) square?",
+"o": [
+"Cats ignored all stimuli",
+"Cats selected the Kanizsa illusion about as often as the real square",
+"Cats avoided the illusory square",
+"Cats preferred the control stimulus"
+],
+"a": 1,
+"e": "Cats sat in illusory contours as often as real squares and more than controls.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What did the authors interpret from this result?",
+"o": [
+"Cats cannot perceive 2D enclosures",
+"Illusory contours repelled cats",
+"Cats may treat subjective Kanizsa contours as if they were real contours",
+"Only outdoor cats responded"
+],
+"a": 2,
+"e": "Equal selection of illusion and real square suggests cats perceive subjective contours like real ones.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What study method was used?",
+"o": [
+"Lab-controlled fMRI",
+"Citizen science with owners testing cats at home",
+"Shelter-based direct observation",
+"A longitudinal breeding cohort"
+],
+"a": 1,
+"e": "It was a COVID-era citizen-science study with owners running trials at home.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "How did indoor-only cats compare to indoor-outdoor cats in predatory play?",
+"o": [
+"Indoor-outdoor cats played far more",
+"Indoor-only cats approached and played with prey-like stimuli sooner",
+"There was no difference",
+"Indoor-only cats ignored the stimuli"
+],
+"a": 1,
+"e": "Indoor-only cats engaged the artificial prey stimuli sooner than indoor-outdoor cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Cats raised with their mother for a longer duration showed:",
+"o": [
+"More failed catching attempts",
+"No effect on catching",
+"Refusal to play",
+"Fewer failed catching attempts"
+],
+"a": 3,
+"e": "Longer maternal rearing was linked to fewer failed attempts catching the chaser.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What broader implication did the findings support?",
+"o": [
+"Predatory interest requires prior live-prey experience",
+"Indoor-only cats retain predatory play interest despite no live-prey experience",
+"Outdoor access is required for any play",
+"Play drive is unrelated to housing"
+],
+"a": 1,
+"e": "Prey-deprived indoor cats still showed strong interest in prey-like stimuli.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "Validation showed litter clump weight could be used as a marker of what?",
+"o": [
+"Fecal output",
+"Crude urine output",
+"Water consumption",
+"Body weight loss"
+],
+"a": 1,
+"e": "Clump weight was significantly predicted by the volume of water added, validating it as a proxy for crude urine output.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "How did urine clump weight change after Day 1 in newly admitted cats, and what did this imply?",
+"o": [
+"Decreased, implying dehydration",
+"Stayed constant, implying no stress",
+"Increased significantly, implying initial Day 1 suppression from acute stress",
+"Increased only after week two"
+],
+"a": 2,
+"e": "Clump weight rose significantly after Day 1, indicating urine was acutely suppressed on Day 1, likely from the stress of moving.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "How well did the support vector machine classify cats at risk of urine suppression?",
+"o": [
+"With modest accuracy (~82-86%)",
+"Perfectly (100%)",
+"No better than chance",
+"Only for long-term residents"
+],
+"a": 0,
+"e": "The SVM had modest training accuracy (~81.8-86.3%) across suppression cutoffs, suggesting limited but real predictive ability.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "When were stress-related behaviors lowest in cats placed in an unfamiliar environment?",
+"o": [
+"When alone with a scent object",
+"When the owner was present",
+"When completely alone",
+"When another cat was present"
+],
+"a": 1,
+"e": "Cats showed fewer stress behaviors with the owner present, supporting a Secure Base Effect.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "Did an owner-scented object reduce cat anxiety the way owner presence did?",
+"o": [
+"Yes, equally well",
+"Yes, even more effectively",
+"No, the scent object did not reduce stress",
+"Only in kittens"
+],
+"a": 2,
+"e": "The calming effect was seen only with the owner present, not when the cat was alone with the scent object.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "Cat Stress Scores were significantly higher in which group?",
+"o": [
+"Multi-cat households",
+"Single-cat households",
+"Households reporting agonistic behavior",
+"Households with kittens"
+],
+"a": 1,
+"e": "CSS was significantly higher in single- versus multi-cat households, suggesting more acute stress signs in single-cat cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "Did reported agonistic interactions within multi-cat households affect CSS?",
+"o": [
+"Yes, sharply increased CSS",
+"Yes, decreased CSS",
+"No significant difference",
+"Effect only in older cats"
+],
+"a": 2,
+"e": "CSS did not vary with reports of agonistic interactions among cohabiting cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "How many factors did principal component analysis reduce the cat-owner relationship items to?",
+"o": [
+"Two",
+"Three",
+"Four",
+"Seven"
+],
+"a": 2,
+"e": "PCA reduced items to four factors, including owner emotional investment and cat aloofness/proximity needs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "The study concluded the type of cat-owner bond is primarily the product of what?",
+"o": [
+"The cat's breed alone",
+"The dynamic between both individuals plus personality and owner expectations",
+"The owner's age",
+"Whether the cat is indoor or outdoor"
+],
+"a": 1,
+"e": "The bond emerges from the dynamic between cat and owner, shaped by sociability and owner expectations.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "How many behavior/personality factors did the questionnaire identify?",
+"o": [
+"Three",
+"Five",
+"Seven",
+"Twelve"
+],
+"a": 2,
+"e": "Factor analysis yielded seven traits, e.g., fearfulness, activity/playfulness, aggression and sociability toward humans.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "What did the validation analyses conclude about owner-completed questionnaires?",
+"o": [
+"They were unreliable and should be abandoned",
+"Validity and reliability were good, strengthening them as a data method",
+"Only useful for purebred cats",
+"Inferior to cortisol testing"
+],
+"a": 1,
+"e": "Internal consistency, test-retest and inter-rater reliability were good, supporting owner questionnaires as valid tools.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "Breed differences in the traits were interpreted as suggesting what?",
+"o": [
+"A genetic background for personality",
+"Environmental effects only",
+"Measurement error",
+"No real differences exist"
+],
+"a": 0,
+"e": "Breed-paralleled trait differences suggest a genetic basis for feline personality.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Did most cats appear ill before eating plants?",
+"o": [
+"Yes, the majority showed illness",
+"No, very few showed signs of illness",
+"Only long-haired cats appeared ill",
+"Only older cats appeared ill"
+],
+"a": 1,
+"e": "Very few cats showed signs of illness before plant eating, arguing against the 'feeling ill' hypothesis.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "What finding argued against the hairball-expelling hypothesis?",
+"o": [
+"Long-haired cats vomited less",
+"Short-haired cats ate plants as often as long-haired cats",
+"Only kittens ate plants",
+"Plant eating never caused vomiting"
+],
+"a": 1,
+"e": "Since short-haired cats ate plants as frequently as long-haired cats, plant eating is unlikely to be for expelling hair.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Compared with older cats, young cats showed what pattern of plant eating?",
+"o": [
+"Ate plants less and vomited more",
+"Ate plants more frequently and appeared ill/vomited less",
+"Never ate plants",
+"Ate plants only when sick"
+],
+"a": 1,
+"e": "Young cats consumed plants more often yet appeared ill and vomited less, suggesting it is normal behavior, not illness-driven.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Frequency of laser light play was significantly associated with what?",
+"o": [
+"Reduced abnormal repetitive behaviors",
+"Most surveyed abnormal repetitive behaviors (except overgrooming)",
+"Only overgrooming",
+"No behavioral changes"
+],
+"a": 1,
+"e": "Laser play frequency correlated with all surveyed ARBs apart from overgrooming.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Which cats were more likely to display abnormal repetitive behaviors?",
+"o": [
+"Indoor-only and young (1-2 year) cats",
+"Outdoor and senior cats",
+"Cats over 10 years",
+"Multi-cat household cats only"
+],
+"a": 0,
+"e": "Indoor-only access and young age (1-2 years) were significant predictors of reported ARBs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Body Language",
+"q": "Which body feature best predicted the outcome of cat-cat interactions?",
+"o": [
+"Tail position",
+"Ear position",
+"Whisker position",
+"Eye blink rate"
+],
+"a": 1,
+"e": "Ear position was critical: both cats with erect ears predicted a positive outcome, while other positions predicted negative outcomes.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Body Language",
+"q": "The 'tail-up' display was most notably used by cats in which context?",
+"o": [
+"When approaching another cat aggressively",
+"When approaching a human, often preceding rubbing",
+"When hiding from threats",
+"Only during feeding"
+],
+"a": 1,
+"e": "Tail-up was important when a cat approached a human and typically led to rubbing on the person's legs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "A model in this review predicted that degree of kitten socialization has major consequences for what?",
+"o": [
+"Cat coat color",
+"Cat adoptions from animal shelters",
+"Litterbox preference",
+"Vaccine response"
+],
+"a": 1,
+"e": "Socialization status as a kitten shapes later responses to unfamiliar humans, with enormous consequences for shelter adoptions.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "What did the author argue is needed before prescribing certain breeds for animal-assisted interventions?",
+"o": [
+"More subjective owner ratings",
+"Reliable direct observational data on breed differences",
+"Genetic testing of all therapy cats",
+"Larger laser-play trials"
+],
+"a": 1,
+"e": "Breed differences from subjective ratings must be corroborated by direct observation before relying on them for interventions.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "Urinary cortisol and oxytocin levels were significantly higher under which condition?",
+"o": [
+"Social (human contact) condition",
+"Non-social (no human contact) condition",
+"Both equally",
+"Neither changed"
+],
+"a": 1,
+"e": "Both metabolites were higher in the non-social condition, where cats had no social contact with humans.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "What did the authors infer from the hormonal results?",
+"o": [
+"Cats are indifferent to humans",
+"Cats recognize social interaction with humans as important",
+"Oxytocin cannot be measured in cat urine",
+"Cortisol is unrelated to stress"
+],
+"a": 1,
+"e": "Higher stress-related hormones without human contact suggest cats value social interaction with humans.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Nutrition & Husbandry",
+"q": "Did using a ball-type food toy versus a food bowl affect owner-perceived quality of life during weight loss?",
+"o": [
+"Yes, the food toy improved QOL",
+"Yes, the food toy worsened QOL",
+"No effect was detected",
+"Only in cats over 7 years"
+],
+"a": 2,
+"e": "No effect of food toy versus bowl on owner-perceived QOL was detected.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Nutrition & Husbandry",
+"q": "How did owner-perceived QOL at the final weigh-in compare with the initial?",
+"o": [
+"Higher at the final weigh-in",
+"Lower at the final weigh-in",
+"Unchanged",
+"Not measured"
+],
+"a": 0,
+"e": "Owner-perceived QOL was higher at the end of the weight loss plan than at the start.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Nutrition & Husbandry",
+"q": "What was usually needed for cats to eat the low-calorie vegetables offered for satiety?",
+"o": [
+"A palatability additive",
+"Warming the vegetables",
+"Mixing with wet food only",
+"Nothing; all ate them plain"
+],
+"a": 0,
+"e": "28 of 32 cats ate vegetables only with a palatability additive; just 4 ate them plain.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "Qualitative Behaviour Assessment PC1 ranged along what dimension?",
+"o": [
+"Hungry to satiated",
+"Calm/relaxed/friendly to tense/fearful/alert",
+"Young to old",
+"Healthy to sick"
+],
+"a": 1,
+"e": "PC1 reflected emotional valence, from calm/relaxed/friendly to tense/fearful/alert.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "How did QBA outcomes relate to the quantitative coding-method temperament results?",
+"o": [
+"They were inversely related",
+"They were unrelated",
+"QBA PC1 was significantly correlated with the coding-method results",
+"QBA failed to identify any components"
+],
+"a": 2,
+"e": "QBA PC1 correlated significantly with the main coding-method temperament outcomes, supporting QBA as a valid tool.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Owner enriching behaviours correlated significantly with which cat behaviour?",
+"o": [
+"Problem/unwanted behaviours",
+"Cat play behaviour",
+"Both equally",
+"Neither"
+],
+"a": 1,
+"e": "Owner behaviours correlated with cat play but not with problem behaviours.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Which owner behaviour did the predictors explain the most variance for?",
+"o": [
+"Play session duration (8%)",
+"Number of toys available (36%)",
+"Frequency of outdoor access (62%)",
+"Tactile interactions"
+],
+"a": 2,
+"e": "Outdoor-access predictors accounted for 62% of variance, the highest reported.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "The effect of owner attachment on enriching behaviour was mediated by?",
+"o": [
+"Owner attitudes",
+"Cat breed",
+"Household income",
+"Cat age"
+],
+"a": 0,
+"e": "Structural models showed attachment's effect on behaviour was mediated by attitudes.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "Which factor had a significant effect on cat personality traits?",
+"o": [
+"Coat colour",
+"Total number of cats in the household",
+"Cat gender",
+"Owner gender"
+],
+"a": 1,
+"e": "Housing type, number of cats, and owner animal preference significantly affected traits.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "Which factor unexpectedly showed NO significant effect on personality?",
+"o": [
+"Housing type",
+"Owner animal preference",
+"Cat breed",
+"Number of cats in household"
+],
+"a": 2,
+"e": "Breed clustered in analysis but had no significant effect, contradicting prior research.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "The shelter-relevant aim was to predict personality in order to improve?",
+"o": [
+"Successful adoption",
+"Vaccine response",
+"Parasite control",
+"Surgical recovery"
+],
+"a": 0,
+"e": "Predicting personality from demographics aims to improve adoption success for shelter cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Nutrition & Husbandry",
+"q": "How did physical activity relate to age in cats?",
+"o": [
+"Linear decline",
+"Non-linear decline",
+"Steady increase",
+"No relationship"
+],
+"a": 1,
+"e": "Activity declined with age, but the decline was non-linear (sharpest at the prime stage).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Nutrition & Husbandry",
+"q": "What effect did physical activity level have on apparent macronutrient digestibility?",
+"o": [
+"Increased it",
+"Decreased it",
+"No effect",
+"Was not measured"
+],
+"a": 2,
+"e": "No effect of physical activity on apparent macronutrient digestibility was found.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Nutrition & Husbandry",
+"q": "As body condition score increased, physical activity?",
+"o": [
+"Increased",
+"Decreased",
+"Stayed constant",
+"Became erratic"
+],
+"a": 1,
+"e": "An overall decline in physical activity occurred with increasing body condition score.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What enrichment approach does the review recommend for shelters?",
+"o": [
+"A single permanent toy per cat",
+"Identical items for every cat",
+"Novel, individually preferred items rotated",
+"Minimal stimulation"
+],
+"a": 2,
+"e": "The review highlights supplying novel items and rotating individually preferred items.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Human social interaction was identified primarily as a way to?",
+"o": [
+"Increase interactive behaviours in shelter cats",
+"Replace feeding entirely",
+"Reduce required cage size",
+"Eliminate the need for toys"
+],
+"a": 0,
+"e": "Human social interaction increases interactive behaviours in shelter cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "The review cautions that enrichment may sometimes be?",
+"o": [
+"Always beneficial",
+"Potentially aversive in certain situations",
+"Nutritionally complete",
+"Legally mandated"
+],
+"a": 1,
+"e": "It notes potentially aversive impacts of enrichment under certain situations.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Cats eliminated how much in the litter tray sprayed with the semiochemical?",
+"o": [
+"Significantly more",
+"Significantly less",
+"The same amount",
+"Only more urine"
+],
+"a": 1,
+"e": "Cats urinated and defecated significantly less in the sprayed tray.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "The semiochemical composition was derived from which source?",
+"o": [
+"Facial glands",
+"Cat anal glands",
+"Saliva",
+"Interdigital glands"
+],
+"a": 1,
+"e": "It was a reconstituted volatile fraction derived from cat anal glands.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "What clinical application do the findings suggest?",
+"o": [
+"Increasing appetite",
+"Managing unwanted toileting location",
+"Reducing inter-cat aggression",
+"Improving coat quality"
+],
+"a": 1,
+"e": "Results suggest the semiochemical could manage unwanted toileting location.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "What was the study's conclusion about a 6-day litter transition?",
+"o": [
+"Too short",
+"Adequate",
+"Too long",
+"Caused litter aversion"
+],
+"a": 1,
+"e": "Six days appeared to be an adequate amount of time to transition cats to the new litter.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Which behaviour was greater across the study/during transition?",
+"o": [
+"Digging",
+"Covering",
+"Sniffing",
+"Urination"
+],
+"a": 2,
+"e": "Sniffing frequency was higher; cats sniffed the transitioning boxes more.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Urination and defecation during the litter transition were?",
+"o": [
+"Significantly reduced",
+"Unchanged between periods",
+"Significantly increased",
+"Absent"
+],
+"a": 1,
+"e": "Urination, defecation, cover and dig did not differ between transition and post-transition periods.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "The semiochemical most consistently reduced which behaviour at treated trays?",
+"o": [
+"Urination",
+"Defecation",
+"Scratching",
+"Sniffing"
+],
+"a": 1,
+"e": "Cats defecated significantly less in trays sprayed with the treatment.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "What served as the experimental unit in this crossover study?",
+"o": [
+"The cattery",
+"The individual cat",
+"The litter tray",
+"The observer"
+],
+"a": 2,
+"e": "The study used a randomised crossover design with the litter tray as the experimental unit.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "The semiochemical message originated from?",
+"o": [
+"Cat anal gland secretions",
+"Facial pheromones",
+"Mammary secretions",
+"Plant extracts"
+],
+"a": 0,
+"e": "It was a reconstituted volatile fraction of cat anal gland secretions.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "What was the overall change in shelter cats' sociability during their stay?",
+"o": [
+"Generally deteriorated",
+"Generally improved",
+"No change at all",
+"Declined then plateaued"
+],
+"a": 1,
+"e": "Cats generally improved their sociability toward a familiar caregiver during the stay.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "Among cats whose score changed, which outcome was significantly more common?",
+"o": [
+"Permanent improvement",
+"Permanent deterioration",
+"An equal split",
+"Only temporary worsening"
+],
+"a": 0,
+"e": "Significantly more cats permanently improved than deteriorated.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "Sociability at the first assessment was a predictor of?",
+"o": [
+"Sociability at the last assessment",
+"Body weight",
+"Disease incidence",
+"Coat colour"
+],
+"a": 0,
+"e": "First-assessment sociability predicted last-assessment sociability.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "What was the effect of the semiochemical on time cats spent near the treated trash can?",
+"o": [
+"Increased",
+"Decreased",
+"Unchanged",
+"Doubled"
+],
+"a": 1,
+"e": "Cats spent less time exploring and in proximity to the treated garbage can.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "The cats' first choice of garbage can showed?",
+"o": [
+"Strong avoidance of treated can",
+"No significant difference",
+"Clear preference for treated can",
+"Could not be measured"
+],
+"a": 1,
+"e": "There was no significant difference in first choice (P = 0.53).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "What was the study's conclusion in this controlled setting?",
+"o": [
+"The semiochemical deters cats from trash cans",
+"It attracts cats",
+"It has no behavioural effect",
+"It increases scavenging"
+],
+"a": 0,
+"e": "The semiochemical deterred cats from trash cans in a controlled setting.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "The domestic cat's evolutionary progenitor is described as?",
+"o": [
+"Obligately social",
+"Asocial",
+"A pack hunter",
+"Group-nesting"
+],
+"a": 1,
+"e": "The cat descends from an asocial progenitor yet shows notable social capacity.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "Positive human selection for traits enhancing cats' adaptability to managed lifestyles appears to be?",
+"o": [
+"Extensive",
+"Limited",
+"Complete",
+"Entirely unstudied"
+],
+"a": 1,
+"e": "Positive human-selection for adaptability traits appears to be limited.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "Cat sociability is moderated by?",
+"o": [
+"Coat colour alone",
+"Diet alone",
+"Ontogeny and proximate social/environmental factors",
+"Latitude"
+],
+"a": 2,
+"e": "Ontogeny, human selection, and proximate factors moderate cats' sociability.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "QOL & Needs Assessment",
+"q": "Interobserver agreement and reliability of the four rating scales were?",
+"o": [
+"Poor",
+"Moderate",
+"Almost perfect agreement and excellent reliability",
+"Not assessed"
+],
+"a": 2,
+"e": "All scales showed almost perfect agreement and excellent interobserver reliability.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "QOL & Needs Assessment",
+"q": "Which is NOT one of the four welfare scales described?",
+"o": [
+"Modified Fear, Anxiety, and Stress score",
+"Response to Petting score",
+"Participation in Play score",
+"Body Condition Score"
+],
+"a": 3,
+"e": "The four scales were FAS, Response to Petting, Participation in Play, and Food Intake — not BCS.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "QOL & Needs Assessment",
+"q": "The exceptional reliability was attributed primarily to?",
+"o": [
+"Standardised training programs",
+"Larger cages",
+"Sedation",
+"Using only one observer"
+],
+"a": 0,
+"e": "Standardised training and operational definitions drove the high reliability.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "Owner tactile and auditory communication was positively correlated with higher urinary?",
+"o": [
+"Cortisol",
+"Oxytocin",
+"Creatinine",
+"Glucose"
+],
+"a": 1,
+"e": "Tactile and auditory communication positively correlated with mean urinary oxytocin.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "What factors were associated with urinary cortisol concentration?",
+"o": [
+"Many were identified",
+"None were identified",
+"Only cat age",
+"Only housing type"
+],
+"a": 1,
+"e": "No factors associated with urinary cortisol concentration were identified.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "Which marker is suggested as a valuable parameter for assessing positive welfare?",
+"o": [
+"Cortisol",
+"Creatinine",
+"Oxytocin",
+"Albumin"
+],
+"a": 2,
+"e": "The study suggests oxytocin is a valuable parameter for assessing cat health and welfare.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "In Italian cat caretakers, the most frequently reported behavioural complaint was:",
+"o": [
+"Aggression",
+"House soiling",
+"Excessive vocalisation",
+"Furniture scratching"
+],
+"a": 1,
+"e": "House soiling was the most frequent complaint at 4.7%.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Which factor did NOT reduce caretaker satisfaction?",
+"o": [
+"Owner-perceived health problems",
+"Inter-species aggression",
+"Fear",
+"Hyperactivity"
+],
+"a": 0,
+"e": "Behavioural complaints lowered satisfaction, but reported health problems did not.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Which cat trait increased caretaker satisfaction?",
+"o": [
+"Eating disorders",
+"House soiling",
+"Being affectionate",
+"Aggression"
+],
+"a": 2,
+"e": "'Being affectionate' raised satisfaction (p<0.001).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "Which measure best indicated individual stress differences during carrier confinement?",
+"o": [
+"Eye temperature",
+"Nose temperature",
+"Motor activity",
+"Vocalisation"
+],
+"a": 3,
+"e": "Vocalisation showed stable, repeatable individual differences.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "The authors concluded facial thermography was:",
+"o": [
+"Not sufficiently reliable",
+"The most reliable measure",
+"Superior to vocalisation",
+"Fully validated"
+],
+"a": 0,
+"e": "Thermographic eye/nose measures showed no consistent reliable pattern.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "Across development, vocalisation-based stress responses were:",
+"o": [
+"Highly variable",
+"Stable and repeatable",
+"Present only in adults",
+"Absent in kittens"
+],
+"a": 1,
+"e": "Individual differences in vocalisation were repeatable within and across ages.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Cats that hunted and brought home wild prey tended to score:",
+"o": [
+"Low extraversion",
+"High neuroticism",
+"High extraversion or low neuroticism",
+"High agreeableness"
+],
+"a": 2,
+"e": "Hunting cats scored high on 'extraversion' or low on 'neuroticism'.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Among hunting cats, personality scores predicted the number of prey brought home:",
+"o": [
+"True, strongly",
+"False — no factor affected prey numbers",
+"Only for neuroticism",
+"Only for extraversion"
+],
+"a": 1,
+"e": "Variation in prey numbers was not affected by any personality factor.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "A suggested welfare-friendly way to reduce hunting in extraverted cats was:",
+"o": [
+"Permanent indoor confinement",
+"Object play in the home",
+"Bell collars",
+"Dietary change"
+],
+"a": 1,
+"e": "Object play could lower hunting motivation without harming welfare.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Compared with less credible advisors, highly credible cat-behaviour advisors produced:",
+"o": [
+"More positive attitudes and compliance",
+"Lower compliance",
+"No difference",
+"More relinquishment"
+],
+"a": 0,
+"e": "Highly credible advisors elicited stronger positive attitudes and compliance intentions.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Which type of advice produced stronger compliance intentions?",
+"o": [
+"Severe advice",
+"Mild advice",
+"Written-only advice",
+"No advice"
+],
+"a": 1,
+"e": "Mild advice felt more achievable, raising compliance intentions.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Guardians with a stronger cat-guardian self-identity were:",
+"o": [
+"Less likely to comply",
+"More likely to adopt the advice",
+"Unaffected",
+"More likely to relinquish"
+],
+"a": 1,
+"e": "Strong self-identity increased advice adoption via perceived social norms.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Play is described as both an indicator and a ___ of welfare.",
+"o": [
+"Promoter",
+"Predictor of disease",
+"Substitute for feeding",
+"Cause"
+],
+"a": 0,
+"e": "Play may both indicate and promote good welfare.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Reducing problem behaviour through play may help lower:",
+"o": [
+"Vaccination rates",
+"Relinquishment to shelters",
+"Adoption rates",
+"Body weight"
+],
+"a": 1,
+"e": "Problem behaviour is a leading cause of relinquishment that play may mitigate.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "The current evidence base on cat play and welfare is described as:",
+"o": [
+"Extensive",
+"Limited",
+"Conclusive",
+"Irrelevant"
+],
+"a": 1,
+"e": "The authors note limited research and call for further study.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "Inter-observer reliability of QBA for cat temperament was high for:",
+"o": [
+"PC2 only",
+"PC3 only",
+"PC1",
+"All components equally"
+],
+"a": 2,
+"e": "Inter-observer reliability was high for PC1 (0.71) but low for PC2/PC3.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "The authors concluded QBA is a reliable cat temperament tool:",
+"o": [
+"For all dimensions equally",
+"Mainly for PC1, less so PC2/PC3",
+"Only for experienced raters",
+"Not at all"
+],
+"a": 1,
+"e": "Reliability was strong for PC1 but varied for the other dimensions.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Emotional closeness was associated with aggression, excessive vocalisation, or inappropriate elimination:",
+"o": [
+"Strongly positive",
+"No association found",
+"Strongly negative",
+"Only with aggression"
+],
+"a": 1,
+"e": "No association was found between closeness and those unacceptable behaviours.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Owners of cats that did NOT scratch furniture had:",
+"o": [
+"Higher emotional closeness",
+"Lower emotional closeness",
+"No measurable bond",
+"More aggression"
+],
+"a": 1,
+"e": "Surprisingly, owners of non-scratching cats reported lower closeness.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Higher emotional closeness was reported by:",
+"o": [
+"Male owners",
+"Female owners",
+"Owners with no other pets",
+"Owners avoiding vet visits"
+],
+"a": 1,
+"e": "Female owners (and frequent vet visitors) showed higher closeness.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "Male cats with low testosterone were:",
+"o": [
+"Less likely to interact with the experimenter",
+"More likely to interact with the experimenter",
+"More aggressive to humans",
+"Unchanged"
+],
+"a": 1,
+"e": "Low-testosterone males interacted more with the human experimenter.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "Male cats that began living with humans earlier showed:",
+"o": [
+"Less human contact",
+"More contact with the experimenter",
+"No sociality",
+"More aggression"
+],
+"a": 1,
+"e": "Earlier cohabitation predicted more contact with the experimenter.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Body Language",
+"q": "Cats approached an unfamiliar human fastest in response to:",
+"o": [
+"Vocal communication only",
+"No communication",
+"Visual and bimodal communication",
+"Olfactory cues"
+],
+"a": 2,
+"e": "Visual and bimodal cues produced the shortest approach latency.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Body Language",
+"q": "Cats displayed the most tail wagging during:",
+"o": [
+"Bimodal communication",
+"The no-communication control",
+"Visual communication",
+"Feeding"
+],
+"a": 1,
+"e": "More tail wagging in the control suggested cats were less comfortable.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Body Language",
+"q": "Overall, cats preferred which communication channel from unfamiliar humans?",
+"o": [
+"Vocal only",
+"Visual/bimodal cues",
+"No communication",
+"Touch only"
+],
+"a": 1,
+"e": "Cats preferred visual and bimodal cues over vocal-only communication.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Most cats with androgen-secreting adrenocortical tumours initially presented for:",
+"o": [
+"Seizures",
+"Inappropriate urination and pungent urine",
+"Weight loss",
+"Vomiting"
+],
+"a": 1,
+"e": "Seven of eight cats were evaluated for inappropriate urination and pungent urine.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Which intervention resolved hormonal abnormalities and improved clinical signs?",
+"o": [
+"Trilostane",
+"Behavioural therapy",
+"Surgical adrenalectomy",
+"Dietary change"
+],
+"a": 2,
+"e": "Adrenalectomy resolved hormones; trilostane failed in the treated cat.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "The series emphasises considering ___ in altered cats with inappropriate urination or aggression.",
+"o": [
+"Endocrine disease",
+"Vaccination status",
+"Parasite burden",
+"Dietary allergy"
+],
+"a": 0,
+"e": "Sex-hormone-secreting adrenal tumours may be an under-recognised cause.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "QOL & Needs Assessment",
+"q": "This paper on welfare and quality-of-life assessment for shelter cats is a:",
+"o": [
+"Randomised trial",
+"Scoping review",
+"Case report",
+"Cohort study"
+],
+"a": 1,
+"e": "It is described as a scoping review.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "QOL & Needs Assessment",
+"q": "The review's welfare and quality-of-life assessment focus is on which population?",
+"o": [
+"Owned pet cats",
+"Shelter cats",
+"Feral dogs",
+"Laboratory rodents"
+],
+"a": 1,
+"e": "It reviews welfare/QOL assessment specifically for shelter cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "Which tool is described as the only cat personality test with predictive validity for adopter matching?",
+"o": [
+"IAS-R",
+"ASPCA Meet Your Match Feline-ality",
+"QBA",
+"Open Field Test"
+],
+"a": 1,
+"e": "Feline-ality has the matching validity but is logistically infeasible for many shelters.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "Feline-ality personality dimensions correlated with cat age, sex, or colour:",
+"o": [
+"Yes, strongly",
+"No correlation found",
+"Only with colour",
+"Only with age"
+],
+"a": 1,
+"e": "Neither Feline-ality nor the IAS-R correlated with age, sex, or colour.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "Appropriate cat-adopter matching is associated with:",
+"o": [
+"Higher euthanasia",
+"Increased adoption success and lower euthanasia",
+"No effect on outcomes",
+"More returns"
+],
+"a": 1,
+"e": "Good matching increases adoption success and decreases euthanasia.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Compared with mother-reared kittens, how did hand-raised orphan kittens behave in the struggle (handling) test?",
+"o": [
+"Struggled sooner",
+"Struggled later",
+"Showed no response",
+"Became immobile"
+],
+"a": 0,
+"e": "Both orphan groups struggled sooner than mother-reared controls.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "At 9 weeks of age (weaning), how did body weight compare across the three rearing groups?",
+"o": [
+"Orphans heaviest",
+"Singletons lightest",
+"No body-weight differences",
+"Mother-reared heaviest"
+],
+"a": 2,
+"e": "No body-weight differences were found between groups at weaning.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "In the meat (food-defence) test, which group started eating the raw meat sooner than controls?",
+"o": [
+"Orphan singletons only",
+"Orphans raised with siblings only",
+"Both orphan groups",
+"Neither orphan group"
+],
+"a": 1,
+"e": "Only orphans raised with siblings ate sooner; singletons did not.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Which trait was associated with BOTH house soiling and litter box fussiness?",
+"o": [
+"Fearfulness",
+"High sociability",
+"Young age",
+"Female sex"
+],
+"a": 0,
+"e": "Fearful cats were more prone to both forms of litter box issues.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Which factors were associated specifically with increased house soiling (not fussiness)?",
+"o": [
+"Older age",
+"High playfulness",
+"Pedigree breed",
+"Male sex, intact status, low cat-sociability"
+],
+"a": 3,
+"e": "Male sex, being intact, and low sociability toward cats associated only with house soiling.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Older age was associated with which litter box factor?",
+"o": [
+"House soiling",
+"Litter box fussiness",
+"Neither",
+"Both equally"
+],
+"a": 1,
+"e": "Older age associated only with litter box fussiness.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "What did the outcome evaluation conclude about Feline-ality's effect on shelter outcomes?",
+"o": [
+"Reduced euthanasia",
+"Increased adoptions",
+"No reliably attributable changes",
+"Longer length of stay"
+],
+"a": 2,
+"e": "No outcomes (adoptions, euthanasia, returns, LOS) could be reliably attributed to the program.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "What was the program's overall implementation success rate at the Seattle Animal Shelter?",
+"o": [
+"1.6%",
+"16%",
+"50%",
+"85%"
+],
+"a": 0,
+"e": "The process evaluation found a 1.6% overall implementation success rate.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "What did the authors say the null result underscores?",
+"o": [
+"The program is definitively ineffective",
+"The need for concurrent process evaluation",
+"Cats cannot be matched to adopters",
+"Euthanasia is unavoidable"
+],
+"a": 1,
+"e": "High implementation error means process evaluation must accompany outcome evaluation.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Higher cat playfulness and a greater number of games played were associated with what?",
+"o": [
+"Higher cat quality of life",
+"Lower quality of life",
+"More problem behaviour",
+"No measurable effect"
+],
+"a": 0,
+"e": "Playfulness and game variety were associated with higher cat QOL.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Which housing type was associated with higher QOL and cat-guardian relationship scores?",
+"o": [
+"Outdoor access",
+"Exclusively indoor",
+"Multi-cat outdoor",
+"Barn housing"
+],
+"a": 1,
+"e": "Indoor-only housing was associated with higher QOL and relationship scores.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What was reported in cats when play was absent?",
+"o": [
+"Improved welfare",
+"No change",
+"Distress-associated behavioural changes",
+"Weight gain"
+],
+"a": 2,
+"e": "Behavioural changes associated with distress were reported when play was absent.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "Cats with house soiling or owner-directed aggression had what hair cortisol levels?",
+"o": [
+"Significantly higher",
+"Significantly lower",
+"Unchanged",
+"Undetectable"
+],
+"a": 0,
+"e": "Cats showing these behaviours had significantly higher hair cortisol.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "How did hair cortisol trend for indoor versus outdoor cats?",
+"o": [
+"Lower in indoor cats",
+"Tendency toward higher in indoor (lower in outdoor) cats",
+"Identical between groups",
+"Higher in outdoor cats"
+],
+"a": 1,
+"e": "A tendency toward lower cortisol was found in outdoor versus indoor cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Cats in the enriched environment had hair cortisol levels approximately what relative to standard-environment cats?",
+"o": [
+"Double",
+"About half",
+"Identical",
+"Slightly higher"
+],
+"a": 1,
+"e": "Enriched cats had nearly half the hair cortisol (0.059 vs 0.101 ng/mg).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What does the study conclude about environmental enrichment for shelter cats?",
+"o": [
+"It increases stress",
+"It has no effect",
+"It reduces stress (cortisol)",
+"It only helps kittens"
+],
+"a": 2,
+"e": "Enrichment significantly lowered cortisol, indicating reduced stress.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Compared with a control collar, the pheromone collar produced significant improvement in which behaviours?",
+"o": [
+"Only fear",
+"Problem urination, scratching, and inter-cat conflict",
+"None of the behaviours",
+"Only scratching"
+],
+"a": 1,
+"e": "Significant improvements occurred in urination, scratching, and inter-cat conflict (fear was non-significant).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "How did adverse-reaction frequency compare between the pheromone and control collars?",
+"o": [
+"Higher with the pheromone collar",
+"Higher with the control collar",
+"No difference between groups",
+"Zero in both groups"
+],
+"a": 2,
+"e": "Adverse reactions occurred but with no difference between the two collar groups.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What practical obstacle to pheromone-collar therapy did the study identify?",
+"o": [
+"Caregiver removal or loss of collars",
+"Excessive cost",
+"Anaphylaxis",
+"Total ineffectiveness"
+],
+"a": 0,
+"e": "About 12% of collars were removed or lost, an obstacle to effective therapy.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "Which group had significantly higher nail cortisol concentrations?",
+"o": [
+"Owned cats",
+"Favorable-condition shelter cats",
+"Unfavorable-condition shelter cats",
+"All groups were equal"
+],
+"a": 2,
+"e": "Unfavorable-condition shelter cats had the highest nail cortisol in both collections.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "Nail cortisol concentration correlated POSITIVELY with which factor?",
+"o": [
+"Dog exposure",
+"Space allowance",
+"Number of litterboxes",
+"Variety of enrichment"
+],
+"a": 0,
+"e": "NCC correlated positively with dog exposure and negatively with space and enrichment.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "What advantage does nail cortisol offer as a welfare measure?",
+"o": [
+"Captures real-time acute stress",
+"Minimally invasive, reflects long-term factors",
+"Requires no lab processing",
+"Is gender-specific"
+],
+"a": 1,
+"e": "Nail cortisol is minimally invasive and reflects long-term welfare factors.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Cats had higher odds of free-roaming if they were obtained from which source?",
+"o": [
+"A shelter",
+"A breeder",
+"Bottle-raised",
+"The street"
+],
+"a": 3,
+"e": "Cats obtained from the street (vs a shelter) had higher odds of free-roaming.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Among outdoor cats, hunting prey in the past year was more likely if the cat was:",
+"o": [
+"Supervised outdoors",
+"Kept indoors at night",
+"Allowed to free-roam unsupervised",
+"Declawed"
+],
+"a": 2,
+"e": "Unsupervised free-roaming increased the odds of having hunted prey.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Which factor was associated with LOWER odds of free-roaming?",
+"o": [
+"Living with a dog",
+"Showing aggression at home",
+"Having scratching areas or living with other cats",
+"Living near traffic"
+],
+"a": 2,
+"e": "Scratching areas and living with other cats lowered the odds of free-roaming.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "The sensitive period for kitten socialisation cited in the study is approximately:",
+"o": [
+"Birth to 1 week",
+"3 to 6 months",
+"~2 to 9 weeks",
+"6 to 12 months"
+],
+"a": 2,
+"e": "The abstract identifies ~2 to 9 weeks as the sensitive socialisation period.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Which non-recommended technique did some foster caretakers report using for fearful kittens?",
+"o": [
+"Flooding",
+"Counter-conditioning",
+"Gradual desensitisation",
+"Clicker training"
+],
+"a": 0,
+"e": "Some caretakers reported flooding, a non-recommended technique.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "A higher agreeableness personality trait in caretakers was associated with what?",
+"o": [
+"More flooding",
+"Decreased odds of reporting non-recommended techniques",
+"No association",
+"Reduced handling"
+],
+"a": 1,
+"e": "Higher agreeableness lowered the odds of reporting non-recommended techniques.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Overt positive interactions (allo-grooming, co-sleeping) were more likely in dyads that were:",
+"o": [
+"Unrelated and recently introduced",
+"Related/longer-cohabiting, neutered males, indoor-only",
+"Declawed with a single litter box",
+"Older with a large age gap"
+],
+"a": 1,
+"e": "Positive interactions were linked to related or longer-cohabiting, neutered, indoor-only dyads.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Overt negative interactions (fighting, striking) were more likely when dyads were:",
+"o": [
+"Younger with a small age gap",
+"Indoor-only",
+"Closely related",
+"Declawed and/or had a single litter box"
+],
+"a": 3,
+"e": "Negative interactions were associated with declawing, a single litter box, and larger age gaps.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "How did caregiver ratings of the interaction videos compare with expert ratings?",
+"o": [
+"Generally similar",
+"Wildly different",
+"Caregivers rated everything negatively",
+"Experts rated everything more positively"
+],
+"a": 0,
+"e": "Caregiver and expert ratings were similar overall.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "The Fe-BARQ is best described as:",
+"o": [
+"A blood test",
+"A surgical scoring system",
+"An owner-reported feline behaviour survey tool",
+"A shelter housing standard"
+],
+"a": 2,
+"e": "Fe-BARQ is a validated owner-reported feline behaviour assessment instrument.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "Which factors significantly influenced owner-reported cat behaviour?",
+"o": [
+"Only breed",
+"Breed, sex, reproductive status, age/source of acquisition, and environment",
+"Only owner age",
+"No factors were significant"
+],
+"a": 1,
+"e": "Multiple cat attributes and environmental factors significantly affected behaviour.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "The authors emphasise the need for what from veterinarians?",
+"o": [
+"Effective behavioural counselling",
+"Surgical intervention",
+"Mandatory indoor housing",
+"Breed bans"
+],
+"a": 0,
+"e": "Owner experience and perception of problems highlight the need for effective veterinary counselling.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Which cat personality dimension was correlated with inappropriate urination after adoption?",
+"o": [
+"Agreeableness",
+"Introversion",
+"Soliciting",
+"Aggressiveness"
+],
+"a": 2,
+"e": "The 'soliciting' dimension correlated with inappropriate urination (P=0.008).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "What was a leading post-adoption uncertainty reported by guardians?",
+"o": [
+"Choosing a diet",
+"How to introduce the new cat to other animals",
+"Litter substrate choice",
+"Vaccination timing"
+],
+"a": 1,
+"e": "Half of guardians (50.4%) were unsure how to introduce the new cat to resident animals.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Households where a resident disliked the adopted cat were correlated with which cat trait?",
+"o": [
+"Male sex",
+"Old age",
+"Young age",
+"High body weight"
+],
+"a": 2,
+"e": "A resident disliking the cat was correlated with the cat's young age (P=0.014).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Facility/Environment",
+"q": "Which enrichment produced significantly lower faecal glucocorticoid metabolites and higher food intake than controls?",
+"o": [
+"Perching shelf",
+"Hiding box",
+"Toys",
+"Extra bedding"
+],
+"a": 1,
+"e": "Cats with a hiding box (BOX) had lower FGM and ate more daily than CTRL cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Facility/Environment",
+"q": "How did shy cats compare with bold cats in stress response?",
+"o": [
+"Lower Cat-Stress-Scores",
+"No difference",
+"Greater Cat-Stress-Scores on days 1-3",
+"Higher food intake"
+],
+"a": 2,
+"e": "Shy cats had higher CSS on days 1-3 and were more likely to score CSS >=3.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Facility/Environment",
+"q": "What was the trend in stress responses across the 10-day study?",
+"o": [
+"Increased over time",
+"Stayed constant",
+"Diminished over time",
+"Could not be measured"
+],
+"a": 2,
+"e": "The authors concluded caging stress diminished with time.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "When an unfamiliar human was present (vs. audio alone), shelter dogs did what?",
+"o": [
+"Scratched the door more",
+"Spent more time in their bed and looked at the audio source",
+"Hid in the back of the enclosure",
+"Ignored the human entirely"
+],
+"a": 1,
+"e": "Dogs spent more time in their bed and looking at the auditory source when a human was present.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What did the authors conclude human presence may induce in some animals?",
+"o": [
+"Deep relaxation",
+"Frustration from inability to physically interact",
+"Aggression toward conspecifics",
+"Reduced appetite"
+],
+"a": 1,
+"e": "Human presence increased interest but may cause frustration from not being able to physically interact.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "During audio-only stimulation (no human), cats tended to spend more time where?",
+"o": [
+"Vertical dimension where hiding boxes were located",
+"Pressed against the door",
+"Eating",
+"Grooming"
+],
+"a": 0,
+"e": "Cats tended to use the vertical dimension (hiding box area) during audio without a human present.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Shelter Diversion",
+"q": "Capacity for Care (C4C) manages shelter intake primarily using what?",
+"o": [
+"Unlimited open admission",
+"Intake waitlists and scheduled intake appointments",
+"Breed restrictions",
+"Routine early euthanasia"
+],
+"a": 1,
+"e": "A key C4C feature is managing intake via waitlists and scheduled appointments.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Shelter Diversion",
+"q": "Cats whose owners cited which primary reason were more often kept rather than relinquished?",
+"o": [
+"Owner moving",
+"Veterinary/health issues of the cat",
+"Behavioral problems",
+"Cost of care"
+],
+"a": 1,
+"e": "Cats with veterinary issues as the surrender reason were more often kept by owners.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Shelter Diversion",
+"q": "A greater proportion of cats were surrendered when the owner had what?",
+"o": [
+"The owner's own medical issues",
+"A new job",
+"A second pet",
+"Yard space limits"
+],
+"a": 0,
+"e": "Cats whose owners had medical issues were more often surrendered than retained.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "QOL & Needs Assessment",
+"q": "Of the 82 publications screened, how many contained appropriate generic QoL assessment tools?",
+"o": [
+"82",
+"Nine",
+"Five",
+"Two"
+],
+"a": 1,
+"e": "Nine publications met inclusion criteria for generic QoL tools.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "QOL & Needs Assessment",
+"q": "How many of the nine QoL tools were validated across all reliability and validity measures?",
+"o": [
+"All nine",
+"Seven",
+"Two",
+"None"
+],
+"a": 3,
+"e": "None of the tools were validated across all measures.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "QOL & Needs Assessment",
+"q": "Which items were common QoL indicators for both dogs and cats?",
+"o": [
+"Activity level, desire for interaction, and appetite",
+"Coat color and length",
+"Breed and pedigree",
+"Microchip status"
+],
+"a": 0,
+"e": "Common items for both species included activity level, desire for interaction, and appetite.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "QOL & Needs Assessment",
+"q": "The Welfare through Competence framework combines the Five Domains model with which model?",
+"o": [
+"Coe Individual Competence model",
+"Maslow's hierarchy of needs",
+"The Five Freedoms",
+"The HACCP model"
+],
+"a": 0,
+"e": "The framework merges the Five Domains model with the Coe Individual Competence model.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "QOL & Needs Assessment",
+"q": "Whom does the framework aim to center as stakeholders in technology design?",
+"o": [
+"Shelter staff",
+"Animals",
+"Veterinarians",
+"Software engineers"
+],
+"a": 1,
+"e": "Animal-Computer Interaction centers animals as stakeholders in design.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "QOL & Needs Assessment",
+"q": "The framework responds to a methodological gap in which field?",
+"o": [
+"Animal-Computer Interaction",
+"Molecular genetics",
+"Epidemiology",
+"Clinical pharmacology"
+],
+"a": 0,
+"e": "It addresses the need for robust animal-centered methods in Animal-Computer Interaction.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "The buccal micronucleus assay was used to measure what in shelter versus family animals?",
+"o": [
+"Infectious disease load",
+"Genomic (DNA) damage",
+"Serum cortisol",
+"Body condition score"
+],
+"a": 1,
+"e": "The assay quantified stress-associated genomic damage via micronuclei in buccal cells.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "Compared with family pets, shelter cats and dogs showed what micronuclei frequency?",
+"o": [
+"Lower frequency",
+"No difference",
+"Higher frequency",
+"Undetectable levels"
+],
+"a": 2,
+"e": "Shelter animals had significantly higher micronuclei frequency, indicating more genomic damage.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "Was genomic damage significantly correlated with the animals' age or sex?",
+"o": [
+"Yes, with both",
+"Yes, with age only",
+"Yes, with sex only",
+"No significant correlation with either"
+],
+"a": 3,
+"e": "No significant differences by sex and no age correlation were found.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Facility/Environment",
+"q": "Which housing condition produced the highest frequency of displacement (stress) behaviors?",
+"o": [
+"Enriched cage",
+"Alone in a cage",
+"Cage with conspecifics",
+"Regular human interaction"
+],
+"a": 1,
+"e": "Dogs housed alone in a cage showed the highest displacement activity.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Facility/Environment",
+"q": "What condition best reduced stress and faecal cortisol metabolites?",
+"o": [
+"Presence of conspecifics",
+"Cage enrichment items",
+"Brief human visits",
+"A larger cage"
+],
+"a": 0,
+"e": "Conspecific presence reduced both displacement activity and faecal cortisol metabolites.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Facility/Environment",
+"q": "Faecal cortisol metabolites were used as a non-invasive measure of what?",
+"o": [
+"Nutritional status",
+"Adrenocortical (stress) activity",
+"Infection burden",
+"Reproductive status"
+],
+"a": 1,
+"e": "Faecal cortisol metabolites index adrenocortical activity, a marker of stress.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Learning Theory",
+"q": "How many basic emotional systems does the review describe in mammals?",
+"o": [
+"Three",
+"Five",
+"Seven",
+"Ten"
+],
+"a": 2,
+"e": "Seven basic emotional systems were described in mammals.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Learning Theory",
+"q": "Behavior is coordinated by which system processing internal and external stimuli?",
+"o": [
+"The endocrine glands alone",
+"The central nervous system",
+"The digestive system",
+"The immune system"
+],
+"a": 1,
+"e": "The central nervous system coordinates the responses underlying behavior.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Learning Theory",
+"q": "The review highlights interaction between which two process types influencing behavior?",
+"o": [
+"Primary (innate) and secondary (learned)",
+"Acute and chronic",
+"Aerobic and anaerobic",
+"Genetic and epigenetic"
+],
+"a": 0,
+"e": "It examines interplay of primary (innate) and secondary (learned) processes.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Facility/Environment",
+"q": "The authors recommend short-term accommodation be limited to what time frame?",
+"o": [
+"Under 3 months",
+"Under 1 week",
+"Under 24 hours (one circadian cycle)",
+"Under 12 hours only"
+],
+"a": 2,
+"e": "They argue precautionary short-term housing should stay within one circadian cycle (<24 h).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Facility/Environment",
+"q": "At 24 hours or more, how should animals be accommodated?",
+"o": [
+"In transport crates",
+"Under long-term housing, husbandry, and best practices",
+"Outdoors only",
+"In group pens exclusively"
+],
+"a": 1,
+"e": "At >=24 h, conditions should match long-term housing best practices.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Facility/Environment",
+"q": "How did the authors characterize English Government guidance on these terms?",
+"o": [
+"Scientifically robust",
+"Highly inconsistent and lacking scientific rationale",
+"Uniformly strict",
+"Identical to scientific criteria"
+],
+"a": 1,
+"e": "Government guidance ranged widely (<1 day to 3 months) and lacked scientific rationale.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "The study recruited residents of zip codes with a high rate of what?",
+"o": [
+"Dog bite incidents",
+"Kitten shelter intake",
+"Euthanasia",
+"Adoption returns"
+],
+"a": 1,
+"e": "Participants lived in 12 LA County zip codes with high kitten shelter intake.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "What were the most prevalent concerns about fostering kittens?",
+"o": [
+"Time, cost, and space required",
+"Fear of disease",
+"Lack of interest",
+"Legal liability"
+],
+"a": 0,
+"e": "Time (79%), cost (78%), and space (77%) were the top reported concerns.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "Compared with expectation, Spanish-language participants were how likely to have seen foster program ads?",
+"o": [
+"More likely",
+"Equally likely",
+"Significantly less likely",
+"Not assessed"
+],
+"a": 2,
+"e": "Spanish-language respondents were significantly less likely to have encountered ads.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "QOL & Needs Assessment",
+"q": "Compared with the public, professionals gave kenneled-dog welfare scores that were?",
+"o": [
+"Higher (better)",
+"Slightly lower (poorer)",
+"Identical",
+"Not scored"
+],
+"a": 1,
+"e": "Professionals gave slightly lower (poorer) welfare scores than the public (p=0.046).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "QOL & Needs Assessment",
+"q": "Shelter employees and professionals more often used what to justify their welfare scores?",
+"o": [
+"Body language and behavior",
+"Kennel size",
+"Adoption statistics",
+"The dog's age"
+],
+"a": 0,
+"e": "Both expert groups cited body language and behavior more than the public did.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "QOL & Needs Assessment",
+"q": "What improvement did all three groups commonly propose for welfare?",
+"o": [
+"Euthanasia",
+"Addition of enrichment",
+"More cleaning staff",
+"Larger building"
+],
+"a": 1,
+"e": "All three populations mentioned adding enrichment, though experts did so more often.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "QOL & Needs Assessment",
+"q": "What technique did the study use to obtain expert agreement on welfare-measure weightings?",
+"o": [
+"Systematic meta-analysis",
+"Delphi consensus method",
+"Randomized controlled trial",
+"Cluster sampling"
+],
+"a": 1,
+"e": "Two Delphi procedures were used to build expert consensus on the welfare-score weightings.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "QOL & Needs Assessment",
+"q": "Which type of measure reached consensus faster?",
+"o": [
+"Resource-based measures",
+"Genetic measures",
+"Animal-based measures",
+"Financial measures"
+],
+"a": 2,
+"e": "Animal-based measures achieved consensus more quickly than resource-based measures.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "QOL & Needs Assessment",
+"q": "What does the resulting scoring system produce?",
+"o": [
+"A single overall welfare score allowing comparison between shelters",
+"Separate uncombinable scores",
+"Only a feeding score",
+"A pass/fail rating with no number"
+],
+"a": 0,
+"e": "The study delivered one overall welfare score usable to compare welfare standards across shelters.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Facility/Environment",
+"q": "What was the relationship between welfare score and repetitive behaviors in dogs?",
+"o": [
+"Positive correlation",
+"No correlation",
+"Negative correlation",
+"Correlated only in puppies"
+],
+"a": 2,
+"e": "A negative correlation (r=-0.35) showed that lower welfare scores accompanied more repetitive behaviors.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Facility/Environment",
+"q": "Compared with healthy dogs, dogs showing repetitive behaviors had welfare scores that were:",
+"o": [
+"Significantly lower",
+"Significantly higher",
+"Identical",
+"Not measured"
+],
+"a": 0,
+"e": "Mean welfare score was 11.6 in affected dogs versus 14.4 in healthy dogs (p<0.001).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Facility/Environment",
+"q": "What hypothesis did the findings support?",
+"o": [
+"Repetitive behaviors are purely genetic",
+"Repetitive behaviors may be linked to poor living conditions",
+"Living conditions have no effect",
+"Repetitive behaviors occur only in farm animals"
+],
+"a": 1,
+"e": "Results supported that poor living conditions are associated with canine repetitive behaviors.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "Which factors most influenced adopters' decisions in Slovak shelters?",
+"o": [
+"Coat color and sex",
+"Age and body weight",
+"Coat length and color",
+"Intraspecific aggression only"
+],
+"a": 1,
+"e": "Age and body weight were the most important factors for early adoption.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "What effect did coat length, color, and sex have on early adoption?",
+"o": [
+"Strong effect",
+"No effect",
+"Negative effect only",
+"Effect only for males"
+],
+"a": 1,
+"e": "Coat length, color, and sex had no effect on early adoption.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "How was behavior ranked as an adoption criterion?",
+"o": [
+"The single most important criterion",
+"Important but not the most important",
+"Completely irrelevant",
+"The only criterion considered"
+],
+"a": 1,
+"e": "Behavior mattered during interaction but was not the most important decision criterion.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "Which algorithm performed best for predicting length of stay?",
+"o": [
+"Logistic regression",
+"Gradient boosting",
+"Artificial neural network",
+"Random forest"
+],
+"a": 1,
+"e": "Gradient boosting had the highest precision, recall, and F1 score.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "Which were found to be important predictor variables?",
+"o": [
+"Microchip status",
+"Age, multicolor coat, and size",
+"Shelter staff count",
+"Intake time of day"
+],
+"a": 1,
+"e": "Age (puppy/super senior), multicolor coat, and large/small size were key predictors.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "What is the proposed two-phase tool's intended use?",
+"o": [
+"Increase euthanasia efficiency",
+"Predict and minimize length of stay and euthanization",
+"Set adoption fees",
+"Schedule staff shifts"
+],
+"a": 1,
+"e": "The tool aims to reduce length of stay and euthanasia by optimizing shelter allocation.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "What did the study conclude about phenotypic characteristics of dogs?",
+"o": [
+"They are unrelated to outcome",
+"They predict a dog's hazard for euthanasia",
+"They matter only for cats",
+"They determine breed only"
+],
+"a": 1,
+"e": "Phenotypic traits were predictive of a dog's hazard for euthanasia versus live release.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "Which factors were significantly associated with euthanasia hazard?",
+"o": [
+"Coat color alone",
+"Age group and skull type",
+"Microchip status",
+"Shelter funding source"
+],
+"a": 1,
+"e": "Age group and skull type were both significantly associated with euthanasia (p<0.0001).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "What statistical model was used?",
+"o": [
+"Simple linear regression",
+"Cox proportional hazard model",
+"Chi-square test only",
+"Principal component analysis"
+],
+"a": 1,
+"e": "A Cox proportional hazard model with a shelter random effect was developed.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "What RTO rate did microchipped at-large adult strays have versus non-microchipped ones?",
+"o": [
+"71% vs 39%",
+"39% vs 71%",
+"50% vs 50%",
+"20% vs 10%"
+],
+"a": 0,
+"e": "Microchipped adult strays had a 71% RTO rate compared with 39% without a microchip.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "How far did most RTOed strays travel from home?",
+"o": [
+"Over 10 miles",
+"70% traveled at most 1 mile",
+"All traveled over 5 miles",
+"Distance was not measured"
+],
+"a": 1,
+"e": "70% of RTOed strays traveled at most 1 mile from home.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "What was a practical impact of the tool's findings?",
+"o": [
+"Increased euthanasia",
+"Changed stray hold time and targeted microchip programs",
+"Closed the shelter",
+"Raised adoption fees"
+],
+"a": 1,
+"e": "Findings affected the shelter's stray hold time and highlighted target areas for microchip programs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "How did rural pet ownership compare with urban communities?",
+"o": [
+"Lower overall",
+"Higher overall pet-keeping and dog ownership",
+"Identical",
+"Higher only for cats"
+],
+"a": 1,
+"e": "Rural communities had higher overall pet-keeping and dog ownership than urban ones.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "How did cat ownership rates compare across the four sites?",
+"o": [
+"Highly variable",
+"Similar (~19.4%)",
+"Zero in rural sites",
+"Highest in urban only"
+],
+"a": 1,
+"e": "Cat ownership was similar across all four sites, averaging 19.4%.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "How did community-specific rates compare with AVMA formula predictions?",
+"o": [
+"Matched exactly at every site",
+"Differed significantly, though the aggregate matched AVMA",
+"Were always lower",
+"Could not be calculated"
+],
+"a": 1,
+"e": "Community rates differed (p<.0001) from AVMA predictions, yet the aggregate matched the AVMA figure.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Shelter Diversion",
+"q": "What did organizations identify as common reasons for dog relinquishment?",
+"o": [
+"Excessive barking only",
+"Lack of affordable veterinary/behavioral services and pet-friendly housing",
+"Owners relocating abroad",
+"Dog age"
+],
+"a": 1,
+"e": "Lack of affordable vet/behavioral services and pet-friendly housing were cited as common reasons.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Shelter Diversion",
+"q": "Why did organizations discontinue or fail to offer desired programs?",
+"o": [
+"Too much staff",
+"Lack of staff and other resources",
+"Government bans",
+"Excess funding"
+],
+"a": 1,
+"e": "Programs were discontinued or unoffered due to lack of staff and resources.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Shelter Diversion",
+"q": "What did the authors recommend?",
+"o": [
+"Stop all retention programs",
+"Strategically develop community-specific programs and partner with vet/behavior professionals",
+"Focus only on euthanasia",
+"Increase relinquishment intake"
+],
+"a": 1,
+"e": "Authors urged strategically tailored community programs and partnerships with veterinary and behavior professions.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "What did the survey conclude about pandemic fostering?",
+"o": [
+"No increase occurred",
+"Fostering increased but the impact is likely ephemeral",
+"Fostering permanently doubled",
+"Fostering decreased"
+],
+"a": 1,
+"e": "Fostering increased during the pandemic, but the effect is likely temporary.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "Which group notably increased fostering?",
+"o": [
+"Those unable to work from home",
+"Volunteers working from home",
+"Only existing dog owners",
+"Retirees exclusively"
+],
+"a": 1,
+"e": "Increases were particularly seen among volunteers working from home.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "How might organizations retain foster volunteers, per the study?",
+"o": [
+"Emotional support directed at the human",
+"Focusing solely on the dog",
+"Reducing communication",
+"Charging fees"
+],
+"a": 0,
+"e": "Support, particularly emotional support for the human, may help retain foster volunteers.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "What method was used to predict cat outcomes?",
+"o": [
+"Structural equation modeling",
+"Simple t-tests",
+"Genome sequencing",
+"Randomized controlled trial"
+],
+"a": 0,
+"e": "Structural equation modeling tested four hypotheses on cat outcomes.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "What did the global model indicate about predictors of cat outcomes?",
+"o": [
+"A single factor explains outcomes",
+"Many interconnected factors predict outcomes",
+"Outcomes are random",
+"Only length of stay matters"
+],
+"a": 1,
+"e": "Multiple interconnected factors, including pre-shelter influences, predict cat outcomes.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "What did the study emphasize incorporating to understand cat outcomes?",
+"o": [
+"Only in-shelter variables",
+"Influences beyond the shelter walls",
+"Staff opinions only",
+"Breed alone"
+],
+"a": 1,
+"e": "It highlighted the importance of factors occurring outside the shelter.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "How did being a community member with no prior shelter relationship relate to adoption of the fostered dog?",
+"o": [
+"Over 4 times more likely to adopt",
+"Less likely to adopt",
+"No difference",
+"Never adopted"
+],
+"a": 0,
+"e": "New community foster caregivers were over four times more likely to adopt their fostered dog.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "How did shelter resource level relate to foster recruitment?",
+"o": [
+"Low-resource shelters recruited new community members most",
+"High-resource shelters more often recruited new community members",
+"Resources had no relationship",
+"All shelters used only staff"
+],
+"a": 1,
+"e": "High-resource shelters more often recruited new community members, while low-resource relied on existing relationships.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "What happened to foster utilization over the early pandemic months?",
+"o": [
+"Steadily rose through June",
+"Increased March-April then returned to initial levels by June 2020",
+"Never changed",
+"Dropped immediately"
+],
+"a": 1,
+"e": "Utilization rose from March to April, then returned to initial pandemic levels by June 2020.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What perception does this review challenge?",
+"o": [
+"That behavioral incompatibilities strongly drive relinquishment",
+"That dogs are never relinquished",
+"That shelters are overcrowded",
+"That microchips improve RTO"
+],
+"a": 0,
+"e": "It challenges the belief that behavioral incompatibilities are a major driver of relinquishment.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What proportion of adopted dogs are returned for behavioral reasons?",
+"o": [
+"About 6-9%",
+"About 50%",
+"About 30%",
+"About 80%"
+],
+"a": 0,
+"e": "Only about 6-9% of adopted dogs are returned for behavioral reasons.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What did the authors say about delaying adoption for behavior evaluation/modification?",
+"o": [
+"It improves welfare",
+"It extends shelter stress, reduces capacity, and consumes staff time",
+"It has no downsides",
+"It eliminates returns"
+],
+"a": 1,
+"e": "Delays prolong exposure to shelter stress, reduce capacity, and consume scarce staff time.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "In the Indian dog-ownership survey, how did dog-owning household prevalence in Gujarat compare with Tamil Nadu?",
+"o": [
+"Significantly higher in Gujarat",
+"Significantly fewer in Gujarat",
+"Identical between the two states",
+"Differed only by settlement size"
+],
+"a": 1,
+"e": "Gujarat settlements had significantly fewer dog-owning households than Tamil Nadu.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "Across settlements, what were the relative sterilisation and rabies-vaccination proportions of owned dogs?",
+"o": [
+"High sterilisation, low rabies vaccination",
+"Both high",
+"Low sterilisation, high rabies vaccination",
+"Both low"
+],
+"a": 2,
+"e": "Sterilisation was typically low while rabies vaccination was high.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "Dog ownership was most associated with which household characteristic?",
+"o": [
+"Higher socioeconomic standing",
+"Lower socioeconomic standing",
+"Larger settlement size",
+"Rural location only"
+],
+"a": 0,
+"e": "Ownership was more common in higher-socioeconomic households.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Why does HSIApps emphasise returning a sterilised street dog to its exact capture location?",
+"o": [
+"To reduce surgical costs",
+"Because territorial dogs face welfare risks and postoperative complications if misplaced",
+"To increase adoption rates",
+"To comply with import laws"
+],
+"a": 1,
+"e": "Street dogs are territorial; misplacement risks welfare problems and postoperative complications including death.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What type of tool is HSIApps?",
+"o": [
+"A surgical instrument",
+"A vaccine",
+"A mobile phone-based application",
+"A kennel design"
+],
+"a": 2,
+"e": "HSIApps is a mobile phone-based data-collection application.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "How is sterilisation characterised for street-dog population control?",
+"o": [
+"Ineffective",
+"One of the most humane and effective methods",
+"Only useful for owned dogs",
+"Primarily a disease treatment"
+],
+"a": 1,
+"e": "Sterilisation is described as among the most humane and effective population-control methods.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Which pathogen, detected only by the university laboratory, was implicated as substantially involved in the outbreak?",
+"o": [
+"Canine influenza virus",
+"Bordetella bronchiseptica",
+"Canine pneumovirus",
+"Canine distemper virus"
+],
+"a": 2,
+"e": "Only the university lab detected canine pneumovirus, implicated as substantially involved.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "The CIRDC outbreak resolved within about one month after which interventions?",
+"o": [
+"Antimicrobials alone",
+"Clean break procedures, limiting intake, and deep cleaning",
+"Vaccinating all dogs",
+"Euthanizing all symptomatic dogs"
+],
+"a": 1,
+"e": "Resolution followed clean break procedures, limiting incoming dogs, and a deep clean.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "How many fatalities occurred in the outbreak?",
+"o": [
+"Eight",
+"Over 100",
+"None",
+"Twenty"
+],
+"a": 0,
+"e": "The outbreak comprised eight fatalities among over 100 cases.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "How did serum 25(OH)D compare in shelter dogs with CIRDC signs versus apparently healthy shelter dogs?",
+"o": [
+"Higher",
+"Lower",
+"No difference",
+"Not measured"
+],
+"a": 1,
+"e": "Dogs with CIRDC signs had significantly lower serum 25(OH)D.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Was serum 25(OH)D concentration associated with duration of time in the shelter?",
+"o": [
+"Yes, positively",
+"Yes, negatively",
+"No association",
+"Only in herpesvirus-positive dogs"
+],
+"a": 2,
+"e": "25(OH)D was not associated with time spent in the shelter.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "How did shelter dogs' 25(OH)D compare with nonshelter control dogs?",
+"o": [
+"Significantly lower",
+"Significantly higher",
+"Not significantly different",
+"Undetectable"
+],
+"a": 2,
+"e": "Shelter dog 25(OH)D did not differ significantly from controls.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "The urban Pets for Life intervention community showed what compared with the non-intervention urban site?",
+"o": [
+"Lower overall access to pet care",
+"Higher overall access to pet care",
+"No measurable difference",
+"Reduced adoption rates"
+],
+"a": 1,
+"e": "The intervention community had higher overall measured access to pet care.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "Which specific access measures were higher in the intervention community?",
+"o": [
+"Affordable care and payment-option providers",
+"Emergency surgery access",
+"Vaccine stockpiles",
+"Microchipping rates"
+],
+"a": 0,
+"e": "Access to affordable care and providers offering payment options was higher.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "What does the study conclude about community-based animal welfare programming?",
+"o": [
+"It has no effect on access",
+"It can increase perceptions of access to pet support services",
+"It reduces pet ownership",
+"It only benefits rural areas"
+],
+"a": 1,
+"e": "Such programming has potential to increase perceptions of access to pet support services.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "How were the two puppies that died suddenly diagnosed?",
+"o": [
+"Parvoviral enteritis on PCR",
+"Parvoviral myocarditis at necropsy",
+"Canine distemper",
+"Congenital heart defect"
+],
+"a": 1,
+"e": "Both were diagnosed with parvoviral myocarditis at necropsy.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What were the cardiac diagnostic results of the seven screened surviving puppies?",
+"o": [
+"All abnormal",
+"All normal, with dogs alive and thriving at 5 years",
+"Mixed, with several later deaths",
+"Not reported"
+],
+"a": 1,
+"e": "All seven had normal echo/ECG/troponin and were alive and thriving at 5 years.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What does the report conclude about outcomes for littermates of parvoviral myocarditis puppies?",
+"o": [
+"Uniformly fatal",
+"Variable and not necessarily grave",
+"Always require surgery",
+"Unrelated to cardiac testing"
+],
+"a": 1,
+"e": "Outcomes are variable and need not be grave; cardiac diagnostics aid prognosis.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Estimated survival for obtunded/lateral pyometra patients treated at HQHVSN clinics was approximately?",
+"o": [
+"98%",
+"80%",
+"38%",
+"20%"
+],
+"a": 2,
+"e": "Obtunded/lateral patients had an estimated ~38% survival.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "How did HQHVSN pyometra treatment fees compare with private practice and emergency hospitals?",
+"o": [
+"Much higher",
+"About the same",
+"Much lower",
+"Never charged"
+],
+"a": 2,
+"e": "HQHVSN fees (~$200 dog/$125 cat) were much lower than private/ER estimates.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What proportion of HQHVSN clinics were willing to treat nonincidental pyometra at least sometimes?",
+"o": [
+"A minority (14%)",
+"Most (86%)",
+"Half (50%)",
+"None"
+],
+"a": 1,
+"e": "Most clinics (86%) were willing to treat nonincidental pyometra at least sometimes.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Median survival of high-positive FeLV cats from enrollment was approximately?",
+"o": [
+"1.37 years",
+"4 years",
+"6 months",
+"10 years"
+],
+"a": 0,
+"e": "High-positive cats had a median survival of 1.37 years.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What was the survival of low-positive FeLV cats over the four-year study?",
+"o": [
+"All died within 1 year",
+"Most (93.1%) still alive",
+"Median 1.37 years",
+"Exactly half survived"
+],
+"a": 1,
+"e": "Most low-positive cats (93.1%) remained alive.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Quantitative p27 antigen concentration and proviral DNA load were highly correlated with?",
+"o": [
+"Body weight",
+"Survival times",
+"Vaccination status",
+"Coat color"
+],
+"a": 1,
+"e": "Both quantitative measures correlated highly with survival times.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "How did shelter dogs' nocturnal activity change from the first nights to night 12?",
+"o": [
+"Increased over time",
+"Decreased, with smaller inter-individual variance",
+"Stayed the same",
+"Became undetectable"
+],
+"a": 1,
+"e": "Nocturnal activity was higher in the first nights and decreased by night 12.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "Did the study find a 'first-night effect' on sleep?",
+"o": [
+"Yes, marked",
+"No",
+"Only in large dogs",
+"Only after adoption"
+],
+"a": 1,
+"e": "No first-night effect was found; activity did not differ between nights 1 and 2.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "How did body weight change between intake and the two-week habituation period?",
+"o": [
+"Gained ~5%",
+"Unchanged",
+"Lost ~5%",
+"Doubled"
+],
+"a": 2,
+"e": "Dogs lost on average about 5% of body weight.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "What were the most common reasons for adoption return?",
+"o": [
+"Behavioral issues and incompatibility with existing pets",
+"Cost of care",
+"Allergies",
+"Moving house"
+],
+"a": 0,
+"e": "Behavioral issues and incompatibility with existing pets were most common.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "Which group had the greatest odds of post-adoption return?",
+"o": [
+"Adult dogs",
+"Kittens",
+"Toy breeds",
+"Terriers"
+],
+"a": 0,
+"e": "Adult dogs had the greatest odds of return (OR 3.40).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "Pit bull-type breeds were more likely to experience which outcomes?",
+"o": [
+"Lower return rates",
+"Multiple returns and post-return euthanasia",
+"Faster adoption",
+"No euthanasia risk"
+],
+"a": 1,
+"e": "Pit bull-type breeds were returned multiple times and euthanized post-return more often.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What happened to dogs' cortisol:creatinine ratios on the afternoon of the 2.5-hour outing?",
+"o": [
+"Decreased",
+"Significantly higher, returning to baseline the next day",
+"Unchanged",
+"Permanently elevated"
+],
+"a": 1,
+"e": "Cortisol was higher during the intervention afternoon but returned to baseline the following day.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What is the study's main conclusion about brief outings versus temporary fostering?",
+"o": [
+"Outings reduce stress equally",
+"Short outings do not confer the same stress-reduction benefits",
+"Outings are harmful",
+"Fostering increases stress"
+],
+"a": 1,
+"e": "Short-term outings did not provide the stress reduction previously shown with temporary fostering.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "How did physical activity change during the outing?",
+"o": [
+"Low activity increased",
+"High activity increased while low activity decreased",
+"No change occurred",
+"Dogs were immobile"
+],
+"a": 1,
+"e": "High activity increased and low activity decreased during the outings.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Nutrition & Husbandry",
+"q": "Which factors were significantly associated with lower daily weight gain in shelter kittens?",
+"o": [
+"Male sex and good appetite",
+"Lethargy and being female",
+"Diet type and medical treatment",
+"Age over 9 weeks"
+],
+"a": 1,
+"e": "Lethargy and female sex were significantly associated with lower daily weight gain.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Nutrition & Husbandry",
+"q": "How did shelter/foster kittens' average daily weight gain compare with catteries and laboratories?",
+"o": [
+"Lower",
+"Higher",
+"Identical",
+"Not measured"
+],
+"a": 1,
+"e": "Average daily weight gain was higher than reported in catteries and labs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Nutrition & Husbandry",
+"q": "What was the kitten mortality rate in the study?",
+"o": [
+"2.5%",
+"10%",
+"25%",
+"0%"
+],
+"a": 0,
+"e": "Five kittens (2.5%) died or were euthanized.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Shelter Diversion",
+"q": "What did this Portuguese study conclude about empathy as a cause of pet relinquishment?",
+"o": [
+"Low empathy is the primary driver of relinquishment",
+"Empathy levels are not the key driver of relinquishment",
+"Relinquishers showed markedly lower human-animal empathy",
+"Adopters had significantly higher empathy than relinquishers"
+],
+"a": 1,
+"e": "Empathy scores were high in both groups, so a lack of empathy was not identified as the key driver of relinquishment.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Shelter Diversion",
+"q": "What was found regarding the relationship between human-human and human-animal empathy?",
+"o": [
+"They were inversely correlated",
+"No association was found",
+"A significant link existed between them",
+"The link existed only among relinquishers"
+],
+"a": 2,
+"e": "The study reported a significant link between human-human and human-animal empathy.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Shelter Diversion",
+"q": "How did adopters and relinquishers compare on human-animal empathy?",
+"o": [
+"Adopters scored significantly higher",
+"Relinquishers scored significantly higher",
+"No significant difference was found",
+"Empathy was not measured in relinquishers"
+],
+"a": 2,
+"e": "There were no significant differences in human-animal empathy between adopters and relinquishers.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What does this case report demonstrate about combining behavioral and medical treatment in a chronically ill homeless dog?",
+"o": [
+"Behavioral therapy must wait until medical recovery is complete",
+"Concurrent behavioral and medical treatment was successful",
+"Behavioral therapy worsened the dermatological signs",
+"Medical treatment alone was sufficient for recovery"
+],
+"a": 1,
+"e": "Introducing behavioral treatment during medical treatment was challenging but successful and effective.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Which relationship is specifically outlined in the report?",
+"o": [
+"Chronic illness and stress",
+"Illness and diet",
+"Illness and breed",
+"Illness and age"
+],
+"a": 0,
+"e": "The report outlines the relationship between chronic illness and stress.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Why was evaluating the severity of behavioral disorders difficult in this dog?",
+"o": [
+"Only the lack of a known past history",
+"Concurrent dermatological signs such as pain or pruritus complicated assessment",
+"Absence of any veterinary involvement",
+"The dog was too young to assess"
+],
+"a": 1,
+"e": "Signs of dermatological disease (pain, pruritus) made evaluating behavioral disorder severity very difficult.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "In the Kano model analysis, matching which traits acted as 'Exciters' (unexpected positive features)?",
+"o": [
+"Preferred coat color only",
+"Activity level, affection, and boldness",
+"Age and size",
+"None of the traits"
+],
+"a": 1,
+"e": "Matching activity level, affection, and boldness were Kano 'Exciters' for most respondents.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "How was matching to a caretaker's preferred coat color classified?",
+"o": [
+"An exciter feature",
+"A must-have feature",
+"An indifferent attribute",
+"A strong dissatisfier"
+],
+"a": 2,
+"e": "Matching to preferred color was an indifferent Kano attribute.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "Matching in affection, activity level, and color was significantly associated with what outcome?",
+"o": [
+"Lower satisfaction scores",
+"Maximum perceived satisfaction scores",
+"Higher return rates",
+"No measurable effect"
+],
+"a": 1,
+"e": "These matches were significantly associated with dogs being given the maximum satisfaction score.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "Which coat color scored highest for being shy, aloof, and intolerant?",
+"o": [
+"Tabby",
+"Tricolor",
+"Gray",
+"Orange"
+],
+"a": 2,
+"e": "Gray cats had the highest scores for being shy, aloof, and intolerant.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "Orange cats received the highest scores for which traits?",
+"o": [
+"Stubborn and bold",
+"Trainable, friendly, and calm",
+"Shy and aloof",
+"Intolerant and stubborn"
+],
+"a": 1,
+"e": "Orange cats scored highest for being trainable, friendly, and calm.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "On the Cat Owner Relationship Scale, emotional closeness was positively correlated with which personality profile?",
+"o": [
+"Aloofness",
+"Shyness",
+"Active, bold, and friendly",
+"Intolerance"
+],
+"a": 2,
+"e": "Emotional closeness correlated positively with active, bold, and friendly personalities.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "What happened to total intake and euthanasia for both dogs and cats over 2016-2020?",
+"o": [
+"Both significantly decreased",
+"Both significantly increased",
+"Both remained stable",
+"Only euthanasia rose"
+],
+"a": 0,
+"e": "Total intake and euthanasia for both dogs and cats significantly decreased over the study period.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "What was the trend in live release rates across the study period?",
+"o": [
+"They declined",
+"They remained flat",
+"They significantly increased",
+"They increased only for cats"
+],
+"a": 2,
+"e": "Live release rates for both dogs and cats showed significant increases.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "How did adoption, return-to-owner, and return-to-field as a percentage of intake change?",
+"o": [
+"They fell sharply",
+"They significantly increased",
+"They stayed flat",
+"Only transfers rose"
+],
+"a": 1,
+"e": "Adoption, return-to-owner, return-to-field, and (for cats) transfer all increased significantly as a percentage of intake.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Which drug classes were the most frequently administered to the shelter cats?",
+"o": [
+"Antibiotics, antiparasitics, and complementary/protective substances",
+"Analgesics only",
+"Vaccines and antifungals",
+"Corticosteroids and sedatives"
+],
+"a": 0,
+"e": "Antibiotics, antiparasitics, and complementary/protective substances were the most used drugs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "By active substance, which antibiotics were used most often?",
+"o": [
+"Macrolides and aminoglycosides",
+"Penicillins, tetracyclines, and fluoroquinolones",
+"Cephalosporins only",
+"Sulfonamides and lincosamides"
+],
+"a": 1,
+"e": "Penicillins, tetracyclines, and fluoroquinolones were the most-used antibiotics by active substance.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "How did length of stay compare for cats with health records versus those without?",
+"o": [
+"It was shorter for cats with records",
+"It was identical between groups",
+"It was significantly longer for cats with records",
+"It was not assessed"
+],
+"a": 2,
+"e": "Cats with one or more health records had significantly longer stays than those without.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "What was the top decision factor potential adopters considered during shelter visits?",
+"o": [
+"Coat color",
+"Dog behavior",
+"Breed prestige",
+"Adoption fee"
+],
+"a": 1,
+"e": "Dog behavior was the most-considered decision factor (58.9%), significantly greater than chance.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "After behavior, which factors were next most considered?",
+"o": [
+"Age, size, and lifestyle fit",
+"Color and breed",
+"Vaccination status",
+"Sex and microchip status"
+],
+"a": 0,
+"e": "Behavior was followed by the dog's age, size, and lifestyle fit.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "Did the set of decision factors differ by adopter age group, household type, or prior pet experience?",
+"o": [
+"Yes, it varied strongly by age",
+"It varied only by household type",
+"No, similar sets were considered regardless of group",
+"It varied only by prior pet experience"
+],
+"a": 2,
+"e": "Adopters considered similar sets of factors independent of age, household type, or prior experience.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Shelter Diversion",
+"q": "Which factors were significant for the relinquisher group in this Portuguese study?",
+"o": [
+"Income level and breed",
+"Pet age and sex",
+"Distance to the shelter",
+"Presence of children and apartment dwelling"
+],
+"a": 3,
+"e": "The only significant factors for relinquishers were presence of children and apartment-type dwelling.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Shelter Diversion",
+"q": "Duration of guardianship before relinquishment was significantly shorter when?",
+"o": [
+"No children were present",
+"Children were in the household",
+"The home was an apartment",
+"The pet was a cat"
+],
+"a": 1,
+"e": "Guardianship before relinquishment was shorter when children were in the household.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Shelter Diversion",
+"q": "Which two groups were compared in the survey?",
+"o": [
+"Veterinarians versus owners",
+"Urban versus rural owners",
+"Relinquishers versus non-relinquishers",
+"Dog versus cat owners"
+],
+"a": 2,
+"e": "The study compared relinquishers (REL) with non-relinquishers (NREL).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "How much longer did cats adopted as part of a multi-cat outcome spend on the adoption floor?",
+"o": [
+"About three days (42%) longer",
+"Slightly shorter than singles",
+"The same amount of time",
+"Only one day longer"
+],
+"a": 0,
+"e": "Multi-cat-outcome cats spent about three days (42%) longer on the adoption floor.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "For cats flagged as 'must be adopted together,' how did adoption time differ?",
+"o": [
+"They were adopted faster",
+"About 13 days (185%) longer",
+"No difference from singles",
+"About five days longer"
+],
+"a": 1,
+"e": "Cats requiring joint adoption stayed about 13 days (185%) longer.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "What did the study find about shelter-assigned pairs versus behaviorally-defined pairs?",
+"o": [
+"Perfect agreement between classifications",
+"No pairs showed any bonding",
+"A large discrepancy between the two classifications",
+"Behavior could not be measured"
+],
+"a": 2,
+"e": "There was a large discrepancy between shelter multi-outcome classifications and behavior-based pairings.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "Which factors increased a cat's risk of being returned?",
+"o": [
+"Prior foster placement",
+"Older age at adoption or a bite history",
+"Being a young kitten",
+"Coat color"
+],
+"a": 1,
+"e": "Cats older at adoption or with a bite history had an increased risk of return.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "Which factor decreased the risk of return?",
+"o": [
+"A bite history",
+"Older adoption age",
+"Foster care prior to adoption",
+"Multi-cat household"
+],
+"a": 2,
+"e": "Cats in foster care before adoption had a decreased risk of return.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "How did short-term (<30 day) and long-term (>30 day) return reasons differ?",
+"o": [
+"Cost and stray dominated short-term returns",
+"Behavior/unwanted/other-pet were short-term; cost/personal/euthanasia/stray were long-term",
+"Reasons were identical in both windows",
+"No discernible pattern existed"
+],
+"a": 1,
+"e": "Short-term returns were more often for behavior, unwanted, or other pets; long-term for personal reasons, cost, euthanasia, and stray.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Shelter Diversion",
+"q": "Which confinement practice did Australian dog owners support most strongly?",
+"o": [
+"Confining dogs indoors at night",
+"Confining dogs to the owner's property whenever unsupervised (98%)",
+"Never confining dogs",
+"Leash-only walking"
+],
+"a": 1,
+"e": "Dog owners most strongly supported confining dogs to the property whenever unsupervised (98% agreement).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Shelter Diversion",
+"q": "Which confinement practice did cat owners support most strongly?",
+"o": [
+"Allowing free outdoor roaming",
+"24/7 indoor confinement",
+"Confining cats inside the house at night (89%)",
+"No confinement at all"
+],
+"a": 2,
+"e": "Cat owners most strongly supported confining cats inside at night (89% agreement).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Shelter Diversion",
+"q": "Which strategies did the authors recommend to reduce stray animals?",
+"o": [
+"Increasing euthanasia capacity",
+"Assisting low-income owners with fencing, identification, and free targeted sterilization",
+"Banning cat ownership",
+"Removing microchip requirements"
+],
+"a": 1,
+"e": "Recommendations included help with fencing, identification, and high-intensity free sterilization targeted to high-impoundment areas.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Animals & Public Policy",
+"sub": "Ethics",
+"q": "What did the study find about health-problem knowledge among people with positive attitudes toward brachycephalic dogs?",
+"o": [
+"They had lower knowledge of health problems",
+"They associated more health problems with brachycephalism",
+"Knowledge was not measured",
+"They denied any health problems exist"
+],
+"a": 1,
+"e": "Contrary to expectations, people with positive attitudes associated more health problems with brachycephalism.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Animals & Public Policy",
+"sub": "Ethics",
+"q": "Did the dogs' tendency to form eye contact explain their popularity?",
+"o": [
+"Yes, it strongly drove popularity",
+"No, eye-contact preference did not play a role",
+"Only among female owners",
+"Only among older owners"
+],
+"a": 1,
+"e": "Eye-contact tendency did not appear to play a role in brachycephalic dogs' popularity.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Animals & Public Policy",
+"sub": "Ethics",
+"q": "What implication did the authors draw for educational campaigns?",
+"o": [
+"Factual health knowledge alone is sufficient",
+"Campaigns are unnecessary",
+"Factual knowledge alone is insufficient to reverse the welfare crisis",
+"Breeding should be banned outright"
+],
+"a": 2,
+"e": "Factual knowledge about health problems alone is not enough to reverse the brachycephalic welfare crisis.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "When 81 staff classified the same four surrender narratives, what did agreement on surrender reason look like?",
+"o": [
+"Near-perfect agreement on a single reason",
+"12-16 unique reasons selected per scenario (low agreement)",
+"All staff chose 'behavioral' reasons",
+"Reason was auto-assigned by software"
+],
+"a": 1,
+"e": "Out of 40 possible reasons, 12-16 unique reasons were chosen per scenario, indicating low consistency.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "Agreement among staff for breed and color entry was characterized as:",
+"o": [
+"High and reliable",
+"Low",
+"Not assessed",
+"Perfect for color only"
+],
+"a": 1,
+"e": "Agreement was also low for breed and color.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "What did the authors conclude about using shelter software data for management decisions?",
+"o": [
+"Data are reliable as currently entered",
+"Further research is needed to collect data consistently",
+"Data should be abandoned entirely",
+"Only veterinarians should enter data"
+],
+"a": 1,
+"e": "They concluded further research is required for consistent, meaningful data collection.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "In the Washington, DC cat data, what was the most common intake type?",
+"o": [
+"Stray cats (59%)",
+"Owner-relinquished (38%)",
+"Seized cats",
+"Transferred cats"
+],
+"a": 0,
+"e": "Most intakes were stray cats at 59%.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "Where were the highest numbers of cat intakes concentrated?",
+"o": [
+"Low-development, high-income areas",
+"High-development, low-income neighborhoods",
+"Areas far from the shelter",
+"Suburban high-income areas"
+],
+"a": 1,
+"e": "Highest intakes came from high-development, low-income neighborhoods.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "Seized cats predominantly originated from:",
+"o": [
+"High-income neighborhoods",
+"Areas distant from the shelter",
+"Low-income neighborhoods",
+"Evenly across all areas"
+],
+"a": 2,
+"e": "Seized cats originated from low-income neighborhoods.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "Which dog characteristics were associated with LONGER time to adoption in this Polish shelter dataset?",
+"o": [
+"Female, small, young, light fur",
+"Male, mixed-breed, dark fur, large, older",
+"Purebred, small, young",
+"Female, large, light fur"
+],
+"a": 1,
+"e": "Male sex, mixed-breed, dark fur, large size, and older age predicted longer LOS.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "Which modeling approach did the authors conclude is preferable for studying LOS factors?",
+"o": [
+"Cox survival model",
+"Logistic regression",
+"Accelerated failure time model",
+"Simple linear regression"
+],
+"a": 2,
+"e": "They concluded the accelerated failure time model is preferable for time-dependent LOS factors.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "What post features influenced public engagement with adoptable-animal Facebook posts?",
+"o": [
+"Only the posting time of day",
+"Type of animal (dog vs cat) and depicted environment",
+"Adoption fee listed",
+"Length of the caption only"
+],
+"a": 1,
+"e": "Type of animal and environment (e.g., home vs other) influenced likes and shares.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "How did engagement differ between Fall 2019 (pre-pandemic) and Fall 2020 (pandemic)?",
+"o": [
+"2019 posts had more likes; 2020 posts had more shares",
+"2020 posts had more likes; 2019 more shares",
+"No difference between years",
+"2019 had both more likes and shares"
+],
+"a": 0,
+"e": "Fall 2019 posts had more likes while Fall 2020 posts had more shares.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "Regarding Social Vulnerability Index (SVI), animals tended to ENTER shelters from:",
+"o": [
+"Areas of lower vulnerability",
+"Areas of higher vulnerability",
+"Equally from all SVI levels",
+"Only seized from low-SVI areas"
+],
+"a": 1,
+"e": "Animals tended to enter shelters from higher-vulnerability areas.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "How were adoptions distributed across SVI levels?",
+"o": [
+"Concentrated in low-SVI homes",
+"Concentrated in high-SVI homes",
+"Evenly across SVI levels",
+"Restricted to mid-SVI homes"
+],
+"a": 2,
+"e": "Adoptions were evenly distributed across SVI levels, suggesting equitable access.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "Were animals from high-SVI areas euthanized at higher rates?",
+"o": [
+"No, not at higher rates",
+"Yes, markedly higher",
+"Yes, only for cats",
+"Data could not address this"
+],
+"a": 0,
+"e": "Animals from high-SVI areas were not euthanized at higher rates than those from lower-SVI areas.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "Among 2836 relinquishment records, the single most frequent reason was:",
+"o": [
+"Financial (6%)",
+"Owner allergies (5%)",
+"Behavior issues (28%)",
+"Too many pets (10%)"
+],
+"a": 2,
+"e": "Behavior issues were cited most often at 28%.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "The most common behavioral reason for surrender was:",
+"o": [
+"Aggression (32% of behavioral surrenders)",
+"Soiling (13%)",
+"Social conflict (28%)",
+"Excessive barking"
+],
+"a": 0,
+"e": "Aggression was the leading behavioral reason at 32%.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "Which relinquishment category increased significantly in 2022-2023?",
+"o": [
+"Housing/Moving",
+"Financial",
+"Unable to Care",
+"Owner allergies"
+],
+"a": 2,
+"e": "The 'Unable to Care' category rose significantly in 2022 and 2023.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "In this Australian study, the primary reason for relinquishment was:",
+"o": [
+"Financial constraints (11%)",
+"Housing issues (31%)",
+"Ownership decisions (16%)",
+"Human health (10%)"
+],
+"a": 1,
+"e": "Housing issues at 31.2% were the leading reason.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "The median ages of relinquished cats and dogs were:",
+"o": [
+"Cats 5 months, dogs 16 months",
+"Cats 2 years, dogs 5 years",
+"Cats 16 months, dogs 5 months",
+"Both 1 year"
+],
+"a": 0,
+"e": "Median age was 5 months for cats and 16 months for dogs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "Financial difficulties as a relinquishment reason were more common among:",
+"o": [
+"Higher socioeconomic deciles",
+"Lower socioeconomic deciles",
+"Equal across deciles",
+"Only the highest decile"
+],
+"a": 1,
+"e": "Financial difficulties were more common in lower (decile 1-5) vs higher SES groups.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Shelter Diversion",
+"q": "As household income increased, the likelihood of acquiring a dog through friends and family:",
+"o": [
+"Increased monotonically",
+"Decreased monotonically",
+"Stayed constant",
+"Peaked at middle income"
+],
+"a": 1,
+"e": "Acquiring via friends/family decreased monotonically as income rose, while adopting/purchasing increased.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Shelter Diversion",
+"q": "Compared with someone earning under USD 15,000, a person earning over USD 100,000 was:",
+"o": [
+"Less likely to surrender to a shelter",
+"Equally likely to surrender",
+"More than four times likelier to surrender to a shelter",
+"Never surrendered to a shelter"
+],
+"a": 2,
+"e": "High earners were >4x likelier to surrender to a shelter than low earners.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Shelter Diversion",
+"q": "The authors suggest shelters could best help by:",
+"o": [
+"Supporting low-income owners to keep dogs in their community of care",
+"Increasing intake capacity",
+"Banning informal rehoming",
+"Raising adoption fees"
+],
+"a": 0,
+"e": "Supporting low-income owners keeps dogs within their community and out of the shelter system.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What measurable effect did Solliquin have on dogs entering the shelter?",
+"o": [
+"Lowered fecal cortisol significantly",
+"Increased only the light-rest activity category",
+"Increased deep rest",
+"No outcomes were measurable"
+],
+"a": 1,
+"e": "The only significant change was increased light rest (P = 0.050).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What was Solliquin's effect on fecal cortisol and most other parameters?",
+"o": [
+"Large reduction in cortisol",
+"Increased deep rest and activity",
+"No significant effects",
+"Worsened stress markers"
+],
+"a": 2,
+"e": "No effects were seen on fecal cortisol or other parameters including deep rest.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "In the impossible-task test, treated dogs showed what change during solvable phases?",
+"o": [
+"Significantly decreased time to solve the task",
+"Increased time to solve",
+"Stopped attempting the task",
+"No measurable change"
+],
+"a": 0,
+"e": "DiRelax-treated dogs solved solvable phases significantly faster.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Bloodwork (CBC and chemistry) in treated dogs indicated:",
+"o": [
+"Significant hematologic abnormalities",
+"No difference between groups, supporting safety",
+"Elevated liver enzymes",
+"Anemia in treated dogs"
+],
+"a": 1,
+"e": "No group differences in bloodwork suggested the product is safe.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "During the unsolvable phase, treated vs untreated anxious dogs showed:",
+"o": [
+"Marked behavioral improvement",
+"No behavioral difference",
+"Increased aggression",
+"Complete withdrawal"
+],
+"a": 1,
+"e": "No behavioral difference was found during the unsolvable phase.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Exogenous corticosteroids in dogs have been associated with which behavioral changes?",
+"o": [
+"More play and exploration",
+"Increased aggression and barking with decreased play",
+"Reduced reactivity overall",
+"No behavioral effect"
+],
+"a": 1,
+"e": "Corticosteroids increased aggression/barking and decreased play and exploratory behaviors.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Corticosteroids were described as biasing canine sensitivity toward:",
+"o": [
+"Reward",
+"Aversion",
+"Neutral stimuli",
+"Food only"
+],
+"a": 1,
+"e": "Corticosteroids can bias sensitivity toward aversion in dogs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "By analogy to humans, which dogs may be most at risk of corticosteroid behavioral side effects?",
+"o": [
+"Dogs with pre-existing behavioral problems",
+"Young healthy dogs",
+"Dogs on no other medication",
+"Working dogs only"
+],
+"a": 0,
+"e": "As with humans with psychiatric disorders, dogs with pre-existing behavioral problems may be most at risk.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Compared with placebo, dogs given trazodone before a veterinary visit had:",
+"o": [
+"Higher dog stress scores",
+"Lower mean dog stress scores",
+"Unchanged stress scores",
+"Higher owner stress scores"
+],
+"a": 1,
+"e": "Trazodone-treated dogs had lower mean DSS by owner and video assessment.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What was trazodone's effect on serum cortisol concentrations?",
+"o": [
+"Significantly reduced cortisol",
+"No meaningful difference",
+"Significantly raised cortisol",
+"Cortisol was not measured"
+],
+"a": 1,
+"e": "No meaningful differences were observed in serum cortisol.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "The clinical relevance reported was that a single pre-transport trazodone dose:",
+"o": [
+"Reduced signs of stress during veterinary visits",
+"Had no effect on welfare",
+"Worsened examination quality",
+"Required repeat dosing to work"
+],
+"a": 0,
+"e": "A single dose reduced stress signs and may improve exam quality and welfare.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "A single 50-mg/kg oral dose of gabapentin given before a veterinary visit significantly reduced which measure in dogs versus placebo?",
+"o": [
+"Salivary cortisol concentration",
+"Lip licking frequency",
+"Eye surface temperature",
+"Greeting test score"
+],
+"a": 1,
+"e": "Only lip licking frequency was significantly lower with gabapentin during all examination phases.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "How did greeting score, eye surface temperature, and salivary cortisol compare between gabapentin and placebo groups?",
+"o": [
+"All were significantly lower with gabapentin",
+"They did not differ substantially",
+"All were significantly higher with gabapentin",
+"Only cortisol differed"
+],
+"a": 1,
+"e": "These greeting and physiological variables showed no substantial difference between groups.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What was the safety conclusion for the 50-mg/kg gabapentin dose in healthy dogs?",
+"o": [
+"Frequent serious adverse events",
+"Well tolerated without serious adverse effects",
+"Caused significant hypotension",
+"Required dose reduction"
+],
+"a": 1,
+"e": "Owners reported no serious adverse events; the dose was well tolerated.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "In this pilot trial, behavioural improvement in cats given venlafaxine compared with placebo was:",
+"o": [
+"Significantly higher",
+"No different",
+"Significantly lower",
+"Improved only in placebo"
+],
+"a": 0,
+"e": "Improvement was significantly higher in the venlafaxine group, as early as day 30 by veterinarian scoring.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What effect did venlafaxine have on cats' compliance with carrier removal and manipulation?",
+"o": [
+"Markedly improved both",
+"Worsened both",
+"No significant difference versus placebo",
+"Improved manipulation only"
+],
+"a": 2,
+"e": "Neither removal nor manipulation scores differed significantly between groups.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Which adverse effect was the main reported finding with venlafaxine over 60 days?",
+"o": [
+"Vomiting in most cats",
+"Drowsiness in one cat",
+"Seizures",
+"Anorexia"
+],
+"a": 1,
+"e": "Adverse effects were limited to drowsiness in one cat; treatment was otherwise well tolerated.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "In the waiting room, the DAP gel was significantly associated with a reduction in which behaviour?",
+"o": [
+"Panting",
+"Lip licking",
+"Tail wagging",
+"Vocalization"
+],
+"a": 1,
+"e": "DAP significantly reduced lip licking (and increased panting) in the waiting room.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What did the study find regarding behavioural and physiological responses in the examination room?",
+"o": [
+"DAP significantly lowered cortisol",
+"No significant behavioural or physiological differences",
+"DAP raised blood pressure",
+"DAP reduced heart rate markedly"
+],
+"a": 1,
+"e": "In the examination room, neither behavioural nor physiological differences were found.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "How did salivary cortisol and other physiological measures respond to DAP overall?",
+"o": [
+"Significantly reduced",
+"No significant differences",
+"Significantly increased",
+"Only blood pressure dropped"
+],
+"a": 1,
+"e": "No significant differences were observed in the physiological responses.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Gabapentin was synthesized as a structural analogue of which neurotransmitter?",
+"o": [
+"GABA",
+"Serotonin",
+"Dopamine",
+"Glutamate"
+],
+"a": 0,
+"e": "It is a GABA-mimetic analogue able to cross the blood-brain barrier.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "In cats, gabapentin showed efficacy in which settings according to this review?",
+"o": [
+"Seizure prophylaxis only",
+"Post-ovariohysterectomy pain and anxiety management",
+"Cardiac disease",
+"Diabetes control"
+],
+"a": 1,
+"e": "In cats it was effective for post-ovariohysterectomy pain and anxiety.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "How is gabapentin used in veterinary medicine?",
+"o": [
+"As a licensed first-line monotherapy",
+"Extra-label, often in combination with other drugs",
+"Only intravenously",
+"Banned in dogs"
+],
+"a": 1,
+"e": "It is used extra-label, typically combined with other treatments.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What proportion of dogs in this case series improved with mirtazapine?",
+"o": [
+"About 50%",
+"About 65%",
+"About 81%",
+"About 95%"
+],
+"a": 2,
+"e": "Eighty-one percent of dogs showed improvement, with mild tolerable adverse effects.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Prior to this report, mirtazapine was marketed in cats primarily as a(n):",
+"o": [
+"Anticonvulsant",
+"Appetite stimulant",
+"Antibiotic",
+"Antiparasitic"
+],
+"a": 1,
+"e": "Mirtazapine is marketed as an appetite stimulant in cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What was the authors' overall conclusion about mirtazapine for canine anxiety-related problems?",
+"o": [
+"Unsafe and ineffective",
+"A suitable and safe option",
+"Effective only at toxic doses",
+"No better than placebo"
+],
+"a": 1,
+"e": "Mirtazapine appears suitable and safe for anxiety-related behavioural problems in dogs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Vaccination",
+"q": "Which pathogen was the most prevalent CIRD agent detected during this Texas shelter outbreak?",
+"o": [
+"Bordetella bronchiseptica",
+"Canine parainfluenza virus",
+"Canine distemper virus",
+"Canine adenovirus-2"
+],
+"a": 2,
+"e": "CDV was found in 12 of 15 dogs and all kennels, making it the primary pathogen.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Vaccination",
+"q": "How did coughing change once intake vaccination coverage reached at least 90%?",
+"o": [
+"Increased by 7%",
+"Significantly decreased by about 7%",
+"No change",
+"Doubled"
+],
+"a": 1,
+"e": "Coughing dropped significantly (~7%) when vaccination was at least 90% versus below 90%.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Vaccination",
+"q": "What does this study support regarding shelter welfare?",
+"o": [
+"Vaccination is ineffective during outbreaks",
+"Intake vaccination can substantially reduce illness",
+"Only quarantine reduces CIRD",
+"Vaccination worsened outbreaks"
+],
+"a": 1,
+"e": "Implementing vaccination on intake substantially reduced illness, supporting its importance.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "For how long did this dog shed canine distemper virus, the longest documented canine infection?",
+"o": [
+"3 months",
+"8 months",
+"17 months",
+"29 months"
+],
+"a": 2,
+"e": "The dog excreted CDV (PCR-positive urine) for 17 months.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What concurrent vector-borne co-infection was present in this dog?",
+"o": [
+"Babesia",
+"Heartworm (Dirofilaria immitis)",
+"Leishmania",
+"Ehrlichia"
+],
+"a": 1,
+"e": "The persistent CDV infection occurred alongside a Dirofilaria immitis heartworm co-infection.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Phylogenetic analysis placed this CDV strain in which genetic lineage?",
+"o": [
+"Arctic-like",
+"America-1 vaccine",
+"Asia-1",
+"European wildlife"
+],
+"a": 0,
+"e": "Hemagglutinin gene analysis identified the endemic Arctic-like lineage.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "How did asymptomatic CIRD pathogen carriage compare between shelter dogs and client-owned dogs?",
+"o": [
+"Lower in shelter dogs",
+"Higher in shelter dogs for all pathogens tested",
+"Equal between groups",
+"Higher only in client-owned dogs"
+],
+"a": 1,
+"e": "For all eight shared pathogens, positivity was higher among shelter dogs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What proportion of asymptomatic client-owned dogs were positive for at least one CIRD pathogen?",
+"o": [
+"11.3%",
+"25%",
+"40%",
+"60%"
+],
+"a": 0,
+"e": "15 of 133 (11.3%) asymptomatic client-owned dogs carried at least one pathogen.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Carriage risk differences between shelter and client-owned dogs were strongest for which pathogens?",
+"o": [
+"Canine herpesvirus and CAV-2",
+"M. cynos and canine respiratory coronavirus",
+"CDV and CPIV only",
+"Influenza and CAV-1"
+],
+"a": 1,
+"e": "The association was strongest for M. cynos and canine respiratory coronavirus.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What was the utility of skin immunohistochemistry for diagnosing CDV in raccoons?",
+"o": [
+"Useful only in ulcerated skin",
+"Useful even in grossly and histologically normal skin",
+"Not useful at all",
+"Useful only post-mortem in brain"
+],
+"a": 1,
+"e": "IHC of skin aided CDV diagnosis even when skin appeared grossly and histologically normal.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Which CDV receptor was found co-distributed with viral targets in raccoon skin?",
+"o": [
+"Nectin-4",
+"SLAM/CD150 only",
+"ACE2",
+"Sialic acid"
+],
+"a": 0,
+"e": "Nectin-4 was codistributed with the cellular targets of CDV infection.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "The authors suggest CDV-infected raccoon skin secretions and hair may act as:",
+"o": [
+"Sterile barriers",
+"Potential environmental fomites",
+"Vaccine sources",
+"Diagnostic dead-ends"
+],
+"a": 1,
+"e": "Skin secretions, shed keratinocytes, and hair are potential environmental fomites.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What CDV seroprevalence was found in domestic dogs at the Janos wildlife interface?",
+"o": [
+"7%",
+"25%",
+"62%",
+"90%"
+],
+"a": 2,
+"e": "62% of domestic dogs were seropositive for CDV.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "CDV antibody presence was significantly higher in which dogs?",
+"o": [
+"Free-roaming owned dogs",
+"Dogs with restricted movement",
+"Vaccinated dogs",
+"Indoor-only dogs"
+],
+"a": 0,
+"e": "Seropositivity was higher in free-roaming owned dogs than in movement-restricted dogs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What was the reported CDV vaccination rate in these dogs?",
+"o": [
+"Low (about 7%)",
+"About 50%",
+"About 75%",
+"Over 90%"
+],
+"a": 0,
+"e": "Vaccination against CDV was low at 7%, likely perpetuating viral circulation.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What radiographic finding in juvenile dogs should raise suspicion of canine distemper virus?",
+"o": [
+"Metaphyseal lysis",
+"Symmetric metaphyseal sclerosis without lysis",
+"Pathologic fractures",
+"Growth plate widening"
+],
+"a": 1,
+"e": "Multifocal symmetric metaphyseal sclerosis without lysis was characteristic of CDV.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "CDV-associated metaphyseal sclerosis was described as distinct from which condition?",
+"o": [
+"Panosteitis",
+"Metaphyseal osteopathy (hypertrophic osteodystrophy)",
+"Osteosarcoma",
+"Rickets"
+],
+"a": 1,
+"e": "Sclerosis from CDV differs from the necrosis and inflammation of metaphyseal osteopathy.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Where was the metaphyseal sclerosis most apparent in these dogs?",
+"o": [
+"Distal femur",
+"Proximal humeral diaphyses",
+"Vertebral bodies",
+"Skull"
+],
+"a": 1,
+"e": "Sclerosis was most apparent at the proximal humeral diaphyses and other long bones.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "In which dog group was CDV detection frequency highest in Southern Italy?",
+"o": [
+"Household dogs",
+"Stray dogs",
+"Illegally imported dogs",
+"Vaccinated dogs"
+],
+"a": 2,
+"e": "Imported dogs had the highest CDV frequency (18.3%) versus stray (7.4%) and household (3.9%).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Sequenced CDV strains in this study belonged to which clade?",
+"o": [
+"Arctic",
+"America-2",
+"Asia-3",
+"South America-1"
+],
+"a": 0,
+"e": "The viruses belonged to the Arctic clade already reported in Italy and Europe.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What control measure did the authors emphasize to prevent CDV introduction?",
+"o": [
+"Banning all stray feeding",
+"Strict controls on dog importation",
+"Mandatory euthanasia",
+"Ending vaccination programs"
+],
+"a": 1,
+"e": "They highlighted the need for strict controls on dog importation from endemic countries.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "In dogs with terminal distemper, how did serum creatinine compare to healthy controls?",
+"o": [
+"Significantly higher",
+"Significantly lower",
+"No difference",
+"Undetectable"
+],
+"a": 1,
+"e": "Creatinine was significantly lower in the distemper group, likely reflecting reduced muscle mass.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Which immunoglobulin was most frequently deposited in renal tissue of distemper dogs?",
+"o": [
+"IgM",
+"IgA",
+"IgE",
+"IgD"
+],
+"a": 0,
+"e": "IgM deposition was found in 92.3% of distemper cases.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What did the study conclude about the kidneys in terminal canine distemper?",
+"o": [
+"No renal involvement occurs",
+"Only urea rises diagnostically",
+"Genuine glomerular and tubular alterations are present",
+"Kidneys are protected by hypergammaglobulinemia"
+],
+"a": 2,
+"e": "Glomerular and tubular lesions were confirmed in 84.6% of animals, confirming renal alterations in terminal distemper.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Vaccination",
+"q": "What was the effect of the intranasal B. bronchiseptica vaccine on olfactory performance in the follow-up study?",
+"o": [
+"Markedly worsened odor threshold",
+"Permanently abolished detection",
+"No effect on odor threshold or search time",
+"Improved detection speed"
+],
+"a": 2,
+"e": "Neither odor threshold nor time spent searching was affected by the intranasal vaccine.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Vaccination",
+"q": "Which factor most influenced detection dogs' time to find the target odor?",
+"o": [
+"The dogs' motivation/behavior",
+"Vaccine route alone",
+"Ambient temperature",
+"Breed of dog"
+],
+"a": 0,
+"e": "Behaviors tied to positive and negative motivation affected search time, suggesting behavior must be considered in olfactory studies.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What did the authors call the predominant CDV lineage circulating in Ontario wildlife?",
+"o": [
+"America-1",
+"Canada-1, a previously undescribed lineage",
+"Europe-wildlife",
+"Asia-1"
+],
+"a": 1,
+"e": "The predominant lineage, Canada-1, had not been previously described and is distinct from but most similar to America-1.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Which species appeared important for maintaining and transmitting heterogeneous CDV lineages in Ontario?",
+"o": [
+"Raccoons",
+"Domestic cats",
+"Bats",
+"Foxes only"
+],
+"a": 0,
+"e": "Raccoons appear to play an important role in maintenance and transmission of the co-circulating lineages.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What avenue did the study suggest could introduce novel CDV lineages?",
+"o": [
+"Vaccination programs",
+"Aerosol drift",
+"Travel and trade of animals",
+"Insect vectors"
+],
+"a": 2,
+"e": "An imported dog carried a non-local lineage, implicating travel/trade as a route for novel CDV introduction.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Among CDV-positive dogs in the Galapagos outbreak, which clinical signs predominated?",
+"o": [
+"Gastrointestinal",
+"Neurological",
+"Respiratory",
+"Dermatological"
+],
+"a": 2,
+"e": "Respiratory signs occurred in 82.2% of positive dogs, more than neurological (48.8%) or GI (28.9%).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Despite dog control and vaccination policies, CDV was concluded to remain a threat to which endangered species?",
+"o": [
+"Galapagos sea lion",
+"Bengal tiger",
+"Marine iguana",
+"Giant tortoise"
+],
+"a": 0,
+"e": "The study emphasized CDV's continued threat to the endemic, endangered Galapagos sea lion.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What was the CDV seroprevalence among free-roaming dogs around Chitwan National Park?",
+"o": [
+"About 20%",
+"About 50%",
+"About 80%",
+"About 95%"
+],
+"a": 2,
+"e": "Overall seroprevalence indicating past CDV exposure was 80.0%.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "How did age relate to CDV seroprevalence?",
+"o": [
+"Juveniles had higher seroprevalence",
+"Adults had higher seroprevalence",
+"Age had no effect",
+"Only sex mattered"
+],
+"a": 1,
+"e": "Adult dogs showed significantly higher seroprevalence than juveniles, a finding that held on multivariable analysis.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Why is free-roaming dog CDV exposure a conservation concern in this region?",
+"o": [
+"Dogs may be a source of infection for susceptible wildlife like Bengal tigers",
+"Dogs are immune carriers only",
+"It threatens livestock production",
+"It causes human distemper"
+],
+"a": 0,
+"e": "Free-roaming dogs around the park could serve as a CDV source for susceptible wildlife such as the Bengal tiger.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What was the pooled CaHV-1 seroprevalence in North Queensland dogs?",
+"o": [
+"13%",
+"33%",
+"55%",
+"74%"
+],
+"a": 0,
+"e": "Pooled seroprevalence across household and show dogs was 13%.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Which factors were associated with CaHV-1 seropositivity?",
+"o": [
+"Vaccination and indoor housing",
+"Recent conjunctivitis and involvement in breeding",
+"Age over 10 years",
+"Rural residence"
+],
+"a": 1,
+"e": "Dogs with conjunctivitis in the prior 3 months or involved in breeding were more likely to be seropositive.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What did the study conclude about fungal dysbiosis as a cause of dermatophytosis in Persian cats?",
+"o": [
+"It is the primary cause",
+"Apart from M. canis, dysbiosis is unlikely to play a role",
+"It reduces fungal diversity dramatically",
+"It explains breed predisposition fully"
+],
+"a": 1,
+"e": "Aside from M. canis itself, an underlying fungal dysbiosis was judged unlikely to drive the disease.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Did Persian cats with dermatophytosis show decreased cutaneous fungal diversity?",
+"o": [
+"Yes, markedly reduced",
+"No, diversity was not decreased",
+"Only in environmental samples",
+"Diversity was undetectable"
+],
+"a": 1,
+"e": "Affected Persian cats did not exhibit decreased fungal diversity.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Which dermatophyte dominated among positive stray animals in Puerto Rico?",
+"o": [
+"Microsporum canis",
+"Trichophyton rubrum",
+"Microsporum gypseum",
+"Epidermophyton floccosum"
+],
+"a": 0,
+"e": "18 of 19 positive animals were infected with M. canis.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "How did dermatophyte positivity compare between symptomatic and asymptomatic strays?",
+"o": [
+"Symptomatic animals were positive far more often",
+"Asymptomatic animals were positive more often",
+"Both equal",
+"Neither group was positive"
+],
+"a": 1,
+"e": "Asymptomatic animals were positive 36% of the time versus only 13.5% of those with lesions.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "How well did MALDI-TOF MS confirm the microscopically diagnosed dermatophytes?",
+"o": [
+"About 50%",
+"About 75%",
+"100% concordance",
+"Could not confirm any"
+],
+"a": 2,
+"e": "All 19 dermatophytes (100%) were confirmed by MALDI-TOF MS.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What was the effect of delayed sample processing on M. canis fungal culture?",
+"o": [
+"Improved M. canis recovery",
+"Overgrowth of contaminants and lower M. canis recovery",
+"No effect on results",
+"Eliminated all fungal growth"
+],
+"a": 1,
+"e": "Delayed processing was closely associated with contaminant overgrowth and reduced M. canis recovery.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Within what window did samples retain low contamination and good M. canis recovery?",
+"o": [
+"Within 8-24 hours",
+"48 hours",
+"72 hours",
+"Beyond 72 hours"
+],
+"a": 0,
+"e": "Samples processed at 8 h and 24 h had less NDM invasion and higher M. canis recovery than 48-72 h.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Compared with in-house fungal culture, how did the commercial qPCR perform?",
+"o": [
+"More sensitive and less specific",
+"Less sensitive and more specific",
+"Equal on both",
+"Less sensitive and less specific"
+],
+"a": 1,
+"e": "qPCR had ~74% sensitivity and ~98% specificity, making it less sensitive but more specific than previously reported.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What did the authors recommend for diagnosing dermatophytosis and confirming cure?",
+"o": [
+"Use qPCR alone",
+"Use culture alone",
+"Use a combination of complementary diagnostic tests",
+"Use clinical signs only"
+],
+"a": 2,
+"e": "They concluded diagnosis and cure assessment should rely on a combination of complementary tests.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Which body site was most commonly affected by T. mentagrophytes complex in these dogs?",
+"o": [
+"Muzzle",
+"Tail",
+"Paws",
+"Ventral abdomen"
+],
+"a": 0,
+"e": "Lesions most often affected the muzzle (48%).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "How did ketoconazole, itraconazole, and terbinafine compare as systemic therapies?",
+"o": [
+"Terbinafine clearly superior",
+"Ketoconazole clearly inferior",
+"They appeared equivalent",
+"All were ineffective"
+],
+"a": 2,
+"e": "The three systemic antifungals appeared equivalent as treatment options.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Which AKC group had the highest incidence of T. mentagrophytes complex infection?",
+"o": [
+"Toy group",
+"Sporting group",
+"Working group",
+"Herding group"
+],
+"a": 1,
+"e": "The Sporting group had the highest incidence (43%), followed by the Terrier group (20%).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Which single strategy most substantially reduced modeled S. brasiliensis prevalence in cats?",
+"o": [
+"Mass treatment of infected cats",
+"Neutering alone",
+"Contact reduction alone",
+"Doing nothing"
+],
+"a": 0,
+"e": "Mass treatment of infected cats substantially reduced prevalence, with effect amplified by adding neutering.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What did the model conclude about contact-reduction methods used alone?",
+"o": [
+"They eradicate the disease",
+"They are insufficient to reduce prevalence",
+"They outperform treatment",
+"They increase prevalence"
+],
+"a": 1,
+"e": "Contact-reduction methods alone were not sufficient to reduce sporotrichosis prevalence.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Which test had the highest ability to correctly diagnose dermatophytosis in this study?",
+"o": [
+"Wood's lamp examination",
+"Adhesive tape impression",
+"Trichogram",
+"Fungal culture"
+],
+"a": 1,
+"e": "ATI was positive in 100% (20/20), outperforming Wood's lamp and the trichogram.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Which dermatophyte was most frequently isolated on fungal culture?",
+"o": [
+"Microsporum canis",
+"Nannizzia gypsea",
+"Trichophyton mentagrophytes",
+"Trichophyton rubrum"
+],
+"a": 0,
+"e": "M. canis accounted for 16 of the isolates, far more than the others.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Compared with the trichogram, the ATI detected fungal elements in >20 HPF:",
+"o": [
+"Less frequently",
+"At the same rate",
+"More frequently",
+"Only after culture"
+],
+"a": 2,
+"e": "Fungal elements were seen in >20 HPF more often with ATI (18/20) than trichogram (11/20).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What did the study conclude about terbinafine for feline sporotrichosis?",
+"o": [
+"It is curative in most cats",
+"It is not an effective treatment option",
+"It is superior to itraconazole",
+"It eliminates the need for follow-up"
+],
+"a": 1,
+"e": "The low clinical-cure rate indicated terbinafine is not an effective option.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Of the 30 cats completing follow-up, how many achieved clinical cure?",
+"o": [
+"10",
+"18",
+"22",
+"30"
+],
+"a": 0,
+"e": "Only 10/30 were cured; treatment failed in 18 and 2 died.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Which adverse effect was commonly observed with terbinafine?",
+"o": [
+"Acute kidney injury",
+"Bone marrow suppression",
+"Elevated serum transaminases",
+"No adverse effects"
+],
+"a": 2,
+"e": "Adverse reactions were frequent, with 10 cats showing elevated transaminases.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Vaccination",
+"q": "How did the in-clinic ELISA perform for detecting CPV antibodies in adult vaccinated bitches?",
+"o": [
+"Reliably detected protective antibodies",
+"Failed to detect any antibodies",
+"Overestimated titers",
+"Was not evaluated in adults"
+],
+"a": 0,
+"e": "Both ELISA and HI showed all 16 bitches had protective titers, confirming ELISA reliability in adults.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Vaccination",
+"q": "For protective maternally-derived antibody titers in unvaccinated puppies, which assay yielded the lower positive percentage?",
+"o": [
+"Haemagglutination inhibition",
+"In-clinic ELISA",
+"Both were identical",
+"Neither detected MDA"
+],
+"a": 1,
+"e": "HI detected protective MDA in 91.9% vs only 40.4% by ELISA.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Vaccination",
+"q": "The authors suggest the in-clinic ELISA may be useful to:",
+"o": [
+"Diagnose distemper",
+"Replace HI in all settings",
+"Predict the best time to vaccinate puppies",
+"Detect active parvoviral infection"
+],
+"a": 2,
+"e": "ELISA's declining MDA detection could help time puppy vaccination and reduce failures.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What survival rate was achieved with in-hospital treatment of canine parvoviral enteritis?",
+"o": [
+"57%",
+"75%",
+"91%",
+"99%"
+],
+"a": 2,
+"e": "294 of 322 dogs (91%) survived.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Which presentation finding was a negative prognostic indicator for survival?",
+"o": [
+"High blood glucose",
+"Low hematocrit",
+"High hematocrit",
+"Low magnesium"
+],
+"a": 1,
+"e": "A low HCT was associated with markedly lower odds of survival.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Increased total serum magnesium at presentation was associated with:",
+"o": [
+"Improved survival",
+"No effect on outcome",
+"Lower odds of survival",
+"Higher body weight"
+],
+"a": 2,
+"e": "Each 0.1 mmol/L rise in magnesium conferred 2.5 lower odds of survival.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What was the key finding regarding the FPV-like virus isolated from dogs?",
+"o": [
+"It cannot infect dogs",
+"It can efficiently infect dogs",
+"It only infects cats",
+"It is identical to vaccine CPV-2"
+],
+"a": 1,
+"e": "The study confirmed FPV-like isolates efficiently infect dogs and circulate in China.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Phylogenetically, the 6 isolated FPV-like strains were most closely related to:",
+"o": [
+"CPV-2c",
+"Feline parvovirus (FPV)",
+"Canine distemper virus",
+"A CPV-2/FPV recombinant vaccine"
+],
+"a": 1,
+"e": "Genome, VP2 and NS1 trees placed them with FPV rather than CPV-2.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Approximately what proportion of Carnivore protoparvovirus 1-positive samples were FPV-like?",
+"o": [
+"~5%",
+"~25%",
+"~50%",
+"~75%"
+],
+"a": 1,
+"e": "28 of 113 (24.8%) positive strains were FPV-like.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "How did serum cobalamin in CPV-infected dogs compare with healthy controls?",
+"o": [
+"Significantly higher",
+"Significantly lower",
+"No different",
+"Undetectable in both"
+],
+"a": 1,
+"e": "Cobalamin was significantly lower in CPV-infected dogs (median 173 vs 379 pmol/L).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What was the relationship between cobalamin and CRP or albumin concentrations?",
+"o": [
+"Strong positive correlation",
+"Strong negative correlation",
+"No association",
+"Inverse with albumin only"
+],
+"a": 2,
+"e": "No association was found between cobalamin and either CRP or albumin.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What did the authors conclude about the hypocobalaminemia found?",
+"o": [
+"Common but clinical relevance remains undetermined",
+"Directly causes mortality",
+"Reliably predicts survival",
+"Was not actually present"
+],
+"a": 0,
+"e": "Hypocobalaminemia was common but its clinical relevance remains to be determined.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Which sampling site had the lowest qRT-PCR sensitivity in sick dogs?",
+"o": [
+"Blood",
+"Pharynx",
+"Feces",
+"All sites equal"
+],
+"a": 2,
+"e": "Fecal samples had the lowest sensitivity in clinically ill dogs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What hampered the specificity of molecular CPV detection?",
+"o": [
+"False negatives in adults",
+"Temporary positivity during the post-vaccination period",
+"Inability to detect CPV-2c",
+"Cross-reaction with distemper"
+],
+"a": 1,
+"e": "Recently vaccinated dogs transiently shed vaccine virus, temporarily reducing specificity.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Which sampling sites were deemed suitable for CPV qRT-PCR?",
+"o": [
+"Feces only",
+"Blood only",
+"Blood, feces and pharynx",
+"None were reliable"
+],
+"a": 2,
+"e": "All three sites (blood, feces, pharynx) were suitable for detection.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "The FPV-DL04 strain isolated from cats in Dalian was characterized as:",
+"o": [
+"Classic FPV",
+"A novel CPV-2c strain",
+"CPV-2a",
+"A feline leukemia variant"
+],
+"a": 1,
+"e": "Despite the FPV-DL04 name, it was identified as a novel CPV-2c strain.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "The FPV-DL04 strain showed highest homology (99.4%) with which strain?",
+"o": [
+"CPV-2c CN/HN1708",
+"Classic FPV reference",
+"CPV-2b prototype",
+"A vaccine strain"
+],
+"a": 0,
+"e": "It shared 99.4% homology with the CPV-2c CN/HN1708 strain.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Which key mutation sites were present in the DL04 strain?",
+"o": [
+"F267Y and Y324I",
+"S297A and A300G",
+"Neither present",
+"Only deletions"
+],
+"a": 1,
+"e": "DL04 carried S297A and A300G but lacked F267Y and Y324I.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What was the effect of early CPMA treatment on CPV-2-induced mortality?",
+"o": [
+"No effect versus controls",
+"Prevented mortality in all treated dogs",
+"Increased mortality",
+"Only reduced fecal shedding"
+],
+"a": 1,
+"e": "Mortality was prevented in all CPMA-treated dogs versus 57% in controls.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Did CPMA treatment after infection interfere with adaptive immunity?",
+"o": [
+"Yes, it blocked IgM responses",
+"No, it did not interfere",
+"It prevented seroconversion",
+"This was not assessed"
+],
+"a": 1,
+"e": "Both groups showed similar IgM responses, so CPMA did not impair adaptive immunity.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What was the mortality rate in the saline control group?",
+"o": [
+"0%",
+"14%",
+"57%",
+"100%"
+],
+"a": 2,
+"e": "Controls had 57% mortality compared with none in treated dogs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Vaccination",
+"q": "How did the immunogenicity of the 0.5 ml feline vaccine compare with the 1 ml version?",
+"o": [
+"Lower",
+"Equivalent",
+"Higher",
+"Not measured"
+],
+"a": 1,
+"e": "The reduced-volume vaccine kept the same immunogenicity as the 1 ml product.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Vaccination",
+"q": "What was observed regarding local adverse events with the reduced-volume vaccine?",
+"o": [
+"More frequent",
+"Fewer local events",
+"Identical rates",
+"More severe"
+],
+"a": 1,
+"e": "The 0.5 ml vaccine was well tolerated and induced fewer local events.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Vaccination",
+"q": "Which antigens did the reduced-volume vaccine contain?",
+"o": [
+"Rabies only",
+"Feline herpesvirus, calicivirus, panleukopenia and leukemia",
+"FIV",
+"FIP coronavirus"
+],
+"a": 1,
+"e": "It was a non-adjuvanted FHV/FCV/panleukopenia/FeLV vaccine.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Where did most FPV evolution occur according to the phylodynamic analysis?",
+"o": [
+"Through frequent long-distance spread",
+"Locally",
+"It did not evolve",
+"Faster than CPV globally"
+],
+"a": 1,
+"e": "Few long-distance introductions occurred; most evolution was local.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What was the FPV population-size trend over time?",
+"o": [
+"Constant then recent expansion since 2000",
+"Continuous decline",
+"Near extinction",
+"No change since the 1920s"
+],
+"a": 0,
+"e": "FPV showed constant size until a more recent expansion beginning around 2000.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What was the relationship between viral phylogeny and disease severity?",
+"o": [
+"Strong statistically significant link",
+"No influence at all",
+"Apparent influence without strong statistical association",
+"Inverse relationship"
+],
+"a": 2,
+"e": "Several clinical variables appeared phylogeny-influenced but without strong statistical significance.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Vaccination",
+"q": "Did asymptomatic intestinal parasites significantly affect the FPV vaccine antibody response in kittens?",
+"o": [
+"Yes, response was significantly reduced",
+"No significant difference was found",
+"Response was markedly improved",
+"Response was abolished"
+],
+"a": 1,
+"e": "Vaccination response did not differ significantly between kittens with and without parasites (P = 0.13).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Vaccination",
+"q": "What did the authors conclude about postponing vaccination because of intestinal parasitism?",
+"o": [
+"Vaccination should be delayed",
+"Parasitism is not a reason to postpone vaccination",
+"Deworming must always precede the first dose",
+"The effect was unclear"
+],
+"a": 1,
+"e": "Asymptomatic endoparasitism did not interfere with response, so it should not delay vaccination.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Vaccination",
+"q": "Which intestinal parasite was most commonly identified in the affected kittens?",
+"o": [
+"Toxocara cati",
+"Giardia",
+"Hookworms",
+"Tapeworms"
+],
+"a": 0,
+"e": "Toxocara cati (12/17) was the most common parasite found.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "What was the rabies vaccination coverage among owned dogs in this Madagascar survey?",
+"o": [
+"Approximately 84%",
+"Approximately 34%",
+"Approximately 56%",
+"Approximately 95%"
+],
+"a": 1,
+"e": "Only about one third (34%) of owned dogs were vaccinated against rabies.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "What were the main owner-cited obstacles to dog rabies vaccination?",
+"o": [
+"Vaccine safety fears and religious beliefs",
+"Lack of vaccine supply and government bans",
+"Limited finances and poor access to veterinary care",
+"Belief that dogs cannot transmit rabies"
+],
+"a": 2,
+"e": "Owners cited limited financial resources and difficulty accessing veterinary services as the chief barriers.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "What did the authors conclude about the accessibility of dogs for preventive vaccination?",
+"o": [
+"Most dogs were ownerless and unreachable",
+"Most dogs were accessible through their owners",
+"Vaccination should target only stray dogs",
+"Vaccination is unnecessary given low rabies risk"
+],
+"a": 1,
+"e": "Most dogs were owned and thus reachable for vaccination, yet coverage remained low.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What was the most common pathophysiologic cause of death in this feline necropsy series?",
+"o": [
+"Renal disease",
+"Cardiac disease",
+"Cancer",
+"Trauma"
+],
+"a": 2,
+"e": "Cancer was the leading pathophysiologic cause of death (35.81%), found in 41.3% of cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "How did reproductive status relate to feline lifespan?",
+"o": [
+"Intact cats lived longer than altered cats",
+"Intact cats had significantly shorter lifespans",
+"No difference by reproductive status",
+"Only intact females were affected"
+],
+"a": 1,
+"e": "Intact females and males had significantly shorter lifespans than spayed/neutered cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Which retrovirus status was associated with decreased longevity?",
+"o": [
+"FIV-positive status",
+"FeLV-positive status",
+"Both equally",
+"Neither"
+],
+"a": 1,
+"e": "FeLV-positive status reduced longevity, whereas FIV status was not associated with shorter lifespan.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "How did FeLV prevalence change across the three study periods in San Mateo feral cats?",
+"o": [
+"Increased significantly",
+"Remained unchanged",
+"Decreased significantly",
+"Fluctuated without trend"
+],
+"a": 2,
+"e": "FeLV prevalence fell significantly from 1.73% to 0.29% (p=0.01).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What sex pattern was seen for FIV positivity?",
+"o": [
+"Significantly more positive males than females",
+"Significantly more positive females than males",
+"Equal between sexes",
+"Only kittens affected"
+],
+"a": 0,
+"e": "Significantly more FIV-positive males than females were identified in each year and period.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What did the authors conclude regarding retrovirus monitoring in these free-living cats?",
+"o": [
+"Testing can be discontinued",
+"Continued testing and surveillance is needed",
+"Only FeLV requires surveillance",
+"Prevalence is too low to matter"
+],
+"a": 1,
+"e": "The findings supported continued FIV testing and surveillance among free-living cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Which infectious agents were most important causes of ocular disease in these cats?",
+"o": [
+"Toxoplasma, Bartonella, and calicivirus",
+"FeLV, FIP virus, and Cryptococcus sp.",
+"Herpesvirus, Chlamydia, and Mycoplasma",
+"Rabies, panleukopenia, and Histoplasma"
+],
+"a": 1,
+"e": "FeLV, feline infectious peritonitis virus, and Cryptococcus sp. were the leading infectious causes of ocular lesions.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What was the most common ocular abnormality associated with infectious agents?",
+"o": [
+"Cataract",
+"Glaucoma",
+"Uveitis",
+"Retinal detachment"
+],
+"a": 2,
+"e": "Uveitis (anterior, posterior, or panuveitis) was the most common infection-associated ocular finding.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What examination approach did the authors recommend for suspected infectious ocular disease?",
+"o": [
+"Gross examination alone",
+"Histologic examination alone",
+"Both gross and histologic evaluation of the eyes",
+"Clinical signs only without necropsy"
+],
+"a": 2,
+"e": "Because gross lesions are less common than histologic ones, both gross and histologic eye evaluation was recommended.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Most cats with positive FeLV immunoassay but negative proviral PCR had what underlying condition?",
+"o": [
+"Primary bone marrow disease or marrow insult",
+"Chronic kidney disease",
+"Hyperthyroidism",
+"Diabetes mellitus"
+],
+"a": 0,
+"e": "Discordant cats mostly had primary bone marrow disease (largely autoimmune) or a marrow insult/systemic inflammation.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What testing recommendation did the authors make for low-prevalence populations?",
+"o": [
+"Repeat the immunoassay only",
+"Confirm positive immunoassays with FeLV proviral DNA PCR",
+"Treat all positives as truly infected",
+"Abandon FeLV testing entirely"
+],
+"a": 1,
+"e": "Positive LFI/ELISA results in cats with marrow disease should be followed by proviral DNA PCR, especially where prevalence is low.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What was the survival outcome of the discordant (immunoassay-positive, PCR-negative) cats?",
+"o": [
+"Most died within weeks",
+"Roughly half survived to discharge",
+"Most survived to discharge",
+"All died before discharge"
+],
+"a": 2,
+"e": "85.7% survived to discharge, and most of those lived 4 months to 6 years.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "How did FIV and FeLV prevalence compare in this Brazilian semiarid cohort?",
+"o": [
+"FeLV much higher than FIV",
+"FIV much higher than FeLV",
+"Both nearly identical",
+"Both essentially zero"
+],
+"a": 1,
+"e": "FIV prevalence was 30.2% versus only 1.1% for FeLV.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Which factor was significantly associated with FIV infection?",
+"o": [
+"Female sex",
+"Young age (<19 months)",
+"Male sex",
+"Purebred status"
+],
+"a": 2,
+"e": "Male sex carried a markedly elevated odds of FIV infection (OR 5.7).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Which clinicopathologic change characterized FIV-positive cats?",
+"o": [
+"Higher albumin and higher A:G ratio",
+"Lower albumin and lower A:G ratio",
+"Elevated platelet counts",
+"No biochemical changes"
+],
+"a": 1,
+"e": "FIV-positive cats showed lower albumin and a reduced albumin:globulin ratio alongside higher globulins.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "How has global FIV prevalence changed since the virus was discovered ~40 years ago?",
+"o": [
+"Risen sharply",
+"Remained largely unchanged",
+"Fallen to near zero",
+"Doubled then halved"
+],
+"a": 1,
+"e": "Global FIV prevalence (~4.7%) stayed largely constant from 1980 to 2017.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Which demographic showed higher FIV prevalence?",
+"o": [
+"Older male cats",
+"Young female cats",
+"Kittens",
+"Indoor neutered cats"
+],
+"a": 0,
+"e": "Over 90% of studies reported greater prevalence in older male cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What was the expert consensus on FIV vaccination?",
+"o": [
+"Universally recommended",
+"Not typically recommended and discontinued in North America",
+"Mandatory for shelter cats",
+"Recommended only for females"
+],
+"a": 1,
+"e": "Experts agreed FIV vaccination is not typically recommended and has been discontinued in North America.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Vaccination",
+"q": "How did anti-rabies antibody titres compare after concurrent versus separate FeLV/rabies booster vaccination?",
+"o": [
+"Concurrent titres were significantly lower",
+"No significant difference between groups",
+"Separate titres failed protective threshold",
+"Concurrent vaccination abolished the response"
+],
+"a": 1,
+"e": "Titres did not differ significantly (P=0.141) and all cats reached the protective ≥0.5 IU/ml threshold.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Vaccination",
+"q": "What did the study conclude about concurrent administration of the two vector vaccines?",
+"o": [
+"It interferes with immunity and should be avoided",
+"It is a better option than separate visits",
+"It causes substantially more adverse events",
+"It requires a 14-day separation"
+],
+"a": 1,
+"e": "Concurrent administration did not impair immunity or raise adverse events, making it preferable to separate visits.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What was the overall prognostic value of NLR, MLR, and PLR for survival in retrovirus-positive cats?",
+"o": [
+"Strong and reliable",
+"Very limited",
+"Useful only for FIV",
+"Perfectly predictive"
+],
+"a": 1,
+"e": "The leukocyte ratios had very limited prognostic value for survival in retrovirus-positive cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "How did MLR in FeLV-antigen-positive cats compare to controls?",
+"o": [
+"Significantly higher",
+"Significantly lower",
+"Identical",
+"Undetectable"
+],
+"a": 1,
+"e": "MLR was significantly lower in FeLV-Ag-positive cats (0.05) than controls (0.14).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "How did most compounded famciclovir formulations perform on accuracy and precision?",
+"o": [
+"Accurate and precise",
+"Inaccurate, imprecise, and inconsistent",
+"Accurate but imprecise",
+"Precise but inconsistent only"
+],
+"a": 1,
+"e": "Most compounded formulations were inaccurate, imprecise, and inconsistent in drug content.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What did the authors recommend for managing feline herpesvirus-1?",
+"o": [
+"400 mg/mL compounded suspension",
+"FDA-approved famciclovir tablets",
+"Any compounding pharmacy product",
+"Avoiding famciclovir altogether"
+],
+"a": 1,
+"e": "FDA-approved tablets were accurate and preferred over compounded formulations.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "If compounding is used, which concentration was preferred?",
+"o": [
+"400 mg/mL",
+"250 mg/mL",
+"Both equivalent",
+"Neither acceptable"
+],
+"a": 1,
+"e": "250 mg/mL was preferred because the 400 mg/mL suspensions were markedly less accurate.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What was the most frequent underlying cause of chronic upper respiratory signs in these cats?",
+"o": [
+"Rhinitis",
+"Neoplasia",
+"Anatomical defects",
+"Foreign body"
+],
+"a": 1,
+"e": "Neoplasia was the most frequent finding, followed by rhinitis and anatomical defects.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Which bacterial genus predominated in feline chronic rhinitis isolates?",
+"o": [
+"Staphylococcus",
+"Streptococcus",
+"Pseudomonas",
+"Escherichia"
+],
+"a": 2,
+"e": "Pseudomonas species was the main bacterial isolate identified.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Given the resistance findings, what did the authors advise regarding antimicrobials?",
+"o": [
+"Use any broad-spectrum drug empirically",
+"Follow antimicrobial use guidelines first",
+"Avoid antimicrobials entirely",
+"Use only the most expensive agents"
+],
+"a": 1,
+"e": "The resistance pattern prompted a recommendation to follow antimicrobial use guidelines before treating.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What did the study find regarding microbiomes and chronic feline URT disease?",
+"o": [
+"No microbial features associated with chronic signs",
+"Both gut and nasal microbial members associated with chronic clinical signs",
+"Only gut microbiome mattered",
+"Microbiome was identical to normal cats"
+],
+"a": 1,
+"e": "Features within both gut and nasal microbiomes associated with the presence of chronic FURTD signs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Where is infectious feline URT disease most prevalent?",
+"o": [
+"In single-cat homes",
+"Wherever cats are housed in groups such as shelters",
+"Only in outdoor feral colonies",
+"In cats kept strictly indoors alone"
+],
+"a": 1,
+"e": "Its highly transmissible nature makes FURTD most prevalent where cats are group-housed, like shelters.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Whole-genome analysis of the FCV strains causing paw and mouth disease in this household showed they were:",
+"o": [
+"Identical to vaccine strains",
+"Genetically distinct from prior paw-and-mouth and virulent systemic disease FCVs",
+"Indistinguishable from typical respiratory FCVs",
+"Non-viable and unculturable"
+],
+"a": 1,
+"e": "Sequencing showed the strains were genetically diverse from previously reported paw-and-mouth and VSD-associated FCVs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What was the status of the second cat sharing the household?",
+"o": [
+"Asymptomatic but FCV-infected",
+"Severely ill with systemic disease",
+"FCV-negative",
+"Showing paw and mouth lesions"
+],
+"a": 0,
+"e": "A cohabiting cat was infected with FCV yet remained asymptomatic.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "The phenotype of these isolates differed from respiratory FCVs in that they were:",
+"o": [
+"Highly susceptible to low pH",
+"Trypsin-resistant",
+"Resistant to low pH conditions",
+"Destroyed by bile salts"
+],
+"a": 2,
+"e": "The isolates were resistant to low pH, only slightly susceptible to bile salts, but susceptible to trypsin—a pattern unlike respiratory FCVs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "The liposome-dual TLR3/9 agonist nanoparticle eye drops acted against FHV-1 primarily by:",
+"o": [
+"Directly lysing virions",
+"Inducing type I and II interferon responses",
+"Blocking viral entry receptors",
+"Killing infected corneal cells"
+],
+"a": 1,
+"e": "The nanoparticles induced both type I and II interferon responses and suppressed FHV-1 replication.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "In the recrudescent FHV-1 cat model, twice-daily nanoparticle treatment resulted in:",
+"o": [
+"Significantly fewer episodes of viral shedding",
+"Increased ocular irritation",
+"No change in clinical signs",
+"More frequent recrudescence"
+],
+"a": 0,
+"e": "Treated cats had lessened ocular signs and significantly fewer viral shedding episodes than controls.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "The authors concluded ocular immunotherapy is:",
+"o": [
+"Inferior to antiviral drops",
+"Poorly tolerated",
+"A promising novel approach for HSV-1/FHV-1 ocular infection",
+"Effective only prophylactically"
+],
+"a": 2,
+"e": "They concluded non-specific ocular immunotherapy offers significant promise for treating HSV-1 and FHV-1 ocular infections.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Which pathogen was most frequently detected among FRDC-suspected cats by the new multiplex assays?",
+"o": [
+"Feline herpesvirus-1",
+"Mycoplasma felis",
+"Chlamydia felis",
+"Feline calicivirus"
+],
+"a": 1,
+"e": "Mycoplasma felis (61.9%) was the most commonly detected pathogen.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Co-infection was detected in what proportion of the clinical specimens?",
+"o": [
+"57.1%",
+"27.0%",
+"92.1%",
+"15%"
+],
+"a": 0,
+"e": "Co-infection was present in 57.1% of samples, with 92.1% positive for at least one pathogen.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "SARS-CoV-2 in this feline cohort was:",
+"o": [
+"The dominant pathogen",
+"Detected in only two specimens",
+"Not detectable by the assay",
+"Found in the majority of cats"
+],
+"a": 1,
+"e": "SARS-CoV-2 was detected in just two specimens, indicating it was rare.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Compared with doxycycline alone, adding famciclovir in kittens with mild ocular IURD resulted in:",
+"o": [
+"More corneal disease",
+"Faster clinical recovery and fewer corneal disease cases",
+"No difference in outcomes",
+"Slower resolution of signs"
+],
+"a": 1,
+"e": "Group DF (famciclovir) recovered faster and significantly fewer developed corneal disease than group D.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "All five kittens removed from the study for worsening signs belonged to:",
+"o": [
+"Group DF (doxycycline + famciclovir)",
+"The severe-disease stratum only",
+"Group D (doxycycline + placebo)",
+"Both groups equally"
+],
+"a": 2,
+"e": "All five kittens whose signs worsened enough to be withdrawn were in group D (placebo).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "For shelters, the authors suggested early famciclovir in mild cases may:",
+"o": [
+"Increase length of stay",
+"Reduce length of stay and time to adoption",
+"Have no impact on capacity",
+"Delay corneal healing"
+],
+"a": 1,
+"e": "They concluded famciclovir may reduce corneal disease, length of stay, and time to adoption, increasing capacity for care.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Detection of Mycoplasma felis in feline BALF was significantly associated with:",
+"o": [
+"Radiographic alveolar lesions and BALF neutrophilia",
+"BALF eosinophilia",
+"Systemic signs",
+"Bronchial collapse only"
+],
+"a": 0,
+"e": "M felis positivity was associated with radiographic alveolar lesions and increased BALF neutrophils.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "How did M felis detection affect prognosis (risk of death)?",
+"o": [
+"Markedly worsened survival",
+"Improved survival",
+"No significant difference in risk of death",
+"Could not be assessed"
+],
+"a": 2,
+"e": "There was no significant difference in risk of death between M+ and M- cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Eosinophil percentage in BALF was:",
+"o": [
+"Higher in M+ cats",
+"Higher in M- cats",
+"Identical between groups",
+"Absent in both groups"
+],
+"a": 1,
+"e": "Eosinophils were higher in the M- group (25%) than in the M+ group (9%).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Across 4616 canine and feline respiratory samples in early 2020, SARS-CoV-2 was:",
+"o": [
+"Found in most cats",
+"Not identified in any sample",
+"The leading canine pathogen",
+"Detected only in dogs"
+],
+"a": 1,
+"e": "No SARS-CoV-2 infections were identified among the samples.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "The study concluded that respiratory disease in these tested pets was caused by:",
+"o": [
+"Common veterinary respiratory pathogens",
+"Predominantly SARS-CoV-2",
+"Novel emerging coronaviruses",
+"Non-infectious causes"
+],
+"a": 0,
+"e": "Disease was attributed to common veterinary pathogens, with SARS-CoV-2 infection rare in pets.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Comparing the February–April periods of 2019 and 2020, positive respiratory results were:",
+"o": [
+"Much higher in 2020",
+"Much lower in 2020",
+"Similar between years",
+"Not comparable"
+],
+"a": 2,
+"e": "Positive respiratory results were similar between the two years.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Overall, this scoping review concluded that cats play what role in spreading SARS-CoV-2?",
+"o": [
+"A central amplifying role",
+"A limited role",
+"The primary reservoir role",
+"An undefined major role"
+],
+"a": 1,
+"e": "Cats appeared to play a limited role in SARS-CoV-2 spread.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Regarding circulation of SARS-CoV-2 among cats under natural conditions, the review found:",
+"o": [
+"Widespread cat-to-cat transmission",
+"No current evidence of circulation among cats",
+"Frequent feline outbreaks",
+"Cats are not susceptible at all"
+],
+"a": 1,
+"e": "Despite susceptibility and reverse zoonosis from humans, there was no evidence of SARS-CoV-2 circulating among cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "A key research gap identified was:",
+"o": [
+"Too many large-scale studies",
+"Overrepresentation of laboratory cats",
+"Underrepresentation of stray, feral, and shelter cat populations",
+"Excessive cat-to-cat transmission data"
+],
+"a": 2,
+"e": "Gaps included a lack of large-scale studies and underrepresentation of stray, feral, and shelter cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Dogs' limited susceptibility to SARS-CoV-2 is attributed mainly to:",
+"o": [
+"High respiratory viral load",
+"Low respiratory ACE2 levels and phylogenetic distance of canine ACE2",
+"Lack of any ACE2 receptors",
+"Strong vaccine-induced immunity"
+],
+"a": 1,
+"e": "Low ACE2 in the respiratory tract plus phylogenetic distance of canine ACE2 reduce spike binding affinity.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "The review highlighted detection dogs as a method to:",
+"o": [
+"Treat infected patients",
+"Produce canine vaccines",
+"Discriminate SARS-CoV-2 infected from non-infected individuals",
+"Replace PCR for animal diagnosis only"
+],
+"a": 2,
+"e": "Detection dogs reliably distinguished infected from non-infected people using secretions, saliva, and sweat.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "The risk of SARS-CoV-2 transmission by domestic dogs was characterized as:",
+"o": [
+"Very high",
+"Uncommon but a remaining concern",
+"Confirmed and frequent",
+"Zero and irrelevant"
+],
+"a": 1,
+"e": "Transmission by dogs is uncommon, though it remains a concern warranting preventive measures.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Beagles experimentally inoculated with SARS-CoV-2 or MERS-CoV shed virus in:",
+"o": [
+"Only nasal secretions",
+"Nasal secretions, feces, and urine",
+"Blood only",
+"No detectable samples"
+],
+"a": 1,
+"e": "The dogs shed virus in nasal secretions, feces, and urine.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Clinical signs observed in the inoculated dogs included:",
+"o": [
+"Weight loss and increased body temperature",
+"Hypothermia and weight gain",
+"No clinical signs",
+"Acute hemorrhage"
+],
+"a": 0,
+"e": "The dogs showed weight loss and increased body temperature.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "A SARS-CoV-2 clinical characteristic identified in the dogs was:",
+"o": [
+"Decreased lactate dehydrogenase",
+"Normal lung histology",
+"Increased lactate dehydrogenase levels",
+"Absence of lung pathology"
+],
+"a": 2,
+"e": "Increased LDH levels, characteristic of SARS-CoV-2, were identified along with lung pathology.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Among the 1018 pets tested in Korea, SARS-CoV-2 viral RNA was detected in:",
+"o": [
+"2 cats",
+"16 dogs",
+"No animals",
+"All shelter animals"
+],
+"a": 0,
+"e": "Viral RNA was found in only 2 of 1018 pets, both cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Antigens and/or antibodies to SARS-CoV-2 were detected:",
+"o": [
+"Only in pets of confirmed COVID-19 households",
+"Even in animal shelters and regardless of household infection status",
+"Only in dogs",
+"Nowhere"
+],
+"a": 1,
+"e": "Markers were found regardless of whether the household was infected, including in shelter animals previously considered safe.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "ELISA seropositivity was higher in:",
+"o": [
+"Dogs (2.38%) than cats",
+"Cats (5.20%) than dogs (2.38%)",
+"Neither species",
+"Equal in both"
+],
+"a": 1,
+"e": "Cats had higher seropositivity (5.20%) than dogs (2.38%) by ELISA.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Among pets identified through passive surveillance, what proportion had reported exposure to a person with COVID-19 before infection?",
+"o": [
+"27%",
+"50%",
+"74%",
+"94%"
+],
+"a": 3,
+"e": "94% of passively detected pets had prior exposure to a person with COVID-19.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Clinical signs of illness were present in:",
+"o": [
+"74% of passively-detected vs 27% of actively-detected pets",
+"27% of passive vs 74% of active",
+"All pets equally",
+"Neither group"
+],
+"a": 0,
+"e": "Signs were present in 74% of passively-surveilled pets but only 27% of those found by active surveillance.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "The study's main conclusion about how pets become infected was:",
+"o": [
+"Primarily from wildlife reservoirs",
+"Primarily following exposure to an infected person, often their owner",
+"Primarily from other pets",
+"Cause could not be determined"
+],
+"a": 1,
+"e": "Cats and dogs primarily became infected after exposure to a person with COVID-19, most often their owners.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "What was identified as a risk factor for SARS-CoV-2 seropositivity in these dogs?",
+"o": [
+"Younger age",
+"Adult (older) age, ~4.16x odds vs young dogs",
+"Foster housing only",
+"Small body size"
+],
+"a": 1,
+"e": "Seropositivity was age-related, with adult dogs about 4.16 times more likely to be positive than young dogs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "RT-qPCR testing of the 111 dogs (222 swabs) showed:",
+"o": [
+"High active infection rates",
+"All samples negative",
+"Positivity only in shelter dogs",
+"Spike-protein RNA in most"
+],
+"a": 1,
+"e": "All oropharyngeal and rectal swabs tested negative by RT-qPCR.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "The detected IgG antibodies were directed against the:",
+"o": [
+"Spike protein only",
+"Both N and Spike proteins",
+"Nucleocapsid (N) protein, with none reacting to Spike",
+"Membrane protein"
+],
+"a": 2,
+"e": "20.22% had IgG against the N protein, while none reacted to the Spike protein.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Per the 2022 guidelines, why is FIP often challenging to diagnose?",
+"o": [
+"A single confirmatory blood test is too costly",
+"There are no pathognomonic clinical signs or laboratory changes, especially without effusion",
+"The causative virus cannot be detected by PCR",
+"It only occurs in cats over 10 years old"
+],
+"a": 1,
+"e": "The document states FIP lacks pathognomonic signs or lab changes, particularly when no effusion is present.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Which feline population is identified as especially vulnerable to FIP?",
+"o": [
+"Cats older than 10 years",
+"Outdoor-only male cats",
+"Cats less than 2 years of age",
+"Lactating queens"
+],
+"a": 2,
+"e": "Young cats under 2 years of age are highlighted as especially vulnerable.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What estimated proportion of feline deaths at veterinary institutions is attributed to FIP?",
+"o": [
+"0.3% to 1.4%",
+"5% to 10%",
+"About 20%",
+"Over 30%"
+],
+"a": 0,
+"e": "The abstract estimates roughly 0.3-1.4% of feline deaths at veterinary institutions are caused by FIP.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What survival rate was achieved after the 4-week GS-441524 plus GC376 combination treatment?",
+"o": [
+"About 50%",
+"97.8% (45/46)",
+"75%",
+"Under 25%"
+],
+"a": 1,
+"e": "45 of 46 cats (97.8%) survived after the 4-week combination treatment.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What was the main conclusion regarding treatment duration with the combination protocol?",
+"o": [
+"It extended treatment to 12 weeks",
+"It had no effect on duration",
+"It reduced the treatment period to 4 weeks with an excellent cure rate",
+"It required lifelong dosing"
+],
+"a": 2,
+"e": "The combination safely and effectively shortened treatment to 4 weeks with an excellent cure rate.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "During the 10-month post-trial follow-up, how many relapses were observed among survivors?",
+"o": [
+"No relapses",
+"About one third relapsed",
+"Half relapsed",
+"Nearly all relapsed"
+],
+"a": 0,
+"e": "All 45 surviving cats remained alive with no relapse observed at 10 months.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What was the principal long-term finding for cats treated with oral GS-441524 over the 1-year follow-up?",
+"o": [
+"Most relapsed within 6 months",
+"Treatment was effective with no confirmed relapse during the year",
+"All cats developed permanent neurological deficits",
+"Blood viral loads steadily increased"
+],
+"a": 1,
+"e": "GS-441524 was effective short- and long-term with no confirmed relapse over the 1-year follow-up.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "How long was the antiviral treatment course in these successfully treated cats?",
+"o": [
+"28 days",
+"56 days",
+"84 days",
+"180 days"
+],
+"a": 2,
+"e": "Cats were treated with oral GS-441524 for 84 days.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What did blood viral loads show after completion of treatment?",
+"o": [
+"Remained undetectable in all but one cat on one occasion",
+"Rose progressively in most cats",
+"Were never measured",
+"Doubled at every follow-up"
+],
+"a": 0,
+"e": "Laboratory parameters were stable and blood viral loads were undetectable except in one cat on a single occasion.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What proportion of the 32 cats were alive and in remission at the end of the 12-week treatment with remdesivir plus GS-441524?",
+"o": [
+"50%",
+"65.6%",
+"81.3% (26/32)",
+"100%"
+],
+"a": 2,
+"e": "26 of 32 cats (81.3%) were alive and in clinical and biochemical remission at the end of treatment.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Among the cats that died or were euthanized, when did most deaths occur?",
+"o": [
+"Within 3 days of starting treatment",
+"After the full 12 weeks",
+"Exactly at week 6",
+"More than 6 months later"
+],
+"a": 0,
+"e": "Four of the six deaths occurred within 3 days of starting treatment.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Did the protocol succeed in cats with ocular and neurological FIP?",
+"o": [
+"No, those forms were excluded",
+"Yes, success occurred across presentations including ocular and neurological involvement",
+"Only ocular cases responded",
+"Only effusive cases responded"
+],
+"a": 1,
+"e": "The combination was effective across different FIP presentations, including ocular and neurological involvement.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What was the SARS-CoV-2 detection result among the shelter and foster cats sampled?",
+"o": [
+"Detected in over half the cats",
+"Not detected in any cat or kitten",
+"Detected only in kittens",
+"Detected in 18% of cats"
+],
+"a": 1,
+"e": "SARS-CoV-2 nucleic acids were not detected in any cat or kitten.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What was the prevalence of feline enteric coronavirus (FECV) in shelter-housed cats?",
+"o": [
+"0%",
+"18%",
+"50%",
+"83%"
+],
+"a": 1,
+"e": "FECV nucleic acids were detected in 18% of shelter-housed cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What spatial pattern was noted among the FECV-positive samples?",
+"o": [
+"83% came from cats housed in adjacent cages",
+"All came from foster homes",
+"None were linked to housing location",
+"They were evenly spread across the facility"
+],
+"a": 0,
+"e": "83% of positive samples were from cats housed in adjacent cages, suggesting proximity-related transmission.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What was the most common type of FIP among the 307 cats treated with legally sourced products?",
+"o": [
+"Neurological",
+"Ocular",
+"Abdominal effusive (49.5%)",
+"Thoracic effusive"
+],
+"a": 2,
+"e": "Abdominal effusive FIP was most common at 49.5%, followed by neurological at 14.3%.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What proportion of cats were alive at the longest follow-up time point?",
+"o": [
+"84.4%",
+"About 50%",
+"Under 30%",
+"100%"
+],
+"a": 0,
+"e": "At the longest follow-up, 84.4% of cats were alive.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Which factor was associated with being alive at the end of the initial treatment period?",
+"o": [
+"Use of remdesivir alone",
+"Older age at diagnosis",
+"Achieving a complete response within 30 days of starting treatment",
+"Presence of neurological signs"
+],
+"a": 2,
+"e": "Cats achieving complete response within 30 days were significantly more likely to be alive at the end of treatment.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What was the overall 6-month survival among the 28 cats treated with parenteral remdesivir with or without GS-441524?",
+"o": [
+"86% (24/28)",
+"50%",
+"About 30%",
+"100%"
+],
+"a": 0,
+"e": "Twenty-four of 28 cats (86%) survived to 6 months.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What was the study's overall conclusion about these treatments?",
+"o": [
+"They were ineffective and poorly tolerated",
+"Parenteral remdesivir and oral GS-441524 are effective and well-tolerated for FIP",
+"Only oral GS-441524 worked",
+"Treatment caused frequent fatal toxicity"
+],
+"a": 1,
+"e": "The authors concluded both routes are effective and well-tolerated for FIP.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Which monitoring approach did the authors recommend during treatment?",
+"o": [
+"Ignore clinical signs entirely",
+"Rely solely on imaging",
+"Emphasize clinical response early and clinicopathologic response later",
+"Stop monitoring after day 1"
+],
+"a": 2,
+"e": "Early emphasis on clinical response and later emphasis on clinicopathologic response was deemed prudent.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What was the most common abdominal ultrasonographic finding in cats with FIP?",
+"o": [
+"Effusion (88%)",
+"Splenic nodules",
+"Renal cortical nodules",
+"Normal abdomen"
+],
+"a": 0,
+"e": "Effusion was seen in 88% of cats, the most common ultrasound finding.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Which clinicopathologic abnormality was most frequent in these cats?",
+"o": [
+"Hypoglobulinemia",
+"Hyperglobulinemia (96%)",
+"Hypercalcemia",
+"Polycythemia"
+],
+"a": 1,
+"e": "Hyperglobulinemia was present in 96% of cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "How many sites of abdominal abnormality did most cats have on ultrasound?",
+"o": [
+"None",
+"A single site only",
+"Two or more locations (92%)",
+"Exactly one organ"
+],
+"a": 2,
+"e": "Most cats (92%) had two or more locations of abdominal abnormalities.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What was the most notable histopathological finding reported in this FIP case?",
+"o": [
+"Normal myocardium",
+"Myocarditis/myocardial necrosis associated with the S gene-mutated FCoV M1058L biotype",
+"Pulmonary fibrosis only",
+"Absence of any vasculitis"
+],
+"a": 1,
+"e": "The key finding was myocarditis/myocardial necrosis linked to the M1058L-mutated FCoV, reported as a first case.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "How was FIP confirmed in the abdominal effusion of this cat?",
+"o": [
+"Bacterial culture",
+"Radiography alone",
+"Real-time PCR for feline coronavirus RNA",
+"Blood pressure measurement"
+],
+"a": 2,
+"e": "FIP was confirmed by real-time PCR for FCoV RNA in the effusive abdominal fluid.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What did the authors say this case represents?",
+"o": [
+"The first case of myocarditis in a cat positive for the FCoV/FIP M1058L biotype",
+"A common, well-documented presentation",
+"A case of bacterial endocarditis",
+"A non-FIP cardiomyopathy"
+],
+"a": 0,
+"e": "It is described as the first reported case of myocarditis in a cat positive for the FCoV/FIP M1058L biotype.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What did this study conclude when comparing GS-441524 and molnupiravir for FIP?",
+"o": [
+"Molnupiravir was clearly superior",
+"GS-441524 was clearly superior",
+"They show similar effects and safety",
+"Both were ineffective"
+],
+"a": 2,
+"e": "The data indicated GS-441524 and molnupiravir had similar efficacy and safety.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Was the mortality difference between the two treatment groups statistically significant?",
+"o": [
+"No (p = 0.326)",
+"Yes, strongly significant",
+"It was not assessed",
+"Yes, p < 0.001"
+],
+"a": 0,
+"e": "Mortality was 20.3% vs 13.6% with p = 0.326, not statistically significant.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "When did most treatment deaths occur?",
+"o": [
+"After completing the 84-day course",
+"Within the first 10 days of starting treatment",
+"Only after 6 months",
+"At the time of remission"
+],
+"a": 1,
+"e": "Most deaths occurred within the first 10 days of starting treatment.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "How did the GS-441524 content of the unlicensed injectable products compare with their advertised concentrations?",
+"o": [
+"95% contained more (on average 39% more) than advertised",
+"All contained exactly the labeled amount",
+"Most contained none of the drug",
+"All contained far less than labeled"
+],
+"a": 0,
+"e": "95% of injectables contained more GS-441524 than marketed, averaging 39% more.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What did the study find regarding the pH of the injectable samples?",
+"o": [
+"It matched physiologic pH",
+"It was well below physiologic pH (average 1.30)",
+"It was strongly alkaline",
+"pH was not measured"
+],
+"a": 1,
+"e": "The average pH of 1.30 was well below physiologic conditions recommended for SC injection.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What active drug did all tested unlicensed products contain?",
+"o": [
+"Molnupiravir",
+"GC376",
+"GS-441524",
+"Acyclovir"
+],
+"a": 2,
+"e": "All unlicensed at-home FIP products tested contained GS-441524.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What did the case-control study suggest about feline chaphamaparvovirus (FeChPV) and acute gastroenteritis?",
+"o": [
+"No relationship at all",
+"A possible association, with significantly higher prevalence in clinical cases than controls",
+"It only caused respiratory disease",
+"It was protective against enteritis"
+],
+"a": 1,
+"e": "FeChPV prevalence differed significantly between cases and controls, suggesting a possible association with acute gastroenteritis.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Which enteric virus was most frequently identified in the clinical (AGE) cases?",
+"o": [
+"Feline coronavirus",
+"Feline panleukopenia parvovirus",
+"Feline chaphamaparvovirus (36.8%)",
+"Norovirus"
+],
+"a": 2,
+"e": "FeChPV was the most frequently identified enteric virus at 36.8%, ahead of feline panleukopenia parvovirus.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What was the relationship between FeChPV and upper respiratory tract disease (URTD)?",
+"o": [
+"No significant association with URTD",
+"Strongly causative of URTD",
+"Detected only in URTD cats",
+"Eliminated URTD signs"
+],
+"a": 0,
+"e": "FeChPV was found at low rates in respiratory samples with no significant association with URTD.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Among 200 free-roaming cats surveyed on PEI, what proportion had detectable anti-Leptospira antibodies to at least one serovar?",
+"o": [
+"3.5%",
+"10%",
+"20%",
+"35%"
+],
+"a": 1,
+"e": "Antibodies were detected in 20/200 cats (10%).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What proportion of the cats were PCR-positive for Leptospira DNA in urine?",
+"o": [
+"3.5%",
+"10%",
+"17%",
+"50%"
+],
+"a": 0,
+"e": "Urine from 7/200 cats (3.5%) was PCR-positive.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What was the study's main conclusion about feral cats on PEI?",
+"o": [
+"They had no detectable Leptospira exposure",
+"They are not capable of shedding Leptospira",
+"They had higher-than-expected exposure and can shed pathogenic Leptospira DNA in urine",
+"They are the confirmed primary reservoir for human disease"
+],
+"a": 2,
+"e": "Feral cats showed higher-than-expected exposure and could shed pathogenic Leptospira DNA in urine.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What proportion of 284 southern Louisiana shelter cats were PCR-positive for Trypanosoma cruzi?",
+"o": [
+"7.3%",
+"17%",
+"24.6%",
+"50%"
+],
+"a": 2,
+"e": "70/284 cats (24.6%) were PCR positive.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "How did T. cruzi seropositivity relate to cat age?",
+"o": [
+"It increased with age",
+"It decreased with age",
+"It was unrelated to age",
+"It peaked in kittens only"
+],
+"a": 0,
+"e": "Seropositivity increased with age (incidence ~7.2%/year), while PCR positivity decreased with age.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Which discrete typing units (DTUs) predominated in the infected cats?",
+"o": [
+"TcII and TcIII",
+"TcI and TcVI",
+"TcIV and TcV only",
+"None could be genotyped"
+],
+"a": 1,
+"e": "Cats were predominantly infected with TcI and TcVI DTUs, less so TcIV and TcV.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What proportion of shelter-admitted cats shed ESBL-producing Enterobacterales in feces?",
+"o": [
+"2.3%",
+"8.0%",
+"23%",
+"0%"
+],
+"a": 0,
+"e": "ESBL-producing Enterobacterales were found in 2/87 cats (2.3%).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Which practices did the authors emphasize based on the findings?",
+"o": [
+"Routine fluoroquinolone prophylaxis at intake",
+"Mandatory euthanasia of carriers",
+"Antimicrobial stewardship and routine infection control",
+"Discontinuing fecal screening entirely"
+],
+"a": 2,
+"e": "Findings supported antimicrobial stewardship and routine infection-control measures.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What did Leptospira PCR of blood and urine from the California cats show?",
+"o": [
+"High shedding rates",
+"Leptospira DNA was not detected in any cat",
+"Detection in half of cats",
+"Only blood was positive"
+],
+"a": 1,
+"e": "Leptospira DNA was not detected in the blood or urine of any cat tested.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "How did the point-of-care (POC) antibody assay perform against the MAT gold standard?",
+"o": [
+"It matched MAT exactly",
+"It was more sensitive than MAT",
+"It was negative in all specimens and did not reliably detect antibodies",
+"It detected only Texan cats"
+],
+"a": 2,
+"e": "The POC assay was negative in all specimens and did not reliably detect anti-Leptospira antibodies.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What was concluded about the cats' role with Leptospira?",
+"o": [
+"They are exposed and may act as sentinel hosts, but none had current infection",
+"They are confirmed active shedders",
+"They have no exposure",
+"They are the definitive maintenance host"
+],
+"a": 0,
+"e": "MAT-positive cats indicate exposure and potential sentinel role, but PCR showed no current infection.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "In dogs with canine babesiosis (B. canis), how did the AST/ALT (de Ritis) ratio compare between azotaemic and non-azotaemic dogs?",
+"o": [
+"Lower in azotaemic dogs",
+"No difference",
+"Higher in azotaemic dogs",
+"Undetectable in azotaemic dogs"
+],
+"a": 2,
+"e": "Azotaemic dogs had higher AST activity and an increased AST/ALT ratio.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "How did the AST/ALT ratio differ between renal and pre-renal azotaemia?",
+"o": [
+"Increased in renal azotaemia vs pre-renal",
+"Increased in pre-renal vs renal",
+"Identical in both",
+"Lower in renal azotaemia"
+],
+"a": 0,
+"e": "AST and AST/ALT ratio were higher in dogs with renal azotaemia than pre-renal azotaemia.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What was the proposed clinical utility of the AST/ALT ratio in canine babesiosis?",
+"o": [
+"A marker of cardiac injury",
+"A simple convenient index aiding recognition of renal azotaemia",
+"A predictor of tick burden",
+"A measure of parasitemia level"
+],
+"a": 1,
+"e": "The AST/ALT ratio was proposed as a simple renal index useful for recognizing renal azotaemia.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What is the typical clinical presentation of Babesia gibsoni infection that complicates detection of carriers?",
+"o": [
+"Acute fatal hemolysis",
+"Usually asymptomatic infection",
+"Severe neurologic signs",
+"Chronic dermatitis"
+],
+"a": 1,
+"e": "B. gibsoni infection is usually asymptomatic, complicating capture of carriers.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Which dogs are described as predisposed to B. gibsoni, especially in Europe?",
+"o": [
+"Toy breeds",
+"Sighthounds",
+"So-called fighting breeds, notably the American pit bull terrier",
+"Working sheepdogs"
+],
+"a": 2,
+"e": "It increasingly occurs in fighting breeds, especially the American pit bull terrier.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Why is treatment of B. gibsoni considered challenging?",
+"o": [
+"Drugs eliminate the parasite but cause severe toxicity",
+"Treated dogs do not eliminate the parasite, only reducing parasitemia and improving signs",
+"No drugs have any effect",
+"The parasite is resistant to all imaging detection"
+],
+"a": 1,
+"e": "Treatment only reduces parasitemia and improves signs without clearing the parasite.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "In most European countries where B. gibsoni has been reported, what is the approximate percentage of infected dogs?",
+"o": [
+"Around 1%",
+"Around 10%",
+"Around 25%",
+"Around 50%"
+],
+"a": 0,
+"e": "In most European countries the percentage of infected dogs is around 1%.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Higher B. gibsoni prevalence in which breed suggests breed susceptibility?",
+"o": [
+"Labrador Retrievers",
+"American Pit Bull Terriers",
+"German Shepherds",
+"Beagles"
+],
+"a": 1,
+"e": "Higher prevalence among American Pit Bull Terriers suggests breed susceptibility.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What did the authors anticipate regarding B. gibsoni in non-endemic European regions?",
+"o": [
+"It will disappear entirely",
+"It may emerge there, posing diagnostic/therapeutic challenges",
+"It only affects wild canids",
+"It cannot survive without large Babesia co-infection"
+],
+"a": 1,
+"e": "Infections may appear in other non-endemic European regions, challenging practitioners.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "After the 10-day Malarone/azithromycin/artesunate course in 12 pit bull terriers, what was found at follow-up days 180-720?",
+"o": [
+"Relapse in most dogs",
+"No relapses of parasitemia in any dog",
+"Relapse only in older dogs",
+"Persistent severe anemia"
+],
+"a": 1,
+"e": "No relapses of parasitemia were detected at days 180, 360, 540, or 720 in any dog.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What adverse effects were reported with the combined treatment?",
+"o": [
+"Severe hepatotoxicity",
+"Frequent vomiting",
+"No clinically apparent adverse effects",
+"Fatal hemolysis"
+],
+"a": 2,
+"e": "No clinically apparent adverse effects were reported during treatment and monitoring.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What did the study conclude about this combination in chronically infected dogs?",
+"o": [
+"It led to successful elimination of parasitemia",
+"It only masked clinical signs",
+"It worsened thrombocytopenia",
+"It was ineffective"
+],
+"a": 0,
+"e": "The combination led to successful elimination of parasitemia in chronically infected B. gibsoni dogs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What was the overall pooled prevalence of brucellosis estimated in this meta-analysis?",
+"o": [
+"About 1.5%",
+"About 5%",
+"About 15.5%",
+"About 35%"
+],
+"a": 2,
+"e": "The pooled estimate for brucellosis prevalence was about 15.53%.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What effect did age, gender, and publication year have on between-study heterogeneity?",
+"o": [
+"All were highly significant drivers",
+"None showed a significant effect",
+"Only age was significant",
+"Only gender was significant"
+],
+"a": 1,
+"e": "Age, gender, and publication year showed no significant effect on heterogeneity.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What did Egger's test indicate about the analysis?",
+"o": [
+"No publication bias",
+"Significant publication bias",
+"Insufficient data",
+"Perfect study homogeneity"
+],
+"a": 1,
+"e": "Egger's test indicated significant publication bias for brucellosis prevalence.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What distinguishing feature did the authors identify for differentiating B. canis from other Brucella species?",
+"o": [
+"A 132 bp reverse complement sequence on chromosome 1",
+"A deleted gE gene",
+"A unique plasmid",
+"An identical 16S rRNA region"
+],
+"a": 0,
+"e": "A 132 bp reverse complement sequence between two loci on B. canis chromosome 1 was identified.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "How did the designed PCR distinguish B. canis from other Brucella species?",
+"o": [
+"By melt temperature only",
+"B. canis gave a 310 bp product vs 413 bp for other species",
+"By colony color",
+"By antibody cross-reaction"
+],
+"a": 1,
+"e": "Primers yielded a 310 bp amplicon for B. canis and 413 bp for other Brucella species.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What analytic sensitivity did the PCR achieve?",
+"o": [
+"1 million copies",
+"10,000 copies",
+"100 copies of Brucella DNA",
+"It could not be quantified"
+],
+"a": 2,
+"e": "The PCR had a sensitivity of 100 copies of Brucella DNA.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Which organism was cultured from the CSF of the dog with cervical pain and fever?",
+"o": [
+"Streptococcus canis",
+"Bordetella bronchiseptica",
+"Listeria monocytogenes",
+"E. coli"
+],
+"a": 1,
+"e": "CSF culture grew Bordetella bronchiseptica.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What CSF abnormality was present at diagnosis?",
+"o": [
+"Eosinophilic pleocytosis",
+"Normal CSF",
+"Neutrophilic pleocytosis with intracellular bacteria",
+"Albuminocytologic dissociation only"
+],
+"a": 2,
+"e": "CSF showed neutrophilic pleocytosis with intracellular bacteria.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What was the dog's neurologic outcome with prolonged doxycycline therapy?",
+"o": [
+"Euthanized within days",
+"Remained non-ambulatory",
+"Improved, becoming fully ambulatory by 7 months",
+"No change over a year"
+],
+"a": 2,
+"e": "The dog improved over months and was fully ambulatory 7 months after diagnosis.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "How did the study characterize the occurrence of pseudorabies (PR) disease in cats?",
+"o": [
+"Epidemic and widespread",
+"Sporadic",
+"Absent",
+"Universal in shelter cats"
+],
+"a": 1,
+"e": "PR disease in cats occurs sporadically.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What clinical effect did the attenuated PRV vaccine strain produce in cats?",
+"o": [
+"Severe fatal encephalitis",
+"Only slight clinical signs",
+"No infection at all",
+"Chronic carrier state for years"
+],
+"a": 1,
+"e": "The attenuated PRV strain caused only slight clinical signs in cats, with virus shed by day 3.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What broader risk did the findings imply?",
+"o": [
+"Cats are the reservoir for swine PRV",
+"PRV transmission from pigs to cats is a concern",
+"Vaccinating pigs eliminates feline risk",
+"Cats cannot be infected by PRV"
+],
+"a": 1,
+"e": "Findings implied a notable risk of PRV transmission from pigs to cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "In this Upper Egypt study, the seroprevalence of Bartonella henselae among the humans tested was approximately:",
+"o": [
+"8%",
+"24%",
+"46%",
+"80%"
+],
+"a": 2,
+"e": "Human seroprevalence by immunofluorescent assay was 46%.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "How was B. henselae detected in the cats?",
+"o": [
+"Cultured/isolated from claw samples",
+"Identified molecularly by PCR in 8% of blood samples",
+"Detected only in saliva by serology",
+"Not detected by any method"
+],
+"a": 1,
+"e": "Isolation failed, but PCR identified B. henselae in 8% (6/75) of cat blood samples.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Human B. henselae infection was significantly higher in which setting?",
+"o": [
+"Urban regions",
+"Among males",
+"Among non-cat-owners",
+"Rural regions"
+],
+"a": 3,
+"e": "Infection was significantly higher in rural (79.5%) than urban (24.6%) regions (P<0.001).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "What transmission chain did the genetic data support in this Thailand case?",
+"o": [
+"Cat to owner to veterinarian",
+"Owner to cat to veterinarian",
+"Veterinarian to cat to owner",
+"Wildlife to cat to human"
+],
+"a": 1,
+"e": "Sequencing supported owner-to-cat then cat-to-veterinarian SARS-CoV-2 transmission.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "How was the veterinarian most likely infected?",
+"o": [
+"Bitten by the cat",
+"Sneezed on by the infected cat",
+"Contaminated food",
+"Direct contact with the owner"
+],
+"a": 1,
+"e": "The veterinarian was sneezed on by the infected cat before developing COVID-19.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "What evidence supported the cat-to-human transmission hypothesis?",
+"o": [
+"Genomic/genetic sequencing analysis",
+"Antibody titer comparison",
+"Clinical signs alone",
+"Intradermal skin testing"
+],
+"a": 0,
+"e": "A genetic study of the viral genomes supported the transmission hypothesis.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Canine circovirus (CanineCV) is mainly associated with which clinical syndrome in dogs?",
+"o": [
+"Respiratory disease",
+"Hemorrhagic enteritis",
+"Dermatitis",
+"Reproductive failure"
+],
+"a": 1,
+"e": "CanineCV is chiefly linked to hemorrhagic enteritis in canids.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "CanineCV is most often found in coinfection with which agent?",
+"o": [
+"Canine parvovirus type-2 (CPV)",
+"Rabies virus",
+"Leptospira spp.",
+"Brucella canis"
+],
+"a": 0,
+"e": "In most cases CanineCV is found coinfecting with canine parvovirus type-2.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "The reported prevalence/frequency of CanineCV in studied populations ranged from:",
+"o": [
+"50% to 90%",
+"1% to 30%",
+"Always 100%",
+"Below 1%"
+],
+"a": 1,
+"e": "Reported prevalence ranged variably from 1% to 30%.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What factor was positively associated with a higher histological AA-amyloidosis score in shelter cats?",
+"o": [
+"Younger age",
+"Longer duration of stay in the shelter",
+"Male sex",
+"Recent vaccination"
+],
+"a": 1,
+"e": "Longer shelter stay was significantly associated with a higher amyloidosis score.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "The major protein identified in the amyloid deposits was:",
+"o": [
+"Serum amyloid-A (SAA)",
+"Albumin",
+"Immunoglobulin light chain",
+"Collagen"
+],
+"a": 0,
+"e": "Histopathology and immunofluorescence identified SAA as the major protein source.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Detection of SAA fragments in bile raised the possibility of which transmission route?",
+"o": [
+"Airborne transmission",
+"Fecal-oral transmission",
+"Vector-borne transmission",
+"No transmission possible"
+],
+"a": 1,
+"e": "SAA fragments in bile secretions suggested possible fecal-oral transmission.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "Which wildlife species accounted for the most US rabies cases in 2021?",
+"o": [
+"Raccoons",
+"Skunks",
+"Bats",
+"Foxes"
+],
+"a": 2,
+"e": "Bats were the leading rabid host at 33.9% of cases.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "Among domestic animals, which had the most reported rabies cases in 2021?",
+"o": [
+"Dogs",
+"Cats",
+"Cattle",
+"Horses"
+],
+"a": 1,
+"e": "Cats (216 cases) led domestic animal rabies, exceeding cattle and dogs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "How did total US animal rabies cases in 2021 compare with 2020?",
+"o": [
+"18% increase",
+"Roughly unchanged",
+"18.2% decrease",
+"Doubled"
+],
+"a": 2,
+"e": "Cases fell 18.2% from 4,479 (2020) to 3,663 (2021), attributed to pandemic factors.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "This publication on brucellosis in the United States is best described as:",
+"o": [
+"A randomized controlled trial",
+"A one-health review",
+"A single-case report",
+"A vaccine efficacy trial"
+],
+"a": 1,
+"e": "The article is a one-health review of brucellosis in the US.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "A 'one-health' framing of brucellosis implies relevance to:",
+"o": [
+"Animal, human, and environmental health",
+"Cattle only",
+"Laboratory diagnostics only",
+"Wildlife only"
+],
+"a": 0,
+"e": "One-health spans interconnected animal, human, and environmental health.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Vaccination",
+"q": "What does the point-of-care dot blot ELISA detect?",
+"o": [
+"Active viral infection",
+"Protective vaccinal antibody",
+"Bacterial antigens",
+"Parasite eggs"
+],
+"a": 1,
+"e": "It screens for protective vaccinal antibody against CAV, CPV, and CDV.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Vaccination",
+"q": "Across the three viral antigens, the index test's sensitivity was approximately:",
+"o": [
+"About 50%",
+"About 75%",
+"About 96%",
+"Exactly 100%"
+],
+"a": 2,
+"e": "Sensitivity ranged from 96.03% to 96.75% for all three antigens.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Vaccination",
+"q": "Per the conclusion, accurate immunity assessment lets clinicians:",
+"o": [
+"Discontinue all vaccination",
+"Administer core vaccines appropriately and avoid unnecessary vaccine risk",
+"Diagnose active distemper infection",
+"Replace serum neutralization entirely"
+],
+"a": 1,
+"e": "Knowing immune status guides appropriate core vaccination, avoiding unnecessary adverse-event risk.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Which stray species accounted for most of the included brucellosis studies?",
+"o": [
+"Cattle",
+"Cats",
+"Dogs",
+"Horses"
+],
+"a": 2,
+"e": "Dogs made up 75.7% (28/37) of the included studies.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "All included studies of brucellosis in stray cattle were conducted in:",
+"o": [
+"The USA",
+"India",
+"Brazil",
+"Jordan"
+],
+"a": 1,
+"e": "All 7 stray cattle (cow-shelter) studies were from India.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "A key methodological limitation highlighted by the review was that:",
+"o": [
+"Most studies used random sampling",
+"All studies were randomized controlled trials",
+"Diagnostic tests were uniform across studies",
+"Few studies used probabilistic random sampling or justified sample size"
+],
+"a": 3,
+"e": "Only ~22% used probabilistic random sampling and ~14% justified sample size.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "The overall pooled seroprevalence of leptospiral antibodies in domestic cats was approximately:",
+"o": [
+"About 11.7%",
+"About 3.7%",
+"About 25%",
+"About 50%"
+],
+"a": 0,
+"e": "Overall seroprevalence was 11.7% (roughly 1 in 10 cats).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Which cats had significantly higher odds of Leptospira infection?",
+"o": [
+"Indoor-only cats",
+"Outdoor/street-access cats",
+"Neutered cats",
+"Purebred cats"
+],
+"a": 1,
+"e": "Outdoor cats had nearly threefold higher odds (OR 2.74).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "The public health conclusion regarding cats was that they:",
+"o": [
+"Are irrelevant to leptospirosis",
+"Only dogs carry Leptospira",
+"Should be considered potential Leptospira carriers",
+"Are protected once vaccinated"
+],
+"a": 2,
+"e": "Cats should be considered potential Leptospira carriers in public health planning.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What proportion of the tested imported dogs were positive for one or more exotic pathogens?",
+"o": [
+"About 2%",
+"About 10%",
+"About 24%",
+"About 50%"
+],
+"a": 2,
+"e": "24% (32/133) tested positive for at least one exotic pathogen.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Which exotic pathogen was identified most frequently?",
+"o": [
+"Leishmania infantum",
+"Babesia canis",
+"Dirofilaria immitis",
+"Ehrlichia canis"
+],
+"a": 0,
+"e": "Leishmania was found in 10.5% of dogs, the highest of those tested.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What did the study conclude about clinical signs and pathogen status?",
+"o": [
+"Clinical signs strongly predicted infection",
+"No significant association between clinical signs and pathogens carried",
+"Only symptomatic dogs were infected",
+"Country of origin was irrelevant"
+],
+"a": 1,
+"e": "No significant association was found between presenting signs and pathogens detected, underscoring the need to screen imports.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Which laboratory findings were significantly associated with PCR-positive tularemia in cats?",
+"o": [
+"Anemia and thrombocytopenia",
+"Leukopenia and neutropenia",
+"Hyperbilirubinemia",
+"Eosinophilia"
+],
+"a": 1,
+"e": "Leukopenia and neutropenia were significantly more likely in PCR-positive cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Common physical examination findings in cats with tularemia included:",
+"o": [
+"Fever, peripheral lymphadenomegaly, and oral ulcers",
+"Alopecia and pruritus",
+"Loud heart murmur",
+"Polyuria and polydipsia"
+],
+"a": 0,
+"e": "Affected cats frequently showed fever, lymphadenomegaly, and oral ulcers.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Most affected cats had what type of lifestyle?",
+"o": [
+"Strictly indoor",
+"Outdoor access",
+"Permanently caged",
+"Aquatic"
+],
+"a": 1,
+"e": "Most were domestic shorthairs with outdoor access.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "The definitive hosts of Toxoplasma gondii are:",
+"o": [
+"Dogs",
+"Rodents",
+"Cats and other felids",
+"Birds"
+],
+"a": 2,
+"e": "Domestic cats and other Felidae serve as T. gondii definitive hosts.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Which factor was associated with increased odds of T. gondii seropositivity?",
+"o": [
+"Age over 5 years",
+"Age under 1 year",
+"Strictly indoor housing",
+"Recent vaccination"
+],
+"a": 0,
+"e": "Cats older than 5 years had significantly higher seropositivity odds (IgG OR 2.6).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "What effect did FeLV/FIV-associated immunosuppression have on results?",
+"o": [
+"No measurable effect",
+"Significant impact on serological results",
+"Decreased overall prevalence",
+"Fully prevented infection"
+],
+"a": 1,
+"e": "FeLV antigen and FIV antibody positivity significantly influenced serological results.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "What SARS-CoV-2 seroprevalence was found among the sampled Dutch shelter cats?",
+"o": [
+"8%",
+"0.8%",
+"12%",
+"30%"
+],
+"a": 1,
+"e": "Only 2 of 240 cats (0.8%) had confirmed neutralizing antibodies.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "On PCR testing, the two seropositive cats were:",
+"o": [
+"actively shedding virus",
+"positive only on rectal swabs",
+"PCR negative for SARS-CoV-2",
+"euthanized for public health"
+],
+"a": 2,
+"e": "Both seropositive cats tested PCR negative, indicating no active shedding.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "The study concluded that shelter cats are:",
+"o": [
+"the primary human reservoir",
+"a major risk requiring culling",
+"frequent virus shedders to humans",
+"unlikely to be a reservoir or significant public health risk"
+],
+"a": 3,
+"e": "Low seroprevalence and negative PCR support that shelter cats are an improbable reservoir.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "How did most clients rate their community veterinary program experience?",
+"o": [
+"mostly negative",
+"mostly positive",
+"mixed with frequent complaints",
+"no different from private clinics"
+],
+"a": 1,
+"e": "The majority reported positive experiences with both services and communication.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "Which elements did the study emphasize as needed for successful community-based programs?",
+"o": [
+"high-tech equipment",
+"communication, empathy, and cultural competence",
+"mandatory ownership fees",
+"breed restrictions"
+],
+"a": 1,
+"e": "Effective communication, empathy, and cultural competence were highlighted as key.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "The authors concluded low-cost/free community vet programs can:",
+"o": [
+"worsen owner trust",
+"have no measurable benefit",
+"open the door to future positive veterinary experiences for disadvantaged owners",
+"be limited to wealthy areas"
+],
+"a": 2,
+"e": "Such programs help disadvantaged owners access and value veterinary care going forward.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Of cats assessed at least twice, what proportion showed deterioration in at least one health indicator?",
+"o": [
+"about 10%",
+"about 42%",
+"about 75%",
+"0%"
+],
+"a": 1,
+"e": "Deterioration in ≥1 indicator was recorded in 52 of 125 cats (41.6%).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Length of stay (LOS) significantly predicted scores for which indicators?",
+"o": [
+"coat and body condition",
+"third eye visibility",
+"abnormal posture/lameness and the upper respiratory index",
+"none"
+],
+"a": 2,
+"e": "LOS predicted posture/lameness scores and a composite URI index.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Cat age predicted scores for which indicators?",
+"o": [
+"coat condition and body condition",
+"eye discharge",
+"lameness",
+"respiratory sounds"
+],
+"a": 0,
+"e": "Age predicted coat and body condition scores.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What proportion of relinquishment requests resulted in acceptance of free behaviour advice?",
+"o": [
+"about 24%",
+"about 50%",
+"about 75%",
+"about 5%"
+],
+"a": 0,
+"e": "Advice was accepted in 24.4% of requests.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Advice was most likely to be accepted for which problem type?",
+"o": [
+"aggression between dogs in the home",
+"general management behaviour problems",
+"separation anxiety",
+"all types equally"
+],
+"a": 1,
+"e": "Odds of acceptance were ~5.8x higher for general management vs in-home dog aggression.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "The study concluded that behaviour advice at relinquishment:",
+"o": [
+"should never be offered",
+"is universally rejected",
+"could reduce relinquishment but its impact may be limited, so complementary solutions are also needed",
+"eliminates relinquishment entirely"
+],
+"a": 2,
+"e": "Owners accept advice, but limited uptake means proactive solutions are also required.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Which enrichment was associated with body positions indicating lower stress during kennel cleaning?",
+"o": [
+"arousing items",
+"calming items, especially lavender scent",
+"food only",
+"no enrichment"
+],
+"a": 1,
+"e": "Calming enrichment lowered stress, with calming lavender scent most beneficial.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Which item produced the greatest reduction in vocalization?",
+"o": [
+"lavender scent",
+"a tactile blanket",
+"the ball (an arousing item)",
+"food"
+],
+"a": 2,
+"e": "The arousing ball showed the greatest vocalization reduction.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "A key conclusion regarding enrichment type was that:",
+"o": [
+"food is always most effective",
+"enrichment other than food may be more effective for certain undesirable behaviours",
+"enrichment has no effect",
+"only food reduces stress"
+],
+"a": 1,
+"e": "Non-food enrichment was more effective for some unwanted behaviours.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "A central management challenge for IOSD in shelters is that:",
+"o": [
+"it is rare in shelters",
+"treatments effective in privately owned cats may be impractical or ineffective in shelters",
+"no etiologic agents are known",
+"it has no welfare impact"
+],
+"a": 1,
+"e": "Owned/experimental-animal protocols often do not translate to the shelter setting.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What does the review highlight about feline herpesvirus therapeutics?",
+"o": [
+"discrepancies exist between experimental laboratory studies and clinical trials",
+"lab and clinical results agree perfectly",
+"no antiviral treatments exist",
+"vaccines cure active disease"
+],
+"a": 0,
+"e": "The review stresses divergence between lab-based studies and clinical trials for FHV.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "The review concluded that:",
+"o": [
+"IOSD is untreatable",
+"current protocols are already optimal",
+"no further research is warranted",
+"further high-quality clinical trials are needed to define optimal protocols"
+],
+"a": 3,
+"e": "Optimal preventive and therapeutic protocols still require high-quality trials.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Comparing metronidazole vs a synbiotic for canine acute diarrhea, the clinical course (CADS index) showed:",
+"o": [
+"faster resolution with metronidazole",
+"no significant difference between groups",
+"worse outcomes with synbiotic",
+"elimination of C. perfringens"
+],
+"a": 1,
+"e": "No significant clinical difference was seen (except CADS on a single day).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Metronidazole's effect on the intestinal microbiome was to:",
+"o": [
+"improve diversity",
+"negatively impact it (lower C. hiranonis, higher E. coli)",
+"eradicate E. coli",
+"have no microbial effect"
+],
+"a": 1,
+"e": "Metronidazole raised E. coli and lowered C. hiranonis versus the synbiotic.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "The authors concluded that:",
+"o": [
+"metronidazole is the preferred first-line treatment",
+"antibiotics are always indicated for acute diarrhea",
+"synbiotics might be preferred over metronidazole for dogs with acute diarrhea",
+"C. perfringens drives all acute diarrhea"
+],
+"a": 2,
+"e": "Because metronidazole harms the microbiome without clinical benefit, synbiotics may be preferred.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Shelter Diversion",
+"q": "Housing issues represented approximately what share of overall shelter intakes?",
+"o": [
+"about 14%",
+"about 35%",
+"about 50%",
+"about 5%"
+],
+"a": 0,
+"e": "Housing-related issues accounted for 14% (n=28,424) of intakes.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Shelter Diversion",
+"q": "Which animals were at greatest risk of euthanasia or shelter death?",
+"o": [
+"small dogs and kittens",
+"pit bull-type dogs and animals relinquished by unhoused owners",
+"purebred cats",
+"senior cats"
+],
+"a": 1,
+"e": "Pit bull-type dogs and animals from unhoused owners had elevated death risk.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Shelter Diversion",
+"q": "Over the 2019–2023 period, which longitudinal trend was observed?",
+"o": [
+"intakes due to loss of home decreased",
+"cat intakes decreased while dog intakes rose",
+"intakes due to loss of home increased while pet-restriction and landlord intakes decreased",
+"pit bull-type intakes increased"
+],
+"a": 2,
+"e": "Home-loss intakes rose; pet-restriction/landlord intakes (and pit bull share) fell.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "What was the most common intake source for rabbits at the BC SPCA?",
+"o": [
+"transfer from other shelters",
+"stray intake",
+"owner surrender, mostly for human-related reasons",
+"cruelty seizure"
+],
+"a": 2,
+"e": "Owner surrender (40.2%) led, with 96.9% surrendered for human-related reasons.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "What was the median length of stay for shelter rabbits?",
+"o": [
+"29 days",
+"7 days",
+"120 days",
+"about 1 year"
+],
+"a": 0,
+"e": "Median LOS was 29 days, underscoring a need to shorten time to adoption.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "What was the adoption outcome for these rabbits?",
+"o": [
+"about 80% were adopted",
+"most were euthanized",
+"about 30% were adopted",
+"most were returned to owners"
+],
+"a": 0,
+"e": "80.3% of rabbits were subsequently adopted.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Which foster-housing arrangement was associated with positive kitten behaviour?",
+"o": [
+"isolated quiet rooms with no human contact",
+"social areas of the house with less noise/activity and some time alone",
+"loud busy areas continuously",
+"outdoor kennels"
+],
+"a": 1,
+"e": "Social-area housing with lower noise plus some alone time predicted positive behaviour.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "For bottle-fed kittens, singletons, and queen-absent kittens, fear/anxiety responses were:",
+"o": [
+"markedly worse in singletons",
+"not different across these groups",
+"lowest in bottle-fed kittens",
+"absent when the queen was present"
+],
+"a": 1,
+"e": "No difference in fear/anxiety was found for these groups.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Ringworm treatment was associated with:",
+"o": [
+"calmer kittens",
+"no behavioural change",
+"more fearful behaviour",
+"improved socialisation"
+],
+"a": 2,
+"e": "Ringworm treatment correlated with more fearful kitten behaviour.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "Compared with short-term dogs, long-term shelter dogs were significantly more often:",
+"o": [
+"younger females of non-dangerous breeds",
+"a 'dangerous breed', male, and older at admission",
+"small lap breeds",
+"puppies"
+],
+"a": 1,
+"e": "LT dogs were more often dangerous-breed, male, and older when admitted.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "How were long-term dogs rated on behaviour/personality?",
+"o": [
+"higher aggression and high arousal with lower amicability",
+"lower arousal and higher amicability",
+"no measurable trait differences",
+"higher fearfulness only"
+],
+"a": 0,
+"e": "LT dogs scored higher on aggression and arousal and lower on amicability.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "The formal welfare assessment protocol revealed that:",
+"o": [
+"LT dogs scored markedly worse on welfare",
+"LT dogs scored better on welfare",
+"there was no welfare difference between LT and ST dogs",
+"welfare could not be evaluated"
+],
+"a": 2,
+"e": "Despite behavioural differences, welfare assessment showed no group difference.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "What happened to the dogs' baseline cortisol over the animal-assisted intervention (AAI) program?",
+"o": [
+"it increased",
+"it significantly decreased by program end",
+"it was unchanged",
+"it doubled"
+],
+"a": 1,
+"e": "Baseline cortisol significantly decreased by the end of the AAI program.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "What effect did transportation have on the dogs' cortisol?",
+"o": [
+"lowered it",
+"no effect",
+"significantly increased it",
+"it was not measured"
+],
+"a": 2,
+"e": "Transportation significantly raised cortisol, flagged as a critical phase.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "The authors concluded that AAI activities:",
+"o": [
+"harm shelter dog welfare",
+"may improve the welfare of kenneled shelter dogs",
+"benefit only the humans involved",
+"should be avoided for shelter dogs"
+],
+"a": 1,
+"e": "Reduced baseline cortisol suggests AAI can improve kenneled dogs' welfare.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Among hunting dogs that retrieved wild fowl in Washington State, what proportion had antibodies to H5/N1 subtype influenza A?",
+"o": [
+"About 2% (4/194)",
+"About 20%",
+"About 50%",
+"None of the dogs"
+],
+"a": 0,
+"e": "Antibodies were detected in 4/194 (2%) of the hunting dogs sampled.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What distinguished the seropositive dogs in this study?",
+"o": [
+"They were indoor-only pets",
+"They had high levels of exposure to waterfowl",
+"They had been vaccinated against influenza",
+"They had no contact with birds"
+],
+"a": 1,
+"e": "Owner-reported history showed seropositive dogs had high levels of exposure to waterfowl.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Which clinical sign was the most distinguishing feature of leptospirosis in this Venezuelan outbreak cohort?",
+"o": [
+"Conjunctival suffusion",
+"Generalized rash",
+"Acute diarrhea",
+"Peripheral neuropathy"
+],
+"a": 0,
+"e": "Conjunctival suffusion was reported as the most distinguishing clinical sign, with many patients also showing liver involvement.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What reservoir was implicated in spreading Leptospira to both cows and humans in this outbreak?",
+"o": [
+"Bats",
+"Mosquitoes",
+"Rodents",
+"Ticks"
+],
+"a": 2,
+"e": "The same Leptospira species found in humans were isolated from local rodents, and phylogenetics suggested a rodent-spread expanding outbreak strain.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "The PB2 substitutions E627K and D701N found in the cat-derived H5N1 viruses are associated with what?",
+"o": [
+"Adaptation of the virus to mammals",
+"Resistance to oseltamivir",
+"Reduced pathogenicity",
+"Replication only in birds"
+],
+"a": 0,
+"e": "E627K and D701N in the polymerase basic protein 2 gene are markers of mammalian adaptation.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "How did the cat-derived H5N1 isolates behave in ferrets?",
+"o": [
+"They were non-pathogenic",
+"They caused fatal infection and spread by contact between ferrets",
+"They infected only the inoculated animal",
+"They required injection to cause disease"
+],
+"a": 1,
+"e": "Both isolates caused fatal infections and demonstrated contact transmission between ferrets, indicating high pathogenicity and mammalian transmissibility.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Which animal exposure was most strongly associated with cutaneous sporotrichosis in this Thai cohort?",
+"o": [
+"Cattle",
+"Cats",
+"Dogs",
+"Poultry"
+],
+"a": 1,
+"e": "65.3% of patients reported cat exposure, and cat contact was significantly associated with upper-extremity lesions (adjusted OR 18.9).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Which oral monotherapy was effective for cutaneous sporotrichosis, with a median time-to-cure of about 180 days?",
+"o": [
+"Itraconazole",
+"Fluconazole",
+"Amphotericin B",
+"Terbinafine"
+],
+"a": 0,
+"e": "Oral itraconazole monotherapy was effective (all isolates had itraconazole MIC <1 µg/mL); median time-to-cure was 180 days.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What did the survey identify as a key barrier for non-specialist UK practices dealing with highly pathogenic avian influenza?",
+"o": [
+"Excessive government funding",
+"A lack of confidence in treating birds and handling suspected cases",
+"Too many avian patients",
+"Widespread availability of vaccines"
+],
+"a": 1,
+"e": "A lack of confidence around treating birds and dealing with suspected HPAI cases was a key barrier that limited client education opportunities.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What was a stated limitation of this survey?",
+"o": [
+"A large randomized national sample",
+"Mandatory participation by all practices",
+"A small, self-selected group of respondents who may over-represent avian-interested vets",
+"Inclusion of multiple countries"
+],
+"a": 2,
+"e": "Only 26 self-selected veterinarians responded, possibly over-representing those with existing avian/HPAI interests.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Why does heat treatment (HT) of samples increase the sensitivity of heartworm antigen tests in dogs?",
+"o": [
+"It disrupts antigen-antibody immune complexes that block antigen detection",
+"It detects host antibody instead of antigen",
+"It kills circulating microfilariae",
+"It has no real effect on sensitivity"
+],
+"a": 0,
+"e": "In some infected dogs antigen is blocked by immune complexing, causing false negatives; heat treatment disrupts these complexes and unmasks antigen (12 extra positives in this study).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Which screening combination, recommended by the American Heartworm Society, improved diagnostic performance in this shelter-dog study?",
+"o": [
+"Antibody plus PCR",
+"Point-of-care antigen plus microfilaria (Knott's) testing",
+"Antigen testing alone",
+"Microfilaria testing alone"
+],
+"a": 1,
+"e": "Pairing point-of-care antigen with microfilaria detection improved sensitivity without loss of specificity, consistent with AHS recommendations.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Even using combined testing, the study estimated it may have missed approximately how many infected dogs?",
+"o": [
+"None",
+"About 1 in 100",
+"More than 1 in 4",
+"Exactly half"
+],
+"a": 2,
+"e": "Combined POC antigen and microfilaria screening still may have missed more than one in four infected dogs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "What is the current Dirofilaria status of the United Kingdom according to this review?",
+"o": [
+"Hyperendemic",
+"Still considered non-endemic but at risk of establishment",
+"Fully eradicated",
+"Controlled by mandatory vaccination"
+],
+"a": 1,
+"e": "The UK is still considered non-endemic with only limited non-autochthonous cases, but is at risk of outbreaks.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Which factors could change the UK's non-endemic status for Dirofilaria?",
+"o": [
+"Climate change combined with spread of invasive mosquito species",
+"Falling global temperatures",
+"Mandatory canine vaccination",
+"A declining dog population"
+],
+"a": 0,
+"e": "A combination of climate change and potential spread of invasive mosquito vectors may expose the UK to filarial outbreaks.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "In this southern Italy survey of nearly 2,000 dogs, which filarial species was detected most frequently?",
+"o": [
+"Dirofilaria repens",
+"Dirofilaria immitis",
+"Acanthocheilonema reconditum",
+"Onchocerca lupi"
+],
+"a": 1,
+"e": "D. immitis was the most frequent species (11.4% prevalence), followed by D. repens (3.7%) and A. reconditum (0.6%).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Which dogs were significantly more likely to be infected with D. immitis?",
+"o": [
+"Indoor toy breeds",
+"Sheltered, mongrel, and rural-housed dogs",
+"Recently vaccinated dogs",
+"Purebred urban dogs"
+],
+"a": 1,
+"e": "Sheltered dogs, mongrels, and animals housed in rural areas were significantly more infected.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "What was the prevalence of heartworm preventive use in the Golden Retriever Lifetime Study sample?",
+"o": [
+"About 39.5%",
+"About 90%",
+"About 10%",
+"100%"
+],
+"a": 0,
+"e": "Heartworm preventive use prevalence was 39.5% in this cohort.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Which factor was associated with GREATER odds of heartworm preventive use?",
+"o": [
+"Dietary supplement use",
+"Being in the top quartile of height",
+"Receiving vaccinations and living in the Southern United States",
+"Never being vaccinated"
+],
+"a": 2,
+"e": "Receiving vaccinations and Southern US location (among others) were associated with greater odds; supplement use and tallest height quartile were associated with lower odds.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "What effect did natural Dirofilaria immitis infection have on canine leukocytes in this comet-assay study?",
+"o": [
+"It caused DNA damage, greatest in dogs with severe clinical signs",
+"It improved DNA repair capacity",
+"It had no measurable genotoxic effect",
+"It spontaneously cleared microfilariae"
+],
+"a": 0,
+"e": "D. immitis infection induced leukocyte DNA damage, with the highest damage in dogs showing severe clinical signs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Which 'slow kill' regimen reduced DNA damage and eliminated microfilariae over the treatment period?",
+"o": [
+"Melarsomine injections",
+"Ivermectin plus doxycycline",
+"Surgical extraction",
+"No treatment"
+],
+"a": 1,
+"e": "Treatment with ivermectin and doxycycline decreased leukocyte DNA damage and progressively eliminated microfilariae.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "What treatment protocol did antigen/microfilaria-positive dogs receive in the Linosa Island elimination program?",
+"o": [
+"Oral doxycycline for 4 weeks plus monthly topical imidacloprid/moxidectin",
+"Three melarsomine injections only",
+"Surgical heartworm removal",
+"No treatment, observation only"
+],
+"a": 0,
+"e": "Positive dogs received oral doxycycline twice daily for 4 weeks plus monthly topical imidacloprid/moxidectin for 12 months.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "By month 2 of the elimination program, what was the microfilariae status of the island's dogs?",
+"o": [
+"All dogs were microfilariae-negative",
+"Microfilariae had increased",
+"Half remained positive",
+"Status was unchanged from baseline"
+],
+"a": 0,
+"e": "After a 76.5% reduction in month 1, from month 2 onward all animals were microfilariae-negative.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "The Linosa Island heartworm program was described as an example of what concept?",
+"o": [
+"One Health",
+"Palliative care",
+"Surgical sterilization",
+"Vaccination-only control"
+],
+"a": 0,
+"e": "Treating positive dogs plus chemoprophylaxis reduced human infection risk, representing a One Health paradigm.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Compared with dogs that had successful adulticidal heartworm treatment versus dogs that never tested positive, what long-term risk was found?",
+"o": [
+"No difference in cardiac outcomes",
+"Significantly elevated risk of right heart failure, left heart failure, and cardiomyopathy",
+"Lower risk of all cardiac disease",
+"Only an increased risk of skin disease"
+],
+"a": 1,
+"e": "Treated dogs had significantly elevated long-term risks of right heart failure (RR 3.59), left heart failure (RR 1.83), and cardiomyopathy (RR 2.79).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "What did the study conclude about heartworm preventive purchase compliance and the risk of a positive heartworm test?",
+"o": [
+"Compliance had no effect on risk",
+"Even lapsed preventive purchase was associated with lower risk of a positive test than no purchase at all",
+"Buying preventives increased the risk",
+"Injectable preventives performed worse than monthly ones"
+],
+"a": 1,
+"e": "Dogs with lapses in preventive purchase still had reduced risk versus no purchase (monthly RR 0.36; injectable RR 0.15), underscoring the value of compliance.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Among 96 heartworm-positive dogs in southeast Missouri, what proportion of D. immitis isolates had a macrocyclic-lactone-resistant genotype?",
+"o": [
+"About 95%",
+"About 50%",
+"About 25%",
+"About 4%"
+],
+"a": 0,
+"e": "91 of 96 (94.8%) isolates genotyped as resistant.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "What did the authors conclude about heartworm management given the genotype findings?",
+"o": [
+"Current ML protocols remain fully adequate",
+"Prevention/treatment protocols should be reconsidered",
+"Resistance is confined to the southern Delta only",
+"ML dosing should simply be doubled"
+],
+"a": 1,
+"e": "Rising resistance indicates the prevention/treatment approach should be reconsidered with new measures.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Which method was used to detect resistance-associated genetic markers in the isolates?",
+"o": [
+"Antigen ELISA alone",
+"Modified Knott test",
+"MiSeq sequencing of genetic markers",
+"Skin scraping microscopy"
+],
+"a": 2,
+"e": "MiSeq technology sequenced markers associated with ML susceptibility/resistance.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Compared with superficial skin scrapings, how did real-time PCR perform for detecting Demodex gatoi?",
+"o": [
+"Scrapings were far more sensitive than PCR",
+"Both performed identically",
+"PCR detected most positives that scrapings missed",
+"Neither method detected any mites"
+],
+"a": 2,
+"e": "Nine of ten positive cats were PCR-positive with negative scrapings, showing scrapings are insensitive.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "What clinical-relevance point did the study emphasize about D. gatoi-positive cats?",
+"o": [
+"Asymptomatic cats can be a source of infection",
+"Only severely pruritic cats carry the mite",
+"Infection always produces visible lesions",
+"Feral cats were uniformly negative"
+],
+"a": 0,
+"e": "Only 1 of 10 positives had lesions, so asymptomatic cats represent an infection source.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "What outcome followed a single topical fluralaner-plus-moxidectin application in rabbits with sarcoptic mange?",
+"o": [
+"Partial improvement only",
+"100% mite eradication and lesion resolution within 21 days",
+"Relapse in most cases by 90 days",
+"No measurable effect"
+],
+"a": 1,
+"e": "A single spot-on dose achieved 100% eradication and complete lesion resolution within 21 days.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Was recurrence observed during follow-up after the single treatment?",
+"o": [
+"Recurrence in all followed rabbits",
+"No recurrence in followed rabbits up to 6 months",
+"Recurrence within 21 days",
+"Recurrence only in juveniles"
+],
+"a": 1,
+"e": "No recurrence was seen at 90 days, and followed cases stayed clear up to six months.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "By which day post-therapy were all rabbits parasitologically negative for S. scabiei after a single oral fluralaner dose?",
+"o": [
+"Day 14",
+"Day 30",
+"Day 45",
+"Day 90"
+],
+"a": 2,
+"e": "All rabbits tested negative for S. scabiei on day 45 post-therapy.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "What did the authors conclude about a single 25 mg/kg oral fluralaner dose for severe rabbit mange?",
+"o": [
+"It was effective without additional medications",
+"It required concurrent topical avermectin",
+"It failed in severe cases",
+"It worsened skin lesions"
+],
+"a": 0,
+"e": "A single oral dose was effective with no additional topical or systemic medication needed.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Which parasite was most commonly detected by coproantigen testing in the stray/untreated dogs studied in Ireland?",
+"o": [
+"Trichuris vulpis",
+"Giardia duodenalis",
+"Hookworms",
+"Ascarids"
+],
+"a": 1,
+"e": "Giardia duodenalis was most common in dogs at 26%.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Which parasite was most prevalent in the cats sampled?",
+"o": [
+"Ascarids",
+"Giardia",
+"Whipworms",
+"Hookworms"
+],
+"a": 0,
+"e": "Ascarids were most common in cats at 23.2%.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Which age groups had the highest overall parasite prevalence?",
+"o": [
+"Geriatric dogs and senior cats",
+"Adolescent dogs and kittens",
+"Only adult intact males",
+"Age made no difference"
+],
+"a": 1,
+"e": "Adolescent dogs (<3 yr) and kittens (<1 yr) had the highest prevalence.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Given that T. gondii prevalence was lower in cats than in their owners, what did the authors conclude?",
+"o": [
+"Close cat contact has limited impact on human toxoplasmosis",
+"Cats are the dominant source of owner infection",
+"Household cats pose the greatest risk",
+"Cat ownership should be discouraged"
+],
+"a": 0,
+"e": "Lower feline than owner prevalence indicated limited impact of cat contact on human toxoplasmosis.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "How did Toxocara cati prevalence compare between stray and household cats?",
+"o": [
+"Higher in household cats",
+"Equal in both groups",
+"High in stray cats and absent in household cats",
+"Absent in both groups"
+],
+"a": 2,
+"e": "T. cati was found in 47% of stray cats but in no household cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "How did coproantigen testing affect detection of Dipylidium caninum compared with fecal flotation alone?",
+"o": [
+"It reduced detection",
+"It increased detection several fold",
+"It made no difference",
+"It only worked in pet dogs"
+],
+"a": 1,
+"e": "Coproantigen increased D. caninum detection several fold over flotation.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "How did D. caninum infection in shelter dogs compare with pet dogs?",
+"o": [
+"Less common in shelter dogs",
+"Equal in both populations",
+"More common in shelter dogs (adjusted OR ~4.9)",
+"Found only in pet dogs"
+],
+"a": 2,
+"e": "Shelter dogs had nearly five-fold higher odds (adjusted OR 4.91) than pet dogs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "What overall recommendation did the data support?",
+"o": [
+"Abandon fecal flotation entirely",
+"Use multiple laboratory methods to enhance diagnosis",
+"Rely on flotation alone",
+"Treat all dogs empirically without testing"
+],
+"a": 1,
+"e": "Findings supported combining methods (coproantigen plus flotation) for better detection.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "What is the central message of this review regarding non-Dirofilaria cutaneous filarioid nematodes in US dogs?",
+"o": [
+"They are likely underdiagnosed and warrant broader surveillance",
+"They have been eradicated",
+"They are clinically irrelevant",
+"They never infect dogs"
+],
+"a": 0,
+"e": "The review alerts that cutaneous filarioids beyond D. immitis are likely underdiagnosed, needing surveillance.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Which skin-dwelling filarioid was highlighted for its zoonotic potential?",
+"o": [
+"Dirofilaria immitis",
+"Brugia sp.",
+"Onchocerca lupi",
+"Acanthocheilonema sp."
+],
+"a": 2,
+"e": "Increased interest in skin microfilariae was driven by the zoonotic Onchocerca lupi.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "What did the study conclude about the fecal microbiome in diarrheic versus nondiarrheic dogs with giardiasis?",
+"o": [
+"Diarrheic dogs had severe dysbiosis",
+"Microbial composition was similar; giardiasis was not marked by prominent dysbiosis",
+"Microbiome diversity collapsed in all infected dogs",
+"Probiotics reversed the infection"
+],
+"a": 1,
+"e": "Symptomatic and asymptomatic dogs had similar microbiomes; giardiasis was not characterized by prominent dysbiosis.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Among male dogs, which genus was more abundant in diarrheic than nondiarrheic giardiasis cases?",
+"o": [
+"Clostridium",
+"Verrucomicrobia",
+"Bacteroides",
+"Lactobacillus"
+],
+"a": 0,
+"e": "Clostridium (and C. spiroforme) abundance was higher in diarrheic males.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "What did the authors conclude about relapse in adult-onset canine neosporosis?",
+"o": [
+"Relapse never occurs after treatment",
+"Relapse can occur even in dogs that respond completely",
+"Relapse only affects untreated dogs",
+"Relapse guarantees death within days"
+],
+"a": 1,
+"e": "Relapse was common and could occur even among dogs with complete initial response.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Which laboratory abnormality was prominent in most affected dogs?",
+"o": [
+"Markedly elevated serum creatine kinase",
+"Severe hypoglycemia",
+"Marked thrombocytosis",
+"Elevated bilirubin"
+],
+"a": 0,
+"e": "Serum CK was markedly increased (median 3369 U/L) in most dogs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Approximately what proportion of dogs were alive 6 months after onset of clinical signs?",
+"o": [
+"About 20%",
+"About 40%",
+"About 62%",
+"About 90%"
+],
+"a": 2,
+"e": "Thirteen of 21 dogs (62%) were alive after 6 months.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Which large Babesia species is the most prevalent globally according to this review?",
+"o": [
+"Babesia rossi",
+"Babesia canis",
+"Babesia coco",
+"Babesia vogeli"
+],
+"a": 3,
+"e": "B. vogeli is the most prevalent large Babesia worldwide due to its wide vector range and mild infections.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Which of the following was identified as a risk factor for large Babesia infection?",
+"o": [
+"Living in kennels or animal shelters",
+"Indoor-only urban housing",
+"Regular acaricide use",
+"Absence of ticks"
+],
+"a": 0,
+"e": "Rural living, kennels/shelters, tick infestation, and lack of acaricide treatment were key risk factors.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "What abnormality was present in nearly all of the 12 dogs with Trypanosoma cruzi infection?",
+"o": [
+"Renal failure",
+"Cardiac abnormalities",
+"Blindness",
+"Skin ulceration"
+],
+"a": 1,
+"e": "Eleven of 12 dogs had cardiac abnormalities.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "What did the survey reveal about North American veterinary cardiologists' knowledge of Chagas disease?",
+"o": [
+"Knowledge was limited in about half of respondents",
+"All respondents were experts",
+"None expressed interest in resources",
+"Knowledge was uniformly excellent"
+],
+"a": 0,
+"e": "Self-reported knowledge was limited in 49%, and 69% wanted learning resources.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "What was the key clinical message of the study?",
+"o": [
+"T. cruzi cannot occur outside Texas",
+"Awareness of Chagas disease should be raised, including in nonendemic areas",
+"Chagas disease in dogs is untreatable so testing is pointless",
+"Only humans are affected"
+],
+"a": 1,
+"e": "Dogs may be encountered in nonendemic areas, underscoring the need for greater Chagas awareness.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Across the meta-analysis of free-ranging felids, T. gondii oocyst shedding prevalence was positively associated with which factor?",
+"o": [
+"Lower elevation",
+"Human population density at the sampling location",
+"Proximity to livestock",
+"Higher rainfall"
+],
+"a": 1,
+"e": "Shedding rose with human population density in both domestic cats and wild felids.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Which intervention did the authors propose to reduce environmental T. gondii oocyst burden?",
+"o": [
+"Vaccinating wild felids",
+"Treating intermediate hosts",
+"Managing free-ranging domestic cat populations",
+"Chlorinating surface water"
+],
+"a": 2,
+"e": "Domestic cats' large populations and affinity for human settlements make their management a key lever.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "What life stage shed by felids is responsible for most environmental T. gondii contamination?",
+"o": [
+"Tachyzoites",
+"Bradyzoite cysts",
+"Oocysts in feces",
+"Sporozoites in saliva"
+],
+"a": 2,
+"e": "Felids, the definitive hosts, shed environmentally resistant oocysts in feces.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Which tick species was the vector of concern for the pathogens studied in sheltered border dogs?",
+"o": [
+"Ixodes scapularis",
+"Rhipicephalus sanguineus (brown dog tick)",
+"Amblyomma americanum",
+"Dermacentor variabilis"
+],
+"a": 1,
+"e": "The study targeted pathogens vectored by brown dog ticks.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "A key clinical-relevance warning for clinicians was that Rocky Mountain spotted fever may co-occur with which infections?",
+"o": [
+"Babesia and Hepatozoon",
+"Leptospira and Brucella",
+"Ehrlichia or Anaplasma",
+"Dirofilaria and Toxocara"
+],
+"a": 2,
+"e": "The authors warned that E. canis or A. platys infection may co-occur with R. rickettsii.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Which finding best supports the One Health public-health concern raised by the study?",
+"o": [
+"Only Mexican shelters showed any exposure",
+"Dogs in all four locations showed exposure to all three pathogens",
+"No dogs were actively infected",
+"Seropositivity was uniformly zero"
+],
+"a": 1,
+"e": "Exposure to all three pathogens occurred across all sites, signaling spread potential with human health consequences.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "What proportion of UK and Ireland parks sampled contained Toxocara-type eggs?",
+"o": [
+"About 22%",
+"About 50%",
+"About 87%",
+"About 99%"
+],
+"a": 2,
+"e": "Characteristic Toxocara eggs were found in 86.6% of parks.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Egg density and positivity were highest in parks with which characteristic?",
+"o": [
+"Greater perceived dog fouling",
+"More tree cover",
+"Higher human foot traffic",
+"Closer proximity to farms"
+],
+"a": 0,
+"e": "Positive samples and egg density rose with greater perceived dog fouling.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Which species was confirmed by sequencing, and were many eggs viable?",
+"o": [
+"Toxocara cati; mostly non-viable",
+"Toxocara canis; many contained developed larvae and were potentially infective",
+"Toxascaris leonina; all non-viable",
+"Baylisascaris procyonis; viability unknown"
+],
+"a": 1,
+"e": "Eggs were confirmed as T. canis, many with developed larvae and thus potentially infective.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "By Day 45, what reduction in live Otodectes cynotis counts did afoxolaner-treated dogs achieve versus untreated controls?",
+"o": [
+"About 50%",
+"About 75%",
+"About 90%",
+"About 99.9%"
+],
+"a": 3,
+"e": "Single or two-dose afoxolaner regimens produced a 99.9% reduction in live mite counts.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "What did the trial conclude about a single oral dose of afoxolaner for ear mites?",
+"o": [
+"It was ineffective without milbemycin",
+"It was effective, achieving near-complete mite reduction",
+"It caused frequent adverse events",
+"It required topical co-treatment"
+],
+"a": 1,
+"e": "Even a single dose achieved 99.9% reduction, supporting afoxolaner-based treatment.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "How did clinical signs differ between treated and untreated dogs over the study?",
+"o": [
+"Both groups improved equally",
+"Treated dogs worsened",
+"Treated dogs improved while untreated dogs worsened",
+"No clinical changes were tracked"
+],
+"a": 2,
+"e": "Treated dogs showed reduced cerumen/debris while untreated dogs worsened.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Which Cryptosporidium species dominates in rabbits and uniquely caused a 2008 UK waterborne outbreak?",
+"o": [
+"C. hominis",
+"C. parvum",
+"C. cuniculus",
+"C. canis"
+],
+"a": 2,
+"e": "C. cuniculus is the dominant rabbit species and the only one besides C. hominis/C. parvum to cause a waterborne outbreak.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Despite rabbit abundance, how common are human C. cuniculus reports overall?",
+"o": [
+"Relatively rare except in the UK and New Zealand",
+"Universally common worldwide",
+"Never documented in humans",
+"More common than C. parvum globally"
+],
+"a": 0,
+"e": "Human reports are relatively rare except in the UK and New Zealand.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Which Giardia duodenalis assemblage dominated in rabbits in the reviewed studies?",
+"o": [
+"Assemblage A",
+"Assemblage B",
+"Assemblage C",
+"Assemblage E"
+],
+"a": 1,
+"e": "Assemblage B dominated among the limited rabbit Giardia studies.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Which method is the reference standard for diagnosing Giardia in canine fecal samples?",
+"o": [
+"Rapid diagnostic test (RDT)",
+"End-point PCR",
+"Direct Fluorescence Antibody test (DFA)",
+"Sucrose flotation"
+],
+"a": 2,
+"e": "DFA is cited as the reference standard for laboratory Giardia diagnosis in dogs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "How did PCR perform for detecting Giardia in this study, and what was its main added value?",
+"o": [
+"High sensitivity; no extra value",
+"Low sensitivity; but identified zoonotic assemblage B",
+"Equal to DFA; identified only dog-specific assemblages",
+"Failed entirely; no assemblage data"
+],
+"a": 1,
+"e": "PCR detection performance was low but it identified the zoonotic B assemblage in 25% of positives.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "What public-health implication did the 26% DFA prevalence and zoonotic assemblages suggest?",
+"o": [
+"No cross-species risk",
+"Frequent cross-species transmission between dogs and humans",
+"Giardia is non-zoonotic in dogs",
+"Only immunocompromised cats are at risk"
+],
+"a": 1,
+"e": "Finding zoonotic assemblages indicates potential public-health risk and cross-species transmission.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "What treatment did the study recommend for sheltered dogs with triple blood pathogen infection (Babesia vogeli, Ehrlichia canis, Anaplasma platys)?",
+"o": [
+"Imidocarb plus doxycycline combination",
+"Doxycycline monotherapy for 28 days",
+"A single dose of doxycycline",
+"Azithromycin for 14 days"
+],
+"a": 1,
+"e": "The authors proposed 28-day doxycycline monotherapy to clear all pathogens.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Which hematologic abnormalities were most common in the triple-infected dogs?",
+"o": [
+"Leukocytosis and polycythemia",
+"Anemia and thrombocytopenia",
+"Eosinophilia only",
+"No abnormalities"
+],
+"a": 1,
+"e": "Most dogs showed anemia and thrombocytopenia.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "By what day were all pathogens cleared by PCR after starting doxycycline?",
+"o": [
+"Day 7",
+"Day 14",
+"Day 28",
+"Day 70"
+],
+"a": 2,
+"e": "Pathogens were undetectable by day 14 and fully cleared by day 28.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Against Ancylostoma caninum, which treatment had the poorest efficacy in this trial?",
+"o": [
+"Ivermectin",
+"Moxidectin",
+"Oxibendazole",
+"Afoxolaner"
+],
+"a": 2,
+"e": "Oxibendazole cleared only 9% of dogs, making it inept against A. caninum.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Why was off-label ivermectin deemed unsuitable in this program?",
+"o": [
+"It failed against hookworms",
+"It had poor efficacy against ectoparasites",
+"It caused toxicity",
+"It worked only with collars"
+],
+"a": 1,
+"e": "Ivermectin eliminated 0% of ectoparasite infestations, unsuitable for that purpose.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Which agents appeared suitable for ectoparasite control?",
+"o": [
+"Oxibendazole and ivermectin",
+"Afoxolaner and imidacloprid/flumethrin collars",
+"Moxidectin alone",
+"Praziquantel and ivermectin"
+],
+"a": 1,
+"e": "Afoxolaner and imidacloprid/flumethrin collars effectively eliminated ectoparasites.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "What was the overall T. gondii seroprevalence among the symptomatic cats living with women of childbearing age?",
+"o": [
+"About 6%",
+"About 11%",
+"About 21%",
+"About 45%"
+],
+"a": 2,
+"e": "31 of 150 cats (20.7%) were seropositive overall.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Which clinical signs were significantly associated with IgM-only (recent/active) positivity?",
+"o": [
+"Dermatologic signs",
+"Neurological or ocular signs",
+"Cardiac signs",
+"Reproductive signs"
+],
+"a": 1,
+"e": "Neurological and ocular signs were significantly associated with IgM-only positivity.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "What public-health conclusion did the authors draw?",
+"o": [
+"Cats pose no toxoplasmosis risk to households",
+"Cats with women of childbearing age are at risk and awareness should stay high",
+"IgG positivity rules out infection",
+"Only outdoor cats matter"
+],
+"a": 1,
+"e": "The study concluded these cats are at risk and toxoplasmosis awareness should remain high to protect public health.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "What was the conclusion regarding oral lotilaner for Otodectes cynotis in ferrets?",
+"o": [
+"Ineffective and poorly tolerated",
+"Safe, efficient, and satisfactory treatment",
+"Effective only with two extra doses",
+"Caused frequent adverse effects"
+],
+"a": 1,
+"e": "Lotilaner was a safe, efficient, easy, and satisfactory treatment with no adverse effects.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "By Day 28 after lotilaner dosing, what were the mean adult/nymph mite counts in the ferrets?",
+"o": [
+"Unchanged from baseline",
+"Reduced to zero",
+"Roughly halved",
+"Increased"
+],
+"a": 1,
+"e": "Mean adult/nymph counts fell from 11.2 at D0 to 0 at D28.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "How did quality-of-life scores change by Day 56?",
+"o": [
+"Worsened",
+"Stayed at baseline",
+"Improved from 4.5/18 to 0",
+"Could not be assessed"
+],
+"a": 2,
+"e": "Mean QoL impact dropped significantly from 4.5/18 at D0 to 0 at D56.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "In dogs, which Leptospira serogroup had significantly higher seroprevalence than other pathogenic serogroups?",
+"o": [
+"Icterohaemorrhagiae",
+"Canicola",
+"Pomona",
+"Australis"
+],
+"a": 1,
+"e": "L. interrogans serogroup Canicola prevalence was significantly higher in dogs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What role can asymptomatic domestic dogs and cats play regarding leptospires, per the review?",
+"o": [
+"No epidemiological role",
+"Reservoirs or sentinels of environmental contamination",
+"Definitive hosts only",
+"Dead-end hosts with no transmission"
+],
+"a": 1,
+"e": "Pets may act as reservoirs or sentinels of environmental Leptospira contamination.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Which serogroup was significantly more prevalent in stray/sheltered dogs than domiciled dogs?",
+"o": [
+"Grippotyphosa (L. kirschneri)",
+"Canicola",
+"Bratislava",
+"Hardjo"
+],
+"a": 0,
+"e": "Moderator analysis showed Grippotyphosa was higher in stray/sheltered dogs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "What did the study conclude about the reliability of the Feline Grimace Scale across different rater groups?",
+"o": [
+"Reliable only for veterinarians",
+"Reliable when used by individuals with different experience levels",
+"Unreliable for owners",
+"Reliable only after extensive training"
+],
+"a": 1,
+"e": "The FGS showed good inter-rater reliability and very good agreement with veterinarians across owners, students, and nurses.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Which FGS facial action units yielded the lowest reliability?",
+"o": [
+"Ear and head position",
+"Muzzle tension and whiskers position",
+"Orbital tightening",
+"Overall final score"
+],
+"a": 1,
+"e": "Muzzle and whiskers had lower reliability (ICC 0.39 to 0.74).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Which rater characteristic significantly affected FGS scores?",
+"o": [
+"Number of cats owned",
+"Rater age",
+"Rater gender (females scored higher)",
+"Years of clinical experience"
+],
+"a": 2,
+"e": "Female raters assigned higher scores; age and number of cats owned had no effect.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "In this trial, robenacoxib in cats with degenerative joint disease-associated pain produced what outcome on owner-assessed disability vs placebo?",
+"o": [
+"No change",
+"A significant ~49% reduction",
+"A significant worsening",
+"An improvement only in sedated cats"
+],
+"a": 1,
+"e": "Robenacoxib significantly decreased owner-assessed disability by ~49% at 6 weeks.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "How did adverse-effect frequency compare between robenacoxib and placebo groups?",
+"o": [
+"Markedly higher with robenacoxib",
+"Similar across groups",
+"Higher with placebo",
+"Not assessed"
+],
+"a": 1,
+"e": "Adverse effect frequencies were similar across treatment groups.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Besides disability, which outcomes significantly improved with robenacoxib at 6 weeks?",
+"o": [
+"Body weight and appetite",
+"Temperament and happiness",
+"Coat quality and grooming",
+"Sleep duration"
+],
+"a": 1,
+"e": "Robenacoxib significantly improved owner-rated temperament and happiness at 6 weeks.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "What did this pilot study conclude about transdermal gabapentin in cats?",
+"o": [
+"It is not absorbed through feline skin",
+"It penetrates skin, is systemically absorbed, and may decrease pain",
+"It worsens pain scores",
+"It is only absorbed when given IV"
+],
+"a": 1,
+"e": "Gabapentin penetrated feline skin in vitro, was systemically absorbed, and may decrease pain scores.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "At which timepoint were pain scores NO longer significantly different from predose?",
+"o": [
+"Day 1",
+"Day 5",
+"Day 8",
+"Day 2"
+],
+"a": 2,
+"e": "No difference in pain scores was seen from predose to day 8 (P = .3).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Where was gabapentin detected in the sampled cats?",
+"o": [
+"Only in cervical-skin samples",
+"In all samples",
+"Only in vitro, never in vivo",
+"Only at the highest dose"
+],
+"a": 1,
+"e": "Gabapentin was identified in all samples collected.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "How did frunevetmab (anti-NGF antibody) compare to placebo for feline DJD pain?",
+"o": [
+"No difference on any measure",
+"Improved owner-rated mobility, supported by accelerometry",
+"Worse mobility than placebo",
+"Effective only by IV route"
+],
+"a": 1,
+"e": "Frunevetmab improved owner mobility ratings over placebo, corroborated by objective accelerometry.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Did route of administration (SC vs IV) affect frunevetmab efficacy?",
+"o": [
+"Yes, IV was far superior",
+"No difference between routes",
+"SC was ineffective",
+"Only IV produced any benefit"
+],
+"a": 1,
+"e": "No difference in efficacy was found between SC and IV administration routes.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Most adverse events in the study were attributed to what?",
+"o": [
+"Injection-site abscesses",
+"Dermatitis/alopecia from activity-monitor collars",
+"Renal failure",
+"Vomiting"
+],
+"a": 1,
+"e": "The majority of adverse events were dermatitis/alopecia related to the activity-monitor collars.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "In this pooled safety analysis, how did robenacoxib's adverse-event risk compare to placebo over 4-12 weeks?",
+"o": [
+"Significantly higher",
+"Not significantly different",
+"Significantly lower",
+"Higher only in young cats"
+],
+"a": 1,
+"e": "The number of cats with at least one AE did not differ significantly between robenacoxib and placebo.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "What serum change was noted with robenacoxib vs placebo?",
+"o": [
+"Lower creatinine",
+"Slightly higher creatinine without related clinical effects",
+"Marked azotemia with clinical signs",
+"No biochemical changes"
+],
+"a": 1,
+"e": "Serum creatinine was modestly higher with robenacoxib but no related adverse clinical effects were detected.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "In the subgroup with chronic kidney disease, robenacoxib's relative risk of an AE was:",
+"o": [
+"Greatly elevated",
+"Near 1 (not significantly increased)",
+"Reduced by half",
+"Not calculable"
+],
+"a": 1,
+"e": "In CKD cats the relative risk was 1.09 (P = .61), not significantly increased.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Comparing targeted local infiltrations during cat OVH, early postoperative pain scores were:",
+"o": [
+"Far lower with bupivacaine alone",
+"Similar among all four agents",
+"Highest with meloxicam",
+"Only measurable in the dexamethasone group"
+],
+"a": 1,
+"e": "Early postoperative pain scores were similar across bupivacaine, BLE, dexamethasone, and meloxicam groups.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "At 3 hours post-recovery, which group had significantly lower pain scores?",
+"o": [
+"Meloxicam vs BLE",
+"BLE vs bupivacaine",
+"Dexamethasone vs meloxicam",
+"No group differed"
+],
+"a": 0,
+"e": "At 3 h the meloxicam group had significantly lower pain scores than the BLE group.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "How did pain scores at 1 h compare to 3 h post-recovery across groups?",
+"o": [
+"1 h significantly higher than 3 h",
+"3 h significantly higher than 1 h",
+"No change over time",
+"Pain only appeared at 3 h"
+],
+"a": 0,
+"e": "Overall pain scores 1 h post-recovery were significantly higher than at 3 h.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "What was found regarding correlation between mechanical thresholds and CMPS-Feline scores?",
+"o": [
+"Strong positive correlation",
+"No correlation",
+"Strong negative correlation",
+"Correlation only preoperatively"
+],
+"a": 1,
+"e": "There was no correlation between mechanical thresholds and CMPS-Feline scores.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Comparing preoperative and postoperative mechanical thresholds (MT) measured in the surgical area, the study found:",
+"o": [
+"Preoperative MT (340 g) were significantly higher than postoperative (233 g)",
+"Postoperative MT were significantly higher than preoperative",
+"No significant difference between timepoints",
+"MT could not be measured postoperatively"
+],
+"a": 0,
+"e": "Preoperative MT (340 g) were significantly higher than postoperatively (233 g; P = 0.001).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Inter-observer agreement for postoperative CMPS-Feline scoring was described as:",
+"o": [
+"Excellent",
+"Poor",
+"Perfect",
+"Not assessed"
+],
+"a": 1,
+"e": "Inter-observer agreement was poor for the postoperative CMPS-Feline evaluations.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "After cat OVH, how did grapiprant compare with carprofen for early analgesia?",
+"o": [
+"Grapiprant superior",
+"Grapiprant did not provide adequate analgesia in the first 3 h vs carprofen",
+"Both failed completely",
+"Grapiprant better only at q12h dosing"
+],
+"a": 1,
+"e": "Grapiprant did not provide adequate analgesia during the first 3 h postoperatively compared with carprofen.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Rescue analgesia requirement was highest in which group(s)?",
+"o": [
+"Carprofen",
+"Grapiprant (GRA1/GRA2)",
+"Equal across all",
+"Neither needed rescue"
+],
+"a": 1,
+"e": "67% of grapiprant cats needed rescue vs 18% of carprofen cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Did giving grapiprant every 12 h instead of every 24 h add benefit?",
+"o": [
+"Yes, markedly",
+"No additional benefit observed",
+"It worsened bloodwork",
+"Only for renal values"
+],
+"a": 1,
+"e": "No benefit was observed by administering grapiprant every 12 h.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "In cats on propofol TIVA, dexmedetomidine produced what propofol-sparing effect?",
+"o": [
+"About 10%",
+"About 30%",
+"Roughly 71-75%",
+"None"
+],
+"a": 2,
+"e": "Dexmedetomidine produced a propofol-sparing effect of ~71-75% across the Dex groups.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Which group most frequently required intraoperative rescue analgesia (fentanyl)?",
+"o": [
+"Dex 1",
+"Dex 3",
+"Dex 5",
+"Prop (saline) group"
+],
+"a": 3,
+"e": "Rescue intraoperative analgesia was most frequent in the propofol-only (Prop) group.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Which group had the worst anesthetic recovery quality scores?",
+"o": [
+"Dex 1",
+"Dex 5",
+"Prop group",
+"Dex 3"
+],
+"a": 2,
+"e": "The Prop group scored the worst recovery quality (median 1).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Comparing opioid-sparing (with buprenorphine) vs opioid-free anesthesia in cat OVH, rescue analgesia prevalence was:",
+"o": [
+"Lower in the opioid-sparing group",
+"Lower in the opioid-free group",
+"Identical in both",
+"Higher in the opioid-sparing group"
+],
+"a": 0,
+"e": "No opioid-sparing cats (0/13) needed rescue vs 5/14 opioid-free cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "What was concluded about opioid-free injectable anesthesia in this study?",
+"o": [
+"Adequate for all cats",
+"Appropriate for some cats but a single IM buprenorphine dose ensured adequate analgesia",
+"Caused excessive sedation",
+"Was contraindicated"
+],
+"a": 1,
+"e": "Opioid-free anesthesia worked for some cats, but a single IM buprenorphine dose eliminated the need for rescue analgesia.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Feline Grimace Scale scores in the opioid-free group at 1-2 h postoperatively were:",
+"o": [
+"Higher than baseline",
+"Lower than baseline",
+"Unchanged",
+"Not recorded"
+],
+"a": 0,
+"e": "FGS scores were higher than baseline at 1 and 2 h in the opioid-free group, but not in the opioid-sparing group.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "In anesthetized dogs given a noxious interdigital clamp, the respiratory Drive (VT/Ti) parameter:",
+"o": [
+"Showed no change in any dog",
+"Appeared to increase, mainly in dogs that did not move during a full 60 s stimulus",
+"Decreased uniformly",
+"Could not be measured"
+],
+"a": 1,
+"e": "Drive appeared to increase only in dogs that did not move and were clamped for the full 60 s.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "What happened to the Timing parameter after morphine administration?",
+"o": [
+"It decreased sharply",
+"It seemed to increase",
+"No change at all",
+"It became negative"
+],
+"a": 1,
+"e": "Timing seemed to increase after morphine administration.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "The authors' overall conclusion about Drive as a nociception monitor was that it:",
+"o": [
+"Is a fully validated reliable monitor",
+"Needs further in-depth study to determine sensitivity",
+"Is useless",
+"Only works without opioids"
+],
+"a": 1,
+"e": "Drive needs further study to determine its sensitivity and precocity for monitoring acute nociception.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "After rabbit orchidectomy, the Rabbit Grimace Scale was found to be:",
+"o": [
+"Ineffective for detecting pain",
+"An effective tool for identifying when rabbits are painful",
+"Useful only in NZW rabbits at 5 h",
+"Inferior to no assessment"
+],
+"a": 1,
+"e": "Using behavior as the gold standard, the RbtGS effectively identified painful rabbits after orchidectomy.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Which analgesic regimen reduced pain more effectively in Dutch belted rabbits?",
+"o": [
+"Low-dose meloxicam (0.2 mg/kg) alone",
+"High-dose meloxicam (0.6 mg/kg) plus local anesthetic",
+"No analgesia",
+"Local anesthetic alone"
+],
+"a": 1,
+"e": "High-dose meloxicam combined with lidocaine/bupivacaine reduced pain more than low-dose meloxicam alone.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Pain-associated behaviors significantly increased at which postoperative timepoints?",
+"o": [
+"1 and 5 h",
+"24 and 48 h",
+"Only at 1 h",
+"Only at 5 h"
+],
+"a": 0,
+"e": "Rabbits showed significant increases in pain behaviors at 1 and 5 h post-surgery.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Adding reflective blankets and wool socks during canine celiotomy resulted in:",
+"o": [
+"Lower esophageal temperatures",
+"Significantly higher esophageal temperatures than routine support alone",
+"No measurable difference",
+"Hyperthermia requiring cooling"
+],
+"a": 1,
+"e": "The supplemental group maintained significantly higher esophageal temperatures than the control group.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "The lowest temperature in the supplemental group, adjusted for covariates, was higher than control by approximately:",
+"o": [
+"0.1 C",
+"0.8 C",
+"3.0 C",
+"No difference"
+],
+"a": 1,
+"e": "The adjusted lowest temperature was significantly higher by 0.8 C in the supplemental group.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "The authors characterized supplemental reflective blankets/wool socks as:",
+"o": [
+"An expensive specialty intervention",
+"An affordable passive heat-support method to minimize perioperative hypothermia",
+"Effective only in cats",
+"Ineffective passive warming"
+],
+"a": 1,
+"e": "It is described as an affordable adjunctive passive heat-support method to minimize perioperative hypothermia.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "In kittens undergoing OVH under ketamine-dexmedetomidine-midazolam, what did adding meloxicam plus intraperitoneal bupivacaine accomplish?",
+"o": [
+"Increased the need for rescue analgesia",
+"Almost eliminated the need for rescue analgesia",
+"Had no effect on postoperative pain scores",
+"Prolonged anesthetic recovery"
+],
+"a": 1,
+"e": "The multimodal group needed rescue analgesia in only 1/14 cats vs 15/15 controls.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "How did postoperative pain affect kittens in this trial?",
+"o": [
+"It increased soft food intake",
+"It had no effect on eating",
+"It decreased food intake",
+"It caused vomiting"
+],
+"a": 2,
+"e": "The study concluded pain decreased food intake, with the multimodal group eating more.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "What does this trial suggest about opioid-free anesthesia for kitten OVH?",
+"o": [
+"It is inadequate without opioids",
+"It can provide adequate pain relief when combined with multimodal analgesia",
+"It requires reversal with naloxone",
+"It increases postoperative hypothermia"
+],
+"a": 1,
+"e": "The opioid-free protocol with multimodal analgesia produced adequate postoperative pain relief.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "The Spritztube evaluated in this study is what type of device, adapted for rabbits?",
+"o": [
+"A cuffed endotracheal tube",
+"An extraglottic/supraglottic airway device",
+"A tracheostomy cannula",
+"A nasal oxygen catheter"
+],
+"a": 1,
+"e": "The Spritztube is an extraglottic airway device originally developed for humans, here adapted as a supraglottic device for rabbits.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "How was correct Spritztube placement confirmed in all 14 rabbits?",
+"o": [
+"Detection of airflow alone",
+"Visualization of a capnographic wave",
+"Radiography",
+"Auscultation only"
+],
+"a": 1,
+"e": "A capnographic wave and proximal cuff visualization confirmed placement in 14/14 rabbits; airflow detection only worked in 9/14.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "What was the principal complication reported with Spritztube placement?",
+"o": [
+"Esophageal rupture",
+"Cardiac arrest",
+"Respiratory distress in one rabbit",
+"Aspiration pneumonia in most rabbits"
+],
+"a": 2,
+"e": "Only one of 14 rabbits developed respiratory distress after placement.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "What was the conclusion regarding undiluted intraperitoneal and incisional ropivacaine after major canine abdominal surgery?",
+"o": [
+"It markedly reduced postoperative pain",
+"It was not beneficial for postoperative analgesia",
+"It eliminated the need for opioids",
+"It improved mechanical nociceptive thresholds"
+],
+"a": 1,
+"e": "Undiluted ropivacaine IP and incisional provided no analgesic benefit.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Which group required rescue analgesia in this trial?",
+"o": [
+"Only the saline group",
+"Neither group",
+"3 of 8 dogs in the ropivacaine group and none in saline",
+"All dogs equally"
+],
+"a": 2,
+"e": "Rescue analgesia was given to 3/8 ropivacaine dogs and 0/8 saline dogs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Beyond sedation, what additional role of dexmedetomidine is highlighted in this review?",
+"o": [
+"Antibiotic activity",
+"Effective analgesia, including as a locoregional adjuvant",
+"Antiemetic only",
+"Neuromuscular blockade"
+],
+"a": 1,
+"e": "Dexmedetomidine is described as an effective analgesic and a locoregional anesthesia adjuvant that prolongs sensory block.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "What organ-protective properties does the review attribute to dexmedetomidine, supporting its use in critical care?",
+"o": [
+"Hepatoprotective and renoprotective",
+"Neuroprotective, cardioprotective and vasculoprotective",
+"Pulmonary surfactant production",
+"Hematopoietic stimulation"
+],
+"a": 1,
+"e": "The review cites potential neuroprotective, cardioprotective and vasculoprotective roles for trauma and septic patients.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "How does dexmedetomidine affect locoregional anesthesia when used as an adjuvant?",
+"o": [
+"Shortens the sensory block",
+"Increases the duration of the sensory block and reduces systemic analgesic demand",
+"Has no effect on block duration",
+"Requires higher opioid doses"
+],
+"a": 1,
+"e": "As an adjuvant it increases sensory block duration and decreases demand for systemic analgesics.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Adding a heated humidified breathing circuit to a warm water blanket had what effect on dogs undergoing OVH?",
+"o": [
+"Increased the incidence of hypothermia",
+"Reduced the incidence of postanesthetic hypothermia",
+"Had no effect on body temperature",
+"Caused hyperthermia"
+],
+"a": 1,
+"e": "The HHBC plus WWB combination reduced postanesthetic hypothermia.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "What was the incidence of hypothermia at extubation in the HHBC group versus controls?",
+"o": [
+"66.7% vs 12.5%",
+"12.5% vs 66.7%",
+"Equal in both groups",
+"Zero in both groups"
+],
+"a": 1,
+"e": "Hypothermia at extubation was 12.5% in the HHBC group vs 66.7% in controls.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Comparing four endotracheal tube cleaning protocols, what did the study find?",
+"o": [
+"Bleach soak was clearly superior",
+"No statistically significant differences between protocols",
+"Water scrub eliminated all bacteria",
+"Chlorhexidine soak was ineffective"
+],
+"a": 1,
+"e": "Pairwise comparisons revealed no significant differences in post-cleaning bacterial growth between the four protocols.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "What did the survey reveal about ETT reuse practices among veterinary anesthesiologists?",
+"o": [
+"All sterilized tubes before reuse",
+"Half of those reusing tubes did not sterilize them, with widely varying methods",
+"No respondents reused tubes",
+"All used evidence-based protocols"
+],
+"a": 1,
+"e": "Half of respondents who reused ETTs did not sterilize them and cleaning methods varied widely with no evidence-based approach.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "What cardiovascular effect was observed with ketamine-dexmedetomidine plus local anesthesia for feline orchiectomy?",
+"o": [
+"Intraoperative hypertension in all groups",
+"Profound hypotension",
+"No blood pressure change",
+"Bradycardia-induced arrest"
+],
+"a": 0,
+"e": "Hypertension was observed intraoperatively across all groups.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "What effect did postoperative atipamezole have in this study?",
+"o": [
+"Prolonged anesthetic recovery",
+"Shortened anesthetic recovery with no difference between the two doses",
+"Increased side effects at the higher dose",
+"Had no effect on recovery"
+],
+"a": 1,
+"e": "Both atipamezole doses shortened recovery without differences between them or added side effects.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "When did the most rapid decline in body temperature occur in anesthetized dogs?",
+"o": [
+"From 60 to 240 minutes",
+"Within the first 15 minutes",
+"Only after 2 hours",
+"At extubation"
+],
+"a": 1,
+"e": "The most rapid reduction in body temperature occurred within the first 15 minutes of anesthesia.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "What temperature pattern was seen from 60 to 240 minutes of anesthesia?",
+"o": [
+"Continued rapid decline",
+"A plateau",
+"A sharp rebound increase",
+"Erratic fluctuation"
+],
+"a": 1,
+"e": "After the initial decline, body temperature plateaued from 60 to 240 minutes.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "How did oral pregabalin compare to gabapentin for perioperative sedation in cats?",
+"o": [
+"Pregabalin was markedly superior",
+"They produced indistinguishable effects",
+"Gabapentin caused more delirium",
+"Pregabalin shortened recovery significantly"
+],
+"a": 1,
+"e": "At the doses studied the two drugs produced indistinguishable sedation and recovery effects.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "What did the trial find regarding emergence delirium and rescue sedation between the two drugs?",
+"o": [
+"Both were frequent with gabapentin",
+"Both were infrequent and similar for both treatments",
+"Only pregabalin caused delirium",
+"Rescue sedation was never needed"
+],
+"a": 1,
+"e": "Need for rescue sedation and emergence delirium were infrequent and similar for both treatments.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "What Bristol Rabbit Pain Scale score was determined as the practical cut-off for analgesic intervention?",
+"o": [
+"A score of 2",
+"A score of 5",
+"A score of 10",
+"A score of 15"
+],
+"a": 1,
+"e": "Analgesic intervention should be considered at a BRPS score of 5 or greater.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "How did the BRPS perform as a discriminator for the need for analgesia?",
+"o": [
+"Poor discrimination (AUC near 0.5)",
+"Excellent discrimination (AUC 0.85)",
+"No discriminatory value",
+"Perfect discrimination (AUC 1.0)"
+],
+"a": 1,
+"e": "The area under the ROC curve was 0.85, indicating excellent discrimination.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Comparing meloxicam and robenacoxib after feline OVH, what did owner assessments suggest?",
+"o": [
+"Robenacoxib was clearly superior",
+"Both controlled pain, but meloxicam may have improved efficacy",
+"Neither drug controlled pain",
+"Meloxicam caused more abnormal behaviors"
+],
+"a": 1,
+"e": "Both were effective, but the robenacoxib group had more abnormal behaviors and higher pain scores, suggesting meloxicam may be better in some cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "What did the authors conclude about routinely sending all OVH cats home on NSAIDs?",
+"o": [
+"It is always necessary",
+"A blanket prescribing approach may not be necessary",
+"Cats should never receive NSAIDs",
+"Owners cannot assess pain at all"
+],
+"a": 1,
+"e": "Most owners scored pain as 0, suggesting a blanket NSAID approach may not be needed, with cost and safety implications.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "What did this owner survey suggest about postoperative pain management after sterilization?",
+"o": [
+"Cats may be undertreated for pain compared to dogs",
+"Dogs are consistently undertreated",
+"Both species are over-medicated",
+"Analgesics were prescribed for all pets"
+],
+"a": 0,
+"e": "The study concluded postoperative pain in cats may not be appropriately managed relative to dogs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "What proportion of pets were prescribed analgesics at discharge in this high-volume clinic survey?",
+"o": [
+"About 12% overall, with a numerically higher rate in dogs",
+"Over 80% of pets",
+"More cats than dogs",
+"None of the pets"
+],
+"a": 0,
+"e": "Analgesics were prescribed for 19/162 (12%) pets: 16% of dogs vs 6.7% of cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "In dogs breathing room air after general anesthesia, what SpO2 cut-off best identified a PaO2 < 80 mmHg?",
+"o": [
+"< 90%",
+"< 92%",
+"< 95%",
+"< 98%"
+],
+"a": 2,
+"e": "Phase 1 derived a < 95% SpO2 cut-off with 100% sensitivity and 97.4% specificity.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "What was the approximate incidence of transient postoperative hypoxemia in dogs with healthy lungs?",
+"o": [
+"Up to 28%",
+"About 5%",
+"About 50%",
+"About 75%"
+],
+"a": 0,
+"e": "169 of 654 dogs (up to 28%) were hypoxemic after extubation.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Which factor significantly increased the odds of transient postoperative hypoxemia?",
+"o": [
+"Ventral recumbency",
+"Use of PEEP",
+"Low body condition score",
+"Dorsal recumbency"
+],
+"a": 3,
+"e": "Dorsal recumbency, BCS > 3/5, FiO2 of 1, and absence of PEEP all raised TPH risk.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Which dogs showed the greater intraoperative core temperature decline during anesthesia?",
+"o": [
+"Female dogs",
+"Male dogs",
+"Older dogs only",
+"Heavier dogs only"
+],
+"a": 0,
+"e": "Females lost significantly more heat than males at T60, T90, and T120.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Among the covariates assessed, which significantly affected the change in body temperature over time?",
+"o": [
+"Premedication dose",
+"Body weight",
+"Gender",
+"Anesthesia duration"
+],
+"a": 2,
+"e": "Only a time-by-gender interaction was significant; premed dose, weight, age, and duration were not.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "How did female dogs' temperatures compare to males' at recovery?",
+"o": [
+"Lower at recovery",
+"No difference",
+"Higher at recovery",
+"Not measured"
+],
+"a": 2,
+"e": "Despite greater intraoperative loss, female average temperature was higher than males at recovery.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Comparing methadone, morphine, and tramadol for feline ovariohysterectomy, what was the key finding on intraoperative analgesia?",
+"o": [
+"Methadone was clearly superior",
+"All three were insufficient intraop, with no differences between them",
+"Tramadol provided the best intraop coverage",
+"Morphine eliminated the need for rescue"
+],
+"a": 1,
+"e": "77% of cats across all groups needed intraop rescue, with no differences between drugs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "How did the three opioids perform for postoperative analgesia in OVH cats?",
+"o": [
+"All gave satisfactory post-op analgesia up to ~6 h",
+"None provided post-op analgesia",
+"Only methadone worked post-op",
+"Effects lasted over 24 h"
+],
+"a": 0,
+"e": "All three produced satisfactory post-op analgesia lasting up to 6 hours.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Post-anesthetic hyperthermia was most likely in which group?",
+"o": [
+"Methadone",
+"Morphine",
+"Tramadol",
+"No group differed"
+],
+"a": 2,
+"e": "Post-GA hyperthermia was more likely in the tramadol group.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "What did the trial conclude about grapiprant versus robenacoxib for post-OVH pain in cats?",
+"o": [
+"Grapiprant was superior",
+"Grapiprant was non-inferior to robenacoxib",
+"Robenacoxib was superior",
+"Both failed to control pain"
+],
+"a": 1,
+"e": "Confidence intervals stayed within the non-inferiority margins, indicating grapiprant was non-inferior.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "For which surgical approach is grapiprant's analgesic effect established by this study?",
+"o": [
+"Flank ovariohysterectomy",
+"Laparoscopic spay",
+"Ventral celiotomy OVH",
+"Castration"
+],
+"a": 2,
+"e": "Findings apply to OVH via ventral celiotomy; impact for flank OVH remains unknown.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "How did pain scores behave shortly after extubation for both drugs?",
+"o": [
+"Stayed at baseline throughout",
+"Rose at extubation then returned toward baseline",
+"Steadily worsened over 24 h",
+"Were unmeasurable"
+],
+"a": 1,
+"e": "FGS and CMPS-F scores rose at extubation but returned to baseline by about 4 hours.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "What was the overall anesthetic-related mortality rate in this worldwide canine cohort?",
+"o": [
+"0.69%",
+"2.5%",
+"5.1%",
+"0.05%"
+],
+"a": 0,
+"e": "Mortality from premedication to 48 h post-extubation was 0.69%.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "When did most anesthetic-related canine deaths occur?",
+"o": [
+"During induction",
+"Postoperatively",
+"During maintenance",
+"Before premedication"
+],
+"a": 1,
+"e": "81% of deaths occurred in the postoperative period.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Which factor was associated with reduced anesthetic mortality in dogs?",
+"o": [
+"Higher ASA score",
+"Obesity",
+"Use of locoregional anesthesia",
+"Advanced age"
+],
+"a": 2,
+"e": "Locoregional anesthesia and certain drugs lowered mortality, while age, obesity, and ASA raised it.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "What was the anesthetic-related mortality rate in this worldwide feline cohort?",
+"o": [
+"3.2%",
+"0.63%",
+"1.5%",
+"0.06%"
+],
+"a": 1,
+"e": "Feline anesthesia-related mortality was 0.63%, mostly postoperative.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Which intervention was associated with INCREASED mortality in cats?",
+"o": [
+"Alpha2-agonist sedatives",
+"Pure opioids in premedication",
+"Mechanical ventilation",
+"Locoregional techniques"
+],
+"a": 2,
+"e": "Mechanical ventilation use was linked to higher mortality; alpha2-agonists, pure opioids, and locoregional techniques were protective.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Which patient factor elevated feline anesthetic mortality?",
+"o": [
+"Obesity",
+"Cachexia",
+"Young age",
+"Low ASA status"
+],
+"a": 1,
+"e": "Cachexia, higher ASA status, and certain procedures increased mortality risk.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Comparing 70% isopropyl alcohol with chlorhexidine solution as the scrub rinse in feline spays, what was the effect on body temperature?",
+"o": [
+"Alcohol caused clinically significant cooling",
+"Chlorhexidine caused clinically significant cooling",
+"No clinically meaningful difference between rinses",
+"Alcohol prevented all heat loss"
+],
+"a": 2,
+"e": "Recovery temperature and heat loss did not differ meaningfully between the two rinse agents.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Which was a significant predictor of lower recovery temperature in these cats?",
+"o": [
+"Weight < 2.3 kg",
+"High body condition score",
+"Short surgery",
+"Male sex"
+],
+"a": 0,
+"e": "Low weight (<2.3 kg), BCS <4, longer surgery, and lower postinduction temperature predicted lower recovery temp.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "How did PCV/Hct of outwardly healthy juvenile shelter dogs compare to adults?",
+"o": [
+"Higher than adults",
+"Identical to adults",
+"Lower than adults",
+"Unmeasurable"
+],
+"a": 2,
+"e": "Juveniles had lower mean PCV and calculated Hct than adults, regardless of infection/parasite status.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Did these lower juvenile hematologic values typically require postponing spay/castration?",
+"o": [
+"Yes, routinely postponed",
+"No, rarely required postponement",
+"Always required transfusion first",
+"Surgery was contraindicated"
+],
+"a": 1,
+"e": "98.6% proceeded as scheduled; only 2 dogs were postponed (thrombocytopenia or parvovirus).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "How did serum AMH in queens with ovarian remnant syndrome compare to spayed and intact cats?",
+"o": [
+"Higher than spayed but lower than intact",
+"Lower than both",
+"Higher than both",
+"Equal to spayed cats"
+],
+"a": 0,
+"e": "ORS AMH was significantly higher than spayed cats and significantly lower than intact cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What did the study conclude about using a single AMH measurement to diagnose feline ORS?",
+"o": [
+"Useful only if remnant is hormonally active",
+"A single AMH is a useful diagnostic tool regardless of remnant hormonal activity",
+"AMH cannot distinguish ORS",
+"Requires repeated sampling to be reliable"
+],
+"a": 1,
+"e": "A single serum AMH determination was useful for diagnosing ORS irrespective of the remnant's hormonal activity.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "When did peak oestrus and pregnancies occur in the Indian street dog populations studied?",
+"o": [
+"Late/post-monsoon season",
+"Mid-winter only",
+"Pre-monsoon dry season",
+"No seasonal pattern"
+],
+"a": 0,
+"e": "All three cities showed peak oestrus and pregnancy in the late/post-monsoon season, with pups peaking soon after.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Why is this reproductive seasonality relevant to street dog management?",
+"o": [
+"It rules out the need for sterilization",
+"It can inform timing of efficient, welfare-sensitive birth control programs",
+"It shows dogs breed randomly year-round",
+"It supports culling over sterilization"
+],
+"a": 1,
+"e": "The authors assert seasonality is relevant for implementing efficient, welfare-sensitive animal birth control programs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "How did survival to discharge for canine pyometra OHE compare between community clinics and referral hospitals?",
+"o": [
+"Much worse at community clinics",
+"97% overall, with no difference by facility type",
+"Only referral hospitals achieved survival",
+"Community clinics were superior"
+],
+"a": 1,
+"e": "Overall survival to discharge was 97% and did not differ between facility types.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What was the relationship between delay to surgery and survival in these pyometra dogs?",
+"o": [
+"Longer delay sharply reduced survival",
+"Delay was not related to survival to discharge",
+"Same-day discharge increased mortality",
+"Delay improved survival"
+],
+"a": 1,
+"e": "Although referral hospitals operated sooner, the delay was not related to survival to discharge.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What was the survival-to-discharge rate for queens undergoing OHE for pyometra in a nonspecialized setting?",
+"o": [
+"About 75%",
+"About 90%",
+"100%",
+"About 60%"
+],
+"a": 2,
+"e": "All 126 queens treated with OHE survived to hospital discharge (100%).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Which finding was associated with greater odds of uterine rupture in pyometra queens?",
+"o": [
+"High rectal temperature, closed pyometra, or heart murmur",
+"Dehydration alone",
+"Young age",
+"Open pyometra"
+],
+"a": 0,
+"e": "High rectal temperature (OR 35.66), closed pyometra (OR 17.37), and heart murmur (OR 16.06) raised rupture odds.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Which factor predicted longer hospitalization (>= 2 nights) in these queens?",
+"o": [
+"Normal calcium and bright mentation",
+"Abnormal ionized calcium or depressed mentation",
+"Open pyometra",
+"Low rectal temperature"
+],
+"a": 1,
+"e": "Abnormal ionized calcium (OR 4.64) and depressed mentation (OR 2.26) predicted longer hospitalization.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Bitches with pyometra treated by ovariohysterectomy in a nonspecialized setting had a survival-to-discharge rate of approximately:",
+"o": [
+"60%",
+"78%",
+"97%",
+"85%"
+],
+"a": 2,
+"e": "Survival to hospital discharge was 97% (394/405).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Which findings were associated with greater odds of death after OHE for pyometra?",
+"o": [
+"High BUN or a heart murmur",
+"Young age and low body weight",
+"Short surgery duration",
+"Low body temperature"
+],
+"a": 0,
+"e": "High BUN concentration or a heart murmur conferred greater odds of death (though predictive power was low).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What was the study's main clinical message?",
+"o": [
+"Pyometra should be referred to specialty centers only",
+"Medical management outperforms surgery",
+"General practitioners can expect similarly high survival outcomes",
+"Outcomes were poor outside referral hospitals"
+],
+"a": 2,
+"e": "High survival in a nonspecialized setting means GPs can expect comparable results, widening access to this treatment.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "How did most owners rate their pet's health and quality of life after OHE for pyometra?",
+"o": [
+"Better or the same as before pyometra",
+"Markedly worse",
+"Unchanged but burdened by chronic disease",
+"Too variable to assess"
+],
+"a": 0,
+"e": "Most owners reported health and QoL were better or the same as before pyometra.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "How did long-term outcomes compare between pets older than 8 years versus 8 years or younger at surgery?",
+"o": [
+"Worse in older pets",
+"Similar between age groups",
+"Better in older pets",
+"Not comparable"
+],
+"a": 1,
+"e": "Reported health and QoL outcomes were similar for pets >8 versus 8 years of age.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What did the authors conclude about older bitches and queens undergoing OHE for pyometra?",
+"o": [
+"They have markedly shortened survival",
+"Surgery should be avoided in seniors",
+"Without other severe issues they can expect a full life span",
+"QoL inevitably declines after surgery"
+],
+"a": 2,
+"e": "Older animals without other severe health issues can expect to live their full life span.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Did mild to moderate leukocytosis preclude elective surgery in shelter dogs?",
+"o": [
+"Yes, surgery was routinely canceled",
+"No, surgery proceeded safely in all such dogs",
+"Only adults could proceed",
+"Only with antibiotic pretreatment"
+],
+"a": 1,
+"e": "Surgery proceeded successfully for all dogs with leukocytosis.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What did the authors recommend regarding preoperative CBC in shelter dogs?",
+"o": [
+"Reserve it for ill-appearing dogs, not as a screening test",
+"Perform on every dog before surgery",
+"Use only in adults over 6 months",
+"Abandon CBC entirely"
+],
+"a": 0,
+"e": "A CBC should be reserved for ill-appearing dogs rather than used as a screen, with age-specific reference intervals considered.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "How did leukocyte counts in dogs under 3 months compare with dogs over 6 months?",
+"o": [
+"Lower",
+"Identical",
+"Higher",
+"Undetectable"
+],
+"a": 2,
+"e": "Dogs <3 months had higher median leukocyte and lymphocyte counts than dogs >6 months.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Which intervention significantly slowed the rate of rectal temperature decline in cats during OVH anesthesia?",
+"o": [
+"Passive cotton toddler socks",
+"Active heated toddler socks",
+"Both equally",
+"Neither"
+],
+"a": 1,
+"e": "The active (heated socks) group had a significantly slower rate of temperature decrease than the other groups.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What was found for plain (unheated) cotton toddler socks?",
+"o": [
+"They did not slow the rate of temperature decrease",
+"They caused hyperthermia",
+"They outperformed heated socks",
+"They were the only effective option"
+],
+"a": 0,
+"e": "Cotton toddler socks alone did not slow the rate of temperature decrease versus control.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What happened to participants' knowledge scores after the 12-day surgical-neutering programme?",
+"o": [
+"They decreased",
+"They were unchanged",
+"They increased significantly",
+"Only anesthesia scores changed"
+],
+"a": 2,
+"e": "Total knowledge scores rose significantly (mean ~19 to ~28), with gains in all categories.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "How did participants' self-rated confidence in the five common surgical procedures change?",
+"o": [
+"Increased for all five procedures",
+"Decreased overall",
+"Unchanged",
+"Increased for only one procedure"
+],
+"a": 0,
+"e": "Self-rated confidence increased for all five procedures after training.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What did the study conclude about targeted neutering training for veterinarians?",
+"o": [
+"It is ineffective for routine procedures",
+"It can improve knowledge and confidence in canine surgical neutering",
+"It only benefits new graduates",
+"It reduced surgical competency"
+],
+"a": 1,
+"e": "A targeted programme improved knowledge and confidence, offering a way to build surgical expertise for population-management work.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What was the incidence of stump pyometra after laparoscopic-assisted ovary-sparing spay (LapOSS)?",
+"o": [
+"No dogs developed stump pyometra",
+"Higher than after ovariectomy",
+"Roughly one-third of dogs",
+"Half of dogs"
+],
+"a": 0,
+"e": "No dogs in either group developed stump pyometra during follow-up.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What must owners be counseled about before ovary-sparing spay?",
+"o": [
+"Increased pyometra risk",
+"A shortened lifespan",
+"Consequences of retained gonadal hormones and repeated heat cycles",
+"Need for lifelong antibiotics"
+],
+"a": 2,
+"e": "Owners must be counseled on the consequences of gonadal hormone retention and multiple heat cycles.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Compared with c-section alone, did concurrent OVH (CSOVH) increase mortality or reduce mothering ability?",
+"o": [
+"Yes, mortality rose sharply",
+"Yes, mothering ability declined",
+"No significant difference in either",
+"Puppy survival fell markedly"
+],
+"a": 2,
+"e": "There was no difference in maternal survival, complications, mothering ability, or puppy survival to weaning.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What differences were seen with CSOVH that the authors deemed clinically insignificant?",
+"o": [
+"Shorter surgery and faster nursing",
+"Longer surgery time and longer delivery-to-nursing time",
+"Lower puppy survival",
+"Higher anesthetic mortality"
+],
+"a": 1,
+"e": "CSOVH had longer surgery and delivery-to-nursing times, judged clinically insignificant; CSOVH bitches were perceived as more painful.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What was the authors' recommendation?",
+"o": [
+"Avoid OVH at the time of c-section",
+"Perform OVH concurrently with c-section if indicated, with good pain control",
+"Delay all spays until after weaning",
+"Reserve CSOVH for emergencies only"
+],
+"a": 1,
+"e": "OVH should be performed with c-section if indicated, emphasizing postoperative analgesia.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Which agent provided better and longer-lasting postoperative analgesia after major abdominal surgery in dogs?",
+"o": [
+"Saline",
+"Lidocaine",
+"Ropivacaine",
+"All were equal"
+],
+"a": 2,
+"e": "Ropivacaine gave lower pain scores than lidocaine and saline and lasted up to 24 hours.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Which group most often required rescue analgesia?",
+"o": [
+"The saline control group",
+"The ropivacaine group",
+"The lidocaine group",
+"None required rescue"
+],
+"a": 0,
+"e": "Rescue analgesia was needed in 8/10 control dogs versus 1/10 ropivacaine and 5/11 lidocaine.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "What did the authors recommend for major abdominal surgery in dogs?",
+"o": [
+"Systemic opioids alone",
+"Intraperitoneal and incisional ropivacaine",
+"Avoiding local anesthetics",
+"Lidocaine over ropivacaine"
+],
+"a": 1,
+"e": "Intraperitoneal and incisional ropivacaine was recommended for its superior, longer analgesia.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Which feline ovarian pedicle ligation method was taught by the vast majority of responding AAVMC schools?",
+"o": [
+"Autoligation (pedicle tie)",
+"Double ligation of the pedicle",
+"Stapling devices",
+"No ligation at all"
+],
+"a": 1,
+"e": "Double ligation was taught by 34/35 (97.1%) of responding schools.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Approximately what fraction of responding schools reported teaching autoligation (pedicle tie)?",
+"o": [
+"About half (~49%)",
+"Nearly all (~97%)",
+"About 10%",
+"None"
+],
+"a": 0,
+"e": "Autoligation was taught by 17/35 (48.6%) of respondents.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What was the study's overall conclusion?",
+"o": [
+"Both techniques are taught equally",
+"Significantly fewer schools teach autoligation than double ligation",
+"Most schools have abandoned double ligation",
+"Autoligation is the dominant method taught"
+],
+"a": 1,
+"e": "Significantly fewer institutions teach autoligation than double ligation of the feline ovarian pedicle.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What were the main reasons Turkish veterinarians gave for performing pregnancy termination in dogs?",
+"o": [
+"Strict legal mandates",
+"Institutional obligations and owner demand",
+"Documented fetal abnormalities",
+"Public health orders"
+],
+"a": 1,
+"e": "The main reasons were 'institutional obligations' and 'demand of the animal owner.'",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What does Turkish veterinary law specify about the timing of pregnancy termination in dogs?",
+"o": [
+"No time constraints exist",
+"Termination is banned outright",
+"Only a first-trimester window is allowed",
+"It requires court approval"
+],
+"a": 0,
+"e": "No time constraints exist in Turkish law for terminating canine pregnancies.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "The cut-off points veterinarians used for termination ranged across which set of criteria?",
+"o": [
+"Body weight categories",
+"Possibility of pregnancy, implantation/visibility, heartbeat, and viability",
+"Breed and size only",
+"Owner income brackets"
+],
+"a": 1,
+"e": "Cut-offs cited were possibility of pregnancy, implantation/diagnosability/visibility, heartbeat, and viability.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "How was higher reading-grade level (harder readability) of discharge instructions related to outcomes after sterilisation?",
+"o": [
+"Associated with more complications",
+"Associated with fewer complications",
+"No association at all",
+"Associated only with shorter stays"
+],
+"a": 0,
+"e": "Higher Flesch-Kincaid grade level was associated with greater complication occurrence overall.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "In which species was the readability-complication association significant?",
+"o": [
+"Cats but not dogs",
+"Dogs but not cats",
+"Both species equally",
+"Neither species"
+],
+"a": 1,
+"e": "FRE and FKGL were associated with complications in dogs but not cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What proportion of discharge instructions met the recommended human readability level (grade 6 or below)?",
+"o": [
+"Only about 2%",
+"About half",
+"About 98%",
+"Nearly all"
+],
+"a": 0,
+"e": "Only 2% met the recommended readability level; 98% were above grade 6.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "What proportion of private practices reported reluctance to refer pyometra cases to an HQHVSN clinic?",
+"o": [
+"About 20%",
+"About 50%",
+"About 80%",
+"Almost none"
+],
+"a": 2,
+"e": "80% of private practices would be reluctant to refer to an HQHVSN clinic.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "What did most HQHVSN clinics report about their capacity to treat referred pyometra cases?",
+"o": [
+"They rarely have adequate resources",
+"Most accept referrals same or next day and 95% have needed resources",
+"They cannot accept outside referrals",
+"They refer all pyometras onward"
+],
+"a": 1,
+"e": "Most HQHVSNCs accept referrals same (50%) or next (30%) day, and 95% reported resources to treat most pyometras.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "What was the study's conclusion about partnership between practice types?",
+"o": [
+"No collaboration is feasible",
+"PP concerns were largely unfounded or fixable, with referral-then-transfer-back opportunities",
+"Pyometra should only be treated at private practices",
+"HQHVSN clinics should stop accepting referrals"
+],
+"a": 1,
+"e": "PP concerns were not shared by HQHVSNCs or could be solved by referring for surgery and transferring back for aftercare.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "In a HQHVSN ovariohysterectomy trial, which suture allowed faster three-layer continuous incisional closure?",
+"o": [
+"Smooth monofilament suture",
+"Barbed suture",
+"No difference between the two",
+"Stapled closure"
+],
+"a": 1,
+"e": "Barbed suture averaged 4.91 min vs 6.5 min for smooth monofilament.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Besides suture method, what was significantly associated with closure time?",
+"o": [
+"Body condition score",
+"Body weight",
+"Pre-closure incision length",
+"Surgeon experience"
+],
+"a": 2,
+"e": "Each additional cm of incision added ~39 s; BCS and weight were not significant.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What was the short-term complication finding between the two suture types?",
+"o": [
+"Barbed suture had more dehiscence",
+"Monofilament had more infections",
+"No telemedicine-assessed complication difference",
+"Barbed suture had more hemorrhage"
+],
+"a": 2,
+"e": "No short-term telemedicine-assessed complications were noted with either method.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "What is the treatment of choice for canine pyometra?",
+"o": [
+"Ovariohysterectomy",
+"Antibiotics alone",
+"Prostaglandin medical management",
+"Watchful waiting"
+],
+"a": 0,
+"e": "OVH, often with perioperative antimicrobials, is definitive.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "What did outcomes suggest about antibiotic susceptibility after OVH for pyometra?",
+"o": [
+"Recovery required a fully susceptible antibiotic",
+"Good recovery occurred even with non-susceptible antibiotics",
+"All bitches relapsed without susceptibility-guided therapy",
+"Surgery alone was insufficient"
+],
+"a": 1,
+"e": "All animals recovered well even though 30% never received a fully effective antibiotic by MIC.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Which organism was most frequently isolated, and the suggested best option?",
+"o": [
+"Staphylococcus, with enrofloxacin",
+"E. coli, with cephazolin",
+"Proteus, with amoxicillin",
+"Klebsiella, with doxycycline"
+],
+"a": 1,
+"e": "E. coli was most common; cephazolin was the best option for it.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Which PDX suture size could NOT be recommended for feline ventral midline closure?",
+"o": [
+"2-0",
+"3-0",
+"4-0",
+"5-0"
+],
+"a": 3,
+"e": "5-0 PDX failed by suture breakage in 6/8 samples.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Which sizes can be used without reservation for cat coeliotomy closure?",
+"o": [
+"2-0 and 3-0",
+"4-0 and 5-0",
+"5-0 only",
+"3-0 and 5-0"
+],
+"a": 0,
+"e": "PDX 2-0 and 3-0 were recommended without reservation; 4-0 with caution.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "How did suture-material failure risk relate to suture diameter?",
+"o": [
+"Increased with larger diameter",
+"Unrelated to diameter",
+"Increased with decreasing diameter",
+"Only the abdominal wall failed regardless"
+],
+"a": 2,
+"e": "Risk of suture material failure increased as diameter decreased.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Comparing midline vs flank ovariectomy in feral cats, which was true of the flank approach?",
+"o": [
+"Larger incision and longer time",
+"Smaller incision and shorter surgery time",
+"Higher intraoperative nociception",
+"More rescue analgesia needed"
+],
+"a": 1,
+"e": "Midline had larger incisions and longer surgery; flank was smaller and faster.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What was the difference in intraoperative nociception between approaches?",
+"o": [
+"Midline higher",
+"Flank higher",
+"No significant difference",
+"Not measured"
+],
+"a": 2,
+"e": "No significant nociception difference was detected between approaches.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Why might the flank approach be favored in sterilisation programmes?",
+"o": [
+"Less pain than midline",
+"Smaller incision reduces dehiscence risk when postop control is difficult",
+"Lower anesthetic cost",
+"Better visualization of ovaries"
+],
+"a": 1,
+"e": "Smaller incisions allow more animals done and lower dehiscence risk where wound control is impossible.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What was the most frequently cited reason for not using the feline ovarian pedicle tie?",
+"o": [
+"Fear of hemorrhage",
+"Absence from the veterinary curriculum",
+"Increased student risk",
+"Slower than suture ligation"
+],
+"a": 1,
+"e": "Non-use was most attributed to absence of the technique from vet school training.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What proportion of survey respondents reported using the pedicle tie?",
+"o": [
+"Under one quarter",
+"About one third",
+"Over half",
+"Nearly all"
+],
+"a": 2,
+"e": "77 of 142 respondents used it, over half.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Among non-users, what was the predominant view on whether the pedicle tie meets standard of care?",
+"o": [
+"60% said it meets SOC",
+"60% said it does not",
+"Most were unsure",
+"All said it never meets SOC"
+],
+"a": 0,
+"e": "Of non-users, 60% said it meets SOC, 14% no, 26% sometimes.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Which group of male cats had the earliest onset of urethral obstruction?",
+"o": [
+"Intact cats",
+"Prepubertal neutered",
+"Post-pubertal neutered",
+"All equal"
+],
+"a": 0,
+"e": "Intact cats obstructed earlier (3.6 yr) than neutered groups (5.5-5.7 yr).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "How did age at neutering affect onset of urethral obstruction?",
+"o": [
+"Earlier neutering caused earlier UO",
+"Later neutering caused earlier UO",
+"No effect; intact had earliest onset regardless",
+"Neutering prevented UO entirely"
+],
+"a": 2,
+"e": "Intact cats had earliest onset regardless of age at neutering.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "How did clinical signs and histopathologic lesions compare across groups?",
+"o": [
+"Markedly worse in neutered cats",
+"Similar across all groups",
+"Absent in intact cats",
+"Only present in prepubertal neutered"
+],
+"a": 1,
+"e": "Signs (stranguria, hematuria) and lesions were similar in all groups.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What did this retrospective study find about pediatric neutering and later health conditions?",
+"o": [
+"Increased obesity risk",
+"Increased joint disease",
+"No statistically significant association with the conditions studied",
+"Increased behavioral problems"
+],
+"a": 2,
+"e": "No significant link was found between neuter age and obesity, behavior, urinary, or joint disease.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "How were outcome data collected in this study?",
+"o": [
+"Medical record audit",
+"Telephone questionnaire of owners",
+"Physical re-examination",
+"Insurance claims"
+],
+"a": 1,
+"e": "Data came from a telephone questionnaire to 105 owners of shelter-adopted animals.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Which behavior occurred most frequently in intact male dogs?",
+"o": [
+"Roaming",
+"Mounting",
+"Urine marking",
+"None differed"
+],
+"a": 2,
+"e": "Urine marking occurred in 78% of intact males, the highest rate.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What was found for intact vs desexed female dogs across the three behaviors?",
+"o": [
+"Desexing reduced all three",
+"No differences for any of the three behaviors",
+"Desexing increased marking",
+"Only roaming differed"
+],
+"a": 1,
+"e": "No differences were seen between intact and desexed females for marking, mounting, or roaming.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "How did mounting and roaming change with age in intact males?",
+"o": [
+"Increased with age",
+"Decreased with age",
+"Unchanged",
+"Only roaming increased"
+],
+"a": 1,
+"e": "Both behaviors were less frequent in older intact males, suggesting decline with age.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What did earlier neutering, especially in female kittens, do to body composition?",
+"o": [
+"Reduced fat mass",
+"Increased fat mass",
+"No effect on adiposity",
+"Reduced lean mass"
+],
+"a": 1,
+"e": "Earlier neutering produced a more marked upward growth trajectory and greater fat mass, especially in females.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "By 52 weeks, how did neutered kittens compare with intact controls?",
+"o": [
+"Lighter with less fat",
+"Heavier with greater fat and lean mass",
+"Identical weight",
+"Lower lean mass only"
+],
+"a": 1,
+"e": "Neutered cats were heavier with greater fat and lean mass and larger abdominal girth.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "For which neutering timing was the upward growth inclination least marked?",
+"o": [
+"Neutered before 12 weeks",
+"Neutered after 28-29 weeks",
+"Neutered at birth",
+"Timing had no effect"
+],
+"a": 1,
+"e": "The upward inclination was least in kittens neutered after 28-29 weeks.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Which breed showed no significant effect of early neutering on joint disorders or cancers?",
+"o": [
+"German Short/Wirehaired Pointer",
+"Mastiff",
+"Newfoundland",
+"Siberian Husky"
+],
+"a": 3,
+"e": "Siberian Huskies showed no significant joint or cancer effects from early neutering.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What is the study's overarching recommendation about neutering age?",
+"o": [
+"Always neuter before 6 months",
+"Personalized decisions by breed, sex, and context",
+"Never neuter large breeds",
+"Standardize at 12 months for all"
+],
+"a": 1,
+"e": "Results emphasize personalized neutering decisions considering breed, sex, and context.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Joint disorder risk with early neutering was heightened in which dogs?",
+"o": [
+"Small breeds under 10 kg",
+"Larger breeds and mixed-breeds over 20 kg",
+"Only toy breeds",
+"Cats"
+],
+"a": 1,
+"e": "Risks were heightened for some larger breeds and mixed-breed dogs over 20 kg.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What were the odds of early-onset urinary incontinence in bitches neutered later vs early?",
+"o": [
+"0.80 (reduced)",
+"1.5 (increased)",
+"No difference",
+"3.0 (increased)"
+],
+"a": 0,
+"e": "Later-age neutering carried 0.80 times the odds of early-onset UI.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What is the practical recommendation from this study?",
+"o": [
+"Neuter all bitches before 7 months",
+"Delay neutering until after 7 months unless justified otherwise",
+"Avoid neutering entirely",
+"Timing is irrelevant"
+],
+"a": 1,
+"e": "Preference should be given to delaying neutering until after 7 months unless major reasons justify earlier surgery.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Which methodology did this study apply to observational VetCompass data?",
+"o": [
+"Randomized controlled trial",
+"Target trial emulation",
+"Case report series",
+"Meta-analysis"
+],
+"a": 1,
+"e": "It used the target trial emulation framework for causal inference.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What did this scoping review conclude about evidence on neutering timing relative to puberty?",
+"o": [
+"Strong evidence supports prepubertal neutering",
+"Robust evidence does not yet exist",
+"Post-pubertal neutering is clearly harmful",
+"Evidence strongly favors deslorelin"
+],
+"a": 1,
+"e": "Robust evidence to guide timing relative to puberty does not yet exist.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "For which outcomes were NO studies found examining pre- vs post-pubertal neutering?",
+"o": [
+"Urinary incontinence",
+"Mammary neoplasia",
+"Atopy, developmental orthopaedic disease, and obesity",
+"Urogenital disease"
+],
+"a": 2,
+"e": "No studies examined pre/post-pubertal neutering effects on atopy, DOD, or obesity.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "In the Onomichi community-cat health survey, what proportion of cats tested FIV-positive by ELISA?",
+"o": [
+"9.2%",
+"16.7%",
+"38.0%",
+"100%"
+],
+"a": 1,
+"e": "ELISA showed 16.7% of the community cats were FIV-positive.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What was the detected carriage rate of Capnocytophaga, a zoonotic risk to tourists/residents?",
+"o": [
+"38.0%",
+"6.7%",
+"100%",
+"16.7%"
+],
+"a": 2,
+"e": "All sampled cats (100%) carried Capnocytophaga, with Bartonella henselae at 38%.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What did the authors recommend for friendly cats given their findings?",
+"o": [
+"Maintain them long-term as community cats",
+"Adopt them out rather than keep them as community cats",
+"Euthanize them to control zoonoses",
+"Return them after neutering only"
+],
+"a": 1,
+"e": "They recommended friendly cats be adopted rather than maintained as community cats, and a CCP review.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What did the population-dynamics data conclude about the CCP 'closed, static colony' hypothesis?",
+"o": [
+"It was confirmed",
+"It was rejected due to immigration of non-neutered cats",
+"It was supported with minor caveats",
+"Results were inconclusive"
+],
+"a": 1,
+"e": "Thirteen non-neutered cats immigrated within a year, rejecting the closed-population hypothesis.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "How many non-neutered cats immigrated into the CCP area within a year?",
+"o": [
+"0",
+"11",
+"13",
+"30"
+],
+"a": 2,
+"e": "Thirteen non-neutered cats immigrated, indicating rapid turnover.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What was the study's overall verdict on CCP efficacy?",
+"o": [
+"Highly effective at colony control",
+"Limited efficacy with rapid turnover; neither restricts breeding nor improves welfare",
+"It eliminated the colony",
+"It markedly improved welfare"
+],
+"a": 1,
+"e": "The CCP showed limited efficacy and could not support lifetime management due to turnover.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "In the Brazilian survey, allowing cats outdoor access was associated with:",
+"o": [
+"Lower flea burden",
+"Higher odds of welfare problems (e.g., sporotrichosis, going missing, accidents)",
+"No difference in welfare",
+"Reduced disease transmission"
+],
+"a": 1,
+"e": "Outdoor access carried significantly higher odds of fleas, sporotrichosis, going missing, poisoning, mistreatment, and accidents.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What proportion of respondents reported allowing their cats outdoor access?",
+"o": [
+"12%",
+"37.1%",
+"64%",
+"83%"
+],
+"a": 1,
+"e": "37.1% of respondents allowed outdoor access.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Which factor was significantly associated with allowing outdoor access?",
+"o": [
+"Neutered cats",
+"Indoor-only housing",
+"Unneutered cats and rural residence",
+"Older owner age"
+],
+"a": 2,
+"e": "Unneutered status and rural residence (plus younger owner age) were among the associated factors.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What did the 598-cat Danish necropsy study conclude about the belief that unsocialised cats suffer a high welfare burden?",
+"o": [
+"It confirmed severe widespread suffering",
+"Welfare problems were only moderate; most had no major finding",
+"All cats were emaciated",
+"FeLV was widespread"
+],
+"a": 1,
+"e": "Over 83% had no major finding and 54% none at all, indicating only a moderate welfare problem level.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What percentage of the cats were emaciated?",
+"o": [
+"0.3%",
+"9.2%",
+"54%",
+"83%"
+],
+"a": 0,
+"e": "Only 0.3% were emaciated; >83% had normal body condition.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What was the most common finding on necropsy?",
+"o": [
+"FeLV infection",
+"Emaciation",
+"Ectoparasite infestation",
+"FIV infection"
+],
+"a": 2,
+"e": "Ectoparasites were most common (lice 15.9%, fleas 12.3%); FeLV was only 1.2%.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "How does the review characterize the sociality of free-ranging cats?",
+"o": [
+"Strictly solitary",
+"Obligately social",
+"'Social generalists' with flexible social behavior",
+"Entirely non-social"
+],
+"a": 2,
+"e": "Findings support free-ranging cats as social generalists displaying flexible social behavior.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "How did intraspecific social dynamics compare across cat groups?",
+"o": [
+"Uniform across all groups",
+"Variable—some strongly bonded, others loosely associated",
+"Absent in all groups",
+"Identical to dog packs"
+],
+"a": 1,
+"e": "Dynamics differed by group, from strong affiliations to little interaction.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Free-ranging cats' interactions with wildlife were most strongly linked to:",
+"o": [
+"Weather alone",
+"Timing of cat feeding events",
+"Cat sex",
+"Colony size"
+],
+"a": 1,
+"e": "Wildlife interactions were strongly tied to the timing of cat feeding events.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What core gap did the review identify in New Zealand cat management?",
+"o": [
+"Excessive national legislation",
+"Lack of national legislation, causing inconsistent practices",
+"No public concern about cats",
+"Nationwide mandatory desexing"
+],
+"a": 1,
+"e": "Absence of national cat legislation challenges consistent, humane, effective management.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What solution did the authors ultimately propose?",
+"o": [
+"Maintain the status quo",
+"National cat legislation",
+"Culling only",
+"A ban on cat ownership"
+],
+"a": 1,
+"e": "They offered a solution based on national cat legislation.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Which country was emphasized for policy comparison with New Zealand?",
+"o": [
+"USA",
+"Japan",
+"Australia",
+"United Kingdom"
+],
+"a": 2,
+"e": "The review compared NZ's policy landscape with other countries, emphasizing Australia.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What relationship between human density and dog numbers did the Chile analysis find?",
+"o": [
+"More dogs per person as density rises",
+"Fewer dogs per person as human density increases",
+"No relationship",
+"Constant dogs per person"
+],
+"a": 1,
+"e": "As human density increased, there were fewer dogs per person.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What did the authors recommend regarding free veterinary services?",
+"o": [
+"Expand them universally",
+"Replace free vet services with low-cost sterilization campaigns",
+"Eliminate sterilization entirely",
+"Keep them unchanged"
+],
+"a": 1,
+"e": "They recommended replacing free vet services with low-cost sterilization campaigns.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Which component was notably absent from Chile's program?",
+"o": [
+"Education",
+"Dog identification",
+"Enforcement",
+"Sterilization"
+],
+"a": 2,
+"e": "Enforcement was not included; the authors recommended creating enforcement teams.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What was the estimated national population of unowned free-ranging cats in Denmark?",
+"o": [
+"~890,000",
+"~89,000",
+"~9,000",
+"~2,000"
+],
+"a": 1,
+"e": "The estimate was 89,000 ± 11,000 cats, density ~2/km2.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "In which habitat did these cats primarily live?",
+"o": [
+"Urban centers",
+"Rural habitats",
+"Coastal areas only",
+"Dense forests exclusively"
+],
+"a": 1,
+"e": "The cats lived primarily in rural habitats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What was the estimated socialisation split of the population?",
+"o": [
+"About two-thirds socialised",
+"About one-third socialised, two-thirds unsocialised",
+"All socialised",
+"All unsocialised"
+],
+"a": 1,
+"e": "Roughly one-third were socialised and two-thirds unsocialised.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "During the breeding season on the Chinese campus, how did male and female home ranges compare?",
+"o": [
+"Females larger",
+"Males larger (12.6 vs 5.0 ha)",
+"Equal",
+"Not measurable"
+],
+"a": 1,
+"e": "Males had larger breeding-season home ranges (12.60 ha) than females (5.02 ha).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "When did the cats' two daily activity peaks occur?",
+"o": [
+"Around midday",
+"At twilight (~6–10 and ~17–21 h)",
+"Only deep night",
+"Only afternoon"
+],
+"a": 1,
+"e": "Activity peaked 6:00–10:00 and 17:00–21:00, i.e., crepuscular/twilight.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Home range size of these free-ranging cats was affected by:",
+"o": [
+"Coat color",
+"Weather alone",
+"Breeding status and sex",
+"Nothing measurable"
+],
+"a": 2,
+"e": "Home range was affected by breeding status and sex.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "How did neuter status affect roaming in male companion cats?",
+"o": [
+"Neutered males roamed more",
+"No effect of neuter status",
+"Intact males spent more time away and had larger home ranges",
+"Intact males roamed less"
+],
+"a": 2,
+"e": "Intact males spent more time away and had larger home ranges than neutered males.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What effect did heavy rainfall have on distance moved?",
+"o": [
+"Increased distance",
+"Decreased distance (3.6→2.4 km)",
+"No effect",
+"Doubled distance"
+],
+"a": 1,
+"e": "On heavy-rain days cats moved ~2.4 km vs ~3.6 km on dry days.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Compared with younger cats, cats over seven years old were:",
+"o": [
+"Larger ranging and more active",
+"Less active with smaller home ranges",
+"Identical in behavior",
+"Strictly nocturnal"
+],
+"a": 1,
+"e": "Older cats spent less time away, were less active, and had smaller home ranges.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "Under the 25-year Auckland Trap–Assess–Resolve (TAR) program, what was the primary outcome for trapped cats?",
+"o": [
+"Most returned to site via TNR",
+"Majority (64.2%) were adopted",
+"Most were euthanized",
+"Most were transferred elsewhere"
+],
+"a": 1,
+"e": "Of 14,611 cats, 64.2% were adopted, with adoption rates exceeding 80% by 2018–19.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "TAR is presented as a third management strategy, an alternative to:",
+"o": [
+"Vaccination and microchipping",
+"Culling or trap–neuter–return (TNR)",
+"Fostering or adoption",
+"Euthanasia only"
+],
+"a": 1,
+"e": "TAR is framed as an alternative to the usual choice between culling and TNR.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "What was the age profile of the trapped cats?",
+"o": [
+"Mostly older than 5 years",
+"Evenly distributed across all ages",
+"About 52% were young kittens under 10 weeks",
+"All were adults"
+],
+"a": 2,
+"e": "Consistently ~52% were kittens <10 weeks and ~80% were under 1 year old.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "In the Prince George survey, support for free-roaming cat bylaws differed mainly by:",
+"o": [
+"Respondent age",
+"Cat-ownership status",
+"Household income",
+"Neighbourhood"
+],
+"a": 1,
+"e": "Perceptions and bylaw support depended on cat-ownership status, with non-owners more supportive.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What concern did cat owners raise about restrictive roaming bylaws?",
+"o": [
+"They would reduce adoptions",
+"They would increase abandonment",
+"They would improve welfare",
+"They would lower costs"
+],
+"a": 1,
+"e": "Owners feared such bylaws would increase abandonment and harm pet care.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "There was considerable public support for which measure?",
+"o": [
+"Banning all cats",
+"Mandatory cat identification",
+"Euthanasia of strays",
+"No intervention"
+],
+"a": 1,
+"e": "There was considerable support for mandatory identification of cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "In the Goa free-roaming dog (FRD) survey, what proportion of respondents reported feeding FRD?",
+"o": [
+"37%",
+"53%",
+"59%",
+"66%"
+],
+"a": 0,
+"e": "37% fed FRD, with dog owners and Hindus most likely to feed.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Which problem was most commonly attributed to free-roaming dogs?",
+"o": [
+"Roaming in packs",
+"Defecation fouling",
+"Barking",
+"Vehicle accidents"
+],
+"a": 2,
+"e": "Barking was the most frequently reported FRD-associated problem.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What was respondents' preferred solution for managing FRD?",
+"o": [
+"Lethal control",
+"Impoundment in shelters",
+"Trap-neuter-return",
+"No intervention"
+],
+"a": 1,
+"e": "Impounding FRD in shelters was the preferred solution despite majority agreement that FRD belong in communities.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What did the authors conclude about the Community Dog Program methodology across the five Paraná municipalities?",
+"o": [
+"It was abandoned as unworkable",
+"It proved applicable for implementation in all five",
+"It succeeded in only one municipality",
+"It required lethal control to function"
+],
+"a": 1,
+"e": "The methodology was applicable in all five municipalities and could support a guiding protocol for others.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Which were identified as main implementation challenges?",
+"o": [
+"Excess shelters",
+"Oversupply of veterinarians",
+"Too many registered caretakers",
+"Inadequate caretaker handling of food/water and limited secretariat structure"
+],
+"a": 3,
+"e": "Inadequate caretaker feeding/watering and limited secretariat human resources/structure were the principal challenges.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "In Piraquara, what percentage of enrolled dogs lacked a fixed shelter?",
+"o": [
+"25%",
+"50%",
+"75%",
+"100%"
+],
+"a": 2,
+"e": "75% (15/20) of Piraquara dogs had no fixed shelter but met other criteria.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Which method does the article identify as the most effective and humane for controlling free-roaming cats?",
+"o": [
+"Trap-and-kill",
+"Trap-neuter-return (TNR)",
+"Relocation/removal",
+"No intervention"
+],
+"a": 1,
+"e": "TNR is described as the most effective and humane control method, enhanced by adoption and public education.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "How does the article characterize lethal control and removal of cats?",
+"o": [
+"Recommended as primary management",
+"Effective in most situations",
+"Legally required everywhere",
+"Ineffective and unethical"
+],
+"a": 3,
+"e": "Veterinarians oppose lethal control/removal as ineffective and unethical.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "How does the article describe the public health risks associated with cats?",
+"o": [
+"Often overstated",
+"Severe and underestimated",
+"Nonexistent",
+"Unquantifiable"
+],
+"a": 0,
+"e": "Veterinary experts assert the public health risks of cats are often overstated.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What was the main finding regarding caregivers affected by the Port of Newcastle cat shooting?",
+"o": [
+"No measurable impact",
+"Negative impacts on psychological health and quality of life",
+"Improved wellbeing",
+"Only financial losses"
+],
+"a": 1,
+"e": "Caregivers showed strong cat bonds and negative psychological/quality-of-life impacts from lethal management.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What management approach did the authors recommend for the future?",
+"o": [
+"A care-centred approach aiding neutering and, where possible, adoption",
+"Continued shooting",
+"Relocation to other ports",
+"Disregarding caregivers"
+],
+"a": 0,
+"e": "A care-centred approach (neutering/adoption) was recommended to improve welfare and reduce caregiver harm.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What legislative change did the study recommend?",
+"o": [
+"Banning all cat ownership",
+"Mandating culling",
+"Revising legislation distinguishing domestic from feral cats",
+"Removing caregiver rights"
+],
+"a": 2,
+"e": "Authors urged revising laws that distinguish domestic from feral cats to prevent unnecessary killing of domestic cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What level of public support for TNR emerged from the Weibo analysis?",
+"o": [
+"Low support",
+"High support",
+"No support",
+"Declining support"
+],
+"a": 1,
+"e": "TNR received high support in public discussion of stray cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "How did knowledge of stray cats' ecological impacts relate to support for lethal control?",
+"o": [
+"Positively correlated",
+"Negatively correlated",
+"No correlation",
+"Not assessed"
+],
+"a": 0,
+"e": "Greater knowledge of ecological impacts was positively correlated with support for lethal control.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What data source did the study use to gauge public opinion?",
+"o": [
+"Telephone survey",
+"Shelter intake records",
+"Veterinary clinic logs",
+"Weibo social media posts"
+],
+"a": 3,
+"e": "User-generated Weibo content was analyzed via natural language processing.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "In which season were free-roaming cat home ranges significantly larger in Cape Town?",
+"o": [
+"Summer",
+"Winter",
+"No seasonal difference",
+"Autumn"
+],
+"a": 0,
+"e": "Home ranges and roaming distances were significantly larger in summer than winter.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What buffer width around conservation areas did the authors recommend to reduce cat impacts on native fauna?",
+"o": [
+"~100 m",
+"~300 m",
+"~600 m",
+"~1 km"
+],
+"a": 2,
+"e": "Results suggest cat buffers of at least ~600 m around conservation areas.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Which cats made the most extensive use of protected areas in summer?",
+"o": [
+"Urban cats >150 m from the edge",
+"Urban-edge cats",
+"No cats entered protected areas",
+"All cats equally"
+],
+"a": 1,
+"e": "In summer all seven urban-edge cats used protected areas, versus only one of seven urban cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "What were the primary intervention areas described by MHA Nation participants regarding rez dogs?",
+"o": [
+"Mass euthanasia",
+"Culturally relevant information sharing, improved animal control, and improved access to veterinary care",
+"Relocation off the reservation",
+"Mandatory confinement only"
+],
+"a": 1,
+"e": "Participants emphasized culturally relevant information, better animal control, and improved access to veterinary/animal services.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "Which method did the study use?",
+"o": [
+"Semi-structured interviews analyzed via hermeneutical phenomenology",
+"Randomized controlled trial",
+"Systematic meta-analysis",
+"Laboratory experiment"
+],
+"a": 0,
+"e": "Fourteen one-hour semi-structured interviews were analyzed with Gadamer's hermeneutical phenomenology.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "How did the authors characterize prior research on rez dogs and Indigenous communities?",
+"o": [
+"Extensive and robust",
+"Conclusive",
+"Extremely limited",
+"Well-funded"
+],
+"a": 2,
+"e": "The article states research on free-roaming dogs and Indigenous communities is extremely limited.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Which methods did the Sydney study use to quantify free-roaming cat abundance?",
+"o": [
+"Aerial surveys",
+"GPS collars only",
+"Motion-capture cameras and transect drives",
+"Trapping only"
+],
+"a": 2,
+"e": "Motion-capture cameras on volunteer properties plus transect drives quantified cat abundance.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Which local government area had the higher free-roaming cat density?",
+"o": [
+"Campbelltown",
+"Blue Mountains",
+"Equal density",
+"Neither had detectable cats"
+],
+"a": 0,
+"e": "Campbelltown had higher density (0.31 vs 0.21 cats/ha) than the Blue Mountains.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Where were more wildlife events captured?",
+"o": [
+"Campbelltown",
+"Blue Mountains",
+"Equal in both",
+"Neither"
+],
+"a": 1,
+"e": "More wildlife events were captured in the Blue Mountains (5580) than Campbelltown (2697).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Which cat subpopulation most influenced overall UK population dynamics in the model?",
+"o": [
+"Shelter cats",
+"Feral cats",
+"Owned cats",
+"Stray cats"
+],
+"a": 2,
+"e": "Owned cats, the majority of the population, had the greatest influence on overall dynamics.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Population growth rate was most sensitive to which vital rates?",
+"o": [
+"Feral fecundity",
+"Owned cat survival and fecundity",
+"Shelter intake rate",
+"Stray mortality"
+],
+"a": 1,
+"e": "Growth rate was most influenced by owned cat survival and fecundity.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What did simulations show about neutering owned cats at a younger age?",
+"o": [
+"Increased population growth",
+"Had no effect",
+"Affected only the owned subpopulation",
+"Sufficient to reduce overall growth regardless of neutering prevalence"
+],
+"a": 3,
+"e": "Neutering owned cats younger reduced overall population growth irrespective of overall prevalence.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Indoor management of cats was associated with which outcome?",
+"o": [
+"Fewer care practices",
+"Greater variety/frequency of care practices and a more positive relationship",
+"Poorer cat welfare",
+"No difference in care"
+],
+"a": 1,
+"e": "Indoor management was linked to more frequent/varied care practices and a more positive cat-caretaker relationship.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What did the authors conclude about the cat-caretaker relationship?",
+"o": [
+"Indoor-management caretakers were more likely to have a positive relationship",
+"Outdoor management was more positive",
+"No relationship to management type",
+"It depended on cat age"
+],
+"a": 0,
+"e": "Indoor-management caretakers were more likely to have a positive relationship with their cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What method did the study use?",
+"o": [
+"Randomized trial",
+"GPS tracking",
+"Necropsy series",
+"Online questionnaire of 114 owners"
+],
+"a": 3,
+"e": "Data came from an online questionnaire of 114 owners in two Brazilian municipalities.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What did the assistive-centred urban cat management approach provide to caregivers?",
+"o": [
+"Lethal trap-adopt-kill services",
+"Relocation programs",
+"Free sterilization and preventative healthcare",
+"Mandatory impoundment"
+],
+"a": 2,
+"e": "The approach offered free sterilization and preventative healthcare for semi-owned and owned cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "How did the assistive-centred approach affect caregiver quality of life?",
+"o": [
+"Negative impact",
+"Positive impact",
+"No impact",
+"Mixed/unclear"
+],
+"a": 1,
+"e": "Caregivers reported a positive impact on quality of life and improved cat welfare after sterilization.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "With which philosophy did the authors say this approach aligns?",
+"o": [
+"One Welfare",
+"Trap-and-kill",
+"Laissez-faire management",
+"Eradication"
+],
+"a": 0,
+"e": "The assistive-centred approach is aligned with the One Welfare philosophy.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What was the approximate prevalence of chronic gingivostomatitis among the 345 TNR feral cats studied?",
+"o": [
+"~7%",
+"~27%",
+"~50%",
+"~75%"
+],
+"a": 1,
+"e": "92 of 345 feral cats (about 27%) had chronic gingivostomatitis.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Prevalence and severity of chronic gingivostomatitis were associated with which finding?",
+"o": [
+"Body weight",
+"Sex",
+"Tongue lesions",
+"Coat color"
+],
+"a": 2,
+"e": "Prevalence and severity were associated with tongue lesions, suggesting an infectious link.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Which factors did NOT affect prevalence in this study?",
+"o": [
+"Weight and sex",
+"Tongue lesions",
+"Infectious agents",
+"Lesion severity"
+],
+"a": 0,
+"e": "Weight and sex did not affect prevalence.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Compared with domestically reared Danish dogs, former street dogs more often displayed behaviours related to which cluster?",
+"o": [
+"Obesity and overeating",
+"Fear, aggression, and stress",
+"Excessive playfulness",
+"Successful house-training"
+],
+"a": 1,
+"e": "All 9 of the 45 behaviours that FS dogs showed more often were fear-, aggression- or stress-related.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "How did the behavioural-problem prevalence reported by veterinarians compare with that reported by owners?",
+"o": [
+"Much greater than owners",
+"Identical to owners",
+"Much less than owners",
+"Not assessed"
+],
+"a": 0,
+"e": "Veterinarians reported far more problems, likely reflecting fear-induced reactions during clinic handling.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Of the 45 listed behaviours, how many did former street dogs display more often?",
+"o": [
+"30",
+"45",
+"9",
+"0"
+],
+"a": 2,
+"e": "FS dogs exceeded RD dogs on 9 of the 45 behaviours.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Animal Handling",
+"q": "Neurotic shelter volunteers were associated with what during on-leash walks?",
+"o": [
+"Lighter leash tension",
+"Pulling the leash harder",
+"Ignoring the dog",
+"No measurable effect"
+],
+"a": 1,
+"e": "Neurotic volunteers pulled the leash harder and used more body language.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Animal Handling",
+"q": "Extroverted volunteers were linked to which leash-tension pattern?",
+"o": [
+"Stronger maximal tension at both the human and dog ends",
+"Weakest tension overall",
+"No tension at either end",
+"Tension that could not be measured"
+],
+"a": 0,
+"e": "Extroverts produced stronger maximal tension at both ends and praised dogs more.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Animal Handling",
+"q": "Dogs walked by volunteers high in 'openness' were more likely to do what?",
+"o": [
+"Sit calmly",
+"Sniff more",
+"Pull on the leash",
+"Stop walking"
+],
+"a": 2,
+"e": "Open volunteers verbally engaged less, and their dogs pulled more and sniffed less.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animals & Public Safety",
+"q": "The scoping review concluded that distinguishing wolf from domestic-dog attacks by tooth/bite-mark patterns is currently:",
+"o": [
+"Highly reliable beyond reasonable doubt",
+"Inconclusive",
+"Impossible in principle",
+"Unnecessary"
+],
+"a": 1,
+"e": "Evidence was inconclusive for certain forensic differentiation between the two canids.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animals & Public Safety",
+"q": "Of the records reviewed, how many met the inclusion criteria?",
+"o": [
+"16",
+"1",
+"12,120",
+"160"
+],
+"a": 0,
+"e": "Only 16 of 12,120 reviewed records met criteria; just one compared wolf vs dog marks exclusively.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animals & Public Safety",
+"q": "Which discipline did the authors suggest could help differentiate the two canids forensically?",
+"o": [
+"Forensic veterinary odontology",
+"Serology",
+"Hematology",
+"Radiography alone"
+],
+"a": 0,
+"e": "They proposed forensic veterinary odontology as a developing tool for this purpose.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Free-ranging dogs exhibited more intensive forays into nature when they:",
+"o": [
+"Were confined more often",
+"Explored more and greeted owners intensively",
+"Were young females",
+"Never went missing"
+],
+"a": 1,
+"e": "More exploration, intense greeting, and passive SSP behaviours predicted larger ranges and more nature access.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Which measure was a POOR predictor of home range and roaming?",
+"o": [
+"SSP attachment behaviours",
+"The MDORS owner questionnaire",
+"Dog age",
+"Dog sex"
+],
+"a": 1,
+"e": "The MDORS poorly predicted roaming, whereas SSP behaviours and demographics did predict it.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "What did the study conclude about the dog-owner bond and roaming?",
+"o": [
+"It influenced roaming behaviour",
+"It had no influence",
+"It eliminated roaming",
+"It only mattered for confined dogs"
+],
+"a": 0,
+"e": "The authors concluded the bond influences roaming, with implications for ownership campaigns.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "What proportion of surveyed owners provided their dogs with edible chewing material?",
+"o": [
+"51%",
+"73%",
+"94%",
+"3.6%"
+],
+"a": 2,
+"e": "94% provided edible chews; 83% chew toys, 73% food-filled toys, 51% hard chews.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Chewing on household objects was most strongly associated with which context?",
+"o": [
+"Being left alone",
+"Feeding time",
+"Active play",
+"Grooming"
+],
+"a": 0,
+"e": "Object chewing correlated strongly with being left alone (rs=0.63) and routine changes.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Veterinary treatment due to a chewing-material problem was reported by approximately what fraction of owners?",
+"o": [
+"67%",
+"3.6%",
+"25%",
+"0%"
+],
+"a": 1,
+"e": "Only 3.6% reported needing veterinary treatment, while 67% reported never having a problem.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Dogs neutered at what age were more likely to be rated fearful within veterinary clinics?",
+"o": [
+"≤1 year of age",
+"Over 5 years of age",
+"Never neutered",
+"Neuter age was unrelated"
+],
+"a": 0,
+"e": "Neutering at ≤1 year was among the risk factors for veterinary-related fear.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Owner use of which training method was associated with aggression in the veterinary clinic?",
+"o": [
+"Positive reinforcement",
+"Positive punishment",
+"Clicker training",
+"No training at all"
+],
+"a": 1,
+"e": "Owner-reported positive punishment was linked to higher odds of clinic aggression.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Owners being nervous during veterinary visits was associated with which finding in their dogs?",
+"o": [
+"No effect",
+"More fear and aggression",
+"Less fear",
+"Calmer handling"
+],
+"a": 1,
+"e": "Owner nervousness was a risk factor for both fear and aggression at the clinic.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Research & Biostats",
+"sub": "Study Design",
+"q": "Which sensor location yielded higher classification accuracy for dog activities?",
+"o": [
+"The back/harness sensor",
+"The neck collar sensor",
+"A tail-mounted sensor",
+"Both were exactly equal"
+],
+"a": 0,
+"e": "The back sensor reached up to 91% accuracy versus 75% at best for the collar.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Research & Biostats",
+"sub": "Study Design",
+"q": "The best classification accuracy from the back sensor was approximately:",
+"o": [
+"50%",
+"75%",
+"91%",
+"100%"
+],
+"a": 2,
+"e": "The harness/back sensor achieved up to 91% accuracy.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Research & Biostats",
+"sub": "Study Design",
+"q": "Which activity was the most distinct and easiest to classify?",
+"o": [
+"Sniffing",
+"Sitting",
+"Standing",
+"Lying on chest"
+],
+"a": 0,
+"e": "Sniffing was most distinct, while static postures were hardest, especially from the collar.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Respondents under lockdown or quarantine were how much more likely to report behavioural changes in their dogs?",
+"o": [
+"1.8 times more likely",
+"No more likely",
+"10 times more likely",
+"Less likely"
+],
+"a": 0,
+"e": "Lockdown/quarantine respondents were 1.8 times more likely to report behavioural changes.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Overall, the behavioural changes owners reported were more often:",
+"o": [
+"Negative",
+"Positive",
+"Absent",
+"Severe"
+],
+"a": 1,
+"e": "Positive changes (30%) outnumbered negative ones (24%) overall.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "How did owners generally perceive their dog during the pandemic?",
+"o": [
+"As a source of support that reduced tension",
+"As a burden only",
+"As a health risk",
+"As irrelevant"
+],
+"a": 0,
+"e": "65% reported reduced tension thanks to their dog, especially those in lockdown/quarantine.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Which owner group was MORE likely to report a 'reward and aversive' training approach?",
+"o": [
+"Young female owners attending classes",
+"Older male owners not attending classes",
+"Dog-related professionals",
+"No group differed"
+],
+"a": 1,
+"e": "Owners ≥55, male, not attending classes, without dog-related jobs had higher odds of aversive methods.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Not attending a puppy or training class in the prior two months was associated with:",
+"o": [
+"Higher odds of using aversive methods",
+"Lower odds of aversive methods",
+"No association",
+"Reward-only training"
+],
+"a": 0,
+"e": "Non-attendance roughly tripled the odds (OR 3.16) of a reward-and-aversive approach.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "At 9 months, what proportion of owners used positive punishment and/or negative reinforcement?",
+"o": [
+"0%",
+"25%",
+"74.2%",
+"100%"
+],
+"a": 2,
+"e": "74.2% used PP and/or NR at 9 months, despite reward methods being near-universal.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "After 14 days, the nutraceutical CALMEX compared with placebo:",
+"o": [
+"Significantly improved stress-related behaviour",
+"Showed no difference",
+"Worsened stress",
+"Caused heavy sedation"
+],
+"a": 0,
+"e": "CALMEX significantly improved owner-assessed stress scores while placebo did not change.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "A significant CALMEX benefit was specifically demonstrated for response to:",
+"o": [
+"Car travel",
+"Loud noise",
+"Feeding",
+"Strangers"
+],
+"a": 1,
+"e": "CALMEX reduced loud-noise stress scores by over a third versus placebo.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What was the study design?",
+"o": [
+"Uncontrolled case series",
+"Randomised, double-blind, placebo-controlled trial",
+"Retrospective cohort",
+"Cross-sectional survey"
+],
+"a": 1,
+"e": "It was a randomised, double-blind, placebo-controlled trial in 52 dogs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Over the longitudinal follow-up, what proportion of dogs were stable in their separation behaviour?",
+"o": [
+"41%",
+"100%",
+"0%",
+"16%"
+],
+"a": 0,
+"e": "41% were stable, 38% improved, and 16% increased their separation behaviours.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "With age, dogs with separation-related problems tended to show what change in their whines?",
+"o": [
+"Decreased NLP ratio",
+"Increased nonlinear phenomena (NLP) ratio",
+"No vocalisation",
+"Only increased barking"
+],
+"a": 1,
+"e": "SRP dogs tended toward an increased NLP ratio with age, suggesting intensifying stress.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What did the authors emphasise as important for diagnosing and treating SRP?",
+"o": [
+"Individual-level longitudinal investigation",
+"Group housing",
+"Immediate rehoming",
+"Medication alone"
+],
+"a": 0,
+"e": "They stressed individual-level longitudinal study for early diagnosis and tailored treatment.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Free-roaming dogs and Swiss farm dogs displayed which activity pattern over 24 hours?",
+"o": [
+"A single random peak",
+"A bimodal pattern with two daily peaks",
+"Constant activity",
+"Activity only at night"
+],
+"a": 1,
+"e": "Roaming dogs showed two peaks (5-7h and 16-19h); only 45% of family dogs did.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Activity decreased significantly with all of the following EXCEPT:",
+"o": [
+"Increasing age",
+"Neutering",
+"Higher body condition score",
+"Sex"
+],
+"a": 3,
+"e": "Sex had no significant effect, whereas age, neutering, and body condition reduced activity.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "The activity of family (pet) dogs was primarily determined by:",
+"o": [
+"Season",
+"The owners' daily routines",
+"Breed",
+"Local wildlife"
+],
+"a": 1,
+"e": "Family-dog activity was largely controlled by owners' routines, often peaking once mid-day.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animals & Public Safety",
+"q": "A semiochemical applied to garbage cans had what effect on free-roaming cats' interaction with the cans?",
+"o": [
+"Increased exploration and proximity",
+"Reduced time exploring and in proximity",
+"No measurable behavioural change",
+"Caused complete avoidance of the area"
+],
+"a": 1,
+"e": "Treated cans saw cats spend less time exploring and in proximity.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animals & Public Safety",
+"q": "Did the semiochemical alter which can cats first chose to approach?",
+"o": [
+"Yes, cats avoided the treated can first",
+"No, first choice was unaffected",
+"Yes, cats preferred the treated can",
+"Cats made no choice at all"
+],
+"a": 1,
+"e": "Treatment did not affect cats' first choice of garbage can.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animals & Public Safety",
+"q": "What effect did treatment have on the latency to approach a can?",
+"o": [
+"Shortened approach time",
+"Eliminated approaches entirely",
+"Increased the time until cats approached",
+"No effect on approach timing"
+],
+"a": 2,
+"e": "Treatment increased the time until cats approached the can.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Non-Surgical Sterilization",
+"q": "What population-control approach does the AAFP support for free-roaming cats?",
+"o": [
+"Lethal removal programs",
+"Non-lethal sterilization and humane homing",
+"No intervention",
+"Mandatory euthanasia of unsocialized cats"
+],
+"a": 1,
+"e": "The AAFP supports humane capture, sterilization, homing, and non-lethal control programs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Non-Surgical Sterilization",
+"q": "How does the AAFP recommend providing outdoor access for companion cats?",
+"o": [
+"Unrestricted free roaming",
+"Leash-walking, fenced yards, or enclosures",
+"Only at night",
+"Never permitting outdoor access"
+],
+"a": 1,
+"e": "The statement endorses leash-walking and fenced yards/enclosures where possible.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Non-Surgical Sterilization",
+"q": "What does the AAFP encourage to improve free-roaming cat management?",
+"o": [
+"Single-agency control",
+"Interdisciplinary collaboration and evidence-based research",
+"Reliance on anecdote",
+"Banning caregiver involvement"
+],
+"a": 1,
+"e": "The AAFP encourages stakeholder collaboration and more interdisciplinary, evidence-based research.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Non-Surgical Sterilization",
+"q": "To improve safety from predators, when should indoor/outdoor cats be given outdoor access?",
+"o": [
+"Only at night",
+"During the day, kept in at night",
+"Continuously, day and night",
+"Only in winter"
+],
+"a": 1,
+"e": "Outdoor access should be daytime only, with cats kept indoors or in an enclosure at night.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Non-Surgical Sterilization",
+"q": "What is a consequence if an indoor-only cat's environmental needs are not met?",
+"o": [
+"Improved welfare",
+"Anxiety and stress-related illness or behavioural concerns",
+"No effect",
+"Increased lifespan"
+],
+"a": 1,
+"e": "Unmet environmental needs may lead to anxiety, stress-related illness, or behavioural problems.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Non-Surgical Sterilization",
+"q": "Which cats does the statement identify as more likely to engage in risky outdoor activities?",
+"o": [
+"Senior females",
+"Young and male cats",
+"Spayed females only",
+"Indoor-only cats"
+],
+"a": 1,
+"e": "Young cats and male cats are more likely to engage in injury-risk activities and need closer monitoring.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Non-Surgical Sterilization",
+"q": "By the third year of the Ipswich Community Cat Program, what happened to shelter cat intake?",
+"o": [
+"Increased 60%",
+"Decreased about 60%",
+"Unchanged",
+"Decreased 10%"
+],
+"a": 1,
+"e": "The program was associated with a 60% decrease in cat intake by year three.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Non-Surgical Sterilization",
+"q": "What reduction in euthanasia was associated with the program?",
+"o": [
+"About 85%",
+"About 20%",
+"About 39%",
+"No change"
+],
+"a": 0,
+"e": "An 85% reduction in numbers euthanized was reported.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Non-Surgical Sterilization",
+"q": "The authors frame these targeted sterilization programs as aligned with which approach?",
+"o": [
+"Trap-and-euthanize",
+"One Welfare",
+"Laissez-faire management",
+"Captive breeding"
+],
+"a": 1,
+"e": "The benefits to animals, humans, and environment align with a One Welfare approach.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Non-Surgical Sterilization",
+"q": "Over eight years of the Banyule free sterilization program, city-wide cat intake changed how?",
+"o": [
+"Rose 66%",
+"Fell 66%",
+"Fell 16%",
+"Stayed flat"
+],
+"a": 1,
+"e": "City-wide cat intake decreased by 66% over eight years.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Non-Surgical Sterilization",
+"q": "What was the program's financial outcome for the council?",
+"o": [
+"A net loss",
+"Net cost savings of about AU$440,660",
+"Cost-neutral",
+"Unmeasured"
+],
+"a": 1,
+"e": "The council realized cost savings of about AU$440,660 against a smaller sterilization outlay.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Non-Surgical Sterilization",
+"q": "How did the owner-reclaim rate change over the program period?",
+"o": [
+"Fell from 16% to 6%",
+"Rose from 6% to 16%",
+"Stayed at 6%",
+"Rose to 50%"
+],
+"a": 1,
+"e": "Cats reclaimed by owners increased from 6% of intake to 16%.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "Among ASPCA-NYPD cruelty cases involving hair matting, what breed type predominated?",
+"o": [
+"Short-haired cats",
+"Long-haired dog breed types",
+"Hairless breeds",
+"Mixed-breed equines"
+],
+"a": 1,
+"e": "93% of the matting cruelty cases were long-haired dog breed types.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "How did the prevalence of grooming-related concerns compare across the three veterinary service programs?",
+"o": [
+"Highly variable (1% to 50%)",
+"Relatively consistent (about 4-6%)",
+"Zero in all programs",
+"Over 25% in each"
+],
+"a": 1,
+"e": "Prevalence was relatively consistent at 4-6% across the veterinary programs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "What is the paper's central call to action?",
+"o": [
+"Ban long-haired breeds",
+"Understand the scope of grooming concerns to improve access to care",
+"Eliminate grooming services",
+"Mandate euthanasia of matted animals"
+],
+"a": 1,
+"e": "The authors call for understanding scope and improving animals' access to health-related services.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "What proportion of clients reported at least one barrier to maintaining their pet's grooming?",
+"o": [
+"46%",
+"About 92%",
+"12%",
+"100%"
+],
+"a": 1,
+"e": "Ninety-two percent reported at least one barrier, and 46% reported three or more.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "What effect did the nail-trimming demonstration have on clients?",
+"o": [
+"No change",
+"A statistically significant increase in confidence trimming nails",
+"Decreased confidence",
+"Increased injury rates"
+],
+"a": 1,
+"e": "Clients reported a significant increase in confidence trimming nails after the demonstration.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "What did most clients say about grooming supplies/supports?",
+"o": [
+"None would help",
+"At least one supply/support would help maintain grooming at home",
+"Only paid services help",
+"Supplies were harmful"
+],
+"a": 1,
+"e": "91% endorsed that at least one supply or support would be beneficial.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "What was the study's conclusion about telehealth at this community clinic?",
+"o": [
+"Infeasible for the clientele",
+"Feasible for much of the active clientele",
+"Only feasible for wealthy clients",
+"Should be discontinued"
+],
+"a": 1,
+"e": "Findings indicated telehealth was feasible for much of the active clientele.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "Which client factor predicted comfort with video-chat and need for assistance?",
+"o": [
+"Pet species",
+"Education level",
+"Distance to clinic",
+"Pet age"
+],
+"a": 1,
+"e": "Education was significantly predictive of video-chat comfort and need for assistance.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "What proportion of participants reported reliable home internet access?",
+"o": [
+"About 87%",
+"About 50%",
+"About 13%",
+"About 100%"
+],
+"a": 0,
+"e": "Reliable home internet access was reported by 87% of participants.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "How many critical themes emerged regarding expanding access to veterinary care?",
+"o": [
+"One",
+"Three",
+"Five",
+"Seven"
+],
+"a": 1,
+"e": "Three critical themes arose from the responses.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "Which was one of the identified themes?",
+"o": [
+"Reducing veterinary numbers",
+"A need for collaboration networks across clinics and access-to-care organizations",
+"Eliminating telemedicine",
+"Raising prices"
+],
+"a": 1,
+"e": "One theme was the need for collaboration and communication networks.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "The pandemic emphasized the veterinarian's role in what broader area?",
+"o": [
+"Public health",
+"Agriculture subsidies",
+"Real estate",
+"Tax policy"
+],
+"a": 0,
+"e": "The findings emphasized the role of veterinarians in public health.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "Which factors significantly predicted perceived ease of access to veterinary care?",
+"o": [
+"Pet breed and size",
+"Race/ethnicity, education, and financial fragility",
+"Clinic location only",
+"Season of year"
+],
+"a": 1,
+"e": "The regression model showed race/ethnicity, education, and financial fragility predicted access.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "What did the study find about financial fragility among pet owners?",
+"o": [
+"Limited to low-income owners",
+"Prevalent across most income brackets",
+"Absent in the sample",
+"Found only in renters"
+],
+"a": 1,
+"e": "Financial fragility was prevalent among most pet owners across almost all income brackets.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "What does the study recommend for future research?",
+"o": [
+"Smaller samples",
+"Diverse sampling capturing minority pet owners",
+"Excluding low-income owners",
+"Stopping access research"
+],
+"a": 1,
+"e": "The authors call for diverse sampling to capture minority pet owners' experiences.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "What did participation in the Northern Community Health Rotation appear to promote in students?",
+"o": [
+"Decreased cultural awareness",
+"Cultural humility and confidence working with diverse cultures",
+"Avoidance of marginalized communities",
+"No measurable change"
+],
+"a": 1,
+"e": "The rotation appeared to increase confidence with diverse cultures and advance cultural humility.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "What clinical orientation did the rotation help students implement?",
+"o": [
+"A clinician-centered approach",
+"A client-centered approach",
+"A profit-centered approach",
+"A research-only approach"
+],
+"a": 1,
+"e": "Students gained opportunities to implement a client-centered approach.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "What did the rotation help students recognize and challenge?",
+"o": [
+"Drug dosages",
+"Their preconceived biases about Indigenous cultures and animal ownership",
+"Surgical techniques",
+"Vaccine schedules"
+],
+"a": 1,
+"e": "Students advanced their capacity to recognize and challenge preconceived biases.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "How is Spectrum of Care (SpOC) defined?",
+"o": [
+"The most expensive treatment only",
+"Evidence-based options along the socioeconomic spectrum",
+"Euthanasia-first protocols",
+"Specialist referral only"
+],
+"a": 1,
+"e": "SpOC refers to evidence-based veterinary options along the socioeconomic spectrum.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "What effect did the SpOC course have on students' self-reported KACs?",
+"o": [
+"No change",
+"Positive improvements from pre- to post-survey",
+"Decline",
+"Mixed negative results"
+],
+"a": 1,
+"e": "Positive changes in self-reported knowledge, attitudes, and competencies occurred.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "In cost-barrier scenarios, how did students' predicted likelihood of euthanasia change after the course?",
+"o": [
+"Increased",
+"Decreased (e.g., 63% to 39%)",
+"Unchanged",
+"Rose to 100%"
+],
+"a": 1,
+"e": "Predicted likelihood of euthanasia fell from 63% to 39% post-course.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "How do the social determinants of health (SDH) primarily affect companion animal welfare, per this paper?",
+"o": [
+"Directly, independent of the guardian",
+"Indirectly, by impacting the human guardian who cares for the animal",
+"Only through genetic factors in the animal",
+"They have no demonstrated relationship to welfare"
+],
+"a": 1,
+"e": "The paper argues SDH impact humans, which in turn directly impacts their companion animals' welfare.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "What does the paper propose to advance companion animal welfare programs?",
+"o": [
+"Abandoning the five domains model",
+"Integrating an SDH framework with the five domains model via multidisciplinary collaboration",
+"Restricting research to veterinary economics",
+"Eliminating guardian-focused interventions"
+],
+"a": 1,
+"e": "It proposes adapting an SDH framework integrated with the five domains model through multidisciplinary collaboration.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "What research gap does the paper identify?",
+"o": [
+"Lack of research on the SDH–animal welfare relationship",
+"Excessive duplication of welfare frameworks",
+"Over-funding of guardian support programs",
+"Absence of the five domains model"
+],
+"a": 0,
+"e": "The paper notes a lack of research specifically exploring the relationship between SDH and animal welfare outcomes.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Shelter Diversion",
+"q": "What was the estimated social return on investment (SROI) of the RSPCA NSW emergency boarding program?",
+"o": [
+"AUD 1.50 per AUD 1 invested",
+"AUD 8.21 per AUD 1 invested",
+"AUD 0.85 per AUD 1 invested",
+"AUD 20 per AUD 1 invested"
+],
+"a": 1,
+"e": "The estimated SROI was AUD 8.21 for each AUD 1 invested.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Shelter Diversion",
+"q": "Which stakeholder groups experienced the bulk of the program's benefit?",
+"o": [
+"RSPCA Inspectors and pounds",
+"Animal shelters only",
+"Clients and their animals",
+"Government funders"
+],
+"a": 2,
+"e": "Clients and their animals experienced the bulk of the benefit, valued at over AUD 5 million.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Shelter Diversion",
+"q": "What does the study conclude about keeping people together with their pets during crisis?",
+"o": [
+"It reduces stressors and improves outcomes for people and animals",
+"It increases shelter euthanasia rates",
+"It has no measurable benefit",
+"It mainly benefits shelters financially"
+],
+"a": 0,
+"e": "The study concludes that keeping people with their pets, or reuniting them quickly, reduces stressors and improves outcomes.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "Which three themes were incorporated into the working definition of a veterinary care desert?",
+"o": [
+"Accessibility, affordability, and availability",
+"Awareness, attitude, and access",
+"Density, distance, and demand",
+"Income, insurance, and infrastructure"
+],
+"a": 0,
+"e": "The review identified accessibility, affordability, and availability as the three common themes.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "At what geographic level was the veterinary care desert definition parameterized?",
+"o": [
+"State",
+"County",
+"Census tract",
+"ZIP code"
+],
+"a": 2,
+"e": "The definition was parameterized at the level of census tracts using publicly available data.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "What is the practical clinical relevance of the established definition?",
+"o": [
+"To set veterinary fee schedules",
+"To identify areas with reduced access and target interventions",
+"To license new veterinary schools",
+"To rank veterinary clinics by quality"
+],
+"a": 1,
+"e": "Providers can use census tract data and the definition to identify under-served areas and target interventions.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "Which species received over half of the AMCTTR funds awarded?",
+"o": [
+"Dogs",
+"Cats",
+"Rabbits",
+"Funds were split equally"
+],
+"a": 1,
+"e": "Over half of the US$612,564 awarded went to cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "Feline applications were most commonly submitted for which services?",
+"o": [
+"Orthopedic surgery",
+"Cardiology and oncology",
+"Ophthalmology or dentistry",
+"Emergency trauma"
+],
+"a": 2,
+"e": "Feline applications were most commonly for ophthalmology or dentistry, unlike dogs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "Why were expenditures per dog higher than per cat?",
+"o": [
+"Dogs were referred for more expensive orthopedic surgery",
+"Dogs required more diagnostic imaging",
+"More dogs than cats were funded",
+"Dogs had longer hospital stays"
+],
+"a": 0,
+"e": "Expenditures per cat were lower because dogs were referred for more expensive orthopedic surgery.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What primarily drove semi-owners to transition to full ownership of cats?",
+"o": [
+"A legal requirement",
+"Feelings of responsibility, emotional attachment, and access to free sterilization",
+"Financial incentives paid to owners",
+"Pressure from animal control"
+],
+"a": 1,
+"e": "93% of semi-owners cited responsibility, emotional attachment, and access to free sterilization as drivers.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What proportion of surveyed cats were under 12 months of age?",
+"o": [
+"15%",
+"33%",
+"79%",
+"93%"
+],
+"a": 2,
+"e": "Most cats (79%) were under 12 months old.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What did the study find about prior veterinary care among these cats?",
+"o": [
+"Most had regular veterinary care",
+"Veterinary care was limited, with only 15% having seen a vet",
+"All were fully vaccinated",
+"None had ever been microchipped"
+],
+"a": 1,
+"e": "Veterinary care was limited; only 15% had visited a veterinarian and 28% were vaccinated.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Which two vector-borne diseases were the focus of this survey of homeless-services staff?",
+"o": [
+"Lyme disease and plague",
+"Louse-borne Bartonella quintana infection and flea-borne murine typhus",
+"Rabies and leptospirosis",
+"Cat scratch disease and toxoplasmosis"
+],
+"a": 1,
+"e": "The study targeted louse-borne Bartonella quintana and flea-borne murine typhus.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "What did the survey reveal about staff knowledge of these diseases?",
+"o": [
+"Most staff could accurately name the diseases and protocols",
+"Significant knowledge gaps, with fewer than a quarter able to describe a management protocol",
+"Staff were uniformly well trained",
+"Knowledge was adequate but prevention was over-applied"
+],
+"a": 1,
+"e": "The study found significant knowledge gaps; less than a quarter could describe an appropriate management protocol.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Which harmful misconception did staff hold?",
+"o": [
+"That lice and fleas are harmless",
+"That clients must isolate or be denied services until medically cleared",
+"That all clients should be vaccinated",
+"That the diseases are untreatable"
+],
+"a": 1,
+"e": "A misconception was that clients must isolate or be denied services, risking unnecessary service restrictions.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "What did this study conclude about how low-income clients perceive their pets' quality of life?",
+"o": [
+"They perceive it more negatively than affluent owners",
+"They perceive QoL similarly to demographics in prior research and are similarly bonded",
+"They could not articulate any QoL themes",
+"They valued QoL but not the human-animal bond"
+],
+"a": 1,
+"e": "Lower-income clients perceived QoL similarly to prior research and were similarly bonded and attentive.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "How did the single-item 10-point QoL scale perform across demographics?",
+"o": [
+"It differentiated demographics at a statistically significant level",
+"It did not differentiate between demographics significantly",
+"It only worked for English speakers",
+"It was not administered"
+],
+"a": 1,
+"e": "The single-item QoL scale did not differentiate demographics at a statistically significant level.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "What measurement do the results support including in pet QoL research?",
+"o": [
+"The human-animal bond (HAB)",
+"Owner income brackets only",
+"Breed standards",
+"Veterinary clinic ratings"
+],
+"a": 0,
+"e": "Results support the importance of measuring the human-animal bond when researching pet QoL.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "Which resource did Colorado pet owners rate as most helpful for access to care?",
+"o": [
+"Mobile grooming units",
+"Low-cost clinics providing sick and emergency care",
+"Breed-specific rescue funding",
+"Online pet forums"
+],
+"a": 1,
+"e": "Low-cost clinics providing sick and emergency care were rated the most helpful resource by pet owners.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "Which policy efforts did veterinary professionals especially support?",
+"o": [
+"Reducing the number of veterinary schools",
+"Recruitment and retention of technicians, including scope clarification and loan repayment",
+"Banning telemedicine",
+"Raising consultation fees"
+],
+"a": 1,
+"e": "Professionals especially supported technician recruitment/retention via scope clarification, loan repayment, and career pathways.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "What was pet owners' general attitude toward telemedicine?",
+"o": [
+"Generally supportive and comfortable, even for first visits",
+"Strongly opposed",
+"Indifferent",
+"Only acceptable for established patients"
+],
+"a": 0,
+"e": "Pet owners were generally supportive of telemedicine and comfortable using it even for a first visit.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "Which barrier to accessing veterinary care was most frequently reported in this scoping review?",
+"o": [
+"Financial limitations",
+"Language barriers",
+"Lack of pet insurance",
+"Veterinarian-client relationship"
+],
+"a": 0,
+"e": "Financial limitations were the most frequently reported barrier (n = 57).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "What did the review find about how 'access' to veterinary care is defined in the literature?",
+"o": [
+"It is consistently and clearly defined",
+"It lacks a consistent definition, with few publications defining it",
+"It is defined only in livestock contexts",
+"Definitions are abundant but contradictory"
+],
+"a": 1,
+"e": "Access lacks a consistent definition; only 10 publications defined it, prompting a proposed definition.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "After financial limitations, which barriers were most frequently reported?",
+"o": [
+"Client identity and trust",
+"Geographic location and limited personnel/equipment",
+"Clinic hours and parking",
+"Pet temperament"
+],
+"a": 1,
+"e": "Geographic location (n = 35) and limited personnel/equipment (n = 32) were the next most frequent barriers.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "Which theme emerged regarding homeless individuals with serious illness and animal companions?",
+"o": [
+"Animals were uniformly a barrier to all care",
+"Some chose animal companionship over formal housing and health services",
+"Animals provided no benefit during illness",
+"Most surrendered animals immediately upon diagnosis"
+],
+"a": 1,
+"e": "A major theme was choosing animal companionship over formal housing and health services.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "What analytic approach was used in this study?",
+"o": [
+"Randomized controlled trial",
+"Interpretive description",
+"Meta-analysis",
+"Cost-effectiveness modeling"
+],
+"a": 1,
+"e": "The subsamples were analyzed using an interpretive description approach.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "What overall picture did the study give of animal companionship during serious illness while homeless?",
+"o": [
+"Purely beneficial with no drawbacks",
+"Both healing benefits and situations where consequences outweigh benefits",
+"Universally harmful",
+"Irrelevant to clinical care"
+],
+"a": 1,
+"e": "Themes captured both healing benefits and instances where companionship's consequences outweighed the benefits.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "How did most participants become aware of charitable support for their pets?",
+"o": [
+"Veterinary referral",
+"Word-of-mouth",
+"Government letters",
+"Social media advertising"
+],
+"a": 1,
+"e": "Most participants only became aware of charitable pet support via word-of-mouth.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "What commonly prompted participants to seek charitable veterinary support?",
+"o": [
+"Routine vaccinations",
+"A pet health issue or emergency with unaffordable, unanticipated costs",
+"Desire for premium pet food",
+"Boarding needs while traveling"
+],
+"a": 1,
+"e": "Seeking support was often triggered by a health emergency with unanticipated, unaffordable veterinary costs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "Beyond hardship, what did the participants' accounts also highlight?",
+"o": [
+"Resilience and strategies that mitigated future crises",
+"A desire to relinquish their pets",
+"Distrust of all charities",
+"Complete financial recovery"
+],
+"a": 0,
+"e": "The accounts highlighted how resilience and coping strategies were established, mitigating future crises.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "What was the main finding regarding the physical health of dogs belonging to homeless persons?",
+"o": [
+"They were neglected and emaciated",
+"They were generally well cared for and physically healthy",
+"They had widespread infectious disease",
+"They were uniformly underweight"
+],
+"a": 1,
+"e": "Dogs of homeless persons were found to be well cared for and physically healthy, consistent with other studies.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "Which behavioural issue did the dogs notably display?",
+"o": [
+"Aggression toward strangers",
+"Evidence of separation distress when the owner was away",
+"Resource guarding of food",
+"Compulsive pacing"
+],
+"a": 1,
+"e": "The dogs had few behavioural problems but displayed evidence of separation distress while the owner was away.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "What policy change did the study suggest its findings could support?",
+"o": [
+"Banning dogs from public spaces",
+"Revising homeless-shelter policies that prohibit dogs staying with their owners",
+"Mandatory surrender of pets at intake",
+"Requiring pet insurance for homeless owners"
+],
+"a": 1,
+"e": "Findings could inform changes to policies prohibiting dogs from staying with owners at homeless shelters.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "What did the study identify as a key reason people do not seek pet support when eligible?",
+"o": [
+"Distance to the nearest clinic",
+"Fear of being judged, stigma, guilt and shame",
+"Distrust of veterinary medicine",
+"Believing the pet was not really ill"
+],
+"a": 1,
+"e": "Findings centered on fear of judgment, disclosure, stigma, guilt, shame, lack of awareness, financial concerns, and wanting to manage independently.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "Which three broader ideological narratives underpinned participants' stories?",
+"o": [
+"Giving back, equity, and sacrifice",
+"Loyalty, duty, and pride",
+"Independence, trust, and faith",
+"Convenience, cost, and comfort"
+],
+"a": 0,
+"e": "The authors identified 'giving back,' 'equity,' and 'sacrifice' as the underpinning narratives.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "What was the authors' main recommendation to charities?",
+"o": [
+"Increase the number of clinics",
+"Lower veterinary fees further",
+"Reframe how support is advertised and delivered to counteract these influences",
+"Require proof of income before help"
+],
+"a": 2,
+"e": "They argued support must be reframed to explicitly counteract stigma-related influences to ensure animals get needed care.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "How did veterinary students generally describe their experience on the remote Indigenous community rotations?",
+"o": [
+"Isolated and unsupported",
+"Welcomed and well supported by communities and the team",
+"Overwhelmed by clinical caseload",
+"Disconnected from the veterinary team"
+],
+"a": 1,
+"e": "Participants reported feeling welcomed and supported by the communities and connected to the veterinary team.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "Which factors did the study highlight as important for supporting students on community-based rotations?",
+"o": [
+"Higher pay and longer rotations",
+"Solo placements and minimal oversight",
+"Building community relationships, the right team, and debriefing during downtime",
+"Standardized exams after each visit"
+],
+"a": 2,
+"e": "The study emphasized building relationships, picking the right team, and implementing debriefing and decompressing activities.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "What was more important to volunteer satisfaction in this study?",
+"o": [
+"Internal shelter factors rather than individual volunteer traits",
+"Volunteer age and education",
+"Volunteer prior experience",
+"Geographic location of the shelter"
+],
+"a": 0,
+"e": "Internal shelter factors mattered more to satisfaction than the traits of the individual volunteer.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "Volunteers reported greater satisfaction with their experience and voice when volunteering at what kind of shelter?",
+"o": [
+"Open-admission shelters",
+"Municipal pounds",
+"Limited-intake shelters with higher save rates",
+"Large urban shelters"
+],
+"a": 2,
+"e": "Satisfaction with voice and the experience was higher at limited-intake shelters with higher save rates.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "How did opportunities for 'voice' relate to overall satisfaction?",
+"o": [
+"No relationship was found",
+"Volunteers more negative about voice were significantly less satisfied",
+"More voice reduced satisfaction",
+"Voice only mattered for new volunteers"
+],
+"a": 1,
+"e": "Volunteers more negative about their opportunities for voice were significantly less satisfied overall.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Animal ID & Stats",
+"q": "What best distinguished different dog breeds in this hair analysis?",
+"o": [
+"Microscopic structural features",
+"Micro-metric (numeric) measurements",
+"Hair color alone",
+"Sample weight"
+],
+"a": 0,
+"e": "Microscopic features distinguished breeds, whereas micro-metric values showed no remarkable distinctions.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Animal ID & Stats",
+"q": "What did the study conclude about micro-metric measurement values across breeds?",
+"o": [
+"They reliably separated every breed",
+"They did not show remarkable distinctions",
+"They were superior to microscopy",
+"They identified individual dogs"
+],
+"a": 1,
+"e": "The authors found micro-metric values did not show remarkable distinctions between breeds.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Animal ID & Stats",
+"q": "A rare 'split end' condition was observed in which breed?",
+"o": [
+"German Shepherd",
+"Labrador",
+"Poodle",
+"Dachshund"
+],
+"a": 3,
+"e": "The rare split-end condition was seen in the Dachshund breed.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Nutrition & Husbandry",
+"q": "A satisfactory body condition score in these Hong Kong shelter cats was associated with which practices?",
+"o": [
+"Outdoor access and group housing",
+"Regular veterinary input, frequent disinfection, and frequent water changes",
+"Free-choice dry food only",
+"Larger enclosures"
+],
+"a": 1,
+"e": "Satisfactory BCS was associated with regular vet input, more than once daily disinfection, and more than once daily water change.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Nutrition & Husbandry",
+"q": "Oculo-nasal discharge (a marker of upper respiratory infection) was associated with what?",
+"o": [
+"Lack of regular veterinary input and infrequent water changes",
+"Excessive feeding",
+"Single housing",
+"High disinfection frequency"
+],
+"a": 0,
+"e": "URI signs were linked to lack of regular vet input and less frequent water changes.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Nutrition & Husbandry",
+"q": "A dull coat was associated with which single factor?",
+"o": [
+"Infrequent disinfection",
+"Overcrowding",
+"Lack of regular feeding",
+"Lack of vaccination"
+],
+"a": 2,
+"e": "Lack of regular feeding was the only factor associated with a dull coat.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "What was the study's overall conclusion about 'cuteness' (baby schema) and length of stay?",
+"o": [
+"Cuteness strongly shortened length of stay",
+"Cuteness may not be as influential on length of stay as hypothesized",
+"Only coat color predicted length of stay",
+"Cuteness lengthened stay"
+],
+"a": 1,
+"e": "The study found cuteness may not be as influential on cats' length of stay as had been hypothesized.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "Which variable was found to influence length of stay in the analysis?",
+"o": [
+"Coat colour",
+"Sex",
+"Subjective cuteness from survey 1",
+"Paired-homing requirement"
+],
+"a": 2,
+"e": "Subjective cuteness in survey 1 was the only variable of influence on length of stay.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "What were the estimated outcomes for cats entering Australian pounds, shelters, and rescues in 2018–2019?",
+"o": [
+"5% reclaimed, 65% rehomed, 28% euthanized",
+"20% reclaimed, 50% rehomed, 30% euthanized",
+"10% reclaimed, 80% rehomed, 10% euthanized",
+"5% reclaimed, 40% rehomed, 55% euthanized"
+],
+"a": 0,
+"e": "The study estimated about 5% reclaimed, 65% rehomed, and 28% euthanized.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "How did euthanasia rates at council-run pounds compare with animal welfare organizations?",
+"o": [
+"They were nearly identical",
+"Council-run pounds had nearly double the euthanasia rate",
+"Welfare organizations had higher rates",
+"Council pounds euthanized almost none"
+],
+"a": 1,
+"e": "Councils running their own pounds had a euthanasia rate (~46%) nearly double that of welfare organizations (~25%).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "What was notable about reclaim rates across agencies?",
+"o": [
+"They exceeded rehoming",
+"They were low across all agencies",
+"They were highest at rescue groups",
+"They matched euthanasia rates"
+],
+"a": 1,
+"e": "Reclaim rates were low across all of the agencies studied.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Sanitation & Biosecurity",
+"q": "Which virus was NOT inactivated by gaseous ozone even after 6 hours?",
+"o": [
+"Feline calicivirus",
+"Feline parvovirus",
+"Feline coronavirus",
+"Canine coronavirus"
+],
+"a": 1,
+"e": "Feline parvovirus (a non-enveloped virus) remained viable even after 6 hours of ozone.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Sanitation & Biosecurity",
+"q": "What general pattern of ozone susceptibility did the study confirm?",
+"o": [
+"Non-enveloped viruses are more susceptible",
+"Enveloped viruses are more resistant",
+"Enveloped viruses showed lower resistance to ozone",
+"All viruses were equally resistant"
+],
+"a": 2,
+"e": "Results confirmed lower resistance to ozone in enveloped viruses.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Sanitation & Biosecurity",
+"q": "After how long of ozone application did feline coronavirus show no cytopathic effect?",
+"o": [
+"2 hours",
+"4 hours",
+"6 hours",
+"Not inactivated"
+],
+"a": 0,
+"e": "Feline coronavirus showed no cytopathic effect after 2 hours of ozone application.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "What overall trend in public shelter intakes and outcomes occurred in Taiwan from 2012 to 2020?",
+"o": [
+"They increased sharply",
+"They significantly decreased over time",
+"They remained unchanged",
+"They fluctuated without trend"
+],
+"a": 1,
+"e": "Shelter animal intakes and outcomes significantly decreased over the study period.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "What replaced euthanasia as the main reasons for animal outcomes?",
+"o": [
+"Transfer to other countries",
+"Long-term sheltering",
+"Adoption and trap–neuter–vaccination–return",
+"Owner reclaim"
+],
+"a": 2,
+"e": "Adoption and trap–neuter–vaccination–return became the main reasons for animal outcomes.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "What happened to shelter veterinary workload relative to the legal limit (100 animals/vet)?",
+"o": [
+"It stayed below the limit everywhere",
+"It exceeded the limit in a growing number of counties",
+"It was abolished by law",
+"It dropped to near zero"
+],
+"a": 1,
+"e": "Workload exceeded the legal limit in two counties in 2018, rising to six counties by 2020.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "What did this study conclude was most important to volunteer satisfaction?",
+"o": [
+"Volunteer demographics",
+"Shelter size and location",
+"Policies and procedures under organizational control",
+"Volunteer prior experience"
+],
+"a": 2,
+"e": "Organizational policies and procedures were concluded to be most important to volunteer satisfaction.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "The study assessed the relative importance of which sets of factors?",
+"o": [
+"Volunteer demographics, shelter attributes, and governing policies",
+"Only funding sources",
+"Only animal outcomes",
+"Only volunteer age and gender"
+],
+"a": 0,
+"e": "It compared volunteer demographics, shelter attributes, and the policies/procedures governing the experience.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "Which housing setting was associated with a higher frequency of sickness in cats?",
+"o": [
+"Foster care",
+"The cat café",
+"Both were equal",
+"Neither"
+],
+"a": 1,
+"e": "Cats in the cat café had a significantly higher frequency of sickness than foster-care cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "How did adoption speed compare by housing status?",
+"o": [
+"Café cats were adopted faster",
+"Foster-care cats were adopted faster",
+"There was no difference",
+"Adult café cats were fastest"
+],
+"a": 1,
+"e": "Foster-care cats were adopted significantly faster than cat café cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "What effect did negative behavioral and medical comments have on length of stay?",
+"o": [
+"Shortened it",
+"No effect",
+"Lengthened it",
+"Only affected kittens"
+],
+"a": 2,
+"e": "Each additional negative behavioral or medical comment was associated with a longer length of stay.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "What did paired pre-/post-test scores show after the online asynchronous shelter surgery coursework?",
+"o": [
+"A statistically significant increase in post-test scores",
+"No change in scores",
+"A decrease in scores",
+"Improvement only for repeat students"
+],
+"a": 0,
+"e": "Post-test scores increased significantly compared with pre-test scores (p < .001).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "Did time to completion (≤30 days vs >30 days) affect the change in scores?",
+"o": [
+"Faster completers improved more",
+"Slower completers improved more",
+"No significant difference in mean score change",
+"Only slow completers improved"
+],
+"a": 2,
+"e": "There was no significant difference in score change between students finishing in 30 days or less versus more than 30 days.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "What did the findings support regarding instructional format?",
+"o": [
+"Classroom-only teaching is required",
+"Online asynchronous learning is an effective option",
+"Surgery cannot be taught online",
+"Self-paced learning reduces outcomes"
+],
+"a": 1,
+"e": "The findings support online asynchronous learning as an effective option for veterinary students.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Animals & Public Policy",
+"sub": "Legislation",
+"q": "What did the overwhelming majority of Romanian respondents believe about assessing a dog's dangerousness?",
+"o": [
+"It should be determined solely by breed/type",
+"It should be assessed individually per dog regardless of breed",
+"Only government experts can determine it",
+"It cannot be reliably assessed"
+],
+"a": 1,
+"e": "Respondents overwhelmingly favored individual, breed-neutral assessment of dangerousness.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Animals & Public Policy",
+"sub": "Legislation",
+"q": "What did a significant percentage of respondents reveal about the existing 'dangerous' dog legislation?",
+"o": [
+"Strong familiarity with it",
+"Detailed support for its provisions",
+"Unawareness of the legal regime in place",
+"Opposition based on enforcement cost"
+],
+"a": 2,
+"e": "A significant share were simply unaware of the legal regime governing 'dangerous' breeds.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Animals & Public Policy",
+"sub": "Legislation",
+"q": "The study acknowledged inconsistencies between which two groups' opinions on preventing dog attacks?",
+"o": [
+"Community members and experts",
+"Veterinarians and lawyers",
+"Owners and non-owners",
+"Urban and rural residents"
+],
+"a": 0,
+"e": "Inconsistencies existed between community members' and experts' views on attack-prevention methods.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "What effect did the digitally altered photo background have on participants' link-clicking behavior?",
+"o": [
+"Outdoor backgrounds doubled clicks",
+"In-kennel backgrounds reduced clicks",
+"No significant effect",
+"Plain backgrounds increased clicks"
+],
+"a": 2,
+"e": "Background type did not significantly affect link-clicking (p=.314).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "What did sociability scores predict about participants' link clicking?",
+"o": [
+"They strongly predicted clicking",
+"They did not predict clicking",
+"Higher scores reduced clicking",
+"They predicted clicking only for indoor photos"
+],
+"a": 1,
+"e": "Sociability scores did not predict link-clicking behavior.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "What did the authors conclude should guide shelter marketing decisions?",
+"o": [
+"Empirical data",
+"Staff intuition",
+"Breed popularity",
+"Professional photographers' preferences"
+],
+"a": 0,
+"e": "The results underscore using empirical data, not assumptions, for marketing decisions.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Higher owner income and education were associated with what?",
+"o": [
+"Higher responsible guardianship scores",
+"Lower responsible guardianship scores",
+"No association with guardianship",
+"Higher relinquishment rates"
+],
+"a": 0,
+"e": "Higher income and education correlated with higher responsible guardianship scores.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Which owners had the lowest responsible guardianship scores?",
+"o": [
+"Dog-only owners",
+"Owners of both dogs and cats",
+"Cat-only owners",
+"High-income owners"
+],
+"a": 2,
+"e": "Cat-only owners had lower responsible guardianship scores than dog or mixed owners.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "The study concluded the findings would help create educational materials targeting whom?",
+"o": [
+"Veterinarians",
+"Low-income/low-education people and all cat owners",
+"Animal control officers",
+"High-income dog owners"
+],
+"a": 1,
+"e": "Data inform education aimed at low-income/low-education owners and all cat owners.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Shelter Diversion",
+"q": "Globally, what proportion of human adults is estimated to be sensitized to cats?",
+"o": [
+"Less than 1%",
+"Up to 10-20%",
+"About 50%",
+"Over 75%"
+],
+"a": 1,
+"e": "The review cites estimates that up to 10-20% of adults are sensitized to cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Shelter Diversion",
+"q": "The review categorized cat-allergy impact into which three quantifiable outcomes?",
+"o": [
+"Avoiding ownership, relinquishment, and return after acquisition",
+"Euthanasia, breeding, and vaccination",
+"Hospitalization, medication, and surgery",
+"Adoption, fostering, and transport"
+],
+"a": 0,
+"e": "Outcomes fell into avoiding ownership, relinquishment, and post-acquisition return.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Shelter Diversion",
+"q": "According to the review, what trend characterizes human allergy to cats over time?",
+"o": [
+"Declining steadily",
+"Remaining constant",
+"Increasing",
+"Eliminated by modern treatment"
+],
+"a": 2,
+"e": "Human allergies, including to cats, have been increasing alongside rising cat ownership.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "In which area did students at the WisCARES clinic most report improved confidence?",
+"o": [
+"Surgical technique",
+"Radiograph interpretation",
+"Managing/leading cases, including financial conversations with clients",
+"Laboratory diagnostics"
+],
+"a": 2,
+"e": "Students reported improved confidence in case management and leading financial client conversations.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "Which student group most prominently valued the inter-professional/collaborative environment?",
+"o": [
+"Veterinary students",
+"Pharmacy students",
+"Neither group",
+"Both equally, as the top theme"
+],
+"a": 1,
+"e": "Inter-professional collaboration was a major theme among pharmacy students more than vet students.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "Insight into diversity appeared most often as what in the study?",
+"o": [
+"An expectation more than a realized end-of-day outcome",
+"The top realized outcome",
+"An irrelevant theme",
+"A negative experience"
+],
+"a": 0,
+"e": "Diversity insight was a common expectation but less often noted as an actual outcome.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Euthanasia",
+"q": "How is pentobarbital sodium described for the US and Canada?",
+"o": [
+"A banned substance",
+"The drug of choice for companion animal euthanasia",
+"Used only in research",
+"An anesthetic with no euthanasia role"
+],
+"a": 1,
+"e": "Pentobarbital sodium is the euthanasia drug of choice for companion animals in both countries.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Euthanasia",
+"q": "How did animal care industries respond to the 2021 pentobarbital shortage?",
+"o": [
+"Ceased all euthanasia",
+"Imported unlimited supply",
+"Conserved the drug and used alternative methods/agents",
+"Switched all species to inhalants"
+],
+"a": 2,
+"e": "The shortage forced drug conservation and use of alternative methods and agents.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Euthanasia",
+"q": "The article's main recommendations focus on what?",
+"o": [
+"Handling future pentobarbital shortages",
+"Banning euthanasia drugs",
+"Reducing shelter intake",
+"Revising vaccination protocols"
+],
+"a": 0,
+"e": "Recommendations target managing future pentobarbital shortages.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "What effect did canine-assisted interventions consistently have on human stress markers?",
+"o": [
+"Consistently worsened them",
+"No effect at all",
+"Elicited positive changes",
+"Eliminated all stress permanently"
+],
+"a": 2,
+"e": "Across studies, interventions consistently produced positive changes in human stress markers.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "What was the typical effect on the studied canine stress markers?",
+"o": [
+"Severe negative impacts",
+"Typically no negative impacts",
+"Always raised dog cortisol",
+"Never measured in any study"
+],
+"a": 1,
+"e": "Interventions typically did not cause negative effects on canine stress markers.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "What common methodological weakness did the review identify?",
+"o": [
+"Sample timing not aligned to when biomarkers peak",
+"Too many participants",
+"Excessive funding",
+"Overuse of cats as subjects"
+],
+"a": 0,
+"e": "Many studies failed to time sampling to expected biomarker peaks.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "Did the human-animal bond predict improvements in detained juveniles' stress and self-esteem?",
+"o": [
+"Yes, strongly across all measures",
+"No, contrary to the hypotheses",
+"Only for stress",
+"Only for self-esteem at end of training"
+],
+"a": 1,
+"e": "Contrary to hypotheses, the HAB did not predict stress or self-esteem improvements.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "Which association was significant in the cross-lagged panel models?",
+"o": [
+"Cross-sectional HAB quality and self-esteem at the four-week point",
+"HAB and stress at end of training",
+"Reciprocity and stress at baseline",
+"None of the studied variables"
+],
+"a": 0,
+"e": "Only the cross-sectional HAB quality and self-esteem link at T2 was significant.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "What did the authors conclude about prison-based dog training programs?",
+"o": [
+"They reliably reduce stress",
+"The HAB clearly drives self-esteem gains",
+"More research is needed into the presumed role of the HAB",
+"They should be discontinued"
+],
+"a": 2,
+"e": "Findings underscore the need for more research on the presumed HAB role in such programs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Euthanasia",
+"q": "For what percentage of respondents was low/no-contact euthanasia a common and/or stressful ethical challenge?",
+"o": [
+"5.0%",
+"22.8%",
+"54.0%",
+"90.1%"
+],
+"a": 1,
+"e": "22.8% of respondents flagged low/no-contact euthanasia as a stressful ethical challenge.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Euthanasia",
+"q": "What did respondents say about low and no-contact protocols' effect on patients?",
+"o": [
+"They calmed all patients",
+"They had no behavioral impact",
+"They only affected cats",
+"They may cause or exacerbate fear, anxiety, and distress"
+],
+"a": 3,
+"e": "A key theme was that such protocols may cause or worsen patient fear, anxiety, and distress.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Euthanasia",
+"q": "What did the authors recommend developing?",
+"o": [
+"A toolkit of low-contact euthanasia protocols",
+"A ban on pandemic euthanasia",
+"Mandatory in-person-only consults",
+"Reduced PPE requirements"
+],
+"a": 0,
+"e": "They recommend a toolkit of protocols for performing low-contact euthanasia.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Euthanasia",
+"q": "When a blind dog has no severe systemic disease and a predictably good long-term quality of life, what should the veterinarian do?",
+"o": [
+"Recommend immediate euthanasia",
+"Inform the owner about differences between human and animal visual perception",
+"Decline to discuss the case",
+"Insist on enucleation"
+],
+"a": 1,
+"e": "The vet should explain how animals' visual perception differs from humans' before any euthanasia decision.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Euthanasia",
+"q": "According to the authors, a diagnosis of blindness in dogs can sometimes lead to what?",
+"o": [
+"Improved owner bonding only",
+"Mandatory rehoming",
+"An inappropriate request for euthanasia",
+"Spontaneous vision recovery"
+],
+"a": 2,
+"e": "Blindness diagnosis can prompt an inappropriate euthanasia request.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Euthanasia",
+"q": "How many clinical scenarios of veterinarian-owner conflict over euthanizing a blind dog did the authors report?",
+"o": [
+"Four",
+"Two",
+"Seven",
+"Ten"
+],
+"a": 0,
+"e": "The authors describe four scenarios of conflicting views over euthanasia requests.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Mental Health & Self-Care",
+"q": "Continued exposure to suffering in the animal protection and welfare sector can result in what?",
+"o": [
+"Improved morale",
+"Stress, anxiety, burnout, and compassion fatigue",
+"No measurable effect",
+"Reduced staff turnover"
+],
+"a": 1,
+"e": "Ongoing exposure to suffering drives stress, anxiety, burnout, and compassion fatigue.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Mental Health & Self-Care",
+"q": "Which two key themes emerged from participants' narratives?",
+"o": [
+"Feeling unprepared and 'forced strength'",
+"High pay and job security",
+"Boredom and isolation",
+"Physical injury and illness"
+],
+"a": 0,
+"e": "The two themes were feeling unprepared and 'forced strength.'",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Mental Health & Self-Care",
+"q": "What approach did the authors propose to mitigate these challenges?",
+"o": [
+"Increased caseloads",
+"Reduced community engagement",
+"Trauma-informed practices",
+"Eliminating animal surrenders"
+],
+"a": 2,
+"e": "Trauma-informed practices were proposed to prevent burnout and build resilience.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Mental Health & Self-Care",
+"q": "Despite expressing pride in their work, what did the participating enforcement officers consistently report?",
+"o": [
+"Excellent resources and respect",
+"Resource inadequacies, communication gaps, and a culture of normalized disrespect",
+"Chronic overstaffing",
+"No safety concerns"
+],
+"a": 1,
+"e": "Officers consistently reported inadequate resources, communication gaps, and normalized disrespect.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Mental Health & Self-Care",
+"q": "Which concept became central to the study?",
+"o": [
+"'Medico-legal borderlands'",
+"Herd immunity",
+"Capacity for care",
+"The five freedoms"
+],
+"a": 0,
+"e": "The 'medico-legal borderlands' concept became central to the findings.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Mental Health & Self-Care",
+"q": "What did the authors advocate to promote best practices and improve working conditions?",
+"o": [
+"Reduced inter-agency contact",
+"Fewer officers",
+"Eliminating bylaw enforcement",
+"Relational coordination"
+],
+"a": 3,
+"e": "They highlighted the potential of relational coordination to promote best practices.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Non-Surgical Sterilization",
+"q": "Per the review, the main determinants of a prepubertal bitch's response to deslorelin are:",
+"o": [
+"Breed and coat color",
+"Age and dosage (plus individual metabolism)",
+"Season and diet",
+"Litter size"
+],
+"a": 1,
+"e": "The review names age of the prepubertal bitch, dosage, and individual metabolism as the main response determinants.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Non-Surgical Sterilization",
+"q": "Recent studies found long-term deslorelin-induced delay of puberty had what effect on later ovarian function and fertility?",
+"o": [
+"Permanent infertility",
+"No negative carry-over effects",
+"Increased uterine disease",
+"Early ovarian failure"
+],
+"a": 1,
+"e": "Reported absence of negative carry-over on ovarian functionality, steroid hormones, uterine health, and fertility.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Non-Surgical Sterilization",
+"q": "Which areas does the review flag as still needing further investigation?",
+"o": [
+"Long-term effects on joint health, tumors, immunity, and social behavior",
+"Acute injection-site reactions",
+"Implant manufacturing cost",
+"Owner satisfaction"
+],
+"a": 0,
+"e": "The authors call for more study of joint health, tumor development, immune system, and social behavior effects.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "Higher odds of eventual adoption satisfaction were associated with owners who:",
+"o": [
+"Deliberated for over a month",
+"Spent under a week deciding or sought companionship/affection",
+"Prioritized appearance",
+"Adopted multiple dogs at once"
+],
+"a": 1,
+"e": "Odds of satisfaction were higher for quick deciders and those motivated by companionship and affection.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "Owners who prioritized which characteristic were more likely to be satisfied with their adopted dog?",
+"o": [
+"Size",
+"Coat type",
+"Personality",
+"Age"
+],
+"a": 2,
+"e": "Prioritizing personality as an adoption criterion predicted greater satisfaction.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "For future adoptions, owners' selection criteria tended to shift toward:",
+"o": [
+"Physical characteristics",
+"Behavioral characteristics",
+"Breed pedigree",
+"Purchase price"
+],
+"a": 1,
+"e": "Future selection priorities shifted away from physical toward behavioral characteristics.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Mental Health & Self-Care",
+"q": "The systematic review found which category of stressors played the most prominent role in veterinary practice?",
+"o": [
+"Physical/ergonomic",
+"Financial",
+"Social (human–human interactions)",
+"Biological"
+],
+"a": 2,
+"e": "Social stressors, dominated by human–human interactions, were the most prominent category.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Mental Health & Self-Care",
+"q": "Given the prominence of social stressors, the authors suggest which intervention starting point?",
+"o": [
+"Communication skills training",
+"Increased pay",
+"Reduced caseload",
+"Personal protective equipment"
+],
+"a": 0,
+"e": "Training in communication techniques is highlighted as a potential intervention starting point.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Mental Health & Self-Care",
+"q": "Stressors were categorized using which framework?",
+"o": [
+"Maslow hierarchy",
+"Bio-psycho-social model",
+"Five Freedoms",
+"SWOT analysis"
+],
+"a": 1,
+"e": "Results were clustered using the bio-psycho-social model.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "Dog welfare organisations perceived which as key challenges to Irish dog welfare?",
+"o": [
+"Excessive legislation",
+"Poor public husbandry awareness, weak legislation enforcement, and puppy farms",
+"Declining pet ownership",
+"A surplus of veterinarians"
+],
+"a": 1,
+"e": "DWOs cited poor husbandry awareness, inadequate enforcement, puppy farms, and financial/volunteer burden.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "Which measures did DWOs see as most helpful to improve welfare standards?",
+"o": [
+"Reducing adoption fees",
+"Greater legislation enforcement and communication with government",
+"Building more shelters",
+"Banning fostering"
+],
+"a": 1,
+"e": "Greater enforcement, government communication, and media awareness were seen as helpful.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "What did DWOs perceive as threatening their organisational viability?",
+"o": [
+"Increased dog acquisition, rehoming difficulties, and financial challenges",
+"Declining demand for dogs",
+"Over-regulation of staff",
+"A surplus of volunteers"
+],
+"a": 0,
+"e": "Increased household acquisition, rehoming difficulties, and financial strain threatened viability.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "Shelter medicine is increasingly identified by educators as an optimal environment to teach:",
+"o": [
+"Only surgical skills",
+"Behavior, welfare, ethics, forensics, and cultural competency",
+"Laboratory diagnostics only",
+"Practice financial management"
+],
+"a": 1,
+"e": "It offers exposure to behavior, welfare, ethics, forensics, and cultural competency topics.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "Students reflected that the shelter medicine rotation:",
+"o": [
+"Was irrelevant to private practice",
+"Helped them self-identify knowledge gaps and changed perspectives",
+"Reduced their clinical skills",
+"Was purely administrative"
+],
+"a": 1,
+"e": "Students found it beneficial, identified knowledge gaps, and changed perspectives.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "The authors conclude shelter medicine rotations can help produce graduates who are:",
+"o": [
+"More practice-ready and culturally competent",
+"Less interested in welfare",
+"Focused only on research",
+"Deterred from clinical work"
+],
+"a": 0,
+"e": "The rotation is framed as cultivating practice-ready, culturally competent graduates.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Animals & Public Policy",
+"sub": "Ethics",
+"q": "Pet ownership showed the strongest association with which attitudes?",
+"o": [
+"General values such as animal protection and animal rights",
+"Attitudes toward eating meat",
+"Pig farming system evaluations",
+"No attitudes at all"
+],
+"a": 0,
+"e": "Pet ownership related most strongly to general values like animal protection and supporting fundamental animal rights.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Animals & Public Policy",
+"sub": "Ethics",
+"q": "Specific attitudes such as evaluating pig farming or eating meat were more related to:",
+"o": [
+"Pet ownership",
+"Age",
+"Respondent sex",
+"Income"
+],
+"a": 2,
+"e": "More specific attitudes were more strongly linked to sex than to pet ownership.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Animals & Public Policy",
+"sub": "Ethics",
+"q": "The overall effect sizes observed were:",
+"o": [
+"Negligible",
+"Small to medium",
+"Large",
+"Inconsistent"
+],
+"a": 1,
+"e": "ANOVA results showed small to medium effect sizes.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Population Management",
+"q": "Few juveniles were observed, suggesting recruitment occurred mainly by:",
+"o": [
+"High local birth rates",
+"Movement between dog subpopulations",
+"Immigration of wild canids",
+"Shelter releases"
+],
+"a": 1,
+"e": "Scarcity of juveniles implies recruitment via movement from owned or neighbouring free-roaming populations.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Population Management",
+"q": "Observed free-roaming dog density was highest in which location?",
+"o": [
+"Pescara, Italy (~7/km²)",
+"Lviv, Ukraine (~40/km²)",
+"Equal in both",
+"Neither reported density"
+],
+"a": 1,
+"e": "Lviv averaged ~40 dogs/km² versus ~7/km² in Pescara.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Population Management",
+"q": "The finding that recruitment comes from neighbouring/owned populations implies effective control must:",
+"o": [
+"Ignore neighbouring populations",
+"Account for movement/immigration between subpopulations",
+"Rely solely on sheltering",
+"Target only juveniles"
+],
+"a": 1,
+"e": "Recruitment by movement has important consequences requiring control across connected subpopulations.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "The strongest deterrent to working in shelter medicine reported by students was:",
+"o": [
+"Outreach clinics",
+"Risk of compassion fatigue, burnout, and stress",
+"Loan forgiveness",
+"Access-to-care clinics"
+],
+"a": 1,
+"e": "Compassion fatigue, burnout, and stress (~70%) was the top deterrent.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "Which factors encouraged students to consider shelter medicine?",
+"o": [
+"Outreach clinics, access-to-care clinics, and loan forgiveness",
+"Weekend work",
+"Euthanasia duties",
+"Low salary"
+],
+"a": 0,
+"e": "Outreach and access-to-care clinics plus loan forgiveness encouraged interest.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "Compared with veterinarians, students rated shelter medicine duties and employment characteristics:",
+"o": [
+"More negatively",
+"Identically",
+"More positively",
+"These were not measured"
+],
+"a": 2,
+"e": "Students reported more positive ratings than current veterinarians.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Students showed significantly greater confidence to perform canine orchiectomy if they had:",
+"o": [
+"Only read about it",
+"Previously performed or observed the procedure",
+"Neither seen nor performed it",
+"Only watched a recorded video"
+],
+"a": 1,
+"e": "Confidence was significantly higher in those who had performed or observed COE versus neither.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "What proportion of responding students had actually performed the procedure?",
+"o": [
+"About 25%",
+"About 48%",
+"About 75%",
+"None"
+],
+"a": 0,
+"e": "24.6% had performed COE, 47.7% had observed it, and 27.7% had done neither.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "The study concluded that live-animal surgical participation:",
+"o": [
+"Had no effect on confidence",
+"Decreased confidence",
+"Significantly increased clinical confidence",
+"Was unnecessary"
+],
+"a": 2,
+"e": "Participation in COEs significantly contributed to students' clinical confidence.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "Community-based primary care clinics in Indigenous communities were described as benefiting:",
+"o": [
+"Only the students",
+"Only the communities",
+"Both student learning and underserved community access to care",
+"Neither group"
+],
+"a": 2,
+"e": "Students build skills while underserved communities gain companion-animal access to care.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "What did several students recommend regarding their experience?",
+"o": [
+"More cultural sensitivity training",
+"Fewer clinical hours",
+"Eliminating the clinics",
+"Less supervision"
+],
+"a": 0,
+"e": "Students were ambivalent about cultural learning and recommended more cultural sensitivity training.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "Students were most often motivated to volunteer in order to:",
+"o": [
+"Earn extra money",
+"Make a positive difference and improve clinical skills",
+"Avoid coursework",
+"Travel abroad"
+],
+"a": 1,
+"e": "Most were motivated to help people and animals and to improve their clinical skills.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Mental Health & Self-Care",
+"q": "Which type of empathy was a significant risk factor for exhaustion in veterinarians and nurses?",
+"o": [
+"Cognitive empathy",
+"Affective empathy",
+"No empathy type",
+"Empathy for clients only"
+],
+"a": 1,
+"e": "Affective empathy significantly predicted exhaustion (and empathy for animals predicted veterinarian exhaustion).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Mental Health & Self-Care",
+"q": "Which factors were found to be significant burnout protectors?",
+"o": [
+"Higher workload",
+"Professional identification and justice perceptions",
+"Reduced empathy",
+"Longer working hours"
+],
+"a": 1,
+"e": "Professional identification and justice perceptions (belief in a just world) were protective.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Mental Health & Self-Care",
+"q": "Were the empathy measures significant predictors of disengagement?",
+"o": [
+"Yes, both strongly predicted disengagement",
+"No, neither empathy measure significantly predicted disengagement",
+"Only cognitive empathy predicted it",
+"Only empathy for animals predicted it"
+],
+"a": 1,
+"e": "Neither measure of empathy was a significant predictor of disengagement for veterinarians or veterinary nurses.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "Emotional attachment to foster dogs was found to be:",
+"o": [
+"Much weaker than to pet dogs",
+"Similar to attachment to pet dogs",
+"Essentially absent",
+"Unrelated to retention"
+],
+"a": 1,
+"e": "Foster attachment was similar to attachment to one's own pet dogs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "Higher emotional stress from fostering was associated with:",
+"o": [
+"Increased thoughts of quitting",
+"Better long-term retention",
+"More adoptions completed",
+"No measurable effect"
+],
+"a": 0,
+"e": "Greater fostering stress increased thoughts of quitting, hampering retention.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "What can help alleviate foster volunteers' stress and improve retention?",
+"o": [
+"Reducing the number of fosters",
+"Organizational support directed at the volunteer",
+"Ignoring volunteer needs",
+"Raising adoption fees"
+],
+"a": 1,
+"e": "Organizational support aimed at the human volunteer can alleviate stress and boost retention.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animals & Public Safety",
+"q": "Which strategies did most animal control officers agree were among the most effective for community engagement?",
+"o": [
+"Immediate citation issuance",
+"Mandatory fines and penalties",
+"Relationship-building, providing assistance/information, and allowing time for compliance",
+"Seizure of animals on first contact"
+],
+"a": 2,
+"e": "Officers identified relationship-building, assistance, and time for compliance as most effective.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animals & Public Safety",
+"q": "How consistent was the definition of community engagement across the officers studied?",
+"o": [
+"Definitions varied greatly across officers",
+"There was one agreed-upon definition",
+"Officers refused to define it",
+"Definitions were nationally standardized"
+],
+"a": 0,
+"e": "The phenomenology found definitions varied greatly across the sample.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animals & Public Safety",
+"q": "What did the authors recommend for future research and policymaking?",
+"o": [
+"Eliminate community engagement programs",
+"Increase fines",
+"Reduce officer staffing",
+"Establish a consistent definition that can then be optimized and evaluated"
+],
+"a": 3,
+"e": "They urged a consistent, evaluable definition of community engagement.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "According to the review, health benefits of companion animals are predicated mainly on what?",
+"o": [
+"The animal's species",
+"Human perceptions of the animal rather than its species",
+"The animal's body size",
+"The purchase cost of the animal"
+],
+"a": 1,
+"e": "Benefits depended on human perceptions, not the species.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "What was a key gap the review identified?",
+"o": [
+"Too many randomized controlled trials",
+"An over-studied field",
+"Lack of media interest",
+"Lack of rigorous research into non-conventional companion animals"
+],
+"a": 3,
+"e": "The literature lacked high-quality empirical research on these species.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "How might non-conventional companion animals benefit their guardians?",
+"o": [
+"Providing social support and acting as attachment figures",
+"Providing only financial benefit",
+"Providing no measurable benefit",
+"Replacing all human relationships"
+],
+"a": 0,
+"e": "They may offer social support, routines, attachment, and restorative experiences.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Mental Health & Self-Care",
+"q": "What did results suggest may reduce moral stress in charity veterinary hospitals?",
+"o": [
+"Increasing caseload",
+"Removing ethics from practice",
+"Regular facilitated ethical group discussions",
+"Ignoring moral concerns"
+],
+"a": 2,
+"e": "Facilitated ethical discussion groups appeared to reduce moral stress.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Mental Health & Self-Care",
+"q": "Moral stress was attributed primarily to what?",
+"o": [
+"Excess salary",
+"Uncertainty about the ability to fulfill ethical obligations",
+"Lack of patients",
+"Too few colleagues"
+],
+"a": 1,
+"e": "It stemmed from uncertainty about meeting ethical obligations.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Mental Health & Self-Care",
+"q": "How did participants characterize moral stress?",
+"o": [
+"A rare one-off event",
+"Irrelevant to mental health",
+"Affecting only veterinarians",
+"An everyday, cumulative experience"
+],
+"a": 3,
+"e": "It was described as everyday and cumulative, interacting with other stress.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "A higher pre-treatment neutrophil-to-lymphocyte ratio (NLR > 5) was associated with what?",
+"o": [
+"Lower survival rate after surgery",
+"Higher survival rate",
+"No effect on survival",
+"Faster wound healing"
+],
+"a": 0,
+"e": "NLR > 5 correlated with reduced survival after surgery.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What was found about the albumin-to-globulin ratio (AGR) alone?",
+"o": [
+"It was the strongest sole predictor",
+"It outperformed NLR",
+"It showed no predictive value on malignancy by itself",
+"It predicted breed"
+],
+"a": 2,
+"e": "AGR alone did not predict tumor malignancy.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What best predicted tumor grade and post-surgical survival?",
+"o": [
+"Tumor grade was unpredictable",
+"Combining NLR, AGR, age, and tumor size in a principal component analysis",
+"Using AGR alone",
+"Ignoring tumor size"
+],
+"a": 1,
+"e": "A PCA combining NLR, AGR, age, and size predicted grade and survival.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What was the overall health status of most shelter dogs in this study?",
+"o": [
+"Severely ill",
+"Mostly geriatric and dying",
+"Predominantly unvaccinated",
+"Mostly apparently healthy"
+],
+"a": 3,
+"e": "Most dogs were apparently healthy despite some clinical changes.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Which hematological alteration was most common?",
+"o": [
+"Thrombocytopenia",
+"Severe anemia in most dogs",
+"Leukocytosis",
+"Polycythemia"
+],
+"a": 0,
+"e": "Thrombocytopenia (36.31%) was the most frequent finding.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What was the vaccination and deworming coverage of the shelter population?",
+"o": [
+"About 25%",
+"Around 50%",
+"100% vaccinated and dewormed",
+"Less than 10%"
+],
+"a": 2,
+"e": "All dogs were vaccinated and dewormed (100%).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Euthanasia",
+"q": "How do the AVMA 2020 Euthanasia Guidelines classify pentobarbital and its combination products?",
+"o": [
+"Prohibited for all species",
+"Acceptable for all species when circumstances permit",
+"Acceptable only for cattle",
+"Unacceptable under the 2020 edition"
+],
+"a": 1,
+"e": "They are listed as acceptable for all species when circumstances permit.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Euthanasia",
+"q": "What risks arise from improper handling/disposal of pentobarbital-euthanized remains?",
+"o": [
+"No environmental concern",
+"Improved soil quality",
+"Benefit to wildlife",
+"Relay toxicosis in wildlife and contamination of the food supply"
+],
+"a": 3,
+"e": "Improper disposal can cause relay toxicosis and food-supply contamination.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Euthanasia",
+"q": "What gap motivated this literature review?",
+"o": [
+"No prior comprehensive review on pentobarbital euthanasia/disposal existed",
+"Dozens of reviews already existed",
+"The topic was fully resolved",
+"Pentobarbital is rarely used"
+],
+"a": 0,
+"e": "No comprehensive review on the topic had previously been published.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Animal ID & Stats",
+"q": "How did microchipping rates compare between cats and dogs in Portugal?",
+"o": [
+"Cats were microchipped more than dogs",
+"Rates were equal",
+"Cats were far less microchipped (12%) than dogs (77%)",
+"Neither species was microchipped"
+],
+"a": 2,
+"e": "Only 12% of cats vs 77% of dogs were microchipped.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Animal ID & Stats",
+"q": "Animals acquired from municipal shelters or protection associations were more likely to be what?",
+"o": [
+"Neutered and microchipped",
+"Less likely to receive either",
+"No different from street animals",
+"Less likely to be vaccinated"
+],
+"a": 0,
+"e": "Shelter/association animals had higher odds of neutering and microchipping.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Animal ID & Stats",
+"q": "Which finding about male neutering was reported?",
+"o": [
+"Dogs neutered far more than cats",
+"Male neutering was equal",
+"Neither species was neutered",
+"Male cats neutered more (74%) than male dogs (35%)"
+],
+"a": 3,
+"e": "Male cats (74%) were neutered more than male dogs (35%).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "Overall, how did dog foster volunteers feel about their organizations' support?",
+"o": [
+"Highly dissatisfied with all support",
+"Generally satisfied with organizational support",
+"Received no support at all",
+"Quit immediately"
+],
+"a": 1,
+"e": "Fosters were generally satisfied with the support provided.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "Which areas were fosters less positive about?",
+"o": [
+"Veterinary care quality",
+"Food supplies",
+"Communication, training beyond basics, and social support networks",
+"Vehicle transport"
+],
+"a": 2,
+"e": "Gaps were in communication, advanced training, and social support networks.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "What was the survey sample size?",
+"o": [
+"611 respondents nationally",
+"29 respondents",
+"1047 respondents",
+"120 respondents"
+],
+"a": 0,
+"e": "The national survey had 611 respondents.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Animals & Public Policy",
+"sub": "Ethics",
+"q": "What did the welfare education intervention significantly improve relative to controls?",
+"o": [
+"No change in any measure",
+"Worsened welfare knowledge",
+"Reduced attachment to pets",
+"Children's canine emotion recognition"
+],
+"a": 3,
+"e": "The intervention group improved significantly in emotion recognition.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Animals & Public Policy",
+"sub": "Ethics",
+"q": "What happened to attitudes that cruelty is acceptable in the control group?",
+"o": [
+"They improved in the control group",
+"They worsened in the control group",
+"They were unchanged in the control group",
+"They were not measured"
+],
+"a": 1,
+"e": "Control-group attitudes toward cruelty worsened over time.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Animals & Public Policy",
+"sub": "Ethics",
+"q": "What was the study's overall conclusion?",
+"o": [
+"Age-appropriate welfare education can enhance emotion recognition and attitudes",
+"Education had no effect",
+"Children cannot learn welfare concepts",
+"Only in-person delivery works"
+],
+"a": 0,
+"e": "Age-appropriate humane education effectively improved recognition and attitudes.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "How did US and Japanese attitudes toward pet cats compare?",
+"o": [
+"Japan was more positive than the US",
+"Attitudes were identical",
+"US citizens were significantly more positive toward pet cats",
+"Neither country was positive"
+],
+"a": 2,
+"e": "US attitudes toward pet cats were significantly more positive.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "What did the study find about owner attachment to cats?",
+"o": [
+"Owners in both countries were highly attached",
+"Both showed low attachment",
+"Only US owners were attached",
+"Only Japanese owners were attached"
+],
+"a": 0,
+"e": "Owners in both countries reported high attachment.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "How did cat proximity to people differ between countries?",
+"o": [
+"Japanese cats spent more time near people",
+"US pet and café cats spent a greater proportion of time near people",
+"No difference in proximity",
+"Cats avoided people in both countries"
+],
+"a": 1,
+"e": "US cats spent more time in proximity to people than Japanese cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Animals & Public Policy",
+"sub": "Ethics",
+"q": "What main effect did the role-reversal speciesism intervention produce?",
+"o": [
+"Reduced intention to help animals",
+"Increased intention to reduce harmful behavior toward animals",
+"No change in intentions",
+"Increased speciesism"
+],
+"a": 1,
+"e": "The intervention strengthened intentions to reduce harmful behavior.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Animals & Public Policy",
+"sub": "Ethics",
+"q": "What was the intervention's effect on speciesist attitudes and behavioral responses?",
+"o": [
+"Strong attitude change",
+"Large behavioral-response change",
+"It reversed all speciesism",
+"No effect on speciesist attitudes or behavioral responses"
+],
+"a": 3,
+"e": "There were no effects on attitudes or actual behavioral responses.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Animals & Public Policy",
+"sub": "Ethics",
+"q": "What mediated the intervention's effect on intentions (Study 2)?",
+"o": [
+"Financial incentive",
+"Peer pressure",
+"Feelings associated with injustice",
+"Religious belief"
+],
+"a": 2,
+"e": "Feelings of injustice mediated the effect on behavioral intentions.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "After accounting for life-course and lifestyle factors, how was dog ownership related to income, education, and occupation?",
+"o": [
+"Not linked with income, education, or occupation",
+"Strongly linked to income",
+"Linked only to education",
+"Linked to occupation only"
+],
+"a": 0,
+"e": "Once life-course/lifestyle were controlled, family SEP showed no link.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "Which owners were more likely to have mixed-breed dogs?",
+"o": [
+"High-income owners",
+"Self-employed owners",
+"Low-income owners with limited labor-market involvement",
+"There was no breed association"
+],
+"a": 2,
+"e": "Low-income, weakly labor-attached owners more often had mixed-breed dogs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "Keeping a dog for social support was mainly observed among which group?",
+"o": [
+"Higher-education owners",
+"Lower-education owners who were often involuntarily alone",
+"Only high-SEP neighborhoods",
+"Self-employed owners"
+],
+"a": 1,
+"e": "Social-support motivation centered on lower-education, often-lonely owners.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Animals & Public Policy",
+"sub": "Ethics",
+"q": "In this male-only Australian sample, which group demonstrated the highest animal empathy?",
+"o": [
+"Men experienced in animal agriculture",
+"Men with pet-caring experience",
+"Men with limited animal experience",
+"All groups scored equally"
+],
+"a": 1,
+"e": "Pet-ownership-experience men scored significantly higher in animal empathy than farmers or low-experience men.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Animals & Public Policy",
+"sub": "Ethics",
+"q": "What did the authors conclude was most influential in developing animal empathy?",
+"o": [
+"Passive observation of wildlife",
+"The responsibility and sacrifice involved in pet caring",
+"Formal classroom education",
+"Watching animal documentaries"
+],
+"a": 1,
+"e": "Not all experiences were equal—the responsibility and sacrifice of pet caring appeared most influential.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Animals & Public Policy",
+"sub": "Ethics",
+"q": "What did all three groups most strongly endorse as shaping their beliefs about how animals think and feel?",
+"o": [
+"Childhood storybooks",
+"Religious teaching",
+"Direct interactions with animals in adulthood",
+"Social media content"
+],
+"a": 2,
+"e": "All groups highly endorsed direct adult interactions with animals as most influential to their beliefs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Research & Biostats",
+"sub": "Study Design",
+"q": "The highest-priority canine welfare research issues identified most often concerned:",
+"o": [
+"Aspects of the human-canine relationship",
+"Surgical instrumentation",
+"Veterinary pharmacology",
+"Rare genetic diseases"
+],
+"a": 0,
+"e": "Most top-priority issues related to the human-canine relationship, such as ownership and behavioral problems.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Research & Biostats",
+"sub": "Study Design",
+"q": "Which topic area was identified as previously 'most underfunded'?",
+"o": [
+"Vaccine development",
+"Oncology drug trials",
+"Real-world welfare issues, especially dog breeding and supply",
+"Cardiac surgery"
+],
+"a": 2,
+"e": "The most underfunded priorities were real-world welfare issues, particularly breeding and supply of dogs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Research & Biostats",
+"sub": "Study Design",
+"q": "Among common chronic primary-care disorders, which were flagged as most underfunded (2012–2022)?",
+"o": [
+"Diabetes and hyperthyroidism",
+"Periodontal disease, anal sac disorders, overgrown nails, and patellar luxation",
+"Epilepsy and atopy",
+"Obesity and osteoarthritis"
+],
+"a": 1,
+"e": "Historical funding analysis flagged periodontal disease, anal sac disorders, overgrown nails, and patellar luxation as most underfunded.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Mental Health & Self-Care",
+"q": "Compared with current and non-shelter vets, previous shelter veterinarians reported lower rankings for:",
+"o": [
+"Salary and benefits",
+"Interactions with admin staff, multi-vet teams, and mentorship",
+"Clinical caseload variety",
+"Continuing-education access"
+],
+"a": 1,
+"e": "Previous shelter vets ranked lower on admin-staff interactions, being part of a multi-vet team, and mentorship availability.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Mental Health & Self-Care",
+"q": "Which factor did the authors suggest may increase willingness to stay in shelter medicine?",
+"o": [
+"A higher euthanasia caseload",
+"Participation in patient decision-making and shelter management procedures",
+"Working without a team",
+"Less administrative responsibility"
+],
+"a": 1,
+"e": "Vets involved in patient decision-making and shelter management procedures appeared more willing to continue in the field.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Mental Health & Self-Care",
+"q": "Previous shelter veterinarians were significantly more likely than others to report feeling:",
+"o": [
+"Energized and valued",
+"Unhappy and left out at work",
+"Financially secure",
+"Bored"
+],
+"a": 1,
+"e": "Previous shelter vets more often reported feeling unhappy and left out at work.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Mental Health & Self-Care",
+"q": "Personal and organizational factors explained the greatest variance in which ProQOL component?",
+"o": [
+"Compassion satisfaction",
+"Secondary traumatic stress",
+"Burnout",
+"Years of tenure"
+],
+"a": 2,
+"e": "Both factor sets explained the most variance in burnout (~45–48%).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Mental Health & Self-Care",
+"q": "ProQOL accounted for more variance in intentions to:",
+"o": [
+"Leave the profession altogether",
+"Leave one's current role",
+"Pursue specialty training",
+"Reduce work hours"
+],
+"a": 1,
+"e": "ProQOL explained 28.9% of variance in leaving one's current role versus only 16.0% for leaving the profession.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Mental Health & Self-Care",
+"q": "The authors concluded that fostering wellbeing and retention requires attention to:",
+"o": [
+"Only personal factors",
+"Only organizational factors",
+"Both personal and organizational factors",
+"Neither, as outcomes are random"
+],
+"a": 2,
+"e": "Both personal and organizational factors significantly predicted ProQOL outcomes.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Mental Health & Self-Care",
+"q": "How did veterinary support staff compare with veterinarians on wellbeing measures?",
+"o": [
+"Higher wellbeing and lower burnout",
+"Lower wellbeing/mental health and higher burnout",
+"Identical scores",
+"Lower burnout but worse wellbeing"
+],
+"a": 1,
+"e": "Support staff scored lower in wellbeing and mental health and higher in burnout than veterinarians.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Mental Health & Self-Care",
+"q": "Regarding suicide ideation over the study period, the study found:",
+"o": [
+"A sharp increase",
+"No increase",
+"A decrease to zero",
+"It was not measured"
+],
+"a": 1,
+"e": "Burnout stayed high, but there was no increase in suicide ideation.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Mental Health & Self-Care",
+"q": "Which employer strategy did the authors recommend?",
+"o": [
+"Mandatory overtime",
+"Creating safe environments and reducing mental-health stigma",
+"Reducing health-insurance coverage",
+"Discouraging financial advising"
+],
+"a": 1,
+"e": "Employers should build safe environments where staff feel comfortable seeking help and reduce stigma.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Mental Health & Self-Care",
+"q": "In which country did veterinarians perform the most euthanasia per month?",
+"o": [
+"Hungary",
+"Jordan",
+"Sweden",
+"Equal across all three"
+],
+"a": 2,
+"e": "Monthly euthanasia counts were significantly highest in Sweden.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Mental Health & Self-Care",
+"q": "The reported mental burden of euthanasia was highest in which group?",
+"o": [
+"Swedish veterinarians",
+"Male veterinarians",
+"Jordanian veterinarians",
+"Veterinarians over 55"
+],
+"a": 2,
+"e": "Mental burden was lowest in Sweden and highest in Jordan; males reported lower burden than females.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Mental Health & Self-Care",
+"q": "Veterinarians who performed more euthanasia per month reported:",
+"o": [
+"A higher ethical burden",
+"A lower ethical burden",
+"No change in ethical burden",
+"More refusals of requests"
+],
+"a": 1,
+"e": "Higher euthanasia frequency was associated with a lower reported ethical burden.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "Counterintuitively, witnesses comforted by a black facility dog were perceived as:",
+"o": [
+"Sadder and more emotional",
+"Less sad, less emotional, and happier than with a white dog",
+"Unchanged from no dog",
+"More aggressive"
+],
+"a": 1,
+"e": "Participants rated witnesses as less sad, less emotional, and happier when comforted by a black dog.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "In adoption centers, Black Dog Bias is reported to be associated with:",
+"o": [
+"Lower euthanasia rates",
+"Higher adoption rates",
+"Higher euthanasia rates for black dogs",
+"No welfare effect"
+],
+"a": 2,
+"e": "Black dogs are reportedly discriminated against in adoption, resulting in higher euthanasia rates.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "The authors' overall conclusion about facility dogs in courtrooms was that they:",
+"o": [
+"Unfairly sway juries",
+"Are more beneficial than harmful and do not unfairly sway juries",
+"Harm vulnerable witnesses",
+"Reliably cause transference bias"
+],
+"a": 1,
+"e": "Findings supported facility dogs as more beneficial than harmful, without unfairly swaying juries.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Mental Health & Self-Care",
+"q": "Which theoretical framework guided this study of shelter-worker wellbeing?",
+"o": [
+"Maslow's hierarchy of needs",
+"Job Demands-Resources (JD-R) model",
+"Transtheoretical model",
+"Health Belief Model"
+],
+"a": 1,
+"e": "The study applied the Job Demands-Resources (JD-R) model.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Mental Health & Self-Care",
+"q": "Job crafting predicted shelter-worker wellbeing:",
+"o": [
+"Only before controlling for demands and resources",
+"Even after controlling for job demands and resources",
+"Not at all",
+"Only negatively"
+],
+"a": 1,
+"e": "Job crafting added unique predictive variance for engagement and exhaustion after controlling for demands/resources.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Mental Health & Self-Care",
+"q": "Which outcome was related to worker performance?",
+"o": [
+"Exhaustion only",
+"Work engagement, but not exhaustion",
+"Both engagement and exhaustion equally",
+"Neither"
+],
+"a": 1,
+"e": "Work engagement (not exhaustion) was related to performance; both related to intentions to leave.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Mental Health & Self-Care",
+"q": "How many of the reviewed instruments specifically targeted animal health care professionals?",
+"o": [
+"None",
+"Only one (ProQOL-5 Veterinary Medicine Version)",
+"Three",
+"All six"
+],
+"a": 1,
+"e": "Only the ProQOL-5 Veterinary Medicine Version specifically targeted animal health care professionals.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Mental Health & Self-Care",
+"q": "The content validity of the reviewed compassion-fatigue PROMs was rated as:",
+"o": [
+"Excellent",
+"Sufficient",
+"Insufficient, with low overall evidence quality",
+"Not assessable"
+],
+"a": 2,
+"e": "All reviewed PROMs had insufficient content validity and low overall evidence quality.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Mental Health & Self-Care",
+"q": "The review's main conclusion was that:",
+"o": [
+"Existing CF instruments are well validated",
+"Further robust research on CF measurement is needed",
+"Compassion fatigue cannot be measured",
+"No instruments currently exist"
+],
+"a": 1,
+"e": "The authors called for further robust methodology to address the identified measurement flaws.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Transfer Programs",
+"q": "After ground transport, 8-week-old puppies showed which change during isolation testing?",
+"o": [
+"Increased exploration",
+"Decreased exploration with increased locomotion and escape attempts",
+"No behavioral change",
+"Reduced locomotion and calmer behavior"
+],
+"a": 1,
+"e": "Post-transport puppies explored less and showed more locomotion and escape attempts.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Transfer Programs",
+"q": "Physiological markers (fecal glucocorticoid metabolites and sIgA) after transport:",
+"o": [
+"Decreased",
+"Increased",
+"Were unchanged",
+"Could not be measured"
+],
+"a": 1,
+"e": "Both FGM and fecal sIgA increased post-transport, indicating distress.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Transfer Programs",
+"q": "The authors interpreted increased post-transport affiliative behavior as:",
+"o": [
+"Evidence of poor physical health",
+"Puppies seeking social support as a coping strategy",
+"A sign of aggression",
+"Normal exploratory play"
+],
+"a": 1,
+"e": "Higher affiliative behavior likely reflected puppies seeking social support to cope with transport distress.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Transfer Programs",
+"q": "The most common reason the CDC denied dogs entry in 2020 was:",
+"o": [
+"Parvovirus infection",
+"Falsified rabies vaccination certificates",
+"Lack of a microchip",
+"Overcrowded transport"
+],
+"a": 1,
+"e": "Falsified rabies vaccination certificates accounted for 56% of denials.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Transfer Programs",
+"q": "Compared with the 2018–2019 averages, dogs denied entry in 2020:",
+"o": [
+"Decreased by 52%",
+"Stayed roughly the same",
+"Increased by 52%",
+"Fell to near zero"
+],
+"a": 2,
+"e": "The 458 dogs denied entry in 2020 represented a 52% increase over prior-year averages.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Transfer Programs",
+"q": "The increased import attempts of inadequately vaccinated dogs were attributed mainly to:",
+"o": [
+"Cheaper airfares",
+"Increased pandemic demand for pets",
+"Relaxed import regulations",
+"Fewer domestic breeders"
+],
+"a": 1,
+"e": "The rise was linked to increased demand for domestic pets during the COVID-19 pandemic.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Transfer Programs",
+"q": "Both studies found that owner-dog relationships for imported (non-Canadian-sourced) dogs were:",
+"o": [
+"Significantly poorer than for Canadian-born dogs",
+"Not poorer than for Canadian-born dogs",
+"Better on every measure",
+"Impossible to assess"
+],
+"a": 1,
+"e": "Neither study found evidence of a poorer owner-dog relationship for imported dogs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Transfer Programs",
+"q": "Owners of Canadian-sourced dogs were more likely to:",
+"o": [
+"Use harsh training methods and hold higher expectations for their dog",
+"Import additional dogs",
+"Relinquish their dogs",
+"Use only positive-reinforcement training"
+],
+"a": 0,
+"e": "Owners of Canadian-sourced dogs used harsh training methods more often and had higher expectations.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Transfer Programs",
+"q": "These two surveys were conducted among dog owners in:",
+"o": [
+"Ontario, Canada",
+"British Columbia, Canada",
+"England, UK",
+"California, USA"
+],
+"a": 1,
+"e": "Both online surveys sampled dog owners in British Columbia, Canada.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Transfer Programs",
+"q": "Thematic analysis of interviews with Canadian international dog rescue leaders yielded which three themes?",
+"o": [
+"Motive, Challenge, Duty",
+"Cost, Risk, Reward",
+"Health, Behaviour, Adoption",
+"Training, Transport, Treatment"
+],
+"a": 0,
+"e": "The study identified Motive, Challenge, and Duty as the three themes.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Transfer Programs",
+"q": "Which occupational difficulty did international dog rescue members share with other caregiving professions?",
+"o": [
+"Physical injury risk",
+"The emotional burden of caregiving",
+"Financial insolvency",
+"Regulatory liability"
+],
+"a": 1,
+"e": "The emotional burden of caregiving was common to dog rescue and other caregiving work.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Transfer Programs",
+"q": "What additional challenge was reported as unique to international (versus local) dog rescue members?",
+"o": [
+"Lack of veterinary support",
+"Quarantine duration",
+"Stigma surrounding international rescue operations",
+"Language barriers"
+],
+"a": 2,
+"e": "International rescuers faced added difficulty from the stigma around international operations.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "Compared to domestically acquired rabies in US dogs, the estimated rabies incidence in dogs imported from DMRVV-enzootic countries was approximately:",
+"o": [
+"About the same",
+"Half as high",
+"16 times higher",
+"100 times higher"
+],
+"a": 2,
+"e": "Incidence was estimated 16 times higher (range 13.2-19.4) in imported dogs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "Per the abstract, dog-mediated rabies virus variant has been eliminated from the United States since:",
+"o": [
+"2007",
+"2015",
+"2021",
+"1990"
+],
+"a": 0,
+"e": "The abstract states DMRVV has been eliminated from the US since 2007.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "The study's conclusion supports which measure?",
+"o": [
+"Banning all dog adoption",
+"Importation requirements to prevent reintroduction of DMRVV",
+"Mandatory desexing of imports",
+"Eliminating domestic vaccination"
+],
+"a": 1,
+"e": "The higher imported-dog risk supports importation requirements to prevent DMRVV reintroduction.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "The \"Good Life Frameworks\" described were developed for which species?",
+"o": [
+"Dogs, cats, horses",
+"Beef cattle, broiler chickens, pigs",
+"Sheep, goats, poultry",
+"Laboratory rodents"
+],
+"a": 1,
+"e": "Frameworks were built for beef cattle, broiler chickens, and pigs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Absent validated animal-based measures, the abstract states the best current way to assess positive welfare is:",
+"o": [
+"Mortality rates",
+"Evaluation of resource provision",
+"Genetic testing",
+"Body weight"
+],
+"a": 1,
+"e": "Evaluation of resource provision is considered the best present method.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "The three welfare tiers provide resources that go:",
+"o": [
+"Below legal minimums",
+"Exactly to legal minimums",
+"Above UK law and code of practice requirements",
+"Only for organic farms"
+],
+"a": 2,
+"e": "Tiers incrementally increase good-life opportunities above legal and code requirements.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Effective human-goat communication occurs primarily via which stimuli?",
+"o": [
+"Olfactory and gustatory",
+"Visual, tactile and auditory",
+"Electrical signals",
+"Pheromones only"
+],
+"a": 1,
+"e": "Communication occurs mainly through visual, tactile, and auditory stimuli.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "How many relevant articles were selected in this systematic review?",
+"o": [
+"17",
+"58",
+"104",
+"754"
+],
+"a": 1,
+"e": "The review selected 58 relevant articles.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Validated measures of human-goat relationship quality included:",
+"o": [
+"Blood cortisol only",
+"Milk yield",
+"Avoidance in the pen and latency to first contact",
+"Heart rate variability"
+],
+"a": 2,
+"e": "Avoidance in the pen/feeding rack and latency to first contact were validated measures.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "In farm animals, the review found better animal welfare was generally associated with:",
+"o": [
+"Higher antimicrobial use",
+"Lower antimicrobial use",
+"No change in antimicrobial use",
+"Increased mortality"
+],
+"a": 1,
+"e": "Better welfare often led to lower antimicrobial use; poor welfare to higher use.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "A potential downside of antimicrobial-use restrictions in organic systems noted by the review:",
+"o": [
+"Improved welfare",
+"Animals may not receive treatment when necessary",
+"Lower productivity",
+"Higher zoonotic risk"
+],
+"a": 1,
+"e": "AMU restrictions may prevent animals from being treated when needed.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "The 16 of 17 retained studies primarily concerned which animals?",
+"o": [
+"Companion",
+"Laboratory",
+"Zoo",
+"Farm"
+],
+"a": 3,
+"e": "Sixteen of the seventeen retained studies were on farm animals.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "The cluster analysis of noise-anxious horses identified which two groups?",
+"o": [
+"Young and old",
+"Very anxious and slightly anxious",
+"Stabled and pastured",
+"Treated and untreated"
+],
+"a": 1,
+"e": "A two-step cluster analysis produced very anxious (VA) and slightly anxious (SA) groups.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Horses reporting injuries during noise events were more likely to be classified as:",
+"o": [
+"Slightly anxious",
+"Not anxious",
+"Very anxious",
+"Unaffected"
+],
+"a": 2,
+"e": "Injury during noise events was associated with the very anxious cluster.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Which management strategy was most likely to be very effective in slightly anxious horses?",
+"o": [
+"Sedatives",
+"Providing hay throughout the night",
+"Ear plugs",
+"Social isolation"
+],
+"a": 1,
+"e": "Providing hay overnight was the strategy most likely effective in SA horses.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What was the most commonly observed welfare issue in the assessed horses?",
+"o": [
+"Emaciation",
+"Ocular discharge",
+"Hoof neglect",
+"Lameness"
+],
+"a": 2,
+"e": "Hoof neglect (27%) was the most commonly observed welfare issue.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What proportion of the horses had an optimal body condition score?",
+"o": [
+"27%",
+"50%",
+"81%",
+"98%"
+],
+"a": 2,
+"e": "81% had optimal body condition, with none very thin or fat.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Overall, Qualitative Behaviour Assessment indicated the horses' emotional states were:",
+"o": [
+"Predominantly negative",
+"Predominantly positive",
+"Neutral throughout",
+"Unable to be assessed"
+],
+"a": 1,
+"e": "Positive emotional states were more common, countering perceptions of poor welfare.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "The commentary recommends emphasizing which type of measure in commercial supply systems?",
+"o": [
+"Animal-based outcome measures",
+"Resource-based inputs only",
+"Financial metrics",
+"Genetic markers"
+],
+"a": 0,
+"e": "Easily assessed animal-based outcome measures should be emphasized.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Which is given as an example key animal welfare indicator?",
+"o": [
+"Herd size",
+"Percentage of animals effectively stunned with a single application",
+"Milk price",
+"Feed cost per head"
+],
+"a": 1,
+"e": "Single-application effective stunning percentage is cited as a key indicator.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "A farm that fails to meet specified housing requirements will:",
+"o": [
+"Be fined",
+"Receive a warning only",
+"Be removed from the approved supplier list",
+"Be re-audited annually"
+],
+"a": 2,
+"e": "Non-compliant housing results in removal from the approved supplier list.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Traditionally, the most common strategies to achieve compliance from horses have been:",
+"o": [
+"Positive reinforcement",
+"Clicker training",
+"Physical restraint, punishment, or threat of an aversive",
+"Pharmacological sedation"
+],
+"a": 2,
+"e": "Physical restraint, punishment, and aversive threats were the traditional strategies.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "A welfare concern of the traditional restraint/punishment approach noted by the review:",
+"o": [
+"It may create a more dangerous response in future similar situations",
+"It is too expensive",
+"It requires special equipment",
+"It is illegal"
+],
+"a": 0,
+"e": "The approach risks a more dangerous horse response in future encounters.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "The review notes a steady transition away from restraint-based approaches in which sectors?",
+"o": [
+"Slaughter plants",
+"Racing only",
+"Wild animal management",
+"Companion animals and zoological facilities"
+],
+"a": 3,
+"e": "Companion animal and zoological sectors have shifted toward reducing fear/stress.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "According to the equine behaviourists interviewed, horse caregivers are generally:",
+"o": [
+"Excellent at recognising fear/anxiety",
+"Extremely poor at recognising fear and anxiety",
+"Concerned only with physical health",
+"Prone to over-diagnosing fear"
+],
+"a": 1,
+"e": "Behaviourists reported caregivers are extremely poor at recognising fear/anxiety.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "When clients do recognise fear/anxiety, they tend to notice:",
+"o": [
+"Only subtle signs",
+"Both subtle and overt equally",
+"Physiological signs only",
+"Only overt signs like rearing and running away"
+],
+"a": 3,
+"e": "Clients recognised overt signs but missed subtle ones like facial tension.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What analytic method was applied to the semi-structured interviews?",
+"o": [
+"Thematic analysis",
+"Regression analysis",
+"Randomised controlled trial",
+"Meta-analysis"
+],
+"a": 0,
+"e": "Interviews were analysed using thematic analysis.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "The most commonly reported environmental enrichment for ferrets included:",
+"o": [
+"Wheels and balls",
+"Mirrors",
+"Hammocks, tunnels and tactile interaction with caretakers",
+"Foraging puzzles only"
+],
+"a": 2,
+"e": "Hammocks, tunnels, and tactile caretaker interaction were most commonly reported.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What was a frequently reported problem with ferret enrichment?",
+"o": [
+"Excessive cost",
+"Ingestion of unsuitable chew/rubber items causing internal blockages",
+"Overheating",
+"Loud noise"
+],
+"a": 1,
+"e": "Ingesting unsuitable chew/rubber items could cause internal blockages.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Which enrichment, rarely provided but reported enjoyable and harmless, did the authors recommend more often?",
+"o": [
+"Narrow tunnels",
+"Hammocks",
+"Chew toys",
+"Scent trails"
+],
+"a": 3,
+"e": "Scent trails were rarely provided yet enjoyed and harmless, so recommended more.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "This review focused on which Domains of the Five Domains Model?",
+"o": [
+"Domain 5 (Mental State) only",
+"All five equally",
+"Neither physical nor mental",
+"The first four physical/functional Domains"
+],
+"a": 3,
+"e": "The review covered only the first four physical/functional Domains.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "The four physical/functional Domains are nutrition, physical environment, health, and:",
+"o": [
+"Behavioural interactions",
+"Genetics",
+"Economics",
+"Reproduction"
+],
+"a": 0,
+"e": "The fourth physical/functional Domain is behavioural interactions.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Per the Model, inferences about Domain 5 mental experiences are made:",
+"o": [
+"Before assessing the physical domains",
+"Independently of physical data",
+"On the basis of detailed knowledge from the first four Domains",
+"Only via blood tests"
+],
+"a": 2,
+"e": "Mental-state inferences derive from detailed knowledge of the first four Domains.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "How does the concept of 'positive welfare' differ from traditional welfare in this sheep review?",
+"o": [
+"It focuses solely on minimizing disease",
+"It proactively provides opportunities for positive experiences, not just reducing negatives",
+"It applies only to intensive systems",
+"It replaces physiological measures with productivity metrics"
+],
+"a": 1,
+"e": "Positive welfare shifts from reducing negative states to proactively providing positive experiences and feelings.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What is the review's assessment of positive welfare measurement in extensive sheep systems?",
+"o": [
+"Fully validated and standardized",
+"Still in its infancy with assessment challenges",
+"Abandoned as impractical",
+"Identical to negative welfare scoring"
+],
+"a": 1,
+"e": "The paper states positive welfare assessment, especially in extensive systems, is in its infancy with adoption and monitoring challenges.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Which framework is referenced for assessing positive welfare indicators in sheep?",
+"o": [
+"The Five Domains scoring grid",
+"The 'good life framework'",
+"The Welfare Quality protocol",
+"The ASPCA SAFER tool"
+],
+"a": 1,
+"e": "Indicators such as choices and social synchronization are critiqued as assessed by the 'good life framework'.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "According to the review, what effect does soluble fiber have in sows after feeding?",
+"o": [
+"Accelerates nutrient absorption and activity",
+"Delays nutrient absorption and decreases physical activity",
+"Has no effect on satiety",
+"Reduces volatile fatty acid production"
+],
+"a": 1,
+"e": "Soluble fiber delays nutrient absorption and decreases physical activity after feeding.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What welfare-relevant conclusion does the review draw about dietary fiber in sows?",
+"o": [
+"It causes stereotypies",
+"It prevents certain stereotypies and is paramount to sow welfare",
+"It is irrelevant to behaviour",
+"It only affects growth, not behaviour"
+],
+"a": 1,
+"e": "Soluble fiber prevents certain stereotypies and is described as paramount to sow welfare.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Beyond delaying absorption, soluble fiber's benefits in sows include which of the following?",
+"o": [
+"Increased volatile fatty acid production and prolonged satiety",
+"Reduced energy provision",
+"Shortened feeling of fullness",
+"Increased aggressive feeding"
+],
+"a": 0,
+"e": "Soluble fiber increases VFA production, provides energy, and prolongs satiety.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What minimum forage requirement (as % of bodyweight) does the review cite for horses?",
+"o": [
+"0.5%",
+"1.5%",
+"3.0%",
+"5.0%"
+],
+"a": 1,
+"e": "The review cites a minimum forage requirement of 1.5% of the horse's bodyweight.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Which condition is the main gastric concern when starch replaces fibre in equine diets?",
+"o": [
+"Laminitis only",
+"Equine gastric ulcer syndrome / squamous gastric disease",
+"Colitis-X",
+"Cushing's disease"
+],
+"a": 1,
+"e": "In the stomach the main concern is EGUS, specifically equine squamous gastric disease (ESGD).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What does the review conclude about choosing fibre over starch in a high-energy equine diet?",
+"o": [
+"It increases acidosis risk",
+"It greatly reduces risk of EGUS and acidosis and improves digestion and behaviour",
+"It has no effect on the hindgut",
+"It worsens crib-biting"
+],
+"a": 1,
+"e": "Choosing fibre over starch reduces EGUS and acidosis risk and improves digestion, behaviour, and performance.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Which genotype/housing combination showed the lowest incidence of aggression in group-housed rabbit does?",
+"o": [
+"Hyplus does on concrete floor",
+"Mecklenburg does on ground soil",
+"Hyplus does on ground soil",
+"Mecklenburg does on concrete floor"
+],
+"a": 1,
+"e": "The lowest incidence of aggression was in Mecklenburg does housed on ground soil.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Reduced aggression in the does was reflected in which outcomes?",
+"o": [
+"Higher kit mortality",
+"Lower injuries in does and kits and lower kit mortality",
+"More frequent burrow digging only",
+"No measurable change in injuries"
+],
+"a": 1,
+"e": "Reduced aggression was reflected in fewer doe and kit injuries and lower kit mortality.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What is the study's practical recommendation for breeding group-housed does?",
+"o": [
+"Use any genotype with concrete flooring",
+"Carefully consider the proper combination of genotype and housing",
+"Avoid group housing entirely",
+"Prioritize litter depth over genotype"
+],
+"a": 1,
+"e": "The proper combination of genotype and housing should be carefully considered to reduce aggression and injury.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What was the main finding about weigh tape (WT) readings versus true equine body weight?",
+"o": [
+"WT overestimated weight in all horses",
+"WT generally underestimated weight, especially in heavier horses",
+"WT was perfectly accurate",
+"WT was least accurate in ponies"
+],
+"a": 1,
+"e": "WT generally underestimated body weight, particularly for heavier horses.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Which variables improved the fit of the weight-estimation model?",
+"o": [
+"Height and muscle top-line score",
+"Breed groupings, BCS, and bone density",
+"Time of day only",
+"None of the variables"
+],
+"a": 1,
+"e": "Adding breed groupings, BCS, and bone density improved model fit, while height and top-line did not.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "For which horses was the weigh tape most accurate?",
+"o": [
+"Heavy draft breeds",
+"Pony breeds",
+"High-BCS horses",
+"Tall horses"
+],
+"a": 1,
+"e": "The WT was more accurate in pony breeds and less accurate for heavier horses.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What bias did this systematic review identify in published equine social ethograms?",
+"o": [
+"Predominant focus on affiliative behaviours",
+"Predominant focus on agonistic (socio-negative) behaviours",
+"Equal balance of all behaviour types",
+"Exclusive focus on investigative behaviours"
+],
+"a": 1,
+"e": "Publications focused predominantly on agonistic/socio-negative interactions despite their rarity in stable groups.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "How does the review characterize sociality in horses relative to domestication?",
+"o": [
+"It was eliminated by domestication",
+"It is an ethological need unchanged by domestication",
+"It only develops in feral horses",
+"It is irrelevant to welfare assessment"
+],
+"a": 1,
+"e": "Sociality is described as an ethological need that remained unchanged by domestication.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What does the review recommend to advance equine welfare assessment?",
+"o": [
+"Eliminate ethograms entirely",
+"Refine ethograms with greater focus on affiliative and ambivalent interactions",
+"Focus solely on agonistic behaviours",
+"Study only feral populations"
+],
+"a": 1,
+"e": "It recommends refining the ethogram with greater focus on affiliative, ambivalent and indifferent interactions.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Under which condition were faecal corticosterone levels raised in the pet rabbit pairs?",
+"o": [
+"Large hutches with unlimited run access",
+"Small hutches with run access restricted to 3 h midday",
+"Large hutches with restricted access",
+"All conditions equally"
+],
+"a": 1,
+"e": "Corticosterone was raised in pairs kept in small hutches with restricted midday run access.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What does the study conclude about ~0.75 m2 hutches for rabbit pairs?",
+"o": [
+"They are adequate with 3 h daily run access",
+"They should not be recommended even with 3 h daily run access",
+"They are ideal for pairs",
+"They only suit single rabbits with no run"
+],
+"a": 1,
+"e": "Hutches of ~0.75 m2 should not be recommended for rabbit pairs even with 3 h/day run access.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Increased locomotion and play when rabbits with restricted access were released indicated what?",
+"o": [
+"Boredom",
+"A motivational rebound demonstrating a need to move",
+"Illness",
+"Reduced welfare"
+],
+"a": 1,
+"e": "The activity surge reflected a motivational rebound, showing the rabbits' need to move within each 24 h cycle.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Which species was most represented among abandoned exotic pets in this Madrid study?",
+"o": [
+"Hamsters",
+"Rabbits",
+"Guinea pigs",
+"Chinchillas"
+],
+"a": 1,
+"e": "Rabbits made up 46.4% of the 1024 abandoned animals, the largest group.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What did the authors conclude about foster-home networks for abandoned rabbits and rodents?",
+"o": [
+"They are ineffective compared to shelters",
+"They can be effective and preserve welfare as well as shelters",
+"They increase mortality",
+"They only work for microchipped animals"
+],
+"a": 1,
+"e": "Foster-home networks can be effective, preserving welfare as effectively as shelters.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What was notable about neutering and microchipping in this abandoned population?",
+"o": [
+"Most were neutered and microchipped",
+"Very few were neutered or microchipped",
+"All rabbits were microchipped",
+"Only rodents were neutered"
+],
+"a": 1,
+"e": "Only 12 animals were neutered and 8 microchipped out of 1024.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What effect did blindfolding and swaddling have on rabbits' heart and respiratory rates in the controlled trial?",
+"o": [
+"Significantly reduced both",
+"Minimal / no significant impact versus partial-hood control",
+"Significantly increased both",
+"Only reduced respiratory rate"
+],
+"a": 1,
+"e": "Neither blindfolding nor swaddling significantly affected heart or respiratory rate versus the partial-hood control.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What is the study's overall conclusion about blindfolding/swaddling rabbits?",
+"o": [
+"They reliably improve welfare",
+"They may limit procedure duration and injury but show no evidence of otherwise improving welfare",
+"They worsen handling outcomes",
+"They eliminate handling stress"
+],
+"a": 1,
+"e": "They may reduce struggling/injury but provided no evidence that welfare is otherwise improved.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Significant variation in baseline stress between individual rabbits suggested what?",
+"o": [
+"Genetics are the only factor",
+"Previous experience is an important determinant",
+"Age has no effect",
+"Diet drives stress"
+],
+"a": 1,
+"e": "Variable baselines suggested previous experience was an important determinant of stress response.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Owners who perceived rabbits as 'starter pets' were more likely to do what?",
+"o": [
+"Provide ad libitum hay and routine vet care",
+"House rabbits in restricted space and withhold gnawing opportunities and routine healthcare",
+"Keep rabbits in pairs",
+"Microchip and neuter their rabbits"
+],
+"a": 1,
+"e": "Starter-pet perception and lower willingness-to-pay were linked to restricted space and fewer provided resources.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What was the typical acquisition and housing pattern for rabbits in the surveys?",
+"o": [
+"Acquired for adults and pair-housed",
+"Acquired for children and solitarily housed",
+"Always kept outdoors in groups",
+"Bought for breeding"
+],
+"a": 1,
+"e": "Most rabbits were acquired for children and kept solitarily, often in undersized cages.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "A child being the rabbit's main caretaker was associated with what?",
+"o": [
+"Better husbandry overall",
+"Inadequate housing type and fewer gnawing opportunities",
+"More daily checks",
+"Routine veterinary care"
+],
+"a": 1,
+"e": "Child-as-caretaker was associated with inadequate housing and fewer gnawing opportunities.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What was the most commonly perceived behaviour problem in pet rabbits in this survey?",
+"o": [
+"Owner-directed aggression",
+"Inappropriate elimination",
+"Compulsive disorders",
+"Destructive behaviour"
+],
+"a": 1,
+"e": "Inappropriate elimination was the most common problem reported, followed by non-social fear.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "In which rabbits were behaviour problems more frequent according to the MCA?",
+"o": [
+"Neutered males",
+"Entire females",
+"Juvenile males",
+"Neutered females"
+],
+"a": 1,
+"e": "Behaviour problems were more frequent in entire females.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Rabbits acquired before weaning were more likely to show which problems?",
+"o": [
+"Owner-directed aggression only",
+"Compulsive disorders and inappropriate urine elimination",
+"No behaviour problems",
+"Excessive affiliative behaviour"
+],
+"a": 1,
+"e": "Early-acquired rabbits were more likely to show compulsive disorders and inappropriate urine elimination.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Which farmed species was most frequently studied for the provision of hiding spaces?",
+"o": [
+"Cattle",
+"Chickens",
+"Fish",
+"Foxes"
+],
+"a": 1,
+"e": "Chickens appeared in 48% of papers, the most represented species.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What was the overall impact of providing hides across the reviewed outcomes?",
+"o": [
+"Mostly negative",
+"Generally positive (about 74% positive outcomes)",
+"Entirely neutral",
+"Mostly inconclusive"
+],
+"a": 1,
+"e": "Hides produced 74% positive outcomes, indicating a generally positive impact.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "In which context were hides most commonly provided to farmed animals?",
+"o": [
+"For sick or injured animals",
+"At parturition or oviposition",
+"For neonatal animals",
+"For transport"
+],
+"a": 1,
+"e": "Hides were most often provided at parturition or oviposition (56% of papers).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Disaster",
+"q": "In this barn-fire evacuation study of dairy cattle, what had the greatest impact on the animals' readiness to leave the familiar housing?",
+"o": [
+"Prior pasture training",
+"Adapting the exits to the cattle's sensory physiology",
+"Presence of the fire brigade",
+"Higher daily milk yield"
+],
+"a": 1,
+"e": "Tailoring exit design to cattle sensory physiology produced an extensive effect, making even non-habituated cattle evacuate quickly.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Disaster",
+"q": "The preliminary assumption that pasture-trained cattle would have a decisive evacuation advantage was:",
+"o": [
+"Strongly confirmed",
+"Not supported — exit design mattered more",
+"Impossible to test",
+"Confirmed only at night"
+],
+"a": 1,
+"e": "Cattle not habituated to the adapted exit still evacuated quickly, contradicting the assumed advantage of training.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Disaster",
+"q": "Which measures were used to assess stress in the evacuated cattle?",
+"o": [
+"Faecal cortisol metabolites and daily milk yield",
+"Blood lactate and heart rate",
+"Rumen pH and body temperature",
+"Weight loss alone"
+],
+"a": 0,
+"e": "Stress was assessed via faecal cortisol metabolites and daily milk yield alongside evacuation time.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Disaster",
+"q": "According to this report, emergency response for aquatic companion animals during wildfires:",
+"o": [
+"Is identical to terrestrial animal response",
+"Presents unique logistic challenges",
+"Is rarely required",
+"Should be avoided by veterinarians"
+],
+"a": 1,
+"e": "The report emphasizes that aquatic animal evacuation and housing pose unique logistic challenges distinct from terrestrial animals.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Disaster",
+"q": "Veterinarians who become familiar with aquatic animal evacuation and care before a wildfire response can:",
+"o": [
+"Eliminate the need for evacuation",
+"Reduce fish populations",
+"Extend the scope of disaster recovery",
+"Replace fire-brigade operations"
+],
+"a": 2,
+"e": "Prior familiarity with aquatic animal care lets veterinarians extend disaster-recovery capabilities.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Disaster",
+"q": "On measures of psychological health, veterinary and animal care workers in this Black Summer bushfire study scored:",
+"o": [
+"Low on psychological ill-health",
+"Highly on measures of psychological ill-health",
+"Average versus the general population",
+"No measurable distress"
+],
+"a": 1,
+"e": "Overall participants scored highly on PTSD symptoms, distress, burnout and grief.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Disaster",
+"q": "A key limitation acknowledged by the authors was:",
+"o": [
+"A randomized controlled design",
+"A large probability sample",
+"Cross-sectional design and non-probability sampling limiting generalisability",
+"A 5-year longitudinal follow-up"
+],
+"a": 2,
+"e": "The cross-sectional, non-probability (Facebook/email) recruitment limited generalisability and risked response bias.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Disaster",
+"q": "Across domestic violence, homelessness, and natural disasters, a prominent outcome for companion animals during forced separation was:",
+"o": [
+"Improved welfare",
+"Death and loss of the animals",
+"Faster rehoming",
+"No measurable impact"
+],
+"a": 1,
+"e": "Death and loss of animals were prominent across all three categories of forced separation.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Disaster",
+"q": "To avoid forced separation from their pets, people in the review were reported to:",
+"o": [
+"Evacuate earlier during disasters",
+"Leave abusive relationships sooner",
+"Delay fleeing abuse and prolong homelessness awaiting pet-friendly housing",
+"Readily surrender pets"
+],
+"a": 2,
+"e": "Risks taken included failing to evacuate, delaying escape from abuse, and prolonged homelessness while waiting for pet-friendly accommodation.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Disaster",
+"q": "Two major themes that emerged from the review were:",
+"o": [
+"Cost of care and breed preference",
+"Responsibility for the animal and the belief in human superiority over animals",
+"Nutrition and exercise",
+"Vaccination and microchipping"
+],
+"a": 1,
+"e": "Responsibility for the animal and the cultural belief in human wellbeing as superior to animal wellbeing were major themes.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Compared with mother-reared kittens, orphaned hand-reared kittens showed:",
+"o": [
+"Significantly shorter telomeres",
+"No detectable difference in telomere length",
+"Significantly longer telomeres",
+"Telomere shortening only in survivors"
+],
+"a": 1,
+"e": "No detectable telomere-length differences were found by orphan status, survival, or time point.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "The study concluded that early maternal separation in domestic kittens:",
+"o": [
+"Accelerated telomere shortening",
+"Did not accelerate telomere shortening in the first months of life",
+"Caused early mortality",
+"Doubled telomere length"
+],
+"a": 1,
+"e": "Early maternal separation with subsequent hand-rearing did not accelerate telomere shortening through 2 months of age.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Compared with 2019 puppies, 'Pandemic Puppies' acquired in 2020 were:",
+"o": [
+"More likely to attend puppy training classes",
+"Less likely to attend puppy training classes",
+"Equally likely to attend classes",
+"All Kennel Club registered"
+],
+"a": 1,
+"e": "Only 28.9% of Pandemic Puppies attended classes versus 67.9% of 2019 puppies.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Pandemic Puppies were significantly more likely than 2019 puppies to be:",
+"o": [
+"Kennel Club registered purebreds",
+"Examined by a vet before purchase",
+"'Designer Crossbreeds'",
+"Older than 16 weeks at purchase"
+],
+"a": 2,
+"e": "Designer Crossbreeds rose from 18.8% to 26.1%, while KC registration and pre-purchase vet checks fell.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "The authors concluded that this cohort of puppies will likely need:",
+"o": [
+"No additional intervention",
+"Greater veterinary and behavioural professional support",
+"Immediate rehoming",
+"Reduced socialisation"
+],
+"a": 1,
+"e": "Greater veterinary and behavioural support is needed to ameliorate health and behavioural impacts of growing up in the pandemic.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What limitation did the authors emphasize about their dentition-timeline findings?",
+"o": [
+"Too many breeds confounded the results",
+"Only two dogs of one breed, so results cannot be generalized",
+"The dogs were already adults",
+"The exact birth date was unknown"
+],
+"a": 1,
+"e": "Only two Yorkshire Terrier puppies were studied, so observations cannot be generalized.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "The first teeth to erupt (at about 4.5 weeks of age) were the:",
+"o": [
+"First incisors (i1)",
+"Molars",
+"Canines together with the adjacent incisors (i3)",
+"Premolars"
+],
+"a": 2,
+"e": "Canines and the adjacent i3 incisors appeared first at 4.5 weeks; i1 came later.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animals & Public Safety",
+"q": "After the interactive dog-bite-prevention program, preschool children's questionnaire scores:",
+"o": [
+"Significantly improved",
+"Significantly declined",
+"Were unchanged",
+"Improved only for the youngest"
+],
+"a": 0,
+"e": "Significant improvements were seen on both questionnaires after the education program.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animals & Public Safety",
+"q": "Regarding age, the study found that:",
+"o": [
+"Younger children scored higher",
+"Older students scored significantly higher, so age should be considered in program design",
+"Age had no effect",
+"Only 3-year-olds benefited"
+],
+"a": 1,
+"e": "Older students scored higher, suggesting age should guide bite-prevention program design.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animals & Public Safety",
+"q": "The 'Being a Tree' concept was:",
+"o": [
+"Too difficult for any age group",
+"Learnable only by 6-year-olds",
+"Successfully learned by children across all age groups",
+"Ineffective at changing behavior"
+],
+"a": 2,
+"e": "'Being a Tree' was learnable across all ages, making it a useful universal component.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Which zoonotic agent had the highest seroprevalence in these free-roaming cats?",
+"o": [
+"Chlamydia felis",
+"Coxiella burnetii",
+"Toxoplasma gondii",
+"Feline immunodeficiency virus"
+],
+"a": 2,
+"e": "T. gondii seroprevalence was 42%, above C. burnetii (37%) and C. felis (8%).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Coxiella burnetii seropositivity was correlated with:",
+"o": [
+"Percentage of urban areas and human population size",
+"Orchard landscapes only",
+"Crop/agricultural areas",
+"Water surface areas"
+],
+"a": 0,
+"e": "C. burnetii correlated with urban/peri-urban areas and human population size, unlike T. gondii (orchards).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Adult cats were significantly more likely than young cats to be seropositive for:",
+"o": [
+"Toxoplasma gondii",
+"Coxiella burnetii",
+"Chlamydia felis",
+"FIV"
+],
+"a": 1,
+"e": "Adults had higher odds (OR 2.3) of C. burnetii seropositivity; no age difference for the others.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Seropositivity for ectoparasitic (vector-borne) diseases in the screened pets:",
+"o": [
+"Was much higher among unhoused owners' pets",
+"Did not vary by housing status",
+"Was higher among housed owners' pets",
+"Was zero in all pets"
+],
+"a": 1,
+"e": "Seropositivity of ectoparasitic diseases did not differ between housed and unhoused owners' pets.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "What proportion of owners said they would NOT give up their pet for better housing?",
+"o": [
+"About 30%",
+"About 50%",
+"96–98%",
+"Less than 10%"
+],
+"a": 2,
+"e": "Across groups, 96–98% stated they would not relinquish their pet for better housing.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Compared with housed owners, unhoused owners were significantly more likely to report:",
+"o": [
+"Finding a flea on their pet and challenges obtaining housing",
+"Consistently administering parasite preventatives",
+"Companionship and entertainment benefits",
+"Easy access to housing"
+],
+"a": 0,
+"e": "Unhoused owners more often reported fleas, housing challenges, bottled-water use, and co-sleeping.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "Among unhoused participants, past-year care-seeking was:",
+"o": [
+"Higher for themselves than for their pets",
+"Higher for their pets (93%) than for themselves (86%)",
+"Identical for both",
+"Absent for both"
+],
+"a": 1,
+"e": "93% sought veterinary care for pets versus 86% seeking care for themselves.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "To reduce barriers to care for unhoused pet owners, the authors recommend:",
+"o": [
+"Separating human and animal services",
+"Banning pet ownership among the homeless",
+"Integrated One Health (human and animal) interprofessional services",
+"Mandatory pet surrender"
+],
+"a": 2,
+"e": "An integrated One Health clinic model can leverage the human-animal bond to improve access for both.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "Self-described health status in the study showed:",
+"o": [
+"Owners healthier than their pets",
+"Pets reported healthier (90%) than owners (47%)",
+"Both equally unhealthy",
+"All pets reported sick"
+],
+"a": 1,
+"e": "90% of pets were rated healthy/very healthy versus only 47% of owners.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "When a person requesting financial assistance was accompanied by a pet, participants expressed:",
+"o": [
+"More suspicion of them",
+"Less suspicion of them",
+"No change in attitude",
+"Outright hostility"
+],
+"a": 1,
+"e": "Pet presence reduced suspicion and, among those low in social justice orientation, increased concern and giving.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "Greater support for policies that enable pet care among people in poverty was associated with:",
+"o": [
+"Individualistic beliefs about poverty",
+"Low empathy toward others",
+"Higher social justice orientation and positive attitudes toward animals",
+"Greater suspicion of the poor"
+],
+"a": 2,
+"e": "Social justice orientation and attitudes toward animals predicted support for enabling (not restricting) policies.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "Making the benefits of the human-pet relationship salient:",
+"o": [
+"Reduced support for enabling policies",
+"Increased support among those lower in social justice orientation or less empathetic toward animals",
+"Had no measurable effect",
+"Only influenced highly empathetic participants"
+],
+"a": 1,
+"e": "Salient benefit cues raised support for enabling policies among otherwise less-compassionate individuals.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "After two weeks of use, what happened to dogs' alone-time vocalization with the Digital Dogsitter?",
+"o": [
+"Increased markedly",
+"Reduced by ~95.7%",
+"No measurable change",
+"Changed only in senior dogs"
+],
+"a": 1,
+"e": "Total vocalization noise fell significantly with a 95.7% reduction.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "How does the Digital Dogsitter application operate?",
+"o": [
+"Dispenses food treats on a timer",
+"Emits a continuous ultrasonic tone",
+"Plays owner-recorded feedback triggered by the dog's vocalization",
+"Delivers a mild static correction"
+],
+"a": 2,
+"e": "It activates in response to vocalization and plays short owner-recorded feedback.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "At the ~8-month follow-up, owners also reported a change in what other behavior?",
+"o": [
+"Reduced destructive behavior",
+"Increased aggression",
+"Marked weight gain",
+"Loss of appetite"
+],
+"a": 0,
+"e": "Owners reported significantly less destructive behavior versus baseline.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "What did this review conclude about standardizing canine stress assessment?",
+"o": [
+"A validated universal cortisol cutoff exists",
+"A single standardized stress protocol was identified",
+"A universal behavioral stress score was validated",
+"No universal indicators or reference intervals exist, so an individual approach is needed"
+],
+"a": 3,
+"e": "No universal quantitative/qualitative indicators or cortisol reference intervals were found.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "Per the review, the most reliable way to interpret a dog's psychological state is to:",
+"o": [
+"Combine behavior observation, detailed history, and multiple physiological markers",
+"Measure cortisol alone",
+"Rely on heart rate alone",
+"Predict from breed"
+],
+"a": 0,
+"e": "Behavior analysis plus history plus an appropriate combination of physiological markers is most reliable.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "How many articles were analyzed for this review?",
+"o": [
+"12",
+"48",
+"128",
+"500"
+],
+"a": 2,
+"e": "The authors analyzed 128 articles.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Body Language",
+"q": "Mutual (rather than single-dog) sniffing was more likely when:",
+"o": [
+"Both dogs were neutered",
+"The owners communicated with each other",
+"Dogs were walked off-leash",
+"The dogs were the same sex"
+],
+"a": 1,
+"e": "Mutual sniffing was associated with owners communicating with each other.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Body Language",
+"q": "Sniffing was more likely initiated in which pairing?",
+"o": [
+"A female encountering a male",
+"Two puppies meeting",
+"An adult meeting an adult",
+"A male dog encountering a female"
+],
+"a": 3,
+"e": "Dogs more likely initiated sniffing when a male encountered a female than vice versa.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Body Language",
+"q": "Termination of sniffing was more likely when:",
+"o": [
+"An adult dog encountered a puppy",
+"A puppy encountered an adult",
+"Two males met",
+"Owners ignored each other"
+],
+"a": 0,
+"e": "Dogs more likely terminated sniffing when an adult encountered a puppy than vice versa.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What was the effect of familiar conspecifics on whining in dogs left home alone?",
+"o": [
+"Whining was eliminated",
+"Whining was halved",
+"Whining was not reduced by familiar conspecifics",
+"Whining increased house-soiling"
+],
+"a": 2,
+"e": "Whining was not reduced by the presence of familiar conspecifics.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "How did activity in multi-dog households compare with single-dog households?",
+"o": [
+"Lower activity",
+"Higher overall activity",
+"Identical activity",
+"No vocalization at all"
+],
+"a": 1,
+"e": "Dogs in multi-dog households showed significantly higher activity (27.5 vs 15.3).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Overall, the dogs' behavior when alone was characterized by:",
+"o": [
+"Constant high activity throughout",
+"Activity peaking in the final hour",
+"Uniformly high vocal activity",
+"Generally low physical and vocal activity"
+],
+"a": 3,
+"e": "Dogs generally showed low physical and vocal activity regardless of time alone.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Learning Theory",
+"q": "Dogs with higher social competence showed what response to social vs non-social distractors?",
+"o": [
+"A stronger distinction, looking more at social stimuli",
+"No difference between distractor types",
+"Less looking at all stimuli",
+"Complete avoidance of the task"
+],
+"a": 0,
+"e": "Higher-competence dogs more strongly distinguished distractors, looking more at the social stimulus.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Learning Theory",
+"q": "The findings support dogs as a model for which human condition?",
+"o": [
+"Parkinson's disease",
+"Epilepsy",
+"Autism spectrum disorder / social-motivational deficits",
+"Depression only"
+],
+"a": 2,
+"e": "Results mirror human ASD studies, supporting a canine model of social-motivational deficits.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Learning Theory",
+"q": "The ISRS questionnaire factor analysis produced:",
+"o": [
+"A one-factor solution",
+"A three-factor solution",
+"A five-factor solution",
+"No interpretable factors"
+],
+"a": 1,
+"e": "Exploratory factor analysis of the 26 items yielded a three-factor solution.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "QOL & Needs Assessment",
+"q": "Which tools were highlighted as allowing quick welfare assessments by shelter staff?",
+"o": [
+"Shelter Quality Protocol and SQP2",
+"Physiological cortisol panels",
+"Ethogram coding only",
+"Multi-Operator Qualitative Behavioral Assessment and the Quality of Life Assessment"
+],
+"a": 3,
+"e": "MO-QBA and the QoL Assessment were noted as quick staff tools; the Shelter Quality Protocols are more comprehensive.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "QOL & Needs Assessment",
+"q": "Which assessment type was most commonly used across the reviewed publications?",
+"o": [
+"Ethogram-based tools",
+"Owner questionnaires",
+"Blood biomarkers",
+"Genetic testing"
+],
+"a": 0,
+"e": "Ethogram-based tools were used in 37 of the publications.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "QOL & Needs Assessment",
+"q": "Which area was identified as a key research gap?",
+"o": [
+"Vaccination response",
+"Adoption rates",
+"Effects of chronic stress on long-term sheltered dogs",
+"Shelter nutrition"
+],
+"a": 2,
+"e": "Few papers examined chronic stress in long-term sheltered dogs, flagged as a future priority.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "QOL & Needs Assessment",
+"q": "Which behaviors did the collar accelerometer algorithm detect most accurately?",
+"o": [
+"Sniffing and licking",
+"Eating and drinking",
+"Petting and rubbing",
+"Scratching only"
+],
+"a": 1,
+"e": "Eating and drinking showed the highest sensitivity/specificity (e.g., eating 0.988/0.983).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "QOL & Needs Assessment",
+"q": "What was the effect of the collar device's position on detection performance?",
+"o": [
+"No measurable impact on performance",
+"Doubled the error rate",
+"Required head-mounted placement",
+"Only worked on the chest"
+],
+"a": 0,
+"e": "Position on the collar had no measurable impact on performance.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "QOL & Needs Assessment",
+"q": "Which behavior had the lowest detection sensitivity?",
+"o": [
+"Eating",
+"Drinking",
+"Scratching",
+"Petting"
+],
+"a": 3,
+"e": "Petting had the lowest sensitivity (0.305).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Learning Theory",
+"q": "How did dogs experienced in Animal-Assisted Interventions differ from pet dogs on the unsolvable task?",
+"o": [
+"Ignored their owner",
+"Solved the task faster",
+"Looked more at their owner and were less task-oriented",
+"Showed more aggression"
+],
+"a": 2,
+"e": "AAI dogs looked more at their owner and were less oriented toward the task.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Learning Theory",
+"q": "High sensitivity to the Behavioural Inhibition System (BIS) predicted:",
+"o": [
+"More referential looking and fewer task orientations",
+"More task orientations",
+"Less looking at the owner",
+"Faster task completion"
+],
+"a": 0,
+"e": "BIS sensitivity predicted fewer task orientations but increased referential/non-referential looking.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Learning Theory",
+"q": "The study's overall conclusion about canine cognitive skills was that they reflect:",
+"o": [
+"No link to personality",
+"Individual differences tied to psychobiological personality traits",
+"Breed alone determining behavior",
+"Age as the only predictor"
+],
+"a": 1,
+"e": "Findings provided evidence of individual differences tied to psychobiological personality traits.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What did the quantitative (ANOVA) analyses find for the Dog Assisted Mindfulness and Dog Interactions interventions?",
+"o": [
+"Large reductions in loneliness",
+"Significant gains in mindfulness",
+"A strong group-by-time interaction",
+"No significant quantitative main or interaction effects"
+],
+"a": 3,
+"e": "Mixed ANOVAs found no significant main effects of group or group-by-time interactions.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What did the qualitative analyses reveal about the active interventions?",
+"o": [
+"Increased owner stress",
+"Enhanced owner-dog connection, relaxation, and happiness",
+"Reduced attachment",
+"No reported experiences"
+],
+"a": 1,
+"e": "Participants described enhanced owner-dog connection plus relaxation, happiness, and engagement.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What did the authors recommend in the meantime?",
+"o": [
+"Regular owner-dog interactions should be encouraged",
+"Dogs should be left alone more",
+"Mindfulness worsens wellbeing",
+"Interventions should be discontinued"
+],
+"a": 0,
+"e": "They recommended encouraging regular owner-dog interactions, especially during lockdowns.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What did the study find about shelter-dog stress during walks by veterans?",
+"o": [
+"Walking markedly increased stress",
+"Dogs were calmest with non-PTSD walkers",
+"No evidence walking by PTSD veterans stressed dogs; post-walk stress was lower with them",
+"Dogs refused to walk"
+],
+"a": 2,
+"e": "Stress was not higher during walks, and post-walk stress was significantly lower with PTSD veterans.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "How was dog stress assessed?",
+"o": [
+"Heart rate variability",
+"Salivary cortisol",
+"Body weight",
+"Fecal scoring"
+],
+"a": 0,
+"e": "Dog stress was measured via heart rate variability (HRV).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "The study's main conclusion was that:",
+"o": [
+"PTSD walkers significantly stressed dogs",
+"Being walked by veterans with PTSD was not stressful for shelter dogs",
+"Only large dogs benefited",
+"Walks should be avoided"
+],
+"a": 1,
+"e": "There was no evidence that walking by veterans with PTSD stressed the shelter dogs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Body Language",
+"q": "How does canine olfaction compare to human olfaction per this review?",
+"o": [
+"Roughly equal",
+"Less sensitive than humans",
+"Only better for food odors",
+"Far more specialized and sensitive than humans'"
+],
+"a": 3,
+"e": "Dog olfaction is far more specialized and sensitive than the human sense of smell.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Body Language",
+"q": "Recent studies cited show dogs can detect:",
+"o": [
+"Changes in human cell metabolism and illnesses including COVID-19",
+"Only explosives",
+"Only narcotics",
+"Nothing medical"
+],
+"a": 0,
+"e": "Dogs can detect emotional changes and metabolic changes during illnesses such as COVID-19.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Body Language",
+"q": "This paper is best described as:",
+"o": [
+"An original clinical trial",
+"A genetic study",
+"An overview/review of canine olfaction",
+"A surgical technique paper"
+],
+"a": 2,
+"e": "It provides an overview of canine olfactory anatomy, physiology, behavior, and applications.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What factor structure did the Italian C/DORS show in dog owners?",
+"o": [
+"A new five-factor structure",
+"The same three-factor structure (PEC, POI, PC) as the English version",
+"A single global factor",
+"No reliable structure"
+],
+"a": 1,
+"e": "It reproduced the original three-factor structure: Perceived Emotional Closeness, Pet-Owner Interactions, Perceived Costs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Owners of dogs with behavioural problems scored how on the subscales?",
+"o": [
+"Higher PEC and lower PC",
+"No difference",
+"Higher POI",
+"Lower PEC and higher Perceived Costs"
+],
+"a": 3,
+"e": "They scored lower on Perceived Emotional Closeness and higher on Perceived Costs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "How did pet dog owners compare with AAI dog owners on emotional closeness?",
+"o": [
+"Pet owners scored higher on Perceived Emotional Closeness",
+"AAI owners scored higher on PEC",
+"No difference in PEC",
+"Students scored lowest"
+],
+"a": 0,
+"e": "Pet dog owners scored higher on Perceived Emotional Closeness than AAI dog owners.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "In the Philippine survey, the human-to-dog ratio yielded the most dogs per 1000 people in which setting?",
+"o": [
+"Rural areas",
+"Urban areas",
+"Semi-urban areas",
+"Small islands"
+],
+"a": 0,
+"e": "Rural areas had 256.3 dogs/1000 people, the highest of all settings.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "After adjusting targets and resources using survey data in Quezon City and Cebu City, what happened to rabies vaccination?",
+"o": [
+"No measurable change",
+"A 3- to 4-fold increase in dogs vaccinated",
+"A modest 10% rise",
+"Coverage declined"
+],
+"a": 1,
+"e": "Data-driven adjustments produced a 3- to 4-fold increase in dogs vaccinated versus previous years.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "The study estimated the total Philippine dog population at approximately:",
+"o": [
+"10 million",
+"50 million",
+"23 million",
+"2 million"
+],
+"a": 2,
+"e": "The estimate was 23.29 million dogs (95% CI 22.51–24.07 million).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Among the wildlife species sampled in Aosta Valley, which had the highest canine distemper virus prevalence?",
+"o": [
+"Wolf",
+"Beech marten",
+"Badger",
+"Red fox"
+],
+"a": 3,
+"e": "Red fox prevalence was 60%, higher than badger (47%), beech marten (51%), or wolf (14%).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Which remote-sensing-derived metric did the authors find strongly related to CDV trends?",
+"o": [
+"NDVI entropy and altitude gradient",
+"Sea-surface temperature",
+"Soil nitrogen content",
+"Nighttime light intensity"
+],
+"a": 0,
+"e": "CDV trends correlated with altitude gradient and NDVI entropy changes over the years.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "How was CDV detected in the sampled animals?",
+"o": [
+"Serum antibody ELISA",
+"Real-time (TaqMan) PCR targeting gene P",
+"Virus isolation in culture",
+"Histopathology only"
+],
+"a": 1,
+"e": "Detection used real-time PCR with a TaqMan approach targeting the phosphoprotein gene P.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Animals & Public Policy",
+"sub": "Ethics",
+"q": "What gap in current animal-health decision metrics does the proposed framework aim to address?",
+"o": [
+"Lack of laboratory standardization",
+"Reliance only on monetary value, omitting emotional/societal/ecological value",
+"Absence of vaccine cost data",
+"Poor disease surveillance coverage"
+],
+"a": 1,
+"e": "The framework adds non-monetary values to metrics that currently assess disease impact mainly in monetary terms.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Animals & Public Policy",
+"sub": "Ethics",
+"q": "The framework's 'anthropozoocentric interface' is built on which two perspectives?",
+"o": [
+"Anthropocentrism and zoocentrism",
+"Utilitarianism and deontology",
+"Capitalism and socialism",
+"Biosecurity and One Health"
+],
+"a": 0,
+"e": "It is explicitly based on combining anthropocentric and zoocentric perspectives.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Animals & Public Policy",
+"sub": "Ethics",
+"q": "Which existing health metrics did the authors propose to complement?",
+"o": [
+"BMI and QALY",
+"R0 and case fatality rate",
+"DALY and zDALY",
+"Herd immunity threshold"
+],
+"a": 2,
+"e": "The framework is intended to complement DALY and zDALY metrics.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "How does seeking Hadkai Mata faith healing affect conventional rabies care?",
+"o": [
+"It replaces vaccination entirely",
+"It is actively forbidden by healers",
+"Post-exposure prophylaxis is often delayed while traditional treatment is sought first",
+"It accelerates hospital referral"
+],
+"a": 2,
+"e": "PEP is not opposed per se but is frequently delayed because patients try traditional treatment first.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "What attitude toward mass dog vaccination did the study find among worshippers?",
+"o": [
+"Strong endorsement",
+"Reluctance, viewing it as interfering with the goddess's control of dogs",
+"Indifference",
+"Demand for more vaccine"
+],
+"a": 1,
+"e": "Some reluctance arose because vaccination was seen as interfering with how the goddess controls/enrages dogs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "The paper's main strategic conclusion for rabies control in this region is to:",
+"o": [
+"Ban temple worship",
+"Use multidisciplinary approaches addressing cultural perceptions",
+"Rely solely on biomedical messaging",
+"Cull stray dogs"
+],
+"a": 1,
+"e": "It highlights multidisciplinary, culturally tailored approaches as critical to effective rabies control.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "What 'One Medicine' strategy do the authors propose to accelerate rabies therapy development?",
+"o": [
+"Mass human vaccine trials",
+"Investigational treatment of naturally infected dogs receiving human-like supportive care",
+"Computer modeling only",
+"Abandoning treatment research"
+],
+"a": 1,
+"e": "They propose treating naturally infected dogs under conditions mimicking the human scenario to study combination therapies.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "How many categories of disease process do the authors say must be managed in rabies patients?",
+"o": [
+"Two",
+"Four",
+"Six",
+"Eight"
+],
+"a": 1,
+"e": "Four: viral propagation, neuronal degeneration, inflammation, and systemic compromise.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "What is the stated current prognosis for human rabies patients?",
+"o": [
+"Generally favorable with PEP",
+"Dire, with little treatment progress",
+"Self-limiting",
+"Fully curable with antivirals"
+],
+"a": 1,
+"e": "The abstract states the prognosis for recovery remains dire and little treatment progress has been made.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "Into which three categories did the study group barriers to dog vaccination in Chad?",
+"o": [
+"Genetic, clinical, surgical",
+"Economic, socio-cultural, institutional",
+"Urban, rural, nomadic",
+"Legal, financial, military"
+],
+"a": 1,
+"e": "Barriers were grouped into economic, socio-cultural, and institutional levels.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "Which was identified as a socio-cultural barrier to dog vaccination?",
+"o": [
+"Belief that vaccine harms dog-meat's therapeutic properties and that dogs are impure in Muslim faith",
+"High literacy among owners",
+"Excess vaccine supply",
+"Government subsidies"
+],
+"a": 0,
+"e": "Cited socio-cultural barriers included the dog-meat therapeutic-property belief and dogs being considered impure in Muslim faith.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "What proportion of human rabies cases worldwide do domestic dogs account for, per the abstract?",
+"o": [
+"50%",
+"75%",
+"95%",
+"25%"
+],
+"a": 2,
+"e": "Domestic dogs are responsible for 95% of all human rabies cases worldwide.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Vaccination",
+"q": "How did the discourses of pet-vaccine critics compare to those in the human vaccine domain?",
+"o": [
+"Entirely unique to animals",
+"Similar—centered on risk, trust in expertise, and imaginaries of science",
+"Focused only on cost",
+"Absent of any science framing"
+],
+"a": 1,
+"e": "Findings suggest the discourses (risk, trust, science) closely mirror those in the human vaccine domain.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Vaccination",
+"q": "What method did the study use to analyze pet-vaccine critique?",
+"o": [
+"Randomized controlled trial",
+"Discourse analysis of a UK campaign group",
+"Serological survey",
+"Meta-analysis of vaccine trials"
+],
+"a": 1,
+"e": "It was a discourse analysis of a UK campaign group questioning companion-animal vaccine policy.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animals & Public Safety",
+"q": "What does available evidence suggest about dog-bite risk in northern Indigenous communities?",
+"o": [
+"Lower than the general population",
+"Equal to other settings",
+"Higher than the rest of the population",
+"Undeterminable"
+],
+"a": 2,
+"e": "Evidence suggests Indigenous people in northern communities are at higher risk of dog bites than the rest of the population.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animals & Public Safety",
+"q": "Which individual risk factors for dog bites were well documented in the review?",
+"o": [
+"Young age (children) and male gender",
+"Elderly age and female gender",
+"Income and education",
+"Dog breed only"
+],
+"a": 0,
+"e": "Age (children) and gender (male) were the well-documented individual risk factors.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animals & Public Safety",
+"q": "What rabies reservoir is noted as endemic in these northern regions?",
+"o": [
+"Raccoon rabies",
+"Vampire-bat rabies",
+"Arctic fox rabies",
+"Skunk rabies"
+],
+"a": 2,
+"e": "The abstract cites the endemic presence of arctic fox rabies as a public-health concern.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Reportable & Emerging",
+"q": "Which species, unlike rabbits, was highly susceptible to SARS-CoV-2 AND transmitted it between conspecifics?",
+"o": [
+"Raccoon dogs",
+"Rabbits (Oryctolagus cuniculus)",
+"Egyptian rousettes",
+"White-tailed deer"
+],
+"a": 0,
+"e": "Raccoon dogs were highly susceptible and could transmit between conspecifics, unlike rabbits which did not transmit.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Reportable & Emerging",
+"q": "What key shortcoming did the authors highlight regarding SARS-CoV-2 in animals?",
+"o": [
+"Lack of any susceptible species",
+"Absence of an adequate animal surveillance system to follow viral evolution",
+"Overuse of animal vaccines",
+"No human cases to compare"
+],
+"a": 1,
+"e": "They stress that animal circulation has not been matched by an adequate surveillance system to track viral evolution.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Reportable & Emerging",
+"q": "Which wild animals were described as potential natural reservoirs of SARS-CoV-2?",
+"o": [
+"Pigeons and rats",
+"White-tailed deer, Egyptian rousettes, and minks",
+"Horses and cattle",
+"Salmon and trout"
+],
+"a": 1,
+"e": "White-tailed deer, Egyptian rousettes, and minks were named as potential natural reservoirs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Research & Biostats",
+"sub": "Study Design",
+"q": "What did the Family Bondedness Scale (FBS) study conclude about measurement equivalence between cat and dog owners?",
+"o": [
+"Scores were not comparable across species",
+"Scores showed equivalence between cat and dog owners",
+"Only dog owners could be measured",
+"Equivalence could not be tested"
+],
+"a": 1,
+"e": "Multi-group analyses indicated FBS scores were equivalent between cat and dog owners.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Research & Biostats",
+"sub": "Study Design",
+"q": "Which analytic method was used to test the FBS?",
+"o": [
+"Survival analysis",
+"Multi-group confirmatory factor analysis",
+"Logistic regression",
+"Time-series modeling"
+],
+"a": 1,
+"e": "The study used multi-group confirmatory factor analyses with multiple covariates.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Research & Biostats",
+"sub": "Study Design",
+"q": "Which prior measurement gap in human-animal-bond research did the FBS aim to address?",
+"o": [
+"Lack of evidence for measurement equivalence across pet species",
+"Too few survey respondents globally",
+"Absence of dogs as a study species",
+"Excessively short measures"
+],
+"a": 0,
+"e": "A cited gap was the lack of evidence for measurement equivalence across pet species, which the FBS addresses.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Research & Biostats",
+"sub": "Study Design",
+"q": "During the first COVID-19 lockdown, how was pet ownership associated with loneliness?",
+"o": [
+"Higher loneliness scores",
+"No association",
+"Lower loneliness scores",
+"Loneliness only in dog owners"
+],
+"a": 2,
+"e": "Pet ownership (and living with others) was associated with lower loneliness scores.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Research & Biostats",
+"sub": "Study Design",
+"q": "Beyond its effect on loneliness, how was pet ownership related to positive or negative affective states?",
+"o": [
+"Strongly increased positive affect",
+"Not associated with positive or negative affect",
+"Increased only negative affect",
+"Eliminated negative affect"
+],
+"a": 1,
+"e": "Aside from loneliness, pet ownership was not associated with positive or negative affective states.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Research & Biostats",
+"sub": "Study Design",
+"q": "People reported significantly more comfort from which animals?",
+"o": [
+"Cats and birds",
+"Reptiles and fish",
+"Dogs and horses",
+"Rabbits and rodents"
+],
+"a": 2,
+"e": "Respondents obtained significantly more comfort from dogs and horses than other pet species.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animals & Public Safety",
+"q": "In the Portuguese dog-bite study, most biting dogs were:",
+"o": [
+"Stray and unknown to the victim",
+"Familiar to the bitten person",
+"Working police dogs",
+"Recently adopted"
+],
+"a": 1,
+"e": "78.7% of dogs involved were familiar to the person bitten.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animals & Public Safety",
+"q": "How did major injuries affect the odds of the dog being euthanized compared with minor injuries?",
+"o": [
+"About 4.3 times higher",
+"No difference",
+"Half as likely",
+"10 times higher"
+],
+"a": 0,
+"e": "Odds of euthanasia were 4.3 times higher for major than minor injuries (95% CI 1.3–14.2).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animals & Public Safety",
+"q": "What was the most common body location of dog bites in the study?",
+"o": [
+"Lower extremities",
+"Head and neck",
+"Upper extremities",
+"Torso"
+],
+"a": 2,
+"e": "More than half (58.1%) of bites were on the upper extremities.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "The STOP-R index estimates rabies elimination capacity using which type of data?",
+"o": [
+"Country-level infrastructure indicators (literacy, infant mortality, electricity access, political stability, natural hazards)",
+"Genetic sequences of rabies virus variants",
+"Direct laboratory surveillance case counts",
+"Canine vaccine antibody titers"
+],
+"a": 0,
+"e": "The index was built from five publicly available country-level infrastructure indicators, not direct surveillance.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "Projected global human rabies deaths in DMRVV-endemic countries from 2022 to 2030 are expected to:",
+"o": [
+"Increase sharply",
+"Decrease",
+"Stay unchanged",
+"Double"
+],
+"a": 1,
+"e": "Estimates fall from ~40,111 in 2022 to ~32,349 in 2030.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "A key interpretation of the study was that rabies elimination success is:",
+"o": [
+"Determined solely by vaccine coverage",
+"Unrelated to country infrastructure",
+"Influenced by factors external to rabies programs such as country infrastructure",
+"Independent of political stability"
+],
+"a": 2,
+"e": "The authors concluded external infrastructural factors influence elimination progress.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animals & Public Safety",
+"q": "Dog bite incidence was highest among which group?",
+"o": [
+"Adults ≥80 years and females",
+"Children <10 years and males",
+"Teenagers and males",
+"Middle-aged adults"
+],
+"a": 1,
+"e": "Dog bite incidence peaked in children under 10 and in males.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animals & Public Safety",
+"q": "Bacteria were isolated most frequently from:",
+"o": [
+"Dog bites (3%)",
+"Dog bites (21.5%)",
+"Cat bites (21.5%)",
+"Cat bites (3%)"
+],
+"a": 2,
+"e": "Cat bites yielded bacteria in 21.5% versus only 3% of dog bites.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animals & Public Safety",
+"q": "Cat bite incidence was highest among:",
+"o": [
+"Adults ≥80 years and females",
+"Children <10 years and males",
+"Young adult males",
+"Male infants"
+],
+"a": 0,
+"e": "Cat bite incidence was highest in adults aged ≥80 and in females.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animals & Public Safety",
+"q": "Which factor was identified as a frequent warning signal for biting incidents?",
+"o": [
+"Owner's suspected substance or animal abuse and antisocial behaviour",
+"High owner income",
+"Single-dog household",
+"Indoor-only housing with daily exercise"
+],
+"a": 0,
+"e": "Owner substance/animal abuse and antisocial behaviour were among the most prevalent warning factors.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animals & Public Safety",
+"q": "The authors concluded that a proportion of owners of confiscated dogs:",
+"o": [
+"Always comply with muzzle and leash obligations",
+"May not be willing or capable of guaranteeing societal safety",
+"Were mostly first-time owners",
+"Had no prior warnings"
+],
+"a": 1,
+"e": "Owner aggression and poor adherence to prior obligations suggested some cannot guarantee public safety.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animals & Public Safety",
+"q": "Reports mentioning ≥5 ownership factors were:",
+"o": [
+"Equally common in both time frames",
+"Twice as frequent in 2020–22 as in 2008–10",
+"Less common in the recent period",
+"Absent in 2020–22"
+],
+"a": 1,
+"e": "Such reports were 38% in tf2 versus 16% in tf1.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Rocky Mountain spotted fever is caused by:",
+"o": [
+"Rickettsia rickettsii",
+"Borrelia burgdorferi",
+"Brucella canis",
+"Rabies virus"
+],
+"a": 0,
+"e": "RMSF is a tick-borne disease caused by Rickettsia rickettsii.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "RMSF case fatality in Mexico compared with the US is:",
+"o": [
+"Lower (~1%)",
+"Similar (~5%)",
+"Higher (often >30%)",
+"Negligible"
+],
+"a": 2,
+"e": "US fatality is 5–7% while Mexican case fatality often exceeds 30%.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "The recommended urgent treatment for symptomatic RMSF is:",
+"o": [
+"Penicillin",
+"Doxycycline",
+"Amoxicillin",
+"Supportive care only"
+],
+"a": 1,
+"e": "Prompt doxycycline is emphasized for symptomatic patients.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "The kennel outbreak of Brucella canis was most likely caused by:",
+"o": [
+"Contaminated feed",
+"Introduction of one infected imported dog",
+"Tick vectors",
+"Airborne spread from wildlife"
+],
+"a": 1,
+"e": "WGS showed all isolates in one cluster, consistent with a single introduced index dog.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Among contact dogs, the seroprevalence of B. canis antibodies was approximately:",
+"o": [
+"3%",
+"83%",
+"34%",
+"100%"
+],
+"a": 2,
+"e": "23 of 69 contact dogs (34%) were seropositive by SAT.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Whole-genome sequencing of the outbreak isolates showed they:",
+"o": [
+"Belonged to multiple unrelated clusters",
+"Belonged to the same cluster",
+"Were not B. canis",
+"Were non-zoonotic strains"
+],
+"a": 1,
+"e": "All isolates belonged to the same cluster, supporting a single source.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Human exposure to Brucella canis in this case occurred when:",
+"o": [
+"A dog bit a passenger",
+"Contaminated food was served",
+"An infected dog aborted in the aircraft cabin",
+"A passenger handled reptiles"
+],
+"a": 2,
+"e": "An infected dog aborted in the passenger cabin, exposing passengers and crew.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "The report recommends Brucella screening of:",
+"o": [
+"Only imported cats",
+"Sexually intact dogs prior to breeding, purchase, or transport",
+"Only vaccinated dogs",
+"Wild birds"
+],
+"a": 1,
+"e": "Screening sexually intact dogs before breeding, purchase, or transport is emphasized.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "The transport of pregnant dogs was characterized as:",
+"o": [
+"Entirely safe",
+"A previously unrecognized public health threat",
+"Beneficial for the animals",
+"Unrelated to brucellosis"
+],
+"a": 1,
+"e": "It was flagged as a previously unrecognized public health threat plus a welfare concern.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "All canine nontyphoidal Salmonella strains in the study carried:",
+"o": [
+"No resistance genes",
+"AMR determinants for critically/highly important drug classes",
+"Resistance to only one drug",
+"Vaccine-resistance genes"
+],
+"a": 1,
+"e": "Every strain had AMR determinants for WHO critically/highly important antibiotics.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "The study concluded that companion animals should be:",
+"o": [
+"Included in One Health antimicrobial-resistance biosurveillance",
+"Excluded from surveillance",
+"Given more antibiotics",
+"Removed from households"
+],
+"a": 0,
+"e": "Authors stressed One Health biosurveillance encompassing companion animals.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Genomic comparison found human NTS isolates that were:",
+"o": [
+"Unrelated to dog strains",
+"Closely related to dog-associated strains",
+"Only from food sources",
+"Non-pathogenic"
+],
+"a": 1,
+"e": "Sixteen human isolates were closely related to dog-associated strains, supporting zoonotic potential.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Reportable & Emerging",
+"q": "HPAI H5 virus infection was reported in how many wild bird species?",
+"o": [
+"5",
+"15",
+"51",
+"510"
+],
+"a": 2,
+"e": "Infection was reported across 51 bird species.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Reportable & Emerging",
+"q": "The species groups with the highest reported mortality:",
+"o": [
+"Were identical each year",
+"Varied per epidemic year (geese versus sea birds)",
+"Were only raptors",
+"Included no waterfowl"
+],
+"a": 1,
+"e": "2020–21 hit Anatidae/barnacle geese; 2021–22 hit sea birds like Sandwich terns and gannets.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Reportable & Emerging",
+"q": "The recommended surveillance approach was to:",
+"o": [
+"Stop monitoring wild birds",
+"Monitor live and dead wild birds",
+"Cull all poultry",
+"Vaccinate wild birds"
+],
+"a": 1,
+"e": "Monitoring live and dead wild birds was recommended for tracking HPAI dynamics.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "The Salmonella Vitkin outbreak was linked to:",
+"o": [
+"Pet bearded dragons",
+"Backyard poultry",
+"Contaminated lettuce",
+"Dogs"
+],
+"a": 0,
+"e": "Cases were tied to pet bearded dragons, including an isolate from an enclosure.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Most affected US patients were:",
+"o": [
+"Elderly adults",
+"Infants under 1 year of age",
+"Teenagers",
+"Middle-aged adults"
+],
+"a": 1,
+"e": "Two-thirds of US patients were under 1 year old.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Traceback of the bearded dragons identified a potential common supplier in:",
+"o": [
+"Canada",
+"Southeast Asia",
+"Europe",
+"Australia"
+],
+"a": 1,
+"e": "At least one common supplier in Southeast Asia was identified.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Reportable & Emerging",
+"q": "The most plausible source of H5N1 infection in mammals was:",
+"o": [
+"Mosquito bites",
+"Close contact with or ingestion of infected birds",
+"Contaminated water only",
+"Human handlers"
+],
+"a": 1,
+"e": "Close contact with and ingestion of infected birds was the most plausible source.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Reportable & Emerging",
+"q": "Compared with previous waves, the current panzootic affected:",
+"o": [
+"A larger geographic area and more mammal species",
+"Fewer species and a smaller area",
+"Only poultry",
+"No mammals"
+],
+"a": 0,
+"e": ">48 species across 26 countries, a far larger scope than prior waves.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Reportable & Emerging",
+"q": "The review warns that H5N1 may be:",
+"o": [
+"Becoming less infectious",
+"Adapting to infect mammals, raising pandemic concern",
+"Already eradicated",
+"Permanently limited to birds"
+],
+"a": 1,
+"e": "Mutations and possible mammal-to-mammal transmission suggest adaptation and pandemic risk.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "The emerging parasite reported in US dogs and cats is:",
+"o": [
+"Thelazia callipaeda (eyeworm)",
+"Dirofilaria immitis",
+"Toxocara canis",
+"Giardia duodenalis"
+],
+"a": 0,
+"e": "The cases involved the eyeworm Thelazia callipaeda.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Phylogenetic analysis suggested the parasite was introduced from:",
+"o": [
+"Australia",
+"Europe",
+"South America",
+"Africa"
+],
+"a": 1,
+"e": "Phylogenetics indicated a European origin.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "The authors recommend which approach to limit further spread?",
+"o": [
+"No intervention",
+"A One Health approach",
+"Mass euthanasia",
+"Quarantine of all cats"
+],
+"a": 1,
+"e": "A One Health approach was advised to limit spread in North America.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Canine Borrelia burgdorferi seroprevalence in NW North Carolina changed from 2017 to 2021 by:",
+"o": [
+"Decreasing to near zero",
+"Increasing from 2.2% to 11.2%",
+"Remaining stable",
+"Rising then falling"
+],
+"a": 1,
+"e": "Seroprevalence rose from 2.2% in 2017 to 11.2% in 2021.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "The spatial pattern of canine seroprevalence shifted from:",
+"o": [
+"Dispersed to clustered",
+"Clustered to dispersed",
+"Random to clustered",
+"No change"
+],
+"a": 1,
+"e": "Moran's I shifted from clustered (0.30) in 2017 to dispersed (−0.20) in 2021.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "The study supports using canine seroprevalence data primarily to:",
+"o": [
+"Replace human diagnostic testing",
+"Diagnose rabies",
+"Monitor human risk for Lyme disease",
+"Vaccinate wildlife"
+],
+"a": 2,
+"e": "Individual-level canine data were endorsed as a sentinel for human Lyme disease risk.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "In some areas, the case-fatality rate of brown dog tick-associated RMSF reaches up to:",
+"o": [
+"5%",
+"20%",
+"50%",
+"90%"
+],
+"a": 2,
+"e": "The abstract states the case-fatality rate is up to 50% in some communities.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "The conceptual framework for RMSF prevention is built around which approach?",
+"o": [
+"One Health interdisciplinary collaboration",
+"Single-species canine vaccination",
+"Mass acaricide spraying only",
+"Human antibiotic prophylaxis"
+],
+"a": 0,
+"e": "The authors use a One Health approach with interdisciplinary teams to identify at-risk communities.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Which community feature is identified as a driver of RMSF emergence and endemicity?",
+"o": [
+"High vaccination coverage",
+"Large populations of free-roaming dogs",
+"Cold alpine climate",
+"Strong provider awareness"
+],
+"a": 1,
+"e": "Risk includes large free-roaming dog populations, brown dog ticks, limited resources, and low provider awareness.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "By xenodiagnosis, what proportion of sampled dogs were infectious to sand flies?",
+"o": [
+"12%",
+"33%",
+"50%",
+"73%"
+],
+"a": 0,
+"e": "9 of 73 dogs (12%) were infectious to P. argentipes during winter and rainy seasons.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "What remains the primary source of L. donovani transmission according to the study?",
+"o": [
+"Free-roaming cattle",
+"Patients with visceral leishmaniasis",
+"Asymptomatic dogs",
+"Rodent reservoirs"
+],
+"a": 1,
+"e": "Human VL patients remain primary transmission sources, though canine infection may contribute to human exposure.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "L. donovani is transmitted by which vector?",
+"o": [
+"Brown dog ticks",
+"Mosquitoes",
+"Sand flies (Phlebotomus argentipes)",
+"Cat fleas"
+],
+"a": 2,
+"e": "Transmission occurs via the sand fly Phlebotomus argentipes.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "The operational tool concluded that overall L. infantum introduction risk via imported dogs could be:",
+"o": [
+"Negligible under all conditions",
+"High without proper controls",
+"Unmeasurable",
+"Limited to coastal states"
+],
+"a": 1,
+"e": "Risk varies but could be high without proper controls.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Which is NOT among the recommended dog risk-management strategies?",
+"o": [
+"Sand fly insecticides and repellents",
+"Sterilization",
+"Mandatory euthanasia of imported dogs",
+"Treatment"
+],
+"a": 2,
+"e": "Recommended strategies were insecticides/repellents, sterilization, and treatment, not euthanasia.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Students concurrently enrolled in DVM and MPH programs reported significantly higher self-rated knowledge in:",
+"o": [
+"Surgical technique and anesthesia",
+"Disease measurement, ethical/legal principles, and epidemiologic data interpretation",
+"Clinical pathology",
+"Radiographic interpretation"
+],
+"a": 1,
+"e": "Dual-degree students showed significantly higher self-reported knowledge in these public health domains.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "By coursework completion, students' most valued competencies were related to:",
+"o": [
+"Pharmacology and toxicology",
+"Epidemiology, biostatistics, and behavioral health",
+"Anatomy and physiology",
+"Practice management"
+],
+"a": 1,
+"e": "The most valued competencies were epidemiology, biostatistics, and behavioral health.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Which students demonstrated significantly higher program satisfaction?",
+"o": [
+"Those with veterinary and animal science backgrounds",
+"Those with no science background",
+"Single-degree MPH students",
+"Students intending to leave the field"
+],
+"a": 0,
+"e": "Students with veterinary/animal science backgrounds reported significantly higher satisfaction.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Compared with classic classroom PBL, field simulation PBL produced:",
+"o": [
+"Lower student satisfaction",
+"Significantly higher student satisfaction",
+"No completed assessments",
+"Worse cognitive outcomes"
+],
+"a": 1,
+"e": "Mean satisfaction was significantly higher with field simulation than classic PBL.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "How did cognitive-domain attainment compare between the two PBL groups?",
+"o": [
+"Comparable between groups",
+"Far superior in classic PBL",
+"Far superior in field simulation",
+"Not assessed"
+],
+"a": 0,
+"e": "Cognitive domain attainment was comparable between the two PBL settings.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "The study's overall conclusion regarding field simulation was that it:",
+"o": [
+"Increased student risk exposure",
+"Enhanced positive learning experiences and attitudes",
+"Reduced satisfaction",
+"Should replace all theory teaching"
+],
+"a": 1,
+"e": "Field simulation enhanced positive learning experiences and better attitudes toward learning.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Compared with non-owners, pet owners on Staten Island were:",
+"o": [
+"Less likely to have found a tick (46% vs 63%)",
+"More likely to have found a tick (63% vs 46%)",
+"Equally likely to have found a tick",
+"Never exposed to ticks"
+],
+"a": 1,
+"e": "Pet owners reported finding ticks more often (63%) than non-owners (46%).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Among pet owners, who were most likely to find ticks on their pets?",
+"o": [
+"Cat-only owners",
+"Dog owners (dog-only or dog and cat)",
+"Owners of indoor-only pets",
+"Fish owners"
+],
+"a": 1,
+"e": "Dog owners were more likely than cat-only owners to have found ticks on their pets.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Regarding knowledge that ticks transmit Lyme disease, pet owners were:",
+"o": [
+"More likely to know than non-owners",
+"Less likely to know than non-owners",
+"No different from non-owners",
+"Uniformly unaware"
+],
+"a": 0,
+"e": "Pet owners were more likely to know ticks transmit Lyme disease.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Which clinical sign was universally present in cats with discospondylitis?",
+"o": [
+"Pyrexia",
+"Spinal hyperaesthesia",
+"Vomiting",
+"Pruritus"
+],
+"a": 1,
+"e": "All cats presented with spinal hyperaesthesia.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Which antibiotics were recommended as reasonable first-line choices?",
+"o": [
+"Metronidazole or doxycycline",
+"Enrofloxacin or marbofloxacin",
+"Amoxicillin-clavulanic acid or cephalosporins",
+"Azithromycin or clindamycin"
+],
+"a": 2,
+"e": "Amoxicillin-clavulanic acid or cephalosporins were suggested as first-line antibiotics.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "With sustained antibiotic therapy (median ~3 months), the prognosis was:",
+"o": [
+"Favourable with little long-term recurrence",
+"Uniformly fatal",
+"Poor requiring surgery in all",
+"Unchanged from untreated cats"
+],
+"a": 0,
+"e": "Prognosis was favourable, with no long-term recurrence on sustained therapy.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Which surgical technique was used to correct feline eyelid agenesis?",
+"o": [
+"Lip commissure to eyelid transposition flap",
+"Hotz-Celsus procedure",
+"Full-thickness skin graft",
+"Enucleation"
+],
+"a": 0,
+"e": "The lip commissure to eyelid transposition (LCET) flap was used.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "The most common postoperative complication observed was:",
+"o": [
+"Complete graft rejection",
+"Partial necrosis of the flap",
+"Glaucoma",
+"Retinal detachment"
+],
+"a": 1,
+"e": "Partial flap necrosis occurred in four of the corrected eyelids.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "The case series concluded the technique is suitable when:",
+"o": [
+"Referral to a specialist is not an option due to limited resources",
+"Only purebred cats are affected",
+"General anesthesia is contraindicated",
+"Bilateral disease is absent"
+],
+"a": 0,
+"e": "It is presented as suitable where specialist referral is unavailable, as in shelters/low-cost clinics.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Preliminary evidence shows specific probiotics are beneficial in dogs with:",
+"o": [
+"Hypothyroidism",
+"Parvovirus infection and acute hemorrhagic diarrhea syndrome",
+"Diabetes mellitus",
+"Cardiomyopathy"
+],
+"a": 1,
+"e": "Benefit was suggested in canine parvovirus and acute hemorrhagic diarrhea syndrome.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "In dogs with inflammatory bowel disease, specific probiotics were noted to:",
+"o": [
+"Decrease clinical severity",
+"Have no measurable effect",
+"Worsen diarrhea",
+"Cause sepsis"
+],
+"a": 0,
+"e": "IBD-specific probiotics can decrease clinical severity in dogs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "The review's overall assessment of small-animal probiotic/synbiotic products was that they:",
+"o": [
+"Are fully validated",
+"Often do not fulfill the criteria to qualify as a probiotic",
+"Should replace all drug therapy",
+"Have well-defined modes of action"
+],
+"a": 1,
+"e": "Many products do not meet probiotic criteria and lack mode-of-action studies.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What was the prevalence of positive cultures among feline cystocentesis urine samples?",
+"o": [
+"5.2%",
+"15.7%",
+"26.4%",
+"43.7%"
+],
+"a": 1,
+"e": "425 of 2712 samples (15.7%) had a positive culture.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Which was the most commonly isolated bacterium?",
+"o": [
+"Enterococcus species",
+"Staphylococcus species",
+"E. coli",
+"Proteus species"
+],
+"a": 2,
+"e": "E. coli accounted for 43.7% of isolates.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Enterococcus species most commonly showed resistance to:",
+"o": [
+"Trimethoprim/sulfamethoxazole",
+"Amoxicillin",
+"Cephalexin",
+"Enrofloxacin"
+],
+"a": 0,
+"e": "Enterococcus showed 94.3% resistance to trimethoprim/sulfamethoxazole.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Did cutaneous infrared temperatures agree with rectal temperature in cats?",
+"o": [
+"Yes, excellent agreement",
+"No, they were not in agreement",
+"Only at the flank site",
+"Only with one device"
+],
+"a": 1,
+"e": "Infrared cutaneous readings were not in agreement with rectal temperature.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "How did the three infrared thermometers compare with each other?",
+"o": [
+"Identical readings",
+"Not in good agreement among themselves",
+"All matched the rectal value",
+"Only differed in kittens"
+],
+"a": 1,
+"e": "The devices were also not in good agreement with one another.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "The study's conclusion regarding infrared thermometry in cats was that it:",
+"o": [
+"Can replace rectal temperature measurement",
+"Cannot reliably replace rectal temperature measurement",
+"Is superior for core temperature",
+"Is reproducible across sites"
+],
+"a": 1,
+"e": "Infrared gave no reproducible/constant data, so it cannot justify replacing rectal measurement.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "How did resolution of allergic reaction signs compare between diphenhydramine alone vs diphenhydramine plus glucocorticoid?",
+"o": [
+"No difference between groups",
+"Markedly better with glucocorticoid",
+"Markedly worse with glucocorticoid",
+"Resolution only with combination"
+],
+"a": 0,
+"e": "There was no difference in resolution of clinical signs between the two groups.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "How many cats progressed to anaphylaxis in this study?",
+"o": [
+"None in either group",
+"Only those given diphenhydramine alone",
+"Only those given glucocorticoid",
+"About half of cats"
+],
+"a": 0,
+"e": "No cat in either group progressed to anaphylaxis.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Based on available human and veterinary literature, the authors concluded glucocorticoids for acute allergic reactions are:",
+"o": [
+"Strongly indicated",
+"Not indicated",
+"Required for all vaccine reactions",
+"Superior to antihistamines"
+],
+"a": 1,
+"e": "Glucocorticoids are not indicated to treat acute allergic reactions.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "How did survival to hospital discharge for cats given canine blood xenotransfusion compare with type-matched feline allotransfusion?",
+"o": [
+"Higher for xenotransfusion",
+"Lower for xenotransfusion (55% vs 73%)",
+"Identical between groups",
+"Not assessed"
+],
+"a": 1,
+"e": "The xenotransfusion group had lower survival to discharge (55%) than the allotransfusion group (73%).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Acute transfusion reactions were more frequent in which group?",
+"o": [
+"The allotransfusion (feline blood) group",
+"The xenotransfusion group",
+"Equal in both",
+"Neither group had any"
+],
+"a": 0,
+"e": "Acute transfusion reactions were more frequent in the allotransfusion group (60%) than the xenotransfusion group (20%).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What was the most common reason cited for electing canine xenotransfusion?",
+"o": [
+"Better PCV response",
+"Fewer adverse effects",
+"Financial constraints",
+"Owner preference for dog blood"
+],
+"a": 2,
+"e": "Financial constraints were the most common reason to elect xenotransfusion (49%).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What was the overall conclusion about ventral bulla osteotomy for chronic otitis media-interna in previously hoarded cats?",
+"o": [
+"Benign with reliable cure",
+"Successful in most cases but not benign and not always beneficial",
+"Ineffective in nearly all cats",
+"Should never be attempted in shelter cats"
+],
+"a": 1,
+"e": "Surgery succeeded in most cases but was not benign and not always beneficial, with no useful outcome predictors identified.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Which organism was most commonly cultured from affected cats?",
+"o": [
+"Pseudomonas aeruginosa",
+"Staphylococcus pseudintermedius",
+"Streptococcus equi subspecies zooepidemicus",
+"Escherichia coli"
+],
+"a": 2,
+"e": "Cultures were positive for Streptococcus equi subspecies zooepidemicus in 54% of cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "How often did otitis interna fully resolve after surgery?",
+"o": [
+"Uncommonly",
+"In all cats",
+"In the majority of cats",
+"Never"
+],
+"a": 0,
+"e": "Full resolution of otitis interna was uncommon.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "How did metronidazole compare with a synbiotic for clinical course in dogs with acute diarrhea?",
+"o": [
+"Metronidazole resolved diarrhea faster",
+"No significant difference in clinical outcome (CADS index)",
+"Synbiotic worsened diarrhea",
+"Metronidazole cured C. perfringens"
+],
+"a": 1,
+"e": "No significant differences in CADS index, fecal consistency, or defecation frequency were seen between groups.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What was the effect of metronidazole on the intestinal microbiome?",
+"o": [
+"Beneficial, raising C. hiranonis",
+"Negative impact (lower C. hiranonis, higher E. coli)",
+"No measurable effect",
+"Eliminated E. coli"
+],
+"a": 1,
+"e": "Metronidazole lowered C. hiranonis and raised E. coli, negatively impacting the microbiome.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Which treatment did the authors suggest may be preferable for acute canine diarrhea?",
+"o": [
+"Synbiotic",
+"Metronidazole",
+"Combined metronidazole plus synbiotic",
+"Neither, fasting only"
+],
+"a": 0,
+"e": "Because metronidazole harmed the microbiome without clinical benefit, synbiotics might be the preferred option.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Which treatments produced significant objective improvement in OA pain versus placebo?",
+"o": [
+"4CYTE and placebo",
+"Meloxicam and EAB-277 (green-lipped mussel plus krill oil)",
+"All four treatments equally",
+"Only meloxicam"
+],
+"a": 1,
+"e": "Both meloxicam and EAB-277 significantly improved peak vertical force and orthopedic scores versus placebo.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "How did Biota orientalis extract (4CYTE) compare with placebo for peak vertical force?",
+"o": [
+"Superior to meloxicam",
+"Not different from placebo",
+"Best of all groups",
+"Worse than placebo"
+],
+"a": 1,
+"e": "The 4CYTE group did not differ from placebo on peak vertical force.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Which topical blood product did the authors recommend to minimize impact on antibiotic susceptibility in infectious keratitis?",
+"o": [
+"Canine plasma",
+"Equine blood products over canine",
+"Frozen canine serum",
+"Either, no difference"
+],
+"a": 1,
+"e": "Equine blood products had a lesser impact on antimicrobial susceptibility, so they were preferred over canine.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What timing was advised between the last antibiotic eyedrop and the blood product?",
+"o": [
+"Apply simultaneously",
+"Apply blood product first",
+"Wait at least 15 minutes after the antibiotic",
+"No timing matters"
+],
+"a": 2,
+"e": "Administering the blood product at least 15 minutes after the antibiotic minimizes albumin-antibiotic binding in tear film.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Serum versus plasma was preferred because serum had what property?",
+"o": [
+"Greater direct antimicrobial effect",
+"Lower albumin",
+"No protein binding",
+"Longer shelf life"
+],
+"a": 0,
+"e": "Serum showed greater direct antimicrobial effects than plasma.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Nutrition & Husbandry",
+"q": "How did puppies fed the prebiotic fiber-fortified food grow?",
+"o": [
+"Grew abnormally slowly",
+"Grew normally, as expected for their age",
+"Showed excessive weight gain",
+"Failed to thrive"
+],
+"a": 1,
+"e": "Puppies grew and developed normally on the prebiotic-fortified food.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Nutrition & Husbandry",
+"q": "What change in short-chain fatty acids accompanied the prebiotic fiber blend?",
+"o": [
+"A linear increase associated with favorable digestive health",
+"A sharp decrease",
+"No change",
+"Replacement by inflammatory cytokines"
+],
+"a": 0,
+"e": "Short-chain fatty acids increased linearly, associated with favorable digestive and overall health.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Nutrition & Husbandry",
+"q": "What happened to the inflammatory cytokine interleukin-7 during feeding?",
+"o": [
+"Increased linearly",
+"Decreased linearly",
+"Stayed constant",
+"Was not measured"
+],
+"a": 1,
+"e": "Interleukin-7 decreased linearly, indicating reduced inflammation.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What rapid diagnostic finding supports Malassezia dermatitis?",
+"o": [
+"Septate hyphae on culture",
+"Peanut-shaped budding yeasts on direct cytology",
+"Acid-fast rods",
+"Mite eggs on skin scraping"
+],
+"a": 1,
+"e": "Direct cytology showing peanut-shaped budding yeasts gives a rapid, reliable diagnosis.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "When is systemic oral antifungal therapy indicated for Malassezia dermatitis?",
+"o": [
+"In every case",
+"Only in severe or refractory disease",
+"Only in puppies",
+"Never"
+],
+"a": 1,
+"e": "Systemic antifungals are reserved for severe or refractory disease; topical azoles are first-line.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What is essential for an optimal response in Malassezia dermatitis?",
+"o": [
+"Lifelong systemic antifungals",
+"Identifying and treating the underlying cause",
+"Avoiding all topical products",
+"Dietary protein restriction"
+],
+"a": 1,
+"e": "Identifying and treating the underlying disease (often allergy) is essential for optimal outcomes.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Which joint had the highest osteoarthritis prevalence in dogs older than 8 years?",
+"o": [
+"Shoulder",
+"Elbow (57.4%)",
+"Hip",
+"Stifle"
+],
+"a": 1,
+"e": "The elbow had the highest OA prevalence at 57.4%.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What did the authors conclude about radiographic OA in senescent dogs?",
+"o": [
+"It is a normal finding to be expected",
+"It should not be considered normal",
+"It correlates strongly with age",
+"It is found in nearly all joints"
+],
+"a": 1,
+"e": "Since most joints were free of OA, radiographic OA should not be considered a normal finding in old dogs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What was the relationship between higher OA grade and age?",
+"o": [
+"Strong positive correlation",
+"No correlation",
+"Negative correlation",
+"Only in castrated dogs"
+],
+"a": 1,
+"e": "There was no correlation between higher grades of OA and age.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What trend in hospital-acquired acute kidney injury did the IRIS guidelines note?",
+"o": [
+"It is declining",
+"Its prevalence appears to be increasing",
+"It no longer occurs",
+"It is unrelated to hospitalization"
+],
+"a": 1,
+"e": "Recent evidence suggests the prevalence of hospital-acquired AKI is increasing in veterinary medicine.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Despite therapeutic advances, what remains true of AKI outcomes in dogs and cats?",
+"o": [
+"Mortality remains high",
+"Mortality is near zero",
+"It is uniformly self-limiting",
+"Renal replacement is never needed"
+],
+"a": 0,
+"e": "Overall mortality of animals with AKI remains high despite advances such as renal replacement therapy.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What was the outcome in all isoxazoline neurological cases with outcome information?",
+"o": [
+"All animals recovered",
+"Most were euthanized",
+"Permanent deficits resulted",
+"Outcomes were not recorded"
+],
+"a": 0,
+"e": "In all cases with outcome information, the animals recovered.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Which neurological signs were most commonly reported with isoxazoline exposure?",
+"o": [
+"Blindness and deafness",
+"Muscle tremors and convulsions",
+"Paralysis and coma",
+"Behavioral aggression"
+],
+"a": 1,
+"e": "Muscle tremors and convulsions were the most common signs in both groups.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Why might isoxazoline neurological adverse effects be under-attributed?",
+"o": [
+"They occur only at lethal doses",
+"The delay between administration and onset can be long",
+"They are obvious immediately",
+"They affect only horses"
+],
+"a": 1,
+"e": "A long delay between administration and sign onset can cause the association to be missed.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What happened to kennelled police dogs' faecal cortisol metabolite levels during the second round of interventions?",
+"o": [
+"Significantly increased",
+"Significantly reduced",
+"Remained unchanged",
+"Became undetectable"
+],
+"a": 1,
+"e": "FCM levels were significantly reduced during the second intervention round.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "The reduction in cortisol was seen:",
+"o": [
+"Only with the toy",
+"Only with the lawn access",
+"Regardless of intervention type",
+"Only in low-stereotyping dogs"
+],
+"a": 2,
+"e": "The drop occurred regardless of intervention type, suggesting a cumulative benefit.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "The authors' main practical conclusion was that:",
+"o": [
+"Even simple environmental enrichment can mitigate stress signs",
+"Enrichment is ineffective for kennelled dogs",
+"Only medication reduces stress",
+"Stereotypies cannot be reduced"
+],
+"a": 0,
+"e": "Simple enrichment effectively reduced behavioural and physiological stress markers.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Analysis of studies using human-based music with animals showed:",
+"o": [
+"Consistent calming across species",
+"Variable results even within the same species",
+"No effect at all",
+"Only negative effects"
+],
+"a": 1,
+"e": "Mixed results, even within a single species, were reported.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "The proposed concept of 'animal-based music' is grounded in:",
+"o": [
+"Human musical preferences",
+"Random sound generation",
+"The species' natural communication system",
+"Loudness alone"
+],
+"a": 2,
+"e": "Animal-based music combines knowledge of a species' communication with musical structures.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Compared with 2019 buyers, Pandemic Puppy owners were more likely to:",
+"o": [
+"Seek health-tested breeders",
+"View the puppy in person",
+"Be first-time owners and pay a deposit without seeing the puppy",
+"Collect older puppies"
+],
+"a": 2,
+"e": "They were more often first-time owners and paid deposits without an in-person viewing.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Welfare concerns raised for Pandemic Puppies included:",
+"o": [
+"Reduced relinquishment",
+"Relinquishment, behavioural problems and poor health",
+"Improved health screening",
+"Lower purchase costs"
+],
+"a": 1,
+"e": "The authors flagged relinquishment, behavioural problems and poor health risks.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What proportion of Pandemic Puppy owners felt their decision was influenced by the pandemic?",
+"o": [
+"About 2 in 5",
+"About 9 in 10",
+"About 1 in 100",
+"None"
+],
+"a": 0,
+"e": "Two in five reported the pandemic influenced their purchase decision.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "A key barrier reported by assistance dog handlers and trainers was:",
+"o": [
+"The public's lack of knowledge of the dog's role and access rights",
+"Excessive financial support",
+"Too much privacy",
+"Over-trained dogs"
+],
+"a": 0,
+"e": "Difficulties stemmed largely from public unfamiliarity with the dog's role and legal access.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "The authors' main recommendation was to:",
+"o": [
+"Ban assistance dogs from public spaces",
+"Increase public education and business support on handlers' legal rights",
+"Remove legal access rights",
+"Make no changes"
+],
+"a": 1,
+"e": "They called for public education and business support to remove structural barriers.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Behavioural measures such as vocalising and lunging during the test battery:",
+"o": [
+"Negatively correlated with CFQ scores",
+"Positively correlated with CFQ scores",
+"Were unrelated to CFQ scores",
+"Could not be measured"
+],
+"a": 1,
+"e": "Predicted frustration behaviours positively correlated with CFQ scores.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "In dogs with normal baseline arousal, cortisol change correlated with which CFQ score?",
+"o": [
+"Frustration coping (PC5)",
+"No score",
+"Negatively with all scores",
+"Baseline only"
+],
+"a": 0,
+"e": "Post-test cortisol change correlated positively with the PC5 'Frustration coping' facet.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "The overall conclusion regarding the Canine Frustration Questionnaire was that it:",
+"o": [
+"Is invalid",
+"Measures fear only",
+"Shows further evidence of validity for assessing frustration tendencies",
+"Cannot be completed by owners"
+],
+"a": 2,
+"e": "Findings supported the CFQ's validity for measuring frustration tendencies.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Animal Handling",
+"q": "Before the education program, staff/volunteer self-assessments of behavior knowledge:",
+"o": [
+"Correlated well with knowledge scores",
+"Did not correlate with knowledge scores",
+"Were perfect predictors",
+"Were not collected"
+],
+"a": 1,
+"e": "Self-assessment did not match actual measured knowledge scores.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Animal Handling",
+"q": "Participants who completed the program were:",
+"o": [
+"Less likely to be high performers",
+"Unchanged in performance",
+"More likely to be high performers post-program (OR 1.594)",
+"Worse off than non-participants"
+],
+"a": 2,
+"e": "Program participation raised the odds of being a high performer (OR 1.594).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Animal Handling",
+"q": "The authors concluded that formalized behavior education:",
+"o": [
+"Wastes shelter resources",
+"May facilitate the shelter mission and improve safety",
+"Reduces safety",
+"Only benefits cat staff"
+],
+"a": 1,
+"e": "Education and knowledge measurement may support the shelter mission and safety.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Disaster",
+"q": "Contamination of FEMA search canines occurred most consistently on the:",
+"o": [
+"Back and head",
+"Paws and lower legs (ventral)",
+"Face only",
+"Hips"
+],
+"a": 1,
+"e": "Ventral exposure (paws and lower legs) occurred in 89% of observations.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Disaster",
+"q": "Despite knowing exposure locations, handler decontamination time between ventral and dorsal regions:",
+"o": [
+"Was far greater ventrally",
+"Did not differ significantly",
+"Was zero",
+"Was greater dorsally"
+],
+"a": 1,
+"e": "Decontamination time did not differ between regions (P = 0.881).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Disaster",
+"q": "The authors concluded there is a need for:",
+"o": [
+"Fewer working dogs",
+"Banning search dogs",
+"Additional research and handler/veterinary training on decontamination",
+"No further action"
+],
+"a": 2,
+"e": "Results pointed to a need for better decontamination techniques and handler education.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Among owners who consulted a board-certified behaviorist (DACVB), the proportion finding the advice helpful was:",
+"o": [
+"81%",
+"15%",
+"0%",
+"50%"
+],
+"a": 0,
+"e": "Most (81%) who saw a DACVB found the advice helpful for aggression.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Which equipment was associated with a decreased probability of successful aggression treatment?",
+"o": [
+"Flat collars",
+"Anti-bark collars and muzzles",
+"Harnesses",
+"Clickers"
+],
+"a": 1,
+"e": "Anti-bark collars and muzzles lowered the probability of treatment success.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Regarding medication, the study:",
+"o": [
+"Identified a single best drug",
+"Showed pheromones cured aggression",
+"Found no significant association between specific medications and treatment response",
+"Showed all medication was harmful"
+],
+"a": 2,
+"e": "No significant associations were found between specific drugs and response.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "This review examines factors contributing to separation anxiety in dogs, including:",
+"o": [
+"Only dietary factors",
+"Epidemiological, pathological, genetic and epigenetic factors",
+"Only surgical factors",
+"Vaccine reactions"
+],
+"a": 1,
+"e": "The review spans epidemiological, pathological, genetic and epigenetic contributors.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "The canine condition reviewed is:",
+"o": [
+"Noise phobia",
+"Inter-dog aggression",
+"Separation anxiety",
+"Cognitive dysfunction"
+],
+"a": 2,
+"e": "The review focuses on the development of separation anxiety in dogs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "This companion review focuses primarily on:",
+"o": [
+"Surgical management of anxiety",
+"Pharmacological treatment options for separation anxiety",
+"Nutritional therapy",
+"Vaccination strategy"
+],
+"a": 1,
+"e": "The article addresses pharmacological treatment of separation anxiety.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Beyond current treatments, the article also addresses:",
+"o": [
+"Future research opportunities",
+"Euthanasia protocols",
+"Breeding bans",
+"Nothing further"
+],
+"a": 0,
+"e": "It outlines future research opportunities for separation anxiety.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Learning Theory",
+"q": "Responses to a single element (visual or auditory alone) compared with the full compound stimulus were:",
+"o": [
+"Higher",
+"The same",
+"Significantly lower",
+"Undetectable"
+],
+"a": 2,
+"e": "Single-element accuracy was significantly below the 85% achieved with the compound cue.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Learning Theory",
+"q": "Across the dogs, the favoured element of the compound stimulus was:",
+"o": [
+"Always auditory",
+"Always visual",
+"Not consistent (75% auditory, 25% visual)",
+"Absent in all dogs"
+],
+"a": 2,
+"e": "Preference varied by dog: 75% favoured the auditory and 25% the visual element.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Learning Theory",
+"q": "A key training implication of the findings is that:",
+"o": [
+"Compound cues should always be used",
+"Training with a compound stimulus is inappropriate if only single elements will later be used",
+"Cues are irrelevant",
+"Only voice cues work"
+],
+"a": 1,
+"e": "Compound-stimulus training is unsuitable when individual elements are used later alone.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "In the object-manipulation task, strangers:",
+"o": [
+"Provided a strong secure base",
+"Did not provide a secure base effect",
+"Were preferred over owners",
+"Were not tested"
+],
+"a": 1,
+"e": "Strangers failed to provide a secure base, confirming the owner's unique role.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Compared with other family dogs, former shelter dogs showed:",
+"o": [
+"No owner-stranger differentiation",
+"Weaker owner-stranger differentiation",
+"Stronger owner-stranger differentiation",
+"A preference for strangers"
+],
+"a": 2,
+"e": "Former shelter dogs showed stronger owner-stranger differentiation.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "The authors concluded that having been re-homed:",
+"o": [
+"Prevents secure bonds with new owners",
+"Does not necessarily prevent a secure bond but may affect interaction with novel stimuli",
+"Eliminates all anxiety",
+"Makes dogs prefer strangers"
+],
+"a": 1,
+"e": "Re-homing did not preclude secure bonding but affected responses to novel stimuli/humans.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Learning Theory",
+"q": "On average, how many words did owners report their dogs respond to?",
+"o": [
+"About 30",
+"About 50",
+"About 89",
+"About 150"
+],
+"a": 2,
+"e": "Owners reported dogs responded to ~89 words on average (78 listed plus 11 added).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Learning Theory",
+"q": "How many distinct word categories did the Principal Component Analysis reveal?",
+"o": [
+"Two",
+"Three",
+"Four",
+"Five"
+],
+"a": 1,
+"e": "Three types emerged: General Words, Verbs (Commands), and Nouns.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Learning Theory",
+"q": "Which factors uniquely predicted the number of words reported?",
+"o": [
+"Owner age and education",
+"Owner gender",
+"Dog work status, learning speed, and breed type",
+"Owner income"
+],
+"a": 2,
+"e": "No owner characteristics predicted word count; dog professional work status, learning speed, and breed type did.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Body Language",
+"q": "Most vocalizations in the unsolvable food task were directed at whom?",
+"o": [
+"The inaccessible food",
+"The owner",
+"Another dog",
+"The experimenter"
+],
+"a": 1,
+"e": "67.7% of vocalizations were directed at the owner rather than the food.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Body Language",
+"q": "What proportion of the dogs vocalized at all?",
+"o": [
+"About 22%",
+"About 45%",
+"About 68%",
+"About 90%"
+],
+"a": 0,
+"e": "Only 21.6% (11 of 51 dogs) vocalized during the task.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Body Language",
+"q": "Which vocalization type predominated?",
+"o": [
+"Howls",
+"Whines",
+"Barks",
+"Growls"
+],
+"a": 2,
+"e": "Barks and bark-related sounds made up 67.72% of vocalizations versus 32.27% whines.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Learning Theory",
+"q": "On their very first choice, dogs' preference for the larger food quantity was at what level?",
+"o": [
+"Well above chance",
+"At chance level",
+"Below chance",
+"Perfect"
+],
+"a": 1,
+"e": "First-choice performance was at chance (P=0.06); above-chance preference emerged only with experience.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Learning Theory",
+"q": "What did the results suggest drives dogs' quantity choices?",
+"o": [
+"An innate, fixed number sense",
+"Sensitivity to recent experience and outcomes",
+"Breed alone",
+"Coat colour"
+],
+"a": 1,
+"e": "Dogs adjusted behaviour based on outcomes, even after a single trial, confirming experience-sensitivity.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Learning Theory",
+"q": "Which factors significantly affected overall performance?",
+"o": [
+"Owner sex and time of day",
+"Comparison difficulty and neuter status",
+"Coat colour and age",
+"Plate colour"
+],
+"a": 1,
+"e": "Numerical comparison difficulty and neuter status significantly affected overall (but not first-choice) performance.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Which personality trait was associated with LOWER owner-perceived dominance?",
+"o": [
+"Extroversion",
+"Conscientiousness",
+"Agreeableness",
+"Openness"
+],
+"a": 2,
+"e": "More agreeable dogs scored lower on dominance; extroversion, conscientiousness, and openness scored higher.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "How did age relate to dominance?",
+"o": [
+"Younger dogs were more dominant",
+"Older dogs tended to be more dominant",
+"No relationship",
+"U-shaped relationship"
+],
+"a": 1,
+"e": "Older dogs tended to be more dominant, consistent with prior studies.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "How many of the Big Five personality traits showed a significant association with dominance?",
+"o": [
+"Two",
+"Three",
+"Four",
+"Five"
+],
+"a": 2,
+"e": "Four of the five traits (extroversion, conscientiousness, openness, agreeableness) were significantly associated.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Learning Theory",
+"q": "After up to a 12-month gap in exposure, recall of previously trained odors was:",
+"o": [
+"About 50% accurate",
+"About 75% accurate",
+"100% accurate",
+"Severely degraded"
+],
+"a": 2,
+"e": "Dogs recalled odors unexposed for 12 months with 100% accuracy and no rise in false alarms.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Learning Theory",
+"q": "Up to how many cumulative odor discriminations were dogs trained on?",
+"o": [
+"10",
+"20",
+"40",
+"100"
+],
+"a": 2,
+"e": "Odors were trained in sets of 10 up to a cumulative total of 40 over 16 months.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Learning Theory",
+"q": "What effect did learning new odors have on recall of previously trained odors?",
+"o": [
+"Severe interference",
+"Little to no decrease",
+"Complete loss",
+"Sharp rise in false alarms"
+],
+"a": 1,
+"e": "Dogs showed little to no decrease in recall of prior odors when learning new ones.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Which behavioral problems were ameliorated after PS128 probiotic treatment?",
+"o": [
+"Obesity and lameness",
+"Aggression and separation anxiety",
+"Deafness",
+"House-soiling only"
+],
+"a": 1,
+"e": "General stability improved, with aggression and separation anxiety ameliorated after treatment.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What biochemical change was seen in dogs with separation anxiety?",
+"o": [
+"Increased cortisol",
+"Decreased 5-HIAA/5-HT serotonin turnover ratio",
+"Increased dopamine",
+"Decreased glucose"
+],
+"a": 1,
+"e": "A significant decrease in the 5-HIAA/5-HT ratio suggested a serotonin-related mechanism.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Through what proposed axis does the probiotic act?",
+"o": [
+"Hypothalamic-pituitary-adrenal only",
+"Gut-brain axis via serotonin modulation",
+"Renin-angiotensin",
+"Adrenergic pathway"
+],
+"a": 1,
+"e": "Effects were attributed to neuromodulation through the gut-brain axis, with serotonin involvement.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Facility/Environment",
+"q": "What did the survey suggest about scientific welfare research reaching industry?",
+"o": [
+"It is rapidly adopted",
+"It may not be successfully translating into practice",
+"It is irrelevant to kennels",
+"It is fully implemented"
+],
+"a": 1,
+"e": "Findings suggested published research may not be translating into evidence-based industry changes.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Facility/Environment",
+"q": "Differences in welfare beliefs were associated with which respondent factors?",
+"o": [
+"Breed preference only",
+"Geographic region only",
+"Kennel experience, role, age, and gender",
+"Coat colour preference"
+],
+"a": 2,
+"e": "Beliefs differed by kennel facility experience, employment role, age, and gender.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Facility/Environment",
+"q": "What dimension did authors argue future welfare assessment models should include?",
+"o": [
+"The human-animal interaction dimension",
+"Automated feeding only",
+"Genetic testing",
+"Larger kennel size only"
+],
+"a": 0,
+"e": "They concluded models should include the critical dimension of human-animal interaction.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Animal Handling",
+"q": "How well did cooperative care training transfer to the actual veterinary examination?",
+"o": [
+"Excellent",
+"Poor",
+"Moderate",
+"Perfect"
+],
+"a": 1,
+"e": "Transfer of trained skills to the blinded vet examination was overall poor.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Animal Handling",
+"q": "How did compliance in the training group compare at the second visit?",
+"o": [
+"Higher than controls",
+"Unchanged",
+"Lower (p=0.04)",
+"Perfect"
+],
+"a": 2,
+"e": "Compliance was significantly lower in the training group during the second visit (p=0.04).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Animal Handling",
+"q": "HR/HRV data indicated the examination, versus the waiting room, was:",
+"o": [
+"Relaxing",
+"More stressful",
+"Identical",
+"Sleep-inducing"
+],
+"a": 1,
+"e": "Higher HR and lower HRV during the exam indicated it was more stressful than the waiting room.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "During the COVID-19 quarantine, shelter dog activity patterns:",
+"o": [
+"Dropped to zero",
+"Remained at a constant average across the day",
+"Sharply increased in afternoons",
+"Were unchanged from before"
+],
+"a": 1,
+"e": "Pre-COVID showed less afternoon activity; during COVID activity stayed at a constant average.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "The automated video analysis reached what accuracy versus manual coding?",
+"o": [
+"About 50%",
+"Above 79%",
+"About 95%",
+"100%"
+],
+"a": 1,
+"e": "Automated active/non-active classification reached above 79% accuracy versus manual coding.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "What did authors conclude about the automated analysis method?",
+"o": [
+"A useful hands-off monitoring tool",
+"Wholly unreliable",
+"A perfect replacement for manual coding",
+"Only works outdoors"
+],
+"a": 0,
+"e": "They concluded automated analysis can serve as a hands-off tool to monitor shelter dog activity.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Across all three age timepoints, dogs were most commonly walked:",
+"o": [
+"Once a day",
+"Twice a day",
+"Three times a day",
+"Once a week"
+],
+"a": 1,
+"e": "At 16 weeks, 9 months, and 15 months, dogs were most commonly walked twice daily.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "As dogs aged from 16 weeks to 15 months, total walk duration:",
+"o": [
+"Decreased",
+"Stayed the same",
+"Increased significantly",
+"Became erratic"
+],
+"a": 2,
+"e": "Total weekday and weekend walk duration increased significantly as dogs aged.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "As dogs aged, the proportion of walk time spent on lead:",
+"o": [
+"Increased",
+"Decreased significantly",
+"Stayed at 100%",
+"Was unchanged"
+],
+"a": 1,
+"e": "On-lead time fell from ≥75% in puppies to <25% in older dogs, a significant decrease.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "QOL & Needs Assessment",
+"q": "In which respects did the authors argue companion dogs have good welfare versus village dogs?",
+"o": [
+"Security, nutrition, and veterinary care",
+"Freedom from social demands",
+"Absence of breeding disease",
+"Free-roaming opportunity"
+],
+"a": 0,
+"e": "Companion dogs were said to fare well on security, nutritional needs, and veterinary care.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "QOL & Needs Assessment",
+"q": "What nutrition-related welfare problem was specifically noted in companion dogs?",
+"o": [
+"Malnutrition",
+"High prevalence of obesity",
+"Vitamin deficiency",
+"Chronic dehydration"
+],
+"a": 1,
+"e": "Despite met nutritional needs, companion dogs have a high prevalence of obesity.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "QOL & Needs Assessment",
+"q": "What comparison group did the authors use to assess the 'petification' of dogs?",
+"o": [
+"Wolves",
+"Laboratory beagles",
+"Modern village dogs",
+"Zoo canids"
+],
+"a": 2,
+"e": "They compared companion dog welfare to that of modern village dogs, resembling historic dog life.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "What was the effect of owner presence versus absence on dogs' stress-related behaviour during the examination phase?",
+"o": [
+"It significantly reduced stress",
+"No significant effect",
+"It significantly increased stress",
+"It eliminated stress"
+],
+"a": 1,
+"e": "Owner presence had no significant effect on stress behaviour or handleability during examination (P>0.05).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "In the presence of their owner, dogs were:",
+"o": [
+"More aggressive",
+"More willing to enter and more relaxed during exploration",
+"Less willing to enter",
+"Completely unaffected"
+],
+"a": 1,
+"e": "With owners present, dogs were more willing to enter the room and more relaxed during exploration.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "What did the authors recommend for canine welfare during consultations?",
+"o": [
+"Allow the owner to stay in the room",
+"Exclude owners from the room",
+"Sedate all dogs",
+"Examine dogs in the waiting room"
+],
+"a": 0,
+"e": "Results suggest allowing the owner to stay in the room is the better option for canine welfare.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "During the examination, owners' negative behaviours had what effect on their dogs' anxiety signs?",
+"o": [
+"Reduced them",
+"Left them unchanged",
+"Intensified them",
+"Eliminated them"
+],
+"a": 2,
+"e": "When owners attended, their negative behaviours intensified signs of anxiety in their dogs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "Owners' visual and verbal attempts to comfort their dogs produced:",
+"o": [
+"A significant reduction in stress",
+"No significant effect",
+"Increased aggression",
+"Better tolerance of manipulation"
+],
+"a": 1,
+"e": "Attempts to comfort had no significant effect on the dogs' stress.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "Increased canine stress-related behaviour was associated with:",
+"o": [
+"Less eye contact with the owner",
+"More eye contact with the owner",
+"Reduced heart rate",
+"Increased exploration"
+],
+"a": 1,
+"e": "More stress meant more eye contact, consistent with social referencing/reassurance-seeking.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Improvement in global stress scores was observed in:",
+"o": [
+"Only the Zenidog collar group",
+"Only adult dogs",
+"All groups, including puppies",
+"No groups"
+],
+"a": 2,
+"e": "All global scores improved (p<0.001) across all groups, including puppies.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Compared with one-month reference pheromone products, the longer-lasting Zenidog devices were:",
+"o": [
+"Less effective",
+"More effective",
+"Equally effective",
+"Effective only in adults"
+],
+"a": 2,
+"e": "Zenidog devices were as effective as the reference products but lasted longer.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "The main practical advantage of the Zenidog devices was:",
+"o": [
+"Lower cost",
+"Longer duration of action",
+"Faster onset",
+"No owner involvement needed"
+],
+"a": 1,
+"e": "They matched reference efficacy while lasting two to three months instead of one.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Learning Theory",
+"q": "Could video stimuli alone localize all face/object processing regions of interest?",
+"o": [
+"No, only live stimuli worked",
+"Yes, videos localized all the ROIs",
+"Only in humans",
+"Only in dogs"
+],
+"a": 1,
+"e": "Using video conditions alone, all ROIs were localized in both dogs and humans.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Learning Theory",
+"q": "Which dog region responded significantly more to live faces than to video faces?",
+"o": [
+"Entolateral gyrus",
+"Putative dog face area",
+"The area along the ectosylvian fissure",
+"Caudate nucleus"
+],
+"a": 2,
+"e": "Only the ectosylvian fissure area showed greater activation to live than video faces.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Learning Theory",
+"q": "Overall, live stimuli were suggested to be:",
+"o": [
+"Less salient than video",
+"More salient than video",
+"Identical to video everywhere",
+"Aversive to dogs"
+],
+"a": 1,
+"e": "Videos sufficed for localization, but live conditions may be more salient.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "Over the course of the mock veterinary visit, salivary cortisol, IgA, and infrared temperature:",
+"o": [
+"Decreased",
+"Increased significantly",
+"Stayed the same",
+"Changed only with music"
+],
+"a": 1,
+"e": "All three rose significantly from baseline through post-kennel and post-examination.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "The effect of music treatment on salivary cortisol was:",
+"o": [
+"A significant decrease",
+"A significant increase",
+"No significant effect",
+"Dependent on breed"
+],
+"a": 2,
+"e": "Cortisol, IgA, and temperature increased regardless of music treatment.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "Dogs were scored as most 'afraid' during which phase?",
+"o": [
+"Time in the hospital kennel",
+"The physical examination",
+"Transport",
+"Greeting"
+],
+"a": 1,
+"e": "Dogs were more afraid during the physical examination than in the kennel.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Environmental enrichment activities resulted in:",
+"o": [
+"More stress behaviours",
+"Increased relaxation and reduced stress behaviours",
+"No behavioural change",
+"More alert behaviours"
+],
+"a": 1,
+"e": "EE significantly increased relaxation and reduced alert and stress behaviours.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Which activities produced the greatest overall positive behaviour change?",
+"o": [
+"Interactive toy and stuffed food toy",
+"Conspecific play and playhouse",
+"Bubble machine and tug",
+"Bonding and bubble machine"
+],
+"a": 1,
+"e": "Conspecific play and playhouse activities had the greatest positive change.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "The food-based enrichment activities showed:",
+"o": [
+"The greatest behaviour change",
+"The least behaviour change",
+"Increased aggression",
+"No effect on alertness"
+],
+"a": 1,
+"e": "Interactive toy and stuffed food toy produced the least behaviour change.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Overall SRB prevalence in the population between February and October 2020:",
+"o": [
+"Increased",
+"Decreased",
+"Stayed constant",
+"Doubled"
+],
+"a": 1,
+"e": "Prevalence fell from 22.1% to 17.2% as time left alone also decreased.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Which dogs were at greatest risk of developing new signs of SRB?",
+"o": [
+"Those left alone more during lockdown",
+"Those whose alone-time decreased most during lockdown",
+"Only older dogs",
+"Dogs never previously left alone"
+],
+"a": 1,
+"e": "Dogs whose leaving hours dropped most were at increased risk of new SRB.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "The findings link SRB risk primarily to:",
+"o": [
+"Breed",
+"Diet",
+"Changes in owner routine/time left alone",
+"Vaccination status"
+],
+"a": 2,
+"e": "The study showed a link between changes in owner routine and SRB risk.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "The replication study concluded the Dog ARS is:",
+"o": [
+"Unreliable",
+"A reliable tool for ADHD-like behaviour",
+"Invalid",
+"Ready for clinical diagnosis"
+],
+"a": 1,
+"e": "Factor structure replicated with good internal consistency and test-retest reliability.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "In its current form, the Dog ARS is:",
+"o": [
+"Suitable to diagnose individual dogs",
+"Not suitable to detect diagnosable individuals",
+"Valid only for trainers",
+"Impossible to replicate"
+],
+"a": 1,
+"e": "It cannot identify diagnosable individuals as currently constructed.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "A key limitation preventing diagnostic use was the absence of items assessing:",
+"o": [
+"Breed",
+"Age",
+"Functional impairment",
+"Coat colour"
+],
+"a": 2,
+"e": "The questionnaire lacks items on functional impairment needed for diagnosis.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Learning Theory",
+"q": "Did the study find clear evidence for jealousy-like behaviours in dogs?",
+"o": [
+"Yes, strong evidence",
+"No clear evidence",
+"Only in male dogs",
+"Only toward strangers"
+],
+"a": 1,
+"e": "No clear evidence of jealousy-like behaviour was found in the triadic interactions.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Learning Theory",
+"q": "The dogs' behaviour was best explained by:",
+"o": [
+"Jealousy",
+"Behavioural synchronization with caregivers",
+"Fear of the fake dog",
+"Food motivation"
+],
+"a": 1,
+"e": "Indicators pointed to behavioural synchronization with the caregiver.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Learning Theory",
+"q": "Dogs showed more friendly behaviour toward the fake dog when it was approached by:",
+"o": [
+"A stranger",
+"The caregiver",
+"No one",
+"Another dog"
+],
+"a": 1,
+"e": "More dogs were friendly toward the fake dog when the caregiver interacted with it.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "The top reason owners gave for not seeking veterinary care was:",
+"o": [
+"Cost",
+"Lack of access to a veterinarian",
+"Travel distance",
+"Fear of COVID infection"
+],
+"a": 1,
+"e": "Lack of access to a vet (30%) was the leading reason for not seeking care.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "A dog's chronic illness diagnosis had what effect on the odds of seeking care during the pandemic?",
+"o": [
+"Increased them",
+"Reduced them",
+"No effect",
+"Eliminated the need"
+],
+"a": 1,
+"e": "Chronic diagnosis reduced care-seeking due to difficulty accessing non-urgent care.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "The authors concluded that separating owners from their dogs during consultations should be:",
+"o": [
+"Encouraged",
+"Made mandatory",
+"Avoided wherever possible",
+"Reserved for chronic cases"
+],
+"a": 2,
+"e": "Owner-dog separation should be avoided due to impacts on dogs, owners, and care-seeking.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Dogs with high aggressive reactivity showed impairments in:",
+"o": [
+"Cognitive inhibition",
+"Self-control",
+"Olfaction",
+"Vision"
+],
+"a": 1,
+"e": "High aggressive reactivity was associated with poorer self-control, not cognitive inhibition.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Was cognitive inhibition associated with aggression?",
+"o": [
+"Yes, strongly",
+"No association was found",
+"Only in privately owned dogs",
+"Inversely in all dogs"
+],
+"a": 1,
+"e": "No association between cognitive inhibition and aggression was found.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Compared with privately owned dogs, police dogs showed:",
+"o": [
+"Lower aggression and better self-control",
+"Higher aggression and poorer self-control",
+"No differences",
+"Better cognitive inhibition"
+],
+"a": 1,
+"e": "Police dogs had higher aggression levels and poorer self-control.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "For what proportion of characteristics deemed important for adoptability was scientific support lacking?",
+"o": [
+"Less than 50%",
+"About 60%",
+"More than 85%",
+"100%"
+],
+"a": 2,
+"e": "Evidence was lacking for over 85% of the characteristics organisations valued.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "How many of the screening factors were actually supported by scientific evidence?",
+"o": [
+"41",
+"10",
+"71",
+"0"
+],
+"a": 1,
+"e": "Only 10 factors were supported by the literature.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "Given the weak evidence base, the authors suggested organisations focus on:",
+"o": [
+"Stricter pass/fail testing",
+"Pre-adoption adopter education and post-adoption support",
+"Euthanising fearful dogs",
+"More aggression tests"
+],
+"a": 1,
+"e": "They recommended emphasizing adopter education and post-adoption support.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "In this pilot, environmental enrichment and petting were found to be:",
+"o": [
+"Both ineffective",
+"Both efficient and feasible for improving welfare",
+"Effective only for enrichment",
+"Effective only for petting"
+],
+"a": 1,
+"e": "Both methods proved efficient and feasible in the clinic setting.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Compared with petting, environmental enrichment led dogs to:",
+"o": [
+"Show more positive social interactions",
+"Increase activity (walk and dig more)",
+"Sleep more",
+"Become aggressive"
+],
+"a": 1,
+"e": "EE increased activity, with dogs walking and digging more.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Dogs exhibited more positive social interactions after which intervention?",
+"o": [
+"Environmental enrichment",
+"Petting",
+"Isolation",
+"Feeding"
+],
+"a": 1,
+"e": "Petting (direct human contact) produced more positive social interactions.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "In an Italian shelter, what was the main effect of a 4-month behavioral training program on adoption outcomes?",
+"o": [
+"No change in adoption rates",
+"Higher adoption numbers of adult and senior dogs",
+"Increased adoptions only among puppies",
+"Shorter stays for aggressive dogs only"
+],
+"a": 1,
+"e": "Trained adult and senior dogs were adopted in greater numbers than untrained age-matched controls.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What did the authors conclude about training and the human-animal bond?",
+"o": [
+"Training improves dogs' natural attitudes and supports a better bond",
+"Training had no measurable behavioral benefit",
+"Bonding depends only on dog age",
+"Kennel housing alone improves adoptability"
+],
+"a": 0,
+"e": "They concluded training improves companion dogs' natural attitudes, strengthening the human-animal bond.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Over 20 years, which presenting complaint was most common at the behavior service?",
+"o": [
+"Anxiety/fear/phobia",
+"Miscellaneous problems",
+"Aggression",
+"Compulsive disorder"
+],
+"a": 2,
+"e": "Aggression accounted for 72.2% of cases, far exceeding other categories.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "How did the sources of dogs presenting for behavior problems change over 20 years?",
+"o": [
+"More came from breeders",
+"More came from shelters, rescues, or strays",
+"No change occurred",
+"Fewer were adopted"
+],
+"a": 1,
+"e": "Breeder-sourced dogs decreased while shelter/rescue/stray-sourced dogs increased (p<0.0001).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Which breed groups were overrepresented among behavior cases?",
+"o": [
+"Herding and Terrier groups",
+"Toy and Working groups",
+"Sporting and Hound groups",
+"Non-sporting only"
+],
+"a": 0,
+"e": "Herding (p=0.0124) and Terrier (p<0.0001) groups were overrepresented versus all other services.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "During negative situations, owner-rated heightened arousal correlated with which physiological pattern?",
+"o": [
+"Higher HRV",
+"Lower HRV with more fear behaviors",
+"No autonomic change",
+"Reduced physical activity"
+],
+"a": 1,
+"e": "Heightened arousal was linked to lower HRV, higher activity, and more fear/arousal behaviors.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "Which MDORS factor was associated with increased HRV, suggesting a secure-base effect?",
+"o": [
+"Perceived Costs",
+"Shared Activities",
+"Emotional Closeness",
+"None of these"
+],
+"a": 2,
+"e": "Emotional Closeness correlated with increased HRV (p=0.009), consistent with a secure-base effect.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "What overall conclusion did the authors reach?",
+"o": [
+"Emotional reactivity and the dog-owner relationship mutually modulate each other",
+"Relationship quality has no effect on reactivity",
+"Only breed predicts reactivity",
+"HRV is unrelated to emotion"
+],
+"a": 0,
+"e": "They concluded emotional reactivity and the dog-owner relationship modulate one another.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What is the main welfare consequence of inadequate puppy socialisation per the review?",
+"o": [
+"Reduced lifespan",
+"Higher risk of problematic adult behaviours",
+"Improved trainability",
+"No effect"
+],
+"a": 1,
+"e": "Poorly socialised puppies have a higher risk of problem behaviours in adulthood.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Why are modern controlled studies using unsocialised controls lacking?",
+"o": [
+"Funding shortages",
+"They would now be considered unethical",
+"Lack of researcher interest",
+"Regulatory bans on dogs"
+],
+"a": 1,
+"e": "Early work showed socialisation's importance so clearly that unsocialised-control studies are deemed unethical.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What research priority did the review recommend?",
+"o": [
+"Minimum necessary socialisation levels and breed timing differences",
+"Banning early socialisation",
+"Standardising kennel size",
+"Cloning well-adjusted dogs"
+],
+"a": 0,
+"e": "Authors call for research on minimum necessary socialisation and breed-specific timing.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What behavior did 1- and 2-month-old puppies show toward humans?",
+"o": [
+"No synchrony",
+"Locomotor (activity) synchrony",
+"Synchrony only with familiar humans",
+"Active avoidance"
+],
+"a": 1,
+"e": "Puppies exhibited locomotor synchrony with human walking.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "How did familiarity with the human affect the puppies' synchrony?",
+"o": [
+"It increased synchrony",
+"It abolished synchrony",
+"It did not affect the degree of synchrony",
+"Only unfamiliar humans elicited it"
+],
+"a": 2,
+"e": "Familiarity did not influence the degree of synchrony in the puppies.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What does this finding suggest about the origin of dog-human synchronization?",
+"o": [
+"It is purely learned in adulthood",
+"It appears genetically selected through domestication",
+"It requires extensive training",
+"It is unique to familiar dyads"
+],
+"a": 1,
+"e": "Early, familiarity-independent synchrony suggests selection via domestication, with familiarity effects developing later.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Nutrition & Husbandry",
+"q": "The review frames early-life risk factors using which concept?",
+"o": [
+"Developmental origins of health and disease (DOHaD)",
+"Germ theory",
+"Hygiene hypothesis",
+"One Health"
+],
+"a": 0,
+"e": "It applies the DOHaD/developmental-programming framework to dogs and cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Nutrition & Husbandry",
+"q": "Which adult disorders are highlighted as having early-life risk factors?",
+"o": [
+"Only dental disease",
+"Obesity, chronic enteropathy, and behavioral problems",
+"Only infectious disease",
+"Fractures and trauma"
+],
+"a": 1,
+"e": "The review covers obesity, chronic enteropathy, and chronic behavioral problems.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Nutrition & Husbandry",
+"q": "What major barrier to DOHaD research in dogs and cats is identified?",
+"o": [
+"No relevant breeds exist",
+"Breed variability and discontinuity of husbandry between breeders and owners",
+"Lack of any chronic disease",
+"Animals live too briefly to study"
+],
+"a": 1,
+"e": "Wide breed variability and fragmented husbandry/ownership hinder lifelong cohort studies.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "QOL & Needs Assessment",
+"q": "Anticipatory behavior is proposed as an animal-based measure related to what?",
+"o": [
+"Disease resistance",
+"Reward sensitivity",
+"Genetic diversity",
+"Reproductive status"
+],
+"a": 1,
+"e": "Anticipatory behavior is theorized to reflect animals' reward sensitivity.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "QOL & Needs Assessment",
+"q": "What risk do the authors warn about when interpreting space- and time-use data?",
+"o": [
+"Overfeeding",
+"Unidentified anticipation leading to misleading welfare conclusions",
+"Equipment failure",
+"Observer fatigue"
+],
+"a": 1,
+"e": "Failing to identify anticipation can produce misleading conclusions about behavior or welfare.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "QOL & Needs Assessment",
+"q": "Why is the managed/captive environment conducive to anticipatory behavior?",
+"o": [
+"Its predictability",
+"Its randomness",
+"Chronic food deprivation",
+"High population density"
+],
+"a": 0,
+"e": "The predictability of managed environments fosters development of anticipatory behaviors.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What compulsive behavior did the German Shepherd mix present with?",
+"o": [
+"Flank sucking",
+"Tail chasing",
+"Light chasing",
+"Acral lick dermatitis"
+],
+"a": 1,
+"e": "The dog presented with tail chasing, a common canine compulsive trait, with self-inflicted wounds.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Which pharmacological agents were used in the treatment?",
+"o": [
+"Fluoxetine and alpha-casozepine",
+"Phenobarbital and diazepam",
+"Trazodone and gabapentin",
+"Acepromazine alone"
+],
+"a": 0,
+"e": "Treatment combined fluoxetine with alpha-s1 casozepine plus a behavioral recovery program.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What outcome followed the interdisciplinary treatment?",
+"o": [
+"No improvement",
+"Worsening self-injury",
+"Reduced intensity/frequency and eventual cessation of episodes",
+"Euthanasia required"
+],
+"a": 2,
+"e": "Compulsive events decreased and no new tail-chasing episodes occurred over the following 3 months.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What was the main aim of the study with unsocialised stray dogs?",
+"o": [
+"Test a new vaccine",
+"Determine if rehabilitation/training could make them adoptable",
+"Measure litter size",
+"Compare diets"
+],
+"a": 1,
+"e": "The study tested whether rehabilitation and training could build the skills needed for adoption.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "How did the stray dogs' sociability toward humans change?",
+"o": [
+"It worsened over time",
+"It improved from ST1 to ST3",
+"It showed no change",
+"Only leash behavior improved"
+],
+"a": 1,
+"e": "Stray dogs' sociability toward humans improved across the testing time-points.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What did the authors note about individual variation among the strays?",
+"o": [
+"All dogs responded identically",
+"Large variation: some stayed fearful while others became handleable",
+"No dogs improved at all",
+"Only puppies improved"
+],
+"a": 1,
+"e": "There was large individual variation; some strays remained intensely fearful while others could be leash-walked.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Which factors were significantly associated with aggression incidence in Brazilian pet dogs?",
+"o": [
+"Body Mass Index only",
+"Dog weight, skull morphology, sex, and socio-environmental factors",
+"Coat color only",
+"Vaccination status"
+],
+"a": 1,
+"e": "Weight, skull morphology, sex, owner gender/age, training regimen, and household factors affected aggression.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Which measure was NOT associated with aggression?",
+"o": [
+"Body Mass Index (BMI)",
+"Skull morphology",
+"Sex",
+"Owner age"
+],
+"a": 0,
+"e": "Aggression was not associated with BMI, the measure used to represent dog size.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "What overall view of aggression do the results support?",
+"o": [
+"A single species- or breed-wide cause",
+"A multifactorial interaction of genetics, physiology, experience, and environment",
+"A purely owner-caused phenomenon",
+"A purely random occurrence"
+],
+"a": 1,
+"e": "Results reinforce aggression as a multifactorial trait emerging from interacting developmental factors.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "Compared with other shelter dogs, dogs from adverse early backgrounds had what cortisol pattern?",
+"o": [
+"Lower salivary cortisol",
+"No difference",
+"Higher salivary cortisol",
+"Undetectable cortisol"
+],
+"a": 2,
+"e": "Dogs from adverse backgrounds showed significantly higher salivary cortisol (p=0.045).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "During interactions with an unfamiliar human, adverse-background dogs showed which behavior?",
+"o": [
+"More affiliative behavior",
+"More fear and less affiliative behavior",
+"No behavioral difference",
+"More play"
+],
+"a": 1,
+"e": "They displayed more fear and lower affiliative behavior than other shelter dogs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "Did time in adverse conditions or time in the shelter correlate with cortisol output?",
+"o": [
+"Yes, both correlated strongly",
+"Neither correlated with cortisol",
+"Only shelter time did",
+"Only adverse-condition time did"
+],
+"a": 1,
+"e": "Neither duration in adverse conditions nor time in the shelter correlated with cortisol output.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Facility/Environment",
+"q": "What effect did partial visual barrier removal have on vocalizations?",
+"o": [
+"Increased barking",
+"Lower vocalizations in the visual-access and post phases",
+"No data were collected",
+"Continuous barking throughout"
+],
+"a": 1,
+"e": "Vocalizations were lower during the visual-access and post phases (p=.02), and barking duration did not increase.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Facility/Environment",
+"q": "What happened to stress behaviors and resting behaviors across phases?",
+"o": [
+"They clearly worsened",
+"They improved markedly",
+"They did not differ significantly",
+"They could not be measured"
+],
+"a": 2,
+"e": "Stress behaviors, crate position, and resting behaviors did not differ significantly across phases.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Facility/Environment",
+"q": "What did the authors recommend shelters prioritize for welfare?",
+"o": [
+"Visual contact alone",
+"Increased social contact via playgroups or group housing",
+"Solid barriers everywhere",
+"Reduced enrichment"
+],
+"a": 1,
+"e": "Because visual contact alone seemed insufficient, they recommend playgroups or group housing.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
 "sub": "Infectious Disease",
 "q": "Across multiple shelter studies, adding canine parvovirus monoclonal antibody (CPMA) to a standard supportive-care protocol for dogs with naturally occurring parvovirus has most consistently been shown to:",
 "o": [
