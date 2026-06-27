@@ -170,6 +170,10 @@
   <button data-p="confine"><span class="dot"></span>Confinement &amp; Monitoring</button>
   <button data-p="behaviour"><span class="dot"></span>Stress &amp; Outcomes</button>
   <button data-p="mcq"><span class="dot" style="background:var(--dom-head)"></span>MCQ Bank</button>
+
+<!-- JOURNAL-TAB:START -->
+<button data-p="journal"><span class="dot" style="background:var(--lit, #1f6f8b)"></span>Journal Articles</button>
+<!-- JOURNAL-TAB:END -->
 </div></div></nav>
 <div class="srch-wrap"><div class="wrap"><div class="srch-row">
 <svg width="14" height="14" viewBox="0 0 15 15" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="m10.5 10.5 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -787,6 +791,189 @@
   <div id="qhost"></div>
 </section>
 
+
+<!-- JOURNAL-ARTICLES:START -->
+<style data-journal-css>
+/* ── Journal Articles section ─────────────────────────────────────────── */
+.ja-standalone {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 2px solid var(--line, #d9d0bd);
+}
+.ja-article {
+  margin-bottom: 24px;
+  padding: 20px 22px 18px;
+  background: var(--paper2, #fbf8f1);
+  border-radius: 10px;
+  box-shadow: var(--shadow, 0 1px 2px rgba(15,61,58,.08), 0 8px 24px rgba(15,61,58,.06));
+}
+.ja-cite {
+  margin: 0 0 10px;
+  line-height: 1.45;
+  font-size: 0.97em;
+}
+.ja-meta {
+  color: var(--muted, #5d6b62);
+  font-size: 0.875em;
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0.01em;
+}
+.ja-meta a {
+  color: var(--lit, #1f6f8b);
+  text-decoration: none;
+}
+.ja-meta a:hover {
+  text-decoration: underline;
+}
+.ja-abstract {
+  border-left: 3px solid var(--lit, #1f6f8b);
+  padding: 10px 14px;
+  margin: 0 0 18px;
+  background: var(--lit-soft, #dcedf2);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.925em;
+  line-height: 1.6;
+  color: var(--ink, #0f3d3a);
+}
+.ja-mcq {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line, #d9d0bd);
+}
+.ja-mcq + .ja-mcq {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.ja-q {
+  font-weight: 600;
+  font-size: 0.93em;
+  margin: 0 0 7px;
+  color: var(--ink, #0f3d3a);
+}
+.ja-opts {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ja-opt {
+  font-size: 0.9em;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: var(--ink2, #15514c);
+  background: transparent;
+}
+.ja-opt b {
+  display: inline-block;
+  min-width: 1.5em;
+  color: var(--muted, #5d6b62);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.88em;
+}
+.ja-ans {
+  margin-top: 4px;
+}
+.ja-ans summary {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 0.83em;
+  font-family: "JetBrains Mono", monospace;
+  padding: 3px 10px;
+  border: 1px solid var(--lit, #1f6f8b);
+  border-radius: 5px;
+  color: var(--lit, #1f6f8b);
+  background: transparent;
+  user-select: none;
+  list-style: none;
+}
+.ja-ans summary::-webkit-details-marker { display: none; }
+.ja-ans summary::marker { display: none; }
+.ja-ans summary:hover {
+  background: var(--lit-soft, #dcedf2);
+}
+.ja-ans[open] summary {
+  background: var(--lit-soft, #dcedf2);
+  margin-bottom: 6px;
+}
+.ja-ans-body {
+  font-size: 0.9em;
+  padding: 8px 12px;
+  background: var(--paper, #fdfaf4);
+  border: 1px solid var(--line, #d9d0bd);
+  border-radius: 6px;
+  line-height: 1.55;
+  color: var(--ink, #0f3d3a);
+}
+.ja-ans-correct {
+  font-weight: 600;
+  color: var(--good, #2f7d52);
+  display: block;
+  margin-bottom: 4px;
+}
+.ja-ans-rationale {
+  color: var(--ink2, #15514c);
+}
+/* ── Journal self-test (pages without an MCQ bank) ── */
+.ja-quiz { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line, #d9d0bd); }
+.ja-quiz-h { font-family: "Fraunces", serif; font-weight: 600; font-size: 18px; margin: 0 0 12px; color: var(--ink, #0f3d3a); }
+.ja-qcard { background: var(--paper2, #fbf8f1); border: 1px solid var(--line, #d9d0bd); border-radius: 12px; padding: 14px 16px; margin: 12px 0; }
+.ja-qstem { font-weight: 600; font-size: 0.95em; margin-bottom: 10px; color: var(--ink, #0f3d3a); }
+.ja-qopt { display: block; width: 100%; text-align: left; cursor: pointer; font: inherit; font-size: 0.9em; padding: 8px 11px; margin: 5px 0; border: 1px solid var(--line, #d9d0bd); border-radius: 8px; background: var(--paper, #fdfaf4); color: var(--ink, #0f3d3a); }
+.ja-qopt b { color: var(--muted, #5d6b62); font-family: "JetBrains Mono", monospace; margin-right: 4px; }
+.ja-qopt:hover:not(.locked) { border-color: var(--lit, #1f6f8b); }
+.ja-qopt.locked { cursor: default; }
+.ja-qopt.correct { background: #e9f4ee; border-color: var(--good, #2f7d52); }
+.ja-qopt.wrong { background: #f8e9e9; border-color: var(--bad, #b23b3b); }
+.ja-qexpl { font-size: 0.88em; margin-top: 8px; padding: 9px 12px; background: var(--lit-soft, #dcedf2); border-radius: 8px; color: var(--ink2, #15514c); line-height: 1.5; }
+/* ── Journal source badge (self-contained so it renders on any bank page) ── */
+.bdg.journal {
+  display: inline-block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9.5px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 999px;
+  vertical-align: middle;
+  white-space: nowrap;
+  background: var(--lit-soft, #dcedf2);
+  color: var(--lit, #1f6f8b);
+}
+</style>
+<section class="panel" id="journal">
+  <h2 class="sec">Additional Resources</h2>
+  <p class="lead">Journal Articles (2021–2026) — exam items are drawn from the abstract only. Read each abstract here; self-test questions are in the MCQ Test Bank.</p>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>“It’s my calling”, Canadian dog rescuers’ motives and experiences for engaging in international dog rescue efforts</b><br>
+    <span class="ja-meta">von Rentzell &middot; PLOS ONE &middot; 2024</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> The importation of rescue dogs has become an increasingly common occurrence in recent years, often involving industrialized countries as the ultimate destination. However, international dog rescue activities have attracted considerable criticism from the veterinary community and the public due to the associated zoonotic disease and public health risks, as well as the potential poor behaviour of international rescue dogs. The Government of Canada has also recently placed a temporary suspension on all commercial dog imports from non-rabies free countries due to the growing concerns of the zoonotic disease risks. To understand the perspectives and experiences of stakeholders involved in dog import activities in Canada, we interviewed nine members in leadership positions of Canadian-based international dog rescue organizations. Thematic analysis of interview dialogue yielded three themes: 1) Motive, which described the reason behind participants’ involvement in international dog rescue; 2) Challenge, which described the major difficulties faced in participants’ dog rescue work; 3) Duty, which described participants’ beliefs on responsible dog rescue practices. Members of international dog rescue organizations described being driven by strong desires to provide animal and humanitarian aid. However, local dog rescue efforts were constrained by logistical and societal barriers unique to the Canadian context. Additionally, the current study revealed both similarities and differences in occupational experiences between international dog rescue organizations and other animal care professions. Specifically, difficulties with the emotional burden associated with caregiving professions was also present within dog rescue work. However, international dog rescue members also experienced additional challenges due to the stigma surrounding international dog rescue operations. Further research on attitudes held by other stakeholders involved in dog import activities, as well as members of Canadian communities needing dog rescue aid may provide meaningful inputs on how to better support and facilitate local and international dog rescue efforts.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Investigation into owner-reported differences between dogs born in versus imported into Canada</b><br>
+    <span class="ja-meta">von Rentzell &middot; PLOS ONE &middot; 2023</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Over 1 million dogs are imported into the United States and roughly 340,000 dogs into the United Kingdom yearly. Although the official number of dogs arriving to Canada is currently unknown, local animal professionals estimate that thousands of dogs are imported into Canada each year. Dog importation may be increasing globally while regulation and surveillance are still limited, resulting in concerns for the health and welfare of imported dogs. To date, few studies have investigated how the source location of dogs influences the owner-dog relationship. The current report presents two independent studies that were conducted to assess whether owners of imported dogs reported a poorer owner-dog relationships compared to owners of Canadian-born dogs. In both studies, an online survey was distributed to dog owners (Study 1: n = 803; Study 2: n = 878) in British Columbia, Canada, containing questions on various aspects of the owner-dog relationship. The first study included questions from the Lexington Attachment to Pets Scale, Canine Behavioral Assessment and Research Questionnaire, Human-Animal Bond questionnaire, Monash Dog Owner Relationship Scale, and constructed questions about training methods, expectations, and health. The second study was comprised of original questions assessing difficult behaviour, training practices, health, attachment, and perceived level of burden of owning a dog. Both studies found no evidence of a poorer owner-dog relationship in non-Canadian-sourced dogs. In fact, owners of Canadian-sourced dogs used harsh training methods more frequently and had higher expectations for their dog. While no signs of poorer owner-dog relationship in non-Canadian-sourced dogs were found, future research should continue the investigation of age, health, and backgrounds of incoming dogs.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>The Effect of Transportation on Puppy Welfare from Commercial Breeding Kennels to a Distributor</b><br>
+    <span class="ja-meta">Romaniuk &middot; Animals &middot; 2022</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Many puppies from commercial breeding kennels (CBKs) are transported by ground from their kennels of origin to a distributor. This experience may elicit fear and stress during a sensitive developmental period, which may in turn negatively impact the puppies’ short- and long-term welfare. This study aimed to measure short-term effects of transportation on puppy welfare metrics. Eight-week-old puppies (n = 383) from 12 CBKs were tested at their kennels (pre-trans) and ~48 h after arriving at a distributor (post-trans). At each location, puppies underwent an isolation test, a stranger-approach test, and a physical health assessment. Behavioral responses to testing were scored from videos. Fecal glucocorticoid metabolites (FGM), fecal secretory immunoglobulin A (sIgA), and presence of intestinal parasites were also analyzed. Linear mixed-effects models identified decreased exploration (p &lt; 0.001), and increased locomotion (p &lt; 0.001) and escape attempts (p = 0.001) during the post-trans isolation test. Increased affiliative behavior (p &lt; 0.001), FGM (p &lt; 0.001) and sIgA (p = 0.014) were also observed post-trans. Findings support good physical health both pre- and post-trans, while behavioral and physiological changes suggest increased puppy distress post-trans. Higher post-transport affiliative behavior may indicate that puppies sought social support as a coping strategy after experiencing transport-related distress. Future studies should explore the efficacy of transportation-related interventions to mitigate puppy distress.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Incidence and Predictors of Canine Parvovirus Diagnoses in Puppies Relocated for Adoption</b><br>
+    <span class="ja-meta">DiGangi, Craver, Dolan &middot; Animals &middot; 2021</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Animal relocation programs seek to balance the animal population and resources between source and destination communities to promote positive outcomes, though little objective evidence has been reported on their physical and behavioral implications. The objective of the current report is to describe the incidence and predictors of canine parvovirus (CPV) diagnoses in 8- to 19-week-old puppies reported by destination shelters participating in a large scale, long-distance, structured animal relocation program. The incidence of post-transport CPV diagnoses in the study population of 4088 puppies was 2.3%. The number of pre-transport vaccinations, length of stay at the source shelter, and time between pre-transport vaccination and transport was not associated with the expected difference in count of post-transport CPV diagnoses (p &gt; 0.05), and was lower in those 13–17 weeks of age (IRR = 0.08, 95% CI = 0.02–0.34, p = 0.001), 18–19 weeks of age (IRR = 0.11, 95% CI = 0.02–0.80, p = 0.029), transferred in to the source shelter (IRR = 0.31, 95% CI = 0.10–0.96, p = 0.043), and transported in the summer season (IRR = 0.07, 95% CI = 0.01–0.53, p = 0.010). When basic biosecurity practices and vaccination protocols were in place, post-transport CPV cases in puppies were few, suggesting that the timing of transport should take into account factors other than the number or timing of pre-transport vaccinations.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>U.S. dog importations during the COVID-19 pandemic: Do we have an erupting problem?</b><br>
+    <span class="ja-meta">Pieracci &middot; PLOS ONE &middot; 2021</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Dog importation data from 2018–2020 were evaluated to ascertain whether the dog importation patterns in the United States changed during the COVID-19 pandemic, specifically with regard to denial of entry. Dog denial of entry reports from January 1, 2018, to December 31, 2020, stored within the Centers for Disease Control and Prevention (CDC) Quarantine Activity Reporting System (QARS), were reviewed. Basic descriptive statistics were used to analyze the data. Reason for denial, country of origin, and month of importation were all examined to determine which countries of origin resulted in the largest number of denials, and whether there was a seasonal change in importations during the COVID-19 pandemic (2020), compared to previous years (2018 and 2019). During 2020, CDC denied entry to 458 dogs. This represents a 52% increase in dogs denied entry compared to the averages in 2018 and 2019. Dogs were primarily denied entry for falsified rabies vaccination certificates (56%). Three countries exported 74% of all dogs denied entry into the United States, suggesting that targeted interventions may be needed for certain countries. Increased attempts to import inadequately vaccinated dogs from countries with canine rabies in 2020 may have been due to the increased demand for domestic pets during the COVID-19 pandemic. Educational messaging should highlight the risk of rabies and the importance of making informed pet purchases from foreign entities to protect pet owners, their families, and the public.</div>
+  </div>
+
+</section>
+<!-- JOURNAL-ARTICLES:END -->
+
 </div></main>
 
 <footer><div class="wrap">
@@ -1306,5 +1493,37 @@ function setRate(btn,r){
   Cited third-party materials (journal abstracts, openly-licensed images, etc.)
   remain the property of their respective owners.
 </footer>
+<!-- JOURNAL-BANK:START -->
+<script data-journal-bank>
+(function(){try{
+  // Teach the page's badge/label helpers about journal-sourced questions so
+  // they render a "journal" source badge (the page templates predate this tag).
+  if(typeof flagBadge==='function' && !flagBadge.__journalPatched){
+    var _fb=flagBadge;
+    window.flagBadge=function(f){return f==='journal'?'<span class="bdg journal">journal</span>':_fb(f);};
+    window.flagBadge.__journalPatched=true;
+  }
+  if(typeof tagLabel==='function' && !tagLabel.__journalPatched){
+    var _tl=tagLabel;
+    window.tagLabel=function(t){return t==='journal'?'Journal':_tl(t);};
+    window.tagLabel.__journalPatched=true;
+  }
+  // Add a "Journal Articles" chip to the topic-filter bar so the journal
+  // questions can be isolated (they otherwise sit at the end of the bank).
+  var _fbar=document.querySelector('.filters');
+  if(_fbar && !_fbar.querySelector('[data-f="journal"]')){
+    var _jb=document.createElement('button');
+    _jb.setAttribute('data-f','journal');
+    _jb.textContent='Journal Articles';
+    _fbar.appendChild(_jb);
+  }
+  if(typeof Q!=='undefined' && Array.isArray(Q)){
+    var JJ=[{"q": "Post-transport canine parvovirus incidence among the relocated puppies was approximately:", "o": ["2.3%", "23%", "8%", "0.5%"], "a": 0, "e": "Incidence of post-transport CPV in 4088 puppies was 2.3%.", "t": "journal", "f": "journal"}, {"q": "Risk of post-transport CPV was lower in puppies that were:", "o": ["Younger than 8 weeks", "13–17 weeks of age", "Vaccinated only once", "Transported in winter"], "a": 1, "e": "Older age (13–17 and 18–19 weeks) and summer transport were associated with lower CPV risk.", "t": "journal", "f": "journal"}, {"q": "The number and timing of pre-transport vaccinations were:", "o": ["Not associated with post-transport CPV counts", "Strongly protective", "The dominant risk factor", "Inversely related to age"], "a": 0, "e": "Vaccine number/timing showed no association; transport timing should weigh other factors.", "t": "journal", "f": "journal"}, {"q": "After ground transport, 8-week-old puppies showed which change during isolation testing?", "o": ["Increased exploration", "Decreased exploration with increased locomotion and escape attempts", "No behavioral change", "Reduced locomotion and calmer behavior"], "a": 1, "e": "Post-transport puppies explored less and showed more locomotion and escape attempts.", "t": "journal", "f": "journal"}, {"q": "Physiological markers (fecal glucocorticoid metabolites and sIgA) after transport:", "o": ["Decreased", "Increased", "Were unchanged", "Could not be measured"], "a": 1, "e": "Both FGM and fecal sIgA increased post-transport, indicating distress.", "t": "journal", "f": "journal"}, {"q": "The authors interpreted increased post-transport affiliative behavior as:", "o": ["Evidence of poor physical health", "Puppies seeking social support as a coping strategy", "A sign of aggression", "Normal exploratory play"], "a": 1, "e": "Higher affiliative behavior likely reflected puppies seeking social support to cope with transport distress.", "t": "journal", "f": "journal"}, {"q": "The most common reason the CDC denied dogs entry in 2020 was:", "o": ["Parvovirus infection", "Falsified rabies vaccination certificates", "Lack of a microchip", "Overcrowded transport"], "a": 1, "e": "Falsified rabies vaccination certificates accounted for 56% of denials.", "t": "journal", "f": "journal"}, {"q": "Compared with the 2018–2019 averages, dogs denied entry in 2020:", "o": ["Decreased by 52%", "Stayed roughly the same", "Increased by 52%", "Fell to near zero"], "a": 2, "e": "The 458 dogs denied entry in 2020 represented a 52% increase over prior-year averages.", "t": "journal", "f": "journal"}, {"q": "The increased import attempts of inadequately vaccinated dogs were attributed mainly to:", "o": ["Cheaper airfares", "Increased pandemic demand for pets", "Relaxed import regulations", "Fewer domestic breeders"], "a": 1, "e": "The rise was linked to increased demand for domestic pets during the COVID-19 pandemic.", "t": "journal", "f": "journal"}, {"q": "Both studies found that owner-dog relationships for imported (non-Canadian-sourced) dogs were:", "o": ["Significantly poorer than for Canadian-born dogs", "Not poorer than for Canadian-born dogs", "Better on every measure", "Impossible to assess"], "a": 1, "e": "Neither study found evidence of a poorer owner-dog relationship for imported dogs.", "t": "journal", "f": "journal"}, {"q": "Owners of Canadian-sourced dogs were more likely to:", "o": ["Use harsh training methods and hold higher expectations for their dog", "Import additional dogs", "Relinquish their dogs", "Use only positive-reinforcement training"], "a": 0, "e": "Owners of Canadian-sourced dogs used harsh training methods more often and had higher expectations.", "t": "journal", "f": "journal"}, {"q": "These two surveys were conducted among dog owners in:", "o": ["Ontario, Canada", "British Columbia, Canada", "England, UK", "California, USA"], "a": 1, "e": "Both online surveys sampled dog owners in British Columbia, Canada.", "t": "journal", "f": "journal"}, {"q": "Thematic analysis of interviews with Canadian international dog rescue leaders yielded which three themes?", "o": ["Motive, Challenge, Duty", "Cost, Risk, Reward", "Health, Behaviour, Adoption", "Training, Transport, Treatment"], "a": 0, "e": "The study identified Motive, Challenge, and Duty as the three themes.", "t": "journal", "f": "journal"}, {"q": "Which occupational difficulty did international dog rescue members share with other caregiving professions?", "o": ["Physical injury risk", "The emotional burden of caregiving", "Financial insolvency", "Regulatory liability"], "a": 1, "e": "The emotional burden of caregiving was common to dog rescue and other caregiving work.", "t": "journal", "f": "journal"}, {"q": "What additional challenge was reported as unique to international (versus local) dog rescue members?", "o": ["Lack of veterinary support", "Quarantine duration", "Stigma surrounding international rescue operations", "Language barriers"], "a": 2, "e": "International rescuers faced added difficulty from the stigma around international operations.", "t": "journal", "f": "journal"}];
+    JJ.forEach(function(m){Q.push({t:m.t||"journal",f:m.f||"journal",q:m.q,o:m.o,a:m.a,e:m.e});});
+    if(typeof render==='function'){render();}
+  }
+}catch(e){}})();
+</script>
+<!-- JOURNAL-BANK:END -->
 </body>
 </html>

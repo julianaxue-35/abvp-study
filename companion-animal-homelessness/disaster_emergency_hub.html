@@ -171,6 +171,10 @@
   <button data-p="response"><span class="dot"></span>Response Missions</button>
   <button data-p="postdisaster"><span class="dot"></span>Post-Disaster</button>
   <button data-p="mcq"><span class="dot" style="background:var(--dom-head)"></span>MCQ Bank</button>
+
+<!-- JOURNAL-TAB:START -->
+<button data-p="journal"><span class="dot" style="background:var(--lit, #1f6f8b)"></span>Journal Articles</button>
+<!-- JOURNAL-TAB:END -->
 </div></div></nav>
 <div class="srch-wrap"><div class="wrap"><div class="srch-row">
 <svg width="14" height="14" viewBox="0 0 15 15" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="m10.5 10.5 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -674,6 +678,189 @@
   </div>
   <div id="qhost"></div>
 </section>
+
+
+<!-- JOURNAL-ARTICLES:START -->
+<style data-journal-css>
+/* ── Journal Articles section ─────────────────────────────────────────── */
+.ja-standalone {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 2px solid var(--line, #d9d0bd);
+}
+.ja-article {
+  margin-bottom: 24px;
+  padding: 20px 22px 18px;
+  background: var(--paper2, #fbf8f1);
+  border-radius: 10px;
+  box-shadow: var(--shadow, 0 1px 2px rgba(15,61,58,.08), 0 8px 24px rgba(15,61,58,.06));
+}
+.ja-cite {
+  margin: 0 0 10px;
+  line-height: 1.45;
+  font-size: 0.97em;
+}
+.ja-meta {
+  color: var(--muted, #5d6b62);
+  font-size: 0.875em;
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0.01em;
+}
+.ja-meta a {
+  color: var(--lit, #1f6f8b);
+  text-decoration: none;
+}
+.ja-meta a:hover {
+  text-decoration: underline;
+}
+.ja-abstract {
+  border-left: 3px solid var(--lit, #1f6f8b);
+  padding: 10px 14px;
+  margin: 0 0 18px;
+  background: var(--lit-soft, #dcedf2);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.925em;
+  line-height: 1.6;
+  color: var(--ink, #0f3d3a);
+}
+.ja-mcq {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line, #d9d0bd);
+}
+.ja-mcq + .ja-mcq {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.ja-q {
+  font-weight: 600;
+  font-size: 0.93em;
+  margin: 0 0 7px;
+  color: var(--ink, #0f3d3a);
+}
+.ja-opts {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ja-opt {
+  font-size: 0.9em;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: var(--ink2, #15514c);
+  background: transparent;
+}
+.ja-opt b {
+  display: inline-block;
+  min-width: 1.5em;
+  color: var(--muted, #5d6b62);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.88em;
+}
+.ja-ans {
+  margin-top: 4px;
+}
+.ja-ans summary {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 0.83em;
+  font-family: "JetBrains Mono", monospace;
+  padding: 3px 10px;
+  border: 1px solid var(--lit, #1f6f8b);
+  border-radius: 5px;
+  color: var(--lit, #1f6f8b);
+  background: transparent;
+  user-select: none;
+  list-style: none;
+}
+.ja-ans summary::-webkit-details-marker { display: none; }
+.ja-ans summary::marker { display: none; }
+.ja-ans summary:hover {
+  background: var(--lit-soft, #dcedf2);
+}
+.ja-ans[open] summary {
+  background: var(--lit-soft, #dcedf2);
+  margin-bottom: 6px;
+}
+.ja-ans-body {
+  font-size: 0.9em;
+  padding: 8px 12px;
+  background: var(--paper, #fdfaf4);
+  border: 1px solid var(--line, #d9d0bd);
+  border-radius: 6px;
+  line-height: 1.55;
+  color: var(--ink, #0f3d3a);
+}
+.ja-ans-correct {
+  font-weight: 600;
+  color: var(--good, #2f7d52);
+  display: block;
+  margin-bottom: 4px;
+}
+.ja-ans-rationale {
+  color: var(--ink2, #15514c);
+}
+/* ── Journal self-test (pages without an MCQ bank) ── */
+.ja-quiz { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line, #d9d0bd); }
+.ja-quiz-h { font-family: "Fraunces", serif; font-weight: 600; font-size: 18px; margin: 0 0 12px; color: var(--ink, #0f3d3a); }
+.ja-qcard { background: var(--paper2, #fbf8f1); border: 1px solid var(--line, #d9d0bd); border-radius: 12px; padding: 14px 16px; margin: 12px 0; }
+.ja-qstem { font-weight: 600; font-size: 0.95em; margin-bottom: 10px; color: var(--ink, #0f3d3a); }
+.ja-qopt { display: block; width: 100%; text-align: left; cursor: pointer; font: inherit; font-size: 0.9em; padding: 8px 11px; margin: 5px 0; border: 1px solid var(--line, #d9d0bd); border-radius: 8px; background: var(--paper, #fdfaf4); color: var(--ink, #0f3d3a); }
+.ja-qopt b { color: var(--muted, #5d6b62); font-family: "JetBrains Mono", monospace; margin-right: 4px; }
+.ja-qopt:hover:not(.locked) { border-color: var(--lit, #1f6f8b); }
+.ja-qopt.locked { cursor: default; }
+.ja-qopt.correct { background: #e9f4ee; border-color: var(--good, #2f7d52); }
+.ja-qopt.wrong { background: #f8e9e9; border-color: var(--bad, #b23b3b); }
+.ja-qexpl { font-size: 0.88em; margin-top: 8px; padding: 9px 12px; background: var(--lit-soft, #dcedf2); border-radius: 8px; color: var(--ink2, #15514c); line-height: 1.5; }
+/* ── Journal source badge (self-contained so it renders on any bank page) ── */
+.bdg.journal {
+  display: inline-block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9.5px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 999px;
+  vertical-align: middle;
+  white-space: nowrap;
+  background: var(--lit-soft, #dcedf2);
+  color: var(--lit, #1f6f8b);
+}
+</style>
+<section class="panel" id="journal">
+  <h2 class="sec">Additional Resources</h2>
+  <p class="lead">Journal Articles (2021–2026) — exam items are drawn from the abstract only. Read each abstract here; self-test questions are in the MCQ Test Bank.</p>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>A Scoping Review of Forced Separation Between People and Their Companion Animals</b><br>
+    <span class="ja-meta">Montgomery &middot; Anthrozoos &middot; 2024</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> People often form strong emotional attachments with their companion animals. When this relationship is threatened by forced separation, people may take risks to their safety and wellbeing to protect and stay with their companion animal. This scoping review maps concepts, evidence, and impacts of forced separation between people and their companion animals in the categories of domestic violence, homelessness, and natural disasters. Five relevant databases were searched: Medline Ovid, Psycinfo, Scopus, CINAHL, and EMCARE Ovid. Forty-two articles on the human–animal bond and situations of separation were included in the analysis, which revealed devastating results for companion animals, with death and loss of the animals prominent across all three categories of forced separation. Significant psychological distress and an increased risk to safety in people were found across all three categories. Risks people took to avoid forced separation included failing to evacuate to safety during natural disasters, delaying fleeing an abusive relationship, and prolonged homelessness while waiting for pet-friendly accommodation. Responsibility (who is responsible for the animal) and the cultural belief of human wellbeing as superior to that of animals emerged as major themes. This scoping review identified the extent of research evidence and gaps in the domains of domestic violence, health, homelessness, natural disasters, and animal welfare. It will assist researchers, policy makers, and service providers working in these areas in understanding the characteristics and the complexities of situations involving forced separation of people and their companion animals to optimize supports.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>‘All we found were bones’: Veterinary workers’ distress and trauma after Australia&#x27;s Black Summer bushfires</b><br>
+    <span class="ja-meta">Paul &middot; Vet Record &middot; 2023</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Background<br><br>Australia's 2019/2020 Black Summer bushfires affected billions of animals, many of which were rescued and cared for by veterinary and animal care workers (VACWs). Little is known about VACWs’ disaster-related experiences and how these experiences may affect them. Methods<br><br>We used a convergent mixed-methods design to explore how a variety of VACWs experienced the Black Summer bushfires. Data were gathered between April and July 2020. Participants (N = 93) were recruited via Facebook posts and emails that contained a link to an online survey. The survey included open-ended questions about VACWs’ bushfire-related experiences and quantitative measures of posttraumatic stress disorder symptoms, psychological distress, burnout and grief. Results<br><br>Participants reported a variety of bushfire-related experiences and described several ways the disaster affected their work, personal lives and communities. Overall, participants scored highly on measures of psychological ill-health. Limitations<br><br>Our cross-sectional design and use of non-probability sampling limited the generalisability of the results and may have introduced a response bias. Conclusion<br><br>Our results contribute new information on the experiences of VACWs during and after bushfires and the psychological hazards they may face due to the extreme and prolonged stressors produced by such disasters. Implications for policy and veterinary practice are discussed.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Exploring the Evacuation of Dairy Cattle at Night in Collaboration with the Fire Brigade: How to Prepare Openings for Swift Rescue in Case of Barn Fire</b><br>
+    <span class="ja-meta">Diel &middot; Animals &middot; 2022</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> The aim of this study was to investigate the influencing factors of successfully rescuing year-round housed cattle in case of a barn fire. Empirical research indicates the reluctance of cattle to leave their familiar barn. Subsequent retreat back to the perceived safety inside, which stands in contrast to the unknown and thus adversary elements outside, for example, the fire brigade, is to be expected. We examined the evacuation of 69 dairy cattle, split into three groups, to an adjacent pasture by night and inspected the animals’ acceptance of two differently designed escape routes and the effect of preceding training. Along with the time needed for evacuating all animals, we measured faecal cortisol metabolites and daily milk yield to assess stress in the animals. Our preliminary assumption was that cattle trained for pasture would have a decisive advantage over untrained cattle. However, adapting the exits to the sensory physiology of the cattle resulted in an extensive impact on the animals’ readiness to leave the familiar housing, as the evacuation of the cattle non-habituated to the exit was comparatively quick and successful. We consider this study instructional for fire brigades and farmers, encouraging them to develop a customised concept for rescuing their cattle in case of an emergency.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Fish evacuation and emergency sheltering during wildfire disasters</b><br>
+    <span class="ja-meta">Parker-Graham &middot; JAVMA &middot; 2022</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Wildfires are a serious and expanding threat in western North America, and wildfire encroachment on human populations leads to widespread evacuation and emergency housing operations for residents and their companion animals and livestock. Veterinarians are frequently part of wildfire response efforts and are called upon to assist in rescue, evacuation, and emergency housing operations as well as to provide medical care for evacuated animals. Although veterinarians are likely familiar with the principles of transporting and housing terrestrial animals, emergency response for aquatic companion animals presents unique logistic challenges. Veterinarians familiar with aquatic animal evacuation, housing, and care prior to a wildfire response can extend the scope of disaster recovery. This report offers general guidance for rescuing, evacuating, housing, and caring for aquatic animals in the wake of a wildfire.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>An assessment of working canine contamination from standing liquid hazards during a simulated disaster search scenario</b><br>
+    <span class="ja-meta">Perry, Erin &middot; Journal of Veterinary Behavior &middot; 2021</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Abstract Working canines have the potential to be exposed to hazardous materials during search and rescue deployments. Unfortunately, little data are available regarding likely areas of contamination on working canines or effective techniques for substance removal. We describe recent work using an oil-based UV fluorescent marker pooled to mimic standing liquid hazards in a simulated disaster scene to characterize anatomical locations likely to be contaminated. This study utilized three simulated “contaminated” environments situated across a disaster training complex. Federal Emergency Management Agency (FEMA) working canines (n = 11) searched the simulated disaster scene and traversed each contaminated environment. Following the search, all canines were kenneled for 30 minutes and then photographed to capture anatomic locations of exposure. The canines were then taken immediately to the decontamination station where handlers’ attempts at canine decontamination were recorded. Anatomical locations were coded as ventral or dorsal, and then further subdivided to the neck, chest, lower legs, and paws for ventral exposures; and back, head, face, and hips for dorsal exposures. Contamination occurred consistently on the paws and lower legs with overall ventral exposure occurring in 39 of 44 (89%) observations. Contamination of the back and head was infrequent, with overall dorsal exposure occurring in 11 of 44 (25%) observations. Despite handler awareness of the exact anatomical locations of exposure with a greater frequency of exposure involving ventral (78%) versus dorsal (22%) regions of the canine (P &lt; 0.0001), time spent decontaminating the two regions did not differ (P = 0.881). These data indicate a need for additional research to identify effective decontamination techniques. Furthermore, the results suggest that additional training may be needed to educate handlers and veterinary personnel regarding anatomic locations on working canines likely to be contaminated during disaster operations in environments where standing liquid hazards are present.</div>
+  </div>
+
+</section>
+<!-- JOURNAL-ARTICLES:END -->
 
 </div></main>
 
@@ -1201,5 +1388,37 @@ function setRate(btn,r){
   Cited third-party materials (journal abstracts, openly-licensed images, etc.)
   remain the property of their respective owners.
 </footer>
+<!-- JOURNAL-BANK:START -->
+<script data-journal-bank>
+(function(){try{
+  // Teach the page's badge/label helpers about journal-sourced questions so
+  // they render a "journal" source badge (the page templates predate this tag).
+  if(typeof flagBadge==='function' && !flagBadge.__journalPatched){
+    var _fb=flagBadge;
+    window.flagBadge=function(f){return f==='journal'?'<span class="bdg journal">journal</span>':_fb(f);};
+    window.flagBadge.__journalPatched=true;
+  }
+  if(typeof tagLabel==='function' && !tagLabel.__journalPatched){
+    var _tl=tagLabel;
+    window.tagLabel=function(t){return t==='journal'?'Journal':_tl(t);};
+    window.tagLabel.__journalPatched=true;
+  }
+  // Add a "Journal Articles" chip to the topic-filter bar so the journal
+  // questions can be isolated (they otherwise sit at the end of the bank).
+  var _fbar=document.querySelector('.filters');
+  if(_fbar && !_fbar.querySelector('[data-f="journal"]')){
+    var _jb=document.createElement('button');
+    _jb.setAttribute('data-f','journal');
+    _jb.textContent='Journal Articles';
+    _fbar.appendChild(_jb);
+  }
+  if(typeof Q!=='undefined' && Array.isArray(Q)){
+    var JJ=[{"q": "In this barn-fire evacuation study of dairy cattle, what had the greatest impact on the animals' readiness to leave the familiar housing?", "o": ["Prior pasture training", "Adapting the exits to the cattle's sensory physiology", "Presence of the fire brigade", "Higher daily milk yield"], "a": 1, "e": "Tailoring exit design to cattle sensory physiology produced an extensive effect, making even non-habituated cattle evacuate quickly.", "t": "journal", "f": "journal"}, {"q": "The preliminary assumption that pasture-trained cattle would have a decisive evacuation advantage was:", "o": ["Strongly confirmed", "Not supported — exit design mattered more", "Impossible to test", "Confirmed only at night"], "a": 1, "e": "Cattle not habituated to the adapted exit still evacuated quickly, contradicting the assumed advantage of training.", "t": "journal", "f": "journal"}, {"q": "Which measures were used to assess stress in the evacuated cattle?", "o": ["Faecal cortisol metabolites and daily milk yield", "Blood lactate and heart rate", "Rumen pH and body temperature", "Weight loss alone"], "a": 0, "e": "Stress was assessed via faecal cortisol metabolites and daily milk yield alongside evacuation time.", "t": "journal", "f": "journal"}, {"q": "According to this report, emergency response for aquatic companion animals during wildfires:", "o": ["Is identical to terrestrial animal response", "Presents unique logistic challenges", "Is rarely required", "Should be avoided by veterinarians"], "a": 1, "e": "The report emphasizes that aquatic animal evacuation and housing pose unique logistic challenges distinct from terrestrial animals.", "t": "journal", "f": "journal"}, {"q": "Veterinarians who become familiar with aquatic animal evacuation and care before a wildfire response can:", "o": ["Eliminate the need for evacuation", "Reduce fish populations", "Extend the scope of disaster recovery", "Replace fire-brigade operations"], "a": 2, "e": "Prior familiarity with aquatic animal care lets veterinarians extend disaster-recovery capabilities.", "t": "journal", "f": "journal"}, {"q": "On measures of psychological health, veterinary and animal care workers in this Black Summer bushfire study scored:", "o": ["Low on psychological ill-health", "Highly on measures of psychological ill-health", "Average versus the general population", "No measurable distress"], "a": 1, "e": "Overall participants scored highly on PTSD symptoms, distress, burnout and grief.", "t": "journal", "f": "journal"}, {"q": "A key limitation acknowledged by the authors was:", "o": ["A randomized controlled design", "A large probability sample", "Cross-sectional design and non-probability sampling limiting generalisability", "A 5-year longitudinal follow-up"], "a": 2, "e": "The cross-sectional, non-probability (Facebook/email) recruitment limited generalisability and risked response bias.", "t": "journal", "f": "journal"}, {"q": "Across domestic violence, homelessness, and natural disasters, a prominent outcome for companion animals during forced separation was:", "o": ["Improved welfare", "Death and loss of the animals", "Faster rehoming", "No measurable impact"], "a": 1, "e": "Death and loss of animals were prominent across all three categories of forced separation.", "t": "journal", "f": "journal"}, {"q": "To avoid forced separation from their pets, people in the review were reported to:", "o": ["Evacuate earlier during disasters", "Leave abusive relationships sooner", "Delay fleeing abuse and prolong homelessness awaiting pet-friendly housing", "Readily surrender pets"], "a": 2, "e": "Risks taken included failing to evacuate, delaying escape from abuse, and prolonged homelessness while waiting for pet-friendly accommodation.", "t": "journal", "f": "journal"}, {"q": "Two major themes that emerged from the review were:", "o": ["Cost of care and breed preference", "Responsibility for the animal and the belief in human superiority over animals", "Nutrition and exercise", "Vaccination and microchipping"], "a": 1, "e": "Responsibility for the animal and the cultural belief in human wellbeing as superior to animal wellbeing were major themes.", "t": "journal", "f": "journal"}, {"q": "Contamination of FEMA search canines occurred most consistently on the:", "o": ["Back and head", "Paws and lower legs (ventral)", "Face only", "Hips"], "a": 1, "e": "Ventral exposure (paws and lower legs) occurred in 89% of observations.", "t": "journal", "f": "journal"}, {"q": "Despite knowing exposure locations, handler decontamination time between ventral and dorsal regions:", "o": ["Was far greater ventrally", "Did not differ significantly", "Was zero", "Was greater dorsally"], "a": 1, "e": "Decontamination time did not differ between regions (P = 0.881).", "t": "journal", "f": "journal"}, {"q": "The authors concluded there is a need for:", "o": ["Fewer working dogs", "Banning search dogs", "Additional research and handler/veterinary training on decontamination", "No further action"], "a": 2, "e": "Results pointed to a need for better decontamination techniques and handler education.", "t": "journal", "f": "journal"}];
+    JJ.forEach(function(m){Q.push({t:m.t||"journal",f:m.f||"journal",q:m.q,o:m.o,a:m.a,e:m.e});});
+    if(typeof render==='function'){render();}
+  }
+}catch(e){}})();
+</script>
+<!-- JOURNAL-BANK:END -->
 </body>
 </html>

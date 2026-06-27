@@ -166,6 +166,10 @@
   <button data-p="mechanisms"><span class="dot"></span>Modality Mechanisms</button>
   <button data-p="traps"><span class="dot"></span>Gaps &amp; Traps</button>
   <button data-p="mcq"><span class="dot" style="background:var(--dom-head)"></span>MCQ Bank</button>
+
+<!-- JOURNAL-TAB:START -->
+<button data-p="journal"><span class="dot" style="background:var(--lit, #1f6f8b)"></span>Journal Articles</button>
+<!-- JOURNAL-TAB:END -->
 </div></div></nav>
 <div class="srch-wrap"><div class="wrap"><div class="srch-row">
 <svg width="14" height="14" viewBox="0 0 15 15" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="m10.5 10.5 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -579,6 +583,189 @@
   </div>
   <div id="qhost"></div>
 </section>
+
+
+<!-- JOURNAL-ARTICLES:START -->
+<style data-journal-css>
+/* ── Journal Articles section ─────────────────────────────────────────── */
+.ja-standalone {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 2px solid var(--line, #d9d0bd);
+}
+.ja-article {
+  margin-bottom: 24px;
+  padding: 20px 22px 18px;
+  background: var(--paper2, #fbf8f1);
+  border-radius: 10px;
+  box-shadow: var(--shadow, 0 1px 2px rgba(15,61,58,.08), 0 8px 24px rgba(15,61,58,.06));
+}
+.ja-cite {
+  margin: 0 0 10px;
+  line-height: 1.45;
+  font-size: 0.97em;
+}
+.ja-meta {
+  color: var(--muted, #5d6b62);
+  font-size: 0.875em;
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0.01em;
+}
+.ja-meta a {
+  color: var(--lit, #1f6f8b);
+  text-decoration: none;
+}
+.ja-meta a:hover {
+  text-decoration: underline;
+}
+.ja-abstract {
+  border-left: 3px solid var(--lit, #1f6f8b);
+  padding: 10px 14px;
+  margin: 0 0 18px;
+  background: var(--lit-soft, #dcedf2);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.925em;
+  line-height: 1.6;
+  color: var(--ink, #0f3d3a);
+}
+.ja-mcq {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line, #d9d0bd);
+}
+.ja-mcq + .ja-mcq {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.ja-q {
+  font-weight: 600;
+  font-size: 0.93em;
+  margin: 0 0 7px;
+  color: var(--ink, #0f3d3a);
+}
+.ja-opts {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ja-opt {
+  font-size: 0.9em;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: var(--ink2, #15514c);
+  background: transparent;
+}
+.ja-opt b {
+  display: inline-block;
+  min-width: 1.5em;
+  color: var(--muted, #5d6b62);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.88em;
+}
+.ja-ans {
+  margin-top: 4px;
+}
+.ja-ans summary {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 0.83em;
+  font-family: "JetBrains Mono", monospace;
+  padding: 3px 10px;
+  border: 1px solid var(--lit, #1f6f8b);
+  border-radius: 5px;
+  color: var(--lit, #1f6f8b);
+  background: transparent;
+  user-select: none;
+  list-style: none;
+}
+.ja-ans summary::-webkit-details-marker { display: none; }
+.ja-ans summary::marker { display: none; }
+.ja-ans summary:hover {
+  background: var(--lit-soft, #dcedf2);
+}
+.ja-ans[open] summary {
+  background: var(--lit-soft, #dcedf2);
+  margin-bottom: 6px;
+}
+.ja-ans-body {
+  font-size: 0.9em;
+  padding: 8px 12px;
+  background: var(--paper, #fdfaf4);
+  border: 1px solid var(--line, #d9d0bd);
+  border-radius: 6px;
+  line-height: 1.55;
+  color: var(--ink, #0f3d3a);
+}
+.ja-ans-correct {
+  font-weight: 600;
+  color: var(--good, #2f7d52);
+  display: block;
+  margin-bottom: 4px;
+}
+.ja-ans-rationale {
+  color: var(--ink2, #15514c);
+}
+/* ── Journal self-test (pages without an MCQ bank) ── */
+.ja-quiz { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line, #d9d0bd); }
+.ja-quiz-h { font-family: "Fraunces", serif; font-weight: 600; font-size: 18px; margin: 0 0 12px; color: var(--ink, #0f3d3a); }
+.ja-qcard { background: var(--paper2, #fbf8f1); border: 1px solid var(--line, #d9d0bd); border-radius: 12px; padding: 14px 16px; margin: 12px 0; }
+.ja-qstem { font-weight: 600; font-size: 0.95em; margin-bottom: 10px; color: var(--ink, #0f3d3a); }
+.ja-qopt { display: block; width: 100%; text-align: left; cursor: pointer; font: inherit; font-size: 0.9em; padding: 8px 11px; margin: 5px 0; border: 1px solid var(--line, #d9d0bd); border-radius: 8px; background: var(--paper, #fdfaf4); color: var(--ink, #0f3d3a); }
+.ja-qopt b { color: var(--muted, #5d6b62); font-family: "JetBrains Mono", monospace; margin-right: 4px; }
+.ja-qopt:hover:not(.locked) { border-color: var(--lit, #1f6f8b); }
+.ja-qopt.locked { cursor: default; }
+.ja-qopt.correct { background: #e9f4ee; border-color: var(--good, #2f7d52); }
+.ja-qopt.wrong { background: #f8e9e9; border-color: var(--bad, #b23b3b); }
+.ja-qexpl { font-size: 0.88em; margin-top: 8px; padding: 9px 12px; background: var(--lit-soft, #dcedf2); border-radius: 8px; color: var(--ink2, #15514c); line-height: 1.5; }
+/* ── Journal source badge (self-contained so it renders on any bank page) ── */
+.bdg.journal {
+  display: inline-block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9.5px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 999px;
+  vertical-align: middle;
+  white-space: nowrap;
+  background: var(--lit-soft, #dcedf2);
+  color: var(--lit, #1f6f8b);
+}
+</style>
+<section class="panel" id="journal">
+  <h2 class="sec">Additional Resources</h2>
+  <p class="lead">Journal Articles (2021–2026) — exam items are drawn from the abstract only. Read each abstract here; self-test questions are in the MCQ Test Bank.</p>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>2024 AAFP indoor/outdoor lifestyle position statement</b><br>
+    <span class="ja-meta">American Association of Feline Practitioners (AAFP) &middot; JFMS &middot; 2024</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Meeting the environmental needs of cats is an essential part of providing them with appropriate care. Individual cats have variable needs, and those needs are, in part, influenced by lifestyle. There are both risks and benefits to cats living exclusively indoors, exclusively outdoors, or spending some time in each environment. Understanding the risks and benefits of these different feline lifestyles provides veterinarians with the tools necessary to counsel clients on how to minimize health risks to their cat while meeting the individual cat's lifestyle needs. This statement addresses the cat's welfare - the welfare of wildlife is addressed elsewhere. Cats need to be microchipped and, when appropriate, wear visible identification such as a tag. Indoor-only lifestyle Although an indoor-only lifestyle avoids the risks inherent in the outdoor environment, significant effort must be made to meet all of the environmental needs of the indoor-only cat. In order to ensure good welfare, the indoor-only cat should have access to all essential resources, including food, water, comfortable and safe resting places, simulated hunting and foraging opportunities, play, safe territory with vertical space, and appropriate and clean toileting areas. See the 'AAFP and ISFM Environmental Needs Guidelines'1 for more information. If the environmental needs of the indoor-only cat are not adequately met, the cat may develop anxiety and stress-related illnesses or behavioral concerns may emerge. Indoor/outdoor lifestyle Safety is the primary concern when letting cats outdoors. Providing controlled access to the outdoors, such as an outdoor enclosure, use of a cat-safe fence, or by walking the cat on a harness and leash allows a more stimulating environment with the potential for more normal feline behaviors while minimizing the risks of being outdoors. To improve safety from their predators, cats should be allowed outdoor access only during the day, and kept indoors or in an outdoor enclosure with indoor access at night. Young cats and male cats are more likely to engage in activities that increase the risk of injury and should be monitored more closely. Outdoor-only lifestyle There are some cats whose welfare needs can never be met indoors. Often these are cats that have been previously outdoor-only, are experiencing tension with other companion animals in the household, and/or whose physical and/or emotional needs are not met in the indoor environment. Forcing these cats to live in confinement creates considerable concerns for the individual's welfare. Barn placement or colony management may increase safety for these cats while allowing for an outdoor-only lifestyle. Trap-neuter-vaccinate-return programs are becoming more widely available and have been shown to improve health, reduce fighting and spread of disease among the population of cats, and humanely reduce the number of free-roaming cats leading an outdoor-only lifestyle.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Impact of a Local Government Funded Free Cat Sterilization Program for Owned and Semi-Owned Cats</b><br>
+    <span class="ja-meta">Rand &middot; Animals &middot; 2024</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> In most states of Australia, local governments (councils) are responsible for the enforcement of legislation relating to domestic cats. Traditional methods used for cat management based on trap–adopt or euthanize programs have been ineffective, with cat-related calls and cat impoundments continuing to increase, resulting in many healthy cats being euthanized. This has detrimental effects on the mental health of animal management officers, staff in shelters and council facilities, and cat caregivers. The city of Banyule, Victoria, implemented a free cat sterilization, microchipping, and registration (licensing) program in 2013/14. Initially, it was targeted at three low-socioeconomic suburbs with the highest cat-related calls and intake, and was microtargeted at call locations. An average of 4.1 cats/1000 residents per year were sterilized over eight years. The program included stray cats being fed by caregivers, provided they took ownership. The program was later expanded city-wide. Over eight years, city-wide cat intake decreased by 66%, euthanasia by 82%, and cats reclaimed by owners increased from 6% of intake (2012/13) to 16% (2020/21). Cat-related calls decreased in the target area by 51%, and city-wide by 36%. The council realized cost savings of AU $440,660 associated with reduced costs for cat-related calls to council (AU $137,170) and charges from the contracted welfare agency (AU $303,490), for an outlay of AU $77,490 for sterilization costs. Instead of the traditional management of urban cats, proactive management based on targeted sterilization should be utilized by government and animal welfare agencies in Australia and internationally. These types of programs are effective at reducing cat intake and euthanasia and are cost-effective.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Outcomes of a Community Cat Program Based on Sterilization of Owned, Semi-Owned and Unowned Cats in a Small Rural Town</b><br>
+    <span class="ja-meta">Rand &middot; Animals &middot; 2024</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Free-roaming cats in urban and peri-urban areas and in rural towns pose significant challenges due to their nuisance behaviors, threats to wildlife, and potential disease transmission. Traditional management methods often involve trapping and euthanizing many of these cats, which is not only costly but also distressing for the shelter staff involved, and have failed to reduce numbers of impounded cats or cat-related complaints. Our study aimed to evaluate the effectiveness of a Community Cat Program that provided free sterilization, microchipping, and preventative veterinary care for all owned, semi-owned, and unowned cats in a small rural town with high cat impoundments in Ipswich, Queensland. The program was instigated by the Australian Pet Welfare Foundation in collaboration with the Royal Society for the Prevention of Cruelty to Animals, Queensland and the Animal Welfare League, Queensland, and it was funded by various organizations including Fondation Brigitte Bardot. Data from 2017 to 2023 were analyzed to assess the impact of the program on cat intake and outcomes in local shelters. A total of 308 cats were sterilized, representing 94 cats per 1000 residents over 3.4 years, and in the third year, this was associated with a 60% decrease in cat intake, an 85% reduction in numbers euthanized and 39% fewer cat-related calls to the local council. These findings suggest that high-intensity, targeted sterilization programs significantly decrease shelter intake and euthanasia, and thus alleviate the psychological burden on staff. These programs are a humane and effective alternative to traditional cat management, and benefit animal welfare as well as community wellbeing. This is aligned with a One Welfare approach, which enhances the well-being of animals, humans, and their environments. Legislative changes are required to support these programs to effectively decrease the numbers of free-roaming cats in cities and towns and the issues they cause, while protecting human wellbeing.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>2023 AAFP free-roaming cat position statement</b><br>
+    <span class="ja-meta">American Association of Feline Practitioners (AAFP) &middot; JFMS &middot; 2023</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> The AAFP supports reducing the number of free-roaming cats through humane capture, sterilization and appropriate homing based on the spectrum of socialization to people and lifestyle that characterizes Felis catus with adoption into homes, where appropriate, and return to the original or appropriate location (eg, barn, community) once sterilized.1 The AAFP supports non-lethal programs for controlling free-roaming populations. Outdoor access for companion cats should focus on methods that address the goals listed above, including leash-walking and fenced yards or other enclosures when possible.2 The AAFP recognizes that the management of free-roaming cats is complex. The AAFP encourages collaboration between humane groups, conservationists, animal control authorities, caregivers and other stakeholders. The AAFP encourages more interdisciplinary research to increase evidence-based management practices.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Prepubertal Use of Long-Term GnRH Agonists in Dogs: Current Knowledge and Recommendations</b><br>
+    <span class="ja-meta">Schafer-Somi &middot; Animals &middot; 2022</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> The search for an alternative approach of estrus control (induction or suppression) in dogs is an important issue and the use of slow GnRH agonist-releasing implants has been the subject of frequent research in recent years. Studies to date demonstrate that the short- and long-term effects of deslorelin implants applicated at different time points of the prepubertal period are similar to those of adult dogs; however, there are important differences. The age of the prepubertal bitch and the dosage appear to be the main determinants of the response to deslorelin, as well as the individual metabolism of the bitch. Recent studies reported that the deslorelin-mediated long-term delay of puberty does not have negative carry-over effects on subsequent ovarian functionality, serum steroid hormone concentrations, uterine health, and fertility; however, more molecular studies are needed to determine the effects of application time of GnRH agonists on hormone concentrations and peripheral receptor expression. Furthermore, the long-term effects of delay of puberty with deslorelin on joint health, tumor development, the immune system, and social behavior deserve further investigations.</div>
+  </div>
+
+</section>
+<!-- JOURNAL-ARTICLES:END -->
 
 </div></main>
 
@@ -1106,5 +1293,37 @@ function setRate(btn,r){
   Cited third-party materials (journal abstracts, openly-licensed images, etc.)
   remain the property of their respective owners.
 </footer>
+<!-- JOURNAL-BANK:START -->
+<script data-journal-bank>
+(function(){try{
+  // Teach the page's badge/label helpers about journal-sourced questions so
+  // they render a "journal" source badge (the page templates predate this tag).
+  if(typeof flagBadge==='function' && !flagBadge.__journalPatched){
+    var _fb=flagBadge;
+    window.flagBadge=function(f){return f==='journal'?'<span class="bdg journal">journal</span>':_fb(f);};
+    window.flagBadge.__journalPatched=true;
+  }
+  if(typeof tagLabel==='function' && !tagLabel.__journalPatched){
+    var _tl=tagLabel;
+    window.tagLabel=function(t){return t==='journal'?'Journal':_tl(t);};
+    window.tagLabel.__journalPatched=true;
+  }
+  // Add a "Journal Articles" chip to the topic-filter bar so the journal
+  // questions can be isolated (they otherwise sit at the end of the bank).
+  var _fbar=document.querySelector('.filters');
+  if(_fbar && !_fbar.querySelector('[data-f="journal"]')){
+    var _jb=document.createElement('button');
+    _jb.setAttribute('data-f','journal');
+    _jb.textContent='Journal Articles';
+    _fbar.appendChild(_jb);
+  }
+  if(typeof Q!=='undefined' && Array.isArray(Q)){
+    var JJ=[{"q": "What population-control approach does the AAFP support for free-roaming cats?", "o": ["Lethal removal programs", "Non-lethal sterilization and humane homing", "No intervention", "Mandatory euthanasia of unsocialized cats"], "a": 1, "e": "The AAFP supports humane capture, sterilization, homing, and non-lethal control programs.", "t": "journal", "f": "journal"}, {"q": "How does the AAFP recommend providing outdoor access for companion cats?", "o": ["Unrestricted free roaming", "Leash-walking, fenced yards, or enclosures", "Only at night", "Never permitting outdoor access"], "a": 1, "e": "The statement endorses leash-walking and fenced yards/enclosures where possible.", "t": "journal", "f": "journal"}, {"q": "What does the AAFP encourage to improve free-roaming cat management?", "o": ["Single-agency control", "Interdisciplinary collaboration and evidence-based research", "Reliance on anecdote", "Banning caregiver involvement"], "a": 1, "e": "The AAFP encourages stakeholder collaboration and more interdisciplinary, evidence-based research.", "t": "journal", "f": "journal"}, {"q": "To improve safety from predators, when should indoor/outdoor cats be given outdoor access?", "o": ["Only at night", "During the day, kept in at night", "Continuously, day and night", "Only in winter"], "a": 1, "e": "Outdoor access should be daytime only, with cats kept indoors or in an enclosure at night.", "t": "journal", "f": "journal"}, {"q": "What is a consequence if an indoor-only cat's environmental needs are not met?", "o": ["Improved welfare", "Anxiety and stress-related illness or behavioural concerns", "No effect", "Increased lifespan"], "a": 1, "e": "Unmet environmental needs may lead to anxiety, stress-related illness, or behavioural problems.", "t": "journal", "f": "journal"}, {"q": "Which cats does the statement identify as more likely to engage in risky outdoor activities?", "o": ["Senior females", "Young and male cats", "Spayed females only", "Indoor-only cats"], "a": 1, "e": "Young cats and male cats are more likely to engage in injury-risk activities and need closer monitoring.", "t": "journal", "f": "journal"}, {"q": "By the third year of the Ipswich Community Cat Program, what happened to shelter cat intake?", "o": ["Increased 60%", "Decreased about 60%", "Unchanged", "Decreased 10%"], "a": 1, "e": "The program was associated with a 60% decrease in cat intake by year three.", "t": "journal", "f": "journal"}, {"q": "What reduction in euthanasia was associated with the program?", "o": ["About 85%", "About 20%", "About 39%", "No change"], "a": 0, "e": "An 85% reduction in numbers euthanized was reported.", "t": "journal", "f": "journal"}, {"q": "The authors frame these targeted sterilization programs as aligned with which approach?", "o": ["Trap-and-euthanize", "One Welfare", "Laissez-faire management", "Captive breeding"], "a": 1, "e": "The benefits to animals, humans, and environment align with a One Welfare approach.", "t": "journal", "f": "journal"}, {"q": "Over eight years of the Banyule free sterilization program, city-wide cat intake changed how?", "o": ["Rose 66%", "Fell 66%", "Fell 16%", "Stayed flat"], "a": 1, "e": "City-wide cat intake decreased by 66% over eight years.", "t": "journal", "f": "journal"}, {"q": "What was the program's financial outcome for the council?", "o": ["A net loss", "Net cost savings of about AU$440,660", "Cost-neutral", "Unmeasured"], "a": 1, "e": "The council realized cost savings of about AU$440,660 against a smaller sterilization outlay.", "t": "journal", "f": "journal"}, {"q": "How did the owner-reclaim rate change over the program period?", "o": ["Fell from 16% to 6%", "Rose from 6% to 16%", "Stayed at 6%", "Rose to 50%"], "a": 1, "e": "Cats reclaimed by owners increased from 6% of intake to 16%.", "t": "journal", "f": "journal"}, {"q": "Per the review, the main determinants of a prepubertal bitch's response to deslorelin are:", "o": ["Breed and coat color", "Age and dosage (plus individual metabolism)", "Season and diet", "Litter size"], "a": 1, "e": "The review names age of the prepubertal bitch, dosage, and individual metabolism as the main response determinants.", "t": "journal", "f": "journal"}, {"q": "Recent studies found long-term deslorelin-induced delay of puberty had what effect on later ovarian function and fertility?", "o": ["Permanent infertility", "No negative carry-over effects", "Increased uterine disease", "Early ovarian failure"], "a": 1, "e": "Reported absence of negative carry-over on ovarian functionality, steroid hormones, uterine health, and fertility.", "t": "journal", "f": "journal"}, {"q": "Which areas does the review flag as still needing further investigation?", "o": ["Long-term effects on joint health, tumors, immunity, and social behavior", "Acute injection-site reactions", "Implant manufacturing cost", "Owner satisfaction"], "a": 0, "e": "The authors call for more study of joint health, tumor development, immune system, and social behavior effects.", "t": "journal", "f": "journal"}];
+    JJ.forEach(function(m){Q.push({t:m.t||"journal",f:m.f||"journal",q:m.q,o:m.o,a:m.a,e:m.e});});
+    if(typeof render==='function'){render();}
+  }
+}catch(e){}})();
+</script>
+<!-- JOURNAL-BANK:END -->
 </body>
 </html>
