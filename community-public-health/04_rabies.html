@@ -164,6 +164,10 @@
   <button data-p="law"><span class="dot"></span>Public Health &amp; Law</button>
   <button data-p="oneh"><span class="dot"></span>One Health</button>
   <button data-p="mcq"><span class="dot" style="background:#0f3d3a"></span>MCQ Test Bank</button>
+
+<!-- JOURNAL-TAB:START -->
+<button data-p="journal"><span class="dot" style="background:var(--lit, #1f6f8b)"></span>Journal Articles</button>
+<!-- JOURNAL-TAB:END -->
 </div></div></nav>
 <div class="srch-wrap"><div class="wrap"><div class="srch-row">
 <svg width="14" height="14" viewBox="0 0 15 15" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="m10.5 10.5 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -770,6 +774,240 @@
 
   </div><!-- /qlist -->
 </section>
+
+
+<!-- JOURNAL-ARTICLES:START -->
+<style data-journal-css>
+/* ── Journal Articles section ─────────────────────────────────────────── */
+.ja-standalone {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 2px solid var(--line, #d9d0bd);
+}
+.ja-article {
+  margin-bottom: 24px;
+  padding: 20px 22px 18px;
+  background: var(--paper2, #fbf8f1);
+  border-radius: 10px;
+  box-shadow: var(--shadow, 0 1px 2px rgba(15,61,58,.08), 0 8px 24px rgba(15,61,58,.06));
+}
+.ja-cite {
+  margin: 0 0 10px;
+  line-height: 1.45;
+  font-size: 0.97em;
+}
+.ja-meta {
+  color: var(--muted, #5d6b62);
+  font-size: 0.875em;
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0.01em;
+}
+.ja-meta a {
+  color: var(--lit, #1f6f8b);
+  text-decoration: none;
+}
+.ja-meta a:hover {
+  text-decoration: underline;
+}
+.ja-abstract {
+  border-left: 3px solid var(--lit, #1f6f8b);
+  padding: 10px 14px;
+  margin: 0 0 18px;
+  background: var(--lit-soft, #dcedf2);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.925em;
+  line-height: 1.6;
+  color: var(--ink, #0f3d3a);
+}
+.ja-mcq {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line, #d9d0bd);
+}
+.ja-mcq + .ja-mcq {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.ja-q {
+  font-weight: 600;
+  font-size: 0.93em;
+  margin: 0 0 7px;
+  color: var(--ink, #0f3d3a);
+}
+.ja-opts {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ja-opt {
+  font-size: 0.9em;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: var(--ink2, #15514c);
+  background: transparent;
+}
+.ja-opt b {
+  display: inline-block;
+  min-width: 1.5em;
+  color: var(--muted, #5d6b62);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.88em;
+}
+.ja-ans {
+  margin-top: 4px;
+}
+.ja-ans summary {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 0.83em;
+  font-family: "JetBrains Mono", monospace;
+  padding: 3px 10px;
+  border: 1px solid var(--lit, #1f6f8b);
+  border-radius: 5px;
+  color: var(--lit, #1f6f8b);
+  background: transparent;
+  user-select: none;
+  list-style: none;
+}
+.ja-ans summary::-webkit-details-marker { display: none; }
+.ja-ans summary::marker { display: none; }
+.ja-ans summary:hover {
+  background: var(--lit-soft, #dcedf2);
+}
+.ja-ans[open] summary {
+  background: var(--lit-soft, #dcedf2);
+  margin-bottom: 6px;
+}
+.ja-ans-body {
+  font-size: 0.9em;
+  padding: 8px 12px;
+  background: var(--paper, #fdfaf4);
+  border: 1px solid var(--line, #d9d0bd);
+  border-radius: 6px;
+  line-height: 1.55;
+  color: var(--ink, #0f3d3a);
+}
+.ja-ans-correct {
+  font-weight: 600;
+  color: var(--good, #2f7d52);
+  display: block;
+  margin-bottom: 4px;
+}
+.ja-ans-rationale {
+  color: var(--ink2, #15514c);
+}
+/* ── Journal self-test (pages without an MCQ bank) ── */
+.ja-quiz { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line, #d9d0bd); }
+.ja-quiz-h { font-family: "Fraunces", serif; font-weight: 600; font-size: 18px; margin: 0 0 12px; color: var(--ink, #0f3d3a); }
+.ja-qcard { background: var(--paper2, #fbf8f1); border: 1px solid var(--line, #d9d0bd); border-radius: 12px; padding: 14px 16px; margin: 12px 0; }
+.ja-qstem { font-weight: 600; font-size: 0.95em; margin-bottom: 10px; color: var(--ink, #0f3d3a); }
+.ja-qopt { display: block; width: 100%; text-align: left; cursor: pointer; font: inherit; font-size: 0.9em; padding: 8px 11px; margin: 5px 0; border: 1px solid var(--line, #d9d0bd); border-radius: 8px; background: var(--paper, #fdfaf4); color: var(--ink, #0f3d3a); }
+.ja-qopt b { color: var(--muted, #5d6b62); font-family: "JetBrains Mono", monospace; margin-right: 4px; }
+.ja-qopt:hover:not(.locked) { border-color: var(--lit, #1f6f8b); }
+.ja-qopt.locked { cursor: default; }
+.ja-qopt.correct { background: #e9f4ee; border-color: var(--good, #2f7d52); }
+.ja-qopt.wrong { background: #f8e9e9; border-color: var(--bad, #b23b3b); }
+.ja-qexpl { font-size: 0.88em; margin-top: 8px; padding: 9px 12px; background: var(--lit-soft, #dcedf2); border-radius: 8px; color: var(--ink2, #15514c); line-height: 1.5; }
+/* ── Journal source badge (self-contained so it renders on any bank page) ── */
+.bdg.journal {
+  display: inline-block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9.5px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 999px;
+  vertical-align: middle;
+  white-space: nowrap;
+  background: var(--lit-soft, #dcedf2);
+  color: var(--lit, #1f6f8b);
+}
+</style>
+<section class="panel" id="journal">
+  <h2 class="sec">Additional Resources</h2>
+  <p class="lead">Journal Articles (2021–2026) — exam items are drawn from the abstract only. Read each abstract here; self-test questions are in the MCQ Test Bank.</p>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Dog ecology and rabies control including canine vaccination coverage: Impacts from a survey in Madagascar</b><br>
+    <span class="ja-meta">Rajoromanana &middot; PLOS ONE &middot; 2024</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Background<br><br>Rabies virus (RABV; species Lyssavirus rabies) is causing one of the oldest zoonotic diseases known to mankind, leading to fatal encephalomyelitis in animals and humans. Despite the existence of safe and effective vaccines to prevent the disease, an estimated 99% of human rabies deaths worldwide are caused by dog-mediated rabies with children at the highest risk of infection. Rabies has been endemic in Madagascar for over a century, yet there has been little research evaluating local knowledge and practices impacting on the rabies control and prevention. Thus, this study was undertaken to better understand the dog ecology including canine vaccine coverage and to assess knowledge and practices of dog owners and veterinarians. Methodology<br><br>A cross-sectional study was conducted among 123 dog-owning households in thirteen fokontanys in Mahajanga from July 4 to September 13, 2016. Single and multi-member dog-owning households in the study area on the day of the interview were eligible for inclusion and purposively selected with the support of a local guide. The survey included a household questionnaire capturing information on the dog’s demographics, husbandry practices, knowledge and practices towards rabies and its control measures; the dog ecology questionnaire collected dog characteristics, vaccination status and husbandry practices. All households that reported a dog bite incident, were invited to participate in a dog bite questionnaire. In addition, direct observations of roaming dogs were conducted to assess dog population demographics and to document behavioural characteristics. Two veterinarians were purposively selected and took part in an interview during the survey period, providing information on rabies control activities, including dog-care practices in the area. Descriptive and inferential data analyses were performed using Epi Info version 7.1.5.0 (CDC Atlanta, USA). Results<br><br>We recorded a total of 400 dogs, of which 338 (84.5%) were owned amongst 123 households. More than half (67.8%) of owned dogs were between 1 to 5 years old and 95.6% were kept for guarding purposes. 45% of the surveyed dogs had free access to roam outside the premises. The majority (85.4%) of dog owners were knowledgeable that a dog bite could potentially transmit RABV to humans. 19 dog bites were reported and of these 73.6% were caused by the owner’s or a neighbour’s dog. In 6 of the 19 cases, children between 7 and 15 years of age were the victims. Dog vaccination coverage against rabies was 34% among owned dogs. Of the participants aware of a veterinarian, the majority (55/82) indicated that they accessed veterinarian services at irregular intervals. The main obstacles to vaccinations cited by dog owners were limited financial resources and difficulty accessing veterinary care. Conclusion<br><br>This study contributes to enhanced understanding of the dog ecology including canine vaccine coverage as well as knowledge and practices of dog owners in Madagascar. Most dogs in the study area were accessible for preventive vaccination through their owners, however only one third of the investigated canine population was vaccinated against rabies. Concerted national efforts towards rabies prevention and control should aim to address financial challenges and access to veterinary services.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Dogs on the move: Estimating the risk of rabies in imported dogs in the United States, 2015–2022</b><br>
+    <span class="ja-meta">Pieracci &middot; Zoonoses and Public Health &middot; 2024</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Background Dog-mediated rabies virus variant (DMRVV), a zoonotic pathogen that causes a deadly disease in animals and humans, is present in more than 100 countries worldwide but has been eliminated from the United States since 2007. In the United States, the U.S. Centers for Disease Control and Prevention has recorded four instances of rabies in dogs imported from DMRVV-enzootic countries since 2015. However, it remains uncertain whether the incidence of DMRVV among imported dogs from these countries significantly surpasses that of domestically acquired variants among domestic U.S. dogs.<br><br>Aim This evaluation aimed to estimate the number of dogs imported from DMRVV-enzootic countries and compare the risk of rabies between imported dogs and the U.S. domestic dog population.<br><br>Materials and Methods Data from the CDC's dog import permit system (implemented during 2021 under a temporary suspension of dog importation from DMRVV-enzootic countries) and U.S. Customs and Border Protection's Automated Commercial Environment system, each of which records a segment of dogs entering the U.S. from DMRVV-enzootic countries, was analysed. Additionally, we estimated the incidence rate of rabies in dogs imported from DMRVV-enzootic countries and compared it to the incidence rate within the general U.S. dog population, due to domestically acquired rabies variants, over the eight-year period (2015–2022).<br><br>Results An estimated 72,589 (range, 62,660–86,258) dogs were imported into the United States annually between 2015 and 2022 from DMRVV-enzootic countries. The estimated incidence rate of rabies was 16 times higher (range, 13.2–19.4) in dogs imported from DMRVV-enzootic countries than that estimated for domestically acquired rabies in the general U.S. dog population.<br><br>Conclusions Preventing human exposure to dogs with DMRVV is a public health priority. The higher risk of rabies in dogs imported from DMRVV-enzootic countries supports the need for importation requirements aimed at preventing the reintroduction of DMRVV into the United States.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Evaluation of country infrastructure as an indirect measure of dog-mediated human rabies deaths</b><br>
+    <span class="ja-meta">Bonaparte &middot; Frontiers &middot; 2023</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Background: Rabies is a neglected disease, primarily due to poor detection stemming from limited surveillance and diagnostic capabilities in most countries. As a result, there is limited ability to monitor and evaluate country, regional, and global progress towards the WHO goal of eliminating human rabies deaths by 2030. There is a need for a low-cost, readily reproducible method of estimating rabies burden and elimination capacity in endemic countries.    Methods: Publicly available economic, environmental, political, social, public health, and One Health indicators were evaluated to identify variables with strong correlation to country-level rabies burden estimates. A novel index was developed to estimate infrastructural rabies elimination capacity and annual case-burden for dog-mediated rabies virus variant (DMRVV) endemic countries.    Findings: Five country-level indicators with superior explanatory value represent the novel “STOP-R index:” (1) literacy rate, (2) infant mortality rate, (3) electricity access, (4) political stability, and (5) presence/severity of natural hazards. Based on the STOP-R index, 40,111 (95% CI 25,854–74,344) global human rabies deaths are estimated to occur in 2022 among DMRVV-endemic countries and are projected to decrease to 32,349 (95% CI 21,110–57,019) in 2030.    Interpretation: The STOP-R index offers a unique means of addressing the data gap and monitoring progress towards eliminating dog-mediated human rabies deaths. Results presented here suggest that factors external to rabies programs influence the successes of rabies elimination, and it is now possible to identify countries exceeding or lagging in expected rabies control and elimination progress based on country infrastructure.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Rabies surveillance in the United States during 2021</b><br>
+    <span class="ja-meta">Ma &middot; JAVMA &middot; 2023</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> OBJECTIVE To provide epidemiological information on the occurrence of animal and human rabies in the US during 2021 and summaries of 2021 rabies surveillance for Canada and Mexico.<br><br>PROCEDURES State and territorial public health departments and USDA Wildlife Services provided data on animals submitted for rabies testing in 2021. Data were analyzed temporally and geographically to assess trends in domestic animal and wildlife rabies cases.<br><br>RESULTS During 2021, 54 US jurisdictions reported 3,663 rabid animals, representing an 18.2% decrease from the 4,479 cases reported in 2020. Texas (n = 456 [12.4%]), Virginia (297 [8.1%]), Pennsylvania (287 [7.8%]), North Carolina (248 [6.8%]), New York (237 [6.5%]), California (220 [6.0%]), and New Jersey (201 [5.5%]) together accounted for &gt; 50% of all animal rabies cases reported in 2021. Of the total reported rabid animals, 3,352 (91.5%) involved wildlife, with bats (n = 1,241 [33.9%]), raccoons (1,030 [28.1%]), skunks (691 [18.9%]), and foxes (314 [8.6%]) representing the primary hosts confirmed with rabies. Rabid cats (216 [5.9%]), cattle (40 [1.1%]), and dogs (36 [1.0%]) accounted for 94% of rabies cases involving domestic animals in 2021. Five human rabies deaths were reported in 2021.<br><br>CLINICAL RELEVANCE The number of animal rabies cases reported in the US decreased significantly during 2021; this is thought to be due to factors related to the COVID-19 pandemic.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>A One Medicine Mission for an Effective Rabies Therapy</b><br>
+    <span class="ja-meta">Knobel &middot; Frontiers &middot; 2022</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Despite the disease's long history, little progress has been made toward a treatment for rabies. The prognosis for patient recovery remains dire. For any prospect of survival, patients require aggressive critical care, which physicians in rabies endemic areas may be reluctant or unable to provide given the cost, clinical expertise required, and uncertain outcome. Systematic clinical research into combination therapies is further hampered by sporadic occurrence of cases. In this Perspective, we examine the case for a One Medicine approach to accelerate development of an effective therapy for rabies through the veterinary care and investigational treatment of naturally infected dogs in appropriate circumstances. We review the pathogenesis of rabies virus in humans and dogs, including recent advances in our understanding of the molecular basis for the severe neurological dysfunction. We propose that four categories of disease process need to be managed in patients: viral propagation, neuronal degeneration, inflammation and systemic compromise. Compassionate critical care and investigational treatment of naturally infected dogs receiving supportive therapy that mimics the human clinical scenario could increase opportunities to study combination therapies that address these processes, and to identify biomarkers for prognosis and therapeutic response. We discuss the safety and ethics of this approach, and introduce the Canine Rabies Treatment Initiative, a non-profit organization with the mission to apply a One Medicine approach to the investigation of diagnostic, prognostic, and therapeutic options for rabies in naturally infected dogs, to accelerate transformation of rabies into a treatable disease for all patients.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Dog Ecology and Demographics in Several Areas in the Philippines and Its Application to Anti-Rabies Vaccination Programs</b><br>
+    <span class="ja-meta">Chaudhari &middot; Animals &middot; 2022</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Understanding dog population dynamics plays a vital role in planning both rabies and dog management interventions. Establishing a human to dog ratio and an understanding how the urban/rural nature of the community might affect the overall dog population estimate provides an easy-to-use reference to estimate approximate dog populations in a range of communities. A total of 10,664 households were interviewed in 10 locations in the Philippines (2017 and 2018) to understand the dog population variations among the urban, semi-urban and rural areas. Epicollect5 and OSM tracker applications were used to conduct household interviews using a predesigned fixed set of questions. All answers were recorded directly using mobile phone applications. The survey results showed that for every 1000 humans, there are 256.3 dogs in rural areas, 213.8 dogs in semi-rural areas, 208.7 dogs in urban areas and 170.0 dogs on small islands of the Philippines. We estimate a total dog population in the Philippines of 23.29 million dogs (CI 95%, 22.51–24.07 million). Based on the survey findings from Quezon City and Cebu City, targets, resources allocations and vaccination approach were adjusted for the anti-rabies vaccination program at two locations in 2018, which lead to a 3- to 4-fold increase in the total number of dogs vaccinated in each city compared to previous years.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>General insights on obstacles to dog vaccination in Chad on community and institutional level</b><br>
+    <span class="ja-meta">Mbaipago &middot; Frontiers &middot; 2022</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Domestic dogs are responsible for 95% of all human rabies cases worldwide and continue to be the main reservoir for this fatal virus in African and Asian countries. Interrupting the spread of the disease in the domestic dog population is therefore necessary for long-term, sustainable rabies control. Chad has been recognized as a rabies-endemic country since 1961, but no national control strategy is in place to date and dog vaccination coverage is very low. This qualitative, descriptive study aims to describe the main barriers to dog vaccination on both the community and the institutional level from a socio-anthropological point of view in Chad. The study was embedded in an overall project conducted from 2016 to 2018, to determine rabies burden and vaccine demand in West and Central Africa, funded by GAVI, the vaccine alliance. Data collection was conducted on the occasion of the project's closing workshops with stakeholders organized between August to September 2018 in the four (4) project areas: Logone Occidental, Ouaddaï, Hadjer Lamis and Chari Baguirmi. We conducted interviews and focus group discussions (FGD) among veterinary officers and dog owners. Participants were selected purposively based on their place of residence (dog owners) or work place (veterinary officers) and their previous contact with the project through reporting (dog owner) or management (veterinary officers) of a suspect dog rabies case. In each region, one FGD was organized with dog owners, and one FGD with heads of veterinary posts. At the end of the FGDs, a few participants were randomly selected for interviews. In addition, in each region an interview was conducted with the head of the livestock sector, the chief district medical officers and the head of a civil society association. The identified barriers to dog vaccination access are grouped into three main aspects: the economic, the socio-cultural and the institutional level. Economic constraints encountered relate to the cost of the vaccine itself and the expenses for transporting the dogs to the vaccination site. The cultural belief that the vaccine will have an impact on the therapeutic properties of dog meat for consumers (observed in Southern Chad), and the fact that dogs are considered impure animals in Muslim faith, which prohibits handling of dogs, are obstacles identified on the sociocultural level. At the institutional level, the unavailability of vaccines in veterinary services, the lack of communication about the law on dog vaccination, the absence of rabies in the training curricula of veterinary agents, and the lack of intersectoral collaboration limit vaccination coverage. In order to improve vaccination coverage and rabies surveillance with a view to eradicate rabies by 2030, communication strategies that are adapted to the context and that take cultural obstacles into account must be put in place in a synergy of interdisciplinary action. In addition, factors such as affordability, geographical access and availability of dog rabies vaccines needs to be addressed throughout the country. Although our study design did not allow a detailed analysis of obstacles related to socio-economic level, gender and age the broad insights gained can provide general guidance for future interventions in Chad and similar countries.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Where Rabies Is Not a Disease. Bridging Healthworlds to Improve Mutual Understanding and Prevention of Rabies</b><br>
+    <span class="ja-meta">Nadal &middot; Frontiers &middot; 2022</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Deeply embedded in local social, cultural, and religious settings, traditional healing is part of dog bite and rabies management in many rabies endemic countries. Faith healing, which usually encompasses a more holistic approach to health including physical, mental and social dimensions, is rare in the context of rabies. In Gujarat, Western India, the Hindu goddess Hadkai Mata is worshiped by low-caste communities as the Mother of Rabies in the event of a dog bite to a person or their livestock. This belief might influence people's attitudes and behaviors toward rabies prevention but has never been investigated. Through 31 in-depth interviews with healers and staff of Hadkai Mata temples, this paper explores the system of knowledge around dog and human rabies that is built and shared in these places of worship and healing. Qualitative and quantitative data were analyzed looking for convergences and divergences with the recently launched National Action Plan for dog-mediated Rabies Elimination. Results suggest that while the etiology of human rabies as a social illness is usually explained as the goddess's wish to correct misbehaving people and restore positive interpersonal relations, there is some appreciation for the biological processes of infection that lead to rabies as a physical disease. Hadkai Mata is believed to cure rabies if her patients undergo the necessary process of moral growth. Although conventional post-exposure prophylaxis is not opposed per se, it is often delayed by patients who seek traditional treatment first. Some reluctance was expressed toward mass dog vaccination because it is seen as an interference in how the goddess controls dogs, by enraging them—hence infecting them with rabies—and sending them to bite wrongdoers. Addressing these cultural perceptions is likely to be critical in achieving effective control of dog rabies in this region. The study highlights the value of multidisciplinary approaches in the control and elimination of rabies, as well as other zoonoses. This includes the importance of understanding different culturally- and religiously- mediated ways in which humans relate to animals; and looking for points of convergence and mutual understanding, upon which context-tailored, linguistically-accurate, locally acceptable, feasible and effective strategies can be designed.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Barriers and opportunities for canine rabies vaccination campaigns in Addis Ababa, Ethiopia</b><br>
+    <span class="ja-meta">Yoak, Haile, O&#x27;Quin, Belu, Birhane, Bekele, Murphy, Medley, Vincent, Steward, Shiferaw, Tafese, Garabed, Pieracci &middot; Preventive Veterinary Medicine &middot; 2021</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Background Canine rabies is endemic in Ethiopia and presents a significant burden for both animal and human health. We investigate barriers to dog vaccination in Addis Ababa, Ethiopia. These results can be utilized to improve and target future rabies control efforts. Methodology/Principle findings During May of 2017, dog owners were surveyed during a free canine rabies vaccination programs that utilized both door-to-door (DtD) and central point (CP) vaccination methods. Surveys collected information on preferences for rabies vaccine delivery and were administered in Amharic. A total of 1057 surveys were completed. Of those surveyed, 62.4 % indicated that their dogs had been vaccinated against rabies within the last year. Commonly reported barriers to vaccination were a lack of awareness that dogs required rabies vaccines (18.1 %) and lack of knowledge about where to find vaccine (15.0 %). The median price owners were willing to pay for vaccination was 25 birr ($0.91 USD) and the median distance willing to travel was 1.0 km; however, 48.9 % of those surveyed during DtD were unwilling to travel at all. We identified 3 classes of respondents who were grouped due to their responses by latent class analysis: ‘the Unaware’, ‘the Vaccinators’, and ‘the Multiple Barriers’. Conclusions/Significance Although many respondents were willing to pay for rabies vaccine (94.0 %); the preferred cost (median) was less than the actual cost of providing the vaccine. This supports the need for reduced-cost or free vaccine to achieve and sustain the 70 % vaccine coverage target threshold for canine rabies elimination. Additionally, a significant portion (41.5 %) of those surveyed indicated that they were unwilling to travel in order to have their dog vaccinated. The latent class analysis provides useful guidance on how to reach target vaccination. Owners from ‘the Unaware’ group made up 18.1 % of respondents and their high rate of allowing their dogs to roam identifies them as a prime target for canine health and behavior education. ‘The Multiple Barriers’ owners reported lower degrees of dog roaming and were substantially more likely to be found by DtD campaigns, possibly because they have limited ability/interest in handling their dogs. These results demonstrate the importance of incorporating DtD vaccination as well as subsidies to maximize vaccine coverage in Addis Ababa.</div>
+  </div>
+  <div class="ja-quiz">
+    <h3 class="ja-quiz-h">Journal Self-Test</h3>
+    <div id="jaQuizHost"></div>
+  </div>
+  <script data-journal-quiz>
+  (function(){
+    var JQ=[{"q": "How did the median price owners were willing to pay compare with the actual cost of vaccination?", "o": ["It exceeded the actual cost", "It equaled the actual cost", "It was less than the actual cost", "Owners refused to pay anything"], "a": 2, "e": "Willingness-to-pay (median ~25 birr) was below the real cost, supporting the need for subsidized or free vaccine.", "t": "journal", "f": "journal"}, {"q": "What vaccination coverage threshold is cited as needed for canine rabies elimination?", "o": ["40%", "70%", "90%", "100%"], "a": 1, "e": "The 70% coverage threshold is the stated target for canine rabies elimination.", "t": "journal", "f": "journal"}, {"q": "Which delivery strategy did results support incorporating to maximize coverage?", "o": ["Central-point clinics only", "Door-to-door vaccination plus subsidies", "Mandatory quarantine", "Online registration only"], "a": 1, "e": "Many owners were unwilling to travel, so door-to-door vaccination combined with subsidies was endorsed.", "t": "journal", "f": "journal"}, {"q": "What was the rabies vaccination coverage among owned dogs in this Madagascar survey?", "o": ["Approximately 84%", "Approximately 34%", "Approximately 56%", "Approximately 95%"], "a": 1, "e": "Only about one third (34%) of owned dogs were vaccinated against rabies.", "t": "journal", "f": "journal"}, {"q": "What were the main owner-cited obstacles to dog rabies vaccination?", "o": ["Vaccine safety fears and religious beliefs", "Lack of vaccine supply and government bans", "Limited finances and poor access to veterinary care", "Belief that dogs cannot transmit rabies"], "a": 2, "e": "Owners cited limited financial resources and difficulty accessing veterinary services as the chief barriers.", "t": "journal", "f": "journal"}, {"q": "What did the authors conclude about the accessibility of dogs for preventive vaccination?", "o": ["Most dogs were ownerless and unreachable", "Most dogs were accessible through their owners", "Vaccination should target only stray dogs", "Vaccination is unnecessary given low rabies risk"], "a": 1, "e": "Most dogs were owned and thus reachable for vaccination, yet coverage remained low.", "t": "journal", "f": "journal"}, {"q": "Which wildlife species accounted for the most US rabies cases in 2021?", "o": ["Raccoons", "Skunks", "Bats", "Foxes"], "a": 2, "e": "Bats were the leading rabid host at 33.9% of cases.", "t": "journal", "f": "journal"}, {"q": "Among domestic animals, which had the most reported rabies cases in 2021?", "o": ["Dogs", "Cats", "Cattle", "Horses"], "a": 1, "e": "Cats (216 cases) led domestic animal rabies, exceeding cattle and dogs.", "t": "journal", "f": "journal"}, {"q": "How did total US animal rabies cases in 2021 compare with 2020?", "o": ["18% increase", "Roughly unchanged", "18.2% decrease", "Doubled"], "a": 2, "e": "Cases fell 18.2% from 4,479 (2020) to 3,663 (2021), attributed to pandemic factors.", "t": "journal", "f": "journal"}, {"q": "Compared to domestically acquired rabies in US dogs, the estimated rabies incidence in dogs imported from DMRVV-enzootic countries was approximately:", "o": ["About the same", "Half as high", "16 times higher", "100 times higher"], "a": 2, "e": "Incidence was estimated 16 times higher (range 13.2-19.4) in imported dogs.", "t": "journal", "f": "journal"}, {"q": "Per the abstract, dog-mediated rabies virus variant has been eliminated from the United States since:", "o": ["2007", "2015", "2021", "1990"], "a": 0, "e": "The abstract states DMRVV has been eliminated from the US since 2007.", "t": "journal", "f": "journal"}, {"q": "The study's conclusion supports which measure?", "o": ["Banning all dog adoption", "Importation requirements to prevent reintroduction of DMRVV", "Mandatory desexing of imports", "Eliminating domestic vaccination"], "a": 1, "e": "The higher imported-dog risk supports importation requirements to prevent DMRVV reintroduction.", "t": "journal", "f": "journal"}, {"q": "In the Philippine survey, the human-to-dog ratio yielded the most dogs per 1000 people in which setting?", "o": ["Rural areas", "Urban areas", "Semi-urban areas", "Small islands"], "a": 0, "e": "Rural areas had 256.3 dogs/1000 people, the highest of all settings.", "t": "journal", "f": "journal"}, {"q": "After adjusting targets and resources using survey data in Quezon City and Cebu City, what happened to rabies vaccination?", "o": ["No measurable change", "A 3- to 4-fold increase in dogs vaccinated", "A modest 10% rise", "Coverage declined"], "a": 1, "e": "Data-driven adjustments produced a 3- to 4-fold increase in dogs vaccinated versus previous years.", "t": "journal", "f": "journal"}, {"q": "The study estimated the total Philippine dog population at approximately:", "o": ["10 million", "50 million", "23 million", "2 million"], "a": 2, "e": "The estimate was 23.29 million dogs (95% CI 22.51–24.07 million).", "t": "journal", "f": "journal"}, {"q": "How does seeking Hadkai Mata faith healing affect conventional rabies care?", "o": ["It replaces vaccination entirely", "It is actively forbidden by healers", "Post-exposure prophylaxis is often delayed while traditional treatment is sought first", "It accelerates hospital referral"], "a": 2, "e": "PEP is not opposed per se but is frequently delayed because patients try traditional treatment first.", "t": "journal", "f": "journal"}, {"q": "What attitude toward mass dog vaccination did the study find among worshippers?", "o": ["Strong endorsement", "Reluctance, viewing it as interfering with the goddess's control of dogs", "Indifference", "Demand for more vaccine"], "a": 1, "e": "Some reluctance arose because vaccination was seen as interfering with how the goddess controls/enrages dogs.", "t": "journal", "f": "journal"}, {"q": "The paper's main strategic conclusion for rabies control in this region is to:", "o": ["Ban temple worship", "Use multidisciplinary approaches addressing cultural perceptions", "Rely solely on biomedical messaging", "Cull stray dogs"], "a": 1, "e": "It highlights multidisciplinary, culturally tailored approaches as critical to effective rabies control.", "t": "journal", "f": "journal"}, {"q": "What 'One Medicine' strategy do the authors propose to accelerate rabies therapy development?", "o": ["Mass human vaccine trials", "Investigational treatment of naturally infected dogs receiving human-like supportive care", "Computer modeling only", "Abandoning treatment research"], "a": 1, "e": "They propose treating naturally infected dogs under conditions mimicking the human scenario to study combination therapies.", "t": "journal", "f": "journal"}, {"q": "How many categories of disease process do the authors say must be managed in rabies patients?", "o": ["Two", "Four", "Six", "Eight"], "a": 1, "e": "Four: viral propagation, neuronal degeneration, inflammation, and systemic compromise.", "t": "journal", "f": "journal"}, {"q": "What is the stated current prognosis for human rabies patients?", "o": ["Generally favorable with PEP", "Dire, with little treatment progress", "Self-limiting", "Fully curable with antivirals"], "a": 1, "e": "The abstract states the prognosis for recovery remains dire and little treatment progress has been made.", "t": "journal", "f": "journal"}, {"q": "Into which three categories did the study group barriers to dog vaccination in Chad?", "o": ["Genetic, clinical, surgical", "Economic, socio-cultural, institutional", "Urban, rural, nomadic", "Legal, financial, military"], "a": 1, "e": "Barriers were grouped into economic, socio-cultural, and institutional levels.", "t": "journal", "f": "journal"}, {"q": "Which was identified as a socio-cultural barrier to dog vaccination?", "o": ["Belief that vaccine harms dog-meat's therapeutic properties and that dogs are impure in Muslim faith", "High literacy among owners", "Excess vaccine supply", "Government subsidies"], "a": 0, "e": "Cited socio-cultural barriers included the dog-meat therapeutic-property belief and dogs being considered impure in Muslim faith.", "t": "journal", "f": "journal"}, {"q": "What proportion of human rabies cases worldwide do domestic dogs account for, per the abstract?", "o": ["50%", "75%", "95%", "25%"], "a": 2, "e": "Domestic dogs are responsible for 95% of all human rabies cases worldwide.", "t": "journal", "f": "journal"}, {"q": "The STOP-R index estimates rabies elimination capacity using which type of data?", "o": ["Country-level infrastructure indicators (literacy, infant mortality, electricity access, political stability, natural hazards)", "Genetic sequences of rabies virus variants", "Direct laboratory surveillance case counts", "Canine vaccine antibody titers"], "a": 0, "e": "The index was built from five publicly available country-level infrastructure indicators, not direct surveillance.", "t": "journal", "f": "journal"}, {"q": "Projected global human rabies deaths in DMRVV-endemic countries from 2022 to 2030 are expected to:", "o": ["Increase sharply", "Decrease", "Stay unchanged", "Double"], "a": 1, "e": "Estimates fall from ~40,111 in 2022 to ~32,349 in 2030.", "t": "journal", "f": "journal"}, {"q": "A key interpretation of the study was that rabies elimination success is:", "o": ["Determined solely by vaccine coverage", "Unrelated to country infrastructure", "Influenced by factors external to rabies programs such as country infrastructure", "Independent of political stability"], "a": 2, "e": "The authors concluded external infrastructural factors influence elimination progress.", "t": "journal", "f": "journal"}];
+    var host=document.getElementById('jaQuizHost'); if(!host||!JQ.length) return;
+    var L=["A","B","C","D"];
+    JQ.forEach(function(item,i){
+      var card=document.createElement('div'); card.className='ja-qcard';
+      var stem=document.createElement('div'); stem.className='ja-qstem';
+      stem.textContent=(i+1)+'. '+item.q; card.appendChild(stem);
+      var done=false;
+      item.o.forEach(function(opt,oi){
+        var b=document.createElement('button'); b.className='ja-qopt';
+        b.innerHTML='<b>'+L[oi]+'.</b> '+opt;
+        b.onclick=function(){
+          if(done) return; done=true;
+          var kids=card.querySelectorAll('.ja-qopt');
+          for(var k=0;k<kids.length;k++){kids[k].classList.add('locked');}
+          kids[item.a].classList.add('correct');
+          if(oi!==item.a) b.classList.add('wrong');
+          var ex=document.createElement('div'); ex.className='ja-qexpl';
+          ex.innerHTML='<b>Answer: '+L[item.a]+'.</b> '+item.e; card.appendChild(ex);
+        };
+        card.appendChild(b);
+      });
+      host.appendChild(card);
+    });
+  })();
+  </script>
+</section>
+<!-- JOURNAL-ARTICLES:END -->
 
 </div></main>
 

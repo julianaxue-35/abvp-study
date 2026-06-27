@@ -551,6 +551,20 @@ ul{padding-left:20px}
 .ja-qopt.correct { background: #e9f4ee; border-color: var(--good, #2f7d52); }
 .ja-qopt.wrong { background: #f8e9e9; border-color: var(--bad, #b23b3b); }
 .ja-qexpl { font-size: 0.88em; margin-top: 8px; padding: 9px 12px; background: var(--lit-soft, #dcedf2); border-radius: 8px; color: var(--ink2, #15514c); line-height: 1.5; }
+/* ── Journal source badge (self-contained so it renders on any bank page) ── */
+.bdg.journal {
+  display: inline-block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9.5px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 999px;
+  vertical-align: middle;
+  white-space: nowrap;
+  background: var(--lit-soft, #dcedf2);
+  color: var(--lit, #1f6f8b);
+}
 </style>
 <section id="journal" class="ja-standalone">
   <h2 class="sec">Additional Resources</h2>
@@ -560,7 +574,43 @@ ul{padding-left:20px}
     <span class="ja-meta">Liyanage KLDTD, Amery-Gale J, Uboldi AD, Adriaanse K, Firestone SM, Tonkin CJ, Jabbar A, Hufschmid J &middot; Veterinary Parasitology &middot; 2024 &middot; <a href="https://doi.org/10.1016/j.vetpar.2024.110306" target="_blank" rel="noopener">10.1016/j.vetpar.2024.110306</a></span></p>
     <div class="ja-abstract"><b>Abstract.</b> Toxoplasma gondii is a globally distributed zoonotic protist, capable of infecting all warm-blooded animals. In Australia, cats (Felis catus) are the only definitive host capable of spreading T. gondii infection via oocysts. Free-roaming cats are widespread in Australia and can play a central role in the ecology of T. gondii. Therefore, understanding the epidemiology of this parasite in stray and feral cats is essential to understanding the potential risk of infection in animals and humans. Due to a lack of easily accessible commercial kits, an in-house modified agglutination test (MAT) was established to test for IgG antibodies against T. gondii, using cell culture-derived T. gondii tachyzoites, and compared with a commercial MAT. A total of 552 serum samples collected during 2018–2021 from stray (n = 456) and feral cats (n = 90) (samples with missing data n = 6) from four Australian states, representing different age groups of both sexes, were screened for antibodies against T. gondii. Risk factors for T. gondii infection were assessed using multivariable logistic regression analysis. The in-house MAT had excellent agreement with the commercial MAT and provided a reliable and economical serological tool for T. gondii screening in animals. The overall observed seroprevalence for T. gondii in cats was 40.4% (223/552). Bodyweight (as a proxy for age), geographical location, season and whether cats were feral or stray, were factors associated with T. gondii seropositivity in cats. Sex was not found to be a risk factor for T. gondii infection in feral and stray cats. This study shows that Australian stray and feral cats have a high T. gondii seroprevalence, which may translate to significant health impacts for wildlife species, livestock and the public.</div>
   </div>
-
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Cats Are Not Fish: A Ricker Model Fails to Account for Key Aspects of Trap–Neuter–Return Programs</b><br>
+    <span class="ja-meta">Wolf, Kreisler, Levy &middot; Animals &middot; 2021</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> In a frequently cited 2005 paper, a Ricker model was used to assess the effectiveness of trap–neuter–return (TNR) programs for managing free-roaming domestic cat populations. The model (which was originally developed for application in the management of fisheries) used data obtained from two countywide programs, and the results indicated that any population reductions, if they existed, were at best modest. In the present study, we applied the same analysis methods to data from two long-term (i.e., &gt;20 years) TNR programs for which significant population reductions have been documented. Our results revealed that the model cannot account for some key aspects of typical TNR programs, and the wild population swings it predicts do not correspond to the relative stability of free-roaming cat populations. A Ricker model is therefore inappropriate for use in assessing the effectiveness of TNR programs. A more recently developed, stochastic model, which accounts for the movement of cats in and out of a given area, is better suited for predicting the sterilization effort necessary to reduce free-roaming cat numbers through TNR programs.</div>
+  </div>
+  <div class="ja-quiz">
+    <h3 class="ja-quiz-h">Journal Self-Test</h3>
+    <div id="jaQuizHost"></div>
+  </div>
+  <script data-journal-quiz>
+  (function(){
+    var JQ=[{"q": "A serosurvey of 552 Australian feral and stray cats found approximately 40% seropositive for Toxoplasma gondii. What does this level of seroprevalence imply for public health and wildlife conservation?", "o": ["Low risk, as most cats clear infection before shedding environmentally viable oocysts", "Significant environmental oocyst contamination risk given that cats are the only definitive host in Australia capable of shedding oocysts", "Moderate risk limited to urban areas where stray cats contact humans directly", "Negligible risk because T. gondii in Australia affects only wildlife, not humans or livestock"], "a": 1, "e": "In Australia, cats are the only definitive host for T. gondii capable of shedding oocysts. A 40% seroprevalence across a large free-roaming population represents a substantial environmental contamination risk for wildlife, livestock, and humans — the core public health concern the paper raises.", "t": "journal", "f": "journal"}, {"q": "Among the risk factors examined for T. gondii seropositivity in Australian feral and stray cats, which was notably NOT significant?", "o": ["Bodyweight (used as a proxy for age)", "Geographical location", "Sex (male vs. female)", "Whether the cat was feral vs. stray"], "a": 2, "e": "Sex was not a significant risk factor. Significant predictors included bodyweight (proxy for age — older cats more likely exposed), geographical location, season, and feral vs. stray status. The absence of a sex effect means both sexes require equal consideration in public health risk assessment.", "t": "journal", "f": "journal"}, {"q": "An in-house modified agglutination test (MAT) was developed and compared to a commercial MAT in this study. What was the practical significance of this methodological development?", "o": ["The in-house MAT was less sensitive, limiting its use to screening only", "The in-house MAT provided a reliable and economical serological tool where commercial kits are inaccessible", "The in-house MAT detected IgM antibodies, enabling acute infection identification unlike the commercial kit", "The two tests showed only moderate agreement, so both should be run in parallel"], "a": 1, "e": "The in-house MAT showed excellent agreement with the commercial MAT and was developed specifically because commercial kits are not easily accessible in Australia. This makes large-scale, cost-effective screening feasible — important for epidemiological surveillance in resource-limited settings.", "t": "journal", "f": "journal"}, {"q": "What is the authors' main conclusion about applying a Ricker model to TNR programs?", "o": ["It is inappropriate for assessing TNR effectiveness", "It is the gold standard for TNR", "It accurately predicts cat population stability", "It should replace stochastic models"], "a": 0, "e": "The authors conclude the Ricker model is inappropriate for evaluating TNR effectiveness.", "t": "journal", "f": "journal"}, {"q": "Why does the Ricker model fail for free-roaming cat populations?", "o": ["It underestimates kitten survival", "It predicts wild population swings inconsistent with observed stability", "It ignores vaccination", "It requires fishery licenses"], "a": 1, "e": "The model predicts large population swings that don't match the relative stability of real free-roaming cat populations.", "t": "journal", "f": "journal"}, {"q": "Which alternative model do the authors favor for predicting needed sterilization effort?", "o": ["A simple linear regression", "A deterministic Ricker variant", "A stochastic model accounting for cat movement in and out", "A fisheries yield model"], "a": 2, "e": "A stochastic model that accounts for immigration/emigration of cats is deemed better suited.", "t": "journal", "f": "journal"}];
+    var host=document.getElementById('jaQuizHost'); if(!host||!JQ.length) return;
+    var L=["A","B","C","D"];
+    JQ.forEach(function(item,i){
+      var card=document.createElement('div'); card.className='ja-qcard';
+      var stem=document.createElement('div'); stem.className='ja-qstem';
+      stem.textContent=(i+1)+'. '+item.q; card.appendChild(stem);
+      var done=false;
+      item.o.forEach(function(opt,oi){
+        var b=document.createElement('button'); b.className='ja-qopt';
+        b.innerHTML='<b>'+L[oi]+'.</b> '+opt;
+        b.onclick=function(){
+          if(done) return; done=true;
+          var kids=card.querySelectorAll('.ja-qopt');
+          for(var k=0;k<kids.length;k++){kids[k].classList.add('locked');}
+          kids[item.a].classList.add('correct');
+          if(oi!==item.a) b.classList.add('wrong');
+          var ex=document.createElement('div'); ex.className='ja-qexpl';
+          ex.innerHTML='<b>Answer: '+L[item.a]+'.</b> '+item.e; card.appendChild(ex);
+        };
+        card.appendChild(b);
+      });
+      host.appendChild(card);
+    });
+  })();
+  </script>
 </section>
 <!-- JOURNAL-ARTICLES:END -->
 
@@ -862,17 +912,6 @@ function setRate(btn,r){
   fwd.addEventListener('click', function(){ skip(15); });
 })();
 </script>
-<!-- JOURNAL-BANK:START -->
-<script data-journal-bank>
-(function(){try{
-  if(typeof Q!=='undefined' && Array.isArray(Q)){
-    var JJ=[{"q": "A serosurvey of 552 Australian feral and stray cats found approximately 40% seropositive for Toxoplasma gondii. What does this level of seroprevalence imply for public health and wildlife conservation?", "o": ["Low risk, as most cats clear infection before shedding environmentally viable oocysts", "Significant environmental oocyst contamination risk given that cats are the only definitive host in Australia capable of shedding oocysts", "Moderate risk limited to urban areas where stray cats contact humans directly", "Negligible risk because T. gondii in Australia affects only wildlife, not humans or livestock"], "a": 1, "e": "In Australia, cats are the only definitive host for T. gondii capable of shedding oocysts. A 40% seroprevalence across a large free-roaming population represents a substantial environmental contamination risk for wildlife, livestock, and humans — the core public health concern the paper raises."}, {"q": "Among the risk factors examined for T. gondii seropositivity in Australian feral and stray cats, which was notably NOT significant?", "o": ["Bodyweight (used as a proxy for age)", "Geographical location", "Sex (male vs. female)", "Whether the cat was feral vs. stray"], "a": 2, "e": "Sex was not a significant risk factor. Significant predictors included bodyweight (proxy for age — older cats more likely exposed), geographical location, season, and feral vs. stray status. The absence of a sex effect means both sexes require equal consideration in public health risk assessment."}, {"q": "An in-house modified agglutination test (MAT) was developed and compared to a commercial MAT in this study. What was the practical significance of this methodological development?", "o": ["The in-house MAT was less sensitive, limiting its use to screening only", "The in-house MAT provided a reliable and economical serological tool where commercial kits are inaccessible", "The in-house MAT detected IgM antibodies, enabling acute infection identification unlike the commercial kit", "The two tests showed only moderate agreement, so both should be run in parallel"], "a": 1, "e": "The in-house MAT showed excellent agreement with the commercial MAT and was developed specifically because commercial kits are not easily accessible in Australia. This makes large-scale, cost-effective screening feasible — important for epidemiological surveillance in resource-limited settings."}];
-    JJ.forEach(function(m){Q.push({t:"journal",f:"journal",q:m.q,o:m.o,a:m.a,e:m.e});});
-    if(typeof render==='function'){render();}
-  }
-}catch(e){}})();
-</script>
-<!-- JOURNAL-BANK:END -->
 <!-- ip-notice-footer -->
 <footer style="margin:2rem 0 0;padding:14px 16px;border-top:1px solid rgba(128,128,128,.35);text-align:center;font-size:12px;line-height:1.55;color:#888;font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">
   &copy; 2026 Juliana Xue. The original content, design &amp; compilation of this

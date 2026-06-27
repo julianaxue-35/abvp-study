@@ -157,6 +157,10 @@
   <button data-p="resources"><span class="dot"></span>Resource Allocation</button>
   <button data-p="decisions"><span class="dot"></span>Decision Making</button>
   <button data-p="mcq"><span class="dot" style="background:#1a3d0a"></span>MCQ Test Bank</button>
+
+<!-- JOURNAL-TAB:START -->
+<button data-p="journal"><span class="dot" style="background:var(--lit, #1f6f8b)"></span>Journal Articles</button>
+<!-- JOURNAL-TAB:END -->
 </div></div></nav>
 <div class="srch-wrap"><div class="wrap"><div class="srch-row">
 <svg width="14" height="14" viewBox="0 0 15 15" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="m10.5 10.5 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -691,6 +695,230 @@
 
   </div><!-- /qlist -->
 </section>
+
+
+<!-- JOURNAL-ARTICLES:START -->
+<style data-journal-css>
+/* ── Journal Articles section ─────────────────────────────────────────── */
+.ja-standalone {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 2px solid var(--line, #d9d0bd);
+}
+.ja-article {
+  margin-bottom: 24px;
+  padding: 20px 22px 18px;
+  background: var(--paper2, #fbf8f1);
+  border-radius: 10px;
+  box-shadow: var(--shadow, 0 1px 2px rgba(15,61,58,.08), 0 8px 24px rgba(15,61,58,.06));
+}
+.ja-cite {
+  margin: 0 0 10px;
+  line-height: 1.45;
+  font-size: 0.97em;
+}
+.ja-meta {
+  color: var(--muted, #5d6b62);
+  font-size: 0.875em;
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0.01em;
+}
+.ja-meta a {
+  color: var(--lit, #1f6f8b);
+  text-decoration: none;
+}
+.ja-meta a:hover {
+  text-decoration: underline;
+}
+.ja-abstract {
+  border-left: 3px solid var(--lit, #1f6f8b);
+  padding: 10px 14px;
+  margin: 0 0 18px;
+  background: var(--lit-soft, #dcedf2);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.925em;
+  line-height: 1.6;
+  color: var(--ink, #0f3d3a);
+}
+.ja-mcq {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line, #d9d0bd);
+}
+.ja-mcq + .ja-mcq {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.ja-q {
+  font-weight: 600;
+  font-size: 0.93em;
+  margin: 0 0 7px;
+  color: var(--ink, #0f3d3a);
+}
+.ja-opts {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ja-opt {
+  font-size: 0.9em;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: var(--ink2, #15514c);
+  background: transparent;
+}
+.ja-opt b {
+  display: inline-block;
+  min-width: 1.5em;
+  color: var(--muted, #5d6b62);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.88em;
+}
+.ja-ans {
+  margin-top: 4px;
+}
+.ja-ans summary {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 0.83em;
+  font-family: "JetBrains Mono", monospace;
+  padding: 3px 10px;
+  border: 1px solid var(--lit, #1f6f8b);
+  border-radius: 5px;
+  color: var(--lit, #1f6f8b);
+  background: transparent;
+  user-select: none;
+  list-style: none;
+}
+.ja-ans summary::-webkit-details-marker { display: none; }
+.ja-ans summary::marker { display: none; }
+.ja-ans summary:hover {
+  background: var(--lit-soft, #dcedf2);
+}
+.ja-ans[open] summary {
+  background: var(--lit-soft, #dcedf2);
+  margin-bottom: 6px;
+}
+.ja-ans-body {
+  font-size: 0.9em;
+  padding: 8px 12px;
+  background: var(--paper, #fdfaf4);
+  border: 1px solid var(--line, #d9d0bd);
+  border-radius: 6px;
+  line-height: 1.55;
+  color: var(--ink, #0f3d3a);
+}
+.ja-ans-correct {
+  font-weight: 600;
+  color: var(--good, #2f7d52);
+  display: block;
+  margin-bottom: 4px;
+}
+.ja-ans-rationale {
+  color: var(--ink2, #15514c);
+}
+/* ── Journal self-test (pages without an MCQ bank) ── */
+.ja-quiz { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line, #d9d0bd); }
+.ja-quiz-h { font-family: "Fraunces", serif; font-weight: 600; font-size: 18px; margin: 0 0 12px; color: var(--ink, #0f3d3a); }
+.ja-qcard { background: var(--paper2, #fbf8f1); border: 1px solid var(--line, #d9d0bd); border-radius: 12px; padding: 14px 16px; margin: 12px 0; }
+.ja-qstem { font-weight: 600; font-size: 0.95em; margin-bottom: 10px; color: var(--ink, #0f3d3a); }
+.ja-qopt { display: block; width: 100%; text-align: left; cursor: pointer; font: inherit; font-size: 0.9em; padding: 8px 11px; margin: 5px 0; border: 1px solid var(--line, #d9d0bd); border-radius: 8px; background: var(--paper, #fdfaf4); color: var(--ink, #0f3d3a); }
+.ja-qopt b { color: var(--muted, #5d6b62); font-family: "JetBrains Mono", monospace; margin-right: 4px; }
+.ja-qopt:hover:not(.locked) { border-color: var(--lit, #1f6f8b); }
+.ja-qopt.locked { cursor: default; }
+.ja-qopt.correct { background: #e9f4ee; border-color: var(--good, #2f7d52); }
+.ja-qopt.wrong { background: #f8e9e9; border-color: var(--bad, #b23b3b); }
+.ja-qexpl { font-size: 0.88em; margin-top: 8px; padding: 9px 12px; background: var(--lit-soft, #dcedf2); border-radius: 8px; color: var(--ink2, #15514c); line-height: 1.5; }
+/* ── Journal source badge (self-contained so it renders on any bank page) ── */
+.bdg.journal {
+  display: inline-block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9.5px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 999px;
+  vertical-align: middle;
+  white-space: nowrap;
+  background: var(--lit-soft, #dcedf2);
+  color: var(--lit, #1f6f8b);
+}
+</style>
+<section class="panel" id="journal">
+  <h2 class="sec">Additional Resources</h2>
+  <p class="lead">Journal Articles (2021–2026) — exam items are drawn from the abstract only. Read each abstract here; self-test questions are in the MCQ Test Bank.</p>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>An Evaluation of a Canine Welfare Education Intervention for Primary School Children</b><br>
+    <span class="ja-meta">Iqbal &middot; Anthrozoos &middot; 2024</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> This study evaluated the effectiveness of a canine welfare education intervention, “Mr T’s Tickles Workshop,” for improving 8- to 9-year-old children’s canine emotion recognition, their belief about canine sentience, their knowledge of canine welfare needs, their attitudes toward cruelty to canines, and their attachment to pets. “Mr T’s Tickles Workshop” was a one-off intervention comprising a 1.5-hour workshop of welfare activities delivered to whole classrooms online. The workshop consisted of three activities: (1) a canine emotion recognition task, (2) creating a “box of comfort” of care equipment for older dogs, and (3) creating a memory jar of positive memories for children. A 2 × 2 mixed factorial design was used for the quantitative evaluation of this study. Factor one was the phase of testing (time), a repeated-measure variable (pre-test versus post-test), and factor two was the between-subject variable conditions (intervention versus control group). A sample of 120 children aged 8–9 years from five primary school classes (4 intervention classes and 1 control class) from one school participated in the study. The results showed that children in the intervention group improved significantly more than the children in the control group in terms of children’s canine emotion recognition from pre-test to post-test. There was no change in attitudes that intentional cruelty is acceptable in the intervention group; these attitudes worsened in the control group. Finally, the qualitative content analysis of children’s responses showed that feedback on the intervention was highly positive. The findings indicate that age-appropriate canine welfare education can effectively enhance children’s canine emotion recognition and attitudes toward intentional cruelty.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Reducing Speciesism: An Intervention to Change People’s Attitudes and Behavioral Intentions</b><br>
+    <span class="ja-meta">Banach &middot; Anthrozoos &middot; 2024</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Humans mistreating, exploiting, and abusing animals is a common problem in our society and is related to speciesism. Speciesism refers to when humans assign different worth to beings based on their species. A way used by animal activists to reduce harmful behaviors toward animals involves showing people illustrations of situations in which animals are harmed but where the roles of animals and humans are reversed. It is unclear, however, whether this intervention is successful in reducing speciesist attitudes and behaviors toward animals. As the intervention may increase awareness of the treatment of animals, perspective-taking, and feelings associated with injustice we expected it to reduce speciesism compared with a control condition. In two studies (nStudy1 = 231 and nStudy2 = 399), participants either watched or did not watch a video showing situations in which humans take the role of nonhuman animals and vice versa. Participants’ speciesist attitudes, behavioral intentions, and behavioral responses were measured. Studies 1 and 2 showed that participants in the intervention condition more strongly intended to reduce their (in)directly harmful behavior toward animals than those in the control condition. Feelings associated with injustice mediated this effect (Study 2). There were no effects on speciesist attitude or behavioral responses. The intervention shows promise as people intended to change their behavior. Reasons for why the intervention changed intentions but not attitudes or behavioral responses are discussed.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Support for the ‘Pets as Ambassadors’ hypothesis in men: Higher animal empathy in Australian pet-owners vs non-owners and farmers</b><br>
+    <span class="ja-meta">Frampton &middot; Animal Welfare &middot; 2024</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Human empathy towards non-human animals (Animal Empathy; AE) has shown a strong gender bias, with women demonstrating higher levels than men. This study aimed to investigate the influence of animal experiences on AE in a male-only sample. It was hypothesised that there would be different levels of AE between men with experiences caring for pets, men with experience in animal agriculture, and men with limited animal experiences. Ninety-one Australian men (18yrs+) completed an online survey evaluating their level of AE using the Animal Empathy Scale (AES). Additionally, they were asked what in their experience they think has influenced their beliefs about how animals think and feel. As expected, AE levels differed significantly between groups, with those in the pet ownership experience group demonstrating higher AE levels than the other two groups. All three groups displayed high endorsement for direct interactions with animals in adulthood as being most influential in shaping their beliefs about how animals think and feel. However, our quantitative results support the idea that not all experiences are worth the same, with the responsibility and sacrifice involved in pet caring appearing to be most influential to the development of AE. These findings have implications for the importance of human-animal interactions in understanding animal sentience and the development of AE in males.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>The brachycephalic paradox: The relationship between attitudes, demography, personality, health awareness, and dog-human eye contact</b><br>
+    <span class="ja-meta">Bognar &middot; Applied Animal Behaviour Science &middot; 2023</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Brachycephalic (flat-faced) dogs’ popularity is rising worldwide despite the numerous health problems they often face. This is the brachycephalic paradox which led to a dog welfare crisis. To take meaningful steps in solving this crisis, we need to understand the appealing features of these dogs, and the characteristics of brachycephalic dog enthusiasts. We assumed that individuals who like these dogs have lower knowledge about the associated health problems, a unique personality profile, and highly value the tendency of these dogs to form eye contact with humans. We conducted an online survey with 1156 respondents. A Multinomial Log-linear Model was used to analyse respondents' attitudes towards brachycephalic dogs (positive, negative, or neutral), while a Binomial Generalized Linear Mixed-Effects Model was used to analyse their preference for eye contact with dogs. Some of the results were contrary to our expectations. People with a positive attitude towards brachycephalic dogs associated more health problems with brachycephalism and did not prefer photos of dogs making eye contact (looking into the camera) over those looking away. They were also found to be younger, more often women, have children, lower levels of education, a higher level of agreeableness, conscientiousness, and dog-directed emotional empathy. The results suggest that the tendency of brachycephalic dogs to form eye contact does not play a role in their popularity and that high emotional empathy and knowledge about health problems do not discourage people from liking these dogs. Our study can also serve as a basis for educational campaigns by demonstrating that factual knowledge about health problems alone is not enough to reverse the brachycephalic dog welfare crisis.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Alternative Paradigms in Animal Health Decisions: A Framework for Treating Animals Not Only as Commodities</b><br>
+    <span class="ja-meta">Liz Paola &middot; Animals &middot; 2022</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Zoonoses are diseases transmitted from (vertebrate) animals to humans in the environment. The control and prevention of these diseases require an appropriate way to measure health value for prudent and well-balanced decisions in public health, production costs, and market values. Currently, the impact of diseases and animal disease control measures are typically assessed in monetary values, thus lacking consideration of other values such as emotional, societal, ecological, among others. Therefore, a framework is proposed that aims to explore, understand, and open up a conversation about the non-monetary value of animals through environmental and normative ethics. This method might help us complement the existing metrics in health, which are currently DALY and zDALY, adding more comprehensive values for animal and human health to the “One Health” approach. As an example of this framework application, participants can choose what they are willing to give in exchange for curing an animal in hypothetical scenarios selecting a human health condition to suffer, the amount of money, and lifetime as a tradeoff. Considering animals beyond their monetary value in public health decisions might contribute to a more rigorous assessment of the burden of zoonotic diseases, among other health decisions. This study is structured as follows: after a brief introduction of zoonoses, animal health, and health metrics, briefly, different environmental health perspectives are presented. Based on this, a framework for animal health decisions is proposed. This framework introduces the “anthropozoocentric interface” based on anthropocentrism and zoocentrism perspectives.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Is pet ownership associated with values and attitudes towards animals?</b><br>
+    <span class="ja-meta">Busch &middot; Animal Welfare &middot; 2022</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> In Organisation for Economic Co-operation and Development (OECD) countries, the number of pets and pet owners has been increasing in recent years. The experiences people have with pets might impact their relationships with animals in general and especially attitudes towards animal protection and use. However, research on the impact of pet ownership on values and attitudes towards animals is relatively scarce. We analyse associations of pet ownership with different values and attitudes towards animals. We derived seven attitude constructs towards animals from three different datasets using Principal Component Analyses. Data were collected using standardised online surveys with German residents (dataset 1 = 1,049 respondents; dataset 2 = 414 respondents; dataset 3 = 1,048 respondents). All three samples are non-probability quota samples. The seven attitudinal constructs represent values and attitudes towards animals ranging from general values and attitudes towards, eg animal protection, to more specific attitudes towards, eg eating animals. We analysed the relationship of pet ownership, sex, and age with these constructs using ANOVA. Our results show that effect sizes are small to medium. Pet ownership has the strongest association with more general values and attitudes towards animals, with pet owners being, eg more involved in animal protection and more in favour of awarding fundamental rights to animals. In contrast, we found that more specific attitudes, such as the evaluation of current pig farming systems or attitudes towards eating meat, were more related to sex than pet ownership. Our findings indicate that having pets relates to their owners’ attitudes towards animals, but that this association varies depending on the specificity of attitudes.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Coping With Human-Cat Interactions Beyond the Limits of Domesticity: Moral Pluralism in the Management of Cats and Wildlife</b><br>
+    <span class="ja-meta">Wandesforde-Smith, Levy, Lynn, Rand, Riley, Schaffner, Wolf &middot; Frontiers in Veterinary Science &middot; 2021</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Although human interactions with cats are often even typically analyzed in the context of domesticity, with a focus on what sorts of interactions might make both people and cats “happy at home,” a large number of cats in the world live, for one reason or another, beyond the bounds of domesticity. Human interactions with these more or less free-living cats raise deeply controversial questions about how both the cats and the people they interact with should be sensibly managed, and about the moral imperatives that ought to guide the management of their interactions through the laws and public policies regulating both human interactions with pets and with wildlife. We review the geography of human interactions with cats living beyond the bounds of domesticity. We acknowledge the contributions made to ideas about how to manage cats by the animal protection movement. We review the tensions that have emerged over time between advocates for the eradication of free-living cats, because of the impacts they have on native wildlife species, and those who have imagined alternatives to eradication, most notably one or another variant of trap-neuter-return (TNR). The conflict over how best to deal with cats living beyond the bounds of domesticity and their wildlife impacts raises the prospect of stalemate, and we canvass and critique possibilities for moving beyond that stalemate.</div>
+  </div>
+  <div class="ja-quiz">
+    <h3 class="ja-quiz-h">Journal Self-Test</h3>
+    <div id="jaQuizHost"></div>
+  </div>
+  <script data-journal-quiz>
+  (function(){
+    var JQ=[{"q": "Through what ethical lens does the paper frame management of cats living beyond domesticity?", "o": ["Strict utilitarianism", "Moral pluralism", "Legal positivism", "Economic determinism"], "a": 1, "e": "The article advances moral pluralism in managing human-cat-wildlife interactions.", "t": "journal", "f": "journal"}, {"q": "The central policy tension reviewed is between cat eradication advocates and proponents of what alternative?", "o": ["Trap-neuter-return (TNR)", "Mandatory indoor confinement", "Lethal baiting", "Wildlife relocation"], "a": 0, "e": "The conflict is between eradication advocates and supporters of TNR variants.", "t": "journal", "f": "journal"}, {"q": "What outcome do the authors warn this cat-wildlife conflict risks producing?", "o": ["Rapid consensus", "A management stalemate", "Immediate eradication", "Total deregulation"], "a": 1, "e": "They note the conflict raises the prospect of stalemate and seek ways to move beyond it.", "t": "journal", "f": "journal"}, {"q": "What did the study find about health-problem knowledge among people with positive attitudes toward brachycephalic dogs?", "o": ["They had lower knowledge of health problems", "They associated more health problems with brachycephalism", "Knowledge was not measured", "They denied any health problems exist"], "a": 1, "e": "Contrary to expectations, people with positive attitudes associated more health problems with brachycephalism.", "t": "journal", "f": "journal"}, {"q": "Did the dogs' tendency to form eye contact explain their popularity?", "o": ["Yes, it strongly drove popularity", "No, eye-contact preference did not play a role", "Only among female owners", "Only among older owners"], "a": 1, "e": "Eye-contact tendency did not appear to play a role in brachycephalic dogs' popularity.", "t": "journal", "f": "journal"}, {"q": "What implication did the authors draw for educational campaigns?", "o": ["Factual health knowledge alone is sufficient", "Campaigns are unnecessary", "Factual knowledge alone is insufficient to reverse the welfare crisis", "Breeding should be banned outright"], "a": 2, "e": "Factual knowledge about health problems alone is not enough to reverse the brachycephalic welfare crisis.", "t": "journal", "f": "journal"}, {"q": "Pet ownership showed the strongest association with which attitudes?", "o": ["General values such as animal protection and animal rights", "Attitudes toward eating meat", "Pig farming system evaluations", "No attitudes at all"], "a": 0, "e": "Pet ownership related most strongly to general values like animal protection and supporting fundamental animal rights.", "t": "journal", "f": "journal"}, {"q": "Specific attitudes such as evaluating pig farming or eating meat were more related to:", "o": ["Pet ownership", "Age", "Respondent sex", "Income"], "a": 2, "e": "More specific attitudes were more strongly linked to sex than to pet ownership.", "t": "journal", "f": "journal"}, {"q": "The overall effect sizes observed were:", "o": ["Negligible", "Small to medium", "Large", "Inconsistent"], "a": 1, "e": "ANOVA results showed small to medium effect sizes.", "t": "journal", "f": "journal"}, {"q": "What did the welfare education intervention significantly improve relative to controls?", "o": ["No change in any measure", "Worsened welfare knowledge", "Reduced attachment to pets", "Children's canine emotion recognition"], "a": 3, "e": "The intervention group improved significantly in emotion recognition.", "t": "journal", "f": "journal"}, {"q": "What happened to attitudes that cruelty is acceptable in the control group?", "o": ["They improved in the control group", "They worsened in the control group", "They were unchanged in the control group", "They were not measured"], "a": 1, "e": "Control-group attitudes toward cruelty worsened over time.", "t": "journal", "f": "journal"}, {"q": "What was the study's overall conclusion?", "o": ["Age-appropriate welfare education can enhance emotion recognition and attitudes", "Education had no effect", "Children cannot learn welfare concepts", "Only in-person delivery works"], "a": 0, "e": "Age-appropriate humane education effectively improved recognition and attitudes.", "t": "journal", "f": "journal"}, {"q": "What main effect did the role-reversal speciesism intervention produce?", "o": ["Reduced intention to help animals", "Increased intention to reduce harmful behavior toward animals", "No change in intentions", "Increased speciesism"], "a": 1, "e": "The intervention strengthened intentions to reduce harmful behavior.", "t": "journal", "f": "journal"}, {"q": "What was the intervention's effect on speciesist attitudes and behavioral responses?", "o": ["Strong attitude change", "Large behavioral-response change", "It reversed all speciesism", "No effect on speciesist attitudes or behavioral responses"], "a": 3, "e": "There were no effects on attitudes or actual behavioral responses.", "t": "journal", "f": "journal"}, {"q": "What mediated the intervention's effect on intentions (Study 2)?", "o": ["Financial incentive", "Peer pressure", "Feelings associated with injustice", "Religious belief"], "a": 2, "e": "Feelings of injustice mediated the effect on behavioral intentions.", "t": "journal", "f": "journal"}, {"q": "In this male-only Australian sample, which group demonstrated the highest animal empathy?", "o": ["Men experienced in animal agriculture", "Men with pet-caring experience", "Men with limited animal experience", "All groups scored equally"], "a": 1, "e": "Pet-ownership-experience men scored significantly higher in animal empathy than farmers or low-experience men.", "t": "journal", "f": "journal"}, {"q": "What did the authors conclude was most influential in developing animal empathy?", "o": ["Passive observation of wildlife", "The responsibility and sacrifice involved in pet caring", "Formal classroom education", "Watching animal documentaries"], "a": 1, "e": "Not all experiences were equal—the responsibility and sacrifice of pet caring appeared most influential.", "t": "journal", "f": "journal"}, {"q": "What did all three groups most strongly endorse as shaping their beliefs about how animals think and feel?", "o": ["Childhood storybooks", "Religious teaching", "Direct interactions with animals in adulthood", "Social media content"], "a": 2, "e": "All groups highly endorsed direct adult interactions with animals as most influential to their beliefs.", "t": "journal", "f": "journal"}, {"q": "What gap in current animal-health decision metrics does the proposed framework aim to address?", "o": ["Lack of laboratory standardization", "Reliance only on monetary value, omitting emotional/societal/ecological value", "Absence of vaccine cost data", "Poor disease surveillance coverage"], "a": 1, "e": "The framework adds non-monetary values to metrics that currently assess disease impact mainly in monetary terms.", "t": "journal", "f": "journal"}, {"q": "The framework's 'anthropozoocentric interface' is built on which two perspectives?", "o": ["Anthropocentrism and zoocentrism", "Utilitarianism and deontology", "Capitalism and socialism", "Biosecurity and One Health"], "a": 0, "e": "It is explicitly based on combining anthropocentric and zoocentric perspectives.", "t": "journal", "f": "journal"}, {"q": "Which existing health metrics did the authors propose to complement?", "o": ["BMI and QALY", "R0 and case fatality rate", "DALY and zDALY", "Herd immunity threshold"], "a": 2, "e": "The framework is intended to complement DALY and zDALY metrics.", "t": "journal", "f": "journal"}];
+    var host=document.getElementById('jaQuizHost'); if(!host||!JQ.length) return;
+    var L=["A","B","C","D"];
+    JQ.forEach(function(item,i){
+      var card=document.createElement('div'); card.className='ja-qcard';
+      var stem=document.createElement('div'); stem.className='ja-qstem';
+      stem.textContent=(i+1)+'. '+item.q; card.appendChild(stem);
+      var done=false;
+      item.o.forEach(function(opt,oi){
+        var b=document.createElement('button'); b.className='ja-qopt';
+        b.innerHTML='<b>'+L[oi]+'.</b> '+opt;
+        b.onclick=function(){
+          if(done) return; done=true;
+          var kids=card.querySelectorAll('.ja-qopt');
+          for(var k=0;k<kids.length;k++){kids[k].classList.add('locked');}
+          kids[item.a].classList.add('correct');
+          if(oi!==item.a) b.classList.add('wrong');
+          var ex=document.createElement('div'); ex.className='ja-qexpl';
+          ex.innerHTML='<b>Answer: '+L[item.a]+'.</b> '+item.e; card.appendChild(ex);
+        };
+        card.appendChild(b);
+      });
+      host.appendChild(card);
+    });
+  })();
+  </script>
+</section>
+<!-- JOURNAL-ARTICLES:END -->
 
 </div></main>
 

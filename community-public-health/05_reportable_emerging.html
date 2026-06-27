@@ -162,6 +162,10 @@
   <button data-p="outbreak"><span class="dot"></span>Outbreak Response</button>
   <button data-p="shelter"><span class="dot"></span>Shelter Surveillance Role</button>
   <button data-p="mcq"><span class="dot" style="background:#0f3d3a"></span>MCQ Test Bank</button>
+
+<!-- JOURNAL-TAB:START -->
+<button data-p="journal"><span class="dot" style="background:var(--lit, #1f6f8b)"></span>Journal Articles</button>
+<!-- JOURNAL-TAB:END -->
 </div></div></nav>
 <div class="srch-wrap"><div class="wrap"><div class="srch-row">
 <svg width="14" height="14" viewBox="0 0 15 15" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="m10.5 10.5 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -760,6 +764,210 @@
 
   </div><!-- /qlist -->
 </section>
+
+
+<!-- JOURNAL-ARTICLES:START -->
+<style data-journal-css>
+/* ── Journal Articles section ─────────────────────────────────────────── */
+.ja-standalone {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 2px solid var(--line, #d9d0bd);
+}
+.ja-article {
+  margin-bottom: 24px;
+  padding: 20px 22px 18px;
+  background: var(--paper2, #fbf8f1);
+  border-radius: 10px;
+  box-shadow: var(--shadow, 0 1px 2px rgba(15,61,58,.08), 0 8px 24px rgba(15,61,58,.06));
+}
+.ja-cite {
+  margin: 0 0 10px;
+  line-height: 1.45;
+  font-size: 0.97em;
+}
+.ja-meta {
+  color: var(--muted, #5d6b62);
+  font-size: 0.875em;
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0.01em;
+}
+.ja-meta a {
+  color: var(--lit, #1f6f8b);
+  text-decoration: none;
+}
+.ja-meta a:hover {
+  text-decoration: underline;
+}
+.ja-abstract {
+  border-left: 3px solid var(--lit, #1f6f8b);
+  padding: 10px 14px;
+  margin: 0 0 18px;
+  background: var(--lit-soft, #dcedf2);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.925em;
+  line-height: 1.6;
+  color: var(--ink, #0f3d3a);
+}
+.ja-mcq {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line, #d9d0bd);
+}
+.ja-mcq + .ja-mcq {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.ja-q {
+  font-weight: 600;
+  font-size: 0.93em;
+  margin: 0 0 7px;
+  color: var(--ink, #0f3d3a);
+}
+.ja-opts {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ja-opt {
+  font-size: 0.9em;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: var(--ink2, #15514c);
+  background: transparent;
+}
+.ja-opt b {
+  display: inline-block;
+  min-width: 1.5em;
+  color: var(--muted, #5d6b62);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.88em;
+}
+.ja-ans {
+  margin-top: 4px;
+}
+.ja-ans summary {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 0.83em;
+  font-family: "JetBrains Mono", monospace;
+  padding: 3px 10px;
+  border: 1px solid var(--lit, #1f6f8b);
+  border-radius: 5px;
+  color: var(--lit, #1f6f8b);
+  background: transparent;
+  user-select: none;
+  list-style: none;
+}
+.ja-ans summary::-webkit-details-marker { display: none; }
+.ja-ans summary::marker { display: none; }
+.ja-ans summary:hover {
+  background: var(--lit-soft, #dcedf2);
+}
+.ja-ans[open] summary {
+  background: var(--lit-soft, #dcedf2);
+  margin-bottom: 6px;
+}
+.ja-ans-body {
+  font-size: 0.9em;
+  padding: 8px 12px;
+  background: var(--paper, #fdfaf4);
+  border: 1px solid var(--line, #d9d0bd);
+  border-radius: 6px;
+  line-height: 1.55;
+  color: var(--ink, #0f3d3a);
+}
+.ja-ans-correct {
+  font-weight: 600;
+  color: var(--good, #2f7d52);
+  display: block;
+  margin-bottom: 4px;
+}
+.ja-ans-rationale {
+  color: var(--ink2, #15514c);
+}
+/* ── Journal self-test (pages without an MCQ bank) ── */
+.ja-quiz { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line, #d9d0bd); }
+.ja-quiz-h { font-family: "Fraunces", serif; font-weight: 600; font-size: 18px; margin: 0 0 12px; color: var(--ink, #0f3d3a); }
+.ja-qcard { background: var(--paper2, #fbf8f1); border: 1px solid var(--line, #d9d0bd); border-radius: 12px; padding: 14px 16px; margin: 12px 0; }
+.ja-qstem { font-weight: 600; font-size: 0.95em; margin-bottom: 10px; color: var(--ink, #0f3d3a); }
+.ja-qopt { display: block; width: 100%; text-align: left; cursor: pointer; font: inherit; font-size: 0.9em; padding: 8px 11px; margin: 5px 0; border: 1px solid var(--line, #d9d0bd); border-radius: 8px; background: var(--paper, #fdfaf4); color: var(--ink, #0f3d3a); }
+.ja-qopt b { color: var(--muted, #5d6b62); font-family: "JetBrains Mono", monospace; margin-right: 4px; }
+.ja-qopt:hover:not(.locked) { border-color: var(--lit, #1f6f8b); }
+.ja-qopt.locked { cursor: default; }
+.ja-qopt.correct { background: #e9f4ee; border-color: var(--good, #2f7d52); }
+.ja-qopt.wrong { background: #f8e9e9; border-color: var(--bad, #b23b3b); }
+.ja-qexpl { font-size: 0.88em; margin-top: 8px; padding: 9px 12px; background: var(--lit-soft, #dcedf2); border-radius: 8px; color: var(--ink2, #15514c); line-height: 1.5; }
+/* ── Journal source badge (self-contained so it renders on any bank page) ── */
+.bdg.journal {
+  display: inline-block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9.5px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 999px;
+  vertical-align: middle;
+  white-space: nowrap;
+  background: var(--lit-soft, #dcedf2);
+  color: var(--lit, #1f6f8b);
+}
+</style>
+<section class="panel" id="journal">
+  <h2 class="sec">Additional Resources</h2>
+  <p class="lead">Journal Articles (2021–2026) — exam items are drawn from the abstract only. Read each abstract here; self-test questions are in the MCQ Test Bank.</p>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Effect of 2020–21 and 2021–22 Highly Pathogenic Avian Influenza H5 Epidemics on Wild Birds, the Netherlands</b><br>
+    <span class="ja-meta">Caliendo &middot; Emerging Infectious Diseases &middot; 2024</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> The number of highly pathogenic avian influenza (HPAI) H5-related infections and deaths of wild birds in Europe was high during October 1, 2020–September 30, 2022. To quantify deaths among wild species groups with known susceptibility for HPAI H5 during those epidemics, we collected and recorded mortality data of wild birds in the Netherlands. HPAI virus infection was reported in 51 bird species. The species with the highest numbers of reported dead and infected birds varied per epidemic year; in 2020–21, they were within the Anatidae family, in particular barnacle geese (Branta leucopsis) and in 2021–22, they were within the sea bird group, particularly Sandwich terns (Thalasseus sandvicensis) and northern gannet (Morus bassanus). Because of the difficulty of anticipating and modeling the future trends of HPAI among wild birds, we recommend monitoring live and dead wild birds as a tool for surveillance of the changing dynamics of HPAI.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Recent Changes in Patterns of Mammal Infection with Highly Pathogenic Avian Influenza A(H5N1) Virus Worldwide</b><br>
+    <span class="ja-meta">Plaza &middot; Emerging Infectious Diseases &middot; 2024</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> We reviewed information about mammals naturally infected by highly pathogenic avian influenza A virus subtype H5N1 during 2 periods: the current panzootic (2020–2023) and previous waves of infection (2003–2019). In the current panzootic, 26 countries have reported &gt;48 mammal species infected by H5N1 virus; in some cases, the virus has affected thousands of individual animals. The geographic area and the number of species affected by the current event are considerably larger than in previous waves of infection. The most plausible source of mammal infection in both periods appears to be close contact with infected birds, including their ingestion. Some studies, especially in the current panzootic, suggest that mammal-to-mammal transmission might be responsible for some infections; some mutations found could help this avian pathogen replicate in mammals. H5N1 virus may be changing and adapting to infect mammals. Continuous surveillance is essential to mitigate the risk for a global pandemic.</div>
+  </div>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>SARS-CoV-2 and animals, a long story that doesn&#x27;t have to end now: What we need to learn from the emergence of the Omicron variant</b><br>
+    <span class="ja-meta">Reggiani &middot; Frontiers &middot; 2022</span></p>
+    <div class="ja-abstract"><b>Abstract.</b> OIE, the world organization for animal health, recently released an update on the state of the art of knowledge regarding SARS-CoV-2 in animals. For farmed animals, ferrets and minks were found to be highly susceptible to the virus and develop symptomatic disease both in natural conditions and in experimental infections. Lagomorphs of the species Oryctolagus cuniculus are indicated as highly susceptible to the virus under experimental conditions, but show no symptoms of the disease and do not transmit the virus between conspecifics, unlike raccoon dogs (Nyctereutes procyonoides), which in addition to being highly susceptible to the virus under experimental conditions, can also transmit the virus between conspecifics. Among felines, the circulation of the virus has reached a level of cases such as sometimes suggests the experimental use of vaccines for human use or treatments with monoclonal antibodies. But even among wild animals, several species (White-tailed deer, Egyptian rousettes, and minks) have now been described as potential natural reservoirs of the virus. This proven circulation of SARS-CoV-2 among animals has not been accompanied by the development of an adequate surveillance system that allows following the evolution of the virus among its natural hosts. This will be all the more relevant as the surveillance system in humans inevitably drops and we move to surveillance by sentinels similar to the human flu virus. The lesson that we can draw from the emergence of Omicron and, more than likely, its animal origin must not be lost, and in this mini-review, we explain why.</div>
+  </div>
+  <div class="ja-quiz">
+    <h3 class="ja-quiz-h">Journal Self-Test</h3>
+    <div id="jaQuizHost"></div>
+  </div>
+  <script data-journal-quiz>
+  (function(){
+    var JQ=[{"q": "Which species, unlike rabbits, was highly susceptible to SARS-CoV-2 AND transmitted it between conspecifics?", "o": ["Raccoon dogs", "Rabbits (Oryctolagus cuniculus)", "Egyptian rousettes", "White-tailed deer"], "a": 0, "e": "Raccoon dogs were highly susceptible and could transmit between conspecifics, unlike rabbits which did not transmit.", "t": "journal", "f": "journal"}, {"q": "What key shortcoming did the authors highlight regarding SARS-CoV-2 in animals?", "o": ["Lack of any susceptible species", "Absence of an adequate animal surveillance system to follow viral evolution", "Overuse of animal vaccines", "No human cases to compare"], "a": 1, "e": "They stress that animal circulation has not been matched by an adequate surveillance system to track viral evolution.", "t": "journal", "f": "journal"}, {"q": "Which wild animals were described as potential natural reservoirs of SARS-CoV-2?", "o": ["Pigeons and rats", "White-tailed deer, Egyptian rousettes, and minks", "Horses and cattle", "Salmon and trout"], "a": 1, "e": "White-tailed deer, Egyptian rousettes, and minks were named as potential natural reservoirs.", "t": "journal", "f": "journal"}, {"q": "HPAI H5 virus infection was reported in how many wild bird species?", "o": ["5", "15", "51", "510"], "a": 2, "e": "Infection was reported across 51 bird species.", "t": "journal", "f": "journal"}, {"q": "The species groups with the highest reported mortality:", "o": ["Were identical each year", "Varied per epidemic year (geese versus sea birds)", "Were only raptors", "Included no waterfowl"], "a": 1, "e": "2020–21 hit Anatidae/barnacle geese; 2021–22 hit sea birds like Sandwich terns and gannets.", "t": "journal", "f": "journal"}, {"q": "The recommended surveillance approach was to:", "o": ["Stop monitoring wild birds", "Monitor live and dead wild birds", "Cull all poultry", "Vaccinate wild birds"], "a": 1, "e": "Monitoring live and dead wild birds was recommended for tracking HPAI dynamics.", "t": "journal", "f": "journal"}, {"q": "The most plausible source of H5N1 infection in mammals was:", "o": ["Mosquito bites", "Close contact with or ingestion of infected birds", "Contaminated water only", "Human handlers"], "a": 1, "e": "Close contact with and ingestion of infected birds was the most plausible source.", "t": "journal", "f": "journal"}, {"q": "Compared with previous waves, the current panzootic affected:", "o": ["A larger geographic area and more mammal species", "Fewer species and a smaller area", "Only poultry", "No mammals"], "a": 0, "e": ">48 species across 26 countries, a far larger scope than prior waves.", "t": "journal", "f": "journal"}, {"q": "The review warns that H5N1 may be:", "o": ["Becoming less infectious", "Adapting to infect mammals, raising pandemic concern", "Already eradicated", "Permanently limited to birds"], "a": 1, "e": "Mutations and possible mammal-to-mammal transmission suggest adaptation and pandemic risk.", "t": "journal", "f": "journal"}];
+    var host=document.getElementById('jaQuizHost'); if(!host||!JQ.length) return;
+    var L=["A","B","C","D"];
+    JQ.forEach(function(item,i){
+      var card=document.createElement('div'); card.className='ja-qcard';
+      var stem=document.createElement('div'); stem.className='ja-qstem';
+      stem.textContent=(i+1)+'. '+item.q; card.appendChild(stem);
+      var done=false;
+      item.o.forEach(function(opt,oi){
+        var b=document.createElement('button'); b.className='ja-qopt';
+        b.innerHTML='<b>'+L[oi]+'.</b> '+opt;
+        b.onclick=function(){
+          if(done) return; done=true;
+          var kids=card.querySelectorAll('.ja-qopt');
+          for(var k=0;k<kids.length;k++){kids[k].classList.add('locked');}
+          kids[item.a].classList.add('correct');
+          if(oi!==item.a) b.classList.add('wrong');
+          var ex=document.createElement('div'); ex.className='ja-qexpl';
+          ex.innerHTML='<b>Answer: '+L[item.a]+'.</b> '+item.e; card.appendChild(ex);
+        };
+        card.appendChild(b);
+      });
+      host.appendChild(card);
+    });
+  })();
+  </script>
+</section>
+<!-- JOURNAL-ARTICLES:END -->
 
 </div></main>
 
