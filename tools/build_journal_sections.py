@@ -97,6 +97,11 @@ def render_tab_button() -> str:
     return '<button data-p="journal"><span class="dot" style="background:var(--lit, #1f6f8b)"></span>Journal Articles</button>'
 
 
+def render_datatab_button() -> str:
+    """Tab button for the bespoke .tab/data-tab tab system (research hubs)."""
+    return '<button class="tab" data-tab="journal">Journal Articles</button>'
+
+
 def render_styles() -> str:
     """Return a <style data-journal-css> block for journal section styling.
 
@@ -431,6 +436,13 @@ def inject(page_path: str) -> bool:
     # ----------------------------------------------------------------
     has_tabrow = bool(re.search(r'id="tabrow"', content))
     has_main = "<main>" in content
+    # Bespoke tab system used by the research hubs: `.tab` buttons carrying
+    # data-tab + `.panel` sections toggled by a .tab click handler (no #tabrow).
+    has_datatab = (
+        not has_tabrow
+        and bool(re.search(r'<button class="tab[^"]*"\s+data-tab="', content))
+        and 'class="panel' in content
+    )
 
     if not has_main:
         print(f"  [SKIP] {page_path}: no <main> element found — not matching expected template")
@@ -518,6 +530,57 @@ def inject(page_path: str) -> bool:
                 print(f"  [SKIP] {page_path}: cannot locate </div></main> anchor")
                 return False
 
+            insert_pos = main_close_match.start()
+            content = content[:insert_pos] + "\n" + panel_region + "\n\n" + content[insert_pos:]
+
+    # ----------------------------------------------------------------
+    # BESPOKE TAB layout (.tab/data-tab — research hubs)
+    # ----------------------------------------------------------------
+    elif has_datatab:
+        tab_button_html = render_datatab_button()
+        panel_html = render_panel(records, standalone=False, quiz_html=quiz_html)
+
+        tab_region = f"{TAB_START}\n{tab_button_html}\n{TAB_END}"
+        panel_region = f"{PANEL_START}\n{styles_html}\n{panel_html}\n{PANEL_END}"
+
+        # TAB injection: idempotent replacement, else insert after the last
+        # existing .tab button (e.g. "Question Bank") in the tab nav.
+        if TAB_START in content:
+            content = re.sub(
+                re.escape(TAB_START) + r".*?" + re.escape(TAB_END),
+                tab_region,
+                content,
+                flags=re.DOTALL,
+            )
+        else:
+            tab_btns = list(
+                re.finditer(
+                    r'<button class="tab[^"]*"\s+data-tab="[^"]*"[^>]*>.*?</button>',
+                    content,
+                    flags=re.DOTALL,
+                )
+            )
+            if not tab_btns:
+                print(f"  [SKIP] {page_path}: cannot locate .tab/data-tab buttons")
+                return False
+            insert_pos = tab_btns[-1].end()
+            content = content[:insert_pos] + "\n    " + tab_region + content[insert_pos:]
+
+        # PANEL injection: idempotent replacement, else insert before </main>.
+        # standalone=False renders <section class="panel" id="journal"> so the
+        # page's existing .tab handler shows/hides it like every other panel.
+        if PANEL_START in content:
+            content = re.sub(
+                re.escape(PANEL_START) + r".*?" + re.escape(PANEL_END),
+                panel_region,
+                content,
+                flags=re.DOTALL,
+            )
+        else:
+            main_close_match = re.search(r"</main>", content)
+            if not main_close_match:
+                print(f"  [SKIP] {page_path}: cannot locate </main> anchor")
+                return False
             insert_pos = main_close_match.start()
             content = content[:insert_pos] + "\n" + panel_region + "\n\n" + content[insert_pos:]
 
