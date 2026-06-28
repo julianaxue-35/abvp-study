@@ -334,13 +334,19 @@ def render_bank_script(questions: list) -> str:
     window.tagLabel=function(t){{return t==='journal'?'Journal':_tl(t);}};
     window.tagLabel.__journalPatched=true;
   }}
-  // Add a "Journal Articles" chip to the topic-filter bar so the journal
-  // questions can be isolated (they otherwise sit at the end of the bank).
-  var _fbar=document.querySelector('.filters');
+  // Bespoke #chips banks render each card's tag via DLABEL[item.f]; register a
+  // label so journal cards read "Journal Articles" instead of "undefined".
+  if(typeof DLABEL==='object' && DLABEL && !DLABEL.journal){{DLABEL.journal='Journal Articles';}}
+  // Add a "Journal Articles" chip to whichever topic-filter bar the page uses
+  // (.filters on the standard template, #chips on the research hubs) so the
+  // journal questions can be isolated (they otherwise sit at the end of bank).
+  var _fbar=document.querySelector('.filters')||document.getElementById('chips');
   if(_fbar && !_fbar.querySelector('[data-f="journal"]')){{
     var _jb=document.createElement('button');
     _jb.setAttribute('data-f','journal');
     _jb.textContent='Journal Articles';
+    var _sib=_fbar.querySelector('button[data-f]');
+    if(_sib && _sib.className){{_jb.className=_sib.className;_jb.classList.remove('active');}}
     _fbar.appendChild(_jb);
   }}
   if(typeof Q!=='undefined' && Array.isArray(Q)){{
@@ -447,12 +453,18 @@ def inject(page_path: str) -> bool:
     questions = page_questions(page_path, all_records, synth)
     has_bank = bool(re.search(r"const Q=\[", content))
     # Route questions into the page's MCQ bank only when its filter bar uses
-    # event delegation on .filters — that is the only case where a dynamically
-    # injected "Journal Articles" chip gets wired up. Pages that bind filter
-    # clicks per-button at load (a dynamic chip would be dead) or that have no
-    # filter bar get a discoverable, self-contained in-panel "Journal Self-Test".
+    # event delegation — either on .filters (standard template) or on #chips
+    # (the bespoke research-domain hubs). That is the only case where a
+    # dynamically injected "Journal Articles" chip gets wired up. Pages that
+    # bind filter clicks per-button at load (a dynamic chip would be dead) or
+    # that have no filter bar get a self-contained in-panel "Journal Self-Test".
     has_delegated_filter = has_bank and bool(
-        re.search(r"""querySelector\(["']\.filters["']\)\.addEventListener\(["']click""", content))
+        re.search(
+            r"""(?:querySelector\(["']\.filters["']\)|getElementById\(["']chips["']\))"""
+            r"""\.addEventListener\(["']click""",
+            content,
+        )
+    )
     use_bank = has_delegated_filter
     quiz_html = "" if use_bank else render_quiz_block(questions)
 
