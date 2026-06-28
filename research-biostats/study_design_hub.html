@@ -458,6 +458,62 @@ ul{padding-left:20px}
   </table>
   <div class="box verifybox"><span class="lbl">Shelter link</span><p>Kaplan-Meier and survival analysis are the proper tools for length-of-stay and time-to-outcome data, because they handle animals still in care (censored observations). This connects your Data and Analysis work to study-design methodology.</p></div>
 
+  <h3>Test by test, with shelter examples <span class="badge ref">ref</span></h3>
+  <p>The table above is the quick lookup; this section is the reasoning behind each row, with the shelter-medicine example you are most likely to meet on the exam.</p>
+
+  <h4>Comparing group means (continuous outcome)</h4>
+  <ul>
+    <li><b>Independent t-test:</b> compares the mean of a continuous, roughly normally distributed outcome between <b>exactly two independent groups</b>. It assumes independent observations, approximate normality (which matters most at small n, because the Central Limit Theorem rescues you at larger n), and equal variances. <b>Welch's t-test</b> relaxes that last assumption and is often the safer default. <i>Shelter example:</i> mean length of stay in single versus group housing.</li>
+    <li><b>Paired t-test:</b> use this instead when the two measurements come from the <b>same animals</b> (for example weight before and after a deworming protocol), because the observations are no longer independent.</li>
+    <li><b>One-way ANOVA:</b> the same idea extended to <b>three or more groups</b>. You use it rather than running multiple t-tests because each pairwise t-test carries its own false-positive risk, and stacking them inflates the <b>family-wise error rate</b>. ANOVA gives one omnibus test of "do any group means differ"; if it is significant you follow with <b>post-hoc comparisons</b> (Tukey HSD, Bonferroni) to identify which pairs differ. <i>Shelter example:</i> mean length of stay across owner-surrender, stray, and transfer intake.</li>
+  </ul>
+
+  <h4>Comparing proportions (categorical outcome)</h4>
+  <ul>
+    <li><b>Chi-square:</b> tests whether the distribution of counts across categories departs from what you would expect if the variables were independent. The standard assumption is <b>expected cell counts of at least 5</b>. <i>Shelter example:</i> adoption versus euthanasia outcome by feline leukaemia virus (FeLV) status.</li>
+    <li><b>Fisher's exact test:</b> switch to this when cells are sparse; it computes the probability directly rather than relying on the chi-square approximation.</li>
+  </ul>
+
+  <h4>Measuring association (two continuous variables)</h4>
+  <ul>
+    <li><b>Pearson correlation (r, ranging -1 to +1):</b> quantifies the strength and direction of a <b>linear</b> relationship; for inference it assumes linearity, normally distributed residuals, and constant variance.</li>
+    <li><b>Linear regression:</b> goes a step further, modelling the outcome as a function of one or more predictors. It gives you a <b>slope</b> (effect size), the ability to predict, and the ability to <b>adjust for confounders</b>. <i>Shelter example:</i> weight regressed on age, or surgery time on body weight.</li>
+  </ul>
+
+  <h4>Modelling a binary outcome with several predictors</h4>
+  <p><b>Logistic regression</b> is the workhorse of shelter outcome research, because most shelter outcomes are binary (adopted or not, live-release or not, returned or not) and you almost always want to adjust for multiple predictors at once. It models the <b>log-odds</b> of the outcome, and its coefficients exponentiate into <b>odds ratios</b>, which are directly interpretable.</p>
+
+  <h4>Skewed or ordinal data (non-parametric)</h4>
+  <p>These tests work on <b>ranks</b> rather than raw values, so they make no normality assumption. Each one is the non-parametric analogue of a parametric test:</p>
+  <ul>
+    <li><b>Mann-Whitney U</b> (Wilcoxon rank-sum) replaces the two-group t-test.</li>
+    <li><b>Kruskal-Wallis</b> replaces one-way ANOVA.</li>
+    <li><b>Spearman's rho</b> replaces Pearson and detects a <b>monotonic</b> rather than strictly linear association.</li>
+  </ul>
+  <p>This matters for shelter work specifically because length-of-stay data are classically <b>right-skewed</b> &mdash; which is exactly why the Shelter link box above flags survival methods, and why a Mann-Whitney is often more defensible than a t-test on raw length of stay.</p>
+
+  <h4>Time to an event</h4>
+  <ul>
+    <li><b>Kaplan-Meier</b> estimates the survival (or "still in care") curve over time and, crucially, handles <b>censoring</b>: animals still in the shelter at study end, or whose follow-up ends before the event, contribute the information they have without being dropped or treated as if the event occurred.</li>
+    <li><b>Log-rank test:</b> compares two or more Kaplan-Meier curves.</li>
+    <li><b>Cox proportional hazards:</b> the regression extension, giving <b>hazard ratios</b> while adjusting for covariates.</li>
+  </ul>
+  <p>A plain mean length of stay is biased precisely because it ignores censored animals &mdash; the methodological point the Shelter link box above is making.</p>
+
+  <h4>The framework worth memorising</h4>
+  <p>There is a clean parallel that ties the whole table together: each "simple" comparison test has a <b>regression counterpart</b> that lets you adjust for confounders.</p>
+  <table>
+    <thead><tr><th>Simple comparison test</th><th>Regression counterpart</th><th>Outcome type</th></tr></thead>
+    <tbody>
+      <tr><td>Chi-square</td><td>Logistic regression</td><td>Binary</td></tr>
+      <tr><td>t-test and ANOVA</td><td>Linear regression</td><td>Continuous</td></tr>
+      <tr><td>Log-rank test</td><td>Cox proportional hazards</td><td>Time-to-event</td></tr>
+    </tbody>
+  </table>
+  <div class="box verifybox"><span class="lbl">Exam framework</span><p>The simple test answers "do these groups differ?"; the regression answers "do they differ after accounting for everything else?"</p></div>
+
+  <div class="box trap"><span class="lbl">Study-design caveat</span><p>Every test above assumes <b>independent observations</b>, and shelter data routinely violate this: littermates, animals from the same household, or repeat surrenders are correlated. When observations cluster, you move to <b>mixed-effects (multilevel) models</b> or, for matched case-control designs, <b>conditional logistic regression</b>. This is the link between study design and test choice that the table cannot show: the design determines whether the standard test is even <i>valid</i>, not just which one you reach for.</p></div>
+
   <h3>Association vs causation <span class="badge ref">ref</span></h3>
   <p>The <b>Bradford Hill considerations</b> help judge causality: temporality, strength, dose-response, consistency, plausibility, coherence, experimental evidence, specificity, analogy.</p>
   <div class="box trap"><span class="lbl">Exam trap</span><p><b>Temporality</b> (cause precedes effect) is the one essential criterion. The rest are supporting considerations, not a checklist that all must be met. Association is never proof of causation.</p></div>
