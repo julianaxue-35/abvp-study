@@ -1149,13 +1149,19 @@ function setRate(btn,r){
     window.tagLabel=function(t){return t==='journal'?'Journal':_tl(t);};
     window.tagLabel.__journalPatched=true;
   }
-  // Add a "Journal Articles" chip to the topic-filter bar so the journal
-  // questions can be isolated (they otherwise sit at the end of the bank).
-  var _fbar=document.querySelector('.filters');
+  // Bespoke #chips banks render each card's tag via DLABEL[item.f]; register a
+  // label so journal cards read "Journal Articles" instead of "undefined".
+  if(typeof DLABEL==='object' && DLABEL && !DLABEL.journal){DLABEL.journal='Journal Articles';}
+  // Add a "Journal Articles" chip to whichever topic-filter bar the page uses
+  // (.filters on the standard template, #chips on the research hubs) so the
+  // journal questions can be isolated (they otherwise sit at the end of bank).
+  var _fbar=document.querySelector('.filters')||document.getElementById('chips');
   if(_fbar && !_fbar.querySelector('[data-f="journal"]')){
     var _jb=document.createElement('button');
     _jb.setAttribute('data-f','journal');
     _jb.textContent='Journal Articles';
+    var _sib=_fbar.querySelector('button[data-f]');
+    if(_sib && _sib.className){_jb.className=_sib.className;_jb.classList.remove('active');}
     _fbar.appendChild(_jb);
   }
   if(typeof Q!=='undefined' && Array.isArray(Q)){
