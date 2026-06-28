@@ -562,7 +562,7 @@
 "type": "mcq",
 "domain": "Physical Health",
 "sub": "Nutrition & Husbandry",
-"q": "During a TNR clinic, a feral cat in a trap cannot be handled before anesthesia. If you visually estimate its weight at 3 kg, what is the most important limitation you should account for when dosing induction agents?",
+"q": "During a TNR clinic, a feral cat in a trap cannot be handled before anesthesia. If you visually estimate its weight at 3 kg (6.6 lb), what is the most important limitation you should account for when dosing induction agents?",
 "o": [
 "Visual estimates by experienced veterinarians are highly reliable, so little adjustment is needed",
 "Even the most accurate estimators (veterinarians) were within 20% of actual weight only about half the time",
@@ -985,19 +985,19 @@
 "q": "Is autoligation (pedicle tie) of the spermatic cord a safe alternative to double suture ligation for castration of small dogs?",
 "o": [
 "No — hemorrhagic complications occur at an unacceptably high rate without suture ligation",
-"Yes — autoligation has been shown safe in small dogs (≤11.4 kg) with no severe hemorrhagic complications in a prospective series",
-"It is safe only in dogs under 5 kg where scrotal vasculature is minimal",
+"Yes — autoligation has been shown safe in small dogs (≤11.4 kg (25.1 lb)) with no severe hemorrhagic complications in a prospective series",
+"It is safe only in dogs under 5 kg (11 lb) where scrotal vasculature is minimal",
 "Safety is unproven and it should only be used in high-volume settings with emergency surgical backup"
 ],
 "a": 1,
-"e": "In a prospective series of 215 shelter dogs ≤11.4 kg undergoing autoligation of the spermatic cord, there were zero intraoperative hemorrhagic complications, zero cases of postoperative bleeding, and zero scrotal hematomas. Only minor self-limiting complications (peri-incisional and scrotal bruising) occurred. This establishes the safety of autoligation for small dog castration in HQHVSN settings.",
+"e": "In a prospective series of 215 shelter dogs ≤11.4 kg (25.1 lb) undergoing autoligation of the spermatic cord, there were zero intraoperative hemorrhagic complications, zero cases of postoperative bleeding, and zero scrotal hematomas. Only minor self-limiting complications (peri-incisional and scrotal bruising) occurred. This establishes the safety of autoligation for small dog castration in HQHVSN settings.",
 "source": "journal"
 },
 {
 "type": "mcq",
 "domain": "Physical Health",
 "sub": "Surgery & Anesthesia",
-"q": "A high-volume shelter performs dog castrations using autoligation of the spermatic cord in dogs ≤11.4 kg. What complication rate for serious hemorrhagic events should be expected based on available evidence?",
+"q": "A high-volume shelter performs dog castrations using autoligation of the spermatic cord in dogs ≤11.4 kg (25.1 lb). What complication rate for serious hemorrhagic events should be expected based on available evidence?",
 "o": [
 "Approximately 5–10%, similar to human pediatric orchiopexy complication rates",
 "Effectively zero — no severe hemorrhagic complications occurred in 215 dogs, with a calculated maximum risk of 1.7%",
@@ -1012,7 +1012,7 @@
 "type": "mcq",
 "domain": "Physical Health",
 "sub": "Surgery & Anesthesia",
-"q": "For dog castration using autoligation of the spermatic cord in dogs ≤11.4 kg, what does the evidence say about the risk of severe hemorrhagic complications?",
+"q": "For dog castration using autoligation of the spermatic cord in dogs ≤11.4 kg (25.1 lb), what does the evidence say about the risk of severe hemorrhagic complications?",
 "o": [
 "The risk is similar to traditional double ligation, approximately 1–3%",
 "The risk is negligible — no severe hemorrhagic complications occurred in 215 dogs, with a maximum estimated risk of 1.7%",
@@ -1230,7 +1230,7 @@
 "IV fluid warming alone is sufficient to maintain normothermia throughout anesthesia"
 ],
 "a": 1,
-"e": "This randomized trial found that both passive insulation (down blankets) and active warming (down blankets with heating element) significantly slowed temperature decline compared to controls, especially after the first 30 minutes. After two hours, passive insulation produced temperatures 1.2°F higher and active warming 1.9°F higher than controls. However, the absolute difference between active and passive was only 0.7°F, which may not justify the added complexity of a heating source.",
+"e": "This randomized trial found that both passive insulation (down blankets) and active warming (down blankets with heating element) significantly slowed temperature decline compared to controls, especially after the first 30 minutes. After two hours, passive insulation produced temperatures 1.2°F (0.7°C) higher and active warming 1.9°F (1.1°C) higher than controls. However, the absolute difference between active and passive was only 0.7°F (0.4°C), which may not justify the added complexity of a heating source.",
 "source": "journal"
 },
 {
@@ -1240,12 +1240,12 @@
 "q": "A veterinary clinic is deciding whether to invest in active warming devices (insulation plus heating element) for cats under anesthesia, versus simply using highly-insulating passive blankets. What does the evidence suggest?",
 "o": [
 "Active warming is substantially superior and should always be used — it prevents hypothermia entirely while passive insulation does not",
-"Both passive and active insulation reduce temperature loss; the additional benefit of active warming over passive insulation is small (~0.7°F) and may not justify additional complexity",
+"Both passive and active insulation reduce temperature loss; the additional benefit of active warming over passive insulation is small (~0.7°F (~0.4°C)) and may not justify additional complexity",
 "Neither active nor passive insulation has a meaningful effect on core temperature during short anesthetic procedures",
 "Passive insulation is ineffective and only active warming devices produce clinically meaningful temperature preservation"
 ],
 "a": 1,
-"e": "Both passive (down blankets) and active (down blankets plus heating element) insulation were superior to no covering. At two hours, active warming predicted temperatures 1.9°F higher than control vs 1.2°F for passive — a difference of 0.7°F between the two intervention groups. The authors note this modest absolute difference may not justify the additional challenges of incorporating an active heating source in all clinic settings.",
+"e": "Both passive (down blankets) and active (down blankets plus heating element) insulation were superior to no covering. At two hours, active warming predicted temperatures 1.9°F (1.1°C) higher than control vs 1.2°F (0.7°C) for passive — a difference of 0.7°F (0.4°C) between the two intervention groups. The authors note this modest absolute difference may not justify the additional challenges of incorporating an active heating source in all clinic settings.",
 "source": "journal"
 },
 {
@@ -1287,7 +1287,7 @@
 "It substantially degrades viral replication competence, likely explaining recent distemper outbreaks in vaccinated dogs",
 "In-vitro testing showed no significant difference in CDV replication competence across storage conditions up to 24 hours pre- and post-reconstitution at room temperature",
 "Only post-reconstitution storage at room temperature degrades potency; pre-reconstitution warming has no effect",
-"Storage at 4°C post-reconstitution preserves potency but room temperature storage does not"
+"Storage at 4°C (39.2°F) post-reconstitution preserves potency but room temperature storage does not"
 ],
 "a": 1,
 "e": "This in-vitro study tested CDV MLV under a range of time/temperature conditions — up to 24 hours pre-reconstitution at room temperature followed by 24 hours post-reconstitution at room temperature — and found no statistically significant difference in median cell infection rates between any conditions. However, a key caveat is that only one of three vaccine brands tested showed replication competence at all, highlighting vaccine-brand variation as a major variable.",
@@ -1320,7 +1320,7 @@
 "Uncommon in dogs but frequent in cats due to smaller body mass"
 ],
 "a": 1,
-"e": "PIH (rectal temperature <36°C) was documented in 22% of animals across five HQHVSN shelters. Despite rapid mean surgical times (7.2 min for dog castrations, 10.6 min for cat ovariohysterectomy, 19.6 min for dog ovariohysterectomy), hypothermia was still common. This challenges the assumption that fast spay/neuter procedures protect against PIH.",
+"e": "PIH (rectal temperature <36°C (96.8°F)) was documented in 22% of animals across five HQHVSN shelters. Despite rapid mean surgical times (7.2 min for dog castrations, 10.6 min for cat ovariohysterectomy, 19.6 min for dog ovariohysterectomy), hypothermia was still common. This challenges the assumption that fast spay/neuter procedures protect against PIH.",
 "source": "journal"
 },
 {
@@ -1335,7 +1335,7 @@
 "Increasing IV fluid rates to maintain core temperature through convective heating"
 ],
 "a": 1,
-"e": "This prospective study found that each 1°C decrease in environmental temperature increased the odds of PIH by 22% (OR=1.22). This was identified over an environmental temperature range of 15.6–26.1°C. In addition, PIH was associated with prolonged recovery in cats (3.8 additional minutes to extubation) and increased pain scores in both species. Raising ambient temperature in operative and recovery areas is a practical and evidence-based preventive strategy.",
+"e": "This prospective study found that each 1°C decrease in environmental temperature increased the odds of PIH by 22% (OR=1.22). This was identified over an environmental temperature range of 15.6–26.1°C (60.1–79.0°F). In addition, PIH was associated with prolonged recovery in cats (3.8 additional minutes to extubation) and increased pain scores in both species. Raising ambient temperature in operative and recovery areas is a practical and evidence-based preventive strategy.",
 "source": "journal"
 },
 {
@@ -1991,7 +1991,7 @@
 "o": [
 "No — rabies vaccination before 12 weeks of age consistently fails due to maternal antibody interference",
 "Yes — if kittens lack maternally derived antibodies at 9 weeks, vaccination produces protective titers in all animals",
-"Only if kittens weigh more than 1 kg, as smaller kittens do not mount adequate responses",
+"Only if kittens weigh more than 1 kg (2.2 lb), as smaller kittens do not mount adequate responses",
 "Only if a licensed 3-year rabies vaccine is used; 1-year products are not labeled for kittens under 12 weeks"
 ],
 "a": 1,
@@ -2216,7 +2216,7 @@
 "o": [
 "Vomiting without diarrhea at baseline",
 "Pale mucous membranes at baseline",
-"Body temperature below 38°C at baseline",
+"Body temperature below 38°C (100.4°F) at baseline",
 "Age under 8 weeks at presentation"
 ],
 "a": 1,
@@ -2767,12 +2767,12 @@
 "type": "mcq",
 "domain": "Companion Animal Homelessness",
 "sub": "Epidemiology of Homelessness",
-"q": "A study on identifying veterinary care deserts in the United States measured clinic catchment by analysing mean travel distances from clinic clients to veterinary clinics, finding that most people travel between 2 and 6 miles. What is the practical implication for defining a veterinary care desert?",
+"q": "A study on identifying veterinary care deserts in the United States measured clinic catchment by analysing mean travel distances from clinic clients to veterinary clinics, finding that most people travel between 2 and 6 miles (3.2 and 9.7 km). What is the practical implication for defining a veterinary care desert?",
 "o": [
-"Any county without a clinic within 50 miles should be classified as a care desert",
+"Any county without a clinic within 50 miles (80 km) should be classified as a care desert",
 "Distance alone is insufficient; both travel catchment and staff-to-population ratios are needed to identify underserved areas",
 "Since most people travel only a few miles, geographic access is not a meaningful barrier",
-"Only rural communities more than 6 miles from a clinic face meaningful access barriers"
+"Only rural communities more than 6 miles (9.7 km) from a clinic face meaningful access barriers"
 ],
 "a": 1,
 "e": "The study establishes that both the ratio of staff to population AND catchment distance are necessary parameters for identifying care deserts — neither alone is sufficient, and this dual-parameter framework is the study's core methodological contribution.",
@@ -4107,7 +4107,7 @@
 "The ovarian pedicle tie should only be performed by senior surgeons because of significant hemorrhage risk",
 "The ovarian pedicle tie is a safe technique for feline ovariohysterectomy in high-quality, high-volume spay-neuter (HQHVSN) settings, with a very low complication rate that did not vary significantly with surgeon experience level",
 "The 0.12% hemorrhage rate is unacceptably high for elective surgery and argues against using this technique",
-"The low complication rate only applies to cats under 2 kg; larger or older cats are at substantially higher risk"
+"The low complication rate only applies to cats under 2 kg (4.4 lb); larger or older cats are at substantially higher risk"
 ],
 "a": 1,
 "e": "Only 19 of 15,927 cats had pedicle-related hemorrhage (0.12%), all corrected intraoperatively without death. Crucially, surgeon experience level did not significantly affect complication rates, making the technique appropriate for training programs as well as experienced surgeons.",
@@ -6090,7 +6090,7 @@
 "No measurable change in rectal temperature"
 ],
 "a": 0,
-"e": "Rectal temperatures fell to approximately 35–36 °C in all groups regardless of whether alcohol or water was used as the rinsing agent, demonstrating that perioperative hypothermia occurs in pediatric patients and that factors beyond rinse choice must be considered.",
+"e": "Rectal temperatures fell to approximately 35–36 °C (95–96.8°F) in all groups regardless of whether alcohol or water was used as the rinsing agent, demonstrating that perioperative hypothermia occurs in pediatric patients and that factors beyond rinse choice must be considered.",
 "source": "journal"
 },
 {
@@ -11814,13 +11814,13 @@
 "sub": "Data & Analysis",
 "q": "In a Dallas Animal Services case study on Return-to-Owner (RTO) outcomes for stray dogs, how far from home had the majority (70%) of successfully returned strays traveled?",
 "o": [
-"Over 10 miles",
-"At most 1 mile",
-"Over 5 miles",
+"Over 10 miles (16 km)",
+"At most 1 mile (1.6 km)",
+"Over 5 miles (8 km)",
 "Distance was not measured"
 ],
 "a": 1,
-"e": "70% of returned stray dogs had traveled at most 1 mile from home, and 42% had traveled only up to a block away, supporting neighborhood-based owner-location strategies.",
+"e": "70% of returned stray dogs had traveled at most 1 mile (1.6 km) from home, and 42% had traveled only up to a block away, supporting neighborhood-based owner-location strategies.",
 "source": "journal"
 },
 {
@@ -20244,13 +20244,13 @@
 "sub": "Surgery & Anesthesia",
 "q": "The lowest temperature in the supplemental group, adjusted for covariates, was higher than control by approximately:",
 "o": [
-"0.1 C",
-"0.8 C",
-"3.0 C",
+"0.1 C (0.2°F)",
+"0.8 C (1.4°F)",
+"3.0 C (5.4°F)",
 "No difference"
 ],
 "a": 1,
-"e": "The adjusted lowest temperature was significantly higher by 0.8 C in the supplemental group.",
+"e": "The adjusted lowest temperature was significantly higher by 0.8 C (1.4°F) in the supplemental group.",
 "source": "journal"
 },
 {
@@ -20964,13 +20964,13 @@
 "sub": "Spay-Neuter",
 "q": "In a study comparing chlorhexidine solution versus 70% isopropyl alcohol as rinse agents in cats undergoing spay surgery, which of the following was identified as a significant predictor of lower recovery temperature?",
 "o": [
-"Weight < 2.3 kg",
+"Weight < 2.3 kg (5.1 lb)",
 "High body condition score",
 "Short surgery duration",
 "Male sex"
 ],
 "a": 0,
-"e": "Low weight (<2.3 kg), body condition score <4, longer surgery duration, and lower postinduction temperature were all significant predictors of lower recovery temperature in this feline spay study.",
+"e": "Low weight (<2.3 kg (5.1 lb)), body condition score <4, longer surgery duration, and lower postinduction temperature were all significant predictors of lower recovery temperature in this feline spay study.",
 "source": "journal"
 },
 {
@@ -22074,13 +22074,13 @@
 "sub": "Spay-Neuter",
 "q": "Joint disorder risk with early neutering was heightened in which dogs?",
 "o": [
-"Small breeds under 10 kg",
-"Larger breeds and mixed-breeds over 20 kg",
+"Small breeds under 10 kg (22 lb)",
+"Larger breeds and mixed-breeds over 20 kg (44.1 lb)",
 "Only toy breeds",
 "Cats"
 ],
 "a": 1,
-"e": "Risks were heightened for some larger breeds and mixed-breed dogs over 20 kg.",
+"e": "Risks were heightened for some larger breeds and mixed-breed dogs over 20 kg (44.1 lb).",
 "source": "journal"
 },
 {
@@ -22585,12 +22585,12 @@
 "q": "What effect did heavy rainfall have on distance moved?",
 "o": [
 "Increased distance",
-"Decreased distance (3.6→2.4 km)",
+"Decreased distance (3.6→2.4 km) (2.2→1.5 miles)",
 "No effect",
 "Doubled distance"
 ],
 "a": 1,
-"e": "On heavy-rain days cats moved ~2.4 km vs ~3.6 km on dry days.",
+"e": "On heavy-rain days cats moved ~2.4 km (1.5 miles) vs ~3.6 km (2.2 miles) on dry days.",
 "source": "journal"
 },
 {
@@ -22944,13 +22944,13 @@
 "sub": "Spay-Neuter",
 "q": "Based on a GPS-tracking study of domestic cats in Cape Town, South Africa, what buffer width around conservation areas was recommended to reduce cat impacts on native fauna?",
 "o": [
-"~100 m",
-"~300 m",
-"~600 m",
-"~1 km"
+"~100 m (328.1 ft)",
+"~300 m (984.2 ft)",
+"~600 m (1968.5 ft)",
+"~1 km (0.6 mile)"
 ],
 "a": 2,
-"e": "Results suggest cat buffers of at least ~600 m around conservation areas.",
+"e": "Results suggest cat buffers of at least ~600 m (1968.5 ft) around conservation areas.",
 "source": "journal"
 },
 {
@@ -22959,7 +22959,7 @@
 "sub": "Spay-Neuter",
 "q": "In a GPS-tracking study of domestic cats in Cape Town, South Africa, which cats made the most extensive use of protected areas in summer?",
 "o": [
-"Urban cats >150 m from the edge",
+"Urban cats >150 m (492.1 ft) from the edge",
 "Urban-edge cats",
 "No cats entered protected areas",
 "All cats equally"
@@ -28342,7 +28342,7 @@
 "type": "mcq",
 "domain": "Physical Health",
 "sub": "Medical (Non-Infectious)",
-"q": "What does the study conclude about ~0.75 m2 hutches for rabbit pairs?",
+"q": "What does the study conclude about ~0.75 m2 (8.1 sq ft) hutches for rabbit pairs?",
 "o": [
 "They are adequate with 3 h daily run access",
 "They should not be recommended even with 3 h daily run access",
@@ -28350,7 +28350,7 @@
 "They only suit single rabbits with no run"
 ],
 "a": 1,
-"e": "Hutches of ~0.75 m2 should not be recommended for rabbit pairs even with 3 h/day run access.",
+"e": "Hutches of ~0.75 m2 (8.1 sq ft) should not be recommended for rabbit pairs even with 3 h/day run access.",
 "source": "journal"
 },
 {
@@ -34027,7 +34027,7 @@
 "type": "mcq",
 "domain": "Research & Biostats",
 "sub": "Study Design",
-"q": "A study collected canine fecal samples from shelter dogs and stored them at ambient temperature (15–21°C) or on wet ice (4°C) for up to 24 hours before freezing. Cortisol and secretory immunoglobulin A (sIgA) concentrations were then measured. What were the findings?",
+"q": "A study collected canine fecal samples from shelter dogs and stored them at ambient temperature (15–21°C (59–69.8°F)) or on wet ice (4°C (39.2°F)) for up to 24 hours before freezing. Cortisol and secretory immunoglobulin A (sIgA) concentrations were then measured. What were the findings?",
 "o": [
 "Significantly degraded",
 "Stable with no significant differences across time points or conditions",
@@ -34042,7 +34042,7 @@
 "type": "mcq",
 "domain": "Research & Biostats",
 "sub": "Study Design",
-"q": "A study examined whether canine fecal cortisol and secretory immunoglobulin A (sIgA) concentrations remain stable when stored at ambient temperature or on wet ice for up to 24 hours. Is immediate freezing at −80°C necessary for accurate quantification of these biomarkers?",
+"q": "A study examined whether canine fecal cortisol and secretory immunoglobulin A (sIgA) concentrations remain stable when stored at ambient temperature or on wet ice for up to 24 hours. Is immediate freezing at −80°C (−112°F) necessary for accurate quantification of these biomarkers?",
 "o": [
 "Yes, always required",
 "No, it does not appear necessary",
@@ -35182,7 +35182,7 @@
 "type": "mcq",
 "domain": "Physical Health",
 "sub": "Medical (Non-Infectious)",
-"q": "What happened to canine CRP values after 14 weeks of storage at -80 degrees C?",
+"q": "What happened to canine CRP values after 14 weeks of storage at -80 degrees C (-112°F)?",
 "o": [
 "They degraded substantially",
 "They increased by an average of about 3.58 mg/L",
@@ -35190,7 +35190,7 @@
 "They were unchanged exactly"
 ],
 "a": 1,
-"e": "CRP did not falsely drop with freeze-thaw; values increased by an average of 3.58 mg/L after 14 weeks at -80 C.",
+"e": "CRP did not falsely drop with freeze-thaw; values increased by an average of 3.58 mg/L after 14 weeks at -80 C (-112°F).",
 "source": "journal"
 },
 {
