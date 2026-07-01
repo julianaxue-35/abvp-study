@@ -94,6 +94,15 @@
   .trap b{color:var(--warn)}
   .add{background:var(--add-soft);border-bottom:1px dotted var(--add);color:#0b5a54;padding:0 2px;border-radius:2px}
   .addtag{font-size:9px;font-weight:700;color:#fff;background:var(--add);border-radius:3px;padding:0 3px;margin-left:2px;vertical-align:1px}
+  /* p-value interpretation split */
+  .phow{font-size:12px;font-weight:700;color:var(--theme-deep);margin:8px 0 4px}
+  .pval{display:flex;flex-direction:column;gap:6px;margin:2px 0}
+  .pv{border-radius:7px;padding:7px 10px;font-size:11.8px;border:1px solid var(--line)}
+  .pv b{display:block;font-size:12.5px;margin-bottom:2px}
+  .pv.sig{background:#eaf6ee;border-color:#bcdcc6;color:#215c38}
+  .pv.sig b{color:#15803d}
+  .pv.ns{background:#f3f0f1;border-color:#d8d2d4;color:#555}
+  .pv.ns b{color:#444}
 
   /* 2x2 tables */
   table.t2{border-collapse:collapse;margin:8px 0;font-size:12.5px;width:100%;max-width:440px}
@@ -452,6 +461,11 @@
         <h2>Null hypothesis &amp; p-value</h2>
         <p class="plain">The <b>null hypothesis (H₀)</b> says "<b>no difference, no association.</b>" Its <b>null value is 1</b> for ratios (RR, OR) and <b>0</b> for differences.</p>
         <p class="plain">The <b>p-value</b> = the probability of seeing data <b>this extreme if H₀ were true</b>. A <b>low p</b> means the data would be surprising under "no effect," so you <b>reject H₀</b> (conventionally p &lt; 0.05).</p>
+        <div class="phow">How to interpret the number</div>
+        <div class="pval">
+          <div class="pv sig"><b>p ≤ 0.05 — statistically significant</b>You <b>reject the null hypothesis</b>. There is less than a 5% probability your results happened purely by chance → you have evidence of a <b>true effect or difference</b>.</div>
+          <div class="pv ns"><b>p &gt; 0.05 — not statistically significant</b>You <b>fail to reject the null hypothesis</b>. Random chance could reasonably explain what you observed → <b>no strong evidence</b> of a real difference.</div>
+        </div>
         <div class="note"><span class="add">p does <b>not</b> tell you the size of the effect or the chance the null is true — only how surprising the data are.<span class="addtag">+</span></span></div>
       </section>
 
