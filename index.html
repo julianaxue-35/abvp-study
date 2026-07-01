@@ -527,11 +527,10 @@ function renderHome(){
     h+='>';
     h+='<div class="dtile-emoji">'+d.emoji+'</div>';
     h+='<div class="dtile-name">'+d.name+'</div>';
-    h+='<div class="dtile-count">'+d.subs.length+' topics'+(hasUrl?'':' · coming soon')+'</div>';
+    h+='<div class="dtile-count">'+d.subs.length+' topic'+(d.subs.length===1?'':'s')+((d.id==="supp"&&SHEETS.length)?' · '+SHEETS.length+' summary sheets':'')+(hasUrl?'':' · coming soon')+'</div>';
     h+='</div>';
   });
   h+='</div></div>';
-  h+=renderSheets();
   h+='<div class="foot">Standalone study aid built from your notes. Content is baked in — nothing is lost if it is rebuilt. Not a substitute for primary ABVP sources.</div>';
   return h;
 }
@@ -651,6 +650,7 @@ function renderDomain(id){
     suppSubs.forEach(function(s){h+=renderScard(s);});
     h+='</div>';
   }
+  if(id==="supp"){ h+=renderSheets(); }   /* disease/topic summary one-pagers live here */
   return h;
 }
 
