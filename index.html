@@ -154,6 +154,24 @@
   /* Search results */
   .search-results{margin-top:12px;display:flex;flex-direction:column;gap:8px}
   .no-results{color:var(--faint);font-size:14px;padding:20px 0;text-align:center}
+  /* Disease summary sheets (collapsible one-pagers) */
+  .sheets-wrap{margin-top:26px}
+  .sheet-item{background:var(--card);border:0.5px solid var(--line);border-radius:12px;margin-bottom:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+  .sheet-item>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:13px;padding:14px 18px;user-select:none}
+  .sheet-item>summary::-webkit-details-marker{display:none}
+  .sheet-item>summary:hover{background:var(--paper2)}
+  .sheet-emoji{font-size:22px;flex-shrink:0}
+  .sheet-name{font-size:14.5px;font-weight:600;flex:1;color:var(--ink)}
+  .sheet-name .abbr{color:var(--faint);font-weight:400}
+  .sheet-tag{font-size:11px;color:var(--soft);background:var(--paper2);padding:3px 10px;border-radius:999px;white-space:nowrap}
+  .sheet-chev{font-size:16px;color:var(--faint);transition:transform .18s;margin-left:2px}
+  .sheet-item[open] .sheet-chev{transform:rotate(90deg)}
+  .sheet-item[open]>summary{border-bottom:0.5px solid var(--line);background:var(--paper2)}
+  .sheet-body{background:#faf8f2}
+  .sheet-toolbar{display:flex;justify-content:flex-end;padding:9px 12px 0}
+  .sheet-open{font-size:12.5px;font-weight:500;color:var(--ok);text-decoration:none;border:0.5px solid var(--line2);border-radius:8px;padding:6px 12px;background:var(--card)}
+  .sheet-open:hover{background:var(--paper)}
+  .sheet-frame{width:100%;border:0;display:block;background:#fff}
 </style>
 </head>
 <body>
@@ -263,6 +281,23 @@ var DOMAINS = [
   subs:[
    {name:"Additional Podcasts",emoji:"🎧",url:"supplementary/additional_podcasts.html"}
   ]}
+];
+
+/* ---------- DISEASE SUMMARY SHEETS ----------
+   Print-ready one-pagers living in disease-one-pagers/. Add one line per
+   sheet as notes come in; the home page renders each as a collapsible that
+   embeds the standalone file (single source, and still printable on its own).
+   file = path to the standalone HTML. tag = small label chip. */
+var SHEETS = [
+ {id:"epi-biostats", name:"Epidemiology & Biostatistics", abbr:"formulas explained", emoji:"📊", tag:"Research & Biostats", file:"biostats/epi-biostats.html"},
+ {id:"cpv", name:"Canine Parvovirus", abbr:"CPV", emoji:"🦠", tag:"Infectious Disease", file:"disease-one-pagers/cpv.html"},
+ {id:"cdv", name:"Canine Distemper", abbr:"CDV", emoji:"🦠", tag:"Infectious Disease", file:"disease-one-pagers/cdv.html"},
+ {id:"cirdc", name:"Canine Respiratory Disease", abbr:"CIRDC", emoji:"🫁", tag:"Infectious Disease", file:"disease-one-pagers/cirdc.html"},
+ {id:"fpv", name:"Feline Panleukopenia", abbr:"FPV", emoji:"🐈", tag:"Infectious Disease", file:"disease-one-pagers/fpv.html"},
+ {id:"furi", name:"Feline Upper Respiratory", abbr:"FURI", emoji:"🤧", tag:"Infectious Disease", file:"disease-one-pagers/furi.html"},
+ {id:"fiv-felv", name:"FIV, FeLV & Haemoplasma", abbr:"retroviruses", emoji:"🩸", tag:"Infectious Disease", file:"disease-one-pagers/fiv-felv.html"},
+ {id:"fip", name:"Feline Infectious Peritonitis", abbr:"FIP", emoji:"🐈", tag:"Infectious Disease", file:"disease-one-pagers/fip.html"},
+ {id:"dermatophytosis", name:"Dermatophytosis", abbr:"ringworm", emoji:"🍄", tag:"Infectious Disease", file:"disease-one-pagers/dermatophytosis.html"}
 ];
 
 /* ---------- SEARCH KEYWORDS ----------
@@ -496,16 +531,57 @@ function renderHome(){
     h+='</div>';
   });
   h+='</div></div>';
+  h+=renderSheets();
   h+='<div class="foot">Standalone study aid built from your notes. Content is baked in — nothing is lost if it is rebuilt. Not a substitute for primary ABVP sources.</div>';
   return h;
 }
 
+/* ---------- DISEASE SUMMARY SHEETS ---------- */
+function renderSheets(){
+  if(!SHEETS.length)return "";
+  var h='<div id="sheets-panel" class="sheets-wrap">';
+  h+='<div class="section-label">Disease Summary Sheets · '+SHEETS.length+'</div>';
+  SHEETS.forEach(function(s){
+    h+='<details class="sheet-item" ontoggle="onSheetToggle(this)">';
+    h+='<summary><span class="sheet-emoji">'+(s.emoji||"📄")+'</span>';
+    h+='<span class="sheet-name">'+esc(s.name)+(s.abbr?' <span class="abbr">('+esc(s.abbr)+')</span>':'')+'</span>';
+    if(s.tag)h+='<span class="sheet-tag">'+esc(s.tag)+'</span>';
+    h+='<span class="sheet-chev">›</span></summary>';
+    h+='<div class="sheet-body">';
+    h+='<div class="sheet-toolbar"><a class="sheet-open" href="'+s.file+'" target="_blank" rel="noopener">Open full page · print ↗</a></div>';
+    h+='<iframe class="sheet-frame" data-src="'+s.file+'" title="'+esc(s.name)+' one-pager" scrolling="no" onload="sizeSheet(this)"></iframe>';
+    h+='</div></details>';
+  });
+  h+='</div>';
+  return h;
+}
+function onSheetToggle(d){
+  if(!d.open)return;
+  var ifr=d.querySelector("iframe.sheet-frame");
+  if(!ifr)return;
+  if(!ifr.src)ifr.src=ifr.getAttribute("data-src");   /* lazy-load on first open */
+  else sizeSheet(ifr);
+}
+function sizeSheet(ifr){
+  try{
+    var doc=ifr.contentWindow.document;
+    var hgt=Math.max(doc.documentElement.scrollHeight, doc.body?doc.body.scrollHeight:0);
+    ifr.style.height=(hgt+6)+"px";
+  }catch(e){ ifr.style.height="640px"; ifr.setAttribute("scrolling","auto"); }
+}
+window.addEventListener("resize",function(){
+  var open=document.querySelectorAll(".sheet-item[open] iframe.sheet-frame");
+  for(var i=0;i<open.length;i++){ if(open[i].src)sizeSheet(open[i]); }
+});
+
 function onSearch(q){
   var grid=document.getElementById("domain-grid");
+  var sheets=document.getElementById("sheets-panel");
   var panel=document.getElementById("search-results-panel");
   q=(q||"").trim();
-  if(!q){grid.style.display="";panel.style.display="none";panel.innerHTML="";return;}
+  if(!q){grid.style.display="";if(sheets)sheets.style.display="";panel.style.display="none";panel.innerHTML="";return;}
   grid.style.display="none";
+  if(sheets)sheets.style.display="none";
   var ql=q.toLowerCase();
   var results=[];
   DOMAINS.forEach(function(d){

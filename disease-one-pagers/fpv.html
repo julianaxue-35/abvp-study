@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<!--
+  Feline Panleukopenia (FPV) — disease one-pager
+  Personal study notes for the 2026 ABVP Combined Exam (Shelter Medicine RVS).
+  Content transcribed faithfully from Juliana's handwritten notes (IMG_9168);
+  items marked with the "+" tag were added/clarified and are NOT in the original.
+  © Juliana Xue. Personal study reference.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FPV — Feline Panleukopenia · One-Pager</title>
+<style>
+  :root{
+    --ink:#1f2430;          /* main text */
+    --muted:#6b7280;        /* expanded abbreviations / secondary */
+    --line:#e5e7eb;
+    --theme:#6d28d9;        /* infectious-disease purple */
+    --theme-soft:#f3ecff;
+    --theme-line:#c9b6f5;
+    --blue:#1d4ed8;         /* mirrors your blue ink: outbreak + biosecurity */
+    --blue-soft:#eaf0ff;
+    --blue-line:#b8caff;
+    --warn:#b45309;         /* exam traps (your own notes) */
+    --warn-soft:#fff5e6;
+    --add:#0d7d74;          /* things I added / clarified */
+    --add-soft:#e4f6f4;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink); background:#f4f4f6; line-height:1.32;
+    font-size:12px;
+  }
+
+  /* ---- screen toolbar (hidden when printing) ---- */
+  .toolbar{
+    max-width:1180px;margin:14px auto 0;padding:10px 14px;
+    background:#fff;border:1px solid var(--line);border-radius:10px;
+    display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+    font-size:12px;color:var(--muted);
+  }
+  .toolbar b{color:var(--ink)}
+  .btn{
+    background:var(--theme);color:#fff;border:none;border-radius:8px;
+    padding:8px 16px;font-size:13px;font-weight:600;cursor:pointer;
+  }
+  .btn:hover{background:#5b21b6}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .legend span{display:inline-flex;align-items:center;gap:5px}
+  .swatch{width:11px;height:11px;border-radius:3px;display:inline-block}
+
+  /* ---- the sheet ---- */
+  .sheet{
+    max-width:1180px;margin:14px auto;background:#fff;
+    padding:16px 18px 12px;border:1px solid var(--line);border-radius:10px;
+    box-shadow:0 1px 6px rgba(0,0,0,.05);
+  }
+  header.doc{
+    border-bottom:2.5px solid var(--theme);padding-bottom:8px;margin-bottom:12px;
+    display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  }
+  header.doc h1{
+    margin:0;font-size:23px;letter-spacing:-.2px;color:var(--theme);
+  }
+  header.doc h1 small{color:var(--ink);font-weight:600;font-size:14px}
+  .tags{font-size:11px;color:var(--muted)}
+  .tags b{color:var(--theme)}
+  .lede{
+    font-size:11.5px;color:var(--muted);margin:0 0 10px;
+    border-left:3px solid var(--theme-line);padding-left:9px;
+  }
+
+  .cols{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+  }
+  .col{display:flex;flex-direction:column;gap:11px}
+
+  section.card{
+    border:1px solid var(--line);border-left:4px solid var(--theme);
+    border-radius:7px;padding:8px 10px 9px;
+    break-inside:avoid;page-break-inside:avoid;
+  }
+  section.card.blue{border-left-color:var(--blue)}
+  section.card h2{
+    margin:0 0 6px;font-size:12.5px;text-transform:uppercase;letter-spacing:.4px;
+    color:var(--theme);display:flex;align-items:center;gap:6px;
+  }
+  section.card.blue h2{color:var(--blue)}
+  h2 .n{  /* little numbered pill for the section, optional */
+    font-size:10px;background:var(--theme-soft);color:var(--theme);
+    border:1px solid var(--theme-line);border-radius:4px;padding:0 5px;font-weight:700;
+  }
+
+  ul{margin:0;padding-left:15px}
+  ol{margin:0;padding-left:17px}
+  li{margin:2.5px 0}
+  li::marker{color:var(--theme)}
+  .blue li::marker{color:var(--blue)}
+  ul.tight li{margin:1.5px 0}
+  .sub{list-style:none;padding-left:2px;margin:3px 0 3px}
+  .sub li{margin:1.5px 0;color:var(--ink)}
+  .sub li::before{content:"– ";color:var(--muted)}
+
+  b,strong{font-weight:700}
+  .lead{font-weight:700}
+  .exp{color:var(--muted);font-weight:400}                 /* expanded abbreviation */
+  .arw{color:var(--theme);font-weight:700}                 /* → arrow */
+  .up{color:#b91c1c;font-weight:700}                       /* ↑ */
+  .dn{color:#1d4ed8;font-weight:700}                       /* ↓ */
+
+  /* exam trap — from your own notes */
+  .trap{
+    background:var(--warn-soft);border:1px solid #f2cf95;border-radius:5px;
+    padding:4px 7px;margin:5px 0 2px;font-size:11px;color:#7a4a08;
+  }
+  .trap b{color:var(--warn)}
+
+  /* things I added / clarified — NOT in your original notes */
+  .add{
+    background:var(--add-soft);border-bottom:1px dotted var(--add);
+    color:#0b5a54;padding:0 2px;border-radius:2px;
+  }
+  .addtag{
+    font-size:9px;font-weight:700;color:#fff;background:var(--add);
+    border-radius:3px;padding:0 3px;margin-left:2px;vertical-align:1px;
+  }
+  .flag{
+    display:block;background:var(--add-soft);border:1px dashed var(--add);
+    border-radius:5px;padding:4px 7px;margin:5px 0 0;font-size:10.5px;color:#0b5a54;
+  }
+  .flag b{color:var(--add)}
+
+  .risk{font-weight:800}
+  .risk.hi{color:#b91c1c}.risk.mod{color:#b45309}.risk.lo{color:#15803d}
+
+  footer.doc{
+    margin-top:12px;padding-top:8px;border-top:1px solid var(--line);
+    font-size:9.5px;color:var(--muted);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
+  }
+
+  /* ---------- PRINT ---------- */
+  @page{ size:A4 landscape; margin:9mm; }
+  @media print{
+    body{background:#fff;font-size:9.4px;line-height:1.26}
+    .toolbar{display:none}
+    .sheet{max-width:none;margin:0;border:none;border-radius:0;box-shadow:none;padding:0}
+    header.doc h1{font-size:19px}
+    header.doc h1 small{font-size:12px}
+    section.card h2{font-size:10.5px}
+    .cols{gap:9px}
+    .col{gap:8px}
+    section.card{padding:6px 8px 7px}
+    .trap,.flag{font-size:9px}
+  }
+  /* narrow screens: stack the 3 columns so it stays readable */
+  @media(max-width:780px){ .cols{grid-template-columns:1fr} }
+  /* embedded inside the study-hub collapsible: drop page chrome, sit flush */
+  html.embedded body{background:#fff}
+  html.embedded .toolbar{display:none}
+  html.embedded .sheet{max-width:none;margin:0;border:none;border-radius:0;box-shadow:none;padding:10px 13px 8px}
+</style>
+</head>
+<body>
+
+  <!-- toolbar: screen only -->
+  <div class="toolbar">
+    <button class="btn" onclick="window.print()">🖨  Print / Save as PDF</button>
+    <span>Best printed <b>A4 landscape</b>.</span>
+    <div class="legend">
+      <span><span class="swatch" style="background:#6d28d9"></span>section</span>
+      <span><span class="swatch" style="background:#1d4ed8"></span>outbreak / biosecurity <i>(your blue ink)</i></span>
+      <span><span class="swatch" style="background:#fff5e6;border:1px solid #f2cf95"></span>exam trap <i>(your notes)</i></span>
+      <span><span class="swatch" style="background:#e4f6f4;border:1px solid #0d7d74"></span><b style="color:#0d7d74">+</b> added / clarified by me</span>
+    </div>
+  </div>
+
+  <div class="sheet">
+    <header class="doc">
+      <h1>Feline Panleukopenia <small>(FPV)</small></h1>
+      <div class="tags"><b>Infectious Disease</b> · Physical Health of Animal (29%) · Shelter Medicine</div>
+    </header>
+
+    <p class="lede">The feline parvovirus — a non-enveloped single-stranded DNA virus and close cousin of canine parvovirus (CPV). Targets rapidly dividing cells (bone marrow, lymphoid tissue, gut epithelium, fetal / neonatal cerebellum) <span class="arw">→</span> profound panleukopenia + cerebellar hypoplasia. Only <b>one serotype</b>; does <i>not</i> pass on to dogs.</p>
+
+    <div class="cols">
+
+      <!-- ============ COLUMN 1 ============ -->
+      <div class="col">
+
+        <section class="card">
+          <h2>Virology</h2>
+          <ul class="tight">
+            <li><span class="lead">Non-enveloped, single-stranded DNA</span> virus</li>
+            <li>Targets <b>rapidly dividing cells</b>: bone marrow (BM) <span class="exp">(BM = bone marrow)</span>, lymphoid tissue, gastrointestinal (GI) epithelium, and the <b>fetal &amp; neonatal cerebellum</b></li>
+            <li><span class="lead">ONLY ONE SEROTYPE</span> — does <b>not</b> pass on to dogs</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Transmission</h2>
+          <ul class="tight">
+            <li><span class="lead">Faecal–oral</span> <span class="exp">(direct / fomite)</span></li>
+            <li>Shed in <b>all secretions &amp; excretions</b></li>
+            <li><span class="lead">Transplacental</span> infection</li>
+            <li><b>Droplet</b> spread can occur if a concurrent upper-respiratory-tract (URT) <span class="exp">(URT = upper respiratory tract)</span> virus causes sneezing</li>
+            <li><b>Flies &amp; fleas</b> can act as mechanical vectors</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Pathophysiology</h2>
+          <ul class="tight">
+            <li>Virus <span class="arw">→</span> <b>transferrin receptor</b> <span class="arw">→</span> oropharyngeal <span class="arw">→</span> lymphoid tissue <span class="arw">→</span> actively dividing tissue <span class="add">(requires the S-phase (synthesis phase) of cell division)<span class="addtag">+</span></span></li>
+            <li><span class="arw">→</span> <span class="dn">↓</span> <b>white blood cells (WBCs)</b> <span class="exp">(WBC = white blood cell)</span></li>
+            <li>Antibody appears <b>3–4 days after</b> the WBC count rebounds</li>
+            <li><span class="arw">→</span> <b>crypt epithelium destruction</b></li>
+            <li><b>In utero</b>: targets the cerebellar <b>Purkinje cells</b> <span class="arw">→</span> <b>cerebellar hypoplasia</b></li>
+          </ul>
+        </section>
+
+      </div>
+
+      <!-- ============ COLUMN 2 ============ -->
+      <div class="col">
+
+        <section class="card">
+          <h2>Clinical Signs</h2>
+          <ul class="tight">
+            <li>GI signs · <span class="dn">↓</span> WBC · immunosuppression · cerebellar hypoplasia</li>
+            <li>Early embryonic death · abortion · resorption · retinal dysplasia</li>
+          </ul>
+          <ul class="tight" style="margin-top:5px">
+            <li><span class="lead">Incubation</span> <b>2–14 days</b> <span class="exp">(usually 2–7 days)</span>; <b>no carrier state</b></li>
+            <li><span class="lead">Shedding</span> <b>5–7 days</b>, occasionally <b>~6 weeks</b>; starts <b>1–2 days POST-infection</b>, ~2–3 days <i>before</i> signs</li>
+          </ul>
+          <div class="trap"><b>⚠ Trap:</b> a modified-live vaccine (MLV) <span class="arw">→</span> <b>false positive</b> on the faecal antigen test for up to <b>5–12 days</b>.</div>
+        </section>
+
+        <section class="card">
+          <h2>Clinical Forms <span class="n">4</span></h2>
+          <ol>
+            <li><span class="lead">Subacute</span> — recovers within <b>1–3 days</b></li>
+            <li><span class="lead">Peracute</span> — sudden death <b>4–9 days</b> after exposure + GI signs; mortality <b>~100%</b> <span class="exp">(kittens &lt; 6 months)</span></li>
+            <li><span class="lead">Acute</span> <span class="exp">(most common)</span> — biphasic fever, GI signs + <b>crouched-head posture</b>; mortality <b>25–90%</b></li>
+            <li><span class="lead">Perinatal</span> — early gestation vs late gestation <span class="exp">(hypoplasia)</span> <span class="arw">→</span> stillbirth, abortion</li>
+          </ol>
+        </section>
+
+      </div>
+
+      <!-- ============ COLUMN 3 ============ -->
+      <div class="col">
+
+        <section class="card">
+          <h2>Prognostic Factors</h2>
+          <ul class="tight">
+            <li><b>Leukopenia</b> &lt; 2000/µL</li>
+            <li><b>Thrombocytopenia</b></li>
+            <li><b>Hypoalbuminaemia</b> &lt; 30 g/L</li>
+            <li><b>Hypokalaemia</b> &lt; 4 mmol/L</li>
+            <li>The <b>protective antibody titre</b> at the time of exposure</li>
+          </ul>
+          <span class="flag"><b>+ note:</b> recovery <span class="arw" style="color:var(--add)">→</span> <b>lifelong immunity</b>.</span>
+        </section>
+
+        <section class="card">
+          <h2>Diagnosis</h2>
+          <ol>
+            <li><span class="lead">Faecal antigen ELISA</span> <span class="exp">(ELISA = enzyme-linked immunosorbent assay)</span> test</li>
+            <li><span class="lead">Antibody testing</span> — via haemagglutination inhibition (HI), ELISA, immunofluorescent antibody (IFA) <span class="exp">(HI = haemagglutination inhibition; IFA = immunofluorescent antibody)</span>
+              <ul class="sub">
+                <li>Does <b>not</b> separate vaccine-induced from infection-induced antibody <span class="arw">→</span> <b>useless in sick cats</b></li>
+              </ul>
+            </li>
+            <li><span class="lead">CBC</span> <span class="exp">(complete blood count)</span> · <span class="lead">histopathology</span></li>
+          </ol>
+        </section>
+
+        <section class="card">
+          <h2>Treatment</h2>
+          <ul class="tight">
+            <li><b>Similar to CPV</b>, but here <span class="lead">CPMA</span> <span class="exp">(canine parvovirus monoclonal antibody)</span> is used in cats</li>
+            <li>Survival <b>~85%</b>; <b>shorter</b> treatment course</li>
+          </ul>
+          <span class="flag"><b>+ check:</b> CPMA is labelled as a <b>canine</b> product, so use in cats is <b>off-label / an emerging use</b> — confirm before relying on it.</span>
+        </section>
+
+        <section class="card blue">
+          <h2>Titre Testing <span class="n" style="background:var(--blue-soft);color:var(--blue);border-color:var(--blue-line)">exposure</span></h2>
+          <ul class="tight">
+            <li><span class="risk lo">≥ 80</span> — <b>protected</b>, low risk</li>
+            <li><span class="risk hi">&lt; 80</span> — <b>high risk</b> <span class="arw" style="color:var(--blue)">→</span> <b>14-day quarantine</b></li>
+          </ul>
+        </section>
+
+      </div>
+    </div>
+
+    <footer class="doc">
+      <span>Personal study notes · 2026 ABVP Combined Exam (Shelter Medicine RVS) · transcribed from handwritten source</span>
+      <span>© Juliana Xue — for personal study use</span>
+    </footer>
+  </div>
+
+  <script>if(window.self!==window.top){document.documentElement.className+=' embedded';}</script>
+</body>
+</html>

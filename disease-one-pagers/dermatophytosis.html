@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<!--
+  Dermatophytosis (Ringworm) — disease one-pager
+  Personal study notes for the 2026 ABVP Combined Exam (Shelter Medicine RVS).
+  Content transcribed faithfully from Juliana's handwritten notes (IMG_9166 + IMG_9167,
+  two facing pages combined onto one sheet);
+  items marked with the "+" tag were added/clarified and are NOT in the original.
+  © Juliana Xue. Personal study reference.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dermatophytosis (Ringworm) · One-Pager</title>
+<style>
+  :root{
+    --ink:#1f2430;          /* main text */
+    --muted:#6b7280;        /* expanded abbreviations / secondary */
+    --line:#e5e7eb;
+    --theme:#6d28d9;        /* infectious-disease purple */
+    --theme-soft:#f3ecff;
+    --theme-line:#c9b6f5;
+    --blue:#1d4ed8;         /* mirrors your blue ink: outbreak + biosecurity */
+    --blue-soft:#eaf0ff;
+    --blue-line:#b8caff;
+    --warn:#b45309;         /* exam traps (your own notes) */
+    --warn-soft:#fff5e6;
+    --add:#0d7d74;          /* things I added / clarified */
+    --add-soft:#e4f6f4;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink); background:#f4f4f6; line-height:1.32;
+    font-size:12px;
+  }
+
+  /* ---- screen toolbar (hidden when printing) ---- */
+  .toolbar{
+    max-width:1180px;margin:14px auto 0;padding:10px 14px;
+    background:#fff;border:1px solid var(--line);border-radius:10px;
+    display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+    font-size:12px;color:var(--muted);
+  }
+  .toolbar b{color:var(--ink)}
+  .btn{
+    background:var(--theme);color:#fff;border:none;border-radius:8px;
+    padding:8px 16px;font-size:13px;font-weight:600;cursor:pointer;
+  }
+  .btn:hover{background:#5b21b6}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .legend span{display:inline-flex;align-items:center;gap:5px}
+  .swatch{width:11px;height:11px;border-radius:3px;display:inline-block}
+
+  /* ---- the sheet ---- */
+  .sheet{
+    max-width:1180px;margin:14px auto;background:#fff;
+    padding:16px 18px 12px;border:1px solid var(--line);border-radius:10px;
+    box-shadow:0 1px 6px rgba(0,0,0,.05);
+  }
+  header.doc{
+    border-bottom:2.5px solid var(--theme);padding-bottom:8px;margin-bottom:12px;
+    display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  }
+  header.doc h1{
+    margin:0;font-size:23px;letter-spacing:-.2px;color:var(--theme);
+  }
+  header.doc h1 small{color:var(--ink);font-weight:600;font-size:14px}
+  .tags{font-size:11px;color:var(--muted)}
+  .tags b{color:var(--theme)}
+  .lede{
+    font-size:11.5px;color:var(--muted);margin:0 0 10px;
+    border-left:3px solid var(--theme-line);padding-left:9px;
+  }
+
+  .cols{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+  }
+  .col{display:flex;flex-direction:column;gap:11px}
+
+  section.card{
+    border:1px solid var(--line);border-left:4px solid var(--theme);
+    border-radius:7px;padding:8px 10px 9px;
+    break-inside:avoid;page-break-inside:avoid;
+  }
+  section.card.blue{border-left-color:var(--blue)}
+  section.card h2{
+    margin:0 0 6px;font-size:12.5px;text-transform:uppercase;letter-spacing:.4px;
+    color:var(--theme);display:flex;align-items:center;gap:6px;
+  }
+  section.card.blue h2{color:var(--blue)}
+  h2 .n{  /* little numbered pill for the section, optional */
+    font-size:10px;background:var(--theme-soft);color:var(--theme);
+    border:1px solid var(--theme-line);border-radius:4px;padding:0 5px;font-weight:700;
+  }
+
+  ul{margin:0;padding-left:15px}
+  ol{margin:0;padding-left:17px}
+  li{margin:2.5px 0}
+  li::marker{color:var(--theme)}
+  .blue li::marker{color:var(--blue)}
+  ul.tight li{margin:1.5px 0}
+  .sub{list-style:none;padding-left:2px;margin:3px 0 3px}
+  .sub li{margin:1.5px 0;color:var(--ink)}
+  .sub li::before{content:"– ";color:var(--muted)}
+
+  b,strong{font-weight:700}
+  .lead{font-weight:700}
+  .exp{color:var(--muted);font-weight:400}                 /* expanded abbreviation */
+  .arw{color:var(--theme);font-weight:700}                 /* → arrow */
+  .up{color:#b91c1c;font-weight:700}                       /* ↑ */
+  .dn{color:#1d4ed8;font-weight:700}                       /* ↓ */
+
+  /* exam trap — from your own notes */
+  .trap{
+    background:var(--warn-soft);border:1px solid #f2cf95;border-radius:5px;
+    padding:4px 7px;margin:5px 0 2px;font-size:11px;color:#7a4a08;
+  }
+  .trap b{color:var(--warn)}
+
+  /* things I added / clarified — NOT in your original notes */
+  .add{
+    background:var(--add-soft);border-bottom:1px dotted var(--add);
+    color:#0b5a54;padding:0 2px;border-radius:2px;
+  }
+  .addtag{
+    font-size:9px;font-weight:700;color:#fff;background:var(--add);
+    border-radius:3px;padding:0 3px;margin-left:2px;vertical-align:1px;
+  }
+  .flag{
+    display:block;background:var(--add-soft);border:1px dashed var(--add);
+    border-radius:5px;padding:4px 7px;margin:5px 0 0;font-size:10.5px;color:#0b5a54;
+  }
+  .flag b{color:var(--add)}
+
+  .risk{font-weight:800}
+  .risk.hi{color:#b91c1c}.risk.mod{color:#b45309}.risk.lo{color:#15803d}
+
+  footer.doc{
+    margin-top:12px;padding-top:8px;border-top:1px solid var(--line);
+    font-size:9.5px;color:var(--muted);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
+  }
+
+  /* ---------- PRINT ---------- */
+  @page{ size:A4 landscape; margin:9mm; }
+  @media print{
+    body{background:#fff;font-size:9.4px;line-height:1.26}
+    .toolbar{display:none}
+    .sheet{max-width:none;margin:0;border:none;border-radius:0;box-shadow:none;padding:0}
+    header.doc h1{font-size:19px}
+    header.doc h1 small{font-size:12px}
+    section.card h2{font-size:10.5px}
+    .cols{gap:9px}
+    .col{gap:8px}
+    section.card{padding:6px 8px 7px}
+    .trap,.flag{font-size:9px}
+  }
+  /* narrow screens: stack the 3 columns so it stays readable */
+  @media(max-width:780px){ .cols{grid-template-columns:1fr} }
+  /* embedded inside the study-hub collapsible: drop page chrome, sit flush */
+  html.embedded body{background:#fff}
+  html.embedded .toolbar{display:none}
+  html.embedded .sheet{max-width:none;margin:0;border:none;border-radius:0;box-shadow:none;padding:10px 13px 8px}
+</style>
+</head>
+<body>
+
+  <!-- toolbar: screen only -->
+  <div class="toolbar">
+    <button class="btn" onclick="window.print()">🖨  Print / Save as PDF</button>
+    <span>Best printed <b>A4 landscape</b> (2 source pages → may run to 2 sheets).</span>
+    <div class="legend">
+      <span><span class="swatch" style="background:#6d28d9"></span>section</span>
+      <span><span class="swatch" style="background:#1d4ed8"></span>sanitation <i>(your blue ink)</i></span>
+      <span><span class="swatch" style="background:#fff5e6;border:1px solid #f2cf95"></span>exam trap <i>(your notes)</i></span>
+      <span><span class="swatch" style="background:#e4f6f4;border:1px solid #0d7d74"></span><b style="color:#0d7d74">+</b> added / clarified by me</span>
+    </div>
+  </div>
+
+  <div class="sheet">
+    <header class="doc">
+      <h1>Dermatophytosis <small>(Ringworm)</small></h1>
+      <div class="tags"><b>Infectious Disease</b> · Physical Health of Animal (29%) · Shelter Medicine</div>
+    </header>
+
+    <p class="lede">Fungal infection of keratinised tissue (hair, nails, stratum corneum) by dermatophytes — <i>Microsporum canis</i> dominates in cats. Zoonotic, environmentally persistent, and a classic shelter problem in kittens, crowded / hoarding cats and long-haired breeds.</p>
+
+    <div class="cols">
+
+      <!-- ============ COLUMN 1 ============ -->
+      <div class="col">
+
+        <section class="card">
+          <h2>Dermatophytes <span class="n">agents</span></h2>
+          <ul class="tight">
+            <li><span class="lead"><i>Microsporum</i></span>
+              <ul class="sub">
+                <li><i>M. canis</i> — cats, <b>90 %+</b></li>
+                <li><i>M. gypseum</i> — more in dogs</li>
+              </ul>
+            </li>
+            <li><span class="lead"><i>Trichophyton</i></span> <span class="arw">→</span> dogs, rodents</li>
+            <li><span class="lead"><i>Epidermophyton</i></span></li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Risk Factors</h2>
+          <ul class="tight">
+            <li>Young <b>&lt; 1 year</b></li>
+            <li>Immunocompromised</li>
+            <li>Long-haired cats</li>
+            <li>Insufficient grooming</li>
+            <li>Friendly cats <span class="add">(mutual rubbing / allogrooming spreads spores)<span class="addtag">+</span></span></li>
+            <li><b>Yorkshire Terrier</b></li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Environment</h2>
+          <ul class="tight">
+            <li>Warm, humid · <b>kitten season</b> · overcrowding</li>
+            <li>Hoarding cases · barn-cat colonies · dirt runs</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Pathogenesis</h2>
+          <ul class="tight">
+            <li><span class="lead">Spores persist for months</span> in the environment</li>
+            <li>Spread by <b>direct contact, fomites, fleas</b>; airborne is possible</li>
+            <li>Spores <span class="arw">→</span> microtrauma <span class="arw">→</span> incubate <b>2–4 weeks</b></li>
+            <li>Recovery relies on a strong <b>cell-mediated response</b></li>
+            <li><span class="exp">FeLV / FIV</span> <span class="exp">(feline leukaemia virus / feline immunodeficiency virus)</span> cats may <b>fail to clear</b> infection despite therapy</li>
+            <li>Can be <b>focal or generalized</b></li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Clinical Signs</h2>
+          <ul class="tight">
+            <li><span class="lead">Alopecia (circular)</span> · scaling · inflammation</li>
+          </ul>
+          <div class="trap"><b>⚠ Trap:</b> in <b>dogs</b>, classic ringworm-like lesions are more often <b>bacterial pyoderma / demodicosis</b> than actual ringworm.</div>
+        </section>
+
+      </div>
+
+      <!-- ============ COLUMN 2 ============ -->
+      <div class="col">
+
+        <section class="card">
+          <h2>Diagnosis</h2>
+          <ol>
+            <li><span class="lead">History</span> — immune status, age, environment, littermates, prior exposure</li>
+            <li><span class="lead">Visual exam</span> — muzzle, lips, periocular skin, ears, digits, nail beds</li>
+            <li><span class="lead">Wood's lamp</span> — use <b>365 nm</b> <span class="exp">(nanometres)</span>; look for <b>apple-green fluorescence</b> at the hair base. Only <b>~50 %</b> of <i>M. canis</i> fluoresce.
+              <div class="trap"><b>⚠ Trap:</b> a positive is a <b>TRUE positive</b>, but a <b>negative does NOT rule out ringworm</b>.</div>
+            </li>
+            <li><span class="lead">Direct microscopy</span> — pluck a fluorescing hair into <b>mineral oil</b>; infected hair is <b>wide, irregular, filamentous</b>, with cuffs or refractile <b>ectothrix spores</b>.
+              <ul class="sub">
+                <li><b>10×</b> to confirm · <b>40×</b> to check for spores</li>
+              </ul>
+            </li>
+            <li><span class="lead">Fungal culture</span> <span class="exp">(gold standard)</span> — incubate at <b>27–30 °C</b>, hold <b>21 days</b>; read on days <b>7, 10, 14, 21</b>. <b>Day 10 is the key</b> — over <b>95 %</b> of positives are identified on days <b>10–14</b>.
+              <div class="trap"><b>⚠ Key rule:</b> if not suspected by day 7 or positive by day 10, it is unlikely to be <i>M. canis</i>. <b>Hold the CULTURES</b> (not the animals) for the 21 days.</div>
+              <ul class="sub">
+                <li><span class="lead">DTM</span> <span class="exp">(dermatophyte test medium)</span> appearance: pathogen = <b>pale / white colonies</b>; the medium turns <b>red simultaneously with growth</b>.</li>
+              </ul>
+              <div class="trap"><b>⚠ Trap:</b> a plate <b>overgrown in the first 7–10 days</b> can mask a <b>TRUE positive</b> <span class="arw">→</span> reculture.</div>
+            </li>
+            <li><span class="lead">PCR</span> <span class="exp">(polymerase chain reaction)</span> — high sensitivity (a false negative is unlikely); <b>low specificity</b>; can detect <b>non-viable</b> organisms.
+              <div class="trap"><b>⚠ Trap:</b> must confirm <b>all positive PCR via culture</b>.</div>
+            </li>
+          </ol>
+        </section>
+
+      </div>
+
+      <!-- ============ COLUMN 3 ============ -->
+      <div class="col">
+
+        <section class="card">
+          <h2>Culture — P-score <span class="n">interpretation</span></h2>
+          <p style="margin:0 0 5px"><span class="exp">P-score = plate / pathogen score; number = colony count on the plate.<span class="addtag" style="margin-left:3px">+</span></span></p>
+          <ul class="tight">
+            <li><span class="lead">P1 (1–4)</span> — no lesion, negative Wood's lamp, fomite dust / mop carrier
+              <ul class="sub"><li><b>Option:</b> reculture, <i>or</i> lime sulfur &amp; release</li></ul>
+            </li>
+            <li><span class="lead">P2 (5–9)</span> — focal / suspect lesion, infection, fomite
+              <ul class="sub">
+                <li><b>Option:</b> re-examine</li>
+                <li>Few lesions <span class="arw">→</span> dip &amp; adopt</li>
+                <li>Lesion? <span class="arw">→</span> isolate</li>
+              </ul>
+            </li>
+            <li><span class="lead">P3 (10+)</span> — <b>confirmed infection</b> <span class="arw">→</span> strict isolation</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Treatment</h2>
+          <p style="margin:0 0 5px"><b>Shelters must use a DUAL approach</b> — systemic <b>+</b> topical.</p>
+          <ol>
+            <li><span class="lead">Systemic therapy</span>
+              <ul class="sub">
+                <li><b>Itraconazole</b> 5–10 mg/kg <span class="exp">PO (by mouth)</span> <span class="exp">SID (once daily)</span> for <b>21–28 days</b></li>
+                <li><b>Terbinafine</b> 10–40 mg/kg PO SID</li>
+              </ul>
+              <div class="trap"><b>⚠ Do NOT use:</b> griseofulvin, ketoconazole, lufenuron.</div>
+            </li>
+            <li><span class="lead">Twice-weekly topical therapy</span> — <b>lime sulfur</b>: <b>8 oz (236 mL)</b> per <b>gallon (3.78 L)</b> of warm water, with the <b>lime sulfur added first</b>. Do <b>not</b> rinse or pre-wet; clip long hair; can blow-dry.
+              <span class="flag"><b>+ check:</b> 8 oz per gallon (3.78 L) works out to a <b>~1:16 dilution</b>; the 3.78 L confirms a <b>US</b> gallon (128 oz), not an imperial one. Confirm your source.</span>
+            </li>
+          </ol>
+        </section>
+
+        <section class="card">
+          <h2>Verification of Cure</h2>
+          <ul class="tight">
+            <li><b>3 consecutive weekly negative cultures</b>; start monitoring <b>after week 1</b></li>
+            <li><b>2 negatives</b> suffice <b>ONLY</b> if combined lime sulfur <b>+</b> concurrent oral <b>itraconazole</b></li>
+            <li>Typical course <b>~18 days</b> (range <b>10–49 days</b>)</li>
+          </ul>
+        </section>
+
+        <section class="card blue">
+          <h2>Sanitation</h2>
+          <ul class="tight">
+            <li><span class="lead">Bleach</span> <span class="exp">(sodium hypochlorite)</span> <b>1:10 to 1:32</b>, minimum <b>10 min</b> contact time</li>
+            <li><span class="lead">AHP</span> <span class="exp">(accelerated hydrogen peroxide)</span> <b>1:16</b>, <b>5–10 min</b> contact time</li>
+            <li><span class="lead">Potassium peroxymonosulfate</span> — must be <b>2:1</b></li>
+            <li><span class="lead">Heat (50 °C)</span> to inactivate <i>Trichophyton</i> spores</li>
+            <li><span class="lead">Cat trees</span> — lime sulfur <b>+</b> direct sunlight; culture until <b>2 negatives</b></li>
+          </ul>
+        </section>
+
+      </div>
+    </div>
+
+    <footer class="doc">
+      <span>Personal study notes · 2026 ABVP Combined Exam (Shelter Medicine RVS) · transcribed from handwritten source (2 pages)</span>
+      <span>© Juliana Xue — for personal study use</span>
+    </footer>
+  </div>
+
+  <script>if(window.self!==window.top){document.documentElement.className+=' embedded';}</script>
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<!--
+  Feline Upper Respiratory Infection (FURI) — disease one-pager
+  Personal study notes for the 2026 ABVP Combined Exam (Shelter Medicine RVS).
+  Content transcribed faithfully from Juliana's handwritten notes (IMG_9172);
+  items marked with the "+" tag were added/clarified and are NOT in the original.
+  © Juliana Xue. Personal study reference.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FURI — Feline Upper Respiratory Infection · One-Pager</title>
+<style>
+  :root{
+    --ink:#1f2430;          /* main text */
+    --muted:#6b7280;        /* expanded abbreviations / secondary */
+    --line:#e5e7eb;
+    --theme:#6d28d9;        /* infectious-disease purple */
+    --theme-soft:#f3ecff;
+    --theme-line:#c9b6f5;
+    --blue:#1d4ed8;         /* mirrors your blue ink: outbreak + biosecurity */
+    --blue-soft:#eaf0ff;
+    --blue-line:#b8caff;
+    --warn:#b45309;         /* exam traps (your own notes) */
+    --warn-soft:#fff5e6;
+    --add:#0d7d74;          /* things I added / clarified */
+    --add-soft:#e4f6f4;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink); background:#f4f4f6; line-height:1.32;
+    font-size:12px;
+  }
+
+  /* ---- screen toolbar (hidden when printing) ---- */
+  .toolbar{
+    max-width:1180px;margin:14px auto 0;padding:10px 14px;
+    background:#fff;border:1px solid var(--line);border-radius:10px;
+    display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+    font-size:12px;color:var(--muted);
+  }
+  .toolbar b{color:var(--ink)}
+  .btn{
+    background:var(--theme);color:#fff;border:none;border-radius:8px;
+    padding:8px 16px;font-size:13px;font-weight:600;cursor:pointer;
+  }
+  .btn:hover{background:#5b21b6}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .legend span{display:inline-flex;align-items:center;gap:5px}
+  .swatch{width:11px;height:11px;border-radius:3px;display:inline-block}
+
+  /* ---- the sheet ---- */
+  .sheet{
+    max-width:1180px;margin:14px auto;background:#fff;
+    padding:16px 18px 12px;border:1px solid var(--line);border-radius:10px;
+    box-shadow:0 1px 6px rgba(0,0,0,.05);
+  }
+  header.doc{
+    border-bottom:2.5px solid var(--theme);padding-bottom:8px;margin-bottom:12px;
+    display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  }
+  header.doc h1{
+    margin:0;font-size:23px;letter-spacing:-.2px;color:var(--theme);
+  }
+  header.doc h1 small{color:var(--ink);font-weight:600;font-size:14px}
+  .tags{font-size:11px;color:var(--muted)}
+  .tags b{color:var(--theme)}
+  .lede{
+    font-size:11.5px;color:var(--muted);margin:0 0 10px;
+    border-left:3px solid var(--theme-line);padding-left:9px;
+  }
+
+  .cols{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+  }
+  .col{display:flex;flex-direction:column;gap:11px}
+
+  section.card{
+    border:1px solid var(--line);border-left:4px solid var(--theme);
+    border-radius:7px;padding:8px 10px 9px;
+    break-inside:avoid;page-break-inside:avoid;
+  }
+  section.card.blue{border-left-color:var(--blue)}
+  section.card h2{
+    margin:0 0 6px;font-size:12.5px;text-transform:uppercase;letter-spacing:.4px;
+    color:var(--theme);display:flex;align-items:center;gap:6px;
+  }
+  section.card.blue h2{color:var(--blue)}
+  h2 .n{  /* little numbered pill for the section, optional */
+    font-size:10px;background:var(--theme-soft);color:var(--theme);
+    border:1px solid var(--theme-line);border-radius:4px;padding:0 5px;font-weight:700;
+  }
+
+  ul{margin:0;padding-left:15px}
+  ol{margin:0;padding-left:17px}
+  li{margin:2.5px 0}
+  li::marker{color:var(--theme)}
+  .blue li::marker{color:var(--blue)}
+  ul.tight li{margin:1.5px 0}
+  .sub{list-style:none;padding-left:2px;margin:3px 0 3px}
+  .sub li{margin:1.5px 0;color:var(--ink)}
+  .sub li::before{content:"– ";color:var(--muted)}
+
+  b,strong{font-weight:700}
+  .lead{font-weight:700}
+  .exp{color:var(--muted);font-weight:400}                 /* expanded abbreviation */
+  .arw{color:var(--theme);font-weight:700}                 /* → arrow */
+  .up{color:#b91c1c;font-weight:700}                       /* ↑ */
+  .dn{color:#1d4ed8;font-weight:700}                       /* ↓ */
+
+  /* exam trap — from your own notes */
+  .trap{
+    background:var(--warn-soft);border:1px solid #f2cf95;border-radius:5px;
+    padding:4px 7px;margin:5px 0 2px;font-size:11px;color:#7a4a08;
+  }
+  .trap b{color:var(--warn)}
+
+  /* things I added / clarified — NOT in your original notes */
+  .add{
+    background:var(--add-soft);border-bottom:1px dotted var(--add);
+    color:#0b5a54;padding:0 2px;border-radius:2px;
+  }
+  .addtag{
+    font-size:9px;font-weight:700;color:#fff;background:var(--add);
+    border-radius:3px;padding:0 3px;margin-left:2px;vertical-align:1px;
+  }
+  .flag{
+    display:block;background:var(--add-soft);border:1px dashed var(--add);
+    border-radius:5px;padding:4px 7px;margin:5px 0 0;font-size:10.5px;color:#0b5a54;
+  }
+  .flag b{color:var(--add)}
+
+  .risk{font-weight:800}
+  .risk.hi{color:#b91c1c}.risk.mod{color:#b45309}.risk.lo{color:#15803d}
+
+  footer.doc{
+    margin-top:12px;padding-top:8px;border-top:1px solid var(--line);
+    font-size:9.5px;color:var(--muted);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
+  }
+
+  /* ---------- PRINT ---------- */
+  @page{ size:A4 landscape; margin:9mm; }
+  @media print{
+    body{background:#fff;font-size:9.4px;line-height:1.26}
+    .toolbar{display:none}
+    .sheet{max-width:none;margin:0;border:none;border-radius:0;box-shadow:none;padding:0}
+    header.doc h1{font-size:19px}
+    header.doc h1 small{font-size:12px}
+    section.card h2{font-size:10.5px}
+    .cols{gap:9px}
+    .col{gap:8px}
+    section.card{padding:6px 8px 7px}
+    .trap,.flag{font-size:9px}
+  }
+  /* narrow screens: stack the 3 columns so it stays readable */
+  @media(max-width:780px){ .cols{grid-template-columns:1fr} }
+  /* embedded inside the study-hub collapsible: drop page chrome, sit flush */
+  html.embedded body{background:#fff}
+  html.embedded .toolbar{display:none}
+  html.embedded .sheet{max-width:none;margin:0;border:none;border-radius:0;box-shadow:none;padding:10px 13px 8px}
+</style>
+</head>
+<body>
+
+  <!-- toolbar: screen only -->
+  <div class="toolbar">
+    <button class="btn" onclick="window.print()">🖨  Print / Save as PDF</button>
+    <span>Best printed <b>A4 landscape</b>.</span>
+    <div class="legend">
+      <span><span class="swatch" style="background:#6d28d9"></span>section</span>
+      <span><span class="swatch" style="background:#1d4ed8"></span>outbreak / biosecurity <i>(your blue ink)</i></span>
+      <span><span class="swatch" style="background:#fff5e6;border:1px solid #f2cf95"></span>exam trap <i>(your notes)</i></span>
+      <span><span class="swatch" style="background:#e4f6f4;border:1px solid #0d7d74"></span><b style="color:#0d7d74">+</b> added / clarified by me</span>
+    </div>
+  </div>
+
+  <div class="sheet">
+    <header class="doc">
+      <h1>Feline Upper Respiratory Infection <small>(FURI)</small></h1>
+      <div class="tags"><b>Infectious Disease</b> · Physical Health of Animal (29%) · Shelter Medicine</div>
+    </header>
+
+    <p class="lede">A multi-pathogen upper respiratory complex of shelter cats. Not airborne and rarely fatal on its own — the real drivers are <b>stress</b> and <b>length of stay (LOS)</b>, so control is about biosecurity and flow, not sterility.</p>
+
+    <div class="cols">
+
+      <!-- ============ COLUMN 1 ============ -->
+      <div class="col">
+
+        <section class="card">
+          <h2>Overview</h2>
+          <ul class="tight">
+            <li><span class="lead">Multi-pathogen complex</span> — <b>LOS</b> <span class="exp">(length of stay)</span> is the single greatest risk factor; <b>fomites</b> are the main route</li>
+            <li><span class="lead">FHV-1</span> <span class="exp">(feline herpesvirus-1)</span> is triggered by <b>stress</b> <span class="arw">→</span> biosecurity means <i>managing</i> it, not eliminating it</li>
+            <li><span class="lead">URTD</span> <span class="exp">(upper respiratory tract disease)</span> is <b>NOT airborne</b> <span class="arw">→</span> separate caging / room ventilation is not required; can travel within <b>5 ft (1.5 m)</b></li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>FHV-1 <span class="n">herpesvirus</span></h2>
+          <ul class="tight">
+            <li><span class="lead">Feline herpesvirus-1</span> — latency in the <b>trigeminal ganglia</b> (<b>50–97%</b> seroprevalence; stress reactivation)</li>
+            <li><span class="lead">Enveloped DNA herpesvirus</span></li>
+            <li>Spread by <b>oral / nasal / ocular secretions</b> over short distances / fomites</li>
+            <li>Active shedding <b>peaks @ day 7</b>, lasts <b>2–3 weeks</b>; can shed intermittently</li>
+            <li>Chronic cases <span class="arw">→</span> <b>rhinosinusitis</b> <span class="arw">→</span> turbinate destruction</li>
+            <li>Can cause <b>dendritic corneal ulcers</b> <span class="add">(pathognomonic for FHV-1)<span class="addtag">+</span></span></li>
+          </ul>
+          <span class="flag"><b>+ check:</b> the note's "non-enveloped RNA" label belongs to <b>FCV</b>, not FHV-1. FHV-1 is an <b>enveloped DNA herpesvirus</b>.</span>
+        </section>
+
+        <section class="card">
+          <h2>FCV <span class="n">calicivirus</span></h2>
+          <ul class="tight">
+            <li><span class="lead">Feline calicivirus</span> — <b>non-enveloped RNA virus</b></li>
+            <li>Causes <b>oral / tongue ulcers</b> · febrile limping</li>
+            <li>A <b>positive PCR</b> <span class="exp">(polymerase chain reaction)</span> indicates primary disease</li>
+            <li><span class="lead">NO corneal ulcers</span> <span class="exp">(contrast with FHV-1)</span></li>
+            <li><span class="lead">Chronic carrier state</span> — can shed <b>continuously for months</b></li>
+          </ul>
+        </section>
+
+      </div>
+
+      <!-- ============ COLUMN 2 ============ -->
+      <div class="col">
+
+        <section class="card">
+          <h2>Other Pathogens</h2>
+          <ul class="tight">
+            <li><span class="lead">Mycoplasma felis</span> — normal flora + opportunist; a <b>positive PCR</b> indicates primary disease; causes <b>chemosis</b>; short-lived in the environment; <b>4 weeks of doxycycline</b>; cat-to-cat contact; an obligate intracellular bacterium with <b>no cell wall</b></li>
+            <li><span class="lead">Chlamydia felis</span> — causes <b>chemosis</b>; an obligate intracellular bacterium</li>
+            <li><span class="lead">Bordetella bronchiseptica (Bb)</span> — destroys <b>respiratory cilia</b>; <b>zoonotic</b>; dog <span class="arw">→</span> cat spread</li>
+            <li><span class="lead">Streptococcus zooepidemicus</span> <span class="exp">("Strep zoo")</span> — acute outbreak, <b>necrotizing disease</b>; requires <b>PCR testing</b></li>
+            <li><span class="lead">Feline influenza (H7N2)</span> — mild signs; <b>zoonotic</b>; cats are also susceptible to <b>avian, swine &amp; canine</b> strains</li>
+          </ul>
+        </section>
+
+        <section class="card blue">
+          <h2>Prevention</h2>
+          <ul class="tight">
+            <li><span class="lead">FCV</span> — use <b>bleach 1:32</b>; accelerated hydrogen peroxide (AHP) / potassium peroxymonosulfate</li>
+            <li>Reduce <b>stress</b> and <b>LOS</b> <span class="exp">(length of stay)</span>; use <b>double-compartment housing</b></li>
+            <li><span class="lead">Risk by timeframe</span>
+              <ul class="sub">
+                <li>Short-term <span class="arw" style="color:var(--blue)">→</span> FHV-1, Bordetella</li>
+                <li>Long-term / sanctuary <span class="arw" style="color:var(--blue)">→</span> FCV, Mycoplasma felis</li>
+              </ul>
+            </li>
+            <li>High-stress shelters skew the mix toward the <b>persistent shedders</b></li>
+          </ul>
+        </section>
+
+      </div>
+
+      <!-- ============ COLUMN 3 ============ -->
+      <div class="col">
+
+        <section class="card">
+          <h2>Diagnosis</h2>
+          <ul class="tight">
+            <li><span class="lead">RT-PCR</span> <span class="exp">(reverse-transcription polymerase chain reaction)</span> — use <b>sterile tubes</b> and <b>plastic-stemmed synthetic-fibre swabs</b></li>
+            <li>Severe signs + high mortality + rapid spread <span class="arw">→</span> likely <b>FCV</b>; confirm by <b>molecular / necropsy</b></li>
+          </ul>
+          <div class="trap"><b>⚠ Trap:</b> a modified-live (MLV) <b>FVRCP</b> <span class="exp">(feline viral rhinotracheitis, calicivirus, panleukopenia)</span> vaccine can cause a <b>false-positive PCR</b> for ~1–3 weeks.</div>
+        </section>
+
+        <section class="card">
+          <h2>Treatment <span class="n">Tx</span></h2>
+          <ul class="tight">
+            <li><span class="lead">Famciclovir</span> <b>90 mg/kg PO q8h</b> <span class="exp">(by mouth, every 8 h)</span></li>
+            <li><span class="lead">Herpetic keratitis</span> — topical <b>idoxuridine / cidofovir</b></li>
+            <li><span class="lead">Doxycycline</span> — for <b>Mycoplasma felis</b>, <b>Bordetella</b> &amp; <b>Chlamydia felis</b></li>
+            <li><span class="lead">Fluoroquinolones</span> — use <b>marbofloxacin &amp; pradofloxacin</b> as the preferred agents</li>
+            <li><span class="lead">Supportive care</span></li>
+          </ul>
+        </section>
+
+      </div>
+    </div>
+
+    <footer class="doc">
+      <span>Personal study notes · 2026 ABVP Combined Exam (Shelter Medicine RVS) · transcribed from handwritten source</span>
+      <span>© Juliana Xue — for personal study use</span>
+    </footer>
+  </div>
+
+  <script>if(window.self!==window.top){document.documentElement.className+=' embedded';}</script>
+</body>
+</html>

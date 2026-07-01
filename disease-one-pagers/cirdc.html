@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<!--
+  Canine Infectious Respiratory Disease Complex (CIRDC) — disease one-pager
+  Personal study notes for the 2026 ABVP Combined Exam (Shelter Medicine RVS).
+  Content transcribed faithfully from Juliana's handwritten notes (IMG_9165);
+  items marked with the "+" tag were added/clarified and are NOT in the original.
+  © Juliana Xue. Personal study reference.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CIRDC — Canine Infectious Respiratory Disease Complex · One-Pager</title>
+<style>
+  :root{
+    --ink:#1f2430;          /* main text */
+    --muted:#6b7280;        /* expanded abbreviations / secondary */
+    --line:#e5e7eb;
+    --theme:#6d28d9;        /* infectious-disease purple */
+    --theme-soft:#f3ecff;
+    --theme-line:#c9b6f5;
+    --blue:#1d4ed8;         /* mirrors your blue ink: outbreak + biosecurity */
+    --blue-soft:#eaf0ff;
+    --blue-line:#b8caff;
+    --warn:#b45309;         /* exam traps (your own notes) */
+    --warn-soft:#fff5e6;
+    --add:#0d7d74;          /* things I added / clarified */
+    --add-soft:#e4f6f4;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink); background:#f4f4f6; line-height:1.32;
+    font-size:12px;
+  }
+
+  /* ---- screen toolbar (hidden when printing) ---- */
+  .toolbar{
+    max-width:1180px;margin:14px auto 0;padding:10px 14px;
+    background:#fff;border:1px solid var(--line);border-radius:10px;
+    display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+    font-size:12px;color:var(--muted);
+  }
+  .toolbar b{color:var(--ink)}
+  .btn{
+    background:var(--theme);color:#fff;border:none;border-radius:8px;
+    padding:8px 16px;font-size:13px;font-weight:600;cursor:pointer;
+  }
+  .btn:hover{background:#5b21b6}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .legend span{display:inline-flex;align-items:center;gap:5px}
+  .swatch{width:11px;height:11px;border-radius:3px;display:inline-block}
+
+  /* ---- the sheet ---- */
+  .sheet{
+    max-width:1180px;margin:14px auto;background:#fff;
+    padding:16px 18px 12px;border:1px solid var(--line);border-radius:10px;
+    box-shadow:0 1px 6px rgba(0,0,0,.05);
+  }
+  header.doc{
+    border-bottom:2.5px solid var(--theme);padding-bottom:8px;margin-bottom:12px;
+    display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  }
+  header.doc h1{
+    margin:0;font-size:23px;letter-spacing:-.2px;color:var(--theme);
+  }
+  header.doc h1 small{color:var(--ink);font-weight:600;font-size:14px}
+  .tags{font-size:11px;color:var(--muted)}
+  .tags b{color:var(--theme)}
+  .lede{
+    font-size:11.5px;color:var(--muted);margin:0 0 10px;
+    border-left:3px solid var(--theme-line);padding-left:9px;
+  }
+
+  .cols{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+  }
+  .col{display:flex;flex-direction:column;gap:11px}
+
+  section.card{
+    border:1px solid var(--line);border-left:4px solid var(--theme);
+    border-radius:7px;padding:8px 10px 9px;
+    break-inside:avoid;page-break-inside:avoid;
+  }
+  section.card.blue{border-left-color:var(--blue)}
+  section.card h2{
+    margin:0 0 6px;font-size:12.5px;text-transform:uppercase;letter-spacing:.4px;
+    color:var(--theme);display:flex;align-items:center;gap:6px;
+  }
+  section.card.blue h2{color:var(--blue)}
+  h2 .n{  /* little numbered pill for the section, optional */
+    font-size:10px;background:var(--theme-soft);color:var(--theme);
+    border:1px solid var(--theme-line);border-radius:4px;padding:0 5px;font-weight:700;
+  }
+
+  ul{margin:0;padding-left:15px}
+  ol{margin:0;padding-left:17px}
+  li{margin:2.5px 0}
+  li::marker{color:var(--theme)}
+  .blue li::marker{color:var(--blue)}
+  ul.tight li{margin:1.5px 0}
+  .sub{list-style:none;padding-left:2px;margin:3px 0 3px}
+  .sub li{margin:1.5px 0;color:var(--ink)}
+  .sub li::before{content:"– ";color:var(--muted)}
+
+  b,strong{font-weight:700}
+  .lead{font-weight:700}
+  .exp{color:var(--muted);font-weight:400}                 /* expanded abbreviation */
+  .arw{color:var(--theme);font-weight:700}                 /* → arrow */
+  .up{color:#b91c1c;font-weight:700}                       /* ↑ */
+  .dn{color:#1d4ed8;font-weight:700}                       /* ↓ */
+
+  /* exam trap — from your own notes */
+  .trap{
+    background:var(--warn-soft);border:1px solid #f2cf95;border-radius:5px;
+    padding:4px 7px;margin:5px 0 2px;font-size:11px;color:#7a4a08;
+  }
+  .trap b{color:var(--warn)}
+
+  /* things I added / clarified — NOT in your original notes */
+  .add{
+    background:var(--add-soft);border-bottom:1px dotted var(--add);
+    color:#0b5a54;padding:0 2px;border-radius:2px;
+  }
+  .addtag{
+    font-size:9px;font-weight:700;color:#fff;background:var(--add);
+    border-radius:3px;padding:0 3px;margin-left:2px;vertical-align:1px;
+  }
+  .flag{
+    display:block;background:var(--add-soft);border:1px dashed var(--add);
+    border-radius:5px;padding:4px 7px;margin:5px 0 0;font-size:10.5px;color:#0b5a54;
+  }
+  .flag b{color:var(--add)}
+
+  .risk{font-weight:800}
+  .risk.hi{color:#b91c1c}.risk.mod{color:#b45309}.risk.lo{color:#15803d}
+
+  footer.doc{
+    margin-top:12px;padding-top:8px;border-top:1px solid var(--line);
+    font-size:9.5px;color:var(--muted);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
+  }
+
+  /* ---------- PRINT ---------- */
+  @page{ size:A4 landscape; margin:9mm; }
+  @media print{
+    body{background:#fff;font-size:9.4px;line-height:1.26}
+    .toolbar{display:none}
+    .sheet{max-width:none;margin:0;border:none;border-radius:0;box-shadow:none;padding:0}
+    header.doc h1{font-size:19px}
+    header.doc h1 small{font-size:12px}
+    section.card h2{font-size:10.5px}
+    .cols{gap:9px}
+    .col{gap:8px}
+    section.card{padding:6px 8px 7px}
+    .trap,.flag{font-size:9px}
+  }
+  /* narrow screens: stack the 3 columns so it stays readable */
+  @media(max-width:780px){ .cols{grid-template-columns:1fr} }
+  /* embedded inside the study-hub collapsible: drop page chrome, sit flush */
+  html.embedded body{background:#fff}
+  html.embedded .toolbar{display:none}
+  html.embedded .sheet{max-width:none;margin:0;border:none;border-radius:0;box-shadow:none;padding:10px 13px 8px}
+</style>
+</head>
+<body>
+
+  <!-- toolbar: screen only -->
+  <div class="toolbar">
+    <button class="btn" onclick="window.print()">🖨  Print / Save as PDF</button>
+    <span>Best printed <b>A4 landscape</b>.</span>
+    <div class="legend">
+      <span><span class="swatch" style="background:#6d28d9"></span>section</span>
+      <span><span class="swatch" style="background:#1d4ed8"></span>outbreak / biosecurity <i>(your blue ink)</i></span>
+      <span><span class="swatch" style="background:#fff5e6;border:1px solid #f2cf95"></span>exam trap <i>(your notes)</i></span>
+      <span><span class="swatch" style="background:#e4f6f4;border:1px solid #0d7d74"></span><b style="color:#0d7d74">+</b> added / clarified by me</span>
+    </div>
+  </div>
+
+  <div class="sheet">
+    <header class="doc">
+      <h1>Canine Infectious Respiratory Disease Complex <small>(CIRDC)</small></h1>
+      <div class="tags"><b>Infectious Disease</b> · Physical Health of Animal (29%) · Shelter Medicine</div>
+    </header>
+
+    <p class="lede">A multifactorial complex of viral &amp; bacterial respiratory pathogens; outcome relies on the interplay of <b>host + environment + agent</b>. High morbidity, low mortality — the classic crowded-shelter "kennel cough" that can progress to pneumonia.</p>
+
+    <div class="cols">
+
+      <!-- ============ COLUMN 1 ============ -->
+      <div class="col">
+
+        <section class="card">
+          <h2>Overview</h2>
+          <ul class="tight">
+            <li><span class="lead">Multifactorial complex</span> — multiple pathogens acting together</li>
+            <li>Outcome relies on <b>host + environment + agent</b> <span class="add">(the classic disease triad)<span class="addtag">+</span></span></li>
+            <li><span class="lead">High morbidity</span></li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Pathogens — Viral</h2>
+          <ul class="tight">
+            <li><span class="lead">CDV</span> <span class="exp">(canine distemper virus)</span> &amp; <span class="lead">CIV</span> <span class="exp">(canine influenza virus)</span> can be involved</li>
+            <li><span class="lead">CAV-2</span> <span class="exp">(canine adenovirus-2)</span> — vaccine-protected; <b>non-enveloped</b> only</li>
+            <li><span class="lead">CPiV</span> <span class="exp">(canine parainfluenza virus)</span> — honking cough; sheds <b>8–10 days</b>; can be subclinical or a carrier despite vaccination; mucosal <b>IgA</b> <span class="exp">(immunoglobulin A)</span> is more protective</li>
+            <li><span class="lead">CRCoV</span> <span class="exp">(canine respiratory coronavirus)</span> — the "lawnmower virus"; no vaccine</li>
+            <li><span class="lead">CHV</span> <span class="exp">(canine herpesvirus)</span> — fatal in neonates; latent; recrudesces in stress</li>
+            <li><span class="lead">CPnV</span> <span class="exp">(canine pneumovirus)</span> — related to human <b>RSV</b> <span class="exp">(respiratory syncytial virus)</span></li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Pathogens — Bacterial</h2>
+          <ul class="tight">
+            <li><span class="lead">Bordetella bronchiseptica (Bb)</span> — zoonotic; sheds <b>weeks <span class="arw">→</span> months</b></li>
+            <li><span class="lead">Mycoplasma</span> — co-infects with CPiV
+              <div class="trap"><b>⚠ Trap:</b> do <b>NOT</b> use amoxicillin — Mycoplasma have <b>no cell wall</b>.</div>
+            </li>
+            <li><span class="lead">Streptococcus zooepidemicus</span> <span class="exp">("Strep zoo")</span> — <span class="up">↑</span> mortality; haemorrhagic pneumonia; treat with <b>penicillin</b>; requires <b>prophylactic treatment of ALL exposed dogs</b>; resistant to doxycycline</li>
+          </ul>
+        </section>
+
+      </div>
+
+      <!-- ============ COLUMN 2 ============ -->
+      <div class="col">
+
+        <section class="card">
+          <h2>Diagnosis &amp; Testing</h2>
+          <ul class="tight">
+            <li><span class="lead">Clinical signs / PCR</span> <span class="exp">(polymerase chain reaction)</span> — sample <b>acutely, within 1–2 days</b> of onset; do <b>not</b> wait until 5–7 days</li>
+            <li>Sample <b>10–30%</b> of the population</li>
+            <li><span class="lead">Necropsy</span> — lung tissue <span class="arw">→</span> histopathology</li>
+            <li><span class="lead">Tests:</span> PCR, <b>VI</b> <span class="exp">(virus isolation)</span>, serology; ancillary <b>CBC</b> <span class="exp">(complete blood count)</span>, necropsy</li>
+            <li>Use <b>synthetic polyester swabs</b> in plastic shafts</li>
+            <li><span class="lead">Human influenza A test kit</span> — positive = <b>true positive</b>; negative = <b>cannot rule out</b></li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Morbidity &amp; Mortality</h2>
+          <ul class="tight">
+            <li><b>High morbidity, low mortality</b></li>
+            <li>~<b>80–90%</b> develop signs; <b>10–20%</b> are subclinical shedders</li>
+            <li>Pneumonia fatality <b>5–8%</b></li>
+            <li><span class="lead">CIV</span> destroys the <b>ciliated columnar epithelial cells</b> <span class="arw">→</span> secondary (2°) bacterial invasion <span class="arw">→</span> pneumonia</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Incubation</h2>
+          <ul class="tight">
+            <li><b>3–10 days</b></li>
+            <li>For <b>CDV</b> — minimum <b>14 days</b>, up to <b>6 weeks</b></li>
+            <li>Animal from a <b>CDV-endemic area</b> <span class="arw">→</span> sheds <b>7–8 days</b></li>
+          </ul>
+        </section>
+
+      </div>
+
+      <!-- ============ COLUMN 3 ============ -->
+      <div class="col">
+
+        <section class="card">
+          <h2>Canine Influenza Virus <span class="n">CIV</span></h2>
+          <ul class="tight">
+            <li><span class="lead">H3N8</span> — greyhound / dogs only</li>
+            <li><span class="lead">H3N2</span> — avian origin; from <b>China / Korea</b>; affects many other animals; highly contagious; sporadic regional outbreaks</li>
+            <li><span class="lead">Shedding:</span> H3N8 up to <b>7 days</b> (isolate); H3N2 <b>21 <span class="arw">→</span> 28 days</b> (isolate)</li>
+            <li><span class="lead">Incubation 2–5 days</span>; peak shedding <b>2–4 days</b> post-infection, overlapping incubation</li>
+            <li><b>No true carrier state</b></li>
+          </ul>
+          <span class="flag"><b>+ check:</b> your note brackets "shed up to 21 days" between the two subtypes — I have assigned it per standard teaching as <b>H3N8 ≤ 7 days</b> and <b>H3N2 21–28 days</b>. Confirm.</span>
+        </section>
+
+        <section class="card blue">
+          <h2>Prevention</h2>
+          <ul class="tight">
+            <li>Aggressive <b>14-day quarantine &amp; testing</b>, especially dogs from China / Korea</li>
+            <li>Suspect CIV <span class="arw" style="color:var(--blue)">→</span> identify subtype:
+              <ul class="sub">
+                <li><b>H3N8</b> — quarantine 7 days, isolate</li>
+                <li><b>H3N2</b> — quarantine 21 <span class="arw" style="color:var(--blue)">→</span> 28 days, isolate</li>
+              </ul>
+            </li>
+            <li><b>PCR at day 4</b> <span class="arw" style="color:var(--blue)">→</span> negative = release; <b>day 7</b> <span class="arw" style="color:var(--blue)">→</span> positive = isolate</li>
+            <li><span class="lead">Vaccine:</span> killed, <b>non-core</b>; 2 doses 2–3 weeks apart</li>
+          </ul>
+        </section>
+
+        <section class="card blue">
+          <h2>Sanitation</h2>
+          <ul class="tight">
+            <li><b>Don't use quaternary ammonium compounds (QUATs)</b> — not effective for Bordetella / CAV-2</li>
+            <li><b>Alcohol handrub &gt; 60%</b> doesn't work on CAV-2</li>
+          </ul>
+        </section>
+
+        <section class="card blue">
+          <h2>Housing</h2>
+          <ul class="tight">
+            <li><span class="lead">Ventilation:</span> <b>10–12 air changes per hour</b>; separate zoned <b>HVAC</b> <span class="exp">(heating, ventilation &amp; air conditioning)</span> for isolation</li>
+            <li><b>Double-compartment housing</b></li>
+            <li><span class="lead">Capacity for care (C4C)</span></li>
+            <li>Droplets can travel up to <b>25 ft (7.6 m)</b>; keep runs a minimum of <b>6 m</b> apart</li>
+          </ul>
+        </section>
+
+      </div>
+    </div>
+
+    <footer class="doc">
+      <span>Personal study notes · 2026 ABVP Combined Exam (Shelter Medicine RVS) · transcribed from handwritten source</span>
+      <span>© Juliana Xue — for personal study use</span>
+    </footer>
+  </div>
+
+  <script>if(window.self!==window.top){document.documentElement.className+=' embedded';}</script>
+</body>
+</html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<!--
+  Feline Infectious Peritonitis (FIP) — disease one-pager
+  Personal study notes for the 2026 ABVP Combined Exam (Shelter Medicine RVS).
+  Content transcribed faithfully from Juliana's handwritten notes (IMG_9170 main FIP page
+  + wet/dry table, IMG_9171 littermate management);
+  items marked with the "+" tag were added/clarified and are NOT in the original.
+  © Juliana Xue. Personal study reference.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FIP — Feline Infectious Peritonitis · One-Pager</title>
+<style>
+  :root{
+    --ink:#1f2430;          /* main text */
+    --muted:#6b7280;        /* expanded abbreviations / secondary */
+    --line:#e5e7eb;
+    --theme:#6d28d9;        /* infectious-disease purple */
+    --theme-soft:#f3ecff;
+    --theme-line:#c9b6f5;
+    --blue:#1d4ed8;         /* mirrors your blue ink: outbreak + biosecurity */
+    --blue-soft:#eaf0ff;
+    --blue-line:#b8caff;
+    --warn:#b45309;         /* exam traps (your own notes) */
+    --warn-soft:#fff5e6;
+    --add:#0d7d74;          /* things I added / clarified */
+    --add-soft:#e4f6f4;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink); background:#f4f4f6; line-height:1.32;
+    font-size:12px;
+  }
+
+  /* ---- screen toolbar (hidden when printing) ---- */
+  .toolbar{
+    max-width:1180px;margin:14px auto 0;padding:10px 14px;
+    background:#fff;border:1px solid var(--line);border-radius:10px;
+    display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+    font-size:12px;color:var(--muted);
+  }
+  .toolbar b{color:var(--ink)}
+  .btn{
+    background:var(--theme);color:#fff;border:none;border-radius:8px;
+    padding:8px 16px;font-size:13px;font-weight:600;cursor:pointer;
+  }
+  .btn:hover{background:#5b21b6}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .legend span{display:inline-flex;align-items:center;gap:5px}
+  .swatch{width:11px;height:11px;border-radius:3px;display:inline-block}
+
+  /* ---- the sheet ---- */
+  .sheet{
+    max-width:1180px;margin:14px auto;background:#fff;
+    padding:16px 18px 12px;border:1px solid var(--line);border-radius:10px;
+    box-shadow:0 1px 6px rgba(0,0,0,.05);
+  }
+  header.doc{
+    border-bottom:2.5px solid var(--theme);padding-bottom:8px;margin-bottom:12px;
+    display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  }
+  header.doc h1{
+    margin:0;font-size:23px;letter-spacing:-.2px;color:var(--theme);
+  }
+  header.doc h1 small{color:var(--ink);font-weight:600;font-size:14px}
+  .tags{font-size:11px;color:var(--muted)}
+  .tags b{color:var(--theme)}
+  .lede{
+    font-size:11.5px;color:var(--muted);margin:0 0 10px;
+    border-left:3px solid var(--theme-line);padding-left:9px;
+  }
+
+  .cols{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+  }
+  .col{display:flex;flex-direction:column;gap:11px}
+
+  section.card{
+    border:1px solid var(--line);border-left:4px solid var(--theme);
+    border-radius:7px;padding:8px 10px 9px;
+    break-inside:avoid;page-break-inside:avoid;
+  }
+  section.card.blue{border-left-color:var(--blue)}
+  section.card h2{
+    margin:0 0 6px;font-size:12.5px;text-transform:uppercase;letter-spacing:.4px;
+    color:var(--theme);display:flex;align-items:center;gap:6px;
+  }
+  section.card.blue h2{color:var(--blue)}
+  h2 .n{  /* little numbered pill for the section, optional */
+    font-size:10px;background:var(--theme-soft);color:var(--theme);
+    border:1px solid var(--theme-line);border-radius:4px;padding:0 5px;font-weight:700;
+  }
+
+  ul{margin:0;padding-left:15px}
+  ol{margin:0;padding-left:17px}
+  li{margin:2.5px 0}
+  li::marker{color:var(--theme)}
+  .blue li::marker{color:var(--blue)}
+  ul.tight li{margin:1.5px 0}
+  .sub{list-style:none;padding-left:2px;margin:3px 0 3px}
+  .sub li{margin:1.5px 0;color:var(--ink)}
+  .sub li::before{content:"– ";color:var(--muted)}
+
+  b,strong{font-weight:700}
+  .lead{font-weight:700}
+  .exp{color:var(--muted);font-weight:400}                 /* expanded abbreviation */
+  .arw{color:var(--theme);font-weight:700}                 /* → arrow */
+  .up{color:#b91c1c;font-weight:700}                       /* ↑ */
+  .dn{color:#1d4ed8;font-weight:700}                       /* ↓ */
+
+  /* exam trap — from your own notes */
+  .trap{
+    background:var(--warn-soft);border:1px solid #f2cf95;border-radius:5px;
+    padding:4px 7px;margin:5px 0 2px;font-size:11px;color:#7a4a08;
+  }
+  .trap b{color:var(--warn)}
+
+  /* things I added / clarified — NOT in your original notes */
+  .add{
+    background:var(--add-soft);border-bottom:1px dotted var(--add);
+    color:#0b5a54;padding:0 2px;border-radius:2px;
+  }
+  .addtag{
+    font-size:9px;font-weight:700;color:#fff;background:var(--add);
+    border-radius:3px;padding:0 3px;margin-left:2px;vertical-align:1px;
+  }
+  .flag{
+    display:block;background:var(--add-soft);border:1px dashed var(--add);
+    border-radius:5px;padding:4px 7px;margin:5px 0 0;font-size:10.5px;color:#0b5a54;
+  }
+  .flag b{color:var(--add)}
+
+  .risk{font-weight:800}
+  .risk.hi{color:#b91c1c}.risk.mod{color:#b45309}.risk.lo{color:#15803d}
+
+  footer.doc{
+    margin-top:12px;padding-top:8px;border-top:1px solid var(--line);
+    font-size:9.5px;color:var(--muted);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
+  }
+
+  /* ---------- PRINT ---------- */
+  @page{ size:A4 landscape; margin:9mm; }
+  @media print{
+    body{background:#fff;font-size:9.4px;line-height:1.26}
+    .toolbar{display:none}
+    .sheet{max-width:none;margin:0;border:none;border-radius:0;box-shadow:none;padding:0}
+    header.doc h1{font-size:19px}
+    header.doc h1 small{font-size:12px}
+    section.card h2{font-size:10.5px}
+    .cols{gap:9px}
+    .col{gap:8px}
+    section.card{padding:6px 8px 7px}
+    .trap,.flag{font-size:9px}
+  }
+  /* narrow screens: stack the 3 columns so it stays readable */
+  @media(max-width:780px){ .cols{grid-template-columns:1fr} }
+  /* embedded inside the study-hub collapsible: drop page chrome, sit flush */
+  html.embedded body{background:#fff}
+  html.embedded .toolbar{display:none}
+  html.embedded .sheet{max-width:none;margin:0;border:none;border-radius:0;box-shadow:none;padding:10px 13px 8px}
+
+  /* WET vs DRY comparison table */
+  table.cmp{width:100%;border-collapse:collapse;margin:6px 0;font-size:11px}
+  table.cmp th,table.cmp td{border:1px solid var(--theme-line);padding:5px 7px;text-align:left;vertical-align:top}
+  table.cmp th{background:var(--theme-soft);color:var(--theme);font-weight:700}
+  table.cmp td:first-child{color:var(--theme);font-weight:700;width:22%}
+</style>
+</head>
+<body>
+
+  <!-- toolbar: screen only -->
+  <div class="toolbar">
+    <button class="btn" onclick="window.print()">🖨  Print / Save as PDF</button>
+    <span>Best printed <b>A4 landscape</b>.</span>
+    <div class="legend">
+      <span><span class="swatch" style="background:#6d28d9"></span>section</span>
+      <span><span class="swatch" style="background:#1d4ed8"></span>outbreak / biosecurity <i>(your blue ink)</i></span>
+      <span><span class="swatch" style="background:#fff5e6;border:1px solid #f2cf95"></span>exam trap <i>(your notes)</i></span>
+      <span><span class="swatch" style="background:#e4f6f4;border:1px solid #0d7d74"></span><b style="color:#0d7d74">+</b> added / clarified by me</span>
+    </div>
+  </div>
+
+  <div class="sheet">
+    <header class="doc">
+      <h1>Feline Infectious Peritonitis <small>(FIP)</small></h1>
+      <div class="tags"><b>Infectious Disease</b> · Physical Health of Animal (29%) · Shelter Medicine</div>
+    </header>
+
+    <p class="lede">A mutation of <b>feline coronavirus (FCoV)</b>: only a small subset of infected cats develop FIP, when the virus gains macrophage tropism &rarr; pyogranulomas &amp; effusion. Shelter management targets <b>capacity-for-care, length of stay &amp; stress</b> — <i>not</i> isolating affected cats.</p>
+
+    <div class="cols">
+
+      <!-- ============ COLUMN 1 ============ -->
+      <div class="col">
+
+        <section class="card">
+          <h2>Overview &amp; Signalment</h2>
+          <ul class="tight">
+            <li><span class="lead">Age</span> — mostly <b>&lt; 3 years (~80%)</b>, more &lt; 2 years, <b>~50% &lt; 7 months</b></li>
+            <li><span class="lead">Predisposing</span> — purebred · multi-cat · foster · <b>FeLV / FIV</b> <span class="exp">(feline leukaemia / immunodeficiency virus)</span> · stress</li>
+            <li>FIP is a <b>mutation of feline coronavirus (FCoV)</b> infection</li>
+            <li>Shelter focus = <b>capacity-for-care (CfC)</b>, <b>length of stay (LOS)</b> &amp; stress, rather than isolating affected cats</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Virology</h2>
+          <ul class="tight">
+            <li><span class="lead">RNA</span> <span class="exp">(ribonucleic acid)</span> <b>alphacoronavirus</b>; common mutation site = the <b>spike (S) protein gene</b></li>
+            <li><span class="lead">FECV</span> <span class="exp">(feline enteric coronavirus)</span> — replicates in enterocytes; self-limiting diarrhoea; <b>oro-nasal</b> spread
+              <ul class="sub">
+                <li>Endemic in catteries (<b>~87–90%</b> seroprevalence); strays <b>~2%</b></li>
+                <li><b>No protective immunity</b></li>
+                <li>Kittens <b>8–16 weeks</b> shed <b>~10,000×</b> more than adults <span class="arw">→</span> <b>don't mix litters</b></li>
+              </ul>
+            </li>
+            <li><span class="lead">FIPV</span> <span class="exp">(feline infectious peritonitis virus)</span> — the biotype that replicates at high levels in <b>macrophages</b> <span class="arw">→</span> pyogranulomas &amp; effusion of FIP</li>
+          </ul>
+        </section>
+
+        <section class="card blue">
+          <h2>Shelter Incidence <span class="n" style="background:var(--blue-soft);color:var(--blue);border-color:var(--blue-line)">outbreak</span></h2>
+          <ul class="tight">
+            <li><b>&gt; 1%</b> = an <b>outbreak</b></li>
+            <li>Hoarding / multi-cat <b>5–10%</b></li>
+            <li>Breeding cattery <b>&lt; 10%</b></li>
+          </ul>
+          <span class="flag"><b>+ check:</b> the cattery figure "&lt; 10%" sits above the "&gt; 1% = outbreak" threshold — read it as an upper bound for an endemic cattery. Confirm.</span>
+        </section>
+
+      </div>
+
+      <!-- ============ COLUMN 2 ============ -->
+      <div class="col">
+
+        <section class="card">
+          <h2>Serotypes &amp; Pathogenesis</h2>
+          <ul class="tight">
+            <li><span class="lead">Two serotypes</span>
+              <ul class="sub">
+                <li><b>Type I</b> — unique to cats; dominant worldwide (<b>80–95%</b>)</li>
+                <li><b>Type II</b> — less common; <b>FCoV / CCoV</b> <span class="exp">(canine coronavirus)</span> recombination</li>
+              </ul>
+            </li>
+            <li>FIP <b>arises when FECV mutates</b> to gain <b>macrophage tropism</b></li>
+            <li>Only a <b>small subset</b> of FCoV-infected cats develop FIP; <b>&lt; 5% shedders</b>; <b>&lt; 3%</b> <span class="add">of seropositive cats<span class="addtag">+</span></span></li>
+            <li>FIPV is <span class="up">NOT</span> infectious by the <b>faecal–oral route</b></li>
+            <li>Shelter outbreaks usually from <b>housing &amp; husbandry</b> that drive up FCoV loads &amp; amplifying risk factors</li>
+          </ul>
+          <div class="trap"><b>⚠ Clinical form = the immune response (IR):</b>
+            <ol style="margin:3px 0 0;padding-left:16px">
+              <li><b>Strong humoral + weak / absent</b> cell-mediated immunity = <b>effusive (wet)</b> FIP (Type IV hypersensitivity)</li>
+              <li><b>Intermediate</b> cell-mediated immunity = <b>pyogranulomas (dry)</b></li>
+              <li><b>Strong immunity</b> = prevents disease</li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Treatment</h2>
+          <ol>
+            <li><span class="lead">GS-441524</span> — <b>6–15 mg/kg PO</b> <span class="exp">(by mouth)</span> <b>q24h</b> <span class="exp">(once daily)</span>
+              <ul class="sub">
+                <li><b>Low dose</b> for wet / dry form</li>
+                <li><b>8 mg/kg</b> with ocular signs</li>
+                <li><b>10–15 mg/kg</b> with neurological signs</li>
+                <li>Continuous course <b>84 days (12 weeks)</b></li>
+                <li>Monitor bloods: <b>A:G</b> <span class="exp">(albumin:globulin)</span>, globulin, haematocrit, weight gain</li>
+                <li>If relapse <span class="arw">→</span> retreat &amp; <span class="up">↑</span> by <b>5 mg/kg</b></li>
+              </ul>
+            </li>
+            <li><span class="lead">Others</span> — <b>GC376</b>; <b>remdesivir</b> to load a sick / inappetent cat, then start</li>
+          </ol>
+        </section>
+
+      </div>
+
+      <!-- ============ COLUMN 3 ============ -->
+      <div class="col">
+
+        <section class="card">
+          <h2>Wet vs Dry FIP <span class="n">compare</span></h2>
+          <table class="cmp">
+            <tr><th>Feature</th><th>WET (effusive)</th><th>DRY (non-effusive)</th></tr>
+            <tr>
+              <td>Prevalence</td>
+              <td>~14%</td>
+              <td>~28% (58% show mixed signs)</td>
+            </tr>
+            <tr>
+              <td>Pathogenesis</td>
+              <td>Strong humoral + weak cell-mediated immunity; <b>Type IV hypersensitivity</b>; vasculitis</td>
+              <td>Pyogranulomatous nodules; intermediate cellular immunity</td>
+            </tr>
+            <tr>
+              <td>Primary signs</td>
+              <td>Abdominal distension; thoracic effusion (dyspnoea / <span class="up">↑</span> respiratory rate); icterus; pallor</td>
+              <td>Neurological signs (seizures, ataxia); localized organ dysfunction; mesenteric lymphadenopathy</td>
+            </tr>
+            <tr>
+              <td>Shared signs</td>
+              <td colspan="2">Waxing &amp; waning fever, lethargy, anorexia, ocular lesions (uveitis, keratic precipitates)</td>
+            </tr>
+            <tr>
+              <td>Prognosis</td>
+              <td>Rapidly fatal (days–weeks)</td>
+              <td>More gradual (~months)</td>
+            </tr>
+            <tr>
+              <td>Diagnosis</td>
+              <td>Non-septic exudate, yellow-straw colour, protein &gt; 3.5 g/dL, low cellularity; <b>A:G ratio &lt; 0.8</b> <span class="exp">(albumin:globulin)</span> — 0.5 <span class="arw">→</span> positive predictive value (PPV) 89%; &gt; 1 <span class="arw">→</span> negative predictive value (NPV) 91%; use the <b>Rivalta test</b></td>
+              <td>Biochemistry: low A:G ratio &amp; gamma-globulin, hyperbilirubinaemia; <b>IHC</b> <span class="exp">(immunohistochemistry)</span> on tissue / necropsy; <b>direct immunofluorescence (gold standard)</b>; pyogranulomas on serosal surfaces, around mesenteric vessels, in the renal cortex; gross vasculitis</td>
+            </tr>
+          </table>
+        </section>
+
+        <section class="card blue">
+          <h2>Littermate Management</h2>
+          <ul class="tight">
+            <li>Higher <b>FCoV viral-load exposure</b></li>
+            <li><b>Most siblings won't develop FIP</b></li>
+            <li>They share a <b>genetic predisposition</b></li>
+          </ul>
+          <ul class="tight" style="margin-top:5px">
+            <li><span class="lead">Options</span>
+              <ul class="sub">
+                <li>Adopt out <b>with disclosure</b></li>
+                <li><b>2–4 weeks</b> quarantine</li>
+                <li>Euthanasia</li>
+                <li>Can <b>incubate for years</b></li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+
+      </div>
+    </div>
+
+    <footer class="doc">
+      <span>Personal study notes · 2026 ABVP Combined Exam (Shelter Medicine RVS) · transcribed from handwritten source</span>
+      <span>© Juliana Xue — for personal study use</span>
+    </footer>
+  </div>
+
+  <script>if(window.self!==window.top){document.documentElement.className+=' embedded';}</script>
+</body>
+</html>

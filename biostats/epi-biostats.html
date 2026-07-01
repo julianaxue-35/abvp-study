@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<!--
+  Epidemiology & Biostatistics — teaching reference
+  For the 2026 ABVP Combined Exam (Shelter Medicine RVS), Research & Biostats domain (6%).
+  Built from Juliana's handwritten notes (IMG_9173–9176), EXPANDED with plain-language
+  explanations, worked shelter examples, and exam-trap notes at her request.
+  © Juliana Xue. Personal study reference.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Epidemiology &amp; Biostatistics · Study Reference</title>
+<style>
+  :root{
+    --ink:#241f22; --muted:#6b6169; --line:#e7e2e4;
+    --theme:#8A3A52;         /* Research & Biostats domain rose */
+    --theme-soft:#f8ebef; --theme-line:#e4bccb; --theme-deep:#6d2b40;
+    --ex:#0e6b8c;            /* worked-example blue */
+    --ex-soft:#e6f3f8; --ex-line:#a9d6e6;
+    --warn:#b45309; --warn-soft:#fff5e6; --warn-line:#f2cf95;
+    --add:#0d7d74; --add-soft:#e4f6f4;
+    --ok:#15803d;
+  }
+  *{box-sizing:border-box} html,body{margin:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:#f4f2f3;line-height:1.4;font-size:13px}
+
+  /* toolbar (screen only) */
+  .toolbar{max-width:1080px;margin:14px auto 0;padding:10px 14px;background:#fff;border:1px solid var(--line);
+    border-radius:10px;display:flex;align-items:center;gap:13px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+  .toolbar b{color:var(--ink)}
+  .btn{background:var(--theme);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:13px;font-weight:600;cursor:pointer}
+  .btn:hover{background:var(--theme-deep)}
+  .legend{display:flex;gap:13px;flex-wrap:wrap;align-items:center}
+  .legend span{display:inline-flex;align-items:center;gap:5px}
+  .swatch{width:11px;height:11px;border-radius:3px;display:inline-block}
+
+  .sheet{max-width:1080px;margin:14px auto;background:#fff;padding:20px 22px 16px;border:1px solid var(--line);
+    border-radius:10px;box-shadow:0 1px 6px rgba(0,0,0,.05)}
+  header.doc{border-bottom:3px solid var(--theme);padding-bottom:10px;margin-bottom:8px}
+  header.doc h1{margin:0;font-size:25px;letter-spacing:-.3px;color:var(--theme)}
+  .tags{font-size:11.5px;color:var(--muted);margin-top:3px}
+  .tags b{color:var(--theme)}
+  .intro{font-size:12.5px;color:var(--muted);margin:10px 0 4px;border-left:3px solid var(--theme-line);padding-left:10px}
+
+  /* section-jump chips */
+  .toc{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 4px}
+  .toc a{font-size:11.5px;text-decoration:none;color:var(--theme-deep);background:var(--theme-soft);
+    border:1px solid var(--theme-line);border-radius:999px;padding:4px 11px}
+  .toc a:hover{background:var(--theme-line)}
+
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+  .span2{grid-column:1/-1}
+
+  section.card{border:1px solid var(--line);border-left:4px solid var(--theme);border-radius:8px;
+    padding:11px 14px 12px;break-inside:avoid}
+  section.card h2{margin:0 0 4px;font-size:15px;color:var(--theme);letter-spacing:-.2px}
+  .band{grid-column:1/-1;margin:20px 0 -2px;display:flex;align-items:center;gap:10px}
+  .band h2{margin:0;font-size:13px;text-transform:uppercase;letter-spacing:.12em;color:var(--theme-deep);white-space:nowrap}
+  .band::after{content:"";flex:1;height:1px;background:var(--theme-line)}
+  .sub{font-size:12px;color:var(--muted);margin:0 0 8px}
+
+  p{margin:6px 0} ul{margin:5px 0;padding-left:18px} li{margin:3px 0}
+  b,strong{font-weight:700} .lead{font-weight:700;color:var(--ink)}
+  code{background:var(--theme-soft);border-radius:4px;padding:0 4px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px}
+
+  /* formula block */
+  .formula{background:var(--theme-soft);border:1px solid var(--theme-line);border-radius:8px;
+    padding:10px 14px;margin:8px 0;font-size:16px;color:var(--theme-deep);display:flex;align-items:center;
+    flex-wrap:wrap;gap:8px;line-height:1.2}
+  .formula .eq{font-weight:700;font-size:17px}
+  .frac{display:inline-flex;flex-direction:column;text-align:center;vertical-align:middle;margin:0 3px;font-size:13.5px;line-height:1.15}
+  .frac .num{padding:0 9px 2px} .frac .den{padding:2px 9px 0;border-top:1.6px solid currentColor}
+  .op{font-weight:700;font-size:18px;margin:0 2px}
+
+  /* plain english */
+  .plain{font-size:12.5px}
+  .plain b{color:var(--theme-deep)}
+
+  /* worked example */
+  .ex{background:var(--ex-soft);border:1px solid var(--ex-line);border-radius:7px;padding:8px 11px;margin:8px 0;font-size:12.5px;color:#0b3f52}
+  .ex b{color:var(--ex)} .ex .r{font-weight:700;color:#08303f}
+
+  /* interpretation strip */
+  .interp{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 2px}
+  .interp .p{font-size:11.5px;border-radius:6px;padding:4px 9px;border:1px solid var(--line);background:#faf9fa}
+  .interp .p b{font-family:ui-monospace,monospace}
+  .gt{border-color:#e6b8b8;background:#fbeeee;color:#8f2f2f}
+  .eq1{border-color:#d8d2d4;background:#f3f0f1;color:#555}
+  .lt{border-color:#bcdcc6;background:#eaf6ee;color:#1c6b38}
+
+  .trap{background:var(--warn-soft);border:1px solid var(--warn-line);border-radius:6px;padding:6px 10px;margin:8px 0 2px;font-size:12px;color:#7a4a08}
+  .trap b{color:var(--warn)}
+  .add{background:var(--add-soft);border-bottom:1px dotted var(--add);color:#0b5a54;padding:0 2px;border-radius:2px}
+  .addtag{font-size:9px;font-weight:700;color:#fff;background:var(--add);border-radius:3px;padding:0 3px;margin-left:2px;vertical-align:1px}
+
+  /* 2x2 tables */
+  table.t2{border-collapse:collapse;margin:8px 0;font-size:12.5px;width:100%;max-width:440px}
+  table.t2 th,table.t2 td{border:1px solid var(--theme-line);padding:7px 10px;text-align:center}
+  table.t2 th{background:var(--theme-soft);color:var(--theme-deep);font-weight:600}
+  table.t2 td.rl{background:var(--theme-soft);color:var(--theme-deep);font-weight:600;text-align:left}
+  table.t2 .cell{font-family:ui-monospace,monospace;font-weight:700;font-size:14px}
+  .muted{color:var(--muted)}
+  .note{font-size:11.5px;color:var(--muted);margin-top:4px}
+
+  /* mini epidemic-curve svg */
+  .curve{width:96px;height:52px;background:#fff;border:1px solid var(--line);border-radius:6px;display:block}
+  .curverow{display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap;margin-top:4px}
+  .cw{font-size:11.5px;color:var(--muted);max-width:150px}
+  .cw b{color:var(--ink);display:block;font-size:12.5px}
+
+  footer.doc{margin-top:16px;padding-top:9px;border-top:1px solid var(--line);font-size:10px;color:var(--muted);
+    display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+
+  @media(max-width:780px){ .grid{grid-template-columns:1fr} }
+
+  /* embedded inside the study-hub collapsible */
+  html.embedded body{background:#fff}
+  html.embedded .toolbar{display:none}
+  html.embedded .sheet{max-width:none;margin:0;border:none;border-radius:0;box-shadow:none;padding:14px 15px 10px}
+
+  @page{ size:A4 portrait; margin:11mm }
+  @media print{
+    body{background:#fff;font-size:10.5px}
+    .toolbar,.toc{display:none}
+    .sheet{max-width:none;margin:0;border:none;border-radius:0;box-shadow:none;padding:0}
+    .formula{font-size:14px} .formula .eq{font-size:15px}
+    section.card{break-inside:avoid}
+    .band{break-after:avoid}
+  }
+</style>
+</head>
+<body>
+
+  <div class="toolbar">
+    <button class="btn" onclick="window.print()">🖨  Print / Save as PDF</button>
+    <span>A teaching reference — every formula has a plain-English line + worked example.</span>
+    <div class="legend">
+      <span><span class="swatch" style="background:#f8ebef;border:1px solid #e4bccb"></span>formula</span>
+      <span><span class="swatch" style="background:#e6f3f8;border:1px solid #a9d6e6"></span>worked example</span>
+      <span><span class="swatch" style="background:#fff5e6;border:1px solid #f2cf95"></span>exam trap</span>
+      <span><span class="swatch" style="background:#e4f6f4;border:1px solid #0d7d74"></span><b style="color:#0d7d74">+</b> expanded by me</span>
+    </div>
+  </div>
+
+  <div class="sheet">
+    <header class="doc">
+      <h1>Epidemiology &amp; Biostatistics</h1>
+      <div class="tags"><b>Research &amp; Biostats</b> · 6% of exam · a teaching walk-through of your notes, formula by formula</div>
+    </header>
+
+    <p class="intro">Almost every biostats question is really one of five moves: <b>count disease</b> (incidence/prevalence) → <b>compare two groups</b> (RR/OR) → <b>judge a test</b> (Se/Sp/PPV) → <b>pick the right study</b> → <b>decide if a result is real</b> (p-value/CI). Everything below is built on one tiny table of four numbers — learn that table first and the formulas fall out of it.</p>
+
+    <div class="toc">
+      <a href="#freq">1 · Counting disease</a>
+      <a href="#tab">2 · The 2×2 table</a>
+      <a href="#assoc">3 · Comparing groups (RR/OR)</a>
+      <a href="#mort">4 · Death metrics</a>
+      <a href="#test">5 · Judging a test</a>
+      <a href="#design">6 · Study design</a>
+      <a href="#surv">7 · Surveillance &amp; curves</a>
+      <a href="#bias">8 · Bias &amp; confounding</a>
+      <a href="#stats">9 · Is it real? (p &amp; CI)</a>
+    </div>
+
+    <!-- ================= 1. FREQUENCY ================= -->
+    <div class="band" id="freq"><h2>1 · Counting disease — incidence vs prevalence</h2></div>
+    <div class="grid">
+
+      <section class="card">
+        <h2>Incidence = <span style="color:var(--ink)">NEW cases</span></h2>
+        <p class="plain">Incidence counts <b>new disease events</b> appearing over a period. It measures <b>risk / how fast disease is arriving</b>. Two flavours:</p>
+        <div class="formula"><span class="eq">CI</span> = <span class="frac"><span class="num">new cases in the period</span><span class="den">population at risk at the start</span></span></div>
+        <p class="plain"><b>Cumulative incidence (CI)</b> — a simple proportion; you <b>must state the time window</b>. Answers "what's a dog's risk of getting this over the next month?"</p>
+        <div class="formula"><span class="eq">IR</span> = <span class="frac"><span class="num">new cases</span><span class="den">total animal-time at risk</span></span></div>
+        <p class="plain"><b>Incidence rate (IR)</b> — uses <b>animal-time</b> (e.g. dog-days) as the denominator, so it handles animals that stay for different lengths of time. <span class="add">Use IR when your population is churning — a shelter where animals come and go.<span class="addtag">+</span></span></p>
+        <div class="ex"><b>Example.</b> 200 dogs enter clean; over 2 weeks, 30 develop CIRDC. <b>CI</b> = 30/200 = <span class="r">15% in 2 weeks</span>. If instead you logged 2,000 dog-days at risk: <b>IR</b> = 30/2,000 = <span class="r">0.015 cases per dog-day</span>.</div>
+      </section>
+
+      <section class="card">
+        <h2>Prevalence = <span style="color:var(--ink)">EXISTING cases</span></h2>
+        <p class="plain">Prevalence is the <b>existing burden</b> — the slice of the population that <b>has the disease right now</b>. It's a snapshot, not a rate.</p>
+        <div class="formula"><span class="eq">Point prev.</span> = <span class="frac"><span class="num">cases at one instant</span><span class="den">population at that instant</span></span></div>
+        <div class="formula"><span class="eq">Period prev.</span> = <span class="frac"><span class="num">cases during an interval</span><span class="den">population over that interval</span></span></div>
+        <p class="plain"><b>Point</b> = a single day's census; <b>period</b> = anyone who had it across a span of time.</p>
+        <div class="ex"><b>Example.</b> On 1 July, 25 of 180 cats in the building have URI → point prevalence = <span class="r">14%</span>.</div>
+        <div class="formula" style="background:#fff;border-style:dashed"><span class="eq">Prevalence</span> ≈ Incidence <span class="op">×</span> average duration</div>
+        <p class="plain"><b>The key relationship.</b> A pool fills from incidence and drains as animals recover or die. Prevalence is high when disease either <b>arrives fast</b> (high incidence) <b>or sticks around</b> (long duration).</p>
+        <div class="trap"><b>⚠ Trap:</b> a <b>chronic</b> disease (e.g. FIV) can have <b>high prevalence but low incidence</b> — it lingers. A quick, deadly, or quickly-cured disease can have high incidence but low prevalence.</div>
+      </section>
+
+      <section class="card span2">
+        <h2>Attack rate — incidence for an outbreak</h2>
+        <div class="formula"><span class="eq">Attack rate</span> = <span class="frac"><span class="num">number ill</span><span class="den">number ill + number well (all at risk)</span></span></div>
+        <p class="plain">Just a <b>cumulative incidence measured over the short window of one outbreak</b>. You compute it separately for <b>exposed vs unexposed</b> groups, then compare the two to fish out the risk factor. <span class="add">This is exactly how you'd investigate a parvo cluster in a kennel run.<span class="addtag">+</span></span></p>
+        <div class="ex"><b>Example.</b> Of 50 puppies in a room, 40 develop parvo → attack rate = 40/50 = <span class="r">80%</span>. If the attack rate in vaccinated pups was 10% and unvaccinated 80%, vaccination status is your lead.</div>
+        <div class="trap"><b>⚠ Denominator rule (population at risk):</b> exclude animals who <b>can't</b> become a new case — those <b>already sick, currently infected, or immune</b>. Putting them in the denominator dilutes your measure.</div>
+      </section>
+    </div>
+
+    <!-- ================= 2. THE 2x2 ================= -->
+    <div class="band" id="tab"><h2>2 · The one table everything comes from</h2></div>
+    <div class="grid">
+      <section class="card">
+        <h2>The exposure 2×2</h2>
+        <p class="plain">Learn these four letters once. RR, OR and attributable risk are all just arithmetic on <b>a, b, c, d</b>.</p>
+        <table class="t2">
+          <tr><th></th><th>Disease +</th><th>Disease −</th></tr>
+          <tr><td class="rl">Exposed</td><td class="cell">a</td><td class="cell">b</td></tr>
+          <tr><td class="rl">Unexposed</td><td class="cell">c</td><td class="cell">d</td></tr>
+        </table>
+        <ul>
+          <li><b>a</b> = exposed &amp; got disease · <b>b</b> = exposed, stayed well</li>
+          <li><b>c</b> = unexposed &amp; got disease · <b>d</b> = unexposed, stayed well</li>
+          <li>Risk in exposed = <code>a/(a+b)</code> · Risk in unexposed = <code>c/(c+d)</code></li>
+        </ul>
+      </section>
+      <section class="card">
+        <h2>"Exposed" just means has the risk factor</h2>
+        <p class="plain">Exposure is whatever you're testing as a cause: <b>unvaccinated, overcrowded, intact, imported, a certain diet.</b> "Disease" is your outcome of interest.</p>
+        <p class="plain"><span class="add"><b>Memory hook:</b> read the table left-to-right, top row first — <b>a</b> before <b>b</b>, <b>c</b> before <b>d</b> — diseased column always first.<span class="addtag">+</span></span></p>
+        <div class="note">Later (section 5) the same 2×2 is re-labelled TP/FP/FN/TN to judge a diagnostic test. Same skeleton, different question.</div>
+      </section>
+    </div>
+
+    <!-- ================= 3. ASSOCIATION ================= -->
+    <div class="band" id="assoc"><h2>3 · Comparing two groups — measures of association</h2></div>
+    <div class="grid">
+
+      <section class="card span2">
+        <h2>Relative Risk (RR) — the "risk ratio"</h2>
+        <div class="formula"><span class="eq">RR</span> = <span class="frac"><span class="num">risk in exposed</span><span class="den">risk in unexposed</span></span> = <span class="frac"><span class="num">a / (a+b)</span><span class="den">c / (c+d)</span></span></div>
+        <p class="plain"><b>In plain terms:</b> how many <b>times</b> more likely is the exposed group to get sick than the unexposed group? RR of 6 = "six times the risk."</p>
+        <div class="ex"><b>Example.</b> Unvaccinated dogs: 30 sick / 100 → risk 0.30. Vaccinated: 5 sick / 100 → risk 0.05. RR = 0.30 / 0.05 = <span class="r">6.0</span> → unvaccinated dogs are <b>6× as likely</b> to get parvo.</div>
+        <div class="interp">
+          <span class="p gt"><b>RR &gt; 1</b> — exposure raises risk (harmful)</span>
+          <span class="p eq1"><b>RR = 1</b> — no association (null value)</span>
+          <span class="p lt"><b>RR &lt; 1</b> — exposure lowers risk (protective)</span>
+        </div>
+        <div class="trap"><b>⚠ Where it's valid:</b> RR needs real <b>incidence</b>, so it can <b>only</b> come from a <b>cohort or experimental</b> study — designs that follow animals forward from exposure to outcome.</div>
+      </section>
+
+      <section class="card span2">
+        <h2>Odds Ratio (OR) — for case-control studies</h2>
+        <div class="formula"><span class="eq">OR</span> = <span class="frac"><span class="num">a × d</span><span class="den">b × c</span></span></div>
+        <p class="plain"><b>In plain terms:</b> the odds ratio compares the <b>odds of exposure</b> in the diseased vs the well. You reach for it when you <b>started from the outcome</b> and worked backwards (case-control), so you can't measure incidence and therefore can't do RR.</p>
+        <div class="ex"><b>Example.</b> Cross-multiply the diagonal. With a=30, b=70, c=5, d=95: OR = (30×95)/(70×5) = 2850/350 = <span class="r">8.1</span>. Read it like RR: about 8× the odds.</div>
+        <div class="interp">
+          <span class="p gt"><b>OR &gt; 1</b> — positive association</span>
+          <span class="p eq1"><b>OR = 1</b> — no association</span>
+          <span class="p lt"><b>OR &lt; 1</b> — protective</span>
+        </div>
+        <div class="trap"><b>⚠ Rare-disease rule:</b> OR ≈ RR only when the disease is <b>rare</b>. When the disease is <b>common</b>, the OR <b>exaggerates</b> the RR (pushes it further from 1). Great for <b>rare / emerging outbreak</b> work; read with caution when the condition is common.</div>
+      </section>
+
+      <section class="card">
+        <h2>Attributable risk (risk difference)</h2>
+        <div class="formula" style="font-size:14px"><span class="eq">AR</span> = risk<sub>exposed</sub> <span class="op">−</span> risk<sub>unexposed</sub></div>
+        <p class="plain">The <b>excess</b> risk carried <b>because of</b> the exposure — a subtraction, not a ratio. Answers "how much of the risk would vanish if we removed the exposure?"</p>
+        <div class="ex"><b>Example.</b> 0.30 − 0.05 = <span class="r">0.25</span> → 25 extra cases per 100 dogs are attributable to being unvaccinated.</div>
+      </section>
+
+      <section class="card">
+        <h2>Prevalence ratio</h2>
+        <p class="plain">The cross-sectional cousin of RR: <b>prevalence in exposed ÷ prevalence in unexposed.</b> Used when a snapshot study measured existing cases rather than following animals forward.</p>
+        <div class="note">Same &gt;1 / =1 / &lt;1 reading as RR, but built on prevalence, so it can't prove the exposure came first.</div>
+      </section>
+    </div>
+
+    <!-- ================= 4. MORTALITY ================= -->
+    <div class="band" id="mort"><h2>4 · Death metrics — three different denominators</h2></div>
+    <div class="grid">
+      <section class="card">
+        <h2>Crude mortality</h2>
+        <div class="formula" style="font-size:14px"><span class="frac"><span class="num">deaths from ANY cause</span><span class="den">whole population at risk of dying</span></span></div>
+        <p class="plain">Overall death rate of the group, all causes together.</p>
+      </section>
+      <section class="card">
+        <h2>Cause-specific mortality</h2>
+        <div class="formula" style="font-size:14px"><span class="frac"><span class="num">deaths from ONE disease</span><span class="den">whole population at risk</span></span></div>
+        <p class="plain">How much a single disease contributes to death in the <b>whole</b> population.</p>
+      </section>
+      <section class="card">
+        <h2>Case-fatality rate (CFR)</h2>
+        <div class="formula" style="font-size:14px"><span class="frac"><span class="num">deaths from a disease</span><span class="den">confirmed CASES of that disease</span></span></div>
+        <p class="plain">Of the animals who <b>actually got it</b>, what fraction died — a measure of the disease's <b>virulence / severity</b>.</p>
+        <div class="ex"><b>Example.</b> 12 parvo deaths among 40 parvo cases → CFR = <span class="r">30%</span>.</div>
+      </section>
+      <section class="card span2">
+        <div class="trap"><b>⚠ The classic mix-up:</b> case-fatality's denominator is <b>only the sick animals</b> (how deadly is it <i>if you catch it</i>); cause-specific mortality's denominator is the <b>entire population</b> (how much does it kill <i>overall</i>). Same numerator, very different meaning.</div>
+      </section>
+    </div>
+
+    <!-- ================= 5. TEST PERFORMANCE ================= -->
+    <div class="band" id="test"><h2>5 · Judging a diagnostic test</h2></div>
+    <div class="grid">
+      <section class="card span2">
+        <h2>The test 2×2 — same table, new labels</h2>
+        <table class="t2" style="max-width:560px">
+          <tr><th></th><th>Disease PRESENT</th><th>Disease ABSENT</th><th></th></tr>
+          <tr><td class="rl">Test +</td><td class="cell">TP</td><td class="cell">FP</td><td class="rl">→ PPV</td></tr>
+          <tr><td class="rl">Test −</td><td class="cell">FN</td><td class="cell">TN</td><td class="rl">→ NPV</td></tr>
+          <tr><td class="rl">read ↓</td><td class="muted">Sensitivity</td><td class="muted">Specificity</td><td></td></tr>
+        </table>
+        <p class="note">Columns = the truth (disease or not). Rows = what the test said. Sensitivity &amp; specificity read <b>down the truth columns</b>; PPV &amp; NPV read <b>across the test rows</b>.</p>
+      </section>
+
+      <section class="card">
+        <h2>Sensitivity — "truly diseased"</h2>
+        <div class="formula" style="font-size:14px"><span class="eq">Sn</span> = <span class="frac"><span class="num">TP</span><span class="den">TP + FN</span></span></div>
+        <p class="plain">Of all the <b>genuinely sick</b> animals, what fraction the test <b>catches</b>. High sensitivity = <b>few false negatives</b>.</p>
+        <p class="plain"><span class="add"><b>SnNOUT:</b> a highly <b>Sn</b>sitive test that comes back <b>N</b>egative is good for ruling a disease <b>OUT</b> — great for screening.<span class="addtag">+</span></span></p>
+      </section>
+      <section class="card">
+        <h2>Specificity — "truly healthy"</h2>
+        <div class="formula" style="font-size:14px"><span class="eq">Sp</span> = <span class="frac"><span class="num">TN</span><span class="den">TN + FP</span></span></div>
+        <p class="plain">Of all the <b>genuinely healthy</b> animals, what fraction the test correctly <b>clears</b>. High specificity = <b>few false positives</b>.</p>
+        <p class="plain"><span class="add"><b>SpPIN:</b> a highly <b>Sp</b>ecific test that comes back <b>P</b>ositive is good for ruling a disease <b>IN</b> — great for confirmation.<span class="addtag">+</span></span></p>
+      </section>
+      <section class="card">
+        <h2>PPV &amp; NPV — what a result means</h2>
+        <div class="formula" style="font-size:13px"><span class="eq">PPV</span> = <span class="frac"><span class="num">TP</span><span class="den">TP + FP</span></span> <span style="margin:0 6px"></span> <span class="eq">NPV</span> = <span class="frac"><span class="num">TN</span><span class="den">TN + FN</span></span></div>
+        <p class="plain"><b>PPV:</b> if the test is positive, what's the chance the animal is truly diseased? <b>NPV:</b> if negative, truly healthy? Unlike Sn/Sp, these <b>depend on prevalence</b>.</p>
+      </section>
+      <section class="card">
+        <h2>The prevalence trap</h2>
+        <div class="trap" style="margin-top:2px"><b>⚠ High-yield:</b> as <b>prevalence falls, PPV falls</b> — even with the <b>same</b> Sn &amp; Sp. In a low-prevalence population, most positives are <b>false positives</b>, so you <b>must confirm a positive with a second test</b>.</div>
+        <p class="plain"><span class="add">This is the engine behind the FeLV/FIV "confirm the positive" rule and the parvo SNAP interpretation — same statistics, different disease.<span class="addtag">+</span></span></p>
+      </section>
+    </div>
+
+    <!-- ================= 6. STUDY DESIGN ================= -->
+    <div class="band" id="design"><h2>6 · Study design — which study answers the question</h2></div>
+    <div class="grid">
+      <section class="card">
+        <h2>Descriptive — <span style="color:var(--muted);font-weight:400">generate a hypothesis</span></h2>
+        <p class="plain">Describe what's happening; <b>cannot test</b> a hypothesis, only <b>raise</b> one. No comparison group.</p>
+        <ul>
+          <li><b>Case report</b> — one animal</li>
+          <li><b>Case series</b> — several similar cases</li>
+          <li><b>Cross-sectional</b> — snapshot of a population</li>
+          <li><b>Ecological</b> — correlation at the <i>group</i> level</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Analytic observational — <span style="color:var(--muted);font-weight:400">test a hypothesis</span></h2>
+        <p class="plain">You <b>observe</b> (don't assign) exposure, and you have a comparison group. The key question is <b>which end you start from</b>:</p>
+        <ul>
+          <li><b>Cohort</b> — start with <b>exposure</b>, follow <b>forward</b>, measure outcome. → gives <b>incidence &amp; RR</b>. Good for common diseases &amp; multiple outcomes.</li>
+          <li><b>Case-control</b> — start with the <b>outcome</b>, look <b>back</b> for exposure. → gives <b>OR</b>. Good for <b>rare / slow</b> disease; prone to <b>recall &amp; selection bias</b>.</li>
+          <li><b>Cross-sectional</b> — measure exposure <b>and</b> outcome at once → gives <b>prevalence</b>; <b>cannot establish temporality</b> (which came first).</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Experimental — the investigator assigns</h2>
+        <p class="plain"><b>Randomised controlled trial (RCT)</b> — the <b>gold standard</b>. Animals are <b>randomly</b> put into an <b>intervention</b> group vs a <b>control</b> group. Randomisation balances confounders, so it's the strongest design for proving <b>causation</b>.</p>
+      </section>
+
+      <section class="card">
+        <h2>Hierarchy of evidence <span style="color:var(--muted);font-weight:400;font-size:12px">(strongest → weakest)</span></h2>
+        <ul style="list-style:none;padding-left:0">
+          <li><b>1.</b> Systematic review / meta-analysis</li>
+          <li><b>2.</b> Randomised controlled trial (RCT)</li>
+          <li><b>3.</b> Cohort study</li>
+          <li><b>4.</b> Case-control study</li>
+          <li><b>5.</b> Case series / case reports / expert opinion</li>
+        </ul>
+        <div class="ex" style="margin-top:6px"><b>Recall-bias example (case-control).</b> Owners of a <b>sick</b> dog think harder about past exposures and <b>over-report</b> them — their worry colours the memory, skewing the exposure history. That's why case-control is bias-prone.</div>
+      </section>
+    </div>
+
+    <!-- ================= 7. SURVEILLANCE ================= -->
+    <div class="band" id="surv"><h2>7 · Surveillance &amp; outbreak curves</h2></div>
+    <div class="grid">
+      <section class="card">
+        <h2>Four ways to watch for disease</h2>
+        <ul>
+          <li><b>Passive</b> — the system <b>waits</b> for cases/reports to come to it. Cheap, but misses cases.</li>
+          <li><b>Active</b> — the team <b>deliberately seeks out</b> cases. More complete, more work.</li>
+          <li><b>Syndromic</b> — tracks <b>clinical syndromes</b> (e.g. "coughing dogs") for an <b>early</b> signal, before a diagnosis is confirmed.</li>
+          <li><b>Sentinel</b> — monitor a <b>defined subset</b> as an early indicator for the wider population.</li>
+        </ul>
+        <div class="trap"><b>⚠ Case definition is critical.</b> Decide up front <b>what counts as a case</b>, applied <b>consistently by time, place &amp; animal</b> — otherwise your counts are meaningless.</div>
+      </section>
+
+      <section class="card">
+        <h2>Reading the epidemic curve</h2>
+        <p class="sub">Shape of the "cases over time" plot tells you the source.</p>
+        <div class="curverow">
+          <div>
+            <svg class="curve" viewBox="0 0 96 52"><polyline points="4,46 30,44 40,10 50,30 70,44 92,46" fill="none" stroke="#8A3A52" stroke-width="2"/></svg>
+          </div>
+          <div class="cw"><b>Point source</b> One brief, shared exposure. Sharp rise to a <b>single peak</b>, then tapers; all cases inside one incubation period.</div>
+        </div>
+        <div class="curverow">
+          <div>
+            <svg class="curve" viewBox="0 0 96 52"><polyline points="4,46 24,40 40,14 92,14" fill="none" stroke="#8A3A52" stroke-width="2"/></svg>
+          </div>
+          <div class="cw"><b>Continuous / common source</b> One ongoing source. Rises then holds a <b>plateau</b> until the source is removed.</div>
+        </div>
+        <div class="curverow">
+          <div>
+            <svg class="curve" viewBox="0 0 96 52"><polyline points="4,46 16,30 24,44 40,20 48,44 66,8 74,44 90,46" fill="none" stroke="#8A3A52" stroke-width="2"/></svg>
+          </div>
+          <div class="cw"><b>Propagated</b> Animal-to-animal spread. <b>Successive peaks</b>, each about <b>one incubation period</b> apart, often growing.</div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ================= 8. BIAS ================= -->
+    <div class="band" id="bias"><h2>8 · Bias, confounding &amp; effect modification</h2></div>
+    <div class="grid">
+      <section class="card">
+        <h2>Random error vs bias</h2>
+        <p class="plain"><b>Random error</b> is truly random noise — it isn't aimed anywhere and shrinks with a bigger sample. <b>Bias</b> is a <b>systematic</b> error that pushes results in a particular direction and does <b>not</b> improve with sample size.</p>
+        <p class="plain"><b>Types of bias:</b> selection, information/measurement, <b>misclassification</b> (wrong category), recall, observer.</p>
+      </section>
+
+      <section class="card">
+        <h2>Which way does misclassification push?</h2>
+        <ul>
+          <li><b>Non-differential</b> (random, affects all groups equally) → biases <b>toward the null</b>, <b>diluting</b> a real difference (you under-estimate the effect).</li>
+          <li><b>Differential</b> (linked to exposure or outcome) → can bias in <b>either</b> direction, creating or hiding an effect.</li>
+        </ul>
+        <div class="note">Rule of thumb: sloppy-but-even errors hide effects; lopsided errors can invent them.</div>
+      </section>
+
+      <section class="card">
+        <h2>Confounding — a lurking third variable</h2>
+        <p class="plain">A confounder <b>distorts</b> the exposure–outcome link. To qualify it must be <b>all three</b>:</p>
+        <ul>
+          <li><b>1.</b> Associated with the <b>exposure</b></li>
+          <li><b>2.</b> An <b>independent risk factor</b> for the outcome</li>
+          <li><b>3.</b> <b>Not</b> on the causal pathway between exposure and outcome</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Effect modification — a real difference</h2>
+        <p class="plain">Not an error. The exposure's <b>true effect genuinely differs</b> across levels of a third variable (e.g. a treatment helps puppies but not adults). You <b>report each subgroup separately</b> rather than "adjusting it away."</p>
+        <div class="note"><b>Confounding</b> is a nuisance to remove; <b>effect modification</b> is a finding to describe.</div>
+      </section>
+    </div>
+
+    <!-- ================= 9. STATS ================= -->
+    <div class="band" id="stats"><h2>9 · Is the result real? — p-values, errors &amp; confidence intervals</h2></div>
+    <div class="grid">
+      <section class="card">
+        <h2>Null hypothesis &amp; p-value</h2>
+        <p class="plain">The <b>null hypothesis (H₀)</b> says "<b>no difference, no association.</b>" Its <b>null value is 1</b> for ratios (RR, OR) and <b>0</b> for differences.</p>
+        <p class="plain">The <b>p-value</b> = the probability of seeing data <b>this extreme if H₀ were true</b>. A <b>low p</b> means the data would be surprising under "no effect," so you <b>reject H₀</b> (conventionally p &lt; 0.05).</p>
+        <div class="note"><span class="add">p does <b>not</b> tell you the size of the effect or the chance the null is true — only how surprising the data are.<span class="addtag">+</span></span></div>
+      </section>
+
+      <section class="card">
+        <h2>Type I / Type II errors &amp; power</h2>
+        <ul>
+          <li><b>Type I error (α)</b> = <b>false positive</b> — you claim an effect that isn't there. (α = 0.05 is the usual line.)</li>
+          <li><b>Type II error (β)</b> = <b>false negative</b> — you miss a real effect.</li>
+          <li><b>Power = 1 − β</b> — the chance of <b>detecting a true effect</b>. Bigger samples → more power.</li>
+        </ul>
+        <div class="note"><span class="add">Mnemonic: Type <b>1</b> = you saw <b>1</b> thing that wasn't there; Type <b>2</b> = you missed it.<span class="addtag">+</span></span></div>
+      </section>
+
+      <section class="card span2">
+        <h2>Statistical vs clinical significance</h2>
+        <p class="plain"><b>Statistical significance</b> (a small p) only says the result is <b>unlikely to be chance</b> — with a big enough sample, a trivial difference can be "significant." <b>Clinical significance</b> asks whether the effect is <b>big enough to matter</b> to the animal.</p>
+        <p class="plain"><b>Use the confidence interval (CI)</b> to judge both at once: it shows the <b>plausible range</b> of the true effect. If the 95% CI <b>crosses the null value</b> (1 for ratios, 0 for differences), the result is <b>not statistically significant</b>. A <b>narrow</b> CI = a precise estimate; a <b>wide</b> CI = lots of uncertainty (often too small a sample).</p>
+        <div class="ex"><b>Example.</b> RR = 6.0, 95% CI 2.1–17 → doesn't cross 1, so it's significant, but the wide range warns the exact size is uncertain. RR = 1.2, 95% CI 0.9–1.6 → crosses 1 → not significant.</div>
+      </section>
+    </div>
+
+    <footer class="doc">
+      <span>Teaching reference · 2026 ABVP Combined Exam (Shelter Medicine RVS) · expanded from handwritten notes IMG_9173–9176</span>
+      <span>© Juliana Xue — for personal study use</span>
+    </footer>
+  </div>
+
+  <script>if(window.self!==window.top){document.documentElement.className+=' embedded';}</script>
+</body>
+</html>
