@@ -298,7 +298,10 @@ var SHEETS = [
  {id:"fiv-felv", name:"FIV, FeLV & Haemoplasma", abbr:"retroviruses", emoji:"🩸", tag:"Infectious Disease", file:"disease-one-pagers/fiv-felv.html"},
  {id:"fip", name:"Feline Infectious Peritonitis", abbr:"FIP", emoji:"🐈", tag:"Infectious Disease", file:"disease-one-pagers/fip.html"},
  {id:"dermatophytosis", name:"Dermatophytosis", abbr:"ringworm", emoji:"🍄", tag:"Infectious Disease", file:"disease-one-pagers/dermatophytosis.html"},
- {id:"leptospirosis", name:"Leptospirosis", abbr:"skeleton · building", emoji:"💧", tag:"Zoonotic · Bacterial", file:"disease-one-pagers/leptospirosis.html"}
+ {id:"leptospirosis", name:"Leptospirosis", abbr:"skeleton · building", emoji:"💧", tag:"Zoonotic · Bacterial", file:"disease-one-pagers/leptospirosis.html"},
+ {id:"vaccination", name:"Vaccination", abbr:"cheatsheet", emoji:"💉", tag:"Physical Health", file:"cheat-sheets/vaccination.html"},
+ {id:"sanitation-biosecurity", name:"Sanitation & Biosecurity", abbr:"cheatsheet", emoji:"🧼", tag:"Physical Health", file:"cheat-sheets/sanitation-biosecurity.html"},
+ {id:"surgery-anaesthesia", name:"Surgery & Anaesthesia", abbr:"cheatsheet", emoji:"🔪", tag:"Physical Health", file:"cheat-sheets/surgery-anaesthesia.html"}
 ];
 
 /* ---------- SEARCH KEYWORDS ----------
@@ -540,7 +543,7 @@ function renderHome(){
 function renderSheets(){
   if(!SHEETS.length)return "";
   var h='<div id="sheets-panel" class="sheets-wrap">';
-  h+='<div class="section-label">Disease Summary Sheets · '+SHEETS.length+'</div>';
+  h+='<div class="section-label">Summary Sheets &amp; Cheatsheets · '+SHEETS.length+'</div>';
   SHEETS.forEach(function(s){
     h+='<details class="sheet-item" ontoggle="onSheetToggle(this)">';
     h+='<summary><span class="sheet-emoji">'+(s.emoji||"📄")+'</span>';

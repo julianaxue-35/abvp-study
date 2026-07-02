@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  SURGERY & ANAESTHESIA — CHEATSHEET (one-pager)
+  ============================================================================
+  Built from the disease one-pager template. Teal theme.
+  © Juliana Xue — for personal study use.
+  ============================================================================
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Surgery &amp; Anaesthesia — Cheatsheet</title>
+<style>
+  :root{
+    --ink:#1f2430; --muted:#6b7280; --line:#e5e7eb;
+    --theme:#0f766e; --theme-soft:#e6f3f1; --theme-line:#a7d3cc;   /* ← change per domain */
+    --blue:#1d4ed8; --blue-soft:#eaf0ff; --blue-line:#b8caff;
+    --warn:#b45309; --warn-soft:#fff5e6;
+    --add:#0d7d74;  --add-soft:#e4f6f4;
+  }
+  *{box-sizing:border-box} html,body{margin:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:#f4f4f6;line-height:1.32;font-size:12px}
+  .toolbar{max-width:1180px;margin:14px auto 0;padding:10px 14px;background:#fff;border:1px solid var(--line);
+    border-radius:10px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+  .toolbar b{color:var(--ink)}
+  .btn{background:var(--theme);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:13px;font-weight:600;cursor:pointer}
+  .btn:hover{filter:brightness(.9)}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .legend span{display:inline-flex;align-items:center;gap:5px}
+  .swatch{width:11px;height:11px;border-radius:3px;display:inline-block}
+  .sheet{max-width:1180px;margin:14px auto;background:#fff;padding:16px 18px 12px;border:1px solid var(--line);
+    border-radius:10px;box-shadow:0 1px 6px rgba(0,0,0,.05)}
+  header.doc{border-bottom:2.5px solid var(--theme);padding-bottom:8px;margin-bottom:12px;display:flex;
+    align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  header.doc h1{margin:0;font-size:23px;letter-spacing:-.2px;color:var(--theme)}
+  header.doc h1 small{color:var(--ink);font-weight:600;font-size:14px}
+  .tags{font-size:11px;color:var(--muted)} .tags b{color:var(--theme)}
+  .lede{font-size:11.5px;color:var(--muted);margin:0 0 10px;border-left:3px solid var(--theme-line);padding-left:9px}
+  .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .col{display:flex;flex-direction:column;gap:11px}
+  section.card{border:1px solid var(--line);border-left:4px solid var(--theme);border-radius:7px;
+    padding:8px 10px 9px;break-inside:avoid;page-break-inside:avoid}
+  section.card.blue{border-left-color:var(--blue)}
+  section.card h2{margin:0 0 6px;font-size:12.5px;text-transform:uppercase;letter-spacing:.4px;color:var(--theme);
+    display:flex;align-items:center;gap:6px}
+  section.card.blue h2{color:var(--blue)}
+  h2 .n{font-size:10px;background:var(--theme-soft);color:var(--theme);border:1px solid var(--theme-line);
+    border-radius:4px;padding:0 5px;font-weight:700}
+  ul{margin:0;padding-left:15px} ol{margin:0;padding-left:17px}
+  li{margin:2.5px 0} li::marker{color:var(--theme)} .blue li::marker{color:var(--blue)}
+  ul.tight li{margin:1.5px 0}
+  .sub{list-style:none;padding-left:2px;margin:3px 0} .sub li{margin:1.5px 0}
+  .sub li::before{content:"– ";color:var(--muted)}
+  b,strong{font-weight:700} .lead{font-weight:700}
+  .exp{color:var(--muted);font-weight:400}
+  .arw{color:var(--theme);font-weight:700} .up{color:#b91c1c;font-weight:700} .dn{color:#1d4ed8;font-weight:700}
+  .trap{background:var(--warn-soft);border:1px solid #f2cf95;border-radius:5px;padding:4px 7px;margin:5px 0 2px;
+    font-size:11px;color:#7a4a08} .trap>b:first-child{color:var(--warn)}
+  .add{background:var(--add-soft);border-bottom:1px dotted var(--add);color:#0b5a54;padding:0 2px;border-radius:2px}
+  .addtag{font-size:9px;font-weight:700;color:#fff;background:var(--add);border-radius:3px;padding:0 3px;margin-left:2px;vertical-align:1px}
+  .flag{display:block;background:var(--add-soft);border:1px dashed var(--add);border-radius:5px;padding:4px 7px;
+    margin:5px 0 0;font-size:10.5px;color:#0b5a54} .flag b{color:var(--add)}
+  .risk{font-weight:800} .risk.hi{color:#b91c1c}.risk.mod{color:#b45309}.risk.lo{color:#15803d}
+  footer.doc{margin-top:12px;padding-top:8px;border-top:1px solid var(--line);font-size:9.5px;color:var(--muted);
+    display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+  @page{size:A4 landscape;margin:9mm}
+  @media print{
+    body{background:#fff;font-size:9.4px;line-height:1.26}
+    .toolbar{display:none}
+    .sheet{max-width:none;margin:0;border:none;border-radius:0;box-shadow:none;padding:0}
+    header.doc h1{font-size:19px} header.doc h1 small{font-size:12px}
+    section.card h2{font-size:10.5px}
+    .cols{gap:9px}.col{gap:8px}section.card{padding:6px 8px 7px}.trap,.flag{font-size:9px}
+  }
+  /* narrow screens: stack the 3 columns so it stays readable */
+  @media(max-width:780px){ .cols{grid-template-columns:1fr} }
+  /* embedded inside the study-hub collapsible: drop page chrome, sit flush */
+  html.embedded body{background:#fff}
+  html.embedded .toolbar{display:none}
+  html.embedded .sheet{max-width:none;margin:0;border:none;border-radius:0;box-shadow:none;padding:10px 13px 8px}
+</style>
+</head>
+<body>
+
+  <div class="toolbar">
+    <button class="btn" onclick="window.print()">🖨  Print / Save as PDF</button>
+    <span>Best printed <b>A4 landscape</b>.</span>
+    <div class="legend">
+      <span><span class="swatch" style="background:#0f766e"></span>section</span>
+      <span><span class="swatch" style="background:#1d4ed8"></span>outbreak / biosecurity</span>
+      <span><span class="swatch" style="background:#fff5e6;border:1px solid #f2cf95"></span>exam trap</span>
+      <span><span class="swatch" style="background:#e4f6f4;border:1px solid #0d7d74"></span><b style="color:#0d7d74">+</b> added / clarified</span>
+    </div>
+  </div>
+
+  <div class="sheet">
+    <header class="doc">
+      <h1>Surgery &amp; Anaesthesia</h1>
+      <div class="tags"><b>Surgery &amp; Anaesthesia</b> · Physical Health of Animal (29%) · Shelter Medicine</div>
+    </header>
+
+    <p class="lede">Peri-operative safety in the shelter theatre — pre-op risk stratification, breed/drug adjustments, anaesthetic mortality patterns, emergency response, and structured recovery monitoring (recovery is the highest-risk window).</p>
+
+    <div class="cols">
+
+      <!-- ============ COLUMN 1 ============ -->
+      <div class="col">
+        <section class="card">
+          <h2>Pre-op Assessment</h2>
+          <ul class="tight">
+            <li><span class="lead">Thorough assessment</span> — assign an <b>ASA</b> <span class="exp">(American Society of Anesthesiologists)</span> physical-status category.</li>
+            <li><span class="lead">Pre-anaesthetic bloodwork</span> rarely changes management in healthy young animals — studies suggest bloods were "unnecessary" in the large majority; only ~0.1–0.2% of cases led to a change in the anaesthetic protocol. A small proportion of procedures were postponed because of bloodwork.
+              <span class="flag"><b>+ check:</b> exact figures — handwriting is hard to read; notes appear to show bloods "unnecessary" in the large majority and ≈0.2% leading to a protocol change. Confirm the precise percentages (~0.1–0.2%).</span>
+            </li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Risk Factors <span class="n">breed / genetic</span></h2>
+          <ul class="tight">
+            <li><span class="lead">MDR1 / ABCB1 mutation</span> <span class="exp">(multidrug-resistance 1 gene)</span> <span class="arw">→</span> drug sensitivity; reduce doses of <b>acepromazine</b> (ACP), <b>butorphanol</b>, and be cautious with ivermectin-class drugs.
+              <span class="flag"><b>+ check:</b> exact drug list — photo clearly shows reduced ACP + butorphanol; ivermectin-class caution to confirm.</span>
+            </li>
+            <li><span class="lead">Sighthounds</span> <span class="exp">(e.g. Greyhound)</span> — hyperlactataemia, stress, and prolonged recovery after barbiturates <span class="exp">(thiopental)</span>; plan for their low body fat.</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Meds to Adjust</h2>
+          <ul class="tight">
+            <li><span class="lead">Antihypertensives</span> — discontinue / withhold, esp. <b>ACE</b> <span class="exp">(angiotensin-converting enzyme)</span> inhibitors <span class="exp">(e.g. benazepril)</span>, on the morning of anaesthesia.</li>
+            <li><span class="lead">Insulin</span> — give half the dose 2–4 h before, with feeding.</li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- ============ COLUMN 2 ============ -->
+      <div class="col">
+        <section class="card">
+          <h2>Anaesthetic Mortality</h2>
+          <ul class="tight">
+            <li>~&lt;0.05% in dogs, ~0.11% in cats <span class="exp">(healthy patients)</span>.</li>
+            <li>Deaths cluster ~3 h post-op; 47–60% of anaesthetic deaths occur <b>post-operatively</b>, most within the first 3 h.</li>
+          </ul>
+          <div class="trap"><b>⚠ Trap:</b> Recovery is the highest-risk period — monitor closely.</div>
+        </section>
+
+        <section class="card">
+          <h2>Induction / Intubation</h2>
+          <ul class="tight">
+            <li><span class="lead">Chamber &amp; mask induction NOT recommended</span> — should apply to only ~10–15% of animals (reserve for unhandleable / feral).</li>
+            <li><span class="lead">Intubate for</span> — unhandleable dogs, unknown fasting status, respiratory / pharyngeal disease, and brachycephalic dogs.</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Hypoventilation / Apnoea</h2>
+          <ul class="tight">
+            <li><span class="lead">Triggers to act</span> — end-tidal CO₂ <span class="exp">(ETCO₂; carbon dioxide)</span> &gt;55 mmHg; respiratory rate <span class="exp">(RR)</span> &lt;8/min; apnoea &gt;30 s.</li>
+            <li><span class="lead">Start manual IPPV</span> <span class="exp">(intermittent positive-pressure ventilation)</span> — tidal volume 10–15 mL/kg at 8–12 breaths/min.</li>
+            <li><span class="lead">Reversal agents</span> — naloxone (opioids), atipamezole (alpha-2 agonists); doxapram (respiratory stimulant).</li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- ============ COLUMN 3 ============ -->
+      <div class="col">
+        <section class="card">
+          <h2>CPR <span class="n">cardiopulmonary resuscitation</span></h2>
+          <ul class="tight">
+            <li><span class="lead">Follow ABC</span> <span class="exp">(Airway, Breathing, Circulation)</span>.</li>
+            <li><b>Epinephrine</b> <span class="exp">(adrenaline)</span> every 3–5 min.</li>
+            <li><b>Atropine</b> once for <b>PEA</b> <span class="exp">(pulseless electrical activity)</span> / asystole.</li>
+            <li><span class="lead">Ventricular fibrillation (VF)</span> — lidocaine / amiodarone.</li>
+            <li>Reverse any reversible anaesthetic agents.</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Pain Scoring</h2>
+          <ul class="tight">
+            <li><span class="lead">CMPS-SF</span> <span class="exp">(Glasgow Composite Measure Pain Scale – Short Form)</span>, dogs — intervene at ≥6/24.
+              <span class="flag"><b>+ check:</b> denominator — notes appear to read 6/24 for dogs; confirm the intervention threshold denominator.</span>
+            </li>
+            <li><span class="lead">UNESP-Botucatu scale</span>, cats — intervene at the validated cut-off (~8).
+              <span class="flag"><b>+ check:</b> cat cut-off — notes appear to read ~8 (possibly 8/24); confirm the validated UNESP-Botucatu threshold.</span>
+            </li>
+            <li><span class="lead">QOL</span> <span class="exp">(quality-of-life)</span> scales for dogs &amp; cats.</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Post-op Monitoring</h2>
+          <ul class="tight">
+            <li><span class="lead">Check the patient hourly</span> for the first 4 h, then every 2 h.</li>
+            <li><span class="lead">Recovery criteria</span> — BAR <span class="exp">(bright, alert, responsive)</span>; core temp &gt;37°C (98.6°F); stable heart rate <span class="exp">(HR)</span> &amp; respiratory rate; pain score below the intervention threshold; orientated.</li>
+            <li>Ensure the patient can take water without retching before discharge. <span class="exp">(Rotate staff / take breaks.)</span></li>
+          </ul>
+        </section>
+      </div>
+
+    </div>
+
+    <footer class="doc">
+      <span>Personal study notes · 2026 ABVP Combined Exam (Shelter Medicine RVS)</span>
+      <span>© Juliana Xue — for personal study use</span>
+    </footer>
+  </div>
+
+  <script>if(window.self!==window.top){document.documentElement.className+=' embedded';}</script>
+</body>
+</html>

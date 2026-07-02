@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  DISEASE ONE-PAGER — REUSABLE TEMPLATE
+  ============================================================================
+  HOW TO USE
+  1. Copy this file to a new name, e.g.  fpv.html , distemper.html
+  2. Change the <title>, the <h1> disease name, the tags line, and the lede.
+  3. Fill the 3 columns. The suggested flow (edit freely):
+        Col 1  →  Virology  ·  Transmission & Pathogenesis  ·  Risk Factors
+        Col 2  →  Incubation  ·  Diagnosis  ·  Clinical Signs
+        Col 3  →  Treatment  ·  Prognosis/Setting  ·  Outbreak Mgmt  ·  Biosecurity
+     (Sections are just cards — add, remove, or reorder any of them.)
+
+  THEME COLOUR (matches Juliana's SOP colour convention):
+     Infectious disease  → purple  --theme:#6d28d9   (current)
+     Shelter management  → green   --theme:#1f6f54
+     Just change the two --theme lines in :root and you're done.
+
+  HELPER CLASSES (reuse anywhere in the body)
+     <span class="lead">Bold lead-in label</span>
+     <span class="exp">(expanded abbreviation / aside)</span>   → muted grey
+     <span class="arw">→</span>  <span class="up">↑</span>  <span class="dn">↓</span>
+     <ul class="sub"> … </ul>            → indented dashed sub-list
+     <div class="trap"><b>⚠ Trap:</b> …</div>            → amber exam-trap callout
+     <span class="add">extra content<span class="addtag">+</span></span>  → teal "I added this"
+     <span class="flag"><b>+ check:</b> …</span>          → teal dashed flag/correction note
+     <section class="card blue"> … </section>            → blue card (outbreak/biosecurity)
+     <span class="risk hi|mod|lo">HIGH|MOD|LOW</span>     → coloured risk label
+  ============================================================================
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vaccination — Cheatsheet</title>
+<style>
+  :root{
+    --ink:#1f2430; --muted:#6b7280; --line:#e5e7eb;
+    --theme:#0f766e; --theme-soft:#e6f3f1; --theme-line:#a7d3cc;   /* ← change per domain */
+    --blue:#1d4ed8; --blue-soft:#eaf0ff; --blue-line:#b8caff;
+    --warn:#b45309; --warn-soft:#fff5e6;
+    --add:#0d7d74;  --add-soft:#e4f6f4;
+  }
+  *{box-sizing:border-box} html,body{margin:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:#f4f4f6;line-height:1.32;font-size:12px}
+  .toolbar{max-width:1180px;margin:14px auto 0;padding:10px 14px;background:#fff;border:1px solid var(--line);
+    border-radius:10px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+  .toolbar b{color:var(--ink)}
+  .btn{background:var(--theme);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:13px;font-weight:600;cursor:pointer}
+  .btn:hover{filter:brightness(.9)}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .legend span{display:inline-flex;align-items:center;gap:5px}
+  .swatch{width:11px;height:11px;border-radius:3px;display:inline-block}
+  .sheet{max-width:1180px;margin:14px auto;background:#fff;padding:16px 18px 12px;border:1px solid var(--line);
+    border-radius:10px;box-shadow:0 1px 6px rgba(0,0,0,.05)}
+  header.doc{border-bottom:2.5px solid var(--theme);padding-bottom:8px;margin-bottom:12px;display:flex;
+    align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  header.doc h1{margin:0;font-size:23px;letter-spacing:-.2px;color:var(--theme)}
+  header.doc h1 small{color:var(--ink);font-weight:600;font-size:14px}
+  .tags{font-size:11px;color:var(--muted)} .tags b{color:var(--theme)}
+  .lede{font-size:11.5px;color:var(--muted);margin:0 0 10px;border-left:3px solid var(--theme-line);padding-left:9px}
+  .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .col{display:flex;flex-direction:column;gap:11px}
+  section.card{border:1px solid var(--line);border-left:4px solid var(--theme);border-radius:7px;
+    padding:8px 10px 9px;break-inside:avoid;page-break-inside:avoid}
+  section.card.blue{border-left-color:var(--blue)}
+  section.card h2{margin:0 0 6px;font-size:12.5px;text-transform:uppercase;letter-spacing:.4px;color:var(--theme);
+    display:flex;align-items:center;gap:6px}
+  section.card.blue h2{color:var(--blue)}
+  h2 .n{font-size:10px;background:var(--theme-soft);color:var(--theme);border:1px solid var(--theme-line);
+    border-radius:4px;padding:0 5px;font-weight:700}
+  ul{margin:0;padding-left:15px} ol{margin:0;padding-left:17px}
+  li{margin:2.5px 0} li::marker{color:var(--theme)} .blue li::marker{color:var(--blue)}
+  ul.tight li{margin:1.5px 0}
+  .sub{list-style:none;padding-left:2px;margin:3px 0} .sub li{margin:1.5px 0}
+  .sub li::before{content:"– ";color:var(--muted)}
+  b,strong{font-weight:700} .lead{font-weight:700}
+  .exp{color:var(--muted);font-weight:400}
+  .arw{color:var(--theme);font-weight:700} .up{color:#b91c1c;font-weight:700} .dn{color:#1d4ed8;font-weight:700}
+  .trap{background:var(--warn-soft);border:1px solid #f2cf95;border-radius:5px;padding:4px 7px;margin:5px 0 2px;
+    font-size:11px;color:#7a4a08} .trap>b:first-child{color:var(--warn)}
+  .add{background:var(--add-soft);border-bottom:1px dotted var(--add);color:#0b5a54;padding:0 2px;border-radius:2px}
+  .addtag{font-size:9px;font-weight:700;color:#fff;background:var(--add);border-radius:3px;padding:0 3px;margin-left:2px;vertical-align:1px}
+  .flag{display:block;background:var(--add-soft);border:1px dashed var(--add);border-radius:5px;padding:4px 7px;
+    margin:5px 0 0;font-size:10.5px;color:#0b5a54} .flag b{color:var(--add)}
+  .risk{font-weight:800} .risk.hi{color:#b91c1c}.risk.mod{color:#b45309}.risk.lo{color:#15803d}
+  footer.doc{margin-top:12px;padding-top:8px;border-top:1px solid var(--line);font-size:9.5px;color:var(--muted);
+    display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+  @page{size:A4 landscape;margin:9mm}
+  @media print{
+    body{background:#fff;font-size:9.4px;line-height:1.26}
+    .toolbar{display:none}
+    .sheet{max-width:none;margin:0;border:none;border-radius:0;box-shadow:none;padding:0}
+    header.doc h1{font-size:19px} header.doc h1 small{font-size:12px}
+    section.card h2{font-size:10.5px}
+    .cols{gap:9px}.col{gap:8px}section.card{padding:6px 8px 7px}.trap,.flag{font-size:9px}
+  }
+  /* narrow screens: stack the 3 columns so it stays readable */
+  @media(max-width:780px){ .cols{grid-template-columns:1fr} }
+  /* embedded inside the study-hub collapsible: drop page chrome, sit flush */
+  html.embedded body{background:#fff}
+  html.embedded .toolbar{display:none}
+  html.embedded .sheet{max-width:none;margin:0;border:none;border-radius:0;box-shadow:none;padding:10px 13px 8px}
+</style>
+</head>
+<body>
+
+  <div class="toolbar">
+    <button class="btn" onclick="window.print()">🖨  Print / Save as PDF</button>
+    <span>Best printed <b>A4 landscape</b>.</span>
+    <div class="legend">
+      <span><span class="swatch" style="background:#0f766e"></span>section</span>
+      <span><span class="swatch" style="background:#1d4ed8"></span>vaccination schedule</span>
+      <span><span class="swatch" style="background:#fff5e6;border:1px solid #f2cf95"></span>exam trap</span>
+      <span><span class="swatch" style="background:#e4f6f4;border:1px solid #0d7d74"></span><b style="color:#0d7d74">+</b> added / clarified</span>
+    </div>
+  </div>
+
+  <div class="sheet">
+    <header class="doc">
+      <h1>Vaccination</h1>
+      <div class="tags"><b>Vaccination</b> · Physical Health of Animal (29%) · Shelter Medicine</div>
+    </header>
+
+    <p class="lede">Intake naivety drives shelter risk — match the vaccine <b>type</b>, <b>timing</b> &amp; <b>route</b> to the pathogen and the maternal-antibody window; a vaccine can never beat natural infection, so store and record every dose correctly.</p>
+
+    <div class="cols">
+
+      <!-- ============ COLUMN 1 ============ -->
+      <div class="col">
+        <section class="card">
+          <h2>Intake Susceptibility</h2>
+          <ul class="tight">
+            <li><span class="lead">Dogs on intake</span> — ~50% (±20%) naive for <span class="exp">canine distemper virus (CDV)</span>; ~30% (±15%) naive for <span class="exp">canine parvovirus type 2 (CPV-2)</span>.</li>
+            <li>~64.5% are <b>unprotected</b> against CPV-2, CDV, or both.</li>
+            <li><span class="lead">Cats on intake</span> — ~50% naive for <span class="exp">feline panleukopenia virus (FPV)</span>; &gt;75% already have antibody to <span class="exp">feline calicivirus (FCV)</span> / <span class="exp">feline herpesvirus (FHV)</span>.</li>
+            <li>A vaccine can <b>never</b> be expected to give more effective or longer-lasting protection than natural infection.</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Vaccine Types <span class="n">4</span></h2>
+          <ol>
+            <li><span class="lead">Modified-live <span class="exp">(MLV)</span></span> — mimics natural infection; rapid onset; full protection ~2–3 weeks after the last dose.</li>
+            <li><span class="lead">Killed (inactivated)</span> — needs 2 doses; NOT used in shelters except rabies; <b>safer in pregnancy &amp; immunosuppression</b>.
+              <span class="flag"><b>+ check:</b> the "safer in pregnancy / immunosuppression" property belongs to <b>killed</b> (inactivated) vaccines, not MLV.</span>
+            </li>
+            <li><span class="lead">Recombinant</span> — rapid onset; works through <span class="exp">maternally-derived antibody (MDA)</span>; no adjuvant <span class="arw">→</span> lower injection-site-sarcoma risk (rabies, <span class="exp">feline leukaemia virus (FeLV)</span>).</li>
+            <li><span class="lead">Mucosal / oral (intranasal)</span> — local humoral &amp; cellular <span class="exp">upper-respiratory-tract (URT)</span> immunity within 3–7 days; use for respiratory pathogens.</li>
+          </ol>
+        </section>
+
+        <section class="card">
+          <h2>Vaccine Efficacy</h2>
+          <ul class="tight">
+            <li>Can be expressed as the <span class="lead">preventable fraction</span> — proportion of vaccinated animals that do <b>NOT</b> develop disease vs unvaccinated.</li>
+            <li><span class="lead">Causes of vaccine failure</span> — MDA interference, immunodeficiency, concurrent disease, poor nutrition, chronic stress, very young / old age, improper handling / storage.</li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- ============ COLUMN 2 ============ -->
+      <div class="col">
+        <section class="card">
+          <h2>Maternal Antibody &amp; Serum <span class="n">feline</span></h2>
+          <ul class="tight">
+            <li>Colostrum must be provided within <b>72 h</b> of birth.</li>
+            <li>A donor cat may be used but must be FeLV / <span class="exp">feline immunodeficiency virus (FIV)</span>-negative and healthy; serum can be frozen at <b>−20°C (−4°F)</b>.</li>
+            <li>Hyperimmune serum given <b>before or at exposure</b> can prevent infection in naive animals.</li>
+          </ul>
+        </section>
+
+        <section class="card blue">
+          <h2>Canine Schedule</h2>
+          <ul class="tight">
+            <li><span class="lead">Core</span> — <span class="exp">DA2PP (distemper, adenovirus-2, parvovirus, parainfluenza)</span> + intranasal <i>Bordetella</i> + <span class="exp">canine parainfluenza (CPiV)</span> + parenteral rabies.</li>
+            <li><span class="lead">Timing</span> — start at 4 weeks, boost every 2–3 weeks until 18–20 weeks. Dogs &gt;18–20 weeks: an initial MLV DA2PP then a booster 2–3 weeks later.</li>
+            <li><i>Bordetella</i> + CPiV can be given from 3 weeks; intranasal gives local innate + mucosal immunity. Both intranasal and oral <i>Bordetella</i> are more effective than parenteral and are less interfered with by MDA.</li>
+            <li><span class="lead">CDV</span> — almost immediate immunity after a single MLV dose. <span class="exp">Canine adenovirus-2 (CAV-2)</span> cross-protects <span class="exp">canine adenovirus-1 (CAV-1)</span>; MLV CAV-2 can be given intranasally to pups as young as 3 weeks.</li>
+            <li><span class="lead">Rabies &gt;12 weeks</span> — single dose before release (or on entry if a long <span class="exp">length of stay (LOS)</span> is anticipated).</li>
+          </ul>
+        </section>
+
+        <section class="card blue">
+          <h2>Feline Schedule</h2>
+          <ul class="tight">
+            <li><span class="lead">Core</span> — <span class="exp">FVRCP (feline viral rhinotracheitis / herpesvirus-1, calicivirus, panleukopenia)</span> + rabies. FeLV is core for owned kittens &lt;1 yr; in shelters only for group-housed / sanctuary-type cats.</li>
+            <li><span class="lead">Timing</span> — start at 4 weeks, boost every 2–3 weeks until 16–20 weeks. Cats &gt;16 weeks get one dose then a booster 2 weeks later.</li>
+            <li><span class="lead">FPV</span> — a <b>KILLED (inactivated)</b> product is preferred in pregnant queens (avoids fetal cerebellar hypoplasia).</li>
+            <li><span class="lead">FCV</span> — immunity in ~7 days, fuller after a 2nd dose. <span class="lead">FHV-1</span> — nearly all infected cats become latently infected and can be reinfected.</li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- ============ COLUMN 3 ============ -->
+      <div class="col">
+        <section class="card">
+          <h2>Injection Sites &amp; Sarcoma <span class="n">feline</span></h2>
+          <ul class="tight">
+            <li><span class="lead">Site mapping</span> — FVRCP <span class="arw">→</span> right fore limb; rabies <span class="arw">→</span> right hind limb; FeLV <span class="arw">→</span> left hind limb. Interscapular injection is no longer recommended.</li>
+            <li><span class="lead">Injection-site sarcoma — 1-2-3 rule</span> — biopsy a post-vaccinal mass that persists &gt;3 months, is &gt;2 cm, or is still enlarging 1 month after injection.</li>
+            <li><span class="lead">Adverse-event rate</span> — ~0.5%; type I hypersensitivity, lethargy, etc.</li>
+          </ul>
+          <div class="trap"><b>⚠ Trap:</b> 1-2-3 rule = persists &gt;<b>3</b> months · &gt;<b>2</b> cm · still enlarging <b>1</b> month after injection.</div>
+        </section>
+
+        <section class="card">
+          <h2>Rabies Detail</h2>
+          <ul class="tight">
+            <li><span class="lead">Products</span> — canine rabies vaccine = inactivated / adjuvanted; feline = non-adjuvanted (recombinant).</li>
+            <li>Immunity ~2–3 weeks after injection. 1-year vs 3-year products — a <b>3-year</b> product is preferred.</li>
+            <li>Most animals &gt;3 months are protected by a single injection, with the legally-required booster <b>1 year</b> later.</li>
+            <li>An antibody titre is <b>NOT</b> a substitute for vaccination; exemptions must be documented.</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Vaccine Storage</h2>
+          <ul class="tight">
+            <li>Store at <b>2–8°C (36–46°F)</b> in a refrigerator; <b>never freeze</b>; position ~2–3 inches from all walls; monitor temperature (per manufacturer).</li>
+            <li><span class="lead">Once reconstituted</span> — use MLV within 30–60 min; use killed within 4 h; if MLV sits at room temperature ≥1 h, discard.</li>
+            <li><span class="lead">Record</span> — batch + serial number, expiry date, injection site, and administrator's name.</li>
+          </ul>
+        </section>
+      </div>
+
+    </div>
+
+    <footer class="doc">
+      <span>Personal study notes · 2026 ABVP Combined Exam (Shelter Medicine RVS)</span>
+      <span>© Juliana Xue — for personal study use</span>
+    </footer>
+  </div>
+
+  <script>if(window.self!==window.top){document.documentElement.className+=' embedded';}</script>
+</body>
+</html>
