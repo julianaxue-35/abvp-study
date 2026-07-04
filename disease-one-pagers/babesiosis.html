@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  DISEASE ONE-PAGER — Babesiosis
+  ============================================================================
+  Built from _TEMPLATE.html — default purple (infectious disease) theme.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Babesiosis — One-Pager</title>
+<style>
+  :root{
+    --ink:#1f2430; --muted:#6b7280; --line:#e5e7eb;
+    --theme:#6d28d9; --theme-soft:#f3ecff; --theme-line:#c9b6f5;   /* ← change per domain */
+    --blue:#1d4ed8; --blue-soft:#eaf0ff; --blue-line:#b8caff;
+    --warn:#b45309; --warn-soft:#fff5e6;
+    --add:#0d7d74;  --add-soft:#e4f6f4;
+  }
+  *{box-sizing:border-box} html,body{margin:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:#f4f4f6;line-height:1.32;font-size:12px}
+  .toolbar{max-width:1180px;margin:14px auto 0;padding:10px 14px;background:#fff;border:1px solid var(--line);
+    border-radius:10px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+  .toolbar b{color:var(--ink)}
+  .btn{background:var(--theme);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:13px;font-weight:600;cursor:pointer}
+  .btn:hover{filter:brightness(.9)}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .legend span{display:inline-flex;align-items:center;gap:5px}
+  .swatch{width:11px;height:11px;border-radius:3px;display:inline-block}
+  .sheet{max-width:1180px;margin:14px auto;background:#fff;padding:16px 18px 12px;border:1px solid var(--line);
+    border-radius:10px;box-shadow:0 1px 6px rgba(0,0,0,.05)}
+  header.doc{border-bottom:2.5px solid var(--theme);padding-bottom:8px;margin-bottom:12px;display:flex;
+    align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  header.doc h1{margin:0;font-size:23px;letter-spacing:-.2px;color:var(--theme)}
+  header.doc h1 small{color:var(--ink);font-weight:600;font-size:14px}
+  .tags{font-size:11px;color:var(--muted)} .tags b{color:var(--theme)}
+  .lede{font-size:11.5px;color:var(--muted);margin:0 0 10px;border-left:3px solid var(--theme-line);padding-left:9px}
+  .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .col{display:flex;flex-direction:column;gap:11px}
+  section.card{border:1px solid var(--line);border-left:4px solid var(--theme);border-radius:7px;
+    padding:8px 10px 9px;break-inside:avoid;page-break-inside:avoid}
+  section.card.blue{border-left-color:var(--blue)}
+  section.card h2{margin:0 0 6px;font-size:12.5px;text-transform:uppercase;letter-spacing:.4px;color:var(--theme);
+    display:flex;align-items:center;gap:6px}
+  section.card.blue h2{color:var(--blue)}
+  h2 .n{font-size:10px;background:var(--theme-soft);color:var(--theme);border:1px solid var(--theme-line);
+    border-radius:4px;padding:0 5px;font-weight:700}
+  ul{margin:0;padding-left:15px} ol{margin:0;padding-left:17px}
+  li{margin:2.5px 0} li::marker{color:var(--theme)} .blue li::marker{color:var(--blue)}
+  ul.tight li{margin:1.5px 0}
+  .sub{list-style:none;padding-left:2px;margin:3px 0} .sub li{margin:1.5px 0}
+  .sub li::before{content:"– ";color:var(--muted)}
+  b,strong{font-weight:700} .lead{font-weight:700}
+  .exp{color:var(--muted);font-weight:400}
+  .arw{color:var(--theme);font-weight:700} .up{color:#b91c1c;font-weight:700} .dn{color:#1d4ed8;font-weight:700}
+  .trap{background:var(--warn-soft);border:1px solid #f2cf95;border-radius:5px;padding:4px 7px;margin:5px 0 2px;
+    font-size:11px;color:#7a4a08} .trap>b:first-child{color:var(--warn)}
+  .add{background:var(--add-soft);border-bottom:1px dotted var(--add);color:#0b5a54;padding:0 2px;border-radius:2px}
+  .addtag{font-size:9px;font-weight:700;color:#fff;background:var(--add);border-radius:3px;padding:0 3px;margin-left:2px;vertical-align:1px}
+  .flag{display:block;background:var(--add-soft);border:1px dashed var(--add);border-radius:5px;padding:4px 7px;
+    margin:5px 0 0;font-size:10.5px;color:#0b5a54} .flag b{color:var(--add)}
+  .risk{font-weight:800} .risk.hi{color:#b91c1c}.risk.mod{color:#b45309}.risk.lo{color:#15803d}
+  footer.doc{margin-top:12px;padding-top:8px;border-top:1px solid var(--line);font-size:9.5px;color:var(--muted);
+    display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+  @page{size:A4 landscape;margin:9mm}
+  @media print{
+    body{background:#fff;font-size:9.4px;line-height:1.26}
+    .toolbar{display:none}
+    .sheet{max-width:none;margin:0;border:none;border-radius:0;box-shadow:none;padding:0}
+    header.doc h1{font-size:19px} header.doc h1 small{font-size:12px}
+    section.card h2{font-size:10.5px}
+    .cols{gap:9px}.col{gap:8px}section.card{padding:6px 8px 7px}.trap,.flag{font-size:9px}
+  }
+  /* narrow screens: stack the 3 columns so it stays readable */
+  @media(max-width:780px){ .cols{grid-template-columns:1fr} }
+  /* embedded inside the study-hub collapsible: drop page chrome, sit flush */
+  html.embedded body{background:#fff}
+  html.embedded .toolbar{display:none}
+  html.embedded .sheet{max-width:none;margin:0;border:none;border-radius:0;box-shadow:none;padding:10px 13px 8px}
+</style>
+</head>
+<body>
+
+  <div class="toolbar">
+    <button class="btn" onclick="window.print()">🖨  Print / Save as PDF</button>
+    <span>Best printed <b>A4 landscape</b>.</span>
+    <div class="legend">
+      <span><span class="swatch" style="background:#6d28d9"></span>section</span>
+      <span><span class="swatch" style="background:#1d4ed8"></span>outbreak / biosecurity</span>
+      <span><span class="swatch" style="background:#fff5e6;border:1px solid #f2cf95"></span>exam trap</span>
+      <span><span class="swatch" style="background:#e4f6f4;border:1px solid #0d7d74"></span><b style="color:#0d7d74">+</b> added / clarified</span>
+    </div>
+  </div>
+
+  <div class="sheet">
+    <header class="doc">
+      <h1>Babesiosis</h1>
+      <div class="tags"><b>Vector-borne · Protozoal</b> · Physical Health of Animal (29%) · Shelter Medicine</div>
+    </header>
+
+    <p class="lede">Tick-borne protozoal parasite of red blood cells <span class="arw">→</span> immune-mediated haemolytic anaemia, thrombocytopenia, splenomegaly.</p>
+
+    <div class="cols">
+
+      <!-- ============ COLUMN 1 ============ -->
+      <div class="col">
+        <section class="card">
+          <h2>Aetiology</h2>
+          <ul class="tight">
+            <li><span class="lead">Agent</span> — tick-borne intra-erythrocytic protozoa (piroplasms) that parasitise red blood cells</li>
+            <li><b>Large <i>Babesia</i> = <i>Babesia canis</i></b></li>
+            <li><b>Small <i>Babesia</i> = <i>Babesia gibsoni</i></b> — also <i>B. conradae</i> and <i>B. vulpes</i> among the clinically important small species</li>
+            <li><i>B. gibsoni</i> prevalence <b>~1%</b></li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Transmission</h2>
+          <ul class="tight">
+            <li><span class="lead">Ixodid (hard) ticks</span> — <i>Rhipicephalus</i> / <i>Dermacentor</i> for <i>B. canis</i></li>
+            <li><b><i>B. gibsoni</i> also spread by dog-bite</b> — higher prevalence in American Pit Bull Terriers suggests breed susceptibility <span class="add">(possibly due to fighting, per Juliana's note)<span class="addtag">+</span></span></li>
+            <li>Also <span class="lead">blood transfusion</span> and <span class="lead">transplacental</span> spread</li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- ============ COLUMN 2 ============ -->
+      <div class="col">
+        <section class="card">
+          <h2>Clinical Signs</h2>
+          <ul class="tight">
+            <li><span class="lead">IMHA</span> <span class="exp">(immune-mediated haemolytic anaemia)</span></li>
+            <li>Thrombocytopenia <span class="exp">(low platelet count)</span></li>
+            <li>Lethargy · fever</li>
+            <li>Splenomegaly <span class="exp">(enlarged spleen)</span></li>
+            <li>Pale mucous membranes</li>
+            <li>Pigmenturia <span class="exp">(discoloured urine from haemoglobin / bilirubin)</span></li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Diagnosis</h2>
+          <ol>
+            <li><span class="lead">Blood-smear examination</span> <span class="exp">(microscopy)</span>
+              <ul class="sub"><li>Look for intra-erythrocytic piroplasms inside red blood cells</li></ul>
+            </li>
+            <li><span class="lead">PCR</span> <span class="exp">(polymerase chain reaction)</span>
+              <ul class="sub"><li>Species-level identification; <span class="up">↑</span> most sensitive test</li></ul>
+            </li>
+          </ol>
+        </section>
+      </div>
+
+      <!-- ============ COLUMN 3 ============ -->
+      <div class="col">
+        <section class="card">
+          <h2>Treatment</h2>
+          <ol>
+            <li><span class="lead"><i>B. canis</i></span> — imidocarb dipropionate / diminazene aceturate</li>
+            <li><span class="lead"><i>B. gibsoni</i></span> — atovaquone + azithromycin
+              <div class="trap"><b>⚠ Triple combination:</b> <b>Malarone (atovaquone-proguanil) 13.5 mg/kg PO q24h + azithromycin 10 mg/kg PO q24h + artesunate 12.5 mg/kg PO q24h for 10 days</b> improved haematology / biochemistry to reference range within ~14 days, stayed stable to day 56, with no relapse of parasitaemia at days 180 / 360 / 540 / 720 — successful elimination in chronically infected dogs.</div>
+            </li>
+          </ol>
+        </section>
+
+        <section class="card blue">
+          <h2>Prevention</h2>
+          <ul class="tight">
+            <li><span class="lead">Tick control</span></li>
+            <li>Screen &amp; quarantine imported and fighting-breed dogs</li>
+            <li>Screen blood donors</li>
+          </ul>
+        </section>
+      </div>
+
+    </div>
+
+    <section class="card" style="border-left-color:#0e7490;margin-top:12px"><h2 style="color:#0e7490">📄 Journal Articles</h2><ul class="tight">
+      <li><b>De Ritis quotient &amp; renal azotaemia (B. canis):</b> canine babesiosis can cause pre-renal and renal azotaemia and raise the De Ritis quotient (AST/ALT). AST activity and AST/ALT were higher in azotaemic dogs, and higher still with renal than pre-renal azotaemia, correlating with renal indices — so raised serum AST in azotaemic B. canis dogs may be of renal origin, and AST/ALT is a simple, convenient marker to recognise renal azotaemia in canine babesiosis.</li>
+      <li><b>Babesia gibsoni — a European perspective:</b> large Babesia = B. canis, small = B. gibsoni; the clinically important small species are B. gibsoni, B. conradae and B. vulpes. B. gibsoni prevalence ~1%, with higher prevalence in American Pit Bull Terriers suggesting breed susceptibility.</li>
+      <li><b>Malarone + azithromycin + artesunate for B. gibsoni:</b> a tick-borne protozoal parasite causing IMHA, thrombocytopenia, lethargy and/or splenomegaly. The 10-day triple combination improved haematology/biochemistry to reference range within ~14 days and eliminated parasitaemia with no relapse at days 180–720 in chronically infected dogs.</li>
+    </ul></section>
+
+    <footer class="doc">
+      <span>Personal study notes · 2026 ABVP Combined Exam (Shelter Medicine RVS)</span>
+      <span>© Juliana Xue — for personal study use</span>
+    </footer>
+  </div>
+
+  <script>if(window.self!==window.top){document.documentElement.className+=' embedded';}</script>
+</body>
+</html>
