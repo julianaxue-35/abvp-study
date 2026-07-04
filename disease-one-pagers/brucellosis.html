@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  DISEASE ONE-PAGER — REUSABLE TEMPLATE
+  ============================================================================
+  HOW TO USE
+  1. Copy this file to a new name, e.g.  fpv.html , distemper.html
+  2. Change the <title>, the <h1> disease name, the tags line, and the lede.
+  3. Fill the 3 columns. The suggested flow (edit freely):
+        Col 1  →  Virology  ·  Transmission & Pathogenesis  ·  Risk Factors
+        Col 2  →  Incubation  ·  Diagnosis  ·  Clinical Signs
+        Col 3  →  Treatment  ·  Prognosis/Setting  ·  Outbreak Mgmt  ·  Biosecurity
+     (Sections are just cards — add, remove, or reorder any of them.)
+
+  THEME COLOUR (matches Juliana's SOP colour convention):
+     Infectious disease  → purple  --theme:#6d28d9   (current)
+     Shelter management  → green   --theme:#1f6f54
+     Just change the two --theme lines in :root and you're done.
+
+  HELPER CLASSES (reuse anywhere in the body)
+     <span class="lead">Bold lead-in label</span>
+     <span class="exp">(expanded abbreviation / aside)</span>   → muted grey
+     <span class="arw">→</span>  <span class="up">↑</span>  <span class="dn">↓</span>
+     <ul class="sub"> … </ul>            → indented dashed sub-list
+     <div class="trap"><b>⚠ Trap:</b> …</div>            → amber exam-trap callout
+     <span class="add">extra content<span class="addtag">+</span></span>  → teal "I added this"
+     <span class="flag"><b>+ check:</b> …</span>          → teal dashed flag/correction note
+     <section class="card blue"> … </section>            → blue card (outbreak/biosecurity)
+     <span class="risk hi|mod|lo">HIGH|MOD|LOW</span>     → coloured risk label
+  ============================================================================
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brucellosis — One-Pager</title>
+<style>
+  :root{
+    --ink:#1f2430; --muted:#6b7280; --line:#e5e7eb;
+    --theme:#6d28d9; --theme-soft:#f3ecff; --theme-line:#c9b6f5;   /* ← change per domain */
+    --blue:#1d4ed8; --blue-soft:#eaf0ff; --blue-line:#b8caff;
+    --warn:#b45309; --warn-soft:#fff5e6;
+    --add:#0d7d74;  --add-soft:#e4f6f4;
+  }
+  *{box-sizing:border-box} html,body{margin:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:#f4f4f6;line-height:1.32;font-size:12px}
+  .toolbar{max-width:1180px;margin:14px auto 0;padding:10px 14px;background:#fff;border:1px solid var(--line);
+    border-radius:10px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+  .toolbar b{color:var(--ink)}
+  .btn{background:var(--theme);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:13px;font-weight:600;cursor:pointer}
+  .btn:hover{filter:brightness(.9)}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .legend span{display:inline-flex;align-items:center;gap:5px}
+  .swatch{width:11px;height:11px;border-radius:3px;display:inline-block}
+  .sheet{max-width:1180px;margin:14px auto;background:#fff;padding:16px 18px 12px;border:1px solid var(--line);
+    border-radius:10px;box-shadow:0 1px 6px rgba(0,0,0,.05)}
+  header.doc{border-bottom:2.5px solid var(--theme);padding-bottom:8px;margin-bottom:12px;display:flex;
+    align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  header.doc h1{margin:0;font-size:23px;letter-spacing:-.2px;color:var(--theme)}
+  header.doc h1 small{color:var(--ink);font-weight:600;font-size:14px}
+  .tags{font-size:11px;color:var(--muted)} .tags b{color:var(--theme)}
+  .lede{font-size:11.5px;color:var(--muted);margin:0 0 10px;border-left:3px solid var(--theme-line);padding-left:9px}
+  .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .col{display:flex;flex-direction:column;gap:11px}
+  section.card{border:1px solid var(--line);border-left:4px solid var(--theme);border-radius:7px;
+    padding:8px 10px 9px;break-inside:avoid;page-break-inside:avoid}
+  section.card.blue{border-left-color:var(--blue)}
+  section.card h2{margin:0 0 6px;font-size:12.5px;text-transform:uppercase;letter-spacing:.4px;color:var(--theme);
+    display:flex;align-items:center;gap:6px}
+  section.card.blue h2{color:var(--blue)}
+  h2 .n{font-size:10px;background:var(--theme-soft);color:var(--theme);border:1px solid var(--theme-line);
+    border-radius:4px;padding:0 5px;font-weight:700}
+  ul{margin:0;padding-left:15px} ol{margin:0;padding-left:17px}
+  li{margin:2.5px 0} li::marker{color:var(--theme)} .blue li::marker{color:var(--blue)}
+  ul.tight li{margin:1.5px 0}
+  .sub{list-style:none;padding-left:2px;margin:3px 0} .sub li{margin:1.5px 0}
+  .sub li::before{content:"– ";color:var(--muted)}
+  b,strong{font-weight:700} .lead{font-weight:700}
+  .exp{color:var(--muted);font-weight:400}
+  .arw{color:var(--theme);font-weight:700} .up{color:#b91c1c;font-weight:700} .dn{color:#1d4ed8;font-weight:700}
+  .trap{background:var(--warn-soft);border:1px solid #f2cf95;border-radius:5px;padding:4px 7px;margin:5px 0 2px;
+    font-size:11px;color:#7a4a08} .trap>b:first-child{color:var(--warn)}
+  .add{background:var(--add-soft);border-bottom:1px dotted var(--add);color:#0b5a54;padding:0 2px;border-radius:2px}
+  .addtag{font-size:9px;font-weight:700;color:#fff;background:var(--add);border-radius:3px;padding:0 3px;margin-left:2px;vertical-align:1px}
+  .flag{display:block;background:var(--add-soft);border:1px dashed var(--add);border-radius:5px;padding:4px 7px;
+    margin:5px 0 0;font-size:10.5px;color:#0b5a54} .flag b{color:var(--add)}
+  .risk{font-weight:800} .risk.hi{color:#b91c1c}.risk.mod{color:#b45309}.risk.lo{color:#15803d}
+  footer.doc{margin-top:12px;padding-top:8px;border-top:1px solid var(--line);font-size:9.5px;color:var(--muted);
+    display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+  @page{size:A4 landscape;margin:9mm}
+  @media print{
+    body{background:#fff;font-size:9.4px;line-height:1.26}
+    .toolbar{display:none}
+    .sheet{max-width:none;margin:0;border:none;border-radius:0;box-shadow:none;padding:0}
+    header.doc h1{font-size:19px} header.doc h1 small{font-size:12px}
+    section.card h2{font-size:10.5px}
+    .cols{gap:9px}.col{gap:8px}section.card{padding:6px 8px 7px}.trap,.flag{font-size:9px}
+  }
+  /* narrow screens: stack the 3 columns so it stays readable */
+  @media(max-width:780px){ .cols{grid-template-columns:1fr} }
+  /* embedded inside the study-hub collapsible: drop page chrome, sit flush */
+  html.embedded body{background:#fff}
+  html.embedded .toolbar{display:none}
+  html.embedded .sheet{max-width:none;margin:0;border:none;border-radius:0;box-shadow:none;padding:10px 13px 8px}
+</style>
+</head>
+<body>
+
+  <div class="toolbar">
+    <button class="btn" onclick="window.print()">🖨  Print / Save as PDF</button>
+    <span>Best printed <b>A4 landscape</b>.</span>
+    <div class="legend">
+      <span><span class="swatch" style="background:#6d28d9"></span>section</span>
+      <span><span class="swatch" style="background:#1d4ed8"></span>outbreak / biosecurity</span>
+      <span><span class="swatch" style="background:#fff5e6;border:1px solid #f2cf95"></span>exam trap</span>
+      <span><span class="swatch" style="background:#e4f6f4;border:1px solid #0d7d74"></span><b style="color:#0d7d74">+</b> added / clarified</span>
+    </div>
+  </div>
+
+  <div class="sheet">
+    <header class="doc">
+      <h1>Brucellosis <small>(Brucella canis)</small></h1>
+      <div class="tags"><b>Zoonotic &middot; Bacterial</b> · Community &amp; Public Health · Shelter Medicine</div>
+    </header>
+
+    <p class="lede">One of the most prevalent zoonoses worldwide. Points below are compiled from your summary + standard references (the AVMA one-health review full text is paywalled). <b>Reproductive-tract zoonosis; chronic intracellular carriage means treatment rarely clears it</b> — confirmed shelter cases are often euthanised.</p>
+
+    <div class="cols">
+
+      <!-- ============ COLUMN 1 ============ -->
+      <div class="col">
+        <section class="card">
+          <h2>Aetiology</h2>
+          <ul class="tight">
+            <li><span class="lead">Brucella canis</span> — gram-negative, intracellular coccobacillus; causes reproductive &amp; systemic disease in dogs.</li>
+            <li>US one-health species: <b>B. canis</b> (dogs), <b>B. suis</b> (swine), <b>B. abortus</b> (cattle/bison); <b>B. melitensis</b> not endemic but a risk to international travellers.</li>
+            <li>Eradicated from US domestic livestock, but persists in companion animals (B. canis) &amp; wildlife reservoirs (B. suis/abortus); enzootic internationally.</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Transmission &amp; Zoonosis</h2>
+          <ul class="tight">
+            <li><span class="lead">Venereal</span> — semen, vaginal discharge, urine (mating / artificial insemination).</li>
+            <li>Aborted fetuses, placenta &amp; birth fluids carry a <b>very high</b> organism load; also fomites / shared equipment.</li>
+            <li><b>NOT airborne</b> — requires direct contact with infectious secretions.</li>
+            <li><span class="lead">Human exposure</span> <span class="exp">(zoonotic)</span> — unpasteurised dairy; occupational (vets, lab diagnosticians, animal-care staff).</li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- ============ COLUMN 2 ============ -->
+      <div class="col">
+        <section class="card">
+          <h2>Clinical Signs</h2>
+          <ul class="tight">
+            <li><span class="lead">Reproductive failure</span> — late abortion (~day 45–55), stillbirths, weak neonates, failure to conceive.</li>
+            <li><span class="lead">Males</span> — epididymitis, testicular atrophy, scrotal dermatitis, infertility.</li>
+            <li><span class="lead">Systemic</span> — discospondylitis (painful back / paresis), uveitis, lymphadenopathy, fever.</li>
+            <li>Many are <b>asymptomatic carriers</b> shedding intermittently under stress / immunosuppression.</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Diagnosis</h2>
+          <ul class="tight">
+            <li><span class="lead">RSAT</span> <span class="exp">(rapid slide agglutination)</span> — in-clinic screen; sensitive but <span class="up">↑</span> false positives.</li>
+            <li><span class="lead">Confirm</span> with TAT / ME-TAT, AGID <span class="exp">(agar gel immunodiffusion)</span>, PCR or culture.</li>
+            <li>Culture / PCR: <b>notify the lab first</b> — Brucella is a biosafety hazard.</li>
+          </ul>
+          <div class="trap"><b>⚠ Trap:</b> a positive RSAT MUST be confirmed before any disposition decision (high false-positive rate).</div>
+        </section>
+      </div>
+
+      <!-- ============ COLUMN 3 ============ -->
+      <div class="col">
+        <section class="card">
+          <h2>Treatment &amp; Setting</h2>
+          <ul class="tight">
+            <li>Chronic <b>intracellular</b> carriage → antimicrobials rarely clear infection; relapse is common.</li>
+            <li>Confirmed shelter cases are often <b>euthanised</b>; at minimum permanent isolation + neuter.</li>
+            <li>Screen imported dogs from endemic regions (Mexico, Central/South America, E. Europe, parts of Asia).</li>
+          </ul>
+        </section>
+
+        <section class="card blue">
+          <h2>Biosecurity / Reportable</h2>
+          <ul class="tight">
+            <li><b>Reportable</b> zoonosis — notify authorities.</li>
+            <li>PPE + careful handling of reproductive tissues/fluids; routine disinfectants are effective.</li>
+            <li>Public-health message: avoid unpasteurised dairy; counsel at-risk owners &amp; staff.</li>
+          </ul>
+        </section>
+      </div>
+
+    </div>
+
+    <section class="card" style="border-left-color:#0e7490;margin-top:12px">
+      <h2 style="color:#0e7490">📄 Journal Article</h2>
+      <ul class="tight">
+        <li><span class="lead">One-health review of brucellosis in the US:</span> brucellosis is one of the most prevalent zoonoses worldwide. The species of greatest US one-health relevance are B. canis (dogs), B. suis (swine) and B. abortus (cattle/bison); B. melitensis is not endemic but risks international travellers. Though eradicated from US livestock, B. canis persists in companion animals and B. suis/abortus in wildlife reservoirs, with enzootic presence internationally. Human exposure is mainly unpasteurised dairy + occupational contact (lab staff, vets, animal carers). Diagnosis &amp; treatment are challenging (assay limits; nonspecific, insidious signs; immune / antimicrobial evasion) — so prevention is key.</li>
+      </ul>
+    </section>
+
+    <footer class="doc">
+      <span>Personal study notes · 2026 ABVP Combined Exam (Shelter Medicine RVS)</span>
+      <span>© Juliana Xue — for personal study use</span>
+    </footer>
+  </div>
+
+  <script>if(window.self!==window.top){document.documentElement.className+=' embedded';}</script>
+</body>
+</html>
