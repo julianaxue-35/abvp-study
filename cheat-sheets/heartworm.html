@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  DISEASE ONE-PAGER — HEARTWORM DISEASE
+  Distilled from parasites_hub.html TAB 3: HEARTWORM (vetted hub content).
+  Theme: green --theme:#0f3d3a (matches vaccination.html cheatsheet).
+  ============================================================================
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Heartworm Disease — Cheatsheet</title>
+<style>
+  :root{
+    --ink:#1f2430; --muted:#6b7280; --line:#e5e7eb;
+    --theme:#0f3d3a; --theme-soft:#e6eeeb; --theme-line:#a9c6bd;   /* ← change per domain */
+    --blue:#1d4ed8; --blue-soft:#eaf0ff; --blue-line:#b8caff;
+    --warn:#b45309; --warn-soft:#fff5e6;
+    --add:#0d7d74;  --add-soft:#e4f6f4;
+  }
+  *{box-sizing:border-box} html,body{margin:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:#f4f4f6;line-height:1.32;font-size:12px}
+  .toolbar{max-width:1180px;margin:14px auto 0;padding:10px 14px;background:#fff;border:1px solid var(--line);
+    border-radius:10px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+  .toolbar b{color:var(--ink)}
+  .btn{background:var(--theme);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:13px;font-weight:600;cursor:pointer}
+  .btn:hover{filter:brightness(.9)}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .legend span{display:inline-flex;align-items:center;gap:5px}
+  .swatch{width:11px;height:11px;border-radius:3px;display:inline-block}
+  .sheet{max-width:1180px;margin:14px auto;background:#fff;padding:16px 18px 12px;border:1px solid var(--line);
+    border-radius:10px;box-shadow:0 1px 6px rgba(0,0,0,.05)}
+  header.doc{border-bottom:2.5px solid var(--theme);padding-bottom:8px;margin-bottom:12px;display:flex;
+    align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  header.doc h1{margin:0;font-size:23px;letter-spacing:-.2px;color:var(--theme)}
+  header.doc h1 small{color:var(--ink);font-weight:600;font-size:14px}
+  .tags{font-size:11px;color:var(--muted)} .tags b{color:var(--theme)}
+  .lede{font-size:11.5px;color:var(--muted);margin:0 0 10px;border-left:3px solid var(--theme-line);padding-left:9px}
+  .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .col{display:flex;flex-direction:column;gap:11px}
+  section.card{border:1px solid var(--line);border-left:4px solid var(--theme);border-radius:7px;
+    padding:8px 10px 9px;break-inside:avoid;page-break-inside:avoid}
+  section.card.blue{border-left-color:var(--blue)}
+  section.card h2{margin:0 0 6px;font-size:12.5px;text-transform:uppercase;letter-spacing:.4px;color:var(--theme);
+    display:flex;align-items:center;gap:6px}
+  section.card.blue h2{color:var(--blue)}
+  h2 .n{font-size:10px;background:var(--theme-soft);color:var(--theme);border:1px solid var(--theme-line);
+    border-radius:4px;padding:0 5px;font-weight:700}
+  ul{margin:0;padding-left:15px} ol{margin:0;padding-left:17px}
+  li{margin:2.5px 0} li::marker{color:var(--theme)} .blue li::marker{color:var(--blue)}
+  ul.tight li{margin:1.5px 0}
+  .sub{list-style:none;padding-left:2px;margin:3px 0} .sub li{margin:1.5px 0}
+  .sub li::before{content:"– ";color:var(--muted)}
+  b,strong{font-weight:700} .lead{font-weight:700}
+  .exp{color:var(--muted);font-weight:400}
+  .arw{color:var(--theme);font-weight:700} .up{color:#b91c1c;font-weight:700} .dn{color:#1d4ed8;font-weight:700}
+  .trap{background:var(--warn-soft);border:1px solid #f2cf95;border-radius:5px;padding:4px 7px;margin:5px 0 2px;
+    font-size:11px;color:#7a4a08} .trap>b:first-child{color:var(--warn)}
+  .add{background:var(--add-soft);border-bottom:1px dotted var(--add);color:#0b5a54;padding:0 2px;border-radius:2px}
+  .addtag{font-size:9px;font-weight:700;color:#fff;background:var(--add);border-radius:3px;padding:0 3px;margin-left:2px;vertical-align:1px}
+  .flag{display:block;background:var(--add-soft);border:1px dashed var(--add);border-radius:5px;padding:4px 7px;
+    margin:5px 0 0;font-size:10.5px;color:#0b5a54} .flag b{color:var(--add)}
+  .risk{font-weight:800} .risk.hi{color:#b91c1c}.risk.mod{color:#b45309}.risk.lo{color:#15803d}
+  footer.doc{margin-top:12px;padding-top:8px;border-top:1px solid var(--line);font-size:9.5px;color:var(--muted);
+    display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+  @page{size:A4 landscape;margin:9mm}
+  @media print{
+    body{background:#fff;font-size:9.4px;line-height:1.26}
+    .toolbar{display:none}
+    .sheet{max-width:none;margin:0;border:none;border-radius:0;box-shadow:none;padding:0}
+    header.doc h1{font-size:19px} header.doc h1 small{font-size:12px}
+    section.card h2{font-size:10.5px}
+    .cols{gap:9px}.col{gap:8px}section.card{padding:6px 8px 7px}.trap,.flag{font-size:9px}
+  }
+  /* narrow screens: stack the 3 columns so it stays readable */
+  @media(max-width:780px){ .cols{grid-template-columns:1fr} }
+  /* embedded inside the study-hub collapsible: drop page chrome, sit flush */
+  html.embedded body{background:#fff}
+  html.embedded .toolbar{display:none}
+  html.embedded .sheet{max-width:none;margin:0;border:none;border-radius:0;box-shadow:none;padding:10px 13px 8px}
+</style>
+</head>
+<body>
+
+  <div class="toolbar">
+    <button class="btn" onclick="window.print()">🖨  Print / Save as PDF</button>
+    <span>Best printed <b>A4 landscape</b>.</span>
+    <div class="legend">
+      <span><span class="swatch" style="background:#0f3d3a"></span>section</span>
+      <span><span class="swatch" style="background:#1d4ed8"></span>prevention / relocation</span>
+      <span><span class="swatch" style="background:#fff5e6;border:1px solid #f2cf95"></span>exam trap</span>
+    </div>
+  </div>
+
+  <div class="sheet">
+    <header class="doc">
+      <h1>Heartworm Disease</h1>
+      <div class="tags"><b>Heartworm — <em>Dirofilaria immitis</em></b> · Physical Health of Animal (29%) · Shelter Medicine</div>
+    </header>
+
+    <p class="lede"><i>Dirofilaria immitis</i> is largely clinically silent, slow, and costly to treat, so shelter protocols balance testing, prevention, and selective treatment. Antigen tests detect <b>adult-female</b> worm antigen (not microfilariae); the American Heartworm Society (AHS) 3-dose melarsomine protocol with doxycycline is the gold-standard adulticide; and <b>strict exercise restriction</b> is the single biggest factor preventing fatal pulmonary thromboembolism.</p>
+
+    <div class="cols">
+
+      <!-- ============ COLUMN 1 ============ -->
+      <div class="col">
+        <section class="card">
+          <h2>Life Cycle &amp; Biology</h2>
+          <ul class="tight">
+            <li><span class="lead">Two-host cycle</span> — mosquito (<b>intermediate host</b>) ↔ dog (<b>definitive host</b>).</li>
+            <li>The mosquito picks up microfilariae in a blood meal; these mature to infective <b>L3</b> over <b>10–14 days</b>.</li>
+            <li>In the dog, L3 enters at the bite and matures L3→L4→adult in the <b>pulmonary arteries</b>; prepatent period <b>~6 months</b>, after which adults produce microfilariae.</li>
+            <li>A dog can be <b>its own reservoir</b>; cats and ferrets cannot. Microfilariae <b>cannot mature without passing through a mosquito</b>.</li>
+            <li><span class="lead"><i>Wolbachia</i></span> — gram-negative intracellular endosymbiont essential to heartworm development and reproduction, passed <b>vertically</b> (adult female → microfilariae); the target of doxycycline.</li>
+            <li>Do <b>not</b> screen before ~7 months of age (prepatent period ~6 months).</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Diagnosis: Antigen vs Microfilaria <span class="n">run both</span></h2>
+          <ul class="tight">
+            <li><span class="lead">Antigen test = primary screen</span> — detects circulating antigen of <b>adult FEMALE</b> worms.</li>
+            <li>Microfilariae are detected <b>separately</b> by a concentration test — the <b>Modified Knott's</b>.</li>
+            <li><span class="lead">Run BOTH (AHS)</span> — a small fraction of infected dogs are antigen-negative but microfilaria-positive.</li>
+            <li>Dogs on preventives may give a <b>false-negative antigen</b> from antigen–antibody immune complexes; <b>heat-treating the serum</b> unmasks the blocked antigen.</li>
+            <li>"No antigen detected" does <b>not</b> confirm freedom from infection; confirm every positive antigen <b>before</b> any adulticide.</li>
+          </ul>
+          <div class="trap"><b>⚠ Trap:</b> the antigen test detects <b>adult-female worm antigen</b>, NOT microfilariae. Microfilariae are found by concentration (Modified Knott's) — this is exactly why AHS runs both.</div>
+        </section>
+
+        <section class="card">
+          <h2>Discordant Tests &amp; Look-alike</h2>
+          <ul class="tight">
+            <li><span class="lead">Antigen+ / Microfilaria+ (patent)</span> — adult females plus circulating microfilariae = active <b>transmission reservoir</b>. Treat, and make microfilariae non-infective before any relocation.</li>
+            <li><span class="lead">Antigen+ / Microfilaria− (prepatent or occult)</span> — adult-female antigen but no microfilariae: either too early (prepatent) or immune-cleared / preventive-suppressed (occult). Still infected, still treat; lower immediate transmission risk. Give a macrocyclic lactone (ML, a monthly preventive) or a 28-day doxycycline course before relocation so a prepatent dog does not turn microfilaria-positive in transit.</li>
+            <li><span class="lead">Antigen− / Microfilaria+ (the exam trap)</span> — first confirm the microfilariae are truly <i>D. immitis</i> on the Knott's; if so, antigen is usually <b>blocked by immune complexes</b> → <b>heat-treat serum and repeat</b> to unmask it (or an early / low female-worm burden). Treat as positive.</li>
+          </ul>
+          <div class="trap"><b>⚠ Trap — look-alike:</b> the non-pathogenic subcutaneous worm <b><i>Acanthocheilonema</i> (<i>Dipetalonema</i>) <i>reconditum</i></b> also circulates microfilariae; misidentified as <i>D. immitis</i>, a dog is wrongly called heartworm-positive. A Modified Knott's with careful morphology distinguishes the two.</div>
+        </section>
+      </div>
+
+      <!-- ============ COLUMN 2 ============ -->
+      <div class="col">
+        <section class="card blue">
+          <h2>Pre-Transport / Safe Relocation <span class="n">AHS · ASV</span></h2>
+          <ul class="tight">
+            <li>Screen every dog older than <b>6 months</b> for <b>both antigen and microfilariae, within 30 days of transport</b>.</li>
+            <li><span class="lead">Make microfilariae non-infective FIRST</span> — a single dose of topical <b>moxidectin</b> (eliminates most microfilariae), <b>or</b> an ML plus a topical <b>permethrin + dinotefuran + pyriproxyfen</b> product that kills/repels mosquitoes so the dog cannot seed them; <b>doxycycline</b> further blocks transmission (<i>Wolbachia</i>-suppressed microfilariae cannot develop inside the mosquito).</li>
+            <li>Recheck the Knott's in 7 days — <b>two negative tests 7 days apart</b> give reasonable assurance, then relocate.</li>
+            <li>If the dog has had <b>melarsomine, do NOT transport for ≥4 weeks after an injection</b> — transport stress/exertion raise the risk of fatal pulmonary thromboembolism (PTE).</li>
+            <li>Never relocate a positive dog <b>silently</b> — disclose status and treatment plan to the receiving organisation. <span class="exp">(ASV = Association of Shelter Veterinarians.)</span></li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Radiographic Staging</h2>
+          <ul class="tight">
+            <li><span class="lead">Most objective severity measure</span> — thoracic radiography assesses heartworm-associated cardiopulmonary disease and is the basis for <b>staging</b> the dog.</li>
+            <li><span class="lead">Nearly pathognomonic vascular signs</span> — <b>enlarged, tortuous, and truncated</b> peripheral (intralobar/interlobar) branches of the <b>pulmonary arteries</b>, with variable pulmonary parenchymal disease.</li>
+            <li><span class="lead">Severe disease</span> — marked right-heart enlargement produces the classic <b>"reverse D"</b> cardiac silhouette.</li>
+            <li>Echocardiography confirms infection when adult worms are seen, but is an <b>inefficient screening test</b>, especially with light worm burdens.</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>AHS Treatment Protocol <span class="n">3-dose</span></h2>
+          <ul class="tight">
+            <li><span class="lead">Melarsomine</span> — the only US Food and Drug Administration (FDA)-approved adulticide; effective against worms <b>≥120 days</b> old; given by deep <b>intramuscular (IM)</b> injection into the epaxial lumbar muscles (<b>L3–L5</b>).</li>
+            <li><span class="lead">3-dose (split) protocol</span> — safest and most effective (~99% vs 90.8%): <b>Day 0</b> ML + <b>doxycycline 10 mg/kg PO BID × 28 days</b>; melarsomine <b>2.5 mg/kg</b> dose 1 (~Day 60); doses 2 &amp; 3 given <b>24 h apart</b> (~Days 90 / 91). <span class="exp">(PO = by mouth; BID = twice daily.)</span></li>
+            <li><span class="lead">Prednisone taper</span> after each injection — 0.5 mg/kg PO q12h (wk 1) → 0.5 mg/kg q24h (wk 2) → 0.5 mg/kg every other day (wks 3–4).</li>
+            <li><span class="lead">Strict cage rest / leash-only</span> throughout AND for <b>≥6–8 weeks after the last injection</b> — the single most important factor preventing fatal PTE.</li>
+            <li><span class="lead">Doxycycline / <i>Wolbachia</i></span> — suppresses <i>Wolbachia</i>, reduces post-treatment pulmonary pathology, lowers microfilarial counts, and renders microfilariae non-infective to mosquitoes.</li>
+            <li><span class="lead">Slow-kill (ML-only) NOT recommended</span> except specific cases (prior melarsomine anaphylaxis; grave non-heartworm prognosis); contraindicated in performance / non-restrictable dogs and where ML resistance is suspected.</li>
+            <li><span class="lead">Caval syndrome</span> — heavy worm burdens partially obstruct the tricuspid valve, develop acutely, and are usually fatal within ~2 days unless worms are <b>surgically extracted</b>.</li>
+            <li><span class="lead">30–120-day susceptibility gap</span> — MLs reliably kill only worms <b>≤30 days</b>; melarsomine only <b>≥120 days</b>. Worms 30–120 days old were classically "too old for the preventive, too young for the adulticide." <b>Modern view: no gap if you start at diagnosis</b> — the full 3-dose melarsomine + doxycycline + ongoing ML clears all stages; delaying does not improve efficacy and lets disease progress.</li>
+            <li><span class="lead">Shelter "moxi-doxy" alternative</span> — when melarsomine is unaffordable/unavailable: <b>topical moxidectin monthly + doxycycline 10 mg/kg PO q12–24h × 28 days, repeated until antigen-negative</b>. Slower, may allow some pulmonary progression, but serious complications uncommon and far better than no treatment. Exercise restriction still applies.</li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- ============ COLUMN 3 ============ -->
+      <div class="col">
+        <section class="card">
+          <h2>Post-Adulticide Follow-up &amp; Retreatment</h2>
+          <ul class="tight">
+            <li><span class="lead">Two rechecks, two questions</span> — the microfilaria (Knott's) test asks "is the microfilaricide working / is the dog still a reservoir?"; the antigen test asks "did the adulticide work — are the adults gone?" They are <b>decoupled</b> (a dog can be microfilaria+ / antigen−, or antigen+ / microfilaria−).</li>
+            <li><span class="lead">Post-treatment retest</span> — check microfilariae ~4 weeks after the last injection (~Day 120); if positive, give a microfilaricide and recheck.</li>
+            <li><span class="lead">Microfilaricide kinetics are gradual</span> — moxidectin (incl. the sustained-release ProHeart depot) drops counts sharply by ~day 30 but may not fully clear until <b>~5 months (~day 150)</b>. Persistent low microfilaremia at a few months is usually <b>slow clearance, not failure</b> — judge by the <b>trend</b>. Do NOT stack a second ML onto an active ProHeart depot (same class, no benefit, higher reaction risk).</li>
+            <li><span class="lead">Retreatment trigger = the 9-month ANTIGEN test</span> — AHS moved this from 6 to 9 months (2018) because residual antigen from dying worms lingers up to ~3 months. By 9 months, any antigen = surviving adults or new infection.</li>
+            <li><span class="lead">If antigen+ at 9 months</span> (confirm on recheck; heat-treating can unmask): retreat with <b>30 days doxycycline + 2 doses melarsomine</b>; a borderline result may allow an extra ~3 months. <b>Antigen− at 9 months = cured</b>, even if microfilariae cleared slowly.</li>
+          </ul>
+          <div class="trap"><b>⚠ Trap:</b> retreatment is decided by the <b>9-month antigen test</b>, NOT by microfilaria status — antigen and microfilaria results are decoupled.</div>
+        </section>
+
+        <section class="card">
+          <h2>Feline &amp; Ferret Heartworm</h2>
+          <ul class="tight">
+            <li><span class="lead">Cat</span> — low worm burdens; an infected cat poses <b>no transmission risk</b> to other cats. Melarsomine is <b>NOT recommended</b> (high risk of a fatal pulmonary reaction); most cats <b>self-cure over ~18–48 months</b>. Management is supportive: <b>prednisolone 1–2 mg/kg/day, tapered over a few weeks</b>, for HARD (heartworm-associated respiratory disease), plus maintained monthly prevention. Even the death of a <b>single worm</b> can trigger a fatal acute pulmonary reaction / sudden death — counsel adopters.</li>
+            <li><span class="lead">Feline diagnostics</span> — no single test is sensitive enough; combine <b>antibody + antigen + imaging</b>. Antibody detects <b>both sexes</b> from ~2 months post-infection (shows exposure occurred, not that it persists). Antigen detects <b>only adult females</b>, ~5.5–8 months post-infection; <b>30–50% of infected cats have no female worm</b> → antigen-negative.</li>
+            <li><span class="lead">Screening policy</span> — routine heartworm screening is <b>NOT indicated in asymptomatic shelter cats</b>; test symptomatic cats and counsel adopters.</li>
+            <li><span class="lead">Ferret</span> — highly susceptible; even a single worm can catastrophically obstruct the tiny heart. Microfilaremia is transient and antigen tests are frequently false-negative (low burden / single-sex male). <b>Bilirubinuria</b> is the most consistently reported clinicopathologic change.</li>
+          </ul>
+        </section>
+
+        <section class="card blue">
+          <h2>Prevention <span class="n">ASV PS</span></h2>
+          <ul class="tight">
+            <li>The ASV endorses the AHS guidelines and urges <b>year-round prevention for dogs, cats, and ferrets</b> — some transmission risk exists everywhere. Screen at-risk dogs; provide prevention even without screening; treat infected dogs promptly.</li>
+            <li>Heartworm management should not divert resources from other animals; a shelter without treatment capacity may <b>transfer infected dogs to a partner with capacity, or release to an informed adopter</b> with clear follow-up.</li>
+            <li>High-prevalence areas: screen by <b>microfilaria first</b> (cheaper); low-prevalence: <b>antigen-test first</b>. A treated dog is not heartworm-free until <b>two antigen tests 6 months apart</b> are negative.</li>
+            <li>MLs (ivermectin, selamectin, milbemycin, moxidectin) are reliable preventives only against worms <b>≤30 days</b> old; DEET (an insect repellent) is unsafe in dogs, cats, and ferrets.</li>
+            <li><b>Permethrin spot-ons block mosquito transmission</b> (e.g. permethrin + dinotefuran + pyriproxyfen on relocated dogs reduces the chance an infected dog seeds local mosquitoes).</li>
+          </ul>
+          <div class="trap"><b>⚠ Trap:</b> permethrin is <b>NEVER used on cats</b> — it causes severe, potentially fatal toxicity.</div>
+        </section>
+      </div>
+
+    </div>
+
+    <section class="card" style="border-left-color:#0e7490;margin-top:12px">
+      <h2 style="color:#0e7490">📄 Journal Articles</h2>
+      <div class="exp">▢ journal-article summaries to be added</div>
+    </section>
+
+    <footer class="doc">
+      <span>Personal study notes · 2026 ABVP Combined Exam (Shelter Medicine RVS)</span>
+      <span>© Juliana Xue — for personal study use</span>
+    </footer>
+  </div>
+
+  <script>if(window.self!==window.top){document.documentElement.className+=' embedded';}</script>
+</body>
+</html>
