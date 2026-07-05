@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  EXOTIC & OTHER SHELTER ANIMALS — ONE-PAGER
+  Distilled faithfully from physical-health/other-animals_hub.html (Juliana's
+  vetted hub). Body text = source-derived; .add / .flag = Claude clarifications.
+  GREEN theme (--theme:#0f3d3a).
+  ============================================================================
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exotic &amp; Other Animals — Cheatsheet</title>
+<style>
+  :root{
+    --ink:#1f2430; --muted:#6b7280; --line:#e5e7eb;
+    --theme:#0f3d3a; --theme-soft:#e6eeeb; --theme-line:#a9c6bd;   /* ← change per domain */
+    --blue:#1d4ed8; --blue-soft:#eaf0ff; --blue-line:#b8caff;
+    --warn:#b45309; --warn-soft:#fff5e6;
+    --add:#0d7d74;  --add-soft:#e4f6f4;
+  }
+  *{box-sizing:border-box} html,body{margin:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:#f4f4f6;line-height:1.32;font-size:12px}
+  .toolbar{max-width:1180px;margin:14px auto 0;padding:10px 14px;background:#fff;border:1px solid var(--line);
+    border-radius:10px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+  .toolbar b{color:var(--ink)}
+  .btn{background:var(--theme);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:13px;font-weight:600;cursor:pointer}
+  .btn:hover{filter:brightness(.9)}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .legend span{display:inline-flex;align-items:center;gap:5px}
+  .swatch{width:11px;height:11px;border-radius:3px;display:inline-block}
+  .sheet{max-width:1180px;margin:14px auto;background:#fff;padding:16px 18px 12px;border:1px solid var(--line);
+    border-radius:10px;box-shadow:0 1px 6px rgba(0,0,0,.05)}
+  header.doc{border-bottom:2.5px solid var(--theme);padding-bottom:8px;margin-bottom:12px;display:flex;
+    align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  header.doc h1{margin:0;font-size:23px;letter-spacing:-.2px;color:var(--theme)}
+  header.doc h1 small{color:var(--ink);font-weight:600;font-size:14px}
+  .tags{font-size:11px;color:var(--muted)} .tags b{color:var(--theme)}
+  .lede{font-size:11.5px;color:var(--muted);margin:0 0 10px;border-left:3px solid var(--theme-line);padding-left:9px}
+  .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .col{display:flex;flex-direction:column;gap:11px}
+  section.card{border:1px solid var(--line);border-left:4px solid var(--theme);border-radius:7px;
+    padding:8px 10px 9px;break-inside:avoid;page-break-inside:avoid}
+  section.card.blue{border-left-color:var(--blue)}
+  section.card h2{margin:0 0 6px;font-size:12.5px;text-transform:uppercase;letter-spacing:.4px;color:var(--theme);
+    display:flex;align-items:center;gap:6px}
+  section.card.blue h2{color:var(--blue)}
+  h2 .n{font-size:10px;background:var(--theme-soft);color:var(--theme);border:1px solid var(--theme-line);
+    border-radius:4px;padding:0 5px;font-weight:700}
+  ul{margin:0;padding-left:15px} ol{margin:0;padding-left:17px}
+  li{margin:2.5px 0} li::marker{color:var(--theme)} .blue li::marker{color:var(--blue)}
+  ul.tight li{margin:1.5px 0}
+  .sub{list-style:none;padding-left:2px;margin:3px 0} .sub li{margin:1.5px 0}
+  .sub li::before{content:"– ";color:var(--muted)}
+  b,strong{font-weight:700} .lead{font-weight:700}
+  .exp{color:var(--muted);font-weight:400}
+  .arw{color:var(--theme);font-weight:700} .up{color:#b91c1c;font-weight:700} .dn{color:#1d4ed8;font-weight:700}
+  .trap{background:var(--warn-soft);border:1px solid #f2cf95;border-radius:5px;padding:4px 7px;margin:5px 0 2px;
+    font-size:11px;color:#7a4a08} .trap>b:first-child{color:var(--warn)}
+  .add{background:var(--add-soft);border-bottom:1px dotted var(--add);color:#0b5a54;padding:0 2px;border-radius:2px}
+  .addtag{font-size:9px;font-weight:700;color:#fff;background:var(--add);border-radius:3px;padding:0 3px;margin-left:2px;vertical-align:1px}
+  .flag{display:block;background:var(--add-soft);border:1px dashed var(--add);border-radius:5px;padding:4px 7px;
+    margin:5px 0 0;font-size:10.5px;color:#0b5a54} .flag b{color:var(--add)}
+  .risk{font-weight:800} .risk.hi{color:#b91c1c}.risk.mod{color:#b45309}.risk.lo{color:#15803d}
+  footer.doc{margin-top:12px;padding-top:8px;border-top:1px solid var(--line);font-size:9.5px;color:var(--muted);
+    display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+  @page{size:A4 landscape;margin:9mm}
+  @media print{
+    body{background:#fff;font-size:9.4px;line-height:1.26}
+    .toolbar{display:none}
+    .sheet{max-width:none;margin:0;border:none;border-radius:0;box-shadow:none;padding:0}
+    header.doc h1{font-size:19px} header.doc h1 small{font-size:12px}
+    section.card h2{font-size:10.5px}
+    .cols{gap:9px}.col{gap:8px}section.card{padding:6px 8px 7px}.trap,.flag{font-size:9px}
+  }
+  /* narrow screens: stack the 3 columns so it stays readable */
+  @media(max-width:780px){ .cols{grid-template-columns:1fr} }
+  /* embedded inside the study-hub collapsible: drop page chrome, sit flush */
+  html.embedded body{background:#fff}
+  html.embedded .toolbar{display:none}
+  html.embedded .sheet{max-width:none;margin:0;border:none;border-radius:0;box-shadow:none;padding:10px 13px 8px}
+</style>
+</head>
+<body>
+
+  <div class="toolbar">
+    <button class="btn" onclick="window.print()">🖨  Print / Save as PDF</button>
+    <span>Best printed <b>A4 landscape</b>.</span>
+    <div class="legend">
+      <span><span class="swatch" style="background:#0f3d3a"></span>species card</span>
+      <span><span class="swatch" style="background:#1d4ed8"></span>handling / zoonoses</span>
+      <span><span class="swatch" style="background:#fff5e6;border:1px solid #f2cf95"></span>exam trap</span>
+      <span><span class="swatch" style="background:#e4f6f4;border:1px solid #0d7d74"></span><b style="color:#0d7d74">+</b> added / clarified</span>
+    </div>
+  </div>
+
+  <div class="sheet">
+    <header class="doc">
+      <h1>Exotic &amp; Other Animals</h1>
+      <div class="tags"><b>Exotic &amp; Other Animals</b> · Physical Health of Animal (29%) · Shelter Medicine</div>
+    </header>
+
+    <p class="lede">Non-cat/dog shelter species live or die on <b>species-specific husbandry</b> — right diet, thermal gradient, ultraviolet-B light, bedding &amp; strict predator/prey separation — and each group carries its own <b>zoonoses</b>, so match the care to the biology and protect the staff and public.</p>
+
+    <div class="cols">
+
+      <!-- ============ COLUMN 1 ============ -->
+      <div class="col">
+        <section class="card">
+          <h2>Ferrets</h2>
+          <ul class="tight">
+            <li><span class="lead">Obligate carnivores</span> (fat 15–20%, protein 30–35%; kitten food OK, cat food isn't). <b>Predators — must NOT be housed near birds, rodents or rabbits.</b> Treat every incoming ferret empirically for ear mites (<i>Otodectes cynotis</i>).</li>
+            <li><span class="lead">Canine distemper virus (CDV)</span> is <b>~100% fatal — no treatment.</b> Chin/lip + inguinal/perianal dermatitis is pathognomonic; <b>humane euthanasia is the best shelter option.</b> Vaccinate healthy ferrets for CDV + rabies.</li>
+            <li><span class="lead">Aleutian disease virus (ADV, a parvovirus)</span> — chronic wasting; hallmark <b>hypergammaglobulinaemia</b>; ascending paresis. No vaccine; euthanise symptomatic shelter ferrets.</li>
+            <li>~1/3 of ferrets &gt;3 yr get one of the classic neoplasias: <b>insulinoma</b> (glucose &lt;60 mg/dL, hind-limb weakness, ptyalism), <b>lymphoma</b>, or <b>adrenocortical disease</b> — symmetrical tail-base alopecia advancing rostrally + vulvar swelling in spayed jills, tied to early US spay/neuter.</li>
+          </ul>
+          <div class="trap"><b>⚠ Trap:</b> Ferrets have a high rate of <b>anaphylaxis to CDV &amp; rabies vaccines</b>, usually within <b>25 min</b> — monitor every vaccinated ferret ~25 min; first-line <b>diphenhydramine 2–4 mg/kg</b>.</div>
+        </section>
+
+        <section class="card">
+          <h2>Guinea Pigs</h2>
+          <ul class="tight">
+            <li><span class="lead">Bordetella bronchiseptica</span> is a major respiratory pathogen — <b>rabbits, dogs, cats &amp; primates are asymptomatic carriers</b> that infect guinea pigs (shared airspace can suffice); <b>never co-house.</b></li>
+            <li><span class="lead">Elodont (continuously growing) teeth</span> → cheek-tooth overgrowth on low-fibre / muesli diets; oral exam essential. Use <b>solid floors</b> (wire → pododermatitis); <b>pine &amp; cedar bedding contraindicated.</b></li>
+            <li><span class="lead">Ovarian cysts</span> — <b>76% by 5 yr</b>: anorexia, abdominal distension, bilateral symmetrical truncal alopecia.</li>
+            <li>Sow <b>pubic symphysis fuses at ~7–8 mo if never bred</b> → dystocia if bred for the first time after that age.</li>
+          </ul>
+          <div class="trap"><b>⚠ Trap:</b> Guinea pigs <b>can't synthesise vitamin C</b> (lack L-gulonolactone oxidase) → scurvy. Plain rabbit pellets don't supply enough — feed <b>guinea-pig-specific, vitamin-C-formulated pellets + fresh veg.</b></div>
+        </section>
+
+        <section class="card">
+          <h2>Small Rodents <span class="n">hamster · gerbil · rat · mouse</span></h2>
+          <ul class="tight">
+            <li><span class="lead">Wet tail = <i>Lawsonia intracellularis</i></span> proliferative ileitis — classic in <b>weanling hamsters (4–8 wk)</b>: haemorrhagic diarrhoea, may die within 48 h, mortality ~90%.</li>
+            <li><span class="lead"><i>Mycoplasma pulmonis</i></span> = most common respiratory pathogen of rats &amp; mice; intracellular → <b>can't be cleared, recrudesces</b>; worsened by high cage ammonia and cedar/pine bedding.</li>
+            <li><b>Avoid cedar &amp; pine shavings</b> (aromatic compounds → respiratory/skin disease) — use shredded paper.</li>
+            <li><span class="lead">Zoonoses</span> — rat-bite fever (<i>Streptobacillus moniliformis</i>), lymphocytic choriomeningitis virus (LCMV), hantavirus. Male mice fight; gerbils are territorial (house singly); hamsters have a low startle threshold (bite).</li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- ============ COLUMN 2 ============ -->
+      <div class="col">
+        <section class="card">
+          <h2>Reptiles</h2>
+          <ul class="tight">
+            <li><span class="lead">Poikilotherms — provide a thermal gradient</span> so the animal chooses its body temperature: ambient <b>80–85°F (27–29°C)</b> + a focal basking spot ~10°F warmer. Too cold → immunosuppression/GI stasis; too hot → thermal burns/death.</li>
+            <li><span class="lead">Ultraviolet-B (UVB) light</span> drives skin vitamin-D synthesis (esp. herbivores/omnivores): wavelength <b>290–320 nm</b>, bulb <b>12–18 in (30–46 cm)</b> away, <b>NOT filtered through glass/acrylic</b>, replace every 12 mo. Deficient UVB / calcium <span class="arw">→</span> <span class="add">metabolic bone disease (MBD)<span class="addtag">+</span></span>.</li>
+            <li><span class="lead">Temporary housing only</span> — review local law first; <b>individualise ID (never group several reptiles under one ID)</b>; don't co-house (cannibalism) or house with carnivorous mammals. Cat litter must never be used.</li>
+          </ul>
+          <div class="trap"><b>⚠ Trap:</b> <b>Phenolics &amp; glutaraldehyde are toxic to reptiles/amphibians</b> — never use them; disinfect with dilute bleach 1:32 or a quaternary ammonium compound (QAC), then rinse thoroughly (highly absorptive skin).</div>
+        </section>
+
+        <section class="card">
+          <h2>Avian (Birds)</h2>
+          <ul class="tight">
+            <li><span class="lead">Gram-negative</span> organisms in psittacine droppings = potential pathogens (normal flora is gram-positive).</li>
+            <li><span class="lead">Birds lack a diaphragm</span> — never wrap the chest tightly (chest excursion = respiration); give fluids orally/SC/IO, <b>never intracoelomically (can drown the bird).</b> Poor clotting → a damaged <b>blood feather can bleed to death; do NOT pull it</b> (styptic/pressure).</li>
+            <li><span class="lead">Aspergillosis</span> = most common fungal disease (spore inhalation, non-contagious, management-driven); avoid corncob &amp; walnut-shell bedding.</li>
+            <li>Overheated non-stick cookware releases <span class="add">polytetrafluoroethylene (PTFE / Teflon) fumes that are rapidly fatal to birds<span class="addtag">+</span></span>.</li>
+          </ul>
+          <div class="trap"><b>⚠ Trap:</b> <b>Psittacosis / chlamydiosis</b> (<i>Chlamydophila psittaci</i>, "parrot fever") is the headline avian zoonosis — an obligate intracellular bacterium <b>stable in dried droppings for months</b> (people inhale fecal dust). Best shelter control = <b>remove feces daily</b>; treat <b>doxycycline for 45 days.</b></div>
+        </section>
+
+        <section class="card">
+          <h2>Horses</h2>
+          <ul class="tight">
+            <li><span class="lead">Trickle-feeders</span> needing continuous high-fibre forage. <b>Equine squamous gastric ulcer disease</b> 17–39% in untrained horses, 66–100% in training; <b>colic prevalence &gt;4%/yr.</b></li>
+            <li><span class="lead">Quarantine 2–3 weeks on intake</span> — latent <b>equine herpesvirus (EHV)</b> and <b>Salmonella</b> shed under transport stress; <b>strangles</b> (<i>Streptococcus equi</i>) is common in auction/rescue horses.</li>
+            <li>Herd animals — house with (or within sight of) other horses; give daily turnout, not stalled 24/7. Wood chewing / object licking = salt/mineral deficiency.</li>
+            <li><b>Aggression's most common cause is underlying physical discomfort/illness</b>; don't punish stereotypies (cribbing in 2–10%).</li>
+          </ul>
+          <div class="flag"><b>+ check:</b> Coggins test for <b>equine infectious anaemia (EIA)</b> is a standard equine intake/movement screen — not covered in Juliana's hub source; verify before relying on it as an exam point.</div>
+        </section>
+      </div>
+
+      <!-- ============ COLUMN 3 ============ -->
+      <div class="col">
+        <section class="card">
+          <h2>Wildlife</h2>
+          <ul class="tight">
+            <li><span class="lead">Emergency stabilization only</span> — it's <b>illegal to give long-term care without a state rehabilitator permit</b> (most states allow ≤48 h possession, then transfer); migratory birds/endangered species need a federal USFWS permit (Migratory Bird Treaty Act).</li>
+            <li><span class="lead">Rabies vector species (RVS)</span> = raccoons, skunks, foxes, bats (+ woodchucks). Handle <b>all</b> wild mammals as potential carriers (age is irrelevant); <b>no staff handles RVS without rabies pre-exposure prophylaxis.</b></li>
+            <li><span class="lead"><i>Baylisascaris procyonis</i> (raccoon roundworm)</span> = standout zoonosis — eggs cause <b>neural larva migrans</b> (blindness, brain damage, death), survive years, resist disinfectants; <b>only high-heat/flame kills them.</b> Opossums are remarkably rabies-resistant (their display is a bluff, not disease).</li>
+            <li><b>Cat-caught wildlife → antibiotics ASAP</b> (<i>Pasteurella</i> septicaemia; amoxicillin-clavulanate best). Minimise stress (dark/warm/quiet — prey species "die of fright"); <b>avoid imprinting/hand-raising</b> → transfer to a rehabilitator.</li>
+          </ul>
+          <div class="trap"><b>⚠ Trap:</b> Rabies spreads only by <b>saliva into a bite, fresh scratch or mucous membrane</b> — NOT by blood, urine or feces, not airborne, can't cross intact skin, and dried saliva is non-viable. Counsel the public toward calm precautions, not panic.</div>
+        </section>
+
+        <section class="card blue">
+          <h2>Handling &amp; Zoonoses <span class="n">cross-cutting</span></h2>
+          <ul class="tight">
+            <li><span class="lead">Never co-house predators with prey</span> — ferrets away from birds/rodents/rabbits; <b>rabbits (a Bordetella reservoir) away from guinea pigs</b>; reptiles away from carnivorous mammals.</li>
+            <li><span class="lead">Bedding traps</span> — pine &amp; cedar shavings harm small rodents/guinea pigs; corncob &amp; walnut-shell promote avian aspergillosis; phenolics/glutaraldehyde are toxic to reptiles.</li>
+            <li><span class="lead">LCMV (lymphocytic choriomeningitis virus)</span> — rodents/guinea pigs; a human <b>teratogen in pregnancy</b> (fetal hydrocephalus + chorioretinitis) → counsel pregnant staff/adopters to avoid rodent urine, saliva &amp; feces.</li>
+            <li><span class="lead">Other key zoonoses</span> — psittacosis (birds), rat-bite fever, <i>Baylisascaris</i> (raccoon), <i>Salmonella</i>/<i>Campylobacter</i> (ferrets, reptiles, guinea pigs), dermatophytosis &amp; sarcoptic mites.</li>
+            <li><b>Wash hands / change gloves between predator and prey species</b> — rodents smell a predator and panic/bite.</li>
+          </ul>
+        </section>
+      </div>
+
+    </div>
+
+    <section class="card" style="border-left-color:#0e7490;margin-top:12px">
+      <h2 style="color:#0e7490">📄 Journal Articles</h2>
+      <div class="exp">▢ journal-article summaries to be added</div>
+    </section>
+
+    <footer class="doc">
+      <span>Personal study notes · 2026 ABVP Combined Exam (Shelter Medicine RVS)</span>
+      <span>© Juliana Xue — for personal study use</span>
+    </footer>
+  </div>
+
+  <script>if(window.self!==window.top){document.documentElement.className+=' embedded';}</script>
+</body>
+</html>

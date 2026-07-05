@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rabbits — Cheatsheet</title>
+<style>
+  :root{
+    --ink:#1f2430; --muted:#6b7280; --line:#e5e7eb;
+    --theme:#0f3d3a; --theme-soft:#e6eeeb; --theme-line:#a9c6bd;   /* ← change per domain */
+    --blue:#1d4ed8; --blue-soft:#eaf0ff; --blue-line:#b8caff;
+    --warn:#b45309; --warn-soft:#fff5e6;
+    --add:#0d7d74;  --add-soft:#e4f6f4;
+  }
+  *{box-sizing:border-box} html,body{margin:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:#f4f4f6;line-height:1.32;font-size:12px}
+  .toolbar{max-width:1180px;margin:14px auto 0;padding:10px 14px;background:#fff;border:1px solid var(--line);
+    border-radius:10px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+  .toolbar b{color:var(--ink)}
+  .btn{background:var(--theme);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:13px;font-weight:600;cursor:pointer}
+  .btn:hover{filter:brightness(.9)}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .legend span{display:inline-flex;align-items:center;gap:5px}
+  .swatch{width:11px;height:11px;border-radius:3px;display:inline-block}
+  .sheet{max-width:1180px;margin:14px auto;background:#fff;padding:16px 18px 12px;border:1px solid var(--line);
+    border-radius:10px;box-shadow:0 1px 6px rgba(0,0,0,.05)}
+  header.doc{border-bottom:2.5px solid var(--theme);padding-bottom:8px;margin-bottom:12px;display:flex;
+    align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  header.doc h1{margin:0;font-size:23px;letter-spacing:-.2px;color:var(--theme)}
+  header.doc h1 small{color:var(--ink);font-weight:600;font-size:14px}
+  .tags{font-size:11px;color:var(--muted)} .tags b{color:var(--theme)}
+  .lede{font-size:11.5px;color:var(--muted);margin:0 0 10px;border-left:3px solid var(--theme-line);padding-left:9px}
+  .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .col{display:flex;flex-direction:column;gap:11px}
+  section.card{border:1px solid var(--line);border-left:4px solid var(--theme);border-radius:7px;
+    padding:8px 10px 9px;break-inside:avoid;page-break-inside:avoid}
+  section.card.blue{border-left-color:var(--blue)}
+  section.card h2{margin:0 0 6px;font-size:12.5px;text-transform:uppercase;letter-spacing:.4px;color:var(--theme);
+    display:flex;align-items:center;gap:6px}
+  section.card.blue h2{color:var(--blue)}
+  h2 .n{font-size:10px;background:var(--theme-soft);color:var(--theme);border:1px solid var(--theme-line);
+    border-radius:4px;padding:0 5px;font-weight:700}
+  ul{margin:0;padding-left:15px} ol{margin:0;padding-left:17px}
+  li{margin:2.5px 0} li::marker{color:var(--theme)} .blue li::marker{color:var(--blue)}
+  ul.tight li{margin:1.5px 0}
+  .sub{list-style:none;padding-left:2px;margin:3px 0} .sub li{margin:1.5px 0}
+  .sub li::before{content:"– ";color:var(--muted)}
+  b,strong{font-weight:700} .lead{font-weight:700}
+  .exp{color:var(--muted);font-weight:400}
+  .arw{color:var(--theme);font-weight:700} .up{color:#b91c1c;font-weight:700} .dn{color:#1d4ed8;font-weight:700}
+  .trap{background:var(--warn-soft);border:1px solid #f2cf95;border-radius:5px;padding:4px 7px;margin:5px 0 2px;
+    font-size:11px;color:#7a4a08} .trap>b:first-child{color:var(--warn)}
+  .add{background:var(--add-soft);border-bottom:1px dotted var(--add);color:#0b5a54;padding:0 2px;border-radius:2px}
+  .addtag{font-size:9px;font-weight:700;color:#fff;background:var(--add);border-radius:3px;padding:0 3px;margin-left:2px;vertical-align:1px}
+  .flag{display:block;background:var(--add-soft);border:1px dashed var(--add);border-radius:5px;padding:4px 7px;
+    margin:5px 0 0;font-size:10.5px;color:#0b5a54} .flag b{color:var(--add)}
+  .risk{font-weight:800} .risk.hi{color:#b91c1c}.risk.mod{color:#b45309}.risk.lo{color:#15803d}
+  footer.doc{margin-top:12px;padding-top:8px;border-top:1px solid var(--line);font-size:9.5px;color:var(--muted);
+    display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+  @page{size:A4 landscape;margin:9mm}
+  @media print{
+    body{background:#fff;font-size:9.4px;line-height:1.26}
+    .toolbar{display:none}
+    .sheet{max-width:none;margin:0;border:none;border-radius:0;box-shadow:none;padding:0}
+    header.doc h1{font-size:19px} header.doc h1 small{font-size:12px}
+    section.card h2{font-size:10.5px}
+    .cols{gap:9px}.col{gap:8px}section.card{padding:6px 8px 7px}.trap,.flag{font-size:9px}
+  }
+  /* narrow screens: stack the 3 columns so it stays readable */
+  @media(max-width:780px){ .cols{grid-template-columns:1fr} }
+  /* embedded inside the study-hub collapsible: drop page chrome, sit flush */
+  html.embedded body{background:#fff}
+  html.embedded .toolbar{display:none}
+  html.embedded .sheet{max-width:none;margin:0;border:none;border-radius:0;box-shadow:none;padding:10px 13px 8px}
+</style>
+</head>
+<body>
+
+  <div class="toolbar">
+    <button class="btn" onclick="window.print()">🖨  Print / Save as PDF</button>
+    <span>Best printed <b>A4 landscape</b>.</span>
+    <div class="legend">
+      <span><span class="swatch" style="background:#0f3d3a"></span>section</span>
+      <span><span class="swatch" style="background:#1d4ed8"></span>sanitation / RHDV</span>
+      <span><span class="swatch" style="background:#fff5e6;border:1px solid #f2cf95"></span>exam trap</span>
+      <span><span class="swatch" style="background:#e4f6f4;border:1px solid #0d7d74"></span><b style="color:#0d7d74">+</b> added / clarified</span>
+    </div>
+  </div>
+
+  <div class="sheet">
+    <header class="doc">
+      <h1>Rabbits</h1>
+      <div class="tags"><b>Rabbits</b> · Physical Health of Animal (29%) · Shelter Medicine</div>
+    </header>
+
+    <p class="lede">Rabbits are highly stress-sensitive <b>prey animals</b> for whom shelter life is fundamentally hard — the <b>ASV <span class="exp">(Association of Shelter Veterinarians)</span> 2026 Guidelines for Humane Rabbit Housing</b> set the exam-tested standards for space, light, noise, co-housing and RHDV sanitation, while their unique hindgut-fermenting GI tract dictates diet and drug choices.</p>
+
+    <div class="cols">
+
+      <!-- ============ COLUMN 1 ============ -->
+      <div class="col">
+        <section class="card">
+          <h2>Prey-Species Stress &amp; Shelter Fit</h2>
+          <ul class="tight">
+            <li>Domestic rabbit = <i>Oryctolagus cuniculus</i>, a burrowing, social prey species — shelter housing is hard to reconcile with these instincts.</li>
+            <li><span class="lead">Highly stress-sensitive</span> — sight, sound &amp; smell of predators (dogs, cats, ferrets) impose major physiological stress. ~100 million olfactory cells (vs ~30 million in humans) → predator scent alone triggers fear.</li>
+            <li>Housing must fulfil the <b>Five Freedoms &amp; Five Domains</b>; shelter housing is a <b>last resort</b> — try owner self-rehoming, foster, rescue/boarding, or community spay/neuter-return first.</li>
+            <li><span class="lead">Fewer units → larger enclosures + more attention → faster outcomes.</span> Housing MORE rabbits does not increase adoptions — it raises average length of stay <span class="exp">(ALOS)</span> &amp; cost.</li>
+            <li>It is <b>inhumane</b> to keep a rabbit in constant fear/anxiety/stress → act immediately: transfer, return-to-field, offsite housing, or humane euthanasia.</li>
+          </ul>
+          <div class="trap"><b>⚠ Trap:</b> Do <b>NOT</b> cycle air from dog/cat areas into rabbit housing — predator scent in recycled air causes stress even with no visual contact.</div>
+        </section>
+
+        <section class="card">
+          <h2>Housing &amp; Space <span class="n">ASV 2026</span></h2>
+          <ul class="tight">
+            <li><span class="lead">Min RECOMMENDED</span> <span class="exp">(stays &gt;2 wk, exercise built in)</span> — single <b>33 ft²/3 m²</b> (length 9–10 ft/3 m, width ≥3 ft/0.9 m); pair <b>45 ft²/4 m²</b> (width ≥5 ft/1.5 m). Unobstructed run 3 m/9.8 ft; open-top wall ≥1.25 m/4.1 ft.</li>
+            <li><span class="lead">Min ACCEPTABLE</span> <span class="exp">(&lt;2 wk ONLY, no built-in exercise)</span> — single <b>8–11 ft²/0.8–1 m²</b>; caregivers must give separate daily exercise.</li>
+            <li><span class="lead">4 enclosure components</span> — darkened hide (rest fully outstretched) · litter box ≥1 per rabbit with hay access · eat/drink area (open dish, away from litter) · exercise (stand on hind legs + <b>3 unimpeded hops</b>).</li>
+            <li>Materials non-toxic, predator-proof, non-porous, quiet latches; wood not recommended.</li>
+          </ul>
+          <div class="trap"><b>⚠ Trap:</b> Slatted/grid/<b>WIRE floors must NOT be used</b> → pododermatitis (sore hocks); cover slippery floors with rubber/foam/grass mats.</div>
+          <div class="trap"><b>⚠ Trap:</b> "Minimum acceptable" is <b>NOT the standard of care</b> — temporary short-stay only + daily supplemental exercise; longer stays need the recommended 33 ft²/3 m².</div>
+        </section>
+      </div>
+
+      <!-- ============ COLUMN 2 ============ -->
+      <div class="col">
+        <section class="card">
+          <h2>Light · Noise · Ventilation <span class="n">ASV 2026</span></h2>
+          <ul class="tight">
+            <li><span class="lead">Lighting</span> — min ambient <b>3–5 footcandles <span class="exp">(FC)</span> ≈ 30–50 lux</b>; dimmable; <b>full darkness at night</b> with light-blocking hides. Rabbits are crepuscular — a disrupted light/dark cycle → poor stress adaptation, altered immunity, shorter lifespan.</li>
+            <li><span class="lead">Noise</span> — prolonged <b>50–70 dB <span class="exp">(decibels)</span></b> is detrimental (conversation ≈50 dB, vacuum ≈70 dB; shelters often exceed 100 dB). Controls: distance from dog housing, quiet latches, music off at night.</li>
+            <li><span class="lead">UVB <span class="exp">(ultraviolet B)</span></span> — indoor rabbits risk vitamin D deficiency; sun-dried hay gives some, supplemental UVB raises blood vitamin D; always allow retreat from UV.</li>
+            <li><span class="lead">Climate</span> — <b>59–72°F/15–22°C</b> (heat stress &gt;86°F/30°C); humidity 30–70% relative humidity; ventilation <b>≥10 air changes/hour</b>. Misters NOT recommended (damp fur → dermatitis/flystrike).</li>
+          </ul>
+          <div class="trap"><b>⚠ Trap:</b> <b>Motion-activated lighting is specifically CONTRAINDICATED</b> — night-active rabbits trigger the lights and destroy the dark phase of their circadian rhythm.</div>
+        </section>
+
+        <section class="card">
+          <h2>Co-housing &amp; Handling <span class="n">ASV 2026</span></h2>
+          <ul class="tight">
+            <li>Rabbits are <b>social</b> — avoid single housing where possible (single-housed → wall-pawing, bar-gnawing, GI dysfunction). Preferred group size <b>2–3</b>.</li>
+            <li>Never mix unfamiliar rabbits for shared exercise. Each rabbit needs its own hide, platform, water &amp; enrichment; co-housed enclosure width ≥1.5 m/5 ft.</li>
+            <li><span class="lead">Length of stay <span class="exp">(LOS)</span></span> — bonded pairs stay longer than singles → list as singles for adoption unless already bonded.</li>
+            <li><span class="lead">Handling</span> — ALWAYS support the hindquarters (unsupported kicking → vertebral fracture/luxation). Whiskers very sensitive; rabbits dislike having the nose touched.</li>
+          </ul>
+          <div class="trap"><b>⚠ Trap:</b> All group-housed rabbits must be <b>spayed/neutered <span class="exp">(SN)</span></b> — NEVER co-house intact adults (fighting → serious injury/death). Keep opposite-sex pairs separated <b>≥2 weeks</b> after sterilization.</div>
+        </section>
+      </div>
+
+      <!-- ============ COLUMN 3 ============ -->
+      <div class="col">
+        <section class="card">
+          <h2>Diet &amp; GI Health</h2>
+          <ul class="tight">
+            <li><span class="lead">Hindgut fermenters</span> — hay-based (timothy/grass) available at <b>all times</b>; alfalfa only for pregnant/lactating/growing rabbits (high calcium). Pellets ~¼ cup per 5 lb/2.3 kg; water 120–150 mL/kg/day. Cecotrophs (soft feces eaten from the anus) = essential nutrition, not disease.</li>
+            <li><span class="lead">Dental</span> — continuously growing teeth → malocclusion common; formula I 2/1 C 0/0 P 3/2 M 3/3 = 28 (small 2nd upper incisor = "peg tooth"); a thorough oral exam is essential.</li>
+            <li><span class="lead">GI <span class="exp">(gastrointestinal)</span> stasis</span> — anorexia + weight loss ± diarrhoea → <b>ALWAYS check the teeth first</b>; often precipitated by improper antibiotics (dysbiosis).</li>
+            <li><span class="lead">Urine "sludge"</span> — high dietary calcium (alfalfa) + vitamin-D-<b>independent</b> calcium absorption → bladder sand. Red/orange urine usually porphyrins (fluoresces under Wood's lamp), NOT true haematuria.</li>
+            <li><span class="lead">Uterine adenocarcinoma</span> in <b>50–80% of intact does &gt;3–4 yr</b> → spay all non-breeding does at 6–9 months.</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Key Diseases &amp; Drug Cautions</h2>
+          <ul class="tight">
+            <li><span class="lead"><i>Pasteurella multocida</i></span> — most common isolate (&gt;50%); "snuffles," pneumonia, otitis, head tilt; emerges with stress/crowding. In respiratory disease, <b>culture — don't assume Pasteurella</b>.</li>
+            <li><span class="lead"><i>Encephalitozoon cuniculi</i></span> — intracellular microsporidian (a fungus); the <b>dwarf-breed head tilt/vestibular sign</b> (standard-breed head tilt is more likely Pasteurella/otitis). No reliable cure.</li>
+            <li><span class="lead"><i>Bordetella</i></span> — rabbits are asymptomatic reservoirs that infect guinea pigs → <b>never co-house rabbits with guinea pigs</b>.</li>
+          </ul>
+          <div class="trap"><b>⚠ Trap:</b> <b>Oral (enteral) penicillin is FATAL</b> in rabbits — disrupts the cecal microbiome → <i>Clostridium</i> enterotoxaemia. For rabbit syphilis (<i>Treponema</i>) use <b>injectable penicillin G</b>.</div>
+          <div class="trap"><b>⚠ Trap:</b> <b>Fipronil</b> (Frontline), <b>steroids/dexamethasone</b>, and dog/cat flea-tick products must <b>NOT</b> be used on rabbits. Safe antibiotics: doxycycline, trimethoprim-sulfa <span class="exp">(TMS)</span>, fluoroquinolones.</div>
+        </section>
+
+        <section class="card blue">
+          <h2>Sanitation &amp; RHDV</h2>
+          <ul class="tight">
+            <li><span class="lead">RHDV <span class="exp">(rabbit haemorrhagic disease virus, types 1 &amp; 2)</span></span> — <b>REPORTABLE</b> non-enveloped calicivirus; affects only European/domestic rabbits &gt;2 months (neonates resistant); replicates in liver → hepatic necrosis + disseminated intravascular coagulation; mortality ~40–100%.</li>
+            <li>Sudden death with blood from orifices — but <b>absence of bleeding does NOT rule it out</b>. No US-licensed vaccine; treatment not recommended → isolate + full personal protective equipment.</li>
+            <li><span class="lead">Cleaning order</span> — healthy kits → healthy adults → unhealthy → RHDV quarantine LAST; separate supplies for healthy vs sick. Acetic acid (vinegar, pH 2–3) breaks down alkaline mineral deposits.</li>
+            <li><span class="lead">Intake quarantine = risk-assessment based</span> (not routine) — at-risk = outdoor/feral exposure &lt;10 d, unvaccinated population, or no proof of vaccination → <b>10-day quarantine</b>; skip if it would lengthen stay for a single rabbit.</li>
+          </ul>
+          <div class="trap"><b>⚠ Trap:</b> RHDV is <b>non-enveloped</b> → many routine disinfectants FAIL (standard quaternary ammonium + some phenolics insufficient). Use <b>accelerated hydrogen peroxide, potassium peroxymonosulfate, or 0.5% sodium hypochlorite</b>.</div>
+        </section>
+      </div>
+
+    </div>
+
+    <section class="card" style="border-left-color:#0e7490;margin-top:12px">
+      <h2 style="color:#0e7490">📄 Journal Articles</h2>
+      <div class="exp">▢ journal-article summaries to be added</div>
+    </section>
+
+    <footer class="doc">
+      <span>Personal study notes · 2026 ABVP Combined Exam (Shelter Medicine RVS)</span>
+      <span>© Juliana Xue — for personal study use</span>
+    </footer>
+  </div>
+
+  <script>if(window.self!==window.top){document.documentElement.className+=' embedded';}</script>
+</body>
+</html>
