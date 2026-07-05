@@ -156,6 +156,16 @@
   .no-results{color:var(--faint);font-size:14px;padding:20px 0;text-align:center}
   /* Disease summary sheets (collapsible one-pagers) */
   .sheets-wrap{margin-top:26px}
+  .domain-group{background:var(--paper2);border:0.5px solid var(--line);border-radius:12px;margin-bottom:10px;overflow:hidden}
+  .domain-group>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:14px 18px;user-select:none;font-family:var(--serif);font-weight:600;font-size:16px}
+  .domain-group>summary::-webkit-details-marker{display:none}
+  .domain-group>summary:hover{background:var(--paper)}
+  .domain-group[open]>summary{border-bottom:0.5px solid var(--line)}
+  .dg-name{flex:1}
+  .dg-count{font-size:12px;font-weight:500;color:var(--soft);background:var(--card);border:0.5px solid var(--line2);border-radius:999px;padding:2px 10px}
+  .domain-group[open]>summary .sheet-chev{transform:rotate(90deg)}
+  .dg-body{padding:10px 12px;display:flex;flex-direction:column;gap:8px}
+  .dg-body .sheet-item{margin-bottom:0}
   .sheet-item{background:var(--card);border:0.5px solid var(--line);border-radius:12px;margin-bottom:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.05)}
   .sheet-item>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:13px;padding:14px 18px;user-select:none}
   .sheet-item>summary::-webkit-details-marker{display:none}
@@ -289,23 +299,24 @@ var DOMAINS = [
    embeds the standalone file (single source, and still printable on its own).
    file = path to the standalone HTML. tag = small label chip. */
 var SHEETS = [
- {id:"epi-biostats", name:"Epidemiology & Biostatistics", abbr:"formulas explained", emoji:"📊", tag:"Research & Biostats", file:"biostats/epi-biostats.html"},
- {id:"cpv", name:"Canine Parvovirus", abbr:"CPV", emoji:"🦠", tag:"Infectious Disease", file:"disease-one-pagers/cpv.html"},
- {id:"cdv", name:"Canine Distemper", abbr:"CDV", emoji:"🦠", tag:"Infectious Disease", file:"disease-one-pagers/cdv.html"},
- {id:"cirdc", name:"Canine Respiratory Disease", abbr:"CIRDC", emoji:"🫁", tag:"Infectious Disease", file:"disease-one-pagers/cirdc.html"},
- {id:"fpv", name:"Feline Panleukopenia", abbr:"FPV", emoji:"🐈", tag:"Infectious Disease", file:"disease-one-pagers/fpv.html"},
- {id:"furi", name:"Feline Upper Respiratory", abbr:"FURI", emoji:"🤧", tag:"Infectious Disease", file:"disease-one-pagers/furi.html"},
- {id:"fiv-felv", name:"FIV, FeLV & Haemoplasma", abbr:"retroviruses", emoji:"🩸", tag:"Infectious Disease", file:"disease-one-pagers/fiv-felv.html"},
- {id:"fip", name:"Feline Infectious Peritonitis", abbr:"FIP", emoji:"🐈", tag:"Infectious Disease", file:"disease-one-pagers/fip.html"},
- {id:"dermatophytosis", name:"Dermatophytosis", abbr:"ringworm", emoji:"🍄", tag:"Infectious Disease", file:"disease-one-pagers/dermatophytosis.html"},
- {id:"leptospirosis", name:"Leptospirosis", abbr:"skeleton · building", emoji:"💧", tag:"Zoonotic · Bacterial", file:"disease-one-pagers/leptospirosis.html"},
- {id:"brucellosis", name:"Brucellosis", abbr:"B. canis", emoji:"🧫", tag:"Zoonotic · Bacterial", file:"disease-one-pagers/brucellosis.html"},
- {id:"babesiosis", name:"Babesiosis", abbr:"tick-borne", emoji:"🕷️", tag:"Vector-borne · Protozoal", file:"disease-one-pagers/babesiosis.html"},
- {id:"animal-cruelty", name:"Animal Cruelty & Forensics", abbr:"skeleton · building", emoji:"🔍", tag:"Community & Public Health", file:"disease-one-pagers/animal-cruelty.html"},
- {id:"vaccination", name:"Vaccination", abbr:"cheatsheet", emoji:"💉", tag:"Physical Health", file:"cheat-sheets/vaccination.html"},
- {id:"sanitation-biosecurity", name:"Sanitation & Biosecurity", abbr:"cheatsheet", emoji:"🧼", tag:"Physical Health", file:"cheat-sheets/sanitation-biosecurity.html"},
- {id:"surgery-anaesthesia", name:"Surgery & Anaesthesia", abbr:"cheatsheet", emoji:"🔪", tag:"Physical Health", file:"cheat-sheets/surgery-anaesthesia.html"},
- {id:"hqhvsn", name:"HQHVSN — Biosecurity", abbr:"cheatsheet", emoji:"✂️", tag:"Physical Health", file:"cheat-sheets/hqhvsn.html"}
+ {id:"epi-biostats", name:"Epidemiology & Biostatistics", abbr:"formulas explained", emoji:"📊", tag:"Research & Biostats", domain:"Research and Biostats", file:"biostats/epi-biostats.html"},
+ {id:"cpv", name:"Canine Parvovirus", abbr:"CPV", emoji:"🦠", tag:"Infectious Disease", domain:"Physical Health of Animal", file:"disease-one-pagers/cpv.html"},
+ {id:"cdv", name:"Canine Distemper", abbr:"CDV", emoji:"🦠", tag:"Infectious Disease", domain:"Physical Health of Animal", file:"disease-one-pagers/cdv.html"},
+ {id:"cirdc", name:"Canine Respiratory Disease", abbr:"CIRDC", emoji:"🫁", tag:"Infectious Disease", domain:"Physical Health of Animal", file:"disease-one-pagers/cirdc.html"},
+ {id:"fpv", name:"Feline Panleukopenia", abbr:"FPV", emoji:"🐈", tag:"Infectious Disease", domain:"Physical Health of Animal", file:"disease-one-pagers/fpv.html"},
+ {id:"furi", name:"Feline Upper Respiratory", abbr:"FURI", emoji:"🤧", tag:"Infectious Disease", domain:"Physical Health of Animal", file:"disease-one-pagers/furi.html"},
+ {id:"fiv-felv", name:"FIV, FeLV & Haemoplasma", abbr:"retroviruses", emoji:"🩸", tag:"Infectious Disease", domain:"Physical Health of Animal", file:"disease-one-pagers/fiv-felv.html"},
+ {id:"fip", name:"Feline Infectious Peritonitis", abbr:"FIP", emoji:"🐈", tag:"Infectious Disease", domain:"Physical Health of Animal", file:"disease-one-pagers/fip.html"},
+ {id:"dermatophytosis", name:"Dermatophytosis", abbr:"ringworm", emoji:"🍄", tag:"Infectious Disease", domain:"Physical Health of Animal", file:"disease-one-pagers/dermatophytosis.html"},
+ {id:"leptospirosis", name:"Leptospirosis", abbr:"skeleton · building", emoji:"💧", tag:"Zoonotic · Bacterial", domain:"Physical Health of Animal", file:"disease-one-pagers/leptospirosis.html"},
+ {id:"brucellosis", name:"Brucellosis", abbr:"B. canis", emoji:"🧫", tag:"Zoonotic · Bacterial", domain:"Physical Health of Animal", file:"disease-one-pagers/brucellosis.html"},
+ {id:"babesiosis", name:"Babesiosis", abbr:"tick-borne", emoji:"🕷️", tag:"Vector-borne · Protozoal", domain:"Physical Health of Animal", file:"disease-one-pagers/babesiosis.html"},
+ {id:"parasites", name:"Parasites", abbr:"skeleton · building", emoji:"🐛", tag:"Physical Health", domain:"Physical Health of Animal", file:"cheat-sheets/parasites.html"},
+ {id:"vaccination", name:"Vaccination", abbr:"cheatsheet", emoji:"💉", tag:"Physical Health", domain:"Physical Health of Animal", file:"cheat-sheets/vaccination.html"},
+ {id:"sanitation-biosecurity", name:"Sanitation & Biosecurity", abbr:"cheatsheet", emoji:"🧼", tag:"Physical Health", domain:"Physical Health of Animal", file:"cheat-sheets/sanitation-biosecurity.html"},
+ {id:"surgery-anaesthesia", name:"Surgery & Anaesthesia", abbr:"cheatsheet", emoji:"🔪", tag:"Physical Health", domain:"Physical Health of Animal", file:"cheat-sheets/surgery-anaesthesia.html"},
+ {id:"hqhvsn", name:"HQHVSN — Biosecurity", abbr:"cheatsheet", emoji:"✂️", tag:"Physical Health", domain:"Physical Health of Animal", file:"cheat-sheets/hqhvsn.html"},
+ {id:"animal-cruelty", name:"Animal Cruelty & Forensics", abbr:"skeleton · building", emoji:"🔍", tag:"Community & Public Health", domain:"Community and Public Health", file:"disease-one-pagers/animal-cruelty.html"}
 ];
 
 /* ---------- SEARCH KEYWORDS ----------
@@ -546,17 +557,29 @@ function renderHome(){
 /* ---------- DISEASE SUMMARY SHEETS ---------- */
 function renderSheets(){
   if(!SHEETS.length)return "";
+  var order=["Physical Health of Animal","Shelter Management","Behavioral Health","Companion Animal Homelessness","Community and Public Health","Animals and Public Policy","Research and Biostats"];
+  var groups={};
+  SHEETS.forEach(function(s){var d=s.domain||"Other";(groups[d]=groups[d]||[]).push(s);});
+  var doms=order.filter(function(d){return groups[d];});
+  Object.keys(groups).forEach(function(d){if(doms.indexOf(d)<0)doms.push(d);});
   var h='<div id="sheets-panel" class="sheets-wrap">';
   h+='<div class="section-label">Summary Sheets &amp; Cheatsheets · '+SHEETS.length+'</div>';
-  SHEETS.forEach(function(s){
-    h+='<details class="sheet-item" ontoggle="onSheetToggle(this)">';
-    h+='<summary><span class="sheet-emoji">'+(s.emoji||"📄")+'</span>';
-    h+='<span class="sheet-name">'+esc(s.name)+(s.abbr?' <span class="abbr">('+esc(s.abbr)+')</span>':'')+'</span>';
-    if(s.tag)h+='<span class="sheet-tag">'+esc(s.tag)+'</span>';
-    h+='<span class="sheet-chev">›</span></summary>';
-    h+='<div class="sheet-body">';
-    h+='<div class="sheet-toolbar"><a class="sheet-open" href="'+s.file+'" target="_blank" rel="noopener">Open full page · print ↗</a></div>';
-    h+='<iframe class="sheet-frame" data-src="'+s.file+'" title="'+esc(s.name)+' one-pager" scrolling="no" onload="sizeSheet(this)"></iframe>';
+  doms.forEach(function(d){
+    var arr=groups[d];
+    h+='<details class="domain-group">';
+    h+='<summary><span class="dg-name">'+esc(d)+'</span><span class="dg-count">'+arr.length+'</span><span class="sheet-chev">›</span></summary>';
+    h+='<div class="dg-body">';
+    arr.forEach(function(s){
+      h+='<details class="sheet-item" ontoggle="onSheetToggle(this)">';
+      h+='<summary><span class="sheet-emoji">'+(s.emoji||"📄")+'</span>';
+      h+='<span class="sheet-name">'+esc(s.name)+(s.abbr?' <span class="abbr">('+esc(s.abbr)+')</span>':'')+'</span>';
+      if(s.tag)h+='<span class="sheet-tag">'+esc(s.tag)+'</span>';
+      h+='<span class="sheet-chev">›</span></summary>';
+      h+='<div class="sheet-body">';
+      h+='<div class="sheet-toolbar"><a class="sheet-open" href="'+s.file+'" target="_blank" rel="noopener">Open full page · print ↗</a></div>';
+      h+='<iframe class="sheet-frame" data-src="'+s.file+'" title="'+esc(s.name)+' one-pager" scrolling="no" onload="sizeSheet(this)"></iframe>';
+      h+='</div></details>';
+    });
     h+='</div></details>';
   });
   h+='</div>';

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Parasites — Overview One-Pager</title>
+<style>
+  :root{
+    --ink:#1f2430; --muted:#6b7280; --line:#e5e7eb;
+    --theme:#0f3d3a; --theme-soft:#e6eeeb; --theme-line:#a9c6bd;   /* ← change per domain */
+    --blue:#1d4ed8; --blue-soft:#eaf0ff; --blue-line:#b8caff;
+    --warn:#b45309; --warn-soft:#fff5e6;
+    --add:#0d7d74;  --add-soft:#e4f6f4;
+  }
+  *{box-sizing:border-box} html,body{margin:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:#f4f4f6;line-height:1.32;font-size:12px}
+  .toolbar{max-width:1180px;margin:14px auto 0;padding:10px 14px;background:#fff;border:1px solid var(--line);
+    border-radius:10px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+  .toolbar b{color:var(--ink)}
+  .btn{background:var(--theme);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:13px;font-weight:600;cursor:pointer}
+  .btn:hover{filter:brightness(.9)}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .legend span{display:inline-flex;align-items:center;gap:5px}
+  .swatch{width:11px;height:11px;border-radius:3px;display:inline-block}
+  .sheet{max-width:1180px;margin:14px auto;background:#fff;padding:16px 18px 12px;border:1px solid var(--line);
+    border-radius:10px;box-shadow:0 1px 6px rgba(0,0,0,.05)}
+  header.doc{border-bottom:2.5px solid var(--theme);padding-bottom:8px;margin-bottom:12px;display:flex;
+    align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  header.doc h1{margin:0;font-size:23px;letter-spacing:-.2px;color:var(--theme)}
+  header.doc h1 small{color:var(--ink);font-weight:600;font-size:14px}
+  .tags{font-size:11px;color:var(--muted)} .tags b{color:var(--theme)}
+  .lede{font-size:11.5px;color:var(--muted);margin:0 0 10px;border-left:3px solid var(--theme-line);padding-left:9px}
+  .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .col{display:flex;flex-direction:column;gap:11px}
+  section.card{border:1px solid var(--line);border-left:4px solid var(--theme);border-radius:7px;
+    padding:8px 10px 9px;break-inside:avoid;page-break-inside:avoid}
+  section.card.blue{border-left-color:var(--blue)}
+  section.card h2{margin:0 0 6px;font-size:12.5px;text-transform:uppercase;letter-spacing:.4px;color:var(--theme);
+    display:flex;align-items:center;gap:6px}
+  section.card.blue h2{color:var(--blue)}
+  h2 .n{font-size:10px;background:var(--theme-soft);color:var(--theme);border:1px solid var(--theme-line);
+    border-radius:4px;padding:0 5px;font-weight:700}
+  ul{margin:0;padding-left:15px} ol{margin:0;padding-left:17px}
+  li{margin:2.5px 0} li::marker{color:var(--theme)} .blue li::marker{color:var(--blue)}
+  ul.tight li{margin:1.5px 0}
+  .sub{list-style:none;padding-left:2px;margin:3px 0} .sub li{margin:1.5px 0}
+  .sub li::before{content:"– ";color:var(--muted)}
+  b,strong{font-weight:700} .lead{font-weight:700}
+  .exp{color:var(--muted);font-weight:400}
+  .arw{color:var(--theme);font-weight:700} .up{color:#b91c1c;font-weight:700} .dn{color:#1d4ed8;font-weight:700}
+  .trap{background:var(--warn-soft);border:1px solid #f2cf95;border-radius:5px;padding:4px 7px;margin:5px 0 2px;
+    font-size:11px;color:#7a4a08} .trap>b:first-child{color:var(--warn)}
+  .add{background:var(--add-soft);border-bottom:1px dotted var(--add);color:#0b5a54;padding:0 2px;border-radius:2px}
+  .addtag{font-size:9px;font-weight:700;color:#fff;background:var(--add);border-radius:3px;padding:0 3px;margin-left:2px;vertical-align:1px}
+  .flag{display:block;background:var(--add-soft);border:1px dashed var(--add);border-radius:5px;padding:4px 7px;
+    margin:5px 0 0;font-size:10.5px;color:#0b5a54} .flag b{color:var(--add)}
+  .risk{font-weight:800} .risk.hi{color:#b91c1c}.risk.mod{color:#b45309}.risk.lo{color:#15803d}
+  footer.doc{margin-top:12px;padding-top:8px;border-top:1px solid var(--line);font-size:9.5px;color:var(--muted);
+    display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+  @page{size:A4 landscape;margin:9mm}
+  @media print{
+    body{background:#fff;font-size:9.4px;line-height:1.26}
+    .toolbar{display:none}
+    .sheet{max-width:none;margin:0;border:none;border-radius:0;box-shadow:none;padding:0}
+    header.doc h1{font-size:19px} header.doc h1 small{font-size:12px}
+    section.card h2{font-size:10.5px}
+    .cols{gap:9px}.col{gap:8px}section.card{padding:6px 8px 7px}.trap,.flag{font-size:9px}
+  }
+  /* narrow screens: stack the 3 columns so it stays readable */
+  @media(max-width:780px){ .cols{grid-template-columns:1fr} }
+  /* embedded inside the study-hub collapsible: drop page chrome, sit flush */
+  html.embedded body{background:#fff}
+  html.embedded .toolbar{display:none}
+  html.embedded .sheet{max-width:none;margin:0;border:none;border-radius:0;box-shadow:none;padding:10px 13px 8px}
+</style>
+</head>
+<body>
+
+  <div class="toolbar">
+    <button class="btn" onclick="window.print()">🖨  Print / Save as PDF</button>
+    <span>Best printed <b>A4 landscape</b>.</span>
+    <div class="legend">
+      <span><span class="swatch" style="background:#0f3d3a"></span>section</span>
+      <span><span class="swatch" style="background:#1d4ed8"></span>outbreak / biosecurity</span>
+      <span><span class="swatch" style="background:#fff5e6;border:1px solid #f2cf95"></span>exam trap</span>
+      <span><span class="swatch" style="background:#e4f6f4;border:1px solid #0d7d74"></span><b style="color:#0d7d74">+</b> added / clarified</span>
+    </div>
+  </div>
+
+  <div class="sheet">
+    <header class="doc">
+      <h1>Parasites <small>(Overview)</small></h1>
+      <div class="tags"><b>Parasites</b> · Physical Health of Animal (29%) · Shelter Medicine</div>
+    </header>
+
+    <p class="lede">Skeleton summary of the Parasites subdomain — fill from your notes; pre-filled points marked +.</p>
+
+    <div class="cols">
+
+      <!-- ============ COLUMN 1 — principles & GI worms ============ -->
+      <div class="col">
+        <section class="card">
+          <h2>Control Principles &amp; Transmission</h2>
+          <div class="exp">▢ to fill from your notes</div>
+          <ul class="tight">
+            <li><span class="lead">Direct vs indirect</span> <span class="exp">(direct life cycle vs needs an intermediate host / vector)</span></li>
+            <li><span class="lead">Environmental persistence</span> <span class="exp">(which stages survive &amp; for how long)</span></li>
+            <li><span class="lead">Intake mandate</span> — the shelter's three parasite concerns on entry</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Intestinal Endoparasites</h2>
+          <div class="exp">▢ to fill from your notes</div>
+          <ul class="tight">
+            <li><span class="lead">Nematodes</span> — hook / round / whip; <span class="lead">cestodes</span> — tapeworms</li>
+            <li><span class="add"><span class="lead">Zoonotic:</span> <em>Toxocara</em> <span class="exp">(roundworm)</span> &amp; <em>Ancylostoma</em> <span class="exp">(hookworm)</span> cause larva migrans — visceral / ocular &amp; cutaneous<span class="addtag">+</span></span></li>
+            <li><span class="lead">Diagnosis</span> — faecal float; note the pre-patent period</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Giardia duodenalis</h2>
+          <div class="exp">▢ to fill from your notes</div>
+          <ul class="tight">
+            <li><span class="add"><span class="lead">Treat:</span> fenbendazole; combine drug + bathe the coat + clean/dry the environment to stop re-infection<span class="addtag">+</span></span></li>
+            <li><span class="lead">Signs</span> — small-bowel diarrhoea; often subclinical carriers</li>
+            <li><span class="lead">Other protozoa</span> — <em>Cystoisospora</em> <span class="exp">(coccidia)</span>, <em>Cryptosporidium</em>, <em>Tritrichomonas foetus</em> (cats)</li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- ============ COLUMN 2 — heartworm & ectoparasites ============ -->
+      <div class="col">
+        <section class="card">
+          <h2>Heartworm Disease</h2>
+          <div class="exp">▢ to fill from your notes</div>
+          <ul class="tight">
+            <li><span class="lead">Agent</span> — <em>Dirofilaria immitis</em>, mosquito-transmitted</li>
+            <li><span class="add"><span class="lead">Prevention:</span> start monthly heartworm preventive; test (antigen ± microfilaria) before starting in endemic areas<span class="addtag">+</span></span></li>
+            <li><span class="lead">Treatment</span> — AHS <span class="exp">(American Heartworm Society)</span> adulticide protocol; staging &amp; exercise restriction</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Ectoparasites</h2>
+          <div class="exp">▢ to fill from your notes</div>
+          <ul class="tight">
+            <li><span class="add"><em>Sarcoptes</em> <span class="exp">(sarcoptic mange)</span> = zoonotic &amp; intensely pruritic; scrape has low sensitivity → treat on suspicion. <em>Demodex</em> = non-contagious (immune / stress-related)<span class="addtag">+</span></span></li>
+            <li><span class="lead">Ear mites</span> — <em>Otodectes cynotis</em> <span class="exp">(dark ceruminous "coffee-ground" debris)</span></li>
+            <li><span class="lead">Lice</span> — host-specific; <span class="lead">diagnosis</span> — skin scrape / tape / otoscope</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Fleas</h2>
+          <div class="exp">▢ to fill from your notes</div>
+          <ul class="tight">
+            <li><span class="add">Flea = intermediate host of <em>Dipylidium caninum</em> <span class="exp">(tapeworm)</span> → treat fleas <em>and</em> deworm<span class="addtag">+</span></span></li>
+            <li><span class="lead">Disease</span> — FAD <span class="exp">(flea-allergy dermatitis)</span>, anaemia in small / young animals</li>
+            <li><span class="lead">Flea-borne</span> — <em>Bartonella</em>, <em>Rickettsia</em>, haemotropic <em>Mycoplasma</em></li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- ============ COLUMN 3 — ticks, vector-borne, deworming ============ -->
+      <div class="col">
+        <section class="card">
+          <h2>Tick biology and management</h2>
+          <div class="exp">▢ to fill from your notes</div>
+          <ul class="tight">
+            <li><span class="add">Ticks transmit <em>Babesia</em>, <em>Ehrlichia</em>, <em>Anaplasma</em>; remove promptly + apply an acaricide<span class="addtag">+</span></span></li>
+            <li><span class="lead">Removal</span> — grasp at skin, steady traction; avoid leaving mouthparts</li>
+            <li><span class="lead">Life cycle</span> — larva → nymph → adult; each needs a blood meal</li>
+          </ul>
+        </section>
+
+        <section class="card blue">
+          <h2>Vector-Borne &amp; Zoonotic Disease</h2>
+          <div class="exp">▢ to fill from your notes</div>
+          <ul class="tight">
+            <li><span class="lead">Pathogen ↔ vector</span> table <span class="exp">(agent · vector · host · zoonotic?)</span></li>
+            <li><span class="lead">Examples</span> — <em>Cytauxzoon felis</em> (cats), <em>Hepatozoon</em>, Chagas <span class="exp">(<em>Trypanosoma cruzi</em>)</span></li>
+            <li><span class="lead">Personnel safety</span> — protect staff/public; larva migrans, sarcoptic mange, tick-borne agents</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Deworming schedule</h2>
+          <div class="exp">▢ to fill from your notes</div>
+          <ul class="tight">
+            <li><span class="add">Deworm pups/kittens from 2 wks, then every 2 wks until ~2 mo; pyrantel at intake<span class="addtag">+</span></span></li>
+            <li><span class="lead">Anthelmintics</span> — pyrantel, fenbendazole, praziquantel (tapeworm)</li>
+            <li><span class="lead">Formulary</span> — parasiticide quick-reference (spectrum · species · cautions)</li>
+          </ul>
+        </section>
+      </div>
+
+    </div>
+
+    <footer class="doc">
+      <span>Personal study notes · 2026 ABVP Combined Exam (Shelter Medicine RVS)</span>
+      <span>© Juliana Xue — for personal study use</span>
+    </footer>
+  </div>
+
+  <script>if(window.self!==window.top){document.documentElement.className+=' embedded';}</script>
+</body>
+</html>
