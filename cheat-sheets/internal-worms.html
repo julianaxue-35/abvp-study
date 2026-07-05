@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  DISEASE ONE-PAGER — REUSABLE TEMPLATE
+  ============================================================================
+  HELPER CLASSES (reuse anywhere in the body)
+     <span class="lead">Bold lead-in label</span>
+     <span class="exp">(expanded abbreviation / aside)</span>   → muted grey
+     <span class="arw">→</span>  <span class="up">↑</span>  <span class="dn">↓</span>
+     <ul class="sub"> … </ul>            → indented dashed sub-list
+     <div class="trap"><b>⚠ Trap:</b> …</div>            → amber exam-trap callout
+     <span class="add">extra content<span class="addtag">+</span></span>  → teal "I added this"
+     <span class="flag"><b>+ check:</b> …</span>          → teal dashed flag/correction note
+     <section class="card blue"> … </section>            → blue card (vector-borne / zoonotic)
+  ============================================================================
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Intestinal Worms — Cheatsheet</title>
+<style>
+  :root{
+    --ink:#1f2430; --muted:#6b7280; --line:#e5e7eb;
+    --theme:#0f3d3a; --theme-soft:#e6eeeb; --theme-line:#a9c6bd;   /* ← change per domain */
+    --blue:#1d4ed8; --blue-soft:#eaf0ff; --blue-line:#b8caff;
+    --warn:#b45309; --warn-soft:#fff5e6;
+    --add:#0d7d74;  --add-soft:#e4f6f4;
+  }
+  *{box-sizing:border-box} html,body{margin:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:#f4f4f6;line-height:1.32;font-size:12px}
+  .toolbar{max-width:1180px;margin:14px auto 0;padding:10px 14px;background:#fff;border:1px solid var(--line);
+    border-radius:10px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+  .toolbar b{color:var(--ink)}
+  .btn{background:var(--theme);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:13px;font-weight:600;cursor:pointer}
+  .btn:hover{filter:brightness(.9)}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .legend span{display:inline-flex;align-items:center;gap:5px}
+  .swatch{width:11px;height:11px;border-radius:3px;display:inline-block}
+  .sheet{max-width:1180px;margin:14px auto;background:#fff;padding:16px 18px 12px;border:1px solid var(--line);
+    border-radius:10px;box-shadow:0 1px 6px rgba(0,0,0,.05)}
+  header.doc{border-bottom:2.5px solid var(--theme);padding-bottom:8px;margin-bottom:12px;display:flex;
+    align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  header.doc h1{margin:0;font-size:23px;letter-spacing:-.2px;color:var(--theme)}
+  header.doc h1 small{color:var(--ink);font-weight:600;font-size:14px}
+  .tags{font-size:11px;color:var(--muted)} .tags b{color:var(--theme)}
+  .lede{font-size:11.5px;color:var(--muted);margin:0 0 10px;border-left:3px solid var(--theme-line);padding-left:9px}
+  .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .col{display:flex;flex-direction:column;gap:11px}
+  section.card{border:1px solid var(--line);border-left:4px solid var(--theme);border-radius:7px;
+    padding:8px 10px 9px;break-inside:avoid;page-break-inside:avoid}
+  section.card.blue{border-left-color:var(--blue)}
+  section.card h2{margin:0 0 6px;font-size:12.5px;text-transform:uppercase;letter-spacing:.4px;color:var(--theme);
+    display:flex;align-items:center;gap:6px}
+  section.card.blue h2{color:var(--blue)}
+  h2 .n{font-size:10px;background:var(--theme-soft);color:var(--theme);border:1px solid var(--theme-line);
+    border-radius:4px;padding:0 5px;font-weight:700}
+  ul{margin:0;padding-left:15px} ol{margin:0;padding-left:17px}
+  li{margin:2.5px 0} li::marker{color:var(--theme)} .blue li::marker{color:var(--blue)}
+  ul.tight li{margin:1.5px 0}
+  .sub{list-style:none;padding-left:2px;margin:3px 0} .sub li{margin:1.5px 0}
+  .sub li::before{content:"– ";color:var(--muted)}
+  b,strong{font-weight:700} .lead{font-weight:700}
+  .exp{color:var(--muted);font-weight:400}
+  .arw{color:var(--theme);font-weight:700} .up{color:#b91c1c;font-weight:700} .dn{color:#1d4ed8;font-weight:700}
+  .trap{background:var(--warn-soft);border:1px solid #f2cf95;border-radius:5px;padding:4px 7px;margin:5px 0 2px;
+    font-size:11px;color:#7a4a08} .trap>b:first-child{color:var(--warn)}
+  .add{background:var(--add-soft);border-bottom:1px dotted var(--add);color:#0b5a54;padding:0 2px;border-radius:2px}
+  .addtag{font-size:9px;font-weight:700;color:#fff;background:var(--add);border-radius:3px;padding:0 3px;margin-left:2px;vertical-align:1px}
+  .flag{display:block;background:var(--add-soft);border:1px dashed var(--add);border-radius:5px;padding:4px 7px;
+    margin:5px 0 0;font-size:10.5px;color:#0b5a54} .flag b{color:var(--add)}
+  .risk{font-weight:800} .risk.hi{color:#b91c1c}.risk.mod{color:#b45309}.risk.lo{color:#15803d}
+  footer.doc{margin-top:12px;padding-top:8px;border-top:1px solid var(--line);font-size:9.5px;color:var(--muted);
+    display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+  @page{size:A4 landscape;margin:9mm}
+  @media print{
+    body{background:#fff;font-size:9.4px;line-height:1.26}
+    .toolbar{display:none}
+    .sheet{max-width:none;margin:0;border:none;border-radius:0;box-shadow:none;padding:0}
+    header.doc h1{font-size:19px} header.doc h1 small{font-size:12px}
+    section.card h2{font-size:10.5px}
+    .cols{gap:9px}.col{gap:8px}section.card{padding:6px 8px 7px}.trap,.flag{font-size:9px}
+  }
+  /* narrow screens: stack the 3 columns so it stays readable */
+  @media(max-width:780px){ .cols{grid-template-columns:1fr} }
+  /* embedded inside the study-hub collapsible: drop page chrome, sit flush */
+  html.embedded body{background:#fff}
+  html.embedded .toolbar{display:none}
+  html.embedded .sheet{max-width:none;margin:0;border:none;border-radius:0;box-shadow:none;padding:10px 13px 8px}
+</style>
+</head>
+<body>
+
+  <div class="toolbar">
+    <button class="btn" onclick="window.print()">🖨  Print / Save as PDF</button>
+    <span>Best printed <b>A4 landscape</b>.</span>
+    <div class="legend">
+      <span><span class="swatch" style="background:#0f3d3a"></span>section</span>
+      <span><span class="swatch" style="background:#1d4ed8"></span>vector-borne / zoonotic</span>
+      <span><span class="swatch" style="background:#fff5e6;border:1px solid #f2cf95"></span>exam trap</span>
+      <span><span class="swatch" style="background:#e4f6f4;border:1px solid #0d7d74"></span><b style="color:#0d7d74">+</b> added / clarified</span>
+    </div>
+  </div>
+
+  <div class="sheet">
+    <header class="doc">
+      <h1>Intestinal Worms (Helminths)</h1>
+      <div class="tags"><b>Intestinal Worms</b> · Physical Health of Animal (29%) · Shelter Medicine</div>
+    </header>
+
+    <p class="lede">For every worm the exam wants five things: <b>life cycle</b> (<b>DIRECT</b> = no intermediate host — faecal-oral / larval / percutaneous / trans-mammary; <b>INDIRECT</b> = requires a named intermediate host), the <b>transmission route</b>, the <b>age/species</b> most affected, the <b>drug</b>, and the <b>zoonosis</b>. High-yield: puppies &amp; kittens get hook + round <b>vertically</b> (trans-mammary ± trans-placental); whipworm is an <b>adult-dog</b> disease; every <b>tapeworm is indirect</b> (flea / prey / offal) and needs <b>praziquantel</b> — fenbendazole misses <em>Dipylidium</em> &amp; <em>Echinococcus</em>. Heartworm has its own sheet.</p>
+
+    <div class="cols">
+
+      <!-- ============ COLUMN 1 — nematodes: soil-transmitted roundworms ============ -->
+      <div class="col">
+        <section class="card">
+          <h2>Nematodes — Roundworms <span class="n">soil / vertical</span></h2>
+          <ul class="tight">
+            <li><span class="lead">Hookworm</span> (<em>Ancylostoma caninum</em>, <em>A. braziliense</em>; <em>Uncinaria stenocephala</em>): <b>LC:</b> DIRECT (no intermediate host). <b>Tx:</b> percutaneous skin penetration, oral, paratenic hosts, <b>trans-mammary (A. caninum milk only)</b>. <b>Age:</b> nursing <b>puppies/kittens</b> → regenerative anaemia + melena by <b>~14 d</b>; prepatent <b>~2 wk</b>. <b>Dx:</b> zinc-sulfate centrifugation. <b>Tx drug:</b> pyrantel / fenbendazole / milbemycin. <b>ZOONOTIC</b> <span class="arw">→</span> <b>cutaneous larva migrans</b> (<em>A. braziliense</em> most). <span class="exp">(Uncinaria = "northern hookworm", cooler climates, mainly oral, no trans-mammary, less pathogenic.)</span></li>
+            <li><span class="lead">Roundworm / ascarid</span> (<em>Toxocara canis</em> &amp; <em>T. cati</em>, <em>Toxascaris leonina</em>): <b>LC:</b> DIRECT (paratenic hosts amplify; egg needs environmental development to become infective). <b>Tx:</b> egg ingestion; <b>trans-placental (T. canis)</b>; <b>trans-mammary</b> (T. canis in dogs, T. cati in cats). <b>Age:</b> <b>puppies/kittens</b> — <em>T. canis</em> in-utero pups shed by ~3 wk; prepatent <b>~5 wk</b>. <b>Tx drug:</b> pyrantel / fenbendazole. <b>ZOONOTIC</b> <span class="arw">→</span> <b>visceral + ocular larva migrans</b> (<em>T. canis</em> leading cause). <span class="exp">(Toxascaris leonina = ingestion only, NO vertical route.)</span></li>
+            <li><span class="lead">Whipworm</span> (<em>Trichuris vulpis</em>): <b>LC:</b> DIRECT. <b>Tx:</b> ingest embryonated egg from soil (needs environmental development); caecum/colon. <b>Age:</b> <b>ADULT dogs</b> (not pups) — large-bowel diarrhoea, hematochezia, tenesmus; can mimic hypoadrenocorticism (pseudo-Addison). Prepatent <b>~3 mo</b> (long); barrel egg with bipolar plugs, hardy in soil. <b>Tx drug:</b> <b>fenbendazole</b> or milbemycin — <b>pyrantel does NOT cover whipworm</b>. Zoonosis: low (human whipworm a separate species).</li>
+          </ul>
+          <div class="trap"><b>⚠ Trap:</b> <em>Toxocara</em> vertical routes — <b>T. canis (dogs) = trans-placental + trans-mammary</b>; <b>T. cati (cats) = trans-mammary ONLY</b> (no trans-placental). Pups can be born already infected; kittens are infected through the milk.</div>
+          <div class="trap"><b>⚠ Trap:</b> <b>whipworm = adult-dog</b> disease with a <b>3-month</b> prepatent period; a single negative float doesn't clear it. Pyrantel (the cheap hook/round dewormer) <b>misses whipworm</b> — need fenbendazole/milbemycin.</div>
+        </section>
+
+        <section class="card">
+          <h2>Nematodes — Larval &amp; Lung <span class="n">Baermann</span></h2>
+          <ul class="tight">
+            <li><span class="lead"><em>Strongyloides stercoralis</em></span> (threadworm): <b>LC:</b> DIRECT. <b>Tx:</b> <b>percutaneous</b> larvae (mature in warm damp soiled runs) + <b>trans-mammary</b> from an acutely infected dam; auto-infection possible. <b>Age:</b> young dogs in <b>wet/soiled</b> pens. <b>Dx:</b> passes <b>L1 larvae, not eggs</b> <span class="arw">→</span> <b>Baermann</b> funnel. <b>Tx drug:</b> ivermectin 0.2 mg/kg SC (repeat 1 wk) or fenbendazole 5–14 d. <b>ZOONOTIC</b> (a true direct zoonosis — develops in humans too).</li>
+            <li><span class="lead">Feline lungworm</span> (<em>Aelurostrongylus abstrusus</em>): <b>LC:</b> <b>INDIRECT</b> — intermediate host = <b>slug / snail</b> <span class="arw">→</span> paratenic host (rodent, bird) <span class="arw">→</span> cat. <b>Tx:</b> cat eats infected snail/paratenic host; eggs coughed up, swallowed, passed in faeces. <b>Age:</b> cats, worse in <b>kittens</b> — LRT disease (cough, dyspnoea), mimics feline asthma; possible anaesthetic death. <b>Dx:</b> <b>Baermann</b> (larvae). <b>Tx drug:</b> fenbendazole or topical macrocyclic lactone (moxidectin/emodepside/selamectin). Not zoonotic.</li>
+          </ul>
+          <div class="trap"><b>⚠ Trap:</b> match lungworm to its faecal test — <em>Aelurostrongylus</em> <span class="arw">→</span> <b>Baermann</b> (larvae); <em>Capillaria</em> <span class="arw">→</span> flotation (eggs); <em>Paragonimus</em> <span class="arw">→</span> sedimentation (heavy fluke eggs). Wrong technique misses it.</div>
+        </section>
+      </div>
+
+      <!-- ============ COLUMN 2 — cestodes + heartworm pointer ============ -->
+      <div class="col">
+        <section class="card">
+          <h2>Cestodes — Tapeworms <span class="n">all indirect</span></h2>
+          <ul class="tight">
+            <li><span class="lead"><em>Dipylidium caninum</em></span> (flea tapeworm): <b>LC:</b> <b>INDIRECT</b> — intermediate host = <b>FLEA</b> (or chewing louse). <b>Tx:</b> dog/cat <b>ingests an infected flea while grooming</b>. <b>Age:</b> any dog/cat with fleas — rice-grain proglottids at anus/in bedding. <b>Tx drug:</b> <b>praziquantel</b> (NOT covered by fenbendazole). <b>Cure = flea control</b>, not just deworming. Zoonosis: rare (child swallows a flea).</li>
+            <li><span class="lead"><em>Taenia</em> spp.</span>: <b>LC:</b> <b>INDIRECT</b> — intermediate host = <b>prey</b> (rodents, rabbits, ruminants/offal). <b>Tx:</b> ingest cysticercus in intermediate-host tissue (hunting / raw meat). <b>Age:</b> hunting/roaming dogs &amp; cats — <b>unlikely to cycle inside a shelter</b>. <b>Tx drug:</b> praziquantel (fenbendazole covers most <em>Taenia</em> but praziquantel is reliable). Zoonosis: low for the canine/feline species.</li>
+            <li><span class="lead"><em>Echinococcus</em> spp.</span> (<em>E. granulosus</em>, <em>E. multilocularis</em>): <b>LC:</b> <b>INDIRECT</b> — definitive host = <b>dog/canid</b>; intermediate host = <b>sheep/livestock</b> (E. granulosus) or <b>rodents</b> (E. multilocularis). <b>Tx:</b> dog eats <b>hydatid cysts in raw offal/viscera</b>; adult is tiny. <b>Age:</b> rural dogs fed raw offal. <b>Tx drug:</b> <b>praziquantel</b> (NOT fenbendazole). <b>ZOONOTIC</b> <span class="arw">→</span> <b>hydatid disease</b>: humans ingest eggs from dog faeces → hydatid cysts in liver/lung (E. multilocularis = alveolar, malignant-like).</li>
+          </ul>
+          <div class="trap"><b>⚠ Trap:</b> <b>fenbendazole misses <em>Dipylidium</em> &amp; <em>Echinococcus</em></b> — both need <b>praziquantel</b>. Visible rice-grain segments = review <b>flea control</b> (Dipylidium's intermediate host).</div>
+          <div class="trap"><b>⚠ Trap:</b> <em>Echinococcus</em> is the big <b>zoonosis</b> — canine tapeworm, but humans are the accidental intermediate host and grow <b>hydatid cysts</b>. Deworm at-risk dogs with praziquantel and don't feed raw offal.</div>
+        </section>
+
+        <section class="card">
+          <h2>Heartworm <span class="n">own sheet</span></h2>
+          <ul class="tight">
+            <li><span class="lead">Heartworm</span> (<em>Dirofilaria immitis</em>) — <b>see the separate Heartworm sheet</b> for the mosquito-vectored life cycle, antigen vs microfilaria testing, staging, the AHS melarsomine protocol, and feline heartworm.</li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- ============ COLUMN 3 — control / deworming / formulary ============ -->
+      <div class="col">
+        <section class="card">
+          <h2>Control · Deworming · Formulary</h2>
+          <ul class="tight">
+            <li><span class="lead">ASV intake mandate</span> — treat <b>every dog &amp; cat for roundworms + hookworms at intake, from 2 wk of age</b> (zoonotic risk); every animal should leave covered vs hook + round. Whipworm/tapeworm = targeted (cost).</li>
+            <li><span class="lead">Pediatric schedule</span> — puppies from <b>2 wk</b>, kittens from <b>3 wk</b>, <b>q2wk to 12 wk</b>, then monthly to 6 mo; treat pregnant &amp; nursing dams.</li>
+            <li><span class="lead">Pyrantel pamoate</span> — hooks + rounds; cheapest, safe mainstay; retreat 2 wk then monthly. <b>Misses whipworm &amp; tapeworm.</b></li>
+            <li><span class="lead">Fenbendazole</span> — hooks, rounds, <b>whips</b>, <em>Giardia</em>, most tapeworms; <b>50 mg/kg PO q24h × 3–5 d</b>. <b>Misses <em>Dipylidium</em> &amp; <em>Echinococcus</em>.</b></li>
+            <li><span class="lead">Praziquantel</span> — <b>all tapeworms</b> incl. <em>Dipylidium</em> &amp; <em>Echinococcus</em>; 5–7.5 mg/kg PO or injectable.</li>
+            <li><span class="lead">Milbemycin oxime</span> — hook/round/whip <b>plus heartworm prevention</b>.</li>
+            <li><span class="lead">Combos</span> — Drontal Plus (pyrantel + febantel + praziquantel); Profender (emodepside + praziquantel, feline).</li>
+            <li><span class="lead">Prepatent periods</span> — hookworm <b>~2 wk</b>; <em>T. canis</em> <b>~5 wk</b>; whipworm <b>~3 mo</b> (long → single negative float doesn't clear).</li>
+            <li><span class="lead">Environmental persistence</span> — <b>ascarid (round) eggs nearly indestructible</b> in soil (heat/bleach only disrupt the coat to speed desiccation); <b>hookworm eggs die by desiccation</b> on dry surfaces; whipworm eggs hardy (bipolar plugs). Post-treatment faeces are heavily contaminating <span class="arw">→</span> prompt pick-up.</li>
+            <li><span class="lead">Reduce <em>T. canis</em> in pups</span> — treat pregnant bitch with ivermectin/doramectin at <b>day 40–50 gestation</b> (reduces, doesn't eliminate, shedding).</li>
+          </ul>
+        </section>
+      </div>
+
+    </div>
+
+    <section class="card" style="border-left-color:#0e7490;margin-top:12px">
+      <h2 style="color:#0e7490">📄 Journal Articles</h2>
+      <div class="exp">▢ journal-article summaries to be added</div>
+    </section>
+
+    <footer class="doc">
+      <span>Personal study notes · 2026 ABVP Combined Exam (Shelter Medicine RVS)</span>
+      <span>© Juliana Xue — for personal study use</span>
+    </footer>
+  </div>
+
+  <script>if(window.self!==window.top){document.documentElement.className+=' embedded';}</script>
+</body>
+</html>

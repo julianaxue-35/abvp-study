@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  DISEASE ONE-PAGER — REUSABLE TEMPLATE
+  ============================================================================
+  HELPER CLASSES (reuse anywhere in the body)
+     <span class="lead">Bold lead-in label</span>
+     <span class="exp">(expanded abbreviation / aside)</span>   → muted grey
+     <span class="arw">→</span>  <span class="up">↑</span>  <span class="dn">↓</span>
+     <ul class="sub"> … </ul>            → indented dashed sub-list
+     <div class="trap"><b>⚠ Trap:</b> …</div>            → amber exam-trap callout
+     <span class="add">extra content<span class="addtag">+</span></span>  → teal "I added this"
+     <span class="flag"><b>+ check:</b> …</span>          → teal dashed flag/correction note
+     <section class="card blue"> … </section>            → blue card (vector-borne / zoonotic)
+  ============================================================================
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Protozoa — Cheatsheet</title>
+<style>
+  :root{
+    --ink:#1f2430; --muted:#6b7280; --line:#e5e7eb;
+    --theme:#0f3d3a; --theme-soft:#e6eeeb; --theme-line:#a9c6bd;   /* ← change per domain */
+    --blue:#1d4ed8; --blue-soft:#eaf0ff; --blue-line:#b8caff;
+    --warn:#b45309; --warn-soft:#fff5e6;
+    --add:#0d7d74;  --add-soft:#e4f6f4;
+  }
+  *{box-sizing:border-box} html,body{margin:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:#f4f4f6;line-height:1.32;font-size:12px}
+  .toolbar{max-width:1180px;margin:14px auto 0;padding:10px 14px;background:#fff;border:1px solid var(--line);
+    border-radius:10px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+  .toolbar b{color:var(--ink)}
+  .btn{background:var(--theme);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:13px;font-weight:600;cursor:pointer}
+  .btn:hover{filter:brightness(.9)}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .legend span{display:inline-flex;align-items:center;gap:5px}
+  .swatch{width:11px;height:11px;border-radius:3px;display:inline-block}
+  .sheet{max-width:1180px;margin:14px auto;background:#fff;padding:16px 18px 12px;border:1px solid var(--line);
+    border-radius:10px;box-shadow:0 1px 6px rgba(0,0,0,.05)}
+  header.doc{border-bottom:2.5px solid var(--theme);padding-bottom:8px;margin-bottom:12px;display:flex;
+    align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  header.doc h1{margin:0;font-size:23px;letter-spacing:-.2px;color:var(--theme)}
+  header.doc h1 small{color:var(--ink);font-weight:600;font-size:14px}
+  .tags{font-size:11px;color:var(--muted)} .tags b{color:var(--theme)}
+  .lede{font-size:11.5px;color:var(--muted);margin:0 0 10px;border-left:3px solid var(--theme-line);padding-left:9px}
+  .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .col{display:flex;flex-direction:column;gap:11px}
+  section.card{border:1px solid var(--line);border-left:4px solid var(--theme);border-radius:7px;
+    padding:8px 10px 9px;break-inside:avoid;page-break-inside:avoid}
+  section.card.blue{border-left-color:var(--blue)}
+  section.card h2{margin:0 0 6px;font-size:12.5px;text-transform:uppercase;letter-spacing:.4px;color:var(--theme);
+    display:flex;align-items:center;gap:6px}
+  section.card.blue h2{color:var(--blue)}
+  h2 .n{font-size:10px;background:var(--theme-soft);color:var(--theme);border:1px solid var(--theme-line);
+    border-radius:4px;padding:0 5px;font-weight:700}
+  ul{margin:0;padding-left:15px} ol{margin:0;padding-left:17px}
+  li{margin:2.5px 0} li::marker{color:var(--theme)} .blue li::marker{color:var(--blue)}
+  ul.tight li{margin:1.5px 0}
+  .sub{list-style:none;padding-left:2px;margin:3px 0} .sub li{margin:1.5px 0}
+  .sub li::before{content:"– ";color:var(--muted)}
+  b,strong{font-weight:700} .lead{font-weight:700}
+  .exp{color:var(--muted);font-weight:400}
+  .arw{color:var(--theme);font-weight:700} .up{color:#b91c1c;font-weight:700} .dn{color:#1d4ed8;font-weight:700}
+  .trap{background:var(--warn-soft);border:1px solid #f2cf95;border-radius:5px;padding:4px 7px;margin:5px 0 2px;
+    font-size:11px;color:#7a4a08} .trap>b:first-child{color:var(--warn)}
+  .add{background:var(--add-soft);border-bottom:1px dotted var(--add);color:#0b5a54;padding:0 2px;border-radius:2px}
+  .addtag{font-size:9px;font-weight:700;color:#fff;background:var(--add);border-radius:3px;padding:0 3px;margin-left:2px;vertical-align:1px}
+  .flag{display:block;background:var(--add-soft);border:1px dashed var(--add);border-radius:5px;padding:4px 7px;
+    margin:5px 0 0;font-size:10.5px;color:#0b5a54} .flag b{color:var(--add)}
+  .risk{font-weight:800} .risk.hi{color:#b91c1c}.risk.mod{color:#b45309}.risk.lo{color:#15803d}
+  footer.doc{margin-top:12px;padding-top:8px;border-top:1px solid var(--line);font-size:9.5px;color:var(--muted);
+    display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+  @page{size:A4 landscape;margin:9mm}
+  @media print{
+    body{background:#fff;font-size:9.4px;line-height:1.26}
+    .toolbar{display:none}
+    .sheet{max-width:none;margin:0;border:none;border-radius:0;box-shadow:none;padding:0}
+    header.doc h1{font-size:19px} header.doc h1 small{font-size:12px}
+    section.card h2{font-size:10.5px}
+    .cols{gap:9px}.col{gap:8px}section.card{padding:6px 8px 7px}.trap,.flag{font-size:9px}
+  }
+  /* narrow screens: stack the 3 columns so it stays readable */
+  @media(max-width:780px){ .cols{grid-template-columns:1fr} }
+  /* embedded inside the study-hub collapsible: drop page chrome, sit flush */
+  html.embedded body{background:#fff}
+  html.embedded .toolbar{display:none}
+  html.embedded .sheet{max-width:none;margin:0;border:none;border-radius:0;box-shadow:none;padding:10px 13px 8px}
+</style>
+</head>
+<body>
+
+  <div class="toolbar">
+    <button class="btn" onclick="window.print()">🖨  Print / Save as PDF</button>
+    <span>Best printed <b>A4 landscape</b>.</span>
+    <div class="legend">
+      <span><span class="swatch" style="background:#0f3d3a"></span>section</span>
+      <span><span class="swatch" style="background:#1d4ed8"></span>vector-borne / zoonotic</span>
+      <span><span class="swatch" style="background:#fff5e6;border:1px solid #f2cf95"></span>exam trap</span>
+      <span><span class="swatch" style="background:#e4f6f4;border:1px solid #0d7d74"></span><b style="color:#0d7d74">+</b> added / clarified</span>
+    </div>
+  </div>
+
+  <div class="sheet">
+    <header class="doc">
+      <h1>Protozoa</h1>
+      <div class="tags"><b>Protozoa (GI)</b> · Physical Health of Animal (29%) · Shelter Medicine</div>
+    </header>
+
+    <p class="lede">Most GI protozoa run a <b>DIRECT</b> faecal-oral life cycle and hit the <b>young &amp; crowded</b>; the two apicomplexan exceptions run <b>INDIRECT</b> two-host cycles — <em>Toxoplasma</em> (cat = only definitive host) and <em>Neospora</em> (dog definitive, cattle intermediate). High-yield levers: which stage is <b>immediately infective</b> (<em>Giardia</em>, <em>Cryptosporidium</em>), match the <b>drug</b> to the bug (fenbendazole vs ronidazole vs ponazuril), and never forget the <b>zoonoses</b> (<em>Cryptosporidium</em>, <em>Toxoplasma</em> in pregnancy).</p>
+
+    <div class="cols">
+
+      <!-- ============ COLUMN 1 — Giardia + Tritrichomonas ============ -->
+      <div class="col">
+        <section class="card">
+          <h2>Giardia duodenalis <span class="n">flagellate</span></h2>
+          <p style="margin:0"><span class="lead"><em>Giardia duodenalis</em>:</span> most common intestinal protozoan of shelter dogs/cats; <b>trophozoite</b> (falling-leaf motility, "owl-eyes" 2 nuclei, ventral disc — seen in <b>diarrhoea</b>) + hardy <b>cyst</b> (transmissible stage — in <b>formed stool</b>).</p>
+          <ul class="tight" style="margin-top:4px">
+            <li><b>LC:</b> <b>DIRECT</b> (single host). Cysts <b>immediately infective when shed</b> → rapid ward/fomite spread.</li>
+            <li><b>Route:</b> faecal-oral cysts; survive cool/moist/standing water; reinfection from cysts in the coat.</li>
+            <li><b>Who:</b> young &amp; densely housed worst; small-bowel diarrhoea (soft, pale, fatty, mucoid); many <b>asymptomatic shedders</b>.</li>
+            <li><b>Rx:</b> <b>fenbendazole 50 mg/kg PO q24h × 5 d</b> + environment; <b>bathe day 1 &amp; end</b>; if persists <b>repeat the cycle</b> — <b>NOT metronidazole</b> (dysbiosis/chronicity). Treat disease, not shedding.</li>
+            <li><b>Zoo:</b> assemblages A/B potentially zoonotic (low; pets carry host-adapted C/D dogs, F cats).</li>
+          </ul>
+          <div class="trap"><b>⚠ Trap:</b> stage by stool — <b>trophozoite in diarrhoea, cyst in formed stool</b>. Confirm <b>cure by flotation, NOT antigen</b> (stays antigen-positive after shedding stops). Fenbendazole is first-line, not metronidazole.</div>
+        </section>
+
+        <section class="card">
+          <h2>Tritrichomonas foetus <span class="n">cats</span></h2>
+          <p style="margin:0"><span class="lead"><em>Tritrichomonas foetus</em> (cats):</span> protozoan flagellate colonising the <b>large bowel</b>; same species as bovine trichomoniasis.</p>
+          <ul class="tight" style="margin-top:4px">
+            <li><b>LC:</b> <b>DIRECT</b>, faecal-oral via contaminated litter boxes. Poor environmental survival (~2–3 d) → host/fomite control matters more than heavy decon.</li>
+            <li><b>Who:</b> <b>young cats (&lt;2 y) in catteries/shelters</b>; chronic intermittent <b>large-bowel diarrhoea</b> (fresh blood, mucus, tenesmus), normal appetite/weight, <b>well between bouts</b>; often self-resolves over months–years.</li>
+            <li><b>Dx:</b> fresh smear (forward rolling, single <b>axostyle</b>, 1 nucleus, undulating membrane), <b>InPouch TF</b> culture, or PCR (most specific). ~<b>22–54% co-infected with <em>Giardia</em></b>.</li>
+            <li><b>Rx:</b> <b>ronidazole 30 mg/kg PO q24h × 14 d</b> — reversible neurotoxicity (lethargy/ataxia/tremor; stop if seen).</li>
+          </ul>
+          <div class="trap"><b>⚠ Trap:</b> <b>metronidazole treats <em>Giardia</em> but NOT <em>Tritrichomonas</em></b> — use <b>ronidazole</b>. Distinguish on smear: <em>T. foetus</em> = forward rolling + 1 axostyle + 1 nucleus; <em>Giardia</em> = falling-leaf + owl-eyes (2 nuclei) + ventral disc.</div>
+        </section>
+      </div>
+
+      <!-- ============ COLUMN 2 — Cryptosporidium + Cystoisospora ============ -->
+      <div class="col">
+        <section class="card blue">
+          <h2>Cryptosporidium spp. <span class="n">zoonotic</span></h2>
+          <p style="margin:0"><span class="lead"><em>Cryptosporidium</em> spp.:</span> coccidian apicomplexan; dogs = host-adapted <em>C. canis</em>, cats = <em>C. felis</em> (<em>C. parvum</em>/<em>C. hominis</em> = ruminant/human).</p>
+          <ul class="tight" style="margin-top:4px">
+            <li><b>LC:</b> <b>DIRECT</b>. Oocysts <b>immediately infective when shed</b> — <b>no sporulation needed</b> → contamination faster than other coccidia.</li>
+            <li><b>Route:</b> faecal-oral oocysts.</li>
+            <li><b>Who:</b> watery/mucoid small-bowel diarrhoea; self-limiting in immunocompetent adults; <b>severe/life-threatening in neonates/young/immunocompromised</b>.</li>
+            <li><b>Rx:</b> <b>no consistently effective drug</b> → supportive (fluids, diet); azithromycin empirical; paromomycin <b>nephrotoxic in cats — avoid</b>. Control = hygiene.</li>
+            <li><b>Zoo: ZOONOTIC</b> — handwashing is the key measure, esp. immunocompromised people (HIV/transplant); dog/cat host-adapted strains = limited risk.</li>
+            <li><b>Dx:</b> <b>modified Ziehl-Neelsen (acid-fast)</b> — oocysts stain pink/red; routine float poor (oocysts 4–5 µm); ELISA/IFA/PCR.</li>
+          </ul>
+          <div class="trap"><b>⚠ Trap:</b> oocysts are <b>chlorine/bleach-resistant</b> (tough wall). A shelter using bleach as primary disinfectant will NOT decontaminate — use <b>steam &gt;60 °C (140 °F)</b> or <b>6% hydrogen peroxide</b> / desiccation.</div>
+        </section>
+
+        <section class="card">
+          <h2>Cystoisospora <span class="n">coccidia</span></h2>
+          <p style="margin:0"><span class="lead"><em>Cystoisospora</em> (coccidia):</span> <b>host-specific</b> — cat coccidia don't infect dogs or humans, and vice versa.</p>
+          <ul class="tight" style="margin-top:4px">
+            <li><b>LC:</b> <b>DIRECT</b>, faecal-oral (oocysts sporulate after brief environmental development).</li>
+            <li><b>Who:</b> disease of <b>naive puppies/kittens</b> in heavily contaminated, crowded housing.</li>
+            <li><b>Rx (DOC):</b> <b>ponazuril (toltrazuril sulfone) 20–50 mg/kg PO SID × 1–3 d</b> = <b>coccidiocidal</b>. <b>Sulfadimethoxine 50–60 mg/kg PO SID × 14–21 d</b> = only labelled, but merely <b>coccidiostatic</b>.</li>
+          </ul>
+          <div class="trap"><b>⚠ Trap:</b> <b>signs precede shedding</b> — enterocyte destruction (clinical signs) occurs BEFORE oocyst production, so a sick animal can have a <b>negative fecal float</b>. One negative float does not rule out coccidiosis.</div>
+        </section>
+      </div>
+
+      <!-- ============ COLUMN 3 — Toxoplasma + Neospora + Dx/control ============ -->
+      <div class="col">
+        <section class="card blue">
+          <h2>Toxoplasma gondii <span class="n">zoonotic</span></h2>
+          <p style="margin:0"><span class="lead"><em>Toxoplasma gondii</em>:</span> apicomplexan; <b>cat = the ONLY definitive host</b> (sole source of oocysts).</p>
+          <ul class="tight" style="margin-top:4px">
+            <li><b>LC:</b> <b>INDIRECT</b> two-host. Definitive = felids (shed oocysts <b>only ~2 wk during acute infection</b>); intermediate = any warm-blooded host (tissue cysts).</li>
+            <li><b>Route (3):</b> ingest <b>sporulated oocysts</b> from environment; eat <b>raw/undercooked meat with tissue cysts</b>; <b>transplacental</b>.</li>
+            <li><b>Who:</b> disseminated disease in the <b>immunosuppressed</b> — fever, anorexia, ocular, pulmonary, CNS signs.</li>
+            <li><b>Rx:</b> <b>clindamycin 10–12 mg/kg BID × 2–4 wk</b> (or pyrimethamine + sulfonamide; ponazuril cuts shedding in identified shedders).</li>
+            <li><b>Zoo: ZOONOTIC</b> — important, esp. <b>primary infection in pregnancy</b>.</li>
+          </ul>
+          <div class="trap"><b>⚠ Trap:</b> the <b>cat is the ONLY definitive host</b> and shedding is <b>brief/self-limiting (~1–2 wk)</b>. Oocysts need <b>&gt;24 h to sporulate</b> → <b>daily litter removal</b> clears them before infective. A <b>seropositive</b> cat sheds LESS (the safer cat).</div>
+        </section>
+
+        <section class="card">
+          <h2>Neospora caninum <span class="n">dog def. host</span></h2>
+          <p style="margin:0"><span class="lead"><em>Neospora caninum</em>:</span> Toxoplasma-like apicomplexan but cycles <b>dog ↔ cattle</b>.</p>
+          <ul class="tight" style="margin-top:4px">
+            <li><b>LC:</b> <b>INDIRECT</b>. <b>Dog = definitive host</b> (sheds oocysts on first infection), <b>cattle = intermediate</b>; dog infected by eating <b>raw beef/venison</b>. + transplacental in intermediate host.</li>
+            <li><b>Who:</b> congenitally infected pups → <b>ascending flaccid hind-limb paralysis ~3 wk</b>; adults → neuro signs, nodular dermatitis, myositis, myocarditis.</li>
+            <li><b>Rx:</b> <b>clindamycin</b> or TMS, each + pyrimethamine, ~4 wk; <b>treat ALL littermates</b> incl. clinically normal ones.</li>
+            <li><b>Zoo:</b> <b>NOT zoonotic</b> — key contrast with <em>Toxoplasma</em>.</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Diagnosis &amp; Shelter Control</h2>
+          <ul class="tight">
+            <li><span class="lead">Fecal flotation</span> (<b>zinc-sulfate centrifugation</b>) → cysts/oocysts; intermittent shedding → check multiple samples before calling negative.</li>
+            <li><span class="lead">Direct saline wet-mount</span> → motile trophozoites (<em>Giardia</em> falling-leaf; <em>Tritrichomonas</em> forward rolling).</li>
+            <li><span class="lead">Antigen ELISA / SNAP</span> — <em>Giardia</em>; but <b>confirm cure by flotation, not antigen</b>.</li>
+            <li><span class="lead">Modified Ziehl-Neelsen (acid-fast)</span> → <em>Cryptosporidium</em> oocysts. <span class="lead">PCR</span> → assemblage/species, zoonotic Qs, <em>T. foetus</em>. AAFP/ASV minimum plan for acute diarrhoea = <b>float + Giardia antigen</b>.</li>
+            <li><span class="lead">Environmental resistance</span> — <em>Giardia</em> cysts <b>resist QACs (quats)</b>; <em>Cryptosporidium</em> &amp; coccidia oocysts <b>resist bleach/chlorine</b>. Need <b>steam/heat &gt;60–70 °C (140–158 °F)</b>, drying/desiccation, <b>accelerated H₂O₂</b>, or <b>6% hydrogen peroxide</b> for oocysts.</li>
+          </ul>
+          <div class="trap"><b>⚠ Trap:</b> immediately-infective agents (<em>Giardia</em>, <em>Cryptosporidium</em>) demand <b>isolation-level daily sanitation</b>; a quat-only or bleach-only protocol fails against them.</div>
+        </section>
+      </div>
+
+    </div>
+
+    <section class="card" style="border-left-color:#0e7490;margin-top:12px">
+      <h2 style="color:#0e7490">📄 Journal Articles</h2>
+      <div class="exp">▢ journal-article summaries to be added</div>
+    </section>
+
+    <footer class="doc">
+      <span>Personal study notes · 2026 ABVP Combined Exam (Shelter Medicine RVS)</span>
+      <span>© Juliana Xue — for personal study use</span>
+    </footer>
+  </div>
+
+  <script>if(window.self!==window.top){document.documentElement.className+=' embedded';}</script>
+</body>
+</html>
