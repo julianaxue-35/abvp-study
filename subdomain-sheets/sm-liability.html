@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Liability — Summary Sheet</title>
+<style>
+  :root{
+    --ink:#1f2430; --muted:#6b7280; --line:#e5e7eb;
+    --theme:#b84c1a; --theme-soft:#f8ede6; --theme-line:#e6c3ac;   /* ← change per domain */
+    --blue:#1d4ed8; --blue-soft:#eaf0ff; --blue-line:#b8caff;
+    --warn:#b45309; --warn-soft:#fff5e6;
+    --add:#0d7d74;  --add-soft:#e4f6f4;
+  }
+  *{box-sizing:border-box} html,body{margin:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:#f4f4f6;line-height:1.32;font-size:12px}
+  .toolbar{max-width:1180px;margin:14px auto 0;padding:10px 14px;background:#fff;border:1px solid var(--line);
+    border-radius:10px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+  .toolbar b{color:var(--ink)}
+  .btn{background:var(--theme);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:13px;font-weight:600;cursor:pointer}
+  .btn:hover{filter:brightness(.9)}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .legend span{display:inline-flex;align-items:center;gap:5px}
+  .swatch{width:11px;height:11px;border-radius:3px;display:inline-block}
+  .sheet{max-width:1180px;margin:14px auto;background:#fff;padding:16px 18px 12px;border:1px solid var(--line);
+    border-radius:10px;box-shadow:0 1px 6px rgba(0,0,0,.05)}
+  header.doc{border-bottom:2.5px solid var(--theme);padding-bottom:8px;margin-bottom:12px;display:flex;
+    align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  header.doc h1{margin:0;font-size:23px;letter-spacing:-.2px;color:var(--theme)}
+  header.doc h1 small{color:var(--ink);font-weight:600;font-size:14px}
+  .tags{font-size:11px;color:var(--muted)} .tags b{color:var(--theme)}
+  .lede{font-size:11.5px;color:var(--muted);margin:0 0 10px;border-left:3px solid var(--theme-line);padding-left:9px}
+  .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .col{display:flex;flex-direction:column;gap:11px}
+  section.card{border:1px solid var(--line);border-left:4px solid var(--theme);border-radius:7px;
+    padding:8px 10px 9px;break-inside:avoid;page-break-inside:avoid}
+  section.card.blue{border-left-color:var(--blue)}
+  section.card h2{margin:0 0 6px;font-size:12.5px;text-transform:uppercase;letter-spacing:.4px;color:var(--theme);
+    display:flex;align-items:center;gap:6px}
+  section.card.blue h2{color:var(--blue)}
+  h2 .n{font-size:10px;background:var(--theme-soft);color:var(--theme);border:1px solid var(--theme-line);
+    border-radius:4px;padding:0 5px;font-weight:700}
+  ul{margin:0;padding-left:15px} ol{margin:0;padding-left:17px}
+  li{margin:2.5px 0} li::marker{color:var(--theme)} .blue li::marker{color:var(--blue)}
+  ul.tight li{margin:1.5px 0}
+  .sub{list-style:none;padding-left:2px;margin:3px 0} .sub li{margin:1.5px 0}
+  .sub li::before{content:"– ";color:var(--muted)}
+  b,strong{font-weight:700} .lead{font-weight:700}
+  .exp{color:var(--muted);font-weight:400}
+  .arw{color:var(--theme);font-weight:700} .up{color:#b91c1c;font-weight:700} .dn{color:#1d4ed8;font-weight:700}
+  .trap{background:var(--warn-soft);border:1px solid #f2cf95;border-radius:5px;padding:4px 7px;margin:5px 0 2px;
+    font-size:11px;color:#7a4a08} .trap>b:first-child{color:var(--warn)}
+  .add{background:var(--add-soft);border-bottom:1px dotted var(--add);color:#0b5a54;padding:0 2px;border-radius:2px}
+  .addtag{font-size:9px;font-weight:700;color:#fff;background:var(--add);border-radius:3px;padding:0 3px;margin-left:2px;vertical-align:1px}
+  .flag{display:block;background:var(--add-soft);border:1px dashed var(--add);border-radius:5px;padding:4px 7px;
+    margin:5px 0 0;font-size:10.5px;color:#0b5a54} .flag b{color:var(--add)}
+  .risk{font-weight:800} .risk.hi{color:#b91c1c}.risk.mod{color:#b45309}.risk.lo{color:#15803d}
+  footer.doc{margin-top:12px;padding-top:8px;border-top:1px solid var(--line);font-size:9.5px;color:var(--muted);
+    display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+  @page{size:A4 landscape;margin:9mm}
+  @media print{
+    body{background:#fff;font-size:9.4px;line-height:1.26}
+    .toolbar{display:none}
+    .sheet{max-width:none;margin:0;border:none;border-radius:0;box-shadow:none;padding:0}
+    header.doc h1{font-size:19px} header.doc h1 small{font-size:12px}
+    section.card h2{font-size:10.5px}
+    .cols{gap:9px}.col{gap:8px}section.card{padding:6px 8px 7px}.trap,.flag{font-size:9px}
+  }
+  /* narrow screens: stack the 3 columns so it stays readable */
+  @media(max-width:780px){ .cols{grid-template-columns:1fr} }
+  /* embedded inside the study-hub collapsible: drop page chrome, sit flush */
+  html.embedded body{background:#fff}
+  html.embedded .toolbar{display:none}
+  html.embedded .sheet{max-width:none;margin:0;border:none;border-radius:0;box-shadow:none;padding:10px 13px 8px}
+</style>
+</head>
+<body>
+
+  <div class="toolbar">
+    <button class="btn" onclick="window.print()">🖨  Print / Save as PDF</button>
+    <span>Best printed <b>A4 landscape</b>.</span>
+    <div class="legend">
+      <span><span class="swatch" style="background:#b84c1a"></span>section</span>
+      <span><span class="swatch" style="background:#1d4ed8"></span>outbreak / biosecurity</span>
+      <span><span class="swatch" style="background:#fff5e6;border:1px solid #f2cf95"></span>exam trap</span>
+      <span><span class="swatch" style="background:#e4f6f4;border:1px solid #0d7d74"></span><b style="color:#0d7d74">+</b> added / clarified</span>
+    </div>
+  </div>
+
+  <div class="sheet">
+    <header class="doc">
+      <h1>Liability</h1>
+      <div class="tags"><b>Liability</b> · Shelter Management (18%) · Shelter Medicine</div>
+    </header>
+
+    <p class="lede">Skeleton summary of the Liability subdomain — fill from your notes; pre-filled points marked +.</p>
+
+    <div class="cols">
+
+      <!-- ============ COLUMN 1 ============ -->
+      <div class="col">
+        <section class="card">
+          <h2>Adoption Disclosure and Liability</h2>
+          <ul class="tight">
+            <li><span class="add"><span class="lead">Primary defense</span> — full, documented disclosure of all known health &amp; behavioral issues <b>before transfer</b> shifts risk awareness to the adopter; foundation of every adoption-liability defense<span class="addtag">+</span></span></li>
+            <li><span class="exp">▢ to fill from your notes</span></li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Disclosure &amp; the One Bite Rule</h2>
+          <ul class="tight">
+            <li><span class="add"><span class="lead">One Bite Rule</span> — once an owner (a shelter counts, pre-adoption) knows of a bite propensity, they are liable for later bites; non-disclosure of documented aggression <span class="arw">→</span> negligence<span class="addtag">+</span></span></li>
+            <li><span class="exp">▢ to fill from your notes</span></li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Behavioral Assessment Documentation as Liability Defense</h2>
+          <ul class="tight">
+            <li><span class="exp">▢ to fill from your notes</span></li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- ============ COLUMN 2 ============ -->
+      <div class="col">
+        <section class="card">
+          <h2>ASV Guidelines as Legal Standard of Care</h2>
+          <ul class="tight">
+            <li><span class="add"><span class="lead">Standard of care</span> — ASV <span class="exp">(Association of Shelter Veterinarians)</span> Guidelines are <b>not</b> federal law but the industry benchmark courts use for the "reasonable, prudent" professional in negligence cases<span class="addtag">+</span></span></li>
+            <li><span class="exp">▢ to fill from your notes</span></li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Trial Adoptions: The Liability Mismatch</h2>
+          <ul class="tight">
+            <li><span class="add"><span class="lead">Mismatch</span> — shelter keeps legal ownership + liability but <b>no</b> custody/control ("shelter lawyer's nightmare"); on a public-safety incident both trial home &amp; shelter can be sued<span class="addtag">+</span></span></li>
+            <li><span class="exp">▢ to fill from your notes</span></li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Foster Care Legal Framework</h2>
+          <ul class="tight">
+            <li><span class="add"><span class="lead">Bailment</span> — shelter (bailor) keeps title + major-medical/euthanasia authority; foster is <b>not</b> the owner; <b>weekly</b> contact + periodic in-person visits required<span class="addtag">+</span></span></li>
+            <li><span class="exp">▢ to fill from your notes</span></li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- ============ COLUMN 3 ============ -->
+      <div class="col">
+        <section class="card">
+          <h2>Cruelty Investigations &amp; Mandatory Reporting</h2>
+          <ul class="tight">
+            <li><span class="add"><span class="lead">Chain of custody</span> — a broken chain (missed hand-off, altered/alterable record) renders forensic findings <b>inadmissible</b>, however strong the clinical evidence; log every handler &amp; transfer in a secure, unalterable medical-legal record<span class="addtag">+</span></span></li>
+            <li><span class="exp">▢ to fill from your notes</span></li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Insurance &amp; Risk Management</h2>
+          <ul class="tight">
+            <li><span class="add"><span class="lead">Un-insurable</span> — reputational harm (disease outbreak, fatal dog attack, controlled-substance scandal) is severe and <b>cannot</b> be insured; prevention + disclosure are the only strategies<span class="addtag">+</span></span></li>
+            <li><span class="exp">▢ to fill from your notes</span></li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Volunteer Injury Liability</h2>
+          <ul class="tight">
+            <li><span class="exp">▢ to fill from your notes</span></li>
+          </ul>
+        </section>
+      </div>
+
+    </div>
+
+    <footer class="doc">
+      <span>Personal study notes · 2026 ABVP Combined Exam (Shelter Medicine RVS)</span>
+      <span>© Juliana Xue — for personal study use</span>
+    </footer>
+  </div>
+
+  <script>if(window.self!==window.top){document.documentElement.className+=' embedded';}</script>
+</body>
+</html>
