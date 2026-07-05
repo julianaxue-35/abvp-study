@@ -94,7 +94,7 @@
       <div class="tags"><b>Study Design</b> · Research &amp; Biostats (6%) · Shelter Medicine</div>
     </header>
 
-    <p class="lede">Skeleton summary of the Study Design subdomain — fill from your notes; pre-filled points marked +.</p>
+    <p class="lede">High-yield summary of the Study Design subdomain — designs, statistical inference, bias &amp; validity, and the measure each design yields; every concept in plain English with a worked example or memory hook. Pre-filled points marked +.</p>
 
     <div class="cols">
 
@@ -104,23 +104,32 @@
           <h2>Study Designs</h2>
           <ul class="tight">
             <li><span class="add"><span class="lead">Direction of reasoning</span> — cohort reasons forward (exposure <span class="arw">→</span> outcome); case-control reasons backward (outcome <span class="arw">→</span> exposure); cross-sectional captures both at one instant.<span class="addtag">+</span></span></li>
-            <li style="color:var(--muted);font-size:11px;margin:2px 0">▢ to fill from your notes</li>
+            <li><span class="lead">Three families</span> — <b>descriptive</b> <span class="exp">(who/what/where/when; no comparison group, so only generates hypotheses)</span>; <b>analytic observational</b> <span class="exp">(adds a comparison group but the investigator only observes — exposure is not assigned)</span>; <b>experimental</b> <span class="exp">(investigator assigns the intervention — the only family that shows causation directly)</span>.</li>
+            <li><span class="lead">Descriptive ladder</span> — case report <span class="exp">(single animal, flags the rare, no denominator)</span> <span class="arw">→</span> case series <span class="exp">(a cluster, still no comparison)</span> <span class="arw">→</span> cross-sectional / prevalence survey <span class="exp">(fast, gives prevalence, can't show exposure came first)</span> <span class="arw">→</span> ecological <span class="exp">(group-level correlation from aggregate data)</span>.</li>
+            <li><span class="lead">RCT</span> — investigator randomly allocates subjects to intervention vs control; randomisation balances <b>known AND unknown</b> confounders (its source of causal strength). Blinding (single/double) cuts observer &amp; placebo effects; <b>intention-to-treat</b> = analyse each subject in the group they were assigned, whether or not they completed.</li>
           </ul>
+          <div class="trap"><b>Trap</b> — ecological fallacy: a group-level association does NOT prove the same link holds in individuals. A case report or series can never prove a risk factor because it has no comparison group.</div>
         </section>
 
         <section class="card">
           <h2>Analytic observational studies</h2>
           <ul class="tight">
             <li><span class="add"><span class="lead">Design → measure</span> — cohort yields incidence &amp; relative risk <span class="exp">(RR)</span>; case-control yields the odds ratio <span class="exp">(OR)</span> and suits rare or slow diseases. Incidence = new cases over a period; prevalence = existing cases at one snapshot.<span class="addtag">+</span></span></li>
-            <li style="color:var(--muted);font-size:11px;margin:2px 0">▢ to fill from your notes</li>
+            <li><span class="lead">Cohort</span> <span class="exp">(exposure → outcome, forward)</span> — follows exposed vs unexposed over time; gives <b>incidence + RR</b>; establishes temporality (exposure clearly precedes disease); good for common or multiple outcomes; weak point = loss to follow-up, inefficient for rare disease. Hook: <i>a cohort counts new cases.</i></li>
+            <li><span class="lead">Case-control</span> <span class="exp">(outcome → exposure, backward)</span> — starts with the diseased (cases) vs healthy (controls) and looks back for exposure; gives the <b>OR</b>; efficient for rare or long-latency disease; weak point = recall &amp; selection bias. OR ≈ RR only when the disease is rare.</li>
+            <li><span class="lead">Analytic cross-sectional</span> — exposure and outcome measured together at one instant; gives <b>prevalence / prevalence ratio</b>; cannot order events, so reverse causation is possible.</li>
+            <li><span class="lead">Measures by design</span> — RR (cohort/experimental, null&nbsp;=&nbsp;1); OR (case-control, null&nbsp;=&nbsp;1); prevalence ratio (cross-sectional); attributable risk / risk difference = absolute excess risk in the exposed (cohort/experimental).</li>
           </ul>
+          <div class="trap"><b>Trap</b> — a case-control study CANNOT give incidence or prevalence: it starts from the outcome and has no population-at-risk denominator, so it yields an odds ratio only.</div>
         </section>
 
         <section class="card">
           <h2>Hierarchy of evidence and EBVM</h2>
           <ul class="tight">
             <li><span class="add"><span class="lead">Strength ladder</span> — systematic review / RCT <span class="exp">(randomised controlled trial)</span> &gt; cohort &gt; case-control &gt; case series / report &gt; expert opinion.<span class="addtag">+</span></span></li>
-            <li style="color:var(--muted);font-size:11px;margin:2px 0">▢ to fill from your notes</li>
+            <li><span class="lead">Why that order</span> — higher tiers control confounding better: an RCT randomises it away, a systematic review / meta-analysis pools many studies. The ladder applies to therapy &amp; causation questions.</li>
+            <li><span class="lead">EBVM — five A's</span> — <b>A</b>sk, <b>A</b>cquire, <b>A</b>ppraise, <b>A</b>pply, <b>A</b>ssess.</li>
+            <li><span class="lead">Exam skill</span> — some items are drawn from journal <b>abstracts</b> (2021–2025 lookback). Practise reading an abstract to name the <b>design</b>, the <b>measure reported</b>, and the <b>main limitation</b>.</li>
           </ul>
         </section>
       </div>
@@ -131,22 +140,30 @@
           <h2>Hypothesis testing</h2>
           <ul class="tight">
             <li><span class="add"><span class="lead">p-value</span> — the probability of data this extreme <b>if the null hypothesis were true</b>; it is NOT the probability the null is true, nor "the chance the result happened randomly".<span class="addtag">+</span></span></li>
-            <li style="color:var(--muted);font-size:11px;margin:2px 0">▢ to fill from your notes</li>
+            <li><span class="lead">H0 vs H1</span> — null (H0) = no difference/association <span class="exp">(e.g. RR = 1)</span>; alternative (H1) = a difference exists. You reject H0 when the data are unlikely enough under it.</li>
+            <li><span class="lead">alpha (α)</span> — the significance cut-off set <i>before</i> looking (usually 0.05); it is the Type I / false-positive rate you agree to tolerate.</li>
+            <li><span class="lead">Statistical vs clinical</span> — with a big enough sample even a trivial, meaningless difference can reach p&lt;0.05; always judge the effect size, not just the p-value.</li>
           </ul>
+          <div class="trap"><b>Trap</b> — p&lt;0.05 means statistically significant, NOT clinically important. A significant p attached to a tiny effect can be useless at the cage side.</div>
         </section>
 
         <section class="card">
           <h2>Error types and power</h2>
           <ul class="tight">
             <li><span class="add"><span class="lead">Type I vs II</span> — Type I = false positive (alpha, "cried wolf"); Type II = false negative (beta, "missed the wolf"); power = 1 − beta (the chance of catching a real effect).<span class="addtag">+</span></span></li>
-            <li style="color:var(--muted);font-size:11px;margin:2px 0">▢ to fill from your notes</li>
+            <li><span class="lead">Definitions</span> — Type I (α) = reject a <b>true</b> H0 (see an effect that isn't there); Type II (β) = fail to reject a <b>false</b> H0 (miss a real effect).</li>
+            <li><span class="lead">Power</span> — = 1 − β = probability of detecting a real effect; convention ≥ <b>0.80</b>. It rises with a bigger sample (the main lever), a larger true effect, higher alpha, and lower variability.</li>
+            <li><span class="lead">The 2×2 hook</span> — rows = your test decision, columns = the truth; the two correct outcomes sit on the diagonal, the two errors off it.</li>
           </ul>
         </section>
 
         <section class="card">
           <h2>Confidence intervals</h2>
           <ul class="tight">
-            <li style="color:var(--muted);font-size:11px;margin:2px 0">▢ to fill from your notes</li>
+            <li><span class="lead">What it is</span> — a 95% CI is the range that would contain the true value 95% of the time on repeated sampling; it shows direction AND magnitude, which a bare p-value hides.</li>
+            <li><span class="lead">Ratio measures</span> — RR &amp; OR: null value = <b>1</b>; a CI that <b>includes 1</b> is non-significant.</li>
+            <li><span class="lead">Difference measures</span> — mean or risk difference: null value = <b>0</b>; a CI that <b>includes 0</b> is non-significant.</li>
+            <li><span class="lead">Width = precision</span> — larger samples and lower variability narrow it. Hook: a 95% CI that excludes the null agrees with p&lt;0.05.</li>
           </ul>
         </section>
       </div>
@@ -157,16 +174,22 @@
           <h2>Bias and validity</h2>
           <ul class="tight">
             <li><span class="add"><span class="lead">Bias vs confounding</span> — bias is systematic error built into the design; a bigger sample does NOT fix it (only random error shrinks). Confounding is a separate third variable that distorts the exposure–outcome link.<span class="addtag">+</span></span></li>
-            <li style="color:var(--muted);font-size:11px;margin:2px 0">▢ to fill from your notes</li>
+            <li><span class="lead">Bias types</span> — <b>selection</b> (who enters distorts exposure↔outcome); <b>information/measurement</b> (systematic error recording exposure or outcome); <b>recall</b> (cases remember exposures differently — classic in case-control); <b>observer</b> (assessor's knowledge sways the reading); <b>misclassification</b> (non-differential usually biases toward the null, differential either way).</li>
+            <li><span class="lead">Confounder = all 3</span> — (1) associated with the exposure, (2) an independent risk factor for the outcome, (3) NOT on the causal pathway. Control by design (randomise, restrict, match) or by analysis (stratify / Mantel-Haenszel, multivariable regression).</li>
+            <li><span class="lead">Effect modification ≠ confounding</span> — here the true effect genuinely differs by stratum (helps adults but not puppies); a real finding to report, not a nuisance to adjust away.</li>
+            <li><span class="lead">Validity &amp; sampling</span> — internal validity (measures truly, free of bias/confounding) vs external / generalisability (applies beyond the sample); reliability (precision, repeatable) ≠ validity (accuracy, close to truth) — a measure can be reliable yet wrong; kappa = observer agreement corrected for chance. Probability sampling (random, systematic, stratified, cluster) supports inference; convenience sampling is a classic selection-bias source.</li>
           </ul>
+          <div class="trap"><b>Trap</b> — correlation ≠ causation. Of the Bradford Hill considerations, <b>temporality</b> (cause precedes effect) is the one essential criterion; the rest support but are not a checklist that must all be met.</div>
         </section>
 
         <section class="card">
           <h2>Diagnostic test evaluation</h2>
           <ul class="tight">
             <li><span class="add"><span class="lead">Sn / Sp / predictive values</span> — a Sensitive test with a Negative result rules OUT (SnNout); a Specific test with a Positive result rules IN (SpPin). PPV <span class="exp">(positive predictive value)</span> &amp; NPV depend on prevalence.<span class="addtag">+</span></span></li>
-            <li style="color:var(--muted);font-size:11px;margin:2px 0">▢ to fill from your notes</li>
+            <li><span class="lead">Formulas</span> — Sensitivity = TP/(TP+FN) <span class="exp">(of the truly diseased, the share the test flags — a property of the test, prevalence-independent)</span>; Specificity = TN/(TN+FP) <span class="exp">(of the truly healthy, the share cleared — also prevalence-independent)</span>. PPV = TP/(TP+FP), NPV = TN/(TN+FN) — clinically useful but prevalence-dependent.</li>
+            <li><span class="lead">Worked example</span> — Sn 90%, Sp 95%. Screen 1000 cats at 2% prevalence: 18 true positives vs 49 false positives <span class="arw">→</span> PPV = 18/67 ≈ <b>27%</b>, despite a genuinely good test.</li>
           </ul>
+          <div class="trap"><b>Trap</b> — as prevalence falls, PPV falls (a larger share of positives are false) even though Sn &amp; Sp are unchanged. That is why low-prevalence intake screening (e.g. FeLV) needs confirmatory testing.</div>
         </section>
       </div>
 
