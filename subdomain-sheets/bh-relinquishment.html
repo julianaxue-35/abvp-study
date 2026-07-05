@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  SUBDOMAIN SKELETON SUMMARY SHEET — Behaviour & Relinquishment
+  Structure mirrors disease-one-pagers/_TEMPLATE.html. Card <h2>s are the real
+  hub headings from behavioral-health/10_behaviour_relinquishment.html.
+  Fill each card from your notes; pre-filled highest-yield points marked +.
+  ============================================================================
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Behaviour &amp; Relinquishment — Summary Sheet</title>
+<style>
+  :root{
+    --ink:#1f2430; --muted:#6b7280; --line:#e5e7eb;
+    --theme:#1c3a5e; --theme-soft:#e8edf3; --theme-line:#aebfd3;   /* ← change per domain */
+    --blue:#1d4ed8; --blue-soft:#eaf0ff; --blue-line:#b8caff;
+    --warn:#b45309; --warn-soft:#fff5e6;
+    --add:#0d7d74;  --add-soft:#e4f6f4;
+  }
+  *{box-sizing:border-box} html,body{margin:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:#f4f4f6;line-height:1.32;font-size:12px}
+  .toolbar{max-width:1180px;margin:14px auto 0;padding:10px 14px;background:#fff;border:1px solid var(--line);
+    border-radius:10px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+  .toolbar b{color:var(--ink)}
+  .btn{background:var(--theme);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:13px;font-weight:600;cursor:pointer}
+  .btn:hover{filter:brightness(.9)}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .legend span{display:inline-flex;align-items:center;gap:5px}
+  .swatch{width:11px;height:11px;border-radius:3px;display:inline-block}
+  .sheet{max-width:1180px;margin:14px auto;background:#fff;padding:16px 18px 12px;border:1px solid var(--line);
+    border-radius:10px;box-shadow:0 1px 6px rgba(0,0,0,.05)}
+  header.doc{border-bottom:2.5px solid var(--theme);padding-bottom:8px;margin-bottom:12px;display:flex;
+    align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  header.doc h1{margin:0;font-size:23px;letter-spacing:-.2px;color:var(--theme)}
+  header.doc h1 small{color:var(--ink);font-weight:600;font-size:14px}
+  .tags{font-size:11px;color:var(--muted)} .tags b{color:var(--theme)}
+  .lede{font-size:11.5px;color:var(--muted);margin:0 0 10px;border-left:3px solid var(--theme-line);padding-left:9px}
+  .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .col{display:flex;flex-direction:column;gap:11px}
+  section.card{border:1px solid var(--line);border-left:4px solid var(--theme);border-radius:7px;
+    padding:8px 10px 9px;break-inside:avoid;page-break-inside:avoid}
+  section.card.blue{border-left-color:var(--blue)}
+  section.card h2{margin:0 0 6px;font-size:12.5px;text-transform:uppercase;letter-spacing:.4px;color:var(--theme);
+    display:flex;align-items:center;gap:6px}
+  section.card.blue h2{color:var(--blue)}
+  h2 .n{font-size:10px;background:var(--theme-soft);color:var(--theme);border:1px solid var(--theme-line);
+    border-radius:4px;padding:0 5px;font-weight:700}
+  ul{margin:0;padding-left:15px} ol{margin:0;padding-left:17px}
+  li{margin:2.5px 0} li::marker{color:var(--theme)} .blue li::marker{color:var(--blue)}
+  ul.tight li{margin:1.5px 0}
+  .sub{list-style:none;padding-left:2px;margin:3px 0} .sub li{margin:1.5px 0}
+  .sub li::before{content:"– ";color:var(--muted)}
+  b,strong{font-weight:700} .lead{font-weight:700}
+  .exp{color:var(--muted);font-weight:400}
+  .arw{color:var(--theme);font-weight:700} .up{color:#b91c1c;font-weight:700} .dn{color:#1d4ed8;font-weight:700}
+  .trap{background:var(--warn-soft);border:1px solid #f2cf95;border-radius:5px;padding:4px 7px;margin:5px 0 2px;
+    font-size:11px;color:#7a4a08} .trap>b:first-child{color:var(--warn)}
+  .add{background:var(--add-soft);border-bottom:1px dotted var(--add);color:#0b5a54;padding:0 2px;border-radius:2px}
+  .addtag{font-size:9px;font-weight:700;color:#fff;background:var(--add);border-radius:3px;padding:0 3px;margin-left:2px;vertical-align:1px}
+  .flag{display:block;background:var(--add-soft);border:1px dashed var(--add);border-radius:5px;padding:4px 7px;
+    margin:5px 0 0;font-size:10.5px;color:#0b5a54} .flag b{color:var(--add)}
+  .risk{font-weight:800} .risk.hi{color:#b91c1c}.risk.mod{color:#b45309}.risk.lo{color:#15803d}
+  footer.doc{margin-top:12px;padding-top:8px;border-top:1px solid var(--line);font-size:9.5px;color:var(--muted);
+    display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+  @page{size:A4 landscape;margin:9mm}
+  @media print{
+    body{background:#fff;font-size:9.4px;line-height:1.26}
+    .toolbar{display:none}
+    .sheet{max-width:none;margin:0;border:none;border-radius:0;box-shadow:none;padding:0}
+    header.doc h1{font-size:19px} header.doc h1 small{font-size:12px}
+    section.card h2{font-size:10.5px}
+    .cols{gap:9px}.col{gap:8px}section.card{padding:6px 8px 7px}.trap,.flag{font-size:9px}
+  }
+  /* narrow screens: stack the 3 columns so it stays readable */
+  @media(max-width:780px){ .cols{grid-template-columns:1fr} }
+  /* embedded inside the study-hub collapsible: drop page chrome, sit flush */
+  html.embedded body{background:#fff}
+  html.embedded .toolbar{display:none}
+  html.embedded .sheet{max-width:none;margin:0;border:none;border-radius:0;box-shadow:none;padding:10px 13px 8px}
+</style>
+</head>
+<body>
+
+  <div class="toolbar">
+    <button class="btn" onclick="window.print()">🖨  Print / Save as PDF</button>
+    <span>Best printed <b>A4 landscape</b>.</span>
+    <div class="legend">
+      <span><span class="swatch" style="background:#1c3a5e"></span>section</span>
+      <span><span class="swatch" style="background:#1d4ed8"></span>outbreak / biosecurity</span>
+      <span><span class="swatch" style="background:#fff5e6;border:1px solid #f2cf95"></span>exam trap</span>
+      <span><span class="swatch" style="background:#e4f6f4;border:1px solid #0d7d74"></span><b style="color:#0d7d74">+</b> added / clarified</span>
+    </div>
+  </div>
+
+  <div class="sheet">
+    <header class="doc">
+      <h1>Behaviour &amp; Relinquishment</h1>
+      <div class="tags"><b>Behaviour &amp; Relinquishment</b> · Behavioral Health (16%) · Shelter Medicine</div>
+    </header>
+
+    <p class="lede">Skeleton summary of the Behaviour &amp; Relinquishment subdomain — fill from your notes; pre-filled points marked +.</p>
+
+    <div class="cols">
+
+      <!-- ============ COLUMN 1 ============ -->
+      <div class="col">
+        <section class="card">
+          <h2>Canine Behaviour &amp; Relinquishment</h2>
+          <ul class="tight">
+            <li><span class="add"><span class="lead">Leading reason</span> — behaviour is one of the most-cited reasons for surrender (cited in up to ~48% of relinquishments).<span class="addtag">+</span></span></li>
+            <li><span class="add"><span class="lead">Denominator problem</span> — a cited behaviour is not proven risk unless you know its prevalence in retained homes (~86% of kept dogs show ≥1 troublesome behaviour).<span class="addtag">+</span></span></li>
+          </ul>
+          <p style="color:var(--muted);font-size:11px;margin:2px 0">▢ to fill from your notes</p>
+        </section>
+
+        <section class="card">
+          <h2>Four Windows for Behavioural Prevention</h2>
+          <ul class="tight">
+            <li><span class="add"><span class="lead">Four windows</span> — before intake · at intake · at adoption · after adoption; owner-support / behaviour helplines reduce surrender, and the highest-yield moment is when an owner or adopter first weighs rehoming.<span class="addtag">+</span></span></li>
+          </ul>
+          <p style="color:var(--muted);font-size:11px;margin:2px 0">▢ to fill from your notes</p>
+        </section>
+
+        <section class="card">
+          <h2>Behavioural Hygiene in Kennels</h2>
+          <ul class="tight">
+            <li><span class="add"><span class="lead">Outing = the reinforcer</span> — ignoring jumping fails because leaving the kennel (the outing), not handler attention, reinforces it.<span class="addtag">+</span></span></li>
+          </ul>
+          <p style="color:var(--muted);font-size:11px;margin:2px 0">▢ to fill from your notes</p>
+        </section>
+      </div>
+
+      <!-- ============ COLUMN 2 ============ -->
+      <div class="col">
+        <section class="card">
+          <h2>Three Husbandry-Induced Problems</h2>
+          <ul class="tight">
+            <li><span class="add"><span class="lead">Barrier barking/lunging</span> — negatively reinforced as the passing dog walks away <span class="arw">→</span> visual barriers + playgroups, not "ignore it".<span class="addtag">+</span></span></li>
+          </ul>
+          <p style="color:var(--muted);font-size:11px;margin:2px 0">▢ to fill from your notes <span class="exp">(indoor elimination · jumping/mouthing · barking/lunging)</span></p>
+        </section>
+
+        <section class="card">
+          <h2>Feline Community Impact &amp; Field Dynamics</h2>
+          <p style="color:var(--muted);font-size:11px;margin:2px 0">▢ to fill from your notes <span class="exp">(predation · mesopredator release · home range &amp; density · TNR = trap–neuter–return)</span></p>
+        </section>
+
+        <section class="card">
+          <h2>Consequences of Lethal Control</h2>
+          <p style="color:var(--muted);font-size:11px;margin:2px 0">▢ to fill from your notes <span class="exp">(mesopredator release · compensatory migration/vacuum effect)</span></p>
+        </section>
+      </div>
+
+      <!-- ============ COLUMN 3 ============ -->
+      <div class="col">
+        <section class="card">
+          <h2>Community Cats in the Shelter</h2>
+          <ul class="tight">
+            <li><span class="add"><span class="lead">FSA</span> <span class="exp">(Feline Spectrum Assessment)</span> — places a cat on the socialisation spectrum; thriving community cats may not belong in a shelter.<span class="addtag">+</span></span></li>
+          </ul>
+          <p style="color:var(--muted);font-size:11px;margin:2px 0">▢ to fill from your notes</p>
+        </section>
+
+        <section class="card">
+          <h2>The Tiny Spirit Kitten Programme</h2>
+          <ul class="tight">
+            <li><span class="add"><span class="lead">Adopt promptly</span> — undersocialised kittens placed early (still a little hissy) rather than tying up foster homes; ~85% adopted successfully.<span class="addtag">+</span></span></li>
+          </ul>
+          <p style="color:var(--muted);font-size:11px;margin:2px 0">▢ to fill from your notes</p>
+        </section>
+
+        <section class="card">
+          <h2>Behavioural Welfare in Shelters</h2>
+          <p style="color:var(--muted);font-size:11px;margin:2px 0">▢ to fill from your notes <span class="exp">(ASV standard of care · Five Domains · enrichment &amp; FAS reduction — FAS = fear, anxiety, stress)</span></p>
+        </section>
+      </div>
+
+    </div>
+
+    <footer class="doc">
+      <span>Personal study notes · 2026 ABVP Combined Exam (Shelter Medicine RVS)</span>
+      <span>© Juliana Xue — for personal study use</span>
+    </footer>
+  </div>
+
+  <script>if(window.self!==window.top){document.documentElement.className+=' embedded';}</script>
+</body>
+</html>
