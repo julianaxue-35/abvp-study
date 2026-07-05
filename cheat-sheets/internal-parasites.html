@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  DISEASE ONE-PAGER — REUSABLE TEMPLATE
+  ============================================================================
+  HELPER CLASSES (reuse anywhere in the body)
+     <span class="lead">Bold lead-in label</span>
+     <span class="exp">(expanded abbreviation / aside)</span>   → muted grey
+     <span class="arw">→</span>  <span class="up">↑</span>  <span class="dn">↓</span>
+     <ul class="sub"> … </ul>            → indented dashed sub-list
+     <div class="trap"><b>⚠ Trap:</b> …</div>            → amber exam-trap callout
+     <span class="add">extra content<span class="addtag">+</span></span>  → teal "I added this"
+     <span class="flag"><b>+ check:</b> …</span>          → teal dashed flag/correction note
+     <section class="card blue"> … </section>            → blue card (vector-borne / zoonotic)
+  ============================================================================
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Internal Parasites — Cheatsheet</title>
+<style>
+  :root{
+    --ink:#1f2430; --muted:#6b7280; --line:#e5e7eb;
+    --theme:#0f3d3a; --theme-soft:#e6eeeb; --theme-line:#a9c6bd;   /* ← change per domain */
+    --blue:#1d4ed8; --blue-soft:#eaf0ff; --blue-line:#b8caff;
+    --warn:#b45309; --warn-soft:#fff5e6;
+    --add:#0d7d74;  --add-soft:#e4f6f4;
+  }
+  *{box-sizing:border-box} html,body{margin:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:#f4f4f6;line-height:1.32;font-size:12px}
+  .toolbar{max-width:1180px;margin:14px auto 0;padding:10px 14px;background:#fff;border:1px solid var(--line);
+    border-radius:10px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+  .toolbar b{color:var(--ink)}
+  .btn{background:var(--theme);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:13px;font-weight:600;cursor:pointer}
+  .btn:hover{filter:brightness(.9)}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .legend span{display:inline-flex;align-items:center;gap:5px}
+  .swatch{width:11px;height:11px;border-radius:3px;display:inline-block}
+  .sheet{max-width:1180px;margin:14px auto;background:#fff;padding:16px 18px 12px;border:1px solid var(--line);
+    border-radius:10px;box-shadow:0 1px 6px rgba(0,0,0,.05)}
+  header.doc{border-bottom:2.5px solid var(--theme);padding-bottom:8px;margin-bottom:12px;display:flex;
+    align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  header.doc h1{margin:0;font-size:23px;letter-spacing:-.2px;color:var(--theme)}
+  header.doc h1 small{color:var(--ink);font-weight:600;font-size:14px}
+  .tags{font-size:11px;color:var(--muted)} .tags b{color:var(--theme)}
+  .lede{font-size:11.5px;color:var(--muted);margin:0 0 10px;border-left:3px solid var(--theme-line);padding-left:9px}
+  .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .col{display:flex;flex-direction:column;gap:11px}
+  section.card{border:1px solid var(--line);border-left:4px solid var(--theme);border-radius:7px;
+    padding:8px 10px 9px;break-inside:avoid;page-break-inside:avoid}
+  section.card.blue{border-left-color:var(--blue)}
+  section.card h2{margin:0 0 6px;font-size:12.5px;text-transform:uppercase;letter-spacing:.4px;color:var(--theme);
+    display:flex;align-items:center;gap:6px}
+  section.card.blue h2{color:var(--blue)}
+  h2 .n{font-size:10px;background:var(--theme-soft);color:var(--theme);border:1px solid var(--theme-line);
+    border-radius:4px;padding:0 5px;font-weight:700}
+  ul{margin:0;padding-left:15px} ol{margin:0;padding-left:17px}
+  li{margin:2.5px 0} li::marker{color:var(--theme)} .blue li::marker{color:var(--blue)}
+  ul.tight li{margin:1.5px 0}
+  .sub{list-style:none;padding-left:2px;margin:3px 0} .sub li{margin:1.5px 0}
+  .sub li::before{content:"– ";color:var(--muted)}
+  b,strong{font-weight:700} .lead{font-weight:700}
+  .exp{color:var(--muted);font-weight:400}
+  .arw{color:var(--theme);font-weight:700} .up{color:#b91c1c;font-weight:700} .dn{color:#1d4ed8;font-weight:700}
+  .trap{background:var(--warn-soft);border:1px solid #f2cf95;border-radius:5px;padding:4px 7px;margin:5px 0 2px;
+    font-size:11px;color:#7a4a08} .trap>b:first-child{color:var(--warn)}
+  .add{background:var(--add-soft);border-bottom:1px dotted var(--add);color:#0b5a54;padding:0 2px;border-radius:2px}
+  .addtag{font-size:9px;font-weight:700;color:#fff;background:var(--add);border-radius:3px;padding:0 3px;margin-left:2px;vertical-align:1px}
+  .flag{display:block;background:var(--add-soft);border:1px dashed var(--add);border-radius:5px;padding:4px 7px;
+    margin:5px 0 0;font-size:10.5px;color:#0b5a54} .flag b{color:var(--add)}
+  .risk{font-weight:800} .risk.hi{color:#b91c1c}.risk.mod{color:#b45309}.risk.lo{color:#15803d}
+  footer.doc{margin-top:12px;padding-top:8px;border-top:1px solid var(--line);font-size:9.5px;color:var(--muted);
+    display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+  @page{size:A4 landscape;margin:9mm}
+  @media print{
+    body{background:#fff;font-size:9.4px;line-height:1.26}
+    .toolbar{display:none}
+    .sheet{max-width:none;margin:0;border:none;border-radius:0;box-shadow:none;padding:0}
+    header.doc h1{font-size:19px} header.doc h1 small{font-size:12px}
+    section.card h2{font-size:10.5px}
+    .cols{gap:9px}.col{gap:8px}section.card{padding:6px 8px 7px}.trap,.flag{font-size:9px}
+  }
+  /* narrow screens: stack the 3 columns so it stays readable */
+  @media(max-width:780px){ .cols{grid-template-columns:1fr} }
+  /* embedded inside the study-hub collapsible: drop page chrome, sit flush */
+  html.embedded body{background:#fff}
+  html.embedded .toolbar{display:none}
+  html.embedded .sheet{max-width:none;margin:0;border:none;border-radius:0;box-shadow:none;padding:10px 13px 8px}
+</style>
+</head>
+<body>
+
+  <div class="toolbar">
+    <button class="btn" onclick="window.print()">🖨  Print / Save as PDF</button>
+    <span>Best printed <b>A4 landscape</b>.</span>
+    <div class="legend">
+      <span><span class="swatch" style="background:#0f3d3a"></span>section</span>
+      <span><span class="swatch" style="background:#1d4ed8"></span>vector-borne / zoonotic</span>
+      <span><span class="swatch" style="background:#fff5e6;border:1px solid #f2cf95"></span>exam trap</span>
+      <span><span class="swatch" style="background:#e4f6f4;border:1px solid #0d7d74"></span><b style="color:#0d7d74">+</b> added / clarified</span>
+    </div>
+  </div>
+
+  <div class="sheet">
+    <header class="doc">
+      <h1>Internal Parasites</h1>
+      <div class="tags"><b>Internal Parasites</b> · Physical Health of Animal (29%) · Shelter Medicine</div>
+    </header>
+
+    <p class="lede">Shelter endoparasite control protects the <b>population</b>, the <b>public</b>, and each animal's <b>adoptability</b>. High-yield levers: which stage is <b>immediately infective</b> (<em>Giardia</em>, <em>Cryptosporidium</em>) vs needs environmental development; match the <b>drug to the spectrum</b> (fenbendazole misses <em>Dipylidium</em> &amp; <em>Echinococcus</em> → praziquantel); never forget the <b>zoonoses</b> (larva migrans, <em>Cryptosporidium</em>). Heartworm has its own sheet.</p>
+
+    <div class="cols">
+
+      <!-- ============ COLUMN 1 — principles + formulary ============ -->
+      <div class="col">
+        <section class="card">
+          <h2>Control &amp; Transmission</h2>
+          <ul class="tight">
+            <li><span class="lead">Three shelter concerns</span> — protect population (limit environmental contamination); protect staff/adopters from <b>zoonoses</b>; untreated worms cut adoptability &amp; burden new owners.</li>
+            <li><span class="lead">ASV intake mandate</span> — treat <b>all</b> dogs &amp; cats for <b>roundworms + hookworms at intake, from 2 wk of age</b>; every animal leaves covered vs hook + round. Whipworm/tapeworm = targeted (cost).</li>
+            <li>Broad-spectrum heartworm/flea spot-ons <b>do not replace a primary dewormer</b>.</li>
+            <li><span class="lead">Direct</span> (single host) vs <span class="lead">indirect</span> (vector/intermediate host: <em>Dipylidium</em> via flea, <em>Taenia</em> via prey) — indirect <b>can't establish facility-wide</b> without the vector → control the vector.</li>
+            <li><span class="lead">Immediately infective when shed</span> <span class="arw">→</span> <em>Giardia</em>, <em>Cryptosporidium</em>, <em>Tritrichomonas</em>. <span class="lead">Need environmental development</span> <span class="arw">→</span> <em>Toxocara</em>, <em>Ancylostoma</em>, <em>Strongyloides</em>, <em>Trichuris</em>, coccidia, <em>Toxoplasma</em>.</li>
+            <li><span class="lead">Persistence</span> — ascarid eggs nearly indestructible in soil; hookworm eggs die by desiccation; whipworm eggs hardy (bipolar plugs).</li>
+          </ul>
+          <div class="trap"><b>⚠ Trap:</b> immediately-infective agents (<em>Giardia</em>/<em>Cryptosporidium</em>) need <b>isolation-level daily sanitation</b>; ascarid/hook/whip/coccidia are shed <b>non-infective</b> → no isolation, but post-treatment feces are heavily contaminating.</div>
+        </section>
+
+        <section class="card">
+          <h2>Deworming &amp; Formulary</h2>
+          <ul class="tight">
+            <li><span class="lead">Pediatric schedule</span> — puppies from <b>2 wk</b>, kittens from <b>3 wk</b>, q2wk to 12 wk, then monthly to 6 mo; treat pregnant/nursing dams.</li>
+            <li><span class="lead">Pyrantel pamoate</span> — hooks + rounds; cheapest; retreat 2 wk then monthly. Safe mainstay.</li>
+            <li><span class="lead">Fenbendazole</span> — hooks, rounds, whips, <em>Giardia</em>, most tapeworms; <b>50 mg/kg PO q24h × 3–5 d</b>. Misses <em>Dipylidium</em> &amp; <em>Echinococcus</em>.</li>
+            <li><span class="lead">Praziquantel</span> — all tapeworms incl. <em>Dipylidium</em>; 5–7.5 mg/kg.</li>
+            <li><span class="lead">Milbemycin oxime</span> — hook/round/whip <b>plus</b> heartworm prevention.</li>
+            <li><span class="lead">Combos</span> — Drontal Plus (pyrantel + febantel + praziquantel); Profender (emodepside + praziquantel, feline).</li>
+            <li>Reduce <em>T. canis</em> in pups — treat pregnant bitch ivermectin/doramectin <b>day 40–50 gestation</b> (reduces, not eliminates, shedding).</li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- ============ COLUMN 2 — nematodes + tapeworms + HW pointer ============ -->
+      <div class="col">
+        <section class="card">
+          <h2>Intestinal Endoparasites <span class="n">nematodes</span></h2>
+          <ul class="tight">
+            <li><span class="lead">Hookworm</span> (<em>Ancylostoma caninum</em>) — percutaneous/oral/paratenic/<b>transmammary (A. caninum only)</b>; prepatent <b>~2 wk</b> → nursing pups get regenerative anaemia/melena by ~14 d. <em>A. braziliense</em> = most <b>cutaneous larva migrans</b> (US).</li>
+            <li><span class="lead">Roundworm</span> (<em>Toxocara canis/cati</em>, <em>Toxascaris leonina</em>) — ingestion, transplacental (<em>T. canis</em>), transmammary; <em>T. canis</em> prepatent <b>~5 wk</b>. Leading cause of <b>visceral + ocular larva migrans</b>.</li>
+            <li><span class="lead"><em>Baylisascaris procyonis</em></span> — raccoon ascarid; fatal <b>neural larva migrans</b> (deadliest).</li>
+            <li><span class="lead">Whipworm</span> (<em>Trichuris vulpis</em>) — caecum/colon; prepatent <b>~3 mo</b>; barrel egg, bipolar plugs.</li>
+            <li><span class="lead"><em>Strongyloides stercoralis</em></span> — zoonotic threadworm; percutaneous + transmammary; passes <b>L1 larvae, not eggs</b> → <b>Baermann</b>.</li>
+            <li><span class="lead"><em>Ollulanus tricuspis</em></span> — feline "vomit worm"; via <b>vomitus not feces</b> → diagnose on vomit.</li>
+            <li><span class="lead">Diagnosis</span> — <b>zinc-sulfate centrifugation</b> (test of choice); intermittent shedding + long prepatent → single negative ≠ clear.</li>
+          </ul>
+          <div class="trap"><b>⚠ Trap:</b> larva migrans by agent — <em>Toxocara</em> = <b>visceral/ocular</b>; <em>A. braziliense</em> = <b>cutaneous</b>; <em>Baylisascaris</em> = <b>neural (fatal)</b>.</div>
+        </section>
+
+        <section class="card">
+          <h2>Tapeworms <span class="n">cestodes</span></h2>
+          <ul class="tight">
+            <li><span class="lead"><em>Dipylidium caninum</em></span> — <b>flea = intermediate host</b> → flea control controls it; visible rice-grain segments mean review flea control. <b>Not</b> covered by fenbendazole → <b>praziquantel</b>.</li>
+            <li><span class="lead"><em>Taenia</em></span> — prey intermediate host → unlikely to cycle in a shelter.</li>
+            <li><span class="lead"><em>Echinococcus</em></span> — significant <b>zoonosis</b> (hydatid disease); <b>not</b> covered by fenbendazole → <b>praziquantel</b>.</li>
+          </ul>
+          <div class="trap"><b>⚠ Trap:</b> fenbendazole is broad but <b>misses <em>Dipylidium</em> &amp; <em>Echinococcus</em></b> — those need <b>praziquantel</b>.</div>
+        </section>
+
+        <section class="card">
+          <h2>Heartworm <span class="n">own sheet</span></h2>
+          <ul class="tight">
+            <li><span class="lead">See the Heartworm Disease sheet</span> for life cycle, antigen vs microfilaria testing, staging, the AHS melarsomine protocol, and feline heartworm.</li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- ============ COLUMN 3 — protozoa + Giardia ============ -->
+      <div class="col">
+        <section class="card">
+          <h2>GI Protozoa <span class="n">coccidia</span></h2>
+          <ul class="tight">
+            <li><span class="lead">Coccidia</span> (<em>Cystoisospora</em>) — <b>host-specific</b>; disease of naive pups/kittens. <b>Ponazuril</b> 20–50 mg/kg PO q24h × 1–3 d is coccidiocidal = drug of choice; sulfadimethoxine only labelled but coccidio<b>static</b>. Signs precede oocyst shedding → sick animal, negative float.</li>
+            <li><span class="lead"><em>Cryptosporidium</em></span> — <em>C. canis</em>/<em>C. felis</em>, host-adapted; oocysts immediately infective. <b>Resistant to bleach/chlorine</b> → 6% hydrogen peroxide, steam &gt;60 °C (140°F), desiccation. Dx <b>modified Ziehl-Neelsen (acid-fast)</b>; no reliable drug — hygiene.</li>
+            <li><span class="lead"><em>Toxoplasma gondii</em></span> — <b>cat = ONLY definitive host</b>; sheds oocysts only ~2 wk acute; oocysts need <b>&gt;24 h to sporulate</b> → <b>daily litter removal</b> clears them; a seropositive cat sheds less; treat clindamycin.</li>
+            <li><span class="lead"><em>Neospora caninum</em></span> — <b>dog = definitive host</b> (raw beef/venison); <b>NOT zoonotic</b>; congenital pups get ascending flaccid hind-limb paralysis ~3 wk; treat littermates.</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Giardia &amp; Tritrichomonas</h2>
+          <ul class="tight">
+            <li><span class="lead"><em>Giardia duodenalis</em></span> — flagellate; trophozoite (falling-leaf motility, "owl-eyes", ventral disc) + hardy cyst. <b>Cysts immediately infective</b> → rapid ward/fomite spread; reinfection from cysts in the coat.</li>
+            <li><span class="lead">Assemblages</span> — dogs C/D, cats F (host-adapted); A &amp; B potentially zoonotic (low risk).</li>
+            <li><span class="lead">Signs</span> — small-bowel diarrhea (soft, pale, fatty, mucoid); many asymptomatic shedders.</li>
+            <li><span class="lead">Diagnosis</span> — saline wet-mount (trophozoites) + zinc-sulfate flotation (cysts) + antigen ELISA/SNAP. <b>Confirm cure by flotation, NOT antigen</b> (stays antigen-positive after shedding stops).</li>
+            <li><span class="lead">Treat</span> — <b>fenbendazole 50 mg/kg PO q24h × 5 d</b> + environment; treat <b>disease, not shedding</b>; bathe day 1 &amp; end; if persistent <b>repeat the fenbendazole cycle</b> — don't switch to metronidazole (dysbiosis/chronicity). Cysts resist QACs → dry, steam/heat &gt;60–70 °C (140–158°F), or accelerated hydrogen peroxide.</li>
+            <li><span class="lead"><em>Tritrichomonas foetus</em></span> (cats) — chronic <b>large-bowel diarrhea</b> (fresh blood, mucus, tenesmus) in young congregate cats that look well between bouts. Dx fresh smear (forward rolling, single axostyle), InPouch TF, or PCR; ~22–54% <em>Giardia</em> co-infection. Treat <b>ronidazole 30 mg/kg PO q24h × 14 d</b> (reversible neurotoxicity).</li>
+          </ul>
+          <div class="trap"><b>⚠ Trap:</b> metronidazole treats <em>Giardia</em> but <b>NOT <em>Tritrichomonas</em></b> (use ronidazole) — and it isn't even first-line for <em>Giardia</em> (fenbendazole is).</div>
+        </section>
+      </div>
+
+    </div>
+
+    <section class="card" style="border-left-color:#0e7490;margin-top:12px">
+      <h2 style="color:#0e7490">📄 Journal Articles</h2>
+      <div class="exp">▢ journal-article summaries to be added</div>
+    </section>
+
+    <footer class="doc">
+      <span>Personal study notes · 2026 ABVP Combined Exam (Shelter Medicine RVS)</span>
+      <span>© Juliana Xue — for personal study use</span>
+    </footer>
+  </div>
+
+  <script>if(window.self!==window.top){document.documentElement.className+=' embedded';}</script>
+</body>
+</html>
