@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Medical (Non-Infectious) — Cheatsheet</title>
+<style>
+  :root{
+    --ink:#1f2430; --muted:#6b7280; --line:#e5e7eb;
+    --theme:#0f3d3a; --theme-soft:#e6eeeb; --theme-line:#a9c6bd;   /* ← change per domain */
+    --blue:#1d4ed8; --blue-soft:#eaf0ff; --blue-line:#b8caff;
+    --warn:#b45309; --warn-soft:#fff5e6;
+    --add:#0d7d74;  --add-soft:#e4f6f4;
+  }
+  *{box-sizing:border-box} html,body{margin:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:#f4f4f6;line-height:1.32;font-size:12px}
+  .toolbar{max-width:1180px;margin:14px auto 0;padding:10px 14px;background:#fff;border:1px solid var(--line);
+    border-radius:10px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+  .toolbar b{color:var(--ink)}
+  .btn{background:var(--theme);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:13px;font-weight:600;cursor:pointer}
+  .btn:hover{filter:brightness(.9)}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .legend span{display:inline-flex;align-items:center;gap:5px}
+  .swatch{width:11px;height:11px;border-radius:3px;display:inline-block}
+  .sheet{max-width:1180px;margin:14px auto;background:#fff;padding:16px 18px 12px;border:1px solid var(--line);
+    border-radius:10px;box-shadow:0 1px 6px rgba(0,0,0,.05)}
+  header.doc{border-bottom:2.5px solid var(--theme);padding-bottom:8px;margin-bottom:12px;display:flex;
+    align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  header.doc h1{margin:0;font-size:23px;letter-spacing:-.2px;color:var(--theme)}
+  header.doc h1 small{color:var(--ink);font-weight:600;font-size:14px}
+  .tags{font-size:11px;color:var(--muted)} .tags b{color:var(--theme)}
+  .lede{font-size:11.5px;color:var(--muted);margin:0 0 10px;border-left:3px solid var(--theme-line);padding-left:9px}
+  .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .col{display:flex;flex-direction:column;gap:11px}
+  section.card{border:1px solid var(--line);border-left:4px solid var(--theme);border-radius:7px;
+    padding:8px 10px 9px;break-inside:avoid;page-break-inside:avoid}
+  section.card.blue{border-left-color:var(--blue)}
+  section.card h2{margin:0 0 6px;font-size:12.5px;text-transform:uppercase;letter-spacing:.4px;color:var(--theme);
+    display:flex;align-items:center;gap:6px}
+  section.card.blue h2{color:var(--blue)}
+  h2 .n{font-size:10px;background:var(--theme-soft);color:var(--theme);border:1px solid var(--theme-line);
+    border-radius:4px;padding:0 5px;font-weight:700}
+  ul{margin:0;padding-left:15px} ol{margin:0;padding-left:17px}
+  li{margin:2.5px 0} li::marker{color:var(--theme)} .blue li::marker{color:var(--blue)}
+  ul.tight li{margin:1.5px 0}
+  .sub{list-style:none;padding-left:2px;margin:3px 0} .sub li{margin:1.5px 0}
+  .sub li::before{content:"– ";color:var(--muted)}
+  b,strong{font-weight:700} .lead{font-weight:700}
+  .exp{color:var(--muted);font-weight:400}
+  .arw{color:var(--theme);font-weight:700} .up{color:#b91c1c;font-weight:700} .dn{color:#1d4ed8;font-weight:700}
+  .trap{background:var(--warn-soft);border:1px solid #f2cf95;border-radius:5px;padding:4px 7px;margin:5px 0 2px;
+    font-size:11px;color:#7a4a08} .trap>b:first-child{color:var(--warn)}
+  .add{background:var(--add-soft);border-bottom:1px dotted var(--add);color:#0b5a54;padding:0 2px;border-radius:2px}
+  .addtag{font-size:9px;font-weight:700;color:#fff;background:var(--add);border-radius:3px;padding:0 3px;margin-left:2px;vertical-align:1px}
+  .flag{display:block;background:var(--add-soft);border:1px dashed var(--add);border-radius:5px;padding:4px 7px;
+    margin:5px 0 0;font-size:10.5px;color:#0b5a54} .flag b{color:var(--add)}
+  .risk{font-weight:800} .risk.hi{color:#b91c1c}.risk.mod{color:#b45309}.risk.lo{color:#15803d}
+  footer.doc{margin-top:12px;padding-top:8px;border-top:1px solid var(--line);font-size:9.5px;color:var(--muted);
+    display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+  @page{size:A4 landscape;margin:9mm}
+  @media print{
+    body{background:#fff;font-size:9.4px;line-height:1.26}
+    .toolbar{display:none}
+    .sheet{max-width:none;margin:0;border:none;border-radius:0;box-shadow:none;padding:0}
+    header.doc h1{font-size:19px} header.doc h1 small{font-size:12px}
+    section.card h2{font-size:10.5px}
+    .cols{gap:9px}.col{gap:8px}section.card{padding:6px 8px 7px}.trap,.flag{font-size:9px}
+  }
+  /* narrow screens: stack the 3 columns so it stays readable */
+  @media(max-width:780px){ .cols{grid-template-columns:1fr} }
+  /* embedded inside the study-hub collapsible: drop page chrome, sit flush */
+  html.embedded body{background:#fff}
+  html.embedded .toolbar{display:none}
+  html.embedded .sheet{max-width:none;margin:0;border:none;border-radius:0;box-shadow:none;padding:10px 13px 8px}
+</style>
+</head>
+<body>
+
+  <div class="toolbar">
+    <button class="btn" onclick="window.print()">🖨  Print / Save as PDF</button>
+    <span>Best printed <b>A4 landscape</b>.</span>
+    <div class="legend">
+      <span><span class="swatch" style="background:#0f3d3a"></span>section</span>
+      <span><span class="swatch" style="background:#1d4ed8"></span>emergency / triage</span>
+      <span><span class="swatch" style="background:#fff5e6;border:1px solid #f2cf95"></span>exam trap</span>
+      <span><span class="swatch" style="background:#e4f6f4;border:1px solid #0d7d74"></span><b style="color:#0d7d74">+</b> added / clarified</span>
+    </div>
+  </div>
+
+  <div class="sheet">
+    <header class="doc">
+      <h1>Medical <small>(Non-Infectious)</small></h1>
+      <div class="tags"><b>Medical (Non-Infectious)</b> · Physical Health of Animal (29%) · Shelter Medicine</div>
+    </header>
+
+    <p class="lede">Shelter medical care is <b>proactive and population-aware</b>: it starts at or before intake, weighs the individual against the group, and is bounded by a defined <b>capacity for care</b>. It runs on veterinary oversight (a valid <span class="exp">veterinarian-client-patient relationship (VCPR)</span>), written evidence-based protocols, disciplined prescribing, complete records, a fixed monitoring cadence, and mandatory <b>multimodal, pre-emptive pain control</b> — with a written emergency plan behind it all.</p>
+
+    <div class="cols">
+
+      <!-- ============ COLUMN 1 — foundations & oversight ============ -->
+      <div class="col">
+        <section class="card">
+          <h2>Capacity for Care</h2>
+          <ul class="tight">
+            <li><span class="lead">Health</span> <span class="exp">(after the World Health Organization / WHO)</span> = complete physical, mental &amp; social well-being — <b>not merely absence of disease</b>.</li>
+            <li><span class="lead">Care timeline</span> — medical care must <b>begin at or before intake</b> and continue throughout the stay; on admission the shelter is responsible for all needed medical/wellness care <span class="arw">→</span> or for promptly finding an outcome that meets those needs.</li>
+            <li><span class="lead">Preventive pillars</span> — vaccination, parasite control, nutrition, appropriate handling &amp; housing <span class="exp">(each has its own subdomain)</span>.</li>
+            <li><span class="lead">Five Freedoms</span> <span class="exp">(Brambell 1965 / FAWC — the welfare basis the ASV = Association of Shelter Veterinarians built its Standards of Care on)</span>: from ① hunger &amp; thirst · ② discomfort · ③ pain, injury &amp; disease · ④ fear &amp; distress · ⑤ to express normal behavior.</li>
+            <li><span class="lead">Capacity to provide care</span> <span class="exp">(ASV)</span> is <b>dynamic</b> — 6 factors: resource availability · duration of care · number of animals needing treatment · transmission likelihood + consequences · likelihood of recovery · potential for a live outcome. <span class="arw">→</span> <b>Treat</b> per written protocol vs <b>Cannot treat</b> <span class="arw">→</span> alternative placement or humane outcome.</li>
+            <li><span class="lead">Population vs individual</span> — population health suffers when disease spread is likely, when long length of stay <span class="exp">(LOS)</span> pushes the shelter over capacity, or when one animal's cost drains others' resources.</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Veterinary Supervision &amp; VCPR</h2>
+          <ul class="tight">
+            <li>Every shelter needs a <b>formal relationship with a veterinarian who has direct knowledge</b> of the organization, its population &amp; facilities.</li>
+            <li><span class="lead">Direct supervision</span> — vet <b>readily available on the premises</b>, has assumed responsibility.</li>
+            <li><span class="lead">Indirect supervision</span> — vet <b>need not be on premises</b>; has given written/oral instructions, is reachable by phone/immediate communication, has assumed responsibility. <b>Most preventive &amp; common-condition care runs under indirect supervision.</b></li>
+            <li><span class="lead">Direct knowledge</span> — vet <b>regularly visits &amp; examines</b> the population in person. <span class="exp">(Definitions track the 2019 AVMA Model Practice Act.)</span></li>
+            <li><span class="lead">Telemedicine</span> — remote communication technology for exam &amp; treatment; broadens access, removes geographic barriers, cuts travel stress, supports biosecurity; vet uses professional discretion on suitability.</li>
+            <li><span class="lead">VCPR</span> <span class="exp">(veterinarian-client-patient relationship)</span> — ASV supports legislation allowing a VCPR to be <b>created remotely</b> (telephone/digital/electronic) and prescribing through it; keep a record per encounter, ensure follow-up, respect license jurisdiction.</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Protocols, Prescribing &amp; Records</h2>
+          <ul class="tight">
+            <li><span class="lead">Evidence-based protocols</span> are essential, developed with the shelter's vet; compliance monitoring at population &amp; individual level is part of oversight. Cover <b>6 areas</b>: diagnosis · treatment · animal housing · sanitation · decision-making · communication. Outside a protocol / not responding <span class="arw">→</span> consult the vet.</li>
+            <li><span class="lead">Prescribing standard</span> — meds only by prescription or written protocol; needs a <b>reasonable presumptive diagnosis</b>, ability to administer as directed, and a plan to <b>monitor</b> success/failure.</li>
+            <li><span class="lead">Antibiotic stewardship</span> — giving drugs when not needed (e.g. antibiotics to prevent a <b>viral</b> infection) causes side effects &amp; promotes resistance. Dispensing follows federal/state regs.</li>
+            <li><span class="lead">Prescription label — 7 components:</span> ① prescribing vet's name · ② clinic/shelter name, phone &amp; address · ③ patient ID &amp; species · ④ date dispensed &amp; expiration date · ⑤ drug name, form &amp; amount · ⑥ directions for use · ⑦ cautionary statements.</li>
+            <li><span class="lead">Medical records</span> — identifying info + signalment (age, sex, species, reproductive status) + a dated list of exam findings, vaccinations, diagnostics, procedures &amp; treatments (drug dose + route); a <b>copy goes with the animal</b> when it leaves.</li>
+            <li><span class="lead">Program deficiency indicators</span> — health/welfare decline after intake; sick/injured held without prompt treatment; <b>wide-scale disease outbreaks</b>; deaths/euthanasia from shelter-acquired disease/injury; chronically high disease rates.</li>
+          </ul>
+          <div class="trap"><b>⚠ Trap:</b> the ASV term is <b>wide-scale</b> disease outbreaks (a key deficiency indicator) — not "side-scale".</div>
+        </section>
+      </div>
+
+      <!-- ============ COLUMN 2 — monitoring & examination ============ -->
+      <div class="col">
+        <section class="card">
+          <h2>Monitoring &amp; Examination</h2>
+          <ul class="tight">
+            <li><span class="lead">Intake</span> — cursory health check by trained personnel (confirm age, sex, description, ID, microchip scan); a <b>comprehensive physical exam ideally within 24 h of intake</b>; isolate signs of infectious disease until judged low-risk.</li>
+            <li><span class="lead">Daily</span> — visual observation of every animal <b>≥ every 24 h, ideally before cleaning</b>; note food intake &amp; enclosure condition (feces, urine, vomit).</li>
+            <li><span class="lead">Monthly</span> — reweigh + repeat body condition score <span class="exp">(BCS)</span>.</li>
+            <li><span class="lead">Every 6 months</span> — comprehensive exam for long-term residents, <b>including those in foster</b>; more often for chronic conditions or any new concern.</li>
+            <li><span class="add"><span class="lead">Baselines:</span> normal dog/cat rectal temp ≈ <b>100.5–102.5&deg;F (38.1–39.2&deg;C)</b>; flag weight loss &gt;10% of body weight (e.g. &gt;1 lb / 0.45 kg in a 10 lb / 4.5 kg cat)<span class="addtag">+</span></span></li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Problem-Oriented Approach</h2>
+          <ul class="tight">
+            <li>Gold standard for small-animal assessment. A <span class="lead">problem</span> = any abnormality needing medical/surgical management or interfering with quality of life <span class="exp">(Lorenz)</span>; in shelters it also includes public-health/safety concerns.</li>
+            <li><span class="lead">Four steps</span> — ① <b>Database collection</b> (minimum database on every patient: complete history + complete physical exam incl behavioral observation) <span class="arw">→</span> ② <b>Problem identification</b> (list historical, physical, behavioral, welfare &amp; public-health/safety problems at current understanding) <span class="arw">→</span> ③ <b>Plan formulation</b> (diagnostics, initial therapy, staff/adopter education within mission, resources &amp; legal holding periods) <span class="arw">→</span> ④ <b>Assessment &amp; follow-up</b> (appraise, document progression, reassess regularly — critical for long-stay).</li>
+            <li><span class="lead">Minimum database at intake</span> — history + physical exam (incl microchip scan) + behavioral observation. <b>Pre-adoption add:</b> feline leukemia virus / feline immunodeficiency virus <span class="exp">(FeLV/FIV)</span> test (cats), heartworm test (dogs, endemic areas), fecal if diarrhea.</li>
+            <li><span class="lead">Geriatric add-ons</span> <span class="exp">(older animals offered for adoption)</span> — packed cell volume / total solids <span class="exp">(PCV/TS)</span>, urine specific gravity + dipstick, and — resources allowing — fine-needle-aspirate <span class="exp">(FNA)</span> cytology of all lumps &amp; bumps.</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>FeLV/FIV Testing &amp; Isolation</h2>
+          <ul class="tight">
+            <li><span class="lead">General principle</span> — assess each cat individually; in general <b>screen all cats</b> for retroviruses to optimize individual &amp; population health.</li>
+            <li><span class="lead">Should test</span> <span class="up">↑risk</span> — cats entering group housing, or ill cats.</li>
+            <li><span class="lead">Individually-housed, low-risk, healthy</span> — weigh transmission risk against financial/management implications.</li>
+            <li><span class="lead">Healthy feral cats in TNR</span> <span class="exp">(trap-neuter-return)</span> — testing is <b>not recommended</b>.</li>
+            <li><span class="lead">Isolation vs quarantine</span> — <b>isolation</b> separates suspected/confirmed infectious cases until judged low-risk; <b>quarantine</b> of healthy animals at intake is <b>not generally recommended</b> (only for documented high-risk exposure) — unnecessary holds <span class="up">↑</span> LOS &amp; harm welfare.</li>
+          </ul>
+          <div class="trap"><b>⚠ Trap:</b> do <b>NOT</b> euthanize a clinically healthy cat on a single positive point-of-care retroviral test — confirm per AAFP <span class="exp">(American Association of Feline Practitioners)</span> guidelines, seek informed placement, and send the test date &amp; type with the cat. Blanket intake quarantine of healthy animals is a distractor.</div>
+        </section>
+      </div>
+
+      <!-- ============ COLUMN 3 — pain, chronic pain, emergency ============ -->
+      <div class="col">
+        <section class="card">
+          <h2>Pain Assessment &amp; Analgesia</h2>
+          <ul class="tight">
+            <li><span class="lead">Core rule</span> — pain must be recognized &amp; treated; <b>failure to provide treatment for pain is unacceptable</b>; treatment can include <b>euthanasia</b>.</li>
+            <li><span class="lead">Assessment</span> — via behavior + knowledge of causes; <b>if a condition is painful in humans, assume it is painful in animals</b>; several validated pain scales exist.</li>
+            <li><span class="lead">Unrelieved pain</span> <span class="arw">→</span> weight loss, muscle breakdown, <span class="up">↑</span> blood pressure, prolonged recovery, mental/emotional distress.</li>
+            <li><span class="lead">Pre-emptive &amp; multimodal</span> — of appropriate strength &amp; duration; when pain is anticipated (surgery), give control <b>before</b> the painful event; controlled drugs supervised by a vet per statute.</li>
+            <li><span class="lead">Non-pharmacological adjuncts</span> <span class="exp">(supplement, never replace, analgesia)</span> — littermates present, quiet environment, massage, physical therapy, heat, deep bedding.</li>
+            <li>Reassess frequently; if relief is inadequate <span class="arw">→</span> emergency medical care.</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Degenerative Joint Disease &amp; Chronic Pain</h2>
+          <ul class="tight">
+            <li><span class="lead">DJD / OA</span> <span class="exp">(degenerative joint disease / osteoarthritis)</span> — a very common, under-recognized source of feline chronic pain; manage with a <b>multimodal chronic-pain plan</b>.</li>
+            <li><span class="lead">NSAID</span> <span class="exp">(non-steroidal anti-inflammatory drug)</span> — e.g. <b>robenacoxib</b> for chronic musculoskeletal <span class="exp">(MSK)</span> pain; supported for longer-term feline use (see journals).</li>
+            <li><span class="lead">Frunevetmab</span> — an anti-nerve-growth-factor <span class="exp">(anti-NGF)</span> monoclonal antibody for feline DJD/OA pain, given <b>subcutaneously (SC)</b> or intravenously (IV).</li>
+            <li><span class="lead">Multimodal plan</span> — weight management, environmental modification (ramps, low-sided litter, soft/warm bedding), plus adjunct analgesics.</li>
+          </ul>
+        </section>
+
+        <section class="card blue">
+          <h2>Emergency Triage &amp; Pharmacology</h2>
+          <ul class="tight">
+            <li><span class="lead">Written emergency plan</span> — timely vet care for any injured/distressed/significantly ill animal; states how staff <b>recognize &amp; report</b>, and whether care is <b>on-site or at an outside clinic</b>; foster/off-site covered with after-hours instructions. <span class="lead">3 paths:</span> on-site stabilization · transfer to a partnered 24-h emergency/specialty facility · prompt humane euthanasia when suffering cannot be relieved. Non-vet staff must be trained to trigger the protocol.</li>
+            <li><span class="lead">Triage = ABC primary survey</span> <span class="exp">(Airway → Breathing → Circulation, in order)</span> — control life-threatening hemorrhage with direct pressure <b>concurrently</b>.
+              <ul class="sub">
+                <li><b>A</b> airway patency; stridor/stertor, open-mouth breathing (cat), cyanosis.</li>
+                <li><b>B</b> effort, auscultate, percuss; orthopnea, dull lung sounds, abdominal push.</li>
+                <li><b>C</b> mucous-membrane <span class="exp">(MM)</span> color, capillary refill time <span class="exp">(CRT)</span>, pulse quality.</li>
+              </ul>
+            </li>
+            <li><span class="lead">Shock read</span> — pale/muddy MM + CRT <b>&gt;2.5 s</b> + weak pulses = decompensatory hypovolemic shock; brick-red MM + CRT <b>&lt;1 s</b> + bounding pulses = hyperdynamic/early distributive-septic shock.</li>
+            <li><span class="lead">Core drugs</span> — epinephrine (asystole/PEA/anaphylaxis) · atropine (bradycardia/organophosphate) · mannitol (traumatic brain injury/↑ intracranial pressure — volume-resuscitate first) · diazepam then propofol/alfaxalone (status epilepticus) · furosemide (acute congestive heart failure/pulmonary edema) · lidocaine (ventricular arrhythmias) · methocarbamol (tremors, e.g. feline permethrin).</li>
+            <li><span class="lead">50% dextrose</span> for hypoglycemia — hyperosmolar, <b>dilute &amp; give slow IV/IO</b> (intravenous/intraosseous); neonates have minimal glycogen.</li>
+            <li><span class="lead">"Big five" minimum database</span> (critical case) — PCV/TS, blood glucose, BUN/creatinine, urine specific gravity/dipstick, thorough physical exam.</li>
+          </ul>
+          <div class="trap"><b>⚠ Trap:</b> brick-red MM + very fast CRT + bounding pulses = <b>hyperdynamic (distributive/septic) shock</b>, NOT hypovolemia. Legal status of an animal must <b>never</b> bar necessary treatment.</div>
+        </section>
+      </div>
+
+    </div>
+
+    <section class="card" style="border-left-color:#0e7490;margin-top:12px">
+      <h2 style="color:#0e7490">📄 Journal Articles</h2>
+      <ul class="tight">
+        <li><span class="lead">Robenacoxib long-term safety (cat, chronic musculoskeletal disease):</span> robenacoxib was not associated with more adverse events than placebo when given for 4–12 weeks to cats with chronic musculoskeletal (MSK) disease — supports longer-term use for feline chronic pain.</li>
+        <li><span class="lead">Frunevetmab (anti-nerve-growth-factor antibody) for feline degenerative-joint-disease pain (pilot field study):</span> owner questionnaires showed significant improvement in frunevetmab-treated cats, with no difference between intravenous (IV) and subcutaneous (SC) routes of administration; most adverse events were dermatitis/alopecia related to the activity-monitor collars rather than the drug.</li>
+        <li><span class="lead">Robenacoxib for feline degenerative-joint-disease (DJD) pain (randomised, blinded pilot):</span> over two consecutive 3-week courses, robenacoxib-treated cats had higher total activity (&gt;10% increase at 3 and 6 weeks), significantly less owner-assessed disability, and improved temperament/happiness by 6 weeks.</li>
+      </ul>
+    </section>
+
+    <footer class="doc">
+      <span>Personal study notes · 2026 ABVP Combined Exam (Shelter Medicine RVS)</span>
+      <span>© Juliana Xue — for personal study use</span>
+    </footer>
+  </div>
+
+  <script>if(window.self!==window.top){document.documentElement.className+=' embedded';}</script>
+</body>
+</html>

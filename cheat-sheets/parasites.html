@@ -1,9 +1,24 @@
 <!DOCTYPE html>
+<!--
+  ============================================================================
+  DISEASE ONE-PAGER — REUSABLE TEMPLATE
+  ============================================================================
+  HELPER CLASSES (reuse anywhere in the body)
+     <span class="lead">Bold lead-in label</span>
+     <span class="exp">(expanded abbreviation / aside)</span>   → muted grey
+     <span class="arw">→</span>  <span class="up">↑</span>  <span class="dn">↓</span>
+     <ul class="sub"> … </ul>            → indented dashed sub-list
+     <div class="trap"><b>⚠ Trap:</b> …</div>            → amber exam-trap callout
+     <span class="add">extra content<span class="addtag">+</span></span>  → teal "I added this"
+     <span class="flag"><b>+ check:</b> …</span>          → teal dashed flag/correction note
+     <section class="card blue"> … </section>            → blue card (vector-borne / zoonotic)
+  ============================================================================
+-->
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Parasites — Overview One-Pager</title>
+<title>Parasites — Cheatsheet</title>
 <style>
   :root{
     --ink:#1f2430; --muted:#6b7280; --line:#e5e7eb;
@@ -82,7 +97,7 @@
     <span>Best printed <b>A4 landscape</b>.</span>
     <div class="legend">
       <span><span class="swatch" style="background:#0f3d3a"></span>section</span>
-      <span><span class="swatch" style="background:#1d4ed8"></span>outbreak / biosecurity</span>
+      <span><span class="swatch" style="background:#1d4ed8"></span>vector-borne / zoonotic</span>
       <span><span class="swatch" style="background:#fff5e6;border:1px solid #f2cf95"></span>exam trap</span>
       <span><span class="swatch" style="background:#e4f6f4;border:1px solid #0d7d74"></span><b style="color:#0d7d74">+</b> added / clarified</span>
     </div>
@@ -90,114 +105,156 @@
 
   <div class="sheet">
     <header class="doc">
-      <h1>Parasites <small>(Overview)</small></h1>
+      <h1>Parasites</h1>
       <div class="tags"><b>Parasites</b> · Physical Health of Animal (29%) · Shelter Medicine</div>
     </header>
 
-    <p class="lede">Skeleton summary of the Parasites subdomain — fill from your notes; pre-filled points marked +.</p>
+    <p class="lede">Shelter parasite control protects the <b>population</b>, the <b>public</b>, and each animal's <b>adoptability</b>. High-yield levers: know which stage is <b>immediately infective</b> (<em>Giardia</em>, <em>Cryptosporidium</em>) vs which needs environmental development; match the <b>drug to the spectrum</b> (fenbendazole misses <em>Dipylidium</em> &amp; <em>Echinococcus</em> → praziquantel); and never forget the <b>zoonoses</b> — larva migrans, sarcoptic mange, <em>Cryptosporidium</em>.</p>
 
     <div class="cols">
 
-      <!-- ============ COLUMN 1 — principles & GI worms ============ -->
+      <!-- ============ COLUMN 1 — principles, deworming, GI worms ============ -->
       <div class="col">
         <section class="card">
           <h2>Control Principles &amp; Transmission</h2>
-          <div class="exp">▢ to fill from your notes</div>
           <ul class="tight">
-            <li><span class="lead">Direct vs indirect</span> <span class="exp">(direct life cycle vs needs an intermediate host / vector)</span></li>
-            <li><span class="lead">Environmental persistence</span> <span class="exp">(which stages survive &amp; for how long)</span></li>
-            <li><span class="lead">Intake mandate</span> — the shelter's three parasite concerns on entry</li>
+            <li><span class="lead">Three shelter concerns</span> — protect the individual &amp; population (limit environmental contamination); protect staff / visitors / adopters from <b>zoonoses</b>; stop untreated parasites reducing adoptability or burdening new owners.</li>
+            <li><span class="lead">ASV <span class="exp">(Association of Shelter Veterinarians)</span> intake mandate</span> — treat <b>all</b> dogs &amp; cats for <b>roundworms + hookworms at intake, from 2 weeks of age</b> (zoonotic risk). Whipworm / tapeworm treatment at intake is often cost-prohibitive → targeted. Every dog should leave with a product effective vs hookworms + roundworms.</li>
+            <li>Broad-spectrum heartworm / flea spot-ons <b>must NOT replace a primary dewormer</b>.</li>
+            <li><span class="lead">Direct</span> <span class="exp">(single host)</span> vs <span class="lead">indirect</span> <span class="exp">(≥2 hosts / a vector)</span>. Indirect (<em>Dipylidium</em> via flea, heartworm via mosquito, <em>Taenia</em> via prey) <b>cannot establish facility-wide</b> without the vector / intermediate host → control the vector.</li>
+            <li><span class="lead">Immediately infective when shed</span> <span class="arw">→</span> <em>Giardia</em>, <em>Cryptosporidium</em>, <em>Tritrichomonas</em>. <span class="lead">Need environmental development first</span> <span class="arw">→</span> <em>Toxocara</em>, <em>Ancylostoma</em>, <em>Strongyloides</em>, <em>Trichuris</em>, coccidia, <em>Toxoplasma</em>.</li>
+            <li><span class="lead">Environmental persistence</span> — ascarid (roundworm) eggs are extremely resistant (nearly impossible to kill once in soil; bleach / ammonia work mainly by disrupting the outer coat → desiccation). Hookworm eggs die by desiccation; whipworm eggs hardy (bipolar plugs).</li>
+          </ul>
+          <div class="trap"><b>⚠ Trap:</b> immediately-infective agents (<em>Giardia</em> / <em>Cryptosporidium</em>) demand <b>isolation-level daily sanitation</b>; ascarid / hookworm / whipworm / coccidia are shed <b>non-infective</b>, so no isolation is needed — but post-treatment feces are heavily contaminating and need prompt cleanup.</div>
+        </section>
+
+        <section class="card">
+          <h2>Deworming &amp; Formulary</h2>
+          <ul class="tight">
+            <li><span class="lead">Pediatric schedule</span> — deworm <b>puppies from 2 wk, kittens from 3 wk, every 2 weeks to 12 wk, then monthly to 6 months</b>; treat pregnant &amp; nursing dams too.</li>
+            <li><span class="lead">Pyrantel pamoate</span> — hookworms, roundworms; cheapest (cats 10&nbsp;mg/kg); retreat in 2 wk then monthly. Safe shelter mainstay.</li>
+            <li><span class="lead">Fenbendazole</span> — hookworms, roundworms, whipworms, <em>Giardia</em>, most tapeworms; <b>50&nbsp;mg/kg PO <span class="exp">(by mouth)</span> once daily × 3–5 d</b>. Does NOT cover <em>Dipylidium</em> or <em>Echinococcus</em>.</li>
+            <li><span class="lead">Praziquantel</span> — tapeworms including <em>Dipylidium</em>; 5–7.5&nbsp;mg/kg oral or injectable.</li>
+            <li><span class="lead">Milbemycin oxime</span> — hook / round / whip <b>plus</b> heartworm prevention (a macrocyclic lactone).</li>
+            <li><span class="lead">Combinations</span> — Drontal Plus (pyrantel + febantel + praziquantel); Profender (emodepside + praziquantel, feline).</li>
+            <li>Reduce <em>Toxocara canis</em> in pups by treating the pregnant bitch with ivermectin / doramectin at <b>day 40–50 of gestation</b> — reduces but does not eliminate shedding.</li>
           </ul>
         </section>
 
         <section class="card">
-          <h2>Intestinal Endoparasites</h2>
-          <div class="exp">▢ to fill from your notes</div>
+          <h2>Intestinal Endoparasites <span class="n">nematodes</span></h2>
           <ul class="tight">
-            <li><span class="lead">Nematodes</span> — hook / round / whip; <span class="lead">cestodes</span> — tapeworms</li>
-            <li><span class="add"><span class="lead">Zoonotic:</span> <em>Toxocara</em> <span class="exp">(roundworm)</span> &amp; <em>Ancylostoma</em> <span class="exp">(hookworm)</span> cause larva migrans — visceral / ocular &amp; cutaneous<span class="addtag">+</span></span></li>
-            <li><span class="lead">Diagnosis</span> — faecal float; note the pre-patent period</li>
+            <li><span class="lead">Hookworm</span> <span class="exp">(<em>Ancylostoma caninum</em>)</span> — percutaneous, oral, paratenic &amp; <b>transmammary (A. caninum only)</b>; prepatent ~2 wk → nursing pups can shed &amp; develop life-threatening regenerative anaemia / melena by ~14 days. <em>A. braziliense</em> causes most <b>cutaneous larva migrans</b> in the US.</li>
+            <li><span class="lead">Roundworm</span> <span class="exp">(<em>Toxocara canis / cati</em>, <em>Toxascaris leonina</em>)</span> — egg ingestion, transplacental (<em>T. canis</em>), transmammary; <em>T. canis</em> prepatent ~5 wk (in-utero pups shed by ~3 wk). Leading cause of <b>visceral + ocular larva migrans</b>.</li>
+            <li><span class="lead"><em>Baylisascaris procyonis</em></span> — raccoon ascarid; severe / fatal <b>neural larva migrans</b> in humans (the deadliest).</li>
+            <li><span class="lead">Whipworm</span> <span class="exp">(<em>Trichuris vulpis</em>)</span> — soil eggs, caecum / colon; prepatent ~3 mo; barrel-shaped egg with bipolar plugs.</li>
+            <li><span class="lead">Diagnosis</span> — <b>zinc-sulfate centrifugation</b> fecal (test of choice); intermittent shedding + long prepatent periods → a single negative does not rule out infection.</li>
+            <li><span class="lead"><em>Strongyloides stercoralis</em></span> — zoonotic threadworm; percutaneous + transmammary; thrives in damp / soiled runs; passes <b>first-stage larvae, not eggs</b> → recover by <b>Baermann</b>; now rare with monthly macrocyclic-lactone preventives.</li>
+            <li><span class="lead"><em>Ollulanus tricuspis</em></span> — feline "vomit worm"; gastric nematode transmitted via <b>vomitus not feces</b> → diagnose by examining vomit, not a fecal float.</li>
           </ul>
-        </section>
-
-        <section class="card">
-          <h2>Giardia duodenalis</h2>
-          <div class="exp">▢ to fill from your notes</div>
-          <ul class="tight">
-            <li><span class="add"><span class="lead">Treat:</span> fenbendazole; combine drug + bathe the coat + clean/dry the environment to stop re-infection<span class="addtag">+</span></span></li>
-            <li><span class="lead">Signs</span> — small-bowel diarrhoea; often subclinical carriers</li>
-            <li><span class="lead">Other protozoa</span> — <em>Cystoisospora</em> <span class="exp">(coccidia)</span>, <em>Cryptosporidium</em>, <em>Tritrichomonas foetus</em> (cats)</li>
-          </ul>
+          <div class="trap"><b>⚠ Trap:</b> zoonotic larva migrans by agent — <em>Toxocara</em> = <b>visceral / ocular</b>; <em>Ancylostoma braziliense</em> = <b>cutaneous</b>; <em>Baylisascaris</em> = <b>neural (often fatal)</b>.</div>
         </section>
       </div>
 
-      <!-- ============ COLUMN 2 — heartworm & ectoparasites ============ -->
+      <!-- ============ COLUMN 2 — tapeworms/protozoa, Giardia, heartworm ============ -->
       <div class="col">
+        <section class="card">
+          <h2>Tapeworms &amp; GI Protozoa</h2>
+          <ul class="tight">
+            <li><span class="lead"><em>Dipylidium caninum</em></span> — flea = <b>intermediate host</b>, so good flea control controls it; visible segments mean flea control needs review. <span class="lead"><em>Taenia</em></span> uses prey → unlikely to cycle in a shelter. <span class="lead"><em>Echinococcus</em></span> = significant zoonosis, <b>not</b> covered by fenbendazole → praziquantel.</li>
+            <li><span class="lead">Coccidia</span> <span class="exp">(<em>Cystoisospora</em>)</span> — <b>host-specific</b> (cat coccidia don't infect dogs / humans); disease of naive pups / kittens. <b>Ponazuril</b> <span class="exp">(toltrazuril sulfone)</span> 20–50&nbsp;mg/kg PO once daily × 1–3 d is <b>coccidiocidal</b> = drug of choice; sulfadimethoxine is the only labelled option but merely coccidiostatic. Cellular damage (signs) occurs <b>before</b> oocyst production → sick animal, negative float.</li>
+            <li><span class="lead"><em>Cryptosporidium</em></span> — <em>C. canis</em> (dogs) / <em>C. felis</em> (cats), host-adapted; oocysts immediately infective. <b>Resistant to bleach / chlorine</b> → use 6% hydrogen peroxide, steam &gt;60&nbsp;°C (140°F), or desiccation. Diagnose by <b>modified Ziehl-Neelsen (acid-fast)</b> stain; no reliable drug — hygiene is key.</li>
+            <li><span class="lead"><em>Toxoplasma gondii</em></span> — <b>cat = the ONLY definitive host</b>; sheds oocysts only ~2 wk during acute infection; oocysts need <b>&gt;24 h to sporulate</b>, so <b>daily litter removal</b> clears them before infective. A <b>seropositive cat sheds less</b>. Treat disseminated disease with clindamycin.</li>
+            <li><span class="lead"><em>Neospora caninum</em></span> — <b>dog = definitive host</b> (raw beef / venison); <b>NOT zoonotic</b>; congenital pups get ascending flaccid hind-limb paralysis ~3 wk; treat all littermates.</li>
+          </ul>
+          <div class="trap"><b>⚠ Trap:</b> fenbendazole is broad but <b>misses <em>Dipylidium</em> &amp; <em>Echinococcus</em></b> — those need <b>praziquantel</b>.</div>
+        </section>
+
+        <section class="card">
+          <h2>Giardia &amp; Tritrichomonas</h2>
+          <ul class="tight">
+            <li><span class="lead"><em>Giardia duodenalis</em></span> — flagellate; trophozoite (falling-leaf motility, two nuclei "owl-eyes", ventral disc) + cyst (hardy, transmissible). <b>Cysts immediately infective when shed</b> → rapid ward / fomite spread; survive in cool, moist environments &amp; standing water; reinfection from cysts in the coat.</li>
+            <li><span class="lead">Assemblages A–H</span> — dogs C/D, cats F (host-adapted); A &amp; B are the potentially zoonotic ones, but risk is generally low.</li>
+            <li><span class="lead">Signs</span> — small-bowel diarrhea (soft, pale, fatty, mucoid); many are asymptomatic shedders.</li>
+            <li><span class="lead">Diagnosis</span> — saline wet-mount (trophozoites) + zinc-sulfate flotation (cysts; check several samples) + antigen ELISA <span class="exp">(enzyme-linked immunosorbent assay)</span> / SNAP. <b>Confirm cure by flotation, NOT antigen</b> (stays antigen-positive after cyst shedding stops).</li>
+            <li><span class="lead">Treat</span> — <b>fenbendazole 50&nbsp;mg/kg PO q24h × 5 d</b> + environmental control; treat <b>clinical disease, not shedding</b>; bathe on day 1 &amp; at the end; if persistent, <b>repeat the fenbendazole cycle</b> — do NOT switch to metronidazole (equal efficacy but causes dysbiosis / chronicity, esp. juveniles). Cysts resist quaternary ammonium compounds (QACs) → kill by drying, steam / heat &gt;60–70&nbsp;°C (140–158°F), or accelerated hydrogen peroxide.</li>
+            <li><span class="lead"><em>Tritrichomonas foetus</em></span> (cats) — chronic <b>large-bowel diarrhea</b> (fresh blood, mucus, tenesmus) in young congregate-housed cats that look well between bouts. Diagnose by fresh direct smear (forward rolling, single axostyle), InPouch TF culture, or PCR <span class="exp">(polymerase chain reaction)</span>; ~22–54% co-infected with <em>Giardia</em>. Treat <b>ronidazole 30&nbsp;mg/kg PO once daily × 14 d</b> (reversible neurotoxicity possible).</li>
+          </ul>
+          <div class="trap"><b>⚠ Trap:</b> metronidazole treats <em>Giardia</em> but <b>NOT <em>Tritrichomonas</em></b> (use ronidazole) — and it isn't even first-line for <em>Giardia</em> (fenbendazole is).</div>
+        </section>
+
         <section class="card">
           <h2>Heartworm Disease</h2>
-          <div class="exp">▢ to fill from your notes</div>
           <ul class="tight">
-            <li><span class="lead">Agent</span> — <em>Dirofilaria immitis</em>, mosquito-transmitted</li>
-            <li><span class="add"><span class="lead">Prevention:</span> start monthly heartworm preventive; test (antigen ± microfilaria) before starting in endemic areas<span class="addtag">+</span></span></li>
-            <li><span class="lead">Treatment</span> — AHS <span class="exp">(American Heartworm Society)</span> adulticide protocol; staging &amp; exercise restriction</li>
+            <li><span class="lead">Agent / cycle</span> — <em>Dirofilaria immitis</em>; two-host cycle: mosquito (intermediate host) matures microfilariae to infective L3 over 10–14 d → dog (definitive host) L3→L4→adult in the pulmonary arteries, <b>prepatent ~6 months</b>. A dog is its own reservoir; cats &amp; ferrets are not.</li>
+            <li><span class="lead">Diagnosis</span> — the antigen test detects circulating antigen of <b>adult FEMALE worms</b> (primary screen); microfilariae are found separately by a concentration test (Modified Knott). <b>Run both</b> (some dogs are antigen-neg / microfilaria-pos). Don't test before ~7 mo. Dogs on preventives can be <b>false-negative</b> (antigen–antibody complexes) → <b>heat treatment of serum</b> unmasks antigen. Look-alike: <em>Acanthocheilonema (Dipetalonema) reconditum</em> microfilaria = false positive.</li>
+            <li><span class="lead">Staging</span> — thoracic radiographs are most objective: enlarged, tortuous, truncated pulmonary arteries; severe disease → classic <b>"reverse D"</b> silhouette.</li>
+            <li><span class="lead">Treatment (AHS <span class="exp">American Heartworm Society</span>)</span> — <b>melarsomine</b> = only FDA-approved adulticide (worms ≥120 d), deep intramuscular into epaxial lumbar (L3–L5); the <b>3-dose protocol</b> is safest / most effective (~99% vs 90.8%). <b>Doxycycline 10&nbsp;mg/kg BID <span class="exp">(twice daily)</span> × 28 d</b> suppresses <em>Wolbachia</em> (endosymbiont essential to the worm), cutting pathology &amp; making microfilariae non-infective. <b>Strict exercise restriction throughout.</b></li>
+            <li><span class="lead">30–120-day gap</span> — macrocyclic lactones kill worms ≤30 d; melarsomine ≥120 d. Starting the <b>full protocol at diagnosis</b> clears all stages — delaying does not help.</li>
+            <li><span class="lead">"Moxi-doxy"</span> — cost-constrained non-arsenical option (topical moxidectin monthly + doxycycline until antigen-negative). <span class="lead">Caval syndrome</span> — heavy burden obstructs the tricuspid valve → fatal in ~2 d unless worms are surgically removed.</li>
           </ul>
-        </section>
-
-        <section class="card">
-          <h2>Ectoparasites</h2>
-          <div class="exp">▢ to fill from your notes</div>
-          <ul class="tight">
-            <li><span class="add"><em>Sarcoptes</em> <span class="exp">(sarcoptic mange)</span> = zoonotic &amp; intensely pruritic; scrape has low sensitivity → treat on suspicion. <em>Demodex</em> = non-contagious (immune / stress-related)<span class="addtag">+</span></span></li>
-            <li><span class="lead">Ear mites</span> — <em>Otodectes cynotis</em> <span class="exp">(dark ceruminous "coffee-ground" debris)</span></li>
-            <li><span class="lead">Lice</span> — host-specific; <span class="lead">diagnosis</span> — skin scrape / tape / otoscope</li>
-          </ul>
-        </section>
-
-        <section class="card">
-          <h2>Fleas</h2>
-          <div class="exp">▢ to fill from your notes</div>
-          <ul class="tight">
-            <li><span class="add">Flea = intermediate host of <em>Dipylidium caninum</em> <span class="exp">(tapeworm)</span> → treat fleas <em>and</em> deworm<span class="addtag">+</span></span></li>
-            <li><span class="lead">Disease</span> — FAD <span class="exp">(flea-allergy dermatitis)</span>, anaemia in small / young animals</li>
-            <li><span class="lead">Flea-borne</span> — <em>Bartonella</em>, <em>Rickettsia</em>, haemotropic <em>Mycoplasma</em></li>
-          </ul>
+          <div class="trap"><b>⚠ Trap:</b> the antigen test detects <b>adult-female-worm antigen, not microfilariae</b> — the reason AHS runs an antigen <b>and</b> a microfilaria test together.</div>
         </section>
       </div>
 
-      <!-- ============ COLUMN 3 — ticks, vector-borne, deworming ============ -->
+      <!-- ============ COLUMN 3 — feline HW, ectoparasites, vector-borne ============ -->
       <div class="col">
         <section class="card">
-          <h2>Tick biology and management</h2>
-          <div class="exp">▢ to fill from your notes</div>
+          <h2>Feline &amp; Ferret HW · Prevention</h2>
           <ul class="tight">
-            <li><span class="add">Ticks transmit <em>Babesia</em>, <em>Ehrlichia</em>, <em>Anaplasma</em>; remove promptly + apply an acaricide<span class="addtag">+</span></span></li>
-            <li><span class="lead">Removal</span> — grasp at skin, steady traction; avoid leaving mouthparts</li>
-            <li><span class="lead">Life cycle</span> — larva → nymph → adult; each needs a blood meal</li>
+            <li><span class="lead">Cats</span> — low worm burdens; an infected cat poses <b>no transmission risk</b> to other cats. <b>Melarsomine is NOT used</b> (too risky) — supportive care + prednisolone. HARD <span class="exp">(heartworm-associated respiratory disease)</span>: even a single worm's death can trigger a <b>fatal acute pulmonary reaction / sudden death</b>.</li>
+            <li><span class="lead">Feline diagnostics</span> — no single test is sensitive; combine antibody + antigen + imaging. Antibody detects male OR female worms from ~2 mo (exposure only). Antigen detects <b>only adult female</b>, ~5.5–8 mo; <b>30–50% of infected cats have no female worm</b> → antigen-negative. <b>Routine screening is NOT indicated in asymptomatic shelter cats.</b></li>
+            <li><span class="lead">Ferret</span> — highly susceptible; a single worm can be catastrophic (tiny heart); antigen often false-negative; <b>bilirubinuria</b> is the most consistent finding.</li>
+            <li><span class="lead">Prevention</span> — ASV endorses AHS: <b>year-round prevention for dogs, cats &amp; ferrets</b>. Macrocyclic lactones (ivermectin, selamectin, milbemycin, moxidectin) reliably kill only worms ≤30 d. A treated dog isn't "heartworm-free" until <b>two antigen tests 6 months apart are negative</b>.</li>
+            <li><span class="lead">Permethrin</span> blocks mosquito transmission on relocated dogs — <b>but is NEVER used on cats</b> (severe / fatal toxicity). DEET is unsafe in dogs, cats &amp; ferrets.</li>
           </ul>
+          <div class="trap"><b>⚠ Trap:</b> <b>permethrin is fatal to cats</b> — never apply a canine permethrin spot-on to a cat (or to a dog housed in close contact with cats).</div>
+        </section>
+
+        <section class="card">
+          <h2>Ectoparasites: Mites &amp; Lice</h2>
+          <ul class="tight">
+            <li><span class="lead">Host specificity</span> — <b>only lice &amp; <em>Demodex</em> are strictly host-specific</b>; all other arthropods are opportunistic feeders. Lice survive only days off-host; <b>nits aren't killed by insecticides</b> → mechanical removal, treat ≥2× a week apart.</li>
+            <li><span class="lead"><em>Sarcoptes scabiei</em> var. <em>canis</em></span> — highly contagious, <b>zoonotic</b> (transient in people); intense pruritus (pinnae, elbows, ventrum); <b>positive pinnal-pedal reflex</b>; scrape has low sensitivity → <b>treat on suspicion</b>; isolate + PPE <span class="exp">(personal protective equipment)</span> for the first 3–5 d.</li>
+            <li><span class="lead"><em>Notoedres cati</em></span> (feline scabies) — highly contagious among cats, zoonotic; pruritus starts on the head / face / ear margins.</li>
+            <li><span class="lead"><em>Demodex canis</em></span> — acquired from the dam while nursing (only route); <b>NOT contagious between adults</b>. Generalized demodicosis = <b>immunosuppression flag</b>: juvenile-onset (&lt;18 mo) is heritable → <b>neuter before adoption</b>; adult-onset (&gt;18 mo) → work up underlying disease. <b><em>D. gatoi</em> (cats) IS contagious between cats.</b> Isoxazolines are the treatment of choice; avoid ivermectin in MDR1/ABCB1 breeds (collies, shelties, Aussies).</li>
+            <li><span class="lead"><em>Otodectes cynotis</em></span> (ear mites) — "coffee-ground" aural debris; treat the whole litter / group, clean the canal, repeat. <span class="lead"><em>Cheyletiella</em></span> ("walking dandruff") — dorsal scaling; survives up to 10 d off-host.</li>
+          </ul>
+          <div class="trap"><b>⚠ Trap:</b> <em>Demodex canis</em> is <b>not</b> contagious between adult dogs (dam-to-pup only), whereas <em>D. gatoi</em> <b>is</b> contagious between cats — commonly reversed on the exam.</div>
+        </section>
+
+        <section class="card">
+          <h2>Fleas &amp; Ticks</h2>
+          <ul class="tight">
+            <li><span class="lead">Fleas</span> <span class="exp">(<em>Ctenocephalides felis</em>)</span> — animals acquire fleas <b>from the environment, not by host-to-host jumping</b>; the <b>pupa is the hardiest stage</b>, persisting for months and eclosing on heat / CO₂ / vibration → environmental control is as important as treating the animal.</li>
+            <li><span class="lead">Flea disease</span> — flea-bite anaemia (young / old / debilitated) &amp; FAD <span class="exp">(flea-allergy dermatitis)</span> with lumbosacral / tail-base alopecia. <em>C. felis</em> is the intermediate host of <em>Dipylidium</em> and transmits <em>Bartonella</em>, <em>Rickettsia</em>, haemotropic <em>Mycoplasma</em>, and <em>Francisella tularensis</em>. Nitenpyram kills adults immediately for an admission infestation.</li>
+            <li><span class="lead">Brown dog tick</span> <span class="exp">(<em>Rhipicephalus sanguineus</em>)</span> — the <b>shelter exception</b>: all life stages feed on dogs and it <b>completes its whole cycle indoors</b> ("the bane of shelters, kennels &amp; domiciles") → usually needs professional pest control. All other ticks (<em>Ixodes</em>, <em>Dermacentor</em>, <em>Amblyomma</em>) need rodent / bird / reptile larval hosts → won't persist indoors.</li>
+            <li><span class="lead">Removal</span> — fine-tipped forceps (never bare hands), grasp close to the skin, steady traction, remove the mouthparts. Many tick-borne pathogens (e.g. Lyme) need feeding time → <b>early removal prevents infection</b>.</li>
+            <li><span class="lead">Emerging</span> — Asian longhorned tick (<em>Haemaphysalis longicornis</em>), in the US since 2017, can build massive infestations.</li>
+          </ul>
+          <div class="trap"><b>⚠ Trap:</b> the flea is the <b>intermediate host of <em>Dipylidium caninum</em></b> — treat fleas <b>and</b> deworm. Because fleas come from the environment (pupa hardiest), always pair adulticide with environmental control.</div>
         </section>
 
         <section class="card blue">
-          <h2>Vector-Borne &amp; Zoonotic Disease</h2>
-          <div class="exp">▢ to fill from your notes</div>
+          <h2>Vector-Borne &amp; Zoonotic</h2>
           <ul class="tight">
-            <li><span class="lead">Pathogen ↔ vector</span> table <span class="exp">(agent · vector · host · zoonotic?)</span></li>
-            <li><span class="lead">Examples</span> — <em>Cytauxzoon felis</em> (cats), <em>Hepatozoon</em>, Chagas <span class="exp">(<em>Trypanosoma cruzi</em>)</span></li>
-            <li><span class="lead">Personnel safety</span> — protect staff/public; larva migrans, sarcoptic mange, tick-borne agents</li>
+            <li><span class="lead">Vector map</span> — <b>ticks:</b> <em>Anaplasma</em>, <em>Borrelia burgdorferi</em> (Lyme), <em>Ehrlichia</em>, <em>Rickettsia rickettsii</em> (Rocky Mountain spotted fever), <em>Cytauxzoon</em>. <b>Fleas:</b> <em>Bartonella</em> (cat-scratch), <em>Rickettsia felis / typhi</em> (typhus), <em>Yersinia pestis</em> (plague). <b>Sandfly:</b> <em>Leishmania</em>. <b>Kissing bug:</b> <em>Trypanosoma cruzi</em>.</li>
+            <li><span class="lead"><em>Cytauxzoon felis</em></span> ("bobcat fever") — tick-borne (bobcat reservoir); <b>acutely fatal in domestic cats</b> (fever, icterus, dyspnoea → death ~1 wk); "signet-ring" piroplasms; atovaquone + azithromycin + intensive support.</li>
+            <li><span class="lead">Hepatozoonosis</span> — the dog is infected by <b>EATING the infected tick, not by its bite</b>. <em>H. americanum</em> (<em>Amblyomma maculatum</em>) → periosteal bone proliferation + extreme neutrophilic leukocytosis; <em>H. canis</em> (<em>Rhipicephalus</em>) milder.</li>
+            <li><span class="lead"><em>Babesia gibsoni</em></span> — small ring-shaped piroplasms; spreads among Pit Bull-type dogs via <b>bite wounds</b>; treated dogs are permanent carriers; atovaquone + azithromycin. <span class="lead"><em>B. canis</em> (vogeli)</span> — large, <b>paired</b> piroplasms; <em>Rhipicephalus</em>; imidocarb dipropionate.</li>
+            <li><span class="lead">Chagas</span> <span class="exp">(<em>Trypanosoma cruzi</em>)</span> — southern US; myocarditis, right-sided cardiomegaly; fecal (stercorarian) transmission from the kissing bug or by ingestion.</li>
+            <li><span class="lead">Personnel safety</span> — mange gloves + covering clothing for the first 3–5 d of treatment; clean shared gear; remove standing water, garbage, decaying matter &amp; long grass to limit vector breeding.</li>
           </ul>
-        </section>
-
-        <section class="card">
-          <h2>Deworming schedule</h2>
-          <div class="exp">▢ to fill from your notes</div>
-          <ul class="tight">
-            <li><span class="add">Deworm pups/kittens from 2 wks, then every 2 wks until ~2 mo; pyrantel at intake<span class="addtag">+</span></span></li>
-            <li><span class="lead">Anthelmintics</span> — pyrantel, fenbendazole, praziquantel (tapeworm)</li>
-            <li><span class="lead">Formulary</span> — parasiticide quick-reference (spectrum · species · cautions)</li>
-          </ul>
+          <div class="trap"><b>⚠ Trap:</b> <em>Hepatozoon</em> is acquired by <b>ingesting the infected tick</b>, not through the tick's bite — a classic distractor.</div>
         </section>
       </div>
 
     </div>
+
+    <section class="card" style="border-left-color:#0e7490;margin-top:12px">
+      <h2 style="color:#0e7490">📄 Journal Articles</h2>
+      <div class="exp">▢ journal-article summaries to be added</div>
+    </section>
 
     <footer class="doc">
       <span>Personal study notes · 2026 ABVP Combined Exam (Shelter Medicine RVS)</span>

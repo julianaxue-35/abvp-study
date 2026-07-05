@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nutrition &amp; Husbandry — Cheatsheet</title>
+<style>
+  :root{
+    --ink:#1f2430; --muted:#6b7280; --line:#e5e7eb;
+    --theme:#0f3d3a; --theme-soft:#e6eeeb; --theme-line:#a9c6bd;   /* ← change per domain */
+    --blue:#1d4ed8; --blue-soft:#eaf0ff; --blue-line:#b8caff;
+    --warn:#b45309; --warn-soft:#fff5e6;
+    --add:#0d7d74;  --add-soft:#e4f6f4;
+  }
+  *{box-sizing:border-box} html,body{margin:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:#f4f4f6;line-height:1.32;font-size:12px}
+  .toolbar{max-width:1180px;margin:14px auto 0;padding:10px 14px;background:#fff;border:1px solid var(--line);
+    border-radius:10px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+  .toolbar b{color:var(--ink)}
+  .btn{background:var(--theme);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:13px;font-weight:600;cursor:pointer}
+  .btn:hover{filter:brightness(.9)}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .legend span{display:inline-flex;align-items:center;gap:5px}
+  .swatch{width:11px;height:11px;border-radius:3px;display:inline-block}
+  .sheet{max-width:1180px;margin:14px auto;background:#fff;padding:16px 18px 12px;border:1px solid var(--line);
+    border-radius:10px;box-shadow:0 1px 6px rgba(0,0,0,.05)}
+  header.doc{border-bottom:2.5px solid var(--theme);padding-bottom:8px;margin-bottom:12px;display:flex;
+    align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  header.doc h1{margin:0;font-size:23px;letter-spacing:-.2px;color:var(--theme)}
+  header.doc h1 small{color:var(--ink);font-weight:600;font-size:14px}
+  .tags{font-size:11px;color:var(--muted)} .tags b{color:var(--theme)}
+  .lede{font-size:11.5px;color:var(--muted);margin:0 0 10px;border-left:3px solid var(--theme-line);padding-left:9px}
+  .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .col{display:flex;flex-direction:column;gap:11px}
+  section.card{border:1px solid var(--line);border-left:4px solid var(--theme);border-radius:7px;
+    padding:8px 10px 9px;break-inside:avoid;page-break-inside:avoid}
+  section.card.blue{border-left-color:var(--blue)}
+  section.card h2{margin:0 0 6px;font-size:12.5px;text-transform:uppercase;letter-spacing:.4px;color:var(--theme);
+    display:flex;align-items:center;gap:6px}
+  section.card.blue h2{color:var(--blue)}
+  h2 .n{font-size:10px;background:var(--theme-soft);color:var(--theme);border:1px solid var(--theme-line);
+    border-radius:4px;padding:0 5px;font-weight:700}
+  ul{margin:0;padding-left:15px} ol{margin:0;padding-left:17px}
+  li{margin:2.5px 0} li::marker{color:var(--theme)} .blue li::marker{color:var(--blue)}
+  ul.tight li{margin:1.5px 0}
+  .sub{list-style:none;padding-left:2px;margin:3px 0} .sub li{margin:1.5px 0}
+  .sub li::before{content:"– ";color:var(--muted)}
+  b,strong{font-weight:700} .lead{font-weight:700}
+  .exp{color:var(--muted);font-weight:400}
+  .arw{color:var(--theme);font-weight:700} .up{color:#b91c1c;font-weight:700} .dn{color:#1d4ed8;font-weight:700}
+  .trap{background:var(--warn-soft);border:1px solid #f2cf95;border-radius:5px;padding:4px 7px;margin:5px 0 2px;
+    font-size:11px;color:#7a4a08} .trap>b:first-child{color:var(--warn)}
+  .add{background:var(--add-soft);border-bottom:1px dotted var(--add);color:#0b5a54;padding:0 2px;border-radius:2px}
+  .addtag{font-size:9px;font-weight:700;color:#fff;background:var(--add);border-radius:3px;padding:0 3px;margin-left:2px;vertical-align:1px}
+  .flag{display:block;background:var(--add-soft);border:1px dashed var(--add);border-radius:5px;padding:4px 7px;
+    margin:5px 0 0;font-size:10.5px;color:#0b5a54} .flag b{color:var(--add)}
+  .risk{font-weight:800} .risk.hi{color:#b91c1c}.risk.mod{color:#b45309}.risk.lo{color:#15803d}
+  footer.doc{margin-top:12px;padding-top:8px;border-top:1px solid var(--line);font-size:9.5px;color:var(--muted);
+    display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+  @page{size:A4 landscape;margin:9mm}
+  @media print{
+    body{background:#fff;font-size:9.4px;line-height:1.26}
+    .toolbar{display:none}
+    .sheet{max-width:none;margin:0;border:none;border-radius:0;box-shadow:none;padding:0}
+    header.doc h1{font-size:19px} header.doc h1 small{font-size:12px}
+    section.card h2{font-size:10.5px}
+    .cols{gap:9px}.col{gap:8px}section.card{padding:6px 8px 7px}.trap,.flag{font-size:9px}
+  }
+  /* narrow screens: stack the 3 columns so it stays readable */
+  @media(max-width:780px){ .cols{grid-template-columns:1fr} }
+  /* embedded inside the study-hub collapsible: drop page chrome, sit flush */
+  html.embedded body{background:#fff}
+  html.embedded .toolbar{display:none}
+  html.embedded .sheet{max-width:none;margin:0;border:none;border-radius:0;box-shadow:none;padding:10px 13px 8px}
+</style>
+</head>
+<body>
+
+  <div class="toolbar">
+    <button class="btn" onclick="window.print()">🖨  Print / Save as PDF</button>
+    <span>Best printed <b>A4 landscape</b>.</span>
+    <div class="legend">
+      <span><span class="swatch" style="background:#0f3d3a"></span>section</span>
+      <span><span class="swatch" style="background:#1d4ed8"></span>food safety / storage</span>
+      <span><span class="swatch" style="background:#fff5e6;border:1px solid #f2cf95"></span>exam trap</span>
+      <span><span class="swatch" style="background:#e4f6f4;border:1px solid #0d7d74"></span><b style="color:#0d7d74">+</b> added / clarified</span>
+    </div>
+  </div>
+
+  <div class="sheet">
+    <header class="doc">
+      <h1>Nutrition &amp; Husbandry</h1>
+      <div class="tags"><b>Nutrition &amp; Husbandry</b> · Physical Health of Animal (29%) · Shelter Medicine</div>
+    </header>
+
+    <p class="lede">Shelter nutrition must be complete, balanced &amp; life-stage-appropriate — feed to <b>energy needs</b>, score every animal by <b>palpation</b>, and respect the feline metabolic quirks (obligate carnivore, poor glucuronidation, hepatic lipidosis from fasting) that turn routine husbandry into an emergency. Quality of life <span class="exp">(QOL)</span> is the net balance of an animal's pleasant vs unpleasant feelings.</p>
+
+    <div class="cols">
+
+      <!-- ============ COLUMN 1 — nutrition principles ============ -->
+      <div class="col">
+        <section class="card">
+          <h2>Complete &amp; Balanced Diets (AAFCO)</h2>
+          <ul class="tight">
+            <li><span class="lead">Feed one diet:</span> a complete, nutritionally balanced, life-stage-appropriate diet of the highest quality possible, fresh water always available — consistency reduces stress, inappetence &amp; GI <span class="exp">(gastrointestinal)</span> upset.</li>
+            <li><span class="lead">AAFCO statement:</span> the AAFCO <span class="exp">(Association of American Feed Control Officials)</span> nutritional-adequacy statement on the label shows how the diet meets requirements (must not be expired); "complete &amp; balanced for <b>all life stages</b>" suits puppies/kittens, adults &amp; pregnant/nursing animals.</li>
+            <li><span class="lead">Dog vs cat:</span> dog = practical <b>omnivore</b> (a meat-only diet is not balanced); cat = obligate (true) <b>carnivore</b> needing higher dietary protein plus pre-formed <b>taurine, arginine, vitamin A &amp; arachidonic acid</b> (cannot synthesise them adequately from plants).</li>
+            <li><span class="lead">Food recalls:</span> manufacturer- or FDA <span class="exp">(US Food and Drug Administration)</span>-initiated; remove recalled product immediately — never feed it.</li>
+          </ul>
+          <div class="trap"><b>⚠ Trap:</b> a <b>taurine</b>-deficient diet in cats causes <b>dilated cardiomyopathy (DCM)</b> + <b>central retinal degeneration</b> — the classic obligate-carnivore distractor against dog nutrition.</div>
+        </section>
+
+        <section class="card">
+          <h2>Life-Stage &amp; Energy Needs (RER/MER)</h2>
+          <ul class="tight">
+            <li><span class="lead">RER</span> <span class="exp">(resting energy requirement)</span> = baseline energy at rest; <span class="lead">MER</span> <span class="exp">(maintenance energy requirement)</span> = RER × a life-stage/activity factor.</li>
+            <li>Calculate RER &amp; MER for over- or under-weight animals; formal MER calculation is accurate but seldom practical at shelter scale.</li>
+            <li><span class="lead">Calorie density:</span> ~350–500 kcal per cup of dry food; ~120–190 kcal per 5.5 oz (156 g) can of wet food.</li>
+            <li><span class="lead">Treats — 10% rule:</span> treats should not exceed <b>10%</b> of daily caloric intake.</li>
+          </ul>
+          <span class="flag"><b>+ check:</b> some notes allow "10–25%" of calories as treats; the accepted ceiling is the <b>10% rule</b> — use 10%.</span>
+        </section>
+
+        <section class="card">
+          <h2>Feeding Management &amp; Schedules</h2>
+          <ul class="tight">
+            <li><span class="lead">Adult dogs:</span> portion-feed ≥1×, ideally 2×/day. <span class="lead">Large, deep-chested dogs</span> fed ≥2×/day to lower GDV <span class="exp">(gastric dilatation-volvulus / bloat)</span> risk.</li>
+            <li><span class="lead">Puppies &lt;6 mo &amp; high-demand dogs</span> (pregnant, nursing, underweight, debilitated) — fed more frequently or offered dry food free-choice by age/condition.</li>
+            <li><span class="lead">Adult cats:</span> ≥2 meals/day; many prefer small frequent meals. Meal-feed when intake must be controlled or monitored.</li>
+            <li><span class="lead">Group-housed cats:</span> free-choice dry is practical (canned spoils at room temp) but non-eaters go unnoticed for days &amp; some overeat.</li>
+            <li><span class="lead">Cohoused feeding:</span> feed separately or monitor closely — watch for guarding/bullying so every individual gets enough.</li>
+            <li><span class="lead">Turnover:</span> confirm food is eaten &amp; not spoiled; discard uneaten food ≥ every 24 h; discard contaminated/pest-infested food immediately.</li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- ============ COLUMN 2 — condition, feeding pathology, neonatal, repro ============ -->
+      <div class="col">
+        <section class="card">
+          <h2>Body Condition Score (1–9)</h2>
+          <ul class="tight">
+            <li><span class="lead">Scale:</span> 9-point BCS <span class="exp">(body condition score, Nestlé Purina scale)</span> — <b>1–3 underweight</b>, <b>4–5 ideal (target 5/9)</b>, <b>6–9 overweight-to-obese</b>.</li>
+            <li><span class="lead">Ideal 5/9:</span> ribs palpable but not visible under a thin fat layer; waist &amp; abdominal tuck present.</li>
+            <li><span class="lead">Palpate, don't eyeball:</span> a thick coat hides ribs; in cats also palpate the caudal-abdomen fat pad (cats deposit fat there early).</li>
+            <li><span class="lead">Surgical gate:</span> BCS ≤3/9 needs veterinary clearance before general anaesthesia (low reserves, hypothermia, altered drug metabolism); stabilise BCS 1–2 before elective surgery.</li>
+            <li><span class="lead">Monitor:</span> weigh &amp; score at intake, then weekly for stays &gt;7 days; flag the medical team if BCS drops ≥1 point.</li>
+            <li><span class="lead">Obesity:</span> BCS 6–7 <span class="arw">→</span> cut calories 20–25%; BCS 8–9 <span class="arw">→</span> structured program (~RER at target weight), recheck q2wk. Safe loss <b>1–2% body weight/week</b>.</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Anorexia, Refeeding &amp; Hepatic Lipidosis</h2>
+          <ul class="tight">
+            <li><span class="lead">Time thresholds:</span> adult cat off food <b>3–5 days</b> <span class="arw">→</span> hepatic lipidosis <span class="exp">(fatty liver)</span> risk; kitten &lt;4 months off food &gt;24 h <span class="arw">→</span> hypoglycaemia, weakness, death — examine promptly.</li>
+            <li><span class="lead">Food aversion:</span> nauseated cats link a food's sight/smell to illness; offer food periodically rather than leaving it in the cage constantly.</li>
+            <li><span class="lead">Refeeding syndrome:</span> refeeding a chronically starved animal too fast shifts <b>phosphate, potassium &amp; magnesium</b> <span class="arw">→</span> weakness, seizures, coma, death. Reintroduce slowly with veterinary input &amp; electrolyte monitoring.</li>
+            <li><span class="lead">Obese-cat trap:</span> sudden food restriction mobilises fat faster than the liver clears it <span class="arw">→</span> hepatocyte fat accumulation. <b>Never fast an obese cat aggressively</b>; aim for gradual 1–2%/week loss. Signs: jaundice, vomiting, lethargy, ↑ liver enzymes (ALT [alanine aminotransferase], ALP [alkaline phosphatase]) &amp; bilirubin.</li>
+          </ul>
+          <div class="trap"><b>⚠ Trap:</b> a BCS 8/9 cat eating little for 5 days — the wrong answer is "continue caloric restriction"; correct = <b>veterinary exam + nutritional support</b> (high hepatic-lipidosis risk).</div>
+        </section>
+
+        <section class="card">
+          <h2>Neonatal &amp; Orphan Feeding</h2>
+          <ul class="tight">
+            <li><span class="lead">Rewarm first:</span> never feed a hypothermic (cold, core &lt;94°F / 34.4°C) neonate — a cold gut can't move milk, which ferments <span class="arw">→</span> endotoxaemia; restore normothermia, then feed.</li>
+            <li><span class="lead">Environment:</span> week 1 ~85–95°F (29–35°C), drop ~5°F (~2.8°C)/week to 70–75°F (21–24°C) by week 4.</li>
+            <li><span class="lead">Cadence:</span> tube/bottle q2–3 h for the first days, q4–5 h to 3 weeks, then 4×/day to 6 weeks; wean at 3–4 weeks with warm semisolid slurry.</li>
+            <li><span class="lead">Volume:</span> stomach capacity ≈ <b>40–50 mL/kg per feeding</b> — never exceed (over-distension <span class="arw">→</span> reflux, emesis, fatal aspiration).</li>
+            <li><span class="lead">Orphans:</span> weigh daily the first week &amp; stimulate elimination; ~100 g at birth, gain 10–15 g/day (&lt;7 g/day inadequate). Screen the dam/queen for FeLV <span class="exp">(feline leukaemia virus)</span> &amp; FIV <span class="exp">(feline immunodeficiency virus)</span>.</li>
+            <li><span class="lead">Fading kitten syndrome:</span> hypothermia <span class="arw">→</span> GI ileus <span class="arw">→</span> gut fermentation/endotoxaemia <span class="arw">→</span> hypoglycaemia (&lt;60 mg/dL) + dehydration <span class="arw">→</span> collapse. Rule out feline panleukopenia; necropsy is best for a definitive diagnosis.</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Reproduction &amp; Kitten Age Estimation</h2>
+          <ul class="tight">
+            <li><span class="lead">Feline basics:</span> queens are <b>seasonal, induced ovulators</b>; cycle ~q2wk in season, receptivity ~4–7 days; gestation ~<b>65 days</b>, 3–5 kittens. Puberty: queens 5–9 mo, toms ~8–13 mo.</li>
+            <li><span class="lead">Pregnancy diagnosis:</span> palpation day 14–17; ultrasound as early as day 10; serum relaxin ↑ by day 25; radiographs only after fetal skulls calcify ~day 43. Obvious distension <span class="arw">→</span> birth usually &lt;2 weeks away.</li>
+            <li><span class="lead">Pound-a-month:</span> kittens gain ~1 lb (~0.5 kg)/month, so a 3 lb (1.4 kg) kitten is ~3 months old; eyes open 7–10 days, walk/play 3–4 weeks.</li>
+            <li><span class="lead">Dentition (heavily tested):</span> deciduous teeth erupt ~3–4 weeks (incisors in order I1, I2, I3); adult canines erupt ~5.5–6 months. Permanent canines + small testes ≈ 6–9 mo; mature testes ≈ 12–14 mo.</li>
+            <li><span class="lead">Housing limit:</span> kittens &lt;6–8 weeks should not be housed in the shelter (infection risk) — place in foster.</li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- ============ COLUMN 3 — safety, husbandry, toxicology ============ -->
+      <div class="col">
+        <section class="card blue">
+          <h2>Food &amp; Water Safety / Storage</h2>
+          <ul class="tight">
+            <li><span class="lead">Water needs:</span> cats ~50 mL/kg/day; dogs ~50–80 mL/kg/day; fresh water always available. <b>Dry-only cats need ~2× the water</b> of wet-fed cats (wet food = 70–80% water) <span class="arw">→</span> concentrated urine &amp; urinary-tract disease risk.</li>
+            <li><span class="lead">Dehydration:</span> ≥5% = skin tent &gt;1–2 s, tacky/dry mucous membranes, sunken eyes; ≥10% = depression, weak pulse, prolonged CRT <span class="exp">(capillary refill time)</span>.</li>
+            <li><span class="lead">Dry food storage:</span> sealed, pest-proof containers; label the date opened; use within the manufacturer's period.</li>
+            <li><span class="lead">Wet/canned:</span> refrigerate opened cans; discard uneaten portions after <b>2 h</b> at room temperature (4–6 h max under the feral-cat protocol).</li>
+            <li><span class="lead">No raw diets:</span> the ASV <span class="exp">(Association of Shelter Veterinarians)</span> advises against raw feeding in shelters — Salmonella/Campylobacter shedding, staff &amp; immunocompromised risk, seldom balanced, documented outbreaks.</li>
+            <li><span class="lead">Bowl hygiene:</span> individual bowls preferred (biosecurity); scrub food &amp; water bowls daily — biofilm/algae = contamination; wash-disinfect-rinse between occupants.</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Housing &amp; Husbandry Basics</h2>
+          <ul class="tight">
+            <li><span class="lead">Cat units:</span> every unit needs ≥1 <b>hide box</b> + an <b>elevated resting surface</b>. Hiding is negatively correlated with cortisol — a welfare <b>solution</b>, not a problem; don't remove the hide box because "the cat hides." Cats usually adjust in 2–5 weeks (some never).</li>
+            <li><span class="lead">Feral/fractious cats:</span> squeeze panel + hide box; feed, water &amp; clean from the safe side, minimising handling. Disposition is <b>TNRM</b> <span class="exp">(trap-neuter-return-monitor)</span> — don't hold ferals long-term (chronic stress).</li>
+            <li><span class="lead">Rabbits (ASV 2026, new/high-yield):</span> prey species — house away from predator (dog/cat/ferret) <b>sight, sound &amp; smell</b>; min recommended enclosure <b>33 ft² (3 m²)</b> (min acceptable 8–11 ft²/0.8–1 m² only for stays &lt;2 weeks).
+              <ul class="sub">
+                <li>Noise 50–70 dB <span class="exp">(decibels)</span> is harmful; light 3–5 FC <span class="exp">(footcandles)</span> ≈ 30–50 lux; <b>motion-activated lighting contraindicated</b>.</li>
+                <li>NO wire/slatted floors (pododermatitis); all group-housed rabbits must be spayed/neutered.</li>
+                <li><b>Oral penicillin is contraindicated</b> (fatal cecal dysbiosis) — use injectable penicillin G.</li>
+                <li>RHDV <span class="exp">(rabbit haemorrhagic disease virus, non-enveloped calicivirus)</span> needs accelerated hydrogen peroxide, potassium peroxymonosulfate, or 0.5% sodium hypochlorite; acetic acid (vinegar) removes alkaline urine deposits.</li>
+              </ul>
+            </li>
+            <li><span class="lead">Geriatric &amp; grooming:</span> soft bedding + warmth for orthopaedic disease; regular brushing/bathing limits faecal-oral spread (giardia, parvovirus).</li>
+            <li><span class="lead">Exotics</span> <span class="exp">(deep dive on the Other Animals page)</span> — ferret canine distemper virus (CDV) = <b>100% fatal</b> (euthanasia); guinea pigs <b>cannot synthesise vitamin C</b> (scurvy); avoid cedar/pine shavings (respiratory disease); reptiles need UVB + a thermal gradient (phenols/glutaraldehyde toxic to them).</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Shelter Toxicology</h2>
+          <ul class="tight">
+            <li><span class="lead">Feline metabolic basis:</span> deficient hepatic glucuronidation (the UGT1A6 glucuronosyltransferase gene is a pseudogene; other UGT isoforms are low) slows clearance of <b>phenols, aspirin/salicylates &amp; acetaminophen</b> <span class="exp">(paracetamol)</span> and contributes to permethrin sensitivity.</li>
+            <li><span class="lead">Permethrin/pyrethroids:</span> dog flea spot-ons misapplied to cats <span class="arw">→</span> tremors, muscle fasciculations, hyperthermia, seizures — the classic feline toxicosis.</li>
+            <li><span class="lead">Analgesics:</span> acetaminophen <span class="arw">→</span> methaemoglobinaemia + Heinz-body anaemia; aspirin &amp; ibuprofen also unsafe in cats.</li>
+            <li><span class="lead">Household/plant:</span> onions (incl. onion-powder baby foods) <span class="arw">→</span> haemolytic anaemia; lilies <span class="arw">→</span> nephrotoxic to cats.</li>
+            <li><span class="lead">Disinfectant residue:</span> quaternary ammonium <span class="exp">(QAC)</span>, phenols &amp; pine oils groomed off fur <span class="arw">→</span> caustic oral/glossal ulceration, hypersalivation, anorexia. Avoid rodenticides in shelters (poisoned rodents can die in cat cages &amp; be eaten).</li>
+          </ul>
+          <span class="flag"><b>+ check:</b> it is a glucuronidation <b>deficiency</b>, not a total absence; and feline acetaminophen toxicity is <b>multifactorial</b> — deficient glucuronidation <b>plus</b> a lack of N-acetyltransferase 2 (NAT2), with the p-aminophenol pathway driving methaemoglobinaemia.</span>
+          <div class="trap"><b>⚠ Trap:</b> dog-labelled permethrin spot-on applied to a cat — the mechanism answer is the feline <b>glucuronidation deficiency</b>, not receptor density or haemoglobin fragility.</div>
+        </section>
+      </div>
+
+    </div>
+
+    <section class="card" style="border-left-color:#0e7490;margin-top:12px">
+      <h2 style="color:#0e7490">📄 Journal Articles</h2>
+      <div class="exp">▢ journal-article summaries to be added</div>
+    </section>
+
+    <footer class="doc">
+      <span>Personal study notes · 2026 ABVP Combined Exam (Shelter Medicine RVS)</span>
+      <span>© Juliana Xue — for personal study use</span>
+    </footer>
+  </div>
+
+  <script>if(window.self!==window.top){document.documentElement.className+=' embedded';}</script>
+</body>
+</html>
