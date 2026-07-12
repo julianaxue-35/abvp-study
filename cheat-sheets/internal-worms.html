@@ -88,6 +88,12 @@
   html.embedded body{background:#fff}
   html.embedded .toolbar{display:none}
   html.embedded .sheet{max-width:none;margin:0;border:none;border-radius:0;box-shadow:none;padding:10px 13px 8px}
+  table.cmp{width:100%;border-collapse:collapse;font-size:10.3px;margin:2px 0}
+  table.cmp th{background:var(--theme);color:#fff;text-align:left;padding:3px 5px;font-size:9px;text-transform:uppercase;letter-spacing:.2px;vertical-align:top}
+  table.cmp td{border:1px solid var(--theme-line);padding:3px 5px;vertical-align:top}
+  table.cmp tr:nth-child(even) td{background:var(--theme-soft)}
+  table.cmp .org{font-weight:700;font-style:italic;color:var(--theme)}
+  @media print{table.cmp{font-size:8.2px}table.cmp th,table.cmp td{padding:2px 3px}}
 </style>
 </head>
 <body>
@@ -117,21 +123,24 @@
       <div class="col">
         <section class="card">
           <h2>Nematodes — Roundworms <span class="n">soil / vertical</span></h2>
-          <ul class="tight">
-            <li><span class="lead">Hookworm</span> (<em>Ancylostoma caninum</em>, <em>A. braziliense</em>; <em>Uncinaria stenocephala</em>): <b>LC:</b> DIRECT (no intermediate host). <b>Tx:</b> percutaneous skin penetration, oral, paratenic hosts, <b>trans-mammary (A. caninum milk only)</b>. <b>Age:</b> nursing <b>puppies/kittens</b> → regenerative anaemia + melena by <b>~14 d</b>; prepatent <b>~2 wk</b>. <b>Dx:</b> zinc-sulfate centrifugation. <b>Tx drug:</b> pyrantel / fenbendazole / milbemycin. <b>ZOONOTIC</b> <span class="arw">→</span> <b>cutaneous larva migrans</b> (<em>A. braziliense</em> most). <span class="exp">(Uncinaria = "northern hookworm", cooler climates, mainly oral, no trans-mammary, less pathogenic.)</span></li>
-            <li><span class="lead">Roundworm / ascarid</span> (<em>Toxocara canis</em> &amp; <em>T. cati</em>, <em>Toxascaris leonina</em>): <b>LC:</b> DIRECT (paratenic hosts amplify; egg needs environmental development to become infective). <b>Tx:</b> egg ingestion; <b>trans-placental (T. canis)</b>; <b>trans-mammary</b> (T. canis in dogs, T. cati in cats). <b>Age:</b> <b>puppies/kittens</b> — <em>T. canis</em> in-utero pups shed by ~3 wk; prepatent <b>~5 wk</b>. <b>Tx drug:</b> pyrantel / fenbendazole. <b>ZOONOTIC</b> <span class="arw">→</span> <b>visceral + ocular larva migrans</b> (<em>T. canis</em> leading cause). <span class="exp">(Toxascaris leonina = ingestion only, NO vertical route.)</span></li>
-            <li><span class="lead">Whipworm</span> (<em>Trichuris vulpis</em>): <b>LC:</b> DIRECT. <b>Tx:</b> ingest embryonated egg from soil (needs environmental development); caecum/colon. <b>Age:</b> <b>ADULT dogs</b> (not pups) — large-bowel diarrhoea, hematochezia, tenesmus; can mimic hypoadrenocorticism (pseudo-Addison). Prepatent <b>~3 mo</b> (long); barrel egg with bipolar plugs, hardy in soil. <b>Tx drug:</b> <b>fenbendazole</b> or milbemycin — <b>pyrantel does NOT cover whipworm</b>. Zoonosis: low (human whipworm a separate species).</li>
-          </ul>
+          <table class="cmp">
+            <tr><th>Worm</th><th>Life cycle</th><th>Transmission</th><th>Who &middot; prepatent</th><th>Dx</th><th>Drug</th><th>Zoonosis</th></tr>
+            <tr><td><span class="org">Hookworm</span> (<em>Ancylostoma</em>; <em>Uncinaria</em>)</td><td>DIRECT</td><td>Percutaneous, oral, paratenic, <b>trans-mammary</b> (<em>A. caninum</em> milk only)</td><td>Nursing <b>pups/kittens</b> &rarr; anaemia + melena ~14 d; <b>PP ~2 wk</b></td><td>Zinc-sulfate centrifugation</td><td>Pyrantel / fenbendazole / milbemycin</td><td><b>Cutaneous larva migrans</b> (<em>A. braziliense</em>)</td></tr>
+            <tr><td><span class="org">Roundworm / ascarid</span> (<em>Toxocara canis</em> &amp; <em>cati</em>, <em>Toxascaris leonina</em>)</td><td>DIRECT (egg needs env. development; paratenic amplify)</td><td>Egg ingestion; <b>trans-placental</b> (<em>T. canis</em>); <b>trans-mammary</b> (<em>T. canis</em> dogs, <em>T. cati</em> cats)</td><td><b>Pups/kittens</b> &mdash; <em>T. canis</em> in-utero pups shed ~3 wk; <b>PP ~5 wk</b></td><td>Zinc-sulfate float</td><td>Pyrantel / fenbendazole</td><td><b>Visceral + ocular larva migrans</b> (<em>T. canis</em>)</td></tr>
+            <tr><td><span class="org">Whipworm</span> (<em>Trichuris vulpis</em>)</td><td>DIRECT</td><td>Embryonated egg from <b>soil</b> &rarr; caecum/colon</td><td><b>ADULT dogs</b> &mdash; large-bowel diarrhoea, hematochezia, tenesmus, pseudo-Addison; <b>PP ~3 mo</b> (long); hardy bipolar egg</td><td>Float (bipolar-plug egg)</td><td><b>Fenbendazole</b> / milbemycin (pyrantel misses it)</td><td>Low</td></tr>
+          </table>
+          <p class="exp" style="margin:3px 0 0"><em>Uncinaria stenocephala</em> = "northern hookworm" (cooler climates, mainly oral, no trans-mammary, less pathogenic).</p>
           <div class="trap"><b>⚠ Trap:</b> <em>Toxocara</em> vertical routes — <b>T. canis (dogs) = trans-placental + trans-mammary</b>; <b>T. cati (cats) = trans-mammary ONLY</b> (no trans-placental). Pups can be born already infected; kittens are infected through the milk.</div>
           <div class="trap"><b>⚠ Trap:</b> <b>whipworm = adult-dog</b> disease with a <b>3-month</b> prepatent period; a single negative float doesn't clear it. Pyrantel (the cheap hook/round dewormer) <b>misses whipworm</b> — need fenbendazole/milbemycin.</div>
         </section>
 
         <section class="card">
           <h2>Nematodes — Larval &amp; Lung <span class="n">Baermann</span></h2>
-          <ul class="tight">
-            <li><span class="lead"><em>Strongyloides stercoralis</em></span> (threadworm): <b>LC:</b> DIRECT. <b>Tx:</b> <b>percutaneous</b> larvae (mature in warm damp soiled runs) + <b>trans-mammary</b> from an acutely infected dam; auto-infection possible. <b>Age:</b> young dogs in <b>wet/soiled</b> pens. <b>Dx:</b> passes <b>L1 larvae, not eggs</b> <span class="arw">→</span> <b>Baermann</b> funnel. <b>Tx drug:</b> ivermectin 0.2 mg/kg SC (repeat 1 wk) or fenbendazole 5–14 d. <b>ZOONOTIC</b> (a true direct zoonosis — develops in humans too).</li>
-            <li><span class="lead">Feline lungworm</span> (<em>Aelurostrongylus abstrusus</em>): <b>LC:</b> <b>INDIRECT</b> — intermediate host = <b>slug / snail</b> <span class="arw">→</span> paratenic host (rodent, bird) <span class="arw">→</span> cat. <b>Tx:</b> cat eats infected snail/paratenic host; eggs coughed up, swallowed, passed in faeces. <b>Age:</b> cats, worse in <b>kittens</b> — LRT disease (cough, dyspnoea), mimics feline asthma; possible anaesthetic death. <b>Dx:</b> <b>Baermann</b> (larvae). <b>Tx drug:</b> fenbendazole or topical macrocyclic lactone (moxidectin/emodepside/selamectin). Not zoonotic.</li>
-          </ul>
+          <table class="cmp">
+            <tr><th>Worm</th><th>Life cycle</th><th>Transmission</th><th>Who</th><th>Dx</th><th>Drug</th><th>Zoonosis</th></tr>
+            <tr><td><span class="org">Strongyloides stercoralis</span> (threadworm)</td><td>DIRECT (auto-infection)</td><td><b>Percutaneous</b> larvae (warm damp soiled runs) + <b>trans-mammary</b> from an acutely infected dam</td><td>Young dogs in <b>wet/soiled</b> pens</td><td>Passes <b>L1 larvae, not eggs</b> &rarr; <b>Baermann</b> funnel</td><td>Ivermectin 0.2 mg/kg SC (repeat 1 wk) or fenbendazole 5&ndash;14 d</td><td><b>ZOONOTIC</b> (true direct zoonosis)</td></tr>
+            <tr><td><span class="org">Feline lungworm</span> (<em>Aelurostrongylus abstrusus</em>)</td><td><b>INDIRECT</b></td><td>Intermediate <b>slug/snail</b> &rarr; paratenic (rodent/bird) &rarr; cat eats it; eggs coughed up, swallowed, passed</td><td>Cats, worse in <b>kittens</b> &mdash; LRT (cough/dyspnoea), mimics feline asthma</td><td><b>Baermann</b> (larvae)</td><td>Fenbendazole or topical ML (moxidectin / emodepside / selamectin)</td><td>Not zoonotic</td></tr>
+          </table>
           <div class="trap"><b>⚠ Trap:</b> match lungworm to its faecal test — <em>Aelurostrongylus</em> <span class="arw">→</span> <b>Baermann</b> (larvae); <em>Capillaria</em> <span class="arw">→</span> flotation (eggs); <em>Paragonimus</em> <span class="arw">→</span> sedimentation (heavy fluke eggs). Wrong technique misses it.</div>
         </section>
       </div>
@@ -140,12 +149,14 @@
       <div class="col">
         <section class="card">
           <h2>Cestodes — Tapeworms <span class="n">all indirect</span></h2>
-          <ul class="tight">
-            <li><span class="lead"><em>Dipylidium caninum</em></span> (flea tapeworm): <b>LC:</b> <b>INDIRECT</b> — intermediate host = <b>FLEA</b> (or chewing louse). <b>Tx:</b> dog/cat <b>ingests an infected flea while grooming</b>. <b>Age:</b> any dog/cat with fleas — rice-grain proglottids at anus/in bedding. <b>Tx drug:</b> <b>praziquantel</b> (NOT covered by fenbendazole). <b>Cure = flea control</b>, not just deworming. Zoonosis: rare (child swallows a flea).</li>
-            <li><span class="lead"><em>Taenia</em> spp.</span>: <b>LC:</b> <b>INDIRECT</b> — intermediate host = <b>prey</b> (rodents, rabbits, ruminants/offal). <b>Tx:</b> ingest cysticercus in intermediate-host tissue (hunting / raw meat). <b>Age:</b> hunting/roaming dogs &amp; cats — <b>unlikely to cycle inside a shelter</b>. <b>Tx drug:</b> praziquantel (fenbendazole covers most <em>Taenia</em> but praziquantel is reliable). Zoonosis: low for the canine/feline species.</li>
-            <li><span class="lead"><em>Echinococcus</em> spp.</span> (<em>E. granulosus</em>, <em>E. multilocularis</em>): <b>LC:</b> <b>INDIRECT</b> — definitive host = <b>dog/canid</b>; intermediate host = <b>sheep/livestock</b> (E. granulosus) or <b>rodents</b> (E. multilocularis). <b>Tx:</b> dog eats <b>hydatid cysts in raw offal/viscera</b>; adult is tiny. <b>Age:</b> rural dogs fed raw offal. <b>Tx drug:</b> <b>praziquantel</b> (NOT fenbendazole). <b>ZOONOTIC</b> <span class="arw">→</span> <b>hydatid disease</b>: humans ingest eggs from dog faeces → hydatid cysts in liver/lung (E. multilocularis = alveolar, malignant-like).</li>
-          </ul>
-          <div class="trap"><b>⚠ Trap:</b> <b>fenbendazole misses <em>Dipylidium</em> &amp; <em>Echinococcus</em></b> — both need <b>praziquantel</b>. Visible rice-grain segments = review <b>flea control</b> (Dipylidium's intermediate host).</div>
+          <table class="cmp">
+            <tr><th>Tapeworm</th><th>Intermediate host</th><th>How acquired</th><th>Dx</th><th>Drug</th><th>Zoonosis</th></tr>
+            <tr><td><span class="org">Dipylidium caninum</span> (flea tapeworm)</td><td><b>Flea</b> (or chewing louse)</td><td>Swallows an infected flea while grooming</td><td>Rice-grain proglottids; <b>egg packets</b> on float</td><td><b>Praziquantel</b> (cure = flea control)</td><td>Rare</td></tr>
+            <tr><td><span class="org">Taenia</span> spp.</td><td><b>Prey</b> (rodents, rabbits)</td><td>Eats cysticercus in prey tissue (hunting)</td><td>Single thick radially-striated egg</td><td>Praziquantel (fenbendazole also)</td><td>Low</td></tr>
+            <tr><td><span class="org">Echinococcus</span> spp. (<em>granulosus</em> / <em>multilocularis</em>)</td><td>Sheep/livestock; rodents</td><td>Eats hydatid cysts in raw offal; adult tiny/silent</td><td>Segments not seen &rarr; fecal antigen / PCR</td><td><b>Praziquantel</b> (NOT fenbendazole)</td><td><b>HIGH</b> &mdash; hydatid / alveolar; eggs immediately infective</td></tr>
+            <tr><td><span class="org">Spirometra</span> spp. (zipper tapeworm)</td><td><b>Two</b>: copepod &rarr; frog/reptile/rodent</td><td>Eats infected frog/snake/rodent (sparganum larva)</td><td>Operculated egg on float</td><td><b>Higher praziquantel dose</b> (~4&times;)</td><td>Sparganosis</td></tr>
+          </table>
+          <div class="trap"><b>⚠ Trap:</b> <b>fenbendazole misses <em>Dipylidium</em>, <em>Echinococcus</em> &amp; <em>Spirometra</em></b> — both need <b>praziquantel</b>. Visible rice-grain segments = review <b>flea control</b> (Dipylidium's intermediate host).</div>
           <div class="trap"><b>⚠ Trap:</b> <em>Echinococcus</em> is the big <b>zoonosis</b> — canine tapeworm, but humans are the accidental intermediate host and grow <b>hydatid cysts</b>. Deworm at-risk dogs with praziquantel and don't feed raw offal.</div>
         </section>
 
