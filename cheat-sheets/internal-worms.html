@@ -94,6 +94,8 @@
   table.cmp tr:nth-child(even) td{background:var(--theme-soft)}
   table.cmp .org{font-weight:700;font-style:italic;color:var(--theme)}
   @media print{table.cmp{font-size:8.2px}table.cmp th,table.cmp td{padding:2px 3px}}
+  .tbls>section.card{margin-bottom:12px}
+  .tbls>section.card:last-child{margin-bottom:0}
 </style>
 </head>
 <body>
@@ -117,11 +119,8 @@
 
     <p class="lede">For every worm the exam wants five things: <b>life cycle</b> (<b>DIRECT</b> = no intermediate host — faecal-oral / larval / percutaneous / trans-mammary; <b>INDIRECT</b> = requires a named intermediate host), the <b>transmission route</b>, the <b>age/species</b> most affected, the <b>drug</b>, and the <b>zoonosis</b>. High-yield: puppies &amp; kittens get hook + round <b>vertically</b> (trans-mammary ± trans-placental); whipworm is an <b>adult-dog</b> disease; every <b>tapeworm is indirect</b> (flea / prey / offal) and needs <b>praziquantel</b> — fenbendazole misses <em>Dipylidium</em> &amp; <em>Echinococcus</em>. Heartworm has its own sheet.</p>
 
-    <div class="cols">
-
-      <!-- ============ COLUMN 1 — nematodes: soil-transmitted roundworms ============ -->
-      <div class="col">
-        <section class="card">
+  <div class="tbls">
+    <section class="card">
           <h2>Nematodes — Roundworms <span class="n">soil / vertical</span></h2>
           <table class="cmp">
             <tr><th>Worm</th><th>Life cycle</th><th>Transmission</th><th>Who &middot; prepatent</th><th>Dx</th><th>Drug</th><th>Zoonosis</th></tr>
@@ -133,8 +132,7 @@
           <div class="trap"><b>⚠ Trap:</b> <em>Toxocara</em> vertical routes — <b>T. canis (dogs) = trans-placental + trans-mammary</b>; <b>T. cati (cats) = trans-mammary ONLY</b> (no trans-placental). Pups can be born already infected; kittens are infected through the milk.</div>
           <div class="trap"><b>⚠ Trap:</b> <b>whipworm = adult-dog</b> disease with a <b>3-month</b> prepatent period; a single negative float doesn't clear it. Pyrantel (the cheap hook/round dewormer) <b>misses whipworm</b> — need fenbendazole/milbemycin.</div>
         </section>
-
-        <section class="card">
+    <section class="card">
           <h2>Nematodes — Larval &amp; Lung <span class="n">Baermann</span></h2>
           <table class="cmp">
             <tr><th>Worm</th><th>Life cycle</th><th>Transmission</th><th>Who</th><th>Dx</th><th>Drug</th><th>Zoonosis</th></tr>
@@ -143,11 +141,7 @@
           </table>
           <div class="trap"><b>⚠ Trap:</b> match lungworm to its faecal test — <em>Aelurostrongylus</em> <span class="arw">→</span> <b>Baermann</b> (larvae); <em>Capillaria</em> <span class="arw">→</span> flotation (eggs); <em>Paragonimus</em> <span class="arw">→</span> sedimentation (heavy fluke eggs). Wrong technique misses it.</div>
         </section>
-      </div>
-
-      <!-- ============ COLUMN 2 — cestodes + heartworm pointer ============ -->
-      <div class="col">
-        <section class="card">
+    <section class="card">
           <h2>Cestodes — Tapeworms <span class="n">all indirect</span></h2>
           <table class="cmp">
             <tr><th>Tapeworm</th><th>Intermediate host</th><th>How acquired</th><th>Dx</th><th>Drug</th><th>Zoonosis</th></tr>
@@ -159,18 +153,16 @@
           <div class="trap"><b>⚠ Trap:</b> <b>fenbendazole misses <em>Dipylidium</em>, <em>Echinococcus</em> &amp; <em>Spirometra</em></b> — both need <b>praziquantel</b>. Visible rice-grain segments = review <b>flea control</b> (Dipylidium's intermediate host).</div>
           <div class="trap"><b>⚠ Trap:</b> <em>Echinococcus</em> is the big <b>zoonosis</b> — canine tapeworm, but humans are the accidental intermediate host and grow <b>hydatid cysts</b>. Deworm at-risk dogs with praziquantel and don't feed raw offal.</div>
         </section>
+  </div>
 
-        <section class="card">
+  <div class="cols" style="grid-template-columns:repeat(2,1fr)">
+    <div class="col"><section class="card">
           <h2>Heartworm <span class="n">own sheet</span></h2>
           <ul class="tight">
             <li><span class="lead">Heartworm</span> (<em>Dirofilaria immitis</em>) — <b>see the separate Heartworm sheet</b> for the mosquito-vectored life cycle, antigen vs microfilaria testing, staging, the AHS melarsomine protocol, and feline heartworm.</li>
           </ul>
-        </section>
-      </div>
-
-      <!-- ============ COLUMN 3 — control / deworming / formulary ============ -->
-      <div class="col">
-        <section class="card">
+        </section></div>
+    <div class="col"><section class="card">
           <h2>Control · Deworming · Formulary</h2>
           <ul class="tight">
             <li><span class="lead">ASV intake mandate</span> — treat <b>every dog &amp; cat for roundworms + hookworms at intake, from 2 wk of age</b> (zoonotic risk); every animal should leave covered vs hook + round. Whipworm/tapeworm = targeted (cost).</li>
@@ -184,12 +176,10 @@
             <li><span class="lead">Environmental persistence</span> — <b>ascarid (round) eggs nearly indestructible</b> in soil (heat/bleach only disrupt the coat to speed desiccation); <b>hookworm eggs die by desiccation</b> on dry surfaces; whipworm eggs hardy (bipolar plugs). Post-treatment faeces are heavily contaminating <span class="arw">→</span> prompt pick-up.</li>
             <li><span class="lead">Reduce <em>T. canis</em> in pups</span> — treat pregnant bitch with ivermectin/doramectin at <b>day 40–50 gestation</b> (reduces, doesn't eliminate, shedding).</li>
           </ul>
-        </section>
-      </div>
+        </section></div>
+  </div>
 
-    </div>
-
-    <section class="card" style="border-left-color:#0e7490;margin-top:12px">
+<section class="card" style="border-left-color:#0e7490;margin-top:12px">
       <h2 style="color:#0e7490">📄 Journal Articles</h2>
       <div class="exp">▢ journal-article summaries to be added</div>
     </section>
