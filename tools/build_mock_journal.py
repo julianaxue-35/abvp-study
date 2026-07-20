@@ -101,6 +101,32 @@ def main():
         mocks.append({"type": "mcq", "domain": dom, "sub": sub,
                       "q": s["q"], "o": s["o"], "a": s["a"], "e": s["e"], "source": "journal"})
 
+    # Carry over any question already in the output that the catalog can no
+    # longer produce. mock-data-journal.js has drifted ahead of the catalog:
+    # 29 MCQs (parasites, infectious disease, nutrition, euthanasia, …) live
+    # only in the generated file, with no backing article in
+    # journal-catalog.json or synthesized_mcqs.json and no field identifying
+    # where they came from. A plain overwrite deletes them silently, which is
+    # how a routine rebuild quietly drops real content. Preserve them and say
+    # so; pass --prune to drop them deliberately once they are back-filled.
+    orphans = []
+    if os.path.exists(OUT_JS) and "--prune" not in sys.argv:
+        try:
+            prev_raw = re.search(r"var J=(\[.*\]);", open(OUT_JS, encoding="utf-8").read(), re.S)
+            prev = json.loads(prev_raw.group(1)) if prev_raw else []
+            fresh = {m["q"] for m in mocks}
+            orphans = [m for m in prev if m.get("q") not in fresh]
+        except Exception as exc:                     # unreadable/absent → nothing to keep
+            print(f"  ! could not read existing {os.path.basename(OUT_JS)}: {exc}")
+    if orphans:
+        by_sub = {}
+        for m in orphans:
+            by_sub[m.get("sub", "?")] = by_sub.get(m.get("sub", "?"), 0) + 1
+        print(f"  ! preserving {len(orphans)} MCQ(s) with no catalog entry: "
+              + ", ".join(f"{k} x{v}" for k, v in sorted(by_sub.items())))
+        print("    (back-fill these into journal-catalog.json, then rerun with --prune)")
+        mocks.extend(orphans)
+
     payload = json.dumps(mocks, ensure_ascii=False, indent=0)
     js = ("/* Auto-generated journal MCQs for the mock exam. Loaded after mock-data.js. */\n"
           "(function(){\n"

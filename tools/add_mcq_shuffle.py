@@ -59,7 +59,12 @@ def inject_file(path):
     return injected
 
 if __name__ == "__main__":
-    files = [l.strip() for l in open("/tmp/mcq_files.txt") if l.strip()]
+    # Paths may be given as arguments; the original one-off invocation read
+    # them from /tmp/mcq_files.txt, which is kept as a fallback.
+    if len(sys.argv) > 1:
+        files = sys.argv[1:]
+    else:
+        files = [l.strip() for l in open("/tmp/mcq_files.txt") if l.strip()]
     skip = "shelter-management/01_population_management.html"  # already has manual shuffle
     total = 0
     for f in files:

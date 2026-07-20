@@ -351,7 +351,10 @@ def render_bank_script(questions: list) -> str:
     _jb.setAttribute('data-f','journal');
     _jb.textContent='Journal Articles';
     var _sib=_fbar.querySelector('button[data-f]');
-    if(_sib && _sib.className){{_jb.className=_sib.className;_jb.classList.remove('active');}}
+    // strip whichever "selected" class the page's own chips use, so the
+    // injected chip doesn't render pre-selected ('on' is the standard
+    // template, 'active' the research hubs)
+    if(_sib && _sib.className){{_jb.className=_sib.className;_jb.classList.remove('active');_jb.classList.remove('on');}}
     _fbar.appendChild(_jb);
   }}
   if(typeof Q!=='undefined' && Array.isArray(Q)){{
@@ -477,7 +480,20 @@ def inject(page_path: str) -> bool:
             content,
         )
     )
-    use_bank = has_delegated_filter
+    # Never downgrade a page that is already on the merged-bank style. The
+    # heuristic above misfires on some pages (06_mental_health.html among
+    # them), and falling back to the standalone quiz there is a silent
+    # regression: the questions leave the main Q array, so they lose both the
+    # "Journal Articles" filter chip and the site-wide Fisher-Yates answer
+    # shuffle, which only patches Q. All 39 pages carrying journal questions
+    # use the merged-bank style; none use the standalone quiz.
+    already_bank = "data-journal-bank" in content
+    if already_bank and not has_delegated_filter:
+        print(
+            "         note: keeping existing merged-bank style "
+            "(filter heuristic would have downgraded this page)"
+        )
+    use_bank = has_delegated_filter or already_bank
     quiz_html = "" if use_bank else render_quiz_block(questions)
 
     styles_html = render_styles()
@@ -631,6 +647,19 @@ def inject(page_path: str) -> bool:
     # Write back
     # ----------------------------------------------------------------
     abs_path.write_text(content, encoding="utf-8")
+
+    # Re-apply the per-question answer shuffle. The generated bank is emitted
+    # unshuffled, and the journal questions are pushed into Q *after* the
+    # page's own /*mcq-shuffle*/ block has already run — so without this the
+    # journal answers stay in their original, heavily clustered order even
+    # though the page looks shuffled.
+    try:
+        from add_mcq_shuffle import inject_file
+        injected = inject_file(str(abs_path))
+        if injected:
+            print(f"         re-applied answer shuffle ({'+'.join(injected)})")
+    except Exception as exc:
+        print(f"  [WARN] {page_path}: could not re-apply answer shuffle: {exc}")
     return True
 
 
