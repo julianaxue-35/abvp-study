@@ -67,6 +67,15 @@
     section.card h2{font-size:10.5px}
     .cols{gap:9px}.col{gap:8px}section.card{padding:6px 8px 7px}.trap,.flag{font-size:9px}
   }
+  /* journal-evidence band below the main grid */
+  .band{margin-top:15px;border-top:2.5px solid var(--theme);padding-top:10px;break-before:page;page-break-before:always}
+  .band>h2.bandhead{margin:0 0 9px;font-size:14px;letter-spacing:-.1px;color:var(--theme);
+    display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+  .band>h2.bandhead .note{font-size:10.5px;font-weight:400;color:var(--muted);letter-spacing:0}
+  .jrnl li{margin:3.5px 0}
+  .jrnl .lead{color:var(--ink)}
+  .jrnl .yr{color:var(--muted);font-weight:400;font-size:.92em}
+  @media print{ .band>h2.bandhead{font-size:12px} .jrnl li{margin:2.5px 0} }
   /* narrow screens: stack the 3 columns so it stays readable */
   @media(max-width:780px){ .cols{grid-template-columns:1fr} }
   /* embedded inside the study-hub collapsible: drop page chrome, sit flush */
@@ -94,7 +103,7 @@
       <div class="tags"><b>Mental Health &amp; Resiliency</b> · Shelter Management (18%) · Shelter Medicine</div>
     </header>
 
-    <p class="lede">High-yield cheatsheet — occupational hazard control, waste anesthetic gas, HQHVSN ergonomics, and the burnout / ProQOL frameworks. Pre-filled points marked +.</p>
+    <p class="lede">High-yield cheatsheet — occupational hazard control, waste anesthetic gas, HQHVSN ergonomics, and the burnout / ProQOL frameworks. Pre-filled points marked +. <b>Page 2</b> = journal evidence.</p>
 
     <div class="cols">
 
@@ -215,6 +224,55 @@
         </section>
       </div>
 
+    </div>
+
+    <div class="band">
+      <h2 class="bandhead">Journal Evidence <span class="note">18 articles · key finding only — exam items are drawn from the abstract</span></h2>
+      <div class="cols">
+
+        <div class="col">
+          <section class="card">
+            <h2>Burden &amp; Measurement</h2>
+            <ul class="tight jrnl">
+              <li><span class="lead">US shelter staff wellbeing</span> <span class="yr">(2023 survey)</span> — anger, anxiety, depression, fatigue in the mild/moderate range but <b>significantly higher than the general US population</b>. ProQOL: ~½ high compassion satisfaction, <b>53.5%</b> high burnout, <b>90.9%</b> high secondary traumatic stress. High job satisfaction coexists with high burnout <span class="arw">→</span> turnover risk.</li>
+              <li><span class="lead">ACEs in shelter workers</span> <span class="exp">("I'm tired in my bones")</span> — people with more adverse childhood experiences may <b>gravitate toward</b> shelter work, and rely more on pets than on family or friends for emotional co-regulation.</li>
+              <li><span class="lead">Merck Wellbeing Study III</span> — wellbeing and mental health <b>declined</b> over the preceding two years, driven by COVID-19; burnout remained high; <b>no increase</b> in suicidal ideation.</li>
+              <li><span class="lead">Compassion-fatigue instruments</span> <span class="exp">(systematic review)</span> — scarcity of studies in this population; content validity of the available patient-reported outcome measures is <b>low quality</b>.</li>
+              <li><span class="lead">Predictors of ProQOL</span> — both <b>personal and organisational</b> factors contribute; promote compassion satisfaction and manage burnout + STS to support wellbeing and retention.</li>
+              <li><span class="lead">A decade of change for vets</span> — <b>human–human interactions</b> in practice are the main stressors <span class="arw">→</span> communication training is the logical intervention starting point.</li>
+            </ul>
+          </section>
+        </div>
+
+        <div class="col">
+          <section class="card">
+            <h2>Risk, Protection &amp; Moral Stress</h2>
+            <ul class="tight jrnl">
+              <li><span class="lead">Empathy &amp; burnout protectors</span> — empathy <b>for animals</b> was a significant risk factor for veterinarian exhaustion; neither empathy measure predicted disengagement in vets or nurses. <b>Professional identity</b> and justice perceptions <span class="exp">(belief in a just world)</span> were significant burnout protectors.</li>
+              <li><span class="lead">Job demands, resources &amp; job crafting</span> — work <b>engagement</b> (not exhaustion) related to performance; <b>both</b> engagement and exhaustion related to intention to leave. Shelter workers actively adjust their own work via job crafting; building resources + minimising demands may raise retention.</li>
+              <li><span class="lead">Cross-cultural euthanasia attitudes</span> — mental burden lowest in <b>Sweden</b>, highest in <b>Jordan</b>; male vets reported lower burden than female vets; owner attachment was <b>not</b> associated with ethical burden; vets performing <b>more</b> euthanasia/month reported <b>lower</b> burden. Most rated their university education on the topic insufficient.</li>
+              <li><span class="lead">Ethical discussion groups</span> — moral distress is <b>cumulative</b> and interacts with other stress; practical and relational barriers to ethical action differ by role. Regular group ethics discussion may reduce moral stress via familiarity with others' roles/perspectives and mutual support for ethical decisions.</li>
+              <li><span class="lead">Delphi study, vet nurses &amp; techs</span> — barriers to addressing burnout are <b>industry-wide</b> <span class="exp">(absent or unclear regulation, lack of leadership knowledge)</span> and <b>clinic-specific</b> <span class="exp">(poor team culture, unwillingness to change, existing burnout)</span>.</li>
+              <li><span class="lead">Trauma-informed practice</span> — helps animal-protection and welfare workers manage job stressors <b>and</b> gives animal guardians a more compassionate experience.</li>
+            </ul>
+          </section>
+        </div>
+
+        <div class="col">
+          <section class="card">
+            <h2>Shelter Systems, Foster &amp; Training</h2>
+            <ul class="tight jrnl">
+              <li><span class="lead">Institutional ethnography II</span> <span class="exp">(shelter work)</span> — staff spend the most time and effort on behaviourally challenged animals, but management systems target manageable population size, reduced length of stay, and individualised housing. Those systems <b>limit capacity for intensive behaviour work</b> on long-stay animals <span class="arw">→</span> occupational stress for emotionally invested caregivers.</li>
+              <li><span class="lead">Rescue staff during COVID-19</span> — three themes: impact on <b>animals</b>, on <b>identity</b>, on <b>organisational processes</b>. Recommendations: promote cooperation and modification within the sector; understand and change detrimental pet-owner behaviours; clarify the identity of rescue organisations within government.</li>
+              <li><span class="lead">Foster caregiver wellbeing</span> <span class="exp">(prospective)</span> — <b>dog</b> caregivers reported greater emotional and social/physical QOL benefit than cat caregivers; caregivers showed <b>secure</b> attachment (low anxious and avoidant scores); most would foster again; they experience both <b>anticipatory and ambiguous grief</b> on departure.</li>
+              <li><span class="lead">Cat foster program outcomes</span> — foster cats showed <b>no</b> decrease in social behaviour, <b>no</b> increase in fear or aggression, and <b>no</b> rise in cortisol; litter-box aversion on the first night only, then normal. Short-term fostering is safe and potentially beneficial — usable during overcrowding without harming welfare.</li>
+              <li><span class="lead">Access-to-care clinic rotation</span> — <b>70%</b> of students had minimal prior experience serving diverse or low-income populations. Gains: comfort and compassion with low-income/homeless owners, ease across race and ethnicity groups, appreciation for the human–animal bond, plus clinical confidence, financial communication, and creative case management.</li>
+              <li><span class="lead">Shelter-vet retention</span> — current shelter vets participated more in population management, policy development, admin duties, and individual-patient decisions. Previous shelter vets ranked admin-staff interaction, multi-vet teamwork, and mentorship availability lower, and were more likely to feel <b>unhappy and left out</b>; loneliness and professional fulfilment were otherwise comparable. Participation in decision-making may increase willingness to stay.</li>
+            </ul>
+          </section>
+        </div>
+
+      </div>
     </div>
 
     <footer class="doc">

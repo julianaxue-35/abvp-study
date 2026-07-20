@@ -3740,8 +3740,8 @@
 },
 {
 "type": "mcq",
-"domain": "Shelter Management",
-"sub": "Mental Health & Self-Care",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
 "q": "Animal protection officers (APOs) in Canada were found to face significant constraints in investigating cruelty/neglect complaints. The most commonly cited legal barrier was:",
 "o": [
 "Lack of veterinary expertise to assess animal conditions in the field",
@@ -3755,8 +3755,8 @@
 },
 {
 "type": "mcq",
-"domain": "Shelter Management",
-"sub": "Mental Health & Self-Care",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
 "q": "An institutional ethnography of animal protection work in Canada concluded that expanding the legal definition of 'distress' would:",
 "o": [
 "Increase administrative burden without meaningful welfare improvement",
@@ -25846,51 +25846,6 @@
 ],
 "a": 2,
 "e": "Trauma-informed practices were proposed to prevent burnout and build resilience.",
-"source": "journal"
-},
-{
-"type": "mcq",
-"domain": "Shelter Management",
-"sub": "Mental Health & Self-Care",
-"q": "A Canadian qualitative action-research study on animal protection bylaw enforcement officers — including those in Alberta — found that officers expressed pride in the societal benefits of their work. Despite this, what did they consistently report?",
-"o": [
-"Excellent resources and respect",
-"Resource inadequacies, communication gaps, and a culture of normalized disrespect",
-"Chronic overstaffing",
-"No safety concerns"
-],
-"a": 1,
-"e": "Officers consistently reported resource inadequacies, communication and information gaps, and a culture of normalized disrespect, despite expressing pride in the societal value of their work.",
-"source": "journal"
-},
-{
-"type": "mcq",
-"domain": "Shelter Management",
-"sub": "Mental Health & Self-Care",
-"q": "A Canadian qualitative action-research study on animal protection bylaw enforcement officers in Alberta found that officers work in a space bridging legal and medical-welfare domains. Which concept became central to the study's findings?",
-"o": [
-"'Medico-legal borderlands'",
-"Herd immunity",
-"Capacity for care",
-"The five freedoms"
-],
-"a": 0,
-"e": "The concept of 'medico-legal borderlands' emerged as central, capturing the unique working environment of officers operating at the intersection of law enforcement and animal health and welfare.",
-"source": "journal"
-},
-{
-"type": "mcq",
-"domain": "Shelter Management",
-"sub": "Mental Health & Self-Care",
-"q": "A Canadian action-research study on animal protection bylaw enforcement officers identified systemic challenges including resource inadequacies and a culture of normalized disrespect. What approach did the study advocate to promote best practices and improve working conditions?",
-"o": [
-"Reduced inter-agency contact",
-"Fewer officers",
-"Eliminating bylaw enforcement",
-"Relational coordination"
-],
-"a": 3,
-"e": "The study highlighted relational coordination — fostering cooperative communication across agencies and roles — as a key mechanism to improve officers' working conditions and promote best practices.",
 "source": "journal"
 },
 {
