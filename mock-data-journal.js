@@ -922,36 +922,6 @@
 "type": "mcq",
 "domain": "Physical Health",
 "sub": "Infectious Disease",
-"q": "A rural shelter implemented a deferred puppy intake protocol for transfers to a partner organization. What was the primary impact on CPV incidence?",
-"o": [
-"CPV incidence was unchanged — deferred intake did not significantly affect transmission",
-"CPV incidence decreased substantially (from roughly half of transferred puppies to fewer than one in ten)",
-"CPV incidence increased because community members did not isolate puppies appropriately",
-"CPV incidence decreased only in owner-surrendered puppies, not stray puppies"
-],
-"a": 1,
-"e": "CPV incidence dropped from 47% (18/38) to 9% (9/103) after implementing the deferred intake protocol (p<0.001) — a greater than fivefold reduction. Minimizing time spent in shelter housing before transfer was the key mechanism.",
-"source": "journal"
-},
-{
-"type": "mcq",
-"domain": "Physical Health",
-"sub": "Infectious Disease",
-"q": "In the deferred puppy intake case study, puppies diagnosed with CPV after transport survived at much higher rates than those diagnosed before transport. What explains this difference?",
-"o": [
-"Post-transport puppies received a newer treatment protocol not available to pre-transport cases",
-"Puppies diagnosed after transfer were treated at a better-resourced facility with established CPV treatment infrastructure",
-"Pre-transport puppies were older and therefore more susceptible to severe disease",
-"Post-transport puppies were vaccinated at the partner shelter on arrival, conferring partial protection"
-],
-"a": 1,
-"e": "Puppies diagnosed after transfer (100% survival) were treated at Gigi's well-resourced Parvo Treatment Center, versus those diagnosed before transfer who remained at the rural facility (33% survival, p<0.001). Access to better treatment resources — not disease biology — drove the survival difference.",
-"source": "journal"
-},
-{
-"type": "mcq",
-"domain": "Physical Health",
-"sub": "Infectious Disease",
 "q": "In a detailed analysis of deferred puppy intake, puppies housed in the partner shelter's dedicated puppy room before transfer were dramatically more likely to develop CPV than those not housed there. What is the key operational takeaway?",
 "o": [
 "Dedicated puppy housing areas should always use more frequent disinfection schedules to offset CPV risk",
@@ -976,6 +946,36 @@
 ],
 "a": 1,
 "e": "Stray puppies had a 31% CPV incidence versus 9% in owner-surrendered puppies (p<0.001). While housing history is also a risk factor, intake type (stray vs. owner-surrendered) independently informs CPV risk stratification and should influence monitoring intensity post-transfer.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "A rural shelter implemented a deferred puppy intake protocol for transfers to a partner organization. What was the primary impact on CPV incidence?",
+"o": [
+"CPV incidence was unchanged — deferred intake did not significantly affect transmission",
+"CPV incidence decreased substantially (from roughly half of transferred puppies to fewer than one in ten)",
+"CPV incidence increased because community members did not isolate puppies appropriately",
+"CPV incidence decreased only in owner-surrendered puppies, not stray puppies"
+],
+"a": 1,
+"e": "CPV incidence dropped from 47% (18/38) to 9% (9/103) after implementing the deferred intake protocol (p<0.001) — a greater than fivefold reduction. Minimizing time spent in shelter housing before transfer was the key mechanism.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "In the deferred puppy intake case study, puppies diagnosed with CPV after transport survived at much higher rates than those diagnosed before transport. What explains this difference?",
+"o": [
+"Post-transport puppies received a newer treatment protocol not available to pre-transport cases",
+"Puppies diagnosed after transfer were treated at a better-resourced facility with established CPV treatment infrastructure",
+"Pre-transport puppies were older and therefore more susceptible to severe disease",
+"Post-transport puppies were vaccinated at the partner shelter on arrival, conferring partial protection"
+],
+"a": 1,
+"e": "Puppies diagnosed after transfer (100% survival) were treated at Gigi's well-resourced Parvo Treatment Center, versus those diagnosed before transfer who remained at the rural facility (33% survival, p<0.001). Access to better treatment resources — not disease biology — drove the survival difference.",
 "source": "journal"
 },
 {
@@ -18020,6 +18020,51 @@
 },
 {
 "type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "In a prospective randomized blinded clinical trial comparing metronidazole versus a synbiotic in 27 dogs with acute diarrhea, how did the two treatments compare for clinical outcomes?",
+"o": [
+"Metronidazole resolved diarrhea faster",
+"No significant difference in clinical outcome (Canine Acute Diarrhea Severity [CADS] index, fecal consistency, or defecation frequency)",
+"Synbiotic worsened diarrhea",
+"Metronidazole eliminated Clostridium perfringens"
+],
+"a": 1,
+"e": "No significant differences in Canine Acute Diarrhea Severity (CADS) index, fecal consistency, or defecation frequency were observed between the metronidazole and synbiotic groups.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What was the effect of metronidazole on the intestinal microbiome?",
+"o": [
+"Beneficial, raising C. hiranonis",
+"Negative impact (lower C. hiranonis, higher E. coli)",
+"No measurable effect",
+"Eliminated E. coli"
+],
+"a": 1,
+"e": "Metronidazole lowered C. hiranonis and raised E. coli, negatively impacting the microbiome.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Based on a randomized clinical trial comparing metronidazole versus a synbiotic in dogs with acute diarrhea, which treatment was suggested as potentially preferable given the microbiome findings?",
+"o": [
+"Synbiotic",
+"Metronidazole",
+"Combined metronidazole plus synbiotic",
+"Neither; fasting only"
+],
+"a": 0,
+"e": "Because metronidazole negatively impacted the microbiome (lower C. hiranonis, higher E. coli counts) without improving clinical outcomes, a synbiotic was suggested as the potentially preferable option.",
+"source": "journal"
+},
+{
+"type": "mcq",
 "domain": "Companion Animal Homelessness",
 "sub": "Shelter Diversion",
 "q": "In a study analyzing over one million intake records from 21 US animal shelters between 2019 and 2023, housing issues represented approximately what proportion of all intakes?",
@@ -31087,51 +31132,6 @@
 "type": "mcq",
 "domain": "Physical Health",
 "sub": "Medical (Non-Infectious)",
-"q": "In a prospective randomized blinded clinical trial comparing metronidazole versus a synbiotic in 27 dogs with acute diarrhea, how did the two treatments compare for clinical outcomes?",
-"o": [
-"Metronidazole resolved diarrhea faster",
-"No significant difference in clinical outcome (Canine Acute Diarrhea Severity [CADS] index, fecal consistency, or defecation frequency)",
-"Synbiotic worsened diarrhea",
-"Metronidazole eliminated Clostridium perfringens"
-],
-"a": 1,
-"e": "No significant differences in Canine Acute Diarrhea Severity (CADS) index, fecal consistency, or defecation frequency were observed between the metronidazole and synbiotic groups.",
-"source": "journal"
-},
-{
-"type": "mcq",
-"domain": "Physical Health",
-"sub": "Medical (Non-Infectious)",
-"q": "What was the effect of metronidazole on the intestinal microbiome?",
-"o": [
-"Beneficial, raising C. hiranonis",
-"Negative impact (lower C. hiranonis, higher E. coli)",
-"No measurable effect",
-"Eliminated E. coli"
-],
-"a": 1,
-"e": "Metronidazole lowered C. hiranonis and raised E. coli, negatively impacting the microbiome.",
-"source": "journal"
-},
-{
-"type": "mcq",
-"domain": "Physical Health",
-"sub": "Medical (Non-Infectious)",
-"q": "Based on a randomized clinical trial comparing metronidazole versus a synbiotic in dogs with acute diarrhea, which treatment was suggested as potentially preferable given the microbiome findings?",
-"o": [
-"Synbiotic",
-"Metronidazole",
-"Combined metronidazole plus synbiotic",
-"Neither; fasting only"
-],
-"a": 0,
-"e": "Because metronidazole negatively impacted the microbiome (lower C. hiranonis, higher E. coli counts) without improving clinical outcomes, a synbiotic was suggested as the potentially preferable option.",
-"source": "journal"
-},
-{
-"type": "mcq",
-"domain": "Physical Health",
-"sub": "Medical (Non-Infectious)",
 "q": "Which treatments produced significant objective improvement in OA pain versus placebo?",
 "o": [
 "4CYTE and placebo",
@@ -39301,36 +39301,6 @@
 ],
 "a": 1,
 "e": "The behavior/adoptability study found socialization scores recovered after adoption and most hoarded cats were adoptable, while the double-blind RCT showed daily gabapentin improved behavior-modification progress and decreased stress—supporting a treat-and-rehome rather than euthanize approach.",
-"source": "journal"
-},
-{
-"type": "mcq",
-"domain": "Physical Health",
-"sub": "Parasites",
-"q": "A surveillance study of hookworms in Bangkok stray cats found 96.4% of hookworm-positive samples were Ancylostoma ceylanicum, and the predominant haplotype (AC01) clustered with a known zoonotic haplotype. What is the primary implication of this finding for public health surveillance?",
-"o": [
-"The high prevalence of A. ceylanicum confirms that stray cats in Bangkok pose no zoonotic risk because this species is host-specific to cats",
-"Stray cats in Bangkok are a significant reservoir of zoonotic-potential hookworms, with the predominant circulating haplotype genetically linked to a known zoonotic strain",
-"Surveillance using standard fecal flotation is sufficient to characterize zoonotic risk from hookworms in stray cat populations",
-"Genetic diversity among haplotypes indicates low hookworm transmission between cats and humans"
-],
-"a": 1,
-"e": "Of 56 hookworm-positive fecal samples from Bangkok stray cats, 96.4% were A. ceylanicum, with 19 haplotypes identified by deep amplicon sequencing. Three haplotypes were considered zoonotic, and the dominant haplotype AC01 clustered with H01, a known zoonotic haplotype. This demonstrates that Bangkok stray cats carry predominantly zoonotic-potential hookworm strains, making them a public health concern for communities with human-cat contact exposure.",
-"source": "journal"
-},
-{
-"type": "mcq",
-"domain": "Physical Health",
-"sub": "Parasites",
-"q": "Deep amplicon sequencing of hookworms from Bangkok stray cats identified 19 haplotypes, with the predominant one clustering with a known zoonotic haplotype. What does this finding suggest for surveillance programs in urban free-roaming cat populations?",
-"o": [
-"Standard morphological identification of hookworm eggs is sufficient for zoonotic risk assessment",
-"Molecular characterization adds important information—species-level and even haplotype-level identification reveals zoonotic potential that cannot be assessed by conventional fecal examination alone",
-"The high genetic diversity found indicates low transmission between cats and humans",
-"Because A. ceylanicum is restricted to tropical Asia, these findings are irrelevant outside Southeast Asia"
-],
-"a": 1,
-"e": "The study demonstrated that deep amplicon sequencing of the COI gene could identify species, haplotypes, and zoonotic potential that are invisible to routine fecal flotation or even standard PCR. The predominant haplotype (AC01) clustered with H01, a known zoonotic haplotype, reinforcing the value of molecular surveillance for characterizing One Health risks in free-roaming cat populations.",
 "source": "journal"
 }
 ];
