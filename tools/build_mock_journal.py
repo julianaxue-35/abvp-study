@@ -4,7 +4,7 @@
 Writes mock-data-journal.js (appends to window.MOCK.mcqs) and ensures
 mock-exam.html loads it after mock-data.js. Idempotent.
 """
-import os, sys, json, re
+import os, sys, json, re, difflib
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -115,7 +115,27 @@ def main():
             prev_raw = re.search(r"var J=(\[.*\]);", open(OUT_JS, encoding="utf-8").read(), re.S)
             prev = json.loads(prev_raw.group(1)) if prev_raw else []
             fresh = {m["q"] for m in mocks}
-            orphans = [m for m in prev if m.get("q") not in fresh]
+            candidates = [m for m in prev if m.get("q") not in fresh]
+            # An unmatched question that is a near-duplicate of one the catalog
+            # *does* produce is a superseded variant, not lost content — e.g.
+            # the pre-dual-unit wording of a stem that now reads "-80 degrees C
+            # (-112°F)". Preserving those would re-add the stale copy on every
+            # run and slowly accumulate duplicate questions in the mock exam.
+            by_prefix = {}
+            for m in mocks:
+                by_prefix.setdefault(m["q"][:40], []).append(m["q"])
+            orphans, superseded = [], 0
+            for m in candidates:
+                near = [
+                    q for q in by_prefix.get(m["q"][:40], [])
+                    if difflib.SequenceMatcher(None, m["q"], q).ratio() >= 0.90
+                ]
+                if near:
+                    superseded += 1
+                else:
+                    orphans.append(m)
+            if superseded:
+                print(f"  - dropped {superseded} superseded variant(s) the catalog now supplies")
         except Exception as exc:                     # unreadable/absent → nothing to keep
             print(f"  ! could not read existing {os.path.basename(OUT_JS)}: {exc}")
     if orphans:

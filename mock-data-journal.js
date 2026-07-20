@@ -562,7 +562,7 @@
 "type": "mcq",
 "domain": "Physical Health",
 "sub": "Nutrition & Husbandry",
-"q": "During a TNR clinic, a feral cat in a trap cannot be handled before anesthesia. If you visually estimate its weight at 3 kg, what is the most important limitation you should account for when dosing induction agents?",
+"q": "During a TNR clinic, a feral cat in a trap cannot be handled before anesthesia. If you visually estimate its weight at 3 kg (6.6 lb), what is the most important limitation you should account for when dosing induction agents?",
 "o": [
 "Visual estimates by experienced veterinarians are highly reliable, so little adjustment is needed",
 "Even the most accurate estimators (veterinarians) were within 20% of actual weight only about half the time",
@@ -997,7 +997,7 @@
 "type": "mcq",
 "domain": "Physical Health",
 "sub": "Surgery & Anesthesia",
-"q": "A high-volume shelter performs dog castrations using autoligation of the spermatic cord in dogs ≤11.4 kg. What complication rate for serious hemorrhagic events should be expected based on available evidence?",
+"q": "A high-volume shelter performs dog castrations using autoligation of the spermatic cord in dogs ≤11.4 kg (25.1 lb). What complication rate for serious hemorrhagic events should be expected based on available evidence?",
 "o": [
 "Approximately 5–10%, similar to human pediatric orchiopexy complication rates",
 "Effectively zero — no severe hemorrhagic complications occurred in 215 dogs, with a calculated maximum risk of 1.7%",
@@ -1012,7 +1012,7 @@
 "type": "mcq",
 "domain": "Physical Health",
 "sub": "Surgery & Anesthesia",
-"q": "For dog castration using autoligation of the spermatic cord in dogs ≤11.4 kg, what does the evidence say about the risk of severe hemorrhagic complications?",
+"q": "For dog castration using autoligation of the spermatic cord in dogs ≤11.4 kg (25.1 lb), what does the evidence say about the risk of severe hemorrhagic complications?",
 "o": [
 "The risk is similar to traditional double ligation, approximately 1–3%",
 "The risk is negligible — no severe hemorrhagic complications occurred in 215 dogs, with a maximum estimated risk of 1.7%",
@@ -2767,12 +2767,12 @@
 "type": "mcq",
 "domain": "Companion Animal Homelessness",
 "sub": "Epidemiology of Homelessness",
-"q": "A study on identifying veterinary care deserts in the United States measured clinic catchment by analysing mean travel distances from clinic clients to veterinary clinics, finding that most people travel between 2 and 6 miles. What is the practical implication for defining a veterinary care desert?",
+"q": "A study on identifying veterinary care deserts in the United States measured clinic catchment by analysing mean travel distances from clinic clients to veterinary clinics, finding that most people travel between 2 and 6 miles (3.2 and 9.7 km). What is the practical implication for defining a veterinary care desert?",
 "o": [
-"Any county without a clinic within 50 miles should be classified as a care desert",
+"Any county without a clinic within 50 miles (80 km) should be classified as a care desert",
 "Distance alone is insufficient; both travel catchment and staff-to-population ratios are needed to identify underserved areas",
 "Since most people travel only a few miles, geographic access is not a meaningful barrier",
-"Only rural communities more than 6 miles from a clinic face meaningful access barriers"
+"Only rural communities more than 6 miles (9.7 km) from a clinic face meaningful access barriers"
 ],
 "a": 1,
 "e": "The study establishes that both the ratio of staff to population AND catchment distance are necessary parameters for identifying care deserts — neither alone is sufficient, and this dual-parameter framework is the study's core methodological contribution.",
@@ -28132,7 +28132,7 @@
 "type": "mcq",
 "domain": "Physical Health",
 "sub": "Medical (Non-Infectious)",
-"q": "What does the study conclude about ~0.75 m2 hutches for rabbit pairs?",
+"q": "What does the study conclude about ~0.75 m2 (8.1 sq ft) hutches for rabbit pairs?",
 "o": [
 "They are adequate with 3 h daily run access",
 "They should not be recommended even with 3 h daily run access",
@@ -28140,7 +28140,7 @@
 "They only suit single rabbits with no run"
 ],
 "a": 1,
-"e": "Hutches of ~0.75 m2 should not be recommended for rabbit pairs even with 3 h/day run access.",
+"e": "Hutches of ~0.75 m2 (8.1 sq ft) should not be recommended for rabbit pairs even with 3 h/day run access.",
 "source": "journal"
 },
 {
@@ -33742,7 +33742,7 @@
 "type": "mcq",
 "domain": "Research & Biostats",
 "sub": "Study Design",
-"q": "A study collected canine fecal samples from shelter dogs and stored them at ambient temperature (15–21°C) or on wet ice (4°C) for up to 24 hours before freezing. Cortisol and secretory immunoglobulin A (sIgA) concentrations were then measured. What were the findings?",
+"q": "A study collected canine fecal samples from shelter dogs and stored them at ambient temperature (15–21°C (59–69.8°F)) or on wet ice (4°C (39.2°F)) for up to 24 hours before freezing. Cortisol and secretory immunoglobulin A (sIgA) concentrations were then measured. What were the findings?",
 "o": [
 "Significantly degraded",
 "Stable with no significant differences across time points or conditions",
@@ -33757,7 +33757,7 @@
 "type": "mcq",
 "domain": "Research & Biostats",
 "sub": "Study Design",
-"q": "A study examined whether canine fecal cortisol and secretory immunoglobulin A (sIgA) concentrations remain stable when stored at ambient temperature or on wet ice for up to 24 hours. Is immediate freezing at −80°C necessary for accurate quantification of these biomarkers?",
+"q": "A study examined whether canine fecal cortisol and secretory immunoglobulin A (sIgA) concentrations remain stable when stored at ambient temperature or on wet ice for up to 24 hours. Is immediate freezing at −80°C (−112°F) necessary for accurate quantification of these biomarkers?",
 "o": [
 "Yes, always required",
 "No, it does not appear necessary",
@@ -34897,7 +34897,7 @@
 "type": "mcq",
 "domain": "Physical Health",
 "sub": "Medical (Non-Infectious)",
-"q": "What happened to canine CRP values after 14 weeks of storage at -80 degrees C?",
+"q": "What happened to canine CRP values after 14 weeks of storage at -80 degrees C (-112°F)?",
 "o": [
 "They degraded substantially",
 "They increased by an average of about 3.58 mg/L",
@@ -34905,7 +34905,7 @@
 "They were unchanged exactly"
 ],
 "a": 1,
-"e": "CRP did not falsely drop with freeze-thaw; values increased by an average of 3.58 mg/L after 14 weeks at -80 C.",
+"e": "CRP did not falsely drop with freeze-thaw; values increased by an average of 3.58 mg/L after 14 weeks at -80 C (-112°F).",
 "source": "journal"
 },
 {
@@ -38707,6 +38707,291 @@
 "type": "mcq",
 "domain": "Physical Health",
 "sub": "Infectious Disease",
+"q": "A systematic review and meta-analysis searched PubMed, Web of Science, Scopus, Embase, and Google Scholar for brucellosis studies published between 2011 and 2021. What was the overall pooled prevalence estimate?",
+"o": [
+"About 1.5%",
+"About 5%",
+"About 15.5%",
+"About 35%"
+],
+"a": 2,
+"e": "The pooled estimate for brucellosis prevalence across included studies was approximately 15.53%.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "In a systematic review and meta-analysis assessing the global prevalence of brucellosis (studies published 2011–2021), which of the following best describes the influence of age, gender, and publication year on between-study heterogeneity?",
+"o": [
+"All were highly significant drivers",
+"None showed a significant effect",
+"Only age was significant",
+"Only gender was significant"
+],
+"a": 1,
+"e": "Age, gender, and publication year showed no significant effect on heterogeneity among studies in the brucellosis meta-analysis.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "In a meta-analysis on global brucellosis prevalence covering studies published 2011–2021, what did Egger's test reveal?",
+"o": [
+"No publication bias",
+"Significant publication bias",
+"Insufficient data",
+"Perfect study homogeneity"
+],
+"a": 1,
+"e": "Egger's test indicated significant publication bias for the brucellosis prevalence meta-analysis (coefficient 3.894; p < 0.001).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "A central management challenge for infectious ocular surface disease (IOSD) in shelter-housed cats is that:",
+"o": [
+"it is rare in shelters",
+"treatments effective in privately owned cats may be impractical or ineffective in shelters",
+"no etiologic agents are known",
+"it has no welfare impact"
+],
+"a": 1,
+"e": "Protocols effective for owned or experimental cats often fail in the shelter environment due to logistical and management constraints, making shelter-specific evidence essential.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "A review of evidence-based management of infectious ocular surface disease (IOSD) in shelter-housed cats identified which important gap regarding feline herpesvirus therapeutics?",
+"o": [
+"discrepancies exist between experimental laboratory studies and clinical trials",
+"lab and clinical results agree perfectly",
+"no antiviral treatments exist",
+"vaccines cure active disease"
+],
+"a": 0,
+"e": "The review highlighted divergence between laboratory-based experimental studies and clinical trials for feline herpesvirus treatments, meaning lab findings should not be uncritically applied to shelter clinical practice.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "A review of evidence-based management of infectious ocular surface disease (IOSD) in shelter-housed cats concluded that:",
+"o": [
+"IOSD is untreatable",
+"current protocols are already optimal",
+"no further research is warranted",
+"further high-quality clinical trials are needed to define optimal protocols"
+],
+"a": 3,
+"e": "Optimal preventive and therapeutic protocols for IOSD in shelter-housed cats remain to be established; further high-quality clinical trials are required to fill this gap.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Euthanasia",
+"q": "In a review of the 2021 pentobarbital shortage in the US and Canada, how is pentobarbital sodium characterised for companion-animal euthanasia?",
+"o": [
+"A banned substance",
+"The drug of choice for companion animal euthanasia",
+"Used only in research",
+"An anesthetic with no euthanasia role"
+],
+"a": 1,
+"e": "Pentobarbital sodium is the euthanasia drug of choice for companion animals in both countries.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Euthanasia",
+"q": "How did animal care industries respond to the 2021 pentobarbital shortage?",
+"o": [
+"Ceased all euthanasia",
+"Imported unlimited supply",
+"Conserved the drug and used alternative methods/agents",
+"Switched all species to inhalants"
+],
+"a": 2,
+"e": "The shortage forced drug conservation and use of alternative methods and agents.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Euthanasia",
+"q": "A review of the 2021 US and Canadian pentobarbital shortage directed its main recommendations toward what?",
+"o": [
+"Handling future pentobarbital shortages",
+"Banning euthanasia drugs",
+"Reducing shelter intake",
+"Revising vaccination protocols"
+],
+"a": 0,
+"e": "Recommendations target managing future pentobarbital shortages.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "According to the International Renal Interest Society (IRIS) best practice consensus guidelines on acute kidney injury (AKI) in cats and dogs, what trend in hospital-acquired AKI was noted?",
+"o": [
+"It is declining",
+"Its prevalence appears to be increasing",
+"It no longer occurs",
+"It is unrelated to hospitalization"
+],
+"a": 1,
+"e": "The IRIS guidelines noted that recent evidence suggests the prevalence of hospital-acquired AKI is increasing in veterinary medicine, likely due to increased recognition, treatment intensity, and management of geriatric patients with comorbidities.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Despite therapeutic advances, what remains true of AKI outcomes in dogs and cats?",
+"o": [
+"Mortality remains high",
+"Mortality is near zero",
+"It is uniformly self-limiting",
+"Renal replacement is never needed"
+],
+"a": 0,
+"e": "Overall mortality of animals with AKI remains high despite advances such as renal replacement therapy.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Nutrition & Husbandry",
+"q": "A review of early-life risk factors for chronic disease in dogs and cats applied which conceptual framework to explain how perinatal and developmental exposures shape adult health?",
+"o": [
+"Developmental origins of health and disease (DOHaD)",
+"Germ theory",
+"Hygiene hypothesis",
+"One Health"
+],
+"a": 0,
+"e": "The review applied the developmental origins of health and disease (DOHaD) / developmental programming framework to dogs and cats, examining how maternal nutrition, gut microbiome establishment, weaning, growth rate, and socialisation affect adult chronic disease risk.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Nutrition & Husbandry",
+"q": "A review on developmental programming in dogs and cats identified early-life risk factors for which three adult chronic condition categories?",
+"o": [
+"Only dental disease",
+"Obesity, chronic enteropathy, and behavioural problems",
+"Only infectious disease",
+"Fractures and trauma"
+],
+"a": 1,
+"e": "The review examined early-life risk factors for obesity, chronic enteropathy, and chronic behavioural problems — conditions that are often difficult to treat and significantly impact welfare and the human-animal relationship.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Nutrition & Husbandry",
+"q": "A review of developmental programming research in dogs and cats identified which as a major barrier to conducting developmental origins of health and disease (DOHaD) studies in these species?",
+"o": [
+"No relevant breeds exist",
+"Breed variability and discontinuity of husbandry between breeders and owners",
+"Lack of any chronic disease",
+"Animals live too briefly to study"
+],
+"a": 1,
+"e": "Wide genetic and phenotypic variability across breeds, combined with fragmented husbandry between breeders and subsequent owners, makes prospective lifelong cohort studies particularly difficult in dogs and cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "A comprehensive review of antiparasitic drug resistance in companion animals (dogs and cats), covering ectoparasites, helminths, and protozoa, reached which central conclusion?",
+"o": [
+"Resistance only matters in livestock parasites",
+"Companion-animal parasites cannot develop resistance",
+"Antiparasitic resistance is an emerging concern in companion-animal ectoparasites, helminths, and protozoa",
+"Resistance eliminates the need for parasite prevention"
+],
+"a": 2,
+"e": "The review established drug resistance as an emerging issue across all major companion-animal parasite groups, providing a baseline assessment and recommendations for research priorities and therapeutic alternatives.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Historically, which group received the most attention for antiparasitic resistance?",
+"o": [
+"Livestock parasites",
+"Companion cats",
+"Wildlife",
+"Fish"
+],
+"a": 0,
+"e": "Intensive treatment of livestock parasites drove most prior resistance research; companion animals were neglected.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Why have feline vector-borne diseases historically been understudied?",
+"o": [
+"Cats were assumed less susceptible than dogs",
+"No arthropod vectors feed on cats",
+"There was no diagnostic capability",
+"Cats are biologically resistant"
+],
+"a": 0,
+"e": "Research was hampered by the belief that cats are less susceptible than dogs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "A 2025 narrative review on feline vector-borne diseases (FVBDs), framed as describing their spread from local risks to global concerns, updates which aspects of these diseases?",
+"o": [
+"Their geographical distribution, clinical features, diagnosis, treatment, and prevention",
+"The cost of pet health insurance",
+"Vaccine schedules for dogs only",
+"Livestock deworming programs"
+],
+"a": 0,
+"e": "The review updates the current geographical distribution of FVBDs along with their clinical features, diagnosis, treatments, and prevention measures, and highlights key differences between cats and dogs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Based on current evidence regarding feline vector-borne diseases, what is the zoonotic significance of cats as hosts for vector-borne pathogens?",
+"o": [
+"Cats cannot harbor zoonotic pathogens",
+"Only dogs carry zoonotic agents",
+"Vectors avoid cats",
+"Cats can harbor zoonotically important vector-borne pathogens"
+],
+"a": 3,
+"e": "Despite historical underestimation, cats can harbor zoonotically important vector-borne pathogens; a 2025 review identified the zoonotic importance of feline vector-borne diseases as a key knowledge gap requiring further study.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
 "q": "Across multiple shelter studies, adding canine parvovirus monoclonal antibody (CPMA) to a standard supportive-care protocol for dogs with naturally occurring parvovirus has most consistently been shown to:",
 "o": [
 "Significantly reduce mortality compared with standard care alone",
@@ -39021,66 +39306,6 @@
 {
 "type": "mcq",
 "domain": "Physical Health",
-"sub": "Nutrition & Husbandry",
-"q": "During a TNR clinic, a feral cat in a trap cannot be handled before anesthesia. If you visually estimate its weight at 3 kg (6.6 lb), what is the most important limitation you should account for when dosing induction agents?",
-"o": [
-"Visual estimates by experienced veterinarians are highly reliable, so little adjustment is needed",
-"Even the most accurate estimators (veterinarians) were within 20% of actual weight only about half the time",
-"Lighter cats tend to be underestimated, so you should reduce your dose slightly",
-"Cat posture in the trap is the strongest predictor of estimation error"
-],
-"a": 1,
-"e": "The study found that veterinarians—the most accurate group—achieved PW20 (within 20% of true weight) on only 54% of estimates. Posture had no significant effect. This means visual estimates carry substantial inaccuracy and dose adjustments should build in a safety margin.",
-"source": "journal"
-},
-{
-"type": "mcq",
-"domain": "Physical Health",
-"sub": "Surgery & Anesthesia",
-"q": "A high-volume shelter performs dog castrations using autoligation of the spermatic cord in dogs ≤11.4 kg (25.1 lb). What complication rate for serious hemorrhagic events should be expected based on available evidence?",
-"o": [
-"Approximately 5–10%, similar to human pediatric orchiopexy complication rates",
-"Effectively zero — no severe hemorrhagic complications occurred in 215 dogs, with a calculated maximum risk of 1.7%",
-"Approximately 2–3%, similar to traditional double-ligation complication rates",
-"Unknown — no published data exists on this technique in dogs"
-],
-"a": 1,
-"e": "The study of 215 dogs found zero severe complications (no intraoperative hemorrhage, no postoperative bleeding, no scrotal hematomas). Statistical analysis of the 95% exact binomial confidence interval places the maximum risk of severe complications at 1.7%. This provides clinicians with a meaningful upper bound for counseling and protocol decision-making.",
-"source": "journal"
-},
-{
-"type": "mcq",
-"domain": "Physical Health",
-"sub": "Surgery & Anesthesia",
-"q": "For dog castration using autoligation of the spermatic cord in dogs ≤11.4 kg (25.1 lb), what does the evidence say about the risk of severe hemorrhagic complications?",
-"o": [
-"The risk is similar to traditional double ligation, approximately 1–3%",
-"The risk is negligible — no severe hemorrhagic complications occurred in 215 dogs, with a maximum estimated risk of 1.7%",
-"The risk is elevated compared to suture ligation due to lack of mechanical fixation",
-"Data are insufficient to make any claims about hemorrhagic complication rates"
-],
-"a": 1,
-"e": "In this case series of 215 dogs, there were no intraoperative hemorrhagic complications, no postoperative bleeding events, and no scrotal hematomas. Using the upper limit of the 95% exact binomial confidence interval, the maximum risk of severe complications is estimated at 1.7%. Autoligation is a safe and practical technique for small dog castration in HQHVSN settings.",
-"source": "journal"
-},
-{
-"type": "mcq",
-"domain": "Companion Animal Homelessness",
-"sub": "Epidemiology of Homelessness",
-"q": "A study on identifying veterinary care deserts in the United States measured clinic catchment by analysing mean travel distances from clinic clients to veterinary clinics, finding that most people travel between 2 and 6 miles (3.2 and 9.7 km). What is the practical implication for defining a veterinary care desert?",
-"o": [
-"Any county without a clinic within 50 miles (80 km) should be classified as a care desert",
-"Distance alone is insufficient; both travel catchment and staff-to-population ratios are needed to identify underserved areas",
-"Since most people travel only a few miles, geographic access is not a meaningful barrier",
-"Only rural communities more than 6 miles (9.7 km) from a clinic face meaningful access barriers"
-],
-"a": 1,
-"e": "The study establishes that both the ratio of staff to population AND catchment distance are necessary parameters for identifying care deserts — neither alone is sufficient, and this dual-parameter framework is the study's core methodological contribution.",
-"source": "journal"
-},
-{
-"type": "mcq",
-"domain": "Physical Health",
 "sub": "Parasites",
 "q": "A surveillance study of hookworms in Bangkok stray cats found 96.4% of hookworm-positive samples were Ancylostoma ceylanicum, and the predominant haplotype (AC01) clustered with a known zoonotic haplotype. What is the primary implication of this finding for public health surveillance?",
 "o": [
@@ -39106,351 +39331,6 @@
 ],
 "a": 1,
 "e": "The study demonstrated that deep amplicon sequencing of the COI gene could identify species, haplotypes, and zoonotic potential that are invisible to routine fecal flotation or even standard PCR. The predominant haplotype (AC01) clustered with H01, a known zoonotic haplotype, reinforcing the value of molecular surveillance for characterizing One Health risks in free-roaming cat populations.",
-"source": "journal"
-},
-{
-"type": "mcq",
-"domain": "Physical Health",
-"sub": "Infectious Disease",
-"q": "A systematic review and meta-analysis searched PubMed, Web of Science, Scopus, Embase, and Google Scholar for brucellosis studies published between 2011 and 2021. What was the overall pooled prevalence estimate?",
-"o": [
-"About 1.5%",
-"About 5%",
-"About 15.5%",
-"About 35%"
-],
-"a": 2,
-"e": "The pooled estimate for brucellosis prevalence across included studies was approximately 15.53%.",
-"source": "journal"
-},
-{
-"type": "mcq",
-"domain": "Physical Health",
-"sub": "Infectious Disease",
-"q": "In a systematic review and meta-analysis assessing the global prevalence of brucellosis (studies published 2011–2021), which of the following best describes the influence of age, gender, and publication year on between-study heterogeneity?",
-"o": [
-"All were highly significant drivers",
-"None showed a significant effect",
-"Only age was significant",
-"Only gender was significant"
-],
-"a": 1,
-"e": "Age, gender, and publication year showed no significant effect on heterogeneity among studies in the brucellosis meta-analysis.",
-"source": "journal"
-},
-{
-"type": "mcq",
-"domain": "Physical Health",
-"sub": "Infectious Disease",
-"q": "In a meta-analysis on global brucellosis prevalence covering studies published 2011–2021, what did Egger's test reveal?",
-"o": [
-"No publication bias",
-"Significant publication bias",
-"Insufficient data",
-"Perfect study homogeneity"
-],
-"a": 1,
-"e": "Egger's test indicated significant publication bias for the brucellosis prevalence meta-analysis (coefficient 3.894; p < 0.001).",
-"source": "journal"
-},
-{
-"type": "mcq",
-"domain": "Physical Health",
-"sub": "Infectious Disease",
-"q": "A central management challenge for infectious ocular surface disease (IOSD) in shelter-housed cats is that:",
-"o": [
-"it is rare in shelters",
-"treatments effective in privately owned cats may be impractical or ineffective in shelters",
-"no etiologic agents are known",
-"it has no welfare impact"
-],
-"a": 1,
-"e": "Protocols effective for owned or experimental cats often fail in the shelter environment due to logistical and management constraints, making shelter-specific evidence essential.",
-"source": "journal"
-},
-{
-"type": "mcq",
-"domain": "Physical Health",
-"sub": "Infectious Disease",
-"q": "A review of evidence-based management of infectious ocular surface disease (IOSD) in shelter-housed cats identified which important gap regarding feline herpesvirus therapeutics?",
-"o": [
-"discrepancies exist between experimental laboratory studies and clinical trials",
-"lab and clinical results agree perfectly",
-"no antiviral treatments exist",
-"vaccines cure active disease"
-],
-"a": 0,
-"e": "The review highlighted divergence between laboratory-based experimental studies and clinical trials for feline herpesvirus treatments, meaning lab findings should not be uncritically applied to shelter clinical practice.",
-"source": "journal"
-},
-{
-"type": "mcq",
-"domain": "Physical Health",
-"sub": "Infectious Disease",
-"q": "A review of evidence-based management of infectious ocular surface disease (IOSD) in shelter-housed cats concluded that:",
-"o": [
-"IOSD is untreatable",
-"current protocols are already optimal",
-"no further research is warranted",
-"further high-quality clinical trials are needed to define optimal protocols"
-],
-"a": 3,
-"e": "Optimal preventive and therapeutic protocols for IOSD in shelter-housed cats remain to be established; further high-quality clinical trials are required to fill this gap.",
-"source": "journal"
-},
-{
-"type": "mcq",
-"domain": "Physical Health",
-"sub": "Euthanasia",
-"q": "How is pentobarbital sodium described for the US and Canada?",
-"o": [
-"A banned substance",
-"The drug of choice for companion animal euthanasia",
-"Used only in research",
-"An anesthetic with no euthanasia role"
-],
-"a": 1,
-"e": "Pentobarbital sodium is the euthanasia drug of choice for companion animals in both countries.",
-"source": "journal"
-},
-{
-"type": "mcq",
-"domain": "Physical Health",
-"sub": "Euthanasia",
-"q": "How did animal care industries respond to the 2021 pentobarbital shortage?",
-"o": [
-"Ceased all euthanasia",
-"Imported unlimited supply",
-"Conserved the drug and used alternative methods/agents",
-"Switched all species to inhalants"
-],
-"a": 2,
-"e": "The shortage forced drug conservation and use of alternative methods and agents.",
-"source": "journal"
-},
-{
-"type": "mcq",
-"domain": "Physical Health",
-"sub": "Euthanasia",
-"q": "The article's main recommendations focus on what?",
-"o": [
-"Handling future pentobarbital shortages",
-"Banning euthanasia drugs",
-"Reducing shelter intake",
-"Revising vaccination protocols"
-],
-"a": 0,
-"e": "Recommendations target managing future pentobarbital shortages.",
-"source": "journal"
-},
-{
-"type": "mcq",
-"domain": "Physical Health",
-"sub": "Medical (Non-Infectious)",
-"q": "What does the study conclude about ~0.75 m2 (8.1 sq ft) hutches for rabbit pairs?",
-"o": [
-"They are adequate with 3 h daily run access",
-"They should not be recommended even with 3 h daily run access",
-"They are ideal for pairs",
-"They only suit single rabbits with no run"
-],
-"a": 1,
-"e": "Hutches of ~0.75 m2 (8.1 sq ft) should not be recommended for rabbit pairs even with 3 h/day run access.",
-"source": "journal"
-},
-{
-"type": "mcq",
-"domain": "Physical Health",
-"sub": "Medical (Non-Infectious)",
-"q": "According to the International Renal Interest Society (IRIS) best practice consensus guidelines on acute kidney injury (AKI) in cats and dogs, what trend in hospital-acquired AKI was noted?",
-"o": [
-"It is declining",
-"Its prevalence appears to be increasing",
-"It no longer occurs",
-"It is unrelated to hospitalization"
-],
-"a": 1,
-"e": "The IRIS guidelines noted that recent evidence suggests the prevalence of hospital-acquired AKI is increasing in veterinary medicine, likely due to increased recognition, treatment intensity, and management of geriatric patients with comorbidities.",
-"source": "journal"
-},
-{
-"type": "mcq",
-"domain": "Physical Health",
-"sub": "Medical (Non-Infectious)",
-"q": "Despite therapeutic advances, what remains true of AKI outcomes in dogs and cats?",
-"o": [
-"Mortality remains high",
-"Mortality is near zero",
-"It is uniformly self-limiting",
-"Renal replacement is never needed"
-],
-"a": 0,
-"e": "Overall mortality of animals with AKI remains high despite advances such as renal replacement therapy.",
-"source": "journal"
-},
-{
-"type": "mcq",
-"domain": "Physical Health",
-"sub": "Nutrition & Husbandry",
-"q": "A review of early-life risk factors for chronic disease in dogs and cats applied which conceptual framework to explain how perinatal and developmental exposures shape adult health?",
-"o": [
-"Developmental origins of health and disease (DOHaD)",
-"Germ theory",
-"Hygiene hypothesis",
-"One Health"
-],
-"a": 0,
-"e": "The review applied the developmental origins of health and disease (DOHaD) / developmental programming framework to dogs and cats, examining how maternal nutrition, gut microbiome establishment, weaning, growth rate, and socialisation affect adult chronic disease risk.",
-"source": "journal"
-},
-{
-"type": "mcq",
-"domain": "Physical Health",
-"sub": "Nutrition & Husbandry",
-"q": "A review on developmental programming in dogs and cats identified early-life risk factors for which three adult chronic condition categories?",
-"o": [
-"Only dental disease",
-"Obesity, chronic enteropathy, and behavioural problems",
-"Only infectious disease",
-"Fractures and trauma"
-],
-"a": 1,
-"e": "The review examined early-life risk factors for obesity, chronic enteropathy, and chronic behavioural problems — conditions that are often difficult to treat and significantly impact welfare and the human-animal relationship.",
-"source": "journal"
-},
-{
-"type": "mcq",
-"domain": "Physical Health",
-"sub": "Nutrition & Husbandry",
-"q": "A review of developmental programming research in dogs and cats identified which as a major barrier to conducting developmental origins of health and disease (DOHaD) studies in these species?",
-"o": [
-"No relevant breeds exist",
-"Breed variability and discontinuity of husbandry between breeders and owners",
-"Lack of any chronic disease",
-"Animals live too briefly to study"
-],
-"a": 1,
-"e": "Wide genetic and phenotypic variability across breeds, combined with fragmented husbandry between breeders and subsequent owners, makes prospective lifelong cohort studies particularly difficult in dogs and cats.",
-"source": "journal"
-},
-{
-"type": "mcq",
-"domain": "Research & Biostats",
-"sub": "Study Design",
-"q": "A study collected canine fecal samples from shelter dogs and stored them at ambient temperature (15–21°C (59–69.8°F)) or on wet ice (4°C (39.2°F)) for up to 24 hours before freezing. Cortisol and secretory immunoglobulin A (sIgA) concentrations were then measured. What were the findings?",
-"o": [
-"Significantly degraded",
-"Stable with no significant differences across time points or conditions",
-"Markedly increased",
-"Undetectable"
-],
-"a": 1,
-"e": "No significant differences were found across time points or storage conditions over 24 hours, demonstrating that canine fecal cortisol and sIgA remain stable when stored unfrozen at ambient temperature or on wet ice.",
-"source": "journal"
-},
-{
-"type": "mcq",
-"domain": "Research & Biostats",
-"sub": "Study Design",
-"q": "A study examined whether canine fecal cortisol and secretory immunoglobulin A (sIgA) concentrations remain stable when stored at ambient temperature or on wet ice for up to 24 hours. Is immediate freezing at −80°C (−112°F) necessary for accurate quantification of these biomarkers?",
-"o": [
-"Yes, always required",
-"No, it does not appear necessary",
-"Only for cortisol",
-"Only for sIgA"
-],
-"a": 1,
-"e": "Fecal cortisol and sIgA concentrations remained stable unfrozen for 24 hours under both storage conditions, so immediate ultra-low-temperature freezing is not required for accurate measurement.",
-"source": "journal"
-},
-{
-"type": "mcq",
-"domain": "Physical Health",
-"sub": "Medical (Non-Infectious)",
-"q": "What happened to canine CRP values after 14 weeks of storage at -80 degrees C (-112°F)?",
-"o": [
-"They degraded substantially",
-"They increased by an average of about 3.58 mg/L",
-"They became undetectable",
-"They were unchanged exactly"
-],
-"a": 1,
-"e": "CRP did not falsely drop with freeze-thaw; values increased by an average of 3.58 mg/L after 14 weeks at -80 C (-112°F).",
-"source": "journal"
-},
-{
-"type": "mcq",
-"domain": "Physical Health",
-"sub": "Parasites",
-"q": "A comprehensive review of antiparasitic drug resistance in companion animals (dogs and cats), covering ectoparasites, helminths, and protozoa, reached which central conclusion?",
-"o": [
-"Resistance only matters in livestock parasites",
-"Companion-animal parasites cannot develop resistance",
-"Antiparasitic resistance is an emerging concern in companion-animal ectoparasites, helminths, and protozoa",
-"Resistance eliminates the need for parasite prevention"
-],
-"a": 2,
-"e": "The review established drug resistance as an emerging issue across all major companion-animal parasite groups, providing a baseline assessment and recommendations for research priorities and therapeutic alternatives.",
-"source": "journal"
-},
-{
-"type": "mcq",
-"domain": "Physical Health",
-"sub": "Parasites",
-"q": "Historically, which group received the most attention for antiparasitic resistance?",
-"o": [
-"Livestock parasites",
-"Companion cats",
-"Wildlife",
-"Fish"
-],
-"a": 0,
-"e": "Intensive treatment of livestock parasites drove most prior resistance research; companion animals were neglected.",
-"source": "journal"
-},
-{
-"type": "mcq",
-"domain": "Physical Health",
-"sub": "Parasites",
-"q": "Why have feline vector-borne diseases historically been understudied?",
-"o": [
-"Cats were assumed less susceptible than dogs",
-"No arthropod vectors feed on cats",
-"There was no diagnostic capability",
-"Cats are biologically resistant"
-],
-"a": 0,
-"e": "Research was hampered by the belief that cats are less susceptible than dogs.",
-"source": "journal"
-},
-{
-"type": "mcq",
-"domain": "Physical Health",
-"sub": "Parasites",
-"q": "A 2025 narrative review on feline vector-borne diseases (FVBDs), framed as describing their spread from local risks to global concerns, updates which aspects of these diseases?",
-"o": [
-"Their geographical distribution, clinical features, diagnosis, treatment, and prevention",
-"The cost of pet health insurance",
-"Vaccine schedules for dogs only",
-"Livestock deworming programs"
-],
-"a": 0,
-"e": "The review updates the current geographical distribution of FVBDs along with their clinical features, diagnosis, treatments, and prevention measures, and highlights key differences between cats and dogs.",
-"source": "journal"
-},
-{
-"type": "mcq",
-"domain": "Physical Health",
-"sub": "Parasites",
-"q": "Based on current evidence regarding feline vector-borne diseases, what is the zoonotic significance of cats as hosts for vector-borne pathogens?",
-"o": [
-"Cats cannot harbor zoonotic pathogens",
-"Only dogs carry zoonotic agents",
-"Vectors avoid cats",
-"Cats can harbor zoonotically important vector-borne pathogens"
-],
-"a": 3,
-"e": "Despite historical underestimation, cats can harbor zoonotically important vector-borne pathogens; a 2025 review identified the zoonotic importance of feline vector-borne diseases as a key knowledge gap requiring further study.",
 "source": "journal"
 }
 ];
