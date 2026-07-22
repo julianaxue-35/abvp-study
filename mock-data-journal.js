@@ -6,7 +6,7 @@
 {
 "type": "mcq",
 "domain": "Shelter Management",
-"sub": "Resource Allocation",
+"sub": "Management & Leadership",
 "q": "Full-time shelter veterinarians in clinical roles saw roughly what change in median salary between 2018 and 2024?",
 "o": [
 "Approximately 5–10% increase, keeping pace with inflation",
@@ -21,7 +21,7 @@
 {
 "type": "mcq",
 "domain": "Shelter Management",
-"sub": "Resource Allocation",
+"sub": "Management & Leadership",
 "q": "Among shelter medicine professional tracks surveyed in 2024, which group commanded the highest median compensation?",
 "o": [
 "Full-time clinical shelter veterinarians",
@@ -36,7 +36,7 @@
 {
 "type": "mcq",
 "domain": "Shelter Management",
-"sub": "Resource Allocation",
+"sub": "Management & Leadership",
 "q": "When comparing shelter medicine clinical salaries to general private practice in 2024, the most accurate statement is:",
 "o": [
 "Shelter clinical pay now equals or exceeds private practice",
@@ -4056,7 +4056,7 @@
 {
 "type": "mcq",
 "domain": "Shelter Management",
-"sub": "Resource Allocation",
+"sub": "Population Management",
 "q": "Analysis of Colorado shelter data from 2008–2018 showed that total dog intake increased, but per-capita dog intake was flat. The most important operational interpretation is:",
 "o": [
 "Dog overpopulation problems have been solved and no further intervention is needed",
@@ -4071,7 +4071,7 @@
 {
 "type": "mcq",
 "domain": "Shelter Management",
-"sub": "Resource Allocation",
+"sub": "Population Management",
 "q": "Between 2008 and 2018 in Colorado, the percentage of dog intake coming from strays DECREASED while the percentage from interstate transfers INCREASED. What does this shift indicate for shelter planning?",
 "o": [
 "Stray dog programs are no longer necessary",
@@ -4086,7 +4086,7 @@
 {
 "type": "mcq",
 "domain": "Shelter Management",
-"sub": "Resource Allocation",
+"sub": "Population Management",
 "q": "For cats in Colorado shelters 2008–2018, which trend was observed in owner surrenders as a proportion of total cat intake?",
 "o": [
 "Owner surrender percentage decreased as stray intake dominated",
