@@ -55,7 +55,12 @@
   .legend .lk{border:0;padding:5px 2px 5px 0;color:#fff;opacity:.65;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
   .legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}
   nav.tabs{position:sticky;top:0;z-index:20;background:var(--paper2);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
-  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;overflow-y:hidden;padding:8px 0 5px;scrollbar-width:thin;scrollbar-color:var(--id) #ece5d5}
+  /* always-visible drag bar for the topic tabs (macOS hides overlay scrollbars by default) */
+  .tabrow::-webkit-scrollbar{height:9px;-webkit-appearance:none}
+  .tabrow::-webkit-scrollbar-track{background:#ece5d5;border-radius:999px}
+  .tabrow::-webkit-scrollbar-thumb{background:var(--id);border-radius:999px;border:2px solid #ece5d5}
+  .tabrow::-webkit-scrollbar-thumb:hover{background:var(--ink)}
   .tabrow button{flex:0 0 auto;border:1px solid var(--line);background:#fff;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
   .tabrow button:hover{background:var(--paper);color:var(--ink);border-color:var(--ink2)}
   .tabrow button.active{background:var(--ink);color:var(--paper2)}
@@ -240,8 +245,9 @@
     <ul class="hy">
       <li>Non-enveloped, single-stranded DNA virus; genus <i>Protoparvovirus</i>, family <i>Parvoviridae</i>. The lack of an envelope is why it is environmentally hardy and resists many disinfectants.</li>
       <li>Antigenic evolution: original CPV-2 (1978) gave rise to <b>CPV-2a, 2b, and 2c</b>. Unlike CPV-2, the newer variants can infect cats. In cats, CPV-2a/2b are usually mild or unapparent, whereas <b>CPV-2c can cause severe leukopenia and diarrhoea</b> resembling feline panleukopenia.</li>
-      <li>Animal-level risk: no or incomplete vaccination, age under 6 months (waning maternal antibody before vaccine-induced immunity). Breed predisposition (Rottweiler, Doberman, Labrador, Staffordshire terrier, German Shepherd, Alaskan sled dogs) is reported but remains debated.</li>
+      <li>Animal-level risk: no or incomplete vaccination, age under 6 months (waning maternal antibody before vaccine-induced immunity), concurrent parasitism and weaning stress.</li>
       <li>Shelter-level risk: overcrowding, inadequate isolation of infected dogs, poor biosecurity and sanitation, inadequate or absent vaccination at intake, concurrent disease and parasitism, warmer seasons and rural source populations.</li>
+      <li><b>Reportable / notifiable in some jurisdictions.</b> CPV is a notifiable disease in some states, territories and countries, so a confirmed case (or an outbreak in a licensed shelter) may have to be reported to the relevant animal-health authority. Requirements differ between jurisdictions &mdash; check the rule that applies where you practise and build it into the outbreak response plan.</li>
     </ul>
     <div class="verifybox"><b>Verify against source</b>Your lit review dates the minute virus of canines (CPV-1) to 1956. Several standard references date the first isolation of the minute virus of canines to the late 1960s (Binn et al., 1970). I did not change your text; please confirm the date against your cited sources 1 and 2 before relying on it for the exam. CPV-1 is a separate, largely non-pathogenic virus and is distinct from the CPV-2 lineage that causes parvoviral enteritis.</div>
   </div>
@@ -255,6 +261,7 @@
       <li>It targets rapidly dividing cells. Destruction of the intestinal crypt germinal epithelium prevents normal villous renewal, causing villous atrophy, malabsorption and diarrhoea with or without haemorrhage. Loss of the mucosal barrier permits bacterial translocation, leading to bacteraemia and endotoxaemia.</li>
       <li>Lymphoid and bone-marrow destruction causes the hallmark leukopenia, compounding immunosuppression and predisposing to sepsis. Weaning stress and concurrent intestinal parasites increase viral replication and disease severity.</li>
       <li>Incubation period: <b>4 to 14 days</b>. Viral shedding begins about <b>4 to 5 days</b> after infection (your notes), with the lit review citing 4 to 7 days, and can precede clinical signs. Shedding may persist for weeks.</li>
+      <li><b>Exposure window for contact tracing: the 3 to 4 days before the case showed clinical signs.</b> Because shedding starts before signs appear, any dog that shared housing, air space, runs, equipment, transport or unchanged staff/PPE with the case during those 3 to 4 days counts as <b>exposed</b>, even though the case looked healthy at the time. Work backwards from the date of onset when you build the exposed list.</li>
     </ul>
     <div class="corrbox"><b>Corrected</b>Your notes read "viral ab titres can be detected 3-4 days after infection," placed alongside shedding at 4 to 5 days. Antibody (titre) and antigen (shedding) are different events, and an antibody response at 3 to 4 days is earlier than typical. The exam-relevant sequence is: infection, then shedding from roughly day 4 (often before signs), with detectable antibody developing over the following days. Treat the original line as a likely antigen-versus-antibody mix-up and use the shedding timeline above.</div>
   </div>
@@ -417,13 +424,15 @@
   <h3>Outbreak response &amp; risk categorisation <span class="bdg lit">lit review</span><span class="bdg notes">notes</span></h3>
   <div class="card">
     <p class="note">On detection, run a population risk assessment and sort animals into <b>infected</b>, <b>exposed</b> and <b>unexposed</b>. Move infected animals to isolation immediately. Subdivide the exposed group by age and vaccination history.</p>
+    <div class="trap"><b>Define the exposure window first</b>Count as <b>exposed</b> every dog that shared housing, air space, runs, yards, equipment, transport or unchanged staff and PPE with the case during the <b>3 to 4 days before that case showed clinical signs</b>. Shedding precedes signs, so the dog was infectious while it still looked well &mdash; if you only trace back to the day of onset you will miss the dogs that matter most.</div>
     <table class="cmp">
       <tr><th>Exposed tier</th><th>Definition</th><th>Action</th></tr>
       <tr><td><b>High risk</b></td><td>Pups under 5 months, any vaccination history</td><td>Immediate MLV DAPP booster, 14-day quarantine, monitor for signs, faecal antigen test those that develop signs.</td></tr>
-      <tr><td><b>Moderate risk</b></td><td>Dogs 5 months or older, no vaccination history</td><td>Antibody titre test. Adequate titre, reclassify as low risk and place. Low titre, vaccinate and quarantine.</td></tr>
-      <tr><td><b>Low risk</b></td><td>Dogs over 5 months with adequate vaccination history</td><td>Proceed to placement like unexposed dogs.</td></tr>
+      <tr><td><b>Moderate risk</b></td><td>Dogs 5 months or older, no vaccination history, or vaccinated less than 4 days before the case showed signs</td><td>Antibody titre test. Adequate titre, reclassify as low risk and place. Low titre, vaccinate and quarantine.</td></tr>
+      <tr><td><b>Low risk</b></td><td>Dogs over 5 months <b>and</b> vaccinated at least 4 days before the case showed clinical signs (so immunity had time to develop before the exposure window)</td><td>Proceed to placement like unexposed dogs.</td></tr>
     </table>
     <ul class="hy">
+      <li><b>The 4-day rule:</b> a dose given at or after the start of the exposure window does not protect that dog. Protective immunity to an MLV parvovirus vaccine takes a few days to develop, so only a dog vaccinated <b>4 or more days before the case's onset of signs</b> can be counted as low risk. Vaccinate the rest anyway &mdash; it just does not change their tier for this outbreak.</li>
       <li>Unexposed dogs: house in a clean area under strict biosecurity.</li>
       <li>Containment: epidemiological tracing to find the source and higher-prevalence intake areas; temporary intake hold; in extreme cases, depopulation to control spread.</li>
     </ul>
@@ -437,12 +446,12 @@
         <rect x="265" y="74" width="170" height="38" rx="9" fill="#fbf8f1" stroke="#d9d0bd"/><text x="350" y="97">Immediate isolation</text>
         <polygon points="350,134 444,186 350,238 256,186" fill="#e2e4f2" stroke="#3c4a86"/>
         <text x="350" y="183" font-size="11.5">Patient risk</text><text x="350" y="197" font-size="11.5">category</text>
-        <rect x="252" y="288" width="196" height="34" rx="9" fill="#e7e2d4" stroke="#c4bca6"/><text x="350" y="302" font-size="11">Moderate-risk</text><text x="350" y="315" font-size="11">(&gt;5mo, unvaxxed)</text>
+        <rect x="248" y="280" width="204" height="50" rx="9" fill="#e7e2d4" stroke="#c4bca6"/><text x="350" y="296" font-size="11">Moderate-risk</text><text x="350" y="309" font-size="10.5">(&gt;5mo, unvaxxed or vacc</text><text x="350" y="321" font-size="10.5">&lt;4d before onset)</text>
         <rect x="300" y="344" width="100" height="34" rx="9" fill="#fbf8f1" stroke="#d9d0bd"/><text x="350" y="365">Titre test</text>
         <rect x="70" y="408" width="200" height="46" rx="9" fill="#fbf8f1" stroke="#3c4a86"/><text x="170" y="427" font-size="11.5">MLV booster +</text><text x="170" y="442" font-size="11.5">14-day quarantine</text>
         <rect x="430" y="408" width="200" height="46" rx="9" fill="#fbf8f1" stroke="#3c4a86"/><text x="530" y="435">Monitor &amp; routine care</text>
         <text x="118" y="356" font-size="10.5" fill="#5d6b62">High-risk (&lt;5mo)</text>
-        <text x="588" y="298" font-size="10.5" fill="#5d6b62">Low-risk</text><text x="588" y="311" font-size="10.5" fill="#5d6b62">(&gt;5mo, vaxxed)</text>
+        <text x="600" y="292" font-size="10.5" fill="#5d6b62">Low-risk</text><text x="600" y="304" font-size="10.5" fill="#5d6b62">(&gt;5mo, vacc &ge;4d</text><text x="600" y="316" font-size="10.5" fill="#5d6b62">before onset)</text>
         <text x="256" y="396" font-size="10.5" fill="#5d6b62">Low titre</text>
         <text x="446" y="396" font-size="10.5" fill="#5d6b62">High titre</text>
       </g>
@@ -450,14 +459,14 @@
         <path d="M350,52 L350,72"/>
         <path d="M350,112 L350,132"/>
         <path d="M256,186 C150,260 148,340 167,406"/>
-        <path d="M350,238 L350,286"/>
-        <path d="M350,322 L350,342"/>
+        <path d="M350,238 L350,278"/>
+        <path d="M350,330 L350,342"/>
         <path d="M300,372 C246,392 200,400 176,406"/>
         <path d="M400,372 C462,392 506,400 527,406"/>
         <path d="M444,186 C560,260 558,340 532,406"/>
       </g>
     </svg>
-    <figcaption>Outbreak triage: isolate first, then sort the exposed population by age and vaccination status. Moderate-risk dogs are titre-tested and routed by result. Rebuilt from your diagram.</figcaption>
+    <figcaption>Outbreak triage: isolate first, then sort the exposed population &mdash; everyone in contact during the 3 to 4 days before the case showed signs &mdash; by age and vaccination status. Low risk means over 5 months <i>and</i> vaccinated at least 4 days before that onset date; dogs vaccinated later than that, or with no history, drop to moderate risk and are titre-tested and routed by result. Rebuilt from your diagram.</figcaption>
   </figure>
 
   <!-- BIOSECURITY -->
@@ -467,6 +476,7 @@
       <li>Strict hand hygiene: wash with soap and water, use sanitiser, and change gloves between patients, especially for quarantine and infected groups.</li>
       <li>PPE scaled to risk tier. Full PPE (gloves, gown, shoe covers, ideally full-body suit) for infected animals; cover hands, trunk and sleeves.</li>
       <li>Laundering: wash bedding and toys with chlorine bleach at the hottest label-allowed temperature, but communal washing can spread virus; disposal of heavily contaminated soft items is often more practical.</li>
+      <li><b>Bathe every dog before it exits isolation.</b> The coat, paws and perineum carry CPV out of the ward, so a recovered or cleared dog is a walking fomite until it is washed. Bathe with a detergent shampoo (paying attention to the perineum and feet), dry the dog, and move it into a <b>clean, freshly disinfected enclosure</b> &mdash; never back into the one it was housed in. Do the bath in the isolation area with dedicated equipment, and disinfect the bathing area afterwards.</li>
     </ul>
     <div class="trap"><b>Exam trap</b><b>Foot baths are not an effective strategy.</b> Organic-matter accumulation and inadequate contact time make them unreliable, and they can spread pathogens. Favour dedicated footwear, barrier flooring and physical removal of organic matter.</div>
   </div>
