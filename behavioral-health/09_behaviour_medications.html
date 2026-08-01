@@ -740,7 +740,7 @@ Author links open overlay panel</b><br>
     <span class="ja-meta">Stillo &middot; Journal of Veterinary Behavior &middot; 2021</span></p>
     <div class="ja-abstract"><b>Abstract.</b> Animal shelters are often associated with high levels of stressors that can compromise welfare. Mitigating stressors or the associated distress is a priority for shelters. Given restricted time and financial resources it's important that shelters use evidence-based interventions. This study evaluated the efficacy of Solliquin (Nutramax Laboratories Veterinary Science, Inc., Lancaster, SC, USA), a behavioral nutraceutical, to mitigate stress responses of dogs entering a shelter. Stress responses were quantified using fecal cortisol and activity tracking with triaxial accelerometers. For all the conditions analyzed, the Solliquin treated group had an increase in only the light rest category (P = 0.050) compared to control dogs. There were no effects on other parameters measured including deep rest.</div>
   </div>
-  
+
 </section>
 <!-- JOURNAL-ARTICLES:END -->
 
@@ -1073,6 +1073,8 @@ function setRate(btn,r){
 <!-- JOURNAL-BANK:START -->
 <script data-journal-bank>
 (function(){try{
+  // Teach the page's badge/label helpers about journal-sourced questions so
+  // they render a "journal" source badge (the page templates predate this tag).
   if(typeof flagBadge==='function' && !flagBadge.__journalPatched){
     var _fb=flagBadge;
     window.flagBadge=function(f){return f==='journal'?'<span class="bdg journal">journal</span>':_fb(f);};
@@ -1083,13 +1085,21 @@ function setRate(btn,r){
     window.tagLabel=function(t){return t==='journal'?'Journal':_tl(t);};
     window.tagLabel.__journalPatched=true;
   }
+  // Bespoke #chips banks render each card's tag via DLABEL[item.f]; register a
+  // label so journal cards read "Journal Articles" instead of "undefined".
   if(typeof DLABEL==='object' && DLABEL && !DLABEL.journal){DLABEL.journal='Journal Articles';}
+  // Add a "Journal Articles" chip to whichever topic-filter bar the page uses
+  // (.filters on the standard template, #chips on the research hubs) so the
+  // journal questions can be isolated (they otherwise sit at the end of bank).
   var _fbar=document.querySelector('.filters')||document.getElementById('chips');
   if(_fbar && !_fbar.querySelector('[data-f="journal"]')){
     var _jb=document.createElement('button');
     _jb.setAttribute('data-f','journal');
     _jb.textContent='Journal Articles';
     var _sib=_fbar.querySelector('button[data-f]');
+    // strip whichever "selected" class the page's own chips use, so the
+    // injected chip doesn't render pre-selected ('on' is the standard
+    // template, 'active' the research hubs)
     if(_sib && _sib.className){_jb.className=_sib.className;_jb.classList.remove('active');_jb.classList.remove('on');}
     _fbar.appendChild(_jb);
   }

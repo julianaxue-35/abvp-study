@@ -721,7 +721,7 @@
     <span class="ja-meta">Deputte B &middot; Animals &middot; 2021</span></p>
     <div class="ja-abstract"><b>Abstract.</b> Visual communication involves specific signals. These include the different positions of mobile body elements. We analyzed visual configurations in cats that   involve ears and the tail. We aimed at deciphering which features of these configurations were the most important in cats’ interactions with other cats and with humans. We observed a total of 254 cat–cat interactions within a sample of 29 cats, during a total of 100 h of observation scheduled with the “Behavioral dependent onset of sampling” method and using the “All occurences” sampling method. In addition, we sampled 10 interactions between cats and humans. In cat– cat interactions, we noted the positions of ears and tail of both protagonists, as well as the outcome of the interaction, which was either positive/neutral or negative. In a great majority of the 254 interactions sampled, both cats held their tail down. On the contrary, ear position was a critical element in predicting the outcome. When both partners held their ears erect, the outcome was significantly positive, such as rubbing or close proximity. In all other cases of the position of ears in both cats, the outcome was negative, with increased distance of the partners. Although the tail did not seem to play a significant role in visual   configurations in cat interactions, the “tail-up” display was important when a cat approached a human being. In the vast majority of cases the cat rubbed itself on a human’s leg(s). Thus, we may conclude that the presence of a human has a specific meaning in the cat’s world, probably as the result of a long period of commensalism. It is important for pet owners to understand the signals that cats use with other cats and with humans in order to promote the welfare of cats.</div>
   </div>
-  
+
 </section>
 <!-- JOURNAL-ARTICLES:END -->
 
@@ -1054,6 +1054,8 @@ function setRate(btn,r){
 <!-- JOURNAL-BANK:START -->
 <script data-journal-bank>
 (function(){try{
+  // Teach the page's badge/label helpers about journal-sourced questions so
+  // they render a "journal" source badge (the page templates predate this tag).
   if(typeof flagBadge==='function' && !flagBadge.__journalPatched){
     var _fb=flagBadge;
     window.flagBadge=function(f){return f==='journal'?'<span class="bdg journal">journal</span>':_fb(f);};
@@ -1064,13 +1066,21 @@ function setRate(btn,r){
     window.tagLabel=function(t){return t==='journal'?'Journal':_tl(t);};
     window.tagLabel.__journalPatched=true;
   }
+  // Bespoke #chips banks render each card's tag via DLABEL[item.f]; register a
+  // label so journal cards read "Journal Articles" instead of "undefined".
   if(typeof DLABEL==='object' && DLABEL && !DLABEL.journal){DLABEL.journal='Journal Articles';}
+  // Add a "Journal Articles" chip to whichever topic-filter bar the page uses
+  // (.filters on the standard template, #chips on the research hubs) so the
+  // journal questions can be isolated (they otherwise sit at the end of bank).
   var _fbar=document.querySelector('.filters')||document.getElementById('chips');
   if(_fbar && !_fbar.querySelector('[data-f="journal"]')){
     var _jb=document.createElement('button');
     _jb.setAttribute('data-f','journal');
     _jb.textContent='Journal Articles';
     var _sib=_fbar.querySelector('button[data-f]');
+    // strip whichever "selected" class the page's own chips use, so the
+    // injected chip doesn't render pre-selected ('on' is the standard
+    // template, 'active' the research hubs)
     if(_sib && _sib.className){_jb.className=_sib.className;_jb.classList.remove('active');_jb.classList.remove('on');}
     _fbar.appendChild(_jb);
   }

@@ -613,7 +613,7 @@ Validation</b><br>
     <span class="ja-meta">Lamon, T &middot; Applied Animal Behaviour Science &middot; 2021</span></p>
     <div class="ja-abstract"><b>Abstract.</b> The aim of this scoping review was to consolidate information pertaining to welfare and quality of life assessments of shelter dogs. Specific objectives were to identify and characterize types of welfare assessment instruments, discuss circumstances where welfare and quality of life assessments are used, and identify research gaps. A comprehensive search strategy was implemented in five databases. Literature published globally between the years 2000 and 2020 was identified using specific search terms. Abstracts and full papers were screened, relevant articles obtained, and welfare assessment methods characterized. Of 670 unique citations identified, 43 met the inclusion criteria of including a welfare or quality of life assessment for shelter dogs. There were 16 different assessment tools used    to evaluate welfare and quality of life in shelter dogs. Ethogram-based assessment tools, five of which were validated, were used in 37 publications. Physiological based assessment methods were used to assess welfare in 26 publications. Overall, assessment tools were used to either evaluate a dog’s acclimation to the shelter environment or evaluate welfare interventions. Several validated tools were identified that could be useful to shelters depending on need. The Multi-Operator Qualitative Behavioral Assessment and the Quality of Life Assessment are tools allowing for quick welfare assessments     by shelter staff, while the Shelter Quality Protocol and the Shelter Quality Protocol 2 are more comprehensive welfare assessments, which require some experience or training in shelter management. The review identified few papers that evaluated the effects of chronic stress on dogs housed in a shelter environment long-term. Therefore, welfare of these dogs should be a priority for future studies. The range of assessment methods underscores the complexity of evaluating welfare and quality of life in different types of sheltering environments.</div>
   </div>
-  
+
 </section>
 <!-- JOURNAL-ARTICLES:END -->
 
@@ -949,6 +949,8 @@ function setRate(btn,r){
 <!-- JOURNAL-BANK:START -->
 <script data-journal-bank>
 (function(){try{
+  // Teach the page's badge/label helpers about journal-sourced questions so
+  // they render a "journal" source badge (the page templates predate this tag).
   if(typeof flagBadge==='function' && !flagBadge.__journalPatched){
     var _fb=flagBadge;
     window.flagBadge=function(f){return f==='journal'?'<span class="bdg journal">journal</span>':_fb(f);};
@@ -959,13 +961,21 @@ function setRate(btn,r){
     window.tagLabel=function(t){return t==='journal'?'Journal':_tl(t);};
     window.tagLabel.__journalPatched=true;
   }
+  // Bespoke #chips banks render each card's tag via DLABEL[item.f]; register a
+  // label so journal cards read "Journal Articles" instead of "undefined".
   if(typeof DLABEL==='object' && DLABEL && !DLABEL.journal){DLABEL.journal='Journal Articles';}
+  // Add a "Journal Articles" chip to whichever topic-filter bar the page uses
+  // (.filters on the standard template, #chips on the research hubs) so the
+  // journal questions can be isolated (they otherwise sit at the end of bank).
   var _fbar=document.querySelector('.filters')||document.getElementById('chips');
   if(_fbar && !_fbar.querySelector('[data-f="journal"]')){
     var _jb=document.createElement('button');
     _jb.setAttribute('data-f','journal');
     _jb.textContent='Journal Articles';
     var _sib=_fbar.querySelector('button[data-f]');
+    // strip whichever "selected" class the page's own chips use, so the
+    // injected chip doesn't render pre-selected ('on' is the standard
+    // template, 'active' the research hubs)
     if(_sib && _sib.className){_jb.className=_sib.className;_jb.classList.remove('active');_jb.classList.remove('on');}
     _fbar.appendChild(_jb);
   }

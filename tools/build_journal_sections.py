@@ -512,7 +512,7 @@ def inject(page_path: str) -> bool:
         if TAB_START in content:
             content = re.sub(
                 re.escape(TAB_START) + r".*?" + re.escape(TAB_END),
-                tab_region,
+                lambda _m, _r=tab_region: _r,
                 content,
                 flags=re.DOTALL,
             )
@@ -535,7 +535,7 @@ def inject(page_path: str) -> bool:
         if PANEL_START in content:
             content = re.sub(
                 re.escape(PANEL_START) + r".*?" + re.escape(PANEL_END),
-                panel_region,
+                lambda _m, _r=panel_region: _r,
                 content,
                 flags=re.DOTALL,
             )
@@ -564,7 +564,7 @@ def inject(page_path: str) -> bool:
         if TAB_START in content:
             content = re.sub(
                 re.escape(TAB_START) + r".*?" + re.escape(TAB_END),
-                tab_region,
+                lambda _m, _r=tab_region: _r,
                 content,
                 flags=re.DOTALL,
             )
@@ -588,7 +588,7 @@ def inject(page_path: str) -> bool:
         if PANEL_START in content:
             content = re.sub(
                 re.escape(PANEL_START) + r".*?" + re.escape(PANEL_END),
-                panel_region,
+                lambda _m, _r=panel_region: _r,
                 content,
                 flags=re.DOTALL,
             )
@@ -611,7 +611,7 @@ def inject(page_path: str) -> bool:
         if PANEL_START in content:
             content = re.sub(
                 re.escape(PANEL_START) + r".*?" + re.escape(PANEL_END),
-                panel_region,
+                lambda _m, _r=panel_region: _r,
                 content,
                 flags=re.DOTALL,
             )

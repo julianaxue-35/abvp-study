@@ -835,6 +835,11 @@
   <h2 class="sec">Additional Resources</h2>
   <p class="lead">Journal Articles (2021–2026) — exam items are drawn from the abstract only. Read each abstract here; self-test questions are in the MCQ Test Bank.</p>
   <div class="card ja-article">
+    <p class="ja-cite"><b>Disaster Preparedness for Accepting Companion Animals in Urban Evacuation Shelters in Japan</b><br>
+    <span class="ja-meta">Motomura &middot; Journal of Applied Animal Welfare Science &middot; 2025 &middot; <a href="https://doi.org/10.1080/10888705.2025.2491533" target="_blank" rel="noopener">10.1080/10888705.2025.2491533</a></span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Japan's disaster preparation has significantly enhanced over time, shaped by the country's history of frequent natural disasters. However, animals are often neglected in such situations. In this study, we conducted a questionnaire survey targeting evacuation shelters in the urban cities of Osaka, Kyoto, and Kobe. We aimed to investigate shelters' decisions to accept pets during a disaster, the factors that determine their decision, and if they accept pets, how they would accommodate them. Among the 205 respondents, most (51.7%) were undecided on whether they would accept pets. Our results suggested that concern for lack of space was the most important factor and that shelters with space concerns were 4.9 times more likely to reject pets compared to those with other concerns. Experience in sheltering evacuees during past disasters was partially important for decision-making. Furthermore, most shelters that accommodate pets typically would either keep them outside the facility or indoors in separate areas away from their owners. We propose that shelters treat pets and their owners based on the One Welfare approach, which promotes the idea that protecting animals would protect humans.</div>
+  </div>
+  <div class="card ja-article">
     <p class="ja-cite"><b>Preparing pets and their people: opportunity for veterinary teams to promote disaster preparedness in their communities</b><br>
     <span class="ja-meta">Quintana J, Viola L, Sanchez V, Scott D, Duncan C &middot; Frontiers in Veterinary Science &middot; 2025</span></p>
     <div class="ja-abstract"><b>Abstract.</b> Climate change has made disasters, and their associated health risks, more frequent and severe. Despite these growing risks, a substantial proportion of adults in the US do not have a disaster plan. Even for those who have disaster plans, it is unclear if these always include pets. The objective of this project was to explore the potential for veterinary teams to facilitate the development of pet-inclusive disaster plans through conversations during routine veterinary visits. We conducted two separate anonymous surveys, one for veterinary staff and one for veterinary clients. Overall, we found that both groups believe disasters are increasing and likely to impact people and their pets, however respondents remain largely unprepared for these events. Although both groups reported that the topic of disaster preparedness was not typically covered during veterinary visits, pet owners overwhelmingly agreed that pet health professionals are trustworthy sources of information, and that it would be helpful to have support from their veterinary team in developing a disaster plan that includes their pets. Barriers to such conversations, and potential solutions, were explored. Collectively these findings reinforce the role of veterinary professionals as trusted community members who can enhance public health and community resilience by integrating disaster preparedness into their practice.</div>
@@ -1431,7 +1436,10 @@ function setRate(btn,r){
     _jb.setAttribute('data-f','journal');
     _jb.textContent='Journal Articles';
     var _sib=_fbar.querySelector('button[data-f]');
-    if(_sib && _sib.className){_jb.className=_sib.className;_jb.classList.remove('active');}
+    // strip whichever "selected" class the page's own chips use, so the
+    // injected chip doesn't render pre-selected ('on' is the standard
+    // template, 'active' the research hubs)
+    if(_sib && _sib.className){_jb.className=_sib.className;_jb.classList.remove('active');_jb.classList.remove('on');}
     _fbar.appendChild(_jb);
   }
   if(typeof Q!=='undefined' && Array.isArray(Q)){

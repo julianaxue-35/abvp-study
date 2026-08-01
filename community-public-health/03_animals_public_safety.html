@@ -802,7 +802,7 @@
     <span class="ja-meta">Isparta &middot; Journal of Veterinary Behavior &middot; 2021</span></p>
     <div class="ja-abstract"><b>Abstract.</b> Child safety around dogs is a serious public health concern, in particular in countries where free-ranging dogs and dog-mediated urban rabies are an issue, such as Turkey. The present study is the first to investigate the effectiveness of a dog bite prevention program in pre-school children in Turkey. In this study, pre-school students aged between 3 and 6 years (N = 117) received an interactive education program. The program consisted of an interactive oral presentation, a drama session (“Being a Tree”), and a practical session, i.e. meeting a dog. Two different questionnaires were administered to children before (PrE), immediately after (PE0), and one week after the program (PE1): (i) the Dog-Human Interaction questionnaire and (ii) the Contexts for Approaching Dogs questionnaire. Significant improvements in the scores in both questionnaires were found between the evaluations before and after the education. Moreover, older students had significantly higher scores in both questionnaires during PE0 and PE1. The majority of the students were found to be successful in the evaluation of the “Being a Tree'' concept during PE0 and PE1. The results of this study show that the interactive dog bite prevention program can increase the awareness and knowledge of pre-school children on dog behavior. Findings also suggest that age should be considered when designing a dog bite education program. As being a tree concept can be learned by children from all age groups, it can be a useful and beneficial component of dog bite prevention programs in countries having a big population of free-ranging dogs.</div>
   </div>
-  
+
 </section>
 <!-- JOURNAL-ARTICLES:END -->
 
@@ -1142,6 +1142,8 @@ function setRate(btn,r){
 <!-- JOURNAL-BANK:START -->
 <script data-journal-bank>
 (function(){try{
+  // Teach the page's badge/label helpers about journal-sourced questions so
+  // they render a "journal" source badge (the page templates predate this tag).
   if(typeof flagBadge==='function' && !flagBadge.__journalPatched){
     var _fb=flagBadge;
     window.flagBadge=function(f){return f==='journal'?'<span class="bdg journal">journal</span>':_fb(f);};
@@ -1152,13 +1154,21 @@ function setRate(btn,r){
     window.tagLabel=function(t){return t==='journal'?'Journal':_tl(t);};
     window.tagLabel.__journalPatched=true;
   }
+  // Bespoke #chips banks render each card's tag via DLABEL[item.f]; register a
+  // label so journal cards read "Journal Articles" instead of "undefined".
   if(typeof DLABEL==='object' && DLABEL && !DLABEL.journal){DLABEL.journal='Journal Articles';}
+  // Add a "Journal Articles" chip to whichever topic-filter bar the page uses
+  // (.filters on the standard template, #chips on the research hubs) so the
+  // journal questions can be isolated (they otherwise sit at the end of bank).
   var _fbar=document.querySelector('.filters')||document.getElementById('chips');
   if(_fbar && !_fbar.querySelector('[data-f="journal"]')){
     var _jb=document.createElement('button');
     _jb.setAttribute('data-f','journal');
     _jb.textContent='Journal Articles';
     var _sib=_fbar.querySelector('button[data-f]');
+    // strip whichever "selected" class the page's own chips use, so the
+    // injected chip doesn't render pre-selected ('on' is the standard
+    // template, 'active' the research hubs)
     if(_sib && _sib.className){_jb.className=_sib.className;_jb.classList.remove('active');_jb.classList.remove('on');}
     _fbar.appendChild(_jb);
   }

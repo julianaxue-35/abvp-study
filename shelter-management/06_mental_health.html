@@ -736,6 +736,11 @@
   <h2 class="sec">Additional Resources</h2>
   <p class="lead">Journal Articles (2021–2026) — exam items are drawn from the abstract only. Read each abstract here; self-test questions are in the MCQ Test Bank.</p>
   <div class="card ja-article">
+    <p class="ja-cite"><b>Factors Associated with Compassion Fatigue in Assistance Animal Trainers in Australia-A Qualitative Investigation</b><br>
+    <span class="ja-meta">Verrall &middot; Animals &middot; 2025 &middot; <a href="https://doi.org/10.1080/j.1440-1614.2006.01735.x" target="_blank" rel="noopener">10.1080/j.1440-1614.2006.01735.x</a></span></p>
+    <div class="ja-abstract"><b>Abstract.</b> Assistance animal (AA) trainers could develop compassion satisfaction (CS) but also compassion fatigue (CF), due to potential exposure to suffering through working with people with disabilities. The negative outcomes associated with CF could result in fewer trainers and longer wait times for people in need. Using the Job Demands-Resources Model (JD-R), this study aimed to qualitatively identify the demands and resources of AA trainers and explore signs of CF and CS. Six trainers participated in semi-structured interviews, and five themes were identified. The Demands theme represented challenges trainers experienced, such as concerns about animal welfare and client wellbeing. The Resources theme represented personal characteristics and job aspects that assisted the trainers, like resilience and formal support from the employer. Negative Impacts included signs of CF and represented how participants were negatively affected by their job. Similarly, Positive Impacts included signs of CS and represented how participants were positively affected. Misguided Trainer Expectations represented the expectations trainers had starting the job compared to the reality of the role. The discovery of CF signs provides evidence of a previously unidentified psychosocial hazard for trainers. These findings should be used by training organizations to better support trainers.</div>
+  </div>
+  <div class="card ja-article">
     <p class="ja-cite"><b>Veterinary Student Skills Learned at an Access to Care Clinic: Beyond Medicine and Surgery</b><br>
     <span class="ja-meta">Alvarez EE, Schultz K, Lygo-Baker S, Chun R &middot; Journal of Veterinary Medical Education &middot; 2025 &middot; <a href="https://doi.org/10.3138/jvme-2024-0034" target="_blank" rel="noopener">10.3138/jvme-2024-0034</a></span></p>
     <div class="ja-abstract"><b>Abstract.</b> The research examined how a two-week rotation at Wisconsin Companion Animal Resources, Education, and Social Services (WisCARES) affected veterinary student development. Of 97 respondents with background information, 70% had minimal experience serving diverse or low-income populations beforehand. Students reported significant improvements post-rotation: increased comfort levels and compassion when working with low-income or homeless pet owners (mean = 4.54 and 4.42 respectively), greater ease interacting with members of different race or ethnicity groups (mean = 4.21), and enhanced appreciation for human-animal bonds (mean = 4.42). The clinic experience positively influenced clinical confidence, financial communication abilities, and creative case management. Researchers concluded that providing students opportunities to lead cases with economically disadvantaged and racially diverse clientele strengthens their professional readiness and clinical self-assurance.</div>
@@ -825,7 +830,7 @@
     <span class="ja-meta">Powell &middot; Frontiers &middot; 2021</span></p>
     <div class="ja-abstract"><b>Abstract.</b> Shelter medicine has grown considerably over recent years with many shelters hiring veterinarians for the first time or expanding their veterinary teams. As a result, there is a dearth of shelter veterinarians and retention has become a key concern for the field. The goal of this study was to describe veterinarians' perceptions of shelter medicine, and their feelings of job satisfaction, loneliness, and professional fulfillment. The sample included 52 shelter veterinarians, 39 previous shelter veterinarians and 130 non-shelter veterinarians (n = 221) who each completed an online survey. Current and previous shelter veterinarians had comparable perceptions regarding the appeal of most shelter medicine duties, although there were differences in the duties they performed within their job. More current shelter veterinarians participated in population management, policy development, administrative duties, and decision-making for individual patients (euthanasia, treatment, and adoptability). Considering other employment attributes, we found previous shelter veterinarians had lower mean rankings than current and non-shelter veterinarians regarding their interactions with administrative staff, ability to be part of a multiple veterinarian team and the availability of mentorship. Loneliness and professional fulfillment were mostly comparable between the groups, although previous shelter veterinarians were more likely to report they felt unhappy (X 2 = 16.60, p = 0.02) and left out at work (X 2 = 12.43, p = 0.02). Our findings suggest veterinarians who participate in decision-making for patients and shelter management procedures may be more willing to continue working in shelter medicine. Animal shelters should also employ strategies to improve workplace relationships and offer career development opportunities to improve job satisfaction and retention of veterinarians within the field.</div>
   </div>
-  
+
 </section>
 <!-- JOURNAL-ARTICLES:END -->
 
@@ -1204,6 +1209,8 @@ function setRate(btn,r){
 <!-- JOURNAL-BANK:START -->
 <script data-journal-bank>
 (function(){try{
+  // Teach the page's badge/label helpers about journal-sourced questions so
+  // they render a "journal" source badge (the page templates predate this tag).
   if(typeof flagBadge==='function' && !flagBadge.__journalPatched){
     var _fb=flagBadge;
     window.flagBadge=function(f){return f==='journal'?'<span class="bdg journal">journal</span>':_fb(f);};
@@ -1214,13 +1221,21 @@ function setRate(btn,r){
     window.tagLabel=function(t){return t==='journal'?'Journal':_tl(t);};
     window.tagLabel.__journalPatched=true;
   }
+  // Bespoke #chips banks render each card's tag via DLABEL[item.f]; register a
+  // label so journal cards read "Journal Articles" instead of "undefined".
   if(typeof DLABEL==='object' && DLABEL && !DLABEL.journal){DLABEL.journal='Journal Articles';}
+  // Add a "Journal Articles" chip to whichever topic-filter bar the page uses
+  // (.filters on the standard template, #chips on the research hubs) so the
+  // journal questions can be isolated (they otherwise sit at the end of bank).
   var _fbar=document.querySelector('.filters')||document.getElementById('chips');
   if(_fbar && !_fbar.querySelector('[data-f="journal"]')){
     var _jb=document.createElement('button');
     _jb.setAttribute('data-f','journal');
     _jb.textContent='Journal Articles';
     var _sib=_fbar.querySelector('button[data-f]');
+    // strip whichever "selected" class the page's own chips use, so the
+    // injected chip doesn't render pre-selected ('on' is the standard
+    // template, 'active' the research hubs)
     if(_sib && _sib.className){_jb.className=_sib.className;_jb.classList.remove('active');_jb.classList.remove('on');}
     _fbar.appendChild(_jb);
   }

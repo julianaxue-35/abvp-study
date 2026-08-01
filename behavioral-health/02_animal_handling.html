@@ -755,7 +755,7 @@ Safety</b><br>
     <span class="ja-meta">Shih &middot; Frontiers in Psychology &middot; 2021</span></p>
     <div class="ja-abstract"><b>Abstract.</b> Human personality influences the way people interact with dogs. This study investigated the associations between the personality of animal shelter volunteers and behavior during on-leash walks with shelter dogs. Video recording and a canine leash tension meter were used to monitor the on-leash walking. Personality was measured in five dimensions (neurotic, extroverted, open, agreeable and conscientious) with the NEO Five-Factor Inventory (NEO-FFI). Neurotic volunteers pulled the leash harder and tended to interact with dogs using more body language; dogs being walked by neurotic volunteers in turn displayed more lip-licking and body shaking and were more likely to be rated as well-behaved. Extroverted volunteers were associated with stronger maximal leash tension at both the human and dog ends of the leash, and they praised the dog more, often in a high pitched voice. These volunteers eliciting more tail-wagging and body shaking by the dog. Extroverted volunteers were also more tolerant of different dog behaviors. Volunteers with personalities characterized by “openness to experiences” were less likely to verbally attract the attention of dogs, praise dogs and talk to them in a high-pitched voice; however, dogs walked by these volunteers were more likely to pull on the leash, and engaged in more lip-licking but less sniffing. “Agreeable” volunteers liked to verbally attract the attention of the dogs and more commonly initiated hand gestures and physical contact, causing the dogs to pull less frequently; dogs in these dyads displayed more gazing and lip-licking behaviors. Conscientious volunteers were less likely to pull the leash and tended to have more physical contact with the dogs but did not favor verbal communication and did not use a high pitched voice.</div>
   </div>
-  
+
 </section>
 <!-- JOURNAL-ARTICLES:END -->
 
@@ -1096,6 +1096,8 @@ function setRate(btn,r){
 <!-- JOURNAL-BANK:START -->
 <script data-journal-bank>
 (function(){try{
+  // Teach the page's badge/label helpers about journal-sourced questions so
+  // they render a "journal" source badge (the page templates predate this tag).
   if(typeof flagBadge==='function' && !flagBadge.__journalPatched){
     var _fb=flagBadge;
     window.flagBadge=function(f){return f==='journal'?'<span class="bdg journal">journal</span>':_fb(f);};
@@ -1106,13 +1108,21 @@ function setRate(btn,r){
     window.tagLabel=function(t){return t==='journal'?'Journal':_tl(t);};
     window.tagLabel.__journalPatched=true;
   }
+  // Bespoke #chips banks render each card's tag via DLABEL[item.f]; register a
+  // label so journal cards read "Journal Articles" instead of "undefined".
   if(typeof DLABEL==='object' && DLABEL && !DLABEL.journal){DLABEL.journal='Journal Articles';}
+  // Add a "Journal Articles" chip to whichever topic-filter bar the page uses
+  // (.filters on the standard template, #chips on the research hubs) so the
+  // journal questions can be isolated (they otherwise sit at the end of bank).
   var _fbar=document.querySelector('.filters')||document.getElementById('chips');
   if(_fbar && !_fbar.querySelector('[data-f="journal"]')){
     var _jb=document.createElement('button');
     _jb.setAttribute('data-f','journal');
     _jb.textContent='Journal Articles';
     var _sib=_fbar.querySelector('button[data-f]');
+    // strip whichever "selected" class the page's own chips use, so the
+    // injected chip doesn't render pre-selected ('on' is the standard
+    // template, 'active' the research hubs)
     if(_sib && _sib.className){_jb.className=_sib.className;_jb.classList.remove('active');_jb.classList.remove('on');}
     _fbar.appendChild(_jb);
   }

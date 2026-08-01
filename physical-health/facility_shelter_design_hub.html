@@ -1175,7 +1175,10 @@ function setRate(btn,r){
     _jb.setAttribute('data-f','journal');
     _jb.textContent='Journal Articles';
     var _sib=_fbar.querySelector('button[data-f]');
-    if(_sib && _sib.className){_jb.className=_sib.className;_jb.classList.remove('active');}
+    // strip whichever "selected" class the page's own chips use, so the
+    // injected chip doesn't render pre-selected ('on' is the standard
+    // template, 'active' the research hubs)
+    if(_sib && _sib.className){_jb.className=_sib.className;_jb.classList.remove('active');_jb.classList.remove('on');}
     _fbar.appendChild(_jb);
   }
   if(typeof Q!=='undefined' && Array.isArray(Q)){

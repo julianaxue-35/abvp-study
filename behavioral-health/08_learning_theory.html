@@ -663,7 +663,7 @@ dogs</b><br>
     <span class="ja-meta">Galambos, A &middot; Applied Animal Behaviour Science &middot; 2021</span></p>
     <div class="ja-abstract"><b>Abstract.</b> The dog (Canis familiaris) has been proposed as a model of numerous human psychiatric diseases, including autism spectrum disorder (ASD). A recent account of the mechanisms underlying autistic behaviour in humans suggests that the core social symptoms of autism are rooted in impaired social motivation. Here we aimed to investigate the plausibility of this motivational explanation in dogs –     that is, to study whether a decrease in social motivation (specifically, in the attentional weight assigned to social stimuli) is related to ASD-like behaviours in dogs. Based on the diagnostic criteria of ASD,    we have developed a questionnaire (Interspecific Social Responsiveness Survey – ISRS) to assess those aspects of social skills in dogs that may relate to ASD-like behaviours. Analysis of the responses was carried out using a sample of 1343 dogs, and the exploratory factor analysis of the 26 items produced a three-factor solution accounting for 41.3% of the variance. A subsample of subjects (N = 20 adult  dogs with varying ISRS scores) were then trained to use a touchscreen in a visual cue-response association task. During the test phase, dogs had to perform the same motor task (nose poke response)    while exposed to non-social and social distracting stimuli (10 trials in a semi-random order). The behavioural performance of the dogs (measured by looking times and response latency) with different   levels of social competence varied in terms of how they responded to the distracting stimuli. The pattern of results revealed that subjects with higher level of social competence showed a stronger distinction between the social and non-social distractors, manifesting in increased looking at the social (but task-irrelevant) stimulus and in reduced orientation toward the touchscreen. Our findings correspond with those previously found in human ASD studies, and further confirm the idea that domestic dogs represent a promising model for the study of human-analogue forms of social-motivational deficits.</div>
   </div>
-  
+
 </section>
 <!-- JOURNAL-ARTICLES:END -->
 
@@ -995,6 +995,8 @@ function setRate(btn,r){
 <!-- JOURNAL-BANK:START -->
 <script data-journal-bank>
 (function(){try{
+  // Teach the page's badge/label helpers about journal-sourced questions so
+  // they render a "journal" source badge (the page templates predate this tag).
   if(typeof flagBadge==='function' && !flagBadge.__journalPatched){
     var _fb=flagBadge;
     window.flagBadge=function(f){return f==='journal'?'<span class="bdg journal">journal</span>':_fb(f);};
@@ -1005,13 +1007,21 @@ function setRate(btn,r){
     window.tagLabel=function(t){return t==='journal'?'Journal':_tl(t);};
     window.tagLabel.__journalPatched=true;
   }
+  // Bespoke #chips banks render each card's tag via DLABEL[item.f]; register a
+  // label so journal cards read "Journal Articles" instead of "undefined".
   if(typeof DLABEL==='object' && DLABEL && !DLABEL.journal){DLABEL.journal='Journal Articles';}
+  // Add a "Journal Articles" chip to whichever topic-filter bar the page uses
+  // (.filters on the standard template, #chips on the research hubs) so the
+  // journal questions can be isolated (they otherwise sit at the end of bank).
   var _fbar=document.querySelector('.filters')||document.getElementById('chips');
   if(_fbar && !_fbar.querySelector('[data-f="journal"]')){
     var _jb=document.createElement('button');
     _jb.setAttribute('data-f','journal');
     _jb.textContent='Journal Articles';
     var _sib=_fbar.querySelector('button[data-f]');
+    // strip whichever "selected" class the page's own chips use, so the
+    // injected chip doesn't render pre-selected ('on' is the standard
+    // template, 'active' the research hubs)
     if(_sib && _sib.className){_jb.className=_sib.className;_jb.classList.remove('active');_jb.classList.remove('on');}
     _fbar.appendChild(_jb);
   }

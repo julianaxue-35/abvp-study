@@ -529,7 +529,38 @@
     <span class="ja-meta">Fabio Pesce, E. Sannino, E. Ragosta, L. Marigliano, G. Picazio, M. Esposito, M. Dimatteo, B. Degli Uberti, S. De Luca, N. Di Caprio, D. Citarella, R. Pinto, G. Fusco, E. De Carlo, G. Miletti &middot; Animals (MDPI) &middot; 2025</span></p>
     <div class="ja-abstract"><b>Abstract.</b> The term 'overkilling' in forensic medicine is not clearly defined and is used to refer to homicides involving unusually massive injuries, far exceeding those necessary to kill the victim. This is the clinical case of a dog found in February 2023 in a town near Naples, with a rope around its neck and the metacarpal region of its forelimbs. The dog was taken to the Istituto Zooprofilattico Sperimentale del Mezzogiorno (IZSM, Portici, Southern Italy), where it underwent a total body radiographic study performed using the 'Philosophy HF400' X-ray device (Pan Vet, Kildare Town, Ireland). Subsequently, a full autopsy was performed, and samples of the injured organs were analyzed by accredited in-house laboratories for microbiological, histological and toxicological analyses. The autopsy revealed anatomopathological lesions compatible with strangulation, which were confirmed by histological examination. The autopsy also reported serosanguineous chest effusion, food material mixed with blackish microgranules and harmful substances in the stomach and, finally, uncoagulated blood in the atrioventricular chambers of the heart. These findings raised the suspicion of poisoning, which was confirmed by the positive outcome of toxicological tests.</div>
   </div>
-  
+  <div class="ja-quiz">
+    <h3 class="ja-quiz-h">Journal Self-Test</h3>
+    <div id="jaQuizHost"></div>
+  </div>
+  <script data-journal-quiz>
+  (function(){
+    var JQ=[{"q": "In what investigative context is the microwave radiation injury in this kitten most relevant?", "o": ["Routine nutritional assessment", "Non-accidental injury and maltreatment investigation", "Vaccine reaction surveillance", "Genetic disease screening"], "a": 1, "e": "Listed keywords (forensics, maltreatment, microwave radiation, burn management) tie the case to non-accidental injury investigation.", "t": "journal", "f": "journal"}, {"q": "A case report of microwave radiation injuries in a 7-week-old kitten emphasizes which clinical skill for shelter and forensic veterinarians?", "o": ["Recognizing and documenting distinctive thermal burn patterns", "Performing orthopedic surgery", "Interpreting echocardiograms", "Managing nutritional deficiencies"], "a": 0, "e": "The case highlights recognizing, documenting, and managing the distinctive burn pattern of microwave radiation injury, a key skill for forensic and shelter veterinarians investigating non-accidental injury.", "t": "journal", "f": "journal"}, {"q": "In forensic medicine, 'overkilling' refers to:", "o": ["Killing multiple animals", "Injury far exceeding what is necessary to cause death", "Accidental death", "A euthanasia error"], "a": 1, "e": "Overkilling denotes unusually massive injuries beyond those needed to kill the victim.", "t": "journal", "f": "journal"}, {"q": "In a forensic veterinary case report of an 'overkilling' incident involving a dog found with rope restraints in southern Italy, the two concurrent lethal mechanisms confirmed at autopsy were:", "o": ["Strangulation and poisoning", "Drowning and burns", "Gunshot and electrocution", "Starvation and dehydration"], "a": 0, "e": "Strangulation lesions were confirmed histologically, and toxicological testing confirmed concurrent poisoning — demonstrating lethal force far exceeding what was necessary to cause death.", "t": "journal", "f": "journal"}, {"q": "In a forensic veterinary overkilling case involving both strangulation and poisoning in a dog, the workup that revealed both concurrent lethal mechanisms comprised:", "o": ["A single gross exam", "Combined radiography, autopsy, histology, and toxicology", "Owner interview alone", "Behavioral testing"], "a": 1, "e": "Full-body radiography, gross autopsy, histopathology, and toxicology together exposed the dual lethal mechanisms in this overkilling case.", "t": "journal", "f": "journal"}];/*mcq-shuffle*/(function(){var _a=JQ;if(!Array.isArray(_a))return;for(var _i=0;_i<_a.length;_i++){var _q=_a[_i];if(!_q||!Array.isArray(_q.o)||typeof _q.a!=='number')continue;var _c=_q.o[_q.a];for(var _j=_q.o.length-1;_j>0;_j--){var _k=Math.floor(Math.random()*(_j+1));var _t=_q.o[_j];_q.o[_j]=_q.o[_k];_q.o[_k]=_t;}_q.a=_q.o.indexOf(_c);}})();
+    var host=document.getElementById('jaQuizHost'); if(!host||!JQ.length) return;
+    var L=["A","B","C","D"];
+    JQ.forEach(function(item,i){
+      var card=document.createElement('div'); card.className='ja-qcard';
+      var stem=document.createElement('div'); stem.className='ja-qstem';
+      stem.textContent=(i+1)+'. '+item.q; card.appendChild(stem);
+      var done=false;
+      item.o.forEach(function(opt,oi){
+        var b=document.createElement('button'); b.className='ja-qopt';
+        b.innerHTML='<b>'+L[oi]+'.</b> '+opt;
+        b.onclick=function(){
+          if(done) return; done=true;
+          var kids=card.querySelectorAll('.ja-qopt');
+          for(var k=0;k<kids.length;k++){kids[k].classList.add('locked');}
+          kids[item.a].classList.add('correct');
+          if(oi!==item.a) b.classList.add('wrong');
+          var ex=document.createElement('div'); ex.className='ja-qexpl';
+          ex.innerHTML='<b>Answer: '+L[item.a]+'.</b> '+item.e; card.appendChild(ex);
+        };
+        card.appendChild(b);
+      });
+      host.appendChild(card);
+    });
+  })();
+  </script>
 </section>
 <!-- JOURNAL-ARTICLES:END -->
 

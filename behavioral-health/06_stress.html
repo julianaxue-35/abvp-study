@@ -613,7 +613,7 @@
     <span class="ja-meta">Nagasawa T &middot; Frontiers in Veterinary Science &middot; 2021</span></p>
     <div class="ja-abstract"><b>Abstract.</b> Research to assess the relationship between cats and humans is in a nascent stage. Some studies have assessed the stress status in cats using physiological indicators, such as the cortisol hormone, but have not focused on the social interaction with humans. Moreover, the role of oxytocin secretion in the relationship between cats and humans remains unclear. In this study, we determined the possibility of quantifying the urinary concentration of oxytocin in cats and assessed   the effects of social contact with humans on the levels of urinary oxytocin and cortisol metabolite. Four cats were subjected to two conditions, namely, social (control), and non-social (no social contact with humans) conditions. The levels of cortisol and oxytocin metabolite in urine samples from the cats in both   conditions were determined using enzyme-linked immunosorbent assays. The urinary concentrations of cortisol and oxytocin under the non-social condition were significantly higher than those under the social condition. In addition, the concentration of oxytocin significantly correlated with that of cortisol in cats under the non-social condition. In this study, it was possible to quantify the concentration of oxytocin in the urine of cats, and the obtained results suggest that cats recognize the social interaction with humans as important. This information might contribute to the establishment of an assessment method for the welfare of cats and might help in clarifying the relationship between cats and humans.</div>
   </div>
-  
+
 </section>
 <!-- JOURNAL-ARTICLES:END -->
 
@@ -910,6 +910,8 @@ function setRate(btn,r){
 <!-- JOURNAL-BANK:START -->
 <script data-journal-bank>
 (function(){try{
+  // Teach the page's badge/label helpers about journal-sourced questions so
+  // they render a "journal" source badge (the page templates predate this tag).
   if(typeof flagBadge==='function' && !flagBadge.__journalPatched){
     var _fb=flagBadge;
     window.flagBadge=function(f){return f==='journal'?'<span class="bdg journal">journal</span>':_fb(f);};
@@ -920,13 +922,21 @@ function setRate(btn,r){
     window.tagLabel=function(t){return t==='journal'?'Journal':_tl(t);};
     window.tagLabel.__journalPatched=true;
   }
+  // Bespoke #chips banks render each card's tag via DLABEL[item.f]; register a
+  // label so journal cards read "Journal Articles" instead of "undefined".
   if(typeof DLABEL==='object' && DLABEL && !DLABEL.journal){DLABEL.journal='Journal Articles';}
+  // Add a "Journal Articles" chip to whichever topic-filter bar the page uses
+  // (.filters on the standard template, #chips on the research hubs) so the
+  // journal questions can be isolated (they otherwise sit at the end of bank).
   var _fbar=document.querySelector('.filters')||document.getElementById('chips');
   if(_fbar && !_fbar.querySelector('[data-f="journal"]')){
     var _jb=document.createElement('button');
     _jb.setAttribute('data-f','journal');
     _jb.textContent='Journal Articles';
     var _sib=_fbar.querySelector('button[data-f]');
+    // strip whichever "selected" class the page's own chips use, so the
+    // injected chip doesn't render pre-selected ('on' is the standard
+    // template, 'active' the research hubs)
     if(_sib && _sib.className){_jb.className=_sib.className;_jb.classList.remove('active');_jb.classList.remove('on');}
     _fbar.appendChild(_jb);
   }

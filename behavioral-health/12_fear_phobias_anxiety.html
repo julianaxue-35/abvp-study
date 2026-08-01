@@ -809,7 +809,7 @@
     <span class="ja-meta">Stellato, A. &middot; Applied Animal Behaviour Science &middot; 2021</span></p>
     <div class="ja-abstract"><b>Abstract.</b> Fear and aggression in dogs within veterinary clinics can lead to canine welfare impairments and pose a safety concern for veterinary staff. However, few studies have explored potential underlying causes for this fear and aggression. We used an online cross-sectional survey targeted to current dog owners to examine risk-factors associated with fear and aggression within veterinary clinics. The factors we assessed in the survey were related to dog characteristics (e.g., sex, breed), fear and aggression responses in everyday scenarios (e.g., stranger-directed fear), experiences at the veterinary clinic (e.g., frequency of visits), training, early socialization, and owner demographics (e.g., gender, age). Data were analyzed using mixed linear regression models, with participant as a random effect to account for multiple dogs within the same household. For fear within veterinary clinics, dogs (n = 1346) were significantly more likely to be rated as fearful by their owners if they were neutered at ≤1 year of age; received their first nail trim at an older age; were rated as having severe non-social fear, or stranger-directed fear and aggression, or as being stressed or aggressive during body handling; had a negative change in behaviour after an aversive clinic experience; and if owners indicated being nervous during situations within the veterinary clinic. For aggression within veterinary clinics, dogs (n = 1776) were more likely to be rated as aggressive if they were reported to be fearful of the veterinary clinic, fearful of feet toweling, or stressed or aggressive during body handling, if the owner reported using positive punishment during routine training, or if any of the following had occurred during clinic visits: examination shortened, use of towel restraint or muzzling, dog bite directed at staff member, general use of positive punishment on the dog, and if the owner indicated being nervous during situations within the veterinary clinic. Random effects for participant were significant for both fear and aggression   models, with intra-class correlation coefficients of 0.36 (CI: 0.21−0.54, p = 0.0004) and 0.16 (CI: 0.06−0.36, p = 0.017), respectively, indicating some correlation in behaviour amongst dogs owned by the same person. These results suggest that both fear and aggression within veterinary clinics are related to dog personality, previous early experiences and veterinary clinic experiences, and owner experiences during veterinary visits. These findings can be used to generate hypotheses for future research aimed at preventing the development of fear and aggression within a veterinary setting.</div>
   </div>
-  
+
 </section>
 <!-- JOURNAL-ARTICLES:END -->
 
@@ -1141,6 +1141,8 @@ function setRate(btn,r){
 <!-- JOURNAL-BANK:START -->
 <script data-journal-bank>
 (function(){try{
+  // Teach the page's badge/label helpers about journal-sourced questions so
+  // they render a "journal" source badge (the page templates predate this tag).
   if(typeof flagBadge==='function' && !flagBadge.__journalPatched){
     var _fb=flagBadge;
     window.flagBadge=function(f){return f==='journal'?'<span class="bdg journal">journal</span>':_fb(f);};
@@ -1151,13 +1153,21 @@ function setRate(btn,r){
     window.tagLabel=function(t){return t==='journal'?'Journal':_tl(t);};
     window.tagLabel.__journalPatched=true;
   }
+  // Bespoke #chips banks render each card's tag via DLABEL[item.f]; register a
+  // label so journal cards read "Journal Articles" instead of "undefined".
   if(typeof DLABEL==='object' && DLABEL && !DLABEL.journal){DLABEL.journal='Journal Articles';}
+  // Add a "Journal Articles" chip to whichever topic-filter bar the page uses
+  // (.filters on the standard template, #chips on the research hubs) so the
+  // journal questions can be isolated (they otherwise sit at the end of bank).
   var _fbar=document.querySelector('.filters')||document.getElementById('chips');
   if(_fbar && !_fbar.querySelector('[data-f="journal"]')){
     var _jb=document.createElement('button');
     _jb.setAttribute('data-f','journal');
     _jb.textContent='Journal Articles';
     var _sib=_fbar.querySelector('button[data-f]');
+    // strip whichever "selected" class the page's own chips use, so the
+    // injected chip doesn't render pre-selected ('on' is the standard
+    // template, 'active' the research hubs)
     if(_sib && _sib.className){_jb.className=_sib.className;_jb.classList.remove('active');_jb.classList.remove('on');}
     _fbar.appendChild(_jb);
   }
