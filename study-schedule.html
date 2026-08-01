@@ -98,6 +98,31 @@
 
   .foot{margin-top:40px;font-size:12px;color:var(--faint);line-height:1.6;border-top:0.5px solid var(--line);padding-top:16px}
 
+  /* ── "build my own schedule" panel ── */
+  .bld{background:var(--card);border:0.5px solid var(--line);border-left:3px solid var(--gold);border-radius:var(--r);margin:16px 0 0;overflow:hidden}
+  .bld-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:12px 16px;cursor:pointer;background:var(--goldbg);user-select:none}
+  .bld-head b{font-family:var(--serif);font-size:15px}
+  .bld-head .sm{font-size:13px;color:var(--soft);flex:1;min-width:170px}
+  .bld-head .chev{color:var(--gold);font-size:12px;transition:transform .2s}
+  .bld.open .bld-head .chev{transform:rotate(90deg)}
+  .bld-body{display:none;padding:16px 16px 18px}
+  .bld.open .bld-body{display:block}
+  .fld{display:flex;gap:14px;flex-wrap:wrap;margin:0 0 16px}
+  .fld label{display:flex;flex-direction:column;gap:4px;font-size:11.5px;color:var(--soft);font-weight:500;text-transform:uppercase;letter-spacing:.04em}
+  .fld input{font-family:var(--sans);font-size:14px;padding:7px 10px;border:0.5px solid var(--line2);border-radius:8px;background:#fff;color:var(--ink)}
+  .fld input#bInit{text-transform:uppercase;width:112px;letter-spacing:.1em;font-weight:600}
+  .dmtab{width:100%;border-collapse:collapse;font-size:13.5px;margin:0 0 14px}
+  .dmtab th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--soft);padding:6px 8px;background:var(--paper2);font-weight:600}
+  .dmtab td{padding:6px 8px;border-bottom:0.5px solid var(--line)}
+  .dmtab select{font-family:var(--sans);font-size:13px;padding:5px 8px;border:0.5px solid var(--line2);border-radius:7px;background:#fff;color:var(--ink);width:100%;max-width:190px}
+  .bld-msg{font-size:13px;color:var(--soft);margin:0 0 12px;min-height:19px}
+  .bld-msg.err{color:var(--no);font-weight:500}
+  .btn.go{background:var(--ok);color:#fff;border-color:var(--ok);font-weight:600}
+  .btn.go:hover{background:#0b5744}
+  .whobar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:var(--okbg);border:0.5px solid rgba(15,110,86,.25);border-radius:10px;padding:10px 14px;margin:16px 0 0;font-size:13.5px;color:var(--ok)}
+  .whobar b{font-family:var(--serif)}
+  .whobar .spacer{flex:1}
+
   @media(max-width:680px){
     .grid2,.principles{grid-template-columns:1fr}
     .hero-title{font-size:27px}
@@ -124,12 +149,49 @@
 
   <div class="hero">
     <div class="hero-eye">ABVP Combined Exam · Shelter Medicine RVS</div>
-    <div class="hero-title">Study Schedule to Exam Day</div>
+    <div class="hero-title" id="heroTitle">Study Schedule to Exam Day</div>
     <div class="hero-pills">
-      <div class="hero-pill"><b>Sat 7 Nov</b><span>Exam day</span></div>
+      <div class="hero-pill"><b id="pillExam">Sat 7 Nov</b><span>Exam day</span></div>
       <div class="hero-pill rpill"><b id="countdown">—</b><span>Days to go</span></div>
-      <div class="hero-pill"><b>19</b><span>Study weeks</span></div>
-      <div class="hero-pill"><b>5×350</b><span>Mock Qs</span></div>
+      <div class="hero-pill"><b id="pillWeeks">19</b><span>Study weeks</span></div>
+      <div class="hero-pill"><b id="pillMocks">5×350</b><span>Mock Qs</span></div>
+    </div>
+  </div>
+
+  <div class="whobar" id="whoBar" style="display:none">
+    <span>Viewing <b id="whoName">—</b> &mdash; generated from <span id="whoDates">—</span>.</span>
+    <span class="spacer"></span>
+    <button class="btn no-print" onclick="editPlan()">Edit</button>
+    <button class="btn no-print" onclick="clearPlan()">Back to Juliana's plan</button>
+  </div>
+
+  <div class="bld no-print" id="bld">
+    <div class="bld-head" onclick="document.getElementById('bld').classList.toggle('open')">
+      <span class="chev">▶</span>
+      <b>Not Juliana? Build your own schedule</b>
+      <span class="sm">Put in your initials and start date and this page will re-plan every week for you, weighted by exam blueprint.</span>
+    </div>
+    <div class="bld-body">
+      <div class="fld">
+        <label>Your initials
+          <input type="text" id="bInit" maxlength="4" placeholder="e.g. SJ" autocomplete="off" spellcheck="false">
+        </label>
+        <label>Start date
+          <input type="date" id="bStart">
+        </label>
+        <label>Exam date
+          <input type="date" id="bExam" value="2026-11-07">
+        </label>
+      </div>
+
+      <table class="dmtab">
+        <thead><tr><th>Domain</th><th style="width:36px">Weight</th><th style="width:200px">Where you're at</th></tr></thead>
+        <tbody id="bDomains"></tbody>
+      </table>
+      <p class="bld-msg" id="bldMsg">Leave everything on <i>Normal</i> for a straight blueprint-weighted plan. Mark a domain <i>already covered</i> and it shrinks to a single consolidation week; mark one a <i>weak spot</i> and it gets extra time plus journal-article emphasis.</p>
+
+      <button class="btn go" onclick="makePlan()">Build my schedule</button>
+      <button class="btn" onclick="clearPlan()">Reset</button>
     </div>
   </div>
 
@@ -140,7 +202,7 @@
     <button class="btn" onclick="resetTicks()">Reset ticks</button>
   </div>
 
-  <p class="lede">Built from this weekend (27 Jun) to exam day. Time is allocated <b>by exam weight</b> — the
+  <p class="lede" id="mainLede">Built from this weekend (27 Jun) to exam day. Time is allocated <b>by exam weight</b> — the
   domains worth the most points get the most weeks. <b>Physical Health is trimmed to a 2-week finish-and-consolidate
   pass</b> since you're already ~80% through it; those freed weeks went to Shelter Management, Behavioral Health, and a
   final consolidation week. Each week mixes <b>content review</b> (your hub pages), <b>MCQ practice</b> (your question
@@ -148,7 +210,7 @@
   tapering. Tick a week's box when you finish it — your progress saves on this device.</p>
 
   <!-- ============ DIAGNOSTIC FOCUS ============ -->
-  <div class="card" style="border-left:3px solid var(--gold);background:var(--goldbg)">
+  <div class="card" id="dxCard" style="border-left:3px solid var(--gold);background:var(--goldbg)">
     <h3 class="sub" style="margin-top:0">📊 Your 50-Q diagnostic → where this plan now leans</h3>
     <p style="margin:0 0 10px;color:var(--soft);font-size:14.5px">Your diagnostic (27 Jun) flagged four soft spots. Three of them point at the <b>same underlying skill — reading and answering journal-article questions</b> — and two are domains you simply haven't studied yet. The plan below is tuned to hit all four:</p>
     <ul style="margin:0;padding-left:18px;font-size:14px;color:var(--ink);line-height:1.55">
@@ -164,7 +226,7 @@
   <p class="lede">A repeatable template for every content week (Weeks 1–17). Built around <b>1–2 hrs on weeknights</b>
   with <b>Friday as your rest night</b> (take a second midweek if you need it), plus one bigger <b>5–8 hr weekend block</b>.
   The single highest-yield habit is the one in bold: <b>log every wrong MCQ and why you missed it</b>, then re-test those before the exam.
-  Because your diagnostic flagged <b>journal-article questions across the board</b>, a journal-article block is now baked into <b>both</b> Thursday and the weekend, every single week.</p>
+  <span id="rhythmDx">Because your diagnostic flagged <b>journal-article questions across the board</b>, a journal-article block is now baked into <b>both</b> Thursday and the weekend, every single week.</span></p>
 
   <div class="grid2">
     <div class="card">
@@ -190,7 +252,7 @@
 
   <!-- ============ THE TABLE ============ -->
   <h2 class="sec">Week by week</h2>
-  <p class="lede">Domain weeks are sized to exam weight, adjusted for what you've already covered:
+  <p class="lede" id="wkIntro">Domain weeks are sized to exam weight, adjusted for what you've already covered:
   <b>Physical Health 29%</b> (2 wks — finish & consolidate, since you're ~80% done), <b>Shelter Mgmt 18%</b> (4),
   <b>Behavioral 16%</b> (4), <b>Homelessness 12%</b> (2), <b>Community/Public Health 11%</b> (2),
   <b>Policy 7%</b> (1), <b>Research/Biostats 6%</b> (1, placed first as a foundation), plus a <b>consolidation week</b> before the mocks.</p>
@@ -199,7 +261,7 @@
     <thead>
       <tr><th class="tk">✓</th><th>Week</th><th>Dates</th><th>Focus</th><th>Do this</th><th>Spaced review</th></tr>
     </thead>
-    <tbody>
+    <tbody id="schedBody">
       <tr class="phase-band"><td colspan="6">Kickoff weekend — orient & diagnose</td></tr>
       <tr>
         <td class="tk"><input type="checkbox" data-wk="k0"></td>
@@ -397,23 +459,321 @@
 </div>
 
 <script>
-  // Live countdown to exam morning
-  (function(){
-    var exam = new Date(2026, 10, 7, 9, 0, 0); // 7 Nov 2026, 9am
-    var now = new Date();
-    var days = Math.max(0, Math.ceil((exam - now) / 86400000));
-    var el = document.getElementById('countdown');
-    if (el) el.textContent = days;
-  })();
+/* ============================================================
+   Juliana's hand-tuned plan is what this page shows by default.
+   Anyone else can enter their initials + start date and the
+   whole schedule is re-planned for them, weighted by the ABVP
+   blueprint and fitted to their own exam date. Their plan and
+   their week-ticks live in this browser under their initials;
+   "Back to Juliana's plan" restores the original view.
+   ============================================================ */
+(function(){
+  'use strict';
 
-  // Persist week ticks on this device
-  var KEY = 'abvp-schedule-ticks-v1';
-  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch(e){ return {}; } }
-  function save(s){ try { localStorage.setItem(KEY, JSON.stringify(s)); } catch(e){} }
+  var CFG_KEY  = 'abvp-sched-cfg-v1';
+  var BASE_KEY = 'abvp-schedule-ticks-v1';   /* Juliana's ticks — unchanged */
 
-  var boxes = Array.prototype.slice.call(document.querySelectorAll('#schedTable input[type=checkbox]'));
-  var state = load();
+  /* ---------- the seven domains ---------- */
+  var DOMAINS = [
+    { k:'bio', n:'Research &amp; Biostats', s:'biostats', w:6, first:true, topics:[
+      'Study design &amp; levels of evidence',
+      'Bias, confounding &amp; validity',
+      'Sensitivity, specificity, PPV / NPV',
+      'p-values, confidence intervals, NNT',
+      'Basic epidemiology &amp; outbreak curves',
+      'Critical appraisal drill: name the design and the key stat in every abstract'
+    ]},
+    { k:'phys', n:'Physical Health of Animal', s:'P-Health', w:29, topics:[
+      'Infectious disease: CPV, CDV, CIRD, CIV, ringworm',
+      'Infectious disease: FPV, FeLV/FIV, FIP, feline URI',
+      'Sanitation &amp; biosecurity',
+      'Vaccination protocols',
+      'Parasites — internal &amp; external',
+      'Surgery, anaesthesia &amp; HQHVSN',
+      'Nutrition &amp; husbandry',
+      'Medical health &amp; preventive care',
+      'Euthanasia',
+      'Facility &amp; shelter design',
+      'Other species: rabbits &amp; exotics'
+    ]},
+    { k:'mgmt', n:'Shelter Management', s:'shelter mgmt', w:18, topics:[
+      'Population management + <b>Asilomar Accords</b> (4 categories, Live Release Rate, SAC)',
+      'Animal ID &amp; tracking, intake flow',
+      'Capacity for Care, length-of-stay drivers',
+      'Data, metrics &amp; record-keeping',
+      'Management, leadership &amp; staffing',
+      'Resource allocation &amp; budgeting',
+      'Regulatory compliance &amp; liability',
+      'Staff mental health &amp; compassion fatigue'
+    ]},
+    { k:'beh', n:'Behavioral Health', s:'behavioral', w:16, topics:[
+      'Behavioural assessment',
+      'Fear, anxiety &amp; stress (FAS) and cooperative care',
+      'Enrichment &amp; housing',
+      'Arousal and behaviour modification',
+      'Behavioural psychopharmacology',
+      'Dog vs cat behaviour, playgroups',
+      'Behavioural pathways &amp; decision-making',
+      'Behavioural euthanasia decision-making'
+    ]},
+    { k:'cah', n:'Companion Animal Homelessness', s:'homelessness', w:12, topics:[
+      'Intake diversion &amp; community programs',
+      'TNR / community cats',
+      'Foster programs',
+      'Adoption &amp; placement',
+      'Return-to-owner',
+      'Access to veterinary care',
+      'Spay-neuter capacity &amp; HQHVSN',
+      'Transport &amp; relocation'
+    ]},
+    { k:'cph', n:'Community &amp; Public Health', s:'community/PH', w:11, topics:[
+      'Zoonoses &amp; One Health',
+      'Rabies',
+      'Disease surveillance &amp; reportable conditions',
+      'Disaster response &amp; emergency sheltering',
+      'Cruelty investigation &amp; the forensics interface',
+      'Dangerous dogs &amp; bite management',
+      'Hoarding'
+    ]},
+    { k:'pol', n:'Animals &amp; Public Policy', s:'policy', w:7, topics:[
+      'Legislation &amp; local ordinances',
+      'Breed-specific and dangerous-dog law',
+      'Advocacy &amp; policy change',
+      'Ethics &amp; animal-welfare frameworks'
+    ]}
+  ];
 
+  /* ---------- date helpers ---------- */
+  var MON = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAY = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  function parseD(s){ var p = String(s || '').split('-'); return new Date(+p[0], +p[1] - 1, +p[2]); }
+  function isoD(d){
+    return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2);
+  }
+  function addD(d, n){ var x = new Date(d.getTime()); x.setDate(x.getDate() + n); return x; }
+  function diffD(a, b){ return Math.round((b - a) / 86400000); }
+  function fmtRange(a, b){
+    if (a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth()){
+      return a.getDate() + '–' + b.getDate() + ' ' + MON[b.getMonth()];
+    }
+    return a.getDate() + ' ' + MON[a.getMonth()] + '–' + b.getDate() + ' ' + MON[b.getMonth()];
+  }
+  function fmtShort(d){ return DAY[d.getDay()].slice(0,3) + ' ' + d.getDate() + ' ' + MON[d.getMonth()]; }
+
+  /* ---------- allocate content weeks across domains ---------- */
+  function allocate(weeks, doms){
+    var out = {}, pool = [], used = 0, i;
+    doms.forEach(function(d){
+      if (d.status === 1){                       /* already covered = one consolidation week */
+        if (used < weeks){ out[d.k] = 1; used++; } else { out[d.k] = 0; }
+      } else { pool.push(d); out[d.k] = 0; }
+    });
+    var left = Math.max(0, weeks - used);
+    var wt = function(d){ return d.w * (d.status === 2 ? 1.4 : 1); };
+    var tot = pool.reduce(function(s, d){ return s + wt(d); }, 0);
+    var frac = [], sum = 0;
+    pool.forEach(function(d){
+      var exact = tot ? wt(d) / tot * left : 0;
+      out[d.k] = Math.floor(exact);
+      sum += out[d.k];
+      frac.push({ k: d.k, f: exact - Math.floor(exact) });
+    });
+    frac.sort(function(a, b){ return b.f - a.f; });
+    for (i = 0; sum < left && i < frac.length; i++){ out[frac[i].k]++; sum++; }
+    /* nobody who is being studied should sit on zero while another has 2+ */
+    pool.forEach(function(d){
+      if (out[d.k] === 0){
+        var big = null;
+        pool.forEach(function(o){ if (out[o.k] > 1 && (big === null || out[o.k] > out[big])) big = o.k; });
+        if (big){ out[big]--; out[d.k] = 1; }
+      }
+    });
+    return out;
+  }
+
+  /* ---------- topics for week j of n for a domain ---------- */
+  function slice(d, j, n){
+    var T = d.topics.length, a, b;
+    if (n <= T){
+      a = Math.floor(j * T / n);
+      b = Math.max(a + 1, Math.floor((j + 1) * T / n));
+      return { txt: d.topics.slice(a, Math.min(b, T)).join(' &middot; '), rep: false };
+    }
+    /* more weeks than topics — the spare weeks become second passes */
+    if (j < T) return { txt: d.topics[j], rep: false };
+    return { txt: d.topics[(j - T) % T], rep: true };
+  }
+
+  /* ---------- build the whole plan ---------- */
+  function buildPlan(cfg){
+    var start = parseD(cfg.start), exam = parseD(cfg.exam);
+    var total = diffD(start, exam);
+    if (!(total > 0)) return { err: 'The exam date has to be after the start date.' };
+    if (total < 21) return { err: 'That leaves ' + total + ' days. You need at least 3 weeks to build a plan worth following — with less than that, go straight to mock exams and your error log.' };
+
+    var kick = 2;
+    var mockDays = total >= 84 ? 12 : (total >= 35 ? 7 : 4);
+    var contentStart = addD(start, kick);
+    var mockStart = addD(exam, -mockDays);
+    var cw = Math.floor(diffD(contentStart, mockStart) / 7);
+    if (cw < 3 && mockDays === 12){ mockDays = 7; mockStart = addD(exam, -7); cw = Math.floor(diffD(contentStart, mockStart) / 7); }
+    if (cw < 2 && mockDays === 7){ mockDays = 4; mockStart = addD(exam, -4); cw = Math.floor(diffD(contentStart, mockStart) / 7); }
+
+    var consol = cw >= 6 ? 1 : 0;
+    var doms = DOMAINS.map(function(d){
+      var o = {}; for (var p in d) o[p] = d[p];
+      o.status = cfg.status[d.k] || 0;
+      return o;
+    });
+    var alloc = allocate(cw - consol, doms);
+
+    /* order: biostats first (it powers every journal question), then the
+       already-covered consolidation passes, then the rest by exam weight */
+    var ordered = doms.slice().sort(function(a, b){
+      if (a.first !== b.first) return a.first ? -1 : 1;
+      if ((a.status === 1) !== (b.status === 1)) return a.status === 1 ? -1 : 1;
+      return b.w - a.w;
+    });
+
+    var rows = [], wkNo = 0, finished = [], justDone = null, cyc = 0, dropped = [];
+
+    rows.push({ band: 'Kickoff — orient &amp; diagnose' });
+    rows.push({
+      key: 'k0', wk: 'Start', dt: fmtRange(start, addD(start, 1)), dom: 'Set-up',
+      todo: 'Open an <b>error-log</b> doc. Skim the full 7-domain map on the <a href="index.html">Study Hub</a>. Run a <b>50-question diagnostic in <a href="mock-exam.html">mock-exam.html</a></b> (set <i>Total questions = 50</i>) — it pulls a blueprint-weighted mix across all 7 domains and will show you where you actually stand.',
+      rev: '—'
+    });
+
+    rows.push({ band: 'Phase 1 &middot; Content + MCQs + abstracts (Weeks 1–' + (cw || 1) + ')' });
+
+    ordered.forEach(function(d){
+      var n = alloc[d.k] || 0;
+      if (!n){ dropped.push(d.n); return; }
+      for (var j = 0; j < n; j++){
+        wkNo++;
+        var a = addD(contentStart, (wkNo - 1) * 7);
+        var b = addD(a, 6);
+        if (wkNo === cw) b = addD(mockStart, -1);          /* last week absorbs the spare days */
+        var todo;
+        if (d.status === 1){
+          todo = '<b>Consolidate</b> — you marked this domain as already covered, so this is one heavy MCQ pass plus your 1-page summary sheets. Weight it toward <b>journal-article questions</b>, which are the part recall does not cover. <small>It comes back through the spaced-review column all the way to exam day.</small>';
+        } else {
+          var sl = slice(d, j, n);
+          todo = sl.rep
+            ? '<b>Second pass</b> — MCQ-led, plus journal articles and error-log re-tests on: ' + sl.txt + '.'
+            : sl.txt + '.';
+          if (d.status === 2){
+            todo = '<b>⚠ You flagged this as a weak spot.</b> ' + todo + ' Lead with MCQs over reading, and pull this domain’s journal articles as well.';
+          }
+          if (j === n - 1 && n > 1) todo += ' <b>Consolidate the domain</b> + MCQs.';
+        }
+        var rev = '—';
+        if (justDone){ rev = '20 Q ' + justDone; }
+        else if (finished.length){ rev = '15 Q ' + finished[cyc++ % finished.length]; }
+        justDone = null;
+        rows.push({
+          key: 'w' + wkNo, wk: 'Wk ' + wkNo, dt: fmtRange(a, b),
+          dom: d.n, wt: d.w + '%', todo: todo, rev: rev
+        });
+      }
+      finished.push(d.s);
+      justDone = d.s;
+    });
+
+    if (consol){
+      wkNo++;
+      var ca = addD(contentStart, (wkNo - 1) * 7), cb = addD(mockStart, -1);
+      var weak = doms.filter(function(d){ return d.status === 2; }).map(function(d){ return d.n; });
+      var ctodo = '<b>Cumulative review.</b> Re-test your <b>whole error log</b>, then mixed MCQs across all 7 domains to surface what is left.';
+      if (weak.length) ctodo += ' Lead with your flagged weak spots: <b>' + weak.join(', ') + '</b>.';
+      if (dropped.length) ctodo += ' There was not enough runway to give <b>' + dropped.join(', ') + '</b> a week of its own — do a rapid MCQ-led pass here.';
+      rows.push({ key: 'w' + wkNo, wk: 'Wk ' + wkNo, dt: fmtRange(ca, cb), dom: 'Consolidation + catch-up', todo: ctodo, rev: 'Mixed — all domains' });
+    } else if (dropped.length){
+      /* no room for a consolidation week — the squeezed-out domains still have to be named somewhere */
+      for (var z = rows.length - 1; z >= 0; z--){
+        if (rows[z].key && rows[z].key.charAt(0) === 'w'){
+          rows[z].todo += ' <b>Also, on this short runway there was no week left for ' + dropped.join(', ') +
+            '</b> — give ' + (dropped.length > 1 ? 'them' : 'it') + ' a fast MCQ-only pass in whatever time you can find, and lean on the mock exams to expose the gaps.';
+          break;
+        }
+      }
+    }
+
+    var mockQ = 0;
+    if (mockDays === 12){
+      mockQ = 5;
+      rows.push({ band: 'Phase 2 &middot; Mock-exam fortnight — 5 × 350 Q + taper' });
+      rows.push({ key: 'm1', mock: 1, wk: 'Mocks', dt: fmtRange(addD(exam, -12), addD(exam, -8)), dom: 'Mocks 1 &amp; 2', wt: '700 Q',
+        todo: 'Split each 350-Q mock across two evenings (175 + 175), with a rest day between them. Review <b>every</b> miss into the error log.', rev: 'Error log' });
+      rows.push({ key: 'm2', mock: 1, wk: 'Sims', dt: fmtRange(addD(exam, -7), addD(exam, -6)), dom: 'Mocks 3 &amp; 4', wt: '700 Q',
+        todo: '<b>Full 350-Q timed simulations</b> — one each day, single sitting, exam conditions, in <a href="mock-exam.html">mock-exam.html</a>. Full review after each. This is where you train pacing and stamina, not just recall.', rev: 'Error log' });
+      rows.push({ key: 'm3', mock: 1, wk: 'Mock 5', dt: fmtRange(addD(exam, -5), addD(exam, -3)), dom: 'Mock 5 + review', wt: '350 Q',
+        todo: 'Day 1: consolidate the weak areas from mocks 3–4. <b>Mock 5</b> split over the next two days (175 + 175). Re-test your most-missed topics.', rev: 'Top weak topics' });
+      rows.push({ key: 'taper', mock: 1, wk: 'Taper', dt: fmtRange(addD(exam, -2), addD(exam, -1)), dom: 'Wind down',
+        todo: 'Light review of your 1-page summary sheets only — <b>no new material</b>. Then rest, logistics, gear, sleep. Trust the prep.', rev: 'Summary sheets' });
+    } else if (mockDays === 7){
+      mockQ = 3;
+      rows.push({ band: 'Phase 2 &middot; Mock week — 3 × 350 Q + taper' });
+      rows.push({ key: 'm1', mock: 1, wk: 'Mocks', dt: fmtRange(addD(exam, -7), addD(exam, -5)), dom: 'Mocks 1 &amp; 2', wt: '700 Q',
+        todo: 'Split each 350-Q mock across two sittings (175 + 175). Review every miss into the error log. <small>Short runway, so the mock block is one week rather than two.</small>', rev: 'Error log' });
+      rows.push({ key: 'm2', mock: 1, wk: 'Sim', dt: fmtRange(addD(exam, -4), addD(exam, -3)), dom: 'Mock 3 — full sim', wt: '350 Q',
+        todo: '<b>One full 350-Q timed simulation</b>, single sitting, exam conditions. Full review the next day.', rev: 'Error log' });
+      rows.push({ key: 'taper', mock: 1, wk: 'Taper', dt: fmtRange(addD(exam, -2), addD(exam, -1)), dom: 'Wind down',
+        todo: 'Summary sheets only — <b>no new material</b>. Rest, logistics, sleep.', rev: 'Summary sheets' });
+    } else if (mockDays === 4){
+      mockQ = 1;
+      rows.push({ band: 'Phase 2 &middot; One mock + taper' });
+      rows.push({ key: 'm1', mock: 1, wk: 'Mock', dt: fmtRange(addD(exam, -4), addD(exam, -3)), dom: 'Mock exam + review', wt: '350 Q',
+        todo: 'One <b>350-Q timed mock</b> in <a href="mock-exam.html">mock-exam.html</a>, then a full review of every miss the next day. <small>Very short runway — this mock is your main diagnostic, so review it properly rather than sitting a second one.</small>', rev: 'Error log' });
+      rows.push({ key: 'taper', mock: 1, wk: 'Taper', dt: fmtRange(addD(exam, -2), addD(exam, -1)), dom: 'Wind down',
+        todo: 'Your highest-yield notes and the error log only — <b>no new material</b>. Rest, logistics, sleep.', rev: 'Error log' });
+    }
+
+    rows.push({ exam: '🎯  ' + DAY[exam.getDay()] + ' ' + exam.getDate() + ' ' + MON[exam.getMonth()] + ' — EXAM DAY' });
+
+    return {
+      rows: rows, weeks: cw, mockQ: mockQ, exam: exam, start: start, consol: consol,
+      alloc: alloc, ordered: ordered, dropped: dropped, mockDays: mockDays
+    };
+  }
+
+  /* ---------- render ---------- */
+  function rowHTML(r){
+    if (r.band) return '<tr class="phase-band"><td colspan="6">' + r.band + '</td></tr>';
+    if (r.exam) return '<tr class="examrow"><td colspan="6">' + r.exam + '</td></tr>';
+    return '<tr' + (r.mock ? ' class="mock"' : '') + '>' +
+      '<td class="tk"><input type="checkbox" data-wk="' + r.key + '"></td>' +
+      '<td class="wk">' + r.wk + '</td><td class="dt">' + r.dt + '</td>' +
+      '<td><span class="dom">' + r.dom + '</span>' + (r.wt ? '<span class="wt">' + r.wt + '</span>' : '') + '</td>' +
+      '<td>' + r.todo + '</td><td>' + r.rev + '</td></tr>';
+  }
+
+  /* ---------- page state ---------- */
+  var $ = function(id){ return document.getElementById(id); };
+  var ORIG = {
+    body: $('schedBody').innerHTML,
+    title: $('heroTitle').innerHTML,
+    exam: $('pillExam').innerHTML,
+    weeks: $('pillWeeks').innerHTML,
+    mocks: $('pillMocks').innerHTML,
+    lede: $('mainLede').innerHTML,
+    intro: $('wkIntro').innerHTML,
+    rhythm: $('rhythmDx').innerHTML
+  };
+  var tickKey = BASE_KEY, examDate = new Date(2026, 10, 7), state = {}, boxes = [];
+
+  function loadTicks(){ try { return JSON.parse(localStorage.getItem(tickKey) || '{}'); } catch(e){ return {}; } }
+  function saveTicks(){ try { localStorage.setItem(tickKey, JSON.stringify(state)); } catch(e){} }
+  function loadCfg(){ try { return JSON.parse(localStorage.getItem(CFG_KEY) || 'null'); } catch(e){ return null; } }
+
+  function wireTicks(){
+    boxes = Array.prototype.slice.call(document.querySelectorAll('#schedTable input[type=checkbox]'));
+    state = loadTicks();
+    boxes.forEach(function(b){
+      b.addEventListener('change', function(){ state[b.dataset.wk] = b.checked; saveTicks(); refresh(); });
+    });
+    refresh();
+  }
   function refresh(){
     var done = 0;
     boxes.forEach(function(b){
@@ -422,24 +782,136 @@
       var tr = b.closest('tr');
       if (on){ tr.classList.add('done'); done++; } else { tr.classList.remove('done'); }
     });
-    document.getElementById('doneCount').textContent = done;
-    document.getElementById('totalCount').textContent = boxes.length;
-    document.getElementById('progBar').style.width = (boxes.length ? (done/boxes.length*100) : 0) + '%';
+    $('doneCount').textContent = done;
+    $('totalCount').textContent = boxes.length;
+    $('progBar').style.width = (boxes.length ? (done / boxes.length * 100) : 0) + '%';
+  }
+  function countdown(){
+    var days = Math.max(0, Math.ceil((new Date(examDate.getFullYear(), examDate.getMonth(), examDate.getDate(), 9) - new Date()) / 86400000));
+    $('countdown').textContent = days;
   }
 
-  boxes.forEach(function(b){
-    b.addEventListener('change', function(){
-      state[b.dataset.wk] = b.checked;
-      save(state); refresh();
+  /* ---------- apply a generated plan ---------- */
+  function applyPlan(cfg, plan){
+    var who = cfg.init;
+    $('schedBody').innerHTML = plan.rows.map(rowHTML).join('');
+    $('heroTitle').innerHTML = who + '’s Study Schedule to Exam Day';
+    $('pillExam').innerHTML = fmtShort(plan.exam);
+    $('pillWeeks').innerHTML = plan.weeks;
+    $('pillMocks').innerHTML = plan.mockQ ? plan.mockQ + '×350' : '—';
+    $('dxCard').style.display = 'none';
+
+    var covered = plan.ordered.filter(function(d){ return d.status === 1; }).map(function(d){ return d.n; });
+    var weak = plan.ordered.filter(function(d){ return d.status === 2; }).map(function(d){ return d.n; });
+    var lede = 'Built for <b>' + who + '</b>, from ' + fmtShort(plan.start) + ' to exam day on ' + fmtShort(plan.exam) +
+      ' — <b>' + plan.weeks + ' study weeks</b>' + (plan.mockQ ? ' plus a mock-exam block of ' + plan.mockQ + ' × 350 questions' : '') +
+      '. Time is allocated <b>by exam weight</b>, so the domains worth the most points get the most weeks.';
+    if (covered.length) lede += ' You marked <b>' + covered.join(' and ') + '</b> as already covered, so ' + (covered.length > 1 ? 'those shrink' : 'that shrinks') + ' to a consolidation week and the freed weeks went to everything else.';
+    if (weak.length) lede += ' <b>' + weak.join(' and ') + '</b> ' + (weak.length > 1 ? 'were' : 'was') + ' flagged as weak, so ' + (weak.length > 1 ? 'they get' : 'it gets') + ' extra time, journal emphasis, and top billing in the consolidation week.';
+    lede += ' Each week mixes <b>content review</b> (the hub pages), <b>MCQ practice</b> and <b>journal abstracts</b>. Tick a week when you finish it — progress saves in this browser under your initials.';
+    $('mainLede').innerHTML = lede;
+
+    var parts = plan.ordered.filter(function(d){ return plan.alloc[d.k]; }).map(function(d){
+      return '<b>' + d.n + ' ' + d.w + '%</b> (' + plan.alloc[d.k] + (plan.alloc[d.k] === 1 ? ' wk' : ' wks') + ')';
     });
-  });
+    var intro = 'Domain weeks for this plan: ' + parts.join(', ') + '. Research &amp; Biostats is placed first on purpose — it is the engine behind every journal-article question in the other six domains.';
+    if (plan.dropped.length){
+      intro += ' <b>' + plan.dropped.join(' and ') + '</b> did not fit a week of ' + (plan.dropped.length > 1 ? 'their' : 'its') + ' own on this runway — ' +
+        (plan.consol ? 'folded into the consolidation week instead.' : 'flagged on the last content week for a fast MCQ-only pass.');
+    }
+    $('wkIntro').innerHTML = intro;
+    $('rhythmDx').innerHTML = 'Journal-article questions are a separate skill from recall and they turn up in every domain, so a journal block sits in <b>both</b> Thursday and the weekend, every single week.';
+
+    $('whoName').innerHTML = who + '’s plan';
+    $('whoDates').innerHTML = fmtShort(plan.start) + ' → ' + fmtShort(plan.exam);
+    $('whoBar').style.display = 'flex';
+    $('bld').classList.remove('open');
+
+    examDate = plan.exam;
+    tickKey = BASE_KEY + ':' + who + '|' + cfg.start + '|' + cfg.exam;
+    countdown(); wireTicks();
+  }
+
+  function restoreOriginal(){
+    $('schedBody').innerHTML = ORIG.body;
+    $('heroTitle').innerHTML = ORIG.title;
+    $('pillExam').innerHTML = ORIG.exam;
+    $('pillWeeks').innerHTML = ORIG.weeks;
+    $('pillMocks').innerHTML = ORIG.mocks;
+    $('mainLede').innerHTML = ORIG.lede;
+    $('wkIntro').innerHTML = ORIG.intro;
+    $('rhythmDx').innerHTML = ORIG.rhythm;
+    $('dxCard').style.display = '';
+    $('whoBar').style.display = 'none';
+    examDate = new Date(2026, 10, 7);
+    tickKey = BASE_KEY;
+    countdown(); wireTicks();
+  }
+
+  /* ---------- the builder form ---------- */
+  $('bDomains').innerHTML = DOMAINS.map(function(d){
+    return '<tr><td>' + d.n + '</td><td>' + d.w + '%</td><td><select data-dom="' + d.k + '">' +
+      '<option value="0">Normal</option>' +
+      '<option value="1">Already covered</option>' +
+      '<option value="2">Weak spot — needs more</option></select></td></tr>';
+  }).join('');
+  $('bStart').value = isoD(new Date());
+
+  function readForm(){
+    var init = ($('bInit').value || '').trim().toUpperCase().replace(/[^A-Z0-9. ]/g, '');
+    var status = {};
+    Array.prototype.slice.call(document.querySelectorAll('#bDomains select')).forEach(function(s){
+      status[s.dataset.dom] = +s.value;
+    });
+    return { init: init, start: $('bStart').value, exam: $('bExam').value, status: status };
+  }
+
+  window.makePlan = function(){
+    var msg = $('bldMsg');
+    var cfg = readForm();
+    if (!cfg.init){ msg.className = 'bld-msg err'; msg.innerHTML = 'Put your initials in first — they name the plan and keep your ticked weeks separate from everyone else’s on this device.'; return; }
+    if (!cfg.start || !cfg.exam){ msg.className = 'bld-msg err'; msg.innerHTML = 'A start date and an exam date are both needed.'; return; }
+    var plan = buildPlan(cfg);
+    if (plan.err){ msg.className = 'bld-msg err'; msg.innerHTML = plan.err; return; }
+    msg.className = 'bld-msg';
+    msg.innerHTML = 'Built — ' + plan.weeks + ' study weeks' + (plan.mockQ ? ' + ' + plan.mockQ + ' mock exams' : '') + '. Scroll down for the week-by-week table.';
+    try { localStorage.setItem(CFG_KEY, JSON.stringify(cfg)); } catch(e){}
+    applyPlan(cfg, plan);
+    var t = document.querySelector('#schedTable');
+    if (t && t.scrollIntoView) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  window.editPlan = function(){
+    var cfg = loadCfg(); if (!cfg) return;
+    $('bInit').value = cfg.init; $('bStart').value = cfg.start; $('bExam').value = cfg.exam;
+    Array.prototype.slice.call(document.querySelectorAll('#bDomains select')).forEach(function(s){
+      s.value = cfg.status[s.dataset.dom] || 0;
+    });
+    $('bld').classList.add('open');
+    if ($('bld').scrollIntoView) $('bld').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
+
+  window.clearPlan = function(){
+    try { localStorage.removeItem(CFG_KEY); } catch(e){}
+    $('bldMsg').className = 'bld-msg';
+    $('bldMsg').innerHTML = 'Back on Juliana’s plan. Your ticked weeks are still saved under your initials — build again with the same dates and they come back.';
+    restoreOriginal();
+  };
 
   window.resetTicks = function(){
     if (!confirm('Clear all ticked weeks?')) return;
-    state = {}; save(state); refresh();
+    state = {}; saveTicks(); refresh();
   };
 
-  refresh();
+  /* ---------- boot ---------- */
+  var saved = loadCfg();
+  if (saved && saved.init){
+    var p = buildPlan(saved);
+    if (!p.err){ applyPlan(saved, p); } else { countdown(); wireTicks(); }
+  } else {
+    countdown(); wireTicks();
+  }
+})();
 </script>
 </body>
 </html>
