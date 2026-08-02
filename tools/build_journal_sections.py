@@ -27,6 +27,16 @@ _SYNTH_PATH = _TOOLS_DIR / "synthesized_mcqs.json"
 sys.path.insert(0, str(_TOOLS_DIR))
 from lib_catalog import load_catalog  # noqa: E402
 
+# The 2026 sitting examines articles published 2021-2025. Later articles are
+# kept in the catalog and shown on their pages as supplementary reading, but
+# contribute no questions. Their MCQs stay in journal-catalog.json, so raising
+# this for a later sitting brings them back with no regeneration needed.
+EXAM_MAX_YEAR = 2025
+
+
+def in_exam_window(rec):
+    return not rec.get("year") or rec["year"] <= EXAM_MAX_YEAR
+
 
 def load_synth():
     """Load synthesized cross-study MCQs (list of dicts with subdomain_page)."""
@@ -39,7 +49,7 @@ def page_questions(page, all_records, synth):
     """All journal questions for a page: per-article mcqs + synthesized ones."""
     qs = []
     for r in all_records:
-        if r["subdomain_page"] == page:
+        if r["subdomain_page"] == page and in_exam_window(r):
             # Optional bank_topic lets an article's MCQs sit under a page's
             # existing topic filter (e.g. "hw" Heartworm) instead of the
             # default "journal" tag. Badge stays "journal" for provenance.
@@ -270,35 +280,42 @@ def render_panel(records: list, standalone: bool = False, quiz_html: str = "") -
     inline) instead of class "panel" (hidden until tab click).
     """
 
-    # Sort by year desc, then title asc
-    sorted_records = sorted(records, key=lambda r: (-r["year"], r["title"].lower()))
+    def _cards(recs):
+        parts = []
+        for rec in sorted(recs, key=lambda r: (-r["year"], r["title"].lower())):
+            title = _e(rec["title"])
+            year = _e(str(rec["year"]))
+            authors = _e(rec["authors"])
+            journal = _e(rec["journal"])
 
-    articles_html_parts = []
-    for rec in sorted_records:
-        title = _e(rec["title"])
-        year = _e(str(rec["year"]))
-        authors = _e(rec["authors"])
-        journal = _e(rec["journal"])
+            # DOI: render as link if present
+            doi_raw = rec.get("doi", "").strip()
+            if doi_raw:
+                doi_url = doi_raw if doi_raw.startswith("http") else f"https://doi.org/{doi_raw}"
+                doi_part = (f' &middot; <a href="{_e(doi_url)}" target="_blank"'
+                            f' rel="noopener">{_e(doi_raw)}</a>')
+            else:
+                doi_part = ""
 
-        # DOI: render as link if present
-        doi_raw = rec.get("doi", "").strip()
-        if doi_raw:
-            doi_url = doi_raw if doi_raw.startswith("http") else f"https://doi.org/{doi_raw}"
-            doi_part = f' &middot; <a href="{_e(doi_url)}" target="_blank" rel="noopener">{_e(doi_raw)}</a>'
-        else:
-            doi_part = ""
+            abstract_html = _abstract_html(rec["abstract"])
 
-        abstract_html = _abstract_html(rec["abstract"])
-
-        article_block = f"""\
+            parts.append(f"""\
   <div class="card ja-article">
     <p class="ja-cite"><b>{title}</b><br>
     <span class="ja-meta">{authors} &middot; {journal} &middot; {year}{doi_part}</span></p>
     <div class="ja-abstract"><b>Abstract.</b> {abstract_html}</div>
-  </div>"""
-        articles_html_parts.append(article_block)
+  </div>""")
+        return "\n".join(parts)
 
-    articles_html = "\n".join(articles_html_parts)
+    exam_recs = [r for r in records if in_exam_window(r)]
+    supp_recs = [r for r in records if not in_exam_window(r)]
+
+    articles_html = _cards(exam_recs)
+    if supp_recs:
+        articles_html += f"""
+  <h3 class="sec" style="margin-top:1.4em">Supplementary reading &mdash; published after {EXAM_MAX_YEAR}</h3>
+  <p class="lead">Outside the window the 2026 exam draws on, so no self-test questions are set on these. Kept for interest and later study.</p>
+{_cards(supp_recs)}"""
 
     if standalone:
         section_attrs = 'id="journal" class="ja-standalone"'
@@ -308,7 +325,7 @@ def render_panel(records: list, standalone: bool = False, quiz_html: str = "") -
     return f"""\
 <section {section_attrs}>
   <h2 class="sec">Additional Resources</h2>
-  <p class="lead">Journal Articles (2021–2026) — exam items are drawn from the abstract only. Read each abstract here; self-test questions are in the MCQ Test Bank.</p>
+  <p class="lead">Journal Articles (2021–{EXAM_MAX_YEAR}) — exam items are drawn from the abstract only. Read each abstract here; self-test questions are in the MCQ Test Bank.</p>
 {articles_html}
 {quiz_html}
 </section>"""
@@ -466,7 +483,7 @@ def inject(page_path: str) -> bool:
         return False
 
     questions = page_questions(page_path, all_records, synth)
-    has_bank = bool(re.search(r"const Q=\[", content))
+    has_bank = bool(re.search(r"(?:const|var)\s+Q\s*=\s*\[", content))
     # Route questions into the page's MCQ bank only when its filter bar uses
     # event delegation — either on .filters (standard template) or on #chips
     # (the bespoke research-domain hubs). That is the only case where a
@@ -493,8 +510,33 @@ def inject(page_path: str) -> bool:
             "         note: keeping existing merged-bank style "
             "(filter heuristic would have downgraded this page)"
         )
+    # A third bank style: static .q cards in #qlist driven by ans()/filterQ()
+    # rather than a JS Q array (animals-public-policy and community-public-health
+    # pages, converted Jul 2026). These carry their journal questions as markup,
+    # so neither check above sees them and they used to fall through to the
+    # standalone self-test — which duplicates questions already on the page.
+    has_static_bank = bool(
+        re.search(r'id=["\']qlist["\']', content)
+        and re.search(r"filterQ\(", content)
+    )
+    if has_static_bank:
+        print("         note: static #qlist bank — journal questions live as markup")
+    # 01_population_management holds its journal questions as literals inside its
+    # own `const Q` array (added Jul 2026, covered by that page's hand-written
+    # Fisher-Yates). Ignore anything inside our own bank script when testing, or
+    # every merged-bank page would match on its generated payload.
+    outside_bank = re.sub(
+        re.escape(BANK_START) + r".*?" + re.escape(BANK_END), "", content, flags=re.DOTALL)
+    has_inline_journal = has_bank and bool(
+        re.search(r"""["']?f["']?\s*:\s*["']journal["']""", outside_bank))
+    if has_inline_journal and not (has_delegated_filter or already_bank):
+        print("         note: journal questions already inline in this page's Q array")
+    # use_bank drives the JS bank script, which needs the page's `Q` array and
+    # render(); a static page has neither. It only needs the standalone quiz
+    # suppressed, since its questions are already in the markup.
     use_bank = has_delegated_filter or already_bank
-    quiz_html = "" if use_bank else render_quiz_block(questions)
+    quiz_html = ("" if (use_bank or has_static_bank or has_inline_journal)
+                 else render_quiz_block(questions))
 
     styles_html = render_styles()
 
