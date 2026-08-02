@@ -13,6 +13,11 @@ from lib_catalog import load_catalog
 
 CATALOG = os.path.join(HERE, "journal-catalog.json")
 SYNTH = os.path.join(HERE, "synthesized_mcqs.json")
+
+# The 2026 exam draws on articles published 2021-2025 only. Later articles stay
+# in the catalog and on their subdomain pages, but are kept out of the mock exam
+# so practice scores reflect examinable material. Raise for a later sitting.
+EXAM_MAX_YEAR = 2025
 OUT_JS = os.path.join(ROOT, "mock-data-journal.js")
 MOCK_HTML = os.path.join(ROOT, "mock-exam.html")
 
@@ -91,7 +96,11 @@ def main():
     synth = json.loads(open(SYNTH, encoding="utf-8").read()) if os.path.exists(SYNTH) else []
 
     mocks = []
+    out_of_window = set()
     for r in cat:
+        if r.get("year") and r["year"] > EXAM_MAX_YEAR:
+            out_of_window.update(m["q"] for m in r.get("mcqs") or [])
+            continue
         dom, sub = dom_sub(r["subdomain_page"])
         for m in r.get("mcqs", []):
             mocks.append({"type": "mcq", "domain": dom, "sub": sub,
@@ -115,7 +124,10 @@ def main():
             prev_raw = re.search(r"var J=(\[.*\]);", open(OUT_JS, encoding="utf-8").read(), re.S)
             prev = json.loads(prev_raw.group(1)) if prev_raw else []
             fresh = {m["q"] for m in mocks}
-            candidates = [m for m in prev if m.get("q") not in fresh]
+            # Questions held back by EXAM_MAX_YEAR are excluded on purpose, not
+            # orphaned — without this they would be carried straight back in.
+            candidates = [m for m in prev
+                          if m.get("q") not in fresh and m.get("q") not in out_of_window]
             # An unmatched question that is a near-duplicate of one the catalog
             # *does* produce is a superseded variant, not lost content — e.g.
             # the pre-dual-unit wording of a stem that now reads "-80 degrees C
@@ -172,6 +184,9 @@ def main():
     for m in mocks:
         by_dom[m["domain"]] = by_dom.get(m["domain"], 0) + 1
     print(f"wrote {OUT_JS} with {len(mocks)} journal MCQs")
+    if out_of_window:
+        print(f"  - held back {len(out_of_window)} MCQ(s) from articles published after "
+              f"{EXAM_MAX_YEAR} (still on their subdomain pages)")
     print("by domain:", json.dumps(by_dom, ensure_ascii=False))
     print("mock-exam.html include:", "added" if added else "already present")
 
