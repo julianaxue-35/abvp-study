@@ -38990,6 +38990,6321 @@
 },
 {
 "type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Shelter dogs were offered a free choice between a larger and a smaller quantity of food. How did the keepers' rating of a dog's sociability toward people relate to its performance?",
+"o": [
+"Dogs rated as less sociable chose the larger quantity from the very first trial, while highly sociable dogs performed at chance initially and only succeeded after experience with the setup",
+"Dogs rated as highly sociable chose the larger quantity from the first trial, while less sociable dogs never learned the discrimination",
+"Sociability rating made no difference; all dogs performed identically across trials",
+"Only dogs rated as highly sociable ever chose the larger quantity, at any point in testing"
+],
+"a": 0,
+"e": "Less sociable dogs succeeded immediately, resembling wolves and free-roaming dogs, whereas highly sociable dogs behaved like pet dogs and needed a first interaction with the apparatus before selecting the larger set. Overall the group did prefer the larger quantity, so the difference was in how quickly individuals got there, not whether they could.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What practical lesson does this study offer for anyone running behaviour or cognition testing in a shelter population?",
+"o": [
+"Shelter dogs should be excluded from cognition research because their histories are unknown",
+"A single trial is always sufficient to characterise a shelter dog's cognitive ability",
+"Shelter dogs are a heterogeneous population with wide individual variation, so testing must account for factors such as attitude toward humans rather than treating the group as uniform",
+"Results from shelter dogs can be applied unchanged to pet dog populations"
+],
+"a": 2,
+"e": "The authors emphasise that recent evolutionary history interacts with developmental and experiential factors. Treating shelter dogs as one homogeneous group obscures real differences, and a first-trial-only measure would have given opposite conclusions for the two sociability groups.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "In a study of 707 leash walks involving 120 shelter dogs, which single behaviour predicted a longer length of stay?",
+"o": [
+"Jumping on the handler during harnessing",
+"Grabbing the leash",
+"Pulling on the leash while walking",
+"Vocalising during harnessing"
+],
+"a": 1,
+"e": "Grabbing the leash was the behaviour associated with longer stays. Pulling on the leash was by far the most common behaviour observed but did not predict length of stay, which is a useful reminder that prevalence and prognostic value are different things.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Which behaviours were most prevalent during harnessing and during walking respectively in this shelter population?",
+"o": [
+"Growling during harnessing and lunging during walking",
+"Freezing during harnessing and vocalising during walking",
+"Jumping on handlers during harnessing (about 45%) and pulling on the leash during walking (about 86%)",
+"Mouthing during harnessing and stopping to sniff during walking"
+],
+"a": 2,
+"e": "Jumping on handlers occurred in roughly 45% of harnessing events and leash pulling in roughly 86% of walks. Because both decreased with age, the authors suggest focusing handling and training effort on younger dogs and on dogs that grab the leash.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Two experiments tested whether a play session after training improved dogs' ability to hold a sit and a stay. What was the overall conclusion?",
+"o": [
+"Play after training reliably and substantially improved learning in all dogs",
+"Support for the playful learning hypothesis was limited, because the benefit seen in the first experiment did not replicate when exercise and trainer time were controlled",
+"Play after training consistently worsened retention compared with rest",
+"Play only helped dogs that already performed well at baseline"
+],
+"a": 1,
+"e": "Experiment 1 showed greater improvement after play in dogs with low baseline ability, but Experiment 2, which controlled for exercise and time spent with trainers and standardised the success measure, did not replicate it. The honest read is that the evidence is inconclusive rather than positive.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Why does the design change in the second experiment matter when interpreting the first experiment's positive result?",
+"o": [
+"It increased the sample size enough to detect a true effect that the first experiment missed",
+"It changed the behaviours tested, so the two experiments are not comparable",
+"It controlled for exercise and time spent with trainers, raising the possibility that the first experiment's benefit reflected extra activity or human contact rather than play itself",
+"It removed the rest condition entirely"
+],
+"a": 2,
+"e": "A play session also delivers exercise and human interaction. Once those were equalised and the outcome measure standardised across dogs regardless of starting ability, the effect disappeared, which points to a confound in the original comparison.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "A cross-sectional study compared puppy owners who used a dog-training smartphone application with owners who did no training at all. What was found?",
+"o": [
+"Application use was associated with more severe behaviour problems across most outcomes",
+"Greater completion of the application was associated with lower severity for the large majority of behaviours assessed, with no evidence it increased severity of any behaviour",
+"The application eliminated behaviour problems entirely in users",
+"No association could be estimated because the groups were not comparable"
+],
+"a": 1,
+"e": "Nineteen of 21 odds ratio point estimates favoured lower severity with increasing application completion, and the remaining two were only marginally above 1. Importantly, there was no signal that the application made any behaviour worse.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What is the main limitation to bear in mind before recommending a training application on the strength of this study?",
+"o": [
+"It was a cross-sectional observational study with small subgroups and wide confidence intervals, so it cannot establish that the application caused the lower severity",
+"The study only included dogs over five years of age",
+"Behaviour was assessed by veterinary behaviourists rather than owners, introducing observer bias",
+"The application was compared only against in-person classes, not against no training"
+],
+"a": 0,
+"e": "Owners who choose to complete a training application may differ systematically from those who do no training at all. With a cross-sectional design, small subgroups and wide confidence intervals, the association is encouraging but not proof of benefit.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "A systematic review of studies published between 2000 and 2024 examined the genetic basis of canine aggression. What model of inheritance did the evidence support?",
+"o": [
+"A single major gene of large effect determines aggression",
+"Aggression is entirely environmental with no demonstrable genetic contribution",
+"Aggression is determined solely by breed",
+"A polygenic model, with associations reported for genes involved in neurotransmission, hormone signalling and brain function, and with gene-by-environment interaction relevant"
+],
+"a": 3,
+"e": "No single aggression gene emerged. The evidence supports many genes of small effect interacting with environment, which is why breed alone is a poor predictor of individual aggression and why breed-based policy is difficult to justify from genetics.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Which methodological problems did the reviewers identify as limiting confidence in the canine aggression genetics literature?",
+"o": [
+"Inconsistent phenotyping of aggression, small sample sizes, limited consideration of environmental factors, and under-representation of breeds commonly labelled aggressive",
+"Excessive sample sizes creating spurious statistical significance",
+"Over-representation of shelter dogs relative to owned dogs",
+"Universal use of a single standardised aggression measure that proved invalid"
+],
+"a": 0,
+"e": "Most studies focused on popular companion breeds while the breeds most often labelled aggressive were under-represented, and aggression itself was often poorly defined. The reviewers call for standardised phenotyping tools and broader breed inclusion before genetic findings inform breeding or policy.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "In a longitudinal study of dogs surveyed at 6, 9, 12, 15 and 18 months, at which age did the highest proportion of owners report one or more undesirable behaviours?",
+"o": [
+"6 months",
+"12 months, at about 42%",
+"18 months",
+"9 months"
+],
+"a": 1,
+"e": "Reporting peaked at the 12-month survey at 42.1% (513 of 1219). This matters for shelters because the peak of owner-perceived problem behaviour coincides with the age range at which dogs are commonly relinquished.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Barking, jumping up, pulling on the lead and recall issues were the most commonly reported problems. Which of these did NOT change significantly in prevalence across the timepoints?",
+"o": [
+"Barking",
+"Pulling on the lead",
+"Recall issues",
+"Jumping up at people"
+],
+"a": 3,
+"e": "Barking, lead pulling and recall issues all varied significantly between timepoints, but jumping up at people did not. The practical message is to counsel owners, particularly first-time owners, about what to expect from young dogs and where to get training advice.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "The Pandemic Puppies project followed dogs bought as puppies under 16 weeks old during 2020 into early adulthood. Why is the strength of the owner-dog relationship an important outcome to measure?",
+"o": [
+"It is the strongest predictor of a dog's lifespan",
+"A weak owner-dog relationship identifies pairs at higher risk of poor welfare outcomes including relinquishment and euthanasia",
+"It determines whether a dog can be registered with a kennel club",
+"It is required for insurance underwriting"
+],
+"a": 1,
+"e": "The relationship itself is a risk marker. Puppies acquired during the pandemic were feared to be a uniquely vulnerable cohort because of impulsive purchases, poor-welfare breeding sources and reduced early-life socialisation, all of which could weaken the bond and drive later relinquishment.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Which instrument did the investigators use to quantify the owner-dog relationship in this cohort?",
+"o": [
+"The Canine Behavioral Assessment and Research Questionnaire",
+"The Monash Dog-Owner Relationship Scale, from which the Perceived Emotional Closeness and Perceived Costs subscales were used",
+"The Lincoln Canine Adaptability Resilience Scale",
+"The Feline Behavioral Assessment and Research Questionnaire"
+],
+"a": 1,
+"e": "The Monash Dog-Owner Relationship Scale was completed when dogs were 21 months old. Two of its subscales, Perceived Emotional Closeness and Perceived Costs, proved reliable in this sample and served as the outcome variables.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "The Quiet Kennel Exercise asked people walking through shelter adoption wards to toss treats to each dog. What relationship was found between public compliance and barking?",
+"o": [
+"Compliance had no measurable effect on noise levels",
+"Each one percent increase in compliance was associated with an average decrease of 17.3 decibels in maximum barking volume",
+"Barking volume increased as compliance rose, because dogs became more excited by approaching people",
+"Compliance reduced the number of dogs barking but not the volume"
+],
+"a": 1,
+"e": "Compliance rose and maximum decibel readings fell over the intervention, with each one percent gain in compliance corresponding to an average 17.3 decibel drop in maximum volume. The intervention is cheap, needs only signage and treat buckets, and is delivered by the visiting public rather than staff.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What is the behavioural mechanism that the Quiet Kennel Exercise is designed to exploit, and why does that matter for shelter noise?",
+"o": [
+"Classical counterconditioning, which changes the dog's underlying emotional response to people passing the kennel, addressing the fear and frustration that drive excessive barking",
+"Negative punishment, by removing attention whenever a dog barks",
+"Habituation to a recorded noise played continuously in the ward",
+"Extinction of a previously reinforced sit behaviour"
+],
+"a": 0,
+"e": "Excessive barking in kennels is largely driven by fear and frustration. Pairing the approach of a stranger with food changes the emotional valence of that event rather than merely suppressing the noise, which is why it also improves welfare for dogs housed within earshot and protects hearing for dogs and staff.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Transfer Programs",
+"q": "Rescue dogs imported into Germany from Southern and Eastern Europe were compared with Western European dogs using the Canine Behavioral Assessment and Research Questionnaire. What was the overall behavioural profile of the imported dogs?",
+"o": [
+"Higher excitability and lower fear scores than Western European dogs",
+"Lower excitability but significantly higher non-social fear and stranger-directed fear, with Eastern European dogs scoring higher than Southern European dogs",
+"Identical scores across every behavioural category",
+"Higher scores for trainability and lower scores for all forms of aggression"
+],
+"a": 1,
+"e": "The largest difference was in excitability, which was lower in the imported dogs, while fear scores were higher. The authors nonetheless conclude these dogs can make suitable pets and that owners were often satisfied, with severe behavioural disorders reported in only 6.7% for anxiety, 2.1% for aggression and 3.4% for abnormal repetitive behaviour.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Transfer Programs",
+"q": "Among the imported dogs, how did those raised in shelters compare with those that had lived as strays?",
+"o": [
+"Shelter-raised dogs were less trainable and less fearful of strangers",
+"Shelter-raised dogs were more trainable but also showed higher stranger-directed fear",
+"There was no difference between shelter-raised and stray dogs",
+"Stray dogs showed higher trainability and higher stranger-directed aggression"
+],
+"a": 1,
+"e": "Shelter rearing was associated with better trainability but greater stranger-directed fear. Age at transport also mattered, with dogs transported before one year of age scoring higher for trainability.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "Successive negative contrast is the exaggerated drop in responding when an animal is unexpectedly shifted from a high-value to a low-value reward. When tested across laboratory, shelter and owned dogs, what was found?",
+"o": [
+"All three populations showed a clear and equivalent successive negative contrast effect",
+"Only laboratory dogs showed the effect, confirming its validity under controlled conditions",
+"Shelter dogs and a minority of owned dogs showed the effect, while laboratory dogs and most owned dogs did not, so the response was not consistent across populations",
+"No dog in any population showed any change after reward devaluation"
+],
+"a": 2,
+"e": "Shelter dogs and three of twelve owned dogs removed fewer puzzle cones, ate fewer rewards and took longer after devaluation, whereas laboratory dogs and the remaining owned dogs did not change. Because a welfare assessment tool has to behave consistently across populations to be useful, this inconsistency limits its application.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "Why does the pattern of results in this study matter when choosing a welfare assessment method for a shelter?",
+"o": [
+"A measure that responds in some populations but not others cannot be interpreted at face value as an index of background affective state",
+"Puzzle toys should never be used with shelter dogs on welfare grounds",
+"Food preference testing is unnecessary before reward devaluation studies",
+"Reward devaluation is the only validated measure of affective state in dogs"
+],
+"a": 0,
+"e": "If shelter dogs show the effect but laboratory dogs do not, the difference could reflect background affective state, or it could reflect differences in prior experience, food motivation or test familiarity. Without being able to distinguish those, a single successive negative contrast result cannot be read as a welfare score.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "A review of 78 studies examined cortisol measurement across different sample types in dogs. What did the authors conclude about choosing a matrix?",
+"o": [
+"Blood is the gold standard and should be preferred whenever possible",
+"Salivary cortisol is universally superior and makes other matrices redundant",
+"Hair cortisol is the only valid measure of chronic stress and should replace all others",
+"No matrix is universally superior; saliva, hair and urine provide complementary information and the choice depends on the research objective"
+],
+"a": 3,
+"e": "Each sample type contributes a distinct perspective, with saliva and urine reflecting more acute responses and hair reflecting cumulative exposure. Blood is increasingly avoided because the act of collection is itself stressful and can alter the value being measured.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "What overall trend in canine cortisol research did this review identify, and what drives it?",
+"o": [
+"A shift toward non-invasive matrices such as saliva, hair and urine, driven by welfare and research-ethics concerns as well as the need to avoid sampling stress confounding the result",
+"A return to serum sampling because assay sensitivity has improved",
+"Abandonment of cortisol measurement altogether in favour of behavioural scoring",
+"Standardisation on a single internationally agreed protocol"
+],
+"a": 0,
+"e": "Non-invasive sampling both respects welfare and avoids the circular problem of a stressful blood draw raising the cortisol you are trying to measure. The review also notes persistent weaknesses, including small sample sizes and the absence of official assessment protocols.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "What is the central argument of this discussion paper on physiological indicators of dog welfare?",
+"o": [
+"Cortisol should be abandoned as a welfare indicator entirely",
+"Welfare assessment requires multiple physiological indicators reflecting distinct biological systems, because reliance on isolated cortisol measurements lacks construct validity",
+"Behavioural observation should replace all physiological measurement",
+"Physiological indicators can only detect negative experiences, never positive ones"
+],
+"a": 1,
+"e": "The authors challenge over-reliance on a single measure and argue for a systems approach using several indicators from different biological systems. They explicitly note that indicators exist for positive as well as negative experiences.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "Which reporting practice do the authors recommend when publishing physiological welfare data in dogs?",
+"o": [
+"Report only group means to avoid over-interpreting individual variation",
+"Report age, body weight and sex, because these factors influence how biomarkers should be interpreted",
+"Report only results obtained by invasive sampling, as non-invasive methods are unreliable",
+"Report cortisol alone to allow comparison across studies"
+],
+"a": 1,
+"e": "Individual descriptors such as age, body weight and sex change the interpretation of a biomarker, yet are frequently omitted. Without them, indicators are used in isolation with limited context and fail to reflect the animal's actual experience.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "The Lincoln Canine Adaptability Resilience Scale was translated and evaluated in European Portuguese. What construct does this scale measure?",
+"o": [
+"The severity of established behaviour problems",
+"A dog's ability to cope with adversity and develop positive adaptations, that is, adaptability and resilience",
+"The strength of the owner-dog bond",
+"The likelihood that a dog will be adopted from a shelter"
+],
+"a": 1,
+"e": "Dogs face stressors including novel situations, veterinary visits, kennelling and transport. The scale is designed to capture the individual characteristics that let some dogs cope with those challenges, which is directly relevant to predicting how a dog will handle a shelter environment.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "What did the psychometric testing show about the translated scale?",
+"o": [
+"Sampling adequacy and internal consistency were acceptable, with a Kaiser-Meyer-Olkin value of 0.83 and Cronbach's alpha of 0.81, and all components correlated positively with the overall score",
+"Internal consistency was unacceptably low and the scale was rejected",
+"The factor structure could not be determined",
+"The translated version measured a completely different construct from the original"
+],
+"a": 0,
+"e": "A Kaiser-Meyer-Olkin value of 0.83 indicates good sampling adequacy and a Cronbach's alpha of 0.81 indicates acceptable internal consistency. Five factors with eigenvalues above 1 accounted for 67.56% of the variance in data from 182 dogs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Observation of 27 neutered cats in a Swedish cat cafe over 227 hours produced which key housing recommendation?",
+"o": [
+"Cats should be housed singly to prevent conflict with visitors present",
+"Visitor numbers make no difference to how cats use the space",
+"Cats should have unrestricted access to visitors at all times to promote socialisation",
+"Cafes should provide complex vertical environments, hiding places and cat-only areas, because elevated structures were used significantly more during periods of high customer occupancy"
+],
+"a": 3,
+"e": "Use of elevated structures was highly significant, and cats preferred vertical levels or cat-only rooms when the cafe was busy. The ability to retreat upward or away is what allows a cat to regulate its own exposure to visitors.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "How did the cats interact with each other and with people in this setting?",
+"o": [
+"Cat-to-cat interactions were frequent and largely agonistic, requiring staff intervention",
+"Cat-to-cat interactions were infrequent at about 0.58 per cat per hour and mostly affiliative, and cats varied widely in their response to humans, with no human interaction at all during 44.4% of observation time",
+"Every cat sought human contact consistently throughout the day",
+"Cats interacted only with humans and never with each other"
+],
+"a": 1,
+"e": "Low interaction rates with a majority of affiliative encounters are consistent with avoidance being used as a conflict-reduction strategy rather than with a harmonious group. Individual cats ranged from engaging to avoiding, which is why the option to withdraw matters so much.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Fifty rescued kittens placed in foster care were assessed for hair cortisol concentration and relative telomere length. What was the effect of separation from the dam?",
+"o": [
+"Kittens separated from their mothers had significantly higher hair cortisol concentrations and significantly elongated relative telomere lengths",
+"Kittens separated from their mothers had lower hair cortisol and shortened telomeres",
+"Separation from the dam had no measurable physiological effect",
+"Only behavioural measures differed; no physiological differences were detected"
+],
+"a": 0,
+"e": "Both markers differed significantly in maternally separated kittens. Hair cortisol at 8 weeks reflects roughly the preceding three months of cumulative stress, which for these kittens includes late gestation, so it captures exposure beginning before birth.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "What was the relationship between hair cortisol concentration and relative telomere length in these kittens?",
+"o": [
+"A strong positive correlation, so either measure could substitute for the other",
+"A strong negative correlation, with higher cortisol predicting shorter telomeres",
+"No correlation was found between the two measures",
+"Cortisol predicted telomere length only in kittens surrendered by owners"
+],
+"a": 2,
+"e": "The two markers were uncorrelated, which supports the wider point that different physiological indicators capture different aspects of the stress response and should not be treated as interchangeable.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "In 280 neutered mixed-breed cats, a glutamine repeat polymorphism in the androgen receptor gene was compared against owner-reported behaviour. What was associated with the short-type allele overall?",
+"o": [
+"Lower scores for all social behaviours",
+"Higher purring scores",
+"Complete absence of vocalisation",
+"Reduced grooming frequency"
+],
+"a": 1,
+"e": "Cats carrying short-type alleles, defined as 18 or fewer repeats, showed higher purring scores. Eight alleles ranging from 15 to 22 repeats were found and split at the median into short and long types.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "What sex-specific associations were found with the short-type androgen receptor allele in these cats?",
+"o": [
+"Males showed higher stranger-directed aggression and females showed higher purring",
+"Males showed higher directed calls and vocalisations, while females showed higher stranger-directed aggression",
+"Both sexes showed identical increases in stranger-directed aggression",
+"Neither sex showed any behavioural association once neutering status was accounted for"
+],
+"a": 1,
+"e": "The associations diverged by sex, with vocalisation elevated in short-allele males and stranger-directed aggression elevated in short-allele females. Note all cats studied were neutered, so these are not testosterone-driven effects in the usual sense.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Facility/Environment",
+"q": "Shelter dogs housed for different lengths of time were compared with client-owned dogs for immune function. What did the study find?",
+"o": [
+"Shelter housing produced no detectable immune changes",
+"Immune changes were present but identical regardless of how long a dog had been in the shelter",
+"Stressful conditions altered surface receptor expression on neutrophils and monocytes and changed leukocyte apoptosis rates, with duration of stay influencing immunomodulation and adaptation",
+"Only red blood cell parameters differed between shelter and owned dogs"
+],
+"a": 2,
+"e": "Expression of Toll-like receptor 4 and major histocompatibility complex class II on neutrophils and monocytes was altered, as was the proportion of apoptotic cells. Length of stay mattered, suggesting dogs mount adaptation mechanisms over time rather than remaining in a fixed stress state.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Facility/Environment",
+"q": "Why do the authors argue that behavioural evaluation and cortisol measurement alone are insufficient for monitoring shelter dog welfare?",
+"o": [
+"Because functional immune changes can be subtle and detectable only at the molecular level, so standard monitoring does not capture modulation of the immune system",
+"Because behavioural evaluation is too expensive for most shelters",
+"Because cortisol cannot be measured in dogs housed in groups",
+"Because immune parameters are the only valid welfare indicator"
+],
+"a": 0,
+"e": "The argument is for adding a level of resolution, not replacing existing methods. Chronic stress can shift antigen processing by neutrophils and monocytes without producing an obvious behavioural or cortisol signal.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Facility/Environment",
+"q": "In 373 dogs from 20 commercial breeding facilities examined by a veterinary dermatologist, which condition was most commonly identified?",
+"o": [
+"Interdigital furuncles",
+"Wet paws, at about 12.6%",
+"Hygromas",
+"Pododermatitis"
+],
+"a": 1,
+"e": "Wet paws were most common at 12.6%, followed by calluses at 11.26%, erythema at 6.97% and matted paw fur at 6.17%. Pododermatitis, hygromas and interdigital furuncles were identified but less frequently.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Facility/Environment",
+"q": "What did the study conclude about flooring substrate and management in commercial breeding kennels?",
+"o": [
+"Concrete flooring should be banned outright as it caused all identified lesions",
+"Flooring substrate had no relationship to any outcome measured",
+"Several conditions were identified where alterations to management could plausibly improve limb and paw outcomes and welfare for these dogs",
+"Dog cleanliness was unaffected by any housing variable"
+],
+"a": 2,
+"e": "Dogs were housed on combinations of concrete, gravel and diamond-coated expanded metal. Rather than condemning a single substrate, the authors identify conditions such as pododermatitis, hygromas and interdigital furuncles as targets where management change could improve welfare. Age was associated with matted paw fur and sex with wet paws.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "A review of chewing in dogs applied Tinbergen's Four Questions and the Five Domains welfare framework. What was the overall conclusion about the role of chewing?",
+"o": [
+"Chewing is a redirected abnormal behaviour that should be discouraged in kennelled dogs",
+"Chewing appears to promote biological fitness, with benefits spanning dental and oral hygiene, digestive health, bone strength, psychological health and stress management",
+"Chewing has no demonstrable benefit beyond food acquisition",
+"Chewing is only relevant during the period of primary teeth eruption"
+],
+"a": 1,
+"e": "The authors position chewing as a functionally important behaviour rather than an optional extra, which matters for shelters because a kennelled dog denied appropriate chew opportunities loses a natural coping and self-care behaviour.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What primarily determines a dog's preference for one chew item over another, and what practical tension does the review identify?",
+"o": [
+"Colour and size determine preference, and there is no safety concern with any chew item",
+"Odour, taste and mouthfeel drive preference, and this must be balanced against the risk of dental fractures and other injuries that leads some veterinarians to advise against feeding bones",
+"Hardness alone determines preference, and harder items are always safer",
+"Preference is fixed at weaning and cannot be influenced by the item offered"
+],
+"a": 1,
+"e": "Preference is sensory, driven by odour, taste and mouthfeel. The clinical tension is real: chewing carries welfare benefits, but fracture and injury risk is the reason bones are often discouraged, so item selection is a genuine risk-benefit judgement.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Facility/Environment",
+"q": "Shelter dogs were compared with client-owned dogs for markers of oxidative stress and inflammation. What pattern was found in the shelter dogs?",
+"o": [
+"Higher lipid oxidative damage, lower catalase activity, higher superoxide dismutase concentration and increased interleukin-1 beta",
+"Lower lipid oxidative damage and higher catalase activity, indicating better antioxidant capacity",
+"No significant difference in any oxidative stress or cytokine marker",
+"Elevated antioxidant capacity with suppressed inflammatory cytokines"
+],
+"a": 0,
+"e": "Shelter dogs showed a consistent picture of greater oxidative damage with altered antioxidant enzyme activity and a raised proinflammatory cytokine. Mitochondria are both targets and mediators of stress pathology, which is the mechanistic link the authors are pursuing.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Facility/Environment",
+"q": "What clinical consequence do the authors suggest follows from the oxidative stress and inflammation profile seen in shelter dogs?",
+"o": [
+"Shelter dogs are protected against infectious disease by heightened immune activation",
+"Increased oxidative stress and inflammation suggest higher susceptibility to zoonotic and chronic diseases",
+"The changes are transient and resolve within 24 hours of intake",
+"Oxidative stress markers predict adoption speed"
+],
+"a": 1,
+"e": "Chronic oxidative stress and proinflammatory signalling are associated with greater disease susceptibility, which links a welfare problem to a concrete population-health consequence in the shelter.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Facility/Environment",
+"q": "Fifty-nine shelter cats were randomly assigned to control, extra space via a portal between two kennels, daily petting, or both. What predicted urine output?",
+"o": [
+"Portal provision alone significantly increased urine output",
+"Daily petting alone significantly increased urine output",
+"Experimental group did not significantly predict urine output or Cat Stress Score, but living at one of the two shelters did significantly predict increased urine output",
+"Both interventions combined significantly reduced Cat Stress Score"
+],
+"a": 2,
+"e": "Neither kennel size nor petting shifted the measured outcomes, whereas shelter location did. Litter clumps were weighed daily over five days as the measure of urine output.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Facility/Environment",
+"q": "What is the practical implication of finding that shelter location, rather than kennel size or petting, explained the variation in urine output?",
+"o": [
+"Broader shelter-related factors may influence cat stress more than single-item interventions such as adding space or petting alone",
+"Urine output is not affected by anything in the shelter environment",
+"Portals should be removed from cat housing",
+"Cat Stress Scores should replace all physiological monitoring"
+],
+"a": 0,
+"e": "A single intervention applied in isolation may be swamped by the wider environment, including noise, husbandry routine, staffing and population density. It argues for assessing the whole facility rather than expecting one enrichment item to fix stress.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Facility/Environment",
+"q": "Eight dog shelters in Chiang Mai Province, Thailand were assessed for management practices and welfare. What was associated with higher dog density?",
+"o": [
+"Higher body condition scores and fewer stress behaviours",
+"Increased rates of lameness, coughing, skin conditions, and behaviours such as panting, barking and negative reactions toward strangers",
+"No measurable difference in health or behaviour",
+"Lower disease prevalence due to herd immunity"
+],
+"a": 1,
+"e": "Higher density tracked with both physical health problems and stress-related behaviour. Lower density was associated with higher body condition scores, and shelters with adequate space plus structured human-dog interaction programmes had better welfare outcomes.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Facility/Environment",
+"q": "What was linked to higher disease prevalence in these shelters, and what did the authors recommend?",
+"o": [
+"Lack of veterinary services in certain shelters, with a recommendation for national guidelines on humane management of stray populations",
+"Excessive veterinary intervention causing iatrogenic disease",
+"Structured human-dog interaction programmes",
+"Provision of environmental enrichment"
+],
+"a": 0,
+"e": "Absent veterinary services tracked with more disease. The authors argue that shelter management, enrichment and veterinary care together determine physical and psychological wellbeing, and that Thailand needs national guidelines for stray population management.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "Twenty-seven adopters were interviewed about the adjustment period after bringing a dog home. How long did most perceive it to last?",
+"o": [
+"Less than one week",
+"About two weeks",
+"Roughly one month",
+"Over half of participants perceived the adjustment period to last longer than four months"
+],
+"a": 3,
+"e": "This matters because much post-adoption support and much of the published literature works to a far shorter timeframe. The authors argue future research needs a longer window to capture how and when dogs actually settle.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "Which behaviours did owners use as signals that their newly adopted dog was settling in?",
+"o": [
+"Weight gain and increased sleeping only",
+"Moderation of behavioural extremes such as lethargy and restlessness, plus play, tail wagging, greeting and learning the household routine",
+"Absence of any vocalisation",
+"Willingness to be left alone for extended periods"
+],
+"a": 1,
+"e": "Owners watched for extremes evening out and for the appearance of positive social behaviours. Prior experiences and medical needs were reported to affect how long adjustment took, and owners commonly worried about whether they were the right fit for the dog.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "A survey of 444 Taiwanese dog owners traced the pathway from acquisition to potential relinquishment. What emerged as the strongest predictors of successful ownership?",
+"o": [
+"Owners' knowledge and motivations, because better-prepared owners chose more appropriate acquisition channels, used more effective training and reported fewer problem behaviours",
+"The purchase price paid for the dog",
+"The dog's breed and coat type",
+"Whether the household already owned another dog"
+],
+"a": 0,
+"e": "The chain runs from owner preparedness through channel choice and training method to problem behaviour. That is why the authors argue for strengthening pre-acquisition education and tightening regulation of sales channels rather than concentrating effort downstream.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What gap in Taiwan's current approach to dog relinquishment did this study highlight?",
+"o": [
+"Excessive regulation of pet shops has driven acquisition underground",
+"Measures have focused predominantly on post-relinquishment management, with insufficient attention to the sources of relinquished dogs",
+"Euthanasia is used too readily, reducing shelter populations artificially",
+"There is no shelter system in place at all"
+],
+"a": 1,
+"e": "Commercialisation of companion animals, inadequate pet shop regulation, unethical breeding and cultural opposition to euthanasia have combined to raise stray numbers and overwhelm shelters, yet policy has concentrated on managing animals after they arrive.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "This case report describes adapting traditional shelter activity into proactive community intervention. What welfare concern did the research stages identify in the target community?",
+"o": [
+"Overbreeding by unlicensed breeders",
+"Excessive numbers of free-roaming cats",
+"Lack of timely veterinary treatment for pets within the community",
+"Inadequate microchipping compliance"
+],
+"a": 2,
+"e": "Delayed veterinary treatment and inadequate care provision were the identified problems. The logic of the intervention is to support owners before a crisis point rather than receive the animal after relinquishment.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What approach did the team use to design the interventions, and what did the process demonstrate?",
+"o": [
+"A co-creation approach applying human behaviour change theories, which proved operationally effective for designing animal welfare interventions",
+"A top-down protocol imposed by veterinary specialists",
+"Randomised allocation of owners to pre-designed intervention arms",
+"Purely financial subsidy with no behavioural component"
+],
+"a": 0,
+"e": "The three-stage mixed-method process first built an understanding of owner needs, then co-created targeted interventions with the community using human behaviour change theory. The transferable finding is the value of the co-creation method itself.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "The Dogs Trust Post Adoption Support project contacts adopters at set timepoints after rehoming. At which timepoints are calls made?",
+"o": [
+"Weekly for the first month only",
+"2 days, 2 weeks and 4 months after adoption",
+"At 6 months and 12 months",
+"Only when the adopter requests contact"
+],
+"a": 1,
+"e": "The three-call structure front-loads contact into the earliest days when problems first emerge, then follows up at four months. Call success ranged from 89% at 2 days down to 72% at 4 months among eligible adopters.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "Beyond supporting individual adopters, what makes this project valuable as a research platform?",
+"o": [
+"It randomises adopters to receive or not receive support, allowing causal inference",
+"It is a large prospective cohort collecting longitudinal health and behaviour data from 5498 adopters, allowing assessment of how issues develop, the impact of support, and re-relinquishment risk",
+"It replaces the need for behavioural assessment before adoption",
+"It follows dogs for their entire lifespan"
+],
+"a": 1,
+"e": "Prospective longitudinal data on the first four months post-adoption is scarce, and this is the largest known cohort of its type. Note it is not randomised, so the impact of support is assessed observationally.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "An interrupted time series analysis of nearly 200,000 animals taken in by a large welfare organisation examined the COVID-19 pandemic and the subsequent cost-of-living crisis. What did it find about intake and adoption?",
+"o": [
+"Intake and adoption of dogs and cats both rose sharply during the pandemic",
+"Fewer dogs and cats were taken in and adopted during the pandemic than before it, and intake and adoption were also lower during the cost-of-living crisis than beforehand",
+"Intake rose while adoption collapsed during both periods",
+"No change was detectable once site closures were controlled for"
+],
+"a": 1,
+"e": "Once the brief closure of sites was controlled for, both intake and adoption were lower in each period. This runs against the common assumption that crises automatically produce a surge of animals into shelters.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "What were the principal reasons animals were returned during the study period, and what was the trend in returns?",
+"o": [
+"Returns increased steadily, driven mainly by veterinary costs",
+"A downward trend in returns was observed, with the main reasons being problem behaviours, owner unpreparedness and a change in circumstances",
+"Returns were almost entirely due to allergies in the household",
+"Returns could not be analysed in this dataset"
+],
+"a": 1,
+"e": "Returns trended downward across 2018 to 2022. The interrupted time series design also allowed forecast predictions, which has direct operational value for capacity planning.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "A study across 162 regions of the Republic of Korea used spatial regression to examine dog abandonment. What did it find about the relationship with regional wealth and unemployment?",
+"o": [
+"Unemployment benefit numbers were negatively associated with abandonment rates, while comprehensive income tax amounts, a proxy for regional wealth, were positively correlated with the percentage of abandonments",
+"Higher unemployment strongly and consistently increased abandonment",
+"Regional wealth had no measurable relationship with abandonment",
+"Only rabies vaccination cost predicted abandonment, with a positive association"
+],
+"a": 0,
+"e": "The direction is counterintuitive: more people on unemployment benefits went with fewer abandonments, while wealthier regions reported a higher percentage of abandonments. Rabies vaccination costs were also negatively associated with abandonment.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What did the spatial modelling contribute beyond conventional regression in this study?",
+"o": [
+"It proved that abandonment is caused by regional income",
+"Spatial Lag Models accounted for over half the variance in abandonment numbers, confirming spatial dependence and supporting geographically targeted welfare interventions",
+"It showed adoption patterns were more spatially consistent than abandonment",
+"It eliminated the need to normalise data by population"
+],
+"a": 1,
+"e": "Spatial dependence means neighbouring regions influence each other, so abandonment clusters geographically. That supports targeting interventions by area. Notably, spatial patterns in adoption were less consistent than for abandonment.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Animals & Public Policy",
+"sub": "Ethics",
+"q": "Italy adopted a no-kill policy for dogs in 1991. Using data from a large Rome shelter across 2012-2016 and 2018-2022, what ethical problem did the authors highlight?",
+"o": [
+"Adoption rates fell below 10% in both periods, showing the policy had failed",
+"Although roughly half of dogs were adopted in each period, a small percentage were never adopted and are condemned to lifelong shelter residence, which in a large metropolitan shelter still amounts to a substantial number of animals",
+"The no-kill policy caused shelter intake to fall to near zero",
+"All unadopted dogs were transferred to rescue partners within a year"
+],
+"a": 1,
+"e": "In the first period 4247 of 7888 dogs (53.84%) were adopted and 307 (3.89%) were not; in the second, 4251 of 8853 (49.11%) were adopted and 278 (3.16%) remained. A low percentage of a large intake is still hundreds of dogs living their whole lives in kennels.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Animals & Public Policy",
+"sub": "Ethics",
+"q": "Why is a headline adoption rate an insufficient measure of a no-kill policy's success?",
+"o": [
+"Because adoption rates are always inflated by counting transfers",
+"Because a good adoption percentage conceals the fate of the residual population who are never adopted and whose lifelong confinement raises welfare and ethical questions",
+"Because adoption rates cannot be compared between time periods",
+"Because adoption is not a positive outcome for dogs"
+],
+"a": 1,
+"e": "This is the core argument of the paper. A single aggregate statistic hides the subgroup for whom the policy produces indefinite institutional living, which is precisely the group whose welfare most needs scrutiny.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "Across 6,317 post-adoption support calls in which at least one behaviour of concern was reported, how often did adopters decline the free behaviour support offered?",
+"o": [
+"About 15% of calls",
+"About 35% of calls",
+"About 68.8% of calls",
+"Support was never declined"
+],
+"a": 2,
+"e": "Roughly two thirds of offers were declined despite a behaviour of concern having been reported. Declining was significantly more likely at 2 weeks post-adoption than at 2 days.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "Thematic analysis of adopters' reasons for declining behaviour support produced which set of themes?",
+"o": [
+"Cost, distance, language barrier and mistrust of the shelter",
+"Awareness but no action yet, managing behaviour, feels support not needed, and belief of cause",
+"Fear of the dog being reclaimed, embarrassment, time pressure and prior bad experience",
+"Satisfaction with the dog, intention to return the dog, veterinary advice already sought, and lack of interest"
+],
+"a": 1,
+"e": "The themes suggest most declines reflect adopters feeling they have the situation in hand or having their own explanation for the behaviour, rather than practical barriers. Whether declining support affects overall adoption outcomes remains unknown.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "Using propensity score matching across three North American shelters, investigators compared return rates for adopted dogs who did and did not attend post-adoption training classes. What was the result?",
+"o": [
+"Training more than halved the return rate",
+"Return rates did not differ significantly, at 8.3% for dogs who attended training versus 9.3% for those who did not",
+"Dogs who attended training were significantly more likely to be returned",
+"No comparison was possible because the groups could not be matched"
+],
+"a": 1,
+"e": "With the control group matched on age, sex, breed, shelter and intake type, the difference in return rate was not statistically significant. This is a useful corrective to the assumption that offering training classes will straightforwardly reduce returns.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "Although overall return rates were similar, how did the reasons for return differ between dogs who did and did not attend training?",
+"o": [
+"Dogs who attended training were more often returned for owner-related reasons (58.8%), whereas dogs who did not attend training were more often returned for animal-related reasons (78.9%)",
+"Both groups were returned overwhelmingly for animal-related reasons",
+"Dogs who attended training were returned almost entirely for medical reasons",
+"Reason for return was not recorded"
+],
+"a": 0,
+"e": "This difference was statistically significant. It hints that training may shift the nature of the problem even when it does not change the headline return rate, though a retrospective matched design cannot establish that training caused the shift.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "Dogs from remote northern Canadian communities are frequently rehomed to less remote areas as part of population control. What concern does this raise, according to the authors?",
+"o": [
+"The dogs are too genetically distinct to adapt to a home environment",
+"The change in environment may restrict the dogs' autonomy and freedom relative to where they came from",
+"The dogs invariably develop separation-related behaviour",
+"Rehoming has no welfare implications provided the dog is neutered"
+],
+"a": 1,
+"e": "Free-roaming and community dogs move from an environment with considerable freedom of movement and choice into a confined domestic setting. The study used a shortened Canine Behavioral Assessment and Research Questionnaire with 357 owners to examine how these dogs actually adjust.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "What did the exploratory factor analysis of the shortened behaviour questionnaire reveal in this population?",
+"o": [
+"A single general behaviour factor",
+"A 13-factor structure including stranger-directed aggression, stranger-directed fear, non-social fear, touch sensitivity, separation-related behaviour, chasing, escape, attachment, excitability, energy, trainability and dog rivalry",
+"A two-factor structure of fear and aggression only",
+"The questionnaire could not be factor-analysed in this sample"
+],
+"a": 1,
+"e": "The 13-factor structure broadly mirrors the established questionnaire subscales, supporting its use in this population. The mixed-methods design added an open-ended question so owners could describe adjustment in their own words.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "Participants rated the adoptability and cuteness of pedigree and non-pedigree cat images while their perceived status attainment and status aspiration were measured. What was found?",
+"o": [
+"High status sensitivity increased adoptability ratings for pedigree cats only, with no effect on non-pedigree cats",
+"People scoring high on status measures showed reluctance to adopt cats in the non-pedigree condition, although this did not translate into an increased preference for pedigree cats",
+"Status measures had no relationship with any rating",
+"Cuteness ratings were entirely independent of adoptability ratings"
+],
+"a": 1,
+"e": "The effect was a penalty against non-pedigree cats rather than a bonus for pedigree cats, which is an important distinction. Cuteness followed the same pattern, with perceived cuteness of non-pedigree cats declining as status sensitivity rose.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "Why is this finding relevant to shelter marketing and adoption practice?",
+"o": [
+"It suggests some adopters devalue non-pedigree animals for reasons tied to social identity and status rather than to the animal's own characteristics",
+"It proves pedigree cats have better temperaments",
+"It shows adoptability ratings in online tasks predict real adoption outcomes",
+"It demonstrates that cuteness is the only driver of adoption decisions"
+],
+"a": 0,
+"e": "If pets function partly as status symbols or extensions of social identity, then the barrier for a non-pedigree shelter cat is partly about the adopter's self-presentation. That is a different problem from the animal's appearance or behaviour, and would need a different marketing response.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "Focus groups with 13 volunteer cat fosterers in Aotearoa New Zealand identified their primary motivations. What were they?",
+"o": [
+"Financial reimbursement and access to free veterinary care",
+"Career development and professional networking",
+"A general love for animals, wanting an alternative to cat ownership, and a desire to help and make a difference, underpinned by altruistic values",
+"Obtaining first choice of cats for adoption"
+],
+"a": 2,
+"e": "Wanting an alternative to outright ownership is a notable motivation, since it means fostering suits people who want contact with cats without permanent commitment. Understanding this helps shelters recruit and pitch the role accurately.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Adoption & Placement",
+"q": "How did the authors characterise the demands of cat fostering, and why does that matter for shelter organisations?",
+"o": [
+"A low-commitment activity suitable for anyone with spare time",
+"A form of high-stakes volunteerism that is emotionally challenging and requires significant time and responsibility, yet delivers social and emotional benefits that fulfil needs for autonomy, relatedness and competence",
+"A purely transactional arrangement with no emotional component",
+"An activity that consistently causes burnout and should be time-limited"
+],
+"a": 1,
+"e": "Framing fostering as high-stakes volunteerism explains why support and recognition matter for retention. The benefits map onto autonomy, relatedness and competence, which gives organisations concrete levers for keeping fosterers engaged.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Vaccination",
+"q": "Duration of immunity studies were conducted on the first oral modified live vaccine combining Bordetella bronchiseptica and canine parainfluenza virus. How long after a single oral dose were the dogs challenged?",
+"o": [
+"Six weeks",
+"Three months",
+"Six months",
+"One year"
+],
+"a": 3,
+"e": "Beagles aged six to eight weeks received a single oral dose of test or placebo vaccine and were challenged with virulent organisms one year later, establishing a one-year duration of immunity for both fractions.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Vaccination",
+"q": "What outcomes demonstrated efficacy in these two challenge studies?",
+"o": [
+"A significant reduction in nasal shedding of canine parainfluenza virus and a significant reduction in clinical signs associated with Bordetella bronchiseptica",
+"Complete prevention of infection with both organisms",
+"Elimination of the carrier state for Bordetella bronchiseptica",
+"Seroconversion alone, without challenge"
+],
+"a": 0,
+"e": "Nasal shedding of parainfluenza fell from 1.1 to 0.2 log10 fluorescent antibody infectious dose 50 per millilitre in vaccinates. Reduced shedding matters as much as reduced clinical signs in a shelter, because it lowers transmission pressure within the population.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "In 140 dogs and cats with skin lesions examined using culture plus molecular identification, which dermatophyte predominated and what notable first was reported?",
+"o": [
+"Trichophyton mentagrophytes predominated, with the first report of Microsporum canis in Egypt",
+"Microsporum canis was the most prevalent isolate at 60%, followed by Trichophyton mentagrophytes at 20%, with the first isolation of Trichophyton indotineae in Egypt",
+"Trichophyton indotineae was the most prevalent isolate at 60%",
+"No dermatophytes were isolated from dogs"
+],
+"a": 1,
+"e": "Microsporum canis remained dominant. The significance of Trichophyton indotineae is that it is an emerging, frequently terbinafine-resistant species of major public health concern, and this was its first detection in a dog in Africa.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "What risk factors and treatment findings emerged from this dermatophytosis study?",
+"o": [
+"Animals over one year old were at higher risk, and topical therapy alone gave the fastest resolution",
+"Younger animals under one year were at significantly higher risk, indoor-outdoor housing in cats reduced risk compared with indoor-only housing, and combination therapy with itraconazole, clotrimazole, supportive treatment and a dermatophyte vaccine gave the fastest clinical response",
+"Housing type had no effect on risk in cats",
+"Systemic itraconazole alone outperformed all combination regimens"
+],
+"a": 1,
+"e": "Culture positivity was 52.22% in dogs and 70% in cats. The protective effect of indoor-outdoor access in cats had an odds ratio of 0.05, which is a large effect and runs counter to the intuition that outdoor access increases exposure.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "The World Association for Veterinary Dermatology consensus guidelines on canine leishmaniosis make a specific recommendation about euthanasia and about treating dogs with no clinical signs. What is it?",
+"o": [
+"Euthanasia is recommended for all seropositive dogs in endemic areas to protect public health",
+"Euthanasia for public health purposes is not recommended, and drugs with anti-Leishmania activity should be avoided in subclinically infected dogs",
+"All seropositive dogs should be treated with meglumine antimoniate regardless of clinical status",
+"Subclinically infected dogs should receive lifelong allopurinol monotherapy"
+],
+"a": 1,
+"e": "This is the point most often got wrong in practice. Culling seropositive dogs is explicitly not endorsed, and treating a subclinically infected dog risks selecting for drug resistance without clinical benefit. Diagnosis requires compatible clinical signs or clinicopathologic abnormalities, exclusion of differentials, demonstration of infection, and raised anti-Leishmania immunoglobulin G on quantitative serology.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Which treatment and prevention options does the consensus recommend for canine leishmaniosis?",
+"o": [
+"Allopurinol monotherapy first-line, with no role for topical insecticides",
+"Meglumine antimoniate with allopurinol or miltefosine with allopurinol first-line, aminosidine with allopurinol second-line, and prevention using deltamethrin, flumethrin-imidacloprid or permethrin-imidacloprid products",
+"Fluconazole first-line with itraconazole as an alternative",
+"Vaccination alone, with no requirement for vector control"
+],
+"a": 1,
+"e": "Marbofloxacin may be considered in dogs with advanced chronic kidney disease. Prevention rests on sandfly repellent collars or spot-ons plus avoiding transfusion of blood products from infected donors, since the vector is the main route but transfusion is a real iatrogenic risk.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "A study in Kazakhstan compared bacterial isolates from dogs positive for canine parvovirus type 2 with those from clinically healthy dogs. What pattern of antimicrobial resistance emerged?",
+"o": [
+"Enterobacteriaceae were highly resistant to tetracyclines and fluoroquinolones, with beta-lactamase and aminoglycoside resistance genes detected more frequently in isolates from parvovirus-positive dogs",
+"Resistance was uniformly low in both groups",
+"Isolates from healthy dogs carried significantly more resistance genes",
+"Only methicillin resistance genes were detected, and only in healthy dogs"
+],
+"a": 0,
+"e": "Enterobacteriaceae showed 58.4% tetracycline and 51.2% fluoroquinolone resistance, with sporadic carbapenem resistance in Klebsiella at 7%. Parvovirus-positive dogs also tended to carry more gram-negative bacteria, which matters because these are the dogs most likely to receive broad-spectrum antimicrobials.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Why do the authors frame canine parvovirus and its bacterial coinfections as a One Health issue?",
+"o": [
+"Because parvovirus itself is zoonotic and infects humans directly",
+"Because companion animals are an underrecognised reservoir of antimicrobial resistance determinants, and parvovirus cases concentrate both bacterial carriage and antimicrobial exposure",
+"Because parvovirus vaccination is contraindicated in households with children",
+"Because the study found no resistance genes in animal isolates"
+],
+"a": 1,
+"e": "The parvovirus positivity rate was 19.4% of 549 dogs monitored. A parvovirus case brings gram-negative overgrowth, translocation and heavy antimicrobial use together in one patient, which is an efficient engine for selecting and then sharing resistant organisms with the household.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Oropharyngeal swabs from 379 stray and colony cats in northeastern Italy were screened for Chlamydiaceae. What was found?",
+"o": [
+"7.7% tested positive, all identified as Chlamydia felis, and only one positive cat showed respiratory signs",
+"Over half tested positive, nearly all with clinical conjunctivitis",
+"No Chlamydiaceae were detected in any cat",
+"Multiple Chlamydiaceae species were identified in roughly equal proportions"
+],
+"a": 0,
+"e": "The striking feature is the near-absence of clinical signs among positives, meaning surveillance based on symptomatic cats would miss almost all carriers. Chlamydia felis is usually associated with conjunctivitis and upper respiratory disease, but subclinical carriage clearly predominates in this population.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Which epidemiological pattern did the anamnestic data reveal for Chlamydia felis in these cats?",
+"o": [
+"Significantly higher frequency in neutered females during winter",
+"Significantly higher frequency in male intact cats during the spring season, suggesting a behavioural component to transmission",
+"Infection was confined to kittens under 12 weeks of age",
+"No demographic or seasonal pattern could be detected"
+],
+"a": 1,
+"e": "Intact males roaming and fighting in the breeding season plausibly explains the pattern. Infection is favoured by overcrowding, stress, poor hygiene and immune impairment, which is why stray and colony populations are particularly susceptible. Zoonotic potential is considered relatively low but exposure is possible via handling, aerosol and fomites.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Twenty-nine cases of feline sporotrichosis in Manaus, Brazil were characterised. What was the typical patient profile and lesion distribution?",
+"o": [
+"Older female indoor-only cats with limb lesions",
+"Young cats aged 1 to 3 years, predominantly male, free-roaming or semi-indoor, with cutaneous lesions concentrated on the nasal planum and other facial areas",
+"Kittens under 12 weeks with generalised truncal lesions",
+"Adult cats with exclusively oral lesions"
+],
+"a": 1,
+"e": "86.2% were aged 1 to 3 years and 82.7% were male, with 44.8% each free-roaming or semi-indoor. Facial and nasal planum lesions reflect the inoculation route during territorial fighting, which also explains the male predominance.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "All isolates in this Amazonian series were confirmed as Sporothrix brasiliensis. What did antifungal susceptibility testing show?",
+"o": [
+"Fluconazole had the lowest minimum inhibitory concentration and should be first-line",
+"Geometric mean minimum inhibitory concentrations were lowest for ketoconazole and itraconazole, and highest for fluconazole at 64 micrograms per millilitre",
+"All isolates were resistant to itraconazole",
+"Amphotericin B had the lowest minimum inhibitory concentration of all agents tested"
+],
+"a": 1,
+"e": "Ketoconazole was 0.25 and itraconazole 0.57 micrograms per millilitre, versus amphotericin B at 7.27 and fluconazole at 64. The very high fluconazole values confirm it is a poor choice for Sporothrix brasiliensis, which matters because this species is the zoonotic, cat-transmitted one driving the Brazilian epidemic.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "A cross-sectional study of 126 stray cats in Shenzhen, China tested for five viruses. What was the overall picture?",
+"o": [
+"Overall pathogen positivity was 89.68%, with feline panleukopenia virus most prevalent at 61.90% and a co-infection rate of 62.70%",
+"Fewer than 10% of cats carried any pathogen",
+"Rabies virus nucleic acid was detected in the majority of cats",
+"Feline herpesvirus type 1 was the dominant pathogen at over 60%"
+],
+"a": 0,
+"e": "Feline calicivirus followed at 57.14%, feline coronavirus type I at 46.83% and feline herpesvirus type I at 23.02%. Co-infections were mostly dual, at 33.33%, and calicivirus with panleukopenia was the most frequent pairing.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "What was found regarding rabies in this stray cat population, and why does it matter?",
+"o": [
+"Rabies virus nucleic acid was widespread, indicating active transmission",
+"No rabies virus nucleic acid was detected, but rabies seropositivity was only 6.00%, indicating very low population immunity and therefore a potential public health risk",
+"Seropositivity exceeded 70%, indicating adequate herd immunity",
+"Rabies testing was not performed"
+],
+"a": 1,
+"e": "Absence of virus is reassuring for the moment, but a 6% seropositive population has essentially no buffer if the virus were introduced. That combination is exactly the argument for targeted vaccination of free-roaming cat populations.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "A systematic review and meta-analysis of highly pathogenic avian influenza H5N1 in domestic cats pooled data from 3,586 animals. What was the pooled prevalence, and what was the mortality in reported cases?",
+"o": [
+"Pooled prevalence around 25%, with mortality below 10%",
+"Pooled prevalence around 0.7%, but case reports showed high mortality of about 74%",
+"Pooled prevalence around 50%, with mortality around 50%",
+"Prevalence could not be pooled because of insufficient studies"
+],
+"a": 1,
+"e": "Infection is uncommon at population level but frequently fatal once it occurs, with high heterogeneity between studies. Prevalence varied by diagnostic method, region, cat type and time period, with domestic cats and cats in Africa showing higher rates.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What exposures have been associated with H5N1 infection in cats, and why does feline infection concern public health authorities?",
+"o": [
+"Contact with infected birds and consumption of raw milk from H5N1-positive cattle, raising concern about the cat's role in viral adaptation and zoonotic transmission",
+"Exposure only through contact with other infected cats",
+"Contact with reptiles and amphibians",
+"Vaccination against feline calicivirus"
+],
+"a": 0,
+"e": "Raw milk from infected dairy cattle is a newer and less intuitive route. The worry is not the number of cats infected but that each mammalian infection is an opportunity for the virus to adapt, and cats live in close contact with people.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Pregnant queens spayed during trap-neuter-release were sampled to look for Bartonella in reproductive tissues. What was found?",
+"o": [
+"Bartonella DNA was sequenced from 28% of free-roaming queens, and Bartonella clarridgeiae DNA was amplified from enrichment cultures of the placentas of two cats",
+"No Bartonella DNA was detected in any tissue",
+"Bartonella was cultured from every fetus sampled",
+"Only Bartonella henselae was detected, and only in ovarian tissue"
+],
+"a": 0,
+"e": "Amplifying organism DNA from liquid enrichment culture, rather than by direct extraction alone, suggests viable organisms were present in placental tissue. Vertical transmission of Bartonella has previously been documented only in B-cell deficient mice, not immunocompetent animals.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Why is the possibility of Bartonella in feline reproductive tissue biologically important?",
+"o": [
+"Because Bartonella henselae causes reduced fertility and reproductive failure in experimentally infected cats, and many free-roaming cats are chronically infected and may be immunocompromised by environmental stress or coinfection",
+"Because Bartonella is the leading cause of feline abortion worldwide",
+"Because it proves transplacental transmission occurs routinely",
+"Because it means all queens should be treated with doxycycline before spaying"
+],
+"a": 0,
+"e": "The authors are careful to say additional studies are needed to establish transplacental transmission and any effect on fetal development. The finding is a signal worth following, not a demonstrated cause of reproductive loss.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Nutrition & Husbandry",
+"q": "An outbreak of Salmonella enterica serotype Agona in a Rottweiler breeding kennel was linked to a raw meat-based diet of unlicensed origin. What were the clinical features?",
+"o": [
+"High fever with neurological signs in adult dogs only",
+"Vomiting, diarrhoea, lethargy and dehydration without fever, with exacerbation in post-partum animals",
+"Sudden death with no preceding clinical signs",
+"Chronic weight loss over several months with no gastrointestinal signs"
+],
+"a": 1,
+"e": "The absence of fever is worth noting, since it can lead clinicians away from an infectious cause. Post-partum bitches were worst affected, consistent with the immunological and metabolic demands of lactation.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Nutrition & Husbandry",
+"q": "What did investigation and control of this outbreak involve, and what was the outcome?",
+"o": [
+"Extensive faecal shedding and widespread food and environmental contamination were found; after stopping raw meat feeding, targeted antimicrobial therapy and environmental disinfection, all dogs recovered and subsequent tests were negative",
+"The kennel was depopulated as the only effective control measure",
+"Continuing the raw diet with added probiotics resolved the outbreak",
+"The organism proved susceptible to all antimicrobials tested"
+],
+"a": 0,
+"e": "The isolate was resistant to cephalexin, aminoglycosides, lincosamides, macrolides and fusidic acid, with intermediate susceptibility to polymyxin B. Environmental contamination and asymptomatic shedding are why removing the source alone is not enough, and why disinfection was needed alongside it.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Faecal Escherichia coli from 263 healthy Chilean dogs that had received no antibiotics for four weeks were tested for resistance. Which factor was associated with markedly higher odds of ceftazidime resistance?",
+"o": [
+"Being adopted from a shelter",
+"Having been purchased from a pet store, with roughly 6-fold higher odds compared with adopted dogs",
+"Living in a rural rather than urban area",
+"Being fed a commercial dry diet"
+],
+"a": 1,
+"e": "Pet store origin carried an odds ratio of 6.04 for ceftazidime resistance. Prior hospitalisation raised the odds of enrofloxacin resistance about 4-fold. Overall resistance rates were 13.3% for amoxicillin-clavulanic acid, 5.98% for ceftazidime and 18.3% for enrofloxacin.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Which findings in this study ran counter to intuition about antimicrobial resistance carriage in dogs?",
+"o": [
+"Cohabitation with healthcare workers and occasional contact with free-roaming animals were both protective against resistance",
+"Prior hospitalisation was protective",
+"Dogs on antibiotics had lower resistance than those not on antibiotics",
+"Urban dogs had no detectable resistance"
+],
+"a": 0,
+"e": "Living with a healthcare worker reduced the odds of enrofloxacin resistance to 0.17 and amoxicillin-clavulanic acid resistance to 0.32, and occasional contact with free-roaming animals gave an odds ratio of 0.32. Both are the opposite of what a simple exposure model would predict, and the authors use this to argue companion animals need proper inclusion in resistance surveillance rather than assumption-based risk models.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "An urban outbreak of feline sporotrichosis caused by Sporothrix brasiliensis was described in Puerto Iguazu, Argentina. What was the scale and what did the authors recommend?",
+"o": [
+"A single household case requiring no public health response",
+"Nine culture-proven cases across seven households over seven months, with a recommendation for coordinated cross-border One Health action and context-specific interventions",
+"Several hundred cases across the province, controlled by mass culling",
+"Cases in dogs only, with no feline or human involvement"
+],
+"a": 1,
+"e": "The town borders Brazil, where Sporothrix brasiliensis is epidemic, which is why the authors emphasise cross-border coordination. Clustering within households reflects cat-to-cat and cat-to-human transmission through scratches and bites rather than shared environmental exposure.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Why does Sporothrix brasiliensis warrant a different public health response from classical sporotrichosis?",
+"o": [
+"It is transmitted by mosquitoes rather than by direct contact",
+"It is acquired almost exclusively from soil and plant material, so animal contact is irrelevant",
+"It is transmitted zoonotically from cats through scratches and bites rather than solely by environmental inoculation, so feline cases drive human cases",
+"It causes disease only in immunocompromised people"
+],
+"a": 2,
+"e": "Classical sporotrichosis is a sapronosis acquired from plant material, the so-called rose gardener's disease. Sporothrix brasiliensis behaves as a cat-associated zoonosis, which means controlling the outbreak in cats is the way to protect people.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Influenza D virus primarily infects cattle. What did surveillance of 360 cats in northern China find?",
+"o": [
+"Antibodies were detected in 8 of 360 cats, with domestic cats showing higher susceptibility than strays",
+"Antibodies were detected in over half the cats sampled",
+"No evidence of exposure was found in any cat",
+"Only stray cats showed evidence of exposure"
+],
+"a": 0,
+"e": "The finding that domestic cats were more often seropositive than strays is counterintuitive and suggests exposure may relate to something in the household or diet rather than to outdoor roaming. The authors describe this as a previously overlooked aspect of the virus's epidemiology in companion animals.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Screening of rabbit faecal samples in Ukraine identified which agent, and why does it matter?",
+"o": [
+"Hepatitis E virus subtype 3ra, a potentially zoonotic subtype, highlighting rabbits as possible reservoirs",
+"Rabbit haemorrhagic disease virus type 2",
+"Encephalitozoon cuniculi",
+"Hepatitis A virus"
+],
+"a": 0,
+"e": "Subtype 3ra is the rabbit-associated hepatitis E virus lineage and is capable of infecting humans. The authors call for improved surveillance and expanded sampling, which is relevant for any shelter handling rabbits or advising on rabbit husbandry.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "A patient in Germany developed severe acute kidney injury from Seoul virus. What was the source, and what is the wider lesson?",
+"o": [
+"Contact with wild rodents while camping, with no companion animal involvement",
+"Consumption of contaminated water, indicating a need for water treatment",
+"A pet rat breeding facility in central Germany, indicating a need for increased surveillance and a One Health approach given the rising popularity of pet rats",
+"A laboratory rodent colony with no public access"
+],
+"a": 2,
+"e": "Seoul virus is a hantavirus classically associated with wild Rattus species, but pet and breeder rats are an established and under-recognised source. Acute kidney injury in an owner of pet rats should prompt consideration of hantavirus.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Healthy breeding bitches from 15 kennels in Northern Italy were sampled to assess resistance in commensal bacteria. What were the key resistance findings?",
+"o": [
+"All isolates were fully susceptible to the panel tested",
+"Escherichia coli showed around 50% ampicillin resistance with 7.76% extended-spectrum beta-lactamase producers, and over 82% of Staphylococcus pseudintermedius were resistant to penicillin and ampicillin with 17.65% methicillin-resistant",
+"Resistance was confined to Escherichia coli, with no staphylococcal resistance detected",
+"Methicillin resistance exceeded 80% of staphylococcal isolates"
+],
+"a": 1,
+"e": "Cefalexin resistance in Escherichia coli was around 47% and amoxicillin-clavulanic acid around 24%, with other agents generally at or below 10 to 15%. Methicillin-resistant Staphylococcus pseudintermedius at 17.65% of isolates from healthy bitches is a meaningful reservoir, given these animals are producing puppies that will go to homes.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What was the purpose of sampling healthy animals rather than clinical cases in this study?",
+"o": [
+"Healthy animals are easier to restrain for sampling",
+"Commensal bacteria from healthy breeding bitches reflect the background selection pressure from antimicrobial use in the facility, rather than the resistance of a single treated infection",
+"Clinical cases were unavailable in these kennels",
+"Regulatory approval prohibited sampling sick animals"
+],
+"a": 1,
+"e": "Perivulvar skin and rectal samples from five bitches per kennel give a picture of the resident flora. Kennels were classified by reported intensity of antimicrobial use and this was tested against resistance, which is how you link stewardship practice to its ecological consequence.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "A systematic review of canine circovirus examined its biology and epidemiology. What are its key features?",
+"o": [
+"It is a genetically stable virus confined to dogs with no coinfection interaction",
+"High genetic variability, detection across diverse species and tissues, and cross-species transmission potential, with coinfections such as parvovirus and adenovirus exacerbating gastrointestinal and respiratory signs",
+"It causes only dermatological disease and never gastrointestinal signs",
+"It has been eradicated in most regions through vaccination"
+],
+"a": 1,
+"e": "The clinical significance of canine circovirus is still debated, and the coinfection relationship is central: it is frequently found alongside other enteric pathogens and may worsen their effect rather than acting alone. Real-time PCR and in situ hybridisation have improved detection sensitivity.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Eight dogs in Costa Rica with no history of travel abroad were investigated for Leishmania infantum. What did the case series demonstrate?",
+"o": [
+"All eight dogs were severely clinically affected",
+"Autochthonous infection was confirmed by multimodal diagnostics, with four dogs showing clinical signs such as anaemia, thrombocytopenia, splenomegaly, exfoliative dermatitis and onychogryphosis, while the other four remained subclinical or asymptomatic",
+"The infections were all imported from endemic Mediterranean countries",
+"Serology was negative in all cases despite positive histopathology"
+],
+"a": 1,
+"e": "Seven of eight dogs were seropositive, and histopathology showed intracellular amastigotes in lymph node aspirates, spleen and ear skin biopsy. That half the dogs were subclinical is the key epidemiological point, because those animals maintain transmission while appearing healthy.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Why does the demonstration of autochthonous canine leishmaniasis in a country matter for shelter and clinical practice there?",
+"o": [
+"It means travel history can no longer be used to rule out the disease, so local dogs with compatible signs must be considered even without foreign travel",
+"It means all dogs in the country require prophylactic treatment",
+"It means the parasite has become non-zoonotic",
+"It means serological testing is no longer required for diagnosis"
+],
+"a": 0,
+"e": "Autochthonous means locally acquired, implying a competent local vector and an established transmission cycle. Costa Rica had only sporadic reports over four decades, so a case series of locally acquired infections changes the index of suspicion.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "A meta-analysis of 38 studies on canine brucellosis in China found which pattern by dog source?",
+"o": [
+"Owned pet dogs had the highest positivity rate",
+"Stray dogs had a significantly higher positivity rate of 22.6% compared with other dog sources",
+"Kennelled breeding dogs had the highest rate at over 40%",
+"Dog source made no difference to positivity"
+],
+"a": 1,
+"e": "Prevalence was higher in northern and northwestern regions, with Xinjiang highest at 19.77% and Hunan lowest at 0.23%. Environmental factors including temperature and altitude also influenced incidence.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What did this meta-analysis show about the effect of diagnostic method on measured canine brucellosis prevalence?",
+"o": [
+"All methods produced statistically indistinguishable results",
+"Positivity rates differed significantly by method, with enzyme-linked immunosorbent assay highest at 11.6% and polymerase chain reaction and serum agglutination test lowest at 3.3%",
+"Polymerase chain reaction gave the highest positivity rate",
+"Only culture was used across the included studies"
+],
+"a": 1,
+"e": "A threefold difference by assay means reported prevalence figures are not directly comparable between studies. Practically, the recommendations were regular testing of pet dogs, improved kennel hygiene and reduced contact with potentially infected animals.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "A retrospective study of 911 dogs and cats undergoing necropsy in southern Italy examined toxin-producing Escherichia coli. What was found?",
+"o": [
+"49.5% were positive for Escherichia coli overall, with dogs significantly more likely to be positive than cats",
+"Fewer than 5% of animals carried Escherichia coli",
+"Only cats carried Escherichia coli",
+"Prevalence increased significantly year on year across the study period"
+],
+"a": 0,
+"e": "252 dogs (56.1%) and 199 cats (43.1%) were positive, with the higher canine prevalence significant and carrying an odds ratio of 1.69. There was no significant change in prevalence across 2017 to 2023.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What proportion of animals carried virulence determinants, and which species was more likely to produce verocytotoxin?",
+"o": [
+"At least one virulence factor in 22% of animals, with cats significantly more likely than dogs to produce verocytotoxin",
+"At least one virulence factor in 90% of animals, with dogs more likely to produce verocytotoxin",
+"No virulence factors were detected in any isolate",
+"Virulence factors were found only in animals with clinical gastrointestinal disease"
+],
+"a": 0,
+"e": "Twelve percent carried pathogenicity factors and 10% carried virulence genes including vtx1, vtx2 and eae. Cats had an odds ratio of 2.04 for verocytotoxin production, which is relevant to household zoonotic risk since verocytotoxigenic strains cause severe human disease.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Vaccination",
+"q": "A meta-analysis of canine enteric coronavirus vaccination pooled five experimental studies. What did it find about diarrhoea and viral shedding?",
+"o": [
+"Vaccination reduced both diarrhoea risk and viral shedding significantly",
+"Vaccination reduced diarrhoea risk by about 72% but did not significantly decrease viral shedding",
+"Vaccination reduced viral shedding but had no effect on diarrhoea",
+"Vaccination had no measurable effect on either outcome"
+],
+"a": 1,
+"e": "The dissociation matters in a shelter. A vaccine that reduces clinical signs but leaves shedding unchanged protects the individual dog without reducing transmission pressure in the population, so it does not help with outbreak control.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Vaccination",
+"q": "How did inactivated and attenuated canine enteric coronavirus vaccines differ in immunogenicity, and what is the current professional recommendation?",
+"o": [
+"Inactivated vaccines raised both enzyme-linked immunosorbent assay optical density values and virus neutralisation titres, whereas attenuated vaccines raised optical density values but not neutralisation titres; the World Small Animal Veterinary Association does not recommend vaccination",
+"Attenuated vaccines outperformed inactivated vaccines on every measure and are universally recommended",
+"Neither vaccine type produced any measurable antibody response",
+"Both vaccine types are core vaccines in shelter protocols worldwide"
+],
+"a": 0,
+"e": "Neutralising titre is the more meaningful correlate of protection, so an attenuated product raising only optical density is weaker evidence. The World Small Animal Veterinary Association position against vaccination reflects limited efficacy evidence, and this analysis, based on only five studies with unclear bias risk, does not overturn it.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "This review covers high pathogenicity avian influenza H5Nx clade 2.3.4.4b in cats since 2020. Which recent event demonstrated successful interspecies transmission relevant to feline risk?",
+"o": [
+"Outbreaks in dairy herds in the United States following presumed exposure from wild birds, with subsequent spread to in-contact mammals",
+"An outbreak confined entirely to commercial poultry with no mammalian spillover",
+"Transmission from cats to wild birds",
+"Laboratory-only transmission with no field evidence"
+],
+"a": 0,
+"e": "The dairy cattle outbreaks are the pivotal development because they show sustained mammalian infection and onward spread to in-contact species. Both captive big cat collections and feral and domestic cats have been affected.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "A multicentre case-control study compared 15 dogs with Brucella canis discospondylitis against 25 dogs with discospondylitis from other causes. Which features increased suspicion of Brucella canis?",
+"o": [
+"Older age, neurological deficits and neutrophilia",
+"Younger age, higher odds of C2-C5 involvement, higher odds of multiple disc site involvement, lower odds of neurological deficits and lower odds of neutrophilia",
+"A history of breeding or kennel housing in every case",
+"Single lumbosacral disc involvement with marked neutrophilia"
+],
+"a": 1,
+"e": "Cases had a median age of 2.6 years versus 5.7 for controls, with odds ratios of 13.0 for C2-C5 involvement and 12.0 for multiple sites. The counterintuitive part is that Brucella cases were less likely to show neurological deficits or neutrophilia, so a well-looking dog with multifocal cranial cervical lesions should raise rather than lower suspicion.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Why does early recognition of Brucella canis discospondylitis matter beyond the individual patient, and what did the study show about history-taking?",
+"o": [
+"Early recognition allows precautions to limit zoonotic transmission, and notably no case had a history of being bred or of kennel housing",
+"Early recognition permits curative single-dose therapy",
+"History of breeding reliably identifies affected dogs",
+"The organism poses no zoonotic risk to handlers"
+],
+"a": 0,
+"e": "Brucella canis is zoonotic and handling infected tissues or body fluids carries real risk to staff and owners. The absence of breeding or kennel history in every case is the practical warning: relying on signalment and history to rule out brucellosis will miss cases.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Rectal swabs from 102 dogs and cats in Egypt were examined for Escherichia coli resistance and virulence. What discrepancy emerged regarding carbapenems?",
+"o": [
+"Phenotypic carbapenem resistance was very high while carbapenemase genes were rare",
+"Phenotypic carbapenem resistance was uncommon at 5.45%, yet carbapenemase-encoding genes were identified in 60% of isolates, suggesting a potential but unconfirmed reservoir",
+"Neither phenotypic resistance nor carbapenemase genes were detected",
+"Carbapenem resistance was present only in isolates from diseased animals"
+],
+"a": 1,
+"e": "Genes present without expressed resistance still represent a reservoir that could be mobilised or transferred. This is a good example of why genotypic and phenotypic surveillance answer different questions and neither alone is sufficient.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What did virulence gene profiling and cluster analysis show in these companion animal Escherichia coli isolates?",
+"o": [
+"Virulence genes were found only in isolates from clinically diseased animals",
+"Most isolates carried virulence genes associated with extra-intestinal pathogenic Escherichia coli followed by enterohaemorrhagic Escherichia coli, found in both diseased and asymptomatic animals, with strong associations between resistance and virulence determinants",
+"Virulence and resistance determinants were mutually exclusive",
+"No virulence genes were detected in any isolate"
+],
+"a": 1,
+"e": "The convergence of resistance and pathogenic potential in the same isolates is the concerning finding, and detection in asymptomatic animals means healthy pets can carry strains that are both virulent and resistant. Extended-spectrum beta-lactamase producers were found in 17.9% of healthy and 22.2% of diseased animals.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Clinical canine leptospirosis cases in coastal New South Wales from 2021 to 2023 were analysed against environmental factors. What was the main driver identified?",
+"o": [
+"Hydrological events, with a significant spatio-temporal cluster during the 2022 Australian winter near lakes overlapping areas heavily flooded in March 2022",
+"Ambient temperature alone, independent of rainfall",
+"Proximity to livestock farms",
+"Vaccination coverage in the local dog population"
+],
+"a": 0,
+"e": "Extreme rainfall at lags of 13, 10 and 9 weeks significantly increased the rate, which fits the biology of Leptospira survival in surface water after flooding. Extreme heat and extreme precipitation influenced the rate in opposite directions.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "How did the local landscape around case addresses relate to canine leptospirosis risk in this study?",
+"o": [
+"Nature conservation areas were protective while recreational areas increased risk",
+"Nature conservation areas increased the rate with a risk ratio of 2.47, while recreational areas within the neighbourhood reduced it with a risk ratio of 0.13",
+"Neither landscape feature was associated with risk",
+"Only distance from the coast predicted risk"
+],
+"a": 1,
+"e": "Conservation areas plausibly support wildlife reservoir hosts and standing water, while managed recreational areas do not. The authors describe re-emergence in southern New South Wales as multifactorial and call for increased pet owner awareness.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "A training programme on antimicrobial use was delivered to 54 companion animal veterinarians in Quebec and evaluated using a difference-in-differences design. What was the impact?",
+"o": [
+"Overall prescription rates fell by more than half",
+"The training had limited impact on overall prescription rates, but a 55% reduction was seen specifically for metronidazole",
+"Prescription rates increased significantly after training",
+"No change could be measured because prescribing data were unavailable"
+],
+"a": 1,
+"e": "A targeted effect on one drug with weak indications, against no overall change, is a realistic result for education-only stewardship interventions. The difference-in-differences approach controlled for seasonal trends by comparison with the same period the previous year.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What did the baseline prescribing data reveal about antimicrobial use among these veterinarians?",
+"o": [
+"Antimicrobials of very high medical importance made up a negligible share of prescriptions",
+"Participants prescribed on average 11.7 antimicrobial treatments per 100 consultations, two thirds of systemic antimicrobials were of very high medical importance, and amoxicillin-clavulanic acid alone accounted for about 22% of prescriptions",
+"Fewer than one antimicrobial treatment per 100 consultations was prescribed",
+"Metronidazole was the single most prescribed antimicrobial"
+],
+"a": 1,
+"e": "Two thirds of systemic prescriptions falling into Health Canada's very high importance category is the headline stewardship problem. Amoxicillin-clavulanic acid dominance reflects habitual empirical prescribing rather than culture-directed choice.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "An analysis of 1,278 Staphylococcus isolates from cats over 15 years in the northeastern United States found which species distribution and resistance pattern?",
+"o": [
+"Staphylococcus felis, Staphylococcus aureus and Staphylococcus pseudintermedius predominated, with Staphylococcus pseudintermedius showing the lowest overall susceptibility and the highest multidrug resistance at 46%",
+"Staphylococcus aureus predominated and showed the lowest susceptibility",
+"All species showed equivalent resistance profiles",
+"Staphylococcus felis had the highest multidrug resistance"
+],
+"a": 0,
+"e": "Staphylococcus felis was most common at 26%, then Staphylococcus aureus at 22% and Staphylococcus pseudintermedius at 15%. Staphylococcus felis had the highest susceptibilities and lowest minimum inhibitory concentrations, so knowing which staphylococcal species you are dealing with materially changes the expected resistance.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Which antimicrobials showed the lowest and highest susceptibility among feline staphylococcal isolates, and what trend was seen over time?",
+"o": [
+"Susceptibility was lowest to vancomycin and highest to penicillin, with resistance falling over time",
+"Susceptibility was lowest to penicillin at 48%, ampicillin at 49% and erythromycin at 62%, and highest to vancomycin and rifampin at 99% or above, with minimum inhibitory concentrations increasing in 2018-2022 compared with 2008-2012",
+"All agents showed susceptibility above 90%",
+"Susceptibility patterns were stable across the entire 15-year period"
+],
+"a": 1,
+"e": "Overall, 54% of isolates were resistant to at least one antimicrobial and multidrug resistance was 19%. Skin and soft tissue at 52% and urinary tract at 22% were the commonest isolation sites, and survival models confirmed rising minimum inhibitory concentrations over the study period.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Resistance profiles were compared between 40 healthy breeding kennel bitches and 40 healthy household bitches. What was found?",
+"o": [
+"Household animals carried significantly more resistant organisms",
+"Resistance was generally higher in breeding kennel dogs, with significant differences in Escherichia coli for cefazolin, third-generation cephalosporins, tetracycline, kanamycin and trimethoprim-sulfamethoxazole",
+"No differences were found between the two groups",
+"Resistance was confined to staphylococci in both groups"
+],
+"a": 1,
+"e": "The study uses commensal resistance in healthy animals as a proxy for antimicrobial use intensity in the facility. The premise is that antimicrobials are sometimes given inappropriately in breeding kennels to try to improve fertility or reduce neonatal losses.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Why is comparing commensal flora between breeding kennels and households a useful way to assess antimicrobial pressure?",
+"o": [
+"Because commensal organisms in healthy animals reflect the cumulative selection pressure of the environment rather than the treatment of one clinical infection",
+"Because commensal bacteria are more pathogenic than clinical isolates",
+"Because household dogs never receive antimicrobials",
+"Because minimum inhibitory concentration testing only works on commensal organisms"
+],
+"a": 0,
+"e": "Sampling healthy animals from rectal and perivulvar sites avoids the confounding of recent treatment for a specific infection and captures the resident reservoir that puppies leaving the facility will carry into new homes.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Free-roaming dogs in rural Cambodia bordering three protected habitats were tested for canine distemper virus antibodies. What was the seroprevalence and why does it matter?",
+"o": [
+"40% seropositive, indicating substantial risk of transmission to endangered wild carnivores such as the dhole",
+"Under 5% seropositive, indicating negligible risk",
+"100% seropositive following a vaccination campaign",
+"Seroprevalence could not be determined"
+],
+"a": 0,
+"e": "This was the first documentation of canine distemper virus in the buffer zones of these protected areas. Domestic dogs at the wildlife interface act as a reservoir, and canine distemper virus can cause severe disease and death across a wide range of mammalian carnivores.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What intervention did the authors recommend on the basis of these findings?",
+"o": [
+"Culling free-roaming dogs in buffer zones",
+"Consideration of vaccination programmes for domestic dogs in these regions, plus further investigation of the dogs' role in canine distemper virus epidemiology in Cambodian wildlife",
+"Vaccination of wild carnivores instead of dogs",
+"Relocation of endangered carnivores away from the buffer zones"
+],
+"a": 1,
+"e": "Vaccinating the domestic reservoir is the standard conservation-medicine approach at a wildlife interface, since it is more practicable and more ethically defensible than intervening in the wild population.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "A study of Ehrlichia canis in Iran sampled 355 dog blood samples and 199 ticks. What were the detection rates and the vector involved?",
+"o": [
+"21.4% of blood and 39.19% of tick samples positive, transmitted by Rhipicephalus sanguineus",
+"Under 1% of both blood and tick samples positive, transmitted by Ixodes ricinus",
+"Positive only in ticks, with no canine infections detected",
+"100% of household dogs positive, with no stray dog infections"
+],
+"a": 0,
+"e": "Ehrlichia canis is the primary cause of canine monocytic ehrlichiosis and is transmitted by the brown dog tick, Rhipicephalus sanguineus, which is significant for shelters because that tick can complete its whole life cycle indoors in kennels.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What did phylogenetic analysis of the tandem repeat protein 36 gene reveal about Ehrlichia canis in Iran?",
+"o": [
+"A single clonal genotype across all isolates",
+"Fifteen sequence types with two highly conserved regions, and 60% of isolates clustering within the Taiwan genotypic group",
+"No genetic diversity could be assessed",
+"All isolates clustered with the American genotypic group"
+],
+"a": 1,
+"e": "The tandem repeat protein 36 gene is used for genotyping because it is immunodominant and variable. Genotype matters for diagnostics, since serological assays built around one genotype's antigens may perform differently against another.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "This study looked for Leptospira biofilms in kidneys of dogs with acute leptospirosis and tested antimicrobial susceptibility of biofilm versus planktonic forms. What was found?",
+"o": [
+"Mature biofilms with abundant extracellular matrix were present in all renal samples",
+"No extracellular matrix staining was detected in renal tissue, but Leptospira aggregates resembling early-stage biofilms were identified, and biofilm maturation reduced antimicrobial efficacy with increased minimum inhibitory concentrations from as early as seven days",
+"Biofilm formation had no effect on antimicrobial susceptibility",
+"Planktonic organisms were less susceptible than biofilm forms"
+],
+"a": 1,
+"e": "Biofilms had previously been documented in the environment, in chronic hosts and in vitro, but their role in acute infection was unclear. Finding early-stage aggregates with rising minimum inhibitory concentrations helps explain antimicrobial tolerance and bacterial persistence in treated dogs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Which agents were tested against Leptospira interrogans in this study, and what stood out?",
+"o": [
+"Doxycycline, ciprofloxacin and p-coumaric acid, with p-coumaric acid showing lower minimum inhibitory concentrations than expected",
+"Penicillin and streptomycin only",
+"Vancomycin and rifampin",
+"Amphotericin B and itraconazole"
+],
+"a": 0,
+"e": "Four autochthonous Leptospira interrogans strains isolated from clinical cases were tested under planktonic and 7-day and 21-day biofilm conditions, with scanning electron microscopy used to assess structural disruption. p-Coumaric acid is a plant-derived phenolic compound being explored as an adjunct where biofilm tolerance limits conventional agents.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "Thirty-five healthy young female cats undergoing elective spaying were used to test whether general anaesthesia impairs the response to a first rabies vaccination. What was the result?",
+"o": [
+"Cats vaccinated under anaesthesia failed to seroconvert",
+"All cats seroconverted with titres above 0.5 international units per millilitre, with no significant difference between cats vaccinated at the end of anaesthesia and those vaccinated outside the peri-anaesthetic period",
+"Only half the anaesthetised cats reached protective titres",
+"Titres were significantly higher in the anaesthetised group"
+],
+"a": 1,
+"e": "This directly addresses a common concern in high-quality high-volume spay-neuter and shelter practice, where vaccinating at the time of surgery is operationally convenient. Tumour necrosis factor alpha expression was upregulated after ex vivo stimulation, with no induction of interleukin-6 or the chemokine CXCL10.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "What limitation should temper generalising this anaesthesia and vaccination finding to all shelter patients?",
+"o": [
+"The study used a single vaccine and a single anaesthetic protocol in a homogeneous group of healthy young cats",
+"The study did not measure antibody titres at all",
+"The cats were all older than 10 years",
+"No control group was included"
+],
+"a": 0,
+"e": "The cats were healthy females aged 6 to 12 months receiving one inactivated adjuvanted rabies vaccine. Shelter populations include debilitated, parasitised and very young animals under varied anaesthetic protocols, where the answer might differ.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Spatial analysis of feline sporotrichosis in Espirito Santo, Brazil between 2017 and 2022 showed what pattern?",
+"o": [
+"A significant decrease in cases confined to rural areas",
+"A significant increase in cases with hotspots in urban and densely populated areas, spreading toward central and northern coastal regions",
+"Cases evenly distributed with no identifiable hotspots",
+"Cases confined to a single municipality with no spread"
+],
+"a": 1,
+"e": "Anchieta, Aracruz and Vila Velha reported the highest case numbers. Kernel density estimation and directional mean statistics were used to visualise concentration and the direction of spread, which is what allows a control programme to anticipate where the disease is heading.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "What does the urban concentration of feline sporotrichosis imply for control strategy?",
+"o": [
+"Control should focus on agricultural workers handling plant material",
+"Comprehensive public health strategies must address urbanisation, human-animal interactions and management of stray cat populations",
+"Control depends entirely on antifungal treatment of affected humans",
+"Urban areas require no intervention because transmission is environmental"
+],
+"a": 1,
+"e": "Because Sporothrix brasiliensis spreads cat-to-cat and cat-to-human by scratches and bites rather than from soil, dense urban free-roaming cat populations are the engine of transmission. Managing those populations is therefore a public health measure, not just an animal welfare one.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Four linked cases of Mycobacterium bovis infection were analysed involving two cohabiting cats and two people. What made this cluster notable?",
+"o": [
+"Both cats and both humans carried the same spoligotype, and the pet owner had no history of contact with livestock while the veterinarian was infected after a needlestick injury during sample collection",
+"All four cases were traced to a single dairy herd",
+"Only the cats were infected, with no human transmission",
+"Genotyping showed four unrelated strains"
+],
+"a": 0,
+"e": "The identical spoligotype SB0140 links the cases. The absence of livestock contact in the owner shows cats can be the source rather than an incidental host, and the veterinary needlestick is a direct occupational warning when sampling suspected mycobacterial cases.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "What is the broader lesson from this cluster for practices in areas where bovine tuberculosis is endemic?",
+"o": [
+"Companion animals can transmit zoonotic tuberculosis even without direct livestock exposure, so diagnostic and surveillance strategies must extend to non-traditional species",
+"Only cattle need to be included in tuberculosis surveillance",
+"Mycobacterium bovis cannot infect cats",
+"Needlestick injuries carry no infectious risk with mycobacteria"
+],
+"a": 0,
+"e": "The One Health point is concrete here: excluding companion animals from tuberculosis surveillance creates a blind spot, and handling precautions matter for staff taking samples from cats with suspicious lesions or lymphadenopathy.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "A cross-sectional study of 644 dogs and their owners in hyperendemic Gran Canaria examined heartworm infection and owner allergy. What was found?",
+"o": [
+"Owners of infected dogs had a significantly higher prevalence of allergic disease, with 65.89% of owners of positive dogs reporting allergies versus 24.64% of owners of negative dogs",
+"No association between canine infection and owner allergy was detected",
+"Owners of uninfected dogs reported more allergies",
+"Only canine breed predicted owner allergy"
+],
+"a": 0,
+"e": "46.4% of dogs tested positive for Dirofilaria immitis antigen and 43.8% of owners reported allergic disease overall. Canine age, sex, breed and habitat and owner demographics were not significantly associated, isolating infection status as the variable of interest.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "What is the proposed biological explanation for a link between canine heartworm infection and owner allergy, and what caution applies?",
+"o": [
+"Direct dog-to-human transmission of adult heartworms causes allergy",
+"Parasite-derived antigens may contribute to allergic disease in humans; however, this is a cross-sectional design showing association, not causation, and shared mosquito exposure could explain the finding",
+"Heartworm preventives given to dogs cause allergy in owners",
+"Allergy in owners causes dogs to become more susceptible to heartworm"
+],
+"a": 1,
+"e": "Dirofilaria immitis is mosquito-transmitted, so owners of infected dogs live where mosquito exposure is high and may be exposed to the same antigens independently. The association is real and worth investigating but the direction and mechanism are not established.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Prevalence of Dirofilaria immitis was assessed across dogs, cats and humans in Aveiro, Portugal. What were the results?",
+"o": [
+"Canine prevalence 4.7%, feline seroprevalence 8.9% and human seroprevalence 3.0%, with the highest canine figure of 16.7% in Vagos",
+"Canine prevalence above 50% with no feline or human exposure",
+"Human seroprevalence exceeded canine prevalence in every municipality",
+"No positives were detected in any species"
+],
+"a": 0,
+"e": "Feline seroprevalence reached 26.7% in Espinho. Antibody testing in cats detects exposure including infections that never mature, which is why feline seroprevalence can exceed canine antigen prevalence in the same area.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "What did the risk mapping in this study imply for chemoprophylaxis policy, and which risk factors were identified?",
+"o": [
+"Chemoprophylaxis is only needed in the single highest-risk municipality",
+"Positive samples were found in both high- and low-risk areas, so chemoprophylaxis is needed in all municipalities; risk factors were lack of vaccination and internal deworming in cats, and inadequate vaccination and outdoor exposure in dogs",
+"Risk mapping showed prophylaxis is unnecessary anywhere in the district",
+"Only indoor cats were at risk"
+],
+"a": 1,
+"e": "Positives in low-risk zones undermine any strategy of restricting prevention to hotspots. The authors identify Aveiro as endemic and frame heartworm there as a public health threat requiring district-wide control.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Water sampling at an Italian animal shelter, alongside ecotoxicology assays, examined the environmental fate of common pet ectoparasiticides. What was found in the shelter wastewater?",
+"o": [
+"No detectable ectoparasiticide residues",
+"Imidacloprid at 0.18 micrograms per litre, fipronil at 0.50 micrograms per litre and fipronil-sulfone at 0.20 micrograms per litre, with concentrations remaining stable for 60 days",
+"Residues that degraded completely within 48 hours",
+"Only fipronil, with no imidacloprid detected"
+],
+"a": 1,
+"e": "Persistence over 60 days is the important part. The assumption that pet ectoparasiticide use poses low environmental risk because volumes are small is challenged by a growing pet population and by concentrated sources such as shelters.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "What effects were demonstrated on non-target species in this study?",
+"o": [
+"No effects were seen at any concentration tested",
+"Chronic exposure to fipronil and imidacloprid impaired copepod mobility, and both compounds caused lipid peroxidation in mussel digestive glands and gills",
+"Only algae were affected, with no impact on invertebrates",
+"Effects were seen only at concentrations far above environmental levels"
+],
+"a": 1,
+"e": "Effect concentrations for 10% of the population were 1.7 micrograms per litre for fipronil and 2.6 for imidacloprid, which sit within an order of magnitude of the measured shelter wastewater concentrations. In vitro cytotoxicity on human epithelial cells was also assessed at domestic exposure levels.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "A 6-year-old neutered male Labrador Retriever developed lethargy, fever and pancytopenia 15 days after oral febantel. What is the mechanistic explanation and the outcome?",
+"o": [
+"Febantel is metabolised to fenbendazole, which is documented to cause bone marrow toxicity in dogs; the dog recovered fully in about two weeks after the drug was stopped",
+"Febantel causes irreversible aplastic anaemia requiring bone marrow transplantation",
+"The pancytopenia was due to concurrent parvovirus infection",
+"Febantel has no known haematological effects and the case was coincidental"
+],
+"a": 0,
+"e": "Bone marrow sampling showed hypoplasia with no other toxic insult identified. This was the first report of suspected marrow toxicity from febantel specifically, and the fenbendazole link makes it biologically plausible. Practical point: an anthelmintic belongs on the differential list for pancytopenia.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Free-roaming dogs across four regions of Ecuador were tested for Toxoplasma gondii antibodies. What was the seropositivity and how did it vary?",
+"o": [
+"39.7% overall, with no significant differences between regions or between urban and rural zones",
+"Under 5% overall, confined to the Amazon region",
+"Over 90% in coastal areas and negligible elsewhere",
+"Significantly higher in rural than urban settings"
+],
+"a": 0,
+"e": "Uniformly high seropositivity across all four regions and both urban and rural settings indicates widespread environmental contamination rather than a localised problem, which is what makes the finding useful for public health planning.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Dogs are not definitive hosts for Toxoplasma gondii. Why were they used in this survey?",
+"o": [
+"Because dogs shed infective oocysts and are the main source of human infection",
+"Because dogs can act as environmental sentinels, their seropositivity reflecting the level of environmental exposure risk for humans in the same area",
+"Because canine infection causes severe clinical disease that is easy to detect",
+"Because dogs cannot be infected, providing a negative control"
+],
+"a": 1,
+"e": "Only felids are definitive hosts and shed oocysts. Dogs acquire infection from the same contaminated environment people do, so canine seroprevalence is a practical proxy for human exposure risk, particularly useful in low- and middle-income settings where human surveillance is limited.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Faecal samples from 249 stray, pet and kennel dogs in Jordan were screened for Cryptosporidium. What was the infection rate and which species predominated?",
+"o": [
+"18.9% overall, with Cryptosporidium canis most common at 58.1%, followed by Cryptosporidium parvum at 34.9% and Cryptosporidium baileyi at 7.0%",
+"Under 2% overall, with only Cryptosporidium canis detected",
+"Over 60% overall, with Cryptosporidium parvum dominant",
+"No Cryptosporidium was detected in pet dogs"
+],
+"a": 0,
+"e": "Cryptosporidium canis is the dog-adapted species, whereas Cryptosporidium parvum has much broader zoonotic significance. Finding a third of isolates as Cryptosporidium parvum in dogs is the public health signal here.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Which husbandry factors were significantly associated with canine cryptosporidiosis in this study?",
+"o": [
+"Outdoor housing and lack of vaccination",
+"Being an indoor dog, cohabiting with other animals, and consuming raw food",
+"Age over eight years and neutered status",
+"Living in a rural governorate only"
+],
+"a": 1,
+"e": "Raw feeding and multi-animal households are plausible transmission routes, and indoor housing may reflect closer contact and shared surfaces rather than protection. All Cryptosporidium parvum isolates carried the zoonotic IId genotype family, reinforcing the human risk.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "In 47 dogs seropositive for canine visceral leishmaniasis, what relationship was found between intestinal helminths and disease severity?",
+"o": [
+"Ancylostoma species was associated with more severe clinical staging, with an odds ratio of about 3.4, and was negatively associated with red blood cell counts",
+"Intestinal helminths were associated with milder clinical staging",
+"No relationship between helminth burden and clinical stage was detected",
+"Only Dipylidium caninum was associated with severity"
+],
+"a": 0,
+"e": "Dogs with both leishmaniasis and intestinal helminths frequently had macrocytic hypochromic or microcytic hypochromic anaemia. Hookworm causes blood loss directly, so the anaemia has a mechanical explanation on top of any immunological interference from coinfection.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Why does coinfection with intestinal parasites matter when interpreting the clinical picture of canine visceral leishmaniasis?",
+"o": [
+"Coinfection prevents seroconversion, making serological diagnosis unreliable",
+"Immunological interference in parasitic coinfections can influence the clinical manifestations of leishmaniasis, and the added anaemia can worsen apparent disease stage",
+"Coinfection has no biological interaction and is purely coincidental",
+"Intestinal helminths are protective against Leishmania infection"
+],
+"a": 1,
+"e": "Dogs were grouped into low, medium and severe categories using a modified LeishVet staging system. If a hookworm burden is driving part of the anaemia and clinical decline, treating the coinfection may change both the staging and the prognosis.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Multiple anthelmintic drug resistance in Ancylostoma caninum was first reported in 2019. Where did the trait originate and what is its current distribution?",
+"o": [
+"It originated in imported street dogs and remains confined to imported animals",
+"It originated on greyhound farms and kennels, but essentially any breed, age, size and sex of dog throughout the United States can now be infected, with some reports from Canada",
+"It originated in Europe and has not reached North America",
+"It remains confined to racing greyhounds only"
+],
+"a": 1,
+"e": "This is the key practice point: greyhound history no longer usefully rules out resistant hookworm. Molecular tests detecting benzimidazole resistance mutations have revealed alarming frequencies in pet dogs across the United States.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "What does the term multiple anthelmintic drug resistance mean in the context of canine hookworm?",
+"o": [
+"Resistance to a single anthelmintic class that can be overcome by increasing the dose",
+"Resistance to all anthelmintic classes registered in the United States for controlling this parasite in dogs, spanning benzimidazoles, pyrantel and macrocyclic lactones",
+"Resistance that occurs only in immunosuppressed dogs",
+"Resistance to antibacterials rather than anthelmintics"
+],
+"a": 1,
+"e": "Because benzimidazole-resistant isolates were also resistant to pyrantel and macrocyclic lactones, genetic evidence of benzimidazole resistance is taken to indicate multiple anthelmintic drug resistance is widespread. That leaves very limited therapeutic options and makes this a serious shelter and kennel problem.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Serum from free-roaming cats in the eastern Tennessee valley was screened for tick-borne pathogens across two time periods. What was found for Borrelia species?",
+"o": [
+"Seroprevalence fell from 41.3% to 9.7% over the study period",
+"Seroprevalence was 41.3% in 2019-2020 samples compared with 9.7% in 2013-2014 samples",
+"Seroprevalence remained unchanged at around 40% in both periods",
+"No Borrelia seropositivity was detected in either period"
+],
+"a": 1,
+"e": "A more than fourfold rise over roughly six years in a region that has seen substantial change in tick populations and human disease. Generalised linear models did not identify any significant predictors of positivity among the factors tested.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Why might free-roaming cats be useful sentinel hosts for tick-borne disease surveillance?",
+"o": [
+"Because they are definitive hosts for Borrelia burgdorferi and amplify the organism",
+"Because they have a high association with human-populated areas and a high interface with ticks, so may serve as predictors of human infection risk over time",
+"Because they develop obvious clinical Lyme disease that is easy to diagnose",
+"Because they can be tested without any need for serology"
+],
+"a": 1,
+"e": "Cats sample the same peridomestic tick habitat that people use, and free-roaming cats do so intensively. The authors are careful to note the specific role of cats in disease cycling is still unknown, so the value is as an indicator rather than as a reservoir.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Toxocariasis is described as a neglected zoonosis. What is its estimated global burden, and why is control complicated?",
+"o": [
+"Over 90,000 disability-adjusted life years lost per year and about 2.5 billion dollars in annual economic impact, with control complicated by environmental contamination with long-lived parasite eggs requiring a One Health approach",
+"Negligible burden, which is why it is neglected",
+"Burden confined to high-income countries only",
+"Control is straightforward because the eggs are short-lived"
+],
+"a": 0,
+"e": "Toxocara eggs persist in soil for months to years and require a period of embryonation before becoming infective, so environmental contamination decouples transmission from direct animal contact and makes deworming alone insufficient.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "What did the investigators add to their compartmental transmission model, and why?",
+"o": [
+"They removed all stochastic elements to simplify interpretation",
+"They incorporated stochasticity to account for uncertainty about the proportion of seroprevalent individuals who actually develop symptoms",
+"They restricted the model to dogs only, excluding cats",
+"They assumed all seropositive people are symptomatic"
+],
+"a": 1,
+"e": "Seroprevalence measures exposure, not disease, and the fraction who become symptomatic is genuinely uncertain. Building that uncertainty into the model gives a range of plausible symptomatic case estimates rather than a falsely precise single figure, which is more honest for guiding control strategy.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
+"q": "A retrospective review of 254 suspected cruelty offences in Hong Kong categorised cases into active maltreatment, passive neglect, commercial exploitation and hoarding. What did the prosecuted cases mainly involve?",
+"o": [
+"Commercial exploitation of cats, rarely causing death",
+"Traumatic physical injury to dogs, with 30% causing death, followed by neglect with 27% of cases causing death",
+"Hoarding cases exclusively",
+"Passive neglect of rabbits and small mammals"
+],
+"a": 1,
+"e": "Most neglect cases involved dogs abandoned inside private premises without food or water, which is a distinct scenario from outdoor abandonment and has implications for how such cases are detected and investigated.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
+"q": "What did this study find about hoarding cases in Hong Kong?",
+"o": [
+"The median number of animals hoarded was 47, dogs were the most common species, most hoarders had collected animals from strays, and the largest cases exceeding 100 animals were operating as animal rescue shelters",
+"Hoarding cases involved a median of 5 animals, mostly cats",
+"No hoarding cases were identified in the review period",
+"All hoarding cases involved animals purchased from breeders"
+],
+"a": 0,
+"e": "The finding that the largest hoarding operations presented as rescue shelters is important for anyone assessing rescue organisations. Rescue hoarding is a recognised subtype in which the hoarding is framed as animal saving, which delays recognition and intervention.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "This review examines animal cruelty as an indicator of interpersonal violence. What does it identify as the core argument for veterinary vigilance?",
+"o": [
+"Animal cruelty is legally significant but has no relationship to human violence",
+"Animal cruelty is closely related to interpersonal violence and other antisocial conduct, so timely recognition of either can help prevent further acts of aggression",
+"Only physical abuse, not neglect, is associated with interpersonal violence",
+"Children exposed to household violence show no tendency to reproduce it"
+],
+"a": 1,
+"e": "Animal cruelty is defined broadly to include negligence, abandonment, abuse, torture, bestiality and theriocide. The review notes children from homes with violence show a high tendency to reproduce those behaviours toward both animals and people, which is why the veterinary consultation can be a detection point.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
+"q": "A survey of Taiwanese veterinarians and veterinary students examined attitudes to animal abuse. What predicted willingness to intervene?",
+"o": [
+"Years in practice alone",
+"Perceived moral or legal responsibility, willingness to assist, and agreement with mandatory reporting",
+"Practice income and caseload",
+"Ownership of pets by the respondent"
+],
+"a": 1,
+"e": "Respondents who believed they had received adequate training were more willing to deal with abuse cases, more able to distinguish them, and less likely to see it as beyond their ability. Confidence and perceived duty travel together.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
+"q": "What training gap did this study identify among veterinary respondents?",
+"o": [
+"More than 60% self-evaluated that animal cruelty awareness training courses were insufficient",
+"Fewer than 5% felt training was inadequate",
+"Training was considered excessive by most respondents",
+"Training on animal abuse was not assessed"
+],
+"a": 0,
+"e": "Since perceived adequacy of training predicted both willingness and perceived capability, a self-reported 60% shortfall points directly at curriculum and continuing education as the lever for improving detection and response.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Animals & Public Policy",
+"sub": "Legislation",
+"q": "This article reviews the history and current state of bestiality legislation in the United States. What does it conclude about the evidence base underpinning recent legislative expansion?",
+"o": [
+"The evidence for a link between bestiality and interpersonal violence is robust and generalisable",
+"Data supporting the Link between bestiality and interpersonal violence are limited and of questionable generalisability to the broad public, despite the Link being a major motivation for new legislation",
+"No legislation currently addresses bestiality in the United States",
+"Legislation has been based entirely on empirical data with no moral reasoning"
+],
+"a": 1,
+"e": "The Link is the concept that people who harm animals may also offend interpersonally. The authors do not dismiss the laws but argue the scientific justification is weaker than advocates suggest, and that these weaknesses should guide further research rather than be papered over.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Animals & Public Policy",
+"sub": "Legislation",
+"q": "How did the legislative treatment of bestiality in the United States evolve historically?",
+"o": [
+"From religious prohibitions in the early American colonies, through Henry Bergh's importation of the animal welfare approach in the 1800s, to modernisation of vague and moralistic statutes since the 1960s",
+"It has remained unchanged since the colonial era",
+"It was first criminalised only in the 1990s",
+"It has always been framed exclusively in animal welfare terms"
+],
+"a": 0,
+"e": "The shift matters because a statute grounded in morality punishes the act itself, whereas one grounded in animal welfare requires consideration of harm to the animal, which changes what must be proven and what expert evidence a veterinarian might give.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
+"q": "This review addresses a persistent misconception about dogs used in organised fighting. What is it?",
+"o": [
+"That fighting breeds have a high pain threshold or show reduced or delayed responses to painful stimuli",
+"That fighting dogs cannot be rehabilitated",
+"That fighting dogs are always male",
+"That wounds sustained in fighting are always superficial"
+],
+"a": 0,
+"e": "The review emphasises that injuries can trigger hyperalgesia, an increased response to noxious stimuli, and allodynia, a pain response to normally innocuous stimuli. These sensory changes are frequently overlooked, and assuming a raised pain threshold leads directly to under-treatment of pain.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
+"q": "Beyond physical wounds, what harms does this review attribute to dogfighting, and what solution does it propose?",
+"o": [
+"Only physical harm, addressed through surgical treatment",
+"Psychological, emotional and sensory harm in addition to physical damage, with educational strategies for the public and training for veterinarians proposed as key solutions",
+"Harm confined to the period of the fight itself",
+"No identifiable harm if wounds are treated promptly"
+],
+"a": 1,
+"e": "Risk factors discussed include temperament, age, sex, nutrition, testosterone levels, environment, isolation, socialisation and training. The veterinary profession is positioned as having a key role in raising awareness of dog welfare issues.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
+"q": "This review examines empathy, attachment and anthropomorphism in human-animal relationships. What is its central point about these psychological mechanisms?",
+"o": [
+"They are always beneficial and protective for animal welfare",
+"They are relevant to positive and healthy relationships with animals, but when dysfunctional or pathological they cause physical or psychological suffering in animals, as occurs in animal hoarding",
+"They are irrelevant to animal welfare outcomes",
+"They apply only to relationships with dogs"
+],
+"a": 1,
+"e": "This reframes hoarding as a distortion of the same processes that normally support good care, rather than as an absence of caring. That distinction matters because hoarders often genuinely believe they are helping, which shapes how intervention has to be approached.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
+"q": "What does the review say about the visibility of harm within human-animal relationships?",
+"o": [
+"Harm is always obvious and easily detected",
+"Negative physical and psychological consequences for animals may be very nuanced and concealed, though in cases of violence, abuse or neglect they become clear and striking",
+"Harm occurs only where there is deliberate violence",
+"Only humans, not animals, suffer in dysfunctional relationships"
+],
+"a": 1,
+"e": "The gradient from subtle concealed harm to overt abuse is why welfare assessment cannot rely solely on obvious signs, and why the concealed end of that spectrum is where hoarding cases typically sit before discovery.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
+"q": "A study across a major Brazilian metropolitan area examined how hoarding case identification related to socioeconomic indicators. What was found?",
+"o": [
+"High levels of hoarding case identification were associated with higher Human Development Index, population, density and income, while low identification was associated with greater area, higher Social Vulnerability Index, inequality, illiteracy and rural settings",
+"Hoarding cases were identified equally across all municipalities regardless of socioeconomic status",
+"Hoarding was most often identified in the poorest and most rural municipalities",
+"No association with any socioeconomic indicator was found"
+],
+"a": 0,
+"e": "The critical interpretive point is that this measures identification, not occurrence. Wealthier, denser, better-resourced municipalities find more cases, which may reflect detection capacity rather than a genuinely higher burden of hoarding.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
+"q": "How did the presence of animal protection programmes relate to socioeconomic indicators in this study?",
+"o": [
+"Programmes were concentrated in rural, low-income municipalities",
+"Very high identification of animal protection programmes was associated with higher Human Development Index, density, population, urban area and high income, while low levels were explained by low income and illiteracy",
+"Programme presence was unrelated to socioeconomic indicators",
+"Programmes existed only in municipalities distant from the state capital"
+],
+"a": 1,
+"e": "Both hoarding detection and protection programmes cluster in better-resourced areas, meaning the municipalities with the greatest social vulnerability are also those least likely to have either the services or the surveillance to identify and address animal welfare problems.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
+"q": "A life-sized plush model dog was tested as a screening tool for conspecific aggression in 292 dogs confiscated from a large dogfighting raid. How did it perform?",
+"o": [
+"The model had no predictive value for aggression toward live dogs",
+"75% of dogs aggressive to the model were also aggressive to a same-sex stimulus dog, and sensitivity was high with 81% of same-sex-aggressive dogs detected by the model",
+"The model produced aggression in every dog tested, making it useless",
+"Only 20% of dogs aggressive to the model were aggressive to live dogs"
+],
+"a": 1,
+"e": "Both predictive value and sensitivity were substantive. A significant sex-by-scenario interaction was driven by higher aggression from males toward the same-sex stimulus dog specifically.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
+"q": "What testing protocol did the authors recommend for evaluating fight-bred dogs on the basis of these findings?",
+"o": [
+"Use a same-sex stimulus dog first, reserving the model for ambiguous cases",
+"Use a model dog first; if no physical aggression is shown to the model, or the behaviour is ambiguous, then test with a same-sex stimulus dog",
+"Test only with opposite-sex stimulus dogs",
+"Avoid conspecific testing entirely in this population"
+],
+"a": 1,
+"e": "Leading with the model reduces risk to live stimulus dogs while still catching most truly aggressive individuals, and reserves the higher-risk live encounter for dogs where the model gives a negative or unclear result.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
+"q": "A survey of 88 veterinary medical professionals compared their preparedness for animal sexual abuse against non-sexual abuse. What was found?",
+"o": [
+"Knowledge and training levels were much lower for animal sexual abuse than for non-sexual abuse",
+"Training was equivalent for both types of abuse",
+"Professionals reported more training on sexual abuse than on non-sexual abuse",
+"Most respondents had received formal forensic training in both areas"
+],
+"a": 0,
+"e": "Respondents were also supportive of mandatory reporting for all types of abuse but did not feel prepared to testify in court should cases proceed, which is a specific and addressable training gap.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
+"q": "What attitudes did veterinary professionals express toward those who commit animal sexual abuse, and what is the practical implication of the training gap?",
+"o": [
+"Lenient attitudes, favouring diversion over prosecution",
+"Punitive attitudes supporting long prison sentences and offender registries, while the training deficit could leave patients at risk of continued harm",
+"Indifference, with no strong views expressed",
+"Opposition to any form of mandatory reporting"
+],
+"a": 1,
+"e": "Strong punitive attitudes combined with low knowledge is an uncomfortable pairing, because willingness to act is not matched by the ability to recognise cases or to give evidence that would sustain a prosecution.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
+"q": "A retrospective review of over 28,000 veterinary encounters at a rural Mississippi community clinic examined household animal numbers against health indicators. What was found?",
+"o": [
+"Increased animal ownership in the home correlated with worse health outcomes based on the health-care indicators investigated in both dogs and cats",
+"Animals from large households had better health outcomes due to socialisation",
+"Household size had no relationship to animal health indicators",
+"Only cats showed any relationship between household size and health"
+],
+"a": 0,
+"e": "Most animals came from single-animal households at 46.9% or households of two to three at 35.9%. Only 2.1% of cases lived in households reported to have eight or more animals, but that subgroup showed measurably worse health indicators.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
+"q": "What did the authors recommend for veterinarians working in community settings on the basis of this study?",
+"o": [
+"Refusing to treat animals from multi-animal households",
+"Recognising they are likely to encounter animal hoarding cases and considering collaboration with mental health services",
+"Reporting all multi-animal households to law enforcement",
+"Limiting the number of animals any client may present"
+],
+"a": 1,
+"e": "Hoarding is a psychiatric as well as an animal welfare problem, and recidivism after animal removal alone is high. Collaboration with mental health services addresses the cause rather than repeatedly clearing the consequences.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
+"q": "During routine companion animal abuse investigations in Pinhais, Brazil, animal welfare officers also recorded family socioeconomic vulnerability. What did the study demonstrate?",
+"o": [
+"Animal welfare officers could not reliably detect socioeconomic vulnerability",
+"Cohen's kappa coefficients supported the ability of animal welfare service professionals to detect socioeconomic vulnerability, with economic disadvantage the most prevalent form",
+"Socioeconomic vulnerability was absent in all investigated families",
+"Only social workers, not animal welfare staff, could identify vulnerability"
+],
+"a": 1,
+"e": "Forty-five cases were assessed, 30 with and 15 without suspected vulnerability, and referrals were sent to the Department of Social Assistance for confirmation. Animal welfare officers gain entry to the home environment, which gives them a vantage point other services often lack.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
+"q": "What two findings from this study most strongly support a One Welfare approach linking animal and human services?",
+"o": [
+"Almost half of the families identified as socioeconomically vulnerable had not previously participated in social programmes, and in all cases where families were already assisted by social services the pets were found to be suffering abuse",
+"Animal abuse occurred only in families with no social service contact",
+"Social service involvement completely prevented animal abuse",
+"Vulnerability was unrelated to animal welfare outcomes"
+],
+"a": 0,
+"e": "The first finding shows animal welfare investigations reach families the social system has missed. The second shows existing social service contact did not protect the animals, so information needs to flow in both directions between human and animal services.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
+"q": "When animals are seized from hoarding situations and taken into shelters, what welfare consequences does this review identify?",
+"o": [
+"Immediate and complete resolution of all welfare problems",
+"Confinement in an unknown environment carrying additional risks including infectious disease, behavioural deterioration and distress, compounded by shelters that are frequently overcrowded and unable to accommodate the numbers involved",
+"No welfare consequences, since shelter conditions always exceed hoarding conditions",
+"Only physical health risks, with no behavioural impact"
+],
+"a": 1,
+"e": "Seizure solves the immediate problem of inadequate care but transfers a large, often unsocialised and diseased population into a facility not sized for it. Recognising this is what allows shelters to plan capacity, isolation and behavioural support before a seizure rather than after.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
+"q": "Why does this review advocate a One Welfare approach to animal hoarding rather than focusing on the animals alone?",
+"o": [
+"Because hoarders are usually unaware of their failure to care for their animals and of the harm to people and the environment, usually do not care for themselves, and generally have difficult histories requiring help",
+"Because the animals' welfare is not actually compromised in hoarding situations",
+"Because legal frameworks prohibit intervening on behalf of animals",
+"Because human services are always better resourced than animal services"
+],
+"a": 0,
+"e": "One Welfare works at the intersection of animal welfare, human wellbeing and the environment, all three of which are present in hoarding. Addressing only the animals leaves the person unsupported and the situation likely to recur.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
+"q": "A study of 851 participants examined which species of abused pet was most strongly linked to intimate partner violence. What was found?",
+"o": [
+"Horse abuse showed the strongest association with severe intimate partner violence",
+"Abuse of cats showed the strongest association with severe intimate partner violence victimisation, while horse abuse was not significantly related to it at all",
+"All species showed identical associations",
+"Only dog abuse was associated with any form of intimate partner violence"
+],
+"a": 1,
+"e": "Cat abuse was associated with a roughly 1,232% increase in the likelihood of severe intimate partner violence for women and 945% for men. Both cat and dog abuse were significantly associated with all types, small pet abuse with physical and severe types, and horse abuse with none.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
+"q": "The study also separated types of animal abuse. Which type carried the strongest association with severe intimate partner violence?",
+"o": [
+"Cat neglect, increasing the likelihood of severe intimate partner violence by approximately 3,700%, with dog neglect increasing it by approximately 1,600%",
+"Severe physical abuse of dogs, with neglect showing no association",
+"Emotional abuse of horses",
+"Threats toward small pets"
+],
+"a": 0,
+"e": "That neglect rather than overt physical violence carried the strongest association is counterintuitive and clinically useful, because neglect is more likely to present to a veterinary practice than a deliberate injury. The authors argue types of animal abuse must be examined separately rather than pooled.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
+"q": "This study measured isotopic changes through each phase of leather tanning using a Persian leopard skin. Why does this matter for wildlife forensic investigation?",
+"o": [
+"Because tanning destroys all DNA, making species identification impossible",
+"Because stable isotope and radiocarbon analysis are used to determine a specimen's geographical origin or age, and aggressive tanning reagents absorbed by hair or skin can alter the original isotopic signatures",
+"Because tanned skins cannot legally be tested",
+"Because isotopic analysis is only valid for marine species"
+],
+"a": 1,
+"e": "Distinguishing legal from illegal trade often turns on establishing where a specimen came from or how old it is. If the tanning process shifts the isotopic signature, an untanned reference value cannot be applied to a finished product without correction.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
+"q": "What was novel about this study's approach compared with previous work?",
+"o": [
+"It measured step-by-step changes in isotopic composition through each individual phase of tanning and compared different tanning methods on a single hide, whereas previous studies examined only raw hides and final products",
+"It was the first to use radiocarbon dating on any animal tissue",
+"It relied on visual inspection rather than mass spectrometry",
+"It examined only nitrogen isotopes"
+],
+"a": 0,
+"e": "Carbon-14, deuterium, oxygen-18, nitrogen-15 and carbon-13 were tracked using accelerated mass spectrometry and stable isotope mass spectrometry. Sampling at each stage identifies which specific chemical step causes a shift, which is what would allow a correction factor to be developed.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
+"q": "A survey of 1,753 Hungarian respondents assessed attitudes to zoophilia. What gap emerged between attitude and knowledge?",
+"o": [
+"Respondents were well informed of the law but indifferent to the practice",
+"98.3% deemed zoophilia unacceptable and 98.2% favoured strict penalties, yet 38.9% were unaware that such acts are legally prohibited in Hungary",
+"Most respondents considered zoophilia acceptable",
+"Awareness of the law was near universal"
+],
+"a": 1,
+"e": "Near-unanimous moral condemnation alongside more than a third being unaware of the legal prohibition points to a public education problem rather than an attitudinal one. 98.9% believed animals possess dignity and 84.7% felt zoophilia harms that dignity.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
+"q": "What did the Hungarian survey reveal about exposure to zoophilic incidents and demographic differences in attitudes?",
+"o": [
+"No respondent had any awareness of such incidents",
+"14% of respondents had encountered or heard of zoophilic incidents, predominantly involving dogs, and women and people in the capital and major cities were more aware of the legal prohibition and more supportive of strict sanctions",
+"Only rural respondents reported awareness of incidents",
+"Men were significantly more supportive of strict sanctions than women"
+],
+"a": 1,
+"e": "A 14% exposure rate is higher than might be assumed for a behaviour usually treated as vanishingly rare. Gender and settlement type both significantly influenced attitudes, which is relevant to targeting any educational campaign.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
+"q": "A Swedish questionnaire compared 108 official animal welfare inspectors with 22 private auditors. What did the two groups have in common?",
+"o": [
+"Both groups reported disliking their work and finding it futile",
+"Both usually enjoyed their work and held similar views on what makes a good inspector, valuing good dialogue with the animal keeper and uniform assessments, and both reported that keepers often show appreciation after an inspection",
+"Neither group considered dialogue with animal keepers important",
+"Both groups reported that uniform assessment is easily achieved"
+],
+"a": 1,
+"e": "Uniformity of assessment was valued but acknowledged as challenging to achieve in practice, which is a recurring problem in any inspection system relying on professional judgement against written standards.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
+"q": "What was the main difference in experience between official inspectors and private auditors in this study?",
+"o": [
+"Official inspectors felt more exposed to unpleasant and threatening situations",
+"Private auditors felt more exposed to threatening situations",
+"Official inspectors reported no negative experiences at all",
+"Private auditors conducted inspections without any standards to apply"
+],
+"a": 0,
+"e": "Official inspectors carry enforcement powers and can impose sanctions, which changes the dynamic of the visit. Private auditors, mainly inspecting voluntary standards, were more likely to report the keeper being open with them. A trustworthy and effective control system matters for both animal welfare and public confidence.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
+"q": "An analysis of 162 pet videos intended to be humorous examined welfare indicators. What proportion showed signs of poor welfare?",
+"o": [
+"Stress reactions in 82% of videos, risk of injury in 52%, suspected pain in 30%, and agony breeding characteristics such as brachycephaly in 32%",
+"Fewer than 10% showed any welfare concern",
+"Stress reactions in 5% and no injury risk detected",
+"Welfare concerns were present only in videos featuring exotic species"
+],
+"a": 0,
+"e": "Agony breeding characteristics, sometimes called torture breeding, refers to conformational traits such as brachycephaly that inherently compromise welfare. Their presence in a third of videos normalises those traits as amusing rather than pathological.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
+"q": "What was the relationship between welfare problems and video success in this study?",
+"o": [
+"Videos showing welfare problems performed poorly and were rarely shared",
+"93.8% of videos reached the exposure benchmark used to classify them as successful, indicating that successful animal videos on social media are often those depicting poor welfare",
+"Success was unrelated to content",
+"Only videos with no welfare concerns achieved high view counts"
+],
+"a": 1,
+"e": "Success was measured as views relative to account followers, with a benchmark of 0.14. The concerning implication is that the content most rewarded by platform algorithms is disproportionately content in which animals are stressed, at risk of injury, or in pain.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
+"q": "A survey of 223 veterinary students examined how animal welfare sensitivity changed across the curriculum. What was found?",
+"o": [
+"Sensitivity to animal welfare, including academic training on responding to animal abuse, increased as students progressed, but students became less willing to make voluntary efforts as they approached the end of their studies",
+"Sensitivity declined steadily from first year onward",
+"No change was detectable across academic years",
+"Willingness to make voluntary efforts increased in final-year students"
+],
+"a": 0,
+"e": "The divergence between rising sensitivity and falling willingness to volunteer effort is the interesting finding, and may reflect increasing workload, pragmatism or early disillusionment as students approach practice.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
+"q": "Which student profile was least sensitive to animal abuse in this study, and what did the authors propose?",
+"o": [
+"Women with dogs living in urban areas; the authors proposed removing welfare content from the curriculum",
+"Men without dogs residing in rural habitats with family members involved in hunting or fishing; the authors proposed intensive animal welfare courses throughout the veterinary curriculum",
+"Students in their first year only, with no other demographic pattern",
+"No demographic factors were associated with sensitivity"
+],
+"a": 1,
+"e": "Perception of both animal welfare and animal abuse carries a high degree of subjectivity shaped by individual and sociodemographic background. Identifying which backgrounds correlate with lower sensitivity is what allows curriculum design to target it deliberately.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
+"q": "A forensic case from Japan described postmortem scavenging of human remains by cats in a locked room. What features identified the scavenger as felid?",
+"o": [
+"Punctures, denticulated edges and narrow grooves in bone consistent with felid dentition, with no evidence of canine or rodent scavenging",
+"Characteristic gnaw marks identical to those of rodents",
+"Absence of any bone damage",
+"DNA recovered from the bone surface"
+],
+"a": 0,
+"e": "The remains were missing many bones and showed destruction of the zygomatic arches, mastoid processes, atlas vertebral facets and long bone epiphyses. The damage extended well beyond soft tissue consumption, which the authors attribute to extreme starvation of the cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
+"q": "Why is this case forensically instructive despite being extreme?",
+"o": [
+"It shows cats never scavenge human remains",
+"It documents that cats can cause extensive bone destruction, which is relevant to investigations with a long death-to-postmortem interval and advanced decomposition in domestic environments, and highlights the difficulty of identifying postmortem scavengers",
+"It demonstrates that scavenging always indicates foul play",
+"It proves scavenging occurs only outdoors"
+],
+"a": 1,
+"e": "Misattributing postmortem scavenging damage to perimortem trauma is a real risk in a decomposed indoor death. Knowing the pattern that felid dentition produces helps an examiner distinguish scavenging from injury inflicted before death.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
+"q": "A retrospective analysis of 123 fatal animal attacks in Turkiye distinguished direct from indirect causes of death. What were the indirect mechanisms?",
+"o": [
+"Only rabies and sepsis following bites",
+"Traffic collisions at 12.2%, cardiac events at 7.3% and falls at 5.7%, all triggered by animal encounters without direct animal contact",
+"Deaths occurring more than one year after the encounter",
+"Only venomous bites and stings"
+],
+"a": 1,
+"e": "Fatalities were categorised as direct-acute, direct-delayed, indirect-traumatic and indirect-nontraumatic. Direct-delayed deaths included rabies, sepsis and Crimean-Congo haemorrhagic fever, showing that the fatal consequence of an encounter may appear well after the event.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
+"q": "How did the geography of fatal animal attacks differ between rural and urban settings, and what was recommended?",
+"o": [
+"Direct fatalities occurred more often in rural areas while indirect fatalities predominated in urban centres, where they were linked to uncontrolled dog populations and irresponsible pet ownership, supporting desexing programmes and community education",
+"Both direct and indirect fatalities were concentrated in rural areas",
+"Urban areas showed no fatalities",
+"Indirect fatalities were confined to rural areas"
+],
+"a": 0,
+"e": "Victims were predominantly male at 72.4%, incidents mostly rural at 74.8%, and nearly half occurred in summer. The urban indirect deaths are the striking finding, because a person killed in a traffic collision while avoiding a loose dog is a dog-population-management failure that would never appear in bite statistics.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
+"q": "A droplet digital polymerase chain reaction method was developed to detect human, dog and cat DNA simultaneously. Why is this useful in forensic casework?",
+"o": [
+"Because animal-related crimes have increased alongside pet ownership and evidence from cases involving dogs and cats often contains mixtures of human and animal DNA",
+"Because animal DNA is never relevant to criminal investigation",
+"Because it replaces the need for species identification",
+"Because human DNA cannot otherwise be detected in mixed samples"
+],
+"a": 0,
+"e": "Markers used were HLA-DRA for human, OR6D7 for dog and FLAI-K for cat, with specificity confirmed against 14 control samples from 11 mammals and 3 birds. Quantifying each species separately from one mixed sample avoids consuming limited evidence on sequential single-species tests.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
+"q": "What sensitivity did the droplet digital polymerase chain reaction assay achieve?",
+"o": [
+"A limit of detection around 1 nanogram per microlitre for all three species",
+"Limits of detection of 0.0008 nanograms per microlitre for human DNA and 0.00061 nanograms per microlitre for dog and cat DNA, with each species accurately detected in mixtures containing trace amounts of all three",
+"Detection was possible only when a single species was present",
+"Cat DNA could not be detected below 0.1 nanograms per microlitre"
+],
+"a": 1,
+"e": "Sub-picogram sensitivity per microlitre matters because forensic samples such as trace transfer from clothing or a bite wound typically contain very little template, and the target species may be the minor component of the mixture.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Thirty-six feral cats undergoing ovariectomy were randomised to a bilateral ultrasound-guided quadratus lumborum block with bupivacaine or to control. What was the effect?",
+"o": [
+"The block group required significantly less intraoperative fentanyl, at 4 of 16 cats versus 10 of 16 in the control group",
+"The block group required more fentanyl than controls",
+"No difference in opioid requirement was found",
+"The block caused significant hypotension compared with control"
+],
+"a": 0,
+"e": "Pulse rate and respiratory rate were higher in controls during ovarian manipulation, the point of maximal visceral nociception. Systolic and mean arterial pressures did not differ and hypotension was comparable between groups, so the opioid sparing came without a haemodynamic penalty.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Why is a locoregional block of this kind particularly relevant to high-volume feral cat sterilisation programmes?",
+"o": [
+"Because it eliminates the need for general anaesthesia entirely",
+"Because reducing intraoperative opioid requirement lowers drug cost and controlled-drug handling burden while maintaining nociceptive control during the most stimulating part of the surgery",
+"Because it removes the need for any postoperative analgesia",
+"Because feral cats do not experience surgical pain"
+],
+"a": 1,
+"e": "The block used 0.4 millilitres per kilogram of 0.25% bupivacaine per hemiabdomen. In a feral or community cat programme where handling time and controlled drug logistics are limiting, an opioid-sparing technique has operational as well as welfare value.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "This review examines non-verbal indicators of pain in domestic mammals. Which body regions does it particularly emphasise?",
+"o": [
+"Changes in tail position, ear posture and overall postural dynamics",
+"Coat colour and skin turgor",
+"Pupil size and iris colour only",
+"Nail growth rate and dental wear"
+],
+"a": 0,
+"e": "Ear and tail position changes have been associated with pain perception and are considered signs of pain across several domestic species. Pain also produces movement and activity restriction and the adoption of postures that relieve discomfort.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "What role does the review assign to veterinarians and animal scientists in pain assessment?",
+"o": [
+"To rely solely on physiological measurements such as heart rate and cortisol",
+"To recognise subtle non-verbal indicators during clinical evaluation, enabling earlier detection and more effective pain management through precise observational assessment",
+"To defer all pain assessment to owners",
+"To assume pain is present only when vocalisation occurs"
+],
+"a": 1,
+"e": "Pain is described as a multidimensional process that produces behavioural changes serving to prevent further damage and promote healing. Those adaptive behaviours are the signal, and reading them well is a clinical skill rather than an instrument-based measurement.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Fifty-six dogs undergoing ovariohysterectomy in a catch-neuter-release project were randomised to electroacupuncture or sham acupuncture. What was the result for postoperative pain?",
+"o": [
+"Electroacupuncture significantly reduced pain scores at all timepoints",
+"Postoperative pain scores did not differ significantly between groups, and pain scores rose significantly at three and six hours after surgery in both groups",
+"Sham acupuncture produced significantly lower pain scores",
+"Pain scores were unchanged from baseline throughout in both groups"
+],
+"a": 1,
+"e": "Pain was assessed by two blinded independent anaesthetists using the Short Form of the Multimodal Glasgow Composite Pain Scale. The negative result is useful evidence against adding electroacupuncture to a high-throughput neutering protocol on analgesic grounds.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "What does this trial reveal about the adequacy of the baseline analgesic protocol used, irrespective of the acupuncture question?",
+"o": [
+"The protocol provided complete analgesia in all dogs",
+"89.4% of dogs at three hours and 71.4% at six hours exceeded the intervention threshold on the pain scale in both groups, indicating that the underlying protocol left most dogs painful in the early postoperative period",
+"Pain scores never reached the intervention threshold",
+"Only dogs in the sham group required rescue analgesia"
+],
+"a": 1,
+"e": "The protocol was medetomidine and butorphanol sedation, meloxicam, and ketamine induction. Butorphanol is a short-acting agonist-antagonist with limited visceral analgesia, so this finding is a stronger practical message than the acupuncture result itself.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Thirty-five cats undergoing ovariohysterectomy were randomised to a conventional quadratus lumborum block in lateral recumbency or a novel technique in sternal recumbency. What did the novel approach achieve?",
+"o": [
+"Slightly lower total mean end-tidal isoflurane concentration than the conventional approach",
+"Significantly higher isoflurane requirements",
+"No difference in any outcome measure",
+"Elimination of the need for postoperative analgesia"
+],
+"a": 0,
+"e": "Both techniques used ultrasound guidance targeting the fascial plane between the quadratus lumborum and psoas minor muscles with 0.4 millilitres per kilogram of bupivacaine per side. A sternal approach also allows both sides to be blocked without repositioning the cat, which saves time in a busy theatre.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Besides anaesthetic sparing, what safety outcome was the sternal recumbency technique designed to address?",
+"o": [
+"The rate of needle proximity to abdominal organs",
+"The risk of local anaesthetic systemic toxicity from higher doses",
+"The need for endotracheal intubation",
+"Postoperative wound dehiscence"
+],
+"a": 0,
+"e": "Needle proximity to abdominal organs was an explicit outcome measure alongside bradycardia, hypotension and postoperative analgesic requirement, the latter assessed with both the short-form UNESP-Botucatu multidimensional composite pain scale and the Feline Grimace Scale.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Thirty dogs undergoing enucleation were randomised to a peri-incisional eyelid block with bupivacaine liposomal injectable suspension or saline placebo. What was the outcome?",
+"o": [
+"Dogs receiving the liposomal bupivacaine had significantly lower odds of requiring rescue analgesia and lower odds of a higher pain score",
+"Dogs receiving liposomal bupivacaine required more rescue analgesia",
+"No difference was found in any outcome",
+"Mechanical threshold testing showed a large treatment effect"
+],
+"a": 0,
+"e": "The odds ratio for needing rescue was 0.14 and for a higher pain score 0.38. Notably, administration did not significantly affect mechanical threshold testing, so algometry and clinical pain scoring did not agree, which is a common finding in analgesia trials.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Twenty-four cats undergoing ovariohysterectomy received a lidocaine bolus with infusion, a bolus with saline infusion, or saline only. What were the findings?",
+"o": [
+"The lidocaine infusion group had significantly lower end-tidal isoflurane at several timepoints, a mean reduction of about 18%, and significantly fewer total morphine rescues, with no signs of lidocaine toxicity",
+"Lidocaine caused clinical toxicity in most treated cats",
+"Lidocaine increased isoflurane requirements",
+"No difference in morphine rescue was found between groups"
+],
+"a": 0,
+"e": "All animals remained within stage 3 anaesthesia by the Guedel classification despite the reduced isoflurane. Fentanyl rescue frequency did not differ statistically, though the infusion group had numerically fewer events.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Why is the absence of detectable adverse effects with intravenous lidocaine in cats a notable finding?",
+"o": [
+"Because lidocaine is contraindicated in all cats",
+"Because cats are traditionally considered more susceptible to lidocaine toxicity and cardiovascular depression than dogs, which has limited use of intravenous lidocaine infusions in feline anaesthesia",
+"Because lidocaine has no analgesic properties in any species",
+"Because the drug is not licensed for injection"
+],
+"a": 1,
+"e": "The bolus was 2 milligrams per kilogram with an infusion of 3 milligrams per kilogram per hour. This is a small study of 8 cats per group in healthy animals, so it supports cautious use rather than settling the question.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Eighty-three dogs undergoing a variety of soft tissue surgeries were randomised to peri-incisional liposomal bupivacaine or saline placebo. What was found?",
+"o": [
+"Liposomal bupivacaine halved the requirement for rescue analgesia",
+"No significant difference in Glasgow Composite Measure Pain Scale scores at any timepoint, rescue analgesia given to 21 dogs in each group, and no difference in incision site complications",
+"Liposomal bupivacaine significantly increased surgical site infections",
+"Pain scores were significantly lower in the treatment group at every timepoint"
+],
+"a": 1,
+"e": "The overall surgical site infection incidence was 6.0%. This is a genuinely negative trial across mixed soft tissue procedures, and worth reading alongside the enucleation trial where a benefit was found, since the difference may lie in the specificity of the block site rather than the drug.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Seventy-three cats undergoing elective ovariectomy received dexmedetomidine constant rate infusions at 1, 2 or 3 micrograms per kilogram per hour, or saline. Which rate was effective?",
+"o": [
+"1 microgram per kilogram per hour gave the best balance",
+"Only the 3 micrograms per kilogram per hour rate reduced rescue analgesia requirement, to 33% compared with 80 to 86% in the control and lower-dose groups",
+"All three infusion rates performed equally well",
+"No infusion rate reduced rescue analgesia requirement"
+],
+"a": 1,
+"e": "The 3 microgram rate also reduced isoflurane requirement at 30 minutes and raised blood pressure at 15 and 30 minutes. The practical message is that sub-therapeutic infusion rates delivered no benefit at all over saline, so dosing matters.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "What happened to heart rate across the dexmedetomidine infusion groups in this study?",
+"o": [
+"Heart rate fell markedly and dose-dependently, requiring atropine in most cats",
+"No differences in heart rate were observed across all groups at any timepoint",
+"Heart rate rose significantly in the highest dose group",
+"Heart rate was not measured"
+],
+"a": 1,
+"e": "This is reassuring given that bradycardia is the expected and most feared effect of alpha-2 agonists. Blood pressure was higher in the 3 microgram group, consistent with peripheral vasoconstriction, and recovery quality was similar across groups.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "A crossover study in eight cats tested whether intravenous flumazenil at 0.1 milligrams per kilogram would antagonise alfaxalone anaesthesia. What was the result?",
+"o": [
+"Flumazenil rapidly reversed alfaxalone anaesthesia in all cats",
+"Flumazenil did not antagonise alfaxalone anaesthesia, with no significant treatment-by-time interaction for any variable apart from a slightly higher pulse rate in the flumazenil group",
+"Flumazenil deepened anaesthesia significantly",
+"Flumazenil caused seizures in treated cats"
+],
+"a": 1,
+"e": "Mean pulse rate was 176.01 with flumazenil versus 169.57 with saline, a statistically significant but clinically trivial difference. The practical message is that there is no pharmacological reversal available for alfaxalone.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Why might flumazenil have been expected to reverse alfaxalone, and why does it not?",
+"o": [
+"Both act at the gamma-aminobutyric acid type A receptor, but flumazenil is a competitive antagonist at the benzodiazepine binding site whereas alfaxalone acts at a distinct neurosteroid site on the same receptor",
+"Alfaxalone is a benzodiazepine and should be reversible",
+"Flumazenil is an opioid antagonist and was never expected to work",
+"Alfaxalone acts at the N-methyl-D-aspartate receptor"
+],
+"a": 0,
+"e": "Sharing a receptor complex is not the same as sharing a binding site. Flumazenil selectively occupies the benzodiazepine site, so it cannot displace a neurosteroid agonist acting elsewhere on the same receptor.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "This review characterises chronic pain in cats. How does it differ from acute pain in its relationship to the animal?",
+"o": [
+"Chronic pain is protective and adaptive, promoting healing",
+"Chronic pain is maladaptive and negatively affects all domains of animal welfare, and most commonly occurs secondary to other chronic conditions",
+"Chronic pain occurs only as a primary condition with no underlying disease",
+"Chronic pain resolves without intervention in most cats"
+],
+"a": 1,
+"e": "Acute pain serves a protective function by limiting movement and promoting healing. Chronic pain has lost that function, which is why it warrants treatment in its own right rather than being tolerated as a symptom of the underlying disease.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "What does this review identify as the goals of feline chronic pain management?",
+"o": [
+"Complete elimination of pain regardless of medication adverse effects",
+"Maintaining quality of life while empowering caregivers as part of the healthcare team, avoiding adverse effects from medication and balancing comorbidities",
+"Minimising caregiver involvement to reduce error",
+"Deferring treatment until end-of-life considerations arise"
+],
+"a": 1,
+"e": "The journey is described as starting with clinical signs the caregiver perceives and ending for most cases with end-of-life considerations. Diagnosis and treatment planning are framed as a partnership between caregiver and veterinary team rather than something delivered to a passive owner.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "A survey of Ohio veterinarians and technicians examined pain management for feline sterilisation. What was the uptake of objective pain scoring?",
+"o": [
+"Over 80% used objective pain scoring at all timepoints",
+"Only 20.5% used objective pain scoring preoperatively, 23% at three hours postoperatively and 14.2% before discharge",
+"Objective pain scoring was used universally before discharge",
+"Pain scoring systems were used only by technicians, not veterinarians"
+],
+"a": 1,
+"e": "Uptake was low throughout and fell further toward discharge, which is precisely when a decision about take-home analgesia is being made. Validated feline pain scales exist and are free to use, so the barrier is practice culture rather than availability.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "What disparity in analgesic provision emerged between female and male cats in this survey?",
+"o": [
+"Male cats were more likely to receive analgesia during recovery",
+"Female cats were more likely to receive analgesia during recovery, and 80.5% of ovariohysterectomy patients were discharged with pain medication compared with 54.9% of orchiectomy patients",
+"No sex difference in analgesic provision was found",
+"Orchiectomy patients received more take-home analgesia than ovariohysterectomy patients"
+],
+"a": 1,
+"e": "Castration is less invasive than ovariohysterectomy, but a nearly 26 percentage point gap in take-home analgesia is hard to justify on that basis alone. Only 8.8% of respondents provided owners with education on assessing pain at home.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Drug dose calculations in anaesthesia protocols written by 53 third-year veterinary students for a spay/neuter laboratory were audited. What was the error rate and direction?",
+"o": [
+"A protocol error rate of 10.8% and an overall drug dose calculation error rate of 1.8%, with 83.3% of errors leading to overdoses",
+"An error rate above 50%, all resulting in underdoses",
+"No errors were identified",
+"Errors occurred equally in both directions"
+],
+"a": 0,
+"e": "Twelve errors were found among 686 calculated doses across 83 patients, with ten producing overdoses and two underdoses. The skew toward overdose is what makes this a patient safety issue rather than merely an academic one.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "What mitigation strategy did the authors highlight for reducing drug dose calculation errors?",
+"o": [
+"Removing students from live animal laboratories entirely",
+"Independent double-checking of calculations, alongside effective teaching and training in the skill",
+"Increasing the number of drugs in each protocol",
+"Relying on the anaesthetic machine to detect errors"
+],
+"a": 1,
+"e": "Independent double-checking, where a second person recalculates rather than merely reviews, is a standard human-medicine safeguard. This was reportedly the first study to investigate dose calculation errors in a clinical environment with live patients in veterinary medicine.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "A systematic review of 14 studies examined perioperative systemic ketamine for analgesia in dogs and cats. What were the conclusions?",
+"o": [
+"Ketamine may influence pain scores beyond 12 hours postoperatively but does not influence postoperative rescue analgesia requirements",
+"Ketamine eliminates the need for opioid analgesia",
+"Ketamine has no effect on pain scores at any timepoint",
+"Ketamine reduces rescue analgesia requirements but has no effect on pain scores"
+],
+"a": 0,
+"e": "The dissociation between pain score effects and rescue analgesia requirement is the key nuance. Ketamine is a non-competitive N-methyl-D-aspartate antagonist, and its proposed benefit relates to limiting central sensitisation rather than providing primary analgesia.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "How did the reviewers characterise the quality of the evidence base for perioperative ketamine?",
+"o": [
+"High quality with large adequately powered trials",
+"Moderate quality with low risk of bias, but moderate indirectness because predominantly soft tissue procedures were studied, and underpowered small populations",
+"Very low quality with high risk of bias throughout",
+"No studies met the eligibility criteria"
+],
+"a": 1,
+"e": "Only 14 studies qualified, 11 in dogs and 3 in cats. Indirectness means the studied populations and procedures may not match the clinical question being asked, which limits extrapolation to, for example, orthopaedic surgery or chronic pain.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Perianaesthetic death postmortem submissions in cats were compared between a referral teaching hospital and general practices in Saskatchewan. How did the case populations differ?",
+"o": [
+"In the referral practice, 65% of deaths were euthanasia with most cases having severe underlying disease and 70% classified American Society of Anesthesiologists III to V; in general practice, 82% of deaths were unassisted, 89% had an undiagnosed condition or unknown cause, and 85% were classified I to II",
+"Both settings showed identical case profiles",
+"General practice cases were predominantly high-risk patients",
+"Referral cases were predominantly unassisted deaths in healthy cats"
+],
+"a": 0,
+"e": "The general practice picture is the more troubling one: apparently healthy cats dying unexpectedly with no diagnosis. That is where postmortem examination has the most to contribute and where the answers are most often missing.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "What deficiency in postmortem practice did this study identify, and what did the authors propose?",
+"o": [
+"Reporting of gross findings and tissue collection was inconsistent, with negative pressure in the thoracic cavity reported in only 9% of unassisted death cases; a standardised perianaesthetic postmortem checklist was proposed",
+"Postmortem examinations were performed too thoroughly, wasting resources",
+"Cause of death was determined significantly more often in referral than general practice cases",
+"Histology was performed in every case"
+],
+"a": 0,
+"e": "Cats with limited medical history made up 22% of referral and 38% of general practice submissions. Excluding euthanased cases, there was no significant difference between settings in determining cause of death, so the limiting factor is the consistency of the examination rather than the setting.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Serum biomarkers were measured across an ovariohysterectomy in 20 Spanish greyhounds to try to objectify pain assessment. What was the outcome?",
+"o": [
+"Glutamate and calcitonin gene-related peptide correlated strongly with pain scores",
+"Glutamate and calcitonin gene-related peptide peaked at baseline before any surgery, cortisol peaked after rescue methadone, and Glasgow short-form pain scores rose postoperatively without significant correlation to any biomarker",
+"All three biomarkers rose in parallel with pain scores",
+"Pain scores did not change postoperatively"
+],
+"a": 1,
+"e": "Biomarkers peaking at baseline, before surgery, points to the stress of hospitalisation and handling rather than surgical pain. The authors note that lack of acclimatisation may have introduced exactly this bias.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "What does the failure of these biomarkers to correlate with pain scores suggest about objective pain assessment?",
+"o": [
+"Validated behavioural pain scales should be abandoned in favour of biomarkers",
+"Stress-responsive biomarkers reflect more than nociception, so they cannot straightforwardly substitute for validated behavioural pain scoring",
+"Pain does not produce any physiological changes",
+"The Glasgow short-form scale is invalid in sighthounds"
+],
+"a": 1,
+"e": "Cortisol peaking after rescue methadone rather than at the point of maximal pain illustrates the problem well. Sample homogeneity, a single breed of healthy females, also limits how far these findings generalise.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Twenty dogs undergoing orchiectomy were randomised to Yamamoto new scalp acupuncture or control. What was the effect on rescue analgesia?",
+"o": [
+"Rescue analgesia was required in 1 of 10 acupuncture dogs versus 10 of 10 controls, with total fentanyl doses of 1 versus 12",
+"Rescue analgesia requirements were identical between groups",
+"Controls required less rescue analgesia than the acupuncture group",
+"Rescue analgesia was not recorded"
+],
+"a": 0,
+"e": "Acupuncture dogs also returned to appetite earlier and had lower pain scores on both the Glasgow short-form and Colorado State University scales at several timepoints. Salivary cortisol did not differ significantly, though a decreasing trend was noted.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "What limitations should temper interpretation of this acupuncture trial, particularly when compared with the negative electroacupuncture trial in ovariohysterectomy?",
+"o": [
+"The study was limited to one breed and relied on subjective pain scales, with only 10 dogs per group",
+"The study had no control group",
+"Pain assessors were not blinded",
+"Only cats were studied"
+],
+"a": 0,
+"e": "Blinded assessment was used, which is a strength, but a single-breed sample of 20 dogs with subjective outcome measures is fragile. The contrast with the negative electroacupuncture ovariohysterectomy trial is worth holding in mind: different technique, different procedure, opposite result.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Indian veterinarians attending a 12-day canine surgical neutering training programme were surveyed before and 10 to 12 months afterwards. In which areas were sustained improvements demonstrated?",
+"o": [
+"Surgical practices, use of perioperative analgesia, use of perioperative antibiotics, and postoperative wound management",
+"Client communication and record keeping only",
+"Anaesthetic monitoring equipment purchasing only",
+"No sustained improvements were detected"
+],
+"a": 0,
+"e": "With 207 participants completing both questionnaires, this is a substantial follow-up. Antibiotic use is included as an improvement area, which in a neutering context usually means reducing unnecessary prophylaxis rather than increasing use.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Beyond individual skills, what wider workplace effects did participants report after the training programme?",
+"o": [
+"Employers discouraged use of the new techniques",
+"Increased confidence in common surgical and clinical tasks, motivation and ability to apply new skills at work, peer-to-peer skills transfer, and high employer engagement resulting in workplace improvements including equipment investment",
+"Skills were retained but never applied in practice",
+"Participants reported reduced confidence over time"
+],
+"a": 1,
+"e": "Surgical neutering is integral to managing India's large free-roaming dog population, so training that changes practice at scale, through peer transfer and employer investment, matters more than individual competence alone.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "A retrospective study of 93 cases of ovarian remnant syndrome in dogs and cats examined presentation and outcome. What were the key findings?",
+"o": [
+"Surgical excision of residual ovarian tissue was the only curative treatment, with better outcomes when performed during hormonally active phases of the oestrous cycle, and neoplastic transformation was identified in 10% of dogs",
+"Medical management with progestagens was curative in most cases",
+"Neoplastic transformation was never observed",
+"Unilateral remnants were far more common than previously reported"
+],
+"a": 0,
+"e": "Operating during a hormonally active phase makes the remnant larger and better vascularised, and therefore easier to find. Bilateral remnants were more prevalent than previously reported, which matters because finding one remnant does not mean the search is over.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What causes ovarian remnant syndrome and what sequelae can it produce?",
+"o": [
+"Incomplete excision or inadvertent revascularisation of ovarian tissue during gonadectomy, producing recurrent oestrous behaviour and potentially stump pyometra, mammary neoplasia and granulosa cell tumours",
+"An autoimmune reaction to the surgical site",
+"Regeneration of ovarian tissue from uterine remnants",
+"Hormone supplementation given postoperatively"
+],
+"a": 0,
+"e": "Inadvertent revascularisation, where dropped ovarian tissue implants and establishes a blood supply, is the reason meticulous technique matters as much as complete excision. Diagnosis relies on combining history, vaginal cytology, serum progesterone, ultrasonography and histopathology of excised tissue.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Sixty dogs were randomised to open ovariectomy, laparoscopic ovariectomy or control to compare physiological impact. What was found?",
+"o": [
+"Open surgery produced significantly higher inflammatory and oxidative stress markers postoperatively including raised myeloperoxidase and malondialdehyde and reduced butyrylcholinesterase, while the laparoscopic group showed only mild transient changes",
+"Laparoscopic surgery produced the greater inflammatory response",
+"Both techniques produced identical marker profiles",
+"Rescue analgesia was required in most dogs in both groups"
+],
+"a": 0,
+"e": "Both techniques were safe and well tolerated with no complications and no need for rescue analgesia. Higher glycaemia in the open group further supports greater tissue trauma and systemic stress.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What practical trade-off did the authors identify between laparoscopic and open ovariectomy?",
+"o": [
+"Laparoscopy is faster but causes more tissue trauma",
+"Laparoscopic procedures require more time, but their lower physiological impact may facilitate improved postoperative recovery",
+"Open surgery has a lower metabolic impact but higher complication rate",
+"There is no meaningful difference between the approaches"
+],
+"a": 1,
+"e": "This trade-off is central to whether laparoscopy has a place in a high-volume setting, where theatre time per animal is often the binding constraint even if per-animal recovery would be better.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "A 6-year-old spayed German Shepherd presented with serosanguineous vulvar discharge. What did this case reveal about anti-Mullerian hormone testing for ovarian remnant syndrome?",
+"o": [
+"Anti-Mullerian hormone testing confirmed the diagnosis immediately",
+"The dog tested negative on anti-Mullerian hormone assay against established cut-off values, yet computed tomography, laparoscopy and histology confirmed ovarian tissue in the abdomen",
+"Anti-Mullerian hormone was not measured in this case",
+"The assay produced a false positive result"
+],
+"a": 1,
+"e": "Anti-Mullerian hormone is regarded as the gold standard test for ovarian remnant syndrome, which is exactly why a false negative matters. A negative assay in a dog with compatible clinical signs should not close the investigation.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What does this case argue about diagnostic strategy for suspected ovarian remnant syndrome?",
+"o": [
+"Hormonal assays should replace imaging and surgical diagnostics",
+"Hormonal tests should be combined with advanced imaging and surgical diagnostics, since relying solely on anti-Mullerian hormone values has limitations and cut-off values need further research",
+"Clinical signs alone are sufficient for diagnosis",
+"Only histology should be used, with no preliminary testing"
+],
+"a": 1,
+"e": "Published cut-off values are derived from study populations that may not represent every patient, and a remnant that is hormonally quiescent at the time of sampling may not produce a detectable signal. Repeating the assay during a hormonally active phase is another option.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Fifty-six queens received an autotransfusion after ovariohysterectomy. What was the survival rate and what predicted outcome?",
+"o": [
+"47 of 56 (83.9%) survived to discharge, and the presence of abnormal findings during surgery was significantly negatively associated with survival",
+"Survival was under 30%",
+"All queens survived to discharge",
+"Age was the strongest predictor of survival"
+],
+"a": 0,
+"e": "This survival rate is comparable to previous reports for traditional transfusions in dogs and cats. No factor other than abnormal intraoperative findings showed a significant relationship with survival.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Why do the authors frame autotransfusion as a spectrum-of-care intervention?",
+"o": [
+"Because it requires specialist equipment available only in referral hospitals",
+"Because it is an effective treatment for surgery-associated abdominal bleeding that could apply wherever blood pools in a space from which it can be collected and safely readministered, increasing access to a lifesaving treatment",
+"Because it should replace all conventional blood banking",
+"Because it is only appropriate for client-owned animals"
+],
+"a": 1,
+"e": "Autotransfusion needs no donor, no cross-matching and no blood bank, which is what makes it viable in a shelter or high-volume clinic where a stored blood product would not be available.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Among 9,513 queens spayed in high-quality high-volume spay/neuter clinics, how common were bleeding complications?",
+"o": [
+"Intraoperative bleeding in 10.6%, major intraoperative bleeding in 0.8%, and autotransfusion in 0.3%",
+"Major bleeding in over 10% of queens",
+"No bleeding complications were recorded",
+"Autotransfusion was required in 5% of queens"
+],
+"a": 0,
+"e": "Major bleeds and autotransfusions were rare in absolute terms. Of the 28 queens receiving an autotransfusion, only 2 received it during surgery and 26 postoperatively, meaning most were recognised after the queen left the table.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Which factors were associated with abdominal bleeding and the need for autotransfusion in this high-volume population?",
+"o": [
+"Only body weight and age",
+"Reproductive status, with higher proportions of queens in heat, in late-stage pregnancy and post-pregnancy experiencing bleeding and pregnant queens more likely to need autotransfusion; plus capillary refill time over 2 seconds, pale mucous membranes and extended recovery time",
+"No factors were associated with bleeding",
+"Only surgeon experience predicted bleeding"
+],
+"a": 1,
+"e": "The perfusion signs and delayed recovery are the actionable part for a clinic. Since most autotransfusions were given postoperatively, a queen slow to recover with pale membranes needs abdominal bleeding actively excluded rather than being left to sleep it off.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Fifty late-term pregnant queens undergoing elective ovariohysterectomy were randomised to intraoperative intraperitoneal crystalloid fluids or postoperative subcutaneous fluids. What was found?",
+"o": [
+"Intraperitoneal fluids caused significant intra-abdominal hypertension",
+"No difference was detected between groups in blood pressure, lactate or intra-abdominal pressure, and no adverse effects occurred in the intraperitoneal group",
+"Intraperitoneal fluids significantly improved all perfusion parameters",
+"The intraperitoneal group required blood transfusion"
+],
+"a": 1,
+"e": "The intraperitoneal volume was 25% of the gravid uterus weight versus 22 millilitres per kilogram subcutaneously in controls. The concern being tested was whether adding fluid into the abdomen after removing a heavy gravid uterus would raise intra-abdominal pressure harmfully, and it did not.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What incidental finding emerged about gravid uterus weight in this study?",
+"o": [
+"Increased uterus weight was associated with higher preoperative blood pressure and intra-abdominal pressure",
+"Uterus weight was unrelated to any measured parameter",
+"Heavier uteri were associated with hypotension preoperatively",
+"Uterus weight could not be measured"
+],
+"a": 0,
+"e": "A large gravid uterus raises intra-abdominal pressure mechanically before it is removed, which fits the physiology. The authors position intraperitoneal fluid administration as a viable option for shelter settings, though further veterinary study is needed.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "A 4-year-old spayed cat presented with dyspnoea and lethargy, with abdominal and pleural effusions and a pelvic abdominal mass. What was the diagnosis and outcome?",
+"o": [
+"Carcinomatosis with a poor prognosis",
+"A Meigs'-like syndrome secondary to ovarian remnant tissue; both effusions were protein-rich modified transudates negative for infectious disease, and after surgical removal the effusion resolved completely with full recovery by two weeks",
+"Feline infectious peritonitis",
+"Congestive heart failure secondary to cardiomyopathy"
+],
+"a": 1,
+"e": "Histology showed a normal cycling ovary and uterine glandular hyperplasia. In human medicine Meigs' syndrome is the triad of pleural and abdominal effusion with an ovarian mass, most often a fibroma, and resolution after removal of the mass is part of the definition.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What does this case add to the differential diagnosis for effusion in a spayed cat?",
+"o": [
+"Nothing, since ovarian remnants cannot cause effusion",
+"That ovarian remnant tissue in a spayed cat can produce both pleural and abdominal effusion, so a surgical history of spaying does not exclude an ovarian cause",
+"That all pleural effusions in cats are neoplastic",
+"That modified transudates are always infectious in origin"
+],
+"a": 1,
+"e": "A young spayed cat with bicavitary modified transudate would not usually prompt a search for ovarian tissue. The complete resolution after excision is what confirms the causal relationship rather than a coincidental finding.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Labrador and Golden Retriever crossbreed bitches neutered before or after puberty were followed prospectively. What musculoskeletal differences emerged?",
+"o": [
+"Cruciate ligament disease occurred in significantly more prepubertally neutered bitches (11 versus 1), and they had lower probabilities of remaining free from osteoarthritis",
+"Post-pubertally neutered bitches had more cruciate disease",
+"No musculoskeletal differences were found",
+"Osteoarthritis was more common in the post-pubertal group"
+],
+"a": 0,
+"e": "Removing gonadal hormones before growth plate closure delays closure and alters limb conformation, which is the accepted mechanism linking early neutering to cruciate disease in large breeds.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What did this study find regarding urogenital disease and urinary incontinence in relation to neutering before or after puberty?",
+"o": [
+"Prepubertal neutering markedly increased urinary incontinence",
+"No associations were identified between pubertal status at neutering and the incidence of any urogenital disease, including urinary incontinence, which occurred in only one prepubertal and six post-pubertal bitches",
+"Urinary incontinence occurred only in prepubertally neutered bitches",
+"Urogenital disease was not assessed"
+],
+"a": 1,
+"e": "This is a useful counterweight to the common assumption that early spaying drives incontinence, at least in these crossbreeds. Prepubertal bitches were also diagnosed with atopic and perivulval dermatitis at significantly older ages and had lower probabilities of remaining free from otitis externa.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "This review summarises the evidence on neutering pet dogs with emphasis on behaviour. What is its overall assessment of the literature?",
+"o": [
+"The evidence clearly supports neutering all dogs as early as possible",
+"Conclusions from existing research on both behaviour and health remain inconclusive and sometimes conflicting, with higher risks reported for reproductive, urinary, metabolic and musculoskeletal disorders and some studies suggesting increases in stress, fear, anxiety and certain types of aggression",
+"The evidence clearly shows neutering resolves behaviour problems",
+"Neutering has been shown to have no health or behavioural effects"
+],
+"a": 1,
+"e": "The review is explicitly not a recommendation either way. It argues for professionals giving informed, individualised advice about whether and when to neuter, weighing the particular risks and benefits for that dog.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What methodological challenges does the review identify as limiting the neutering literature?",
+"o": [
+"The subjectivity of owners' evaluations of their dogs' behaviour, the influence of demographic factors, and the complex relationships between sex hormones and other hormones or neurotransmitters",
+"An excess of large randomised controlled trials producing conflicting results",
+"Complete absence of any published studies on the topic",
+"Lack of interest from the veterinary profession"
+],
+"a": 0,
+"e": "Most behavioural data come from owner questionnaires, and owners who neuter for a behaviour problem differ systematically from those who do not, which builds confounding into the comparison from the outset.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "A systematic review revisited whether pre-pubertal spaying protects against canine mammary tumours. What did it find?",
+"o": [
+"All included papers confirmed a strong protective effect",
+"Six of the thirteen included papers found no evidence of a protective effect of early spaying against mammary tumour development",
+"No relevant papers could be identified",
+"The review confirmed early spaying increases mammary tumour risk"
+],
+"a": 1,
+"e": "Thirteen of 232 screened articles met the inclusion criteria. Pre-pubertal spaying became popular largely on the strength of work published in the 1960s, and a systematic review more than a decade ago had already questioned it.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Why does the strength of evidence on this specific question carry disproportionate weight in spay-neuter policy?",
+"o": [
+"Because mammary tumour prevention has been the principal justification offered for spaying dogs before their first season, so weak evidence undermines a widely repeated recommendation",
+"Because mammary tumours are the only health consequence of spaying",
+"Because the timing of spaying has no other consequences",
+"Because it determines the surgical technique used"
+],
+"a": 0,
+"e": "If the protective effect is less certain than assumed, the risk-benefit calculation for early spaying shifts, particularly in large breeds where the musculoskeletal costs of early neutering are better established.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Ten neutered dogs had prostatic ultrasound and contrast-enhanced ultrasound repeated six years apart. What changed over that interval?",
+"o": [
+"Prostatic volume increased markedly while perfusion was unchanged",
+"B-mode appearance stayed similar with only a minimal decrease in volume, but prostatic perfusion fell significantly in all dogs, with peak enhancement dropping from 54.9% to 29.6% and time to peak lengthening from 26.3 to 47 seconds",
+"Perfusion increased significantly over time",
+"No changes were detected on either modality"
+],
+"a": 1,
+"e": "Ordinary B-mode imaging looked stable while the contrast study showed marked perfusion loss, which is the point of the paper: grey-scale appearance alone misses long-term vascular change after castration.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Why does long-term prostatic perfusion data in neutered dogs matter clinically?",
+"o": [
+"Because recent studies have documented a role for castration in the development of prostatic neoplasia, yet little was known about parenchymal and perfusion features of the prostate in neutered dogs beyond the first 90 days after surgery",
+"Because prostatic perfusion predicts urinary incontinence",
+"Because neutered dogs cannot develop prostatic disease",
+"Because perfusion measurement replaces the need for biopsy"
+],
+"a": 0,
+"e": "Castration reduces benign prostatic hyperplasia risk but is associated with increased prostatic carcinoma risk. Establishing what normal looks like in a long-term neutered dog is a prerequisite for recognising abnormal.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "This review connects long-term neutering risks with a consequence for owners. What is that connection?",
+"o": [
+"Neutering reduces owner workload in all cases",
+"Conditions associated with neutering, such as musculoskeletal disorders, obesity, some cancers, immune-mediated disease and cognitive dysfunction, may require ongoing care that creates caregiver burden with emotional, physical, social and financial impacts",
+"Neutering has no long-term health consequences",
+"Caregiver burden arises only from behavioural problems"
+],
+"a": 1,
+"e": "Caregiver burden can result in burnout, health problems, depression, social isolation and financial stress. The argument is that a decision framed purely as a canine health question also has downstream consequences for the human, which belongs in the consultation.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What does this review conclude about how neutering advice should be delivered?",
+"o": [
+"A single universal recommendation should apply to all dogs",
+"Relevant research findings should be incorporated into each individual pet's and owner's particular situation, since the benefits and risks affect quality of life for both human and animal",
+"Neutering should be avoided in all cases",
+"Owners should decide without veterinary input"
+],
+"a": 1,
+"e": "Gonadectomy remains widely used to address dog overpopulation and reduce reproductive disease risks such as mammary cancer and pyometra. The review does not argue against it, but against applying one recommendation without regard to breed, size, lifestyle and the owner's capacity to manage chronic disease.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "This study used a novel design to isolate environmental contributions to cruciate ligament rupture in Labrador Retrievers. What was the approach?",
+"o": [
+"A randomised controlled trial of neutering age",
+"Studying dogs whose clinical phenotype was discordant with their genetically predicted risk, using an established genetic risk test, so environmental factors could be evaluated against known genetic predisposition",
+"A retrospective review with no genetic information",
+"Comparing Labradors with unrelated breeds"
+],
+"a": 1,
+"e": "Cruciate rupture is a highly heritable polygenic disease, so genetic background normally swamps environmental signals. Selecting the 93 discordant dogs, 58 cases with low predicted risk and 35 controls with high predicted risk, concentrates the environmental effect.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Which environmental factor emerged as significant for cruciate ligament rupture in this analysis?",
+"o": [
+"Neutering before 12 months of age, while sex, neuter status per se and athletic status were not associated with risk",
+"Athletic activity was the dominant risk factor",
+"Body mass index was the only significant factor",
+"Withers height was the strongest predictor"
+],
+"a": 0,
+"e": "The distinction between neuter status and age at neuter is the crucial one. Being neutered was not itself a risk factor; being neutered before skeletal maturity was.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "A retrospective review of 84 male dogs undergoing perineal herniorrhaphy identified risk factors for recurrence. What were they?",
+"o": [
+"Dogs neutered prior to hernia repair were 4.4 times as likely to have recurrence compared with dogs neutered at the time of repair, and dogs developing postoperative faecal incontinence were 3.4 times as likely",
+"Dogs neutered at the time of repair had the highest recurrence risk",
+"Age was the only significant risk factor",
+"No risk factors for recurrence could be identified"
+],
+"a": 0,
+"e": "Recurrence occurred in 13 of 84 cases (15%) and surgical site infection in 6 (7%). No risk factors for surgical site infection could be identified in this group.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What is the practical implication of the finding about neutering timing in perineal hernia cases?",
+"o": [
+"Neutering should be avoided entirely in dogs with perineal hernia",
+"Castration performed concurrently with herniorrhaphy is associated with lower recurrence than a hernia repaired in a dog already neutered, supporting concurrent castration where the dog is still intact",
+"Perineal hernia repair should be delayed until well after castration",
+"Castration has no bearing on perineal hernia management"
+],
+"a": 1,
+"e": "Perineal hernia is strongly associated with intact males, and androgen withdrawal is thought to reduce ongoing prostatic and perineal muscle influences. A dog already neutered at presentation is a different population, likely with other contributing factors, which may explain the higher recurrence.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "A case-control study of 5,477 dogs with cystine uroliths examined sex and neuter status. What was found?",
+"o": [
+"Cystine urolith formers were 99% male, and across 60 breeds the median proportion of male formers that were intact was 98%",
+"Cystine uroliths occurred predominantly in spayed females",
+"Neuter status was unrelated to cystine urolith formation",
+"Cystine uroliths were equally distributed between sexes"
+],
+"a": 0,
+"e": "Androgen-dependent type III cystinuria is considered the most common cause, which explains the overwhelming predominance of intact males. Intact males were overrepresented among formers in all but 8 of the 60 breeds examined.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What did this study suggest about the timing of castration in relation to cystine urolith formation?",
+"o": [
+"Castration has no effect on cystine urolith risk",
+"Diagnosis occurred before 36 months of age in 28% of intact male cystine urolith formers, which is relevant when considering how long castration can safely be delayed in predisposed breeds",
+"All cases occurred after 5 years of age",
+"Delaying castration is protective against cystine uroliths"
+],
+"a": 1,
+"e": "For androgen-dependent cystinuria, castration removes the driver. Knowing that more than a quarter of cases present before three years of age tells you the window in which delayed castration carries real risk in a predisposed breed.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "An analysis of 7,802 excisional biopsy cases in Japan examined canine mammary tumour epidemiology. What was the relationship with neutering?",
+"o": [
+"Neutered females had a lower risk of canine mammary tumour than intact females, with a risk ratio of 0.57",
+"Neutered females had a higher risk than intact females",
+"Neutering had no effect on mammary tumour risk",
+"Only malignant tumours were affected by neuter status"
+],
+"a": 0,
+"e": "Adjusted prevalence ranged from 4.76 to 8.09 per 1000 dogs and increased significantly over time. Note this study compares neutered against intact, which is a different question from the age-at-spaying question examined by the systematic review on pre-pubertal spaying.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What did this Japanese study add regarding breed and histological type of canine mammary tumours?",
+"o": [
+"All breeds showed identical histological type distributions",
+"A multivariate model identified breeds with high or low risk of mammary tumour or malignant mammary tumour, and certain breeds showed biases in histological type compared with mixed breeds",
+"Histological type was not assessed",
+"Mixed breeds had no mammary tumours"
+],
+"a": 1,
+"e": "Nearly half of canine mammary lesions are malignant. Breed-specific differences in histological type matter for prognosis, and this was described as the first epidemiological analysis of canine mammary tumours in Japan.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Longitudinal records of body condition score and bodyweight in cats were analysed against age at neutering. What was found?",
+"o": [
+"Cats neutered at 4 months or younger became significantly heavier than those neutered later",
+"No differences in body condition score or bodyweight were found between cats neutered at 4 months or younger, 5 months, or 6 months, while cats neutered at 7 to 12 months experienced a less rapid age-related increase in bodyweight and body condition score",
+"Prepubertal neutering caused the greatest weight gain",
+"Neutering age had no relationship with any weight measure"
+],
+"a": 1,
+"e": "This is reassuring for prepubertal neutering programmes, since it directly addresses the common objection that early neutering causes obesity. Body condition score and bodyweight both rose until about 9 years of age and then declined.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What other factors influenced body condition score and bodyweight in this feline cohort, and what did the authors recommend?",
+"o": [
+"Females had lower bodyweight and body condition score than males with differences more pronounced in summer and autumn, longhaired cats had lower body condition score than shorthaired cats, and post-neutering weight management advice was recommended for all cats",
+"Only hair length influenced bodyweight",
+"Sex had no influence on body condition score",
+"Weight management advice was recommended only for prepubertally neutered cats"
+],
+"a": 0,
+"e": "Hair length affected body condition score but not bodyweight, which suggests coat is confounding the visual and palpation-based scoring. That is why the authors recommend monitoring with a combination of measures rather than body condition score alone.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "This paper critiques a common claim about continuous confinement of pet cats. What is the authors' central argument?",
+"o": [
+"Confinement harms wildlife conservation goals",
+"The claim that confinement benefits wildlife is almost incontrovertible, but the claim that it benefits cat welfare is misleading, because it equates welfare with physical health in a way that pre-dates 1960s thinking",
+"Confinement is beneficial for both wildlife and cat welfare",
+"Cat welfare is irrelevant to conservation policy"
+],
+"a": 1,
+"e": "By contemporary accounts of animal welfare, confinement presents major welfare risks, a recognition that drove the shift toward free-range systems in livestock industries. The authors argue those same risks have not been acknowledged in pet cat management debates.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "According to the authors, how does failing to acknowledge the confinement trade-off undermine conservation goals?",
+"o": [
+"It limits the efficacy of behaviour change interventions, erodes public trust in organisations perceived as knowingly misleading the public, and reduces the incentive to consider ceasing cat ownership altogether",
+"It has no effect on conservation outcomes",
+"It increases public support for confinement mandates",
+"It strengthens the credibility of conservation organisations"
+],
+"a": 0,
+"e": "The trust argument is the sharpest one. If owners discover that a win-win claim was overstated, they may discount the conservation message entirely, which costs more than an honest framing of the trade-off would have.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Vaccination",
+"q": "A welfare assessment scoring system was developed for dogs undergoing catch-neuter-vaccinate-release in Goa, India. What did it cover and what did the intervention achieve?",
+"o": [
+"A 22-parameter score-based protocol spanning six steps from catching and transport through to release; total welfare scores improved significantly after a targeted staff training intervention",
+"A single overall welfare score with no component parameters, showing no improvement",
+"Assessment of surgery only, with no change after training",
+"Assessment of the release stage only"
+],
+"a": 0,
+"e": "Eighty-two dogs were assessed before and 81 after the intervention, which combined theory-based lectures with interactive sessions and improved staff knowledge scores. Covering the whole pathway matters because welfare can be compromised at capture or transport even when surgery is excellent.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Vaccination",
+"q": "Why is welfare assessment across the whole catch-neuter-vaccinate-release pathway important rather than focusing on the surgery alone?",
+"o": [
+"Because surgery is the only step that affects welfare",
+"Because each component from capture to release can impact an individual animal's welfare, even though the programme overall is humane and effective for population control",
+"Because release is the only stage that can be monitored",
+"Because welfare assessment is required only for owned dogs"
+],
+"a": 1,
+"e": "The parameters were animal-, resource- and management-based, covering catching and transport, cage and holding area, pre-operative period, surgery, post-operative period and release. A programme can be effective at population level while individual dogs suffer avoidable harm at a specific step.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Stable isotope analysis of cat fur was used to assess whether trap-neuter-return with food provisioning changed diet in 122 cats in British Columbia. What was found?",
+"o": [
+"Free-roaming cats before the programme showed high isotopic variability with elevated nitrogen-15 and sulphur-34 consistent with wild prey, while post-programme cats showed significantly lower and more homogeneous values aligning with indoor kibble-fed cats",
+"No dietary change was detectable after the programme",
+"Post-programme cats showed increased reliance on wild prey",
+"Isotope analysis could not distinguish diet sources"
+],
+"a": 0,
+"e": "Carbon-13, nitrogen-15 and sulphur-34 were measured, with local prey and food sources analysed as a comparative baseline. The isotopic convergence on indoor kibble-fed controls is consistent with reduced dietary reliance on wildlife.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What contextual factor complicates attributing the dietary shift solely to the trap-neuter-return programme?",
+"o": [
+"The cats were all indoor cats throughout",
+"Concurrent changes in food availability linked to the closure of nearby mink-farming operations occurred alongside the programme",
+"No baseline samples were collected",
+"The study included only one cat"
+],
+"a": 1,
+"e": "Removing raw mink feed as an available food source would itself shift the isotopic signature, independently of provisioning or sterilisation. The design includes indoor cats as a control and multiple sampling groups, but this remains a pilot study in a single location.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "A trap-neuter-return campaign on La Graciosa, a Natura 2000 protected site in the Canary Islands, achieved an initial 81.4% sterilisation rate in urban areas. What happened next?",
+"o": [
+"The campaign expanded to cover the whole island",
+"Administrative restrictions blocked access to peri-urban zones and strong opposition from conservation groups amplified by media coverage halted the project prematurely, reducing the effective sterilisation rate to 69.3% within three months",
+"The sterilisation rate rose above 95%",
+"The campaign was discontinued because it proved ineffective"
+],
+"a": 1,
+"e": "Population Viability Analysis suggested high sterilisation rates could reduce the population over time, but the inability to reach all population segments or achieve the 93 to 95% threshold limits trap-neuter-return as a standalone long-term solution in this setting.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What made the initial high sterilisation rate achievable in this campaign?",
+"o": [
+"Legal enforcement and penalties for cat owners",
+"Active involvement of the local community, who assisted with identifying, trapping and monitoring free-roaming cats",
+"Use of automated trapping technology with no human involvement",
+"Complete removal of all cats to a mainland facility"
+],
+"a": 0,
+"e": "Community participation is what allows a campaign to locate and catch a high proportion of a dispersed population quickly. The case is instructive precisely because the social and administrative obstacles, not the biology, determined the outcome.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "The Keeping Cats Safe at Home project was a four-year, 2.5 million Australian dollar behaviour change initiative across 11 New South Wales local government areas. What did it achieve?",
+"o": [
+"No measurable reach or ecological effect",
+"Substantial reach including more than 3.5 million people via social media, over 2700 cats desexed and 1700 microchipped, with reductions in free-roaming cat densities in three council areas and declines in nuisance complaints and impoundments in many",
+"Complete elimination of free-roaming cats across all 11 areas",
+"Reach was high but no cats were desexed"
+],
+"a": 1,
+"e": "The project combined social marketing, educational resources, school programmes and community events with subsidised desexing, grounded in social science research. Combining messaging with a practical subsidy is what distinguishes it from an awareness campaign alone.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What methodological limitation did the authors acknowledge about the project's evaluation?",
+"o": [
+"Caregivers exposed to the campaign reported greater capability, opportunity and motivation to contain cats, but methodological constraints limited the ability to assess actual behaviour change",
+"Ecological monitoring was not performed",
+"No caregivers were surveyed",
+"The project ran for too short a period to measure anything"
+],
+"a": 0,
+"e": "Capability, opportunity and motivation are the components of the COM-B behaviour change model, and they are antecedents of behaviour rather than behaviour itself. Self-reported intention frequently exceeds actual change, which is why the distinction matters.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "A survey of over 3,200 residents estimated approximately 1.3 million owned dogs in Greater Bangkok. What did it find about their care and management?",
+"o": [
+"84% reported rabies vaccination in the past year, 53% were sterilised, 66% were allowed to roam, and 46% of dogs acquired into households were adopted from the street",
+"Rabies vaccination was under 20% and no dogs were allowed to roam",
+"All owned dogs were confined and sterilised",
+"No dogs were acquired from the street"
+],
+"a": 0,
+"e": "High rabies vaccination alongside two thirds of owned dogs roaming is the key tension: vaccination coverage is good but the owned and free-roaming populations mix freely, so they cannot be managed as separate problems.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What effect did the Catch, Neuter, Vaccinate, Return programme appear to have on owned dogs in the community?",
+"o": [
+"It was associated with greater confinement and sterilisation levels among owned dogs",
+"It had no measurable effect on owned dogs",
+"It reduced rabies vaccination rates",
+"It increased the number of dogs allowed to roam"
+],
+"a": 0,
+"e": "A programme aimed at free-roaming dogs appearing to shift owner behaviour is a useful spillover finding. Since 46% of owned dogs were adopted from the street, the two populations are continuous rather than distinct.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "This paper critiques traditional legislative approaches to free-roaming cat management in Australia. What unintended consequences does it identify?",
+"o": [
+"Containment mandates often increase complaints, shelter intake and euthanasia without effectively reducing cat-related problems, while being expensive, difficult to enforce and placing disproportionate burden on disadvantaged communities",
+"Containment mandates reliably reduce shelter intake and euthanasia",
+"Enforcement approaches are cheap and easy to administer",
+"Legislation has no effect on shelter staff wellbeing"
+],
+"a": 0,
+"e": "The paper also notes the effect on the mental health of shelter staff and animal management officers repeatedly exposed to euthanasia. Underlying issues such as financial constraints in low-income areas and the prevalence of semi-owned cats are left unaddressed by enforcement.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What alternative framework does this paper advocate for urban cat management?",
+"o": [
+"Stricter penalties with higher fines",
+"A One Welfare framework recognising the interconnectedness of animal, human and environmental welfare, providing support and resources particularly for sterilisation and microchipping while fostering the human-animal bond",
+"Lethal control as the primary method",
+"Removing all regulation of cat ownership"
+],
+"a": 1,
+"e": "The shift is from punitive to collaborative, community-driven strategies. The logic is that a caregiver who cannot afford desexing will not comply with a mandate no matter how large the penalty, whereas removing the financial barrier produces the desired outcome.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "An online survey of 1,083 Portuguese residents examined attitudes to free-roaming animal management. What was the pattern of support?",
+"o": [
+"Strong support for lethal control and opposition to trap-neuter-release",
+"Strong support for trap-neuter-release, sheltering, sanctions on abandonment and educational campaigns, with limited support for lethal control methods",
+"Equal support for all management strategies",
+"No clear preferences emerged"
+],
+"a": 1,
+"e": "The survey covered 607 responses about dogs and 476 about cats. Public preference for non-lethal approaches is politically important, since it indicates where policy can go without losing community support.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What barriers to reporting free-roaming animals did this Portuguese survey identify?",
+"o": [
+"Cost of making a report and lack of a reporting mechanism",
+"Fear of culling and of long-term caging",
+"Legal liability for the reporter",
+"Language barriers"
+],
+"a": 1,
+"e": "If people believe reporting leads to the animal being killed or caged indefinitely, they will not report, which starves the system of the information needed to manage the population. The survey also identified needs to increase pet cat identification, reduce unsupervised outdoor access and promote dog sterilisation.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Stochastic demographic simulations compared three sterilisation regimes over 20 years for community cats in the Canary Islands. What did they show?",
+"o": [
+"All three regimes produced equivalent population declines",
+"Minimal 4% and low 20% annual sterilisation produced rapid population growth toward carrying capacity, while only sustained high-coverage sterilisation of roughly 60 to 70% per year prevented saturation and produced progressive declines",
+"The 4% regime was sufficient to control the population",
+"Sterilisation rate had no effect on population trajectory"
+],
+"a": 1,
+"e": "The 20% regime reflected the pre-resolution baseline widely observed across the archipelago, and the 4% regime the post-resolution reality after regional restrictions. Coverage has to exceed a threshold before it does anything useful, so a partial programme is not partially effective.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What governance lesson do the authors draw from the Canary Islands situation?",
+"o": [
+"National law and regional resolutions were perfectly aligned",
+"National Law 7/2023 endorses ethical non-lethal colony management while subsequent regional resolutions restrict trap-neuter-return in and around protected areas, so outcomes are determined by achievable coverage rather than regulatory intent",
+"Regulatory intent alone determines population outcomes",
+"Protected area status improves sterilisation coverage"
+],
+"a": 1,
+"e": "A law endorsing an approach means little if subordinate regulation prevents reaching the animals. Restricting operations to urban cores left key population clusters unsterilised and caused programme suspensions in multiple municipalities.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "A review of 34 research reports on free-roaming cats in Brazil published between 2001 and 2020 identified a bias in the research focus. What was it?",
+"o": [
+"More studies focused on the potential of free-roaming cats to transmit disease than on their impacts through predation or competition with wildlife",
+"Research focused almost exclusively on predation impacts",
+"Only island populations were studied",
+"No research on free-roaming cats exists in Brazil"
+],
+"a": 0,
+"e": "More studies were conducted on the Brazilian mainland, 23, notably in the Atlantic Forest, than on islands, 11. Domestic cats occupy 38th place in the Global Invasive Species Database, and in Australia they are implicated in vertebrate population declines and native mammal extinctions.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What balance does this review advocate in addressing free-roaming cat impacts?",
+"o": [
+"Prioritising cat welfare over all wildlife considerations",
+"Understanding predation risks to inform measures that mitigate wildlife impacts without neglecting cat welfare, since control management strategies themselves affect the welfare of domestic cats",
+"Prioritising wildlife protection with no regard to cat welfare",
+"Taking no action until all knowledge gaps are filled"
+],
+"a": 1,
+"e": "Indirect impacts discussed include competition for resources, niche overlap, hybridisation and disease transmission, not just direct predation. Holding both concerns simultaneously is what distinguishes this from advocacy on either side.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "An assistive Community Cat Program in Banyule, Victoria offering free sterilisation, microchipping and registration produced what results between 2013 and 2021?",
+"o": [
+"Cat impoundments reduced by 66%, euthanasia by 82% and complaints by 36%",
+"Impoundments and euthanasia both increased",
+"A 10% reduction in impoundments with no change in euthanasia",
+"No measurable change in any indicator"
+],
+"a": 0,
+"e": "Two further programmes in large cities and a rural town in New South Wales and a rural town in Queensland have reported similar results, which strengthens the case beyond a single site.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What is a semi-owner in the context of urban cat management, and why does this group matter?",
+"o": [
+"A person who legally co-owns a cat with another household",
+"A person who feeds free-roaming cats without formal ownership; they matter because financial barriers to sterilising owned and semi-owned cats in low-income areas produce unplanned litters that sustain the free-roaming population",
+"A council officer responsible for impounded cats",
+"A cat that is owned for part of the year only"
+],
+"a": 1,
+"e": "Semi-owners fall outside enforcement frameworks built around registered ownership, so containment mandates cannot reach them. Removing the cost barrier builds trust between authorities and caregivers, which improves compliance in a way penalties do not.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Feral dogs in Arequipa, Peru inhabit periurban caves and rely on organic waste and backyard livestock. What did an interrupted time series analysis show after pandemic restrictions?",
+"o": [
+"The number of occupied caves increased by 42%",
+"The total number of occupied caves decreased by 42% following the restrictions",
+"No change in cave occupancy was detected",
+"Cave occupancy could not be measured"
+],
+"a": 1,
+"e": "Restaurant closures and reduced backyard farming cut food availability, and the feral dog population responded. Over 29 months an average of 16.42 caves per month showed evidence of dogs, mostly indirect evidence.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Why are these feral dogs a public health concern in Arequipa beyond the injuries they cause?",
+"o": [
+"They are a vector for Chagas disease",
+"There is active rabies virus transmission in the dog population of Arequipa city, so feral dogs pose a threat for dog-mediated human rabies",
+"They carry highly pathogenic avian influenza",
+"They pose no zoonotic risk"
+],
+"a": 1,
+"e": "The natural experiment also demonstrates the food-supply lever: a population sustained by anthropogenic food resources can be reduced by removing those resources, which is relevant to waste management as a population control tool.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "This review describes free-roaming dogs in Australia as a wicked problem. Why?",
+"o": [
+"Because they are always harmful and must be eradicated",
+"Because their negative, neutral and positive impacts often occur simultaneously, and perceptions are shaped by their status as native, introduced and culturally significant animals depending on the situation and the species they interact with",
+"Because no data exist on their numbers",
+"Because they are confined to remote areas"
+],
+"a": 1,
+"e": "In Australia the same animal may be regarded as dingo, wild dog or stray depending on who is looking, which makes a single management prescription impossible. A wicked problem is one where the problem definition itself is contested.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "What solution framework do the authors propose for managing free-roaming dogs in Australia?",
+"o": [
+"A single national culling programme",
+"A One Health-based approach using an environmental psychology perspective within a strategic adaptive management framework, including a typology of free-roaming dogs, identification of human dimensions, inclusion of relevant discipline specialities, and audience segmentation",
+"Leaving management entirely to individual landholders",
+"Relying solely on veterinary intervention"
+],
+"a": 1,
+"e": "Audience segmentation matters because a message that works for an urban pet owner will not work for a peri-urban farmer. The typology allows the situational definition of animal and public health issues rather than treating all free-roaming dogs as one category.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "This review argues for a whole-population approach to domestic cat management in the United Kingdom. What does that entail?",
+"o": [
+"Focusing exclusively on unowned cats",
+"A system of services considering owned, shelter and free-living unowned cats, with management also considered at a localised level given the unique cat and human populations in each environment",
+"Managing only cats presented to rehoming organisations",
+"A single national policy applied uniformly"
+],
+"a": 1,
+"e": "The review is explicit that there is no simple overarching solution, and that long-term improvement requires addressing root causes of overpopulation rather than simply controlling the abundance of unowned cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What is the compensatory effect that may limit the success of cat population management programmes?",
+"o": [
+"Cats becoming more fecund after sterilisation",
+"Movement of cats from neighbouring unowned or owned populations into an area following population declines caused by trap-neuter-return or rehoming",
+"An increase in disease transmission after population reduction",
+"Reduced survival of remaining cats after a programme"
+],
+"a": 1,
+"e": "Removing cats creates vacant resources that draw in others, so the local population rebounds. This is why the review emphasises carrying capacity and why educating carers about feeding, which raises local carrying capacity, is identified as valuable.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "How does the review suggest rehoming organisations optimise their role in cat population management?",
+"o": [
+"By taking in every unowned cat encountered",
+"By taking in only cats suitable for rehoming and managing other unowned cats through community-level interventions",
+"By ceasing all intake of unowned cats",
+"By prioritising cats from owned populations"
+],
+"a": 1,
+"e": "Filling shelter capacity with cats unsuited to rehoming blocks the pathway for those who could be rehomed, and subjects unsuitable cats to a confinement they cope with poorly. Community-level intervention serves both groups better.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "A scoping review of 52 publications examined free-roaming dog movement and enumeration methods relevant to rabies control. What was the most common enumeration technique?",
+"o": [
+"Photographic mark capture-recapture",
+"Door-to-door household survey",
+"Aerial drone survey",
+"Genetic mark-recapture"
+],
+"a": 0,
+"e": "Studies came predominantly from India, Brazil, Indonesia, Guatemala and Chad, and mostly investigated population size. Movement studies focused largely on home ranges, which were influenced by both the technique used and population size.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "What methodological weakness did the reviewers identify across the free-roaming dog literature?",
+"o": [
+"Over-reporting of methodological limitations",
+"In many studies the advantages and disadvantages of the techniques employed went unreported, leaving scope for misleading conclusions when comparing methods",
+"All studies used identical methods, preventing comparison",
+"Studies were confined to rabies-free regions"
+],
+"a": 1,
+"e": "If a paper does not state that its method systematically undercounts shy dogs or misses nocturnal animals, a reader comparing it with another study will draw a false conclusion. The review highlights significant research gaps in rabies-endemic regions specifically.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "A scoping review sought published socio-economic evaluations of dog population management systems. How much literature was found?",
+"o": [
+"Over 500 studies with comprehensive economic data",
+"Only 14 studies out of more than 7,200 screened, indicating a severe limitation in socio-economic data associated with dog population management",
+"No studies at all could be identified",
+"Around 200 studies with consistent methodology"
+],
+"a": 1,
+"e": "Fourteen usable studies from a screened pool of over 7,200 is a striking evidence gap. Without economic evaluation, resource allocation and evidence-based policy in this field rest on assertion rather than analysis.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Which dog population management services appeared most frequently in the reviewed literature, and what ethical note did the reviewers make?",
+"o": [
+"Sterilisation was the most frequently used service, often combined with vaccination and community awareness, while culling was used in several studies though considered unethical",
+"Culling was the dominant approach and was endorsed by the reviewers",
+"Only vaccination was studied",
+"Community awareness was the sole intervention identified"
+],
+"a": 0,
+"e": "Dog population management systems aim to reduce free-roaming numbers, improve human and canine health and welfare, and foster peaceful coexistence. The review maps intervention, impact, monetised and non-monetised parameters across approaches such as cost-benefit and cost-effectiveness analysis.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "A cross-sectional survey of 1,359 participants in Turkiye examined dog phobia and views on stray dog management. What proportion had some level of dog phobia and who was most affected?",
+"o": [
+"69.5% had some level of dog phobia, with higher rates in younger individuals, those without pets or experience with stray animals, and those with a history of dog attacks",
+"Under 10% reported any phobia",
+"Phobia was confined to older participants",
+"Pet owners had the highest phobia rates"
+],
+"a": 0,
+"e": "People without dogs or cats were roughly twice as likely to have phobia, as were those who had never cared for stray animals or who had a personal or family history of dog attack. Fear of attack and of contracting rabies were common concerns correlating with phobia severity.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "How did dog phobia relate to support for return-to-field approaches in this Turkish survey?",
+"o": [
+"Participants with dog phobia were 65.5% less likely to agree that vaccinated and neutered dogs should be returned to the streets",
+"Phobia had no relationship with management preferences",
+"Participants with phobia were more supportive of returning dogs to the streets",
+"Phobia increased support for vaccination but reduced support for neutering"
+],
+"a": 0,
+"e": "Support for vaccination was high at 92.3% but for neutering only 49.8%, and 53.3% agreed with keeping neutered dogs in shelters rather than returning them. Public fear is therefore a direct constraint on the feasibility of catch-neuter-vaccinate-return programmes regardless of their technical merit.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Clinical examination and complete blood counts were performed on 297 street and shelter dogs in Guarapuava, Brazil. What was the most common clinical finding?",
+"o": [
+"Hyperthermia in 4.0% of dogs",
+"Ectoparasite infestation in 42.7% of dogs",
+"Anaemia in over 50% of dogs",
+"No abnormalities were detected"
+],
+"a": 1,
+"e": "Other findings included tachypnoea in 20.5%, pale ocular and oral mucous membranes in 6.4%, anaemia in 15.1%, thrombocytopenia in 10.1% and leukocytosis in 14.8%. Heavy ectoparasite burden is both a welfare problem and a vector-borne disease risk.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Why do the authors emphasise the need for further diagnostic investigation of these findings?",
+"o": [
+"Because certain clinical and haematological alterations may be caused by zoonotic agents that endanger both human and animal health",
+"Because the findings indicate the dogs are healthy",
+"Because blood counts are unreliable in street dogs",
+"Because the dogs were all destined for euthanasia"
+],
+"a": 0,
+"e": "Anaemia, thrombocytopenia and ectoparasite infestation together suggest vector-borne disease such as ehrlichiosis or babesiosis, several of which have zoonotic relevance. Low adoption rates and a lack of humane control programmes were driving overcrowding and compromising health and welfare.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "An analysis of 1,006 dog owners in urban and rural Uganda found what pattern of roaming?",
+"o": [
+"16.1% of urban and 29.4% of rural dogs roamed during the day, rising to 26.0% and 65.2% at night because dogs were released at night for security purposes",
+"Roaming was higher during the day than at night",
+"Only urban dogs roamed",
+"Roaming rates were identical in urban and rural settings"
+],
+"a": 0,
+"e": "The night-time increase, particularly the jump to 65.2% in rural areas, reflects a deliberate management practice rather than escape. That distinction matters, because an intervention aimed at containment must offer an alternative means of household security.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What did the study identify as the key drivers of roaming, and what solutions were proposed?",
+"o": [
+"Inadequate confinement especially lack of a secure enclosure, underfeeding and abandonment, linked to poverty, low education and poor attitudes; short-term solutions included fines, subsidised sterilisation and public education, with longer-term policy on ownership, registration and breeding",
+"Roaming was driven purely by dog temperament",
+"Owner wealth was the main driver of roaming",
+"No drivers could be identified"
+],
+"a": 0,
+"e": "Owners were mostly male, aged 20 to 39 and low-income, with about 2.35 dogs per household in both settings. Because the root causes are structural, fines alone would penalise poverty without changing the underlying constraint.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "A survey of free-roaming dogs in Irbid, Jordan from November 2021 to November 2023 was compared against media reporting and health ministry data. What was concluded?",
+"o": [
+"Dog numbers were rising sharply, confirming media reports of a growing threat",
+"Dog numbers showed a decreasing trend with an average approaching the bottom of the range observed in other countries, and available data did not support the conclusion that stray dogs pose a growing threat",
+"No data could be collected",
+"Health ministry data confirmed a surge in dog bite injuries"
+],
+"a": 1,
+"e": "Media reports often cited personal safety as the primary concern. The authors suggest increased media interest and widespread misinformation have overstated the problem beyond its actual proportions.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Why did the authors consider establishing an objective baseline particularly urgent in this context?",
+"o": [
+"Because intense media coverage precipitated a surge in cruelty likely to persist without compelling counterarguments and serious interventions",
+"Because the government required data for tax purposes",
+"Because no dogs remained in the city",
+"Because international funding depended on it"
+],
+"a": 0,
+"e": "Limited data impede policy debate and cast doubt on proposed interventions, leaving the field open to whichever narrative is loudest. Here the consequence of that vacuum was measurable harm to the animals.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Visual weight estimation for 308 cats in traps at trap-neuter-return events was assessed across students, veterinarians and technicians. How accurate was it?",
+"o": [
+"All groups estimated within 10% of actual weight for most cats",
+"Students achieved 44% of estimates within 20% of actual weight compared with veterinarians at 56% and technicians at 35%, while accuracy within 10% was limited across all groups",
+"Technicians were the most accurate group",
+"Estimates were within 5% of actual weight in over 90% of cases"
+],
+"a": 1,
+"e": "Students achieved only 14% within 10% of actual weight versus 33% for veterinarians. Systematic errors included overestimating lighter cats and underestimating heavier cats, with posture and whether kilograms or pounds were used also affecting accuracy.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Despite limited estimation accuracy, what was the practical consequence for drug dosing in this trap-neuter-return setting?",
+"o": [
+"Dosing based on student estimates fell within the target range in 85% of cases, compared with 95 to 96% for veterinarians, technicians and consensus estimates",
+"Dosing was outside the target range in the majority of cases for all groups",
+"Dosing accuracy could not be assessed",
+"Student-derived doses were dangerous in most cases"
+],
+"a": 0,
+"e": "This is the reassuring part. Induction cocktail dose ranges are wide enough to absorb moderate weight estimation error, so imperfect estimation does not automatically mean unsafe dosing when cats cannot be weighed in a trap.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Citizen scientists used Google Street View imagery to count free-roaming dogs across 26 Peruvian communities. How did this compare with door-to-door survey estimates?",
+"o": [
+"Strong positive correlation in urban communities but weak correlation in periurban areas",
+"Perfect agreement in all community types",
+"Strong correlation in periurban areas only",
+"No correlation in any setting"
+],
+"a": 0,
+"e": "The urban correlation was 0.85 and highly significant, whereas the periurban correlation was 0.36 and not significant. Street View detected 862 dogs, giving an adjusted estimate of 1,022 against 1,536 owned free-roaming dogs estimated by door-to-door survey.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What advantages motivated developing a remote method for estimating free-roaming dog populations?",
+"o": [
+"Conventional dog population estimation is time-consuming, requires many field personnel, may be inaccurate and unreliable, and is not without danger",
+"Remote methods are more accurate than any field method",
+"Field surveys are prohibited in Peru",
+"Street View provides real-time imagery"
+],
+"a": 0,
+"e": "Quantitative knowledge of dog populations underpins control of rabies virus, Echinococcus granulosus and Leishmania. The weak periurban performance is the important caveat, since periurban areas often carry the highest free-roaming densities and the poorest street imagery coverage.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Photographic capture-recapture surveys compared free-roaming dogs at a market area and a gated university campus in Guwahati, Assam. How did the two populations differ?",
+"o": [
+"Market area dogs were significantly younger, had lower sterilisation rates and tended to be in poorer physical condition than campus dogs",
+"Campus dogs were younger and in poorer condition",
+"The two populations were identical in every respect",
+"Only sterilisation rates differed, with market dogs better sterilised"
+],
+"a": 0,
+"e": "183 unique dogs were detected at the market and 141 on campus. Differences in body condition and collar presence were not statistically significant. A defined boundary and a controlled human population appear to produce a demographically distinct dog population.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Why does India feature so prominently in free-roaming dog and rabies research?",
+"o": [
+"India has the highest global burden of rabies, accounting for approximately 35% of all human rabies deaths worldwide, with free-roaming dogs playing a critical role in disease spread",
+"India has no free-roaming dogs",
+"Rabies has been eliminated from India",
+"India has the smallest dog population globally"
+],
+"a": 0,
+"e": "This study also evaluated Application SuperDuplicates as a resource-effective alternative to Huggins heterogeneity models, which matters where survey capacity is limited and the need for population estimates is greatest.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "A free surgical neutering service in Belo Horizonte, Brazil was evaluated for access using scheduling data from 2012 to 2018. What predicted clients dropping out?",
+"o": [
+"Waiting time, with an odds ratio of 1.2 per month of waiting, along with the Health Vulnerability Index of the coverage area, and owners of male animals being more likely to drop out",
+"Distance to the clinic was the only predictor",
+"Owners of female dogs were most likely to drop out",
+"No factors predicted dropout"
+],
+"a": 0,
+"e": "A 20% increase in dropout odds per month of waiting means that queue length is itself a barrier to access, independent of cost. Free at the point of use does not equal accessible if the wait is long.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What did the spatial analysis reveal about neutering service access in this Brazilian city?",
+"o": [
+"Access improved steadily throughout the study period",
+"Most areas had supply capacity exceeding 5%, but the spatial access index fell generally in 2018 owing to disproportionate population growth relative to service availability between 2015 and 2018",
+"Service capacity always exceeded demand",
+"Spatial access could not be measured"
+],
+"a": 1,
+"e": "The Three-Step Floating Catchment Area method was used to assess regional access. Notably, higher-vulnerability areas showed greater dropout risk but also a form of resistance, which the authors interpret as reflecting lower access to private veterinary alternatives.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "Five population models were applied to photographic sight-resight data on free-roaming dogs in Klang Valley, Malaysia. How did the estimates compare?",
+"o": [
+"All five models produced identical estimates",
+"Estimates ranged from 818 by the Bailey method to 1,407 by the Schnabel method, with the Detection Probability model most precise at 2.39% and the Schnabel method least precise at 41.51%",
+"The Schnabel method was the most precise",
+"Precision could not be calculated"
+],
+"a": 1,
+"e": "A total of 599 dogs were recorded comprising 492 sightings and 107 resights, with an overall detection probability of 0.38. A near two-fold spread between methods on the same data is exactly why method choice and reported precision matter for planning vaccination coverage.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "Why was the Detection Probability model favoured over the simpler mark-recapture indices in this study?",
+"o": [
+"Because it accounts for unseen individuals and detection bias, which is crucial for accurate population estimation",
+"Because it requires the least field effort",
+"Because it always produces the highest estimate",
+"Because it does not require resighting data"
+],
+"a": 0,
+"e": "If a fixed proportion of dogs is never detected, a method that ignores detectability will systematically undercount, and vaccination coverage calculated against that denominator will look better than it is.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Seven hundred randomly selected passersby in Israel were interviewed about free-roaming cats. What proportion reported feeding them?",
+"o": [
+"223 (31.9%) had fed free-roaming cats at least once in the preceding month, including 80 (11.4%) daily feeders and 41 (5.9%) heavy feeders feeding more than ten cats",
+"Under 2% reported ever feeding free-roaming cats",
+"All respondents reported daily feeding",
+"Feeding was reported only by cat owners"
+],
+"a": 0,
+"e": "Nearly a third of the general public feeding free-roaming cats at least monthly makes provisioning a population-level driver of carrying capacity, not a fringe activity. Daily feeders were generally older and fewer were Israeli-born.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What attitudinal tension emerged between feeders and non-feeders of free-roaming cats in Israel?",
+"o": [
+"54% of all participants and 45% of dedicated feeders considered free-roaming cats a negative phenomenon, yet 75% of feeders strongly agreed with feeding them",
+"Feeders uniformly regarded free-roaming cats as a positive phenomenon",
+"Non-feeders were uniformly opposed to feeding",
+"No differences in attitude were detected"
+],
+"a": 0,
+"e": "Nearly half the dedicated feeders regard the phenomenon they are sustaining as negative, which suggests feeding is driven by compassion for individual animals rather than by a view about the population. Despite extensive trap-neuter-return effort, cat numbers in Israel remain high.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Analysis of Portugal's national companion animal registry covering 2,581,870 dogs found what demographic profile?",
+"o": [
+"A predominance of younger dogs aged 2 to 3 years, a slight male majority at 51.6%, 54.4% neutered, and mixed-breed dogs most common at 39.6%",
+"A predominance of dogs over 10 years old",
+"A large female majority",
+"Pedigree dogs outnumbering mixed breeds"
+],
+"a": 0,
+"e": "Portuguese Podengo at 10.9% and Labrador Retriever at 6.1% followed mixed breeds. A national registry of this size provides a baseline that most countries lack entirely.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What geographic patterns emerged from the Portuguese national dog registry?",
+"o": [
+"Younger dogs in rural areas and older dogs in urban settings, with rural regions having higher dog-to-household ratios while urban and economically deprived areas had higher absolute dog numbers but lower ratios",
+"Identical age distributions across all districts",
+"Older dogs concentrated in rural areas",
+"No geographic variation was detected"
+],
+"a": 0,
+"e": "Analysis used the European Deprivation Index and urbanicity classification with spatial visualisation. The authors highlight the role of rural areas in preserving native Portuguese breeds and the need for geographically targeted public health interventions.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "A survey of 2,744 New Zealand respondents examined the financial aspects of pet guardianship. What was the principal finding about veterinary costs?",
+"o": [
+"83.9% agreed that the expense of veterinary care affects the level of healthcare their pets receive",
+"Fewer than 10% felt cost affected their pets' care",
+"Cost was a concern only for dog owners",
+"Veterinary cost was not assessed"
+],
+"a": 0,
+"e": "This was drawn from 2,296 responses to that item. Cost affecting the level of care received is a different and more concrete measure than cost merely being a worry, since it describes care actually forgone.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "What did New Zealand respondents think about pet insurance as a solution to veterinary cost?",
+"o": [
+"Only about one third considered pet insurance essential, citing its high cost",
+"Nearly all respondents held pet insurance",
+"Insurance was considered essential by over 90%",
+"Insurance was unavailable in New Zealand"
+],
+"a": 0,
+"e": "Of the 2,358 who answered the guardianship section, 37.5% owned both cats and dogs, 28% cats only and 26% dogs only. If the main proposed remedy for veterinary cost is itself considered too expensive, the affordability problem has simply moved rather than been solved.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "Sixteen clinics offered a no-credit-check third-party installment payment option and tracked client use. What did clients report would have happened without it?",
+"o": [
+"More than one in three cases (35.8%) faced a severe break in the human-animal bond such as relinquishing the pet or euthanasia, and combined with those very likely to seek lower cost care elsewhere, provide less care, or self-treat, 52% of cases met this risk threshold",
+"Fewer than 5% would have changed their behaviour",
+"All clients would have paid in full regardless",
+"Clients would have sought referral to a specialist"
+],
+"a": 0,
+"e": "Financial barriers are the top client barrier to veterinary care. Quantifying the counterfactual, what would have happened without the option, is what turns a payment product into an access-to-care intervention.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "What was the typical profile of clients using the installment financing option in this study?",
+"o": [
+"New clients seeking routine preventive care",
+"Mostly existing clients of the clinic seeking sick, injury, surgery or end-of-life care, at clinics that also offered credit-based financing, with an average term of 9 months",
+"Clients exclusively seeking elective procedures",
+"Clients who had been refused credit elsewhere and sought only vaccinations"
+],
+"a": 1,
+"e": "Clinics overwhelmingly chose the option that guaranteed payment to the clinic. That the option was used alongside existing credit-based financing suggests it reaches clients whom credit checks exclude, rather than simply displacing existing arrangements.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "A survey of 97 Canadian organisations working to increase access to animal healthcare examined the tools they use. What was found?",
+"o": [
+"Commonly reported tools were no-cost or low-cost services, pop-up clinics and pet transportation assistance, while payment plans without a credit check, multilingual services and assistive technology were each used by fewer than 20% of organisations",
+"All four categories of barrier were addressed by nearly every organisation",
+"Only for-profit clinics reported using any barrier mitigation tools",
+"Transportation assistance was the least used tool"
+],
+"a": 0,
+"e": "Only 38% of organisations used at least one tool from each of the four barrier categories, meaning most were addressing affordability while leaving language, transport or accommodation barriers untouched. Respondents were 52% non-profit, 38% for-profit clinics and small numbers of municipal and educational bodies.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "How did the study characterise the varying levels of community involvement in access-to-care programmes?",
+"o": [
+"A spectrum from outreach, where the community simply accesses a service when available, through consulting and collaborating, to sharing leadership where community leadership partners on initiatives",
+"All programmes were community-led",
+"Community involvement was absent from every programme",
+"Only financial contribution was counted as involvement"
+],
+"a": 0,
+"e": "This ladder of participation matters because a service designed without the community it serves may address the wrong barriers. Sharing leadership is the level at which the community shapes what is offered rather than just receiving it.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "A questionnaire of dog owners in coastal Oaxaca, Mexico examined ownership and access to care. What were the main findings?",
+"o": [
+"The primary reasons for dog ownership were companionship and protection, and the most common barriers to care were cost and access",
+"Dogs were owned primarily for hunting, with no barriers to care reported",
+"Veterinarians were distrusted as a source of information",
+"Access to care was universally available"
+],
+"a": 0,
+"e": "Veterinarians were rated highly for professionalism, knowledge and communication, which positions them as a trusted channel for education on zoonotic disease, animal care and population management in this community.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "What did the authors conclude about short-term sterilisation campaigns in rural Oaxaca?",
+"o": [
+"They are effective at reducing free-roaming dog populations with demonstrated benefits to local wildlife through reduced predation, but do not create sustainable change on their own; building local veterinary surgical capacity is an important need",
+"They are ineffective and should be discontinued",
+"They create permanent population reduction without further intervention",
+"They have no measurable effect on wildlife"
+],
+"a": 0,
+"e": "A campaign that arrives, operates and leaves addresses the current population but not the ongoing reproduction that follows. Local surgical capacity is what converts a one-off intervention into a sustained programme.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "A student-run free One Health clinic in rural Northern California serves both people and pets. What programmatic challenges did the authors describe?",
+"o": [
+"Coordination with leaders of multiple training programmes, seasonal variation in student and clinical instructor schedules, and balancing student experiential learning against positive client and patient outcomes",
+"A complete absence of student interest",
+"Excessive funding leading to overspending",
+"No clients attending the clinic"
+],
+"a": 0,
+"e": "Internal evaluations of scope of care, patient and provider safety, and student preparedness drove development of policies and procedures that consider both training and the client-patient experience, rather than treating the clinic purely as a teaching exercise.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "What innovation did this One Health clinic introduce to enhance care and interprofessional education?",
+"o": [
+"Widening the provider and student partnership to include human nursing, creating interprofessional education opportunities for students from multiple training programmes at a single clinical site",
+"Restricting the clinic to veterinary students only",
+"Removing clinical instructors to increase student autonomy",
+"Converting the clinic to a fee-charging service"
+],
+"a": 0,
+"e": "The clinic trains students in spectrum of care, contextualised care, cultural humility, ethical community engagement and relationship-centred communication. Adding human nursing lets one site care for the bonded family rather than only the animal.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "This viewpoint article proposes a paradigm shift in veterinary care delivery. What does pet family-centred care entail?",
+"o": [
+"Prioritising medical protocols over client circumstances",
+"A transition from a provider-centred, medically driven approach to one integrating pet family goals, values and resources into healthcare decisions, with nonjudgmental communication alongside medical priorities",
+"Removing the veterinarian from decision-making",
+"Standardising every treatment plan regardless of context"
+],
+"a": 1,
+"e": "The framing is deliberately borrowed from human medicine, where family-centred care is an established model. The nonjudgmental element matters because judgement about what an owner can afford or chooses is itself a barrier to care.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "What three pillars does this article propose for the future of veterinary care?",
+"o": [
+"Leveraging evidence-based medicine with comprehensive outcome measurement, employing relationship-centred communication grounded in clinical empathy, and developing stratified service delivery models that enhance accessibility",
+"Increasing prices, reducing hours and specialising further",
+"Eliminating general practice in favour of referral centres",
+"Prioritising profit, efficiency and throughput"
+],
+"a": 0,
+"e": "Stratified service delivery is the spectrum-of-care idea made structural: offering defensible options at different price points rather than a single gold-standard plan that many clients decline entirely.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "Surveys of 333 staff at 60 homeless shelters and 29 outreach teams across 7 states examined provision for pets. What was found?",
+"o": [
+"78% of homeless shelters allowed pets or service animals, but only 2% of shelters and 7% of outreach teams provided veterinary care, and 15% of shelters and 7% of outreach teams provided flea preventatives",
+"Nearly all shelters provided both veterinary care and flea preventatives",
+"Fewer than 10% of shelters allowed pets at all",
+"Flea preventatives were universally available"
+],
+"a": 0,
+"e": "The gap between allowing pets and supporting them is the finding. Nearly three quarters of surveyed shelter staff reported that no steps were taken to treat fleas at their shelters.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "Why does limited flea control in homeless shelters matter beyond animal comfort?",
+"o": [
+"Pets of people experiencing homelessness might be at increased risk of flea infestation and flea-borne diseases, which has implications for the people they live alongside",
+"Fleas cannot survive in shelter environments",
+"Flea-borne disease affects only animals",
+"Flea control is a cosmetic issue only"
+],
+"a": 0,
+"e": "Flea-borne pathogens including Bartonella and murine typhus affect people, and a congregate setting concentrates exposure. Improving knowledge and access to preventatives protects both the pets and the human residents.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "This teaching tip describes a workshop for veterinary technology students on social determinants of health. What did it cover?",
+"o": [
+"How social determinants of health influence companion animal guardians and the clinical decisions veterinary professionals make, with emphasis on communication skills, addressing student biases, and creative support options integrating spectrum-of-care concepts",
+"Surgical technique only",
+"Laboratory diagnostics",
+"Practice financial management"
+],
+"a": 0,
+"e": "Explicitly addressing student biases is the distinctive element. Assumptions about what a client can or should afford influence what options are offered, so the bias operates before the conversation begins.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "A scoping review of access to veterinary care mapped risk factors onto five dimensions of access. What are those dimensions?",
+"o": [
+"Affordability, availability, accessibility, accommodation and acceptability",
+"Cost, distance, time, language and species",
+"Income, education, employment, housing and transport",
+"Prevention, diagnosis, treatment, referral and follow-up"
+],
+"a": 0,
+"e": "Fifty-two studies were included, 41 examining risk factors and 12 examining consequences. Mapping to these five dimensions shows where evidence is concentrated and where it is missing, which is what the accompanying evidence gap map displays.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "Why does the review's cataloguing of definitions of access to veterinary care matter?",
+"o": [
+"Because researchers have used differing definitions, so without cataloguing them, findings cannot be meaningfully compared or synthesised across studies",
+"Because a single legal definition already exists",
+"Because definitions are irrelevant to research quality",
+"Because it determines which journals will publish the work"
+],
+"a": 0,
+"e": "Barriers to access can lead to preventable health conditions or death in pets. If one study defines access as having a clinic within a set distance and another as being able to afford recommended treatment, they are measuring different things under one label.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "The Pet-Related Barriers to Healthcare Index measures an unusual direction of effect. What does it capture?",
+"o": [
+"Barriers that pet caregiving responsibilities and concerns about pet welfare create for people accessing their own healthcare",
+"Barriers preventing pets from accessing veterinary care",
+"The cost of pet ownership",
+"The health benefits of pet ownership"
+],
+"a": 0,
+"e": "With around 60% of the United States population owning pets, someone who will not attend hospital because there is nobody to care for their animal faces a real and measurable obstacle. This inverts the usual access-to-care question.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "How was the Pet-Related Barriers to Healthcare Index validated?",
+"o": [
+"Only by expert opinion with no statistical testing",
+"Using confirmatory factor analysis of the hypothesised two-factor structure, assessment of construct validity against validated measures of commitment to pets, comfort from pets and social support, and latent class analysis, in a sample of 219 pet-owning people with HIV in Florida",
+"By comparison with veterinary records",
+"Through a randomised controlled trial"
+],
+"a": 1,
+"e": "A modified two-factor model splitting items by phrasing fit best, with one factor measuring previously experienced barriers. Validating in a population with both chronic illness and pet ownership targets the group where the construct matters most.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "A mapping review identified formal cohort research programmes in cats and dogs worldwide. How many exist and where?",
+"o": [
+"Twenty-two programmes, predominantly in the United Kingdom (36%) or United States (27%), with 55% involving dogs",
+"Over 200 programmes evenly distributed globally",
+"No cohort programmes could be identified",
+"Programmes were concentrated in Asia and South America"
+],
+"a": 0,
+"e": "From 6,777 unique papers, only 73 met inclusion criteria, representing those 22 programmes. Most, 82%, aimed at disease prevention, and animal demographics was the most commonly considered study variable.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "Why does mapping the global distribution and methods of veterinary cohort programmes matter?",
+"o": [
+"Because the absence of such a synthesis limits methods improvement and wider adoption of cohort programmes in veterinary medicine",
+"Because cohort studies are inferior to case reports",
+"Because it identifies which programmes should be discontinued",
+"Because it determines funding allocations"
+],
+"a": 0,
+"e": "Cohort programmes follow individuals over time to study how various factors affect health outcomes, which is the design best suited to questions like the long-term consequences of neutering age. Knowing what already exists prevents duplication and allows methods to be shared.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "An environmental scan identified 33 companion animal health surveillance systems globally. How did they collect data?",
+"o": [
+"48.5% relied on submission of data by veterinary professionals or others, while 42.4% extracted data from electronic health records and veterinary diagnostic laboratory data",
+"All systems used mandatory government reporting",
+"All relied exclusively on owner self-report",
+"Data collection methods were not described in any system"
+],
+"a": 0,
+"e": "From 12,718 unique sources, 257 were eligible, identifying these 33 systems plus 119 national or regional surveillance and control programmes. Passive submission systems depend on clinician effort and typically under-capture compared with automated extraction.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Data & Analysis",
+"q": "What gap did this scan identify regarding integration of environmental and public health data?",
+"o": [
+"Only 9.1% of systems integrated environmental or public health data at the point of data collection, although others used environmental data later in the process",
+"All systems fully integrated environmental and public health data",
+"No system collected any health outcome data",
+"Integration was universal at the point of collection"
+],
+"a": 0,
+"e": "Surveillance scope covered infectious diseases in 13 systems, cause of death in 2, cancer in 1 and toxin exposure in 1, with 12 not focused on specific outcomes. Without integration at collection, linking a companion animal signal to a human or environmental one becomes retrospective and much harder.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Animals & Public Policy",
+"sub": "Legislation",
+"q": "Qualitative action research with animal bylaw enforcement officers in Alberta, Canada revealed what about their working conditions?",
+"o": [
+"Officers described pride in the societal benefits of their work but consistently reported resource inadequacies, communication and information gaps, and a culture of normalised disrespect",
+"Officers reported excellent resourcing and universal respect",
+"Officers saw no societal value in their work",
+"No occupational health concerns were identified"
+],
+"a": 0,
+"e": "The research was conducted in Calgary, regarded by some experts as a model city for inter-agency collaboration, which makes the findings more rather than less concerning. The project evolved toward advocacy for occupational health and safety.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Animals & Public Policy",
+"sub": "Legislation",
+"q": "What concept became central to this study of animal law enforcement work?",
+"o": [
+"Medico-legal borderlands, describing work that sits between medical and legal domains, with relational coordination proposed to promote best practice",
+"Compassion fatigue as the sole explanatory framework",
+"Purely economic analysis of enforcement costs",
+"Legal doctrine of animal sentience"
+],
+"a": 0,
+"e": "Officers enforcing animal legislation operate where veterinary, welfare, policing and social service responsibilities meet without any one system owning the problem. Relational coordination addresses exactly that: coordinating across agencies through shared goals, knowledge and mutual respect.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "This paper reviews emerging trends in how companion dogs are bred and acquired. What trends does it identify?",
+"o": [
+"Diminishing influence of traditional kennel clubs, more dogs sold without pedigree, stricter legal restrictions on breeding, growing popularity of designer crossbreeds, and growing hype around mixed-breed dogs",
+"A return to strict pedigree breeding worldwide",
+"Complete cessation of deliberate dog breeding",
+"No change from historical practice"
+],
+"a": 0,
+"e": "The paper is notable for not simply endorsing the move away from purebreds. It argues newly invented designer breeds and mixed breeds also carry worrying health and behavioural problems.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "What does this paper argue is the optimal future for dog breeding?",
+"o": [
+"Abandoning all breed registries permanently",
+"A middle ground in which the organised dog world re-opens breed registries, removes wording from breed standards that promotes extreme conformation, supports selection against disease-predisposing genotypes and phenotypes, and refocuses showing and breeding",
+"Exclusive promotion of mixed-breed dogs",
+"Returning to closed registries with unchanged breed standards"
+],
+"a": 1,
+"e": "The argument for retaining some value in purebreds is predictability of body size, basic behaviour, grooming needs and disorder profile, which supports a satisfying relationship for both dog and owner. Re-opening registries permits outcrossing to restore genetic diversity.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "An online survey based on the Five Freedoms compared veterinary and welfare professionals in the United Kingdom and Japan. What common pattern emerged?",
+"o": [
+"Both countries tended to prioritise survival-related attributes such as health and nutrition over situation-related attributes such as behaviour and over environmental discomfort",
+"Both prioritised behavioural freedom above all else",
+"Japanese respondents prioritised behaviour while UK respondents prioritised health",
+"Neither group recognised the Five Freedoms"
+],
+"a": 0,
+"e": "UK respondents (n=212) were more familiar with the Five Freedoms than Japanese respondents (n=321), and fewer Japanese respondents recognised freedom to express normal behaviour as important for domesticated animals. Prioritising physical health over behavioural need is a recognisable bias in welfare assessment everywhere.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "How did UK and Japanese respondents differ on the vignette concerning cat management?",
+"o": [
+"UK respondents considered outdoor access to represent better management for cat welfare, while most Japanese respondents thought cats should be managed entirely indoors, though both recognised the benefits and risks similarly",
+"Both groups favoured indoor-only management",
+"Both groups favoured outdoor access",
+"Neither group expressed a view on cat management"
+],
+"a": 0,
+"e": "Recognising the same benefits and risks but reaching opposite conclusions shows the difference is in how the trade-off is weighted culturally, not in the underlying knowledge. For the dog euthanasia vignette involving an incurable tumour, severe pain and mental stress motivated both groups similarly.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "A survey of 2,036 dog owners in Hong Kong and mainland China examined acquisition patterns. What was found?",
+"o": [
+"Mixed-breed dogs were most popular at around 40%, non-commercial sources such as shelters accounted for 65% of acquisitions, and brachycephalic breeds were the least popular purebreds, in stark contrast to the United Kingdom, United States and parts of Europe",
+"Brachycephalic breeds were the most popular purebreds",
+"Commercial breeders supplied the majority of dogs",
+"Purebred dogs made up over 90% of the sample"
+],
+"a": 0,
+"e": "Poodles were the most frequently owned purebred in both regions. The low popularity of brachycephalic breeds is a striking regional difference given the welfare problems those conformations cause elsewhere.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "What gap in owner preparation did this study identify?",
+"o": [
+"Over half of respondents (55%) carried out no research before acquiring their dog, and veterinary professionals were the least frequently used information resource",
+"Nearly all owners consulted a veterinarian before acquiring a dog",
+"Owners researched extensively but ignored the findings",
+"Information sources were not assessed"
+],
+"a": 0,
+"e": "Companionship was the most common reason for acquiring a dog and 99% strongly agreed their dog was part of the family, so the emotional commitment is high even where preparation is low. Veterinary professionals being the least used resource is an opportunity as much as a criticism.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "Ninety-four dog and cat owners assessed their pets' behavioural responses at different stages of a veterinary visit. When was stress highest?",
+"o": [
+"Perceived stress was highest right after entering the practice and declined significantly after about 10 minutes in the waiting room",
+"Stress was highest during the physical examination",
+"Stress peaked on returning home",
+"Stress was constant throughout the visit"
+],
+"a": 0,
+"e": "The identified critical period is immediately before and after entering the practice, which shifts the focus for intervention away from the consulting room and toward arrival, the car park and the waiting room entrance.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "What methodological caveat applies to this study's use of owner observation?",
+"o": [
+"Owners' familiarity with their pets' typical behaviour was considered useful for assessing stress, but although they could choose terms from a list of behaviours, no ethogram was provided before or during data collection",
+"Owners were not asked about behaviour at all",
+"An ethogram was provided and rigorously trained",
+"Only veterinary staff assessed behaviour"
+],
+"a": 0,
+"e": "Without a defined ethogram, owners may apply the same word to different behaviours, or different words to the same behaviour. Their familiarity with the individual animal is a genuine strength, but it does not substitute for standardised definitions.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "Life tables constructed from six Seoul veterinary hospitals examined survival in dogs and cats. What effect did neutering have?",
+"o": [
+"Spayed or neutered dogs and cats both had significantly higher life expectancy than intact animals",
+"Intact animals lived significantly longer in both species",
+"Neutering affected dogs only",
+"Neuter status had no effect on survival"
+],
+"a": 0,
+"e": "Mean age at death was 3427.49 days for dogs and 1965.49 days for cats. Note this is observational: neutered animals may also be those receiving more veterinary care overall, so the association cannot be read as a pure effect of the surgery.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "How did breed relate to survival in this Korean population?",
+"o": [
+"Mixed-breed dogs had higher life expectancy than purebred dogs, whereas purebred cats had higher median survival than mixed-breed cats",
+"Purebreds outlived mixed breeds in both species",
+"Mixed breeds outlived purebreds in both species",
+"Breed had no effect in either species"
+],
+"a": 0,
+"e": "The opposite direction in the two species is notable. In cats, purebreds are more likely to be indoor-only and closely supervised, which may outweigh any inbreeding-related disadvantage, whereas in dogs hybrid vigour and the absence of extreme conformation likely dominate.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "A bibliometric review of One Welfare literature from 2013 to 2024 identified how many publications, and what was the trend?",
+"o": [
+"111 publications, with most (78) appearing after 2018",
+"Over 5,000 publications evenly distributed across the period",
+"Only 5 publications, all before 2018",
+"Publication numbers declined after 2018"
+],
+"a": 0,
+"e": "The search used keywords translated into Hindi, Chinese, Spanish, English and French, which reduces the English-language bias common to such reviews. Animal Management emerged as the dominant subcategory.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "How does the One Welfare framework relate to One Health?",
+"o": [
+"It emphasises the interconnection between animal, human and environmental wellbeing, extending One Health principles to address broader welfare dimensions",
+"It replaces One Health entirely",
+"It is unrelated to One Health",
+"It applies only to production animals"
+],
+"a": 0,
+"e": "One Health traditionally centres on disease and physical health at the human-animal-environment interface. One Welfare extends the same interconnection to welfare and wellbeing, which is why it fits problems like hoarding, domestic violence and access to care.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "A hedonic price analysis of 1,500 dog sale advertisements in Brazil identified which attributes buyers valued most?",
+"o": [
+"Selling by kennels, pedigree, and coat colour",
+"Age and sex only",
+"Vaccination and deworming above all else",
+"Region of the seller alone"
+],
+"a": 0,
+"e": "Hedonic price analysis decomposes an advertised price into the implicit value of each attribute. Miniature Schnauzer, Chihuahua and German Spitz advertisements were analysed using ordinary least squares regression.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "What strategy did the authors propose on the basis of these buyer preferences?",
+"o": [
+"Banning the online sale of dogs entirely",
+"Developing certification labels for origin and good practices for kennels, since the market niche is willing to pay for guarantees of better breeding, which would increase transparency and reduce information asymmetry",
+"Removing price information from advertisements",
+"Increasing taxes on all dog sales"
+],
+"a": 1,
+"e": "Willingness to pay for kennel sale and pedigree indicates buyers are already paying for a proxy for quality assurance. A credible certification converts that willingness into an actual welfare standard rather than a marketing claim.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "A survey of 264 animal welfare organisation staff and volunteers examined perceptions of seven companion animal species. What was the key finding?",
+"o": [
+"Perceptions were entirely uniform across the organisation",
+"Type of role and species significantly affected willingness to pay initial set-up costs, perceived suitability as a pet for children, ease of care and expected time commitment, while over 80% recognised the importance of pre-acquisition research for all species",
+"Fewer than 20% valued pre-acquisition research",
+"Volunteers and staff held identical views on every measure"
+],
+"a": 1,
+"e": "Department also significantly affected willingness to pay set-up costs. Since staff and volunteers represent the charity to the public and are approached for advice regardless of their actual role, internal inconsistency becomes inconsistent public messaging.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "What practical recommendation follows from finding varied perceptions among an organisation's own staff and volunteers?",
+"o": [
+"Restricting public advice-giving to veterinary staff only",
+"Animal welfare organisations should take time to understand the views of their wider teams so that effective welfare-friendly messaging is reflected consistently across all areas of the organisation",
+"Ceasing to use volunteers",
+"Publishing only written advice with no personal contact"
+],
+"a": 1,
+"e": "Comparisons were made between volunteer and staff roles and between those in direct Pet Services and Non-Pet Services departments. Someone in a non-pet role who gives a member of the public an inaccurate impression of how easy a species is to keep contributes to later relinquishment.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "A contingent valuation survey estimated the Value of a Statistical Life of a Cat in Kamloops, British Columbia. What was found?",
+"o": [
+"The mean value was approximately 8,000 dollars among those willing to pay and about 4,000 dollars when non-payers were included, with similar estimates for indoor and outdoor cat owners",
+"Only outdoor cat owners showed any willingness to pay",
+"The value was under 100 dollars",
+"Indoor cat owners valued cats far more highly than outdoor cat owners"
+],
+"a": 0,
+"e": "That indoor and outdoor cat owners produced similar figures suggests willingness to pay reflects broader community concern for cat welfare rather than an individual's own circumstances, which strengthens the case for community-level policy.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "Which factors were significantly associated with higher willingness to pay for cat welfare measures?",
+"o": [
+"Female gender, household income, concern for local wildlife, and support for cat licensing",
+"Male gender and opposition to licensing",
+"Number of cats owned only",
+"Distance from the nearest veterinary clinic"
+],
+"a": 0,
+"e": "Concern for local wildlife predicting higher willingness to pay for measures reducing premature cat death is notable, since wildlife advocates and cat welfare advocates are often positioned as opponents. These estimates give an economic basis for policies promoting responsible ownership and risk reduction for outdoor cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Mental Health & Self-Care",
+"q": "A qualitative study of assistance animal trainers in Australia used the Job Demands-Resources model. What did it identify?",
+"o": [
+"No evidence of compassion fatigue in this occupational group",
+"Five themes including Demands such as concerns about animal welfare and client wellbeing, Resources such as resilience and formal employer support, Negative Impacts showing signs of compassion fatigue, Positive Impacts showing compassion satisfaction, and Misguided Trainer Expectations",
+"Only positive impacts, with no demands identified",
+"That trainers were unaffected by exposure to client suffering"
+],
+"a": 1,
+"e": "The Misguided Trainer Expectations theme captured the gap between what trainers expected the role to be and its reality, which is itself a modifiable factor through recruitment and induction.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Mental Health & Self-Care",
+"q": "Why does compassion fatigue among assistance animal trainers matter beyond the individual trainers?",
+"o": [
+"Negative outcomes associated with compassion fatigue could result in fewer trainers and longer wait times for people in need of assistance animals",
+"It has no downstream consequences",
+"It affects only the animals in training",
+"It increases the number of available trainers"
+],
+"a": 0,
+"e": "Six trainers took part in semi-structured interviews. The discovery of compassion fatigue signs represents a previously unidentified psychosocial hazard for this group, which places a duty on training organisations to provide better support.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Euthanasia",
+"q": "A study of 123 bereaved pet owners examined the relationship between euthanasia and grief. What was found about owners of euthanased pets?",
+"o": [
+"They experienced lower levels of guilt but more grief compared with those whose pets were not euthanased",
+"They experienced both more guilt and more grief",
+"They experienced less grief and less guilt",
+"Euthanasia had no relationship with grief or guilt"
+],
+"a": 0,
+"e": "The dissociation between guilt and grief intensity is the interesting part. Euthanasia may relieve the sense of having failed to prevent suffering while intensifying the sense of having caused the death, producing this mixed pattern.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Euthanasia",
+"q": "Which factors were associated with more intense grief reactions, and which were protective?",
+"o": [
+"Grief intensity correlated positively with owner age, feeling excluded from the euthanasia decision by the veterinarian, regret over deciding too early and associated guilt; it correlated negatively with time elapsed since death, and guilt was lower where the veterinary team responded to owners' emotional needs",
+"Only time elapsed since death had any association",
+"Veterinary communication had no relationship with owner guilt",
+"Younger owners reported the most intense grief"
+],
+"a": 0,
+"e": "Two of these factors are directly within the clinician's control: whether the owner feels included in the decision and whether the team responds to their emotional needs. Female owners reported higher average grief intensity and prolonged grief.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Transfer Programs",
+"q": "A content analysis of 241 organisation websites rehoming dogs from southern and eastern Europe into Germany found what transparency problems?",
+"o": [
+"Many organisations lacked information about dogs' origins, transport methods or health status, sometimes making it difficult to distinguish dog rescue from illegal dog trade",
+"All organisations provided full documentation of origin and health",
+"Only transport information was missing",
+"Transparency was uniformly excellent"
+],
+"a": 0,
+"e": "Over 100,000 dogs are imported into Germany annually by welfare organisations, mainly from Romania. A few organisations violated legal standards by offering underage or banned breeds and failing to use the TRACES transport system.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Transfer Programs",
+"q": "What specific risk to post-adoption outcomes did the website analysis identify?",
+"o": [
+"Behavioural descriptions were included in only two thirds of dog advertisements, and information on vector-borne diseases and typical behaviour of imported rescue dogs was not comprehensively provided, posing a risk of increased relinquishment due to behavioural unsuitability",
+"All advertisements contained complete behavioural profiles",
+"Photographs were never used",
+"Adopters were always given comprehensive contracts"
+],
+"a": 0,
+"e": "Imported dogs from these regions carry specific vector-borne disease risks such as leishmaniasis and heartworm that German adopters may not anticipate. Most organisations relied on private foster homes, and although most claimed to conduct pre-adoption checks, comprehensive contract details were rarely published.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "A study of 723 UK small mammal owners applied the COM-B model to housing provision. Which component was the primary barrier?",
+"o": [
+"Opportunity, particularly the availability of suitable enclosures, while Capability and Motivation were facilitators with most owners willing and able to provide good welfare",
+"Motivation, with most owners uninterested in welfare",
+"Capability, with owners lacking all relevant knowledge",
+"No barriers were identified"
+],
+"a": 0,
+"e": "COM-B holds that behaviour requires capability, opportunity and motivation together. Identifying opportunity as the constraint points the intervention at the retail market and product availability rather than at owner education.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "How did owners describe assessing their small mammals' health and welfare at home?",
+"o": [
+"Behavioural indicators were most commonly used to identify positive health and welfare, while nutritional and physical signs were cited most frequently for negative states",
+"Only veterinary examination was used",
+"Physical signs alone were used for both positive and negative states",
+"Owners reported no method of assessment"
+],
+"a": 0,
+"e": "Responses were mapped to the Five Domains model, focusing on rabbits, guinea pigs, rats and hamsters where data allowed. Changes in eating behaviour featured prominently, which fits these species' tendency to conceal illness until it is advanced.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "A survey of 1,181 German-speaking guinea pig caretakers examined husbandry and behaviour. What was the general picture of care?",
+"o": [
+"Most caretakers appeared attentive to their animals' needs, with self-built enclosures in 42.8% and fenced floor areas in 21.1%, though individual housing affected 7.5% and lack of constant hay access 0.4%",
+"The majority housed guinea pigs individually with no enrichment",
+"Nearly all animals lacked access to hay",
+"No welfare-relevant husbandry practices were recorded"
+],
+"a": 0,
+"e": "Individual housing is a substantive welfare problem in an obligately social species, so 7.5% represents a meaningful minority. Eating and resting next to conspecifics occurred several times daily in 87.6% and 48.1% of animals respectively.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What associations were found between human-animal interactions and guinea pig behaviour?",
+"o": [
+"Affiliative behaviour, locomotor play and use of enrichment were more frequently reported where positive human-animal interactions and food enrichment were more frequent",
+"Positive human interaction was associated with more biting and bar chewing",
+"No associations between interaction and behaviour were detected",
+"Human interaction reduced all forms of play"
+],
+"a": 0,
+"e": "Abnormal or distress-associated behaviours were rare, with biting, running up and down and bar chewing each occurring several times daily in under 3% of animals. These associations give concrete content for husbandry consultations.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "A study of 435 pedigree rabbits examined whether lop ears and brachycephaly predispose to dental abnormalities. What was found?",
+"o": [
+"Lop-eared rabbits had higher odds of ocular discharge but not of any dental abnormality, and brachycephaly showed no association with dental abnormalities, while more dolichocephalic rabbits had increased odds of cheek teeth step or wave mouth",
+"Both lop ears and brachycephaly strongly predisposed to dental disease",
+"Brachycephaly was strongly protective against dental disease",
+"No rabbits showed any dental abnormality"
+],
+"a": 0,
+"e": "68.28% had no incisor abnormalities and 55.40% no cheek teeth abnormalities. The dolichocephalic finding runs opposite to the usual assumption that shortened skulls cause dental crowding.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What did the authors conclude about the relative importance of conformation for rabbit dental disease, and what caveat did they add?",
+"o": [
+"Conformation appears less important than husbandry factors for preventing rabbit dental disease, but generalising to companion rabbits is not advised because of husbandry and population differences",
+"Conformation is the dominant cause and husbandry is irrelevant",
+"The findings apply directly to all pet rabbits",
+"Dental disease cannot be prevented by any means"
+],
+"a": 0,
+"e": "These were breeder-volunteered pedigree rabbits examined at shows and studs, a population likely to receive better-informed diet and husbandry than the average pet rabbit. That selection is exactly why the results should not be transferred to companion animals unmodified.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Semi-structured interviews explored UK public perceptions of companion rabbit ownership. What did participants with previous rabbit ownership say?",
+"o": [
+"71% were unlikely to consider rabbit ownership again, mainly due to the realities of rabbit care",
+"Nearly all would readily own rabbits again",
+"Previous owners reported rabbit care was easier than expected",
+"Previous ownership experience was not assessed"
+],
+"a": 0,
+"e": "Rabbits remain protected under the Animal Welfare Act 2006 yet are frequently housed inadequately. A high rate of owners declining to repeat the experience is a signal that expectations and reality diverge sharply for this species.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What influences on perceptions of appropriate rabbit accommodation did participants identify?",
+"o": [
+"Tradition and the lack of visibility of good practice, with participants lacking awareness of the minimum space required under the Good Practice Code for the Welfare of Rabbits",
+"Detailed knowledge of legal minimum space requirements",
+"Veterinary advice as the dominant influence",
+"Government advertising campaigns"
+],
+"a": 0,
+"e": "The title quotation captures it: the traditional hutch image persists because good practice is rarely seen. Acquisition sources were considered an important avenue for advice, which is actionable for both retailers and rescues.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "An online survey of 1,246 rabbit owners in Spain examined care practices. What preventive care gaps emerged?",
+"o": [
+"Vaccination rates were relatively high at 81%, but testing for encephalitozoonosis was only 27.61% and microchipping 24.72%",
+"Vaccination was under 10%",
+"All three measures exceeded 90%",
+"Microchipping was universal"
+],
+"a": 0,
+"e": "Fifty-eight percent were sterilised and most lived cage-free indoors, primarily consuming hay at 75%. Encephalitozoon cuniculi is a common and clinically significant infection in pet rabbits with zoonotic potential in immunocompromised people.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Which acquisition and information-seeking patterns were associated with lower rabbit quality of life in this Spanish survey?",
+"o": [
+"Rabbits acquired through purchase or as gifts, and those whose owners did not seek information from veterinarians or rescue organisations",
+"Rabbits adopted from rescue organisations",
+"Rabbits whose owners consulted veterinarians frequently",
+"Acquisition source had no relationship with quality of life"
+],
+"a": 0,
+"e": "Most rabbits were dwarf or lop-eared breeds obtained from pet stores or as gifts. Receiving an animal as a gift removes the deliberate preparation step entirely, which is consistent with the poorer outcomes.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "A survey of 1,700 UK pet rodent owners examined use of veterinary services. Which owners were most confident recognising illness?",
+"o": [
+"Rat owners, and owners who acquired their pet from a breeder or rescue centre",
+"Hamster owners exclusively",
+"Owners who acquired pets from pet shops",
+"Confidence did not vary between owner groups"
+],
+"a": 0,
+"e": "Most respondents had used veterinary services and perceived exotics specialists as having greater knowledge. Economic challenges in accessing veterinary care were commonly reported.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What determined how much rodent owners were willing to spend on veterinary care?",
+"o": [
+"Income was the dominant factor, with higher earners always spending more",
+"Veterinary spending was not affected by income, but owners who had purchased the animal for their children were significantly less willing to pay for veterinary care and pet insurance",
+"Willingness to pay was uniform across all owners",
+"Only species determined willingness to pay"
+],
+"a": 1,
+"e": "That income did not predict spending, while purchasing the animal for a child did, points to how the animal is framed rather than affordability. A pet acquired as a child's responsibility may be valued differently from one acquired for the adult household.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Disaster",
+"q": "A survey of 205 urban evacuation shelters in Osaka, Kyoto and Kobe examined willingness to accept pets during disasters. What was found?",
+"o": [
+"Most (51.7%) were undecided, and concern about lack of space was the most important factor, with shelters holding space concerns 4.9 times more likely to reject pets",
+"Nearly all shelters had firm policies accepting pets",
+"All shelters refused pets outright",
+"Space was the least important consideration"
+],
+"a": 0,
+"e": "Being undecided is itself a problem, because the decision then gets made under pressure during an actual emergency. Experience of sheltering evacuees in past disasters was partially important to decision-making.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Disaster",
+"q": "How did shelters that would accept pets plan to accommodate them, and what did the authors recommend?",
+"o": [
+"Most would keep pets outside the facility or indoors in separate areas away from their owners; the authors proposed treating pets and owners together using the One Welfare approach, on the basis that protecting animals protects humans",
+"Most planned to house pets with their owners",
+"Pets would be transferred to veterinary facilities",
+"No accommodation plans existed"
+],
+"a": 0,
+"e": "Separating owners from animals is a recognised driver of evacuation refusal, where people decline to leave or return into danger for their pets. That is the practical reason the One Welfare framing matters here rather than being merely a philosophical preference.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "Field surveys documented feral dogs living in caves on the outskirts of Arequipa, Peru. What did the observations reveal?",
+"o": [
+"The dogs use caves for resting, hiding and reproduction, some apparently constructed by the dogs themselves, with a high number of puppies and dead adults indicating high population turnover",
+"The caves were used only for shelter from rain with no reproduction",
+"No evidence of dogs was found",
+"The population was stable with low turnover"
+],
+"a": 0,
+"e": "Arequipa had been considered free of animal reservoirs other than free-roaming owned dogs and street-born strays within urban boundaries. Rabies virus was detected as reintroduced in 2015, and government control measures have been implemented since.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "Why does an unrecognised feral dog population threaten a rabies elimination programme?",
+"o": [
+"Because a population living independently of humans on the city's outskirts is not reached by vaccination campaigns targeting owned and street dogs within urban boundaries",
+"Because feral dogs are immune to rabies vaccination",
+"Because feral dogs cannot transmit rabies",
+"Because they reduce the urban dog population"
+],
+"a": 0,
+"e": "Vaccination coverage is calculated against the population you know about. A reservoir outside that denominator can sustain transmission indefinitely while the programme appears to be achieving target coverage.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "Four dog rabies vaccination strategies were piloted in rural Uganda. Which achieved the highest coverage among owned dogs?",
+"o": [
+"Integrated dog vaccination with human health services, a One Health approach, at 74.5%",
+"Static point vaccination at 29.5%",
+"School-based vaccination at 53.9%",
+"Integrated dog with livestock vaccination at 66.2%"
+],
+"a": 0,
+"e": "The ranking was One Health integration highest, then dog with livestock at 66.2%, school-based at 53.9%, and static point lowest at 29.5%. The Zero by 30 initiative aims to eliminate dog-mediated human rabies by 2030, and dog vaccination is its central pillar.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "Why does integrating dog vaccination with existing human or livestock health services tend to outperform static point campaigns?",
+"o": [
+"Because it brings the service to where communities already gather for other reasons, reducing the effort required of owners to bring dogs to a fixed site",
+"Because it uses a more effective vaccine",
+"Because it vaccinates dogs without owner involvement",
+"Because static point vaccination is illegal in Uganda"
+],
+"a": 0,
+"e": "A Bayesian model estimated coverage alongside dog population size and the proportion of ownerless dogs. Ownerless proportions varied considerably between areas, which matters because those dogs are not reachable by any owner-dependent strategy.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "A study in Puducherry, India compared rabies diagnostic tests against the direct fluorescent antibody test as gold standard. How did they perform?",
+"o": [
+"Lateral flow assay, direct rapid immunohistochemistry test and one-step reverse transcription polymerase chain reaction all demonstrated 100% sensitivity and specificity compared with the direct fluorescent antibody test",
+"All alternative tests performed poorly",
+"Only polymerase chain reaction was accurate",
+"No comparison was possible"
+],
+"a": 0,
+"e": "Of 25 dog brain samples collected post mortem using the foramen magnum method, 19 (76%) were rabies positive. The direct rapid immunohistochemistry test and lateral flow assay are particularly valuable because they do not require fluorescence microscopy.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "What trend in dog bite cases was documented in Puducherry between 2020 and 2023?",
+"o": [
+"Human dog bite cases increased from 16,652 in 2020 to 20,063 in 2023, with December consistently the peak month, while animal bite cases rose from 948 in 2022 to 1,131 in 2023",
+"Human bite cases fell steadily across the period",
+"No seasonal pattern was detectable",
+"Animal bite cases involved only cattle"
+],
+"a": 0,
+"e": "Animal victims were dogs 56.1%, goats 30.7%, cattle 14.3% and cats 0.9%. Tracking bites in animals as well as people gives an earlier signal of rabies activity than human cases alone.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "GPS tracking of 19 owned free-roaming dogs in highland Peru assessed Echinococcus granulosus spillover risk. What was the infection prevalence?",
+"o": [
+"85% positivity on copro-ELISA, described by the authors as alarmingly high",
+"Under 5% positivity",
+"No dogs were positive",
+"Prevalence could not be determined"
+],
+"a": 0,
+"e": "Human cystic echinococcosis prevalence in the central Peruvian highlands has been estimated at 5 to 7%, likely an underestimate given the long asymptomatic period and limited medical access in at-risk populations.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "What did the home range analysis reveal about human exposure risk in this community?",
+"o": [
+"All dog home ranges overlapped with their owners' households, and notably even home ranges of test-negative dogs did so",
+"Dog home ranges never overlapped with households",
+"Only infected dogs approached households",
+"Home ranges were confined to the slaughterhouse"
+],
+"a": 0,
+"e": "The dogs are the definitive host, shedding eggs in faeces that people then ingest. Home ranges overlapping the household means the contamination is occurring exactly where children play and food is prepared, and the slaughterhouse provides the infected offal that maintains the cycle.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "A knowledge, attitudes and practices survey of 411 pastoralist households in Marsabit County, Kenya found what gap?",
+"o": [
+"86.1% demonstrated adequate rabies knowledge, yet only 18.8% of dog owners met the threshold for responsible ownership and rabies vaccination coverage among owned dogs was just 22%",
+"Both knowledge and vaccination coverage were low",
+"Knowledge was low but vaccination coverage was high",
+"Knowledge and practice were well aligned"
+],
+"a": 0,
+"e": "This is the knowledge-practice gap in its clearest form: awareness campaigns alone will not move vaccination coverage from 22% toward the 70% threshold generally required to interrupt transmission.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "Which factors predicted rabies knowledge and responsible dog ownership in this pastoralist population?",
+"o": [
+"Willingness to pay for dog sterilisation surgery significantly predicted rabies knowledge, while gender was the only significant predictor of responsible ownership, with females having lower odds",
+"Income was the only predictor of both",
+"Age predicted responsible ownership",
+"No predictors were identified"
+],
+"a": 0,
+"e": "Stratified random sampling ensured village-level representation. Identifying that the barrier is practice rather than knowledge redirects programme design toward access, cost and delivery rather than further education.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "A One Health study in urban Valdivia, Chile sampled humans, dogs and soil for parasites. What prevalences were found?",
+"o": [
+"28% in humans, 26% in owned dogs and 44% in environmental dog faeces, with anti-Toxocara canis antibodies in 33% of humans",
+"Under 5% across all three compartments",
+"Parasites were found only in dogs",
+"Only humans were sampled"
+],
+"a": 0,
+"e": "Soil contamination was identified in up to 30.5% of public park samples, harbouring Toxocara species and Trichuris vulpis, the same species found in environmental dog faeces. Zoonotic subtypes of Giardia duodenalis and Blastocystis were detected in humans.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "What makes this study's design particularly informative about transmission pathways?",
+"o": [
+"It sampled the human, animal and environmental compartments concurrently and used molecular techniques including next-generation sequencing, allowing the same parasite species to be traced across compartments",
+"It sampled only humans over a long period",
+"It used microscopy alone",
+"It relied on questionnaire data with no laboratory testing"
+],
+"a": 0,
+"e": "Finding matching species in park soil and in dog faeces, alongside seropositivity in people, connects the compartments rather than merely reporting three separate prevalence figures. Socioeconomic surveys explored the risk factors associated with parasitism.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "A survey of 109 Kansas veterinarians and 19 technicians examined tularemia risk. What was the occupational exposure finding?",
+"o": [
+"43% of veterinarians reported diagnosing tularemia in cats and 13% in dogs, and 7% reported having had tularemia themselves",
+"No veterinarian reported diagnosing or contracting tularemia",
+"Tularemia was diagnosed only in dogs",
+"All respondents had contracted tularemia"
+],
+"a": 0,
+"e": "Veterinarians are not only diagnosing tularemia in patients but contracting it themselves, which makes this a genuine occupational health issue rather than a theoretical one. Cats are the more common feline presenter because they hunt infected lagomorphs and rodents.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "What gaps in protection and diagnosis did this tularemia survey identify?",
+"o": [
+"Glove use was 100% for high-risk procedures such as lancing abscesses in tularemia suspects, but eye protection was used by only 70% and surgical face masks by 59%, and 42% of veterinarians reported never submitting a confirmatory test, primarily due to owner finances",
+"Personal protective equipment use was complete and consistent",
+"Confirmatory testing was performed in every case",
+"Veterinarians never discuss tularemia with owners"
+],
+"a": 0,
+"e": "Lancing an abscess generates aerosol and splash, which is exactly where eye and respiratory protection matter, yet those were the items most often omitted. Ninety-one percent do discuss the public health risk with owners, but knowledge about reporting regulations was inconsistent.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Rocky Mountain spotted fever transmitted by Rhipicephalus sanguineus differs epidemiologically from Dermacentor-transmitted disease. How?",
+"o": [
+"Dermacentor cases are sylvatic and sporadic, whereas Rhipicephalus sanguineus sensu lato cases are peridomestic and rely on dogs as hosts, producing urban epidemics",
+"Rhipicephalus cases are sylvatic and sporadic",
+"Both vectors produce identical epidemiological patterns",
+"Neither tick transmits the organism to dogs"
+],
+"a": 0,
+"e": "Since the early 2000s the disease re-emerged in northern Mexico with at least 9,152 human cases and case mortality up to 50%, concentrated where people are impoverished with marginal access to medical care. The presence of roaming dogs in neighbourhoods is associated with human cases, canine seroprevalence and tick abundance.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "What is the recommended approach to a suspected case of Rocky Mountain spotted fever, and why?",
+"o": [
+"Withhold treatment until polymerase chain reaction confirmation or convalescent titres return",
+"Treat immediately with doxycycline, since definitive diagnosis requires polymerase chain reaction confirmation or rising convalescent titres and seropositivity alone can reflect cross-reaction with other rickettsial organisms",
+"Treat with amoxicillin-clavulanic acid pending results",
+"Rely on a single positive serology to confirm and treat"
+],
+"a": 1,
+"e": "Waiting for confirmation costs lives in a disease with up to 50% mortality. Coinfection with other Rhipicephalus sanguineus-transmitted pathogens is common, and dogs and people share haematological and clinical chemistry findings, which makes canine cases a sentinel for human risk.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "A raccoon rabies virus variant was identified in a stray kitten in an urban Midwestern city in Nebraska. Why was this significant?",
+"o": [
+"The city is non-endemic for that virus variant, so its detection triggered an extensive public health and wildlife management response",
+"The variant is not transmissible to cats",
+"Raccoon variant rabies is endemic throughout Nebraska",
+"The kitten had a documented vaccination history"
+],
+"a": 0,
+"e": "The kitten originally presented with nonspecific neurological abnormalities, which is the diagnostic challenge: rabies rarely presents as a textbook case. Detecting a non-native variant far outside its usual range indicates translocation and demands a wider investigation.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "What general lesson does this case reinforce for shelter and clinical practice?",
+"o": [
+"Stray animals never carry rabies",
+"Rabies should be considered in unvaccinated animals or those without known vaccination status, including strays, and veterinary practitioners have a critical role in detection and reporting",
+"Only wildlife require rabies testing",
+"Neurological signs in kittens are always infectious in origin"
+],
+"a": 1,
+"e": "Rabies is fatal and affects all mammals. A stray animal with unknown vaccination status presenting with neurological signs is precisely the scenario where handling precautions and a low threshold for testing protect both staff and the wider community.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Nine semi-structured interviews with expert advisory group members explored barriers to a One Health integrated companion animal health surveillance system in Ontario. What themes emerged?",
+"o": [
+"Eight interconnected themes including reluctance to participate in data sharing, complexities of extracting and processing data, securing funding, consolidated vision, value, targeted outputs, potential misrepresentation of data, and strong governance",
+"A single theme of technical feasibility",
+"No barriers were identified",
+"Only funding was raised as an issue"
+],
+"a": 0,
+"e": "The authors conclude these factors are highly interlinked and often driven by value. If contributors cannot see what they gain, reluctance to share data persists regardless of how good the technical solution is.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "A survey of 660 households in Timor-Leste, conducted before the country's first rabies outbreak in March 2024, found what dog ownership pattern?",
+"o": [
+"Dog ownership was high at 65.3% of households, and almost all dog-owning households (98.1%) allowed free roaming",
+"Dog ownership was under 10%",
+"Nearly all dogs were confined",
+"No households owned dogs"
+],
+"a": 0,
+"e": "A small proportion, 2.3%, imported dogs from Indonesia, which is relevant to how rabies could enter. Near-universal free roaming in a country facing rabies incursion creates ideal conditions for rapid spread.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Rabies",
+"q": "What did the Timor-Leste survey reveal about rabies awareness and post-bite care seeking?",
+"o": [
+"Only about half (52.3%) had heard of rabies, though most of those were knowledgeable; 30.8% of households reported dog bite events and only two thirds of those bitten in the last 12 months sought professional medical assistance",
+"Awareness was universal and all bite victims sought care",
+"No dog bites were reported",
+"Everyone had heard of rabies but none were knowledgeable"
+],
+"a": 0,
+"e": "Participants with higher education and from Dili municipality were more likely to hold positive attitudes toward rabies prevention. A third of bite victims not seeking care is the critical gap, since post-exposure prophylaxis is the only intervention that prevents death once exposed.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Five hundred and five pet treats purchased across the United States over 16 months were tested for Salmonella and resistant Enterobacterales. What was found?",
+"o": [
+"Four pig ear treats from Brazil were positive for Salmonella, and three colistin-resistant isolates all from Brazilian pig ear treats carried the mcr-1.18 gene on identical IncX4 plasmids, plus one carbapenem-resistant Escherichia coli from a bully stick carrying both blaKPC-2 and blaNDM-5",
+"No contamination was found in any treat",
+"All treats tested positive for Salmonella",
+"Contamination was confined to North American products"
+],
+"a": 0,
+"e": "Identical plasmids across three different bacterial species indicates horizontal transfer of the colistin resistance gene, and Salmonella Muenchen and Derby isolates were closely related to clinical and environmental isolates from several countries in the Americas.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "What purchasing guidance emerged from this pet treat surveillance study?",
+"o": [
+"Treats originating from North America and treats purchased in grocery stores had a lower risk of contamination with bacteria resistant to the antimicrobials tested",
+"Online retailers had the lowest contamination risk",
+"Origin and retail source made no difference",
+"Farm supply stores had the lowest risk"
+],
+"a": 0,
+"e": "Colistin and carbapenems are last-resort antimicrobials in human medicine, so finding resistance genes to both in products handled by owners and fed to household pets is a direct One Health concern rather than an abstract one.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "A mixed-methods study in Germany examined use of standardised quality of life assessment tools in small animal practice. What was found?",
+"o": [
+"Use of standardised quality of life assessments is rare and often confined to research settings",
+"Such tools are used routinely in nearly all consultations",
+"Tools were used only by veterinary assistants",
+"Veterinarians were unaware that such tools exist"
+],
+"a": 0,
+"e": "Hindering factors were lack of time, lack of awareness, perceived lack of need, and resistance to fitting the individuality and subjectivity of quality of life into a schema. That last objection is a substantive philosophical one rather than mere inertia.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What benefits did veterinarians identify in quality of life measurement tools, and what did the authors conclude?",
+"o": [
+"The possibility of documenting and tracking quality of life over time and enhancement of the professional-client relationship; the authors concluded research should focus not only on developing such tools but on disseminating them",
+"No benefits were identified",
+"Tools were valued only for legal defensibility",
+"The authors recommended abandoning tool development"
+],
+"a": 0,
+"e": "Tracking over time is what converts a subjective impression into a trajectory an owner can see, which is particularly valuable in end-of-life decision-making. The dissemination point is the practical one: development without uptake achieves nothing.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Euthanasia",
+"q": "Twenty-nine interviews with private practice veterinarians in Istanbul compared euthanasia of companion dogs with that of street dogs. What was the key difference?",
+"o": [
+"Companion dog euthanasia was framed through shared decision-making with guardians, emotional preparation and post-procedural grief rituals, whereas street dog euthanasia frequently occurred without legal ownership, institutional accountability or consistent caregiving, leaving veterinarians to bear the full moral and emotional weight",
+"Street dog euthanasia was described as emotionally easier",
+"Both were experienced identically",
+"Veterinarians reported no emotional impact from either"
+],
+"a": 0,
+"e": "Six themes were identified including emotional burden, ethical strain and resistance to routinised killing. Relational solitude captures it well: with no guardian present, there is nobody to share the decision or acknowledge the loss.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Euthanasia",
+"q": "What structural factors did this study identify as shaping moral distress in street dog euthanasia?",
+"o": [
+"Institutional absence and relational asymmetry, producing clinical ambiguity and heightened moral distress",
+"Excessive institutional oversight",
+"Overly rigid legal frameworks governing street dog euthanasia",
+"Abundant caregiver support"
+],
+"a": 0,
+"e": "Framing the problem as structural rather than personal matters, because it locates the remedy in institutional support and clear decision frameworks rather than in individual resilience. This connects directly to burnout and moral injury in shelter and community practice.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Canine diabetes mellitus is a treatable disease yet carries high euthanasia rates. What does this article identify as the contributors and the proposed solution?",
+"o": [
+"Anticipated costs, impact on owner lifestyle and financial constraints contribute to early euthanasia; substituting affordable choices among insulin, diet, monitoring and veterinary care can significantly reduce overall cost without compromising care",
+"The disease is untreatable, so euthanasia is appropriate",
+"A single best protocol should be applied to all diabetic dogs",
+"Cost plays no role in euthanasia decisions"
+],
+"a": 0,
+"e": "The article is explicit that there is no single best approach for all diabetic dogs; management should be tailored to the needs of both owner and dog. Insulin, diet, monitoring and veterinary care make up the bulk of expenses, so each is a lever.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Euthanasia",
+"q": "Free-text responses from the Dog Aging Project End of Life Survey compared 70 owners whose dogs were euthanased with 70 whose dogs died unassisted. What was found?",
+"o": [
+"No significant differences between groups for quality of life measures, negative or positive experiences, length of response or time to survey completion, though suddenness of death was more common in unassisted death",
+"Owners of euthanased dogs reported far worse experiences",
+"Quality of life measures differed markedly between groups",
+"No comparison was possible"
+],
+"a": 0,
+"e": "Suddenness occurred in 19 of 49 unassisted deaths versus 1 of 49 euthanasias. The similarity of owner-reported experience across the two routes is the notable finding, given assumptions that one is inherently more distressing.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Euthanasia",
+"q": "What methodological observation did the investigators make about the free-text responses?",
+"o": [
+"Nearly half of the free-text responses simply repeated indicators of decreased quality of life or medical signs that had already been queried as forced-choice items",
+"Free-text responses contained entirely novel information",
+"No owners provided free-text responses",
+"Free-text responses were shorter in the euthanasia group"
+],
+"a": 0,
+"e": "Forty-three of 98 responses recapitulated forced-choice content. This matters for survey design, since a substantial share of free-text burden on respondents and analysts adds nothing beyond the structured items.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What proportion of cats with diabetes mellitus are euthanased despite the disease being treatable?",
+"o": [
+"Approximately 10% at diagnosis and a further 10% within the first year of treatment",
+"Under 1% overall",
+"Approximately 50% at diagnosis",
+"Euthanasia rates are not documented"
+],
+"a": 0,
+"e": "Roughly one in five cats diagnosed with a treatable disease is dead within a year for reasons other than the disease itself. Barriers include owner concerns about lifestyle impact, pet welfare and comorbidities, alongside financial limitations restricting access to care.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "What is the purpose of presenting a spectrum of care for feline diabetes?",
+"o": [
+"To provide practitioners with a range of treatment options to discuss with owners, potentially preventing euthanasia at the time of diagnosis",
+"To standardise all cats onto a single protocol",
+"To justify referral of all diabetic cats to specialists",
+"To discourage treatment of feline diabetes"
+],
+"a": 0,
+"e": "Euthanasia at diagnosis often reflects an owner presented with one gold-standard plan they cannot sustain, and no alternative. Offering a defensible lower-intensity option converts a decision to euthanase into a decision to treat.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Euthanasia",
+"q": "A survey of 388 college student animal caregivers examined how empathy relates to end-of-life decision-making. What did it find?",
+"o": [
+"Empathy for animals predicted a greater focus on the animals' experiences over the caregivers', while affective empathy predicted greater focus on human-centric and avoidant factors, and only empathic concern significantly predicted greater focus on animal-centric factors",
+"All forms of empathy predicted animal-centric focus equally",
+"Empathy had no relationship with decision focus",
+"Cognitive empathy was the strongest predictor of animal-centric focus"
+],
+"a": 0,
+"e": "Personal distress also predicted a focus on avoidant factors. The distinction is important: personal distress is a self-oriented response to another's suffering, so a highly distressed caregiver may make decisions that relieve their own discomfort rather than serving the animal.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Euthanasia",
+"q": "What did the comparison between caregivers who had and had not previously euthanased an animal suggest?",
+"o": [
+"Those who had euthanased an animal did not respond significantly differently, suggesting caregivers may accurately anticipate the factors they will weigh when the decision arises",
+"Prior experience completely changed responses",
+"Only those with prior experience gave usable responses",
+"Prior experience made caregivers avoid the question"
+],
+"a": 0,
+"e": "This lends some validity to hypothetical end-of-life questioning in people who have not yet faced the decision, and suggests pre-emptive conversations with owners are likely to reflect how they will actually decide.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "Twelve shelter dogs completed a 9-week basic education training programme and were assessed before and after with a temperament test and a basic education test. What did the results show?",
+"o": [
+"The basic education test detected improvements in loose-lead walking, sit and stay, and recall, whereas the temperament test showed no change in Human Sociability, Playfulness or total score, with a decrease in Dog Sociability",
+"Both tests showed large improvements across all categories",
+"Neither test detected any change",
+"The temperament test improved while the education test did not"
+],
+"a": 0,
+"e": "Interrater agreement was high for both tests. The conclusion is that the basic education test reliably measures what the programme teaches, while basic education training has minimal effect on behaviour captured by a temperament test.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "Why does the dissociation between these two tests matter for shelters using temperament testing?",
+"o": [
+"A temperament test will not register the gains a training programme delivers, so using it to demonstrate programme value or to reassess adoptability after training would under-represent the effect",
+"Temperament tests should be used as the sole outcome measure for training programmes",
+"Training programmes are worthless because temperament scores did not improve",
+"The two tests measure identical constructs"
+],
+"a": 0,
+"e": "The tests measure different constructs: one an underlying behavioural disposition, the other trained skills. Shelters with minimal resources need to know which tool answers which question before investing in either.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "The Field Instantaneous Dog Observation tool scores dogs' responses to stranger approach as red, green or yellow. What did this validity study of 80 pair-housed dogs in commercial breeding kennels show?",
+"o": [
+"Dogs scored red in their pens showed more stranger avoidance in an outdoor arena test than dogs scored green, indicating the tool validly assesses fear of approach by an unfamiliar person",
+"Red and green scored dogs behaved identically in the arena test",
+"The tool showed no reliability between scoring conditions",
+"Only yellow scored dogs could be distinguished"
+],
+"a": 0,
+"e": "Red indicates a fearful response, green affiliative or neutral, and yellow ambivalent. Reliability had previously been examined but validity, whether the score reflects real fear, had not been established until now.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "What second methodological question did this study address about how the tool is applied?",
+"o": [
+"Whether dogs' responses to stranger approach changed when locked into the indoor portion of their pens versus having free outdoor access allowing them to avoid the interaction",
+"Whether the tool works on cats",
+"Whether scoring should be done by video only",
+"Whether the tool predicts adoption speed"
+],
+"a": 0,
+"e": "Moderate to substantial agreement was found between the two conditions. This matters practically, because locking dogs in prevents data loss from avoidance but could itself alter the response being measured, and the agreement suggests it does not do so substantially.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "A questionnaire covering 873 cats in Brazil compared the pre-pandemic, confinement and post-confinement periods. What happened to behaviour and body condition?",
+"o": [
+"The Behaviour Score was higher before the pandemic than in the two later periods, indicating an increase in behaviour problems such as restlessness, and body condition score rose with more overweight cats during and after confinement, alongside increased attention-seeking behaviour",
+"Behaviour improved and body condition fell during confinement",
+"No changes were detected across the three periods",
+"Only the environment score changed"
+],
+"a": 0,
+"e": "The Environment Score improved over time, so the cats' physical resources got better while their behaviour deteriorated. Cats spending more time with owners was the main routine change, and cats spending more time alone had lower environment scores.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Which factor was associated with a reduction in overweight cats in this study?",
+"o": [
+"Free access to the outdoors and more physical activity",
+"Increased time spent with owners",
+"Longer periods spent alone",
+"Indoor-only housing"
+],
+"a": 0,
+"e": "Indoor cats depend entirely on the owner to provide resources allowing expression of natural behaviours. This finding is the counterpoint to confinement advocacy: outdoor access carried a measurable physical benefit here.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Sixty neutered cats in a semi-natural shelter were observed over 299 hours for elimination behaviour. What differences between faeces and urine emerged?",
+"o": [
+"Cats invested more behavioural effort in burying faeces than urine, deposited faeces predominantly in peripheral zones away from resting and feeding areas while urine was more homogeneously distributed, and inspected olfactorily more often after defecation than urination",
+"Urine was buried more thoroughly than faeces",
+"Faeces were deposited close to feeding areas",
+"No differences between faeces and urine were found"
+],
+"a": 0,
+"e": "Females showed greater post-defecation investment than males, with a mean of 25.95 forelimb movements versus 15.30. These findings support the hypothesis that faeces play a distinct communicative role.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "What practical relevance does the spatial patterning of feline elimination have for shelter and household litter provision?",
+"o": [
+"Cats separate elimination sites, particularly for faeces, from resting and feeding areas, which supports providing litter trays away from food and bedding",
+"Cats prefer to eliminate adjacent to their food",
+"Litter tray placement is irrelevant to cats",
+"Only urine placement is spatially organised"
+],
+"a": 0,
+"e": "A cage or small pen that forces a cat to eliminate next to where it eats and sleeps conflicts with a well-organised natural behaviour, which is one mechanism by which confinement produces elimination problems and distress.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Fifteen shelter dogs housed in trios were offered nutritional enrichment (perforated bottles with treats) and sensory enrichment (lavender oil). What were the effects?",
+"o": [
+"Food enrichment increased foraging and activity but not positive social behaviours, while olfactory enrichment decreased jumping and vocalising and increased climbing on the pen door",
+"Both items produced identical effects",
+"Neither item produced any behavioural change",
+"Food enrichment reduced all activity"
+],
+"a": 0,
+"e": "Both items proved safe for the dogs. The different behavioural profiles indicate the two enrichment types serve different purposes rather than being interchangeable, with food driving activity and olfactory input dampening arousal-related behaviours.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "What broader point do the authors make alongside their enrichment findings?",
+"o": [
+"Enrichment programmes make housing quality irrelevant",
+"It is of the utmost importance for shelters to construct larger and more stimulating pens as well as implementing enrichment programmes",
+"Enrichment items should replace social contact entirely",
+"Enrichment is only appropriate for singly housed dogs"
+],
+"a": 1,
+"e": "Confinement, forced intraspecific and interspecific contact and lack of stimulation are named as the features diminishing welfare. Enrichment mitigates but does not remove a fundamentally inadequate physical environment.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Facility/Environment",
+"q": "Fifty-four shelter dogs were housed under either fluorescent or flicker-free light-emitting diode lighting in a two-room concurrent design. What behavioural differences emerged?",
+"o": [
+"Dogs under fluorescent lighting were more likely to be at the front of the kennel, standing, barking and lip licking, while dogs under light-emitting diode lighting were more likely to be at the back, facing backward, lying down and on their beds",
+"Dogs under light-emitting diode lighting barked more",
+"No behavioural differences were found",
+"Dogs under fluorescent lighting spent more time lying down"
+],
+"a": 0,
+"e": "Barking showed the largest effect with an odds ratio of 4.68. Lip licking is a recognised low-level stress signal, and its co-occurrence with increased barking and standing suggests the activity difference is not simply alertness.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Facility/Environment",
+"q": "What is the proposed mechanism for lighting type affecting shelter dog behaviour, and what caution do the authors apply to their conclusion?",
+"o": [
+"The flicker accompanying fluorescent light can negatively affect humans and animals, with detrimental behavioural and physiological consequences documented in housed animals; the authors describe their findings as hinting at a relationship and call for additional research",
+"Light intensity rather than flicker is the established cause",
+"The mechanism is proven beyond doubt",
+"Colour temperature was shown to be the sole factor"
+],
+"a": 0,
+"e": "Dogs have a higher flicker fusion frequency than humans, so lighting that appears steady to staff may be perceptibly flickering to the dogs. The authors are appropriately tentative, noting this is the first peer-reviewed examination of the direct impact in shelter dogs.",
+"source": "journal"
+},
+{
+"type": "mcq",
 "domain": "Physical Health",
 "sub": "Infectious Disease",
 "q": "Across multiple shelter studies, adding canine parvovirus monoclonal antibody (CPMA) to a standard supportive-care protocol for dogs with naturally occurring parvovirus has most consistently been shown to:",
