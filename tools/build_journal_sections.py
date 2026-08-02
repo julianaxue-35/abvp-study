@@ -27,15 +27,26 @@ _SYNTH_PATH = _TOOLS_DIR / "synthesized_mcqs.json"
 sys.path.insert(0, str(_TOOLS_DIR))
 from lib_catalog import load_catalog  # noqa: E402
 
-# The 2026 sitting examines articles published 2021-2025. Later articles are
-# kept in the catalog and shown on their pages as supplementary reading, but
-# contribute no questions. Their MCQs stay in journal-catalog.json, so raising
-# this for a later sitting brings them back with no regeneration needed.
+from lib_journal_list import off_list as journal_off_list  # noqa: E402
+
+# The 2026 sitting examines articles published 2021-2025 in the 23 journals named
+# in the study guide (plus the core journal). Anything outside either bound is
+# kept in the catalog and shown on its page as supplementary reading, but
+# contributes no questions. Their MCQs stay in journal-catalog.json, so relaxing
+# these bounds for a later sitting brings them back with no regeneration needed.
 EXAM_MAX_YEAR = 2025
 
 
 def in_exam_window(rec):
-    return not rec.get("year") or rec["year"] <= EXAM_MAX_YEAR
+    """Examinable: within the year window AND in a listed journal.
+
+    An unrecognised journal string counts as in-scope — off_list() only fires on
+    journals positively identified as unlisted, so a typo or a stray author name
+    in the journal field never silently demotes an article.
+    """
+    if rec.get("year") and rec["year"] > EXAM_MAX_YEAR:
+        return False
+    return not journal_off_list(rec.get("journal", ""))
 
 
 def load_synth():
@@ -313,8 +324,8 @@ def render_panel(records: list, standalone: bool = False, quiz_html: str = "") -
     articles_html = _cards(exam_recs)
     if supp_recs:
         articles_html += f"""
-  <h3 class="sec" style="margin-top:1.4em">Supplementary reading &mdash; published after {EXAM_MAX_YEAR}</h3>
-  <p class="lead">Outside the window the 2026 exam draws on, so no self-test questions are set on these. Kept for interest and later study.</p>
+  <h3 class="sec" style="margin-top:1.4em">Supplementary reading &mdash; outside the exam scope</h3>
+  <p class="lead">Published after {EXAM_MAX_YEAR}, or in a journal the ABVP study guide does not list, so no self-test questions are set on these. Kept for interest and later study.</p>
 {_cards(supp_recs)}"""
 
     if standalone:
