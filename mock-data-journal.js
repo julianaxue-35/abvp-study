@@ -42890,6 +42890,156 @@
 },
 {
 "type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What does this guidance identify as the critical evidence gap regarding kittens born to free-roaming unowned cats?",
+"o": [
+"There is no evidence that such kittens can ever be socialised",
+"There are no long-term follow-up studies comparing whether outcomes are positive or negative for kittens placed in pet homes versus returned under a trap-neuter-return programme",
+"Follow-up studies exist but all show poor outcomes in pet homes",
+"The question has been settled in favour of returning all kittens"
+],
+"a": 1,
+"e": "Anecdotal reports exist on both sides, including owners dissatisfied because a cat remained persistently fearful, but there is currently no way to tease out reliably why some succeed as pets and some do not.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Which factors does this guidance say should inform the decision about an individual kitten's outcome?",
+"o": [
+"The kitten's coat colour and sex",
+"Local culture and tolerance of free-roaming cats, availability of pet homes, resources available to free-roaming cats such as food, shelter and a caregiver, and the individual kitten's suitability to thrive in the chosen outcome",
+"Only the shelter's current capacity",
+"Only the age at which the kitten was found"
+],
+"a": 1,
+"e": "The document deliberately reframes the question from a blanket policy to an individual one: what is right for this kitten, given the circumstances, and what information is needed to support that decision.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "This guidance describes cat lifestyle as lying on a spectrum. Which four categories does it define?",
+"o": [
+"Feral, street, pet and inbetweener cats",
+"Wild, semi-wild, domestic and pedigree cats",
+"Owned, unowned, stray and abandoned cats",
+"Indoor, outdoor, farm and colony cats"
+],
+"a": 0,
+"e": "The spectrum is defined by two things: whether the cat wants to live with or avoid people, and whether it is adapted to living independently outdoors or to living in a home. A feral cat lives away from and avoids people in uninhabited areas at low density; a street cat is free-roaming in inhabited areas at higher density and relies on people for food.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What is an 'inbetweener' cat, and what solution does this guidance propose for one?",
+"o": [
+"A cat that has lived as a pet but unsuccessfully because it is not comfortable with human interaction; assessment followed by rapid arrangement of an alternative lifestyle to minimise time confined, plus neutering if not already done",
+"A kitten too young to neuter; hold in foster until 4 months",
+"A cat of unknown ownership status; return to field without assessment",
+"A pedigree cat awaiting a breed-specific rescue; indefinite shelter care"
+],
+"a": 0,
+"e": "The practical point is speed. Because an inbetweener copes poorly with confinement and with close human contact, the guidance emphasises minimising time in care rather than persisting with conventional rehoming. Street cats get trap-neuter-return with a left ear tip; pet cats and friendly free-roaming cats are neutered before they can reproduce, around 4 months of age.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "How are inbetweener cats usually identified, according to this guidance?",
+"o": [
+"By genetic testing at intake",
+"When they are relinquished to homing organisations, using a combination of intake information and observations of the cat while in the organisation's care",
+"Only by veterinary behaviourist referral",
+"By trapping surveys of free-roaming colonies"
+],
+"a": 1,
+"e": "The document is candid that identification is not an exact science. The value of naming the category is to acknowledge that not all cats suit the pet lifestyle, so alternatives can be considered deliberately rather than treating the cat as a failed adoption.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What practical recommendation does this guidance make about alternative-lifestyle placements for inbetweener cats?",
+"o": [
+"Environments and caregivers should be recruited in advance, so an identified inbetweener can move swiftly without spending time confined in care",
+"Cats should be held in care for at least three months before placement is considered",
+"Placements should only be sought after two failed adoptions",
+"Alternative lifestyles should be limited to registered farms"
+],
+"a": 0,
+"e": "Suitable settings include large gardens, hotels, stables and farms, where there is food, shelter and a person providing care from a distance. Recruiting these in advance is what converts the concept into a workable pathway rather than a label applied after the fact.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "This commentary responds to a call from conservation authors to ban outdoor cat feeding sites and end trap-neuter-return. What is the authors' central criticism of that position?",
+"o": [
+"That trap-neuter-return has never been trialled at scale",
+"That the conservation authors provide no evidence a ban would actually achieve control of free-roaming cat populations",
+"That feeding bans are already illegal in most states",
+"That lethal control has been shown to be more humane"
+],
+"a": 1,
+"e": "The argument is not that conservation concerns are illegitimate but that the proposed remedy is asserted rather than evidenced. The authors pose it bluntly as: if not trap-neuter-return, then what?",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "What historical evidence do the authors marshal against lethal control as a default management approach for free-roaming cats?",
+"o": [
+"Indiscriminate killing has been the default approach in the United States for more than 100 years without evidence of effectiveness, with an estimated 7.8 to 12.9 million cats killed in shelters during 1985 alone",
+"Lethal control was only introduced in the 1990s and has not been evaluated",
+"Lethal control eliminated free-roaming cats in most US cities by 1985",
+"No data exist on historical shelter killing"
+],
+"a": 0,
+"e": "They also note a growing body of empirical evidence that lethal approaches are often counterproductive, and point to the documented impact on shelter staff and the implications for policymakers who depend on public support.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "A commentary on telemedicine in shelter and community practice cites a projection about unmet veterinary need in the United States. What was it?",
+"o": [
+"75 million pets could be without veterinary care by 2030 if the approach to providing services is not updated",
+"All pets will have access to care by 2030 under current models",
+"The shortage affects referral practice only, not primary care",
+"Pet ownership is projected to fall enough to resolve the shortage"
+],
+"a": 0,
+"e": "The projection comes from a September 2020 study. The argument is that a workforce shortage compounds long-standing access barriers, and that shelter and community medicine practices will feel it most acutely because their clients have the fewest alternatives.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "How does this commentary frame the case for expanding telemedicine in veterinary practice?",
+"o": [
+"As a way to reduce veterinary income while improving access",
+"As a tool that can relieve the access burden expeditiously, benefiting veterinarians, clients and above all patients",
+"As a replacement for all in-person examination",
+"As relevant only to specialist referral practice"
+],
+"a": 1,
+"e": "The framing matters politically as well as clinically: conversations about telemedicine have become prominent in both veterinary professional organisations and state legislatures, so the regulatory environment is actively changing.",
+"source": "journal"
+},
+{
+"type": "mcq",
 "domain": "Physical Health",
 "sub": "Infectious Disease",
 "q": "Across multiple shelter studies, adding canine parvovirus monoclonal antibody (CPMA) to a standard supportive-care protocol for dogs with naturally occurring parvovirus has most consistently been shown to:",
