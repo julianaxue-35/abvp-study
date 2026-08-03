@@ -14,12 +14,10 @@ from lib_catalog import load_catalog
 CATALOG = os.path.join(HERE, "journal-catalog.json")
 SYNTH = os.path.join(HERE, "synthesized_mcqs.json")
 
-from lib_journal_list import off_list as journal_off_list
-
-# The 2026 exam draws on articles published 2021-2025 in the 23 journals the
-# study guide names. Anything outside either bound stays in the catalog and on
-# its subdomain page, but is kept out of the mock exam so practice scores
-# reflect examinable material. Relax for a later sitting.
+# The 2026 exam draws on articles published 2021-2025. Later articles stay in
+# the catalog and on their subdomain pages, but are kept out of the mock exam so
+# practice scores reflect examinable material. Raise for a later sitting.
+# Journal is deliberately not a filter - see build_journal_sections.py.
 EXAM_MAX_YEAR = 2025
 OUT_JS = os.path.join(ROOT, "mock-data-journal.js")
 MOCK_HTML = os.path.join(ROOT, "mock-exam.html")
@@ -101,7 +99,7 @@ def main():
     mocks = []
     out_of_window = set()
     for r in cat:
-        if (r.get("year") and r["year"] > EXAM_MAX_YEAR) or journal_off_list(r.get("journal", "")):
+        if r.get("year") and r["year"] > EXAM_MAX_YEAR:
             out_of_window.update(m["q"] for m in r.get("mcqs") or [])
             continue
         dom, sub = dom_sub(r["subdomain_page"])
@@ -188,8 +186,8 @@ def main():
         by_dom[m["domain"]] = by_dom.get(m["domain"], 0) + 1
     print(f"wrote {OUT_JS} with {len(mocks)} journal MCQs")
     if out_of_window:
-        print(f"  - held back {len(out_of_window)} MCQ(s): published after {EXAM_MAX_YEAR} "
-              f"or in an unlisted journal (still on their subdomain pages)")
+        print(f"  - held back {len(out_of_window)} MCQ(s) from articles published after "
+              f"{EXAM_MAX_YEAR} (still on their subdomain pages)")
     print("by domain:", json.dumps(by_dom, ensure_ascii=False))
     print("mock-exam.html include:", "added" if added else "already present")
 
