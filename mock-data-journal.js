@@ -21140,8 +21140,8 @@
 },
 {
 "type": "mcq",
-"domain": "Companion Animal Homelessness",
-"sub": "Spay-Neuter",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
 "q": "Which group of male cats had the earliest onset of urethral obstruction?",
 "o": [
 "Intact cats",
@@ -21155,8 +21155,8 @@
 },
 {
 "type": "mcq",
-"domain": "Companion Animal Homelessness",
-"sub": "Spay-Neuter",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
 "q": "How did age at neutering affect onset of urethral obstruction?",
 "o": [
 "Earlier neutering caused earlier UO",
@@ -21170,8 +21170,8 @@
 },
 {
 "type": "mcq",
-"domain": "Companion Animal Homelessness",
-"sub": "Spay-Neuter",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
 "q": "How did clinical signs and histopathologic lesions compare across groups?",
 "o": [
 "Markedly worse in neutered cats",
@@ -42921,7 +42921,7 @@
 {
 "type": "mcq",
 "domain": "Companion Animal Homelessness",
-"sub": "Spay-Neuter",
+"sub": "Shelter Diversion",
 "q": "This guidance describes cat lifestyle as lying on a spectrum. Which four categories does it define?",
 "o": [
 "Feral, street, pet and inbetweener cats",
@@ -42936,7 +42936,7 @@
 {
 "type": "mcq",
 "domain": "Companion Animal Homelessness",
-"sub": "Spay-Neuter",
+"sub": "Shelter Diversion",
 "q": "What is an 'inbetweener' cat, and what solution does this guidance propose for one?",
 "o": [
 "A cat that has lived as a pet but unsuccessfully because it is not comfortable with human interaction; assessment followed by rapid arrangement of an alternative lifestyle to minimise time confined, plus neutering if not already done",
@@ -42951,7 +42951,7 @@
 {
 "type": "mcq",
 "domain": "Companion Animal Homelessness",
-"sub": "Spay-Neuter",
+"sub": "Shelter Diversion",
 "q": "How are inbetweener cats usually identified, according to this guidance?",
 "o": [
 "By genetic testing at intake",
@@ -42966,7 +42966,7 @@
 {
 "type": "mcq",
 "domain": "Companion Animal Homelessness",
-"sub": "Spay-Neuter",
+"sub": "Shelter Diversion",
 "q": "What practical recommendation does this guidance make about alternative-lifestyle placements for inbetweener cats?",
 "o": [
 "Environments and caregivers should be recruited in advance, so an identified inbetweener can move swiftly without spending time confined in care",
