@@ -43042,6 +43042,1506 @@
 "type": "mcq",
 "domain": "Physical Health",
 "sub": "Infectious Disease",
+"q": "A survey of 2000 dogs across Central and Southern Italy found that most dogs positive for Dirofilaria immitis (canine heartworm) had no history of travel outside their home region. What is the most important clinical implication?",
+"o": [
+"The infections were almost certainly acquired abroad and imported into the region",
+"Dirofilaria immitis is now locally enzootic in these regions, so routine year-round chemoprevention is warranted even for dogs that never travel",
+"Angiostrongylus vasorum, not D. immitis, is the only locally acquired risk",
+"Heartworm screening should be limited to dogs older than 4 years that have a travel history"
+],
+"a": 1,
+"e": "Because most positive dogs had never travelled, they acquired D. immitis locally, confirming it is enzootic in Central and Southern Italy even where previously rare or undetected. This supports routine parasitological screening and year-round chemoprevention for resident dogs, not just imported or travelled ones.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "In a survey of 214 ticks (questing and from wild boars) in a heavily-visited southern Italian nature reserve, about 14% carried tick-borne pathogens, predominantly Rickettsia species (e.g. R. slovaca, R. massiliae, R. conorii). What is the main public-health implication?",
+"o": [
+"Tick-borne pathogens were confined to ticks on wild boars, so people using the reserve are not at risk",
+"Multiple zoonotic Rickettsia species circulate in ticks in a recreational area, warranting ongoing tick surveillance to protect public health",
+"The Rickettsia species detected are non-zoonotic and pose no human risk",
+"Coxiella burnetii was the predominant pathogen and the main concern"
+],
+"a": 1,
+"e": "About 14% of ticks carried tick-borne pathogens, mainly zoonotic Rickettsia spp., in a reserve heavily used for recreation - a genuine public-health concern underscoring the need to monitor tick populations in rural and urban settings. Coxiella burnetii and Theileria annulata were only single detections, not predominant.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "A Basque Country study of 202 cat and dog owners used the Lexington Attachment to Pets Scale (LAPS). Which attachment pattern did it find?",
+"o": [
+"Attachment was stronger to cats than dogs and strongest in older male owners",
+"Attachment was generally stronger to dogs than cats, and stronger in owners who were female, younger, not living with children, and who spent more weekend time with their pet",
+"Attachment was unrelated to owner sex, age, or presence of children",
+"Attachment was strongest in owners living with children"
+],
+"a": 1,
+"e": "Attachment was generally stronger to dogs than to cats; stronger attachment was associated with being female, younger, not living with children, and spending more weekend time with the pet.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "In interviews with dairy farmers about managing working (barn) cats, what did this study conclude about lethal control versus a free sterilization / Barn Cat Program?",
+"o": [
+"Farmers preferred lethal control because it was cheaper and had no drawbacks",
+"Lethal cat management harmed farmers' wellbeing, whereas farmers supported free sterilization and a Barn Cat Program, which reduced cat numbers and wildlife impact and improved cat welfare",
+"Farmers valued cats only for companionship, not rodent control",
+"Sterilization had no effect on cat populations or their wildlife impact"
+],
+"a": 1,
+"e": "Farmers had relationships with their working cats and lethal methods harmed their wellbeing. They supported free sterilization and a Barn Cat Program (vaccinate/sterilize healthy stray cats and place them with farmers), which cut cat numbers and wildlife impact, improved cat welfare, and benefited farmers - so funding for such programs is recommended.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "A retrospective study treated 77 small dogs (<6 kg) with hydrometra or pyometra by two-port laparoscopic-assisted ovariohysterectomy. What were the outcomes?",
+"o": [
+"High intraoperative complication rates made the technique unsuitable for small dogs",
+"It was safe and effective, with no intraoperative complications and a median hospital stay of 0 days (most discharged the same day)",
+"Every dog required at least a 3-day hospital stay to recover",
+"The technique could only be used in dogs that were already showing clinical signs"
+],
+"a": 1,
+"e": "Across 77 dogs (<6 kg), there were no intraoperative complications, median operative time was 32 min and median hospital stay 0 days (same-day discharge), and all were clinically healthy at 2-week follow-up - a safe, effective minimally invasive option for mild-to-moderate hydrometra/pyometra. Notably 66% were asymptomatic (incidental enlarged uterus).",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "A study of 582 cats tested a fear-free method to stop purring during cardiac auscultation. What did it involve and how effective was it?",
+"o": [
+"Sedating the cat with gabapentin beforehand; about 50% success",
+"Gently grasping the cat's larynx from the ventral side while auscultating; ~89% success, equally effective for a student and a specialist",
+"Running water nearby; effective only when used by a cardiology specialist",
+"Blowing on the cat's face; no better than doing nothing"
+],
+"a": 1,
+"e": "Purring occurred in 8.8% of cats and can drown out heart sounds/murmurs. A ventral laryngeal grasp stopped purring in ~89% of cases, with no significant difference between a veterinary student and a cardiology specialist - a simple, cat-friendly, easy-to-learn technique. Sick and older cats purred more often.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "A study of 37 Beagle dogs across age groups examined gut-microbiome and behavioral biomarkers via the gut-brain axis. What was a key age-related finding?",
+"o": [
+"Gut microbiome composition and behavioral biomarkers were identical across all age groups",
+"Gut microbiota and short-chain fatty acids shifted with age (e.g. Bacteroides and fecal acetate higher in seniors), while junior dogs showed more playing, exploring and total activity",
+"Senior dogs were the most active and exploratory group",
+"Behavioral biomarkers were completely unrelated to gut health"
+],
+"a": 1,
+"e": "Bacteroides and fecal acetate were higher in senior dogs; junior dogs had higher propionate, blood thyroxine, and more playing/exploring/total activity - illustrating age-related gut-brain-axis changes and the need to account for age when interpreting microbiome and behaviour biomarkers.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "A study of 402 cats in Beijing found 31.3% positive for feline calicivirus (FCV). Which factors were significantly associated with FCV infection?",
+"o": [
+"Coat colour, sex and body weight",
+"Age, vaccination status and residential density",
+"Only prior antibiotic use",
+"Neither age nor vaccination status had any effect"
+],
+"a": 1,
+"e": "On logistic regression, age, vaccination status and residential (housing) density were significantly associated with FCV infection; overall FCV positivity was 31.3%. FCV mainly causes feline upper respiratory tract disease, so vaccination and housing density are modifiable risk factors in multi-cat/shelter settings.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "A study compared an immunochromatographic assay (ICA) and an RNase hybridization-assisted amplification (RHAM) test kit against RT-qPCR for detecting FeLV and FIV. What did it conclude?",
+"o": [
+"ICA outperformed both RHAM and RT-qPCR",
+"The RHAM kit gave rapid results with sensitivity/specificity comparable to RT-qPCR and generally better than ICA",
+"Neither point-of-care test was clinically usable",
+"RT-qPCR was the least accurate method"
+],
+"a": 1,
+"e": "RHAM outperformed ICA (FeLV sensitivity 93.44% vs 86.89%; FIV specificity 100% vs 88.52%) and gave performance comparable to the RT-qPCR reference standard, making it a rapid, reliable point-of-care option for FeLV/FIV detection.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "A retrospective study of laboratory records in Quito, Ecuador (2021-2024) reported feline leukemia virus (FeLV) in about what proportion of tested domestic cats, and in which group was it most frequent?",
+"o": [
+"Under 5%, mostly in kittens under 6 months",
+"About 28.6% (243/850), most frequent in cats aged 1-5 years",
+"Over 70%, mostly in senior cats",
+"FeLV was not detected in any cat"
+],
+"a": 1,
+"e": "FeLV was found in 28.59% (243/850) of tested cats, highest in the 1-5-year age group and slightly more in males (53.5%) than females - a high regional prevalence the authors say warrants prevention and control measures.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "A retrospective IFAT study of 229 owned cats in Campania, Italy found Leishmania infantum seroprevalence of about 5.2%. Which statement best reflects the findings?",
+"o": [
+"Cats cannot be infected by Leishmania infantum",
+"Seroprevalence was low but real, higher in outdoor cats, and some positives were co-infected with FIV - so cats warrant surveillance in endemic areas",
+"All seropositive cats had very high antibody titres indicating clinical disease",
+"Indoor cats had a much higher prevalence than outdoor cats"
+],
+"a": 1,
+"e": "Seroprevalence was 5.2% (mostly low titres), higher in outdoor cats (10.6% vs 3.9%) and with 16.6% of positives co-infected with FIV. Cats act as an additional host for L. infantum in endemic regions and merit surveillance, even though prevalence is lower than in dogs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "A phylogeographic study of Dirofilaria immitis on Gran Canaria (Canary Islands) is relevant because this location is best described as:",
+"o": [
+"A heartworm-free region with no transmission",
+"A historically hyperendemic area with among the highest heartworm prevalence in dogs, cats and humans",
+"An area where only cats, not dogs, are affected",
+"A region where heartworm has been fully eradicated"
+],
+"a": 1,
+"e": "Gran Canaria is a hyperendemic island with historically among the highest D. immitis prevalence/seroprevalence in dogs, cats and humans; molecular (mitochondrial COI/12S, nuclear ITS) characterization helps trace parasite spread and target control.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "In a study of fleas and ticks from cats and dogs in northwestern Italy, Bartonella spp. were detected in about 38% of ectoparasites. What was notable?",
+"o": [
+"Only fleas, never ticks, carried Bartonella",
+"All positives were Bartonella henselae, and the bacterium was found in both fleas and ticks - suggesting ticks may also play a transmission role",
+"No zoonotic Bartonella species were found",
+"Bartonella was found only in dogs' ectoparasites"
+],
+"a": 1,
+"e": "All Bartonella-positive samples were B. henselae, present in both fleas (34.2%) and ticks (45.6%). Finding it in ticks as well as the classic flea vector suggests ticks may contribute to transmission - underscoring ectoparasite control against this zoonosis.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Researchers built a TIM-barrel multi-epitope recombinant protein to detect Toxoplasma gondii antibodies in cats by ELISA. What did the best construct achieve?",
+"o": [
+"100% sensitivity and specificity, replacing all other tests",
+"About 86% sensitivity and 76% specificity with moderate agreement versus the IFAT reference - a promising serodiagnostic antigen",
+"It failed to detect any seropositive cats",
+"It could only detect T. gondii in dogs, not cats"
+],
+"a": 1,
+"e": "The best chimeric construct (V4Z) reached ~86% sensitivity and 76% specificity with moderate agreement against IFAT - a promising, scalable multi-epitope antigen for feline toxoplasmosis serology, important given the cat's role as definitive host and the zoonotic risk.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "In cats from northeastern Thailand screened for vector-borne pathogens and retroviruses, which pattern was observed?",
+"o": [
+"No vector-borne pathogens were detected",
+"High rates of Bartonella henselae and Rickettsia felis, with multiple co-infections especially in FIV- or FeLV-positive cats",
+"FIV was far more common than FeLV",
+"Retrovirus status had no relationship to co-infection"
+],
+"a": 1,
+"e": "Bartonella henselae (94.65%) and Rickettsia felis (34.22%) were common, and multiple concurrent infections clustered in FIV- (2.67%) or FeLV-positive (29.95%) cats, consistent with retrovirus-associated immunosuppression increasing susceptibility to zoonotic vector-borne pathogens.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "In dogs with heartworm disease, urinary NGAL (uNGAL) was compared between those with and without pulmonary hypertension (PH). What was found?",
+"o": [
+"uNGAL was identical in both groups",
+"uNGAL was significantly higher in dogs with PH despite normal creatinine and BUN, suggesting it detects early renal injury",
+"Only dogs with elevated creatinine had raised uNGAL",
+"uNGAL fell in dogs with pulmonary hypertension"
+],
+"a": 1,
+"e": "uNGAL was significantly higher in heartworm-infected dogs with PH (66.49 vs 49.01 ng/mL, p<0.0001) even though serum creatinine and BUN were normal in both groups - so uNGAL can flag early/subclinical renal injury and aid monitoring.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "A 10-year retrospective of 131 canine transmissible venereal tumor (CTVT) cases in Brazil found which pattern?",
+"o": [
+"Most tumors were oral, and chemotherapy was ineffective",
+"Genital location predominated (~87%), affected dogs were mostly young mixed-breed females, and vincristine chemotherapy gave a complete response in most cases",
+"CTVT occurred only in purebred male dogs",
+"Extra-genital (skin, nasal, oral) sites were more common than genital sites"
+],
+"a": 1,
+"e": "Genital lesions predominated (87%), with extra-genital cutaneous/nasal/oral sites less common; dogs were mostly mixed-breed (70.2%), female (61.1%), median age 4.5 y, and vincristine chemotherapy achieved complete response in the great majority regardless of breed/size/location.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Mental Health & Self-Care",
+"q": "A study of animal care workers examined job demands, job resources and organisational justice. Poorer mental and physical health was most strongly associated with which combination?",
+"o": [
+"High pay combined with long tenure",
+"Emotionally challenging situations such as participating in euthanasia, together with a lack of perceived social support",
+"Working part-time rather than full-time",
+"Having too many job resources"
+],
+"a": 1,
+"e": "Emotionally demanding tasks - especially euthanasia participation - combined with low perceived social support were linked to worse global health, while adequate job resources and organisational fairness supported health and retention. These are modifiable workplace factors.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Mental Health & Self-Care",
+"q": "A systematic review of 116 studies on attachment to pets and mental health concluded which of the following?",
+"o": [
+"Stronger pet attachment always improves mental health",
+"Findings were inconsistent - stronger attachment is not necessarily linked to better mental health (tending better for children/wellbeing but worse for symptomology like depression/anxiety)",
+"Pet attachment has no relationship to mental health in any study",
+"Only dog owners showed any association"
+],
+"a": 1,
+"e": "Across 116 studies the evidence was mixed (15 better, 22 worse, 36 mixed, 33 no relationship); stronger attachment tended to associate with better outcomes for children and wellbeing but worse outcomes for mental-health symptomology. Cross-sectional designs preclude causal conclusions.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animals & Public Safety",
+"q": "Analysis of Scottish health records (2007-2019) on dog bites and strikes revealed which social pattern?",
+"o": [
+"Bites were evenly distributed across all ages and areas",
+"Younger people and residents of more deprived areas were disproportionately affected, so prevention policy should address social inequalities",
+"Only affluent areas showed rising injury rates",
+"Older adults in rural areas were most affected"
+],
+"a": 1,
+"e": "Across 59,111 records, dog-bite/strike injuries were socially patterned - more frequent in younger people and in more deprived areas. The authors argue prevention should tackle these social inequalities, as with other public-health disparities.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
+"q": "In co-producing a redeveloped version of the RSPCA's 'Breaking the Chain' intervention, RSPCA stakeholders recommended targeting which groups and using which delivery method?",
+"o": [
+"Only convicted adult offenders, via mandatory online-only courses",
+"Both universal primary school-aged children and high-risk youth, via face-to-face school sessions complemented by digital resources",
+"Veterinary professionals, via continuing-education webinars",
+"Incarcerated adults, via animal-assisted therapy programs only"
+],
+"a": 1,
+"e": "Thematic analysis of interviews with 16 RSPCA employees identified two priority audiences - universal primary-school children and high-risk youth - and favoured in-person school delivery supported by modernised digital resources addressing online animal harm and neurodiverse accessibility.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
+"q": "In a qualitative study of 28 incarcerated men in a prison-dog program, forming bonds with the dogs was found to influence 'moral disengagement' (the cognitive justification of harm) in what way?",
+"o": [
+"It had no measurable effect on the men's attitudes",
+"It fostered empathy and caring qualities that counter moral disengagement, shifting many men toward greater concern for animal wellbeing",
+"It increased moral disengagement by normalizing control over animals",
+"It changed attitudes toward humans only, not animals"
+],
+"a": 1,
+"e": "Empathy and caring qualities are known to inversely relate to moral disengagement; bonding with the program dogs cultivated these qualities and moved many participants toward more empathetic thinking about animals' wellbeing.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
+"q": "An evaluation of the Scottish SPCA's 'Animal Guardians' intervention for primary-school children who had harmed animals reported which outcome?",
+"o": [
+"No significant change on any measure",
+"Significant improvements in animal-welfare knowledge, behaviour toward animals, and both cognitive and behavioural empathy",
+"Improvement in welfare knowledge only, with no change in empathy or behaviour",
+"Improvement only among children with no prior animal-harm history"
+],
+"a": 1,
+"e": "The one-to-one, 6-10-week educational programme (animal sentience, welfare needs, empathy, correct handling) produced significant gains in welfare knowledge, behaviour toward animals, and both cognitive and behavioural empathy.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
+"q": "Online focus groups exploring 'community expectations' around punishment for animal-welfare offences found that participants' views were shaped by five drivers and, notably, that their responses:",
+"o": [
+"Remained maximally punitive regardless of reflection",
+"Began as instinctively highly punitive but were typically moderated through conscious reasoning",
+"Favoured no punishment in almost all cases",
+"Were driven solely by the species of animal involved"
+],
+"a": 1,
+"e": "Five drivers emerged (degree of suffering, assistance over punishment, media reporting, deterrence, offender intentions); gut reactions were highly punitive but conscious reasoning tended to temper them - so raw sentiment should not be equated with considered community expectations.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "QOL & Needs Assessment",
+"q": "A scoping review of instruments measuring disease-specific quality of life (QoL) in dogs reached what conclusion about their validation?",
+"o": [
+"All 41 instruments were fully validated across every psychometric domain",
+"None of the instruments had been thoroughly evaluated across all necessary psychometric properties, so they should be used cautiously",
+"Test-retest reliability was established for the majority of instruments",
+"No disease-specific canine QoL instruments exist"
+],
+"a": 1,
+"e": "Of 41 publications (30 with available instruments), only 12 reported any evaluation and none met all psychometric standards (only 2 had adequate test-retest reliability), so current tools warrant cautious, restricted use pending better validation guidelines.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "In female New Zealand White rabbits undergoing calvaria surgery under balanced anaesthesia, how did buprenorphine (0.03 mg/kg) compare with methadone (0.3 mg/kg)?",
+"o": [
+"Methadone provided superior and longer postoperative analgesia",
+"Buprenorphine provided better and longer-lasting postoperative analgesia (fewer rescue doses), while methadone produced deeper sedation",
+"The two drugs were identical on every outcome",
+"Buprenorphine caused severe prolonged respiratory depression not seen with methadone"
+],
+"a": 1,
+"e": "Postoperative rescue analgesia was needed in only 3/24 buprenorphine rabbits vs 12/24 methadone rabbits (p=0.013), and grimace-scale scores favoured buprenorphine; methadone gave deeper sedation. Both showed only transient respiratory acidosis.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "A systematic review of gabapentin and pregabalin in cats concluded what about their use for anxiety/stress and pain?",
+"o": [
+"Neither drug has any supporting evidence in cats",
+"Both are valid options for stress/fear/anxiety and for acute and chronic pain, though the evidence base is substantially larger for gabapentin than pregabalin",
+"Pregabalin is far better supported than gabapentin",
+"They are effective only for pain, never for anxiety"
+],
+"a": 1,
+"e": "Of 40 included studies, 21 supported gabapentin and 5 pregabalin as anxiolytics, and 12 vs 2 supported them for pain - confirming both as valid therapeutic options, with much more evidence for gabapentin.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "In a survey of Spanish cat and dog owners using the Lexington Attachment to Pets Scale, which psychosocial finding emerged?",
+"o": [
+"Cat owners with high social support showed the strongest attachment",
+"Lower perceived social support was linked to higher 'person substitution' scores among dog owners (dogs as emotional substitutes), with no such link in cat owners",
+"Loneliness directly predicted overall attachment in all owners",
+"Attachment was stronger to cats than dogs"
+],
+"a": 1,
+"e": "Attachment was generally stronger to dogs; psychosocial variables did not directly predict overall attachment, but lower social support was associated with higher 'person substitution' among dog owners only - dogs may substitute for human companionship in socially vulnerable people.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "The Child-Dog Engagement Scale (C-DES) and Child-Cat Engagement Scale (C-CES) each measure which three factors?",
+"o": [
+"Obedience, Dominance, and Play",
+"Emotional Attachment, Engagement, and Challenges",
+"Fear, Aggression, and Avoidance",
+"Feeding, Grooming, and Exercise"
+],
+"a": 1,
+"e": "Developed from a questionnaire completed by 319 parents/guardians, the parallel 38-item C-DES and 29-item C-CES each capture Emotional Attachment, Engagement, and Challenges, enabling measurement of children's everyday relationships with dogs and cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Epidemiology of Homelessness",
+"q": "Comparing dog ownership in Czech homeless vs housed people (using the Monash Dog Owner Relationship Scale), which subscale differed significantly between the groups?",
+"o": [
+"Perceived Costs",
+"Owner-Dog Interaction",
+"Perceived Emotional Closeness (higher in homeless owners)",
+"No subscale differed"
+],
+"a": 2,
+"e": "Among 1,056 participants (101 homeless), Owner-Dog Interaction (p=0.289) and Perceived Costs (p=0.251) did not differ, but Perceived Emotional Closeness differed significantly - for many homeless owners the dog bond is especially close and may be their only stable relationship.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "A study of 685 families found children's attachment to pets predicted the comfort children received from pets during COVID-19. How did the child's treatment of animals affect this link?",
+"o": [
+"It eliminated the link entirely",
+"It partially moderated the link - attachment predicted comfort more strongly in children who engaged in fewer positive behaviours toward their pets",
+"The link was only present in children who treated pets very well",
+"Treatment of animals had no measurable effect"
+],
+"a": 1,
+"e": "Pet attachment significantly predicted perceived comfort; this was partially moderated by the child's treatment of animals, with a stronger attachment-comfort link among children showing fewer positive behaviours toward their pets. Gender and age patterns were also found.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "Over four years, Cordoba, Spain's large citywide trap-neuter-return (TNR) program achieved what?",
+"o": [
+"It failed to reach adequate sterilization coverage",
+"About 95% sterilization coverage and population stabilisation (modest -2.68% decline, preventing an estimated ~70% growth), at ~EUR 0.62 per resident/year",
+"Rapid eradication of all community cats within one year",
+"Higher costs than lethal control with no population benefit"
+],
+"a": 1,
+"e": "The structured 225-colony program reached 95% sterilization, stabilised the population, and by viability modelling averted ~70% growth (projected 55% reduction by 2028 if sustained) - all at ~EUR 0.62/resident/year, demonstrating a scalable, cost-effective TNR model.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Body Language",
+"q": "In two experiments where people rated a dog's emotions in videos, what most influenced their judgements?",
+"o": [
+"The dog's breed",
+"The surrounding situational context rather than the dog's own behaviour - when context was swapped, emotion judgements followed the context",
+"The dog's actual body language, judged accurately",
+"The participants' prior dog-owning experience only"
+],
+"a": 1,
+"e": "Participants (n=383, 485) judged the dog's emotion from the situation shown, not the dog itself; placing the dog in mismatched contexts shifted their ratings - showing perception of dog emotion is strongly biased by extraneous context.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "In a survey of 130 owners about their dog's behaviour when they became pregnant, which was found?",
+"o": [
+"No owners perceived any behaviour change",
+"65.4% reported a behaviour change (26.9% before they knew they were pregnant); pre-pregnancy guarding and fear/anxiety toward other dogs predicted reported change",
+"Behaviour change was predicted mainly by the dog's breed and coat",
+"Changes occurred only after the baby was born"
+],
+"a": 1,
+"e": "Most owners (65.4%) perceived behaviour change during pregnancy, often before pregnancy awareness (26.9%); behaviours rose in four of five categories, and only baseline stranger-guarding and dog-directed fear/anxiety predicted reported change.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "A representative survey of Danish cat owners on introducing a new cat to a resident cat found which unexpected result?",
+"o": [
+"Gradual introduction was essential in every situation",
+"Gradual introduction appeared counterproductive when both cats were young, and affiliative behaviours predominated in the first month",
+"Immediate introduction always caused severe aggression",
+"Cat age had no bearing on introduction success"
+],
+"a": 1,
+"e": "Of 308 owners who introduced cats, ~56% put them together immediately; affiliative behaviour predominated early, and gradual introduction was counterproductive when both new and resident cats were young - challenging the blanket 'always go slow' advice.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "Validation of a French version of the C-BARQ behaviour questionnaire (246 dogs) showed what?",
+"o": [
+"The questionnaire had no usable factor structure in France",
+"A 13-factor structure explaining 54.1% of variance with good fit to the original US model, confirming cross-cultural robustness with minor French-specific adaptations",
+"A completely different structure unrelated to other C-BARQ versions",
+"That the C-BARQ only works for working dogs"
+],
+"a": 1,
+"e": "EFA produced 13 factors (63 items, 54.1% variance) and CFA fit the US model well; fear and stranger-aggression items merged and two new factors emerged, but overall the French C-BARQ mirrors validated versions - supporting cross-cultural use.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animals & Public Safety",
+"q": "A survey of New Zealanders' attitudes to outdoor access for owned cats found which pattern?",
+"o": [
+"Non-owners were the strongest supporters of free-roaming",
+"Cat owners were more likely to support free-roaming, while younger/urban respondents and owners who provided enrichment were more supportive of restricting outdoor access",
+"Everyone opposed any form of cat containment",
+"Attitudes were unrelated to age, location, or enrichment"
+],
+"a": 1,
+"e": "Among 1,847 adults (1,467 owners), owners favoured free-roaming more than non-owners; younger and urban people, and owners providing environmental enrichment, were more supportive of containment - mapping the attitudes behind cat-management policy.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "In detection-dog litters, how did the amount of maternal care relate to offspring program success?",
+"o": [
+"More maternal care strongly improved success",
+"Less maternal care predicted greater offspring detection-program success (a counterintuitive pattern also seen in other working-dog studies)",
+"Maternal care had no relationship to outcomes",
+"Only litter size predicted success"
+],
+"a": 1,
+"e": "Across 27 litters, maternal behaviours declined over three weeks, and relatively less maternal care predicted better program outcomes; care was shaped by delivery type x parity and dam temperament (C-BARQ) - underscoring the early maternal environment in working-dog development.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Body Language",
+"q": "An adapted Qualitative Behavioural Assessment (QBA) of dogs' facial expressions of fear vs frustration found what?",
+"o": [
+"Observers could not tell fear from frustration at all",
+"Behaviourists reliably differentiated fear from frustration, with good agreement on fear language but less consensus describing frustration",
+"Standardised breed-anatomy scoring worked perfectly across all breeds",
+"Frustration was easier to describe consistently than fear"
+],
+"a": 1,
+"e": "Using a holistic QBA (needed because dog facial morphology varies widely across breeds), behaviourists distinguished fear and frustration clips using arousal, valence and behavioural cues; fear descriptions were consistent, but frustration was harder to characterise.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "During animal-assisted interventions, how did the presence of an unfamiliar child affect rabbits?",
+"o": [
+"Rabbits fed and explored more than controls",
+"Rabbits fed for under 20% of the time (vs over 80% in controls) and showed flight/hiding; a shelter option reduced but did not eliminate the stress",
+"The rabbits showed no behavioural change",
+"Hiding opportunities made the stress worse"
+],
+"a": 1,
+"e": "With a child present, feeding dropped from >80% to <20% of observation time and rabbits showed prey-type flight/hiding; a therapy table with a shelter mitigated but did not fully remove the negative welfare impact - so hiding options are an essential AAI safeguard.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "A re-examination of unwanted feline scratching (survey of ~1,800 owners) concluded what about its relationship to stress and marking?",
+"o": [
+"Scratching is almost always a sign of stress and territorial marking",
+"Scratching was more often linked to positive/normal maintenance behaviour than to distress or marking; presence of dogs was negatively associated with scratching",
+"Only stressed cats in dog-free homes scratch",
+"Scratching is unrelated to emotional state in any way"
+],
+"a": 1,
+"e": "Contrary to the stress/marking assumption, scratching associated more with contentment and normal maintenance; cats in dog-free homes scratched more (dogs negatively associated) - reframing scratching as often normal rather than a distress signal.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "A focus-group study of applied animal behaviour/welfare researchers (47 delegates, 33 countries) identified challenges at which three levels?",
+"o": [
+"Funding, equipment, and statistics only",
+"The discipline itself; conducting and sharing research; and researcher welfare and networking",
+"Only journal peer review",
+"Only animal ethics approval"
+],
+"a": 1,
+"e": "Three themes emerged - challenges within the discipline, in conducting/sharing research (institutions, governments, journals), and in researcher welfare/networking (including prejudice and travel barriers) - with cross-regional collaboration seen as a partial remedy.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Animal Handling",
+"q": "In 97 shelter dogs randomised to five restraint methods during exams, which produced the least fear?",
+"o": [
+"Full-body restraint",
+"Passive (low) restraint, whereas muzzle-hold and full-body restraint elicited the most negative behaviours",
+"Muzzle-hold restraint",
+"All methods produced identical fear levels"
+],
+"a": 1,
+"e": "Passive restraint yielded the lowest fear scores; muzzle-hold and full-body restraint caused the most negative behaviours, soft muzzles prompted avoidance, and invasive handling raised fear - supporting low-restraint, passive handling for welfare.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Providing temporary floor pens to individually caged laboratory rabbits produced what effect?",
+"o": [
+"No change in behaviour or welfare",
+"Negative behaviours fell by ~50%, daytime inactivity returned to species-typical levels, and exploratory/locomotor behaviour increased",
+"Increased abnormal behaviour and stress",
+"Rabbits refused to use the pens"
+],
+"a": 1,
+"e": "Caged rabbits initially showed low daytime inactivity (31.1% vs ~61.7% typical) and high negative behaviour (13.5% vs ~5.5%); floor-pen access halved negative behaviours, normalised inactivity, and boosted exploration - an effective non-permanent enrichment.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "In a study of olfactory enrichment and cat toy play, which was found?",
+"o": [
+"Cats preferred commercial pheromone over catnip/silver vine",
+"Cats preferred catnip/silver vine; movement drove interaction more than scent, but adding preferred odour boosted stationary (not moving) toys",
+"Scent increased interaction with moving toys but not stationary ones",
+"Cats ignored all toys regardless of scent or movement"
+],
+"a": 1,
+"e": "Cats favoured catnip/silver vine over pheromone and interacted more with moving toys; preferred odour raised interaction with stationary toys but not moving ones - so movement matters more than scent, with olfactory enrichment helping static toys.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Enriching the cages of breeding rabbit does during gestation and lactation affected their female offspring how?",
+"o": [
+"No effect on offspring at all",
+"Better object-recognition memory, heavier weaning weight, and more exploratory/'joyful jumping' behaviour, but more caution toward novel objects",
+"Poorer memory and lighter offspring",
+"It only affected male offspring"
+],
+"a": 1,
+"e": "Prepartum enrichment improved offspring object-recognition memory and lactation enrichment increased weaning weight; enriched-lineage offspring showed more exploration and binkying but greater novel-object caution - maternal enrichment carries over to offspring cognition, growth, and behaviour.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "A review of behavioural indicators of infectious disease in managed animals argued that more accurate, generalisable indicators should be:",
+"o": [
+"Based only on feeding and general activity changes",
+"Hypothesis-based, targeting behaviours closely linked to immune activation such as sleep, attention, and motor function",
+"Derived purely from hypothesis-free machine learning",
+"Abandoned, since behaviour cannot detect disease"
+],
+"a": 1,
+"e": "Because sickness behaviours are strongly modulated by pain, hunger, and social context, core-behaviour and hypothesis-free ML approaches lack specificity; the review recommends hypothesis-based indicators tied to immune activation (sleep, attention, motor function) for early, generalisable disease detection.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "A study of Toxoplasma gondii seropositivity and anxiety in companion dogs found the association depended on:",
+"o": [
+"Coat colour",
+"Dog size - small dogs were anxious regardless of exposure, while larger seropositive dogs were more likely to be anxious; raw-meat feeding raised infection risk",
+"Nothing; there was no association in any subgroup",
+"The owner's own anxiety level only"
+],
+"a": 1,
+"e": "Using C-BARQ and serology, small dogs showed anxiety irrespective of T. gondii, but among larger dogs seropositivity was linked to greater anxiety; raw-meat diets increased seropositivity risk - suggesting T. gondii may contribute to anxiety in larger dogs.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animals & Public Safety",
+"q": "Camera trapping of wildcats and domestic cats at the range edge in western Hungary highlighted which conservation concern?",
+"o": [
+"Wildcats had completely displaced domestic cats",
+"Domestic (often stray) cats occurred throughout wildcat habitat, frequently outnumbering wildcats and driving hybridisation and disease transmission",
+"No domestic cats were detected near wildcats",
+"Wildcats were extremely abundant with no threats"
+],
+"a": 1,
+"e": "Wildcats/hybrids were detected at half the sites and domestic cats at nearly half of wildcat sites; the abundant free-ranging/stray domestic cat population provides a continuous source of hybridisation and disease transmission - the key threat to the low-abundance wildcat.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "In a survey of 2,521 Uruguayan cat caretakers, what was the most frequently reported feline behaviour problem, and which demographic was associated?",
+"o": [
+"House-soiling; associated with coat colour",
+"Aggression (29.1%); age was associated (mature adults highest), while sex, breed, lifestyle, and coat colour were not",
+"Excessive vocalisation; associated with breed",
+"No problems were reported by any caretaker"
+],
+"a": 1,
+"e": "33% of caretakers reported at least one problem; aggression was most common (29.1%), then coexistence problems, shyness/fear, and house-soiling. Most were minor; cat age (mature adult) was associated with problems, but sex, breed, lifestyle, and coat were not.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
+"q": "In an online experiment with 1,282 Japanese participants comparing preferred prison sentences for a neglected dog versus a neglected child, what did the study find?",
+"o": [
+"Participants preferred harsher sentences for the dog than for the child",
+"Participants preferred a sentence for the dog scenario (~3.24 years) nearly half that for the child scenario (~7.87 years), and favoured general deterrence over retribution for the animal case",
+"Sentences preferred were identical for the dog and child scenarios",
+"Older participants and men favoured the most severe sentences"
+],
+"a": 1,
+"e": "Preferred imprisonment was ~3.24 years for the dog vs ~7.87 years for the child; women and younger participants favoured harsher punishment, and for the dog people preferred general deterrence rather than the retribution favoured in the child scenario - suggesting scope to strengthen animal-maltreatment penalties.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "In Bender and colleagues' systematic review of 29 studies on dog-owner compatibility (Applied Animal Behaviour Science, 2023), which owner attachment pattern was flagged as a risk factor for a dysfunctional dog-owner dyad?",
+"o": [
+"An avoidant attachment style combined with a tendency to be very highly attached",
+"A secure attachment style with moderate emotional investment in the dog",
+"Attachment formed primarily through shared outdoor exercise",
+"No attachment pattern was associated with how the dyad functioned"
+],
+"a": 0,
+"e": "The review found that owners who tend to be highly attached and who have an avoidant attachment style may represent a risk factor for a dysfunctional dyad. Compatible matches shared similar expression of warmth, sharing possessions and enjoyment of running outside, and owners did better with dogs scoring higher than themselves on openness, agreeableness and neuroticism. Because cuteness and general appearance dominate acquisition decisions, the authors argue that matching on personality and attachment is an under-used lever for preventing the behaviour problems that drive relinquishment.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "Powell and colleagues (2025) analysed Canine Behavioral Assessment and Research Questionnaire (C-BARQ) data from 3,044 golden retrievers to test how household factors and area-level proxies for human social determinants of health relate to dog behaviour. Which household factor was associated with increased odds of dog-directed fear?",
+"o": [
+"Being fed a hydrolysed protein diet",
+"Living in a single-dog home",
+"Living with three or more other dogs",
+"Living in a sparsely populated neighbourhood"
+],
+"a": 1,
+"e": "Dogs from single-dog homes had increased odds of dog-directed fear (odds ratio 1.44, 95% confidence interval 1.30-1.61) and poorer trainability during early adulthood. Sleeping in the owner's bed was associated with more stranger-directed aggression and a steeper age-related fall in trainability and energy. Dogs in the most densely populated neighbourhoods showed more stranger-directed aggression than those in sparsely or moderately populated areas. The study is the first to link household characteristics and ownership behaviours to differential behavioural effects across the canine lifespan.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Shelter Management",
+"sub": "Management & Leadership",
+"q": "Rayner and colleagues (2025) used focus groups to explore how veterinarians in India access continuing professional development (CPD) relevant to animal welfare. Which set of recommendations did the authors make?",
+"o": [
+"Restricting CPD delivery to universities and removing private providers",
+"Replacing practical training with online-only modules to widen access",
+"Evidence-based, practically focused CPD; a unified accreditation and quality-assurance framework; and better employer support for attendance",
+"Mandatory annual re-examination of all registered veterinarians"
+],
+"a": 2,
+"e": "Three themes emerged: 'career vs calling' (extrinsic and intrinsic motivators, including a desire to protect animal welfare), 'willing to learn but can't' (context-specific barriers such as finding reliable CPD information), and 'real interactions matter' (pedagogical design, especially being able to observe welfare improvements through practical teaching). The recommendations follow directly: evidence-based and practically focused learning opportunities, a unified accreditation and quality-assurance framework for CPD content and delivery, and employer support to remove barriers to attendance.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Animals & Public Policy",
+"sub": "Ethics",
+"q": "van der Staay and colleagues (2025) argue that animal welfare assessment tools should be built through a three-step approach. What is the correct order of those steps?",
+"o": [
+"Develop the assessment tool, validate it in the field, then define welfare from the results",
+"Select the species, select the housing system, then select indicators",
+"Measure resource-based indicators, measure animal-based indicators, then agree an ethical framework",
+"Agree a definition of animal welfare, then agree an evaluation framework, then develop and validate the assessment tool"
+],
+"a": 3,
+"e": "The authors note that many tools in current use skipped these steps, which is why assessments of the same animals can diverge. Step one is a definition of welfare that stakeholders can agree on; step two is an agreed evaluation framework, both theoretical/conceptual (what facets matter) and ethical (the underlying moral position); step three is developing and validating the tool against that definition and framework. Transparency about the underlying definition and framework should make different tools weight the same aspects similarly, producing convergent results and better correlation between welfare indicators.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "In Link and colleagues' 2025 quantitative survey of 2,238 United States cat owners, what was found about awareness of and interest in kitten socialisation programmes?",
+"o": [
+"Most (69.3%) had never heard of kitten socialisation programmes, yet about half (50.4%) would be interested in enrolling",
+"Most had already enrolled a kitten in a socialisation programme and would not repeat it",
+"Awareness was high but interest was low because of cost",
+"Owners rated socialisation as less important than vaccination and refused enrolment"
+],
+"a": 0,
+"e": "Respondents rated the most important components of a programme as education about reducing problem behaviours (87%), understanding cat body language (85.8%) and getting kittens used to handling (83.1%). Logistic regression showed that aggression in the owner's current cat, and living in an urban or suburban area, predicted interest in a future programme. The gap between low awareness and substantial interest is the practical point for shelters and clinics: kitten socialisation is a service owners will take up if it is offered and explained.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Animals & Public Policy",
+"sub": "Ethics",
+"q": "Ru and colleagues' 2025 rapid review of 151 grey-literature sources on human-animal interactions identified three categories of benefit relevant to public education. Which of the following was one of them?",
+"o": [
+"Human-animal interactions increase rates of pet relinquishment",
+"Human-animal interactions improve disaster preparedness and response",
+"Human-animal interactions reduce the cost of veterinary insurance",
+"Human-animal interactions remove the need for peer-reviewed welfare research"
+],
+"a": 1,
+"e": "Adapting the Preferred Reporting Items for Systematic Reviews and Meta-Analyses (PRISMA) approach to grey literature, the review covered many species, animal roles (companion, therapy, zoo) and vulnerable populations across households, schools and healthcare facilities. The three benefit categories were: well-being of individuals, families and animals; promotion of prosocial behaviour and community development; and improved disaster preparedness and response. The methodological point is that grey literature carries knowledge that never reaches journals but does reach practice and policy.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Elford and colleagues (2025) interviewed 21 owners across seven countries who walk their cats on a leash. What did participants most often describe as the main challenge?",
+"o": [
+"Local by-laws prohibiting cats in public open space",
+"Veterinarians advising against any form of outdoor access",
+"Dogs and their owners encountered while walking, together with judgment from others in the community",
+"The cost and availability of suitable harnesses"
+],
+"a": 2,
+"e": "Five themes were generated: benefits of walking, challenges around walking, safety, cat individuality, and attitudes across geographic contexts. Owners perceived benefits for both cat and human, but challenges came largely from loose or reactive dogs and their owners, plus social judgment. Priorities were safety and attending to each cat's individual needs, and reactions varied with local norms about cats and outdoor access. The authors stress that the welfare impact of walking on cats themselves has not yet been directly measured.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Animals & Public Policy",
+"sub": "Ethics",
+"q": "Beaver and colleagues (2025) surveyed 123 undergraduate students at a United Kingdom university about animal welfare science. How did students most commonly define welfare, and how did they regard social-science contributions to it?",
+"o": [
+"Overwhelmingly in terms of naturalness, while rating social sciences as the most rigorous discipline",
+"In terms of the Five Freedoms, with equal trust in natural and social sciences",
+"In economic terms, with no discernible epistemological pattern",
+"Overwhelmingly in terms of health, while dismissing social-science aspects of welfare as unscientific"
+],
+"a": 3,
+"e": "Students defined welfare mainly as health; rural students were more likely than urban students to see naturalness as important. Intended career shaped the definition: veterinary nursing students leaned on resource-based measures and appropriate treatment, consistent with their future client-education role. Attitudes to animal welfare science revealed deeper views about what counts as science: neurobiology and the scientific method lent credibility, while welfare questions addressed by the social sciences were dismissed as unscientific. The authors recommend elevating the social sciences within welfare curricula.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Animals & Public Policy",
+"sub": "Legislation",
+"q": "Ross and colleagues' 2025 scoping review of systemic under-regulation in the United Kingdom puppy trade described harms beyond the individual puppy. Which combination did the review report?",
+"o": [
+"Smuggling of unvaccinated puppies from countries where rabies and Leishmania are endemic, plus unsafe concentrations of ectoparasiticides detected in rivers and lakes",
+"A fall in demand for pedigree and designer crossbreeds since the COVID-19 pandemic",
+"Elimination of trader anonymity following the move of sales online",
+"Evidence that high-volume breeding operations have lower rates of inherited disease"
+],
+"a": 0,
+"e": "A Department for Environment, Food and Rural Affairs consultation had already concluded that the governing legislation was outdated and cumbersome. The review describes a high-volume, untraceable, profit-driven market amplified by online 'click-and-collect' purchasing and social media, with evidence of multi-level fraud and organised crime along the supply chain. Public health and environmental consequences include importation of unvaccinated puppies from rabies- and Leishmania-endemic countries, faecal saturation in dense urban dog populations spreading anthelmintic- and antibiotic-resistant pathogens, and ectoparasiticide contamination of surface water.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Agrawal and colleagues (2025) characterised cutaneous granulomas in the paws of 13 domestic cats. What was the foreign material, and what underlying condition was present in most biopsies?",
+"o": [
+"Calcium oxalate crystals, with chronic kidney disease in most cats",
+"Silica from clay-based cat litter, with plasma cell pododermatitis in 10 of 13 biopsies",
+"Plant awns, with atopic dermatitis in most biopsies",
+"Residual suture material, with eosinophilic granuloma complex in most biopsies"
+],
+"a": 1,
+"e": "Biopsies showed granulomatous to pyogranulomatous inflammation containing birefringent, blue-grey intrahistiocytic material; Raman spectra from three samples matched multiple brands of silica-based cat litter. Gross lesions were chronic or intermittent paw pad swelling, ulceration, bleeding or draining tracts, mostly on the front paws. Because 10 of 13 also had plasma cell pododermatitis, underlying paw pad disease appears to predispose to litter implantation, after which granulomatous inflammation can obscure the primary condition. The authors recommend routinely polarising feline paw biopsies, looking for a predisposing condition, and changing to an alternative litter substrate, since recurrence after surgery is common.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "In Pauciulo and colleagues' 2025 retrospective case series of 28 cats with hyperesthesia syndrome followed for at least 1 year, which treatment group reached recovery fastest?",
+"o": [
+"Fluoxetine or gabapentin plus behaviour modification, with a median of 14 days",
+"No group differed; all recovered at a median of 90 days",
+"Fluoxetine alone, with a median time to recovery of 8 days",
+"Behaviour modification alone, with a median time to recovery of 8 days"
+],
+"a": 2,
+"e": "Sixteen cats (57%) received fluoxetine alone, seven (25%) fluoxetine or gabapentin plus behaviour modification, and five (18%) behaviour modification alone. An episode-free period of 9 months or more was reached by 23 of 28 cats (82%) overall and by 15 of 16 (94%) in the fluoxetine-only group, whose median time to recovery was 8 days (interquartile range 3.5-18) versus 100 days and 60 days in the other two groups. At 1 year, 26 cats (93%) had no clinical signs, half were still on medication, and only one relapse was reported.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "An eight-year study of canine parvoviral enteritis at a teaching hospital in Chennai, southern India (Navenkumaar et al, 2025) examined climatic drivers of outbreaks. What was reported?",
+"o": [
+"A 15% positivity rate with no seasonal pattern of any kind",
+"Outbreaks confined entirely to the monsoon months with no winter cases",
+"A positivity rate that fell each year as climate warmed",
+"A 69.75% positivity rate among suspected cases, with higher incidence in the winter season and in the month of July"
+],
+"a": 3,
+"e": "Of 6,105 suspected cases, 4,258 were diagnosed with canine parvoviral enteritis. Occurrence correlated positively with maximum temperature lagged 11 months, morning relative humidity lagged 1 month and rainfall lagged 10 months, and negatively with several other lagged temperature, humidity, rainfall and wind-speed terms. An autoregressive integrated moving average model with exogenous variables (ARIMAX) using lagged rainfall and wind speed performed best for forecasting. The shelter-relevant message is that parvovirus pressure is partly predictable from climate, which supports timing of vaccination and intake-surge planning.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Prisco and colleagues (2025) examined skeletal muscle and myocardium from cats naturally infected with feline immunodeficiency virus. What did they find?",
+"o": [
+"Inflammatory infiltrates in roughly one-third of muscle and myocardial samples, dominated by T cells, with circulating anti-skeletal muscle autoantibodies",
+"No inflammation in any sample, indicating that myopathy occurs only after experimental infection",
+"Neutrophilic myositis with no detectable viral antigen in leukocytes",
+"Amyloid deposition in myocardium without inflammatory cells"
+],
+"a": 0,
+"e": "Infiltrates were present in 9 of 31 (35%) quadriceps femoris and triceps brachii samples and 11 of 30 (37%) myocardial samples, frequently together. They were dominated by T cells with rare B cells and macrophages, and several leukocytes harboured feline immunodeficiency virus p24-gag antigen. Skeletal muscle showed higher transcription of interferon-gamma, tumour necrosis factor-alpha, interleukin-17 and transforming growth factor-beta; myocardium showed higher interleukin-17 and lower interleukin-13. Anti-skeletal muscle autoantibodies were detected up to a 1:1000 dilution, suggesting an autoimmune component, with a T-helper-1/T-helper-17 polarised response mirroring human immunodeficiency virus infection.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Vaccination",
+"q": "In Roccabianca and colleagues' 2025 study of 34 feline injection-site sarcomas, what was found regarding feline leukaemia virus proteins in the tumours?",
+"o": [
+"Feline leukaemia virus was amplified by polymerase chain reaction from every formalin-fixed sample",
+"At least one feline leukaemia virus antigen (p27 or gp70) was expressed in lymphoid infiltrates in 10 of 18 cases and in neoplastic fibroblasts in 8 of 18",
+"No feline leukaemia virus antigen was detected in any case",
+"Feline leukaemia virus antigen was found only in cats that were viraemic at diagnosis"
+],
+"a": 1,
+"e": "The study asked whether the lymphoplasmacytic infiltrate in injection-site sarcoma provides a niche for cutaneous lymphoma at an injection site. Male domestic shorthairs predominated, mean age 12.2 years (range 5-17), with tumours most often thoracic (24%), flank (21%) and interscapular (15%). B- and T-cell proportions varied between cases. One cat had a clonal T-cell receptor-gamma rearrangement and concurrent injection-site sarcoma and cutaneous lymphoma, but that case lacked feline leukaemia virus expression, and amplification from formalin-fixed paraffin-embedded material failed. Expression of p27 and/or gp70 in both spindle cells and infiltrates raises the possibility of viral involvement in tumorigenesis.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "In a multicentre retrospective study of 108 cats with feline infectious peritonitis treated with remdesivir, GS-441524 or both (Goto et al, 2025), which variable independently predicted death within 84 days?",
+"o": [
+"Rectal temperature of 39.4°C (103.0°F) or higher at presentation",
+"Age less than 12 months at diagnosis",
+"Plasma lactate dehydrogenase activity of 323 U/L or higher",
+"Serum albumin above the upper reference limit"
+],
+"a": 2,
+"e": "Short-term mortality was 12.0% (95% confidence interval 6.6-19.7%). On univariate analysis non-survivors had higher plasma lactate dehydrogenase activity and bilirubin, lower albumin, total protein, sodium and potassium, and were significantly less likely to be febrile (39.4°C / 103.0°F or above). Only lactate dehydrogenase activity at or above 323 U/L, a cut-point from receiver operating characteristic analysis, survived multivariable logistic regression (odds ratio 15.30, 95% confidence interval 1.18-198.00). Note the counter-intuitive direction of fever: absence of fever, not its presence, marked the cats that died.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Among 61 cats treated for feline infectious peritonitis in Andrews and colleagues' 2025 observational case series, how common was ocular involvement and how did it respond to antiviral treatment?",
+"o": [
+"Ocular signs occurred in 5% of cats and none resolved with antiviral treatment",
+"Ocular signs occurred only in cats with non-effusive disease and required enucleation",
+"Ocular signs occurred in 90% of cats but were limited to conjunctivitis",
+"Ocular signs occurred in 33% of cats, always as uveitis (most often panuveitis), and resolved in 82% of those followed long-term"
+],
+"a": 3,
+"e": "Ocular changes were diagnosed in 20 of 61 cats (33%) and were all uveitis: anterior in 20%, posterior in 25% and panuveitis in 55%, bilateral in 70%. Ocular disease occurred in both effusive (55%) and non-effusive (45%) forms, so the presence of uveitis does not discriminate between them. All cats started an 84-day course, 85% receiving remdesivir initially and most of those at a high dose of 15-20 mg/kg/day; 87% of anterior uveitis cases also received topical anti-inflammatory medication. Nine of 11 cats (82%) with long-term follow-up had resolution of uveitis and 80% of the 20 cats survived.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Norsworthy and colleagues (2025) reviewed 586 faecal panel results from 493 cats with chronic diarrhoea at a feline specialty practice. Which agent was detected most frequently?",
+"o": [
+"Feline coronavirus, in 321 of 493 cats (65.1%)",
+"Giardia species, in about 40% of cats",
+"Tritrichomonas blagburni, in about 30% of cats",
+"Feline panleukopenia virus, in about 20% of cats"
+],
+"a": 0,
+"e": "Feline coronavirus ribonucleic acid was found in 377 of 586 samples (64.3%) and Clostridium perfringens toxin deoxyribonucleic acid in 319 (54.4%), with both in 206 (35.2%); coronavirus was the sole pathogen in 118 cats (23.9%). Cats under 1 year were significantly more often positive (74.1% vs 58.3%), and positivity peaked in February and March. Other agents were far less common: Giardia 8.4%, Tritrichomonas blagburni 8.4%, Cryptosporidium 5.1%, Campylobacter jejuni 3.4%, panleukopenia virus 0.8%. The authors' point is that if feline coronavirus is truly non-pathogenic, its being the most frequent finding in chronic diarrhoea is hard to explain.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "Bogedale and colleagues (2025) used quantitative polymerase chain reaction to look for enteropathogenic bacteria in 234 cats from 41 catteries. What did they conclude about routine faecal bacterial polymerase chain reaction panels?",
+"o": [
+"Escherichia coli detection should trigger immediate antimicrobial treatment",
+"No tested bacterium was significantly associated with diarrhoea, so the data do not support such panels in the baseline work-up of feline diarrhoea",
+"Clostridium perfringens enterotoxin gene detection reliably identified cats with diarrhoea",
+"Salmonella enterica was the leading cause of diarrhoea in multicat households"
+],
+"a": 1,
+"e": "Faeces were scored with the Purina Fecal Score, with scores of 4-7 defined as diarrhoea; 23 of 234 cats (9.8%) had diarrhoea. Testing covered Escherichia coli, Clostridium perfringens alpha toxin and enterotoxin genes, Clostridioides difficile, Campylobacter jejuni/coli and Salmonella enterica. After correction for multiple comparisons none was significantly associated with diarrhoea, and Escherichia coli was found in 100% of samples. Clostridioides difficile (2.3%), Campylobacter coli (0%) and Salmonella enterica (0.9%) were too rare to evaluate. For shelters this argues against reflex bacterial panels and in favour of targeted testing.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "A 2025 systematic review and meta-analysis of 71 studies estimated the global prevalence of microsporidia in rabbits. What were the pooled prevalence and the predominant species?",
+"o": [
+"About 70% overall, with Encephalitozoon hellem predominating",
+"About 31% overall, with no single species predominating",
+"About 31% overall, with Encephalitozoon cuniculi predominating",
+"About 5% overall, with Enterocytozoon bieneusi predominating"
+],
+"a": 2,
+"e": "The pooled global prevalence was 0.312 (95% confidence interval 0.250-0.378) across 72 datasets published between December 2003 and March 2023. Prevalence varied by continent, highest in North America (0.495), with Slovenia reporting the highest national pooled prevalence (0.714). Encephalitozoon cuniculi accounted for the highest species-level prevalence (0.338). The zoonotic potential of microsporidia, together with this prevalence, is why the authors frame rabbit microsporidiosis as a neglected public health concern as well as a rabbit health problem.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Silva and colleagues (2025) compared dried blood spots with paired serum from 172 European rabbits for antibodies against myxoma virus and rabbit haemorrhagic disease virus. What did they conclude?",
+"o": [
+"Dried blood spots produced too many false positives to be usable",
+"Dried blood spots worked for rabbit haemorrhagic disease virus but not for myxoma virus",
+"Dried blood spots matched serum only when samples were frozen within 1 hour",
+"Agreement with serum was almost perfect for myxoma virus and strong for rabbit haemorrhagic disease virus, with 100% specificity, supporting dried blood spots for field surveys"
+],
+"a": 3,
+"e": "Using indirect enzyme-linked immunosorbent assay for immunoglobulin G, agreement was almost perfect for myxoma virus (Cohen's kappa 0.914) and strong for rabbit haemorrhagic disease virus genotype GI.2 (kappa 0.808). Diagnostic sensitivity was 95.4% for myxoma virus and 82.1% for the haemorrhagic disease virus, while diagnostic specificity and positive predictive value were 100% for both. Both viruses matter for rabbit conservation as well as commercial rabbit production, since the wild European rabbit is now classified as Endangered in its native range, and dried blood spots make large-scale field sampling practical.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "A 2025 systematic review and meta-analysis of 106 surveys examined Dirofilaria immitis (heartworm) in Australian canids. What geographic pattern was found, and what does it imply for prevention guidance?",
+"o": [
+"Pooled prevalence was significantly higher in humid summer zones (18.7%) than in cool winter zones (2.1%), so blanket preventative recommendations do not match actual regional risk",
+"Prevalence was uniform across Australia, confirming that blanket recommendations are appropriate",
+"Prevalence was highest in the cool southern zones because of longer mosquito seasons",
+"Survey quality, not climate, explained nearly all the heterogeneity between surveys"
+],
+"a": 0,
+"e": "Reported prevalence across 41 publications ranged from 0.0% to 100.0%. Temperature/humidity zone explained roughly 30% of the heterogeneity between surveys, and survey quality did not change that proportion. Pooled prevalence was 18.7% (95% confidence interval 10.9-30.1%) in humid summer zones versus 2.1% (1.0-4.3%) in cool winter zones, mirroring the equator-ward gradient described in the United States and Europe. Australian preventative guidelines are not climate-specific, which implies homogeneous risk that the data do not support.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Walz and colleagues (2025) followed 49 dogs that had acute Giardia-associated gastroenteritis before 9 months of age, comparing them with 50 matched controls at least 12 months later. What did they find?",
+"o": [
+"Lower prevalence of chronic gastrointestinal signs in the Giardia group",
+"Higher prevalence of chronic gastrointestinal signs (29% vs 10%) and of pruritus (33% vs 8%) in the Giardia group",
+"No difference in any chronic sign between groups",
+"Higher prevalence of chronic kidney disease but not of gastrointestinal signs"
+],
+"a": 1,
+"e": "The study was prompted by post-infectious irritable bowel syndrome, which is common in humans after acute giardiasis. Chronic gastrointestinal signs occurred in 14 of 49 Giardia dogs versus 5 of 50 controls (p = 0.03) and pruritus in 16 of 49 versus 4 of 50 (p = 0.01). A high canine acute diarrhoea severity index during the acute episode combined with metronidazole treatment increased the risk of later chronic gastrointestinal signs (p = 0.04). That last point is directly relevant to shelter protocols, where metronidazole is often reached for reflexively in juvenile diarrhoea.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "Deak and colleagues (2025) compared coproscopy and polymerase chain reaction against necropsy as the gold standard for cestode detection in 81 dogs and cats. What was the key finding?",
+"o": [
+"Coproscopy outperformed necropsy for Dipylidium caninum",
+"Both methods showed almost perfect agreement with necropsy for all cestodes",
+"Both methods had poor sensitivity, and neither detected Dipylidium caninum despite its presence at necropsy",
+"Polymerase chain reaction detected every infection missed by coproscopy"
+],
+"a": 2,
+"e": "Necropsy found cestodes in 7 of 81 animals (8.6%): Dipylidium caninum in 3 (1 of 46 dogs, 2 of 35 cats) and Hydatigera taeniaeformis in 4 of 35 cats. Coproscopy and polymerase chain reaction detected only Hydatigera taeniaeformis, in 2 and 3 cats respectively, and no polymerase chain reaction positives were recorded for Dipylidium caninum. Overall agreement with necropsy was only moderate (coproscopy kappa 0.42; polymerase chain reaction kappa 0.58). Intermittent proglottid shedding is the reason, and the authors call for a commercially available coproantigen test.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "In Becskei and colleagues' 2025 laboratory and field studies of 130 dogs with generalised demodicosis, how did a monthly chewable tablet containing sarolaner, moxidectin and pyrantel perform against afoxolaner plus milbemycin oxime?",
+"o": [
+"It was significantly inferior to the comparator at every time point",
+"It eliminated mites only when combined with weekly amitraz dips",
+"It reduced mite counts but clinical signs failed to improve in most dogs",
+"It reduced live mite counts by 99.2% by day 29 in the laboratory study and was non-inferior to the comparator, with no live mites detected thereafter"
+],
+"a": 3,
+"e": "In the randomised masked laboratory study, mite counts fell 88.8% by day 14 and 99.2% by day 29 with no live mites detected afterwards, with no statistically significant difference between the two products (p = 0.96). In the field study, reductions in arithmetic mean live mite counts were 92.4%, 98.1%, 100% and 100% at days 30, 60, 90 and 120, and the combination was non-inferior at days 30 and 60. Clinical signs improved in all dogs and both products were well tolerated. Mites were eliminated after two monthly treatments in the laboratory study and at most three in the field.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "In a 2025 prospective study of 31 dogs with chronic otitis externa of at least 3 months' duration referred for video-otoscopy and ear flush, which finding was strongly associated with treatment failure?",
+"o": [
+"Isolation of Pseudomonas species",
+"Isolation of Malassezia pachydermatis",
+"Bilateral rather than unilateral disease",
+"An owner-reported pruritus visual analogue score below 3"
+],
+"a": 0,
+"e": "Chronic otitis externa was successfully treated in 79.6% of ears, with a mean time to resolution of 6 weeks after the initial consultation. Quality-of-life scores improved significantly for both dogs and owners across follow-up visits, which is the study's main message: the burden falls on the household as well as the patient, and timely specialist referral improves both. Isolation of Pseudomonas species was strongly associated with treatment failure, and late age of onset and longer episodes were associated with worse outcomes.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "Bian and colleagues tested silence, purring, eating sounds, and a mixture of purring and eating sounds on 20 cats placed in a novel environment. What was the result?",
+"o": [
+"The sound treatments increased stress behaviours compared with silence",
+"Only the mixed purring-plus-eating sound reduced visual scanning, and overall the cat-specific sounds did not markedly relieve stress",
+"Purring alone abolished all stress-related behaviours",
+"All three sound treatments significantly reduced stress compared with silence"
+],
+"a": 1,
+"e": "Each of the 20 cats received all four treatments in random order with 1 week between them over a 28-day period, with behaviour recorded during 10-minute tests. The mixed sound reduced visual scanning (p = 0.017) without significantly affecting other behaviours. Species-appropriate music incorporating affiliative sounds has previously been shown to relieve feline stress, but this study suggests the affiliative sounds alone are not sufficient, which matters when shelters consider audio enrichment as a low-cost intervention.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "In Stephens-Lewis and colleagues' qualitative survey of 175 dog guardians about expectations of canine behaviour and companionship, what did the authors conclude?",
+"o": [
+"Guardians expected almost nothing of their dogs beyond physical presence",
+"Expectations were determined entirely by breed and not by the guardian",
+"Expectations frequently moved beyond realistic behaviour and capability for both dogs and guardians, which is relevant because unmet expectations contribute to relinquishment",
+"Guardian expectations closely matched what dogs can realistically deliver"
+],
+"a": 2,
+"e": "Reflexive thematic analysis produced five themes: a well-balanced dog, obedient, affection and connection, shared interests, and commitment. Because large numbers of dogs are relinquished each year for perceived behavioural concerns, the authors call for clearer conceptualisation of canine behaviour, particularly the distinction between observable behaviour and behavioural interpretations such as personality and temperament. Understanding guardian expectations should improve educational materials and the adoption-matching process, building on the Perceived Canine Reactivity Framework.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Non-Surgical Sterilization",
+"q": "Roulaux and colleagues (2025) surveyed 404 dog owners about chemical castration of male dogs. What was the most common reason for using it, and how well did its effects predict those of surgical castration?",
+"o": [
+"Most used it to avoid anaesthesia permanently, and effects matched surgery in under 20% of cases",
+"Most used it for medical treatment of prostatic disease, and behavioural effects were never comparable",
+"Most used it on veterinary advice for population control, and it always produced different effects from surgery",
+"Most used it to test the likely behavioural effect of surgical castration, and owner-reported effects of the two were completely or largely the same in 81.7% of cases"
+],
+"a": 3,
+"e": "Male dogs are often castrated to correct unwanted behaviour, but behavioural effects vary and health benefits are few, so reversible chemical castration can be used as a trial before an irreversible surgery. After the trial, similar numbers of owners left the dog intact or proceeded to surgical castration; the most common reason for leaving the dog intact was negative behavioural effects during chemical castration. The high concordance between chemical and surgical effects supports offering a chemical trial to owners considering castration for behaviour. The sample was a convenience one, mostly university-educated women.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Non-Surgical Sterilization",
+"q": "A 2025 case report describes a 3-year-old intact male British Shorthair with owner-directed aggression and urine marking that was given a 4.7 mg deslorelin implant. How was the expected post-implant flare-up managed, and what happened?",
+"o": [
+"Gabapentin at 10 mg/kg by mouth every 12 hours for 21 days plus behavioural management; a flare-up appeared at day 10 and resolved spontaneously within 4 days",
+"The implant was surgically removed as soon as aggression worsened",
+"Fluoxetine was started after the flare-up began and signs resolved within 24 hours",
+"No flare-up occurred, because deslorelin has no initial stimulatory phase"
+],
+"a": 0,
+"e": "Deslorelin is a gonadotropin-releasing hormone agonist: it produces an initial stimulatory surge in testosterone before downregulation, so a transient worsening of hormone-influenced behaviour is expected. Behavioural consultation diagnosed fear-based defensive aggression with territorial traits, worsened by the introduction of a second tomcat. Management was multimodal, involving a veterinary behaviourist and a reproduction specialist. Outcomes included cessation of urine marking, increased affiliative behaviour and stable cohabitation. Owner education about feline emotional expression was described as vital to success.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "General",
+"q": "Franck and colleagues (2025) gave 40 healthy cats a single 100 mg oral dose of gabapentin or placebo 90 minutes before a veterinary visit. What did they find?",
+"o": [
+"Gabapentin significantly raised blood lactate compared with placebo",
+"Gabapentin had no significant effect on Cat Stress Score, and no stress-related leukocytosis, hyperglycaemia, hypokalaemia or raised lactate occurred in either group",
+"Gabapentin significantly lowered Cat Stress Score and abolished stress hyperglycaemia",
+"Gabapentin caused clinically significant hypokalaemia in most treated cats"
+],
+"a": 1,
+"e": "Cats were assessed with the Cat Stress Score, a 1-7 observational scale, at two evaluations 2 weeks apart, with blood glucose, serum potassium and lactate measured. Only lymphocyte count differed significantly between groups. The authors' own interpretation is important for interpreting the negative result: cat-friendly handling techniques were used throughout the study and may have kept stress low enough to mask any drug effect. It is a reminder that handling quality and drug effect are not independent variables in feline visit-stress studies.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "In a 2025 cross-sectional study of 304 dogs assessed with a validated translation of the Dog Personality Questionnaire, exposure to secondhand cigarette smoke was associated with which pattern?",
+"o": [
+"No association with any behavioural trait after adjustment",
+"Increased aggression only, with no effect on fear or anxiety",
+"Increased fearfulness, aggression toward people and other animals, and anxiety, with reduced activity and trainability",
+"Increased trainability and activity with no change in fear"
+],
+"a": 2,
+"e": "Significant associations were found across six behavioural traits: increased fearfulness (odds ratio 1.73), reduced activity (1.77), aggression toward people (1.68) and toward other animals (3.40), diminished trainability (3.42) and elevated anxiety (7.25). Owners of both smokers and non-smokers completed a tailored exposure questionnaire alongside the personality instrument. The association between passive smoking and behavioural change is well documented in humans but barely studied in dogs, so this cross-sectional finding identifies a modifiable household factor worth asking about in behaviour histories.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Common Behavior Problems",
+"q": "Using owner-entered data from 43,517 dogs in the Dog Aging Project, Beaver and colleagues (2025) described the prevalence of aggression by target. Which figure is correct?",
+"o": [
+"5.4% of dogs showed aggression toward unfamiliar dogs, versus 49.9% toward familiar people",
+"Aggression toward familiar dogs was the most common category at 49.9%",
+"Fewer than 10% of dogs showed aggression of any kind at any level",
+"49.9% of dogs showed aggression toward unfamiliar dogs, versus 5.4% toward familiar people"
+],
+"a": 3,
+"e": "Ten questions in the aggression section were grouped into four categories (unfamiliar people, familiar people, unfamiliar dogs, familiar dogs), each rated 0 (none), 1-2 (moderate) and 3-4 (serious). Overall, 57.5% of dogs received at least one rating of 2 or higher. By category: unfamiliar dogs 49.9%, unfamiliar people 38.8%, familiar dogs about 14.5% and familiar people 5.4%. The pattern - aggression directed most often at unfamiliar targets and least often at familiar people - is consistent across large owner-report datasets and is worth holding in mind when interpreting a single shelter behaviour observation.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Stress",
+"q": "Caudron and colleagues (2025) surveyed owners of 33 cats diagnosed with feline idiopathic cystitis to look for behavioural predictors of recurrence. Which factor was significantly associated with recurrence?",
+"o": [
+"Fear of unfamiliar people",
+"Aggression toward other animals in the household",
+"Urine marking",
+"Owner non-compliance with prescribed environmental modification"
+],
+"a": 0,
+"e": "Of cats that had recurrences, 94% were reported by owners to show fear of strangers, versus 59% of cats with a single episode (p = 0.04). Fearful behaviour around familiar people also tended to be over-represented in the recurrence group (p = 0.08). Factors that did not differ included aggression toward humans or other animals, being a victim of aggression, urine marking and owner compliance with environmental recommendations. The clinical implication is that identifying and treating fear and anxiety problems may reduce recurrence, and therefore the morbidity and mortality associated with feline idiopathic cystitis.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Vaccination",
+"q": "Suga and colleagues genotyped feline herpesvirus-1 isolates from the eyes of four cats with corneal dendritic ulcers. What did they demonstrate?",
+"o": [
+"Dendritic ulcers were caused by feline calicivirus rather than herpesvirus",
+"One of the four isolates was identical to the F2 modified live vaccine strain, showing the vaccine strain can replicate in corneal epithelium and produce lesions",
+"All four isolates were field strains, ruling out any vaccine involvement",
+"The vaccine strain was present but genetically incapable of replicating in corneal epithelium"
+],
+"a": 1,
+"e": "All open reading frame sequences of three F2 vaccine products and of clinical isolates in GenBank were compared to find nucleotide variants unique to F2, which were then used for simplified genotyping; single unique variants were identified in open reading frames 28 and 44. Of the four isolates from cats with dendritic ulcers, one (the NS strain) carried the F2 variants, and next-generation sequencing showed all its open reading frames were identical to two of the F2 vaccine products and to some clones of the third. This is a caution about modified live herpesvirus vaccine handling, since aerosolised or misdirected vaccine can seed the conjunctiva.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "The 2025 International Society for Companion Animal Infectious Diseases guidelines for canine pyoderma make which core recommendation about first-line treatment?",
+"o": [
+"Reserve cytology for cases that fail an initial course of systemic antibiotics",
+"Treat all pyoderma with a 6-week course of systemic fluoroquinolones",
+"Perform cytology in all cases before antimicrobials are used, and treat surface and superficial pyoderma with topical antimicrobial therapy alone as the treatment of choice",
+"Start systemic antimicrobials empirically in all cases and add topical therapy only if that fails"
+],
+"a": 2,
+"e": "Systemic antimicrobials should be reserved for deep pyoderma, and for superficial pyoderma when topical therapy is not effective. When systemic therapy is used with adjunctive topical treatment, the initial course is 2 weeks for superficial and 3 weeks for deep pyoderma, followed by re-examination to assess progress and address primary causes. First-choice drugs are expected to work against most meticillin-susceptible Staphylococcus pseudintermedius; for any other drug, laboratory testing should confirm susceptibility and exclude safer alternatives. Proactive topical antiseptics may prevent recurrence - the skin's accessibility makes it a high-yield target for antimicrobial stewardship.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
+"sub": "Spay-Neuter",
+"q": "A 3-year trap-neuter-return trial run by the Society for the Prevention of Cruelty to Animals on Cheung Chau Island, Hong Kong SAR, reported what level of sterilisation coverage of the free-roaming dog population?",
+"o": [
+"An average of 25%, below the threshold for population effect",
+"An average of 50%, which the authors judged sufficient for eradication",
+"Coverage was not estimated because the population size could not be surveyed",
+"An average of 75%, which met the threshold associated with successful trap-neuter-return programmes"
+],
+"a": 3,
+"e": "A total of 182 dogs were encountered during the study period, in which the organisation surveyed the population and trapped, desexed and where possible rehomed free-roaming dogs. Reaching an estimated 75% sterilisation coverage is the operative finding, because sustained coverage in that range is what the trap-neuter-return literature associates with population decline. The authors present it as the first such result for Hong Kong SAR and as guidance for programmes elsewhere in Asia, while framing free-roaming dog populations as arising from unowned abandonment and unmanaged ownership.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Zoonotic Disease",
+"q": "Amadei and colleagues (2025) developed a loop-mediated isothermal amplification assay for Sporothrix in cats. Why does this matter for public health, and how did the assay perform?",
+"o": [
+"Zoonotic sporotrichosis spreads mainly via Sporothrix brasiliensis from cats through scratches, bites or contact with exudate; the assay was 96.77% sensitive on isolates and 100% on blood samples",
+"Sporotrichosis is not zoonotic, so the assay is purely of research interest; sensitivity was 50%",
+"The assay replaces the need for any confirmatory testing and was 100% sensitive on every sample type",
+"Sporothrix spreads mainly by aerosol from cats; the assay was tested only on environmental samples"
+],
+"a": 0,
+"e": "Six primers were designed against the 28S ribosomal ribonucleic acid region of Sporothrix schenckii and Sporothrix brasiliensis, with colorimetric read-out and agarose gel electrophoresis, confirmed by Sanger sequencing. The detection limit was 1-10 pg of Sporothrix deoxyribonucleic acid depending on matrix. Sensitivity was 100% on blood, 92.31% on lesion swabs, 100% on adhesive tape from cutaneous lesions, and 77.78% on intranasal swabs. The appeal is that loop-mediated isothermal amplification needs only a heat block, making it usable where culture is unavailable or too slow.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "A 2025 systematic review of 17 studies on feline chronic gingivostomatitis reported which overall frequency and which contributing factors?",
+"o": [
+"A frequency of 10.9%, with a single confirmed viral aetiology",
+"A frequency of 10.9% (747 of 6,881 cats), with oral microbiome dysbiosis and agents such as feline calicivirus and feline herpesvirus type 1 implicated",
+"A frequency of 45%, with dental calculus identified as the sole cause",
+"A frequency of 1%, with no infectious agents implicated"
+],
+"a": 1,
+"e": "Searching four databases plus dentistry forum proceedings, 17 articles published between 1984 and 2023 met inclusion criteria. Six explored cat-inherent factors (age, sex, reproductive status), two explored environment, feeding and management (confinement type, number of cats in the household, vaccination status), and 15 explored infectious agents and microbiome profiling. Fusobacterium nucleatum, Porphyromonas species and Pasteurella multocida, along with feline calicivirus and herpesvirus type 1, appear central, and coinfection with feline immunodeficiency virus and feline leukaemia virus raises risk. The specific aetiology remains unknown; dysbiosis plus altered local and systemic immunity perpetuates the inflammation.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "In Renner and colleagues' 2025 prospective study of 29 New Zealand cats with feline infectious peritonitis treated with compounded oral remdesivir at 30 mg/kg every 24 hours, which statement is correct?",
+"o": [
+"Effusive cases relapsed far more often than non-effusive cases",
+"Oral remdesivir was ineffective for effusive disease and was abandoned mid-study",
+"86% entered remission and survived beyond 6 months, but 50% of non-effusive cases relapsed compared with 5% of effusive cases",
+"All cats entered remission and no relapses occurred in either disease form"
+],
+"a": 2,
+"e": "Twenty-two of 29 cats (75%) achieved remission within 84 days on oral remdesivir, and three needed molnupiravir rescue therapy. Five cats (20%) relapsed: 4 of 8 non-effusive cases (50%) versus 1 of 20 effusive cases (5%). The authors conclude that 30 mg/kg every 24 hours is effective for effusive disease, but that a higher dose rate or frequency should be considered for non-effusive disease, where survival was significantly lower. Oral remdesivir matters as a viable antiviral where GS-441524 is unavailable - a live consideration in jurisdictions with restricted access.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Haubrich and colleagues (2025) followed 42 cats undergoing general anaesthesia for non-ophthalmic procedures, with prophylactic ocular lubrication given at induction and every 15 minutes until extubation. What was found?",
+"o": [
+"Corneal ulceration developed in most cats despite lubrication",
+"Tear production returned to baseline within 1 hour of extubation",
+"Cats had a lower prevalence of corneal injury after anaesthesia than dogs",
+"No cat developed corneal ulceration, but 27.4% of eyes developed corneal erosion and tear production fell significantly for at least 4 hours after anaesthesia"
+],
+"a": 3,
+"e": "Schirmer tear test-1 and fluorescein staining were performed before anaesthesia and hourly for 4 hours after extubation. No fluorescein uptake consistent with ulceration occurred, but 14 cats and 23 eyes (27.4%) developed corneal erosion across time points, and tear production was significantly decreased at all four post-anaesthetic time points. Premedication opioid choice and corneal exposure were significant risk factors. Cats appear to have a higher prevalence of corneal injury after anaesthesia than dogs, so frequent lubrication is recommended both during and after anaesthesia - directly relevant to high-volume surgery days.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Accino and colleagues (2025) gave seven dogs with chronic inflammatory enteropathy a faecal microbiota transplantation by enema (six received a single transplant). What happened clinically and microbiologically?",
+"o": [
+"The clinical activity index fell significantly by day 30 with an average response lasting about 10 weeks, but recipient microbiota composition and diversity did not change",
+"Both the clinical activity index and microbiota diversity changed significantly and durably",
+"Neither clinical signs nor microbiota changed at any time point",
+"Microbiota composition changed markedly but clinical signs did not improve"
+],
+"a": 0,
+"e": "Median canine chronic enteropathy clinical activity index fell from 8 (range 5-14) before transplantation to 3 (range 1-12) within 1 week and 1 (range 0-12) by day 30 (p < 0.01). Sequencing of 16S ribosomal ribonucleic acid showed significant variation in the donors' own microbiota across donations, but no change in recipient composition or diversity over time. Adding 10% glycerol as a cryopreservative was itself associated with a difference in microbiota composition (p ≤ 0.001). So a single transplant can help clinically, but the mechanism is not the presumed durable engraftment.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "In a 10-year review of 343 bacterial isolates from bile and liver cultures in 309 dogs and cats (Schlachet et al, 2025), which finding was reported?",
+"o": [
+"Polybacterial cultures were more common than monobacterial cultures",
+"Escherichia coli was the most common isolate (49%), and multidrug resistance was far more likely in animals previously treated with antibiotics (81% vs 30%)",
+"Gram-positive organisms predominated and multidrug resistance was rare",
+"Prior antibiotic treatment had no effect on the likelihood of multidrug resistance"
+],
+"a": 1,
+"e": "Monobacterial cultures predominated (91%, 283 of 310) and Gram-negative bacteria made up 67% of isolates, led by Escherichia coli (49%), Staphylococcus species (14%) and Enterococcus species (10%). Multidrug-resistant isolates comprised 40% of the total, including 30% of Escherichia coli and 68% of Enterococcus species. Gram-negative resistance was 33% to amoxicillin-clavulanic acid, 47% to aminopenicillins and 16% to fluoroquinolones. Resistance was significantly higher in 2010-2014 than 2015-2019 for several drug classes. The conclusion is practical: culture and susceptibility testing remain essential in suspected hepatobiliary infection.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Karra and colleagues (2025) randomised 11 of 28 cats with chronic enteropathy to a single enema faecal microbiota transplantation, with 17 as controls. What was concluded?",
+"o": [
+"The transplantation improved the dysbiosis index but worsened clinical signs",
+"Controls deteriorated significantly while treated cats remained stable",
+"A single enema transplantation did not significantly improve the dysbiosis index or the clinical activity index compared with controls",
+"The transplantation normalised the dysbiosis index in every treated cat"
+],
+"a": 2,
+"e": "Cats had either chronic inflammatory enteropathy (n = 19) or small cell gastrointestinal lymphoma (n = 9). Assessment used the Feline Chronic Enteropathy Activity Index and the feline dysbiosis index on the day of transplantation and 30 days later. Half the cohort (14 of 28) had an abnormal dysbiosis index above 0 at baseline. The dysbiosis index did not change significantly within the treatment group or between groups at day 30. The activity index fell significantly within the transplantation group (median 10.0 to 4.5, p = 0.002) but did not differ from controls at day 30 (p = 0.64) - which is why a control group matters.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Nutrition & Husbandry",
+"q": "In a 2025 multicentre retrospective study of dogs with chronic enteropathy, what proportion of treatment-naive dogs whose only therapeutic change was transition to a hydrolysed diet improved?",
+"o": [
+"25% (4 of 16) had a decreased stool-consistency score",
+"None improved without concurrent glucocorticoid therapy",
+"All 81 treatment-naive dogs improved on the hydrolysed diet alone",
+"88% (14 of 16) had a decreased stool-consistency score"
+],
+"a": 3,
+"e": "Of 81 dogs with treatment-naive chronic enteropathy, the hydrolysed diet transition was the only therapeutic change in 20% (16 of 81), and 88% of those improved (p < 0.001). Among 23 dogs with non-responsive enteropathy, transition to an alternative diet was the sole adjustment in 70% (16 of 23), and the total Canine Inflammatory Bowel Disease Activity Index score declined in 69% (p < 0.001). The study supports a hydrolysed diet as first-line in naive cases and a second, different dietary trial before escalating therapy in dogs labelled non-responsive.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Pfaff and colleagues (2025) compared 136 hospitalised dogs that developed clinical signs of fluid overload with 109 that did not. Which statement matches their findings?",
+"o": [
+"Fluid overload was associated with underlying cardiovascular and kidney disease rather than with total intravenous fluid volume, and predicted longer hospitalisation and lower survival to discharge",
+"Fluid overload was driven mainly by the total intravenous fluid volume administered",
+"Fluid overload had no effect on hospitalisation duration or survival",
+"Most dogs with fluid overload met the human definition of more than 10% weight gain"
+],
+"a": 0,
+"e": "Dogs with fluid overload were significantly more likely to have cardiovascular disease (odds ratio 18.1), protein-losing nephropathy (15.3), chronic kidney disease (10) and acute kidney injury (5.2). Total intravenous fluid volume did not differ between groups (p = 0.16). Only 6.0% of dogs with clinical signs of fluid overload gained more than 10% of their non-dehydrated baseline weight, so the human-medicine weight-gain definition captured almost none of the affected dogs and needs re-evaluation in dogs. Fluid overload was associated with significantly longer hospitalisation and lower survival to discharge.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "In a 2-year prospective screening study of 122 apparently healthy senior and geriatric dogs (Marynissen et al, 2025), what was found?",
+"o": [
+"Only laboratory testing, not physical examination, detected malignant neoplasia",
+"20% already had at least one disease at baseline, and neoplasia (12%), neurologic disease (11%) and azotaemic chronic kidney disease (8%) emerged within 2 years",
+"No disease was detected at baseline in any dog",
+"Orthopaedic disease was by far the most common emerging disorder at 40%"
+],
+"a": 1,
+"e": "History, physical examination, blood testing and urinalysis were repeated every 12 months. Screening at baseline reclassified 20% of apparently healthy dogs as diseased, leaving 98 confirmed healthy dogs for follow-up. Malignant neoplasia was detectable on physical examination alone in 47% (8 of 17) of affected dogs, using rectal, skin and mammary gland palpation - a reminder of how much a thorough hands-on examination returns. Only age group predicted survival, with geriatric dogs more likely to die than senior dogs. The authors single out repeat screening for chronic kidney disease, rectal palpation, and neurologic and orthopaedic assessment as most worthwhile.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Barton and colleagues (2025) measured urine protein-to-creatinine ratio in 144 dogs with primary immune-mediated disease. What proportion was proteinuric, and which findings raised the odds?",
+"o": [
+"53% were proteinuric, with male sex and hypothermia raising the odds",
+"All proteinuric dogs were also azotaemic, which explained the finding",
+"53% were proteinuric (26% severely), with higher odds in female dogs, dogs with pyrexia and dogs with haemoglobinuria",
+"Under 10% were proteinuric, and no clinical feature predicted proteinuria"
+],
+"a": 2,
+"e": "Dogs were classified as non-proteinuric (ratio below 0.5) in 47%, mildly proteinuric (0.5 to under 1) in 17%, moderately (1 to under 2) in 10% and severely (2 or above) in 26%. On multiple logistic regression, female dogs (odds ratio 3.24), pyrexia (6.59) and haemoglobinuria (27.21) were more likely to be proteinuric. Note the exclusions that make the finding clean: azotaemia, hypoalbuminaemia below 2.0 g/dL, foreign travel, active urine sediment or positive culture, and prior glucocorticoids. The authors suggest screening for proteinuria as part of the work-up for immune-mediated disease.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "In a retrospective review of cavitary effusions in 269 dogs and 107 cats (Sotillo et al, 2025), what did cytologic classification predict?",
+"o": [
+"Cytologic category predicted the cause equally well in dogs and cats",
+"Cytologic category predicted the cause in cats but not in dogs",
+"Neoplasia produced transudates rather than exudates in both species",
+"In dogs, peritoneal transudates were most often from decreased oncotic pressure and modified transudates from increased hydrostatic pressure, whereas in cats no statistical relationship was found between cytologic category and cause"
+],
+"a": 3,
+"e": "In dogs, peritoneal transudates were most often caused by decreased oncotic pressure (63%) and modified transudates by increased hydrostatic pressure (41%); peritoneal exudates more often reflected increased vascular permeability (40%), ruptured viscera (35%) or neoplasia (23%). Pleural transudates were mostly from decreased oncotic pressure (79%), modified transudates from increased hydrostatic pressure (33%) or neoplasia (29%), and pleural exudates from neoplasia (52%) or increased vascular permeability (36%). In cats, peritoneal effusions were commonly caused by increased vascular permeability or neoplasia and pleural effusions by increased hydrostatic pressure or neoplasia, with substantial overlap across causes.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "Ojasanya and colleagues (2025) analysed 344,862 urinary Escherichia coli isolates from dogs and cats in the United States (2019-2022). What was found about seasonality and resistance?",
+"o": [
+"Susceptibility testing peaked in summer, but no seasonality in resistance was found nationally or regionally; amoxicillin resistance was highest at about 28% and resistance rates varied by climatic zone",
+"Both testing and resistance peaked sharply in winter",
+"Resistance rates rose significantly for every drug tested in dogs over the study period",
+"The hot-humid zone had both the lowest resistance rates and the highest testing rates"
+],
+"a": 0,
+"e": "Isolates were 74.2% from dogs and 25.8% from cats, tested against seven antimicrobials. Testing volume rose over time with a summer peak in both species, which suggests seasonality in urinary tract infections themselves. Resistance was highest to amoxicillin (27.9% in dogs, 28.4% in cats). Resistance declined significantly for all drugs tested in dogs, but in cats only for cefovecin, marbofloxacin and enrofloxacin. No seasonality in resistance was detected nationally or by climatic zone, though rates varied significantly between zones, and the hot-humid zone had the highest resistance rates but the lowest testing rate per million dogs and cats.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
 "q": "Across multiple shelter studies, adding canine parvovirus monoclonal antibody (CPMA) to a standard supportive-care protocol for dogs with naturally occurring parvovirus has most consistently been shown to:",
 "o": [
 "Significantly reduce mortality compared with standard care alone",
