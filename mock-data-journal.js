@@ -44556,6 +44556,141 @@
 {
 "type": "mcq",
 "domain": "Physical Health",
+"sub": "Medical (Non-Infectious)",
+"q": "In a 2025 report of Tyzzer's disease (Clostridium piliforme) on a commercial rabbit farm, what made the outbreak unusual compared with the classic presentation of the disease?",
+"o": [
+"It occurred exclusively in breeding rabbits, causing increased doe mortality and late-gestation abortions, rather than in recently weaned animals",
+"It occurred only in recently weaned kits, exactly as expected, with no adult involvement",
+"It was confined to the respiratory tract of adult bucks",
+"It was only diagnosed once Toxoplasma gondii was confirmed as the cause of the abortions"
+],
+"a": 0,
+"e": "Clostridium piliforme is a pleomorphic, spore-forming, obligate intracellular bacterium, and in rabbits the disease is normally sporadic in recently weaned animals — so an outbreak restricted to breeding does is the anomaly. Necropsy lesions were suggestive and polymerase chain reaction confirmed the organism. Parasitology was negative, and the heavy intestinal Escherichia coli and Clostridium perfringens loads were judged secondary; Chlamydophila species and Toxoplasma gondii were excluded as causes of the abortions. Subcutaneous oedema then appeared in several does and in young breeders born after the outbreak resolved. The authors' wider point is that falling antimicrobial use may let neglected diseases re-emerge, so uncommon pathogens deserve suspicion in commercial rabbitries.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Behavioral Health",
+"sub": "Assessment & Decision",
+"q": "Pellowe and Walsh (2025) examined how guardians complete the four familiar dog aggression items of the Canine Behavioral Assessment and Research Questionnaire (C-BARQ), which are intended to capture rivalry between dogs in the same household. What did they find?",
+"o": [
+"Familiar dog aggression scores were reported consistently in every published C-BARQ study reviewed",
+"92 of 157 guardians of single-dog households completed the familiar dog aggression items anyway, frequently scoring interactions with dogs outside the household",
+"Guardians of single-dog households correctly left the familiar dog aggression items blank",
+"The items were completed only by guardians of three or more dogs"
+],
+"a": 1,
+"e": "Single-dog households should generate no familiar dog aggression score at all, so those unexpected scores matter. Follow-up showed the singleton dogs with such scores were more likely to take part regularly in social activities with other dogs, and had marginally lower fear-related C-BARQ scores than singletons without a score or dogs in multi-dog homes. A scoping review of English-language C-BARQ studies then found wide variation in whether the subscale was reported at all, and papers reporting significant familiar dog aggression findings often did not state what proportion of scores came from singleton dogs — an accuracy and replicability problem. The practical lesson is that \"familiar\" has to be defined for the person filling in the form.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Infectious Disease",
+"q": "A 2025 scoping review of complete antimicrobial protocols for Leptospira infection in domestic animals (35 studies) described which pattern of treatment?",
+"o": [
+"Penicillin was the only agent reported in any species",
+"Protocols were highly standardised across species, with consistent assessment of bacteriological cure",
+"Streptomycin monotherapy predominated in livestock and was highly effective against renal and genital carriers, while dogs and cats were usually treated for acute disease with doxycycline and aminopenicillins",
+"Doxycycline monotherapy predominated in every species, including cattle and pigs"
+],
+"a": 2,
+"e": "Studies had to report dose, duration and a confirmed diagnosis to be included: 14 in cattle (40%), 7 in swine, 7 in dogs and cats, 5 in horses and 2 in small ruminants. Streptomycin's effectiveness against carriers is offset by regulatory restrictions in several countries. Horses were mainly given penicillin, alone or combined. Across species the protocols were substantially heterogeneous and unharmonised, bacteriological cure was rarely evaluated, and most studies predate 2000 — which is the review's real finding: animal leptospirosis is a neglected disease, and species-specific guidelines are still needed in a One Health context.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "In a prospective multicentre cohort of 55,019 canine anaesthetics (Redondo et al, 2025), what was the overall anaesthetic mortality, and what happened to breed differences after adjustment for American Society of Anesthesiologists (ASA) physical status?",
+"o": [
+"Mortality was 6.9%, and every breed difference persisted after adjustment",
+"Mortality was 0.69%, and brachycephalic breeds retained a significantly higher adjusted risk",
+"Mortality was 0.69%, and breeds carrying the MDR1 variant had significantly higher adjusted mortality",
+"Mortality was 0.69%, and most between-breed differences disappeared after ASA adjustment, with excess risk persisting only for the Chihuahua and the Spanish Water Dog"
+],
+"a": 3,
+"e": "Dogs were followed from premedication to 48 hours after extubation; 54,542 anaesthetics remained after euthanasias and non-anaesthetic deaths were excluded, with mixed-breed dogs (0.68%) as the benchmark. Crude mortality was highest for the German Shepherd Dog (1.46%), Chihuahua (1.35%) and Bulldog (1.26%), and no Fédération Cynologique Internationale group differed. Brachycephalic dogs had higher crude mortality (0.82% versus 0.65%), but this attenuated after ASA adjustment (relative risk 1.19, 95% confidence interval 0.96-1.47), and MDR1-associated breeds did not differ either crude or adjusted. After adjustment only the Chihuahua (relative risk 1.80) and Spanish Water Dog (2.72) retained excess risk. The take-home is that apparent breed risk largely reflects case severity, supporting ASA-centred rather than breed-driven risk communication.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Parasites",
+"q": "García-Rodríguez and colleagues (2025) performed thoracic computed tomography on 30 cats seropositive for Dirofilaria immitis antibodies with respiratory signs and 8 seronegative controls. Which measurements distinguished the infected cats?",
+"o": [
+"Bronchus-to-artery and bronchus-to-vein ratios were significantly higher in seropositive cats, while pulmonary vein-to-artery ratios did not differ",
+"The pulmonary vein-to-artery ratio was the only significant difference between groups",
+"Bronchus-to-artery ratios were significantly lower in seropositive cats",
+"No ratio differed significantly between the two groups"
+],
+"a": 0,
+"e": "Feline heartworm disease produces early pulmonary lesions even when only immature stages are present, and diagnosis is difficult because signs are non-specific and serological sensitivity is limited in immature infection. Median bronchus-to-artery and bronchus-to-vein ratios were higher across most lung lobes, and differences between lobes were significant in infected cats, indicating early bronchial remodelling while the pulmonary arteries and veins were relatively spared at this stage. That is why the pulmonary vein-to-artery ratio was uninformative here. The authors propose these ratios as sensitive indicators of early pulmonary involvement to use alongside serology and conventional imaging in endemic regions.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
+"sub": "Surgery & Anesthesia",
+"q": "Shin and colleagues (2025) compared intramuscular tiletamine-zolazepam plus tramadol alone against the same combination with medetomidine added at 10 or 20 µg/kg in dogs. What did the medetomidine do?",
+"o": [
+"It caused respiratory depression severe enough for the protocol to be abandoned",
+"It extended analgesic time in a dose-dependent way and improved recovery quality while respiratory function stayed stable, with the 20 µg/kg protocol adequate for simple surgery such as gonadectomy",
+"It shortened analgesic time and worsened recovery quality",
+"It had no measurable effect on analgesic time at either dose"
+],
+"a": 1,
+"e": "Each dog received 0.1 mL/kg intramuscularly of its assigned solution; the base contained tiletamine-zolazepam at 25 mg/mL and tramadol at 40 mg/mL, with medetomidine added at 100 or 200 µg/mL to give the two dose groups. Onset, anaesthetic and analgesic times, recovery quality, heart rate, blood pressure, respiratory rate, oxygen saturation and body temperature were assessed. Tiletamine-zolazepam plus tramadol alone was adequate for minor non-invasive procedures, but adding medetomidine gave enough anaesthetic stability for simple surgery. The authors still stress careful monitoring because of medetomidine's cardiovascular effects — the relevant caveat when an all-intramuscular protocol is attractive for high-volume desexing.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
+"q": "Rhee and Ahn (2025) compared veterinary animal-abuse reporting practices in South Korea, Canada and the United States. What did the review conclude about voluntary versus mandatory reporting?",
+"o": [
+"All three jurisdictions operate mandatory reporting, with equivalent compliance",
+"The review demonstrated direct causal evidence that mandatory reporting improves measurable welfare outcomes",
+"South Korea's voluntary framework was associated with significant underreporting, Canada's provincial mandatory frameworks with much higher compliance, and the United States was mixed, with roughly 24 states mandating reporting backed by licence revocation",
+"Voluntary systems produced higher reporting rates than mandatory systems in all three jurisdictions"
+],
+"a": 2,
+"e": "This was a narrative review across PubMed, Google Scholar, Web of Science and Scopus, plus state legal databases, licensing board records and disciplinary reports, covering 2010 to 2025. Canada's stronger compliance was attributed to the strength of its statutory enforcement mechanisms, while cultural factors and concerns about professional autonomy shaped reporting behaviour in all three settings. The authors recommend that South Korea legislate a graduated mandatory reporting system with legal protections for reporters. Note the limitation they state plainly: direct causal evidence linking reporting to measurable welfare outcomes remains limited, so the case for mandatory reporting rests on reporting rates and intervention pathways rather than proven welfare gains.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animal Cruelty",
+"q": "Ueda and colleagues (2025) compared muscle tissue sampling with surface swabbing for mitochondrial deoxyribonucleic acid identification of the animal that caused wounds, across three forensic veterinary necropsies. What did they conclude?",
+"o": [
+"Surface swabbing detected the species in every case, so muscle sampling can be dropped",
+"Muscle tissue sampling detected the species in every case, so swabbing adds nothing",
+"Neither method recovered any DNA from the offending animal in any case",
+"Neither method detected the responsible species in all three cases, so using both is recommended — muscle sampling better preserves DNA integrity while swabbing is non-invasive and covers a wider area"
+],
+"a": 3,
+"e": "The forensic question these methods serve is whether wounds and missing body parts resulted from human intervention or from another animal, so a false negative can change the interpretation of a case. In case 1, canine DNA was recovered from a cat carcass wound by both methods; in case 2, canine DNA from another cat carcass only by swab; in case 3, feline DNA from a duck carcass only by muscle sampling. Each method therefore failed in a different case. Muscle sampling targets deep tissue and preserves DNA quality, while swabbing is non-invasive and samples a broader surface — complementary strengths. With only three cases the evidence is limited, but that complementary failure pattern is the argument for combining them.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Community & Public Health",
+"sub": "Animals & Public Safety",
+"q": "A retrospective analysis of 54 verified fatal dog attacks in Italy between 2009 and 2025 reported which pattern?",
+"o": [
+"Molosser and bull-type breeds were implicated in 69% of cases, 92.6% involved owned dogs — more than half belonging to the victim — and 66.7% occurred in private settings",
+"The great majority of fatal attacks involved stray or free-roaming dogs in public places",
+"Victims were concentrated in the 20-40 year age band",
+"Fatal attacks declined steadily across the study period"
+],
+"a": 0,
+"e": "People aged 65 and over and preschool children aged 4 and under were the most affected groups, and the trend rose over the final five years. The finding that most attacks involved owned dogs in private settings, often the victim's own dog, cuts against the intuition that fatal attacks are mainly a stray-dog or public-space problem. Data were compiled from national and regional media and cross-verified — a genuine limitation, and precisely the authors' argument: with no centralised registry, Italian surveillance depends on press reporting. Comparison with United States data showed similar demographic and breed patterns, and the recommendation is a centralised behavioural risk registry to support early detection and policy. This record is currently an MDPI Preprints posting rather than a peer-reviewed article.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Physical Health",
 "sub": "Infectious Disease",
 "q": "Across multiple shelter studies, adding canine parvovirus monoclonal antibody (CPMA) to a standard supportive-care protocol for dogs with naturally occurring parvovirus has most consistently been shown to:",
 "o": [
