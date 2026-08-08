@@ -43845,7 +43845,7 @@
 "Living in a sparsely populated neighbourhood"
 ],
 "a": 1,
-"e": "Dogs from single-dog homes had increased odds of dog-directed fear (odds ratio 1.44, 95% confidence interval 1.30-1.61) and poorer trainability during early adulthood. Sleeping in the owner's bed was associated with more stranger-directed aggression and a steeper age-related fall in trainability and energy. Dogs in the most densely populated neighbourhoods showed more stranger-directed aggression than those in sparsely or moderately populated areas. The study is the first to link household characteristics and ownership behaviours to differential behavioural effects across the canine lifespan.",
+"e": "Dogs from single-dog homes had increased odds of dog-directed fear (odds ratio 1.44, 95% confidence interval 1.30-1.61) and poorer trainability during early adulthood. Sleeping in the owner's bed was associated with more stranger-directed aggression and a steeper age-related fall in trainability and energy. Dogs in the most densely populated neighbourhoods showed more stranger-directed aggression than those in sparsely or moderately populated areas. The study is the first to link household characteristics and ownership behaviours to differential behavioural effects across the canine lifespan. Bear in mind that C-BARQ data are guardian-reported and subscale wording matters: Pellowe and Walsh (2025), on this page, show that the familiar dog aggression items are frequently completed by guardians of single-dog households about dogs outside the household — so C-BARQ subscale scores need checking against how respondents actually read the questions.",
 "source": "journal"
 },
 {
@@ -44572,15 +44572,15 @@
 "type": "mcq",
 "domain": "Behavioral Health",
 "sub": "Assessment & Decision",
-"q": "Pellowe and Walsh (2025) examined how guardians complete the four familiar dog aggression items of the Canine Behavioral Assessment and Research Questionnaire (C-BARQ), which are intended to capture rivalry between dogs in the same household. What did they find?",
+"q": "The familiar dog aggression subscale of the Canine Behavioral Assessment and Research Questionnaire (C-BARQ) is intended to measure rivalry between dogs living in the same household. Pellowe and Walsh (2025) examined how guardians actually complete it. What does their work imply about the reliability of that subscale?",
 "o": [
-"Familiar dog aggression scores were reported consistently in every published C-BARQ study reviewed",
-"92 of 157 guardians of single-dog households completed the familiar dog aggression items anyway, frequently scoring interactions with dogs outside the household",
-"Guardians of single-dog households correctly left the familiar dog aggression items blank",
-"The items were completed only by guardians of three or more dogs"
+"The subscale is fully reliable, because only guardians of multi-dog households complete those items",
+"Scores cannot be assumed to reflect household dog rivalry, because guardians of single-dog households also completed the items, scoring interactions with dogs outside the household",
+"The subscale is unreliable only because the four items are worded inconsistently between translations",
+"The subscale is reliable for aggression but not for fear, which needs a separate instrument"
 ],
 "a": 1,
-"e": "Single-dog households should generate no familiar dog aggression score at all, so those unexpected scores matter. Follow-up showed the singleton dogs with such scores were more likely to take part regularly in social activities with other dogs, and had marginally lower fear-related C-BARQ scores than singletons without a score or dogs in multi-dog homes. A scoping review of English-language C-BARQ studies then found wide variation in whether the subscale was reported at all, and papers reporting significant familiar dog aggression findings often did not state what proportion of scores came from singleton dogs — an accuracy and replicability problem. The practical lesson is that \"familiar\" has to be defined for the person filling in the form.",
+"e": "In the authors' earlier work, 92 of 157 guardians who owned only one dog produced a familiar dog aggression score — impossible if the items were being read as intended. Follow-up showed those singleton dogs were more likely to take part regularly in social activities with other dogs, and many scores were based on those non-household interactions; the same dogs also had marginally lower fear-related C-BARQ scores than singletons with no score and than dogs in multi-dog households. A scoping review of English-language C-BARQ studies then found wide variation in whether the subscale was reported at all, and papers reporting significant familiar dog aggression findings often did not state what proportion of their scores came from single-dog households. Three practical consequences: \"familiar\" has to be defined for the respondent, published familiar-dog-aggression figures may not mean what they appear to, and studies should report how many scores came from single-dog homes. The instrument is not being dismissed — the point is knowing what a given subscale score can and cannot support.",
 "source": "journal"
 },
 {
@@ -44685,7 +44685,7 @@
 "Fatal attacks declined steadily across the study period"
 ],
 "a": 0,
-"e": "People aged 65 and over and preschool children aged 4 and under were the most affected groups, and the trend rose over the final five years. The finding that most attacks involved owned dogs in private settings, often the victim's own dog, cuts against the intuition that fatal attacks are mainly a stray-dog or public-space problem. Data were compiled from national and regional media and cross-verified — a genuine limitation, and precisely the authors' argument: with no centralised registry, Italian surveillance depends on press reporting. Comparison with United States data showed similar demographic and breed patterns, and the recommendation is a centralised behavioural risk registry to support early detection and policy. This record is currently an MDPI Preprints posting rather than a peer-reviewed article.",
+"e": "People aged 65 and over and preschool children aged 4 and under were the most affected groups, and the trend rose over the final five years. The finding that most attacks involved owned dogs in private settings, often the victim's own dog, cuts against the intuition that fatal attacks are mainly a stray-dog or public-space problem. Data were compiled from national and regional media and cross-verified — a genuine limitation, and precisely the authors' argument: with no centralised registry, Italian surveillance depends on press reporting. Comparison with United States data showed similar demographic and breed patterns, and the recommendation is a centralised behavioural risk registry to support early detection and policy.",
 "source": "journal"
 },
 {
