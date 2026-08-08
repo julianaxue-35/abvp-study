@@ -42981,6 +42981,21 @@
 {
 "type": "mcq",
 "domain": "Companion Animal Homelessness",
+"sub": "Shelter Diversion",
+"q": "The International Cat Care “Cat Friendly Principles for Those Working With Unowned Cats” guidance describes how organisations should decide what happens to an unowned cat. Which approach does it advocate?",
+"o": [
+"Prioritise intake into the homing system over any option that leaves a cat living in the community",
+"Reserve trap-neuter-return for cats that have first failed a socialisation programme, and avoid outside partnerships",
+"Assess each cat's suitability to be a pet before attempting socialisation, and choose the outcome that suits that individual cat's adaptive lifestyle",
+"Attempt socialisation of every juvenile and adult cat, on the basis that almost any unowned cat becomes a pet given enough time"
+],
+"a": 2,
+"e": "The guidance pairs an understanding of the species and of the individual cat with a “think before you act” culture. Blanket attempts to socialise juveniles and adults without careful assessment have stopped, in favour of outcomes sympathetic to the individual's adaptive lifestyle - so a poorly socialised cat is not forced through a pet pathway. Trap-neuter-return raises the live-release rate but has a real impact on staff, which the document asks organisations to acknowledge. Homing organisations are also expected to prevent avoidable intake by offering a range of options, including short-term help with food or veterinary bills so cats can stay with their existing owners, communicated in a non-judgemental, empathetic and respectful way, and to collaborate on low-cost desexing and trap-neuter-return to build the community relationship.",
+"source": "journal"
+},
+{
+"type": "mcq",
+"domain": "Companion Animal Homelessness",
 "sub": "Spay-Neuter",
 "q": "This commentary responds to a call from conservation authors to ban outdoor cat feeding sites and end trap-neuter-return. What is the authors' central criticism of that position?",
 "o": [
