@@ -265,29 +265,73 @@ ul{padding-left:20px}
 
   <h3>Hierarchy of evidence and EBVM <span class="badge ref">ref</span></h3>
   <div class="figwrap">
-    <svg viewBox="0 0 520 250" role="img" aria-label="Evidence pyramid">
+    <svg viewBox="0 0 540 292" role="img" aria-label="Evidence pyramid: six tiers, strongest at the top">
       <defs>
         <marker id="arSdPyr" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
           <path d="M0,0 L7,3 L0,6 Z" fill="var(--svg-strong)"/>
         </marker>
       </defs>
-      <polygon points="260,20 330,70 190,70" fill="var(--svg-strong)"/>
-      <text x="260" y="55" text-anchor="middle" font-size="11" fill="#fff">Systematic review / meta-analysis</text>
-      <polygon points="190,72 330,72 360,112 160,112" fill="var(--svg-soft)"/>
+      <polygon points="260,8 330,70 190,70" fill="var(--svg-strong)"/>
+      <text x="260" y="48" text-anchor="middle" font-size="10" fill="#fff">Systematic review</text>
+      <text x="260" y="62" text-anchor="middle" font-size="10" fill="#fff">&amp; meta-analysis</text>
+      <polygon points="189,72 331,72 358,112 162,112" fill="var(--svg-soft)"/>
       <text x="260" y="97" text-anchor="middle" font-size="12" fill="var(--ink)">Randomised controlled trial</text>
-      <polygon points="160,114 360,114 388,154 132,154" fill="var(--svg-faint)"/>
+      <polygon points="161,114 359,114 386,154 134,154" fill="var(--svg-faint)"/>
       <text x="260" y="139" text-anchor="middle" font-size="12" fill="var(--ink)">Cohort study</text>
-      <polygon points="132,156 388,156 414,196 106,196" fill="var(--svg-faint)"/>
+      <polygon points="133,156 387,156 413,196 107,196" fill="var(--svg-faint)"/>
       <text x="260" y="181" text-anchor="middle" font-size="12" fill="var(--ink)">Case-control study</text>
-      <polygon points="106,198 414,198 440,236 80,236" fill="var(--svg-faint)"/>
-      <text x="260" y="222" text-anchor="middle" font-size="12" fill="var(--ink)">Case series, reports, expert opinion</text>
-      <line x1="468" y1="236" x2="468" y2="30" stroke="var(--svg-strong)" stroke-width="2" marker-end="url(#arSdPyr)"/>
-      <text x="486" y="140" font-size="11" fill="var(--muted)" transform="rotate(90,486,140)">increasing strength</text>
+      <polygon points="105,198 415,198 441,238 79,238" fill="var(--svg-faint)"/>
+      <text x="260" y="223" text-anchor="middle" font-size="12" fill="var(--ink)">Case series and case reports</text>
+      <polygon points="77,240 443,240 468,278 52,278" fill="var(--svg-faint)"/>
+      <text x="260" y="264" text-anchor="middle" font-size="12" fill="var(--ink)">Expert opinion, narrative review</text>
+      <line x1="498" y1="278" x2="498" y2="20" stroke="var(--svg-strong)" stroke-width="2" marker-end="url(#arSdPyr)"/>
+      <text x="516" y="154" font-size="11" fill="var(--muted)" transform="rotate(90,516,154)">increasing strength</text>
     </svg>
-    <div class="figcap">Evidence hierarchy for therapy and causation questions. Original construction.</div>
+    <div class="figcap">Evidence hierarchy for therapy and causation questions in clinical populations. Original construction.</div>
   </div>
+  <div class="box verifybox"><span class="lbl">Off the ladder</span><p>Laboratory, <i>in vitro</i> and challenge studies in purpose-bred animals do not sit on this ladder at all. They answer a different question, mechanism or efficacy under controlled conditions, and they trade external validity for internal validity: tightly controlled, but the animals, the pathogen dose and the housing are not the shelter. A challenge study showing a vaccine protects specific-pathogen-free kittens under a uniform intranasal dose does not tell you the protection rate in a shelter with mixed ages, maternal antibody and variable exposure. Human-medicine pyramids place animal work at the base because it is a step removed from the human patient; in veterinary medicine the species is the target, so the limitation is the artificial conditions, not the species.</p></div>
   <p><b>EBVM, the five A's:</b> Ask, Acquire, Appraise, Apply, Assess.</p>
+  <div class="box trap"><span class="lbl">Exam trap</span><p>The pyramid ranks <b>designs</b>, not individual studies. A large, well-conducted cohort study can be stronger evidence than a small randomised controlled trial with unblinded outcome assessment and 40% loss to follow-up. Design sets the starting point; conduct decides where the study actually lands.</p></div>
+  <p>Note also that the case series and case report tier still contains primary observation, whereas expert opinion and the narrative review contain none. That is why they are separated here even though they are often drawn as one block.</p>
   <div class="box verifybox"><span class="lbl">Exam relevance</span><p>The study guide states some items come from journal <b>abstracts</b> (5-year lookback, 2021 to 2025). Reading an abstract to identify the design, the measure reported, and the main limitation is a directly tested skill.</p></div>
+
+  <h3>Types of review <span class="badge ref">ref</span></h3>
+  <p>Four things are all called "reviews" and they are not interchangeable. The abstract usually tells you which one you are reading in its first sentence.</p>
+  <table>
+    <thead><tr><th>Type</th><th>Search</th><th>Question it answers</th><th>Appraises quality?</th></tr></thead>
+    <tbody>
+      <tr><td><b>Narrative review</b></td><td>Informal, at the author's discretion</td><td>What does an expert think about this topic?</td><td>No</td></tr>
+      <tr><td><b>Scoping review</b></td><td>Systematic and reproducible</td><td>What evidence exists, and where are the gaps?</td><td>No, by design</td></tr>
+      <tr><td><b>Systematic review</b></td><td>Exhaustive, prespecified protocol</td><td>What does the whole body of evidence say?</td><td>Yes, formal risk-of-bias assessment</td></tr>
+      <tr><td><b>Meta-analysis</b></td><td>Inherits the systematic review's search</td><td>What is the single pooled effect estimate?</td><td>Yes, plus statistical pooling</td></tr>
+    </tbody>
+  </table>
+  <div class="box trap"><span class="lbl">Exam trap</span><p>A systematic review is not just a thorough narrative review. The defining feature is the <b>prespecified, reproducible protocol</b>, written before the search, so that another team following it would retrieve the same studies. Thoroughness alone does not make a review systematic. Equally, not every systematic review contains a meta-analysis; pooling is only legitimate when the studies are similar enough to combine.</p></div>
+  <div class="box verifybox"><span class="lbl">Scoping review</span><p>A scoping review deliberately does not grade quality. Finding that only three small studies address a question, and that all three are uncontrolled, is a legitimate and useful result. In shelter medicine, where the literature is thin, scoping reviews are common and are often the honest answer to a new question.</p></div>
+
+  <h3>Systematic review and meta-analysis machinery <span class="badge ref">ref</span></h3>
+  <ul>
+    <li><b>PICO (Population, Intervention, Comparison, Outcome):</b> the framework that structures the question and generates the search terms. A question that cannot be written as a PICO is usually not yet answerable.</li>
+    <li><b>PRISMA (Preferred Reporting Items for Systematic Reviews and Meta-Analyses):</b> the reporting standard. Its flow diagram accounts for every record from identification through screening and exclusion to final inclusion, so a reader can see what was discarded and why.</li>
+    <li><b>Heterogeneity:</b> the extent to which studies genuinely differ in their effects, rather than differing by chance. The <b>I-squared</b> statistic expresses the percentage of the variation that is due to real differences between studies. High heterogeneity is a signal that pooling into one number may be misleading.</li>
+    <li><b>Forest plot:</b> one row per study. The box is that study's effect estimate and its size reflects the study's weight; the horizontal line is the confidence interval; the diamond at the foot is the pooled estimate. The vertical line of no effect sits at 1 for ratio measures such as relative risk and odds ratio, and at 0 for differences.</li>
+    <li><b>Funnel plot and publication bias:</b> effect size is plotted against study precision. Because small studies scatter widely and large studies cluster tightly, a complete literature forms a symmetrical inverted funnel. Asymmetry, typically a missing corner of small studies showing no effect, suggests <b>publication bias</b>: negative and small studies are less likely to be written up, submitted and accepted.</li>
+  </ul>
+  <div class="box trap"><span class="lbl">Exam trap</span><p>Publication bias inflates the pooled estimate of a meta-analysis, because the missing studies are disproportionately the ones that found nothing. A meta-analysis sitting at the apex of the pyramid is only as good as the literature it could find, and that literature is systematically incomplete.</p></div>
+
+  <h3>Critical appraisal and GRADE <span class="badge ref">ref</span></h3>
+  <p><b>Critical appraisal</b> is the structured judgement of a single study, and it reduces to three questions:</p>
+  <ul>
+    <li><b>Are the results valid?</b> Internal validity: allocation, blinding, follow-up, confounding control, appropriate analysis.</li>
+    <li><b>What are the results?</b> The size of the effect and the precision around it, not merely whether a p-value cleared 0.05.</li>
+    <li><b>Will they help my animals?</b> External validity: were the study's animals, setting and comparator close enough to a shelter population for the finding to transfer?</li>
+  </ul>
+  <p><b>GRADE (Grading of Recommendations Assessment, Development and Evaluation)</b> grades a whole body of evidence rather than one paper. Randomised trials enter at high certainty and observational studies at low, and the rating then moves:</p>
+  <ul>
+    <li><b>Rated down</b> for risk of bias, inconsistency between studies, indirectness (wrong population, comparator or outcome), imprecision, and suspected publication bias.</li>
+    <li><b>Rated up</b> for a very large effect, a dose-response gradient, or where plausible confounding would have worked against the effect that was still observed.</li>
+  </ul>
+  <div class="box verifybox"><span class="lbl">Why this matters here</span><p>GRADE is the formal expression of the trap noted above: design is where a study starts, not where it ends. This is also why observational shelter data is not disqualified in advance. A large intake cohort showing a strong, dose-dependent association, in circumstances where confounding would have diluted rather than created it, can be rated up.</p></div>
 </section>
 
 <!-- ============ INFERENCE ============ -->
@@ -522,7 +566,7 @@ ul{padding-left:20px}
 <!-- ============ BANK ============ -->
 <section class="panel" id="bank">
   <h2>Question Bank</h2>
-  <p class="lead">Thirty single-best-answer items across the four topics. Tap an option to check it. Answers are spread evenly across A to D.</p>
+  <p class="lead">Thirty-four single-best-answer items across the four topics. Tap an option to check it. Answers are spread evenly across A to D.</p>
   <div class="chips" id="chips">
     <button class="chip active" data-f="all">All</button>
     <button class="chip" data-f="designs">Study Designs</button>
@@ -761,7 +805,12 @@ const Q=[
  {f:"tests",q:"Which test characteristic is unaffected by disease prevalence?",o:["Sensitivity","Positive predictive value","Negative predictive value","Adoption rate"],a:0,e:"Sensitivity and specificity are properties of the test; PPV and NPV depend on prevalence."},
  {f:"tests",q:"Of 100 truly infected cats a test flags 90 as positive; of 100 uninfected it flags 5. What is the sensitivity?",o:["47%","95%","90%","5%"],a:2,e:"Sensitivity = 90 true positives / 100 diseased = 90%."},
  {f:"tests",q:"Which method best analyses time to adoption, including animals still in care at study end?",o:["Independent t-test","Chi-square test","Pearson correlation","Kaplan-Meier survival analysis"],a:3,e:"Survival analysis handles time-to-event data with censored (still in care) observations."},
- {f:"tests",q:"Among the Bradford Hill considerations for causation, which is considered essential?",o:["Strength of association","Dose-response relationship","Temporality (cause precedes effect)","Analogy"],a:2,e:"Temporality is the one essential criterion; the cause must precede the effect."}
+ {f:"tests",q:"Among the Bradford Hill considerations for causation, which is considered essential?",o:["Strength of association","Dose-response relationship","Temporality (cause precedes effect)","Analogy"],a:2,e:"Temporality is the one essential criterion; the cause must precede the effect."},
+ {f:"designs",q:"For a question about whether a treatment works, which design sits highest on the evidence hierarchy?",o:["A systematic review with meta-analysis of randomised controlled trials","A single large randomised controlled trial","A prospective cohort study","A case series of treated animals"],a:0,e:"The hierarchy for therapy and causation questions places systematic review with meta-analysis at the apex, because it pools multiple randomised controlled trials, each of which has already randomised confounders away. A single trial, however large, contributes only its own result."},
+ {f:"designs",q:"What distinguishes a systematic review from a thorough narrative review?",o:["The systematic review uses a prespecified, reproducible protocol and search strategy","The systematic review is longer and cites more studies","The systematic review always includes a statistical pooling of results","The systematic review is written by a team rather than a single expert"],a:0,e:"The defining feature is the protocol written before the search, so that another team following it would retrieve the same studies. Length, citation count and authorship are not criteria. Pooling (meta-analysis) is optional: a systematic review may conclude the studies are too dissimilar to combine."},
+ {f:"designs",q:"A meta-analysis presents a funnel plot in which small studies showing no effect are conspicuously absent, making the plot asymmetrical. What does this most likely indicate?",o:["Publication bias","Confounding by indication","Recall bias","Regression to the mean"],a:0,e:"A complete literature forms a symmetrical inverted funnel, because small studies scatter widely around the true effect while large studies cluster tightly. A missing corner of small negative studies suggests they were conducted but never published, which inflates the pooled estimate."},
+ {f:"designs",q:"A vaccine challenge study in specific-pathogen-free kittens, all given an identical intranasal dose under uniform housing, reports 95% protection. What is the principal limitation when applying this result to a shelter?",o:["Limited external validity: the controlled conditions do not reproduce shelter exposure, age range or maternal antibody","Limited internal validity: without randomisation, confounders were not balanced between groups","The sample size in challenge studies is necessarily too small to reach statistical significance","Challenge studies are observational and so cannot establish causation"],a:0,e:"Challenge studies buy internal validity by controlling everything, and pay for it in external validity. The uniform dose, uniform age and clean housing are precisely what a shelter is not. Internally these studies are strong, and being experimental they establish causation well; the open question is whether the result transfers."},
+ {f:"designs",q:"Under GRADE (Grading of Recommendations Assessment, Development and Evaluation), which finding would cause a body of observational evidence to be rated UP in certainty?",o:["A large effect with a dose-response gradient","A large number of published studies on the topic","Statistical significance at p less than 0.01 rather than 0.05","Publication in a high-impact journal"],a:0,e:"GRADE starts observational evidence at low certainty but rates it up for a very large effect, a dose-response gradient, or where plausible confounding would have worked against the effect that was nonetheless observed. Study count, p-value threshold and journal prestige are not GRADE criteria."}
 ];/*mcq-shuffle*/(function(){var _a=Q;if(!Array.isArray(_a))return;for(var _i=0;_i<_a.length;_i++){var _q=_a[_i];if(!_q||!Array.isArray(_q.o)||typeof _q.a!=='number')continue;var _c=_q.o[_q.a];for(var _j=_q.o.length-1;_j>0;_j--){var _k=Math.floor(Math.random()*(_j+1));var _t=_q.o[_j];_q.o[_j]=_q.o[_k];_q.o[_k]=_t;}_q.a=_q.o.indexOf(_c);}})();
 const LTR=["A","B","C","D"];
 const bankList=document.getElementById("bankList");
