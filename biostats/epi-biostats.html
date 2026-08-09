@@ -366,6 +366,21 @@
       <section class="card">
         <h2>Experimental — the investigator assigns</h2>
         <p class="plain"><b>Randomised controlled trial (RCT)</b> — the <b>gold standard</b>. Animals are <b>randomly</b> put into an <b>intervention</b> group vs a <b>control</b> group. Randomisation balances confounders, so it's the strongest design for proving <b>causation</b>.</p>
+        <p class="plain"><b>Cluster randomised trial</b> — randomise <b>groups</b> (kennel wards, foster homes, whole shelters) when the intervention is delivered at group level, or when contamination between animals is unavoidable. Animals in a cluster are alike, so the effective sample size is smaller than the animal count: inflate it by the <b>design effect</b> = 1 + (mean cluster size &minus; 1) &times; <b>ICC</b> (intracluster correlation coefficient).</p>
+        <div class="ex" style="margin-top:6px"><b>Unit of analysis error.</b> If you randomised 12 <i>wards</i>, you cannot analyse as though you randomised 300 <i>dogs</i>. Doing so understates the standard errors and manufactures significance.</div>
+      </section>
+
+      <section class="card">
+        <h2>Measuring the same units over time</h2>
+        <p class="plain">A design is <b>longitudinal</b> when the same units are measured more than once — which means the observations are <b>correlated</b>, and both design and analysis must allow for it.</p>
+        <ul>
+          <li><b>Panel</b> — follows the <b>same</b> individuals each round → measures <b>within-individual change</b>; weak point is attrition.</li>
+          <li><b>Repeated cross-sectional</b> — a <b>fresh sample</b> each round → measures <b>net population change only</b>. Flat prevalence may mean nobody changed, or that the affected ones left and were replaced.</li>
+          <li><b>Retrospective cohort</b> — assembled from existing records. Still a <b>cohort</b> (forward from exposure, gives incidence &amp; RR); "retrospective" is the investigator's vantage point, <b>not</b> the direction of reasoning. <b>Ambidirectional</b> = historical records plus continued follow-up.</li>
+          <li><b>Repeated measures</b> — same animal, several time points. Treating them as independent is <b>pseudoreplication</b>. Use a paired test (2 points), repeated-measures ANOVA (3+), or a <b>mixed-effects model</b> with a random effect for animal.</li>
+        </ul>
+        <div class="ex" style="margin-top:6px"><b>Age vs period vs cohort.</b> <b>Age</b> = changes because animals get older. <b>Period</b> = affects everyone in that calendar window (an outbreak year, a law change). <b>Cohort</b> = specific to the group that entered together and travels with them — pandemic-surge puppies showing more separation-related behaviour as they age. The three are entangled (cohort = period &minus; age), so they cannot all be estimated at once.</div>
+        <div class="ex" style="margin-top:6px"><b>Interrupted time series.</b> Time-series data carry a <b>trend</b>, <b>seasonality</b> (kitten season) and <b>autocorrelation</b>. To evaluate a programme you couldn't randomise, model the pre-intervention trend, project it forward, and test for a change in <b>level</b> and in <b>slope</b>. A raw before-vs-after mean comparison credits the programme with any decline that was already under way.</div>
       </section>
 
       <section class="card">

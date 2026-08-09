@@ -254,6 +254,85 @@ ul{padding-left:20px}
 
   <p><b>Cohort:</b> yields incidence and relative risk; establishes temporality; inefficient for rare outcomes. <b>Case-control:</b> yields the odds ratio; efficient for rare or slow diseases; prone to recall and selection bias; the odds ratio approximates relative risk only when the disease is rare. <b>Analytic cross-sectional:</b> yields prevalence; cannot establish temporality, so reverse causation is possible.</p>
 
+  <h3>Longitudinal designs and repeated measurement <span class="badge ref">ref</span></h3>
+  <p>A design is <b>longitudinal</b> when the same units are measured more than once. That single fact drives everything else in this section: repeated observations on the same animal are <b>correlated</b>, so both the design and the analysis have to account for it.</p>
+
+  <h4>Panel study versus repeated cross-sectional survey</h4>
+  <p>Both produce a series of measurements over time, and they answer different questions. This is the distinction most often got wrong.</p>
+  <table>
+    <thead><tr><th></th><th>Panel study</th><th>Repeated cross-sectional survey</th></tr></thead>
+    <tbody>
+      <tr><td>Who is measured</td><td>The <b>same</b> individuals each round</td><td>A <b>fresh sample</b> each round</td></tr>
+      <tr><td>Can measure</td><td>Within-individual change</td><td>Net population change only</td></tr>
+      <tr><td>Answers</td><td>Did these individuals change?</td><td>Did the population level move?</td></tr>
+      <tr><td>Main weakness</td><td>Attrition (drop-out), and repeated testing may itself change behaviour</td><td>Composition shifts between rounds can masquerade as change</td></tr>
+    </tbody>
+  </table>
+  <div class="box verifybox"><span class="lbl">Shelter example</span><p>Surveying <b>the same</b> 200 foster carers every year is a panel study: it can tell you that a third of individual carers became more burnt out. Surveying <b>a fresh</b> 200 carers every year is a repeated cross-sectional survey: it can only tell you that overall burnout prevalence held steady, which might be because nobody changed, or because burnt-out carers quit and were replaced by fresh ones. Same headline number, opposite meaning.</p></div>
+
+  <h4>Directionality: prospective, retrospective, ambidirectional</h4>
+  <p>A cohort is defined by <b>reasoning forward from exposure</b>, not by when the investigator happened to arrive.</p>
+  <ul>
+    <li><b>Prospective cohort:</b> exposure is recorded now and outcomes accrue in the future. Best data quality, because you choose what to measure; slow and expensive.</li>
+    <li><b>Retrospective (historical) cohort:</b> the investigator assembles the cohort from <b>existing records</b>, so exposure and outcome have both already happened. Fast and cheap, but you are limited to what was recorded, and recording is rarely complete.</li>
+    <li><b>Ambidirectional cohort:</b> both at once. Historical records supply the past outcomes and follow-up then continues forward from today.</li>
+  </ul>
+  <div class="box trap"><span class="lbl">Exam trap</span><p>A <b>retrospective cohort is still a cohort</b>. It reasons forward from exposure to outcome and yields incidence and relative risk. It is not a case-control study, which reasons backward from outcome to exposure and yields an odds ratio. "Retrospective" describes the investigator's vantage point in time; "case-control" describes the direction of reasoning. Mixing the two is one of the most reliably examined confusions in this subdomain.</p></div>
+
+  <h4>Repeated measures and pseudoreplication</h4>
+  <p>When each animal contributes several measurements, those measurements are not independent: an anxious cat scores high on every day you assess it. Treating them as independent observations is <b>pseudoreplication</b>. It inflates the apparent sample size, shrinks the standard errors, and manufactures significance that is not there.</p>
+  <ul>
+    <li><b>Two time points:</b> paired t-test, or Wilcoxon signed-rank if the data are skewed.</li>
+    <li><b>Three or more time points:</b> repeated-measures analysis of variance, or Friedman's test as the non-parametric analogue.</li>
+    <li><b>The general solution:</b> a <b>mixed-effects (multilevel) model</b> with a random effect for the individual animal. It handles unequal numbers of observations and missing time points, which repeated-measures analysis of variance does not.</li>
+  </ul>
+  <div class="box verifybox"><span class="lbl">Shelter example</span><p>Cat stress scores recorded on days 1, 3, 7 and 14 for 40 cats give 160 measurements but only <b>40 independent animals</b>. Analysing 160 rows as though they were 160 cats is the error.</p></div>
+
+  <h4>Age, period and cohort effects</h4>
+  <p>Three different explanations for a change over time, routinely confused:</p>
+  <ul>
+    <li><b>Age effect:</b> the change happens because animals get older.</li>
+    <li><b>Period effect:</b> something affects everyone alive at that moment, regardless of age or when they entered, such as an outbreak year or a change in the law.</li>
+    <li><b>Cohort effect:</b> something specific to the group that <b>entered together</b> and travels with them for life.</li>
+  </ul>
+  <div class="box verifybox"><span class="lbl">Shelter example</span><p>Dogs acquired during the 2020 to 2021 pandemic surge show more separation-related behaviour. That is a <b>cohort</b> effect: it is not that dogs of that age are generally worse (age), nor that this year is generally bad for all dogs (period), but that the socialisation environment of the group that entered at that time was unusual, and it stays with them.</p></div>
+  <div class="box trap"><span class="lbl">Exam trap</span><p>Age, period and cohort are mathematically entangled: cohort = period minus age. Knowing any two fixes the third, so the three effects <b>cannot all be estimated at once</b> from observational data without adding an outside assumption. Any paper claiming to have cleanly separated all three has assumed something; look for what.</p></div>
+
+  <h4>Time series and interrupted time series</h4>
+  <p>A <b>time series</b> is repeated measurement of a <i>population</i> at regular intervals. Its three characteristic features are a <b>trend</b> (the underlying direction of travel), <b>seasonality</b> (a repeating within-year pattern, which in shelters is dominated by kitten season), and <b>autocorrelation</b> (this month resembles last month, so points are not independent).</p>
+  <p>The <b>interrupted time series</b> is the strong quasi-experimental design for evaluating something you could not randomise, such as a policy or programme launch. You model the pre-intervention trend, project it forward, and test for a change in <b>level</b> (an immediate step) and a change in <b>slope</b> (a different trajectory afterwards).</p>
+  <div class="figwrap">
+    <svg viewBox="0 0 660 300" role="img" aria-label="Interrupted time series: monthly intake falls gently before a programme starts, then drops in level and falls more steeply, compared against the projected pre-existing trend">
+      <defs>
+        <marker id="arSdIts" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L6,3 L0,6 Z" fill="var(--svg-strong)"/>
+        </marker>
+        <marker id="arSdItsB" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto-start-reverse">
+          <path d="M0,0 L6,3 L0,6 Z" fill="var(--svg-strong)"/>
+        </marker>
+      </defs>
+      <text x="330" y="20" text-anchor="middle" font-family="Fraunces,serif" font-size="16" fill="var(--ink)">Interrupted time series</text>
+      <line x1="70" y1="50" x2="70" y2="240" stroke="var(--muted)" stroke-width="1"/>
+      <line x1="70" y1="240" x2="612" y2="240" stroke="var(--muted)" stroke-width="1"/>
+      <text x="30" y="150" font-size="10.5" fill="var(--muted)" transform="rotate(-90,30,150)" text-anchor="middle">monthly intake</text>
+      <text x="340" y="262" text-anchor="middle" font-size="10.5" fill="var(--muted)">time (months)</text>
+      <line x1="335" y1="50" x2="335" y2="240" stroke="var(--svg-strong)" stroke-width="1.5" stroke-dasharray="5,4"/>
+      <text x="335" y="42" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="var(--svg-strong)">programme starts</text>
+      <line x1="70" y1="80" x2="335" y2="110" stroke="var(--svg-strong)" stroke-width="2"/>
+      <line x1="335" y1="110" x2="600" y2="140" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="4,4"/>
+      <line x1="335" y1="140" x2="600" y2="205" stroke="var(--svg-strong)" stroke-width="2"/>
+      <circle cx="79" cy="77" r="3" fill="var(--svg-strong)"/><circle cx="112" cy="88" r="3" fill="var(--svg-strong)"/><circle cx="136" cy="83" r="3" fill="var(--svg-strong)"/><circle cx="169" cy="95" r="3" fill="var(--svg-strong)"/><circle cx="202" cy="91" r="3" fill="var(--svg-strong)"/><circle cx="235" cy="103" r="3" fill="var(--svg-strong)"/><circle cx="268" cy="99" r="3" fill="var(--svg-strong)"/><circle cx="301" cy="110" r="3" fill="var(--svg-strong)"/><circle cx="330" cy="106" r="3" fill="var(--svg-strong)"/>
+      <circle cx="345" cy="138" r="3" fill="var(--svg-strong)"/><circle cx="378" cy="155" r="3" fill="var(--svg-strong)"/><circle cx="411" cy="154" r="3" fill="var(--svg-strong)"/><circle cx="444" cy="171" r="3" fill="var(--svg-strong)"/><circle cx="477" cy="170" r="3" fill="var(--svg-strong)"/><circle cx="510" cy="188" r="3" fill="var(--svg-strong)"/><circle cx="543" cy="187" r="3" fill="var(--svg-strong)"/><circle cx="576" cy="203" r="3" fill="var(--svg-strong)"/>
+      <text x="185" y="70" text-anchor="middle" font-size="10.5" fill="var(--muted)">pre-existing downward trend</text>
+      <line x1="344" y1="111" x2="344" y2="139" stroke="var(--svg-strong)" stroke-width="1.5" marker-start="url(#arSdItsB)" marker-end="url(#arSdIts)"/>
+      <text x="353" y="129" font-size="10.5" fill="var(--ink)">level drop</text>
+      <text x="505" y="106" text-anchor="middle" font-size="10.5" fill="var(--muted)">projected trend, had nothing changed</text>
+      <text x="440" y="205" text-anchor="middle" font-size="10.5" fill="var(--ink)">and the slope steepens</text>
+    </svg>
+    <div class="figcap">Interrupted time series. The pre-intervention trend is modelled and projected forward, so the effect is measured as the departure from that projection, in level and in slope. Original construction.</div>
+  </div>
+  <div class="box trap"><span class="lbl">Exam trap</span><p>Comparing a raw mean for the year before against the year after is <b>not</b> an interrupted time series and will mislead you twice over. If intake was already falling, a simple before-and-after difference credits the programme with the pre-existing trend. If the two windows straddle kitten season differently, seasonality alone can produce or erase the whole effect.</p></div>
+
   <h3>Experimental studies <span class="badge ref">ref</span></h3>
   <p>The investigator assigns the intervention. A <b>randomised controlled trial</b> allocates subjects at random to intervention or control. Randomisation balances known and unknown confounders, which is the source of the RCT's causal strength.</p>
   <ul>
@@ -261,6 +340,17 @@ ul{padding-left:20px}
     <li><b>Blinding:</b> single or double; reduces information, observer and placebo effects.</li>
     <li><b>Intention-to-treat:</b> analyse subjects in their originally assigned group regardless of protocol completion, preserving the benefits of randomisation.</li>
   </ul>
+
+  <h4>Cluster randomisation</h4>
+  <p>Sometimes the individual animal cannot be the unit of randomisation. You randomise <b>groups</b> instead: kennel wards, foster homes, clinic days, whole shelters. Two situations force it:</p>
+  <ul>
+    <li><b>The intervention is delivered at group level.</b> A ward-wide sanitation protocol or a change to the ventilation cannot be given to some dogs in a ward and not others.</li>
+    <li><b>Contamination is unavoidable.</b> If treated and untreated animals share air, staff or equipment, the control group is no longer a clean comparison.</li>
+  </ul>
+  <p>The cost is statistical. Animals within a cluster are more alike than animals in different clusters, quantified by the <b>intracluster correlation coefficient</b>. So the effective sample size is smaller than the number of animals, and the required sample size must be inflated by the <b>design effect</b>, which equals 1 + (average cluster size &minus; 1) &times; intracluster correlation coefficient. Analysis must respect the clustering too, either at cluster level or with a mixed-effects model.</p>
+  <p>A <b>stepped-wedge</b> design is the cluster trial worth knowing for shelter work: every cluster eventually receives the intervention, but the <b>order</b> in which they cross over is randomised. It suits a programme that must be rolled out to everyone anyway, and it lets each cluster act as its own control before it crosses over.</p>
+  <div class="box trap"><span class="lbl">Exam trap</span><p>Analysing a cluster-randomised trial as though animals had been randomised individually is the classic <b>unit of analysis error</b>. It understates the standard errors and produces spuriously significant results. If randomisation happened at ward level, the analysis has to acknowledge the ward. Randomising 12 wards is closer to a study of 12 units than a study of 300 dogs.</p></div>
+
   <div class="box verifybox"><span class="lbl">Boundary note</span><p>Research ethics and IACUC oversight (animals cannot consent; the agency acts as steward) sit at the boundary with the Animals and Public Policy (Ethics) domain. Folded in only briefly here; tell me if you want it expanded.</p></div>
 
   <h3>Hierarchy of evidence and EBVM <span class="badge ref">ref</span></h3>
@@ -498,6 +588,9 @@ ul{padding-left:20px}
       <tr><td>Binary outcome, several predictors</td><td>Mixed</td><td>Logistic regression</td></tr>
       <tr><td>Skewed or ordinal data</td><td>Non-normal, ranked</td><td>Non-parametric (Mann-Whitney, Kruskal-Wallis, Spearman)</td></tr>
       <tr><td>Time to an event</td><td>Time-to-event</td><td>Survival analysis, Kaplan-Meier, log-rank</td></tr>
+      <tr><td>Two measurements, <b>same</b> animals</td><td>Continuous</td><td>Paired t-test (Wilcoxon signed-rank if skewed)</td></tr>
+      <tr><td>Three or more measurements, <b>same</b> animals</td><td>Continuous</td><td>Repeated-measures ANOVA (Friedman if skewed)</td></tr>
+      <tr><td>Repeated or clustered data, general case</td><td>Mixed</td><td>Mixed-effects (multilevel) model</td></tr>
     </tbody>
   </table>
   <div class="box verifybox"><span class="lbl">Shelter link</span><p>Kaplan-Meier and survival analysis are the proper tools for length-of-stay and time-to-outcome data, because they handle animals still in care (censored observations). This connects your Data and Analysis work to study-design methodology.</p></div>
@@ -533,6 +626,7 @@ ul{padding-left:20px}
     <li><b>Mann-Whitney U</b> (Wilcoxon rank-sum) replaces the two-group t-test.</li>
     <li><b>Kruskal-Wallis</b> replaces one-way ANOVA.</li>
     <li><b>Spearman's rho</b> replaces Pearson and detects a <b>monotonic</b> rather than strictly linear association.</li>
+    <li><b>Wilcoxon signed-rank</b> replaces the paired t-test, and <b>Friedman's test</b> replaces repeated-measures analysis of variance, for the repeated-measurement designs below.</li>
   </ul>
   <p>This matters for shelter work specifically because length-of-stay data are classically <b>right-skewed</b> &mdash; which is exactly why the Shelter link box above flags survival methods, and why a Mann-Whitney is often more defensible than a t-test on raw length of stay.</p>
 
@@ -543,6 +637,15 @@ ul{padding-left:20px}
     <li><b>Cox proportional hazards:</b> the regression extension, giving <b>hazard ratios</b> while adjusting for covariates.</li>
   </ul>
   <p>A plain mean length of stay is biased precisely because it ignores censored animals &mdash; the methodological point the Shelter link box above is making.</p>
+
+  <h4>Repeated measurements on the same animals</h4>
+  <p>Every test above assumes each row is a different animal. Once the same animal appears more than once, you need the paired or repeated version, or the whole test is invalid:</p>
+  <ul>
+    <li><b>Paired t-test</b> for two time points, because what is being tested is the mean of the <b>within-animal differences</b>, not the difference between two independent means. Pairing removes between-animal variability, which is why the paired test is usually more powerful for the same number of animals.</li>
+    <li><b>Repeated-measures analysis of variance</b> for three or more time points. Its weakness is that it needs a complete set of measurements on every animal: one missing time point and the animal is dropped entirely.</li>
+    <li><b>Mixed-effects (multilevel) models</b> are the general answer, and increasingly the expected one. A <b>random effect</b> for animal says each animal has its own baseline; <b>fixed effects</b> carry the predictors you actually want to test. They tolerate missing and unequally spaced time points, and the same machinery absorbs clustering of any kind, including littermates, households and kennel wards.</li>
+  </ul>
+  <p><i>Shelter example:</i> stress scores on days 1, 3, 7 and 14 in 40 cats housed under two enrichment protocols. The comparison of interest is the protocol, but the model has to know that the 160 rows come from 40 cats. See the study-design caveat at the foot of this section, which is the same point stated from the design side.</p>
 
   <h4>The framework worth memorising</h4>
   <p>There is a clean parallel that ties the whole table together: each "simple" comparison test has a <b>regression counterpart</b> that lets you adjust for confounders.</p>
@@ -566,7 +669,7 @@ ul{padding-left:20px}
 <!-- ============ BANK ============ -->
 <section class="panel" id="bank">
   <h2>Question Bank</h2>
-  <p class="lead">Thirty-four single-best-answer items across the four topics. Tap an option to check it. Answers are spread evenly across A to D.</p>
+  <p class="lead">Forty single-best-answer items across the four topics. Tap an option to check it. Answers are spread evenly across A to D.</p>
   <div class="chips" id="chips">
     <button class="chip active" data-f="all">All</button>
     <button class="chip" data-f="designs">Study Designs</button>
@@ -810,7 +913,13 @@ const Q=[
  {f:"designs",q:"What distinguishes a systematic review from a thorough narrative review?",o:["The systematic review uses a prespecified, reproducible protocol and search strategy","The systematic review is longer and cites more studies","The systematic review always includes a statistical pooling of results","The systematic review is written by a team rather than a single expert"],a:0,e:"The defining feature is the protocol written before the search, so that another team following it would retrieve the same studies. Length, citation count and authorship are not criteria. Pooling (meta-analysis) is optional: a systematic review may conclude the studies are too dissimilar to combine."},
  {f:"designs",q:"A meta-analysis presents a funnel plot in which small studies showing no effect are conspicuously absent, making the plot asymmetrical. What does this most likely indicate?",o:["Publication bias","Confounding by indication","Recall bias","Regression to the mean"],a:0,e:"A complete literature forms a symmetrical inverted funnel, because small studies scatter widely around the true effect while large studies cluster tightly. A missing corner of small negative studies suggests they were conducted but never published, which inflates the pooled estimate."},
  {f:"designs",q:"A vaccine challenge study in specific-pathogen-free kittens, all given an identical intranasal dose under uniform housing, reports 95% protection. What is the principal limitation when applying this result to a shelter?",o:["Limited external validity: the controlled conditions do not reproduce shelter exposure, age range or maternal antibody","Limited internal validity: without randomisation, confounders were not balanced between groups","The sample size in challenge studies is necessarily too small to reach statistical significance","Challenge studies are observational and so cannot establish causation"],a:0,e:"Challenge studies buy internal validity by controlling everything, and pay for it in external validity. The uniform dose, uniform age and clean housing are precisely what a shelter is not. Internally these studies are strong, and being experimental they establish causation well; the open question is whether the result transfers."},
- {f:"designs",q:"Under GRADE (Grading of Recommendations Assessment, Development and Evaluation), which finding would cause a body of observational evidence to be rated UP in certainty?",o:["A large effect with a dose-response gradient","A large number of published studies on the topic","Statistical significance at p less than 0.01 rather than 0.05","Publication in a high-impact journal"],a:0,e:"GRADE starts observational evidence at low certainty but rates it up for a very large effect, a dose-response gradient, or where plausible confounding would have worked against the effect that was nonetheless observed. Study count, p-value threshold and journal prestige are not GRADE criteria."}
+ {f:"designs",q:"Under GRADE (Grading of Recommendations Assessment, Development and Evaluation), which finding would cause a body of observational evidence to be rated UP in certainty?",o:["A large effect with a dose-response gradient","A large number of published studies on the topic","Statistical significance at p less than 0.01 rather than 0.05","Publication in a high-impact journal"],a:0,e:"GRADE starts observational evidence at low certainty but rates it up for a very large effect, a dose-response gradient, or where plausible confounding would have worked against the effect that was nonetheless observed. Study count, p-value threshold and journal prestige are not GRADE criteria."},
+ {f:"designs",q:"A shelter surveys a fresh random sample of 200 foster carers every year for five years and finds burnout prevalence unchanged. What can this design NOT tell them?",o:["Whether individual carers became more or less burnt out over the period","The prevalence of burnout in each individual year","Whether burnout prevalence differed between year one and year five","The proportion of carers reporting burnout in the final year"],a:0,e:"A fresh sample each round makes this a repeated cross-sectional survey, which measures net population change only. Unchanged prevalence is equally consistent with nobody changing, or with burnt-out carers quitting and being replaced by fresh ones. Following the same carers each year, a panel study, is what measures within-individual change."},
+ {f:"designs",q:"An investigator uses ten years of existing shelter records to identify dogs housed singly or in groups at intake, then compares the recorded incidence of respiratory disease between the two housing groups. What design is this?",o:["Retrospective cohort study","Case-control study","Analytic cross-sectional study","Case series"],a:0,e:"The reasoning runs forward from exposure (housing type) to outcome (disease) and yields incidence and relative risk, which makes it a cohort. That the records already existed makes it retrospective; that word describes the investigator's vantage point in time, not the direction of reasoning. A case-control study would have started from the diseased dogs and looked back at their housing."},
+ {f:"designs",q:"Twelve kennel wards are randomised to a new sanitation protocol or to standard practice, and 300 dogs are enrolled. Analysing the result as though the 300 dogs had been individually randomised will most likely:",o:["Understate the standard errors and overstate the statistical significance","Overstate the standard errors and conceal a real effect","Have no effect, because the number of dogs is what determines power","Introduce recall bias into the outcome assessment"],a:0,e:"This is the unit of analysis error. Dogs within a ward are more alike than dogs in different wards, so the effective sample size is far below 300. Treating correlated observations as independent shrinks the standard errors and manufactures significance. The analysis must be done at cluster level or with a mixed-effects model."},
+ {f:"designs",q:"Dogs acquired during the 2020 to 2021 pandemic surge show more separation-related behaviour than dogs acquired before or after, and this persists as they age. This is best described as:",o:["A cohort effect","An age effect","A period effect","Regression to the mean"],a:0,e:"The characteristic belongs to the group that entered together and travels with them as they age, which is the definition of a cohort effect. An age effect would mean dogs of that age are affected generally; a period effect would mean all dogs are affected during a given calendar window regardless of when they were acquired."},
+ {f:"designs",q:"Monthly feline intake was already declining before a trap-neuter-return programme began. Comparing mean monthly intake in the twelve months before with the twelve months after would most likely:",o:["Credit the programme with the decline that was already under way","Understate the programme effect, because censored animals are excluded","Be valid, because the pre-intervention period acts as a proper control group","Be misleading only if the two periods were of unequal length"],a:0,e:"A raw before-and-after comparison attributes the pre-existing trend to the intervention. An interrupted time series instead models the pre-intervention trend, projects it forward, and measures the change in level and in slope against that projection. Making the two windows equal in length does not address the trend at all."},
+ {f:"tests",q:"Stress scores are recorded on days 1, 3, 7 and 14 for each of 40 shelter cats, giving 160 measurements. Which analysis is appropriate?",o:["A mixed-effects model with a random effect for individual cat","A one-way analysis of variance treating all 160 measurements as independent","An independent t-test comparing day 1 with day 14","A chi-square test across the 160 measurements"],a:0,e:"The 160 measurements come from only 40 independent animals, so treating them as independent is pseudoreplication: it inflates the effective sample size and manufactures significance. A mixed-effects model with a random effect for cat accounts for the repeated measurement, and unlike repeated-measures analysis of variance it tolerates missing time points."}
 ];/*mcq-shuffle*/(function(){var _a=Q;if(!Array.isArray(_a))return;for(var _i=0;_i<_a.length;_i++){var _q=_a[_i];if(!_q||!Array.isArray(_q.o)||typeof _q.a!=='number')continue;var _c=_q.o[_q.a];for(var _j=_q.o.length-1;_j>0;_j--){var _k=Math.floor(Math.random()*(_j+1));var _t=_q.o[_j];_q.o[_j]=_q.o[_k];_q.o[_k]=_t;}_q.a=_q.o.indexOf(_c);}})();
 const LTR=["A","B","C","D"];
 const bankList=document.getElementById("bankList");

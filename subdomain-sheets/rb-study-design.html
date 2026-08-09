@@ -124,6 +124,19 @@
         </section>
 
         <section class="card">
+          <h2>Longitudinal designs &amp; repeated measurement</h2>
+          <ul class="tight">
+            <li><span class="add"><span class="lead">Panel vs repeated cross-sectional</span> — a <b>panel</b> follows the <b>same</b> individuals each round → measures <b>within-individual change</b> (weak point: attrition). A <b>repeated cross-sectional</b> survey draws a <b>fresh sample</b> each round → measures <b>net population change only</b>. Flat prevalence may mean nobody changed, or that the affected ones left and were replaced.<span class="addtag">+</span></span></li>
+            <li><span class="add"><span class="lead">Prospective / retrospective / ambidirectional</span> — describes the investigator's <b>vantage point in time</b>, not the direction of reasoning. Retrospective = cohort assembled from existing records; ambidirectional = historical records <i>plus</i> continued forward follow-up.<span class="addtag">+</span></span></li>
+            <li><span class="add"><span class="lead">Repeated measures</span> — same animal measured repeatedly → observations are <b>correlated</b>. Treating them as independent is <b>pseudoreplication</b> (inflates n, shrinks standard errors, manufactures significance). 2 time points → paired t-test / Wilcoxon signed-rank; 3+ → repeated-measures ANOVA / Friedman; general → <b>mixed-effects model</b> with a random effect for animal (tolerates missing time points).<span class="addtag">+</span></span></li>
+            <li><span class="add"><span class="lead">Age / period / cohort</span> — <b>age</b> = changes because animals get older · <b>period</b> = affects everyone in that calendar window · <b>cohort</b> = specific to the group that entered together and travels with them (e.g. pandemic-surge puppies). Entangled: cohort = period &minus; age, so all three can't be estimated at once.<span class="addtag">+</span></span></li>
+            <li><span class="add"><span class="lead">Time series &amp; ITS</span> — features: <b>trend</b>, <b>seasonality</b> (kitten season), <b>autocorrelation</b>. <b>Interrupted time series</b> <span class="exp">(ITS)</span> models the pre-intervention trend, projects it forward, and tests for a change in <b>level</b> and in <b>slope</b> — the design for evaluating a programme you couldn't randomise.<span class="addtag">+</span></span></li>
+            <li><span class="add"><span class="lead">Cluster randomisation</span> — randomise <b>groups</b> (wards, foster homes, shelters) when the intervention is group-level or contamination is unavoidable. Inflate sample size by the <b>design effect</b> = 1 + (mean cluster size &minus; 1) &times; <b>ICC</b> <span class="exp">(intracluster correlation coefficient)</span>. <b>Stepped wedge</b> = every cluster crosses over eventually, in randomised order.<span class="addtag">+</span></span></li>
+          </ul>
+          <div class="trap"><b>Trap</b> — a <b>retrospective cohort is still a cohort</b>: it reasons forward from exposure and yields incidence &amp; RR, so it is not a case-control study. Separately, analysing a cluster-randomised trial as if animals had been individually randomised is the <b>unit of analysis error</b> — it understates standard errors and manufactures significance.</div>
+        </section>
+
+        <section class="card">
           <h2>Hierarchy of evidence and EBVM</h2>
           <ul class="tight">
             <li><span class="add"><span class="lead">Strength ladder</span> — systematic review / RCT <span class="exp">(randomised controlled trial)</span> &gt; cohort &gt; case-control &gt; case series / report &gt; expert opinion.<span class="addtag">+</span></span></li>
