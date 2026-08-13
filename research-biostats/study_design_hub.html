@@ -575,9 +575,10 @@ ul{padding-left:20px}
     <div class="figcap">The diagnostic 2x2. Sensitivity and specificity read down the columns; predictive values read across the rows. Original construction.</div>
   </div>
   <ul>
-    <li><b>Sensitivity = TP / (TP + FN):</b> of truly diseased animals, the proportion the test flags. A property of the test, prevalence-independent.</li>
-    <li><b>Specificity = TN / (TN + FP):</b> of truly healthy animals, the proportion cleared. Also prevalence-independent.</li>
-    <li><b>PPV = TP / (TP + FP)</b> and <b>NPV = TN / (TN + FN):</b> clinically useful, but they <b>depend on prevalence</b>.</li>
+    <li><b>Sensitivity = TP / (TP + FN):</b> the proportion of truly diseased animals correctly identified as positive (true positive rate) &mdash; how well the test catches disease that's really there. A property of the test, prevalence-independent.</li>
+    <li><b>Specificity = TN / (TN + FP):</b> the proportion of truly healthy animals correctly identified as negative (true negative rate) &mdash; how well the test clears animals that are really healthy. Also prevalence-independent.</li>
+    <li><b>PPV = TP / (TP + FP):</b> the proportion of positive results that are true positives &mdash; answers "if this test is positive, what's the probability the animal truly has the disease?" <b>Depends on prevalence.</b></li>
+    <li><b>NPV = TN / (TN + FN):</b> the proportion of negative results that are true negatives &mdash; answers "if this test is negative, what's the probability the animal is truly free of disease?" <b>Depends on prevalence.</b></li>
   </ul>
   <h4>Worked example</h4>
   <p>100 truly infected cats: the test flags 90. 100 truly uninfected cats: the test flags 5. Then <span class="mono">Sensitivity = 90/100 = 90%</span>, <span class="mono">Specificity = 95/100 = 95%</span>. If only 20 of 1000 screened cats are truly infected (2% prevalence): true positives = 18, false positives = 49, so <span class="mono">PPV = 18/(18+49) = 27%</span>, despite a sensitive and specific test.</p>
