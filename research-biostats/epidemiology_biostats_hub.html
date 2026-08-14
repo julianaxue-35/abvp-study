@@ -192,6 +192,18 @@ ul{padding-left:20px}
     </div>
   </div>
 
+  <h3>Ratio, proportion, and rate <span class="badge ref">ref</span></h3>
+  <p>Every disease-frequency measure on this page is built from one of three underlying quantity types.</p>
+  <table>
+    <thead><tr><th>Term</th><th>Definition</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td>Ratio</td><td>One quantity divided by another; the numerator is not necessarily part of the denominator</td><td>Male-to-female ratio at intake</td></tr>
+      <tr><td>Proportion</td><td>A ratio in which the numerator is a subset of the denominator, <span class="mono">A / (A+B)</span>; dimensionless, no time dimension</td><td>Percentage of intake that is feline</td></tr>
+      <tr><td>Rate</td><td>A ratio that incorporates the passage of time, measuring how quickly events occur in a population over a defined period</td><td>Incidence rate (cases per 100 dog-days)</td></tr>
+    </tbody>
+  </table>
+  <div class="box trap"><span class="lbl">Exam trap</span><p>"Incidence rate" and "cumulative incidence" get used loosely and interchangeably, but only incidence density (person-time in the denominator) is a true <b>rate</b>. Cumulative incidence is technically a <b>proportion</b>, despite the word "risk" — it has a stated observation window but no built-in per-unit-time component.</p></div>
+
   <h3>Incidence <span class="badge ref">ref</span></h3>
   <ul>
     <li><b>Cumulative incidence (incidence risk):</b> the proportion of an at-risk group that develops new disease over a defined period. A dimensionless proportion, so the time period must always be stated. <span class="mono">CI = new cases / population at risk</span>.</li>
@@ -373,6 +385,14 @@ ul{padding-left:20px}
   </ul>
   <p>The <b>sensitivity of a surveillance system</b> is the proportion of true cases it actually detects. A passive system usually has lower sensitivity than an active one.</p>
 
+  <h3>Natural history of disease <span class="badge ref">ref</span></h3>
+  <p>The <b>natural history of disease</b> is the course a disease follows from onset to its clinical endpoint — recovery, chronic disease, disability, or death — in the absence of intervention. Two phases matter for exam purposes:</p>
+  <ul>
+    <li><b>Prepathogenesis period:</b> the stage before pathologic change begins, where host, agent, and environment interact and susceptibility is established, but no disease process has yet started.</li>
+    <li><b>Pathogenesis period:</b> begins once pathologic changes start, running from subclinical (preclinical) disease through clinical disease to an outcome.</li>
+  </ul>
+  <div class="box verifybox"><span class="lbl">Link to frequency</span><p>Natural history supplies the <b>duration</b> term in the incidence-prevalence relationship on the Disease Frequency tab. A disease with a long natural history (chronic course) accumulates high prevalence relative to its incidence; a short, rapidly resolving or rapidly fatal natural history keeps prevalence low.</p></div>
+
   <h3>Endemic, epidemic, and the epidemic curve <span class="badge ref">ref</span></h3>
   <p><b>Endemic</b> is the usual, expected baseline level of a disease in a population. An <b>epidemic (outbreak)</b> is occurrence clearly in excess of that expected level. Plotting cases by time of onset produces an <b>epidemic curve</b>, whose shape suggests the mode of spread.</p>
   <div class="figwrap">
@@ -405,14 +425,79 @@ ul{padding-left:20px}
     </svg>
     <div class="figcap">Curve shape points to mechanism: one peak for a shared source, repeating waves for animal-to-animal spread. Original construction.</div>
   </div>
+
+  <p>Two further shapes complete the four classic patterns:</p>
+  <div class="figwrap">
+    <svg viewBox="0 0 600 220" role="img" aria-label="Epidemic curves: common continuous source versus common intermittent source">
+      <defs>
+        <marker id="arEbCurve2" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+          <path d="M0,0 L7,3 L0,6 Z" fill="var(--svg-strong)"/>
+        </marker>
+      </defs>
+      <text x="150" y="22" text-anchor="middle" font-size="12.5" fill="var(--ink)">Common continuous source</text>
+      <line x1="40" y1="170" x2="280" y2="170" stroke="var(--svg-soft)" stroke-width="1.5"/>
+      <line x1="40" y1="170" x2="40" y2="50" stroke="var(--svg-soft)" stroke-width="1.5" marker-end="url(#arEbCurve2)"/>
+      <rect x="55" y="155" width="14" height="15" fill="var(--svg-soft)"/>
+      <rect x="73" y="140" width="14" height="30" fill="var(--svg-strong)"/>
+      <rect x="91" y="120" width="14" height="50" fill="var(--svg-strong)"/>
+      <rect x="109" y="100" width="14" height="70" fill="var(--svg-strong)"/>
+      <rect x="127" y="85" width="14" height="85" fill="var(--svg-strong)"/>
+      <rect x="145" y="80" width="14" height="90" fill="var(--svg-strong)"/>
+      <rect x="163" y="85" width="14" height="85" fill="var(--svg-strong)"/>
+      <rect x="181" y="105" width="14" height="65" fill="var(--svg-strong)"/>
+      <rect x="199" y="130" width="14" height="40" fill="var(--svg-strong)"/>
+      <rect x="217" y="150" width="14" height="20" fill="var(--svg-soft)"/>
+      <text x="150" y="190" text-anchor="middle" font-size="10.5" fill="var(--muted)">gradual rise, plateau, gradual fall</text>
+      <text x="450" y="22" text-anchor="middle" font-size="12.5" fill="var(--ink)">Common intermittent source</text>
+      <line x1="330" y1="170" x2="580" y2="170" stroke="var(--svg-soft)" stroke-width="1.5"/>
+      <line x1="330" y1="170" x2="330" y2="50" stroke="var(--svg-soft)" stroke-width="1.5" marker-end="url(#arEbCurve2)"/>
+      <rect x="350" y="150" width="13" height="20" fill="var(--svg-strong)"/>
+      <rect x="366" y="125" width="13" height="45" fill="var(--svg-strong)"/>
+      <rect x="430" y="110" width="13" height="60" fill="var(--svg-strong)"/>
+      <rect x="446" y="140" width="13" height="30" fill="var(--svg-strong)"/>
+      <rect x="510" y="100" width="13" height="70" fill="var(--svg-strong)"/>
+      <rect x="526" y="135" width="13" height="35" fill="var(--svg-strong)"/>
+      <text x="455" y="190" text-anchor="middle" font-size="10.5" fill="var(--muted)">irregular clusters, unequal gaps</text>
+    </svg>
+    <div class="figcap">Continuous exposure produces a broad hump instead of a sharp spike; intermittent exposure produces ragged, unevenly-spaced clusters rather than the propagated curve's regular one-incubation-period spacing. Original construction.</div>
+  </div>
   <p>During an investigation a clear <b>case definition</b> lets cases be counted consistently by time, place and animal, and <b>attack rates</b> compared across subgroups point to the highest-risk group and the likely source.</p>
+
+  <h3>Reproduction number <span class="badge ref">ref</span></h3>
+  <p><b>Basic reproduction number (R&#8320;):</b> the expected number of secondary cases arising from one case in a population that is wholly susceptible. It is dimensionless, describes the pathogen's inherent transmissibility under given conditions, and — because it assumes no existing immunity — is <b>not itself changed by vaccination</b>.</p>
+  <p><b>Effective reproduction number (R):</b> the actual number of secondary cases a typical case generates in the population as it currently stands, given existing immunity, vaccination coverage, and control measures already in place. Unlike R&#8320;, R moves over the course of an outbreak.</p>
+  <div class="box trap"><span class="lbl">Exam trap</span><p>R&#8320; is a fixed property of the pathogen and setting, not a real-time metric — it does not fall as vaccination coverage rises. R is the moving figure, and driving <b>R below 1</b> (through vaccination, isolation, or other control measures) is what ends transmission, even though R&#8320; for that pathogen is unchanged.</p></div>
+
+  <h3>Disease outbreak investigation <span class="badge ref">ref</span></h3>
+  <p>A structured sequence, adapted from the CDC field-epidemiology framework, keeps an investigation systematic:</p>
+  <ol>
+    <li>Prepare for fieldwork</li>
+    <li>Confirm the existence of an outbreak</li>
+    <li>Verify the diagnosis</li>
+    <li>Establish a working case definition</li>
+    <li>Find cases systematically</li>
+    <li>Apply descriptive epidemiology (person, place, time)</li>
+    <li>Develop and test hypotheses (analytical epidemiology)</li>
+    <li>Implement control measures</li>
+    <li>Communicate findings</li>
+  </ol>
+  <p>The <b>case definition</b> is built from the same three components used to describe any outbreak descriptively:</p>
+  <table>
+    <thead><tr><th>Component</th><th>Captures</th></tr></thead>
+    <tbody>
+      <tr><td>Person (animal)</td><td>Vulnerability factors: age, sex, signalment, clinical signs, exposure history</td></tr>
+      <tr><td>Place</td><td>Geographic or facility boundaries: ward, building, farm, region</td></tr>
+      <tr><td>Time</td><td>The timeframe relative to exposure and onset</td></tr>
+    </tbody>
+  </table>
+  <div class="box verifybox"><span class="lbl">Shelter note</span><p>Control measures need not wait for the full sequence to finish. In a shelter outbreak, isolating suspect cases and pausing intake to the affected ward (step 8) often starts well before hypothesis testing (step 7) is complete, because the cost of delay — ongoing transmission — usually outweighs the cost of acting on an imperfect early case definition.</p></div>
   <div class="box verifybox"><span class="lbl">Scope boundary</span><p>This page covers surveillance and outbreak epidemiology as method. Operational outbreak prevention and response protocols live in the Infectious Disease hub; diagnostic test sensitivity, specificity and predictive values live in the Study Design hub.</p></div>
 </section>
 
 <!-- ============ BANK ============ -->
 <section class="panel" id="bank">
   <h2>Question Bank</h2>
-  <p class="lead">Thirty single-best-answer items across the four topics. Tap an option to check it. Answers are spread evenly across A to D.</p>
+  <p class="lead">Forty-two single-best-answer items across the four topics. Tap an option to check it. Answers are spread evenly across A to D.</p>
   <div class="chips" id="chips">
     <button class="chip active" data-f="all">All</button>
     <button class="chip" data-f="freq">Disease Frequency</button>
@@ -639,7 +724,17 @@ const Q=[
  {f:"surv",q:"Successive peaks of cases spaced about one incubation period apart on an epidemic curve suggest:",o:["A point-source outbreak","Random background variation","A non-infectious cause","A propagated (animal-to-animal) outbreak"],a:3,e:"Progressive waves spaced by the incubation period indicate animal-to-animal propagated spread."},
  {f:"surv",q:"The primary purpose of establishing a case definition early in an outbreak investigation is to:",o:["Assign blame for the outbreak","Count cases consistently across the investigation","Calculate the case fatality rate","Replace diagnostic testing"],a:1,e:"A standard case definition lets investigators count cases consistently in time, place and animal."},
  {f:"surv",q:"Attack rates calculated for different subgroups during an outbreak are used mainly to:",o:["Identify which groups are at highest risk","Measure long-term prevalence","Determine the case fatality rate","Estimate length of stay"],a:0,e:"Comparing attack rates across subgroups highlights the highest-risk groups and points to the source."},
- {f:"surv",q:"The sensitivity of a surveillance system refers to:",o:["How quickly it reports","Its running cost","The proportion of true cases it detects","The number of staff required"],a:2,e:"Surveillance sensitivity is the proportion of actual cases the system successfully detects."}
+ {f:"surv",q:"The sensitivity of a surveillance system refers to:",o:["How quickly it reports","Its running cost","The proportion of true cases it detects","The number of staff required"],a:2,e:"Surveillance sensitivity is the proportion of actual cases the system successfully detects."},
+ {f:"freq",q:"Which of the following is a true ratio but NOT a proportion?",o:["Cumulative incidence","Point prevalence","Male-to-female intake ratio","Case fatality rate"],a:2,e:"A proportion requires the numerator to be a subset of the denominator. A sex ratio compares two independent groups, neither of which is a subset of the other, so it is a ratio but not a proportion."},
+ {f:"freq",q:"What distinguishes a rate from a proportion?",o:["A rate always exceeds 1","A rate incorporates the passage of time; a proportion does not","A proportion can only describe mortality","A rate has no denominator"],a:1,e:"A rate measures how quickly events occur per unit time. A proportion is dimensionless and time-independent beyond its stated observation window."},
+ {f:"surv",q:"The stage of disease before any pathologic change has begun, during which host, agent and environment interact to establish susceptibility, is the:",o:["Pathogenesis period","Prepathogenesis period","Convalescent period","Incubation period"],a:1,e:"The prepathogenesis period precedes the onset of pathologic change; the pathogenesis period begins once those changes start."},
+ {f:"surv",q:"A disease with a long natural history (chronic course) will tend to show:",o:["High prevalence relative to its incidence","Low prevalence relative to its incidence","Prevalence and incidence that are always equal","No relationship between prevalence and incidence"],a:0,e:"Because prevalence approximates incidence times average duration, a long natural history (long duration) inflates prevalence relative to incidence."},
+ {f:"surv",q:"The basic reproduction number (R₀) is best described as:",o:["The number of secondary cases in the current, partly immune population","The expected number of secondary cases from one case in a wholly susceptible population","A measure that falls as vaccination coverage rises","The incubation period of the pathogen"],a:1,e:"R₀ assumes complete susceptibility and is a fixed property of the pathogen and setting; it does not itself change with vaccination coverage."},
+ {f:"surv",q:"Which reproduction number changes over the course of an outbreak as immunity and control measures accumulate?",o:["R₀ only","Neither R₀ nor R","Both change identically","The effective reproduction number (R)"],a:3,e:"R (effective reproduction number) reflects the real, currently susceptible population and moves as vaccination and control measures take effect; R₀ is fixed."},
+ {f:"surv",q:"An epidemic curve showing a gradual rise, a broad plateau, and a gradual decline, spread over more than one incubation period, is most consistent with:",o:["A common point source","A common continuous source","A propagated source","A sentinel surveillance artifact"],a:1,e:"Continuous exposure over an extended period produces a broad hump rather than a single sharp peak (point source) or regularly-spaced waves (propagated source)."},
+ {f:"surv",q:"Ragged, irregularly-spaced clusters of cases on an epidemic curve, without the regular one-incubation-period spacing of a propagated outbreak, suggest:",o:["A common intermittent source","A common point source","A propagated source","Endemic baseline disease"],a:0,e:"Intermittent exposure (for example, sporadically contaminated batches) produces irregular clusters, distinguishing it from the regular spacing of person-to-person propagated spread."},
+ {f:"surv",q:"In the CDC field-epidemiology framework for outbreak investigation, which step comes immediately before developing and testing hypotheses?",o:["Implementing control measures","Communicating findings","Applying descriptive epidemiology","Confirming the outbreak exists"],a:2,e:"The sequence runs: confirm outbreak, verify diagnosis, case definition, case finding, descriptive epidemiology (person, place, time), then analytical epidemiology (hypothesis testing)."},
+ {f:"surv",q:"The three components used to build a working case definition during an outbreak investigation are:",o:["Incidence, prevalence, and mortality","Person, place, and time","Sensitivity, specificity, and prevalence","Passive, active, and sentinel surveillance"],a:1,e:"A case definition is built from person (vulnerability factors), place (geographic or facility boundaries), and time (relative to exposure and onset)."}
 ];/*mcq-shuffle*/(function(){var _a=Q;if(!Array.isArray(_a))return;for(var _i=0;_i<_a.length;_i++){var _q=_a[_i];if(!_q||!Array.isArray(_q.o)||typeof _q.a!=='number')continue;var _c=_q.o[_q.a];for(var _j=_q.o.length-1;_j>0;_j--){var _k=Math.floor(Math.random()*(_j+1));var _t=_q.o[_j];_q.o[_j]=_q.o[_k];_q.o[_k]=_t;}_q.a=_q.o.indexOf(_c);}})();
 const LTR=["A","B","C","D"];
 const bankList=document.getElementById("bankList");
