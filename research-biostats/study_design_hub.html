@@ -580,6 +580,20 @@ ul{padding-left:20px}
     <li><b>PPV = TP / (TP + FP):</b> the proportion of positive results that are true positives &mdash; answers "if this test is positive, what's the probability the animal truly has the disease?" <b>Depends on prevalence.</b></li>
     <li><b>NPV = TN / (TN + FN):</b> the proportion of negative results that are true negatives &mdash; answers "if this test is negative, what's the probability the animal is truly free of disease?" <b>Depends on prevalence.</b></li>
   </ul>
+  <h4>Table 1: the 2x2 contingency table and formula reference</h4>
+  <table>
+    <thead><tr><th></th><th>Disease positive</th><th>Disease negative</th></tr></thead>
+    <tbody>
+      <tr><td><b>Test positive</b></td><td>TP</td><td>FP</td></tr>
+      <tr><td><b>Test negative</b></td><td>FN</td><td>TN</td></tr>
+    </tbody>
+  </table>
+  <p>
+    <span class="mono">Sensitivity = TP / (TP + FN)</span> &nbsp;·&nbsp;
+    <span class="mono">Specificity = TN / (TN + FP)</span><br>
+    <span class="mono">PPV = TP / (TP + FP)</span> &nbsp;·&nbsp;
+    <span class="mono">NPV = TN / (TN + FN)</span>
+  </p>
   <h4>Worked example</h4>
   <p>100 truly infected cats: the test flags 90. 100 truly uninfected cats: the test flags 5. Then <span class="mono">Sensitivity = 90/100 = 90%</span>, <span class="mono">Specificity = 95/100 = 95%</span>. If only 20 of 1000 screened cats are truly infected (2% prevalence): true positives = 18, false positives = 49, so <span class="mono">PPV = 18/(18+49) = 27%</span>, despite a sensitive and specific test.</p>
   <div class="box trap"><span class="lbl">High-yield trap</span><p>As prevalence falls, PPV falls (more positives are false positives) even though sensitivity and specificity are unchanged. This is why low-prevalence intake screening (for example, FeLV) needs confirmatory testing. Mnemonics: <b>SnNout</b> (sensitive, Negative rules out), <b>SpPin</b> (specific, Positive rules in).</p></div>
