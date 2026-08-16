@@ -54,7 +54,12 @@
   .legend span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.25);color:#eaf4f1;display:flex;align-items:center;gap:6px}
   .legend i{width:9px;height:9px;border-radius:2px;font-style:normal;display:inline-block}
   nav.tabs{position:sticky;top:0;z-index:20;background:var(--paper2);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
-  .tabrow{display:flex;gap:2px;overflow-x:auto;padding:8px 0}
+  .tabrow{display:flex;gap:2px;overflow-x:auto;overflow-y:hidden;padding:8px 0 5px;scrollbar-width:thin;scrollbar-color:var(--id) var(--line)}
+  /* always-visible drag bar for the topic tabs (macOS hides overlay scrollbars by default) */
+  .tabrow::-webkit-scrollbar{height:9px;-webkit-appearance:none}
+  .tabrow::-webkit-scrollbar-track{background:var(--line);border-radius:999px}
+  .tabrow::-webkit-scrollbar-thumb{background:var(--id);border-radius:999px;border:2px solid var(--line)}
+  .tabrow::-webkit-scrollbar-thumb:hover{opacity:.85}
   .tabrow button{flex:0 0 auto;border:1px solid var(--line);background:#fff;font-family:"Public Sans";font-weight:600;font-size:13px;color:var(--muted);padding:9px 13px;border-radius:9px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
   .tabrow button:hover{background:var(--paper);color:var(--ink)}
   .tabrow button.active{background:var(--ink);color:var(--paper2)}
