@@ -51,6 +51,20 @@
   .arw{color:var(--theme);font-weight:700} .up{color:#b91c1c;font-weight:700} .dn{color:#1d4ed8;font-weight:700}
   .trap{background:var(--warn-soft);border:1px solid #f2cf95;border-radius:5px;padding:4px 7px;margin:5px 0 2px;
     font-size:11px;color:#7a4a08} .trap>b:first-child{color:var(--warn)}
+  /* boxes-and-arrows flowchart (matches physical-health/infectious_disease_hub.html convention) */
+  .flow{display:flex;flex-direction:column;align-items:center;font-size:10.5px;line-height:1.32;margin:2px 0}
+  .fnode{background:#fff;border:1.5px solid var(--theme);border-radius:7px;padding:5px 8px;text-align:center;color:var(--ink);width:100%}
+  .fnode .fsub{font-size:9px;color:var(--muted);margin-top:2px;font-weight:400}
+  .fnode.warn{border-color:var(--warn);background:var(--warn-soft)}
+  .fnode.addn{border-color:var(--add);background:var(--add-soft)}
+  .farrow{width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:7px solid var(--theme);margin:3px 0}
+  .fsplit{display:flex;gap:7px;justify-content:center;align-items:stretch;flex-wrap:wrap;margin-top:1px;width:100%}
+  .fcol{display:flex;flex-direction:column;align-items:center;flex:1;min-width:0}
+  .fcol .fnode{width:100%}
+  .fout{border-radius:7px;padding:5px 8px;text-align:center;font-weight:700;width:100%}
+  .fout.g{background:#e8f5ec;border:1.5px solid #bfe3cd;color:#15803d}
+  .fout.r{background:#f7e4e4;border:1.5px solid #e7b3b3;color:#b91c1c}
+  .fout.a{background:var(--warn-soft);border:1.5px solid #e7c89a;color:var(--warn)}
   .add{background:var(--add-soft);border-bottom:1px dotted var(--add);color:#0b5a54;padding:0 2px;border-radius:2px}
   .addtag{font-size:9px;font-weight:700;color:#fff;background:var(--add);border-radius:3px;padding:0 3px;margin-left:2px;vertical-align:1px}
   .flag{display:block;background:var(--add-soft);border:1px dashed var(--add);border-radius:5px;padding:4px 7px;
@@ -66,6 +80,7 @@
     header.doc h1{font-size:19px} header.doc h1 small{font-size:12px}
     section.card h2{font-size:10.5px}
     .cols{gap:9px}.col{gap:8px}section.card{padding:6px 8px 7px}.trap,.flag{font-size:9px}
+    .flow{font-size:8.6px}.fnode .fsub{font-size:7.6px}
   }
   /* narrow screens: stack the 3 columns so it stays readable */
   @media(max-width:780px){ .cols{grid-template-columns:1fr} }
@@ -202,25 +217,35 @@
 
         <section class="card">
           <h2>Dunbar Bite Severity Scale (L1–L6)</h2>
-          <ul class="tight">
-            <li><span class="add"><b>L1</b> — aggressive display (growl/snap/lunge), <b>no</b> skin contact <span class="addtag">+</span></span></li>
-            <li><span class="add"><b>L2</b> — skin contact, <b>no puncture</b> (bruising/redness/abrasion only) <span class="addtag">+</span></span></li>
-            <li><span class="add"><b>L3</b> — 1–4 punctures, single bite, <b>no</b> puncture &gt;½ canine-tooth length <span class="addtag">+</span></span></li>
-            <li><span class="add"><b>L4</b> — as L3 but ≥1 puncture &gt;½ canine-tooth length ± deep bruising/bidirectional (shake) laceration; dog failed to self-inhibit <span class="addtag">+</span></span></li>
-            <li><span class="add"><b>L5</b> — multiple L4 bites in one incident, OR ≥2 separate L4 incidents <span class="addtag">+</span></span></li>
-            <li><span class="add"><b>L6</b> — victim killed <span class="addtag">+</span></span></li>
-          </ul>
+          <div class="flow">
+            <div class="fout g">L1 — aggressive display (growl/snap/lunge), NO skin contact</div>
+            <div class="farrow"></div>
+            <div class="fout g">L2 — skin contact, NO puncture (bruising/redness/abrasion only)</div>
+            <div class="farrow"></div>
+            <div class="fout a">L3 — 1–4 punctures, single bite, NO puncture &gt;½ canine-tooth length</div>
+            <div class="farrow"></div>
+            <div class="fout r">L4 — as L3 but ≥1 puncture &gt;½ tooth length ± deep bruising/bidirectional laceration — failed self-inhibition</div>
+            <div class="farrow"></div>
+            <div class="fout r">L5 — multiple L4 bites in one incident, OR ≥2 separate L4 incidents</div>
+            <div class="farrow"></div>
+            <div class="fout r">L6 — victim killed</div>
+          </div>
           <div class="trap"><b>Trap</b> L3→L4 is the board-tested cutoff — sustained bite pressure with failed self-inhibition, not just "more punctures." Most shelters restrict public adoption from L4 up without specialist eval.</div>
         </section>
 
         <section class="card">
           <h2>The 10-Day Rabies Observation Rule</h2>
-          <ul class="tight">
-            <li><span class="add"><span class="lead">Quarantine</span> — any dog/cat/ferret that bites a human → observe <b>10 days</b> regardless of vaccination status; if it dies, test (head <b>cooled, not frozen</b>)<span class="addtag">+</span></span></li>
-            <li><span class="lead">Intake</span> — ASK whether the animal has bitten anyone in the past 10 days</li>
-            <li><span class="lead">Dies in window</span> — death for <b>any reason</b> → mandatory rabies testing; aggression itself can be a rabies sign</li>
-            <li><span class="lead">Staff</span> — handlers should get pre-exposure prophylaxis (PrEP); call public health for other species</li>
-          </ul>
+          <div class="flow">
+            <div class="fnode">Dog / cat / ferret bites a human <span class="fsub">any vaccination status</span></div>
+            <div class="farrow"></div>
+            <div class="fnode warn">Observe <b>10 days</b> <span class="fsub">ask at intake whether it bit anyone in the past 10 d</span></div>
+            <div class="farrow"></div>
+            <div class="fsplit">
+              <div class="fcol"><div class="fout g">Healthy @ day 10 <span class="fsub" style="display:block">no rabies testing needed</span></div></div>
+              <div class="fcol"><div class="fout r">Dies — any reason <span class="fsub" style="display:block">mandatory testing; head cooled, NOT frozen</span></div></div>
+            </div>
+          </div>
+          <div class="trap"><b>Trap</b> Aggression itself can be an early rabies sign — a bite from an animal that then sickens is not "bad luck," it's the observation window doing its job. Handlers should carry pre-exposure prophylaxis (PrEP); call public health for species outside dog/cat/ferret.</div>
         </section>
       </div>
 

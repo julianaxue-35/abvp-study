@@ -59,6 +59,20 @@
   .arw{color:var(--theme);font-weight:700} .up{color:#b91c1c;font-weight:700} .dn{color:#1d4ed8;font-weight:700}
   .trap{background:var(--warn-soft);border:1px solid #f2cf95;border-radius:5px;padding:4px 7px;margin:5px 0 2px;
     font-size:11px;color:#7a4a08} .trap>b:first-child{color:var(--warn)}
+  /* boxes-and-arrows flowchart (matches physical-health/infectious_disease_hub.html convention) */
+  .flow{display:flex;flex-direction:column;align-items:center;font-size:10.5px;line-height:1.32;margin:2px 0}
+  .fnode{background:#fff;border:1.5px solid var(--theme);border-radius:7px;padding:5px 8px;text-align:center;color:var(--ink);width:100%}
+  .fnode .fsub{font-size:9px;color:var(--muted);margin-top:2px;font-weight:400}
+  .fnode.warn{border-color:var(--warn);background:var(--warn-soft)}
+  .fnode.addn{border-color:var(--add);background:var(--add-soft)}
+  .farrow{width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:7px solid var(--theme);margin:3px 0}
+  .fsplit{display:flex;gap:7px;justify-content:center;align-items:stretch;flex-wrap:wrap;margin-top:1px;width:100%}
+  .fcol{display:flex;flex-direction:column;align-items:center;flex:1;min-width:0}
+  .fcol .fnode{width:100%}
+  .fout{border-radius:7px;padding:5px 8px;text-align:center;font-weight:700;width:100%}
+  .fout.g{background:#e8f5ec;border:1.5px solid #bfe3cd;color:#15803d}
+  .fout.r{background:#f7e4e4;border:1.5px solid #e7b3b3;color:#b91c1c}
+  .fout.a{background:var(--warn-soft);border:1.5px solid #e7c89a;color:var(--warn)}
   .add{background:var(--add-soft);border-bottom:1px dotted var(--add);color:#0b5a54;padding:0 2px;border-radius:2px}
   .addtag{font-size:9px;font-weight:700;color:#fff;background:var(--add);border-radius:3px;padding:0 3px;margin-left:2px;vertical-align:1px}
   .flag{display:block;background:var(--add-soft);border:1px dashed var(--add);border-radius:5px;padding:4px 7px;
@@ -74,6 +88,7 @@
     header.doc h1{font-size:19px} header.doc h1 small{font-size:12px}
     section.card h2{font-size:10.5px}
     .cols{gap:9px}.col{gap:8px}section.card{padding:6px 8px 7px}.trap,.flag{font-size:9px}
+    .flow{font-size:8.6px}.fnode .fsub{font-size:7.6px}
   }
   /* narrow screens: stack the 3 columns so it stays readable */
   @media(max-width:780px){ .cols{grid-template-columns:1fr} }
@@ -115,6 +130,7 @@
             <li><b>G protein</b> = cell entry + sole virus-neutralising-antibody target = the antigen in every licensed vaccine (N, P, M, L are the other four).</li>
             <li>US wildlife reservoirs: <b>raccoon</b> (east), <b>skunk</b> (central/CA), <b>fox</b> (TX/AK), <b>bats</b> (all 49 states) — bat variants cause most US human deaths; dog-maintained rabies eliminated in the US.</li>
             <li>Cross-protection is complete among RABV variants → variant ID is epidemiology only, never changing vaccine or PEP choice.</li>
+            <li><span class="add"><b>Hawaii is rabies-free</b> — the only US state with no rabies in any species, maintained by strict quarantine/import rules; US human deaths are rare (~1–3/yr), almost all bat-associated<span class="addtag">+</span></span></li>
           </ul>
           <div class="trap"><b>Trap</b> Cats (not dogs) are the <b>#1 reported rabid domestic animal in the US</b> — cat vaccination lags. Dogs remain #1 <b>globally</b> (&gt;95% of ~59,000 human deaths/yr, Africa &amp; Asia).</div>
         </section>
@@ -126,7 +142,9 @@
             <li>Myocyte replication → retrograde axoplasmic transport up nerves (~50–100 mm/day) → CNS → centrifugal spread to salivary glands &amp; skin.</li>
             <li>Face/neck bites incubate faster (shorter route to CNS); incubation 3–12 wk typical, range 2 wk–6 mo (rarely 1 yr).</li>
             <li>Centrifugal (salivary-gland) phase = why saliva is infectious &amp; enables ante-mortem nuchal-skin biopsy / saliva RT-PCR.</li>
+            <li><span class="add"><span class="lead">Non-bite routes (rare)</span> — aerosol (lab accidents; bat-cave/spelunker exposure) and organ transplant from an unrecognised donor case are both documented <span class="addtag">+</span></span></li>
           </ul>
+          <div class="trap"><b>Trap</b> A bat found in a room with a sleeping, unattended, or intoxicated/impaired person (or a child) counts as a <b>presumptive exposure</b> even with no witnessed bite or visible wound — bat teeth are tiny enough that a bite can go unnoticed. Capture the bat for testing if possible &amp; start PEP.</div>
         </section>
 
         <section class="card">
@@ -136,6 +154,8 @@
             <li>First clinical sign → death = <b>2–10 days</b>; an animal alive &amp; well &gt;10 days is unlikely rabid (but can't be excluded without DFA).</li>
             <li>Cattle/large animals often present <b>paralytic-only</b>: pharyngeal paralysis, bloat, choke-mimic → keep rabies on any large-animal CNS differential.</li>
             <li><b>DFA on fresh brain</b> (brainstem, cerebellum, hippocampus) = gold standard (~near 100%); Negri bodies only ~70–80% sensitive; RT-PCR (saliva/nuchal skin/CSF) for ante-mortem.</li>
+            <li><span class="add"><span class="lead">Wildlife-specific signs</span> — abnormal daytime activity in a nocturnal species, uncoordinated gait, unprovoked aggression, self-mutilation; a grounded/flightless bat active by day in an unusual location is classic <span class="addtag">+</span></span></li>
+            <li><span class="add"><span class="lead">Small rodents &amp; lagomorphs</span> (rats, mice, squirrels, rabbits) are rarely involved in rabies transmission — bites almost <b>never</b> require PEP per CDC, though state health department consultation is still advised <span class="addtag">+</span></span></li>
           </ul>
         </section>
       </div>
@@ -143,34 +163,83 @@
       <!-- ============ COLUMN 2 ============ -->
       <div class="col">
         <section class="card">
-          <h2>The 10-Day Observation Rule</h2>
-          <ul class="tight">
-            <li><span class="add"><span class="lead">10-day bite quarantine — dogs, cats &amp; ferrets ONLY</span> — a healthy animal at day 10 was not shedding virus in saliva at the time of the bite; the rule is <b>not</b> valid for wildlife or most livestock <span class="exp">(they cannot be observed &mdash; test instead)</span>.<span class="addtag">+</span></span></li>
-            <li>Healthy dog/cat/ferret that bites a person → 10-day observation instead of euthanasia/testing; if it sickens or dies → euthanize + submit for DFA immediately.</li>
-            <li>Rationale: these species shed in saliva only a few days before signs &amp; die within days → healthy at day 10 = non-infectious saliva at the time of the bite.</li>
-            <li>Do <b>NOT</b> vaccinate during the 10-day quarantine (it confounds the observation record); vaccinate once the window closes.</li>
-          </ul>
-          <div class="trap"><b>Trap</b> The 10-day rule &amp; observation quarantine do <b>NOT</b> apply to wildlife or most livestock — a bat, raccoon, skunk, fox or coyote bite is never observed: euthanize + submit brain for DFA, start PEP pending results.</div>
+          <h2>Flow 1 — Shelter Animal Bites a Person</h2>
+          <div class="flow">
+            <div class="fnode">Animal bites a person at the shelter</div>
+            <div class="farrow"></div>
+            <div class="fsplit">
+              <div class="fcol">
+                <div class="fnode">Dog / cat / ferret <span class="fsub">(any vaccination status)</span></div>
+                <div class="farrow"></div>
+                <div class="fnode warn">10-day quarantine <span class="fsub">appropriate housing + trained staff. Do NOT vaccinate during this window.</span></div>
+                <div class="farrow"></div>
+                <div class="fsplit">
+                  <div class="fcol">
+                    <div class="fout g">Healthy @ day 10 <span class="fsub" style="display:block">→ vaccinate &amp; release</span></div>
+                  </div>
+                  <div class="fcol">
+                    <div class="fout r">Sickens/dies <span class="fsub" style="display:block">→ euthanise (NEVER gunshot) + DFA now</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="fcol">
+                <div class="fnode">Wildlife / bat</div>
+                <div class="farrow"></div>
+                <div class="fnode warn">10-day rule does <b>NOT</b> apply <span class="fsub">cannot be observed</span></div>
+                <div class="farrow"></div>
+                <div class="fout r">Capture &amp; euthanise (never gunshot) <span class="fsub" style="display:block">→ submit for DFA + start PEP pending results</span></div>
+              </div>
+            </div>
+            <div class="farrow"></div>
+            <div class="fnode addn">Staff MUST document: bite incident, disposition decision, animal's vaccine hx, staff exposure event — all communicated to the health dept<span class="addtag">+</span></div>
+          </div>
         </section>
 
         <section class="card">
-          <h2>Shelter Exposure Protocol</h2>
-          <ul class="tight">
-            <li><span class="add"><span class="lead">Unvaccinated exposed animal = long strict quarantine OR euthanasia</span> — 4 mo / 120 days for dogs &amp; cats, 6 mo for ferrets (owner's choice vs. euthanasia + DFA <span class="exp">(direct fluorescent antibody test)</span>); a currently-vaccinated exposed animal gets an immediate booster + 45-day observation.<span class="addtag">+</span></span></li>
-            <li>Vaccinate an unvaccinated exposed animal <b>within 96 h</b> of exposure, at the start of its isolation quarantine.</li>
-            <li>Overdue but ≥1 prior USDA-licensed rabies vaccine → booster + 45-day observation (manage as <i>vaccinated</i>); no documented prior vaccine = unvaccinated pathway.</li>
-            <li>Key numbers: <b>10 d</b> bite-obs · <b>45 d</b> vaccinated-exposed obs · <b>96 h</b> vaccinate window · <b>120 d / 4 mo</b> unvacc dog/cat · <b>6 mo</b> unvacc ferret.</li>
-          </ul>
+          <h2>Flow 2 — Shelter Animal Exposed BY a Rabid/Suspect Animal</h2>
+          <div class="flow">
+            <div class="fnode">Shelter animal bitten/exposed by a rabid or suspect animal</div>
+            <div class="farrow"></div>
+            <div class="fsplit">
+              <div class="fcol">
+                <div class="fnode">Currently vaccinated</div>
+                <div class="farrow"></div>
+                <div class="fout g">Immediate booster + <b>45-day</b> observation</div>
+              </div>
+              <div class="fcol">
+                <div class="fnode">Unvaccinated / unknown</div>
+                <div class="farrow"></div>
+                <div class="fout r"><b>120 d</b> (4 mo) dog/cat, <b>6 mo</b> ferret quarantine — OR owner-elected euthanasia + DFA</div>
+              </div>
+            </div>
+            <div class="farrow"></div>
+            <div class="fnode addn">Vaccinate within <b>96 h</b> of exposure, at the start of isolation<span class="addtag">+</span></div>
+          </div>
+          <div class="trap"><b>Trap</b> Overdue but ≥1 documented prior vaccine → still managed on the <i>vaccinated</i> pathway (booster + 45 d). No documented vaccine history at all → treat as unvaccinated, regardless of the owner's claim.</div>
         </section>
 
         <section class="card">
-          <h2>Staff Exposure Management</h2>
-          <ul class="tight">
-            <li>Bite/scratch → wash wound with <b>soap &amp; water ≥10–15 min</b> immediately (major risk reduction alone); report + seek medical eval; notify health dept (mandatory, all states).</li>
-            <li>PrEP-vaccinated staff bitten → <b>2 vaccine doses (days 0 &amp; 3), NO RIG</b>; unvaccinated → full PEP series <b>+ RIG</b>.</li>
-            <li>At-risk staff (vets, techs, ACOs, wildlife rehabbers) = CDC <b>Category II</b> → 3-dose PrEP (days 0, 7, 21–28) + titre check ~q2yr.</li>
-            <li>PEP decision = attending physician + local health dept (species, vax status, testability, regional risk).</li>
-          </ul>
+          <h2>Flow 3 — Person Bitten → PEP Decision</h2>
+          <div class="flow">
+            <div class="fnode">Person bitten/exposed</div>
+            <div class="farrow"></div>
+            <div class="fnode warn">Step 1 — wound care: soap + water wash <b>~15 min</b> <span class="fsub">single biggest risk reduction, do this immediately</span></div>
+            <div class="farrow"></div>
+            <div class="fsplit">
+              <div class="fcol">
+                <div class="fnode">Previously vaccinated (PrEP)</div>
+                <div class="farrow"></div>
+                <div class="fout g">2 doses only — <b>Day 0 &amp; 3</b>. NO RIG.<span class="fsub" style="display:block">RIG can suppress the anamnestic response in already-vaccinated people<span class="addtag">+</span></span></div>
+              </div>
+              <div class="fcol">
+                <div class="fnode">Unvaccinated</div>
+                <div class="farrow"></div>
+                <div class="fout r"><b>RIG 20 IU/kg</b> — infiltrate into/around wound Day 0 (remainder IM at a distant site, up to Day 7) + vaccine Days 0, 3, 7, 14</div>
+              </div>
+            </div>
+            <div class="farrow"></div>
+            <div class="fnode addn">Report to local/state health dept (mandatory, all states) — PEP decision made jointly with attending physician<span class="addtag">+</span></div>
+          </div>
         </section>
       </div>
 
@@ -183,7 +252,7 @@
             <li>Vet vaccines are all killed or recombinant — <b>no licensed MLV rabies vaccine for dogs/cats in the US</b>; 1st dose ≥12 wk, booster at 1 yr, then q1 or q3 yr.</li>
             <li>1-yr vs 3-yr products are immunologically identical (label/regulatory difference, not protection); a 1-yr product 13 mo out = overdue → treat as unvaccinated.</li>
             <li>Human vaccine into <b>deltoid</b> (adult) / anterolateral thigh (child) — NEVER gluteus (poor response); RIG never in the same site/syringe as vaccine.</li>
-            <li>Cats: give rabies in the <b>right distal hind limb</b> (FISS amputability); non-adjuvanted recombinant preferred.</li>
+            <li>Cats: give rabies in the <b>right distal hind limb</b> — chosen for FISS <span class="exp">(feline injection-site sarcoma)</span> risk, so a tumour there stays amputable; non-adjuvanted recombinant preferred (adjuvanted = higher FISS risk).</li>
           </ul>
         </section>
 
@@ -195,6 +264,7 @@
             <li>Quarantine authority rests with the health dept / animal control, <b>not</b> the shelter vet (the vet advises &amp; supplies clinical info only).</li>
             <li>Euthanasia for DFA = IV pentobarbital or deep-anaesthesia IC only; <b>gunshot destroys the brainstem → non-diagnostic specimen</b>.</li>
             <li>National surveillance flows via states → CDC; published as the annual JAVMA rabies surveillance report.</li>
+            <li><span class="add"><span class="lead">Transport &amp; contracts</span> — animals moved between jurisdictions must have current rabies vaccination unless &lt;12 wk old; shelters operating under animal-control contracts must maintain written protocols consistent with local ordinance &amp; health department expectations <span class="addtag">+</span></span></li>
           </ul>
         </section>
 
@@ -202,10 +272,12 @@
           <h2>One Health Framework for Rabies</h2>
           <ul class="tight">
             <li><b>Zero by 30</b> (WHO/WOAH/FAO): end dog-mediated human rabies deaths by 2030; sustaining <b>≥70% dog-vaccination coverage</b> breaks the transmission cycle.</li>
+            <li><span class="add"><b>≥70% domestic-dog vaccination coverage is MORE effective than expanding PEP availability alone</b> — coverage breaks the transmission chain at the source, whereas PEP only manages individual exposures after the fact <span class="addtag">+</span></span></li>
             <li>Four pillars: dog vaccination · responsible ownership &amp; population management · accessible human PEP · wildlife ORV + integrated surveillance.</li>
             <li><b>ORV</b> (oral rabies vaccine baits) contains wildlife rabies — e.g. blocks westward spread of the raccoon variant.</li>
             <li>Shelters = vaccination points (HVLC clinics, TNR w/ rabies vax) + surveillance nodes; shelter vet = clinician + public-health + educator.</li>
-            <li>Global ~59,000 deaths/yr (mostly children, Africa/Asia); dog vaccination beats expanding PEP alone on cost-effectiveness.</li>
+            <li>Global ~59,000 deaths/yr (mostly children, Africa/Asia) — disproportionately rural, low-income populations without PEP access; dog vaccination beats expanding PEP alone on cost-effectiveness.</li>
+            <li><span class="add">US spends <b>~$300 million/yr</b> on rabies prevention (PEP, animal vaccination, surveillance) <span class="addtag">+</span></span></li>
           </ul>
         </section>
       </div>

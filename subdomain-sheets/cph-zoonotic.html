@@ -51,6 +51,20 @@
   .arw{color:var(--theme);font-weight:700} .up{color:#b91c1c;font-weight:700} .dn{color:#1d4ed8;font-weight:700}
   .trap{background:var(--warn-soft);border:1px solid #f2cf95;border-radius:5px;padding:4px 7px;margin:5px 0 2px;
     font-size:11px;color:#7a4a08} .trap>b:first-child{color:var(--warn)}
+  /* boxes-and-arrows flowchart (matches physical-health/infectious_disease_hub.html convention) */
+  .flow{display:flex;flex-direction:column;align-items:center;font-size:10.5px;line-height:1.32;margin:2px 0}
+  .fnode{background:#fff;border:1.5px solid var(--theme);border-radius:7px;padding:5px 8px;text-align:center;color:var(--ink);width:100%}
+  .fnode .fsub{font-size:9px;color:var(--muted);margin-top:2px;font-weight:400}
+  .fnode.warn{border-color:var(--warn);background:var(--warn-soft)}
+  .fnode.addn{border-color:var(--add);background:var(--add-soft)}
+  .farrow{width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:7px solid var(--theme);margin:3px 0}
+  .fsplit{display:flex;gap:7px;justify-content:center;align-items:stretch;flex-wrap:wrap;margin-top:1px;width:100%}
+  .fcol{display:flex;flex-direction:column;align-items:center;flex:1;min-width:0}
+  .fcol .fnode{width:100%}
+  .fout{border-radius:7px;padding:5px 8px;text-align:center;font-weight:700;width:100%}
+  .fout.g{background:#e8f5ec;border:1.5px solid #bfe3cd;color:#15803d}
+  .fout.r{background:#f7e4e4;border:1.5px solid #e7b3b3;color:#b91c1c}
+  .fout.a{background:var(--warn-soft);border:1.5px solid #e7c89a;color:var(--warn)}
   .add{background:var(--add-soft);border-bottom:1px dotted var(--add);color:#0b5a54;padding:0 2px;border-radius:2px}
   .addtag{font-size:9px;font-weight:700;color:#fff;background:var(--add);border-radius:3px;padding:0 3px;margin-left:2px;vertical-align:1px}
   .flag{display:block;background:var(--add-soft);border:1px dashed var(--add);border-radius:5px;padding:4px 7px;
@@ -66,6 +80,7 @@
     header.doc h1{font-size:19px} header.doc h1 small{font-size:12px}
     section.card h2{font-size:10.5px}
     .cols{gap:9px}.col{gap:8px}section.card{padding:6px 8px 7px}.trap,.flag{font-size:9px}
+    .flow{font-size:8.6px}.fnode .fsub{font-size:7.6px}
   }
   /* narrow screens: stack the 3 columns so it stays readable */
   @media(max-width:780px){ .cols{grid-template-columns:1fr} }
@@ -198,12 +213,33 @@
 
         <section class="card">
           <h2>Risk Reduction &amp; Occupational Health</h2>
+          <div class="flow">
+            <div class="fnode">Elimination / substitution <span class="fsub">not accepting high-risk species when alternatives exist; no raw meat diets</span></div>
+            <div class="farrow"></div>
+            <div class="fnode">Engineering controls <span class="fsub">isolation ward ventilation, HEPA for ringworm, handwash sinks at room exits</span></div>
+            <div class="farrow"></div>
+            <div class="fnode">Administrative controls <span class="fsub">written SOPs, staff health screening, mandatory bite reporting, training</span></div>
+            <div class="farrow"></div>
+            <div class="fnode warn">PPE <span class="fsub">gloves, N95 for aerosol risks, gown/eye protection, dedicated footwear — LAST line, not first</span></div>
+          </div>
           <ul class="tight">
-            <li><span class="lead">Hierarchy of controls</span> <span class="exp">(elimination → substitution → engineering → administrative → PPE)</span></li>
             <li><span class="lead">Written zoonosis risk program</span> <span class="exp">(ASV = Association of Shelter Veterinarians Standards of Care)</span></li>
             <li><span class="add"><span class="lead">Bite / scratch first aid</span> — immediate copious washing + wound care; assess rabies exposure (see Rabies subdomain); amoxicillin-clavulanate first-line, NOT first-gen cephalosporins <span class="addtag">+</span></span></li>
             <li><span class="lead">Adoption counseling · PPE guide</span> <span class="exp">(PPE = personal protective equipment)</span></li>
-            <li><span class="add"><span class="lead">Release/adoption decision</span> — 3-factor test: (1) risk of transmission animal→caregiver, (2) risk disease actually develops if exposed, (3) risk of a fatal outcome if it does <span class="arw">→</span> low on all three = release with disclosure, not automatic exclusion <span class="addtag">+</span></span></li>
+          </ul>
+          <div class="flow">
+            <div class="fnode addn">Release/adoption decision — 3-factor test<span class="addtag">+</span></div>
+            <div class="farrow"></div>
+            <div class="fnode">(1) Risk of transmission animal → caregiver</div>
+            <div class="farrow"></div>
+            <div class="fnode">(2) Risk disease actually develops if exposed</div>
+            <div class="farrow"></div>
+            <div class="fnode">(3) Risk of a fatal outcome if it does</div>
+            <div class="farrow"></div>
+            <div class="fout g">Low on all three → release with disclosure, NOT automatic exclusion</div>
+          </div>
+          <ul class="tight">
+
             <li><span class="lead">Hand hygiene (soap + water)</span> = single most impactful control; sanitiser weak vs oocysts/non-enveloped agents</li>
             <li><span class="lead">Bite first aid</span> — pressure-irrigate punctures with 20-mL syringe + 18-G needle; &gt;8 h delay = usually already infected; 2–30% get infected</li>
             <li><span class="lead">High-risk adopters AVOID</span> — &lt;6 mo, active diarrhoea, fleas/ticks, long nails, aggressive <span class="arw">→</span> pick a different pet, don't deny adoption</li>
