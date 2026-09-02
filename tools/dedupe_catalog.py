@@ -54,7 +54,12 @@ CONTRAST = {
 
 def contrastive(k1, k2):
     diff = set(k1.split()) ^ set(k2.split())
-    return bool(diff & CONTRAST)
+    if diff & CONTRAST:
+        return True
+    # Annual-series reports ("... during 2021" / "... during 2023") are
+    # genuinely different articles even though only a 4-digit year differs.
+    diff_years = {w for w in diff if re.fullmatch(r"(19|20)\d{2}", w)}
+    return bool(diff_years)
 
 
 def groups(cat):
