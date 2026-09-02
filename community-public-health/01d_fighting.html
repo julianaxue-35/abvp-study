@@ -116,6 +116,10 @@
   <button data-p="cockfighting"><span class="dot"></span>Cockfighting</button>
   <button data-p="legal"><span class="dot"></span>Legal &amp; DNA</button>
   <button data-p="mcq"><span class="dot" style="background:#0f3d3a"></span>MCQ (8 Qs)</button>
+
+<!-- JOURNAL-TAB:START -->
+<button data-p="journal"><span class="dot" style="background:var(--lit, #1f6f8b)"></span>Journal Articles</button>
+<!-- JOURNAL-TAB:END -->
 </div></div></nav>
 
 <main><div class="wrap">
@@ -270,9 +274,10 @@
 <!-- ===== MCQ ===== -->
 <section class="panel" id="mcq">
   <h2 class="sec">MCQ — Animal Fighting</h2>
-  <p class="lead">8 exam-style questions on dogfighting, cockfighting, legal framework, and forensic evidence.</p>
+  <p class="lead">9 exam-style questions on dogfighting, cockfighting, legal framework, and forensic evidence.</p>
   <div class="mcqbar">
-    <div class="filters"><button class="on" onclick="filterQ(this,'all')">All (8)</button></div>
+    <div class="filters"><button class="on" onclick="filterQ(this,'all')">All (9)</button>
+      <button data-f="journal" onclick="filterQ(this,'journal')">Journal Articles</button></div>
     <div class="score"><span id="sc">0 / 0</span><button class="reset" onclick="resetAll()">Reset</button></div>
   </div>
   <div id="qlist">
@@ -357,8 +362,182 @@
     <div class="expl"><b class="cor">A is correct.</b> The landmark Michael Vick case (2007) established the precedent that dogs from fighting operations require individualised behavioural assessment and should not be blanket euthanised. Many dogs from fighting operations are highly people-oriented. Each dog must receive an individual validated behavioural evaluation. Disposition decisions require court authorisation — releasing animals without court approval is destruction of evidence. Breed alone cannot determine adoptability.</div>
   </div>
 
+  <!-- Journal J1 -->
+  <div class="q" data-tag="journal">
+    <div class="meta"><span class="num">J1</span><span class="tag">journal</span></div>
+    <p class="stem">A forensic veterinary team examined 50 roosters seized from an illegal cockfighting operation in Brazil, performing live-animal exams (body condition scoring, lesion documentation, photo-documentation) on 49 birds plus a necropsy on the one that died. Which finding was documented in ALL of the live birds examined?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>Corneal ulceration</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>Edema and inflammation of the limbs</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Emaciation due to starvation</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">D</span>Lesions of the face, neck, wings, and chest</button>
+    <div class="expl"><b class="cor">C is correct.</b> Every one of the 49 live roosters examined (100%) showed emaciation due to starvation, making it the single most consistent finding of the forensic exam. Characteristic grooming (87%) and combat-related lesions to the face, neck, wings, and chest (63%) were also common but not universal. Corneal ulcers/facial edema (26%) and limb edema/inflammation (10%) were less frequent, and the necropsy on the bird that died separately documented severe emaciation, pododermatitis, and a foreign body in the crop.</div>
+  </div>
+
   </div><!-- /qlist -->
 </section>
+
+<!-- JOURNAL-ARTICLES:START -->
+<style data-journal-css>
+/* ── Journal Articles section ─────────────────────────────────────────── */
+.ja-standalone {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 2px solid var(--line, #d9d0bd);
+}
+.ja-article {
+  margin-bottom: 24px;
+  padding: 20px 22px 18px;
+  background: var(--paper2, #fbf8f1);
+  border-radius: 10px;
+  box-shadow: var(--shadow, 0 1px 2px rgba(15,61,58,.08), 0 8px 24px rgba(15,61,58,.06));
+}
+.ja-cite {
+  margin: 0 0 10px;
+  line-height: 1.45;
+  font-size: 0.97em;
+}
+.ja-meta {
+  color: var(--muted, #5d6b62);
+  font-size: 0.875em;
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0.01em;
+}
+.ja-meta a {
+  color: var(--lit, #1f6f8b);
+  text-decoration: none;
+}
+.ja-meta a:hover {
+  text-decoration: underline;
+}
+.ja-abstract {
+  border-left: 3px solid var(--lit, #1f6f8b);
+  padding: 10px 14px;
+  margin: 0 0 18px;
+  background: var(--lit-soft, #dcedf2);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.925em;
+  line-height: 1.6;
+  color: var(--ink, #0f3d3a);
+}
+.ja-mcq {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line, #d9d0bd);
+}
+.ja-mcq + .ja-mcq {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.ja-q {
+  font-weight: 600;
+  font-size: 0.93em;
+  margin: 0 0 7px;
+  color: var(--ink, #0f3d3a);
+}
+.ja-opts {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ja-opt {
+  font-size: 0.9em;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: var(--ink2, #15514c);
+  background: transparent;
+}
+.ja-opt b {
+  display: inline-block;
+  min-width: 1.5em;
+  color: var(--muted, #5d6b62);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.88em;
+}
+.ja-ans {
+  margin-top: 4px;
+}
+.ja-ans summary {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 0.83em;
+  font-family: "JetBrains Mono", monospace;
+  padding: 3px 10px;
+  border: 1px solid var(--lit, #1f6f8b);
+  border-radius: 5px;
+  color: var(--lit, #1f6f8b);
+  background: transparent;
+  user-select: none;
+  list-style: none;
+}
+.ja-ans summary::-webkit-details-marker { display: none; }
+.ja-ans summary::marker { display: none; }
+.ja-ans summary:hover {
+  background: var(--lit-soft, #dcedf2);
+}
+.ja-ans[open] summary {
+  background: var(--lit-soft, #dcedf2);
+  margin-bottom: 6px;
+}
+.ja-ans-body {
+  font-size: 0.9em;
+  padding: 8px 12px;
+  background: var(--paper, #fdfaf4);
+  border: 1px solid var(--line, #d9d0bd);
+  border-radius: 6px;
+  line-height: 1.55;
+  color: var(--ink, #0f3d3a);
+}
+.ja-ans-correct {
+  font-weight: 600;
+  color: var(--good, #2f7d52);
+  display: block;
+  margin-bottom: 4px;
+}
+.ja-ans-rationale {
+  color: var(--ink2, #15514c);
+}
+/* ── Journal self-test (pages without an MCQ bank) ── */
+.ja-quiz { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line, #d9d0bd); }
+.ja-quiz-h { font-family: "Fraunces", serif; font-weight: 600; font-size: 18px; margin: 0 0 12px; color: var(--ink, #0f3d3a); }
+.ja-qcard { background: var(--paper2, #fbf8f1); border: 1px solid var(--line, #d9d0bd); border-radius: 12px; padding: 14px 16px; margin: 12px 0; }
+.ja-qstem { font-weight: 600; font-size: 0.95em; margin-bottom: 10px; color: var(--ink, #0f3d3a); }
+.ja-qopt { display: block; width: 100%; text-align: left; cursor: pointer; font: inherit; font-size: 0.9em; padding: 8px 11px; margin: 5px 0; border: 1px solid var(--line, #d9d0bd); border-radius: 8px; background: var(--paper, #fdfaf4); color: var(--ink, #0f3d3a); }
+.ja-qopt b { color: var(--muted, #5d6b62); font-family: "JetBrains Mono", monospace; margin-right: 4px; }
+.ja-qopt:hover:not(.locked) { border-color: var(--lit, #1f6f8b); }
+.ja-qopt.locked { cursor: default; }
+.ja-qopt.correct { background: #e9f4ee; border-color: var(--good, #2f7d52); }
+.ja-qopt.wrong { background: #f8e9e9; border-color: var(--bad, #b23b3b); }
+.ja-qexpl { font-size: 0.88em; margin-top: 8px; padding: 9px 12px; background: var(--lit-soft, #dcedf2); border-radius: 8px; color: var(--ink2, #15514c); line-height: 1.5; }
+/* ── Journal source badge (self-contained so it renders on any bank page) ── */
+.bdg.journal {
+  display: inline-block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9.5px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 999px;
+  vertical-align: middle;
+  white-space: nowrap;
+  background: var(--lit-soft, #dcedf2);
+  color: var(--lit, #1f6f8b);
+}
+</style>
+<section class="panel" id="journal">
+  <h2 class="sec">Additional Resources</h2>
+  <p class="lead">Journal Articles (2021–2025) — exam items are drawn from the abstract only. Read each abstract here; self-test questions are in the MCQ Test Bank.</p>
+  <div class="card ja-article">
+    <p class="ja-cite"><b>Case report: Medical veterinary expertise on a case of cockfighting in Brazil</b><br>
+    <span class="ja-meta">Marina Doll Sousa &middot; Forensic Science International &middot; 2025 &middot; <a href="https://doi.org/10.1016/j.fsir.2025.100426" target="_blank" rel="noopener">10.1016/j.fsir.2025.100426</a></span></p>
+    <div class="ja-abstract"><b>Abstract.</b> The combat between animals to serve as a form of human entertainment is an old practice. In Brazil, it is considered a crime due to animal mistreatment. In the present case, a forensic medical veterinary expertise was required to evaluate 50 roosters apprehended on a cockfighting practice located in Itapetininga, Sao Paulo, Brazil. A forensic live animal examination was performed on 49 of the alive roosters analyzing ID, body condition score (on a scale of 1–5), lesions and observations, together with photo-documentation. A rooster died after the capture, in which an animal forensic necropsy was conducted. The most common findings during forensic examination was emaciation due to starvation present in 100 % (49/49) of alive animals, followed by characteristic grooming displayed in 87 % (43/49) and lesions located in face, neck, wings and chest found in 63 % (31/49). Wounds such as face edema and corneal ulcer were analyzed in 26 % (13/49) of the animals with edema and inflammation on limbs which were present in 10 % (4/49). Regarding the obit, it revealed severe emaciation, intense pododermatitis on the left limb, ingluvies full of non-digested dietary content with a foreign body, thickened ventricle muscle wall, evident opacity on left air sac and presence of frothy liquid in left pulmonary lobe. These results were used as evidence to prove animal mistreatment and abuse occurring in cockfighting practice. The goal of this case report is to collaborate on the production of material and protocols regarding this type of crime.</div>
+  </div>
+
+</section>
+<!-- JOURNAL-ARTICLES:END -->
+
 </div></main>
 
 <footer><div class="wrap">
