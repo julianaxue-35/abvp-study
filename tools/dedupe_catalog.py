@@ -49,6 +49,7 @@ CONTRAST = {
     "dog", "dogs", "canine", "canines", "puppy", "puppies", "bitch", "bitches",
     "male", "males", "female", "females", "i", "ii", "iii", "iv", "one", "two",
     "first", "second", "adult", "adults", "juvenile", "juveniles",
+    "aggression", "aggressive", "fear", "fears", "fearful", "anxiety",
 }
 
 
