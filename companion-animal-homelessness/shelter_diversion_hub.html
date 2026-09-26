@@ -799,7 +799,7 @@
   <p class="lead">30 board-level questions covering all aspects of the Shelter Diversion Programs subdomain. Filter by topic or attempt the full bank.</p>
   <div class="mcqbar">
     <div class="filters">
-      <button class="on" data-f="all">All (30)</button>
+      <button class="on" data-f="all">All (79)</button>
       <button data-f="found">&#9670; Foundations</button>
       <button data-f="basic">&#9670; Basic Needs</button>
       <button data-f="crisis">&#9670; Crisis/Temp</button>
@@ -1080,7 +1080,7 @@
 </div></main>
 
 <footer><div class="wrap">
-  <p>Shelter Diversion Programs subdomain, Companion Animal Homelessness domain, ABVP Shelter Medicine Practice RVS. Built from your uploaded notes (Shelter diversion programs.pdf) verified against ASV guidelines, AVCC 2018 Access to Veterinary Care report, and VCE Principles 2024. MCQ bank: 30 questions, filterable by topic: Foundations (Q1-5), Basic Needs (Q6-10), Crisis/Temp (Q11-15), Accessible Vet Care (Q16-20), Behavioral Care (Q21-25), Strategy and One Health (Q26-30). Accuracy score: 91/100; inferred material noted in corrboxes and verifyboxes. The 9% uncertainty relates to specific citation statistics (37/36/11% rehoming data, 28% surrender-cost figure, 40/28% behavioral figures) which appear in your notes without primary citation; figures are consistent with published shelter medicine literature but could not be independently verified from uploaded documents alone.</p>
+  <p>Shelter Diversion Programs subdomain, Companion Animal Homelessness domain, ABVP Shelter Medicine Practice RVS. Built from your uploaded notes (Shelter diversion programs.pdf) verified against ASV guidelines, AVCC 2018 Access to Veterinary Care report, and VCE Principles 2024. MCQ bank: 24 questions, filterable by topic: Foundations (Q1-5), Basic Needs (Q6-10), Crisis/Temp (Q11-15), Accessible Vet Care (Q16-20), Behavioral Care (Q21-25), Strategy and One Health (Q26-30). Accuracy score: 91/100; inferred material noted in corrboxes and verifyboxes. The 9% uncertainty relates to specific citation statistics (37/36/11% rehoming data, 28% surrender-cost figure, 40/28% behavioral figures) which appear in your notes without primary citation; figures are consistent with published shelter medicine literature but could not be independently verified from uploaded documents alone.</p>
 </div></footer>
 
 <script>
@@ -1099,221 +1099,30 @@ tabrow.addEventListener('click',e=>{
    f = source badge: notes|ref|avcc|corr
    q = stem, o = options array, a = correct index (0-based), e = explanation */
 const Q=[
-  /* ---- FOUNDATIONS (1-5) ---- */
-  {t:"found",f:"notes",q:"When evaluating the metrics of a newly implemented pet safety net program, an organization distinguishes between 'usage metrics' and 'impact metrics'. Which of the following represents an impact metric?",
-   o:["The total pounds of dog food distributed by a pet food bank within a specific quarter.",
-      "The total number of unique phone calls answered by a volunteer-staffed behavior helpline.",
-      "A statistically significant, documented reduction in owner-surrender shelter intake numbers.",
-      "The number of clients participating in a fee-waived community training class."],
-   a:2,e:"Impact metrics measure the direct, measurable outcome of a program (e.g., increased pet retention and decreased intake). The other options describe usage metrics, which quantify the volume of program activity only."},
-
-  {t:"found",f:"notes",q:"A shelter experiences a 20% reduction in owner surrenders following the launch of a medical subsidy program. How does this outcome primarily benefit the shelter's internal operations?",
-   o:["It permits the shelter to operate beyond its physical housing capacity.",
-      "It helps the organization function within its Capacity for Care (C4C), improving the welfare of remaining animals and staff.",
-      "It eliminates the need for intake quarantine protocols.",
-      "It shifts the regulatory burden of stray animal care entirely to private practitioners."],
-   a:1,e:"Reducing intake allows a shelter to operate within its true Capacity for Care (C4C), which directly raises the welfare baseline for animals and staff on-site, frees resources for high-complexity cases, and reduces burnout."},
-
-  {t:"found",f:"notes",q:"Before launching a community-wide safety net initiative, when is it most critical for an organization to collect data to establish a comparative baseline?",
-   o:["Immediately after the pilot phase concludes.",
-      "Concurrently with the mid-year program review.",
-      "Before the program is launched into the community.",
-      "Only during the program's phase-out or scaling down period."],
-   a:2,e:"Data must be collected before launch to establish a true baseline. Without pre-launch data, it is impossible to measure any subsequent change attributable to the program."},
-
-  {t:"found",f:"notes",q:"An animal shelter wants to assess the specific pet ownership demographics, trends, and localized service gaps within a high-risk area. Which tool is specifically designed to provide this comprehensive community needs assessment?",
-   o:["The Shelter Animals Count (SAC) national database matrix.",
-      "The Pets for Life (PFL) Community Assessment toolkit.",
-      "The Association of Shelter Veterinarians (ASV) Standards of Care guidelines checklist.",
-      "The Purina Body Condition Scoring matrix."],
-   a:1,e:"The Pets for Life (PFL) Community Assessment is the validated standard tool for identifying targeted community pet-ownership needs, service gaps, and resource deserts at a localized level."},
-
-  {t:"found",f:"notes",q:"When a shelter determines that a safety net program has reached its end of life and must be phased out, what is the most critical operational step regarding existing clients?",
-   o:["Immediate cessation of all communications to prevent public panic.",
-      "Transitioning existing clients to alternative community services and proactively supporting them through the closure.",
-      "Automatically absorbing all program animals into the shelter's permanent adoption inventory on the day of decision.",
-      "Transferring all remaining financial resources to general facility maintenance."],
-   a:1,e:"Ethical program phase-out requires proactive, transparent communication, structured transition pathways to alternative services, and staff and volunteer support. Silent closure or abrupt stoppage are ethically unacceptable."},
-
-  /* ---- BASIC NEEDS (6-10) ---- */
-  {t:"basic",f:"notes",q:"A shelter establishes a pet food pantry. Which operational resource requirement is most frequently overlooked but vital to maintaining safety and compliance?",
-   o:["Marketing funding for social media promotion of the pantry.",
-      "Physical space to store and inventory donated food, including monitoring of food expiration dates.",
-      "Hiring a board-certified veterinary nutritionist to approve all donated food items.",
-      "Purchasing commercial-grade grain milling equipment."],
-   a:1,e:"Operating a pet food bank requires adequate physical storage space and a robust inventory management system to track food expiration dates, ensuring donated items are safe and compliant before distribution."},
-
-  {t:"basic",f:"avcc",q:"Studies evaluating food-insecure pet owners have revealed a profound human-animal bond dynamic. In times of extreme resource scarcity, what choice do these owners frequently make?",
-   o:["They immediately relinquish their pets to avoid neglect charges.",
-      "They feed their pets at the expense of their own personal nutritional well-being.",
-      "They transition their pets to strict vegetarian diets using expired human pantry goods.",
-      "They abandon their pets in affluent neighborhoods where they will be found and rehomed."],
-   a:1,e:"The human-animal bond is powerful enough that food-insecure owners often prioritize their pet's nutritional needs over their own. Pet food banks therefore serve a dual One Health function, supporting both animal welfare and human nutritional well-being (AVCC 2018)."},
-
-  {t:"basic",f:"notes",q:"A shelter's housing support program aims to reduce relinquishments due to rental housing restrictions. To build a robust and effective database of pet-friendly landlords, which approach is required?",
-   o:["Relying solely on historical, unverified word-of-mouth reports from shelter front desk staff.",
-      "Using multiple research methods to identify landlords and explicitly clarifying species, size, and breed restrictions, with regular database updates.",
-      "Forcing local municipalities to ban all landlord restrictions on companion animals through litigation.",
-      "Requiring tenants to register their pets as emotional support animals regardless of their legal eligibility."],
-   a:1,e:"A reliable landlord database requires systematic multi-method research to verify current policies (species, weight, and breed limits) and must be regularly updated as landlord policies change over time."},
-
-  {t:"basic",f:"notes",q:"Shelter data examining direct owner-to-owner rehoming patterns indicate which of the following distributions of pet placement outcomes within a 5-year window?",
-   o:["Approximately 70% surrendered directly to municipal facilities, fewer than 5% given to family members.",
-      "Approximately 37% rehomed directly to a friend or family member, compared to 36% taken to an animal shelter.",
-      "Approximately 90% rehomed to individuals previously unknown to the owner via online classifieds.",
-      "Approximately 50% placed in temporary foster homes via human social service databases."],
-   a:1,e:"Data show 37% of owners rehome to friends or family versus 36% who surrender to shelters, and 11% who directly rehome to a previously unknown individual. These data support providing O-to-O rehoming resources as an effective diversion tool."},
-
-  {t:"basic",f:"notes",q:"A lost-and-found safety net program aims to minimize barriers to pet-owner reunification. Which policy should the shelter implement to achieve this?",
-   o:["Charge progressive, compounding daily board fees to incentivize faster retrieval by owners.",
-      "Eliminate heavy reunification fees and establish an up-to-date, publicly accessible database with photos of found pets on social media and the organization website.",
-      "Restrict lost-and-found database access to individuals who possess a current municipal pet license.",
-      "Mandate a 14-day quarantine period for all microchipped stray animals before allowing owner contact."],
-   a:1,e:"Eliminating heavy financial fees removes an institutional barrier that disproportionately harms low-income owners. An open-access, regularly updated digital database with photos maximizes the likelihood of reunification."},
-
-  /* ---- CRISIS / TEMP SHELTERING (11-15) ---- */
-  {t:"crisis",f:"notes",q:"Temporary sheltering safety net programs are designed to assist pet owners during acute personal crises. What is the primary objective of these programs?",
-   o:["To facilitate permanent surrender so the animal can be rapidly adopted by a new family.",
-      "To avoid permanent relinquishment by facilitating reunification once the owner's circumstances stabilize.",
-      "To provide a legal mechanism for seizing animals from uncooperative owners.",
-      "To test new pharmaceutical behavior modification protocols in a controlled residential environment."],
-   a:1,e:"Temporary sheltering programs exist to preserve the human-animal bond during acute, time-limited crises. Reunification with the original owner is the primary goal, not permanent rehoming or ownership transfer."},
-
-  {t:"crisis",f:"notes",q:"To minimize the severe medical and behavioral detriments associated with housing crisis animals in a traditional shelter environment, which housing model is ideal?",
-   o:["High-density communal concrete runs in the existing shelter intake area.",
-      "Temporary foster care networks with clear legally approved agreements on duration of care.",
-      "Isolation wards designated for animals with confirmed infectious diseases.",
-      "Off-site commercial boarding kennels with no enrichment or behavior programs."],
-   a:1,e:"Foster care avoids crowd stress, infectious disease exposure, and behavioral deterioration inherent to physical shelter kennels. Clear legal agreements prevent ambiguity about care duration and final disposition."},
-
-  {t:"crisis",f:"notes",q:"To prevent ambiguity and legal disputes regarding the duration and scope of care in a temporary crisis sheltering program, what must the organization implement?",
-   o:["Verbal agreements secured informally at intake.",
-      "Legally approved written agreements and thorough guidelines establishing clear expectations for all participants.",
-      "A policy of automatic ownership transfer after 48 hours of housing in the program.",
-      "An anonymous intake process with no contact details recorded for the owner."],
-   a:1,e:"Legally approved written agreements protect all parties (owner, shelter, and animal) by clearly defining the duration, scope, and financial terms of temporary care, preventing misunderstandings or disputes at time of reunification."},
-
-  {t:"crisis",f:"notes",q:"How can a shelter significantly optimize oversight of a temporary crisis housing initiative without overburdening its own staff resources?",
-   o:["By delegating all operational decisions to untrained general public volunteers without professional supervision.",
-      "By collaborating with governmental or non-profit human social services, allowing the shelter to focus primarily on direct animal care.",
-      "By cutting all enrichment and veterinary care for crisis animals to reduce resource expenditure.",
-      "By restricting the temporary sheltering program exclusively to purebred animals to reduce caseload."],
-   a:1,e:"Collaboration with external human social services leverages existing professional expertise and case management resources, allowing the animal welfare organization to focus on what it does best: animal care and welfare."},
-
-  {t:"crisis",f:"notes",q:"Humane education programs targeting children in schools and community settings have been evaluated for their sociological impact. What positive outcome is objectively documented in children participating in these programs?",
-   o:["Increased competitive academic performance across standardized test metrics.",
-      "Enhancement of prosocial behavior and empathy toward animals and people.",
-      "Rapid acceleration of fine motor skill development.",
-      "Complete elimination of fear-based responses to unfamiliar domestic animals."],
-   a:1,e:"Published sociological research documents that children participating in humane education programs demonstrate measurable enhancement of empathy and prosocial behavior. This is distinct from motor skills or fear responses, which are not primary documented outcomes."},
-
-  /* ---- ACCESSIBLE VET CARE (16-20) ---- */
-  {t:"vet",f:"notes",q:"According to shelter medicine literature, as many as what percentage of surrenders in a study cited cost, combined with medical issues, as the primary driver for relinquishing their companion animal?",
-   o:["Approximately 5%.",
-      "Up to 28%.",
-      "Exactly 65%.",
-      "Over 95%."],
-   a:1,e:"Up to 28% of surrenders in cited shelter medicine data specifically identified veterinary cost combined with medical issues as the reason for relinquishment, making accessible vet care a critical diversion strategy."},
-
-  {t:"vet",f:"notes",q:"When evaluating the community-wide impact of accessible spay/neuter (S/N) programs, research indicates a notable species difference. Which statement accurately reflects the evidence?",
-   o:["Accessible S/N programs show a documented reduction in shelter relinquishment for cats but not consistently for dogs.",
-      "Accessible S/N programs eliminate dog surrenders entirely but have zero impact on cat population dynamics.",
-      "Dog relinquishments drop drastically, while cat relinquishments invariably increase.",
-      "Neither species shows any change in intake metrics following community S/N program implementation."],
-   a:0,e:"Accessible spay/neuter programs show a documented reduction in feline shelter relinquishment over time; equivalent evidence for dogs is not as consistent. This species distinction is high-yield on board examinations."},
-
-  {t:"vet",f:"notes",q:"Intact dogs are statistically overrepresented in which of the following public safety and community health issues?",
-   o:["Chronic dermatological conditions requiring specialist referral in urban shelter populations.",
-      "Serious dog bite incidents and nuisance behaviors including vocalization, roaming, and urine marking.",
-      "Feline leukemia virus transmission in mixed-species shelter housing.",
-      "Vector-borne tick infestations in arid and semi-arid climates."],
-   a:1,e:"Intact male dogs are statistically overrepresented in serious dog bite incidents and in nuisance behaviors such as roaming, vocalization, and urine marking. Community S/N programs reduce these public safety and welfare concerns."},
-
-  {t:"vet",f:"notes",q:"A shelter develops an accessible veterinary care program that extends beyond wellness clinics into sick-pet medical care. To mitigate concerns among local private practitioners that this program threatens their financial well-being, the shelter should:",
-   o:["Launch the program confidentially without advertising to avoid triggering opposition.",
-      "Include outreach to the local veterinary community in the earliest stages of planning to foster referral networks and collaboration.",
-      "Aggressively undercut private clinic prices and market services to affluent pet owners.",
-      "Publicly criticize local private practitioners for their pricing models and access barriers."],
-   a:1,e:"Early, transparent outreach to private practitioners helps resolve perceived competition, builds collaborative referral channels where private vets send clients who cannot afford full-cost care, and strengthens the local veterinary ecosystem. This approach is consistent with both your notes and VCE Principle 2."},
-
-  {t:"vet",f:"notes",q:"A program captures free-roaming, unowned community cats, sterilizes and vaccinates them, then returns them directly to their original location rather than admitting them to the shelter or rehoming them. This is classified as:",
-   o:["A traditional adoption-pantry pipeline for community cats.",
-      "A Return-to-Field (RTF) program.",
-      "An epidemiological isolation and quarantine protocol.",
-      "A foster-to-surrender strategy for feral felines."],
-   a:1,e:"Return-to-Field (RTF) is the correct term for sterilizing, vaccinating, and returning healthy free-roaming community cats to their original locations, avoiding shelter intake and the need for placement in a home."},
-
-  /* ---- BEHAVIORAL CARE (21-25) ---- */
-  {t:"behav",f:"notes",q:"Behavioral reasons are major contributors to shelter intake. Up to what percentages of relinquished dogs and cats respectively are surrendered for behavioral reasons?",
-   o:["Up to 5% of dogs and 2% of cats.",
-      "Up to 40% of dogs and 28% of cats.",
-      "Up to 80% of dogs and 75% of cats.",
-      "Behavior is rarely cited; financial constraints represent over 95% of all surrenders."],
-   a:1,e:"Behavioral challenges are a primary driver of relinquishment, reported in up to 40% of dog surrenders and 28% of cat surrenders. Behavioral interventions are therefore a critical component of any comprehensive diversion program."},
-
-  {t:"behav",f:"notes",q:"A shelter provides behavior information resources via printed handouts and online links. What is the primary operational advantage of this intervention format?",
-   o:["It provides a guaranteed, permanent cure for complex separation anxiety and aggression.",
-      "It has the potential to reach a very large number of owners in an accessible format with a low resource investment.",
-      "It allows the shelter to charge premium subscription fees to the public for access.",
-      "It replaces the need for any physical behavior evaluation of animals prior to adoption."],
-   a:1,e:"Information resources require minimal ongoing resources while allowing broad, scalable public outreach. They are not a cure, cannot replace individual assessments, and should be freely accessible."},
-
-  {t:"behav",f:"notes",q:"Studies on the impact of traditional, fee-based obedience training classes on pet retention show varied findings. What are the primary logistical barriers preventing high-risk owners from utilizing these classes?",
-   o:["A lack of commercially available treat options in local pet supply stores.",
-      "Cost and fees, combined with a lack of transportation to the physical class location.",
-      "Federal zoning regulations prohibiting group animal gatherings in residential areas.",
-      "Universal owner apathy toward animal behavior education."],
-   a:1,e:"Financial costs (fees) and geographic barriers (lack of transportation to the class location) are the documented primary barriers preventing at-risk owners from accessing traditional behavior training classes."},
-
-  {t:"behav",f:"notes",q:"To mitigate socioeconomic and geographic barriers to behavior modification resources for high-risk owners, which strategy best addresses both barriers simultaneously?",
-   o:["Increasing class fees to ensure attendance is limited to highly motivated, financially stable clients.",
-      "Providing fee-waived training classes delivered directly within communities identified as having high relinquishment risk.",
-      "Mandating that all dogs pass an advanced agility course prior to receiving any community behavioral aid.",
-      "Restricting behavioral support services exclusively to dogs under 10 pounds (4.5 kg)."],
-   a:1,e:"Bringing free classes directly into high-risk neighborhoods systematically removes both financial (fee-waived) and geographic (on-site delivery) barriers simultaneously. Virtual options also increase reach but eliminate the socialization component."},
-
-  {t:"behav",f:"notes",q:"A shelter operates a behavior helpline staffed by trained volunteers, escalating complex questions to professional behavior staff. Which statement most accurately reflects the scientific evidence base for these helplines?",
-   o:["Peer-reviewed data definitively proves that behavior helplines are 100% effective at preventing all surrenders.",
-      "There is limited scientific data available to evaluate helpline efficacy, and their precise impact on long-term pet retention remains uncertain.",
-      "Published data demonstrates that behavior helplines cause a direct increase in animal abandonment rates.",
-      "Helplines have been empirically shown to be effective only for exotic pocket pets."],
-   a:1,e:"While behavior helplines are highly accessible and widely utilized, the current published scientific evidence base regarding their direct, long-term impact on pet retention in the home remains limited and uncertain."},
-
-  /* ---- STRATEGY AND ONE HEALTH (26-30) ---- */
-  {t:"strat",f:"notes",q:"A shelter is considering adding individualized behavioral consultations to its safety net portfolio. Which operational reality must managers account for when planning this service?",
-   o:["It requires virtually no dedicated staff time or specialized professional expertise.",
-      "It is highly resource-intensive and requires a qualified behavior professional.",
-      "It can be run entirely by entry-level, untrained administrative volunteers from day one.",
-      "It is universally self-sustaining and profitable from the moment of launch."],
-   a:1,e:"Individualized behavioral consultations are the most resource-intensive behavioral intervention, requiring a qualified behavior professional and significant staff time per client. Any fee charged may be an insurmountable barrier for many clients who need this service most."},
-
-  {t:"strat",f:"notes",q:"From a client-centered perspective, what psychological benefit does an individualized behavior consultation provide to an owner struggling with a disruptive pet?",
-   o:["It guarantees the owner will never face landlord disputes related to the animal's behavior.",
-      "It validates the client's concerns and helps them avoid feelings of isolation and permanence regarding the behavioral problem.",
-      "It legally absolves the owner of any future public liability related to the animal's actions.",
-      "It compels the owner to acknowledge they are personally responsible for causing the behavioral problem."],
-   a:1,e:"Individualized consulting validates the owner's stress and experience, breaking down the sense of isolation and the feeling that the problem is permanent and unsolvable. These psychological factors are documented drivers of the decision to surrender."},
-
-  {t:"strat",f:"avcc",q:"Recognizing the intrinsic connection between human, animal, and environmental health to identify at-risk pets through cross-referral with human social services describes which conceptual framework?",
-   o:["The Five Freedoms of Animal Welfare framework.",
-      "The One Health model.",
-      "The Capacity for Care (C4C) calculation methodology.",
-      "The Population Medicine intake matrix."],
-   a:1,e:"The One Health model recognizes the interconnection of human, animal, and environmental health and well-being. It provides the scientific and ethical rationale for shelters to collaborate with human social service agencies to identify at-risk pets and connect owners with safety net programs."},
-
-  {t:"strat",f:"notes",q:"When an organization uses a strategic decision matrix to select its mix of safety net programs, what two factors is it attempting to balance?",
-   o:["The shelter's endowment funds against local political campaign contribution timelines.",
-      "The identified community needs and desired programmatic impacts against available operational resources.",
-      "The adoption room aesthetics against local building code and climate zone requirements.",
-      "The number of canine intakes against the total feline euthanasia kennel count."],
-   a:1,e:"The strategic decision matrix is a tool for balancing community needs and desired program impacts against a shelter's finite available resources (staff time, funding, space), to determine which programs to launch, scale, or phase out for maximum impact."},
-
-  {t:"strat",f:"notes",q:"Under what circumstance should a shelter safety net or diversion program be withheld in favor of immediate legal or law enforcement intervention?",
-   o:["When an owner requests food bank delivery more than twice within a single calendar month.",
-      "In situations of active animal cruelty or neglect where the caregiver is unwilling or unable to accept assistance.",
-      "When an owner cannot provide proof of current municipal pet licensing during a helpline call.",
-      "When an animal exhibits mild, non-dangerous separation anxiety that has not responded to basic information resources."],
-   a:1,e:"Safety net programs are tools for preservation of the human-animal bond in situations of need. They never replace mandatory legal actions in cases of active cruelty or neglect when the caregiver cannot or will not accept help. This is the crucial guardrail underpinning all diversion work."}
+ {"t":"found","f":"notes","q":"A newly implemented pet safety-net programme is evaluated using 'usage metrics' and 'impact metrics'. Which is an impact metric?","o":["The total pounds of dog food distributed by a pet food bank in a quarter","The number of clients who attended a fee-waived training class","A statistically significant, documented reduction in owner-surrender intake"],"a":2,"e":"Impact metrics measure a direct outcome of the programme, such as fewer surrenders. Usage metrics count activity."},
+ {"t":"found","f":"notes","q":"A shelter has a 20% fall in owner surrenders after starting a medical subsidy programme. How does this mainly benefit the shelter's internal operations?","o":["It allows the shelter to operate beyond its physical housing capacity.","It helps the shelter work within its capacity for care, improving the welfare of the remaining animals and the staff.","It removes the need for intake quarantine protocols."],"a":1,"e":"Reducing intake lets the shelter work within its true capacity for care, which benefits animals and staff."},
+ {"t":"found","f":"notes","q":"Before launching a community-wide safety-net initiative, when should data be collected to establish a comparison baseline?","o":["Immediately after the pilot phase","Before the programme is launched","At the mid-year review of the programme"],"a":1,"e":"Data must be collected before launch to establish a true baseline against which change can be measured."},
+ {"t":"found","f":"notes","q":"A shelter wants to assess pet ownership demographics, trends and local service gaps in a high-risk area. Which tool is designed for this community needs assessment?","o":["The Shelter Animals Count national database matrix","The Pets for Life Community Assessment toolkit","The ASV Standards of Care checklist"],"a":1,"e":"The Pets for Life Community Assessment is the validated tool for identifying ownership demographics and service gaps."},
+ {"t":"found","f":"notes","q":"A safety-net programme has reached the end of its life and must be phased out. What is the most critical step for existing clients?","o":["Transition them to alternative community services and support them through the closure.","Stop all communication to prevent public alarm.","Absorb all programme animals into the shelter's adoption inventory on the day of the decision."],"a":0,"e":"An ethical phase-out involves open communication and a structured transition of clients to other services."},
+ {"t":"basic","f":"notes","q":"A shelter starts a pet food pantry. Which requirement is often overlooked, and what choice do food-insecure owners often make?","o":["Marketing funds; owners often relinquish their pets at once to avoid neglect charges.","A veterinary nutritionist to approve donations; owners often move pets onto vegetarian diets.","Storage space and inventory control, including expiry dates; owners often feed their pets at the expense of their own nutrition."],"a":2,"e":"A pantry needs adequate storage and inventory control. The human-animal bond is strong enough that food-insecure owners often feed their pets before themselves."},
+ {"t":"basic","f":"notes","q":"A housing support programme aims to reduce relinquishments caused by rental restrictions. How should it build a database of pet-friendly landlords?","o":["Rely on unverified word of mouth from front desk staff.","Use several research methods, clarify species, size and breed restrictions, and update the database regularly.","Sue local authorities to ban all landlord pet restrictions."],"a":1,"e":"A reliable database needs multi-method research to verify current policies, including restrictions, and regular updates."},
+ {"t":"basic","f":"notes","q":"Direct owner-to-owner rehoming data over a 5-year window show which distribution of placement outcomes?","o":["About 70% surrendered to municipal facilities, and fewer than 5% given to family","About 90% rehomed through online classified adverts to strangers","About 37% rehomed to friends or family, compared with 36% taken to an animal shelter"],"a":2,"e":"Data show 37% of owners rehome to friends or family versus 36% who surrender to shelters, so informal rehoming is a major pathway."},
+ {"t":"basic","f":"notes","q":"A lost-and-found safety-net programme aims to lower the barriers to reunification. Which policy achieves this?","o":["Charge progressive daily boarding fees, to encourage owners to retrieve pets sooner.","Limit database access to owners who hold a current municipal licence.","Remove heavy reunification fees, and keep a current, public database with photos of found pets online."],"a":2,"e":"Removing heavy fees eliminates a barrier that falls hardest on low-income owners, and public photographs help owners find pets."},
+ {"t":"crisis","f":"notes","q":"Temporary sheltering safety-net programmes help owners in acute crisis. What is their objective, which housing model is ideal, and what must define the scope of care?","o":["Avoid permanent relinquishment by reuniting once the crisis passes; foster homes; legally approved written agreements","Allow rapid adoption by a new family; communal concrete runs at the shelter; verbal agreements at intake","Test new behavioural drugs in a home setting; off-site boarding kennels; automatic ownership transfer after 48 hours"],"a":0,"e":"These programmes preserve the bond during a temporary crisis. Foster homes avoid the stress and disease exposure of shelter housing, and legally approved written agreements clarify duration and expectations."},
+ {"t":"crisis","f":"notes","q":"How can a shelter oversee a temporary crisis housing initiative without overburdening its own staff?","o":["By working with government or non-profit human social services, so the shelter can focus on animal care","By delegating decisions to untrained volunteers without supervision","By restricting the programme to purebred animals"],"a":0,"e":"Collaboration with human social services provides professional expertise, and lets the shelter focus on animal care."},
+ {"t":"crisis","f":"notes","q":"What positive outcome is documented in children who take part in humane education programmes?","o":["Higher standardised academic test scores","Faster development of fine motor skills","Better prosocial behaviour and empathy toward animals and people"],"a":2,"e":"Sociological research documents that humane education enhances empathy and prosocial behaviour."},
+ {"t":"vet","f":"notes","q":"What proportions of surrenders are linked to cost with medical issues, and to behaviour for dogs and cats?","o":["Up to 28% for cost with medical issues, and up to 40% of dogs and 28% of cats for behaviour","About 5% for cost with medical issues, and up to 5% of dogs and 2% of cats for behaviour","Over 65% for cost with medical issues, and up to 80% of dogs and 75% of cats for behaviour"],"a":0,"e":"Up to 28% of surrenders cited veterinary cost with medical issues, and behaviour is reported in up to 40% of dog and 28% of cat surrenders."},
+ {"t":"vet","f":"notes","q":"What does research show about the community impact of accessible spay-neuter programmes?","o":["They reduce shelter relinquishment of cats, but not consistently of dogs.","They eliminate dog surrenders but have no effect on cats.","They lower dog relinquishment and raise cat relinquishment."],"a":0,"e":"Accessible spay-neuter programmes show a documented reduction in cat relinquishment but not consistently in dogs."},
+ {"t":"vet","f":"notes","q":"Intact dogs are statistically overrepresented in which public safety issue?","o":["Serious dog bites, and nuisance behaviours including vocalisation, roaming and urine marking","Chronic skin disease needing specialist referral","Feline leukaemia transmission in mixed-species housing"],"a":0,"e":"Intact male dogs are overrepresented in serious bites and nuisance behaviours."},
+ {"t":"vet","f":"notes","q":"A shelter extends an accessible veterinary programme to sick-pet care, and local private practitioners worry about their income. What should the shelter do?","o":["Launch the programme quietly, without advertising, to avoid opposition.","Undercut private clinic prices and market to affluent owners.","Include outreach to local veterinarians in the earliest stages of planning, to build referral networks and collaboration."],"a":2,"e":"Early, open outreach helps resolve perceived competition and builds referral relationships."},
+ {"t":"vet","f":"notes","q":"A programme sterilises and vaccinates free-roaming, unowned community cats and returns them to their original location without admitting them to the shelter. What is this called?","o":["A Return-to-Field programme","A foster-to-surrender strategy","A quarantine protocol"],"a":0,"e":"Return-to-Field is sterilising, vaccinating and returning healthy community cats to where they were found."},
+ {"t":"behav","f":"notes","q":"What is the main operational advantage of providing behaviour information by handouts and online links?","o":["It gives a guaranteed cure for separation anxiety and aggression.","It can reach a very large number of owners in an accessible form at low cost.","It replaces the need for behavioural evaluation before adoption."],"a":1,"e":"Information resources need little ongoing effort and give broad, scalable reach."},
+ {"t":"behav","f":"notes","q":"What barriers stop high-risk owners using fee-based obedience classes, and which strategy addresses both?","o":["Cost and lack of transport; fee-waived classes delivered within high-risk communities","A lack of treats; higher fees so that only motivated clients attend","Zoning limits on animal gatherings; an agility test before any help is given"],"a":0,"e":"Fees and lack of transport are the main barriers. Free classes held in the communities at highest risk remove both."},
+ {"t":"behav","f":"notes","q":"What is the evidence base for behaviour helplines, and what must managers plan for when adding individual behaviour consultations?","o":["Definitive proof that helplines prevent all surrenders; consultations can be run by untrained administrative volunteers.","Data showing helplines raise abandonment; consultations are self-funding from the first day.","Limited data on helpline efficacy; individual consultations are resource-intensive and need a qualified behaviour professional."],"a":2,"e":"There is limited published data on helpline efficacy. Individual behaviour consultations are the most resource-intensive intervention and need a qualified behaviour professional."},
+ {"t":"strat","f":"notes","q":"From a client-centred view, what psychological benefit does an individual behaviour consultation give an owner with a disruptive pet?","o":["It guarantees that the owner will not face landlord disputes.","It makes the owner accept personal responsibility for causing the problem.","It validates the owner's concerns and helps them avoid feeling isolated by, or stuck with, the problem."],"a":2,"e":"Individual consulting validates the owner's stress and breaks down the sense of isolation and permanence about the problem."},
+ {"t":"strat","f":"avcc","q":"Which framework describes recognising the link between human, animal and environmental health, and cross-referral with human social services to find at-risk pets?","o":["The Five Freedoms","The One Health model","The Capacity for Care methodology"],"a":1,"e":"One Health recognises the interconnection of human, animal and environmental health and supports cross-referral with social services."},
+ {"t":"strat","f":"notes","q":"A strategic decision matrix is used to select a mix of safety-net programmes. Which two factors does it balance?","o":["The shelter's endowment against local political timelines","Identified community needs and desired impacts against available operational resources","Canine intake numbers against feline euthanasia capacity"],"a":1,"e":"The matrix balances community needs and the desired programme impact against the resources available."},
+ {"t":"strat","f":"notes","q":"When should a safety-net or diversion programme be withheld in favour of legal or law enforcement intervention?","o":["When an owner asks for food delivery more than twice in a month","In active cruelty or neglect where the caregiver is unwilling or unable to accept help","When an owner cannot show a current municipal pet licence"],"a":1,"e":"Safety-net programmes preserve the human-animal bond in situations of need, and are not suitable where there is active cruelty or neglect and the caregiver will not accept assistance."}
 ];/*mcq-shuffle*/(function(){var _a=Q;if(!Array.isArray(_a))return;for(var _i=0;_i<_a.length;_i++){var _q=_a[_i];if(!_q||!Array.isArray(_q.o)||typeof _q.a!=='number')continue;var _c=_q.o[_q.a];for(var _j=_q.o.length-1;_j>0;_j--){var _k=Math.floor(Math.random()*(_j+1));var _t=_q.o[_j];_q.o[_j]=_q.o[_k];_q.o[_k]=_t;}_q.a=_q.o.indexOf(_c);}})();
 
 /* MCQ engine */

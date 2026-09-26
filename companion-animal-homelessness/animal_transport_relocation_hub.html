@@ -802,7 +802,7 @@
   <p class="lead">30 board-level questions across the six exam categories: relocation philosophy and regulations, source responsibilities, vehicles and climate, enclosures and species constraints, confinement timelines and monitoring, and air transport and outcomes. Filter by category or attempt the full bank.</p>
   <div class="mcqbar">
     <div class="filters">
-      <button class="on" data-f="all">All (30)</button>
+      <button class="on" data-f="all">All (40)</button>
       <button data-f="phil">&#9670; Philosophy &amp; Regs</button>
       <button data-f="source">&#9670; Source Duties</button>
       <button data-f="vehicle">&#9670; Vehicles &amp; Climate</button>
@@ -1011,7 +1011,7 @@
 </div></main>
 
 <footer><div class="wrap">
-  <p>Animal Transport and Transfer Programs subdomain, Companion Animal Homelessness domain, ABVP Shelter Medicine Practice RVS. Merged from two source files (Animal Transport &amp; Relocation hub and Transfer Programs hub) to eliminate duplication while retaining all unique content from both. Built from your uploaded notes (Transfer programs.pdf and Transfer programs.docx), cross-referenced against the ASV Guidelines for Standards of Care in Animal Shelters, 2nd edition (2022), chapter 11. MCQ bank: 30 questions filterable by six categories. Diagrams rebuilt as in-house SVG from your uploaded ASV Figure 11.1 and textbook Figure 20.2.</p>
+  <p>Animal Transport and Transfer Programs subdomain, Companion Animal Homelessness domain, ABVP Shelter Medicine Practice RVS. Merged from two source files (Animal Transport &amp; Relocation hub and Transfer Programs hub) to eliminate duplication while retaining all unique content from both. Built from your uploaded notes (Transfer programs.pdf and Transfer programs.docx), cross-referenced against the ASV Guidelines for Standards of Care in Animal Shelters, 2nd edition (2022), chapter 11. MCQ bank: 21 questions filterable by six categories. Diagrams rebuilt as in-house SVG from your uploaded ASV Figure 11.1 and textbook Figure 20.2.</p>
 </div></footer>
 
 <script>
@@ -1025,221 +1025,27 @@ tabrow.addEventListener('click',e=>{
 });
 
 const Q=[
-  /* ---- PHILOSOPHY & REGS (1-5) ---- */
-  {t:"phil",f:"asv",q:"According to the ASV guidelines, what operational outcome must fundamentally drive decision making within animal relocation and transfer programs?",
-   o:["Maximising the physical size and volume of the transport vehicle.",
-      "Keeping animals in holding patterns until local live outcomes are completely exhausted.",
-      "Prioritising a decrease in the overall length of stay (LOS) for the animals.",
-      "Ensuring 100% of animals are returned to the source if they fail to adopt."],
-   a:2,e:"Decisions within relocation networks must aim to lower the animal's total LOS, preventing overcrowding and localised resource strain. Holding animals for relocation when local live outcomes exist pushes shelters beyond their capacity for care."},
-
-  {t:"phil",f:"asv",q:"Under what explicit condition is it considered UNACCEPTABLE to transport an animal in a relocation program?",
-   o:["When the transport itself is likely to be harmful to the animal's immediate or long-term health or welfare.",
-      "When the destination shelter does not have a full-time behaviour manager.",
-      "If the animal has not received a secondary booster vaccine 14 days prior.",
-      "If the animal is an adult dog that tested negative for heartworm."],
-   a:0,e:"Transport is unacceptable when the journey itself poses an active threat to, or is highly likely to degrade, the animal's immediate or long-term clinical or emotional welfare. Careful management and planning are required."},
-
-  {t:"phil",f:"asv",q:"When setting up a lawful interstate or regional transfer network, which regulatory elements are commonly mandated by state Departments of Agriculture and Health?",
-   o:["Mandatory genetic breed tracing and microchip manufacturer matching.",
-      "Valid certificates of veterinary inspection (CVIs), specific vaccinations, and age or health condition restrictions.",
-      "Written signed waivers from all adoption clients within a 50-mile radius.",
-      "Direct corporate registration with the Federal Aviation Administration."],
-   a:1,e:"Jurisdictional transits are governed by state agricultural and public-health bodies via mandatory CVIs, certain vaccinations, and age or health restrictions. For commercial air, the airline must also be consulted."},
-
-  {t:"phil",f:"asv",q:"If a destination shelter routinely discovers that arriving transported animals are medically or behaviourally ineligible for adoption, what action must the partners take?",
-   o:["Immediately ship the ineligible animals back to the source via air transport.",
-      "Increase the destination shelter's maximum capacity beyond its standard care limits.",
-      "Transition the program exclusively to international feral cat imports.",
-      "Revisit and adjust the program's selection criteria and baseline goals."],
-   a:3,e:"Repeated intake eligibility failures call for a programmatic pause to re-adjust selection criteria and goals. Unless extenuating circumstances exist, animals are not returned to the source, because transport is a major stressor and resource investment."},
-
-  {t:"phil",f:"asv",q:"To capture individual concerns and recognise programmatic trends in time to respond, when should non-urgent health and outcome data be collected and analysed?",
-   o:["Within 24 hours of arrival, followed by a mandatory weekly public audit.",
-      "Collected within 14 days of relocation, with a quarterly analysis of aggregate data.",
-      "Every 12 months, trailing the close of the federal fiscal year.",
-      "Only when requested by local law enforcement or public health agencies."],
-   a:1,e:"ASV points to a 14-day window for non-urgent data collection paired with a quarterly aggregate analysis. These are two distinct and separately testable timelines."},
-
-  /* ---- SOURCE DUTIES (6-10) ---- */
-  {t:"source",f:"asv",q:"What is the correct protocol for administering vaccinations within a source shelter's population prior to a transport program?",
-   o:["Delay all intake vaccinations until the animal arrives at its final destination.",
-      "Vaccinate only the specific high-value animals chosen for the immediate transport pool.",
-      "Vaccinate all eligible animals within the source population at or before intake.",
-      "Administer vaccines exclusively to juvenile animals under 8 weeks of age."],
-   a:2,e:"Vaccinating only the moving population is insufficient because it leaves the majority unprotected. All eligible animals must be vaccinated at or before intake. Holding animals back just for a vaccine response or booster is not recommended."},
-
-  {t:"source",f:"asv",q:"A source shelter is preparing adult dogs for relocation. What is the explicit requirement regarding heartworm (HW) disease testing?",
-   o:["All dogs 6 months of age and older are tested for HW disease prior to relocation.",
-      "Heartworm testing should be bypassed to decrease the source length of stay.",
-      "Only dogs displaying clinical signs of coughing require a heartworm test.",
-      "Testing is optional if the animal receives a pheromone spray treatment."],
-   a:0,e:"Ideally, every canine candidate aged 6 months or older receives heartworm screening before being cleared for departure. Treatment for fleas, ticks and internal parasites is also strongly recommended."},
-
-  {t:"source",f:"asv",q:"Within what timeframe prior to travel must an animal be evaluated by trained source staff and deemed fit for transport?",
-   o:["Within 72 hours prior to departure, confirmed via a digital photo log.",
-      "Exactly 5 days before loading to allow vaccine response tracking.",
-      "Immediately upon vehicle engine ignition at the loading dock.",
-      "Within 24 hours prior to travel."],
-   a:3,e:"A physical screening by trained staff must occur within 24 hours before departure, to catch infectious disease and evaluate the animal's ability to tolerate the physical and emotional stresses of travel."},
-
-  {t:"source",f:"asv",q:"If an animal chosen for transport has underlying medical concerns or is recovering from surgery, who must explicitly confirm its fitness for transport?",
-   o:["The transport vehicle driver or operations section chief.",
-      "A licensed veterinarian.",
-      "The local Department of Agriculture field inspector.",
-      "The destination shelter's foster coordinator."],
-   a:1,e:"Trained staff can screen apparently healthy animals, but any animal with active medical conditions or recovering from surgery requires explicit clearance from a licensed veterinarian."},
-
-  {t:"source",f:"asv",q:"Before accepting an animal transport from an international source, what should a domestic destination shelter carefully evaluate?",
-   o:["The market value of out-of-state air transport fuel subsidies.",
-      "Whether the source country uses identical microchip scanning frequencies.",
-      "The needs of partners closer to home and the impact of the partnership on its own mission.",
-      "The availability of scented essential oils to coat the transport enclosures."],
-   a:2,e:"Destination facilities should look locally first, weighing nearby regional needs and ensuring an international mission does not dilute their primary local purpose. They should also keep a written policy statement explaining the decision."},
-
-  /* ---- VEHICLES & CLIMATE (11-15) ---- */
-  {t:"vehicle",f:"asv",q:"Why do the ASV guidelines state that factory-installed cargo climate control units should be avoided in an animal transport vehicle?",
-   o:["They require proprietary fuel blends unavailable during long-distance travel.",
-      "They are designed for static items (like flowers) and lack the airflow, distribution and power to handle live-animal metabolic body heat.",
-      "They automatically shut down if vehicle speed exceeds 50 miles per hour (80 km/h).",
-      "They emit high levels of carbon monoxide directly into the driver's cab."],
-   a:1,e:"Factory units are engineered for static, non-heat-producing loads; they cannot clear the substantial metabolic heat of live animals. A roof-mounted unit, body insulation and an insulated floor mat are recommended instead."},
-
-  {t:"vehicle",f:"asv",q:"To protect all vehicle occupants from an undetected exhaust leak, what safety device must be installed in the animal cargo compartment?",
-   o:["A dual-control remote solar shade sensor.",
-      "An automated dog-appeasing pheromone misting device.",
-      "A battery-operated carbon monoxide (CO) detector.",
-      "A continuous electronic heart rate monitor."],
-   a:2,e:"An independent, battery-powered carbon monoxide detector is placed in the animal compartment so that an exhaust leak tracking into the hold is detected and all occupants are protected."},
-
-  {t:"vehicle",f:"asv",q:"What are the ambient temperature boundaries mandated for the animal compartment of a ground transport vehicle?",
-   o:["Maintained above 0°C (32°F) and below 20°C (68°F).",
-      "Kept strictly at a static 23.9°C (75°F) at all times.",
-      "Maintained above 7.2°C (45°F) and below 29.5°C (85°F).",
-      "Set between 10°C (50°F) and 15°C (59°F) with 90% relative humidity."],
-   a:2,e:"For animal safety, ambient temperature must stay above 7.2°C (45°F) and below 29.5°C (85°F). The narrower comfort target is 18°C to 26.6°C (64°F to 80°F)."},
-
-  {t:"vehicle",f:"asv",q:"What relative humidity range must be maintained within the primary animal compartment during ground transport?",
-   o:["10% to 20%.",
-      "30% to 70%.",
-      "Exactly 50% at all times.",
-      "80% to 90% to prevent respiratory desiccation."],
-   a:1,e:"Relative humidity in the animal compartment must be kept within a moderate 30% to 70% band."},
-
-  {t:"vehicle",f:"notes",q:"To reduce road heat affecting animals housed on the lowest tier of a transport van or trailer, what feature is recommended?",
-   o:["Thick layers of newspaper print changed every 2 hours.",
-      "Stacking primary enclosures at least three layers deep on the floor.",
-      "Leaving the rear cargo doors partially unlatched during highway travel.",
-      "An insulated floor mat covered with bedliner or diamond-plate flooring."],
-   a:3,e:"Direct contact with van floors exposes lower-tier animals to radiant road heat. An insulated floor mat covered with bedliner or diamond-plate flooring, plus insulation of sides and roof, mitigates this."},
-
-  /* ---- ENCLOSURES & SPECIES (16-20) ---- */
-  {t:"enclos",f:"asv",q:"Which parameter defines the minimum acceptable structural sizing for a primary animal enclosure during transport?",
-   o:["Large enough to stand and sit erect, turn around normally while standing, and lie in a natural position without lying on another animal.",
-      "Formed to fit the animal's exact body contours to prevent shifting during turns.",
-      "Sized to allow at least three unfamiliar adult animals to share a single floor space.",
-      "Exactly twice the length of the animal's tail measurement."],
-   a:0,e:"Enclosures must allow normal postural adjustments: standing and sitting erect, turning around while standing, and lying naturally without piling onto other animals."},
-
-  {t:"enclos",f:"asv",q:"What is the strict rule regarding co-housing of unfamiliar animals within the same primary enclosure during transport?",
-   o:["They may be housed together if they are of similar weight and age.",
-      "Unfamiliar animals must not be transported together in the same primary enclosure.",
-      "They can share an enclosure if the transport time is under 4 hours.",
-      "Co-housing is permissible if both animals wear pheromone collars."],
-   a:1,e:"Placing unfamiliar animals together in a confined space during transit is a safety violation; they must be separated into individual primary enclosures."},
-
-  {t:"enclos",f:"asv",q:"Primary transport enclosures must feature ventilation openings on at least how many sides, and with what clearance from adjacent structures?",
-   o:["On at least 2 sides, with a 10cm (3.9 in) unobstructed gap.",
-      "On all 4 sides, with a mandatory 5-inch (12.7 cm) mechanical stand-off bar.",
-      "On at least 3 sides, with at least 1 inch (2cm) of unobstructed space.",
-      "Ventilation is required on the door side only, with no clearance limits."],
-   a:2,e:"Enclosures need ventilation openings on a minimum of 3 sides and at least 1 inch (2cm) of unobstructed space from adjacent structures so airflow is not blocked."},
-
-  {t:"enclos",f:"asv",q:"When transporting cats, what behavioural husbandry feature must be provided inside the primary enclosure to minimise stress?",
-   o:["An open-air mesh window facing the largest dog crates.",
-      "A mechanical exercise wheel tailored for feline use.",
-      "Lifelong access to a continuous stream of running water.",
-      "A hiding space or visual barrier (a towel partly covering the door or a small hiding box) that still allows ventilation and monitoring."],
-   a:3,e:"Cats need options for environmental avoidance; a visual barrier such as a partly draped towel or an internal hiding box reduces acute travel stress while still allowing ventilation and monitoring."},
-
-  {t:"enclos",f:"asv",q:"If dogs and cats must be transported within the same vehicle, what housing and barriers are required?",
-   o:["They can be stacked in alternating tiers with open wire-mesh flooring.",
-      "They must be housed in physically separate spaces, with consideration given to visual and noise barriers.",
-      "They must be separated by a minimum distance of 10 centimetres (3.9 in) without walls.",
-      "Cats must be sedated to recumbency to prevent vocalisation."],
-   a:1,e:"To reduce predatory stress and noise anxiety, co-shipped dogs and cats must be physically separated with visual and acoustic barriers. Ideally they travel in separate vehicles."},
-
-  /* ---- TIMELINES & MONITORING (21-25) ---- */
-  {t:"timing",f:"asv",q:"For long-distance transports, what is the maximum daily driving time permitted before an overnight rest stop is mandated?",
-   o:["8 hours.",
-      "12 hours.",
-      "16 hours.",
-      "24 hours."],
-   a:1,e:"Daily driving is capped at 12 hours per 24-hour block. Transport that exceeds 12 hours of travel must be broken with an overnight rest stop."},
-
-  {t:"timing",f:"asv",q:"When a long-distance transport triggers a mandatory overnight rest stop, what is the minimum duration of that rest period?",
-   o:["6 hours.",
-      "10 hours.",
-      "12 hours.",
-      "14 hours."],
-   a:1,e:"The overnight rest stop is a minimum of 10 hours of stationary rest before reloading, per the ASV confinement grid (Figure 11.1)."},
-
-  {t:"timing",f:"asv",q:"According to the ASV confinement grid, what is the maximum cumulative time an animal can be confined to a vehicle from source to final destination, excluding the overnight rest?",
-   o:["12 hours.",
-      "28 hours.",
-      "36 hours.",
-      "48 hours."],
-   a:1,e:"The ceiling for cumulative confined time, including loading and unloading but excluding the overnight rest, is 28 hours."},
-
-  {t:"timing",f:"asv",q:"During a transport, what is the minimum frequency for stopping the vehicle to perform a direct visual observation of each animal?",
-   o:["Every 2 hours.",
-      "At least every 4 hours.",
-      "Exactly every 6 hours.",
-      "Only during refuelling stops exceeding 45 minutes."],
-   a:1,e:"A complete vehicle stop and individual visual welfare check of every animal is required at least every 4 hours. Transports longer than 4 hours should also carry two drivers."},
-
-  {t:"timing",f:"asv",q:"What are the hydration and nutritional frequencies required for adult animals during a relocation journey?",
-   o:["Water at least every 4 hours during observation stops; food at least every 24 hours.",
-      "Water and food both delivered continuously via automated cage-mounted valves.",
-      "Water every 12 hours, with food withheld up to 48 hours to prevent vomiting.",
-      "Food and water every 4 hours without exception."],
-   a:0,e:"Hydration is high-frequency (water at least every 4 hours at stops, for adults and juveniles), whereas adult nutrition can be managed on a 24-hour interval. Juveniles eat small amounts every 4 hours."},
-
-  /* ---- AIR & OUTCOMES (26-30) ---- */
-  {t:"outcome",f:"notes",q:"Under commercial air transport, what are the ground temperature limits for cargo holds, and at what interior temperature is loading banned?",
-   o:["Holds must not be below -2°C (28°F) or above 20°C (68°F); loading banned at 25°C (77°F) interior.",
-      "Holds must not be below -7°C (19°F) or above 27°C (81°F); loading banned if interior exceeds 29°C (84°F).",
-      "Holds must not be below 0°C (32°F) or above 30°C (86°F); loading banned at 32°C (90°F) interior.",
-      "Cargo holds are unheated; loading banned only during visible winter storms."],
-   a:1,e:"Per your notes (consistent with live-animal air transport standards), holds should not be below -7°C (19°F) or above 27°C (81°F) on the ground, and loading is prohibited if interior temperature exceeds 29°C (84°F). Loading should also not exceed 45 minutes."},
-
-  {t:"outcome",f:"ref",q:"Physiological studies on beagles after a 22-hour long-distance ground transport showed they required how long to return serum cortisol and total bilirubin to normal?",
-   o:["24 hours.",
-      "48 hours.",
-      "2 weeks.",
-      "30 days."],
-   a:2,e:"Long-distance ground transport produced a deep physiological toll: serum cortisol and total bilirubin remained altered for up to 2 weeks post-travel in this beagle study."},
-
-  {t:"outcome",f:"ref",q:"In flight studies of canine biometrics, during which phases did animals experience the largest increases in heart rate?",
-   o:["During cruise-altitude flight and turnaround manoeuvres.",
-      "During loading and unloading phases.",
-      "While sitting quietly in the cargo hold midway through the flight.",
-      "Exactly 10 minutes after administration of clomipramine."],
-   a:1,e:"The flight path itself was relatively stable; the most acute heart-rate spikes occurred during loading and unloading. Heart rate was significantly higher during loading than during take-off, flight, landing or turnaround."},
-
-  {t:"outcome",f:"ref",q:"Which pre-treatment protocol was shown to significantly lower plasma cortisol, lower the neutrophil-to-lymphocyte ratio, and reduce heart rate and drooling during transport?",
-   o:["Single-dose acepromazine at the moment of loading.",
-      "Twice-daily clomipramine starting 3 days prior to transport.",
-      "Weekly megestrol acetate mixed into canned food.",
-      "A single high-dose injection of intratesticular zinc gluconate."],
-   a:1,e:"Proactive twice-daily clomipramine started 3 days before transport produced significantly lower cortisol rises, a lower neutrophil-to-lymphocyte ratio, lower average heart rate, and less drooling than placebo. Psychopharmaceuticals must be used only under veterinary direction."},
-
-  {t:"outcome",f:"ref",q:"To balance surgical capacity, length of stay and community needs, what does the literature recommend regarding the timing and location of spay/neuter (S/N) for relocated dogs?",
-   o:["Perform S/N exclusively at the source at least 14 days before loading.",
-      "Perform S/N at the destination, as travel does not increase postoperative complication rates.",
-      "Perform S/N inside the moving transport vehicle using chemical restraint.",
-      "Outsource S/N entirely to international partners before entry assessment."],
-   a:1,e:"Performing S/N at the destination balances local resources and reduces source LOS. Data show transport does not raise the baseline 2% postoperative complication rate, and neither timing of S/N nor transport method affected complication or disease incidence."}
+ {"t":"phil","f":"asv","q":"According to the ASV guidelines, which outcome must fundamentally drive decision making in animal relocation and transfer programmes?","o":["Keeping animals at the source until all local live outcomes are exhausted","Maximising the number of animals moved in each vehicle","Decreasing the overall length of stay for the animals"],"a":2,"e":"Decisions in relocation networks must aim to lower the animal's total length of stay, preventing prolonged confinement."},
+ {"t":"phil","f":"asv","q":"Under what explicit condition is it unacceptable to transport an animal in a relocation programme?","o":["When the transport is likely to harm the animal's immediate or long-term health or welfare","When the destination shelter does not have a full-time behaviour manager","When the animal has not had a booster vaccine within the previous 14 days"],"a":0,"e":"Transport is unacceptable when the journey itself is likely to harm the animal's health or welfare."},
+ {"t":"phil","f":"asv","q":"Which regulatory elements are commonly required by state departments of agriculture and health for a lawful interstate transfer network?","o":["Microchip manufacturer matching, and genetic breed tracing","Registration with the Federal Aviation Administration, and signed waivers from local adopters","Certificates of veterinary inspection, specific vaccinations, and age or health restrictions"],"a":2,"e":"State agricultural and public health bodies govern transfers through valid certificates of veterinary inspection, vaccination requirements, and age or health condition restrictions."},
+ {"t":"phil","f":"asv","q":"A destination shelter routinely finds that transported animals arrive medically or behaviourally ineligible for adoption. What should the partners do?","o":["Return the ineligible animals to the source by air.","Raise the destination shelter's maximum capacity beyond its standard limits.","Revisit and adjust the programme's selection criteria and goals."],"a":2,"e":"Repeated eligibility failures call for a review of selection criteria and baseline goals, not for exceeding capacity for care."},
+ {"t":"phil","f":"asv","q":"When should non-urgent health and outcome data on relocated animals be collected and analysed, so that trends can be recognised in time to respond?","o":["Collected within 24 hours, with a weekly public audit","Collected every 12 months, at the close of the fiscal year","Collected within 14 days of relocation, with a quarterly analysis of aggregate data"],"a":2,"e":"The ASV recommends a 14-day window for non-urgent data collection with a quarterly aggregate analysis."},
+ {"t":"source","f":"asv","q":"What is the correct protocol for vaccination in a source shelter before a transport programme?","o":["Vaccinate all eligible animals in the source population at or before intake.","Vaccinate only the animals chosen for the transport pool.","Delay vaccination until the animals arrive at their destination."],"a":0,"e":"Vaccinating only the moving animals leaves the rest of the population unprotected, so all eligible animals are vaccinated at or before intake."},
+ {"t":"source","f":"asv","q":"A source shelter prepares adult dogs for relocation. What is the requirement for heartworm testing?","o":["Only dogs with a cough are tested, to shorten the length of stay.","All dogs 6 months of age and older are tested before relocation.","Testing is optional if the dog has had a heartworm preventive."],"a":1,"e":"Ideally, every dog aged 6 months or older receives heartworm screening before relocation."},
+ {"t":"source","f":"asv","q":"Within what time before travel must an animal be evaluated and judged fit for transport by trained source staff, and who must confirm fitness for an animal with an underlying medical concern?","o":["Within 72 hours before travel; the transport driver","Within 24 hours before travel; a licensed veterinarian","Within 5 days before travel; the destination shelter's foster coordinator"],"a":1,"e":"Trained staff must screen animals within 24 hours before departure. An animal with active medical concerns or recovering from surgery needs a licensed veterinarian's confirmation."},
+ {"t":"source","f":"asv","q":"Before accepting a transport from an international source, what should a domestic destination shelter carefully evaluate?","o":["The cost of air transport and whether fuel is subsidised","The needs of partners closer to home, and the effect of the partnership on its own mission","Whether the source country scans microchips at the same frequency"],"a":1,"e":"Destination shelters should look locally first, weighing nearby regional needs and the effect on their own mission."},
+ {"t":"vehicle","f":"asv","q":"Why should factory-installed cargo climate control units be avoided in an animal transport vehicle, and what safety device must be in the animal compartment?","o":["They are designed for static loads and lack the airflow and power to cope with animal body heat; a battery-operated carbon monoxide detector","They need a special fuel, which is unavailable on long trips; a continuous heart rate monitor","They shut down above 50 mph (80 km/h); an automated pheromone diffuser"],"a":0,"e":"Factory units are engineered for non-heat-producing loads and cannot clear the metabolic heat of live animals. A battery-operated carbon monoxide detector protects everyone from an exhaust leak."},
+ {"t":"vehicle","f":"asv","q":"What ambient temperature and relative humidity must be maintained in the animal compartment during ground transport?","o":["Above 32°F (0°C) and below 68°F (20°C), with 10 to 20% relative humidity","A constant 75°F (23.9°C), with 80 to 90% relative humidity","Above 45°F (7.2°C) and below 85°F (29.5°C), with 30 to 70% relative humidity"],"a":2,"e":"Ambient temperature must stay between 45°F (7.2°C) and 85°F (29.5°C), and relative humidity between 30% and 70%."},
+ {"t":"vehicle","f":"notes","q":"Which feature is recommended to reduce radiant road heat for animals on the lowest tier of a transport van or trailer?","o":["Newspaper layers, changed every 2 hours","An insulated floor mat covered with bedliner or diamond-plate flooring","Stacking primary enclosures three layers deep on the floor"],"a":1,"e":"Direct contact with van floors exposes lower-tier animals to road heat, and an insulated floor with a durable surface reduces it."},
+ {"t":"enclos","f":"asv","q":"What defines the minimum size of a primary transport enclosure, and may unfamiliar animals share one?","o":["Large enough to stand, sit erect, turn around and lie naturally without lying on another animal; unfamiliar animals must not share an enclosure.","Fitted to the animal's body contours to prevent shifting; unfamiliar animals may share if similar in weight and age.","Large enough for three adult animals to share the floor space; unfamiliar animals may share on journeys under 4 hours."],"a":0,"e":"Enclosures must allow normal postural adjustments, and placing unfamiliar animals together in a confined space during transport is a safety violation."},
+ {"t":"enclos","f":"asv","q":"Primary transport enclosures need ventilation openings on at least how many sides, and with what clearance?","o":["At least 3 sides, with at least 1 in (2 cm) of unobstructed space","At least 2 sides, with a 4 in (10 cm) gap","All 4 sides, with a 5 in (12.7 cm) stand-off bar"],"a":0,"e":"Enclosures need ventilation on at least 3 sides and at least 1 in (2 cm) of clear space from adjacent structures."},
+ {"t":"enclos","f":"asv","q":"What must be provided for cats in transit, and how must dogs and cats be housed if they travel in the same vehicle?","o":["A hiding space or visual barrier that still allows ventilation and monitoring; physically separate spaces, with visual and noise barriers","An open mesh window facing the dog crates; stacked alternating tiers with wire floors","An exercise wheel for the cats; a gap of 4 in (10 cm) without walls"],"a":0,"e":"Cats need an option to avoid stimuli, such as a partly draped towel or small hide. Dogs and cats must be in physically separate spaces with consideration for visual and noise barriers."},
+ {"t":"timing","f":"asv","q":"For long-distance transport, what are the maximum daily driving time, the minimum overnight rest, and the maximum cumulative confinement time excluding the rest?","o":["8 hours of driving per day, a 6-hour rest, and 12 hours of cumulative confinement","12 hours of driving per day, a 10-hour rest, and 28 hours of cumulative confinement","16 hours of driving per day, a 12-hour rest, and 36 hours of cumulative confinement"],"a":1,"e":"Daily driving is capped at 12 hours per 24 hours, the overnight rest is at least 10 hours, and cumulative confinement, including loading and unloading but excluding the rest, must not exceed 28 hours."},
+ {"t":"timing","f":"asv","q":"How often must the vehicle stop for a direct visual check of each animal, and how often must adult animals be offered water and food?","o":["At least every 4 hours; water at least every 4 hours at stops and food at least every 24 hours","Every 2 hours; water every 12 hours and food withheld for up to 48 hours","Every 6 hours; food and water continuously by automatic valves"],"a":0,"e":"A full stop and individual visual check is required at least every 4 hours. Water is offered at least every 4 hours at stops for adults, and food at least every 24 hours."},
+ {"t":"outcome","f":"notes","q":"Under commercial air transport, what are the ground temperature limits for cargo holds, and when is loading banned?","o":["Holds must not be below 28°F (-2°C) or above 68°F (20°C); loading is banned at 77°F (25°C).","Holds must not be below 32°F (0°C) or above 86°F (30°C); loading is banned at 90°F (32°C).","Holds must not be below 19°F (-7°C) or above 81°F (27°C); loading is banned if the interior exceeds 84°F (29°C)."],"a":2,"e":"Consistent with live-animal air transport standards, holds should not fall below 19°F (-7°C) or exceed 81°F (27°C), and loading is banned if the interior exceeds 84°F (29°C)."},
+ {"t":"outcome","f":"ref","q":"After a 22-hour ground transport, how long did beagles take to return cortisol and bilirubin to normal, and when did dogs in flight studies have the largest heart-rate increases?","o":["About 24 hours; during cruise flight","About 2 weeks; during loading and unloading","About 48 hours; during turnaround manoeuvres"],"a":1,"e":"Long-distance transport had a substantial physiological toll, with cortisol and total bilirubin taking about 2 weeks to normalise. The largest heart-rate rises were seen during loading and unloading."},
+ {"t":"outcome","f":"ref","q":"Which pre-treatment lowered plasma cortisol, neutrophil-to-lymphocyte ratio, heart rate and drooling during transport?","o":["A single dose of acepromazine at loading","Weekly megestrol acetate in canned food","Clomipramine twice daily, starting 3 days before transport"],"a":2,"e":"Proactive twice-daily clomipramine started 3 days before transport significantly reduced the physiological and behavioural signs of stress."},
+ {"t":"outcome","f":"ref","q":"What does the literature recommend about the timing and place of spay-neuter for relocated dogs?","o":["Perform it at the source at least 14 days before loading.","Perform it at the destination, because travel does not increase postoperative complications.","Perform it in the moving transport vehicle under chemical restraint."],"a":1,"e":"Performing surgery at the destination balances local resources and reduces source length of stay, and data show travel does not increase postoperative complications."}
 ];/*mcq-shuffle*/(function(){var _a=Q;if(!Array.isArray(_a))return;for(var _i=0;_i<_a.length;_i++){var _q=_a[_i];if(!_q||!Array.isArray(_q.o)||typeof _q.a!=='number')continue;var _c=_q.o[_q.a];for(var _j=_q.o.length-1;_j>0;_j--){var _k=Math.floor(Math.random()*(_j+1));var _t=_q.o[_j];_q.o[_j]=_q.o[_k];_q.o[_k]=_t;}_q.a=_q.o.indexOf(_c);}})();
 
 const host=document.getElementById('qhost');

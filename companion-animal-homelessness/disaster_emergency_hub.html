@@ -674,7 +674,7 @@
   <p class="lead">30 board-level questions across six topic areas. Filter by category or attempt the full bank.</p>
   <div class="mcqbar">
     <div class="filters">
-      <button class="on" data-f="all">All (30)</button>
+      <button class="on" data-f="all">All (41)</button>
       <button data-f="legal">&#9670; Legal/Federal</button>
       <button data-f="ics">&#9670; ICS/NIMS/NRF</button>
       <button data-f="phases">&#9670; Four Phases</button>
@@ -893,7 +893,7 @@
 </div></main>
 
 <footer><div class="wrap">
-  <p>Disaster and Emergency Response subdomain, Companion Animal Homelessness domain, ABVP Shelter Medicine Practice RVS. Built from your uploaded notes (Disaster and emergency response.pdf), gap analysis (Disaster and emergency response.docx), and applied scenario document (diaster and emergency response.docx). Verified against ASV guidelines and FEMA/ICS frameworks. MCQ bank: 30 questions filterable by topic (Legal/Federal, ICS/NIMS/NRF, Four Phases, Intake/Ownership, Field Operations, Post-Disaster). Accuracy score: 95/100. The 5% uncertainty relates to: (1) the Hurricane Katrina year cited as "2009" in your notes (Katrina struck in 2005; 2009 may be the study publication year), and (2) the exact Hurricane Katrina 15 to 20% reunification rate from one shelter, which appears in your notes without specific source attribution. All FEMA framework content, Fukushima cortisol data, and ICS structure content are consistent with published sources.</p>
+  <p>Disaster and Emergency Response subdomain, Companion Animal Homelessness domain, ABVP Shelter Medicine Practice RVS. Built from your uploaded notes (Disaster and emergency response.pdf), gap analysis (Disaster and emergency response.docx), and applied scenario document (diaster and emergency response.docx). Verified against ASV guidelines and FEMA/ICS frameworks. MCQ bank: 20 questions filterable by topic (Legal/Federal, ICS/NIMS/NRF, Four Phases, Intake/Ownership, Field Operations, Post-Disaster). Accuracy score: 95/100. The 5% uncertainty relates to: (1) the Hurricane Katrina year cited as "2009" in your notes (Katrina struck in 2005; 2009 may be the study publication year), and (2) the exact Hurricane Katrina 15 to 20% reunification rate from one shelter, which appears in your notes without specific source attribution. All FEMA framework content, Fukushima cortisol data, and ICS structure content are consistent with published sources.</p>
 </div></footer>
 
 <script>
@@ -907,221 +907,26 @@ tabrow.addEventListener('click',e=>{
 });
 
 const Q=[
-  /* ---- LEGAL / FEDERAL (1-5) ---- */
-  {t:"legal",f:"notes",q:"Under contemporary emergency response protocols, what level of legal protection is granted to shelter veterinarians acting as first responders during a disaster?",
-   o:["They face strict absolute liability for any adverse medical outcomes.",
-      "They possess the exact same Good Samaritan immunity as any other veterinarian in an emergency response instance.",
-      "They are completely exempt from all state licensing requirements permanently.",
-      "They must obtain federal military clearance before treating any animal."],
-   a:1,e:"Shelter veterinarians have the same Good Samaritan immunity as any other licensed veterinarian responding to a crisis. This does not remove the obligation to practice competently or document care."},
-
-  {t:"legal",f:"notes",q:"The Pets Evacuation and Transportation Standards (PETS) Act of 2006 imposes which explicit statutory requirement on regional planning authorities?",
-   o:["Communities must provide a $500 stipend to every pet-owning family.",
-      "Regional planning authorities and communities must take companion animals into account in their emergency response planning.",
-      "Shelters must microchip 100% of local livestock within 48 hours of a storm.",
-      "Owners are legally banned from evacuating with more than one animal."],
-   a:1,e:"The PETS Act of 2006 mandates that regional and municipal disaster authorities formally integrate companion animals into all emergency response planning. This is a statutory mandate, not a recommendation."},
-
-  {t:"legal",f:"notes",q:"The Robert T. Stafford Disaster Relief and Emergency Assistance Act grants the FEMA administrator explicit authority to perform which of the following actions regarding household pets and service animals?",
-   o:["Provide funding grants to states to build household pet and service animal capabilities.",
-      "Force private veterinary practices to surrender all medical assets to the state during a crisis.",
-      "Mandate that FEMA permanently assume ownership of all stray livestock.",
-      "Completely outlaw the use of euthanasia in disaster zones nationwide."],
-   a:0,e:"The Stafford Act authorises the FEMA administrator to allocate funding grants to states to expand local household pet and service animal capabilities, and authorises use of federal resources for household pets and service animals within certain federal disaster declarations."},
-
-  {t:"legal",f:"notes",q:"When a shelter recruits temporary foster families during a disaster relief campaign, what specific provision must be appended to the shelter's customary foster home agreement?",
-   o:["A clause granting the foster carer permanent legal ownership after 7 days.",
-      "A strict requirement to relinquish the animals back to their original legal owners upon identification.",
-      "An agreement forcing the foster carer to cover all future surgical expenses.",
-      "A mandate requiring daily behavioural evaluations submitted by video."],
-   a:1,e:"To safeguard ownership integrity, disaster foster contracts must include an explicit provision requiring the temporary carer to return the animal once the legal owner is identified. This protects against accidental permanent rehoming of owned disaster animals."},
-
-  {t:"legal",f:"notes",q:"If a local animal shelter finds itself entirely overwhelmed and unable to manage a disaster response operation, what national asset can be mobilised for managerial supervision?",
-   o:["The International Board of Veterinary Governors.",
-      "Trained disaster and emergency response personnel from national animal welfare organisations.",
-      "Municipal corporate retail inventory management teams.",
-      "The regional social security administrative staff."],
-   a:1,e:"National animal welfare organisations (such as HSUS, ASPCA, and others) have pre-trained disaster and emergency response personnel who can step in to supervise and co-manage overwhelmed facilities. The National Animal Rescue and Sheltering Coalition was formed specifically to coordinate large-scale responses."},
-
-  /* ---- ICS / NIMS / NRF (6-10) ---- */
-  {t:"ics",f:"notes",q:"The National Response Framework (NRF) is structurally designed to operate as what type of emergency management system?",
-   o:["A localised commercial protocol for private veterinary clinic triage.",
-      "A national plan setting forth roles, responsibilities, and relationships among local, state, federal, tribal, territorial, and non-government entities.",
-      "A military command system that bypasses municipal governance entirely.",
-      "A federal software database used exclusively for tracking physical asset values."],
-   a:1,e:"The NRF serves as the macroscopic structural plan detailing exact roles, operational hierarchies, and request pathways across all tiers of governance, including animal shelters within local emergency management."},
-
-  {t:"ics",f:"notes",q:"If local shelter and community resources are entirely exhausted during a major disaster, how should the request for additional outside resources be formally routed?",
-   o:["By contacting federal pharmaceutical suppliers directly via private email.",
-      "Coordinated systematically with or through the local Incident Command structure.",
-      "By placing public advertisements on commercial social media channels.",
-      "Through an immediate direct petition to the federal supreme court."],
-   a:1,e:"Resource management protocols dictate that when local shelter assets are exhausted, requests for mutual aid must be routed systematically through the established local ICS chain. If local resources are exhausted, the request escalates to state, then federal levels."},
-
-  {t:"ics",f:"notes",q:"Within the 50 United States, what is the name of the lateral mutual aid compact that allows states to share emergency management resources and personnel with each other?",
-   o:["The National Animal Rescue Coalition (NARSC).",
-      "The Emergency Management Assistance Compact (EMAC).",
-      "The Federal Emergency Management Alliance (FEMA).",
-      "The State Veterinary Board Alliance (SVBA)."],
-   a:1,e:"EMAC (Emergency Management Assistance Compact) is the nationwide mutual aid system allowing states to seamlessly request and deploy operational personnel and equipment across state lines, before a state escalates its request to the federal level."},
-
-  {t:"ics",f:"notes",q:"Under the standardised Incident Command System (ICS), what are the four key management functions organised under the General Staff reporting directly to the Incident Commander?",
-   o:["Medicine, Behaviour, Sheltering, and Triage.",
-      "Operations, Planning, Logistics, and Finance/Administration.",
-      "Mitigation, Preparedness, Response, and Recovery.",
-      "Safety, Liaison, Public Information, and Security."],
-   a:1,e:"ICS architecture mandates that the General Staff directly managing tactical and logistical execution is split into Operations (tactical response), Planning, Logistics, and Finance/Administration. Safety, Liaison, and Public Information are the Command Staff, not General Staff. Mitigation/Preparedness/Response/Recovery are the four disaster phases."},
-
-  {t:"ics",f:"notes",q:"A shelter's Director of Operations steps into the disaster ICS hierarchy. Which specific ICS General Staff role do they fill?",
-   o:["Logistics Section Chief.",
-      "Operations Section Chief.",
-      "Incident Commander.",
-      "Planning Section Chief."],
-   a:1,e:"According to the standard ICS animal shelter mapping, specialised shelter leadership positions translate directly into general staff roles. The Director of Operations becomes the Operations Section Chief, responsible for tactical response."},
-
-  /* ---- FOUR PHASES (11-15) ---- */
-  {t:"phases",f:"notes",q:"Which phase of disaster management involves ongoing, preemptive activities designed specifically to detect, anticipate, and reduce the long-term impacts of future disasters on animals and shelters?",
-   o:["Recovery.",
-      "Response.",
-      "Preparedness.",
-      "Mitigation."],
-   a:3,e:"Mitigation comprises all ongoing, preemptive structural strategies aimed at minimising the systemic impacts of future disasters before they occur. It is the only phase that is continuous rather than event-triggered."},
-
-  {t:"phases",f:"notes",q:"During the Preparedness phase, why is preemptive animal transport and early evacuation considered an operational best practice?",
-   o:["It permanently eliminates the need for any veterinary intake exams.",
-      "It ensures the safety of relocated animals and creates immediate facility capacity to house displaced community animals.",
-      "It acts as a legal mechanism to forfeit ownership of local animals immediately.",
-      "It guarantees that the shelter will receive immediate cash reimbursements."],
-   a:1,e:"Preemptive transport clears the shelter's existing population out of danger while simultaneously opening space to receive incoming community animals. Even when minimal community animal intake is expected, preemptive transport reduces staffing challenges and lessens facility damage impact."},
-
-  {t:"phases",f:"notes",q:"What is the absolute first priority that must underpin any and all components of a shelter's disaster response plan?",
-   o:["Rapid deployment of digital adoption platforms.",
-      "Maximising physical and monetary donation streams.",
-      "Human safety.",
-      "Complete diagnostic screening for endemic parasites."],
-   a:2,e:"Human safety stands as the absolute, non-negotiable first priority of any emergency management or sheltering disaster response plan. All other objectives, including animal welfare, are secondary to preventing human casualties."},
-
-  {t:"phases",f:"notes",q:"To establish a clear chain of command and scalable communication architecture, shelter personnel should complete training in which specific modules before a disaster occurs?",
-   o:["Advanced forensic cruelty photography certifications.",
-      "National Response Framework (NRF), National Incident Management System (NIMS), and Incident Command System (ICS) modules.",
-      "Commercial business logistics and retail management.",
-      "Municipal code enforcement and civil litigation tracking."],
-   a:1,e:"Completing NRF, NIMS, and ICS training modules ensures that all responding personnel can operate within a single, unified, and highly scalable command architecture. This training must occur before a disaster, not during."},
-
-  {t:"phases",f:"notes",q:"At what precise operational point should the Incident Command System (ICS) structure be formally initiated by shelter leadership?",
-   o:["Exactly 48 hours after a disaster has entirely concluded.",
-      "Only when requested in writing by the state governor.",
-      "As soon as a disaster is anticipated or has occurred.",
-      "Once the facility's physical monetary donations exceed baseline budgets."],
-   a:2,e:"To maintain an uncompromised chain of command, the ICS structure must be brought online rapidly as soon as a disaster is anticipated or immediately strikes. Waiting for official declaration or post-event assessment delays critical coordination."},
-
-  /* ---- INTAKE / OWNERSHIP (16-20) ---- */
-  {t:"intake",f:"notes",q:"When an animal of unknown or unsettled ownership enters a shelter's custody during a disaster relief operation, how must the animal be legally categorised?",
-   o:["It is immediately made available for public adoption within 24 hours.",
-      "It is handled strictly as a stray until officially claimed by an owner.",
-      "It is transferred directly to an out-of-state research facility.",
-      "It is issued a permanent certificate of shelter ownership."],
-   a:1,e:"Ownership boundaries remain intact during disasters. Any animal with an unverified or unknown origin must be held under stray protocols until the legal hold expires. Holding times may be governed by both stray animal laws and lost property statutes."},
-
-  {t:"intake",f:"notes",q:"Immediately upon intake during a disaster relief effort, what baseline veterinary and identification protocols are mandated for all incoming animals?",
-   o:["A full behavioural match test and an elite conformation photo session.",
-      "Examination by a licensed veterinarian, thorough documentation, secure physical identification, and photographs.",
-      "A mandatory 30-day isolated quarantine before any visual assessment.",
-      "Immediate administration of broad-spectrum anaesthetic compounds."],
-   a:1,e:"Field intake mandates immediate veterinary screening for infectious disease and hazards, thorough medical charting, photographs, and secure physical tracking identification. This documentation is essential for accurate owner reunification and minimises administrative errors."},
-
-  {t:"intake",f:"notes",q:"If an owned animal is admitted to an emergency shelter during a crisis, what documentation must the shelter secure from the owner to protect itself from liability?",
-   o:["A certified employment history and bank routing verification.",
-      "Permission to care for and treat the animal, a release of liability, an indemnification agreement, medical history, and an agreement to a definite term after which the animal may be forfeited.",
-      "A permanent bill of sale transferring legal title to the state.",
-      "A written promise to volunteer for a minimum of 100 hours."],
-   a:1,e:"Shelters must protect themselves from future civil claims by securing explicit medical consent, liability waivers, indemnification agreements, and clear maximum holding terms from owners. The owner should also be required to cover costs of care to the extent they are able."},
-
-  {t:"intake",f:"notes",q:"When transferring displaced disaster animals across state lines for long-term sheltering or adoption, what steps must veterinarians take regarding disease transmission?",
-   o:["Ignore local rules under emergency Good Samaritan exemptions.",
-      "Work with state animal health officials to determine necessary vaccinations, treatments, testing, and Certificates of Veterinary Inspection (CVIs).",
-      "Wait for a full federal congressional waiver before crossing any borders.",
-      "Perform complete surgical sterilisation inside the transport vehicle."],
-   a:1,e:"Cross-border transfers carry severe biosecurity risks, as disaster animals may carry endemic pathogens unknown to the receiving area. Veterinarians must collaborate with state animal health officials to meet all vaccine, testing, CVI, and permit requirements before interstate transfer."},
-
-  {t:"intake",f:"notes",q:"Why must emergency shelter managers consult with legal counsel regarding disaster holding times before adopting out recovered animals?",
-   o:["Holding times are completely unregulated across North America.",
-      "Holding times for animals lost in disasters may be influenced by lost property statutes in addition to stray animal laws.",
-      "To determine the maximum tax deduction allowed for the adoption fee.",
-      "To legally bypass municipal microchip scanning mandates."],
-   a:1,e:"Post-disaster ownership resolution is legally complex. Lost property statutes can intersect with or supersede traditional municipal stray hold laws. Shelters must seek legal counsel before adopting out or placing disaster animals."},
-
-  /* ---- FIELD OPERATIONS (21-25) ---- */
-  {t:"ops",f:"notes",q:"Which statement accurately describes the operational timeline and integration of Animal Search and Rescue (ASAR) missions?",
-   o:["ASAR operates completely independently of human SAR and must conclude before human teams deploy.",
-      "ASAR activities should be coordinated with human SAR operations and may continue after human SAR has ended.",
-      "ASAR teams are legally authorised to cross international borders without paperwork.",
-      "ASAR focuses exclusively on tracking wild avian populations."],
-   a:1,e:"Field rescue operations require ASAR integration with human rescue grids. Animal teams routinely extend their operations long after human search efforts have concluded, as animals may remain inaccessible or undiscovered for extended periods."},
-
-  {t:"ops",f:"notes",q:"What clinical protocol is recognised as the current gold standard for animal decontamination in the field?",
-   o:["High-pressure chemical alcohol spraying.",
-      "Bathing with soap and water followed by a clean water rinse.",
-      "Shaving the animal's entire coat down to the skin without washing.",
-      "Applying dry powder clay adsorbents exclusively."],
-   a:1,e:"Extensive testing confirms that basic bathing with soap and water followed by a meticulous clean water rinse is the most effective way to eliminate field contaminants. This simple protocol reduces or eliminates most contaminants effectively and is the gold standard."},
-
-  {t:"ops",f:"notes",q:"If field conditions require animal decontamination personnel to use respiratory protection, what are the strict OSHA requirements that must be met PRIOR to the incident?",
-   o:["A high-school diploma and a baseline physical fitness test.",
-      "Medical screening, fit testing, and formal training on respirators.",
-      "A valid state veterinary licence and a hazardous materials endorsement.",
-      "A signed waiver releasing the federal government from all health claims."],
-   a:1,e:"OSHA enforces a strict three-step prerequisite protocol for respirator use that must be completed BEFORE the incident: (1) medical screening, (2) accurate physical fit testing, and (3) formal operational training on the respirator. All three must be completed prior to the event."},
-
-  {t:"ops",f:"notes",q:"What represents the minimum acceptable personal protective equipment (PPE) required for personnel executing basic animal decontamination?",
-   o:["A standard cloth lab coat and disposable latex exam gloves.",
-      "Barrier protection, gloves, apron or water-resistant coveralls, goggles, boots, cap, and a barrier mask or face shield.",
-      "A fully enclosed Level-A military-grade gas mask with oxygen tanks.",
-      "No PPE is recommended to ensure the animal remains calm."],
-   a:1,e:"Minimum safe decontamination apparel requires comprehensive barrier protection: gloves, water-resistant aprons or suits, goggles, boots, caps, and masks or face shields. Standard exam gloves and a lab coat are insufficient for decontamination work."},
-
-  {t:"ops",f:"notes",q:"With whom must animal decontamination teams coordinate when establishing incident-specific decontamination protocols?",
-   o:["The local social services board and public relations coordinators.",
-      "Incident HAZMAT personnel and the ICS Safety Officer.",
-      "Regional agricultural breed registrars and feed store retailers.",
-      "National wildlife rehabilitation directors."],
-   a:1,e:"To prevent field cross-contamination and human exposure risks, all animal decontamination protocols must be vetted by HAZMAT teams and the ICS Safety Officer. Coordination between these two entities is explicitly described as imperative."},
-
-  /* ---- POST-DISASTER (26-30) ---- */
-  {t:"ptsd",f:"notes",q:"Animals subjected to unpredictable and uncontrollable aversive disaster events are at high risk of developing severe psychological distress. Which behavioural profile best characterises this post-disaster trauma?",
-   o:["Heightened social extraversion and immediate trainability.",
-      "Generalised fear and arousal, heightened vigilance, fear of specific stimuli, and passive avoidance or resignation.",
-      "Complete loss of predatory drive and an increase in maternal nesting habits.",
-      "Uniformly high levels of aggression toward known caretakers only."],
-   a:1,e:"The psychological profile of animal disaster trauma includes generalised hyperarousal, profound hypervigilance, fear of specific stimuli, and passive avoidance or learned resignation. This profile is analogous to post-traumatic stress responses in humans and other species."},
-
-  {t:"ptsd",f:"notes",q:"In the 2011 Fukushima earthquake study, how did the physiological stress markers of abandoned disaster dogs compare to the control group of non-affected homeless dogs?",
-   o:["Their urine cortisol levels were identical to the control group.",
-      "Their urine cortisol levels were 5 to 10 times higher, and the elevation persisted even after 10 weeks in the rescue centre.",
-      "Their cortisol levels plummeted to zero due to adrenal exhaustion.",
-      "They showed a temporary 2-fold spike that resolved within 24 hours."],
-   a:1,e:"Abandoned Fukushima dogs demonstrated extreme, long-term physiological stress, maintaining a 5 to 10 times increase in baseline urine cortisol even after 10 weeks of stabilisation in a rescue centre. This demonstrates that disaster trauma causes persistent neuroendocrine dysregulation not rapidly reversed by safe housing."},
-
-  {t:"ptsd",f:"notes",q:"Historical data from Hurricane Katrina demonstrated that an estimated 200,000 pets were displaced. What was the owner-pet reunification rate when no temporary co-located pet shelters were available?",
-   o:["Only 5%.",
-      "Exactly 25%.",
-      "Up to 50%.",
-      "95%."],
-   a:0,e:"Without pet-inclusive sheltering infrastructure during Hurricane Katrina, only 5% of displaced animals were reunited with their owners. This starkly low figure drives the recommendation for co-located or pet-friendly human emergency sheltering."},
-
-  {t:"ptsd",f:"notes",q:"When temporary pet-friendly or co-located emergency sheltering options were successfully deployed post-disaster, what happened to the owner-pet reunification metrics?",
-   o:["The reunification rate dropped to 0% due to record-keeping errors.",
-      "The reunification rate scaled up dramatically, reaching 40.2% and up to 70.1% across reporting shelters.",
-      "It caused a massive spike in long-term animal relinquishments.",
-      "The rate remained unchanged at 5%."],
-   a:1,e:"Establishing co-located or pet-friendly human shelters removed the primary barrier (people refusing evacuation without their pets), driving family reunification rates up to 40.2% and 70.1% across different reporting shelters. Co-located sheltering is the single most impactful operational intervention for reunification."},
-
-  {t:"ptsd",f:"notes",q:"During the prolonged Recovery phase, why are traditional shelter metrics like local adoption and fostering rates frequently compromised within the affected community?",
-   o:["Local residents face sustained housing instability, meaning fostering and adoption are unlikely to be immediate priorities.",
-      "Federal laws prohibit adoptions for 12 months following a disaster.",
-      "Animals lose their legal adoptability status permanently after a storm.",
-      "Shelters are forced to prioritise wildlife rehabilitation over companion animals."],
-   a:0,e:"Post-disaster recovery is slow. When the local human population faces acute housing loss and economic strain, community adoption and foster capacity plummets. Alternative strategies (out-of-area adoption events, increased transfer, shelter-neuter-return) should be used to manage longer length of stay."}
+ {"t":"legal","f":"notes","q":"What legal protection do shelter veterinarians have when acting as first responders in a disaster?","o":["Strict absolute liability for any adverse medical outcome","A permanent exemption from state licensing requirements","The same Good Samaritan immunity as any other veterinarian in an emergency response"],"a":2,"e":"Shelter veterinarians have the same Good Samaritan immunity as any other licensed veterinarian in an emergency response."},
+ {"t":"legal","f":"notes","q":"Which statement about the PETS Act of 2006 and the Stafford Act is correct?","o":["The PETS Act requires a $500 stipend for every pet-owning family, and the Stafford Act requires FEMA to own stray livestock.","The PETS Act requires planning authorities to take companion animals into account, and the Stafford Act lets FEMA fund states to build household pet and service animal capabilities.","The PETS Act limits owners to one animal on evacuation, and the Stafford Act prohibits euthanasia in disaster zones."],"a":1,"e":"The PETS Act mandates that regional and municipal authorities include companion animals in emergency planning. The Stafford Act authorises the FEMA administrator to fund states to build pet and service animal capabilities."},
+ {"t":"legal","f":"notes","q":"A shelter recruits temporary foster families during a disaster response. What must be added to the shelter's usual foster agreement?","o":["A clause that gives the foster carer legal ownership after 7 days","A requirement to return the animals to their original owners when identified","A requirement that the carer pays all future surgical costs"],"a":1,"e":"To protect ownership, disaster foster agreements must state that animals will be returned to their legal owners upon identification."},
+ {"t":"legal","f":"notes","q":"A local shelter is overwhelmed and cannot manage a disaster response. What resources can be mobilised, and how should requests for outside help be routed?","o":["Municipal retail management teams, with requests sent directly to federal drug suppliers","Regional social security staff, with requests posted on social media","Trained response personnel from national animal welfare organisations, with requests coordinated through the local Incident Command structure"],"a":2,"e":"National animal welfare organisations have pre-trained disaster teams. Requests for outside resources are coordinated with or through the local Incident Command structure."},
+ {"t":"ics","f":"notes","q":"What is the National Response Framework, and which compact lets states share emergency resources and personnel?","o":["A private protocol for clinic triage; the National Animal Rescue Coalition","A national plan setting the roles and relationships among local, state, federal, tribal, territorial and non-government entities; the Emergency Management Assistance Compact","A military command system that bypasses local government; the State Veterinary Board Alliance"],"a":1,"e":"The National Response Framework sets out roles, responsibilities and relationships among all levels of government and non-government entities. EMAC is the nationwide mutual aid system between states."},
+ {"t":"ics","f":"notes","q":"Which four management functions make up the ICS General Staff, and which one does a shelter's Director of Operations fill?","o":["Operations, Planning, Logistics, and Finance/Administration; Operations Section Chief","Medicine, Behaviour, Sheltering and Triage; Incident Commander","Mitigation, Preparedness, Response and Recovery; Planning Section Chief"],"a":0,"e":"The General Staff reporting to the Incident Commander comprises Operations, Planning, Logistics and Finance/Administration. A shelter's Director of Operations typically fills the Operations Section Chief role."},
+ {"t":"phases","f":"notes","q":"Which disaster phase covers ongoing pre-emptive activities to reduce the long-term impact of future disasters on animals and shelters, and why is early evacuation good practice in the preparedness phase?","o":["Mitigation; it moves animals to safety and creates immediate capacity for displaced animals","Recovery; it removes the need for intake examinations","Response; it transfers ownership of local animals to the shelter"],"a":0,"e":"Mitigation covers ongoing pre-emptive strategies. Early transport during preparedness protects the animals and creates capacity for displaced community animals."},
+ {"t":"phases","f":"notes","q":"What is the first priority that must underpin every part of a shelter's disaster response plan?","o":["Human safety","Rapid deployment of online adoption platforms","Maximising donations of goods and money"],"a":0,"e":"Human safety is the non-negotiable first priority of any emergency management effort."},
+ {"t":"phases","f":"notes","q":"Which training should shelter staff complete before a disaster, and when should the Incident Command System be started?","o":["Forensic photography certification; 48 hours after the disaster has ended","Retail logistics courses; when the governor requests it in writing","NRF, NIMS and ICS modules; as soon as a disaster is anticipated or has occurred"],"a":2,"e":"Completing NRF, NIMS and ICS training gives a shared chain of command and language. ICS should be started as soon as a disaster is anticipated or has occurred."},
+ {"t":"intake","f":"notes","q":"An animal of unknown or unsettled ownership enters shelter custody during a disaster response. How must it be categorised, and why is legal advice needed on holding times?","o":["As available for adoption after 24 hours; holding times are not regulated after disasters.","As property of the shelter; holding times are set by insurance rules.","As a stray until claimed; lost property statutes may apply in addition to stray animal laws."],"a":2,"e":"Ownership rights remain intact in disasters, so animals are handled as strays until claimed. Holding times for animals lost in disasters may also be affected by lost property statutes."},
+ {"t":"intake","f":"notes","q":"What baseline veterinary and identification steps are required at intake of all animals in a disaster response?","o":["A behavioural matching test and a photo session for adoption profiles","A 30-day isolated quarantine before any assessment","Examination by a licensed veterinarian, thorough documentation, secure identification and photographs"],"a":2,"e":"Field intake requires prompt veterinary screening for infectious disease and hazards, with documentation, identification and photographs to safeguard ownership."},
+ {"t":"intake","f":"notes","q":"An owned animal is admitted to an emergency shelter during a crisis. What must the shelter obtain from the owner to protect itself from liability?","o":["Proof of employment and bank details","Permission to treat, a release of liability, an indemnification agreement, medical history, and agreement to a definite term after which the animal may be forfeited","A bill of sale transferring title to the state"],"a":1,"e":"Shelters protect themselves from later claims by securing consent to treat, a release, an indemnity, medical history and a defined time limit for reclaim."},
+ {"t":"intake","f":"notes","q":"When displaced disaster animals are moved across state lines for long-term sheltering or adoption, what must veterinarians do about disease transmission?","o":["Rely on Good Samaritan exemptions to bypass local rules.","Wait for a federal waiver before crossing any border.","Work with state animal health officials to determine the vaccinations, treatments, testing and certificates of veterinary inspection required."],"a":2,"e":"Cross-border transfers carry biosecurity risks, as disaster animals may carry endemic diseases, so state animal health officials set the requirements."},
+ {"t":"ops","f":"notes","q":"Which statement describes the timing and integration of Animal Search and Rescue (ASAR) missions?","o":["ASAR should be coordinated with human search and rescue and may continue after human SAR has ended.","ASAR operates independently and must finish before human teams deploy.","ASAR teams may cross international borders without paperwork."],"a":0,"e":"Animal teams are integrated with the human rescue operation and often continue after human search and rescue has finished."},
+ {"t":"ops","f":"notes","q":"What is the current gold-standard field decontamination protocol for animals, and what must be done before staff use respirators?","o":["Bathing with soap and water followed by a clean water rinse; medical screening, fit testing and training","Spraying with high-pressure alcohol; a state veterinary licence and hazardous materials endorsement","Shaving the coat without washing; a signed waiver from the federal government"],"a":0,"e":"Bathing with soap and water plus a thorough rinse is the tested standard. OSHA requires medical screening, fit testing and formal training before respirators are used."},
+ {"t":"ops","f":"notes","q":"What is the minimum PPE for basic animal decontamination, and with whom must decontamination teams coordinate?","o":["A cloth lab coat and latex gloves; the local social services board","Gloves, apron or water-resistant coveralls, goggles, boots, cap and a barrier mask or face shield; incident hazmat personnel and the ICS Safety Officer","A Level A gas mask with oxygen tanks; breed registrars"],"a":1,"e":"Minimum safe decontamination wear is comprehensive barrier protection. Teams coordinate with hazmat personnel and the ICS Safety Officer to prevent cross-contamination and exposure."},
+ {"t":"ptsd","f":"notes","q":"Animals exposed to unpredictable, uncontrollable aversive disaster events are at risk of severe psychological distress. Which profile characterises post-disaster trauma?","o":["Heightened sociability and rapid trainability","Generalised fear and arousal, heightened vigilance, fear of specific stimuli, and passive avoidance or resignation","Loss of predatory drive and increased maternal nesting"],"a":1,"e":"Animal disaster trauma includes generalised hyperarousal, vigilance, specific fears and passive resignation."},
+ {"t":"ptsd","f":"notes","q":"In the 2011 Fukushima study, how did the stress physiology of abandoned disaster dogs compare with non-affected homeless dogs?","o":["Urine cortisol was 5 to 10 times higher, and the elevation persisted even after 10 weeks in the rescue centre.","Urine cortisol was identical in both groups.","Urine cortisol was 2 times higher for 24 hours and then returned to normal."],"a":0,"e":"Abandoned Fukushima dogs showed extreme, long-lasting physiological stress, with cortisol still elevated after 10 weeks."},
+ {"t":"ptsd","f":"notes","q":"After Hurricane Katrina, what was the owner-pet reunification rate without co-located pet shelters, and what happened when pet-friendly sheltering was provided?","o":["About 25% without them, and rates fell to 0% because of record errors","Only about 5% without them, and rates rose to 40.2% and up to 70.1% with them","About 50% without them, and rates were unchanged with them"],"a":1,"e":"Without pet-inclusive sheltering, only about 5% of displaced pets were reunited. With pet-friendly or co-located shelters, reunification rose dramatically, reaching 40.2% and up to 70.1%."},
+ {"t":"ptsd","f":"notes","q":"During the recovery phase, why are local adoption and foster rates often compromised?","o":["Local residents face sustained housing instability, so fostering and adoption are unlikely to be immediate priorities.","Federal law prohibits adoptions for 12 months after a disaster.","Animals lose their legal adoptability permanently after a storm."],"a":0,"e":"Recovery is slow, and when the local population has lost housing or income, fostering and adoption are not an immediate priority."}
 ];/*mcq-shuffle*/(function(){var _a=Q;if(!Array.isArray(_a))return;for(var _i=0;_i<_a.length;_i++){var _q=_a[_i];if(!_q||!Array.isArray(_q.o)||typeof _q.a!=='number')continue;var _c=_q.o[_q.a];for(var _j=_q.o.length-1;_j>0;_j--){var _k=Math.floor(Math.random()*(_j+1));var _t=_q.o[_j];_q.o[_j]=_q.o[_k];_q.o[_k]=_t;}_q.a=_q.o.indexOf(_c);}})();
 
 const host=document.getElementById('qhost');
