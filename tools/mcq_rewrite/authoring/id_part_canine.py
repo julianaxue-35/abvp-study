@@ -316,7 +316,7 @@ ITEMS = [
  "Which statement about the environmental control of canine influenza virus, compared with parvovirus, is correct?",
  "It is easier, because it is an enveloped virus surviving about 24 to 48 hours on non-porous surfaces and readily inactivated by standard disinfectants.",
  "It is harder, because it survives for over a year and resists all common disinfectants.",
- "It is the same, because both are non-enveloped viruses that need bleach at 1:10.",
+ "It is the same, because both are non-enveloped viruses that survive for years in the environment.",
  "As an enveloped virus, CIV survives about 24 to 48 hours on non-porous surfaces, 8 to 12 hours on porous surfaces and minutes on hands, and is readily inactivated by accelerated hydrogen peroxide, bleach, quaternary ammonium and potassium peroxymonosulfate."),
 
 ([128, 129],

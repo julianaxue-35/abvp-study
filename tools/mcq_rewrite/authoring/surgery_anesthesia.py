@@ -161,6 +161,13 @@ ITEMS = [
  "Colorado State University canine acute pain scale",
  "The UNESP-Botucatu scale was validated for feline acute post-operative pain. CMPS-SF and the Colorado State University canine scale were developed for dogs."),
 
+([28],
+ "A cat is scored with the Feline Grimace Scale after ovariohysterectomy, using ear position, orbital tightening, muzzle tension, whiskers and head position. Which statement is correct?",
+ "The score reflects facial expression alone, and its own intervention threshold should be applied rather than one from another scale.",
+ "It is interpreted with the Glasgow CMPS-SF threshold, because both scales share a cut-off.",
+ "It cannot be used in cats that have received opioids.",
+ "Each scale has its own validated intervention threshold, and thresholds differ between scales and between versions of the same scale. The Feline Grimace Scale scores five facial action units, so its result must not be read against the Glasgow, UNESP-Botucatu or CSU thresholds."),
+
 ([27, 29],
  "A dog scores at the intervention threshold on the Glasgow Composite Measure Pain Scale Short Form 4 hours after an ovariohysterectomy. What is the appropriate action?",
  "Give rescue analgesia now.",

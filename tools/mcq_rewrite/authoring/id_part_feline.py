@@ -57,6 +57,13 @@ ITEMS = [
  "Complete hair regrowth and a negative Wood's lamp examination",
  "Three consecutive weekly negative cultures define cure. Two suffice only with combined lime sulfur and continuous oral itraconazole."),
 
+([163, 164],
+ "Which disinfectant regimen is effective against ringworm spores after mechanical removal of hair and debris?",
+ "Bleach at 1:10, accelerated hydrogen peroxide at 1:16, or 2% potassium peroxymonosulfate",
+ "Bleach at 1:32 for 10 minutes, or 1% potassium peroxymonosulfate",
+ "Quaternary ammonium or chlorhexidine at label dilution",
+ "Ringworm needs stronger regimens than most viruses: bleach at 1:10, accelerated hydrogen peroxide at 1:16 or 2% potassium peroxymonosulfate. Bleach at 1:32 for 10 minutes suffices for parvovirus and other viruses, and 1% potassium peroxymonosulfate is unreliable for spores. Quaternary ammonium and chlorhexidine are ineffective."),
+
 ([162],
  "What is the cornerstone of environmental decontamination in a ringworm outbreak?",
  "Mechanical removal of spores and hair by vacuuming, sweeping or damp dusting before disinfection",
