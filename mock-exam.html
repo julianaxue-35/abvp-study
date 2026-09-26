@@ -118,7 +118,7 @@
         <div><label>Total questions</label><input id="cfgTotal" type="number" value="350" min="20" max="700"></div>
         <div><label>Minutes / session</label><input id="cfgMins" type="number" value="180" min="10" max="360"></div>
         <div><label>Lunch (min, pausable)</label><input id="cfgLunch" type="number" value="60" min="0" max="120"></div>
-        <div><label>Include flashcard MCQs</label><select id="cfgCards"><option value="1" selected>Yes — add flashcard-derived MCQs</option><option value="0">No — hub MCQs only (cleanest)</option></select></div>
+        <div><label>Question source</label><select id="cfgCards"><option value="0" selected>Hub and journal MCQs</option></select></div>
       </div>
       <div id="userStats" style="font-size:13px;color:var(--ink);margin:4px 0 10px;min-height:18px"></div>
       <p style="font-size:13px;color:var(--muted);margin:6px 0 14px">The exam is split into two timed sessions with a self-paced lunch between. Every item is multiple-choice and auto-graded; questions are drawn randomly and <b>weighted to the 2026 blueprint</b> below. Flashcards have been reworded into MCQs (True/False items convert cleanly; others use auto-generated distractors, so turn them off for the highest-quality run). During the exam nothing is marked right/wrong — but you can hit <b>Pause</b> any time to review what you've done so far with reasoning.</p>
@@ -246,7 +246,7 @@ function renderBlueprint(){
   document.getElementById('bpBody').innerHTML=DOM_ORDER.map(d=>
     `<tr><td>${d}</td><td>${window.MOCK.blueprint[d].pct}%</td><td>${c[d]}</td></tr>`).join('');
   document.getElementById('poolInfo').textContent=
-    window.MOCK.mcqs.length+' MCQs available ('+window.MOCK.mcqs.filter(function(q){return q.source==='fc';}).length+' reworded from flashcards)';
+    window.MOCK.mcqs.length+' MCQs available';
 }
 ['cfgTotal'].forEach(id=>document.getElementById(id).addEventListener('input',renderBlueprint));
 renderBlueprint();

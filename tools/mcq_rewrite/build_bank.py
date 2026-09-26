@@ -27,11 +27,19 @@ def auto_trim(ok, others, gap=25):
 def main(path):
     path = pathlib.Path(path); m = load(path)
     old = json.loads(subprocess.check_output(["node", str(H / "dump_json.js"), m.PAGE]))
+    from jr_lib import load_jr, load_cat, options
+    jr = load_jr(); cat = load_cat(); qmap = json.load(open(H / "jr" / "qmap.json"))
+    art = {}                                   # catalog idx -> [page indices of that article's old journal items]
+    for i, o in enumerate(old):
+        if o["q"].strip() in qmap: art.setdefault(qmap[o["q"].strip()], []).append(i)
+    replaced = {i for a, ix in art.items() if a in jr for i in ix}
     n = len(m.ITEMS); pos = [i % 3 for i in range(n)]; random.Random(zlib.crc32(path.stem.encode())).shuffle(pos)
     out, used, warn = [], set(), []; trimmed = 0
     for k, (it, p) in enumerate(zip(m.ITEMS, pos), 1):
         if it[0] == "keep":            # pass an original item through unchanged (e.g. journal-derived)
-            used.add(it[1]); out.append(old[it[1]]); continue
+            used.add(it[1])
+            if it[1] in replaced: continue      # this journal item is superseded by its rewritten article MCQ
+            out.append(old[it[1]]); continue
         reps, stem, ok, w1, w2, expl = it[:6]; tag = it[6] if len(it) > 6 else None
         for r in reps:
             if r >= len(old): raise SystemExit(f"item {k}: bad old index {r}")
@@ -46,6 +54,12 @@ def main(path):
         if max(len(w1), len(w2)) + 20 < len(ok): warn.append(f"{k}: correct answer much longer ({len(ok)} vs {len(w1)}/{len(w2)})")
         d = {"t": tag or base.get("t"), "f": base.get("f"), "q": stem, "o": opts, "a": p, "e": expl}
         out.append({kk: v for kk, v in d.items() if v is not None})
+    for a, ix in sorted(art.items()):
+        if a not in jr: continue
+        stem, ok, w1, w2, expl = jr[a]; opts, p = options(cat[a]["id"], ok, w1, w2); used.update(ix)
+        d = {"t": old[ix[0]].get("t"), "f": old[ix[0]].get("f"), "q": stem, "o": opts, "a": p, "e": expl}
+        out.append({kk: v for kk, v in d.items() if v is not None})
+    n = len(out)
     tagset = {o.get("t") for o in old}; newtags = {o.get("t") for o in out}
     unused = [i for i in range(len(old)) if i not in used]
     (H / "banks").mkdir(exist_ok=True)

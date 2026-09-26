@@ -58,7 +58,7 @@ def validate_record(rec: dict) -> list:
     * ``abstract`` must be a non-empty string.
     * Each entry in ``mcqs`` must be a dict with keys q, o, a, e where:
         - q is a non-empty string
-        - o is a list of exactly 4 strings
+        - o is a list of 3 or 4 strings
         - a is an int with 0 <= a < 4
         - e is a non-empty string
     * Empty ``mcqs`` list is allowed (MCQs are populated in later tasks).
@@ -121,8 +121,8 @@ def validate_record(rec: dict) -> list:
                 problems.append(f"{prefix}: q must be a non-empty string")
             # o
             o = mcq.get("o")
-            if not isinstance(o, list) or len(o) != 4:
-                problems.append(f"{prefix}: o must be a list of exactly 4 strings")
+            if not isinstance(o, list) or len(o) not in (3, 4):
+                problems.append(f"{prefix}: o must be a list of 3 or 4 strings")
             elif not all(isinstance(item, str) for item in o):
                 problems.append(f"{prefix}: every element of o must be a string")
             # a

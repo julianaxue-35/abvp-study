@@ -664,6 +664,7 @@ ul{padding-left:20px}
 <section class="panel" id="journal">
   <h2 class="sec">Additional Resources</h2>
   <p class="lead">Journal Articles (2021–2025) — exam items are drawn from the abstract only. Read each abstract here; self-test questions are in the MCQ Test Bank.</p>
+
   <h3 class="sec" style="margin-top:1.4em">Supplementary reading &mdash; published after 2025</h3>
   <p class="lead">Outside the window the 2026 exam draws on, so no self-test questions are set on these. Kept for interest and later study.</p>
   <div class="card ja-article">
@@ -979,46 +980,5 @@ function setRate(btn,r){
   Cited third-party materials (journal abstracts, openly-licensed images, etc.)
   remain the property of their respective owners.
 </footer>
-<!-- JOURNAL-BANK:START -->
-<script data-journal-bank>
-(function(){try{
-  // Teach the page's badge/label helpers about journal-sourced questions so
-  // they render a "journal" source badge (the page templates predate this tag).
-  if(typeof flagBadge==='function' && !flagBadge.__journalPatched){
-    var _fb=flagBadge;
-    window.flagBadge=function(f){return f==='journal'?'<span class="bdg journal">journal</span>':_fb(f);};
-    window.flagBadge.__journalPatched=true;
-  }
-  if(typeof tagLabel==='function' && !tagLabel.__journalPatched){
-    var _tl=tagLabel;
-    window.tagLabel=function(t){return t==='journal'?'Journal':_tl(t);};
-    window.tagLabel.__journalPatched=true;
-  }
-  // Bespoke #chips banks render each card's tag via DLABEL[item.f]; register a
-  // label so journal cards read "Journal Articles" instead of "undefined".
-  if(typeof DLABEL==='object' && DLABEL && !DLABEL.journal){DLABEL.journal='Journal Articles';}
-  // Add a "Journal Articles" chip to whichever topic-filter bar the page uses
-  // (.filters on the standard template, #chips on the research hubs) so the
-  // journal questions can be isolated (they otherwise sit at the end of bank).
-  var _fbar=document.querySelector('.filters')||document.getElementById('chips');
-  if(_fbar && !_fbar.querySelector('[data-f="journal"]')){
-    var _jb=document.createElement('button');
-    _jb.setAttribute('data-f','journal');
-    _jb.textContent='Journal Articles';
-    var _sib=_fbar.querySelector('button[data-f]');
-    // strip whichever "selected" class the page's own chips use, so the
-    // injected chip doesn't render pre-selected ('on' is the standard
-    // template, 'active' the research hubs)
-    if(_sib && _sib.className){_jb.className=_sib.className;_jb.classList.remove('active');_jb.classList.remove('on');}
-    _fbar.appendChild(_jb);
-  }
-  if(typeof Q!=='undefined' && Array.isArray(Q)){
-    var JJ=[];/*mcq-shuffle*/(function(){var _a=JJ;if(!Array.isArray(_a))return;for(var _i=0;_i<_a.length;_i++){var _q=_a[_i];if(!_q||!Array.isArray(_q.o)||typeof _q.a!=='number')continue;var _c=_q.o[_q.a];for(var _j=_q.o.length-1;_j>0;_j--){var _k=Math.floor(Math.random()*(_j+1));var _t=_q.o[_j];_q.o[_j]=_q.o[_k];_q.o[_k]=_t;}_q.a=_q.o.indexOf(_c);}})();
-    JJ.forEach(function(m){Q.push({t:m.t||"journal",f:m.f||"journal",q:m.q,o:m.o,a:m.a,e:m.e});});
-    if(typeof render==='function'){render();}
-  }
-}catch(e){}})();
-</script>
-<!-- JOURNAL-BANK:END -->
 </body>
 </html>
