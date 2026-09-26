@@ -12,11 +12,23 @@ ROOT = H.parent.parent
 def load(p):
     spec = importlib.util.spec_from_file_location("auth", p); m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m); return m
 
+import re as _re
+_TRIM = _re.compile(r"(, because | because |, since |, so that |, so | so that | which means |, which |; )")
+def auto_trim(ok, others, gap=25):
+    """Shorten a correct option that is much longer than both distractors by cutting a trailing rationale clause."""
+    if len(ok) - max(len(o) for o in others) <= gap: return ok
+    m = _TRIM.search(ok)
+    if not m: return ok
+    cut = ok[:m.start()].rstrip(" ,;")
+    if len(cut) < 35 or len(cut) < 0.3 * len(ok): return ok
+    if not cut.endswith((".", ")")): cut += "."
+    return cut
+
 def main(path):
     path = pathlib.Path(path); m = load(path)
     old = json.loads(subprocess.check_output(["node", str(H / "dump_json.js"), m.PAGE]))
     n = len(m.ITEMS); pos = [i % 3 for i in range(n)]; random.Random(zlib.crc32(path.stem.encode())).shuffle(pos)
-    out, used, warn = [], set(), []
+    out, used, warn = [], set(), []; trimmed = 0
     for k, (it, p) in enumerate(zip(m.ITEMS, pos), 1):
         if it[0] == "keep":            # pass an original item through unchanged (e.g. journal-derived)
             used.add(it[1]); out.append(old[it[1]]); continue
@@ -25,6 +37,9 @@ def main(path):
             if r >= len(old): raise SystemExit(f"item {k}: bad old index {r}")
             used.add(r)
         base = old[reps[0]] if reps else {}
+        ok2 = auto_trim(ok, [w1, w2])
+        if ok2 != ok: trimmed += 1
+        ok = ok2
         opts = [w1, w2]; opts.insert(p, ok)
         if len({o.strip().lower() for o in opts}) != 3: warn.append(f"{k}: duplicate options")
         if re.search(r"all of the above|none of the above|to be confirmed|\bTBC\b", " ".join(opts), re.I): warn.append(f"{k}: banned option text")
@@ -37,7 +52,7 @@ def main(path):
     (H / "banks" / (path.stem + ".json")).write_text(json.dumps(out, indent=1, ensure_ascii=False))
     ok_pos = [sum(1 for o in out if o["a"] == i) for i in range(3)]
     longest = sum(1 for o in out if len(o["o"][o["a"]]) > max(len(x) for i, x in enumerate(o["o"]) if i != o["a"]))
-    print(f"{m.PAGE}: old {len(old)} -> new {n} | key a/b/c {ok_pos} | correct-longest {longest}/{n} | tags lost: {sorted(tagset - newtags)} | old items not referenced: {len(unused)} {unused[:40]}")
+    print(f"{m.PAGE}: old {len(old)} -> new {n} | key a/b/c {ok_pos} | correct-longest {longest}/{n} | tags lost: {sorted(tagset - newtags)} | auto-trimmed {trimmed} | old items not referenced: {len(unused)} {unused[:40]}")
     for w in warn: print("  WARN", w)
 
 main(sys.argv[1])

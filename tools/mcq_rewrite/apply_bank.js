@@ -17,6 +17,9 @@ let out=src.slice(0,b.start)+arrTxt+src.slice(b.end);
 const cre=new RegExp('\\b'+old.length+'(\\s+(?:exam-style\\s+)?(?:items|questions|MCQs))','g');
 const headEnd=b.start;// only touch text before the bank literal
 out=out.slice(0,headEnd).replace(cre,items.length+'$1')+out.slice(headEnd).replace(cre,items.length+'$1');
+// refresh the static "All N" / "All (N)" chip count = hub bank + journal bank (JJ) if present
+{const g=grab(out);const jj=g.find(x=>x.name==='JJ');const total=items.length+(jj?jj.arr.length:0);
+ out=out.replace(/(data-f="all"[^>]*>All(?: \(| ))\d+(\)?)/,'$1'+total+'$2');}
 // mock-data.js sync
 const mp=path.join(root,'mock-data.js');const msrc=fs.readFileSync(mp,'utf8');
 const ctx={window:{}};vm.runInNewContext(msrc,ctx);const M=ctx.window.MOCK;
@@ -37,7 +40,7 @@ if(hits.length||subFlag){
   const before=M.mcqs.slice(0,firstIdx).filter(q=>!(q.source==='hub'&&oldText.has(q.q)));
   const after=M.mcqs.slice(firstIdx).filter(q=>!(q.source==='hub'&&oldText.has(q.q)));
   const have=new Set(M.mcqs.filter(q=>q.source==='hub'&&q.domain===top[0]&&q.sub===top[1]&&!oldText.has(q.q)).map(q=>q.q));
-  const neu=items.filter(q=>!have.has(q.q)).map(q=>({type:'mcq',domain:top[0],sub:top[1],q:q.q,o:q.o,a:q.a,e:q.e,source:'hub'}));
+  const neu=items.filter(q=>!have.has(q.q)&&q.t!=='journal'&&q.f!=='journal').map(q=>({type:'mcq',domain:top[0],sub:top[1],q:q.q,o:q.o,a:q.a,e:q.e,source:'hub'}));
   M.mcqs=before.concat(neu,after);
   if(exclusive){const nt=new Set(items.map(q=>q.q));M.mcqs=M.mcqs.filter(q=>!(q.source==='hub'&&q.domain===top[0]&&q.sub===top[1]&&!nt.has(q.q)));}
   const m=/^window\.MOCK=/.exec(msrc);

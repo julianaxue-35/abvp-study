@@ -1,0 +1,126 @@
+import importlib.util, pathlib
+PAGE = "shelter-management/09_resource_allocation.html"
+
+_spec = importlib.util.spec_from_file_location("sm_reg", pathlib.Path(__file__).with_name("sm_regulatory.py"))
+_m = importlib.util.module_from_spec(_spec); _spec.loader.exec_module(_m)
+def shared(reg_idx, my_idxs):
+    for it in _m.ITEMS:
+        if it[0][0] == reg_idx:
+            return (my_idxs,) + tuple(it[1:])
+    raise KeyError(reg_idx)
+
+ITEMS = [
+([0],
+ "A municipal animal control facility operates under local ordinances that require it to accept every stray, abandoned or seized animal brought to its doors within county lines. Which term defines this mandate?",
+ "Open-admission shelter",
+ "Managed-intake facility",
+ "Limited-admission shelter",
+ "Open-admission facilities are bound by local ordinance to accept every animal within their jurisdiction. Limited-admission shelters control their intake."),
+
+([1],
+ "A private 501(c)(3) shelter sets strict criteria for owner surrenders and caps intake according to current kennel availability. Which management concept justifies this limited-admission approach?",
+ "Maintaining capacity for care",
+ "Municipal contract optimisation",
+ "Public purchasing policy",
+ "Limited-admission shelters control intake to match the population to available staff, space and resources, which is capacity for care."),
+
+([6],
+ "Which structural limitation distinguishes municipal animal control agencies from private non-profit shelters?",
+ "They are heavily constrained by civil service rules and public purchasing mandates.",
+ "They cannot use controlled substances, because they hold no DEA registration.",
+ "They are exempt from the state veterinary practice act.",
+ "Publicly funded municipal agencies must follow civil service rules for hiring and public purchasing rules, which restrict flexibility compared with private shelters."),
+
+([7],
+ "A private shelter's board wants to maintain federal tax-exempt status. Under which section of the Internal Revenue Code must the shelter comply?",
+ "Section 501(c)(3)",
+ "Section 401(k)",
+ "Section 1099",
+ "Section 501(c)(3) is the IRS classification that grants federal tax exemption to charitable organisations."),
+
+shared(11, [11, 12]),
+
+([2],
+ "A veterinarian asks for funds to overhaul a quarantine ward's air-handling system. The executive director declines, because the board has restricted all foundation grant payouts to a public TNR programme. Which statement describes the board's role?",
+ "The board is exercising its legal role of fiscal oversight and complying with donor intent.",
+ "The board is overstepping by managing day-to-day medical logistics.",
+ "The board may change donor intent without notifying the foundation.",
+ "Boards focus on governance and fiscal stewardship, including ensuring restricted funds are used exactly as the donors intended."),
+
+([13],
+ "A shelter board is setting its operational boundaries. Which statement correctly reflects a limitation on the board's direct duties?",
+ "The board need not engage in day-to-day operations, hire staff other than the chief executive, or make detailed programme decisions without staff input.",
+ "The board must manage day-to-day operations, but need not hire staff.",
+ "The board must hire all shelter staff, including caretakers, and set the daily schedule.",
+ "The board governs and does not manage. It does not engage in day-to-day operations, hire staff other than the CEO, or make detailed programmatic decisions without staff consultation."),
+
+([3],
+ "A shelter department has serious friction between care technicians and leadership because of repetitive tasks, high euthanasia rates and emotional exhaustion. Which organisational hazard must management address?",
+ "Compassion fatigue",
+ "Civil service bureaucracy",
+ "Excess decision latitude",
+ "Long-term exposure to animal suffering, high-stakes decisions and euthanasia leads directly to compassion fatigue, which management must address."),
+
+([4],
+ "A regional veterinary association says a shelter's low-cost public wellness clinic competes unfairly with private practices. Which strategy is most commonly used to balance mission and community relations?",
+ "Restrict subsidised public services to income-qualified clients (means testing).",
+ "Extend the wellness services to all zip codes, whatever the client's income.",
+ "Stop all shelter medical procedures, including care for adoptable animals.",
+ "Restricting subsidised public services to income-qualified clients serves the humanitarian mission while limiting competition with private practice."),
+
+([8],
+ "A non-profit shelter receives a $50,000 grant restricted to construction of a new outdoor dog play yard, and faces an immediate shortfall for utility bills. Can the executive director use the grant for utilities?",
+ "No: using restricted funds for general operations violates non-profit law and donor intent.",
+ "Yes: utilities indirectly benefit the play yard, so the use is consistent with the grant.",
+ "Yes: if the board signs an internal waiver for the operational shortfall.",
+ "Diverting restricted donor funds to unrelated needs breaches trust law and non-profit financial rules, and it breaks donor intent."),
+
+([15],
+ "A shelter has a restricted grant earmarked for a paediatric feline spay-neuter programme. The next month a parvovirus outbreak exhausts the disinfection budget. How should the restricted funds be handled?",
+ "Keep them allocated to the paediatric feline programme, and seek separate emergency funding for the outbreak.",
+ "Temporarily reallocate them under an emergency capacity-for-care clause.",
+ "Allow the veterinarian to reallocate up to 25% of the grant for disease control.",
+ "Restricted grants are legally binding agreements, and there is no emergency exception. The shelter must keep the funds for their purpose and seek other funding."),
+
+([14],
+ "A member of the public asks for a non-profit shelter's IRS Form 990 at the front desk. What is the legally correct response?",
+ "Provide it, because by law it must be available to the public.",
+ "Keep it sealed and release it only under a court subpoena.",
+ "Direct the person to submit a written request that the board considers at its next meeting.",
+ "IRS regulations require that a non-profit's Form 990 be available to the public, and it is a key source of financial transparency."),
+
+([9],
+ "A manager wants to optimise kennel staff scheduling so that every animal is cleaned and fed within the available human resources. Which core concept does this reflect?",
+ "Resource allocation and staff utilisation",
+ "Restricted funding optimisation",
+ "Practice act delegation",
+ "Aligning personnel hours with the operational care mandate is resource allocation and staff utilisation."),
+
+([10],
+ "An open-admission shelter has severe summer overcrowding that drives up disease rates. From an administrative perspective, which balance has failed?",
+ "The balance between population size and capacity for care",
+ "The balance between restricted and unrestricted grant income",
+ "The balance between the intake rate and the practice act exemption limit",
+ "Operating beyond the physical and human capacity to care compromises biosecurity, raises disease rates and harms welfare."),
+
+([16],
+ "A shelter plans to replace its whole HVAC system at a cost of $60,000, and the manager wants to record it as an operating expense in the annual budget. Why is this incorrect?",
+ "It is a capital expenditure: a large, infrequent purchase that lasts beyond one budget cycle and is classed separately from operating costs.",
+ "It is a variable cost, which should scale with the intake volume.",
+ "It is an in-kind donation, if a local contractor offers a discount.",
+ "A $60,000 HVAC replacement is a substantial one-time investment in a long-lived asset, which is a capital expenditure and not an operating cost."),
+
+([17],
+ "A local veterinarian donates 20 hours of spay surgery to the shelter each month. What financial obligation does this in-kind donation create?",
+ "The shelter must record the fair market value of the donated surgical time for Form 990 reporting and grant matching.",
+ "None, because only cash donations need to be documented.",
+ "The donation becomes a restricted grant that can be used only for spay surgeries.",
+ "In-kind donations of skilled professional services must be documented at fair market value for Form 990 reporting and matching-grant purposes."),
+
+([18],
+ "A shelter's operating costs last year were $450,000, and it had 900 live outcomes. What is the cost per live outcome, and what does a 20% increase the next year, without more outcomes, suggest?",
+ "$500 per outcome; a rise without more outcomes suggests cost inflation without extra impact, an efficiency concern to investigate.",
+ "$500 per outcome; a rise without more outcomes suggests that the programme is scaling well.",
+ "$450 per outcome; a rise without more outcomes suggests that staff numbers should be reduced.",
+ "Cost per live outcome = $450,000 / 900 = $500. If it rises to $600 without more outcomes, cost has grown without proportional impact, which is an efficiency concern."),
+]

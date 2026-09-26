@@ -1,0 +1,148 @@
+PAGE = "shelter-management/02_animal_id_tracking.html"
+ITEMS = [
+# ---- mandate
+([0, 22],
+ "During a large emergency rescue, when must a unique identifier and an individual record be established for each incoming animal?",
+ "At or before admission, so that care and records are consistent and accurate from the start",
+ "Within 72 hours of admission, once the animal has been vaccinated and examined",
+ "At the first population round, once the animal's housing track has been assigned",
+ "The ASV requires a unique identifier and individual record at or before admission, so that any care provided is attributed to the correct animal from the beginning of the stay."),
+
+([6, 14],
+ "A supervisor audits the database and finds five kittens housed together under one file labelled 'Litter 404B', with no individual records. Which rule does this violate?",
+ "Every animal must have a unique identification number and an individual record, whatever the housing arrangement.",
+ "Litters must be tracked individually only when they are placed on a slow-track pathway.",
+ "Group files are allowed when all animals in the group have an identical physical description.",
+ "The fundamental mandate is one unique ID and one individual record per animal, with no exceptions. Group files make it impossible to attribute treatments, exposures and outcomes to the right animal."),
+
+# ---- intake items
+([1],
+ "Which list correctly identifies the nine mandatory fundamental intake items in an individual record?",
+ "Unique ID, intake type, intake date, species, age or category, sex, spay-neuter status, physical description, and weight or body condition score",
+ "Unique ID, intake type, intake date, species, breed, sex, microchip brand, behaviour score, and adopter restrictions",
+ "Unique ID, intake date, species, age, sex, vaccination status, coat length, cage number, and target length of stay",
+ "The nine Phase A items are unique identifier, intake type, intake date, species, age or age category, sex, spay-neuter status, physical description, and weight or body condition score."),
+
+([7, 27],
+ "An intake clerk logs a dog as 'Stray, found at 5th and Main Street.' Which of the nine fundamental intake items does the word 'Stray' fulfil?",
+ "Intake type",
+ "Physical description",
+ "Age category",
+ "'Stray' identifies the intake type, one of the nine mandatory Phase A items, and distinguishes the animal from owner surrenders and other intake categories."),
+
+([9],
+ "A manager wants to analyse the relationship between an animal's physical condition at intake and its eventual length of stay. Which Phase A item should be reviewed?",
+ "Weight or body condition score",
+ "Physical description",
+ "Age category",
+ "Weight or body condition score is the Phase A item that captures physical condition at intake."),
+
+([15, 20],
+ "An inspector finds a dog's file with a name, intake date, species, age, physical description and weight recorded, but no sex or spay-neuter status. What type of compliance failure is this?",
+ "A record compliance failure, because sex and spay-neuter status are among the nine mandatory Phase A items",
+ "A minor omission only, because sex and spay-neuter status are required only for slow-track dogs",
+ "No failure, because the unique identifier and intake date are the only fields that are mandatory",
+ "Sex and spay-neuter status are items 6 and 7 of the nine mandatory Phase A items, so their absence is a compliance failure."),
+
+# ---- identification triad
+([2, 8, 19],
+ "A technician reviews a dog's record for the identification triad. Which three components must be present to meet the identification standard?",
+ "A photograph, microchip scan results, and specific identifying markings",
+ "A photograph, a weight and body condition score, and the name of the finder",
+ "Microchip scan results, a rabies certificate, and a coat description",
+ "The identification triad is a photograph taken at intake, microchip scan results, and identifying markings such as scars, cropped ears or distinctive patches."),
+
+([25],
+ "A shelter stops requiring intake photographs to save digital storage. Why does this policy violate record-keeping standards?",
+ "A photograph is an explicitly mandated part of the identification dataset for every individual record.",
+ "Photographs are the only way to record the daily body condition score of each animal.",
+ "Individual records are not lawful in shelters without a photograph of each animal.",
+ "The photograph is one of the three mandatory components of the identification triad and is not optional."),
+
+# ---- history
+([3],
+ "An owned cat is surrendered because of a housing change. Which part of the cat's vaccination history must be explicitly sought and documented?",
+ "The rabies vaccination history",
+ "The manufacturer of the first herpesvirus vaccine",
+ "The exact time of day of the last panleukopenia booster",
+ "The ASV framework specifically names rabies vaccination history as a mandatory history item, because of its legal and public health implications."),
+
+([10, 18, 28],
+ "A surrendered cat's history notes that she hid under furniture during thunderstorms and lived with two young children. Under which history category do these details belong?",
+ "Behavioural events and experiences, people and animals lived with, and home environment",
+ "In-shelter care activities, under housing locations by time",
+ "Fundamental intake information, under physical description",
+ "Hiding is a behavioural event, the children are people lived with, and noise sensitivity relates to the home environment. These are Phase C history items."),
+
+([16, 24],
+ "A stray dog arrives with a completely unknown background. What is the correct approach to the vaccination history field in its record?",
+ "Document that the history is unknown for each applicable field, and keep an individual record.",
+ "Enter an estimated rabies vaccination date so that the software accepts the record.",
+ "Leave the fields blank until an owner arrives to verify the details.",
+ "Unknown history must be explicitly documented as unknown. A blank field implies the history was not sought, and inventing data corrupts the record. History items should be populated with whatever information is available."),
+
+# ---- tracking
+([4, 17, 29],
+ "A canine influenza outbreak occurs, and the team must identify which animals shared airspace with the index case over the previous 14 days. Which record parameter provides this information?",
+ "Housing locations by time, recorded under in-shelter care activities",
+ "The nine fundamental intake items",
+ "History of the people and animals the dog lived with before admission",
+ "Housing locations logged by time is the only parameter that allows the team to reconstruct which animals shared space and when. It also measures how often an animal is moved."),
+
+([5, 13, 23],
+ "A dog is reclaimed by its owner on March 5. Which fields must be completed to close the shelter stay?",
+ "Outcome type (return to owner) and the exact outcome date",
+ "Outcome type and the final body condition score at release",
+ "Housing locations by time and the date of the last medical treatment",
+ "Every shelter stay must end with two mandatory outcome fields: the outcome type and its date. Deaths in kennel, euthanasia, adoption and transfer are all documented the same way."),
+
+([11, 26],
+ "A technician gives core vaccines and an anthelmintic to a puppy in the intake room. Where in the record must these actions be documented?",
+ "In-shelter care activities, under medical findings, treatments and procedures",
+ "Phase C history, under previous vaccination and treatment",
+ "Phase A intake information, alongside the intake type and date",
+ "Any clinical action performed by shelter staff during the stay is documented under in-shelter care activities, including surgeries, anaesthetic protocols and post-operative medication."),
+
+([12, 21],
+ "A dog develops barrier frustration in Run 12 and is moved to a behaviour rehabilitation ward, and the behaviour team changes its daily management plan. Which record fields must be updated?",
+ "Behavioural findings, plans and treatments, plus housing locations by time",
+ "The unique identifier and the intake type",
+ "Phase C history and the identifying markings",
+ "Two in-shelter tracking fields must be updated: behavioural findings, plans and treatments, and housing locations by time."),
+
+# ---- microchips and cage cards
+([30],
+ "A shelter uses only a 125 kHz legacy scanner. A stray dog reads as 'no chip', but its owner later shows documentation of a 134.2 kHz ISO microchip. What went wrong?",
+ "The legacy scanner cannot read ISO 134.2 kHz chips, giving a false negative.",
+ "The chip was deactivated by the stress of impoundment.",
+ "The chip had migrated to the tail and needed ultrasound to locate it.",
+ "ISO microchips operate at 134.2 kHz. A 125 kHz legacy scanner cannot detect them, so a universal scanner is needed."),
+
+([31],
+ "A technician makes one forward pass over a stray cat with a universal scanner, gets no reading, and records 'no chip.' Why is this non-compliant?",
+ "At least two passes (forward and backward) are needed, because chips often migrate from the interscapular site.",
+ "Only credentialed staff may scan for microchips, so any technician's result is invalid.",
+ "The scan must be done in a shielded room before a negative result may be recorded.",
+ "Chips commonly migrate from the interscapular implant site to the neck, flank or limbs, so a single directional pass is inadequate before documenting no chip detected."),
+
+([32],
+ "After two scans of a stray dog, a 15-digit number is read, but it returns no match in three microchip registries. What is the correct documentation?",
+ "Record the exact 15-digit number and note that it returned no match in the registries searched.",
+ "Record 'no chip', because an unregistered number cannot identify the owner.",
+ "Delete the entry and flag the dog as unidentified until a match is found.",
+ "The chip number must be recorded exactly as read even when there is no registry match, because no single registry is complete and the owner may register later."),
+
+([33],
+ "During a shift a dog is moved from Run 3 to Run 7 for cleaning, but the cage card stays on Run 3. A second worker later medicates the new occupant of Run 3 from the card's instructions. What identification failure occurred?",
+ "The card identified the enclosure and did not travel with the animal, so medication reached the wrong individual.",
+ "The two dogs' microchip frequencies did not match, so the wrong record was opened.",
+ "The intake type in the Phase A record was not updated after the move.",
+ "Cage cards identify the enclosure, not the animal. When an animal moves without its card, the card's instructions become associated with the wrong individual. Identification should travel with the animal."),
+
+([34],
+ "A dog's microchip number begins with '985'. What does this prefix signify?",
+ "A common ISO 11784 country or manufacturer prefix, and the 15-digit format confirms an ISO-standard chip",
+ "A 125 kHz legacy North American chip that some scanners cannot read",
+ "A canine-specific code that differs from the codes used for feline chips",
+ "The ISO 15-digit format includes a 3-digit country or manufacturer prefix. '985' and '900' are common prefixes."),
+]
