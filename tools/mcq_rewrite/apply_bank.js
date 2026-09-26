@@ -8,15 +8,30 @@ for(const [i,q] of items.entries()){
   if(!q.q||!Array.isArray(q.o)||(q.o.length<3||q.o.length>4)||!(q.a>=0&&q.a<q.o.length)||!q.e)throw new Error('bad item '+i+': '+JSON.stringify(q).slice(0,120));
 }
 const pp=path.join(root,page);let src=fs.readFileSync(pp,'utf8');
-const b=grab(src).find(x=>x.name==='Q');
+const isStatic=flags.includes('--static');
+const SC=require('./static_cards.js');
+let b,cardsNow=null;
+if(isStatic){cardsNow=SC.parse(src);b={arr:cardsNow.map(c=>({q:c.q}))};}
+else b=grab(src).find(x=>x.name==='Q');
 const old=JSON.parse(fs.readFileSync(path.join(__dirname,'orig',page.replace(/\//g,'__')+'.json'),'utf8'));
 const line=q=>' '+JSON.stringify(q);
 const arrTxt='[\n'+items.map(line).join(',\n')+'\n]';
-let out=src.slice(0,b.start)+arrTxt+src.slice(b.end);
+let out;
+if(isStatic){
+  if(!cardsNow.length)throw new Error('no cards found in '+page);
+  let start=cardsNow[0].start;
+  const pre=src.slice(0,start).match(/(?:[ \t]*<!--[^>]*-->[ \t]*\n)?[ \t]*$/);
+  if(pre)start-=pre[0].length;
+  const end=cardsNow[cardsNow.length-1].end;
+  const leftover=cardsNow.reduce((a,c)=>a.replace(c.raw,''),src.slice(cardsNow[0].start,end)).replace(/<!--[^>]*-->/g,'').trim();
+  if(leftover)console.error('WARNING: non-card content between cards will be removed:',leftover.slice(0,120));
+  out=src.slice(0,start)+items.map((q,i)=>SC.render(q,i)).join('\n\n')+src.slice(end);
+}else{
+  out=src.slice(0,b.start)+arrTxt+src.slice(b.end);
+}
 // keep human-readable counts in sync ("holds 44 items", "30 exam-style questions", "44 questions")
 const cre=new RegExp('\\b'+old.length+'(\\s+(?:exam-style\\s+)?(?:items|questions|MCQs))','g');
-const headEnd=b.start;// only touch text before the bank literal
-out=out.slice(0,headEnd).replace(cre,items.length+'$1')+out.slice(headEnd).replace(cre,items.length+'$1');
+out=out.replace(cre,items.length+'$1');
 // refresh the static "All N" / "All (N)" chip count = hub bank + journal bank (JJ) if present
 {const g=grab(out);const jj=g.find(x=>x.name==='JJ');const total=items.length+(jj?jj.arr.length:0);
  out=out.replace(/(data-f="all"[^>]*>All(?: \(| ))\d+(\)?)/,'$1'+total+'$2');}

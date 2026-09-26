@@ -1,0 +1,354 @@
+[
+ {
+  "f": "designs",
+  "q": "Which study design is most efficient for investigating risk factors for a rare disease with a long latency, and which measure of association does it give?",
+  "o": [
+   "Prospective cohort; the relative risk",
+   "Case-control; the odds ratio",
+   "Cross-sectional survey; the prevalence ratio"
+  ],
+  "a": 1,
+  "e": "Case-control studies start from the outcome, so they are efficient for rare or slow-developing diseases, and selecting on outcome status yields the odds ratio."
+ },
+ {
+  "f": "designs",
+  "q": "A shelter follows exposed and unexposed cats forward in time and compares the incidence in each group. Which measure can be calculated directly?",
+  "o": [
+   "Relative risk",
+   "Odds ratio only",
+   "Positive predictive value"
+  ],
+  "a": 0,
+  "e": "Cohort designs measure incidence in each group, so relative risk can be calculated directly."
+ },
+ {
+  "f": "designs",
+  "q": "Every cat is tested for FeLV on the single day of intake to estimate the proportion already infected. Which design is this?",
+  "o": [
+   "A retrospective cohort study",
+   "A cross-sectional (prevalence) survey",
+   "A randomised trial"
+  ],
+  "a": 1,
+  "e": "Measuring disease at one point in a defined population is a cross-sectional survey, yielding prevalence."
+ },
+ {
+  "f": "designs",
+  "q": "A study finds that counties with higher spay-neuter funding have lower intake, and concludes that a funded individual owner is less likely to relinquish an animal. This is",
+  "o": [
+   "the ecological fallacy.",
+   "recall bias.",
+   "lead-time bias."
+  ],
+  "a": 0,
+  "e": "Inferring an individual-level relationship from a group-level association is the ecological fallacy."
+ },
+ {
+  "f": "designs",
+  "q": "What is the principal advantage of randomisation, and what does intention-to-treat analysis mean?",
+  "o": [
+   "It eliminates measurement error; subjects are analysed by the treatment they actually received.",
+   "It balances known and unknown confounders; subjects are analysed by the group they were originally assigned to.",
+   "It guarantees a large sample; subjects are analysed only if they completed the protocol."
+  ],
+  "a": 1,
+  "e": "Randomisation distributes confounders, including unmeasured ones, evenly between groups. Analysing by original assignment preserves that benefit."
+ },
+ {
+  "f": "designs",
+  "q": "In a randomised trial, the participants and treating investigators do not know group allocation, but the statistician analysing the data does. How is this trial described?",
+  "o": [
+   "Double-blind",
+   "Single-blind",
+   "Triple-blind"
+  ],
+  "a": 0,
+  "e": "Double-blind means both participants and investigators are unaware of allocation. Triple-blind adds a third layer, such as the analyst."
+ },
+ {
+  "f": "inference",
+  "q": "A p-value of 0.03 most accurately means which of the following?",
+  "o": [
+   "There is a 3% probability that the null hypothesis is true.",
+   "There is a 3% probability that the result occurred by chance.",
+   "If the null hypothesis were true, data this extreme or more would occur about 3% of the time."
+  ],
+  "a": 2,
+  "e": "The p-value is the probability of the observed data or more extreme data, assuming the null hypothesis is true. It is not the probability that the null is true."
+ },
+ {
+  "f": "inference",
+  "q": "What is a Type I error, and how is statistical power defined?",
+  "o": [
+   "Failing to detect a true effect; the probability of a Type I error",
+   "Concluding there is an effect when none exists; the probability of detecting a true effect when it exists",
+   "Using too small a sample; one minus the p-value"
+  ],
+  "a": 1,
+  "e": "A Type I error (alpha) is a false positive, rejecting a true null hypothesis. Power is 1 minus beta, the probability of detecting a real effect."
+ },
+ {
+  "f": "inference",
+  "q": "Which change increases the statistical power of a study, and what does a larger sample not reduce?",
+  "o": [
+   "Decreasing the sample size; a larger sample does not reduce random error",
+   "Lowering alpha from 0.05 to 0.01; a larger sample does not reduce random error",
+   "Increasing the sample size; a larger sample does not reduce systematic bias or confounding"
+  ],
+  "a": 2,
+  "e": "Larger samples increase power and reduce random error, but they do not fix systematic bias or confounding."
+ },
+ {
+  "f": "inference",
+  "q": "A study reports an odds ratio of 1.8 with a 95% confidence interval of 0.9 to 3.4. How is this interpreted?",
+  "o": [
+   "A statistically significant positive association",
+   "Not statistically significant, because the interval includes 1",
+   "Not statistically significant, because the interval includes 0"
+  ],
+  "a": 1,
+  "e": "For a ratio measure the null value is 1, and an interval that crosses 1 is not significant at alpha 0.05."
+ },
+ {
+  "f": "inference",
+  "q": "A very large study finds a statistically significant 0.1% difference in adoption rate between two layouts. What is the best interpretation, and what does a narrower confidence interval indicate?",
+  "o": [
+   "Large samples can make trivial differences significant, so clinical relevance is judged separately; a narrower interval indicates a more precise estimate.",
+   "The difference is clinically important because p is below 0.05; a narrower interval indicates a larger p-value.",
+   "The study must contain a Type I error; a narrower interval indicates a biased estimate."
+  ],
+  "a": 0,
+  "e": "Large samples can detect tiny, clinically meaningless differences, so significance is not importance. Interval width reflects precision."
+ },
+ {
+  "f": "bias",
+  "q": "Which pairing of bias and description is correct?",
+  "o": [
+   "Cases recalling past exposures better is selection bias; using only adopted animals is recall bias; non-differential misclassification biases away from the null.",
+   "Cases recalling past exposures better than controls is recall bias; using only adopted animals is selection bias; non-differential misclassification biases toward the null.",
+   "Cases recalling past exposures better is confounding; using only adopted animals is random error; non-differential misclassification has no effect."
+  ],
+  "a": 1,
+  "e": "Differential recall is recall bias. Restricting to a non-representative subgroup, such as adopted animals, is selection bias. Non-differential misclassification usually dilutes associations."
+ },
+ {
+  "f": "bias",
+  "q": "Which statements about confounding and effect modification are correct?",
+  "o": [
+   "A confounder lies on the causal pathway; effect modification is removed by adjustment; randomisation is an analysis-stage control.",
+   "A confounder is measured after the outcome; effect modification is a type of bias; matching is an analysis-stage control.",
+   "A confounder is not on the causal pathway; genuine differences across strata are effect modification and are reported by stratum; regression is an analysis-stage control."
+  ],
+  "a": 2,
+  "e": "A confounder is associated with exposure, independently affects the outcome, and does not lie on the causal pathway. Effect modification is a real difference across strata. Randomisation, restriction and matching are design methods, and regression is an analysis method."
+ },
+ {
+  "f": "tests",
+  "q": "Of 100 truly infected cats a test flags 90 as positive, and of 100 uninfected cats it flags 5. What is the sensitivity, and what is a highly specific test most useful for?",
+  "o": [
+   "90%; ruling a disease in when positive",
+   "95%; ruling a disease out when negative",
+   "90%; screening a whole population cheaply"
+  ],
+  "a": 0,
+  "e": "Sensitivity is 90 true positives divided by 100 diseased animals. A highly specific test, when positive, helps rule the disease in."
+ },
+ {
+  "f": "tests",
+  "q": "Using a fixed test, what happens to positive predictive value as prevalence falls, and which test characteristic is unaffected by prevalence?",
+  "o": [
+   "Positive predictive value rises; positive predictive value is unaffected",
+   "Positive predictive value is unchanged; specificity falls",
+   "Positive predictive value falls; sensitivity is unaffected"
+  ],
+  "a": 2,
+  "e": "At lower prevalence a greater share of positives are false positives, so positive predictive value falls. Sensitivity and specificity are properties of the test."
+ },
+ {
+  "f": "tests",
+  "q": "Which method best analyses time to adoption, including animals that are still in care at the end of the study?",
+  "o": [
+   "Kaplan-Meier survival analysis",
+   "Chi-square test",
+   "Pearson correlation"
+  ],
+  "a": 0,
+  "e": "Survival analysis handles time-to-event data with censored observations, such as animals still in care."
+ },
+ {
+  "f": "tests",
+  "q": "Among the Bradford Hill considerations for causation, which is considered essential?",
+  "o": [
+   "Strength of association",
+   "Dose-response relationship",
+   "Temporality: the cause must precede the effect"
+  ],
+  "a": 2,
+  "e": "Temporality is the one essential criterion, because the cause must precede the effect."
+ },
+ {
+  "f": "designs",
+  "q": "For a question about whether a treatment works, which design is at the top of the evidence hierarchy, and what defines a systematic review?",
+  "o": [
+   "A single large randomised trial; a longer review that cites more studies",
+   "A systematic review with meta-analysis of randomised trials; a prespecified, reproducible protocol and search strategy",
+   "A prospective cohort study; a review written by a team rather than a single expert"
+  ],
+  "a": 1,
+  "e": "Systematic review with meta-analysis sits at the apex for therapy questions. A systematic review is defined by a protocol written before the search, so that another team would retrieve the same studies."
+ },
+ {
+  "f": "designs",
+  "q": "A meta-analysis presents a funnel plot in which small studies showing no effect are missing, making the plot asymmetrical. What does this most likely indicate?",
+  "o": [
+   "Confounding by indication",
+   "Recall bias",
+   "Publication bias"
+  ],
+  "a": 2,
+  "e": "A complete literature forms a symmetrical inverted funnel. Missing small null studies suggest that they were not published."
+ },
+ {
+  "f": "designs",
+  "q": "A vaccine challenge study in specific-pathogen-free kittens, all given the same intranasal dose under uniform housing, reports 95% protection. What is the principal limitation in applying this to a shelter?",
+  "o": [
+   "Limited internal validity, because confounders were not balanced between groups",
+   "Limited external validity, because controlled conditions do not reproduce shelter exposure, age range or maternal antibody",
+   "Challenge studies are observational and cannot show causation"
+  ],
+  "a": 1,
+  "e": "Challenge studies gain internal validity by controlling everything and lose external validity as a result."
+ },
+ {
+  "f": "designs",
+  "q": "Under GRADE, which finding would cause a body of observational evidence to be rated up in certainty?",
+  "o": [
+   "A large number of published studies on the topic",
+   "Statistical significance at p less than 0.01 instead of 0.05",
+   "A large effect with a dose-response gradient"
+  ],
+  "a": 2,
+  "e": "GRADE starts observational evidence at low certainty but rates it up for a very large effect, a dose-response gradient, or plausible opposing confounding."
+ },
+ {
+  "f": "designs",
+  "q": "A shelter surveys a fresh random sample of 200 foster carers each year for five years and finds that burnout prevalence is unchanged. What can this design not tell them?",
+  "o": [
+   "The prevalence of burnout in each year",
+   "Whether individual carers became more or less burnt out over the period",
+   "Whether burnout prevalence differed between year one and year five"
+  ],
+  "a": 1,
+  "e": "A fresh sample each round makes this a repeated cross-sectional survey, which measures only net population change, so unchanged prevalence can hide individual movement in both directions."
+ },
+ {
+  "f": "designs",
+  "q": "An investigator uses ten years of existing shelter records to identify dogs housed singly or in groups at intake, then compares recorded respiratory disease incidence between the two groups. Which design is this?",
+  "o": [
+   "A retrospective cohort study",
+   "A case-control study",
+   "A case series"
+  ],
+  "a": 0,
+  "e": "The reasoning runs forward from exposure (housing type) to outcome (disease) and yields incidence and relative risk, even though the data already existed."
+ },
+ {
+  "f": "designs",
+  "q": "Twelve kennel wards are randomised to a new sanitation protocol or to standard practice, and 300 dogs are enrolled. Analysing the result as though the 300 dogs had been individually randomised will most likely",
+  "o": [
+   "overstate the standard errors and hide a real effect.",
+   "understate the standard errors and overstate the statistical significance.",
+   "have no effect, because the number of dogs determines power."
+  ],
+  "a": 1,
+  "e": "This is the unit-of-analysis error. Dogs in a ward are more alike than dogs in different wards, so the effective sample size is closer to the number of wards."
+ },
+ {
+  "f": "designs",
+  "q": "Dogs acquired during the 2020 to 2021 pandemic surge show more separation-related behaviour than dogs acquired before or after, and this persists as they age. What is this best described as?",
+  "o": [
+   "A cohort effect",
+   "An age effect",
+   "A period effect"
+  ],
+  "a": 0,
+  "e": "The characteristic belongs to the group that entered together and travels with them as they age, which defines a cohort effect."
+ },
+ {
+  "f": "designs",
+  "q": "Monthly feline intake was already falling before a trap-neuter-return programme began. Comparing mean monthly intake in the 12 months before and the 12 months after would most likely",
+  "o": [
+   "understate the effect, because censored animals are excluded.",
+   "be valid, because the earlier period acts as a proper control.",
+   "credit the programme with a decline that was already under way."
+  ],
+  "a": 2,
+  "e": "A raw before-and-after comparison attributes the pre-existing trend to the intervention. An interrupted time series would separate the trend from the effect."
+ },
+ {
+  "f": "tests",
+  "q": "Stress scores are recorded on days 1, 3, 7 and 14 for each of 40 shelter cats, giving 160 measurements. Which analysis is appropriate?",
+  "o": [
+   "A mixed-effects model with a random effect for individual cat",
+   "A one-way analysis of variance treating all 160 measurements as independent",
+   "A chi-square test across the 160 measurements"
+  ],
+  "a": 0,
+  "e": "The 160 measurements come from only 40 animals, so treating them as independent is pseudoreplication, which inflates significance."
+ },
+ {
+  "f": "bias",
+  "q": "Shelter staff know their handling technique is being scored and follow protocol more carefully than they would if unobserved. This is",
+  "o": [
+   "recall bias.",
+   "the Hawthorne effect.",
+   "effect modification."
+  ],
+  "a": 1,
+  "e": "The Hawthorne effect is behaviour change driven by awareness of being studied."
+ },
+ {
+  "f": "bias",
+  "q": "A study of working detection dogs finds lower rates of chronic disease than the general dog population. This most likely reflects",
+  "o": [
+   "recall bias.",
+   "effect modification.",
+   "the healthy worker effect."
+  ],
+  "a": 2,
+  "e": "The healthy worker effect is a form of selection bias: an actively working population under-represents the unwell."
+ },
+ {
+  "f": "bias",
+  "q": "A follow-up survey of adopters achieves a 20% response rate, and non-responders are disproportionately those who rehomed the animal again. This is best described as",
+  "o": [
+   "nonresponder bias.",
+   "observer bias.",
+   "confounding."
+  ],
+  "a": 0,
+  "e": "Nonresponder bias occurs when those who do not respond differ systematically from those who do, skewing the results."
+ },
+ {
+  "f": "bias",
+  "q": "Statistically significant trial results are more likely to be submitted, accepted and published quickly than null results. Through what does this distort the evidence base?",
+  "o": [
+   "Selection bias",
+   "Random error",
+   "Reporting (publication) bias"
+  ],
+  "a": 2,
+  "e": "The published literature over-represents positive findings, which can mislead systematic reviews."
+ },
+ {
+  "f": "bias",
+  "q": "An exposed group receives more frequent veterinary check-ups than the unexposed group, so subclinical cases in the exposed group are more likely to be found. This is",
+  "o": [
+   "surveillance (detection) bias.",
+   "recall bias.",
+   "the healthy worker effect."
+  ],
+  "a": 0,
+  "e": "Surveillance (detection) bias inflates the apparent disease frequency in the more closely monitored group."
+ }
+]
