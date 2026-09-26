@@ -37,7 +37,7 @@ def main(path):
             if r >= len(old): raise SystemExit(f"item {k}: bad old index {r}")
             used.add(r)
         base = old[reps[0]] if reps else {}
-        ok2 = auto_trim(ok, [w1, w2])
+        ok2 = ok  # auto_trim disabled: it can cut the second half of a two-part answer
         if ok2 != ok: trimmed += 1
         ok = ok2
         opts = [w1, w2]; opts.insert(p, ok)
