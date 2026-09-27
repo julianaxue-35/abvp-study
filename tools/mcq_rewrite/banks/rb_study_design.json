@@ -15,7 +15,7 @@
   "q": "A shelter follows exposed and unexposed cats forward in time and compares the incidence in each group. Which measure can be calculated directly?",
   "o": [
    "Relative risk",
-   "Odds ratio only",
+   "Odds ratio",
    "Positive predictive value"
   ],
   "a": 0,
@@ -49,7 +49,7 @@
   "o": [
    "It eliminates measurement error; subjects are analysed by the treatment they actually received.",
    "It balances known and unknown confounders; subjects are analysed by the group they were originally assigned to.",
-   "It guarantees a large sample; subjects are analysed only if they completed the protocol."
+   "It guarantees a large sample; subjects are analysed if they completed the protocol."
   ],
   "a": 1,
   "e": "Randomisation distributes confounders, including unmeasured ones, evenly between groups. Analysing by original assignment preserves that benefit."
@@ -113,7 +113,7 @@
   "f": "inference",
   "q": "A very large study finds a statistically significant 0.1% difference in adoption rate between two layouts. What is the best interpretation, and what does a narrower confidence interval indicate?",
   "o": [
-   "Large samples can make trivial differences significant, so clinical relevance is judged separately; a narrower interval indicates a more precise estimate.",
+   "Large samples can make trivial differences significant, so clinical relevance is judged separately.",
    "The difference is clinically important because p is below 0.05; a narrower interval indicates a larger p-value.",
    "The study must contain a Type I error; a narrower interval indicates a biased estimate."
   ],
@@ -190,9 +190,9 @@
   "f": "designs",
   "q": "For a question about whether a treatment works, which design is at the top of the evidence hierarchy, and what defines a systematic review?",
   "o": [
-   "A single large randomised trial; a longer review that cites more studies",
+   "A single large randomised trial; a longer review that cites more studies than others on the topic",
    "A systematic review with meta-analysis of randomised trials; a prespecified, reproducible protocol and search strategy",
-   "A prospective cohort study; a review written by a team rather than a single expert"
+   "A prospective cohort study; a review written by a team rather than a single expert on the topic"
   ],
   "a": 1,
   "e": "Systematic review with meta-analysis sits at the apex for therapy questions. A systematic review is defined by a protocol written before the search, so that another team would retrieve the same studies."
@@ -212,9 +212,9 @@
   "f": "designs",
   "q": "A vaccine challenge study in specific-pathogen-free kittens, all given the same intranasal dose under uniform housing, reports 95% protection. What is the principal limitation in applying this to a shelter?",
   "o": [
-   "Limited internal validity, because confounders were not balanced between groups",
+   "Limited internal validity, because confounders were not balanced between the two groups of kittens",
    "Limited external validity, because controlled conditions do not reproduce shelter exposure, age range or maternal antibody",
-   "Challenge studies are observational and cannot show causation"
+   "Challenge studies are observational and cannot show causation, whatever the level of control in the study"
   ],
   "a": 1,
   "e": "Challenge studies gain internal validity by controlling everything and lose external validity as a result."
@@ -258,7 +258,7 @@
   "o": [
    "overstate the standard errors and hide a real effect of the sanitation protocol.",
    "understate the standard errors and overstate the statistical significance.",
-   "have no effect on the result, because the number of dogs alone determines power."
+   "have no effect on the result, because the number of dogs determines power."
   ],
   "a": 1,
   "e": "This is the unit-of-analysis error. Dogs in a ward are more alike than dogs in different wards, so the effective sample size is closer to the number of wards."
@@ -290,7 +290,7 @@
   "q": "Stress scores are recorded on days 1, 3, 7 and 14 for each of 40 shelter cats, giving 160 measurements. Which analysis is appropriate?",
   "o": [
    "A mixed-effects model with a random effect for individual cat",
-   "A one-way analysis of variance treating all 160 measurements as independent",
+   "A one-way analysis of variance treating the 160 measurements as independent",
    "A chi-square test across the 160 measurements"
   ],
   "a": 0,

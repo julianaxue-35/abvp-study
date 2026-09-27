@@ -25,11 +25,8 @@ def auto_trim(ok, others, gap=25):
     return cut
 
 def _load_hfix():
-    d = {}
-    for p in sorted((H / "hubfix").glob("*.py")) if (H / "hubfix").exists() else []:
-        spec = importlib.util.spec_from_file_location("hf_" + p.stem, p); mm = importlib.util.module_from_spec(spec); spec.loader.exec_module(mm)
-        d.update(mm.HFIX)
-    return d
+    sys.path.insert(0, str(H)); from hubload import load_hfix
+    return load_hfix(H)
 HFIX = _load_hfix()
 
 def main(path):
@@ -53,11 +50,16 @@ def main(path):
             if r >= len(old): raise SystemExit(f"item {k}: bad old index {r}")
             used.add(r)
         fx = HFIX.get((path.stem, k))            # hubfix/*.py: length-balanced distractors (and optionally a tighter correct option)
-        if fx: w1, w2 = fx[0], fx[1]; ok = fx[2] if len(fx) > 2 else ok
+        if fx: w1, w2 = (fx[0] if fx[0] is not None else w1), (fx[1] if fx[1] is not None else w2); ok = fx[2] if len(fx) > 2 else ok
         base = old[reps[0]] if reps else {}
         ok2 = ok  # auto_trim disabled: it can cut the second half of a two-part answer
         if ok2 != ok: trimmed += 1
         ok = ok2
+        _lim = max(len(w1), len(w2))
+        if len(ok) > 1.2 * _lim:                      # safety net: cut a trailing rationale clause when the correct option is >20% longer than both distractors
+            from jr_trim import trim as _trim
+            _t = _trim(ok, int(1.1 * _lim))
+            if len(_t) >= 0.75 * _lim and len(_t) < len(ok): ok = _t.rstrip(" ,;") + ("." if ok.endswith(".") else ""); trimmed += 1
         opts = [w1, w2]; opts.insert(p, ok)
         if len({o.strip().lower() for o in opts}) != 3: warn.append(f"{k}: duplicate options")
         if re.search(r"all of the above|none of the above|to be confirmed|\bTBC\b", " ".join(opts), re.I): warn.append(f"{k}: banned option text")
