@@ -17985,12 +17985,11 @@
 "sub": "Infectious Disease",
 "q": "Across multiple shelter studies, adding canine parvovirus monoclonal antibody (CPMA) to a standard supportive-care protocol for dogs with naturally occurring parvovirus has most consistently been shown to:",
 "o": [
-"Significantly reduce mortality compared with standard care alone",
-"Shorten the length and cost of treatment (and speed clinical/viral recovery), while the reduction in mortality did not reach statistical significance",
-"Eliminate the need for isolation and intensive supportive care",
-"Provide no measurable clinical benefit over standard care"
+"Shorten treatment length and cost and speed recovery, though the mortality reduction was not statistically significant",
+"Significantly reduce mortality compared with standard care alone, with no change in treatment cost or duration",
+"Remove the need for isolation and intensive supportive care once the antibody dose has been given to the dog"
 ],
-"a": 1,
+"a": 0,
 "e": "Both shelter CPMA studies found shorter, cheaper treatment and faster recovery/return to socialization, but in these retrospective real-world cohorts the mortality difference was not statistically significant; CPMA is an adjunct, not a replacement for supportive care and isolation.",
 "source": "journal"
 },
@@ -18000,12 +17999,11 @@
 "sub": "Infectious Disease",
 "q": "Canine parvovirus monoclonal antibody (CPMA), although licensed for dogs, has been used to treat sheltered cats with feline panleukopenia (FPV). The reported take-home is that CPMA in cats:",
 "o": [
-"Is contraindicated because it causes anaphylaxis in cats",
-"Has been adopted as an adjunctive treatment with reported favorable outcomes, despite no prior peer-reviewed feline efficacy data and very high baseline kitten mortality",
-"Reliably prevents FPV infection when given as a vaccine substitute",
-"Has proven superior to supportive care in a randomized controlled trial"
+"Has been adopted as an adjunctive treatment with favorable reported outcomes, despite no prior peer-reviewed feline efficacy data",
+"Is contraindicated in cats because a species mismatch causes anaphylaxis in most treated kittens",
+"Prevents feline panleukopenia infection when given in place of a vaccine, with protection lasting several months"
 ],
-"a": 1,
+"a": 0,
 "e": "FPV (a parvovirus) shares antigenic targets with CPV; a shelter adopted CPMA off-label for panleukopenic cats as an adjunct to supportive care with reported favorable outcomes, but this is descriptive use without prior peer-reviewed feline efficacy data, not a vaccine or RCT-proven cure.",
 "source": "journal"
 },
@@ -18015,12 +18013,11 @@
 "sub": "Infectious Disease",
 "q": "Studies of deferred (in-community) puppy intake and of outpatient parvovirus treatment in subsidized clinics support which shared conclusion about managing canine parvovirus outside the traditional inpatient shelter model?",
 "o": [
-"Keeping puppies out of the shelter building and/or treating CPV on an outpatient basis are viable strategies that can lower CPV incidence and/or achieve good survival at lower cost",
-"Deferred intake increases CPV incidence and outpatient treatment has unacceptably low survival",
-"Both approaches require hospitalization with 24-hour intensive care to be effective",
-"Neither approach affects CPV outcomes or cost"
+"Deferred intake increases CPV incidence, and outpatient treatment has unacceptably low survival in subsidized clinics",
+"Keeping puppies out of the shelter and/or treating CPV as outpatients are viable strategies that can lower incidence or cost",
+"Both approaches need hospitalization with 24-hour intensive care in order to be effective, so neither lowers the cost"
 ],
-"a": 0,
+"a": 1,
 "e": "Deferred puppy intake reduced CPV incidence among transferred puppies by keeping them out of the high-density shelter environment, and once-daily outpatient protocols achieved acceptable survival at far lower cost than inpatient care—together showing CPV can be managed effectively outside the traditional inpatient model.",
 "source": "journal"
 },
@@ -18030,12 +18027,11 @@
 "sub": "Infectious Disease",
 "q": "Multiple Emerging Infectious Diseases reports of highly pathogenic avian influenza A(H5N1) clade 2.3.4.4b in domestic cats share which key finding about how cats became infected and the severity of disease?",
 "o": [
-"Cats developed mild, self-limiting conjunctivitis after cat-to-cat spread only",
-"Infection was frequently linked to consumption of contaminated raw/unpasteurized animal products (e.g., raw poultry or raw milk) or contact with infected birds, and produced severe, often fatal systemic disease",
-"Cats were incidental dead-end hosts with no detectable virus in tissues",
-"Vaccinated cats were the only ones affected"
+"Infection was frequently linked to raw or unpasteurized animal products or infected birds, and caused severe, often fatal systemic disease",
+"Cats developed mild, self-limiting conjunctivitis after cat-to-cat spread alone, with no link to food or birds",
+"Cats were incidental dead-end hosts with no detectable virus in their tissues, and were seldom clinically affected"
 ],
-"a": 1,
+"a": 0,
 "e": "The South Korea (raw duck-meat food), US dairy (raw colostrum/milk), and France (near an infected duck farm) reports all tie feline H5N1 to ingestion of contaminated raw products or bird contact, with widespread tissue virus and high, often fatal, systemic disease—supporting raw-feeding avoidance and surveillance of exposed cats.",
 "source": "journal"
 },
@@ -18045,12 +18041,11 @@
 "sub": "Infectious Disease",
 "q": "Serosurveys of influenza A exposure in cats from areas with avian-influenza activity (Spain, Chile) most consistently indicate that, outside of point-source HPAI outbreaks, free-roaming/stray cats:",
 "o": [
-"Are the primary amplifying reservoir driving influenza A epidemics",
-"Show generally low background seroprevalence in some regions and do not appear to play an important role in routine influenza A transmission",
-"Are universally seronegative and cannot be infected",
-"Transmit influenza A efficiently to humans during normal contact"
+"Show generally low background seroprevalence in some regions and do not appear to play a major role in routine influenza A transmission",
+"Are the primary amplifying reservoir driving influenza A epidemics in the areas where the surveys were done",
+"Are consistently seronegative in every region studied, which suggests that they cannot be infected by influenza A"
 ],
-"a": 1,
+"a": 0,
 "e": "The Spanish stray-cat survey found only ~2% seroprevalence and concluded cats had no important epidemiologic role at that time; the Chilean survey detected infection/seropositivity but emphasized incorporating pets into One Health surveillance rather than identifying cats as a driving reservoir—background exposure is low even though cats are clearly susceptible.",
 "source": "journal"
 },
@@ -18060,10 +18055,9 @@
 "sub": "Infectious Disease",
 "q": "Serological and PCR studies of SARS-CoV-2 in cats and dogs (household, shelter, and surgical-surveillance settings) collectively support which conclusion?",
 "o": [
-"Dogs are far more susceptible and seropositive than cats",
-"Cats are more susceptible than dogs, infection is driven mainly by human-to-pet transmission, and seroprevalence (past exposure) greatly exceeds active PCR positivity at any single time point",
-"Shelters were the main source of feline infection rather than infected households",
-"PCR positivity rates are consistently higher than seroprevalence in both species"
+"Dogs are far more susceptible and seropositive than cats, and infection is driven mainly by pet-to-pet spread in shelters",
+"Cats are more susceptible than dogs, infection is driven mainly by human-to-pet transmission, and seroprevalence exceeds active PCR positivity",
+"PCR positivity is consistently higher than seroprevalence in both species, and shelters were the main source of feline infection"
 ],
 "a": 1,
 "e": "Across the Ontario household, Serbia serosurvey, shelter, and OHE-surveillance studies, cats showed higher susceptibility/seropositivity than dogs, infection tracked owner contact (human-to-pet), and far more animals were antibody-positive than PCR-positive at a given moment—reflecting transient shedding versus durable past exposure.",
@@ -18075,12 +18069,11 @@
 "sub": "Spay-Neuter",
 "q": "Longitudinal and modeling studies of trap-neuter-return (TNR) / return-to-field (RTF) for community cats most consistently conclude that, to reduce free-roaming cat populations, programs must:",
 "o": [
-"Be applied at low intensity, since any level of sterilization eventually controls the population",
-"Achieve sufficient sustained sterilization intensity/coverage, often combined with adoption (TNA), to reduce or prevent population growth over time",
-"Always be replaced by lethal removal, which is the only effective method",
-"Avoid removing any cats for adoption to preserve colony stability"
+"Reach sufficient sustained sterilization coverage, often combined with adoption (TNA), to reduce or prevent population growth over time",
+"Be applied at low intensity, since any level of sterilization will eventually control a community cat population",
+"Be replaced by lethal removal, which is the only method shown to reduce a population, and avoid adopting cats out"
 ],
-"a": 1,
+"a": 0,
 "e": "The Hong Kong, Brazil, Spain (Córdoba), and bioeconomic-analysis studies converge on the need for high, sustained sterilization coverage—often supplemented by adoption (TNA)—to drive population decline; insufficient intensity fails regardless of method.",
 "source": "journal"
 },
@@ -18090,10 +18083,9 @@
 "sub": "Spay-Neuter",
 "q": "Studies comparing shelter-based community-cat strategies (impound/removal vs. sterilize-and-return vs. leave-in-place with referral), including return-to-field at Florida shelters, support which conclusion about the shelter's role in free-roaming cat management?",
 "o": [
-"Traditional impoundment/removal is the most effective way to lower community cat populations",
-"Sterilization-and-return (TNR/RTF) programs are associated with reduced shelter intake and euthanasia and improved welfare, whereas removal short of eradication is largely ineffective for population control",
-"Shelters should test and euthanize all community cats to prevent disease",
-"Leaving cats in place always increases shelter intake"
+"Traditional impoundment and removal is the most effective way to lower community cat populations, and TNR adds little benefit",
+"Sterilize-and-return (TNR/RTF) is associated with reduced shelter intake and euthanasia, whereas removal short of eradication is largely ineffective",
+"Shelters should test and euthanize all community cats to prevent disease, since return raises intake in the following year"
 ],
 "a": 1,
 "e": "Both the Florida TNR/RTF survey and the 'Rethinking the shelter's role' analysis conclude that removal short of eradication fails to control populations, while sterilize-and-return reduces intake/euthanasia and improves welfare—most free-roaming cats remain in the community regardless of shelter action.",
@@ -18105,12 +18097,11 @@
 "sub": "Spay-Neuter",
 "q": "Randomized controlled trials comparing ear-tipping techniques and a national survey of TNR ear-tipping practice arrived at which shared conclusion?",
 "o": [
-"One specific cutting tool and hemostatic agent is clearly superior and should be the universal standard",
-"Techniques vary widely with no single clearly superior method, and standardization/guidance would be beneficial",
-"Ear-tipping should be abandoned because bleeding complications are unacceptably high",
-"Cautery (wood-burning) tools must never be used for ear tipping"
+"One specific cutting tool and hemostatic agent is clearly superior and should be adopted as the universal standard for TNR",
+"Ear-tipping should be abandoned because bleeding complications are unacceptably high in both trial arms and in the survey",
+"Techniques vary widely with no single clearly superior method, and standardization or guidance would be beneficial"
 ],
-"a": 1,
+"a": 2,
 "e": "The RCT(s) comparing combinations of cutting tools and hemostatic agents found no single clearly superior method, and the practice survey documented wide variation (most tip the left ear by visual estimate) with low complication rates—both call for standards/guidance rather than one mandated technique.",
 "source": "journal"
 },
@@ -18120,10 +18111,9 @@
 "sub": "Epidemiology of Homelessness",
 "q": "Studies of barriers to veterinary care and veterinary 'care deserts'/nonprofit workforce shortages most consistently identify which dominant, intertwined barriers to accessing veterinary care?",
 "o": [
-"Owner indifference to pets and lack of desire for care",
-"Cost/inability to afford care combined with limited capacity/availability (workforce shortage, difficulty getting an appointment, geographic deserts)",
-"Excessive supply of veterinarians driving prices down",
-"Pets being too healthy to require veterinary care"
+"Owner indifference to their pets and a lack of desire to seek veterinary care, whatever the cost or location",
+"Cost or inability to afford care, combined with limited availability of care (workforce shortage, appointment access, geographic deserts)",
+"An excess supply of veterinarians that drives prices down and reduces the income of practices in these communities"
 ],
 "a": 1,
 "e": "The Canada barriers survey identified affordability and inability to get an appointment as top barriers; the care-deserts and nonprofit-shortage studies show capacity is geographically uneven and constrained by veterinary workforce shortages—affordability plus access/capacity, not owner indifference, dominate.",
@@ -18135,12 +18125,11 @@
 "sub": "Epidemiology of Homelessness",
 "q": "Community-based studies of access to care in underserved (e.g., Latino/Hispanic and lower-income) communities consistently report which finding about pet owners' relationship with their animals and the main obstacle to spay/neuter and care?",
 "o": [
-"Owners do not consider pets family and decline care on principle",
-"Most owners consider pets family and value care, but cost is the primary barrier to spay/neuter and preventive/sick care",
-"Lack of interest in spay/neuter is the main barrier, independent of cost",
-"Geographic distance is the only meaningful barrier in these communities"
+"Most owners consider pets family and value care, but cost is the primary barrier to spay/neuter and preventive care",
+"Owners do not consider pets family and decline care on principle, so outreach should focus on education",
+"Lack of interest in spay/neuter is the main barrier and holds even when the surgery is offered free of charge"
 ],
-"a": 1,
+"a": 0,
 "e": "The Knoxville Latino-community assessments found the large majority consider pets family yet a high proportion had unsterilized pets, with cost cited as the prohibitive factor—mirroring broader access-to-care findings that affordability, not lack of bonding or interest, drives gaps.",
 "source": "journal"
 },
@@ -18150,12 +18139,11 @@
 "sub": "Mental Health & Self-Care",
 "q": "Studies of U.S. animal-shelter staff wellbeing (post-pandemic surveys and ACE/secondary-traumatic-stress research) collectively indicate that shelter workers:",
 "o": [
-"Report better mental health than the general population because of the human-animal bond",
-"Are at elevated risk for compromised wellbeing, with euthanasia-related and occupational/secondary traumatic stress (compounded by adverse childhood experiences) as key contributors",
-"Experience stress unrelated to their work duties",
-"Show no measurable difference in wellbeing from other occupations"
+"Report better mental health than the general population because of the protective effect of the human-animal bond",
+"Experience stress that is unrelated to their work duties, and show no link between wellbeing and euthanasia exposure",
+"Are at elevated risk for compromised wellbeing, with euthanasia-related and secondary traumatic stress as key contributors"
 ],
-"a": 1,
+"a": 2,
 "e": "The 2023 wellbeing survey and the ACE/secondary-traumatic-stress study both document elevated risk among shelter staff, driven by occupational trauma (notably euthanasia-related stress) and amplified by adverse childhood experiences—not a protective effect.",
 "source": "journal"
 },
@@ -18165,12 +18153,11 @@
 "sub": "Adoption & Placement",
 "q": "Two studies of the same Orange County shelter's kennel-viewing program (restoring limited visitor access to dog kennels after COVID-19 appointment-only operations) found that allowing visitors to view kennels:",
 "o": [
-"Had no measurable effect on adoptions",
-"Significantly increased adoptions, with a disproportionate benefit for slow-track/long-stay and large dogs",
-"Decreased adoptions because of visitor stress on dogs",
-"Increased adoptions only for small, fast-track dogs"
+"Decreased adoptions because of the stress that visitor traffic causes for dogs housed in the kennels",
+"Increased adoptions only for small, fast-track dogs, with no benefit for long-stay or large dogs in the kennels",
+"Significantly increased adoptions, with a disproportionate benefit for slow-track, long-stay and large dogs"
 ],
-"a": 1,
+"a": 2,
 "e": "Both analyses found restoring kennel viewing significantly raised adoptions (e.g., ~40% above expected in viewing sessions; an ~82% increase during viewing periods), with the largest benefit for long-length-of-stay 'slow-track' and large dogs.",
 "source": "journal"
 },
@@ -18180,10 +18167,9 @@
 "sub": "Infectious Disease",
 "q": "Shelter diagnostic studies of feline panleukopenia (FPV) point-of-care SNAP and PCR testing support which interpretation framework?",
 "o": [
-"A negative fecal SNAP reliably rules out FPV, so PCR is unnecessary",
-"SNAP is a useful screening test—positive results (including weak positives) in symptomatic cats are reliable, but negative results have low sensitivity and need PCR confirmation",
-"A positive SNAP is usually a false positive and should be ignored",
-"PCR and SNAP are interchangeable with identical sensitivity"
+"A negative fecal SNAP reliably rules out FPV, so PCR is unnecessary in a cat with compatible signs",
+"SNAP is a useful screening test: positives in symptomatic cats are reliable, but negatives have low sensitivity and need PCR",
+"A positive SNAP is usually a false positive in shelter cats, so it should be confirmed by PCR before any action"
 ],
 "a": 1,
 "e": "The diagnostic study found low fecal SNAP sensitivity (~55%) but high specificity, with weak positives correlating to true infection—so positive SNAPs (even weak) are trustworthy screens in symptomatic cats, while negatives require PCR confirmation before ruling out FPV.",
@@ -18196,9 +18182,8 @@
 "q": "Studies of feline panleukopenia virus (FPV) fecal DNA shedding—after clinical infection and after modified-live virus (MLV) vaccination—share which crucial diagnostic caveat for shelters?",
 "o": [
 "qPCR can reliably distinguish vaccine virus shedding from true infection, so post-vaccination positives confirm disease",
-"A positive fecal FPV qPCR can result from recent MLV vaccination or low-level post-recovery shedding, so qPCR cannot by itself distinguish vaccine or subclinical shedding from active clinical infection",
-"MLV-vaccinated cats never shed detectable FPV DNA",
-"Clinically recovered cats clear all detectable viral DNA within 24 hours"
+"A positive fecal FPV qPCR can follow recent MLV vaccination or low-level post-recovery shedding, so it cannot by itself confirm active infection",
+"Cats given modified-live vaccine do not shed detectable FPV DNA, and recovered cats clear viral DNA within days"
 ],
 "a": 1,
 "e": "Both studies show low-level FPV DNA can be detected by qPCR after MLV vaccination (~22% of cats, mainly day 7) and during post-clinical recovery (falling below cutoff around day 7), at far lower copy numbers than active disease—so a positive qPCR alone cannot confirm clinical infection, and results must be interpreted with vaccination history and clinical signs.",
@@ -18210,10 +18195,9 @@
 "sub": "Surgery & Anesthesia",
 "q": "Studies of perioperative hypothermia in high-quality high-volume spay/neuter (HQHVSN) settings, including a trial of peripheral warming/insulation in cats, support which conclusion?",
 "o": [
-"Perioperative hypothermia is rare in HQHVSN and needs no mitigation",
-"Perioperative hypothermia is common and is influenced by environmental temperature; effective extremity insulation (better than cotton socks) and active warming help limit core temperature loss",
-"Covering feline extremities with cotton toddler socks fully prevents hypothermia",
-"Environmental temperature has no relationship to hypothermia incidence"
+"Perioperative hypothermia is rare in HQHVSN and needs no mitigation, whatever the temperature of the surgical suite",
+"Perioperative hypothermia is common and depends on room temperature; extremity insulation and active warming limit core heat loss",
+"Cotton toddler socks on the extremities fully prevent hypothermia, and room temperature has no effect on its incidence"
 ],
 "a": 1,
 "e": "The HQHVSN incidence study linked perioperative hypothermia to lower environmental temperatures, and the insulation trial showed standard cotton socks insulate poorly while highly-insulating materials (with or without active warming) slow core-temperature decline—hypothermia is common and mitigable.",
@@ -18225,10 +18209,9 @@
 "sub": "Surgery & Anesthesia",
 "q": "Studies of autoligation ('pedicle tie') for the spermatic cord in canine castration and for the feline ovarian pedicle most consistently report that autoligation:",
 "o": [
-"Carries an unacceptably high hemorrhage rate and should be avoided",
-"Is a fast technique with a low complication rate that is an acceptable alternative to suture double-ligation, though it remains less commonly taught than double ligation",
-"Is only safe when performed by board-certified surgeons",
-"Provides no time savings over suture ligation"
+"Carries an unacceptably high hemorrhage rate compared with suture ligation, and should be avoided in canine castration",
+"Is a fast technique with a low complication rate that is an acceptable alternative to suture double-ligation",
+"Is safe only when performed by board-certified surgeons, and gives no time saving over suture ligation of the pedicle"
 ],
 "a": 1,
 "e": "The small-dog spermatic-cord autoligation studies and the feline ovarian pedicle-tie data (including a 15,927-cat series) show low complication rates and faster surgery, supporting autoligation as an acceptable alternative—yet surveys note it is taught/adopted less than double ligation.",
@@ -18240,12 +18223,11 @@
 "sub": "Infectious Disease",
 "q": "Outbreak reports of Bordetella bronchiseptica in shelter-housed cats (including a multidrug-resistant outbreak) share which management take-home?",
 "o": [
-"Feline bordetellosis is untreatable and warrants depopulation",
-"Early case identification, diagnostic culture and susceptibility testing for targeted antimicrobials, isolation/biosecurity, and supportive care can achieve high live-outcome rates even in outbreaks",
-"Antibiotics are unnecessary because the disease is always self-limiting",
-"Vaccination plays no role in managing feline B. bronchiseptica"
+"Feline bordetellosis is untreatable in a multidrug-resistant outbreak and warrants depopulation of the affected room",
+"Antibiotics are unnecessary because the disease is always self-limiting, and vaccination plays no part in management",
+"Early case identification, culture and susceptibility testing, isolation and supportive care can give high live-outcome rates"
 ],
-"a": 1,
+"a": 2,
 "e": "Both feline bordetellosis outbreak reports emphasize prompt recognition, culture/sensitivity-guided targeted therapy, isolation and biosecurity, and supportive care—achieving high live outcomes (e.g., 100% live outcome in one limited-admission outbreak) rather than depopulation.",
 "source": "journal"
 },
@@ -18255,12 +18237,11 @@
 "sub": "Adoption & Placement",
 "q": "Post-adoption studies of undersocialized cats and kittens (and the analysis of increasing pressure to place them) most consistently conclude that:",
 "o": [
-"Undersocialized cats invariably fail in homes and should be diverted to TNR",
-"Many undersocialized cats—especially younger kittens—can achieve acceptable post-adoption behavior and adopter satisfaction, with socialization often improving over time after placement",
-"Adopter satisfaction is identical regardless of socialization, age, or time in the home",
-"Older undersocialized cats adapt to homes better than young kittens"
+"Many undersocialized cats, especially younger kittens, reach acceptable post-adoption behavior and adopter satisfaction",
+"Undersocialized cats invariably fail in homes and should be diverted to TNR rather than placed for adoption",
+"Older undersocialized cats adapt to homes better than young kittens, and satisfaction does not depend on time in the home"
 ],
-"a": 1,
+"a": 0,
 "e": "The post-adoption FSA studies found undersocialized cats/kittens can have acceptable outcomes and adopter satisfaction—better for younger kittens—with socialization improving over time post-adoption, supporting (with caution) expanding their adoption potential rather than defaulting to TNR.",
 "source": "journal"
 },
@@ -18270,12 +18251,11 @@
 "sub": "Management & Leadership",
 "q": "Surveys exploring veterinarian–shelter working relationships (veterinarian-leader collaboration and Veterinarian-of-Record relationships) converge on which finding?",
 "o": [
-"Veterinarians and shelter administrators share identical expectations, so misalignment is rare",
-"Differing expectations and priorities between veterinarians and non-veterinarian shelter leaders create friction that hampers retention and collaboration, with implications for access to care",
-"Veterinarian-of-Record relationships are tightly regulated and standardized nationally",
-"Shelter leaders universally defer to veterinarians on all operational decisions"
+"Differing expectations and priorities between veterinarians and non-veterinarian shelter leaders create friction that hampers retention",
+"Veterinarians and shelter administrators share near-identical expectations, so misalignment is rare in practice",
+"Veterinarian-of-Record relationships are tightly regulated and standardized nationally, so friction is unlikely to arise"
 ],
-"a": 1,
+"a": 0,
 "e": "Both studies document mismatched expectations between veterinarians and non-veterinarian administrators—affecting collaboration, VoR retention, and ultimately shelters' veterinary capacity/access to care—rather than alignment or strong regulation.",
 "source": "journal"
 },
@@ -18285,12 +18265,11 @@
 "sub": "Animal Cruelty",
 "q": "Studies of cats from hoarding environments (behavior/adoptability and a randomized gabapentin trial) support which combined take-home for shelters?",
 "o": [
-"Hoarded cats are rarely adoptable and should be euthanized on intake",
-"Many hoarded cats are or become socially adoptable with time/habituation, and daily gabapentin can improve behavior-modification progress and reduce stress in fearful hoarded cats",
-"Hoarded cats show no measurable stress and need no behavioral support",
-"Out-of-box elimination is the main barrier to adopting hoarded cats"
+"Hoarded cats are rarely adoptable and should be euthanized on intake, since gabapentin does not change their behavior",
+"Hoarded cats show no measurable stress and need no behavioral support, and out-of-box elimination is the main barrier",
+"Many hoarded cats are or become socially adoptable with time, and daily gabapentin can reduce stress in fearful hoarded cats"
 ],
-"a": 1,
+"a": 2,
 "e": "The behavior/adoptability study found socialization scores recovered after adoption and most hoarded cats were adoptable, while the double-blind RCT showed daily gabapentin improved behavior-modification progress and decreased stress—supporting a treat-and-rehome rather than euthanize approach.",
 "source": "journal"
 }

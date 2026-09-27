@@ -14,9 +14,9 @@
   "f": "freq",
   "q": "A shelter has widely varying lengths of stay. Why is the incidence rate, using animal-time at risk, often preferred to cumulative incidence?",
   "o": [
-   "It is easier to calculate by hand, because it uses fewer numbers.",
-   "It measures the existing burden of disease at one point in time.",
-   "The animal-time denominator accommodates unstable populations and varying follow-up."
+   "It is easier to calculate by hand, because it uses fewer numbers in the equation.",
+   "It measures the existing burden of disease at one point in time in the population.",
+   "The animal-time denominator handles unstable populations and varying follow-up."
   ],
   "a": 2,
   "e": "Incidence rate uses total animal-time at risk, so it handles the variable follow-up created by differing lengths of stay."
@@ -25,9 +25,9 @@
   "f": "freq",
   "q": "When calculating the cumulative incidence of an in-shelter disease, which animals must be excluded from the at-risk denominator?",
   "o": [
-   "Animals housed individually rather than in groups",
+   "Animals housed individually rather than in groups, since they cannot be exposed",
    "Animals already infected at the start of the period, and animals that arrive already infected",
-   "Animals that have been vaccinated"
+   "Animals that have been vaccinated against the disease under study, before the period"
   ],
   "a": 1,
   "e": "The denominator includes only animals capable of developing new disease, so existing and incoming cases are excluded."
@@ -69,7 +69,7 @@
   "f": "freq",
   "q": "Which statement is correct about ratios, proportions and rates?",
   "o": [
-   "A rate incorporates the passage of time, and a male-to-female intake ratio is a ratio but not a proportion.",
+   "A rate incorporates the passage of time; a male-to-female intake ratio is a ratio but not a proportion.",
    "A rate is always greater than 1, and cumulative incidence is a ratio but not a proportion.",
    "A rate has no denominator, and case fatality rate is a ratio but not a proportion."
   ],
@@ -135,9 +135,9 @@
   "f": "assoc",
   "q": "How is relative risk calculated in a cohort study, and when does the odds ratio from a case-control study approximate it?",
   "o": [
-   "The odds of exposure in cases divided by controls; when exposure is rare",
+   "The odds of exposure in cases divided by controls; when exposure is rare in the population",
    "Incidence in the exposed divided by incidence in the unexposed; when the disease is rare",
-   "Deaths divided by confirmed cases; when the study is prospective"
+   "Deaths divided by confirmed cases; when the study is prospective and follow-up is complete"
   ],
   "a": 1,
   "e": "Relative risk is the ratio of incidence in exposed to unexposed animals. Under the rare-disease assumption, the odds ratio approximates it."
@@ -192,7 +192,7 @@
   "o": [
    "40%; its denominator is confirmed cases, whereas a mortality rate uses the whole population",
    "4%; its denominator is the whole population, whereas a mortality rate uses cases",
-   "25%; it measures incidence, whereas a mortality rate measures prevalence"
+   "25%; it measures incidence, whereas a mortality rate measures prevalence in the group"
   ],
   "a": 0,
   "e": "Case fatality rate is deaths divided by confirmed cases (4/10 = 40%) and reflects severity. Mortality rates use the whole population as the denominator."
@@ -245,8 +245,8 @@
   "f": "surv",
   "q": "In the population approach to disease, what is the equivalent of forming a differential diagnosis for an individual?",
   "o": [
-   "Performing a physical examination on each animal",
-   "Recording an individual history for each animal",
+   "Performing a physical examination on each animal in the shelter population",
+   "Recording an individual history for each animal admitted to the shelter",
    "Formulating epidemiological hypotheses about the frequency and distribution of disease"
   ],
   "a": 2,
@@ -256,9 +256,9 @@
   "f": "surv",
   "q": "Which statements are correct: a disease at its usual expected baseline is endemic, R0 assumes a wholly susceptible population, and which reproduction number changes during an outbreak?",
   "o": [
-   "Epidemic; R0 falls as vaccination coverage rises; R0 changes",
+   "Epidemic; R0 falls as vaccination coverage rises; the effective reproduction number R is unchanged",
    "Sporadic; R0 is the incubation period of the pathogen; neither R0 nor R changes",
-   "Endemic; R0 is the expected number of secondary cases from one case in a wholly susceptible population; the effective reproduction number R changes"
+   "Endemic; R0 is the expected secondary cases from one case in a susceptible population; R changes"
   ],
   "a": 2,
   "e": "Endemic is the expected baseline. R0 is a fixed property of the pathogen and setting, whereas the effective reproduction number R reflects the currently susceptible population and moves as immunity and control measures accumulate."
@@ -268,7 +268,7 @@
   "q": "Which epidemic curve pattern matches its source?",
   "o": [
    "A single sharp peak suggests a propagated outbreak, and waves spaced by the incubation period suggest a point source.",
-   "A single sharp peak suggests a point source, waves spaced by the incubation period suggest a propagated outbreak, and a broad plateau suggests a continuous source.",
+   "A single sharp peak suggests a point source, spaced waves suggest propagation, and a broad plateau a continuous source.",
    "A broad plateau suggests a point source, and irregular clusters suggest a propagated outbreak."
   ],
   "a": 1,
@@ -322,8 +322,8 @@
   "f": "surv",
   "q": "In the CDC field-epidemiology framework for outbreak investigation, which step comes immediately before developing and testing hypotheses?",
   "o": [
-   "Implementing control measures",
-   "Communicating the findings",
+   "Implementing control measures to stop further spread of the disease",
+   "Communicating the findings to the shelter staff and to the public",
    "Applying descriptive epidemiology by person, place and time"
   ],
   "a": 2,

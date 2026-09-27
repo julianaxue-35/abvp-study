@@ -69,9 +69,9 @@
   "f": "inference",
   "q": "A p-value of 0.03 most accurately means which of the following?",
   "o": [
-   "There is a 3% probability that the null hypothesis is true.",
-   "There is a 3% probability that the result occurred by chance.",
-   "If the null hypothesis were true, data this extreme or more would occur about 3% of the time."
+   "There is a 3% probability that the null hypothesis is true, given the data.",
+   "There is a 3% probability that the result occurred by chance alone, given the data.",
+   "If the null were true, data this extreme or more would occur about 3% of the time."
   ],
   "a": 2,
   "e": "The p-value is the probability of the observed data or more extreme data, assuming the null hypothesis is true. It is not the probability that the null is true."
@@ -80,9 +80,9 @@
   "f": "inference",
   "q": "What is a Type I error, and how is statistical power defined?",
   "o": [
-   "Failing to detect a true effect; the probability of a Type I error",
-   "Concluding there is an effect when none exists; the probability of detecting a true effect when it exists",
-   "Using too small a sample; one minus the p-value"
+   "Failing to detect a true effect; the probability of making a Type I error",
+   "Concluding there is an effect when none exists; the probability of detecting a true effect",
+   "Using too small a sample; one minus the p-value, expressed as a probability"
   ],
   "a": 1,
   "e": "A Type I error (alpha) is a false positive, rejecting a true null hypothesis. Power is 1 minus beta, the probability of detecting a real effect."
@@ -135,9 +135,9 @@
   "f": "bias",
   "q": "Which statements about confounding and effect modification are correct?",
   "o": [
-   "A confounder lies on the causal pathway; effect modification is removed by adjustment; randomisation is an analysis-stage control.",
-   "A confounder is measured after the outcome; effect modification is a type of bias; matching is an analysis-stage control.",
-   "A confounder is not on the causal pathway; genuine differences across strata are effect modification and are reported by stratum; regression is an analysis-stage control."
+   "A confounder lies on the causal pathway; effect modification is removed by adjustment; randomisation is analysis-stage control.",
+   "A confounder is measured after the outcome; effect modification is a type of bias; matching is analysis-stage control.",
+   "A confounder is not on the causal pathway; effect modification is reported by stratum; regression is analysis-stage control."
   ],
   "a": 2,
   "e": "A confounder is associated with exposure, independently affects the outcome, and does not lie on the causal pathway. Effect modification is a real difference across strata. Randomisation, restriction and matching are design methods, and regression is an analysis method."
@@ -179,8 +179,8 @@
   "f": "tests",
   "q": "Among the Bradford Hill considerations for causation, which is considered essential?",
   "o": [
-   "Strength of association",
-   "Dose-response relationship",
+   "Strength of association between the exposure and the outcome",
+   "Dose-response relationship between the exposure and the outcome",
    "Temporality: the cause must precede the effect"
   ],
   "a": 2,
@@ -256,9 +256,9 @@
   "f": "designs",
   "q": "Twelve kennel wards are randomised to a new sanitation protocol or to standard practice, and 300 dogs are enrolled. Analysing the result as though the 300 dogs had been individually randomised will most likely",
   "o": [
-   "overstate the standard errors and hide a real effect.",
+   "overstate the standard errors and hide a real effect of the sanitation protocol.",
    "understate the standard errors and overstate the statistical significance.",
-   "have no effect, because the number of dogs determines power."
+   "have no effect on the result, because the number of dogs alone determines power."
   ],
   "a": 1,
   "e": "This is the unit-of-analysis error. Dogs in a ward are more alike than dogs in different wards, so the effective sample size is closer to the number of wards."

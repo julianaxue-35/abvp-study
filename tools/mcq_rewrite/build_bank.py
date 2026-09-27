@@ -24,6 +24,14 @@ def auto_trim(ok, others, gap=25):
     if not cut.endswith((".", ")")): cut += "."
     return cut
 
+def _load_hfix():
+    d = {}
+    for p in sorted((H / "hubfix").glob("*.py")) if (H / "hubfix").exists() else []:
+        spec = importlib.util.spec_from_file_location("hf_" + p.stem, p); mm = importlib.util.module_from_spec(spec); spec.loader.exec_module(mm)
+        d.update(mm.HFIX)
+    return d
+HFIX = _load_hfix()
+
 def main(path):
     path = pathlib.Path(path); m = load(path)
     old = json.loads(subprocess.check_output(["node", str(H / "dump_json.js"), m.PAGE]))
@@ -44,6 +52,8 @@ def main(path):
         for r in reps:
             if r >= len(old): raise SystemExit(f"item {k}: bad old index {r}")
             used.add(r)
+        fx = HFIX.get((path.stem, k))            # hubfix/*.py: length-balanced distractors (and optionally a tighter correct option)
+        if fx: w1, w2 = fx[0], fx[1]; ok = fx[2] if len(fx) > 2 else ok
         base = old[reps[0]] if reps else {}
         ok2 = ok  # auto_trim disabled: it can cut the second half of a two-part answer
         if ok2 != ok: trimmed += 1
