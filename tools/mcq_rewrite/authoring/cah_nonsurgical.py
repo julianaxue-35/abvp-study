@@ -44,7 +44,7 @@ ITEMS = [
 
 ([12, 13],
  "A GnRH contraceptive vaccine was judged neither safe nor effective in dogs, but works in large free-roaming animals. What led to the canine finding, and what maintenance do large animals need?",
- "Severe injection-site reactions and no change in sperm density or morphology; an annual booster and monitoring for sterile abscesses",
+ "Severe injection-site reactions and no change in sperm density or morphology; an annual booster",
  "Life-threatening pyometra and diabetes; a continuous intravenous infusion",
  "A permanent hyper-oestrogenic state; weekly scraping of gonadal tissue",
  "Canine trials caused severe injection-site reactions and did not alter sperm density or morphology. Large free-roaming mammals need annual boosters because the antibody response is transient."),
