@@ -2084,12 +2084,15 @@ function ans(btn,isCorrect){
   q.dataset.locked='1';
   total++;
   const opts=q.querySelectorAll('.opt');
-  opts.forEach(o=>{
-    o.classList.add('locked');
-    o.onclick=null;
-  });
-  if(isCorrect){correct++;btn.classList.add('correct');}
-  else{btn.classList.add('wrong');}
+  opts.forEach(o=>o.classList.add('locked'));
+  btn.classList.add(isCorrect?'correct':'wrong');
+  if(isCorrect)correct++;
+  else{
+    opts.forEach(o=>{
+      const fn=o.getAttribute('onclick')||'';
+      if(fn.includes('true'))o.classList.add('correct');
+    });
+  }
   q.querySelector('.expl').classList.add('show');
   document.getElementById('sc').textContent=correct+' / '+total;
 }

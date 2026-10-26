@@ -1330,21 +1330,15 @@ function ans(btn,isCorrect){
   q.dataset.locked='1';
   total++;
   const opts=q.querySelectorAll('.opt');
-  opts.forEach(o=>{
-    o.classList.add('locked');
-    if(o===btn){o.classList.add(isCorrect?'correct':'wrong');}
-    else if(isCorrect===false){
-      // find the correct one
-      const idx=[...opts].indexOf(o);
-    }
-  });
-  if(!isCorrect){
-    // highlight correct
+  opts.forEach(o=>o.classList.add('locked'));
+  btn.classList.add(isCorrect?'correct':'wrong');
+  if(isCorrect)correct++;
+  else{
     opts.forEach(o=>{
-      o.onclick&&o.onclick.toString().includes('true')&&o.classList.add('correct');
+      const fn=o.getAttribute('onclick')||'';
+      if(fn.includes('true'))o.classList.add('correct');
     });
   }
-  if(isCorrect)correct++;
   q.querySelector('.expl').classList.add('show');
   document.getElementById('sc').textContent=correct+' / '+total;
 }
