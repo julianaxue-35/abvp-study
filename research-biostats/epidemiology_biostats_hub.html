@@ -332,29 +332,59 @@ ul{padding-left:20px}
   <p>Above 1 means increased risk, below 1 means protection, for ratio measures. The <b>attributable risk</b> is an absolute measure of the excess risk carried by the exposure, useful for judging public-health impact rather than just strength of association.</p>
   <div class="box trap"><span class="lbl">Exam trap</span><p>The odds ratio approximates the relative risk <b>only when the disease is rare</b>. With a common outcome the odds ratio overstates the relative risk. Case-control studies cannot yield a true relative risk because they sample on outcome, not on the population at risk.</p></div>
 
-  <h3>Relative risk and odds ratio in plain English <span class="badge ref">ref</span></h3>
-  <table>
-    <thead><tr><th></th><th>Relative risk (RR)</th><th>Odds ratio (OR)</th></tr></thead>
-    <tbody>
-      <tr><td><b>Answers</b></td><td>How many times more likely is an exposed group to get sick than an unexposed group?</td><td>Were sick animals more likely to have been exposed than healthy animals?</td></tr>
-      <tr><td><b>Calculate</b></td><td>Risk in exposed &divide; risk in unexposed</td><td>Odds of exposure in sick &divide; odds of exposure in healthy</td></tr>
-      <tr><td><b>Used in</b></td><td>Cohort study (animals followed forward over time)</td><td>Case-control study (looking back at past exposure)</td></tr>
-    </tbody>
-  </table>
-  <ul>
-    <li><b>1</b> = the exposure changes nothing.</li>
-    <li><b>2</b> = twice as likely (RR) or twice the odds (OR).</li>
-    <li><b>0.5</b> = half as likely, so the exposure is protective.</li>
-  </ul>
-  <p>If the disease is rare, OR is almost the same as RR.</p>
+  <h3>Risk &amp; Treatment Impact: RR, OR, ARR, NNT &amp; NNH <span class="badge ref">ref</span></h3>
 
-  <h3>ARR, NNT and NNH <span class="badge ref">ref</span></h3>
+  <h4>What is ARR (Absolute Risk Reduction)?</h4>
+  <p>ARR is simply the straight-up difference in risk between two groups.</p>
+  <p><b>Example:</b> suppose a new blood pressure medication is tested. In the placebo group (no treatment), 10% of people have a heart attack (<span class="mono">Risk<sub>control</sub> = 0.10</span>). In the treatment group, 4% of people have a heart attack (<span class="mono">Risk<sub>treatment</sub> = 0.04</span>).</p>
+  <p><b>How to calculate ARR:</b></p>
+  <p><span class="mono">ARR = Risk<sub>control</sub> &minus; Risk<sub>treatment</sub></span><br><span class="mono">ARR = 10% &minus; 4% = 6% (or 0.06)</span></p>
+  <p><b>In plain English:</b> the drug absolute-reduces your risk of a heart attack by 6%.</p>
+  <p class="hint">In the shelter, read "people" as "animals".</p>
+
+  <h4>NNT &amp; NNH</h4>
+  <p>Once you have ARR, the rest is easy:</p>
   <ul>
-    <li><b>Absolute risk reduction (ARR):</b> plain subtraction. Risk without treatment minus risk with treatment. <i>Example:</i> 10% get sick without the medicine and 4% with it, so ARR = 10% &minus; 4% = <b>6% (0.06)</b>.</li>
-    <li><b>Number needed to treat (NNT):</b> how many animals you must treat to prevent <b>one</b> extra bad outcome (for example, one case of disease). <span class="mono">NNT = 1 &divide; ARR</span> (as a decimal), always rounded <b>up</b>. <i>Example:</i> 1 &divide; 0.06 = 16.7, so <b>17</b>. Treat 17 animals to prevent one case.</li>
-    <li><b>Number needed to harm (NNH):</b> how many animals you treat or expose before <b>one</b> is harmed. It is the same sum for harm. Absolute risk increase (ARI) = risk with the treatment minus risk without it, and <span class="mono">NNH = 1 &divide; ARI</span>. <i>Example:</i> 5% get skin irritation with a flea treatment and 0% without, so ARI = 0.05 and NNH = 1 &divide; 0.05 = <b>20</b>.</li>
+    <li><b>NNT (Number Needed to Treat):</b> how many people do we need to give this drug to in order to prevent one bad outcome? <b>Formula:</b> <span class="mono">1 &divide; ARR</span>. Using our example: 1 &divide; 0.06 = 16.6. Always round up to the next whole number = <b>17</b>. You need to treat 17 people to save one heart attack.</li>
+    <li><b>NNH (Number Needed to Harm):</b> same concept, but for side effects. How many people do you treat before one gets a bad side effect? <span class="mono">1 &divide; Absolute Risk Increase</span>.</li>
   </ul>
-  <div class="box trap"><span class="lbl">Exam trap</span><p>A <b>low NNT is good</b> (few animals treated per case prevented). A <b>low NNH is bad</b> (harm happens after only a few animals).</p></div>
+  <div class="box trap"><span class="lbl">Exam trap</span><p>A <b>low NNT is good</b> (few treated per bad outcome prevented). A <b>low NNH is bad</b> (harm after only a few treated).</p></div>
+
+  <h4>RR vs. OR</h4>
+  <ul>
+    <li><b>Relative Risk (RR):</b> used in prospective studies (cohorts). It compares the risk in the exposed group directly to the unexposed group: <span class="mono">Risk<sub>exposed</sub> &divide; Risk<sub>unexposed</sub></span>.</li>
+    <li><b>Odds Ratio (OR):</b> used in retrospective studies (case-control) where you can't calculate true risk because you already selected people with the disease. It compares the odds of exposure.</li>
+  </ul>
+
+  <h4>1. Relative Risk (RR)</h4>
+  <p>Relative Risk answers: <b>how many times more likely is an exposed group to get sick compared to an unexposed group?</b></p>
+  <p><b>How to calculate:</b> <span class="mono">Risk in exposed group &divide; Risk in unexposed group</span></p>
+  <ul>
+    <li><b>RR = 1:</b> the exposure changes nothing (risk is identical).</li>
+    <li><b>RR = 2:</b> exposed people are 2 times (or 100%) more likely to get the disease.</li>
+    <li><b>RR = 0.5:</b> exposed people are half as likely to get the disease (the exposure actually protected them).</li>
+  </ul>
+  <p><b>When do we use it?</b> When we follow people over time from start to finish (like in a prospective cohort study).</p>
+
+  <h4>2. Odds Ratio (OR)</h4>
+  <p>Odds Ratio answers: <b>what are the odds that a sick person was exposed compared to a healthy person?</b></p>
+  <p><b>Why do we need it?</b> Sometimes you can't calculate true risk because you are looking backward at past data (like in a case-control study where you already picked sick vs. healthy people).</p>
+  <p><b>How to calculate:</b> <span class="mono">OR = Odds in cases &divide; Odds in controls</span></p>
+  <p><b>Example:</b> the odds of a dog with severe dental disease having a history of a soft food diet was 4. The odds of a healthy dog having that history was 1. <span class="mono">OR = 4 &divide; 1 = 4.0</span>. Sick dogs had 4 times higher odds of soft food exposure.</p>
+  <p class="hint">Same answer as the 2x2 shortcut <span class="mono">ad &divide; bc</span>, but easier: work out the odds in each group first, then divide.</p>
+  <p><b>Worked example from counts:</b> 50 sick dogs, of which 40 were exposed and 10 were not. 50 healthy dogs, of which 20 were exposed and 30 were not.</p>
+  <ul>
+    <li>Odds of exposure in the sick group = 40 &divide; 10 = <b>4</b>.</li>
+    <li>Odds of exposure in the healthy group = 20 &divide; 30 = <b>0.67</b>.</li>
+    <li><span class="mono">OR = 4 &divide; 0.67 = 6</span>. The sick dogs had 6 times the odds of exposure. (Check with the 2x2 shortcut: <span class="mono">ad &divide; bc</span> = 40&times;30 &divide; 20&times;10 = 1200 &divide; 200 = 6.)</li>
+  </ul>
+  <p><b>How to interpret the number</b> (it uses the exact same baseline logic as RR):</p>
+  <ul>
+    <li><b>OR = 1:</b> no association between exposure and disease.</li>
+    <li><b>OR = 3:</b> the sick group had 3 times higher odds of being exposed than the healthy group.</li>
+    <li><b>OR = 0.4:</b> the sick group had lower odds of exposure (protective factor).</li>
+  </ul>
+  <p><b>Quick rule of thumb:</b> if a disease is rare, OR is basically equal to RR.</p>
 </section>
 
 <!-- ============ MORTALITY ============ -->
@@ -481,19 +511,19 @@ ul{padding-left:20px}
   </div>
   <p>During an investigation a clear <b>case definition</b> lets cases be counted consistently by time, place and animal, and <b>attack rates</b> compared across subgroups point to the highest-risk group and the likely source.</p>
 
-  <h3>Reproduction number <span class="badge ref">ref</span></h3>
+  <h3>Reproduction Numbers (R&#8320; and R) <span class="badge ref">ref</span></h3>
+  <p>These tell you how fast an infectious disease spreads in a population.</p>
+  <h4>R&#8320; (Basic Reproduction Number)</h4>
+  <p><b>What it is:</b> on average, how many new people will one infected person pass the disease to in a population where nobody is immune and no precautions (like masks or vaccines) are being taken?</p>
+  <p><b>Example:</b> if COVID-19 has an R&#8320; = 3, one sick person will infect 3 people on average.</p>
+  <h4>R or R<sub>e</sub> (Effective Reproduction Number)</h4>
+  <p><b>What it is:</b> on average, how many new people will one infected person pass the disease to in the real world right now (where some people are vaccinated, immune, or wearing masks)?</p>
+  <p><b>How to interpret R values:</b></p>
   <ul>
-    <li><b>R&#8320; (basic reproduction number):</b> how many new animals one infected animal passes the disease to when nobody is immune and no precautions are in place. <i>Example:</i> R&#8320; = 3 means one sick animal infects 3 others on average.</li>
-    <li><b>R or R<sub>e</sub> (effective reproduction number):</b> the same count in the real world right now, with vaccination, immunity and control measures in place.</li>
+    <li><b>R &gt; 1:</b> the outbreak is growing exponentially.</li>
+    <li><b>R = 1:</b> the disease is stable in the population (endemic).</li>
+    <li><b>R &lt; 1:</b> the outbreak is shrinking and dying out.</li>
   </ul>
-  <table>
-    <thead><tr><th>R value</th><th>Outbreak</th></tr></thead>
-    <tbody>
-      <tr><td>R &gt; 1</td><td>Growing</td></tr>
-      <tr><td>R = 1</td><td>Stable (endemic)</td></tr>
-      <tr><td>R &lt; 1</td><td>Shrinking and dying out</td></tr>
-    </tbody>
-  </table>
   <div class="box trap"><span class="lbl">Exam trap</span><p>Vaccination, isolation and cleaning lower <b>R</b>, not R&#8320;. R&#8320; stays the same for that pathogen.</p></div>
 
   <h3>Disease outbreak investigation <span class="badge ref">ref</span></h3>
@@ -540,6 +570,37 @@ ul{padding-left:20px}
   <p class="hint">Sensitivity and specificity start from who is really sick or healthy. PPV and NPV start from what the test result said.</p>
 
   <h3>The 2x2 table and formulas <span class="badge ref">ref</span></h3>
+  <div class="figwrap">
+    <svg viewBox="0 0 560 250" role="img" aria-label="Diagnostic 2x2 table with sensitivity and specificity">
+      <defs>
+        <marker id="arEbDx" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+          <path d="M0,0 L7,3 L0,6 Z" fill="var(--svg-strong)"/>
+        </marker>
+      </defs>
+      <text x="250" y="22" text-anchor="middle" font-size="12" fill="var(--muted)">True disease status</text>
+      <text x="180" y="44" text-anchor="middle" font-size="12" fill="var(--ink)">Present</text>
+      <text x="320" y="44" text-anchor="middle" font-size="12" fill="var(--ink)">Absent</text>
+      <text x="60" y="80" font-size="11" fill="var(--ink)">Test +</text>
+      <text x="60" y="140" font-size="11" fill="var(--ink)">Test -</text>
+      <rect x="110" y="56" width="140" height="52" rx="6" fill="var(--svg-faint)" stroke="var(--svg-soft)"/>
+      <text x="180" y="86" text-anchor="middle" font-size="13" fill="var(--ink)">TP</text>
+      <rect x="250" y="56" width="140" height="52" rx="6" fill="var(--svg-box)" stroke="var(--svg-soft)"/>
+      <text x="320" y="86" text-anchor="middle" font-size="13" fill="var(--ink)">FP</text>
+      <rect x="110" y="116" width="140" height="52" rx="6" fill="var(--svg-box)" stroke="var(--svg-soft)"/>
+      <text x="180" y="146" text-anchor="middle" font-size="13" fill="var(--ink)">FN</text>
+      <rect x="250" y="116" width="140" height="52" rx="6" fill="var(--svg-faint)" stroke="var(--svg-soft)"/>
+      <text x="320" y="146" text-anchor="middle" font-size="13" fill="var(--ink)">TN</text>
+      <line x1="180" y1="176" x2="180" y2="200" stroke="var(--svg-strong)" stroke-width="2" marker-end="url(#arEbDx)"/>
+      <text x="180" y="220" text-anchor="middle" font-size="11" fill="var(--svg-strong)">Sensitivity =</text>
+      <text x="180" y="236" text-anchor="middle" font-size="11" fill="var(--muted)">TP / (TP + FN)</text>
+      <line x1="320" y1="176" x2="320" y2="200" stroke="var(--svg-strong)" stroke-width="2" marker-end="url(#arEbDx)"/>
+      <text x="320" y="220" text-anchor="middle" font-size="11" fill="var(--svg-strong)">Specificity =</text>
+      <text x="320" y="236" text-anchor="middle" font-size="11" fill="var(--muted)">TN / (TN + FP)</text>
+      <text x="470" y="86" text-anchor="middle" font-size="11" fill="var(--svg-strong)">PPV = TP/(TP+FP)</text>
+      <text x="470" y="146" text-anchor="middle" font-size="11" fill="var(--svg-strong)">NPV = TN/(TN+FN)</text>
+    </svg>
+    <div class="figcap">The diagnostic 2x2. Sensitivity and specificity read down the columns; predictive values read across the rows. Original construction.</div>
+  </div>
   <table>
     <thead><tr><th></th><th>Disease present</th><th>Disease absent</th><th>Read across</th></tr></thead>
     <tbody>
@@ -569,6 +630,7 @@ ul{padding-left:20px}
     <button class="chip" data-f="assoc">Association and Impact</button>
     <button class="chip" data-f="mort">Mortality and Morbidity</button>
     <button class="chip" data-f="surv">Surveillance</button>
+    <button class="chip" data-f="dx">Diagnostic Tests</button>
   </div>
   <div class="count" id="count"></div>
   <div id="bankList"></div>
@@ -747,7 +809,7 @@ ul{padding-left:20px}
 </div>
 
 <script>
-const DLABEL={all:"All",freq:"Disease Frequency",assoc:"Association and Impact",mort:"Mortality and Morbidity",surv:"Surveillance"};
+const DLABEL={all:"All",freq:"Disease Frequency",assoc:"Association and Impact",mort:"Mortality and Morbidity",surv:"Surveillance",dx:"Diagnostic Tests"};
 const Q=[
  {"f":"freq","q":"Which measure best expresses the probability that an individual animal will develop a disease over a defined period?","o":["Cumulative incidence (incidence risk)","Point prevalence","Case fatality rate"],"a":0,"e":"Cumulative incidence is the proportion of an at-risk group that develops new disease over a stated period, which is the measure of individual risk. Prevalence reflects existing burden."},
  {"f":"freq","q":"A shelter has widely varying lengths of stay. Why is the incidence rate, using animal-time at risk, often preferred to cumulative incidence?","o":["It is easier to calculate by hand, because it uses fewer numbers in the equation.","It measures the existing burden of disease at one point in time in the population.","The animal-time denominator handles unstable populations and varying follow-up."],"a":2,"e":"Incidence rate uses total animal-time at risk, so it handles the variable follow-up created by differing lengths of stay."},
@@ -789,7 +851,13 @@ const Q=[
  {"f": "assoc", "q": "A shelter introduces a new flea treatment. In the treated group, 5% of animals develop mild skin irritation; in the untreated control group, 0% do. The absolute risk increase (ARI) is 5% (0.05). What is the number needed to harm (NNH)?", "o": ["5 animals", "20 animals", "50 animals"], "a": 1, "e": "NNH = 1 / ARI = 1 / 0.05 = 20. About 20 animals are treated before one develops skin irritation."},
  {"f": "surv", "q": "Canine parvovirus begins in a shelter where the basic reproduction number (R0) is estimated at 4.0. The team isolates infected puppies, disinfects surfaces and vaccinates every eligible dog on arrival. Afterwards, each infected puppy infects an average of 0.6 other dogs. What is happening to the outbreak?", "o": ["It is growing exponentially because R0 is 4.0.", "It is stable in the population because cases are still occurring.", "It is shrinking and dying out because the effective reproduction number (R) is below 1."], "a": 2, "e": "R0 (4.0) is what would happen with no precautions. The interventions have driven the effective reproduction number (R) down to 0.6; with R below 1 the outbreak cannot sustain itself."},
  {"f": "surv", "q": "A stray cat infected with a novel strain of feline calicivirus enters a shelter where no cats have immunity. With no isolation protocols in place, this one cat infects 5 other cats on average. What is the basic reproduction number (R0) of this strain?", "o": ["0.2", "1.0", "5.0"], "a": 2, "e": "R0 is the average number of new cases one infected animal causes in a fully susceptible population with no interventions, here 5.0."},
- {"f": "surv", "q": "During a Bordetella outbreak in shelter dogs, quarantine, sanitation and booster vaccines bring the effective reproduction number (R) down from 3.2 to 1.0. What does an R of 1.0 mean for the outbreak?", "o": ["The outbreak is still growing rapidly.", "The outbreak is stable: each sick dog infects exactly one new dog on average.", "The outbreak has ended and no dogs are sick."], "a": 1, "e": "R above 1 means growing, R below 1 means shrinking, and R equal to 1 means steady transmission. Cases continue; the outbreak is neither growing nor shrinking."}
+ {"f": "surv", "q": "During a Bordetella outbreak in shelter dogs, quarantine, sanitation and booster vaccines bring the effective reproduction number (R) down from 3.2 to 1.0. What does an R of 1.0 mean for the outbreak?", "o": ["The outbreak is still growing rapidly.", "The outbreak is stable: each sick dog infects exactly one new dog on average.", "The outbreak has ended and no dogs are sick."], "a": 1, "e": "R above 1 means growing, R below 1 means shrinking, and R equal to 1 means steady transmission. Cases continue; the outbreak is neither growing nor shrinking."},
+ {"f": "dx", "q": "Of 100 truly infected cats a test flags 90 as positive, and of 100 uninfected cats it flags 5. What is the sensitivity, and what is a highly specific test most useful for?", "o": ["90%; ruling a disease in when positive", "95%; ruling a disease out when negative", "90%; screening a whole population cheaply"], "a": 0, "e": "Sensitivity is 90 true positives divided by 100 diseased animals. A highly specific test, when positive, helps rule the disease in."},
+ {"f": "dx", "q": "Using a fixed test, what happens to positive predictive value as prevalence falls, and which test characteristic is unaffected by prevalence?", "o": ["Positive predictive value rises; positive predictive value is unaffected", "Positive predictive value is unchanged; specificity falls", "Positive predictive value falls; sensitivity is unaffected"], "a": 2, "e": "At lower prevalence a greater share of positives are false positives, so positive predictive value falls. Sensitivity and specificity are properties of the test."},
+ {"f": "dx", "q": "An animal shelter tests 100 cats for feline panleukopenia virus (FPV) using a rapid cage-side snap test. Of the 20 cats that truly have FPV, the test flags 18 as positive. What is the sensitivity of this test?", "o": ["10%", "80%", "90%"], "a": 2, "e": "Sensitivity = true cases the test caught divided by all truly sick cats = 18 / 20 = 90%."},
+ {"f": "dx", "q": "A shelter screens 100 healthy dogs for ringworm (Microsporum canis) with a new fungal culture test. The test correctly identifies 92 of these healthy dogs as negative. What is the specificity of this test?", "o": ["8%", "92%", "100%"], "a": 1, "e": "Specificity = healthy animals correctly cleared divided by all truly healthy animals = 92 / 100 = 92%."},
+ {"f": "dx", "q": "A feline leukaemia virus (FeLV) test is run on 50 cats and is positive in 10. On confirmatory testing, 8 of those 10 cats truly have FeLV. What is the positive predictive value (PPV) of the test in this population?", "o": ["20%", "80%", "83.3%"], "a": 1, "e": "PPV looks only at the positive results: 8 true positives out of 10 positive tests = 80%."},
+ {"f": "dx", "q": "A rapid antigen test for canine parvovirus is run on a group of puppies. Forty puppies test negative, and 38 of these are truly disease-free. What is the negative predictive value (NPV) of the test?", "o": ["5%", "90%", "95%"], "a": 2, "e": "NPV looks only at the negative results: 38 true negatives out of 40 negative tests = 95%."}
 ];/*mcq-shuffle*/(function(){var _a=Q;if(!Array.isArray(_a))return;for(var _i=0;_i<_a.length;_i++){var _q=_a[_i];if(!_q||!Array.isArray(_q.o)||typeof _q.a!=='number')continue;var _c=_q.o[_q.a];for(var _j=_q.o.length-1;_j>0;_j--){var _k=Math.floor(Math.random()*(_j+1));var _t=_q.o[_j];_q.o[_j]=_q.o[_k];_q.o[_k]=_t;}_q.a=_q.o.indexOf(_c);}})();
 const LTR=["A","B","C","D"];
 const bankList=document.getElementById("bankList");
