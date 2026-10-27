@@ -74,7 +74,7 @@ ITEMS = [
  "The dose is given intravenously over 30 minutes on day 0.",
  "RIG neutralises virus at the inoculation site, so it goes into the wound. The remainder is injected away from the vaccine site."),
 ([13],
- "A shelter veterinarian who completed a 3-dose pre-exposure series 3 years ago, with confirmed adequate titres, is bitten by a suspected rabid raccoon. What is the correct post-exposure protocol?",
+ "A shelter veterinarian who completed a 2-dose pre-exposure series (days 0 and 7) 3 years ago, with confirmed adequate titres, is bitten by a suspected rabid raccoon. What is the correct post-exposure protocol?",
  "Two doses of vaccine on days 0 and 3, without RIG",
  "The full 4-dose series with RIG",
  "RIG only, without further vaccine",
