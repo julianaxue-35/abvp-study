@@ -153,7 +153,7 @@ ul{padding-left:20px}
   <div class="wrap">
     <p class="kicker">Research and Biostatistics &bull; 6% of exam</p>
     <h1>Epidemiology and Biostats</h1>
-    <p>The 54% half of the domain, built as methodology: how to measure disease frequency, quantify associations, track mortality, and run population surveillance. Operational shelter metrics live in Data and Analysis; diagnostic test characteristics live in the Study Design hub.</p>
+    <p>The 54% half of the domain, built as methodology: how to measure disease frequency, quantify associations, track mortality, and run population surveillance. Operational shelter metrics live in Data and Analysis.</p>
   </div>
 </header>
 
@@ -163,6 +163,7 @@ ul{padding-left:20px}
     <button class="tab" data-tab="assoc">Association and Impact</button>
     <button class="tab" data-tab="mort">Mortality and Morbidity</button>
     <button class="tab" data-tab="surv">Surveillance</button>
+    <button class="tab" data-tab="dx">Diagnostic Tests</button>
     <button class="tab" data-tab="bank">MCQ</button>
     <!-- JOURNAL-TAB:START -->
 <button class="tab" data-tab="journal">Journal Articles</button>
@@ -350,8 +351,8 @@ ul{padding-left:20px}
   <h3>ARR, NNT and NNH <span class="badge ref">ref</span></h3>
   <ul>
     <li><b>Absolute risk reduction (ARR):</b> plain subtraction. Risk without treatment minus risk with treatment. <i>Example:</i> 10% get sick without the medicine and 4% with it, so ARR = 10% &minus; 4% = <b>6% (0.06)</b>.</li>
-    <li><b>Number needed to treat (NNT):</b> <span class="mono">1 &divide; ARR</span> (as a decimal), always rounded <b>up</b>. <i>Example:</i> 1 &divide; 0.06 = 16.7, so <b>17</b>. Treat 17 animals to prevent one case.</li>
-    <li><b>Number needed to harm (NNH):</b> the same sum for harm. Absolute risk increase (ARI) = risk with the treatment minus risk without it, and <span class="mono">NNH = 1 &divide; ARI</span>. <i>Example:</i> 5% get skin irritation with a flea treatment and 0% without, so ARI = 0.05 and NNH = 1 &divide; 0.05 = <b>20</b>.</li>
+    <li><b>Number needed to treat (NNT):</b> how many animals you must treat to prevent <b>one</b> extra bad outcome (for example, one case of disease). <span class="mono">NNT = 1 &divide; ARR</span> (as a decimal), always rounded <b>up</b>. <i>Example:</i> 1 &divide; 0.06 = 16.7, so <b>17</b>. Treat 17 animals to prevent one case.</li>
+    <li><b>Number needed to harm (NNH):</b> how many animals you treat or expose before <b>one</b> is harmed. It is the same sum for harm. Absolute risk increase (ARI) = risk with the treatment minus risk without it, and <span class="mono">NNH = 1 &divide; ARI</span>. <i>Example:</i> 5% get skin irritation with a flea treatment and 0% without, so ARI = 0.05 and NNH = 1 &divide; 0.05 = <b>20</b>.</li>
   </ul>
   <div class="box trap"><span class="lbl">Exam trap</span><p>A <b>low NNT is good</b> (few animals treated per case prevented). A <b>low NNH is bad</b> (harm happens after only a few animals).</p></div>
 </section>
@@ -518,7 +519,43 @@ ul{padding-left:20px}
     </tbody>
   </table>
   <div class="box verifybox"><span class="lbl">Shelter note</span><p>Control measures need not wait for the full sequence to finish. In a shelter outbreak, isolating suspect cases and pausing intake to the affected ward (step 8) often starts well before hypothesis testing (step 7) is complete, because the cost of delay — ongoing transmission — usually outweighs the cost of acting on an imperfect early case definition.</p></div>
-  <div class="box verifybox"><span class="lbl">Scope boundary</span><p>This page covers surveillance and outbreak epidemiology as method. Operational outbreak prevention and response protocols live in the Infectious Disease hub; diagnostic test sensitivity, specificity and predictive values live in the Study Design hub.</p></div>
+  <div class="box verifybox"><span class="lbl">Scope boundary</span><p>This page covers surveillance and outbreak epidemiology as method. Operational outbreak prevention and response protocols live in the Infectious Disease hub; the Diagnostic Tests tab here covers sensitivity, specificity and predictive values (also in the Study Design hub).</p></div>
+</section>
+
+<!-- ============ DIAGNOSTIC TESTS ============ -->
+<section class="panel" id="dx">
+  <h2>Diagnostic Tests</h2>
+  <p class="lead">Two questions about a test: how good is the test itself (sensitivity and specificity), and what does one result mean for this patient (PPV and NPV)?</p>
+
+  <h3>Judging the test <span class="badge ref">ref</span></h3>
+  <ul>
+    <li><b>Sensitivity:</b> of all animals that truly have the disease, how many did the test catch? <i>Example:</i> 100 cats have the flu and the test catches 90, so sensitivity is 90%.</li>
+    <li><b>Specificity:</b> of all animals that are truly healthy, how many did the test correctly clear? <i>Example:</i> 100 healthy cats and the test clears 95, so specificity is 95%.</li>
+  </ul>
+  <h3>What the result means for the patient <span class="badge ref">ref</span></h3>
+  <ul>
+    <li><b>Positive predictive value (PPV):</b> the test came back positive. What is the real chance the animal has the disease?</li>
+    <li><b>Negative predictive value (NPV):</b> the test came back negative. What is the real chance the animal is healthy?</li>
+  </ul>
+  <p class="hint">Sensitivity and specificity start from who is really sick or healthy. PPV and NPV start from what the test result said.</p>
+
+  <h3>The 2x2 table and formulas <span class="badge ref">ref</span></h3>
+  <table>
+    <thead><tr><th></th><th>Disease present</th><th>Disease absent</th><th>Read across</th></tr></thead>
+    <tbody>
+      <tr><td><b>Test positive</b></td><td>TP (true positive)</td><td>FP (false positive)</td><td>PPV = TP &divide; (TP + FP)</td></tr>
+      <tr><td><b>Test negative</b></td><td>FN (false negative)</td><td>TN (true negative)</td><td>NPV = TN &divide; (TN + FN)</td></tr>
+      <tr><td><b>Read down</b></td><td>Sensitivity = TP &divide; (TP + FN)</td><td>Specificity = TN &divide; (TN + FP)</td><td></td></tr>
+    </tbody>
+  </table>
+  <h4>Worked examples</h4>
+  <ul>
+    <li><b>Sensitivity:</b> 20 cats truly have panleukopenia and the test flags 18. 18 &divide; 20 = <b>90%</b>.</li>
+    <li><b>PPV:</b> 10 cats test positive for FeLV and 8 of them really have it. 8 &divide; 10 = <b>80%</b>.</li>
+    <li><b>NPV:</b> 40 puppies test negative for parvovirus and 38 are truly disease-free. 38 &divide; 40 = <b>95%</b>.</li>
+  </ul>
+  <div class="box trap"><span class="lbl">High-yield trap</span><p>Sensitivity and specificity belong to the test. <b>PPV and NPV change with how common the disease is.</b> When the disease is rare, most positives are false positives, so PPV falls even though the test has not changed. This is why a positive FeLV screen in a low-prevalence population needs a confirmatory test.</p></div>
+  <p class="hint">Memory aids: <b>SnNout</b> (a sensitive test, when negative, rules the disease out) and <b>SpPin</b> (a specific test, when positive, rules the disease in).</p>
 </section>
 
 <!-- ============ BANK ============ -->
