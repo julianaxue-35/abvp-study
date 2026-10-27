@@ -121,6 +121,11 @@ ul{padding-left:20px}
 .opt .ltr{font-family:"JetBrains Mono",monospace;font-weight:600;margin-right:9px;color:var(--accent)}
 .expl{margin-top:10px;font-size:14px;border-left:3px solid var(--accent2);padding:6px 12px;color:var(--muted);display:none}
 .expl.show{display:block}
+.mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--ink);color:var(--surface);border-radius:14px;padding:11px 16px;margin:0 0 16px;position:sticky;top:100px;z-index:14;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+.mcqbar .sc{display:flex;flex-wrap:wrap;gap:6px 18px;font-family:"JetBrains Mono",monospace;font-size:13px}
+.mcqbar .sc b{font-weight:700}
+.mcqbar .reset{font-family:"JetBrains Mono",monospace;font-size:11px;cursor:pointer;border:1px solid color-mix(in srgb,var(--surface) 45%,transparent);background:transparent;color:var(--surface);padding:5px 11px;border-radius:8px}
+@media(max-width:640px){.mcqbar{padding:9px 12px}.mcqbar .sc{font-size:12px;gap:4px 12px}}
 .foot{max-width:980px;margin:0 auto;padding:0 24px 60px;color:var(--muted);font-size:12.5px}
   /* ── page search ── */
   .srch-wrap{position:sticky;top:54px;z-index:15;background:var(--surface,var(--paper2,#f5f5f5));border-bottom:1px solid var(--line);padding:5px 0}
@@ -156,7 +161,7 @@ ul{padding-left:20px}
     <button class="tab" data-tab="inference">Statistical Inference</button>
     <button class="tab" data-tab="bias">Bias and Validity</button>
     <button class="tab" data-tab="tests">Tests and Measures</button>
-    <button class="tab" data-tab="bank">Question Bank</button>
+    <button class="tab" data-tab="bank">MCQ</button>
     <!-- JOURNAL-TAB:START -->
 <button class="tab" data-tab="journal">Journal Articles</button>
 <!-- JOURNAL-TAB:END -->
@@ -455,11 +460,21 @@ ul{padding-left:20px}
   <p>With a large enough sample, a trivially small, clinically meaningless difference can reach statistical significance. Always judge effect size, not just whether p is below 0.05.</p>
 
   <h3>Confidence intervals <span class="badge ref">ref</span></h3>
-  <p>A 95% confidence interval is the range that would contain the true value 95% of the time on repeated sampling. It conveys both direction and magnitude, which a bare p-value does not.</p>
+  <p>A study result is only an estimate, because you can never test every animal. A <b>confidence interval (CI)</b> is the range of plausible values for where the true number probably lies. <i>Example:</i> RR = 2.0 (95% CI: 1.2 to 3.4) means we are 95% confident the true risk multiplier for the whole population is between 1.2 and 3.4.</p>
+  <p><b>What "95%" means:</b> if the same shelter study were repeated 100 times, about 95 of the ranges would contain the true number and about 5 would miss it.</p>
+  <h4>Reading a CI for RR or OR: look for 1.0</h4>
+  <p>1.0 means no effect. Check whether the range crosses 1.0.</p>
+  <table>
+    <thead><tr><th>95% CI for RR or OR</th><th>What it means</th><th>Real or luck?</th></tr></thead>
+    <tbody>
+      <tr><td>Includes 1.0 (for example 0.9 to 2.1)</td><td>Might raise risk, lower it, or do nothing</td><td>Could be luck (not significant)</td></tr>
+      <tr><td>Entirely above 1.0 (for example 1.4 to 3.2)</td><td>Consistently raises risk</td><td>Real (significant)</td></tr>
+      <tr><td>Entirely below 1.0 (for example 0.3 to 0.7)</td><td>Consistently protective</td><td>Real (significant)</td></tr>
+    </tbody>
+  </table>
   <ul>
-    <li>For a <b>ratio measure</b> (relative risk, odds ratio) the null value is <span class="mono">1</span>. An interval that includes 1 is not significant.</li>
-    <li>For a <b>difference measure</b> (mean or risk difference) the null value is <span class="mono">0</span>. An interval that includes 0 is not significant.</li>
-    <li>Interval <b>width is precision</b>; larger samples and lower variability narrow it.</li>
+    <li><b>Ratio measures</b> (RR, OR): the null value is 1. <b>Difference measures</b> (mean or risk difference): the null value is 0.</li>
+    <li>A narrower interval means a more precise estimate. Larger samples narrow it.</li>
   </ul>
 
   <h3>Error types and power <span class="badge ref">ref</span></h3>
@@ -590,11 +605,12 @@ ul{padding-left:20px}
     <div class="figcap">The diagnostic 2x2. Sensitivity and specificity read down the columns; predictive values read across the rows. Original construction.</div>
   </div>
   <ul>
-    <li><b>Sensitivity = TP / (TP + FN):</b> the proportion of truly diseased animals correctly identified as positive (true positive rate) &mdash; how well the test catches disease that's really there. A property of the test, prevalence-independent.</li>
-    <li><b>Specificity = TN / (TN + FP):</b> the proportion of truly healthy animals correctly identified as negative (true negative rate) &mdash; how well the test clears animals that are really healthy. Also prevalence-independent.</li>
-    <li><b>PPV = TP / (TP + FP):</b> the proportion of positive results that are true positives &mdash; answers "if this test is positive, what's the probability the animal truly has the disease?" <b>Depends on prevalence.</b></li>
-    <li><b>NPV = TN / (TN + FN):</b> the proportion of negative results that are true negatives &mdash; answers "if this test is negative, what's the probability the animal is truly free of disease?" <b>Depends on prevalence.</b></li>
+    <li><b>Sensitivity</b> = <span class="mono">TP / (TP + FN)</span>. Of all animals that truly have the disease, how many did the test catch? <i>Example:</i> 100 cats have the disease and the test catches 90, so sensitivity is 90%.</li>
+    <li><b>Specificity</b> = <span class="mono">TN / (TN + FP)</span>. Of all animals that are truly healthy, how many did the test correctly clear? <i>Example:</i> 100 healthy cats and the test clears 95, so specificity is 95%.</li>
+    <li><b>Positive predictive value (PPV)</b> = <span class="mono">TP / (TP + FP)</span>. The test came back positive: what is the chance the animal really has the disease?</li>
+    <li><b>Negative predictive value (NPV)</b> = <span class="mono">TN / (TN + FN)</span>. The test came back negative: what is the chance the animal really is healthy?</li>
   </ul>
+  <p class="hint">Sensitivity and specificity start from who is sick or healthy. PPV and NPV start from what the test result said.</p>
   <h4>Table 1: the 2x2 contingency table and formula reference</h4>
   <table>
     <thead><tr><th></th><th>Disease positive</th><th>Disease negative</th></tr></thead>
@@ -610,7 +626,7 @@ ul{padding-left:20px}
     <span class="mono">NPV = TN / (TN + FN)</span>
   </p>
   <h4>Worked example</h4>
-  <p>100 truly infected cats: the test flags 90. 100 truly uninfected cats: the test flags 5. Then <span class="mono">Sensitivity = 90/100 = 90%</span>, <span class="mono">Specificity = 95/100 = 95%</span>. If only 20 of 1000 screened cats are truly infected (2% prevalence): true positives = 18, false positives = 49, so <span class="mono">PPV = 18/(18+49) = 27%</span>, despite a sensitive and specific test.</p>
+  <p>1000 cats are screened and 20 are truly infected (2% prevalence). The test catches 18 of them (TP = 18) and wrongly flags 49 healthy cats (FP = 49). <span class="mono">PPV = 18 / (18 + 49) = 27%</span>, even though the test is both sensitive and specific.</p>
   <div class="box trap"><span class="lbl">High-yield trap</span><p>As prevalence falls, PPV falls (more positives are false positives) even though sensitivity and specificity are unchanged. This is why low-prevalence intake screening (for example, FeLV) needs confirmatory testing. Mnemonics: <b>SnNout</b> (sensitive, Negative rules out), <b>SpPin</b> (specific, Positive rules in).</p></div>
 
   <h3>Measures of association by design <span class="badge ref">ref</span> <span class="badge note">note</span></h3>
@@ -713,8 +729,9 @@ ul{padding-left:20px}
 
 <!-- ============ BANK ============ -->
 <section class="panel" id="bank">
-  <h2>Question Bank</h2>
-  <p class="lead">Forty-five single-best-answer items across the four topics. Tap an option to check it. Answers are spread evenly across A to D.</p>
+  <h2>MCQ</h2>
+  <p class="lead">Single-best-answer questions across the topics on this page. Tap an option to check it; the bar below keeps your running score.</p>
+  <div class="mcqbar"><div class="sc"><span>Answered <b id="scAns">0 / 0</b></span><span>Correct <b id="scRight">0</b></span><span>Score <b id="scPct">&ndash;</b></span></div><button class="reset" id="scReset" type="button">Reset</button></div>
   <div class="chips" id="chips">
     <button class="chip active" data-f="all">All</button>
     <button class="chip" data-f="designs">Study Designs</button>
@@ -956,13 +973,40 @@ const Q=[
  {"f":"bias","q":"A study of working detection dogs finds lower rates of chronic disease than the general dog population. This most likely reflects","o":["recall bias.","effect modification.","the healthy worker effect."],"a":2,"e":"The healthy worker effect is a form of selection bias: an actively working population under-represents the unwell."},
  {"f":"bias","q":"A follow-up survey of adopters achieves a 20% response rate, and non-responders are disproportionately those who rehomed the animal again. This is best described as","o":["nonresponder bias.","observer bias.","confounding."],"a":0,"e":"Nonresponder bias occurs when those who do not respond differ systematically from those who do, skewing the results."},
  {"f":"bias","q":"Statistically significant trial results are more likely to be submitted, accepted and published quickly than null results. Through what does this distort the evidence base?","o":["Selection bias","Random error","Reporting (publication) bias"],"a":2,"e":"The published literature over-represents positive findings, which can mislead systematic reviews."},
- {"f":"bias","q":"An exposed group receives more frequent veterinary check-ups than the unexposed group, so subclinical cases in the exposed group are more likely to be found. This is","o":["surveillance (detection) bias.","recall bias.","the healthy worker effect."],"a":0,"e":"Surveillance (detection) bias inflates the apparent disease frequency in the more closely monitored group."}
+ {"f":"bias","q":"An exposed group receives more frequent veterinary check-ups than the unexposed group, so subclinical cases in the exposed group are more likely to be found. This is","o":["surveillance (detection) bias.","recall bias.","the healthy worker effect."],"a":0,"e":"Surveillance (detection) bias inflates the apparent disease frequency in the more closely monitored group."},
+ {"f": "tests", "q": "An animal shelter tests 100 cats for feline panleukopenia virus (FPV) using a rapid cage-side snap test. Of the 20 cats that truly have FPV, the test flags 18 as positive. What is the sensitivity of this test?", "o": ["10%", "80%", "90%"], "a": 2, "e": "Sensitivity = true cases the test caught divided by all truly sick cats = 18 / 20 = 90%."},
+ {"f": "tests", "q": "A shelter screens 100 healthy dogs for ringworm (Microsporum canis) with a new fungal culture test. The test correctly identifies 92 of these healthy dogs as negative. What is the specificity of this test?", "o": ["8%", "92%", "100%"], "a": 1, "e": "Specificity = healthy animals correctly cleared divided by all truly healthy animals = 92 / 100 = 92%."},
+ {"f": "tests", "q": "A feline leukaemia virus (FeLV) test is run on 50 cats and is positive in 10. On confirmatory testing, 8 of those 10 cats truly have FeLV. What is the positive predictive value (PPV) of the test in this population?", "o": ["20%", "80%", "83.3%"], "a": 1, "e": "PPV looks only at the positive results: 8 true positives out of 10 positive tests = 80%."},
+ {"f": "tests", "q": "A rapid antigen test for canine parvovirus is run on a group of puppies. Forty puppies test negative, and 38 of these are truly disease-free. What is the negative predictive value (NPV) of the test?", "o": ["5%", "90%", "95%"], "a": 2, "e": "NPV looks only at the negative results: 38 true negatives out of 40 negative tests = 95%."},
+ {"f": "inference", "q": "A shelter study reports a relative risk (RR) of 1.5 with a 95% confidence interval (CI) of 0.8 to 2.8. How should this result be read?", "o": ["Not statistically significant, because the interval crosses 1.0", "Statistically significant, because the relative risk is above 1.0", "Statistically significant, because the interval is wide"], "a": 0, "e": "For a ratio measure, 1.0 means no effect. An interval running from 0.8 to 2.8 includes 1.0, so the exposure might raise risk, lower it, or do nothing. The result could be chance."},
+ {"f": "inference", "q": "A study reports a relative risk (RR) of 2.0 with a 95% confidence interval (CI) of 1.3 to 3.1. What does this mean?", "o": ["The result is not significant because the interval is wide.", "The exposure significantly increases risk, because the whole interval is above 1.0.", "The exposure has no effect, because the interval does not include 0."], "a": 1, "e": "The entire interval is above 1.0, so even the lowest plausible estimate (1.3) shows increased risk. The result is statistically significant."},
+ {"f": "inference", "q": "A case-control study reports an odds ratio (OR) of 0.5 with a 95% confidence interval (CI) of 0.4 to 0.7 for a vaccine. How is this interpreted?", "o": ["A significant protective effect, because the whole interval is below 1.0", "No significant effect, because the odds ratio is below 1.0", "A significant harmful effect, because the odds ratio is below 1.0"], "a": 0, "e": "The whole interval sits below 1.0, so the exposure is consistently protective and the result is statistically significant."},
+ {"f": "inference", "q": "What does a 95% confidence interval (CI) mean?", "o": ["There is a 95% chance that the result was due to luck.", "If the study were repeated many times, about 95% of the intervals would contain the true value.", "95% of animals in the study showed the effect."], "a": 1, "e": "A 95% CI is a range of plausible values for the true number. If the same study were repeated 100 times, about 95 of the intervals would capture the true value."}
 ];/*mcq-shuffle*/(function(){var _a=Q;if(!Array.isArray(_a))return;for(var _i=0;_i<_a.length;_i++){var _q=_a[_i];if(!_q||!Array.isArray(_q.o)||typeof _q.a!=='number')continue;var _c=_q.o[_q.a];for(var _j=_q.o.length-1;_j>0;_j--){var _k=Math.floor(Math.random()*(_j+1));var _t=_q.o[_j];_q.o[_j]=_q.o[_k];_q.o[_k]=_t;}_q.a=_q.o.indexOf(_c);}})();
 const LTR=["A","B","C","D"];
 const bankList=document.getElementById("bankList");
 const countEl=document.getElementById("count");
 let filter="all";
 
+const ansMap={};
+function updateScore(){
+  let done=0,right=0;
+  for(const k in ansMap){done++;if(ansMap[k]===Q[k].a)right++;}
+  document.getElementById("scAns").textContent=done+" / "+Q.length;
+  document.getElementById("scRight").textContent=right;
+  document.getElementById("scPct").textContent=done?Math.round(100*right/done)+"%":"–";
+}
+function paint(card,i,j){
+  card.dataset.done="1";
+  const correct=Q[i].a;
+  card.querySelectorAll(".opt").forEach(o=>{
+    const oj=+o.dataset.j;
+    if(oj===correct)o.classList.add("correct");
+    else if(oj===j)o.classList.add("wrong");
+    o.style.cursor="default";
+  });
+  document.getElementById("e"+i).classList.add("show");
+}
 function render(){
   bankList.innerHTML="";
   let n=0;
@@ -973,28 +1017,28 @@ function render(){
     card.className="q";
     let opts="";
     item.o.forEach((t,j)=>{opts+=`<button class="opt" data-i="${i}" data-j="${j}"><span class="ltr">${LTR[j]}</span>${t}</button>`;});
-    card.innerHTML=`<div class="qtop"><span class="qn">Q${i+1}</span><span class="qtag">${DLABEL[item.f]}</span></div>
+    card.innerHTML=`<div class="qtop"><span class="qn">Q${i+1}</span><span class="qtag">${DLABEL[item.f]||"Journal Articles"}</span></div>
       <div class="stem">${item.q}</div>${opts}
       <div class="expl" id="e${i}">${item.e}</div>`;
     bankList.appendChild(card);
+    if(ansMap[i]!==undefined)paint(card,i,ansMap[i]);
   });
   countEl.textContent=`Showing ${n} question${n===1?"":"s"}`;
+  updateScore();
 }
 bankList.addEventListener("click",e=>{
   const b=e.target.closest(".opt");
   if(!b)return;
   const i=+b.dataset.i, j=+b.dataset.j;
   const card=b.closest(".q");
-  if(card.dataset.done)return;
-  card.dataset.done="1";
-  const correct=Q[i].a;
-  card.querySelectorAll(".opt").forEach(o=>{
-    const oj=+o.dataset.j;
-    if(oj===correct)o.classList.add("correct");
-    else if(oj===j)o.classList.add("wrong");
-    o.style.cursor="default";
-  });
-  document.getElementById("e"+i).classList.add("show");
+  if(ansMap[i]!==undefined)return;
+  ansMap[i]=j;
+  paint(card,i,j);
+  updateScore();
+});
+document.getElementById("scReset").addEventListener("click",()=>{
+  for(const k in ansMap)delete ansMap[k];
+  render();
 });
 document.getElementById("chips").addEventListener("click",e=>{
   const c=e.target.closest(".chip");

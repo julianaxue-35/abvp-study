@@ -123,6 +123,11 @@ ul{padding-left:20px}
 .opt .ltr{font-family:"JetBrains Mono",monospace;font-weight:600;margin-right:9px;color:var(--accent)}
 .expl{margin-top:10px;font-size:14px;border-left:3px solid var(--accent2);padding:6px 12px;color:var(--muted);display:none}
 .expl.show{display:block}
+.mcqbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--ink);color:var(--surface);border-radius:14px;padding:11px 16px;margin:0 0 16px;position:sticky;top:100px;z-index:14;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+.mcqbar .sc{display:flex;flex-wrap:wrap;gap:6px 18px;font-family:"JetBrains Mono",monospace;font-size:13px}
+.mcqbar .sc b{font-weight:700}
+.mcqbar .reset{font-family:"JetBrains Mono",monospace;font-size:11px;cursor:pointer;border:1px solid color-mix(in srgb,var(--surface) 45%,transparent);background:transparent;color:var(--surface);padding:5px 11px;border-radius:8px}
+@media(max-width:640px){.mcqbar{padding:9px 12px}.mcqbar .sc{font-size:12px;gap:4px 12px}}
 .foot{max-width:980px;margin:0 auto;padding:0 24px 60px;color:var(--muted);font-size:12.5px}
   /* ── page search ── */
   .srch-wrap{position:sticky;top:54px;z-index:15;background:var(--surface,var(--paper2,#f5f5f5));border-bottom:1px solid var(--line);padding:5px 0}
@@ -158,7 +163,7 @@ ul{padding-left:20px}
     <button class="tab" data-tab="assoc">Association and Impact</button>
     <button class="tab" data-tab="mort">Mortality and Morbidity</button>
     <button class="tab" data-tab="surv">Surveillance</button>
-    <button class="tab" data-tab="bank">Question Bank</button>
+    <button class="tab" data-tab="bank">MCQ</button>
     <!-- JOURNAL-TAB:START -->
 <button class="tab" data-tab="journal">Journal Articles</button>
 <!-- JOURNAL-TAB:END -->
@@ -326,18 +331,29 @@ ul{padding-left:20px}
   <p>Above 1 means increased risk, below 1 means protection, for ratio measures. The <b>attributable risk</b> is an absolute measure of the excess risk carried by the exposure, useful for judging public-health impact rather than just strength of association.</p>
   <div class="box trap"><span class="lbl">Exam trap</span><p>The odds ratio approximates the relative risk <b>only when the disease is rare</b>. With a common outcome the odds ratio overstates the relative risk. Case-control studies cannot yield a true relative risk because they sample on outcome, not on the population at risk.</p></div>
 
-  <h3>Number Needed to Treat (NNT) and Number Needed to Harm (NNH)</h3>
-  <p>These statistics translate relative measures into clinical terms — <b>how many animals must be treated (or exposed) to produce one additional beneficial (or harmful) outcome?</b> They bridge the gap between statistical significance and clinical relevance.</p>
+  <h3>Relative risk and odds ratio in plain English <span class="badge ref">ref</span></h3>
   <table>
-    <thead><tr><th>Statistic</th><th>Formula</th><th>Interpretation</th></tr></thead>
+    <thead><tr><th></th><th>Relative risk (RR)</th><th>Odds ratio (OR)</th></tr></thead>
     <tbody>
-      <tr><td><b>NNT</b></td><td>1 ÷ ARR</td><td>Animals needed to treat to prevent one additional case — <b>lower = more effective</b></td></tr>
-      <tr><td><b>NNH</b></td><td>1 ÷ ARI</td><td>Animals needed to expose before one additional harm occurs — <b>higher = safer</b></td></tr>
+      <tr><td><b>Answers</b></td><td>How many times more likely is an exposed group to get sick than an unexposed group?</td><td>Were sick animals more likely to have been exposed than healthy animals?</td></tr>
+      <tr><td><b>Calculate</b></td><td>Risk in exposed &divide; risk in unexposed</td><td>Odds of exposure in sick &divide; odds of exposure in healthy</td></tr>
+      <tr><td><b>Used in</b></td><td>Cohort study (animals followed forward over time)</td><td>Case-control study (looking back at past exposure)</td></tr>
     </tbody>
   </table>
-  <p><b>ARR</b> (absolute risk reduction) = risk<sub>unexposed</sub> − risk<sub>treated</sub>. <b>ARI</b> (absolute risk increase) = risk<sub>exposed</sub> − risk<sub>unexposed</sub>. Both are derived directly from the 2×2 table.</p>
-  <div class="box verifybox"><span class="lbl">Worked example</span><p>A shelter trial shows URI incidence of 30% in unvaccinated cats and 10% in vaccinated cats. ARR = 30% − 10% = 0.20. NNT = 1 ÷ 0.20 = <b>5</b>. Five cats must be vaccinated to prevent one URI case.</p></div>
-  <div class="box trap"><span class="lbl">Exam trap</span><p>A <b>low NNT</b> is good (fewer animals needed per benefit). A <b>low NNH</b> is bad (harm occurs with very few exposures). Do not confuse direction. Also: two interventions with identical RR can have very different NNTs if baseline risk differs — always check the absolute risk difference.</p></div>
+  <ul>
+    <li><b>1</b> = the exposure changes nothing.</li>
+    <li><b>2</b> = twice as likely (RR) or twice the odds (OR).</li>
+    <li><b>0.5</b> = half as likely, so the exposure is protective.</li>
+  </ul>
+  <p>If the disease is rare, OR is almost the same as RR.</p>
+
+  <h3>ARR, NNT and NNH <span class="badge ref">ref</span></h3>
+  <ul>
+    <li><b>Absolute risk reduction (ARR):</b> plain subtraction. Risk without treatment minus risk with treatment. <i>Example:</i> 10% get sick without the medicine and 4% with it, so ARR = 10% &minus; 4% = <b>6% (0.06)</b>.</li>
+    <li><b>Number needed to treat (NNT):</b> <span class="mono">1 &divide; ARR</span> (as a decimal), always rounded <b>up</b>. <i>Example:</i> 1 &divide; 0.06 = 16.7, so <b>17</b>. Treat 17 animals to prevent one case.</li>
+    <li><b>Number needed to harm (NNH):</b> the same sum for harm. Absolute risk increase (ARI) = risk with the treatment minus risk without it, and <span class="mono">NNH = 1 &divide; ARI</span>. <i>Example:</i> 5% get skin irritation with a flea treatment and 0% without, so ARI = 0.05 and NNH = 1 &divide; 0.05 = <b>20</b>.</li>
+  </ul>
+  <div class="box trap"><span class="lbl">Exam trap</span><p>A <b>low NNT is good</b> (few animals treated per case prevented). A <b>low NNH is bad</b> (harm happens after only a few animals).</p></div>
 </section>
 
 <!-- ============ MORTALITY ============ -->
@@ -465,9 +481,19 @@ ul{padding-left:20px}
   <p>During an investigation a clear <b>case definition</b> lets cases be counted consistently by time, place and animal, and <b>attack rates</b> compared across subgroups point to the highest-risk group and the likely source.</p>
 
   <h3>Reproduction number <span class="badge ref">ref</span></h3>
-  <p><b>Basic reproduction number (R&#8320;):</b> the expected number of secondary cases arising from one case in a population that is wholly susceptible. It is dimensionless, describes the pathogen's inherent transmissibility under given conditions, and — because it assumes no existing immunity — is <b>not itself changed by vaccination</b>.</p>
-  <p><b>Effective reproduction number (R):</b> the actual number of secondary cases a typical case generates in the population as it currently stands, given existing immunity, vaccination coverage, and control measures already in place. Unlike R&#8320;, R moves over the course of an outbreak.</p>
-  <div class="box trap"><span class="lbl">Exam trap</span><p>R&#8320; is a fixed property of the pathogen and setting, not a real-time metric — it does not fall as vaccination coverage rises. R is the moving figure, and driving <b>R below 1</b> (through vaccination, isolation, or other control measures) is what ends transmission, even though R&#8320; for that pathogen is unchanged.</p></div>
+  <ul>
+    <li><b>R&#8320; (basic reproduction number):</b> how many new animals one infected animal passes the disease to when nobody is immune and no precautions are in place. <i>Example:</i> R&#8320; = 3 means one sick animal infects 3 others on average.</li>
+    <li><b>R or R<sub>e</sub> (effective reproduction number):</b> the same count in the real world right now, with vaccination, immunity and control measures in place.</li>
+  </ul>
+  <table>
+    <thead><tr><th>R value</th><th>Outbreak</th></tr></thead>
+    <tbody>
+      <tr><td>R &gt; 1</td><td>Growing</td></tr>
+      <tr><td>R = 1</td><td>Stable (endemic)</td></tr>
+      <tr><td>R &lt; 1</td><td>Shrinking and dying out</td></tr>
+    </tbody>
+  </table>
+  <div class="box trap"><span class="lbl">Exam trap</span><p>Vaccination, isolation and cleaning lower <b>R</b>, not R&#8320;. R&#8320; stays the same for that pathogen.</p></div>
 
   <h3>Disease outbreak investigation <span class="badge ref">ref</span></h3>
   <p>A structured sequence, adapted from the CDC field-epidemiology framework, keeps an investigation systematic:</p>
@@ -497,8 +523,9 @@ ul{padding-left:20px}
 
 <!-- ============ BANK ============ -->
 <section class="panel" id="bank">
-  <h2>Question Bank</h2>
-  <p class="lead">Forty-two single-best-answer items across the four topics. Tap an option to check it. Answers are spread evenly across A to D.</p>
+  <h2>MCQ</h2>
+  <p class="lead">Single-best-answer questions across the topics on this page. Tap an option to check it; the bar below keeps your running score.</p>
+  <div class="mcqbar"><div class="sc"><span>Answered <b id="scAns">0 / 0</b></span><span>Correct <b id="scRight">0</b></span><span>Score <b id="scPct">&ndash;</b></span></div><button class="reset" id="scReset" type="button">Reset</button></div>
   <div class="chips" id="chips">
     <button class="chip active" data-f="all">All</button>
     <button class="chip" data-f="freq">Disease Frequency</button>
@@ -714,13 +741,43 @@ const Q=[
  {"f":"surv","q":"Attack rates calculated for different subgroups during an outbreak are used mainly to","o":["measure long-term prevalence of the disease in the whole shelter population.","identify which groups are at highest risk.","estimate length of stay for the cases in each of the subgroups."],"a":1,"e":"Comparing attack rates across subgroups highlights the highest-risk groups and points toward the source."},
  {"f":"surv","q":"The sensitivity of a surveillance system refers to","o":["how quickly the system reports cases to the public health authority.","the proportion of true cases that it detects.","its running cost per case that is detected in the population."],"a":1,"e":"Surveillance sensitivity is the proportion of actual cases that the system successfully detects."},
  {"f":"surv","q":"Which stage of disease occurs before any pathological change, when host, agent and environment interact to establish susceptibility?","o":["The prepathogenesis period","The pathogenesis period","The incubation period"],"a":0,"e":"The prepathogenesis period precedes the onset of pathological change. The pathogenesis period begins once those changes start."},
- {"f":"surv","q":"In the CDC field-epidemiology framework for outbreak investigation, which step comes immediately before developing and testing hypotheses?","o":["Implementing control measures to stop further spread of the disease","Communicating the findings to the shelter staff and to the public","Applying descriptive epidemiology by person, place and time"],"a":2,"e":"The sequence runs: confirm the outbreak, verify the diagnosis, define cases, find cases, apply descriptive epidemiology, and then develop and test hypotheses."}
+ {"f":"surv","q":"In the CDC field-epidemiology framework for outbreak investigation, which step comes immediately before developing and testing hypotheses?","o":["Implementing control measures to stop further spread of the disease","Communicating the findings to the shelter staff and to the public","Applying descriptive epidemiology by person, place and time"],"a":2,"e":"The sequence runs: confirm the outbreak, verify the diagnosis, define cases, find cases, apply descriptive epidemiology, and then develop and test hypotheses."},
+ {"f": "assoc", "q": "During a kennel cough outbreak, 100 newly admitted dogs are monitored. In Kennel Block A (no intake vaccination), 10 of 50 dogs develop respiratory signs (20% risk). In Kennel Block B (intranasal vaccine at intake), 5 of 50 dogs develop respiratory signs (10% risk). What is the absolute risk reduction (ARR) provided by the vaccine?", "o": ["10% (0.10)", "20% (0.20)", "50% (0.50)"], "a": 0, "e": "ARR is plain subtraction: risk without the vaccine minus risk with it, 20% - 10% = 10% (0.10)."},
+ {"f": "assoc", "q": "A vaccine lowers the risk of kennel cough by an absolute risk reduction (ARR) of 10% (0.10). How many shelter dogs must be vaccinated at intake to prevent one case of kennel cough?", "o": ["5 dogs", "10 dogs", "20 dogs"], "a": 1, "e": "Number needed to treat (NNT) = 1 divided by ARR = 1 / 0.10 = 10. Vaccinate 10 dogs to prevent one case."},
+ {"f": "assoc", "q": "A shelter investigates an outbreak of Giardia diarrhoea in dogs. Dogs housed in outdoor runs exposed to standing water had a disease risk of 30%. Dogs housed in dry indoor runs had a disease risk of 10%. What is the relative risk (RR) of Giardia for dogs exposed to standing water?", "o": ["0.3", "3.0", "20.0"], "a": 1, "e": "RR = risk in the exposed group divided by risk in the unexposed group = 30% / 10% = 3.0. Exposed dogs were 3 times as likely to get Giardia."},
+ {"f": "assoc", "q": "A shelter compares two housing protocols for upper respiratory infection (URI) in cats. With standard caging, 30 of 100 cats develop URI signs (30% risk). With double-compartment housing, 12 of 100 cats develop URI signs (12% risk). What is the absolute risk reduction (ARR) provided by double-compartment housing?", "o": ["18% (0.18)", "2.5% (0.025)", "42% (0.42)"], "a": 0, "e": "ARR = risk with standard caging minus risk with double-compartment housing = 30% - 12% = 18% (0.18)."},
+ {"f": "assoc", "q": "Double-compartment housing lowers the risk of upper respiratory infection (URI) in cats by an absolute risk reduction (ARR) of 18% (0.18). How many cats need to be housed this way to prevent one case of URI? (Round up to the next whole animal.)", "o": ["5 cats", "6 cats", "18 cats"], "a": 1, "e": "NNT = 1 / 0.18 = 5.55. Always round up to the next whole animal, so 6 cats."},
+ {"f": "assoc", "q": "During a Salmonella outbreak in a shelter, dogs fed a raw meat diet had an infection risk of 40%, while dogs fed commercial dry kibble had an infection risk of 8%. What is the relative risk (RR) of Salmonella infection for dogs fed raw meat compared with dry kibble?", "o": ["0.2", "5.0", "32.0"], "a": 1, "e": "RR = 40% / 8% = 5.0. Dogs on the raw meat diet were 5 times as likely to be infected."},
+ {"f": "assoc", "q": "A retrospective case-control study looks back at shelter dogs with severe dental disease (cases) and healthy dogs (controls). The odds of a case dog having a history of a soft food diet was 4. The odds of a healthy dog having a history of a soft food diet was 1. What is the odds ratio (OR) for soft food exposure?", "o": ["0.25", "3.0", "4.0"], "a": 2, "e": "OR = odds of exposure in cases divided by odds of exposure in controls = 4 / 1 = 4.0. Sick dogs had 4 times the odds of a soft food history."},
+ {"f": "assoc", "q": "A shelter introduces a new flea treatment. In the treated group, 5% of animals develop mild skin irritation; in the untreated control group, 0% do. The absolute risk increase (ARI) is 5% (0.05). What is the number needed to harm (NNH)?", "o": ["5 animals", "20 animals", "50 animals"], "a": 1, "e": "NNH = 1 / ARI = 1 / 0.05 = 20. About 20 animals are treated before one develops skin irritation."},
+ {"f": "surv", "q": "Canine parvovirus begins in a shelter where the basic reproduction number (R0) is estimated at 4.0. The team isolates infected puppies, disinfects surfaces and vaccinates every eligible dog on arrival. Afterwards, each infected puppy infects an average of 0.6 other dogs. What is happening to the outbreak?", "o": ["It is growing exponentially because R0 is 4.0.", "It is stable in the population because cases are still occurring.", "It is shrinking and dying out because the effective reproduction number (R) is below 1."], "a": 2, "e": "R0 (4.0) is what would happen with no precautions. The interventions have driven the effective reproduction number (R) down to 0.6; with R below 1 the outbreak cannot sustain itself."},
+ {"f": "surv", "q": "A stray cat infected with a novel strain of feline calicivirus enters a shelter where no cats have immunity. With no isolation protocols in place, this one cat infects 5 other cats on average. What is the basic reproduction number (R0) of this strain?", "o": ["0.2", "1.0", "5.0"], "a": 2, "e": "R0 is the average number of new cases one infected animal causes in a fully susceptible population with no interventions, here 5.0."},
+ {"f": "surv", "q": "During a Bordetella outbreak in shelter dogs, quarantine, sanitation and booster vaccines bring the effective reproduction number (R) down from 3.2 to 1.0. What does an R of 1.0 mean for the outbreak?", "o": ["The outbreak is still growing rapidly.", "The outbreak is stable: each sick dog infects exactly one new dog on average.", "The outbreak has ended and no dogs are sick."], "a": 1, "e": "R above 1 means growing, R below 1 means shrinking, and R equal to 1 means steady transmission. Cases continue; the outbreak is neither growing nor shrinking."}
 ];/*mcq-shuffle*/(function(){var _a=Q;if(!Array.isArray(_a))return;for(var _i=0;_i<_a.length;_i++){var _q=_a[_i];if(!_q||!Array.isArray(_q.o)||typeof _q.a!=='number')continue;var _c=_q.o[_q.a];for(var _j=_q.o.length-1;_j>0;_j--){var _k=Math.floor(Math.random()*(_j+1));var _t=_q.o[_j];_q.o[_j]=_q.o[_k];_q.o[_k]=_t;}_q.a=_q.o.indexOf(_c);}})();
 const LTR=["A","B","C","D"];
 const bankList=document.getElementById("bankList");
 const countEl=document.getElementById("count");
 let filter="all";
 
+const ansMap={};
+function updateScore(){
+  let done=0,right=0;
+  for(const k in ansMap){done++;if(ansMap[k]===Q[k].a)right++;}
+  document.getElementById("scAns").textContent=done+" / "+Q.length;
+  document.getElementById("scRight").textContent=right;
+  document.getElementById("scPct").textContent=done?Math.round(100*right/done)+"%":"–";
+}
+function paint(card,i,j){
+  card.dataset.done="1";
+  const correct=Q[i].a;
+  card.querySelectorAll(".opt").forEach(o=>{
+    const oj=+o.dataset.j;
+    if(oj===correct)o.classList.add("correct");
+    else if(oj===j)o.classList.add("wrong");
+    o.style.cursor="default";
+  });
+  document.getElementById("e"+i).classList.add("show");
+}
 function render(){
   bankList.innerHTML="";
   let n=0;
@@ -731,28 +788,28 @@ function render(){
     card.className="q";
     let opts="";
     item.o.forEach((t,j)=>{opts+=`<button class="opt" data-i="${i}" data-j="${j}"><span class="ltr">${LTR[j]}</span>${t}</button>`;});
-    card.innerHTML=`<div class="qtop"><span class="qn">Q${i+1}</span><span class="qtag">${DLABEL[item.f]}</span></div>
+    card.innerHTML=`<div class="qtop"><span class="qn">Q${i+1}</span><span class="qtag">${DLABEL[item.f]||"Journal Articles"}</span></div>
       <div class="stem">${item.q}</div>${opts}
       <div class="expl" id="e${i}">${item.e}</div>`;
     bankList.appendChild(card);
+    if(ansMap[i]!==undefined)paint(card,i,ansMap[i]);
   });
   countEl.textContent=`Showing ${n} question${n===1?"":"s"}`;
+  updateScore();
 }
 bankList.addEventListener("click",e=>{
   const b=e.target.closest(".opt");
   if(!b)return;
   const i=+b.dataset.i, j=+b.dataset.j;
   const card=b.closest(".q");
-  if(card.dataset.done)return;
-  card.dataset.done="1";
-  const correct=Q[i].a;
-  card.querySelectorAll(".opt").forEach(o=>{
-    const oj=+o.dataset.j;
-    if(oj===correct)o.classList.add("correct");
-    else if(oj===j)o.classList.add("wrong");
-    o.style.cursor="default";
-  });
-  document.getElementById("e"+i).classList.add("show");
+  if(ansMap[i]!==undefined)return;
+  ansMap[i]=j;
+  paint(card,i,j);
+  updateScore();
+});
+document.getElementById("scReset").addEventListener("click",()=>{
+  for(const k in ansMap)delete ansMap[k];
+  render();
 });
 document.getElementById("chips").addEventListener("click",e=>{
   const c=e.target.closest(".chip");
