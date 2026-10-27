@@ -151,7 +151,7 @@ ul{padding-left:20px}
   <div class="wrap">
     <p class="kicker">Research and Biostatistics &bull; 6% of exam</p>
     <h1>Study Design</h1>
-    <p>The 46% half of the Research and Biostatistics domain. Designs, inference, bias and validity, and the measures and tests each design produces. Built as a standalone reference; content is standard veterinary epidemiology and biostatistics.</p>
+    <p>The 46% half of the Research and Biostatistics domain, in plain English: how studies are set up, how to tell if a result is real, bias, and which statistical test to use.</p>
   </div>
 </header>
 
@@ -211,36 +211,40 @@ ul{padding-left:20px}
     </div>
   </div>
 
-  <h3>The organising framework <span class="badge ref">ref</span></h3>
+  <h3>The big picture <span class="badge ref">ref</span></h3>
+  <p>How a study is set up decides what question it can answer and what number it produces. The easiest way to sort designs is by <b>direction of reasoning</b>:</p>
   <ul>
-    <li><b>Descriptive</b> studies describe who, what, where and when. No comparison group, so they generate hypotheses rather than test them.</li>
-    <li><b>Analytic observational</b> studies add a comparison group and measure an association, but the investigator only observes; the exposure is not assigned.</li>
-    <li><b>Experimental</b> studies have the investigator assign the intervention, ideally at random. This is the only category that establishes causation directly.</li>
+    <li><b>Cohort:</b> starts from the <b>exposure</b> and looks <i>forward</i> to see who gets sick.</li>
+    <li><b>Case-control:</b> starts from the <b>outcome (disease)</b> and looks <i>backward</i> to see what they were exposed to.</li>
+    <li><b>Cross-sectional:</b> a snapshot of <b>everything at one moment in time</b>.</li>
+  </ul>
+  <p>Then there are three families:</p>
+  <ul>
+    <li><b>Descriptive:</b> just describes what is happening. No comparison group.</li>
+    <li><b>Analytic observational:</b> compares groups, but the researcher only watches. Nothing is assigned.</li>
+    <li><b>Experimental:</b> the researcher assigns the treatment, ideally at random. This is the only family that proves cause and effect directly.</li>
   </ul>
 
-  <h3>Descriptive studies <span class="badge ref">ref</span></h3>
-  <table>
-    <thead><tr><th>Design</th><th>Yields</th><th>Strength</th><th>Limitation</th></tr></thead>
-    <tbody>
-      <tr><td>Case report</td><td>Narrative</td><td>Flags the novel or rare</td><td>No denominator or comparison</td></tr>
-      <tr><td>Case series</td><td>Counts, pattern</td><td>Characterises a cluster</td><td>No comparison group</td></tr>
-      <tr><td>Cross-sectional (prevalence survey)</td><td>Prevalence</td><td>Fast, good for disease burden</td><td>Cannot show exposure preceded outcome</td></tr>
-      <tr><td>Ecological (correlational)</td><td>Group-level correlation</td><td>Uses existing aggregate data</td><td>Ecological fallacy</td></tr>
-    </tbody>
-  </table>
-  <div class="box trap"><span class="lbl">Exam trap</span><p>The <b>ecological fallacy</b>: an association seen between group-level rates does not prove the same association holds at the individual level. A case report or series can never prove a risk factor, because it has no comparison group.</p></div>
+  <h3>1. Descriptive studies (just looking around) <span class="badge ref">ref</span></h3>
+  <p>These studies don't compare groups; they just describe. They are great for spotting brand-new problems, but they <b>cannot prove cause and effect</b>.</p>
+  <ul>
+    <li><b>Case report / case series:</b> one unusual patient, or a small cluster of sick animals. <i>Example:</i> "We saw 3 shelter cats with an unusual rash." <i>Limitation:</i> no comparison group, so you don't know whether it is normal or rare.</li>
+    <li><b>Cross-sectional survey:</b> checks how much disease is present right now (prevalence). <i>Example:</i> testing every dog in the shelter for fleas today.</li>
+    <li><b>Ecological study:</b> compares whole groups using existing data. <i>Example:</i> shelters in rainy states have higher rates of lungworm.</li>
+  </ul>
+  <div class="box trap"><span class="lbl">Exam trap: ecological fallacy</span><p>A trend in a group doesn't mean it applies to an individual animal. Rainy cities having more lungworm doesn't tell you about <i>your</i> dry-housed dog. Also, a case report or case series can never prove a risk factor, because it has no comparison group.</p></div>
 
-  <h3>Analytic observational studies <span class="badge ref">ref</span></h3>
-  <p>These are the highest-yield items in the subdomain.</p>
+  <h3>2. Analytic observational studies (comparing without interfering) <span class="badge ref">ref</span></h3>
+  <p>The researcher doesn't assign treatments; they watch what happens naturally. These are the highest-yield items in the subdomain.</p>
   <table>
-    <thead><tr><th>Feature</th><th>Cohort</th><th>Case-control</th><th>Analytic cross-sectional</th></tr></thead>
+    <thead><tr><th></th><th>Cohort</th><th>Case-control</th><th>Cross-sectional</th></tr></thead>
     <tbody>
-      <tr><td>Start from</td><td>Exposure</td><td>Outcome (disease)</td><td>Both at once</td></tr>
-      <tr><td>Direction</td><td>Forward</td><td>Backward</td><td>Single time point</td></tr>
-      <tr><td>Primary measure</td><td>Relative risk, incidence</td><td>Odds ratio</td><td>Prevalence, prevalence ratio</td></tr>
-      <tr><td>Best for</td><td>Common outcomes, multiple outcomes</td><td>Rare disease, long latency</td><td>Disease burden, planning</td></tr>
-      <tr><td>Temporality established</td><td>Yes</td><td>Often unclear</td><td>No</td></tr>
-      <tr><td>Main bias risk</td><td>Loss to follow-up</td><td>Recall, selection</td><td>Reverse causation</td></tr>
+      <tr><td><b>Where you start</b></td><td>Exposure (e.g. raw food diet)</td><td>Disease (e.g. sick with Salmonella)</td><td>Everything at once</td></tr>
+      <tr><td><b>Direction</b></td><td>Forward</td><td>Backward</td><td>Single snapshot</td></tr>
+      <tr><td><b>Main number produced</b></td><td><b>Relative risk (RR)</b></td><td><b>Odds ratio (OR)</b></td><td>Prevalence</td></tr>
+      <tr><td><b>Best used for</b></td><td>Common outcomes</td><td>Rare diseases or long delays</td><td>Finding disease burden</td></tr>
+      <tr><td><b>Shows what came first?</b></td><td>Yes</td><td>Often unclear</td><td>No</td></tr>
+      <tr><td><b>Main bias risk</b></td><td>Losing animals to follow-up</td><td>Recall and selection bias</td><td>Reverse causation</td></tr>
     </tbody>
   </table>
 
@@ -272,55 +276,47 @@ ul{padding-left:20px}
     <div class="figcap">Cohort starts from exposure and follows forward; case-control starts from the outcome and looks back. Original construction.</div>
   </div>
 
-  <p><b>Cohort:</b> yields incidence and relative risk; establishes temporality; inefficient for rare outcomes. <b>Case-control:</b> yields the odds ratio; efficient for rare or slow diseases; prone to recall and selection bias; the odds ratio approximates relative risk only when the disease is rare. <b>Analytic cross-sectional:</b> yields prevalence; cannot establish temporality, so reverse causation is possible.</p>
+  <p>The odds ratio is close to the relative risk only when the disease is rare.</p>
 
-  <h3>Longitudinal designs and repeated measurement <span class="badge ref">ref</span></h3>
-  <p>A design is <b>longitudinal</b> when the same units are measured more than once. That single fact drives everything else in this section: repeated observations on the same animal are <b>correlated</b>, so both the design and the analysis have to account for it.</p>
+  <h3>3. Longitudinal designs (measuring the same thing over time) <span class="badge ref">ref</span></h3>
+  <p>When you track subjects across several points in time, the way you collect the data matters. Repeated measurements on the same animal are alike (<b>correlated</b>), so both the design and the analysis have to allow for that.</p>
 
   <h4>Panel study versus repeated cross-sectional survey</h4>
-  <p>Both produce a series of measurements over time, and they answer different questions. This is the distinction most often got wrong.</p>
-  <table>
-    <thead><tr><th></th><th>Panel study</th><th>Repeated cross-sectional survey</th></tr></thead>
-    <tbody>
-      <tr><td>Who is measured</td><td>The <b>same</b> individuals each round</td><td>A <b>fresh sample</b> each round</td></tr>
-      <tr><td>Can measure</td><td>Within-individual change</td><td>Net population change only</td></tr>
-      <tr><td>Answers</td><td>Did these individuals change?</td><td>Did the population level move?</td></tr>
-      <tr><td>Main weakness</td><td>Attrition (drop-out), and repeated testing may itself change behaviour</td><td>Composition shifts between rounds can masquerade as change</td></tr>
-    </tbody>
-  </table>
-  <div class="box verifybox"><span class="lbl">Shelter example</span><p>Surveying <b>the same</b> 200 foster carers every year is a panel study: it can tell you that a third of individual carers became more burnt out. Surveying <b>a fresh</b> 200 carers every year is a repeated cross-sectional survey: it can only tell you that overall burnout prevalence held steady, which might be because nobody changed, or because burnt-out carers quit and were replaced by fresh ones. Same headline number, opposite meaning.</p></div>
-
-  <h4>Directionality: prospective, retrospective, ambidirectional</h4>
-  <p>A cohort is defined by <b>reasoning forward from exposure</b>, not by when the investigator happened to arrive.</p>
   <ul>
-    <li><b>Prospective cohort:</b> exposure is recorded now and outcomes accrue in the future. Best data quality, because you choose what to measure; slow and expensive.</li>
-    <li><b>Retrospective (historical) cohort:</b> the investigator assembles the cohort from <b>existing records</b>, so exposure and outcome have both already happened. Fast and cheap, but you are limited to what was recorded, and recording is rarely complete.</li>
-    <li><b>Ambidirectional cohort:</b> both at once. Historical records supply the past outcomes and follow-up then continues forward from today.</li>
+    <li><b>Panel study:</b> measures the <b>exact same</b> animals or people over time. <i>Example:</i> tracking the stress scores of the same 20 foster cats every month. It shows true individual change. Weak point: animals drop out.</li>
+    <li><b>Repeated cross-sectional survey:</b> surveys a <b>brand new batch</b> each round. It only shows change in the overall level.</li>
   </ul>
-  <div class="box trap"><span class="lbl">Exam trap</span><p>A <b>retrospective cohort is still a cohort</b>. It reasons forward from exposure to outcome and yields incidence and relative risk. It is not a case-control study, which reasons backward from outcome to exposure and yields an odds ratio. "Retrospective" describes the investigator's vantage point in time; "case-control" describes the direction of reasoning. Mixing the two is one of the most reliably examined confusions in this subdomain.</p></div>
+  <div class="box verifybox"><span class="lbl">Shelter example</span><p>If burnout looks the same every year in a repeated cross-sectional survey, you might think nobody changed. In reality, burnt-out workers might be quitting and being replaced by fresh, energetic ones. Surveying the <b>same</b> 200 carers each year (a panel) would show who actually changed.</p></div>
+
+  <h4>Prospective, retrospective, ambidirectional</h4>
+  <ul>
+    <li><b>Prospective cohort:</b> exposure is recorded now and outcomes happen in the future. Best data quality, but slow and expensive.</li>
+    <li><b>Retrospective cohort:</b> built from <b>past records</b>, so exposure and outcome have already happened. Fast and cheap, but you only have what was written down.</li>
+    <li><b>Ambidirectional cohort:</b> past records plus continued follow-up from today.</li>
+  </ul>
+  <div class="box trap"><span class="lbl">Exam trap: the retrospective cohort</span><p>A retrospective cohort uses old records but still reasons <i>forward</i> from exposure to disease. <b>It is still a cohort study</b> (it gives relative risk), <b>not</b> a case-control study. "Retrospective" is about when the researcher arrived; "case-control" is about the direction of reasoning. Examiners love this trick.</p></div>
 
   <h4>Repeated measures and pseudoreplication</h4>
-  <p>When each animal contributes several measurements, those measurements are not independent: an anxious cat scores high on every day you assess it. Treating them as independent observations is <b>pseudoreplication</b>. It inflates the apparent sample size, shrinks the standard errors, and manufactures significance that is not there.</p>
+  <p>An anxious cat scores high on every day you assess it, so its measurements are not independent. Treating them as independent is called <b>pseudoreplication</b>: it makes your sample look bigger than it is and creates significance that isn't real.</p>
   <ul>
-    <li><b>Two time points:</b> paired t-test, or Wilcoxon signed-rank if the data are skewed.</li>
-    <li><b>Three or more time points:</b> repeated-measures analysis of variance, or Friedman's test as the non-parametric analogue.</li>
-    <li><b>The general solution:</b> a <b>mixed-effects (multilevel) model</b> with a random effect for the individual animal. It handles unequal numbers of observations and missing time points, which repeated-measures analysis of variance does not.</li>
+    <li><b>Two time points:</b> paired t-test (Wilcoxon signed-rank if the data are skewed).</li>
+    <li><b>Three or more time points:</b> repeated-measures ANOVA (Friedman test if skewed).</li>
+    <li><b>Best general answer:</b> a <b>mixed-effects model</b> with a random effect for each animal. It copes with missing time points.</li>
   </ul>
-  <div class="box verifybox"><span class="lbl">Shelter example</span><p>Cat stress scores recorded on days 1, 3, 7 and 14 for 40 cats give 160 measurements but only <b>40 independent animals</b>. Analysing 160 rows as though they were 160 cats is the error.</p></div>
+  <div class="box verifybox"><span class="lbl">Shelter example</span><p>Stress scores on days 1, 3, 7 and 14 for 40 cats give 160 measurements but only <b>40 independent animals</b>. Analysing them as 160 cats is the error.</p></div>
 
   <h4>Age, period and cohort effects</h4>
-  <p>Three different explanations for a change over time, routinely confused:</p>
+  <p>Why did something change over time?</p>
   <ul>
-    <li><b>Age effect:</b> the change happens because animals get older.</li>
-    <li><b>Period effect:</b> something affects everyone alive at that moment, regardless of age or when they entered, such as an outbreak year or a change in the law.</li>
-    <li><b>Cohort effect:</b> something specific to the group that <b>entered together</b> and travels with them for life.</li>
+    <li><b>Age:</b> they got older.</li>
+    <li><b>Period:</b> something happened <i>this year</i> that affected everyone alive right then (an outbreak year, a new law).</li>
+    <li><b>Cohort:</b> a group that entered together carries a unique trait with them. <i>Example:</i> puppies adopted during the 2020 pandemic lockdown showing more separation-related behaviour.</li>
   </ul>
-  <div class="box verifybox"><span class="lbl">Shelter example</span><p>Dogs acquired during the 2020 to 2021 pandemic surge show more separation-related behaviour. That is a <b>cohort</b> effect: it is not that dogs of that age are generally worse (age), nor that this year is generally bad for all dogs (period), but that the socialisation environment of the group that entered at that time was unusual, and it stays with them.</p></div>
-  <div class="box trap"><span class="lbl">Exam trap</span><p>Age, period and cohort are mathematically entangled: cohort = period minus age. Knowing any two fixes the third, so the three effects <b>cannot all be estimated at once</b> from observational data without adding an outside assumption. Any paper claiming to have cleanly separated all three has assumed something; look for what.</p></div>
+  <div class="box trap"><span class="lbl">Exam trap</span><p>Cohort = period &minus; age, so the three are tangled together and <b>cannot all be separated at once</b> without an extra assumption.</p></div>
 
   <h4>Time series and interrupted time series</h4>
-  <p>A <b>time series</b> is repeated measurement of a <i>population</i> at regular intervals. Its three characteristic features are a <b>trend</b> (the underlying direction of travel), <b>seasonality</b> (a repeating within-year pattern, which in shelters is dominated by kitten season), and <b>autocorrelation</b> (this month resembles last month, so points are not independent).</p>
-  <p>The <b>interrupted time series</b> is the strong quasi-experimental design for evaluating something you could not randomise, such as a policy or programme launch. You model the pre-intervention trend, project it forward, and test for a change in <b>level</b> (an immediate step) and a change in <b>slope</b> (a different trajectory afterwards).</p>
+  <p>A <b>time series</b> measures a population at regular intervals. It has a <b>trend</b> (the overall direction), <b>seasonality</b> (a repeating yearly pattern, which in shelters means kitten season) and <b>autocorrelation</b> (this month looks like last month).</p>
+  <p>An <b>interrupted time series</b> is the way to judge a programme you couldn't randomise. You model the trend before the programme, project it forward, and test whether the <b>level</b> (an immediate step) or the <b>slope</b> (the direction afterwards) changed.</p>
   <div class="figwrap">
     <svg viewBox="0 0 660 300" role="img" aria-label="Interrupted time series: monthly intake falls gently before a programme starts, then drops in level and falls more steeply, compared against the projected pre-existing trend">
       <defs>
@@ -351,25 +347,26 @@ ul{padding-left:20px}
     </svg>
     <div class="figcap">Interrupted time series. The pre-intervention trend is modelled and projected forward, so the effect is measured as the departure from that projection, in level and in slope. Original construction.</div>
   </div>
-  <div class="box trap"><span class="lbl">Exam trap</span><p>Comparing a raw mean for the year before against the year after is <b>not</b> an interrupted time series and will mislead you twice over. If intake was already falling, a simple before-and-after difference credits the programme with the pre-existing trend. If the two windows straddle kitten season differently, seasonality alone can produce or erase the whole effect.</p></div>
+  <div class="box trap"><span class="lbl">Exam trap</span><p>Comparing the average for the year before with the year after is <b>not</b> an interrupted time series. If intake was already falling, the programme gets credit for a decline that was happening anyway, and kitten season alone can create or hide an effect.</p></div>
 
-  <h3>Experimental studies <span class="badge ref">ref</span></h3>
-  <p>The investigator assigns the intervention. A <b>randomised controlled trial</b> allocates subjects at random to intervention or control. Randomisation balances known and unknown confounders, which is the source of the RCT's causal strength.</p>
+  <h3>4. Experimental studies (intervening) <span class="badge ref">ref</span></h3>
+  <p>The gold standard, because <b>the researcher assigns the treatment</b>, ideally at random.</p>
   <ul>
-    <li><b>Control group:</b> comparison without the intervention (placebo or standard of care).</li>
-    <li><b>Blinding:</b> single-blind (participants or assessors unaware of allocation, not both), double-blind (both participants and investigators unaware), triple-blind (the outcome assessors or data analysts are unaware too). Each added layer removes another route for the placebo, observer or analyst to bias the result.</li>
-    <li><b>Intention-to-treat:</b> analyse subjects in their originally assigned group regardless of protocol completion, preserving the benefits of randomisation.</li>
+    <li><b>Randomised controlled trial (RCT):</b> animals are randomly put into a treatment group or a control group. Random assignment balances out hidden differences, so it proves true cause and effect.</li>
+    <li><b>Control group:</b> the comparison group (placebo or standard care).</li>
+    <li><b>Blinding:</b> people who don't know who got what can't bias the result. Single-blind = one party unaware, double-blind = both participants and investigators unaware, triple-blind = the data analysts are unaware too.</li>
+    <li><b>Intention-to-treat analysis:</b> if an animal drops out or is switched to a different treatment, you <b>still analyse it in the group it was originally assigned to</b>. This keeps the randomisation fair.</li>
   </ul>
 
   <h4>Cluster randomisation</h4>
-  <p>Sometimes the individual animal cannot be the unit of randomisation. You randomise <b>groups</b> instead: kennel wards, foster homes, clinic days, whole shelters. Two situations force it:</p>
+  <p>Sometimes you can't randomise individual animals. You can't give half the dogs in one kennel room a special air filter and the other half nothing. Instead you randomise <b>entire rooms, wards, foster homes or whole shelters</b>. This is needed when:</p>
   <ul>
-    <li><b>The intervention is delivered at group level.</b> A ward-wide sanitation protocol or a change to the ventilation cannot be given to some dogs in a ward and not others.</li>
-    <li><b>Contamination is unavoidable.</b> If treated and untreated animals share air, staff or equipment, the control group is no longer a clean comparison.</li>
+    <li>the intervention is given to a whole group (a ward-wide sanitation protocol), or</li>
+    <li>treated and untreated animals would share air, staff or equipment, so the control group wouldn't be clean.</li>
   </ul>
-  <p>The cost is statistical. Animals within a cluster are more alike than animals in different clusters, quantified by the <b>intracluster correlation coefficient</b>. So the effective sample size is smaller than the number of animals, and the required sample size must be inflated by the <b>design effect</b>, which equals 1 + (average cluster size &minus; 1) &times; intracluster correlation coefficient. Analysis must respect the clustering too, either at cluster level or with a mixed-effects model.</p>
-  <p>A <b>stepped-wedge</b> design is the cluster trial worth knowing for shelter work: every cluster eventually receives the intervention, but the <b>order</b> in which they cross over is randomised. It suits a programme that must be rolled out to everyone anyway, and it lets each cluster act as its own control before it crosses over.</p>
-  <div class="box trap"><span class="lbl">Exam trap</span><p>Analysing a cluster-randomised trial as though animals had been randomised individually is the classic <b>unit of analysis error</b>. It understates the standard errors and produces spuriously significant results. If randomisation happened at ward level, the analysis has to acknowledge the ward. Randomising 12 wards is closer to a study of 12 units than a study of 300 dogs.</p></div>
+  <p>The cost: animals in the same cluster are alike, so you effectively have fewer independent animals than it looks. Inflate the sample size by the <b>design effect</b> = 1 + (average cluster size &minus; 1) &times; ICC (intracluster correlation coefficient).</p>
+  <p><b>Stepped wedge:</b> every cluster eventually gets the intervention, but the <b>order</b> is randomised. It suits a programme that is going to be rolled out to everyone anyway.</p>
+  <div class="box trap"><span class="lbl">Exam trap: unit of analysis error</span><p>If you randomised 12 wards, you can't analyse as though you randomised 300 dogs. That makes results look more significant than they really are.</p></div>
 
   <div class="box verifybox"><span class="lbl">Boundary note</span><p>Research ethics and IACUC oversight (animals cannot consent; the agency acts as steward) sit at the boundary with the Animals and Public Policy (Ethics) domain. Folded in only briefly here; tell me if you want it expanded.</p></div>
 
@@ -399,14 +396,13 @@ ul{padding-left:20px}
     </svg>
     <div class="figcap">Evidence hierarchy for therapy and causation questions in clinical populations. Original construction.</div>
   </div>
-  <div class="box verifybox"><span class="lbl">Off the ladder</span><p>Laboratory, <i>in vitro</i> and challenge studies in purpose-bred animals do not sit on this ladder at all. They answer a different question, mechanism or efficacy under controlled conditions, and they trade external validity for internal validity: tightly controlled, but the animals, the pathogen dose and the housing are not the shelter. A challenge study showing a vaccine protects specific-pathogen-free kittens under a uniform intranasal dose does not tell you the protection rate in a shelter with mixed ages, maternal antibody and variable exposure. Human-medicine pyramids place animal work at the base because it is a step removed from the human patient; in veterinary medicine the species is the target, so the limitation is the artificial conditions, not the species.</p></div>
+  <div class="box verifybox"><span class="lbl">Off the ladder</span><p>Laboratory, <i>in vitro</i> and challenge studies in purpose-bred animals aren't on this ladder. They show whether something <i>can</i> work under tightly controlled conditions, but a shelter has mixed ages, maternal antibody and variable exposure. A vaccine that protects clean research kittens under a uniform dose doesn't tell you the protection rate in your shelter.</p></div>
   <p><b>EBVM, the five A's:</b> Ask, Acquire, Appraise, Apply, Assess.</p>
-  <div class="box trap"><span class="lbl">Exam trap</span><p>The pyramid ranks <b>designs</b>, not individual studies. A large, well-conducted cohort study can be stronger evidence than a small randomised controlled trial with unblinded outcome assessment and 40% loss to follow-up. Design sets the starting point; conduct decides where the study actually lands.</p></div>
-  <p>Note also that the case series and case report tier still contains primary observation, whereas expert opinion and the narrative review contain none. That is why they are separated here even though they are often drawn as one block.</p>
-  <div class="box verifybox"><span class="lbl">Exam relevance</span><p>The study guide states some items come from journal <b>abstracts</b> (5-year lookback, 2021 to 2025). Reading an abstract to identify the design, the measure reported, and the main limitation is a directly tested skill.</p></div>
+  <div class="box trap"><span class="lbl">Exam trap</span><p>The pyramid ranks <b>designs</b>, not individual studies. A large, well-run cohort study can beat a small RCT where 40% of animals were lost to follow-up. The design is the starting point; how well the study was done decides where it really lands.</p></div>
+  <div class="box verifybox"><span class="lbl">Exam relevance</span><p>The study guide states some items come from journal <b>abstracts</b> (5-year lookback, 2021 to 2025). Practise reading an abstract to name the design, the measure reported, and the main limitation.</p></div>
 
   <h3>Types of review <span class="badge ref">ref</span></h3>
-  <p>Four things are all called "reviews" and they are not interchangeable. The abstract usually tells you which one you are reading in its first sentence.</p>
+  <p>Four different things are called "reviews". The first sentence of an abstract usually tells you which one it is.</p>
   <table>
     <thead><tr><th>Type</th><th>Search</th><th>Question it answers</th><th>Appraises quality?</th></tr></thead>
     <tbody>
@@ -416,48 +412,48 @@ ul{padding-left:20px}
       <tr><td><b>Meta-analysis</b></td><td>Inherits the systematic review's search</td><td>What is the single pooled effect estimate?</td><td>Yes, plus statistical pooling</td></tr>
     </tbody>
   </table>
-  <div class="box trap"><span class="lbl">Exam trap</span><p>A systematic review is not just a thorough narrative review. The defining feature is the <b>prespecified, reproducible protocol</b>, written before the search, so that another team following it would retrieve the same studies. Thoroughness alone does not make a review systematic. Equally, not every systematic review contains a meta-analysis; pooling is only legitimate when the studies are similar enough to combine.</p></div>
-  <div class="box verifybox"><span class="lbl">Scoping review</span><p>A scoping review deliberately does not grade quality. Finding that only three small studies address a question, and that all three are uncontrolled, is a legitimate and useful result. In shelter medicine, where the literature is thin, scoping reviews are common and are often the honest answer to a new question.</p></div>
+  <div class="box trap"><span class="lbl">Exam trap</span><p>A systematic review is not just a thorough narrative review. What makes it systematic is a <b>plan written before the search</b> that another team could follow to find the same studies. Not every systematic review includes a meta-analysis; studies are only pooled when they are similar enough.</p></div>
+  <div class="box verifybox"><span class="lbl">Scoping review</span><p>A scoping review deliberately does not grade quality. Finding that only three small, uncontrolled studies exist is a useful result. In shelter medicine the evidence is thin, so scoping reviews are common.</p></div>
 
   <h3>Systematic review and meta-analysis machinery <span class="badge ref">ref</span></h3>
   <ul>
-    <li><b>PICO (Population, Intervention, Comparison, Outcome):</b> the framework that structures the question and generates the search terms. A question that cannot be written as a PICO is usually not yet answerable.</li>
-    <li><b>PRISMA (Preferred Reporting Items for Systematic Reviews and Meta-Analyses):</b> the reporting standard. Its flow diagram accounts for every record from identification through screening and exclusion to final inclusion, so a reader can see what was discarded and why.</li>
-    <li><b>Heterogeneity:</b> the extent to which studies genuinely differ in their effects, rather than differing by chance. The <b>I-squared</b> statistic expresses the percentage of the variation that is due to real differences between studies. High heterogeneity is a signal that pooling into one number may be misleading.</li>
-    <li><b>Forest plot:</b> one row per study. The box is that study's effect estimate and its size reflects the study's weight; the horizontal line is the confidence interval; the diamond at the foot is the pooled estimate. The vertical line of no effect sits at 1 for ratio measures such as relative risk and odds ratio, and at 0 for differences.</li>
-    <li><b>Funnel plot and publication bias:</b> effect size is plotted against study precision. Because small studies scatter widely and large studies cluster tightly, a complete literature forms a symmetrical inverted funnel. Asymmetry, typically a missing corner of small studies showing no effect, suggests <b>publication bias</b>: negative and small studies are less likely to be written up, submitted and accepted.</li>
+    <li><b>PICO (Population, Intervention, Comparison, Outcome):</b> the framework that structures the question and generates the search terms. </li>
+    <li><b>PRISMA (Preferred Reporting Items for Systematic Reviews and Meta-Analyses):</b> the reporting standard. Its flow diagram shows every record from search to final inclusion, so a reader can see what was thrown out and why.</li>
+    <li><b>Heterogeneity:</b> how much the studies truly differ from each other. <b>I-squared</b> is the percentage of the variation that is real difference rather than chance. High I-squared means pooling into one number may mislead.</li>
+    <li><b>Forest plot:</b> one row per study. The box is the study's result (bigger box = more weight), the horizontal line is its confidence interval, and the diamond at the bottom is the pooled result. The "no effect" line sits at 1 for RR and OR, and at 0 for differences.</li>
+    <li><b>Funnel plot and publication bias:</b> a complete set of studies forms a symmetrical upside-down funnel. A missing corner (small studies that found nothing) suggests <b>publication bias</b>: studies with negative results are less likely to be published.</li>
   </ul>
-  <div class="box trap"><span class="lbl">Exam trap</span><p>Publication bias inflates the pooled estimate of a meta-analysis, because the missing studies are disproportionately the ones that found nothing. A meta-analysis sitting at the apex of the pyramid is only as good as the literature it could find, and that literature is systematically incomplete.</p></div>
+  <div class="box trap"><span class="lbl">Exam trap</span><p>Publication bias inflates a meta-analysis result, because the missing studies are mostly the ones that found nothing.</p></div>
 
   <h3>Critical appraisal and GRADE <span class="badge ref">ref</span></h3>
-  <p><b>Critical appraisal</b> is the structured judgement of a single study, and it reduces to three questions:</p>
+  <p><b>Critical appraisal</b> means judging a single study with three questions:</p>
   <ul>
-    <li><b>Are the results valid?</b> Internal validity: allocation, blinding, follow-up, confounding control, appropriate analysis.</li>
-    <li><b>What are the results?</b> The size of the effect and the precision around it, not merely whether a p-value cleared 0.05.</li>
-    <li><b>Will they help my animals?</b> External validity: were the study's animals, setting and comparator close enough to a shelter population for the finding to transfer?</li>
+    <li><b>Are the results valid?</b> Was it done properly (allocation, blinding, follow-up, confounding, analysis)?</li>
+    <li><b>What are the results?</b> How big is the effect, and how precise (not just p &lt; 0.05)?</li>
+    <li><b>Will they help my animals?</b> Were the study animals and setting close enough to a shelter?</li>
   </ul>
-  <p><b>GRADE (Grading of Recommendations Assessment, Development and Evaluation)</b> grades a whole body of evidence rather than one paper. Randomised trials enter at high certainty and observational studies at low, and the rating then moves:</p>
+  <p><b>GRADE (Grading of Recommendations Assessment, Development and Evaluation)</b> rates a whole body of evidence, not one paper. RCTs start high and observational studies start low, then the rating moves:</p>
   <ul>
-    <li><b>Rated down</b> for risk of bias, inconsistency between studies, indirectness (wrong population, comparator or outcome), imprecision, and suspected publication bias.</li>
-    <li><b>Rated up</b> for a very large effect, a dose-response gradient, or where plausible confounding would have worked against the effect that was still observed.</li>
+    <li><b>Down</b> for risk of bias, inconsistent results, wrong population or outcome (indirectness), imprecision, and suspected publication bias.</li>
+    <li><b>Up</b> for a very large effect, a dose-response pattern, or confounding that would have worked <i>against</i> the effect that was still seen.</li>
   </ul>
-  <div class="box verifybox"><span class="lbl">Why this matters here</span><p>GRADE is the formal expression of the trap noted above: design is where a study starts, not where it ends. This is also why observational shelter data is not disqualified in advance. A large intake cohort showing a strong, dose-dependent association, in circumstances where confounding would have diluted rather than created it, can be rated up.</p></div>
+  <div class="box verifybox"><span class="lbl">Why this matters here</span><p>Design is where a study starts, not where it ends. Good observational shelter data can still be rated up.</p></div>
 </section>
 
 <!-- ============ INFERENCE ============ -->
 <section class="panel" id="inference">
   <h2>Statistical Inference</h2>
-  <p class="lead">Hypothesis testing, confidence intervals, and the two ways a test can be wrong. The traps here are conceptual, not arithmetic.</p>
+  <p class="lead">Is the result real or just chance? Hypothesis testing, confidence intervals, and the two ways a test can be wrong.</p>
 
   <h3>Hypothesis testing <span class="badge ref">ref</span></h3>
   <ul>
     <li><b>Null hypothesis (H0):</b> no difference or association (for example, relative risk = 1).</li>
     <li><b>Alternative hypothesis (H1):</b> a difference or association exists.</li>
-    <li><b>p-value:</b> the probability of the observed data, or something more extreme, <b>if the null hypothesis were true</b>, compared to a preset alpha (commonly 0.05).</li>
+    <li><b>p-value:</b> how surprising your data would be <b>if the null hypothesis were true</b>. A small p (below the preset alpha, commonly 0.05) means the data would be surprising if nothing were going on, so you reject the null.</li>
   </ul>
-  <div class="box trap"><span class="lbl">High-yield trap</span><p>A p-value is <b>not</b> the probability that the null hypothesis is true, and <b>not</b> the probability the result occurred by chance. It only says the data are unlikely under the null.</p></div>
+  <div class="box trap"><span class="lbl">High-yield trap</span><p>A p-value is <b>not</b> the probability that the null hypothesis is true, and <b>not</b> the probability the result happened by chance. It only says how unlikely the data are if there were no effect.</p></div>
   <h4>Statistical vs clinical significance</h4>
-  <p>With a large enough sample, a trivially small, clinically meaningless difference can reach statistical significance. Always judge effect size, not just whether p is below 0.05.</p>
+  <p>With a big enough sample, a tiny difference that doesn't matter clinically can still be "significant". Always look at how big the effect is, not just whether p is below 0.05.</p>
 
   <h3>Confidence intervals <span class="badge ref">ref</span></h3>
   <p>A study result is only an estimate, because you can never test every animal. A <b>confidence interval (CI)</b> is the range of plausible values for where the true number probably lies. <i>Example:</i> RR = 2.0 (95% CI: 1.2 to 3.4) means we are 95% confident the true risk multiplier for the whole population is between 1.2 and 3.4.</p>
@@ -517,32 +513,32 @@ ul{padding-left:20px}
 <!-- ============ BIAS ============ -->
 <section class="panel" id="bias">
   <h2>Bias and Validity</h2>
-  <p class="lead">Bias is systematic error built into the study; it does not shrink with a larger sample. Random error does. Keeping that line clear answers a surprising share of items.</p>
+  <p class="lead">Bias is a built-in error that pushes results one way, and a bigger sample does not fix it. Random error (chance) does shrink with a bigger sample.</p>
 
   <h3>Bias <span class="badge ref">ref</span></h3>
   <table>
     <thead><tr><th>Bias</th><th>What happens</th></tr></thead>
     <tbody>
-      <tr><td>Selection bias</td><td>Subjects selected in a way that distorts the exposure to outcome relationship</td></tr>
-      <tr><td>Information (measurement) bias</td><td>Systematic error in how exposure or outcome is measured or recorded</td></tr>
-      <tr><td>Misclassification</td><td>A form of information bias. Non-differential (errors equal across groups) usually biases toward the null; differential (errors differ by group) can bias either way</td></tr>
-      <tr><td>Recall bias</td><td>Cases remember exposures differently than controls; classic in case-control</td></tr>
-      <tr><td>Observer bias</td><td>The assessor's knowledge of group assignment influences the assessment</td></tr>
+      <tr><td>Selection bias</td><td>The animals you picked aren't a fair sample, which distorts the link between exposure and disease</td></tr>
+      <tr><td>Information (measurement) bias</td><td>Exposure or outcome is measured or recorded wrongly in a consistent way</td></tr>
+      <tr><td>Misclassification</td><td>Animals put in the wrong category. <b>Non-differential</b> (same errors in every group) hides a real effect. <b>Differential</b> (errors differ by group) can hide or invent one</td></tr>
+      <tr><td>Recall bias</td><td>Sick animals' owners remember past exposures differently from owners of healthy animals; classic in case-control</td></tr>
+      <tr><td>Observer bias</td><td>The person assessing knows which group the animal is in, and that sways the reading</td></tr>
     </tbody>
   </table>
-  <div class="box trap"><span class="lbl">Exam trap</span><p>Random error reflects chance, shrinks with larger samples, and shows up as wider confidence intervals. <b>Bias is systematic and is not fixed by a larger sample.</b></p></div>
+  <div class="box trap"><span class="lbl">Exam trap</span><p>Random error (chance) shrinks with a larger sample. <b>Bias does not.</b></p></div>
 
   <h3>Named bias subtypes <span class="badge ref">ref</span></h3>
-  <p>These are specific, named instances of the general bias categories above — exams like to name-drop the specific variant rather than the parent category.</p>
+  <p>Specific, named versions of the biases above. Exams like to use the specific name.</p>
   <table>
     <thead><tr><th>Bias</th><th>What happens</th></tr></thead>
     <tbody>
-      <tr><td>Hawthorne effect</td><td>Subjects alter their behaviour simply because they know they are being studied, distorting the outcome independent of any real exposure effect</td></tr>
-      <tr><td>Healthy worker effect</td><td>A selection bias subtype: an actively employed or working population (for example, working dogs, staff-owned animals) shows better health outcomes than the general population, because the unwell are not represented in it</td></tr>
-      <tr><td>Nonresponder bias</td><td>A selection bias subtype: individuals who do not respond to a survey or recall request differ systematically from those who do, skewing the sample</td></tr>
-      <tr><td>Exclusion bias</td><td>A selection bias subtype: a particular subgroup is systematically left out of the sample, distorting the exposure-outcome relationship for the population as a whole</td></tr>
-      <tr><td>Reporting (publication) bias</td><td>Statistically significant or "positive" results are more likely to be published, cited, and published faster than null results, skewing the literature available for review</td></tr>
-      <tr><td>Surveillance (detection) bias</td><td>One exposure group is monitored more closely than the other, so its outcomes are more likely to be detected — inflating its apparent disease frequency relative to the less-watched group</td></tr>
+      <tr><td>Hawthorne effect</td><td>People change their behaviour just because they know they are being studied</td></tr>
+      <tr><td>Healthy worker effect</td><td>A selection bias: a working group (working dogs, staff-owned pets) looks healthier than the general population, because unwell animals aren't in it</td></tr>
+      <tr><td>Nonresponder bias</td><td>A selection bias: people who don't answer a survey differ from those who do</td></tr>
+      <tr><td>Exclusion bias</td><td>A selection bias: one subgroup is left out of the sample</td></tr>
+      <tr><td>Reporting (publication) bias</td><td>Positive results get published more than "nothing found" results, so the literature looks better than it is</td></tr>
+      <tr><td>Surveillance (detection) bias</td><td>One group is watched more closely, so more of its disease is found and it looks sicker</td></tr>
     </tbody>
   </table>
 
@@ -553,17 +549,17 @@ ul{padding-left:20px}
     <li>an independent risk factor for the outcome, and</li>
     <li><b>not</b> on the causal pathway between exposure and outcome.</li>
   </ul>
-  <p><b>Control by design:</b> randomisation (balances unknown confounders too), restriction, matching. <b>Control by analysis:</b> stratification (Mantel-Haenszel) and multivariable regression.</p>
-  <div class="box verifybox"><span class="lbl">Clarification</span><p><b>Effect modification</b> is different from confounding. Here the true effect genuinely differs across levels of a third variable (for example, a handling intervention helps adults but not puppies). It is a real finding to report by stratum, not a nuisance to adjust away.</p></div>
+  <p><b>Control it by design:</b> randomise (this balances unknown confounders too), restrict, or match. <b>Control it in the analysis:</b> stratify (Mantel-Haenszel) or use multivariable regression.</p>
+  <div class="box verifybox"><span class="lbl">Clarification</span><p><b>Effect modification</b> is different from confounding. The effect is genuinely different in different groups (for example, a handling programme helps adults but not puppies). Report each group separately; don't adjust it away.</p></div>
 
   <h3>Validity, reliability and sampling <span class="badge ref">ref</span></h3>
   <ul>
-    <li><b>Internal validity:</b> the study correctly measures what it set out to, free of bias and confounding.</li>
-    <li><b>External validity (generalisability):</b> results apply beyond the sample. A tightly controlled study can have high internal but low external validity.</li>
-    <li><b>Reliability (precision)</b> is consistency on repetition; <b>validity (accuracy)</b> is closeness to truth. A measure can be reliable but not valid. Observer agreement is quantified with the <b>kappa</b> statistic, which corrects for chance agreement.</li>
-    <li><b>Measurement equivalence across groups</b>: a 2022 validation study of a new human-animal bond measure, the Family Bondedness Scale, used multi-group confirmatory factor analysis and found the scale's scores were <b>equivalent between cat and dog owners</b> — a specific form of validity evidence (the instrument measures the same underlying construct comparably across groups) that the same study noted is often missing from human-animal-bond measures generally <span class="exp">(Nugent, <i>Frontiers</i>, 2022 — see journal abstracts below)</span>.</li>
+    <li><b>Internal validity:</b> the study measures what it set out to, free of bias and confounding.</li>
+    <li><b>External validity (generalisability):</b> the results apply beyond the study sample. A tightly controlled study can be high on internal but low on external validity.</li>
+    <li><b>Reliability (precision)</b> = you get the same answer each time. <b>Validity (accuracy)</b> = the answer is close to the truth. A measure can be reliable but wrong. <b>Kappa</b> measures how well two observers agree, after allowing for chance.</li>
+    <li><b>Measurement equivalence:</b> a 2022 study found the Family Bondedness Scale (a human-animal bond measure) scored <b>equivalently for cat and dog owners</b>, so scores can fairly be compared between them <span class="exp">(Nugent, <i>Frontiers</i>, 2022 — see journal abstracts below)</span>.</li>
   </ul>
-  <p><b>Probability sampling</b> (supports inference): simple random, systematic, stratified, cluster. <b>Non-probability sampling</b> (weaker): convenience, purposive. Convenience samples are a common source of selection bias and a frequent distractor for "what weakens generalisability".</p>
+  <p><b>Probability sampling</b> (supports inference): simple random, systematic, stratified, cluster. <b>Non-probability sampling</b> (weaker): convenience, purposive. Convenience samples are a common source of selection bias.</p>
 </section>
 
 <!-- ============ TESTS ============ -->
@@ -602,56 +598,56 @@ ul{padding-left:20px}
   <div class="box verifybox"><span class="lbl">Shelter link</span><p>Kaplan-Meier and survival analysis are the proper tools for length-of-stay and time-to-outcome data, because they handle animals still in care (censored observations). This connects your Data and Analysis work to study-design methodology.</p></div>
 
   <h3>Test by test, with shelter examples <span class="badge ref">ref</span></h3>
-  <p>The table above is the quick lookup; this section is the reasoning behind each row, with the shelter-medicine example you are most likely to meet on the exam.</p>
+  <p>The table above is the quick lookup. This section says why, with a shelter example for each.</p>
 
   <h4>Comparing group means (continuous outcome)</h4>
   <ul>
-    <li><b>Independent t-test:</b> compares the mean of a continuous, roughly normally distributed outcome between <b>exactly two independent groups</b>. It assumes independent observations, approximate normality (which matters most at small n, because the Central Limit Theorem rescues you at larger n), and equal variances. <b>Welch's t-test</b> relaxes that last assumption and is often the safer default. <i>Shelter example:</i> mean length of stay in single versus group housing.</li>
-    <li><b>Paired t-test:</b> use this instead when the two measurements come from the <b>same animals</b> (for example weight before and after a deworming protocol), because the observations are no longer independent.</li>
-    <li><b>One-way ANOVA:</b> the same idea extended to <b>three or more groups</b>. You use it rather than running multiple t-tests because each pairwise t-test carries its own false-positive risk, and stacking them inflates the <b>family-wise error rate</b>. ANOVA gives one omnibus test of "do any group means differ"; if it is significant you follow with <b>post-hoc comparisons</b> (Tukey HSD, Bonferroni) to identify which pairs differ. <i>Shelter example:</i> mean length of stay across owner-surrender, stray, and transfer intake.</li>
+    <li><b>Independent t-test:</b> compares the average of a number (like length of stay) between <b>exactly two separate groups</b>. It assumes the data are roughly bell-shaped and the groups have similar spread. <b>Welch's t-test</b> doesn't need similar spread, so it is often the safer choice. <i>Shelter example:</i> average length of stay in single vs group housing.</li>
+    <li><b>Paired t-test:</b> use this when the two measurements come from the <b>same animals</b> (for example weight before and after deworming).</li>
+    <li><b>One-way ANOVA:</b> the same idea for <b>three or more groups</b>. Running lots of t-tests adds up the chance of a false positive, so ANOVA asks one question first: "do any of the group averages differ?" If yes, follow with <b>post-hoc tests</b> (Tukey HSD, Bonferroni) to see which pairs differ. <i>Shelter example:</i> average length of stay for owner-surrender, stray and transfer intake.</li>
   </ul>
 
   <h4>Comparing proportions (categorical outcome)</h4>
   <ul>
-    <li><b>Chi-square:</b> tests whether the distribution of counts across categories departs from what you would expect if the variables were independent. The standard assumption is <b>expected cell counts of at least 5</b>. <i>Shelter example:</i> adoption versus euthanasia outcome by feline leukaemia virus (FeLV) status.</li>
-    <li><b>Fisher's exact test:</b> switch to this when cells are sparse; it computes the probability directly rather than relying on the chi-square approximation.</li>
+    <li><b>Chi-square:</b> tests whether counts in categories differ from what you'd expect if the two things were unrelated. It needs <b>at least 5 expected in each cell</b>. <i>Shelter example:</i> adoption vs euthanasia outcome by feline leukaemia virus (FeLV) status.</li>
+    <li><b>Fisher's exact test:</b> use this instead when the numbers in the cells are small.</li>
   </ul>
 
   <h4>Measuring association (two continuous variables)</h4>
   <ul>
-    <li><b>Pearson correlation (r, ranging -1 to +1):</b> quantifies the strength and direction of a <b>linear</b> relationship; for inference it assumes linearity, normally distributed residuals, and constant variance.</li>
-    <li><b>Linear regression:</b> goes a step further, modelling the outcome as a function of one or more predictors. It gives you a <b>slope</b> (effect size), the ability to predict, and the ability to <b>adjust for confounders</b>. <i>Shelter example:</i> weight regressed on age, or surgery time on body weight.</li>
+    <li><b>Pearson correlation (r, from -1 to +1):</b> how strong and in which direction a <b>straight-line</b> relationship is.</li>
+    <li><b>Linear regression:</b> goes a step further. It gives a <b>slope</b> (how much the outcome changes per unit), lets you predict, and lets you <b>adjust for confounders</b>. <i>Shelter example:</i> weight against age, or surgery time against body weight.</li>
   </ul>
 
   <h4>Modelling a binary outcome with several predictors</h4>
-  <p><b>Logistic regression</b> is the workhorse of shelter outcome research, because most shelter outcomes are binary (adopted or not, live-release or not, returned or not) and you almost always want to adjust for multiple predictors at once. It models the <b>log-odds</b> of the outcome, and its coefficients exponentiate into <b>odds ratios</b>, which are directly interpretable.</p>
+  <p><b>Logistic regression</b> is used when the outcome is yes/no (adopted or not, live release or not) and you want to adjust for several things at once. Its results come out as <b>odds ratios</b>.</p>
 
   <h4>Skewed or ordinal data (non-parametric)</h4>
-  <p>These tests work on <b>ranks</b> rather than raw values, so they make no normality assumption. Each one is the non-parametric analogue of a parametric test:</p>
+  <p>These tests rank the values instead of using the raw numbers, so the data don't need to be bell-shaped. Each one replaces a regular test:</p>
   <ul>
     <li><b>Mann-Whitney U</b> (Wilcoxon rank-sum) replaces the two-group t-test.</li>
     <li><b>Kruskal-Wallis</b> replaces one-way ANOVA.</li>
-    <li><b>Spearman's rho</b> replaces Pearson and detects a <b>monotonic</b> rather than strictly linear association.</li>
-    <li><b>Wilcoxon signed-rank</b> replaces the paired t-test, and <b>Friedman's test</b> replaces repeated-measures analysis of variance, for the repeated-measurement designs below.</li>
+    <li><b>Spearman's rho</b> replaces Pearson (it finds a relationship that goes steadily up or down, not only a straight line).</li>
+    <li><b>Wilcoxon signed-rank</b> replaces the paired t-test, and <b>Friedman's test</b> replaces repeated-measures ANOVA.</li>
   </ul>
-  <p>This matters for shelter work specifically because length-of-stay data are classically <b>right-skewed</b> &mdash; which is exactly why the Shelter link box above flags survival methods, and why a Mann-Whitney is often more defensible than a t-test on raw length of stay.</p>
+  <p>Length-of-stay data are usually <b>right-skewed</b> (lots of short stays, a few very long ones), so a Mann-Whitney is often a better choice than a t-test.</p>
 
   <h4>Time to an event</h4>
   <ul>
-    <li><b>Kaplan-Meier</b> estimates the survival (or "still in care") curve over time and, crucially, handles <b>censoring</b>: animals still in the shelter at study end, or whose follow-up ends before the event, contribute the information they have without being dropped or treated as if the event occurred.</li>
+    <li><b>Kaplan-Meier</b> draws the "still in care" curve over time and handles <b>censoring</b>: animals still in the shelter at the end of the study are counted for the time they were observed, not dropped.</li>
     <li><b>Log-rank test:</b> compares two or more Kaplan-Meier curves.</li>
     <li><b>Cox proportional hazards:</b> the regression extension, giving <b>hazard ratios</b> while adjusting for covariates.</li>
   </ul>
-  <p>A plain mean length of stay is biased precisely because it ignores censored animals &mdash; the methodological point the Shelter link box above is making.</p>
+  <p>A plain average length of stay is biased because it ignores animals still in care.</p>
 
   <h4>Repeated measurements on the same animals</h4>
-  <p>Every test above assumes each row is a different animal. Once the same animal appears more than once, you need the paired or repeated version, or the whole test is invalid:</p>
+  <p>Every test above assumes each row is a different animal. If the same animal appears more than once, use the paired or repeated version:</p>
   <ul>
-    <li><b>Paired t-test</b> for two time points, because what is being tested is the mean of the <b>within-animal differences</b>, not the difference between two independent means. Pairing removes between-animal variability, which is why the paired test is usually more powerful for the same number of animals.</li>
-    <li><b>Repeated-measures analysis of variance</b> for three or more time points. Its weakness is that it needs a complete set of measurements on every animal: one missing time point and the animal is dropped entirely.</li>
-    <li><b>Mixed-effects (multilevel) models</b> are the general answer, and increasingly the expected one. A <b>random effect</b> for animal says each animal has its own baseline; <b>fixed effects</b> carry the predictors you actually want to test. They tolerate missing and unequally spaced time points, and the same machinery absorbs clustering of any kind, including littermates, households and kennel wards.</li>
+    <li><b>Paired t-test</b> for two time points. It tests the <b>change within each animal</b>, which removes animal-to-animal differences and makes it more powerful.</li>
+    <li><b>Repeated-measures ANOVA</b> for three or more time points. Weakness: one missing time point and the animal is dropped.</li>
+    <li><b>Mixed-effects (multilevel) models</b> are the best general answer. A <b>random effect</b> gives each animal its own baseline, and the <b>fixed effects</b> are what you want to test. They cope with missing time points and with clustering (littermates, households, kennel wards).</li>
   </ul>
-  <p><i>Shelter example:</i> stress scores on days 1, 3, 7 and 14 in 40 cats housed under two enrichment protocols. The comparison of interest is the protocol, but the model has to know that the 160 rows come from 40 cats. See the study-design caveat at the foot of this section, which is the same point stated from the design side.</p>
+  <p><i>Shelter example:</i> stress scores on days 1, 3, 7 and 14 in 40 cats under two enrichment protocols. You want to compare the protocols, but the model must know the 160 rows come from 40 cats.</p>
 
   <h4>The framework worth memorising</h4>
   <p>There is a clean parallel that ties the whole table together: each "simple" comparison test has a <b>regression counterpart</b> that lets you adjust for confounders.</p>
@@ -663,9 +659,9 @@ ul{padding-left:20px}
       <tr><td>Log-rank test</td><td>Cox proportional hazards</td><td>Time-to-event</td></tr>
     </tbody>
   </table>
-  <div class="box verifybox"><span class="lbl">Exam framework</span><p>The simple test answers "do these groups differ?"; the regression answers "do they differ after accounting for everything else?"</p></div>
+  <div class="box verifybox"><span class="lbl">Exam framework</span><p>The simple test asks "do these groups differ?" The regression asks "do they still differ after accounting for everything else?"</p></div>
 
-  <div class="box trap"><span class="lbl">Study-design caveat</span><p>Every test above assumes <b>independent observations</b>, and shelter data routinely violate this: littermates, animals from the same household, or repeat surrenders are correlated. When observations cluster, you move to <b>mixed-effects (multilevel) models</b> or, for matched case-control designs, <b>conditional logistic regression</b>. This is the link between study design and test choice that the table cannot show: the design determines whether the standard test is even <i>valid</i>, not just which one you reach for.</p></div>
+  <div class="box trap"><span class="lbl">Study-design caveat</span><p>Every test above assumes <b>each animal is independent</b>. Shelter data often break this: littermates, animals from one household and repeat surrenders are alike. When animals cluster, use a <b>mixed-effects model</b>, or <b>conditional logistic regression</b> for matched case-control studies.</p></div>
 
   <h3>Association vs causation <span class="badge ref">ref</span></h3>
   <p>The <b>Bradford Hill considerations</b> help judge causality: temporality, strength, dose-response, consistency, plausibility, coherence, experimental evidence, specificity, analogy.</p>
