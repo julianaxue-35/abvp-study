@@ -478,14 +478,32 @@ ul{padding-left:20px}
   <p class="lead">Is the result real or just chance? Hypothesis testing, confidence intervals, and the two ways a test can be wrong.</p>
 
   <h3>Hypothesis testing <span class="badge ref">ref</span></h3>
+
+  <h4>1. The two hypotheses (H0 and H1)</h4>
+  <p>When scientists test a new idea, they set up two competing theories before the study even starts:</p>
   <ul>
-    <li><b>Null hypothesis (H0):</b> no difference or association (for example, relative risk = 1).</li>
-    <li><b>Alternative hypothesis (H1):</b> a difference or association exists.</li>
-    <li><b>p-value:</b> how surprising your data would be <b>if the null hypothesis were true</b>. A small p (below the preset alpha, commonly 0.05) means the data would be surprising if nothing were going on, so you reject the null.</li>
+    <li><b>Null hypothesis (H0):</b> the "boring" default. It assumes <b>nothing is happening</b> and the treatment does absolutely nothing. <i>Example:</i> "This new kennel disinfectant has zero effect on ringworm rates; it's identical to plain water." (In numbers: relative risk = 1.)</li>
+    <li><b>Alternative hypothesis (H1):</b> the exciting theory. It assumes <b>there is a real difference or effect</b>. <i>Example:</i> "No, the new disinfectant actually lowers ringworm rates."</li>
   </ul>
-  <div class="box trap"><span class="lbl">High-yield trap</span><p>A p-value is <b>not</b> the probability that the null hypothesis is true, and <b>not</b> the probability the result happened by chance. It only says how unlikely the data are if there were no effect.</p></div>
-  <h4>Statistical vs clinical significance</h4>
-  <p>With a big enough sample, a tiny difference that doesn't matter clinically can still be "significant". Always look at how big the effect is, not just whether p is below 0.05.</p>
+
+  <h4>2. The p-value (is it just random luck?)</h4>
+  <p>When you run your study and get a result, you calculate a <b>p-value</b>.</p>
+  <ul>
+    <li><b>What it asks:</b> if the treatment really did nothing, how likely is it that you would still see results this extreme, just by random luck?</li>
+    <li><b>The magic threshold (0.05):</b> science uses 0.05 (5%) as the standard cut-off line.</li>
+    <li><b>The conclusion (p &lt; 0.05):</b> if your p-value drops <b>below 0.05</b>, results like yours would be so unlikely under "nothing is happening" that you can throw out the boring assumption. You conclude your intervention had a <b>real effect</b>.</li>
+    <li><b>If p is 0.05 or higher:</b> random luck could easily explain your result, so you cannot throw out the null hypothesis. That is not the same as proving there is no effect.</li>
+  </ul>
+  <div class="box trap"><span class="lbl">The big exam trap</span><p>A p-value is <b>not</b> the probability that your hypothesis is correct, and it is <b>not</b> the probability that the result happened by random luck. It <b>only</b> tells you how likely you would be to see these results <i>if the treatment were a total dud</i>.</p></div>
+
+  <h4>3. Statistical significance vs clinical significance</h4>
+  <p>A classic trap that examiners love to test:</p>
+  <ul>
+    <li><b>Statistical significance (p &lt; 0.05):</b> the maths says the result probably wasn't random luck.</li>
+    <li><b>Clinical significance:</b> the result actually matters in the real world.</li>
+  </ul>
+  <div class="box verifybox"><span class="lbl">Shelter example</span><p>A huge study tests a new cat food on <b>50,000 shelter cats</b>. It finds the new food makes cats live <b>2 days longer</b> over a 15-year lifespan, and because the sample is so big, p = 0.001.</p><p style="margin-top:6px"><b>Statistically significant?</b> Yes (p &lt; 0.05). <b>Clinically significant?</b> No. Nobody cares about 2 extra days in 15 years.</p></div>
+  <p><b>Golden rule:</b> always look at how <i>big</i> the effect is, not just whether the authors squeezed a p-value below 0.05 by using a giant sample.</p>
 
   <h3>Confidence intervals <span class="badge ref">ref</span></h3>
   <p>A study result is only an estimate, because you can never test every animal. A <b>confidence interval (CI)</b> is the range of plausible values for where the true number probably lies. <i>Example:</i> RR = 2.0 (95% CI: 1.2 to 3.4) means we are 95% confident the true risk multiplier for the whole population is between 1.2 and 3.4.</p>
