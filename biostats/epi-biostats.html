@@ -159,7 +159,7 @@
       <div class="tags"><b>Research &amp; Biostats</b> · 6% of exam · a teaching walk-through of your notes, formula by formula</div>
     </header>
 
-    <p class="intro">Almost every biostats question is really one of five moves: <b>count disease</b> (incidence/prevalence) → <b>compare two groups</b> (RR/OR) → <b>judge a test</b> (Se/Sp/PPV) → <b>pick the right study</b> → <b>decide if a result is real</b> (p-value/CI). Everything below is built on one tiny table of four numbers — learn that table first and the formulas fall out of it.</p>
+    <p class="intro">Almost every epidemiology question is really one of four moves: <b>count disease</b> (incidence/prevalence) → <b>compare two groups</b> (RR/OR/NNT) → <b>judge a test</b> (Se/Sp/PPV/NPV) → <b>watch for spread</b> (surveillance, R₀). Study design, bias and "is the result real?" (p-value/CI) are on the Study Design sheet. Everything below is built on one tiny table of four numbers — learn that table first and the formulas fall out of it.</p>
 
     <div class="toc">
       <a href="#freq">1 · Counting disease</a>
@@ -167,10 +167,7 @@
       <a href="#assoc">3 · Comparing groups (RR/OR/NNT)</a>
       <a href="#mort">4 · Death metrics</a>
       <a href="#test">5 · Judging a test</a>
-      <a href="#design">6 · Study design</a>
-      <a href="#surv">7 · Surveillance &amp; curves</a>
-      <a href="#bias">8 · Bias &amp; confounding</a>
-      <a href="#stats">9 · Is it real? (p &amp; CI)</a>
+      <a href="#surv">6 · Surveillance &amp; curves</a>
     </div>
 
     <!-- ================= 1. FREQUENCY ================= -->
@@ -360,68 +357,8 @@
       </section>
     </div>
 
-    <!-- ================= 6. STUDY DESIGN ================= -->
-    <div class="band" id="design"><h2>6 · Study design — which study answers the question</h2></div>
-    <div class="grid">
-      <section class="card">
-        <h2>Descriptive — <span style="color:var(--muted);font-weight:400">generate a hypothesis</span></h2>
-        <p class="plain">Describe what's happening; <b>cannot test</b> a hypothesis, only <b>raise</b> one. No comparison group.</p>
-        <ul>
-          <li><b>Case report</b> — one animal</li>
-          <li><b>Case series</b> — several similar cases</li>
-          <li><b>Cross-sectional</b> — snapshot of a population</li>
-          <li><b>Ecological</b> — correlation at the <i>group</i> level</li>
-        </ul>
-      </section>
-
-      <section class="card">
-        <h2>Analytic observational — <span style="color:var(--muted);font-weight:400">test a hypothesis</span></h2>
-        <p class="plain">You <b>observe</b> (don't assign) exposure, and you have a comparison group. The key question is <b>which end you start from</b>:</p>
-        <ul>
-          <li><b>Cohort</b> — start with <b>exposure</b>, follow <b>forward</b>, measure outcome. → gives <b>incidence &amp; RR</b>. Good for common diseases &amp; multiple outcomes.</li>
-          <li><b>Case-control</b> — start with the <b>outcome</b>, look <b>back</b> for exposure. → gives <b>OR</b>. Good for <b>rare / slow</b> disease; prone to <b>recall &amp; selection bias</b>.</li>
-          <li><b>Cross-sectional</b> — measure exposure <b>and</b> outcome at once → gives <b>prevalence</b>; <b>cannot establish temporality</b> (which came first).</li>
-        </ul>
-      </section>
-
-      <section class="card">
-        <h2>Experimental — the investigator assigns</h2>
-        <p class="plain"><b>Randomised controlled trial (RCT)</b> — the <b>gold standard</b>. Animals are <b>randomly</b> put into an <b>intervention</b> group vs a <b>control</b> group. Randomisation balances confounders, so it's the strongest design for proving <b>causation</b>.</p>
-        <p class="plain"><b>Cluster randomised trial</b> — randomise <b>groups</b> (kennel wards, foster homes, whole shelters) when the intervention is delivered at group level, or when contamination between animals is unavoidable. Animals in a cluster are alike, so the effective sample size is smaller than the animal count: inflate it by the <b>design effect</b> = 1 + (mean cluster size &minus; 1) &times; <b>ICC</b> (intracluster correlation coefficient).</p>
-        <div class="ex" style="margin-top:6px"><b>Unit of analysis error.</b> If you randomised 12 <i>wards</i>, you cannot analyse as though you randomised 300 <i>dogs</i>. Doing so understates the standard errors and manufactures significance.</div>
-      </section>
-
-      <section class="card">
-        <h2>Measuring the same units over time</h2>
-        <p class="plain">A design is <b>longitudinal</b> when the same units are measured more than once — which means the observations are <b>correlated</b>, and both design and analysis must allow for it.</p>
-        <ul>
-          <li><b>Panel</b> — follows the <b>same</b> individuals each round → measures <b>within-individual change</b>; weak point is attrition.</li>
-          <li><b>Repeated cross-sectional</b> — a <b>fresh sample</b> each round → measures <b>net population change only</b>. Flat prevalence may mean nobody changed, or that the affected ones left and were replaced.</li>
-          <li><b>Retrospective cohort</b> — assembled from existing records. Still a <b>cohort</b> (forward from exposure, gives incidence &amp; RR); "retrospective" is the investigator's vantage point, <b>not</b> the direction of reasoning. <b>Ambidirectional</b> = historical records plus continued follow-up.</li>
-          <li><b>Repeated measures</b> — same animal, several time points. Treating them as independent is <b>pseudoreplication</b>. Use a paired test (2 points), repeated-measures ANOVA (3+), or a <b>mixed-effects model</b> with a random effect for animal.</li>
-        </ul>
-        <div class="ex" style="margin-top:6px"><b>Age vs period vs cohort.</b> <b>Age</b> = changes because animals get older. <b>Period</b> = affects everyone in that calendar window (an outbreak year, a law change). <b>Cohort</b> = specific to the group that entered together and travels with them — pandemic-surge puppies showing more separation-related behaviour as they age. The three are entangled (cohort = period &minus; age), so they cannot all be estimated at once.</div>
-        <div class="ex" style="margin-top:6px"><b>Interrupted time series.</b> Time-series data carry a <b>trend</b>, <b>seasonality</b> (kitten season) and <b>autocorrelation</b>. To evaluate a programme you couldn't randomise, model the pre-intervention trend, project it forward, and test for a change in <b>level</b> and in <b>slope</b>. A raw before-vs-after mean comparison credits the programme with any decline that was already under way.</div>
-      </section>
-
-      <section class="card">
-        <h2>Hierarchy of evidence <span style="color:var(--muted);font-weight:400;font-size:12px">(strongest → weakest)</span></h2>
-        <ul style="list-style:none;padding-left:0">
-          <li><b>1.</b> Systematic review / meta-analysis</li>
-          <li><b>2.</b> Randomised controlled trial (RCT)</li>
-          <li><b>3.</b> Cohort study</li>
-          <li><b>4.</b> Case-control study</li>
-          <li><b>5.</b> Case series / case reports <span style="color:var(--muted);font-size:12px">(primary observation, no comparison group)</span></li>
-          <li><b>6.</b> Expert opinion / narrative review <span style="color:var(--muted);font-size:12px">(no primary data)</span></li>
-        </ul>
-        <div class="ex" style="margin-top:6px"><b>Off the ladder.</b> Laboratory, <i>in vitro</i> and challenge studies in purpose-bred animals are not a rung. They answer mechanism or efficacy under controlled conditions, trading <b>external</b> validity for <b>internal</b> validity — the uniform dose, uniform age and clean housing are exactly what a shelter is not.</div>
-        <div class="ex" style="margin-top:6px"><b>Ranks designs, not studies.</b> A large, well-conducted cohort can beat a small unblinded RCT with heavy loss to follow-up. <b>GRADE</b> (Grading of Recommendations Assessment, Development and Evaluation) formalises this: rate <b>down</b> for risk of bias, inconsistency, indirectness, imprecision and publication bias; rate <b>up</b> for a large effect, a dose-response gradient, or confounding that would have worked <i>against</i> the effect still observed.</div>
-        <div class="ex" style="margin-top:6px"><b>Recall-bias example (case-control).</b> Owners of a <b>sick</b> dog think harder about past exposures and <b>over-report</b> them — their worry colours the memory, skewing the exposure history. That's why case-control is bias-prone.</div>
-      </section>
-    </div>
-
-    <!-- ================= 7. SURVEILLANCE ================= -->
-    <div class="band" id="surv"><h2>7 · Surveillance &amp; outbreak curves</h2></div>
+    <!-- ================= 6. SURVEILLANCE ================= -->
+    <div class="band" id="surv"><h2>6 · Surveillance &amp; outbreak curves</h2></div>
     <div class="grid">
       <section class="card">
         <h2>Four ways to watch for disease</h2>
@@ -471,86 +408,7 @@
       </section>
     </div>
 
-    <!-- ================= 8. BIAS ================= -->
-    <div class="band" id="bias"><h2>8 · Bias, confounding &amp; effect modification</h2></div>
-    <div class="grid">
-      <section class="card">
-        <h2>Random error vs bias</h2>
-        <p class="plain"><b>Random error</b> is truly random noise — it isn't aimed anywhere and shrinks with a bigger sample. <b>Bias</b> is a <b>systematic</b> error that pushes results in a particular direction and does <b>not</b> improve with sample size.</p>
-        <p class="plain"><b>Types of bias:</b> selection, information/measurement, <b>misclassification</b> (wrong category), recall, observer.</p>
-      </section>
-
-      <section class="card">
-        <h2>Which way does misclassification push?</h2>
-        <ul>
-          <li><b>Non-differential</b> (random, affects all groups equally) → biases <b>toward the null</b>, <b>diluting</b> a real difference (you under-estimate the effect).</li>
-          <li><b>Differential</b> (linked to exposure or outcome) → can bias in <b>either</b> direction, creating or hiding an effect.</li>
-        </ul>
-        <div class="note">Rule of thumb: sloppy-but-even errors hide effects; lopsided errors can invent them.</div>
-      </section>
-
-      <section class="card">
-        <h2>Confounding — a lurking third variable</h2>
-        <p class="plain">A confounder <b>distorts</b> the exposure–outcome link. To qualify it must be <b>all three</b>:</p>
-        <ul>
-          <li><b>1.</b> Associated with the <b>exposure</b></li>
-          <li><b>2.</b> An <b>independent risk factor</b> for the outcome</li>
-          <li><b>3.</b> <b>Not</b> on the causal pathway between exposure and outcome</li>
-        </ul>
-      </section>
-
-      <section class="card">
-        <h2>Effect modification — a real difference</h2>
-        <p class="plain">Not an error. The exposure's <b>true effect genuinely differs</b> across levels of a third variable (e.g. a treatment helps puppies but not adults). You <b>report each subgroup separately</b> rather than "adjusting it away."</p>
-        <div class="note"><b>Confounding</b> is a nuisance to remove; <b>effect modification</b> is a finding to describe.</div>
-      </section>
-    </div>
-
-    <!-- ================= 9. STATS ================= -->
-    <div class="band" id="stats"><h2>9 · Is the result real? — p-values, errors &amp; confidence intervals</h2></div>
-    <div class="grid">
-      <section class="card">
-        <h2>Null hypothesis &amp; p-value</h2>
-        <p class="plain">The <b>null hypothesis (H₀)</b> says "<b>no difference, no association.</b>" Its <b>null value is 1</b> for ratios (RR, OR) and <b>0</b> for differences.</p>
-        <p class="plain">The <b>p-value</b> = the probability of seeing data <b>this extreme if H₀ were true</b>. A <b>low p</b> means the data would be surprising under "no effect," so you <b>reject H₀</b> (conventionally p &lt; 0.05).</p>
-        <div class="phow">How to interpret the number</div>
-        <div class="pval">
-          <div class="pv sig"><span class="lbl">p ≤ 0.05 — statistically significant</span>You <b>reject the null hypothesis</b>. There is less than a 5% probability your results happened purely by chance → you have evidence of a <b>true effect or difference</b>.</div>
-          <div class="pv ns"><span class="lbl">p &gt; 0.05 — not statistically significant</span>You <b>fail to reject the null hypothesis</b>. Random chance could reasonably explain what you observed → <b>no strong evidence</b> of a real difference.</div>
-        </div>
-        <div class="note"><span class="add">p does <b>not</b> tell you the size of the effect or the chance the null is true — only how surprising the data are.<span class="addtag">+</span></span></div>
-      </section>
-
-      <section class="card">
-        <h2>Type I / Type II errors &amp; power</h2>
-        <ul>
-          <li><b>Type I error (α)</b> = <b>false positive</b> — you claim an effect that isn't there. (α = 0.05 is the usual line.)</li>
-          <li><b>Type II error (β)</b> = <b>false negative</b> — you miss a real effect.</li>
-          <li><b>Power = 1 − β</b> — the chance of <b>detecting a true effect</b>. Bigger samples → more power.</li>
-        </ul>
-        <div class="note"><span class="add">Mnemonic: Type <b>1</b> = you saw <b>1</b> thing that wasn't there; Type <b>2</b> = you missed it.<span class="addtag">+</span></span></div>
-      </section>
-
-      <section class="card span2">
-        <h2>Confidence interval (CI) — in plain English</h2>
-        <p class="plain">A study result is only an <b>estimate</b>, because you can never test every animal. A <b>confidence interval</b> is the <b>range of plausible values</b> for where the true number probably lies. <b>RR = 2.0 (95% CI 1.2 to 3.4)</b> means: we are 95% confident the true risk multiplier is somewhere between 1.2 and 3.4.</p>
-        <p class="plain"><b>What "95%" means:</b> if you repeated the same study 100 times, about 95 of the ranges would contain the true number and about 5 would miss it.</p>
-        <p class="plain"><b>Reading it for RR or OR — look for 1.0.</b> 1.0 means no effect, so check whether the range crosses it:</p>
-        <table class="t2" style="max-width:640px">
-          <tr><th>95% CI for RR / OR</th><th>What it means</th><th>Real or luck?</th></tr>
-          <tr><td class="rl">Includes 1.0 (e.g. 0.9–2.1)</td><td>Might raise risk, lower it, or do nothing</td><td>Could be luck — not significant</td></tr>
-          <tr><td class="rl">All above 1.0 (e.g. 1.4–3.2)</td><td>Consistently raises risk</td><td>Real — significant</td></tr>
-          <tr><td class="rl">All below 1.0 (e.g. 0.3–0.7)</td><td>Consistently protective</td><td>Real — significant</td></tr>
-        </table>
-      </section>
-
-      <section class="card span2">
-        <h2>Statistical vs clinical significance</h2>
-        <p class="plain"><b>Statistical significance</b> (a small p) only says the result is <b>unlikely to be chance</b> — with a big enough sample, a trivial difference can be "significant." <b>Clinical significance</b> asks whether the effect is <b>big enough to matter</b> to the animal.</p>
-        <p class="plain"><b>Use the confidence interval (CI)</b> to judge both at once: it shows the <b>plausible range</b> of the true effect. If the 95% CI <b>crosses the null value</b> (1 for ratios, 0 for differences), the result is <b>not statistically significant</b>. A <b>narrow</b> CI = a precise estimate; a <b>wide</b> CI = lots of uncertainty (often too small a sample).</p>
-        <div class="ex"><b>Example.</b> RR = 6.0, 95% CI 2.1–17 → doesn't cross 1, so it's significant, but the wide range warns the exact size is uncertain. RR = 1.2, 95% CI 0.9–1.6 → crosses 1 → not significant.</div>
-      </section>
-    </div>
+        <div class="note" style="margin:18px 0">Study design, bias, confounding, p-values, errors, power, confidence intervals and statistical significance are in the <b>Study Design</b> sheet.</div>
 
     <footer class="doc">
       <span>Teaching reference · 2026 ABVP Combined Exam (Shelter Medicine RVS) · expanded from handwritten notes IMG_9173–9176</span>
