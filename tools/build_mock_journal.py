@@ -92,6 +92,14 @@ def dom_sub(page):
     return FOLDER_DOMAIN.get(folder, "General"), PAGE_SUB.get(page, "General")
 
 
+def journal_tier(r):
+    """Mock-exam emphasis tier: 'jsmcah' (Journal of Shelter Medicine and Community Animal Health),
+    'shelter' (other shelter-medicine papers, by title) or '' (everything else)."""
+    j = (r.get("journal") or ""); t = (r.get("title") or "")
+    if re.search(r"shelter medicine and community animal health|jsmcah", j, re.I): return "jsmcah"
+    if re.search(r"shelter medicine|shelter veterinar", t + " " + j, re.I): return "shelter"
+    return ""
+
 def main():
     cat = load_catalog(CATALOG)
     synth = json.loads(open(SYNTH, encoding="utf-8").read()) if os.path.exists(SYNTH) else []
@@ -105,7 +113,8 @@ def main():
         dom, sub = dom_sub(r["subdomain_page"])
         for m in r.get("mcqs", []):
             mocks.append({"type": "mcq", "domain": dom, "sub": sub,
-                          "q": m["q"], "o": m["o"], "a": m["a"], "e": m["e"], "source": "journal"})
+                          "q": m["q"], "o": m["o"], "a": m["a"], "e": m["e"], "source": "journal",
+                          **({"jn": journal_tier(r)} if journal_tier(r) else {})})
     for s in synth:
         dom, sub = dom_sub(s.get("subdomain_page", ""))
         mocks.append({"type": "mcq", "domain": dom, "sub": sub,

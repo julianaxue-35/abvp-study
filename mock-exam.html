@@ -125,7 +125,7 @@
       </div>
       <div id="timeCalc" style="font-size:13px;background:#f1f7f4;border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:4px 0 10px"></div>
       <div id="userStats" style="font-size:13px;color:var(--ink);margin:4px 0 10px;min-height:18px"></div>
-      <p style="font-size:13px;color:var(--muted);margin:6px 0 14px">With a lunch break the exam is split into two equal timed halves with a self-paced lunch between; choose <b>N/A – no break</b> and it runs as one continuous session. Every item is multiple-choice and auto-graded; questions are drawn randomly and <b>weighted to the 2026 blueprint</b> below. Flashcard-derived questions have been rewritten with proper stems and same-topic distractors. During the exam nothing is marked right/wrong — but you can hit <b>Pause</b> any time to review what you've done so far with reasoning.</p>
+      <p style="font-size:13px;color:var(--muted);margin:6px 0 14px">With a lunch break the exam is split into two equal timed halves with a self-paced lunch between; choose <b>N/A – no break</b> and it runs as one continuous session. Every item is multiple-choice and auto-graded; questions are drawn <b>weighted to the 2026 blueprint</b> below; within each topic about <b>90% come from the hub knowledge and 10% from journal articles</b>, with extra emphasis on <i>Journal of Shelter Medicine and Community Animal Health</i> and shelter-medicine papers. Flashcard-derived questions have been rewritten with proper stems and same-topic distractors. During the exam nothing is marked right/wrong — but you can hit <b>Pause</b> any time to review what you've done so far with reasoning.</p>
       <button class="btn" onclick="startExam()">Start exam day →</button>
       <span id="poolInfo" style="font-size:12.5px;color:var(--muted);margin-left:12px"></span>
     </div>
@@ -336,6 +336,42 @@ document.getElementById('cfgCards').addEventListener('change',showUserStats);
 
 /* ===================== build exam ===================== */
 function shuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+/* ===== question selection: per topic ~90% hub knowledge / ~10% journal articles ===== */
+var JOURNAL_SHARE=0.10, JN_WEIGHT={jsmcah:4,shelter:3,'':1};
+function wkey(q,journal){var w=journal?(JN_WEIGHT[q.jn||'']||1):1;return Math.pow(Math.random(),1/w);}
+/* order: previously-wrong first, then unseen, then mastered; journal items drawn with emphasis on JSMCAH / shelter-medicine papers */
+function ordered(pool,seen,journal){
+  var wrong=[],fresh=[],right=[];
+  pool.forEach(function(q){var st=seen[qid(q)]; if(st==='wrong')wrong.push(q); else if(st==='correct')right.push(q); else fresh.push(q);});
+  var o=function(a){return a.map(function(q){return [wkey(q,journal),q];}).sort(function(x,y){return y[0]-x[0];}).map(function(x){return x[1];});};
+  return o(wrong).concat(o(fresh)).concat(o(right));
+}
+function pickMixed(pool,n,seen){
+  var subs={};
+  pool.forEach(function(q){var k=q.sub||'General';(subs[k]=subs[k]||{h:[],j:[]})[q.source==='journal'?'j':'h'].push(q);});
+  var keys=Object.keys(subs), wsum=0, w={}, cap={};
+  keys.forEach(function(k){var t=subs[k]; w[k]=t.h.length||0.1*t.j.length; cap[k]=t.h.length+t.j.length; wsum+=w[k];});
+  // allocate n across topics in proportion to hub content (largest remainder), capped by availability
+  var alloc={}, tot=0, rem=[];
+  keys.forEach(function(k){var x=wsum?n*w[k]/wsum:0; alloc[k]=Math.min(Math.floor(x),cap[k]); tot+=alloc[k]; rem.push([k,x-Math.floor(x)]);});
+  rem.sort(function(a,b){return b[1]-a[1];});
+  for(var g=0;tot<n&&g<5*keys.length;g++){var k=rem[g%rem.length][0]; if(alloc[k]<cap[k]){alloc[k]++;tot++;}}
+  var out=[], leftH=[], leftJ=[];
+  // journal quota: 10% overall, spread by largest remainder so small exams still get their share
+  var jq={}, jt=0, jr=[];
+  keys.forEach(function(k){var x=alloc[k]*JOURNAL_SHARE; jq[k]=Math.floor(x); jt+=jq[k]; jr.push([k,x-Math.floor(x)]);});
+  jr.sort(function(a,b){return b[1]-a[1];});
+  for(var gj=0,tgt=Math.round(tot*JOURNAL_SHARE);jt<tgt&&gj<jr.length;gj++){jq[jr[gj][0]]++;jt++;}
+  keys.forEach(function(k){
+    var t=subs[k], m=alloc[k], nJ=Math.min(t.j.length,jq[k]), nH=m-nJ;
+    if(nH>t.h.length){nH=t.h.length;nJ=Math.min(t.j.length,m-nH);}
+    var H=ordered(t.h,seen,false), J=ordered(t.j,seen,true);
+    out=out.concat(H.slice(0,nH),J.slice(0,nJ)); leftH=leftH.concat(H.slice(nH)); leftJ=leftJ.concat(J.slice(nJ));
+  });
+  // top up from anything left (hub first) if rounding/caps left us short
+  if(out.length<n) out=out.concat(shuffle(leftH).concat(shuffle(leftJ)).slice(0,n-out.length));
+  return out.slice(0,n);
+}
 function startExam(){
   var init=(document.getElementById('cfgInit').value||'').trim().toUpperCase();
   if(!init){alert('Please enter your initials first so your progress can be saved.');document.getElementById('cfgInit').focus();return;}
@@ -346,17 +382,14 @@ function startExam(){
   S.single=S.lunchLeft===0;
   S.sessLen=Math.round((parseFloat(document.getElementById('cfgMins').value)||defaultMins())*60/(S.single?1:2));
   var sc=getScope(); S.scope=sc;
-  var need, groups;
-  if(sc.mode==='all'){ need=counts(total); groups=DOM_ORDER.map(function(d){return {pool:window.MOCK.mcqs.filter(q=>q.domain===d && (useCards||q.source!=='fc')),n:need[d]};}); }
-  else { groups=[{pool:scopePool(sc,useCards),n:total}]; }
-  var picked=[];
-  groups.forEach(function(g){
-    var wrong=[],fresh=[],right=[];
-    g.pool.forEach(function(q){var st=seen[qid(q)]; if(st==='wrong')wrong.push(q); else if(st==='correct')right.push(q); else fresh.push(q);});
-    var sel=shuffle(wrong).concat(shuffle(fresh));        // retry wrong first, then new unseen
-    if(sel.length<g.n) sel=sel.concat(shuffle(right));    // reuse mastered only once everything has been seen
-    picked=picked.concat(sel.slice(0,g.n));
-  });
+  var need, picked=[];
+  if(sc.mode==='all'){
+    need=counts(total);
+    DOM_ORDER.forEach(function(d){
+      var pool=window.MOCK.mcqs.filter(q=>q.domain===d && (useCards||q.source!=='fc'));
+      picked=picked.concat(pickMixed(pool,need[d],seen));
+    });
+  } else { picked=pickMixed(scopePool(sc,useCards),total,seen); }
   picked=shuffle(picked);
   S.items=picked; S.ans=picked.map(()=>null); S.flag=picked.map(()=>false);
   S.seen=picked.map(()=>false); S.sketchData=picked.map(()=>null);
