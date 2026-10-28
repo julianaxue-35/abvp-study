@@ -115,7 +115,10 @@
       <h3 style="margin-top:0">Set up your exam</h3>
       <div class="cfg">
         <div><label>Your initials</label><input id="cfgInit" type="text" maxlength="5" placeholder="e.g. JX" autocomplete="off" style="text-transform:uppercase"></div>
-        <div><label>Total questions</label><input id="cfgTotal" type="number" value="350" min="20" max="700"></div>
+        <div><label>What to practise</label><select id="cfgScope"><option value="all" selected>Full exam (all 7 domains, blueprint-weighted)</option><option value="domain">One domain (all its topics mixed)</option><option value="topic">One topic only</option></select></div>
+        <div id="cfgDomWrap" class="hidden"><label>Domain</label><select id="cfgDom"></select></div>
+        <div id="cfgSubWrap" class="hidden"><label>Topic</label><select id="cfgSub"></select></div>
+        <div><label>Total questions</label><input id="cfgTotal" type="number" value="350" min="20" max="1500"></div>
         <div><label>Minutes / session</label><input id="cfgMins" type="number" value="180" min="10" max="360"></div>
         <div><label>Lunch (min, pausable)</label><input id="cfgLunch" type="number" value="60" min="0" max="120"></div>
         <div><label>Include flashcard MCQs</label><select id="cfgCards"><option value="1" selected>Yes — add flashcard-derived MCQs</option><option value="0">No — hub MCQs only (cleanest)</option></select></div>
@@ -137,7 +140,7 @@
       </ul>
     </div>
 
-    <div class="card">
+    <div class="card" id="bpCard">
       <h3 style="margin-top:0">2026 blueprint (auto-weighted)</h3>
       <table class="bp"><thead><tr><th>Domain</th><th>% of exam</th><th id="bpTh">Questions</th></tr></thead><tbody id="bpBody"></tbody></table>
     </div>
@@ -211,7 +214,7 @@
     <div class="big" id="overallScore">—</div>
     <p style="color:var(--muted);margin:0" id="overallSub"></p>
   </div>
-  <div class="card"><h3 style="margin-top:0">By domain</h3><div class="scoregrid" id="domScores"></div></div>
+  <div class="card"><h3 style="margin-top:0" id="domScoresTitle">By domain</h3><div class="scoregrid" id="domScores"></div></div>
   <div class="card"><h3 style="margin-top:0">Pacing</h3><div id="pacingSummary" style="font-size:14px"></div></div>
   <div class="card"><h3 style="margin-top:0">Review — missed &amp; flagged (<span id="revCount">0</span>)</h3>
     <div style="margin-bottom:10px"><button class="btn alt sm" onclick="filterRev('all')">All</button>
@@ -241,6 +244,37 @@ function counts(total){
   for(var i=0;sum<total;i++,sum++){floors[rem[i%rem.length][0]]++;}
   return floors;
 }
+function getScope(){
+  var m=document.getElementById('cfgScope').value;
+  return {mode:m,domain:document.getElementById('cfgDom').value,sub:document.getElementById('cfgSub').value};
+}
+function useCardsNow(){return document.getElementById('cfgCards').value==='1';}
+function inScope(q,sc,useCards){
+  if(!inExam(q,useCards))return false;
+  if(sc.mode==='all')return true;
+  if(q.domain!==sc.domain)return false;
+  return sc.mode==='domain'||q.sub===sc.sub;
+}
+function scopePool(sc,useCards){return window.MOCK.mcqs.filter(function(q){return inScope(q,sc,useCards);});}
+function fillScopeSelects(){
+  var uc=useCardsNow(), domSel=document.getElementById('cfgDom'), subSel=document.getElementById('cfgSub');
+  var curDom=domSel.value||DOM_ORDER[0];
+  domSel.innerHTML=DOM_ORDER.map(function(d){
+    var n=window.MOCK.mcqs.filter(function(q){return q.domain===d&&inExam(q,uc);}).length;
+    return '<option value="'+d+'"'+(d===curDom?' selected':'')+'>'+d+' ('+n+')</option>';}).join('');
+  var curSub=subSel.value, cnt={};
+  window.MOCK.mcqs.forEach(function(q){if(q.domain===domSel.value&&inExam(q,uc))cnt[q.sub]=(cnt[q.sub]||0)+1;});
+  var subs=Object.keys(cnt).sort();
+  subSel.innerHTML=subs.map(function(t){return '<option value="'+t+'"'+(t===curSub?' selected':'')+'>'+t+' ('+cnt[t]+')</option>';}).join('');
+  var m=document.getElementById('cfgScope').value;
+  document.getElementById('cfgDomWrap').classList.toggle('hidden',m==='all');
+  document.getElementById('cfgSubWrap').classList.toggle('hidden',m!=='topic');
+  document.getElementById('bpCard').classList.toggle('hidden',m!=='all');
+}
+function scopeDefaultTotal(){
+  var sc=getScope(); if(sc.mode==='all'){document.getElementById('cfgTotal').value=350;return;}
+  document.getElementById('cfgTotal').value=Math.max(2,Math.min(scopePool(sc,useCardsNow()).length,350));
+}
 function renderBlueprint(){
   var c=counts(parseInt(document.getElementById('cfgTotal').value)||350);
   document.getElementById('bpBody').innerHTML=DOM_ORDER.map(d=>
@@ -249,6 +283,11 @@ function renderBlueprint(){
     window.MOCK.mcqs.length+' MCQs available ('+window.MOCK.mcqs.filter(function(q){return q.source==='fc';}).length+' reworded from flashcards)';
 }
 ['cfgTotal'].forEach(id=>document.getElementById(id).addEventListener('input',renderBlueprint));
+document.getElementById('cfgScope').addEventListener('change',function(){fillScopeSelects();scopeDefaultTotal();renderBlueprint();showUserStats();});
+document.getElementById('cfgDom').addEventListener('change',function(){document.getElementById('cfgSub').value='';fillScopeSelects();scopeDefaultTotal();showUserStats();});
+document.getElementById('cfgSub').addEventListener('change',function(){scopeDefaultTotal();showUserStats();});
+document.getElementById('cfgCards').addEventListener('change',function(){fillScopeSelects();scopeDefaultTotal();});
+fillScopeSelects();
 renderBlueprint();
 
 /* ===================== per-initials progress (localStorage) ===================== */
@@ -261,10 +300,10 @@ function showUserStats(){
   var init=(document.getElementById('cfgInit').value||'').trim().toUpperCase();
   var el=document.getElementById('userStats'); if(!init){el.textContent='';return;}
   var rec=loadUser(init), seen=rec.seen||{}, useCards=document.getElementById('cfgCards').value==='1';
-  var total=0,mast=0,retry=0;
-  window.MOCK.mcqs.forEach(function(q){ if(!inExam(q,useCards))return; total++; var st=seen[qid(q)]; if(st==='correct')mast++; else if(st==='wrong')retry++; });
+  var total=0,mast=0,retry=0, sc=getScope();
+  window.MOCK.mcqs.forEach(function(q){ if(!inScope(q,sc,useCards))return; total++; var st=seen[qid(q)]; if(st==='correct')mast++; else if(st==='wrong')retry++; });
   var fresh=total-mast-retry;
-  if(rec.runs) el.innerHTML='<b>Welcome back, '+init+'</b> ('+rec.runs+' run'+(rec.runs>1?'s':'')+') — <span style="color:var(--good)">'+mast+' mastered</span> · <span style="color:var(--warn)">'+retry+' to retry</span> · '+fresh+' new available. Your next exam pulls <b>wrong answers + new questions first</b>. <a href="#" onclick="resetUser(event)">reset</a>';
+  if(rec.runs) el.innerHTML='<b>Welcome back, '+init+'</b> ('+rec.runs+' run'+(rec.runs>1?'s':'')+') — <span style="color:var(--good)">'+mast+' mastered</span> · <span style="color:var(--warn)">'+retry+' to retry</span> · '+fresh+' new available. Your next run pulls <b>wrong answers + new questions first</b>'+(sc.mode==='all'?'':' (in this '+(sc.mode==='topic'?'topic':'domain')+')')+'. <a href="#" onclick="resetUser(event)">reset</a>';
   else el.innerHTML='<b>New: '+init+'</b> — progress will be saved under these initials so future runs skip what you\'ve mastered.';
 }
 function resetUser(e){e.preventDefault();var init=(document.getElementById('cfgInit').value||'').trim().toUpperCase();if(init&&confirm('Reset all saved progress for '+init+'?')){localStorage.removeItem(ukey(init));showUserStats();}}
@@ -281,14 +320,17 @@ function startExam(){
   var useCards=document.getElementById('cfgCards').value==='1';
   S.sessLen=(parseInt(document.getElementById('cfgMins').value)||180)*60;
   S.lunchLeft=(parseInt(document.getElementById('cfgLunch').value)||60)*60;
-  var need=counts(total), picked=[];
-  DOM_ORDER.forEach(function(d){
-    var pool=window.MOCK.mcqs.filter(q=>q.domain===d && (useCards||q.source!=='fc'));
+  var sc=getScope(); S.scope=sc;
+  var need, groups;
+  if(sc.mode==='all'){ need=counts(total); groups=DOM_ORDER.map(function(d){return {pool:window.MOCK.mcqs.filter(q=>q.domain===d && (useCards||q.source!=='fc')),n:need[d]};}); }
+  else { groups=[{pool:scopePool(sc,useCards),n:total}]; }
+  var picked=[];
+  groups.forEach(function(g){
     var wrong=[],fresh=[],right=[];
-    pool.forEach(function(q){var st=seen[qid(q)]; if(st==='wrong')wrong.push(q); else if(st==='correct')right.push(q); else fresh.push(q);});
+    g.pool.forEach(function(q){var st=seen[qid(q)]; if(st==='wrong')wrong.push(q); else if(st==='correct')right.push(q); else fresh.push(q);});
     var sel=shuffle(wrong).concat(shuffle(fresh));        // retry wrong first, then new unseen
-    if(sel.length<need[d]) sel=sel.concat(shuffle(right)); // reuse mastered only if pool exhausted
-    picked=picked.concat(sel.slice(0,need[d]));
+    if(sel.length<g.n) sel=sel.concat(shuffle(right));    // reuse mastered only once everything has been seen
+    picked=picked.concat(sel.slice(0,g.n));
   });
   picked=shuffle(picked);
   S.items=picked; S.ans=picked.map(()=>null); S.flag=picked.map(()=>false);
@@ -475,10 +517,12 @@ function showResults(){
   document.getElementById('resultScreen').classList.remove('hidden');
   window.scrollTo(0,0);
   // scoring: mcq correct; card got. graded = mcq answered + card got/missed
-  var domStat={}; DOM_ORDER.forEach(d=>domStat[d]={correct:0,graded:0});
+  var gk=function(it){return (S.scope&&S.scope.mode!=='all')?(it.sub||'General'):it.domain;};
+  var gkeys=(S.scope&&S.scope.mode!=='all')?Array.from(new Set(S.items.map(gk))).sort():DOM_ORDER;
+  var domStat={}; gkeys.forEach(d=>domStat[d]={correct:0,graded:0});
   var totC=0,totG=0;
   S.items.forEach(function(it,i){
-    var a=S.ans[i],d=it.domain;
+    var a=S.ans[i],d=gk(it);
     if(it.type==='mcq'){ if(a!==null){domStat[d].graded++;totG++; if(a===it.a){domStat[d].correct++;totC++;}} }
     else { if(a==='got'||a==='missed'){domStat[d].graded++;totG++; if(a==='got'){domStat[d].correct++;totC++;}} }
   });
@@ -487,11 +531,12 @@ function showResults(){
     S.items.forEach(function(it,i){var a=S.ans[i];if(a===null)return;S.rec.seen[qid(it)]=(a===it.a)?'correct':'wrong';});
     S.rec.runs=(S.rec.runs||0)+1; saveUser(S.user,S.rec);
   }
+  if(S.scope&&S.scope.mode!=='all')document.getElementById('domScoresTitle').textContent='By topic';
   var pct=totG?Math.round(totC/totG*100):0;
   document.getElementById('overallScore').textContent=pct+'%';
   document.getElementById('overallSub').innerHTML=totC+' / '+totG+' correct ('+S.items.length+' items, '+(S.items.length-totG)+' unanswered count as incorrect on the real exam)'+
     (S.user?'<br><span style="color:var(--good)">Saved for '+S.user+'.</span> Next time you enter '+S.user+', the ones you missed will return alongside fresh questions — mastered items are skipped until the pool runs out.':'');
-  document.getElementById('domScores').innerHTML=DOM_ORDER.map(function(d){
+  document.getElementById('domScores').innerHTML=gkeys.map(function(d){
     var st=domStat[d],p=st.graded?Math.round(st.correct/st.graded*100):0;
     return '<div class="scorebox"><div style="font-size:12px;color:var(--muted)">'+d+'</div>'+
       '<div class="n">'+p+'%</div><div style="font-size:12px">'+st.correct+'/'+st.graded+'</div>'+
