@@ -108,7 +108,7 @@
 <div id="startScreen">
   <header class="top"><div class="wrap">
     <h1>ABVP SMP RVS — Mock Exam Day</h1>
-    <p class="sub">A blueprint-weighted, timed simulation of the 350-item Combined RVS Exam (two parts, one day) — with a pausable lunch, live pacing, and a Prometric-style sketch pad that hides the question while you calculate.</p>
+    <p class="sub">A blueprint-weighted, timed simulation of the 350-item Combined RVS Exam (8am–5pm, with an optional lunch) — with a pausable lunch, live pacing, and a Prometric-style sketch pad that hides the question while you calculate.</p>
   </div></header>
   <div class="wrap">
     <div class="card">
@@ -119,12 +119,13 @@
         <div id="cfgDomWrap" class="hidden"><label>Domain</label><select id="cfgDom"></select></div>
         <div id="cfgSubWrap" class="hidden"><label>Topic</label><select id="cfgSub"></select></div>
         <div><label>Total questions</label><input id="cfgTotal" type="number" value="350" min="20" max="1500"></div>
-        <div><label>Minutes / session</label><input id="cfgMins" type="number" value="180" min="10" max="360"></div>
-        <div><label>Lunch break (pausable)</label><select id="cfgLunch"><option value="60" selected>60 min</option><option value="45">45 min</option><option value="30">30 min</option><option value="15">15 min</option><option value="0">N/A — no break</option></select></div>
+        <div><label>Total exam time (min)</label><input id="cfgMins" type="number" value="450" min="5" max="720"></div>
+        <div><label>Lunch break (pausable)</label><select id="cfgLunch"><option value="60">60 min</option><option value="45" selected>45 min</option><option value="30">30 min</option><option value="15">15 min</option><option value="0">N/A — no break</option></select></div>
         <div><label>Include flashcard MCQs</label><select id="cfgCards"><option value="1" selected>Yes — add flashcard-derived MCQs</option><option value="0">No — hub MCQs only (cleanest)</option></select></div>
       </div>
+      <div id="timeCalc" style="font-size:13px;background:#f1f7f4;border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:4px 0 10px"></div>
       <div id="userStats" style="font-size:13px;color:var(--ink);margin:4px 0 10px;min-height:18px"></div>
-      <p style="font-size:13px;color:var(--muted);margin:6px 0 14px">The exam is split into two timed sessions with a self-paced lunch between. Every item is multiple-choice and auto-graded; questions are drawn randomly and <b>weighted to the 2026 blueprint</b> below. Flashcards have been reworded into MCQs (True/False items convert cleanly; others use auto-generated distractors, so turn them off for the highest-quality run). During the exam nothing is marked right/wrong — but you can hit <b>Pause</b> any time to review what you've done so far with reasoning.</p>
+      <p style="font-size:13px;color:var(--muted);margin:6px 0 14px">With a lunch break the exam is split into two equal timed halves with a self-paced lunch between; choose <b>N/A – no break</b> and it runs as one continuous session. Every item is multiple-choice and auto-graded; questions are drawn randomly and <b>weighted to the 2026 blueprint</b> below. Flashcard-derived questions have been rewritten with proper stems and same-topic distractors. During the exam nothing is marked right/wrong — but you can hit <b>Pause</b> any time to review what you've done so far with reasoning.</p>
       <button class="btn" onclick="startExam()">Start exam day →</button>
       <span id="poolInfo" style="font-size:12.5px;color:var(--muted);margin-left:12px"></span>
     </div>
@@ -275,6 +276,7 @@ function scopeDefaultTotal(){
   var sc=getScope(); if(sc.mode==='all'){document.getElementById('cfgTotal').value=350;return;}
   document.getElementById('cfgTotal').value=Math.max(2,Math.min(scopePool(sc,useCardsNow()).length,350));
 }
+function scopeTotalChanged(){minsEdited=false;if(typeof renderTime==='function')renderTime();}
 function renderBlueprint(){
   var c=counts(parseInt(document.getElementById('cfgTotal').value)||350);
   document.getElementById('bpBody').innerHTML=DOM_ORDER.map(d=>
@@ -282,13 +284,35 @@ function renderBlueprint(){
   document.getElementById('poolInfo').textContent=
     window.MOCK.mcqs.length+' MCQs available ('+window.MOCK.mcqs.filter(function(q){return q.source==='fc';}).length+' reworded from flashcards)';
 }
+/* ===== time allocation: real exam = 350 questions in 8am-5pm (540 min) less lunch ===== */
+function lunchMin(){return parseInt(document.getElementById('cfgLunch').value,10)||0;}
+function paceMin(){return (540-lunchMin())/350;}
+function defaultMins(){var n=parseInt(document.getElementById('cfgTotal').value)||350;return Math.round(n*paceMin());}
+function hm(m){var h=Math.floor(m/60),r=Math.round(m%60);return h?h+' h '+(r<10?'0':'')+r+' min':r+' min';}
+var minsEdited=false;
+function renderTime(){
+  var n=parseInt(document.getElementById('cfgTotal').value)||350, L=lunchMin(), pc=paceMin();
+  var mi=document.getElementById('cfgMins');
+  if(!minsEdited) mi.value=defaultMins();
+  var tot=parseFloat(mi.value)||defaultMins();
+  var rows=[60,100,150,200,350].map(function(q){var t=Math.round(q*pc);return '<tr><td>'+q+' questions</td><td>'+hm(t)+'</td></tr>';}).join('');
+  document.getElementById('timeCalc').innerHTML=
+    '<b>Time allocation:</b> the real exam is 350 questions in 8am–5pm (9 h)'+(L?' with a '+L+' min lunch':' with no lunch break')+', which is about <b>'+(pc*60).toFixed(0)+' sec ('+pc.toFixed(2)+' min) per question</b>. '+
+    '<br><b>Your '+n+' questions → '+hm(tot)+'</b>'+(L?' ('+hm(tot/2)+' per half, then your '+L+' min lunch)':' in one continuous session, no split')+'.'+
+    '<table class="bp" style="margin-top:8px;max-width:340px"><thead><tr><th>Questions</th><th>Time at this pace</th></tr></thead><tbody>'+rows+'</tbody></table>'+
+    '<span style="color:var(--muted)">Edit “Total exam time” to override.</span>';
+}
+document.getElementById('cfgMins').addEventListener('input',function(){minsEdited=true;renderTime();});
+document.getElementById('cfgTotal').addEventListener('input',function(){minsEdited=false;renderTime();});
+document.getElementById('cfgLunch').addEventListener('change',function(){minsEdited=false;renderTime();});
 ['cfgTotal'].forEach(id=>document.getElementById(id).addEventListener('input',renderBlueprint));
-document.getElementById('cfgScope').addEventListener('change',function(){fillScopeSelects();scopeDefaultTotal();renderBlueprint();showUserStats();});
-document.getElementById('cfgDom').addEventListener('change',function(){document.getElementById('cfgSub').value='';fillScopeSelects();scopeDefaultTotal();showUserStats();});
-document.getElementById('cfgSub').addEventListener('change',function(){scopeDefaultTotal();showUserStats();});
-document.getElementById('cfgCards').addEventListener('change',function(){fillScopeSelects();scopeDefaultTotal();});
+document.getElementById('cfgScope').addEventListener('change',function(){fillScopeSelects();scopeDefaultTotal();scopeTotalChanged();renderBlueprint();showUserStats();});
+document.getElementById('cfgDom').addEventListener('change',function(){document.getElementById('cfgSub').value='';fillScopeSelects();scopeDefaultTotal();scopeTotalChanged();showUserStats();});
+document.getElementById('cfgSub').addEventListener('change',function(){scopeDefaultTotal();scopeTotalChanged();showUserStats();});
+document.getElementById('cfgCards').addEventListener('change',function(){fillScopeSelects();scopeDefaultTotal();scopeTotalChanged();});
 fillScopeSelects();
 renderBlueprint();
+renderTime();
 
 /* ===================== per-initials progress (localStorage) ===================== */
 function qid(it){var s=(it.q||'')+'|'+((it.o&&it.o[0])||'');var h=0;for(var i=0;i<s.length;i++){h=(h*31+s.charCodeAt(i))|0;}return 'q'+(h>>>0);}
@@ -318,8 +342,9 @@ function startExam(){
   S.user=init; S.rec=loadUser(init); var seen=S.rec.seen||{};
   var total=Math.max(2,parseInt(document.getElementById('cfgTotal').value)||350);
   var useCards=document.getElementById('cfgCards').value==='1';
-  S.sessLen=(parseInt(document.getElementById('cfgMins').value)||180)*60;
   S.lunchLeft=(parseInt(document.getElementById('cfgLunch').value,10)||0)*60;
+  S.single=S.lunchLeft===0;
+  S.sessLen=Math.round((parseFloat(document.getElementById('cfgMins').value)||defaultMins())*60/(S.single?1:2));
   var sc=getScope(); S.scope=sc;
   var need, groups;
   if(sc.mode==='all'){ need=counts(total); groups=DOM_ORDER.map(function(d){return {pool:window.MOCK.mcqs.filter(q=>q.domain===d && (useCards||q.source!=='fc')),n:need[d]};}); }
@@ -335,7 +360,7 @@ function startExam(){
   picked=shuffle(picked);
   S.items=picked; S.ans=picked.map(()=>null); S.flag=picked.map(()=>false);
   S.seen=picked.map(()=>false); S.sketchData=picked.map(()=>null);
-  S.half=Math.ceil(picked.length/2);
+  S.half=S.single?picked.length:Math.ceil(picked.length/2);
   document.getElementById('startScreen').classList.add('hidden');
   document.getElementById('examScreen').classList.remove('hidden');
   startSession(1);
@@ -350,7 +375,7 @@ function startSession(n){
   if(S.lunchTimer){clearInterval(S.lunchTimer);S.lunchTimer=null;}
   var r=sessRange(); S.cur=r[0];
   S.sessEnd=Date.now()+S.sessLen*1000; S.sessStartTs=Date.now();
-  document.getElementById('sessLabel').textContent='Session '+n+' of 2';
+  document.getElementById('sessLabel').textContent=S.single?'Exam':'Session '+n+' of 2';
   if(S.timer)clearInterval(S.timer);
   S.timer=setInterval(tick,1000); tick();
   render();
@@ -376,7 +401,7 @@ function endSession(){
   if(S.timer)clearInterval(S.timer);
   togglePalette(true);
   if(S.session===1 && S.lunchLeft>0){ showLunch(); }
-  else if(S.session===1){ startSession(2); }
+  else if(S.session===1 && !S.single){ startSession(2); }
   else{ showResults(); }
 }
 
