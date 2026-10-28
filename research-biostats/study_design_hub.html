@@ -621,12 +621,12 @@ ul{padding-left:20px}
   <div class="box verifybox"><span class="lbl">Moved</span><p>Sensitivity, specificity, PPV and NPV now live in the <b>Epidemiology and Biostats</b> hub, on the <b>Diagnostic Tests</b> tab, with their worked examples and questions.</p></div>
 
   <h3>Measures of association by design <span class="badge ref">ref</span> <span class="badge note">note</span></h3>
-  <p class="hint">Full calculations live in your Data and Analysis material; here is only the design-to-measure mapping.</p>
+  <p class="hint">Full calculations live in your Data and Analysis material; here is only the design-to-measure mapping. Different study designs give you different kinds of answer.</p>
   <ul>
-    <li><b>Relative risk:</b> ratio of incidence in exposed to unexposed; from <b>cohort</b> and experimental designs. Null = 1.</li>
-    <li><b>Odds ratio:</b> from <b>case-control</b> designs; approximates relative risk when disease is rare. Null = 1.</li>
-    <li><b>Prevalence ratio:</b> from <b>cross-sectional</b> designs.</li>
-    <li><b>Attributable risk (risk difference):</b> absolute excess risk in the exposed; from cohort and experimental designs.</li>
+    <li><b>Relative risk (RR):</b> compares the risk in exposed animals with the risk in unexposed animals. Comes from <b>cohort</b> and experimental studies. Null = 1.</li>
+    <li><b>Odds ratio (OR):</b> used in <b>case-control</b> studies. It approximates the relative risk when the disease is rare. Null = 1.</li>
+    <li><b>Prevalence ratio:</b> comes from <b>cross-sectional</b> studies.</li>
+    <li><b>Attributable risk (risk difference):</b> the extra risk in exposed animals, over and above the risk in unexposed animals. From cohort and experimental studies.</li>
   </ul>
 
   <h3>Choosing a statistical test <span class="badge ref">ref</span></h3>
@@ -684,7 +684,7 @@ ul{padding-left:20px}
 
   <h4>Time to an event</h4>
   <ul>
-    <li><b>Kaplan-Meier</b> draws the "still in care" curve over time and handles <b>censoring</b>: animals still in the shelter at the end of the study are counted for the time they were observed, not dropped.</li>
+    <li><b>Kaplan-Meier</b> is the go-to tool for how long animals stay in a shelter. It draws the "still in care" curve over time and handles <b>censoring</b>: animals still in the shelter at the end of the study are counted for the exact days they were there, rather than being unfairly thrown out.</li>
     <li><b>Log-rank test:</b> compares two or more Kaplan-Meier curves.</li>
     <li><b>Cox proportional hazards:</b> the regression extension, giving <b>hazard ratios</b> while adjusting for covariates.</li>
   </ul>
@@ -709,13 +709,13 @@ ul{padding-left:20px}
       <tr><td>Log-rank test</td><td>Cox proportional hazards</td><td>Time-to-event</td></tr>
     </tbody>
   </table>
-  <div class="box verifybox"><span class="lbl">Exam framework</span><p>The simple test asks "do these groups differ?" The regression asks "do they still differ after accounting for everything else?"</p></div>
+  <div class="box verifybox"><span class="lbl">Exam framework</span><p>Simple tests just ask "do these groups differ?" Regression asks "do they still differ after we control for everything else?"</p></div>
 
   <div class="box trap"><span class="lbl">Study-design caveat</span><p>Every test above assumes <b>each animal is independent</b>. Shelter data often break this: littermates, animals from one household and repeat surrenders are alike. When animals cluster, use a <b>mixed-effects model</b>, or <b>conditional logistic regression</b> for matched case-control studies.</p></div>
 
   <h3>Association vs causation <span class="badge ref">ref</span></h3>
-  <p>The <b>Bradford Hill considerations</b> help judge causality: temporality, strength, dose-response, consistency, plausibility, coherence, experimental evidence, specificity, analogy.</p>
-  <div class="box trap"><span class="lbl">Exam trap</span><p><b>Temporality</b> (cause precedes effect) is the one essential criterion. The rest are supporting considerations, not a checklist that all must be met. Association is never proof of causation.</p></div>
+  <p><b>Association is never proof of causation.</b> To judge whether something really causes an outcome, use the <b>Bradford Hill considerations</b>: temporality, strength, dose-response, consistency, biological plausibility, coherence, experimental evidence, specificity, analogy.</p>
+  <div class="box trap"><span class="lbl">Exam trap</span><p><b>Temporality</b> (the cause must happen before the effect) is the <b>only</b> absolute, essential requirement. All the other criteria are helpful supporting clues, not a mandatory checklist.</p></div>
 </section>
 
 <!-- ============ BANK ============ -->
