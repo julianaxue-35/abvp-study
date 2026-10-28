@@ -120,7 +120,7 @@
         <div id="cfgSubWrap" class="hidden"><label>Topic</label><select id="cfgSub"></select></div>
         <div><label>Total questions</label><input id="cfgTotal" type="number" value="350" min="20" max="1500"></div>
         <div><label>Minutes / session</label><input id="cfgMins" type="number" value="180" min="10" max="360"></div>
-        <div><label>Lunch (min, pausable)</label><input id="cfgLunch" type="number" value="60" min="0" max="120"></div>
+        <div><label>Lunch break (pausable)</label><select id="cfgLunch"><option value="60" selected>60 min</option><option value="45">45 min</option><option value="30">30 min</option><option value="15">15 min</option><option value="0">N/A — no break</option></select></div>
         <div><label>Include flashcard MCQs</label><select id="cfgCards"><option value="1" selected>Yes — add flashcard-derived MCQs</option><option value="0">No — hub MCQs only (cleanest)</option></select></div>
       </div>
       <div id="userStats" style="font-size:13px;color:var(--ink);margin:4px 0 10px;min-height:18px"></div>
@@ -319,7 +319,7 @@ function startExam(){
   var total=Math.max(2,parseInt(document.getElementById('cfgTotal').value)||350);
   var useCards=document.getElementById('cfgCards').value==='1';
   S.sessLen=(parseInt(document.getElementById('cfgMins').value)||180)*60;
-  S.lunchLeft=(parseInt(document.getElementById('cfgLunch').value)||60)*60;
+  S.lunchLeft=(parseInt(document.getElementById('cfgLunch').value,10)||0)*60;
   var sc=getScope(); S.scope=sc;
   var need, groups;
   if(sc.mode==='all'){ need=counts(total); groups=DOM_ORDER.map(function(d){return {pool:window.MOCK.mcqs.filter(q=>q.domain===d && (useCards||q.source!=='fc')),n:need[d]};}); }
