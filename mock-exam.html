@@ -124,6 +124,7 @@
         <div><label>Include flashcard MCQs</label><select id="cfgCards"><option value="1" selected>Yes — add flashcard-derived MCQs</option><option value="0">No — hub MCQs only (cleanest)</option></select></div>
       </div>
       <div id="timeCalc" style="font-size:13px;background:#f1f7f4;border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:4px 0 10px"></div>
+      <div id="bankProgress" style="margin:4px 0 10px"></div>
       <div id="userStats" style="font-size:13px;color:var(--ink);margin:4px 0 10px;min-height:18px"></div>
       <p style="font-size:13px;color:var(--muted);margin:6px 0 14px">With a lunch break the exam is split into two equal timed halves with a self-paced lunch between; choose <b>N/A – no break</b> and it runs as one continuous session. Every item is multiple-choice and auto-graded; questions are drawn <b>weighted to the 2026 blueprint</b> below; within each topic about <b>90% come from the hub knowledge and 10% from journal articles</b>, with extra emphasis on <i>Journal of Shelter Medicine and Community Animal Health</i> and shelter-medicine papers. Flashcard-derived questions have been rewritten with proper stems and same-topic distractors. During the exam nothing is marked right/wrong — but you can hit <b>Pause</b> any time to review what you've done so far with reasoning.</p>
       <button class="btn" onclick="startExam()">Start exam day →</button>
@@ -321,6 +322,7 @@ function loadUser(init){try{return JSON.parse(localStorage.getItem(ukey(init)))|
 function saveUser(init,rec){try{localStorage.setItem(ukey(init),JSON.stringify(rec));}catch(e){}}
 function inExam(q,useCards){return !!window.MOCK.blueprint[q.domain] && (useCards||q.source!=='fc');}
 function showUserStats(){
+  renderBank();
   var init=(document.getElementById('cfgInit').value||'').trim().toUpperCase();
   var el=document.getElementById('userStats'); if(!init){el.textContent='';return;}
   var rec=loadUser(init), seen=rec.seen||{}, useCards=document.getElementById('cfgCards').value==='1';
@@ -329,6 +331,25 @@ function showUserStats(){
   var fresh=total-mast-retry;
   if(rec.runs) el.innerHTML='<b>Welcome back, '+init+'</b> ('+rec.runs+' run'+(rec.runs>1?'s':'')+') — <span style="color:var(--good)">'+mast+' mastered</span> · <span style="color:var(--warn)">'+retry+' to retry</span> · '+fresh+' new available. Your next run pulls <b>wrong answers + new questions first</b>'+(sc.mode==='all'?'':' (in this '+(sc.mode==='topic'?'topic':'domain')+')')+'. <a href="#" onclick="resetUser(event)">reset</a>';
   else el.innerHTML='<b>New: '+init+'</b> — progress will be saved under these initials so future runs skip what you\'ve mastered.';
+}
+function renderBank(){
+  var init=(document.getElementById('cfgInit').value||'').trim().toUpperCase();
+  var el=document.getElementById('bankProgress'); if(!init){el.innerHTML='';return;}
+  var seen=(loadUser(init).seen)||{}, uc=useCardsNow(), dom={}, T={t:0,m:0,r:0};
+  window.MOCK.mcqs.forEach(function(q){
+    if(!inExam(q,uc))return;
+    var d=dom[q.domain]=dom[q.domain]||{t:0,m:0,r:0,subs:{}}, sb=d.subs[q.sub||'General']=d.subs[q.sub||'General']||{t:0,m:0,r:0};
+    var st=seen[qid(q)]; [T,d,sb].forEach(function(o){o.t++; if(st==='correct')o.m++; else if(st==='wrong')o.r++;});
+  });
+  var bar=function(o){var dn=o.m+o.r,p=o.t?dn/o.t*100:0,pm=o.t?o.m/o.t*100:0;
+    return '<div class="bar" style="height:7px"><i style="width:'+pm+'%;background:var(--good)"></i><i style="width:'+(p-pm)+'%;background:var(--warn)"></i></div>';};
+  var line=function(label,o,bold){var dn=o.m+o.r;return '<tr><td>'+(bold?'<b>'+label+'</b>':label)+'</td><td style="white-space:nowrap">'+dn+' / '+o.t+' ('+(o.t?Math.round(dn/o.t*100):0)+'%)</td><td style="min-width:90px">'+bar(o)+'</td></tr>';};
+  var h='<details open style="border:1px solid var(--line);border-radius:10px;padding:8px 12px;background:#fff"><summary style="cursor:pointer;font-size:14px"><b>Question bank progress for '+init+':</b> '+(T.m+T.r)+' of '+T.t+' questions done ('+(T.t?Math.round((T.m+T.r)/T.t*100):0)+'%) — <span style="color:var(--good)">'+T.m+' mastered</span> · <span style="color:var(--warn)">'+T.r+' to retry</span> · '+(T.t-T.m-T.r)+' not yet seen</summary>'+
+    '<table class="bp" style="margin-top:8px"><thead><tr><th>Domain</th><th>Done</th><th></th></tr></thead><tbody>'+
+    DOM_ORDER.filter(function(k){return dom[k];}).map(function(k){
+      var d=dom[k];return line(k,d,true)+Object.keys(d.subs).sort().map(function(t){return line('&nbsp;&nbsp;&nbsp;'+t,d.subs[t]);}).join('');}).join('')+
+    '</tbody></table><div style="font-size:12px;color:var(--muted);margin-top:4px">Green = answered correctly (mastered), orange = answered wrong (will come back). A question counts as done once you have answered it in a finished exam.</div></details>';
+  el.innerHTML=h;
 }
 function resetUser(e){e.preventDefault();var init=(document.getElementById('cfgInit').value||'').trim().toUpperCase();if(init&&confirm('Reset all saved progress for '+init+'?')){localStorage.removeItem(ukey(init));showUserStats();}}
 document.getElementById('cfgInit').addEventListener('input',showUserStats);
