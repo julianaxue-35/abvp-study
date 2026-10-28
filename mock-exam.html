@@ -297,8 +297,8 @@ function renderTime(){
   var tot=parseFloat(mi.value)||defaultMins();
   var rows=[60,100,150,200,350].map(function(q){var t=Math.round(q*pc);return '<tr><td>'+q+' questions</td><td>'+hm(t)+'</td></tr>';}).join('');
   document.getElementById('timeCalc').innerHTML=
-    '<b>Time allocation:</b> the real exam is 350 questions in 8am–5pm (9 h)'+(L?' with a '+L+' min lunch':' with no lunch break')+', which is about <b>'+(pc*60).toFixed(0)+' sec ('+pc.toFixed(2)+' min) per question</b>. '+
-    '<br><b>Your '+n+' questions → '+hm(tot)+'</b>'+(L?' ('+hm(tot/2)+' per half, then your '+L+' min lunch)':' in one continuous session, no split')+'.'+
+    '<b>Time allocation:</b> the real exam is 350 questions in 8am–5pm (9 h, lunch included)'+(L?' with a '+L+' min lunch inside that window':' with no lunch break')+', which is about <b>'+(pc*60).toFixed(0)+' sec ('+pc.toFixed(2)+' min) per question</b>. '+
+    '<br><b>Your '+n+' questions → '+hm(tot)+'</b>'+(function(){var e=480+tot+L,h=Math.floor(e/60),m=Math.round(e%60);return ' of question time'+(L?' + '+L+' min lunch':'')+' = finishing about '+((h-1)%12+1)+':'+(m<10?'0':'')+m+(h>=12?'pm':'am')+' if you start at 8:00am';})()+(L?' ('+hm(tot/2)+' per half, then your '+L+' min lunch)':' in one continuous session, no split')+'.'+
     '<table class="bp" style="margin-top:8px;max-width:340px"><thead><tr><th>Questions</th><th>Time at this pace</th></tr></thead><tbody>'+rows+'</tbody></table>'+
     '<span style="color:var(--muted)">Edit “Total exam time” to override.</span>';
 }
