@@ -109,7 +109,7 @@ T(2233,"What type of organism is Otobius megnini?","A soft tick that attaches to
 T(2234,"According to Moriello, which is more effective for finding parasites?","The flea comb","Scotch tape preparation","They are equally effective"),
 T(2235,"Which parasites can be identified on skin scraping?","Cheyletiella, Notoedres, Sarcoptes, Demodex and Pelodera","Fleas and lice","Ticks and Otodectes"),
 T(2237,"Which parasites or forms can be identified on a trichogram?","Demodex, Cheyletiella egg cases and louse egg cases","Adult Sarcoptes and Notoedres","Heartworm microfilariae"),
-T(2238,"What is the hallmark sign of hookworm dermatitis?","Pedal pruritus","Ear margin crusting","Perianal alopecia"),
+T(2238,"Skin-penetrating hookworm larvae cause dermatitis. Which sign is the hallmark, as distinct from sarcoptic mange?","Pedal pruritus, with itchy, inflamed paws and interdigital skin","Ear margin crusting with a positive pinnal-pedal reflex","Perianal alopecia"),
 T(2239,"What should be investigated if Pelodera strongyloides dermatitis is identified?","Bedding such as straw, marsh hay, rice hulls or dirt","The raw diet","The water source"),
 T(2240,"Pelodera dermatitis is","not contagious between animals; it comes from contaminated bedding","highly contagious between animals","contagious only to cats"),
 T(2241,"How long do ticks feed before disengaging from the host?","3–5 days","1 hour","30 days"),
