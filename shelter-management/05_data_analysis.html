@@ -578,7 +578,7 @@
 
   <div class="mcqbar">
     <div class="filters">
-      <button class="on" data-f="all">All 70</button>
+      <button class="on" data-f="all">All 94</button>
       <button data-f="surveillance">Surveillance</button>
       <button data-f="metrics">Basic Metrics</button>
       <button data-f="los">LOS / ALOS</button>
@@ -966,7 +966,8 @@ const Q = [
  {"f":"calc","q":"A shelter has 600 outcome-eligible animals in a year: 330 adopted, 60 returned to owner, 90 transferred out, 6 lost, 12 natural deaths and 102 euthanised. What is the euthanasia rate?","o":["17%","19.0%","14.6%"],"a":0,"e":"Euthanasia rate = euthanasias / outcome-eligible animals = 102/600 = 17%. 19.0% wrongly adds natural deaths, which belong to the mortality rate (12/600 = 2%), and the third option adds animals that are not outcome-eligible to the denominator."},
  {"f":"calc","q":"A shelter has 600 outcome-eligible animals in a year: 330 adopted, 60 returned to owner, 90 transferred out, 6 lost, 12 natural deaths and 102 euthanised. What is the mortality rate?","o":["2%","17%","19.0%"],"a":0,"e":"Mortality rate = natural deaths / outcome-eligible animals = 12/600 = 2%. Euthanasia is a separate outcome with its own rate (17%), and combining the two (19.0%) is not the mortality rate."},
  {"f":"calc","q":"A shelter received 450 stray animals and 200 owner-surrendered animals in a year. Of the strays, 135 were returned to their owners. What is the return-to-owner (RTO) rate?","o":["30%","20.8%","67.5%"],"a":0,"e":"RTO rate = strays returned to owner / strays = 135/450 = 30%. Owner-surrendered animals are not strays, so they are excluded from the denominator. 20.8% includes them, and 67.5% divides by surrenders only."},
- {"f":"calc","q":"Which denominator is used for the adoption rate, transfer-out rate, lost rate, mortality rate and euthanasia rate?","o":["Outcome-eligible animals","Total intake","Stray animals only"],"a":0,"e":"These rates all use outcome-eligible animals as the denominator. Only the return-to-owner rate uses a different one: strays."}
+ {"f":"calc","q":"Which denominator is used for the adoption rate, transfer-out rate, lost rate, mortality rate and euthanasia rate?","o":["Outcome-eligible animals","Total intake","Stray animals only"],"a":0,"e":"These rates all use outcome-eligible animals as the denominator. Only the return-to-owner rate uses a different one: strays."},
+ {"q":"A shelter has 100 feline kennels. Its target Length of Stay (LOS) for adoptable cats is 8 days. To maintain a functional Capacity for Care (C4C) and prevent crowding, what is the maximum monthly intake of adoptable cats this infrastructure can sustainably support?","o":["125 cats","250 cats","375 cats","500 cats"],"a":2,"e":"Using the standard shelter metric formula from Every Nose Counts, daily intake = housing units ÷ length of stay. 100 ÷ 8 = 12.5 cats per day. Over a 30-day month, 12.5 × 30 = 375 cats. Exceeding this intake forces the shelter over its capacity for care."}
 ];/*mcq-shuffle*/(function(){var _a=Q;if(!Array.isArray(_a))return;for(var _i=0;_i<_a.length;_i++){var _q=_a[_i];if(!_q||!Array.isArray(_q.o)||typeof _q.a!=='number')continue;var _c=_q.o[_q.a];for(var _j=_q.o.length-1;_j>0;_j--){var _k=Math.floor(Math.random()*(_j+1));var _t=_q.o[_j];_q.o[_j]=_q.o[_k];_q.o[_k]=_t;}_q.a=_q.o.indexOf(_c);}})();
 
 const LABELS = {
