@@ -152,7 +152,7 @@ ITEMS = [
 
 ([29],
  "Why are pleasure states, and not only the absence of discomfort, considered necessary for quality of life?",
- "The absence of discomfort alone is not enough for an optimal mental state.",
+ "Positive experiences are part of what makes a life worth living, so removing negatives is not enough.",
  "Pleasure states are the only measurable indicator of welfare.",
  "Pleasure states reduce length of stay automatically.",
  "A life worth living needs positive experiences, not just the removal of negatives, which is the core advance of the Five Domains."),
