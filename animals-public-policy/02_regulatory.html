@@ -455,11 +455,11 @@
 <!-- ===================== MCQ ===================== -->
 <section class="panel" id="mcq">
   <h2 class="sec">MCQ Test Bank — Regulatory</h2>
-  <p class="lead">30 exam-style questions covering non-profit governance, stray holds, veterinary practice act supervision, DEA regulations, and shelter liability. Select an answer to see the explanation.</p>
+  <p class="lead">31 exam-style questions covering non-profit governance, stray holds, veterinary practice act supervision, DEA regulations, and shelter liability. Select an answer to see the explanation.</p>
 
   <div class="mcqbar">
     <div class="filters">
-      <button class="on" data-f="all" onclick="filterQ(this,'all')">All (30)</button>
+      <button class="on" data-f="all" onclick="filterQ(this,'all')">All (31)</button>
       <button data-f="nonprofit" onclick="filterQ(this,'nonprofit')">Non-Profit</button>
       <button data-f="stray-holds" onclick="filterQ(this,'stray-holds')">Stray Holds</button>
       <button data-f="vet-practice" onclick="filterQ(this,'vet-practice')">Vet Practice &amp; DEA</button>
@@ -763,11 +763,21 @@
   <!-- Q30 -->
   <div class="q" data-tag="stray-holds">
     <div class="meta"><span class="num">Q30</span><span class="tag">stray-holds</span></div>
-    <p class="stem">A dog is impounded as a stray on Monday morning. The statutory hold is 7 calendar days, and the dog is microchipped with a registered owner. When does the hold expire, and when may the shelter first act?</p>
-    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>It expires after 7 business days, excluding the weekend, so the shelter may act the following Tuesday, and the owner may still reclaim.</button>
-    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>It is waived because the owner was notified through the registry, so the shelter may act after 3 days, and the owner may not reclaim.</button>
-    <button class="opt" onclick="ans(this,true)"><span class="k">C</span>Counting Monday as day 1, it expires at the end of day 7 (Sunday), and the shelter may act from the following Monday morning.</button>
-    <div class="expl"><b class="cor">C is correct.</b> When the statute counts calendar days, weekends count. With the impound day as day 1, the hold ends after day 7, and only then may the shelter adopt, transfer or perform elective procedures.</div>
+    <p class="stem">A dog is impounded as a stray on Monday morning. The statutory hold is 7 calendar days, and the dog is microchipped with a registered owner. When does the hold expire?</p>
+    <button class="opt" onclick="ans(this,false)"><span class="k">A</span>After 7 business days, excluding the weekend</button>
+    <button class="opt" onclick="ans(this,true)"><span class="k">B</span>At the end of day 7 (Sunday), counting Monday as day 1</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>After 3 days, because the owner was notified</button>
+    <div class="expl"><b class="cor">B is correct.</b> Counting the impound day as day 1, a 7-calendar-day hold ends at the end of Sunday.</div>
+  </div>
+
+  <!-- Q31 -->
+  <div class="q" data-tag="stray-holds">
+    <div class="meta"><span class="num">Q31</span><span class="tag">stray-holds</span></div>
+    <p class="stem">A dog impounded on Monday morning has a 7-calendar-day hold. When may the shelter first act on the dog if the owner does not reclaim it?</p>
+    <button class="opt" onclick="ans(this,true)"><span class="k">A</span>The following Monday morning</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">B</span>The following Tuesday</button>
+    <button class="opt" onclick="ans(this,false)"><span class="k">C</span>On the Sunday afternoon</button>
+    <div class="expl"><b class="cor">A is correct.</b> The shelter may act from the following Monday morning, once the hold has fully expired.</div>
   </div>
 
   </div><!-- /qlist -->
