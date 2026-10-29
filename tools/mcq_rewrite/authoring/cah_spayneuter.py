@@ -315,9 +315,9 @@ ITEMS = [
 
 ([29, 30],
  "A 3-year-old intact male cat has no vaccine history. What core protocol is used, and which MLV vaccine risks fetal cerebellar hypoplasia in pregnant queens?",
- "FVRCP at intake with a booster 2 to 4 weeks later; MLV panleukopenia vaccine",
- "FVRCP with a booster one year later; killed rabies vaccine",
- "Three doses two weeks apart; recombinant FeLV vaccine",
+ "FVRCP at intake with a booster 2 to 4 weeks later; the panleukopenia (FPV) component; MLV panleukopenia vaccine",
+ "FVRCP with a booster one year later; the feline calicivirus component",
+ "Three doses two weeks apart; the feline herpesvirus component",
  "Naive adults need a priming dose and one booster 2 to 4 weeks later. MLV panleukopenia vaccine damages the developing fetal cerebellum."),
 
 ([31, 32],
@@ -336,7 +336,7 @@ ITEMS = [
 
 ([55, 100, 101],
  "For an en bloc caesarean, which technique gives the highest neonatal survival, how long can it take from clamping the uterine supply to delivery, and is fetal euthanasia needed?",
- "En bloc removal of the uterus with a separate hysterotomy; 45 to 60 seconds; not needed unless the sac is opened",
+ "En bloc removal of the uterus with a separate hysterotomy; 45 to 60 seconds; no fetal euthanasia is needed if the uterus stays intact and unopened; not needed unless the sac is opened",
  "Multiple hysterotomies in the dam; 3 to 4 minutes; always required",
  "A single hysterotomy in the dam; 10 to 15 seconds; required after 45 days of gestation",
  "En bloc removal minimises the dam's anaesthetic time and contamination and maximises neonatal survival. Delivery should take 45 to 60 seconds to avoid fetal hypoxia, and fetuses stay unconscious unless the sac is opened."),

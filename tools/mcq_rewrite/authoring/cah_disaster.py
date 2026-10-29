@@ -23,7 +23,7 @@ ITEMS = [
 
 ([4, 6],
  "A local shelter is overwhelmed and cannot manage a disaster response. What resources can be mobilised, and how should requests for outside help be routed?",
- "Trained response personnel from national animal welfare organisations, with requests coordinated through the local Incident Command structure",
+ "Trained response personnel from national animal welfare organisations, with requests coordinated through the local Incident Command structure, with requests coordinated through the local Incident Command structure",
  "Municipal retail management teams, with requests sent directly to federal drug suppliers",
  "Regional social security staff, with requests posted on social media",
  "National animal welfare organisations have pre-trained disaster teams. Requests for outside resources are coordinated with or through the local Incident Command structure."),

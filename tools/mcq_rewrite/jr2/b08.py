@@ -167,7 +167,7 @@ JITEMS2 = [
  "Recruitment is mainly through births in the free-roaming population, so neutering alone will control it",
  "Free-roaming dogs are not replaced once removed, so control programmes are not needed",
  "Monthly apparent survival was 0.93 in both sites, and densities were 7 dogs per km2 in Pescara and 40 in Lviv."),
-(642,"Deterrents were compassion fatigue, burnout, weekend work and euthanasia; encouragers were outreach clinics, access-to-care clinics and loan forgiveness",
+(642,"Outreach clinics, access-to-care clinics and loan forgiveness encouraged them; compassion fatigue, burnout, weekend work and euthanasia decision-making deterred them; encouragers were outreach clinics, access-to-care clinics and loan forgiveness",
  "Deterrents were outreach clinics and loan forgiveness; encouragers were burnout risk and weekend work",
  "Deterrents were salary only; encouragers were euthanasia decision making and population management",
  "Around 40% of students would consider shelter medicine, and students rated most duties more positively than veterinarians."),

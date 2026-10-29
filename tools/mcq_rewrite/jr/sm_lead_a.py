@@ -50,7 +50,7 @@ JITEMS = [
  "Students focused only on surgical technique, and not on welfare or ethics",
  "Shelter medicine offers authentic learning about cultural humility, implicit bias, diversity and inclusion."),
 (642, "A survey of first-year students, final-year students and veterinarians examined shelter medicine employment. Which factors deterred students, and which encouraged them?",
- "Deterrents were compassion fatigue, burnout, weekend work and euthanasia; encouragers were outreach clinics, access-to-care clinics and loan forgiveness",
+ "Outreach clinics, access-to-care clinics and loan forgiveness encouraged them; compassion fatigue, burnout, weekend work and euthanasia decision-making deterred them; encouragers were outreach clinics, access-to-care clinics and loan forgiveness",
  "Deterrents were outreach clinics and loan forgiveness; encouragers were burnout risk and weekend work",
  "Deterrents were the salary only; encouragers were euthanasia decision making",
  "Around 40% of students would consider shelter medicine, and students rated most duties more positively than veterinarians."),

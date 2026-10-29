@@ -60,7 +60,7 @@ JITEMS = [
  "Most ticks carried Borrelia burgdorferi only",
  "Six tick species were identified, and new tick-pathogen associations were documented."),
 (1232, "A meta-analysis of 106 surveys assessed heartworm (Dirofilaria immitis) prevalence in Australian canids. What did it show, and why does it matter?",
- "Prevalence was higher in humid summer zones (18.7%) than cool winter zones (2.1%), so risk is not homogeneous even though guidelines are not climate-specific",
+ "Prevalence was higher in humid summer zones (18.7%) than cool winter zones (2.1%), so a blanket national preventive recommendation does not reflect the variation in infection risk, so risk is not homogeneous even though guidelines are not climate-specific",
  "Prevalence was uniform, so national guidelines are appropriate",
  "Prevalence was highest in cool winter zones",
  "Temperature and humidity zone explained roughly 30% of the heterogeneity."),

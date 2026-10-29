@@ -129,5 +129,5 @@ HFIX = {
  "Attachment Theory came from studies of mother-infant relationships, and Social Support Theory says support buffers stress."),
 ("cah_access",20):("They are identical terms; incremental care is the most advanced care delivered in stages.",
  "Contextualised care applies only in shelters; incremental care is care given after the client's savings are exhausted.",
- "Spectrum of care is the range of options, and contextualised care is choosing among them using patient and client context."),
+ "Spectrum of care is the range of options, and contextualised care is choosing among them using patient and client context; Forsgren defines incremental care as patient-centred, evidence-based medicine delivered in stages within limited resources."),
 }

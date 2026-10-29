@@ -23,7 +23,7 @@ ITEMS = [
 
 ([4, 5],
  "Which behaviours correlate with surrender reports two weeks after adoption, and how does the picture change by six weeks?",
- "Aggression toward unfamiliar people, fear or aggression at the vet, urination when alone and destructive chewing at 2 weeks, with fewer correlations by 6 weeks",
+ "Aggression toward unfamiliar people, fear or aggression at the vet, urination when alone and destructive chewing at 2 weeks, with fewer correlations by 6 weeks, with fewer correlations by 6 weeks",
  "Barking, predatory behaviour and resource guarding at 2 weeks, with more correlations by 6 weeks",
  "Kennel spinning, pacing and tail tucking at 2 weeks, with the same correlations at 6 weeks",
  "At 2 weeks, aggression toward unfamiliar people, fear or aggression toward vets, urination when alone and destructive chewing correlate with surrender. By 6 weeks there are fewer correlations."),
