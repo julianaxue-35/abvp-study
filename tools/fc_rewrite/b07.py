@@ -28,7 +28,7 @@ T(2145,"What is the most common clinical sign of hookworm infection?","Regenerat
 T(2146,"Where do adult Trichuris vulpis live?","The caecum and colon of dogs and other canids","The small intestine","The stomach"),
 T(2147,"Which is more prevalent in dogs?","Hookworms, more than whipworms","Whipworms, more than hookworms","They are equally prevalent"),
 T(2148,"What clinical signs are seen with whipworms?","Mostly none; sometimes weight loss, abdominal pain and large-bowel diarrhoea with or without blood","Haemorrhagic pneumonia","Severe vomiting"),
-T(2149,"Which eggs are hardier, ascarid or Trichuris?","Trichuris","Ascarid","They are equally hardy"),
+T(2149,"Which eggs are hardier in the environment, ascarid (roundworm) or hookworm?","Ascarid eggs, which are extremely resistant and nearly impossible to destroy once in soil","Hookworm eggs, which survive drying on dry surfaces","They are equally hardy"),
 T(2150,"How long is the prepatent period of whipworms?","About 3 months","About 1 week","About 1 year"),
 T(2151,"Which three tapeworms are relevant to shelters?","Dipylidium caninum, Taenia taeniaeformis and Echinococcus multilocularis","Toxocara canis, Ancylostoma caninum and Trichuris vulpis","Giardia duodenalis, Cystoisospora and Cryptosporidium"),
 T(2152,"Tapeworm life cycles are","indirect, requiring an intermediate host","direct","direct in cats and indirect in dogs"),
