@@ -4,7 +4,7 @@ T(2260,"Which home remedy can help release nits from hairs?","A vinegar rinse (1
 T(2262,"How is fly strike prevented in cats?","Housing them indoors","Daily bathing","Clipping the coat"),
 T(2263,"Which two drugs can be used to kill fly larvae?","Nitenpyram and ivermectin, daily until no new maggots are seen","Praziquantel and fenbendazole","Amoxicillin and prednisolone"),
 T(2264,"Eosinophilic inflammation in an animal with facial folliculitis/furunculosis on the nose might represent","a bee, wasp, ant or caterpillar sting site","demodicosis","dermatophytosis"),
-T(2265,"What type of drug is amitraz, and who should be wary of handling it?","A monoamine oxidase inhibitor; people taking MAOIs, who are pregnant or diabetic should avoid handling it","An organophosphate; no one should handle it","A pyrethroid; it is safe for all handlers"),
+T(2265,"Amitraz is an older demodicosis dip, now largely replaced by isoxazolines. What type of drug is it, and who should be wary of handling it?","A monoamine oxidase inhibitor; people taking MAOIs, who are pregnant or diabetic should avoid handling it","An organophosphate; no one should handle it","A pyrethroid; it is safe for all handlers"),
 T(2266,"Removal of thick debris from the ear can be facilitated by","applying mineral oil for 10–15 minutes beforehand","applying hydrogen peroxide","applying alcohol"),
 T(2267,"How long do ear mites live, and how long should treatment last?","About 3 weeks, so treat for up to 4 weeks","About 3 days, so treat for 1 week","About 3 months, so treat for 6 months"),
 T(2269,"Why is rabies in rodents so rare?","The bite that would transmit rabies usually kills the rodent","Rodents are naturally immune","Rodents are rarely bitten by rabid animals"),
