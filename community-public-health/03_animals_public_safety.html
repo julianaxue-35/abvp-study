@@ -601,7 +601,7 @@
 
   <div class="mcqbar">
     <div class="filters">
-      <button class="on" data-f="all">All (38)</button>
+      <button class="on" data-f="all">All (41)</button>
       <button data-f="definitions">Definitions</button>
       <button data-f="population">Population</button>
       <button data-f="tnr">TNR / Threshold</button>
@@ -868,7 +868,8 @@ const Q=[
  {"f":"tnr","q":"In the standard ear-tip convention, how much of which ear is removed?","o":["The distal 1 cm of the left ear","The distal 1 cm of the right ear","A 1 cm notch in the centre of the left ear"],"a":0,"e":"The distal 1 cm of the left ear is removed under anaesthesia, as a straight cut."},
  {"f":"tnr","q":"What does NASPHV guidance say about rabies vaccination of cats at TNR?","o":["Vaccinate with a licensed rabies vaccine at TNR","Vaccination is not needed, because feral cats are not domestic animals","A 3-dose primary series is needed before any protection"],"a":0,"e":"NASPHV recommends vaccinating with a licensed rabies vaccine at the time of TNR."},
  {"f":"tnr","q":"What does a single rabies vaccination provide for a feral cat at TNR?","o":["Significant public health benefit, because feral cats mount an adequate immune response","No meaningful protection until a booster is given","Protection for exactly 12 months only"],"a":0,"e":"Even one injection gives significant public health benefit, because feral cats mount an adequate antibody response."},
- {"f":"strategies","q":"A shelter starts a Return-to-Field (RTF) programme, sterilising impounded stray cats and returning them. Which statement best characterises RTF as a standalone intervention?","o":["It is the most evidence-based standalone method of reducing community cat populations.","It does not independently reduce cat populations and may be legally problematic.","It achieves population reduction comparable to TNR within 18 months in most settings."],"a":1,"e":"RTF diverts cats from shelter housing but is not a population control strategy by itself."}
+ {"f":"strategies","q":"A shelter starts a Return-to-Field (RTF) programme, sterilising impounded stray cats and returning them. Which statement best characterises RTF as a standalone intervention?","o":["It is the most evidence-based standalone method of reducing community cat populations.","It does not independently reduce cat populations and may be legally problematic.","It achieves population reduction comparable to TNR within 18 months in most settings."],"a":1,"e":"RTF diverts cats from shelter housing but is not a population control strategy by itself."},
+ {"q":"A community cat colony is being managed with TNR. Fewer than 70% of the intact females have been sterilised. The expected result is that the colony","o":["keeps growing despite active TNR","stabilises in 5 to 10 years","declines in proportion to the number sterilised"],"a":0,"e":"At least 70% of intact females must be sterilised to outpace fecundity. Below that, the colony keeps growing."}
 ];/*mcq-shuffle*/(function(){var _a=Q;if(!Array.isArray(_a))return;for(var _i=0;_i<_a.length;_i++){var _q=_a[_i];if(!_q||!Array.isArray(_q.o)||typeof _q.a!=='number')continue;var _c=_q.o[_q.a];for(var _j=_q.o.length-1;_j>0;_j--){var _k=Math.floor(Math.random()*(_j+1));var _t=_q.o[_j];_q.o[_j]=_q.o[_k];_q.o[_k]=_t;}_q.a=_q.o.indexOf(_c);}})();
 
 let activeFilter="all",answered=0,correct=0;
