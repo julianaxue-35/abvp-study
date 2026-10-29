@@ -95,7 +95,7 @@ ITEMS = [
  "The four pillars are to shape independence, reduce departure and homecoming anxiety, decouple departure cues, and reduce anxiety through structure and predictability."),
 
 ([13],
- "An owner reports that their dog digs persistently in the yard. Which differential is the least likely driver of digging?",
+ "An owner reports that their terrier digs persistently in the yard, mainly along the fence line during thunderstorms and wherever rodents are active. Which differential is the least likely driver of the digging?",
  "Hypothyroidism",
  "Predatory drive directed at burrowing rodents",
  "Noise phobia with escape attempts",
