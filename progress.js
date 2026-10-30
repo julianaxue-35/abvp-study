@@ -213,6 +213,21 @@
     if(anchor) anchor.parentNode.insertBefore(bar,anchor); else q.parentNode.insertBefore(bar,q);
   }
 
+  /* consistent question totals on every bank page: tab label + "All" chip, counted from what the page really renders */
+  function bankTotal(){
+    try{ if(typeof Q!=='undefined'&&Array.isArray(Q)&&Q.length) return Q.length; }catch(e){}
+    var n=document.querySelectorAll('#qhost .q, #bank .q, #mcq .q').length;
+    return n;
+  }
+  function syncBankCounts(){
+    var tab=document.querySelector('button[data-p="mcq"],button[data-tab="bank"]'); if(!tab) return;
+    var n=bankTotal(); if(!n) return;
+    var tn=null; for(var i=tab.childNodes.length-1;i>=0;i--){ if(tab.childNodes[i].nodeType===3&&tab.childNodes[i].nodeValue.trim()){tn=tab.childNodes[i];break;} }
+    if(tn) tn.nodeValue=' MCQ Test Bank ('+n+')'; else if(!tab.children.length) tab.textContent='MCQ Test Bank ('+n+')';
+    var all=document.querySelector('.mcqbar [data-f="all"]'); if(all) all.textContent='All ('+n+')';
+  }
+  root.addEventListener('load',function(){setTimeout(syncBankCounts,0);});
+
   function init(){
     pill=el('button',{id:'abvpPill',type:'button','aria-label':'Progress'}); pill.onclick=openPanel; document.body.appendChild(pill);
     var hook=false; var scr=document.querySelectorAll('script[src*="progress.js"]');
