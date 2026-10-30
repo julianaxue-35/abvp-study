@@ -81,8 +81,11 @@
   #sketchCanvas{flex:1;width:100%;cursor:crosshair;touch-action:none;border-radius:0 0 14px 14px}
   .sketchnote{font-size:11.5px;color:var(--bad);font-weight:600}
   /* ---- palette ---- */
-  #palette{position:fixed;top:0;right:0;bottom:0;width:300px;background:var(--paper2);border-left:1px solid var(--line);box-shadow:-6px 0 24px rgba(0,0,0,.12);z-index:40;padding:16px;overflow:auto;transform:translateX(100%);transition:transform .2s}
-  #palette.open{transform:none}
+  #palette,#flagPanel{position:fixed;top:0;right:0;bottom:0;width:300px;background:var(--paper2);border-left:1px solid var(--line);box-shadow:-6px 0 24px rgba(0,0,0,.12);z-index:40;padding:16px;overflow:auto;transform:translateX(100%);transition:transform .2s}
+  #palette.open,#flagPanel.open{transform:none}
+  .flagitem{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;border:1px solid var(--warn);background:#fbf1e2;border-radius:8px;padding:8px 10px;margin-top:8px;cursor:pointer;font:inherit;font-size:13px;color:inherit}
+  .flagitem b{flex:0 0 auto}
+  .flagitem small{display:block;color:var(--muted);font-size:11px;margin-top:2px}
   .pgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:10px}
   .pcell{aspect-ratio:1;border:1px solid var(--line);border-radius:6px;font-size:11px;display:flex;align-items:center;justify-content:center;cursor:pointer;background:#fff}
   .pcell.ans{background:#dcebe2;border-color:var(--good)}
@@ -157,6 +160,7 @@
     <div class="meta-r">
       <div><div class="sesslabel" id="sessLabel">Session 1</div><span id="progress">0 / 0</span></div>
       <button class="btn alt sm" onclick="pauseExam()">⏸ Pause</button>
+      <button class="btn alt sm" id="flagBtn" onclick="toggleFlagged()">⚑ Flagged (0)</button>
       <button class="btn alt sm" onclick="togglePalette()">≡ Palette</button>
       <button class="btn alt sm" onclick="exitToHub()">← Hub</button>
     </div>
@@ -193,20 +197,17 @@
   <p style="font-size:12.5px;color:var(--muted)">The countdown is just a guide; the timer can be paused and Session 2 starts only when you click.</p>
 </div></div></div>
 
-<!-- ============ PAUSE / REVIEW-SO-FAR ============ -->
+<div id="flagPanel">
+  <div style="display:flex;justify-content:space-between;align-items:center"><b>Flagged questions</b><button class="btn alt sm" onclick="toggleFlagged(true)">✕</button></div>
+  <div id="flagList"></div>
+</div>
+<!-- ============ PAUSE ============ -->
 <div id="pauseScreen" class="hidden"><div class="wrap">
   <div class="card" style="text-align:center">
-    <h1 style="font-size:24px;margin:0">⏸ Paused — review so far</h1>
-    <p style="color:var(--muted);margin:6px 0" id="pauseSummary"></p>
-    <div style="margin:6px 0 0">
-      <button class="btn alt sm" onclick="filterPause('all')">All answered</button>
-      <button class="btn alt sm" onclick="filterPause('wrong')">Incorrect + reasoning</button>
-      <button class="btn alt sm" onclick="filterPause('right')">Correct</button>
-    </div>
-    <button class="btn" style="margin-top:12px" onclick="resumeExam()">▶ Resume exam</button>
-    <span style="font-size:12px;color:var(--muted);margin-left:10px">The timer is frozen.</span>
+    <h1 style="font-size:24px;margin:0">⏸ Paused</h1>
+    <p style="color:var(--muted);margin:6px 0 0">The timer is frozen. Your answers are saved and nothing is marked until you finish.</p>
+    <button class="btn" style="margin-top:14px" onclick="resumeExam()">▶ Resume exam</button>
   </div>
-  <div id="pauseList"></div>
 </div></div>
 
 <!-- ============ RESULTS ============ -->
@@ -498,12 +499,19 @@ function tick(){
   if(diff>=2){p.className='pace ahead';p.textContent='Ahead — you can slow down';}
   else if(diff<=-3){p.className='pace behind';p.textContent='Behind — speed up';}
   else{p.className='pace on';p.textContent='On pace';}
+  var fb=document.getElementById('flagBtn');if(fb)fb.textContent='⚑ Flagged ('+flagCount()+')';
   document.getElementById('progress').textContent=(S.cur-r[0]+1)+' / '+nQ+'  ('+done+' answered)';
   if(left<=0){ endSession(); }
 }
+function completeExam(){
+  var r=sessRange(),un=0;for(var i=r[0];i<r[1];i++)if(S.ans[i]===null)un++;
+  var final=(S.session===2||S.single);
+  var msg=(un?un+' question'+(un>1?'s are':' is')+' still unanswered (counted as wrong). ':'')+(final?'Submit all answers and finish the exam?':'Finish this session and continue?');
+  if(confirm(msg)) endSession();
+}
 function endSession(){
   if(S.timer)clearInterval(S.timer);
-  togglePalette(true);
+  togglePalette(true); toggleFlagged(true);
   if(S.session===1 && S.lunchLeft>0){ showLunch(); }
   else if(S.session===1 && !S.single){ startSession(2); }
   else{ showResults(); }
@@ -547,7 +555,9 @@ function render(){
      '<button class="btn alt" onclick="go(-1)">‹ Prev</button>'+
      '<button class="btn alt flagbtn'+(S.flag[S.cur]?' on':'')+'" onclick="toggleFlag()">⚑ '+(S.flag[S.cur]?'Flagged':'Flag')+'</button>'+
      '<button class="btn alt" onclick="toggleSketch()">✏️ Sketch pad</button>'+
-     '<button class="btn" style="margin-left:auto" onclick="go(1)">Next ›</button></div>';
+     (S.cur===r[1]-1
+       ? '<button class="btn" style="margin-left:auto;background:var(--good)" onclick="completeExam()">'+((S.session===2||S.single)?'Complete exam ✓':'Complete session ✓')+'</button>'
+       : '<button class="btn" style="margin-left:auto" onclick="go(1)">Next ›</button>')+'</div>';
   document.getElementById('qcard').innerHTML=h+document.getElementById('sketch').outerHTML;
   document.getElementById('sketch').classList.add('hidden');
   tick();
@@ -599,9 +609,10 @@ function pauseExam(){
   if(S.timer)clearInterval(S.timer);
   S.pauseRemaining=Math.max(0,Math.round((S.sessEnd-Date.now())/1000));
   document.getElementById('palette').classList.remove('open');
+  toggleFlagged(true);
   document.getElementById('examScreen').classList.add('hidden');
   document.getElementById('pauseScreen').classList.remove('hidden');
-  window.scrollTo(0,0); buildPauseReview('all');
+  window.scrollTo(0,0);
 }
 function resumeExam(){
   document.getElementById('pauseScreen').classList.add('hidden');
@@ -609,30 +620,21 @@ function resumeExam(){
   S.sessEnd=Date.now()+(S.pauseRemaining||0)*1000;
   if(S.timer)clearInterval(S.timer); S.timer=setInterval(tick,1000); tick(); render();
 }
-var pauseData=[];
-function buildPauseReview(f){
-  pauseData=[];
-  S.items.forEach(function(it,i){ if(S.ans[i]===null)return; pauseData.push({it:it,i:i,correct:it.a===S.ans[i],a:S.ans[i]}); });
-  var n=pauseData.length, right=pauseData.filter(p=>p.correct).length;
-  document.getElementById('pauseSummary').textContent=
-    n+' answered so far · '+right+' correct · '+(n-right)+' incorrect — the exam itself stays unmarked; this view is just for you.';
-  filterPause(f||'all');
+/* all flagged questions in the current session, in one list */
+function flagCount(){var r=sessRange(),n=0;for(var i=r[0];i<r[1];i++)if(S.flag[i])n++;return n;}
+function toggleFlagged(forceClose){
+  var p=document.getElementById('flagPanel');
+  if(forceClose||p.classList.contains('open')){p.classList.remove('open');return;}
+  document.getElementById('palette').classList.remove('open');
+  var r=sessRange(),h='';
+  for(var i=r[0];i<r[1];i++){ if(!S.flag[i])continue;
+    var t=esc(((S.items[i].qpre||'')+S.items[i].q).slice(0,110))+(((S.items[i].qpre||'')+S.items[i].q).length>110?'…':'');
+    h+='<button class="flagitem" onclick="jumpFlag('+i+')"><b>Q'+(i-r[0]+1)+'</b><span>'+t+'<small>'+(S.ans[i]!==null?'Answered':'Not answered yet')+'</small></span></button>';
+  }
+  document.getElementById('flagList').innerHTML=h||'<p style="color:var(--muted);font-size:13px">No flagged questions yet.</p>';
+  p.classList.add('open');
 }
-function filterPause(f){
-  var list=pauseData.filter(p=> f==='all'?true : f==='wrong'? !p.correct : p.correct);
-  document.getElementById('pauseList').innerHTML=list.map(function(p){
-    var it=p.it,h='<div class="rev" style="border-left:4px solid '+(p.correct?'var(--good)':'var(--bad)')+'">';
-    h+='<div style="font-size:12px;margin-bottom:4px">'+(p.correct?'<span class="corr">✓ Correct</span>':'<span class="wrong">✗ Incorrect</span>')+' · <span class="qtag">'+it.domain+'</span></div>';
-    h+='<div class="stem">'+esc((it.qpre||'')+it.q)+'</div>';
-    it.o.forEach(function(o,k){
-      var mark=(k===it.a)?'<span class="corr">✓ </span>':(k===p.a&&!p.correct?'<span class="wrong">✗ </span>':'');
-      var st=(k===it.a)?'font-weight:600;color:var(--good)':(k===p.a&&!p.correct?'color:var(--bad)':'color:var(--muted)');
-      h+='<div style="'+st+'">'+mark+String.fromCharCode(65+k)+'. '+esc(o)+'</div>';
-    });
-    if(!p.correct && it.e) h+='<div style="margin-top:6px;font-size:13px;background:#f3efe3;border-radius:8px;padding:8px"><b>Why:</b> '+esc(it.e)+'</div>';
-    return h+'</div>';
-  }).join('')||'<p style="color:var(--muted);text-align:center">No questions in this filter yet.</p>';
-}
+function jumpFlag(i){S.cur=i;toggleFlagged(true);render();}
 function exitToHub(){
   if(confirm('Leave the mock exam and return to the Study Hub? Your current exam progress will be lost.')) location.href='index.html';
 }
