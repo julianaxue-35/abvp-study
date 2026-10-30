@@ -229,6 +229,8 @@
 
 <script src="mock-data.js"></script>
 <script src="mock-data-journal.js"></script>
+<script src="qindex.js"></script>
+<script src="progress.js"></script>
 <script>
 /* ===================== state ===================== */
 var S={items:[],ans:[],flag:[],seen:[],cur:0,session:1,half:0,
@@ -351,8 +353,48 @@ function renderBank(){
     '</tbody></table><div style="font-size:12px;color:var(--muted);margin-top:4px">Green = answered correctly (mastered), orange = answered wrong (will come back). A question counts as done once you have answered it in a finished exam.</div></details>';
   el.innerHTML=h;
 }
+
+/* ---- shared tracker glue: one-time import of older per-mock history, and running accuracy by area ---- */
+function migrateSeen(init){
+  if(!window.ABVP||!init)return;
+  var st=ABVP.load(), P=ABVP.profile(st,init); if(P.mig)return;
+  var seen=loadUser(init).seen||{}, n=0;
+  window.MOCK.mcqs.forEach(function(q){
+    var v=seen[qid(q)]; if(!v||!q.q)return;
+    var h=ABVP.key(q.q); if(P.r[h])return;
+    var pg=(ABVP.idx()||{}); var page='';
+    for(var k in pg){if((pg[k].h||[]).indexOf(h)>-1){page=k;break;}}
+    var c={r:v==='correct'?1:0,f:v==='correct'?1:0,n:1,t:1};
+    if(page){c.p=page;if(pg[page].d)c.d=pg[page].d;}else{c.d=q.domain;c.s=q.sub||'General';}
+    P.r[h]=c;n++;
+  });
+  P.mig=1; if(!st.cur)st.cur=init; ABVP.save(st);
+}
+function renderRunning(gkeys,gk){
+  var host=document.getElementById('runAcc');
+  if(!host){host=document.createElement('div');host.id='runAcc';host.style.cssText='margin-top:14px';
+    var ds=document.getElementById('domScores');ds.parentNode.insertBefore(host,ds.nextSibling);}
+  if(!window.ABVP||!ABVP.cur()){host.innerHTML='';return;}
+  var P=ABVP.profile(ABVP.load(),ABVP.cur()), by={};
+  window.MOCK.mcqs.forEach(function(q){
+    if(!q.q||q.type!=='mcq'||!window.MOCK.blueprint[q.domain])return;
+    var c=P.r[ABVP.key(q.q)]; if(!c)return;
+    var d=by[q.domain]=by[q.domain]||{n:0,ok:0,subs:{}}, sb=d.subs[q.sub||'General']=d.subs[q.sub||'General']||{n:0,ok:0};
+    [d,sb].forEach(function(o){o.n++;o.ok+=c.r?1:0;});
+  });
+  var inExam={};S.items.forEach(function(it){inExam[it.domain]=1;});
+  var rows='';
+  DOM_ORDER.filter(function(k){return by[k]&&inExam[k];}).forEach(function(k){
+    var d=by[k];rows+='<tr><td><b>'+k+'</b></td><td style="white-space:nowrap">'+d.ok+' / '+d.n+'</td><td><b>'+Math.round(d.ok/d.n*100)+'%</b></td></tr>';
+    Object.keys(d.subs).sort().forEach(function(t){var o=d.subs[t];
+      rows+='<tr><td>&nbsp;&nbsp;&nbsp;'+t+'</td><td style="white-space:nowrap">'+o.ok+' / '+o.n+'</td><td>'+Math.round(o.ok/o.n*100)+'%</td></tr>';});
+  });
+  host.innerHTML=rows?'<div style="border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:#fff"><b>Running accuracy for '+ABVP.cur()+'</b> <span style="font-size:12px;color:var(--muted)">(every question you have answered anywhere &mdash; this exam and the subdomain banks &mdash; latest answer each)</span><table class="bp" style="margin-top:6px"><thead><tr><th>Area</th><th>Correct / answered</th><th>%</th></tr></thead><tbody>'+rows+'</tbody></table></div>':'';
+}
 function resetUser(e){e.preventDefault();var init=(document.getElementById('cfgInit').value||'').trim().toUpperCase();if(init&&confirm('Reset all saved progress for '+init+'?')){localStorage.removeItem(ukey(init));showUserStats();}}
 document.getElementById('cfgInit').addEventListener('input',showUserStats);
+window.ABVPonInit=function(v){var f=document.getElementById('cfgInit');if(f){f.value=v;showUserStats();}};
+(function(){try{var c=window.ABVP&&ABVP.cur(),f=document.getElementById('cfgInit');if(c&&f&&!f.value){f.value=c;migrateSeen(c);showUserStats();}}catch(e){}})();
 /* remember the last-used initials on this device so they pre-fill next time */
 (function(){
   var f=document.getElementById('cfgInit');
@@ -403,6 +445,7 @@ function startExam(){
   var init=(document.getElementById('cfgInit').value||'').trim().toUpperCase();
   if(!init){alert('Please enter your initials first so your progress can be saved.');document.getElementById('cfgInit').focus();return;}
   try{localStorage.setItem('abvpmock:lastInit',init);}catch(e){}
+  if(window.ABVP){ABVP.setCur(init);migrateSeen(init);}
   S.user=init; S.rec=loadUser(init); var seen=S.rec.seen||{};
   var total=Math.max(2,parseInt(document.getElementById('cfgTotal').value)||350);
   var useCards=document.getElementById('cfgCards').value==='1';
@@ -617,6 +660,12 @@ function showResults(){
     S.items.forEach(function(it,i){var a=S.ans[i];if(a===null)return;S.rec.seen[qid(it)]=(a===it.a)?'correct':'wrong';});
     S.rec.runs=(S.rec.runs||0)+1; saveUser(S.user,S.rec);
   }
+  // shared tracker: every answered MCQ also counts toward the subdomain question banks
+  if(S.user&&window.ABVP){
+    ABVP.setCur(S.user);
+    S.items.forEach(function(it,i){var a=S.ans[i];if(a===null||it.type!=='mcq')return;ABVP.rec(it.q,a===it.a,{d:it.domain,s:it.sub||'General'});});
+    ABVP.refresh();
+  }
   if(S.scope&&S.scope.mode!=='all')document.getElementById('domScoresTitle').textContent='By topic';
   var pct=totG?Math.round(totC/totG*100):0;
   document.getElementById('overallScore').textContent=pct+'%';
@@ -628,6 +677,7 @@ function showResults(){
       '<div class="n">'+p+'%</div><div style="font-size:12px">'+st.correct+'/'+st.graded+'</div>'+
       '<div class="bar"><i style="width:'+p+'%;background:'+(p>=70?'var(--good)':p>=50?'var(--warn)':'var(--bad)')+'"></i></div></div>';
   }).join('');
+  renderRunning(gkeys,gk);
   // pacing
   document.getElementById('pacingSummary').innerHTML=
     'Items answered: <b>'+totG+' / '+S.items.length+'</b>. '+
