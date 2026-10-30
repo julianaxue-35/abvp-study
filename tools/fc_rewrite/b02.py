@@ -2,7 +2,7 @@ D=lambda *a:[(i,None,None,None,None) for i in a]
 R=D(*range(1502,1532))+D(1532)+[
 (1529,"What is the maximum body weight that wombats can reach?","Up to about 35 kg (77 lb)",["Up to about 12 kg (26 lb)","Up to about 60 kg (132 lb)"],"Common wombats can reach about 35 kg (77 lb)."),
 (1533,"Which sex more often carries out violent acts towards animals?","Males",["Females","Both equally"],"Violent acts toward animals are more often carried out by males, not females."),
-(1534,"Who suggested in 1983 that evidence of abuse in the family pet might also be evidence of abuse of other family members?","Hutton, 1983",["Arkow, 1994","Ascione, 1998"],"Hutton (1983) described pet abuse as a marker for abuse of other family members."),
+(1534,"Who first suggested that evidence of abuse in the family pet might also be evidence of abuse of other family members?","Hutton",["Arkow","Ascione"],"Hutton (1983) described pet abuse as a marker for abuse of other family members."),
 ]+D(*range(1535,1569))+[
 (1569,"Which statement about the scope of the National Incident Management System (NIMS) is correct?","It is adaptable and scalable and applies to all types of incident, from routine local events to coordinated federal responses",["It applies only to federally declared disasters","It applies only to incidents that exceed local resources"],"NIMS components are scalable to any incident, local through federal."),
 (1570,"Under NIMS and the National Response Framework (NRF), at which level are incidents typically managed first?","The lowest jurisdictional level, usually local",["The federal level","The state level"],"A basic premise is that incidents are handled at the lowest possible organisational and jurisdictional level."),
