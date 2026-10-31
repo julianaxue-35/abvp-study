@@ -120,7 +120,7 @@
       <h3 style="margin-top:0">Set up your exam</h3>
       <div class="cfg">
         <div><label>Your initials</label><input id="cfgInit" type="text" maxlength="5" placeholder="e.g. JX" autocomplete="off" style="text-transform:uppercase"></div>
-        <div><label>What to practise</label><select id="cfgScope"><option value="all" selected>Full exam (all 7 domains, blueprint-weighted)</option><option value="domain">One domain (all its topics mixed)</option><option value="topic">One topic only</option><option value="asv">ASV Guidelines (2022) questions only</option></select></div>
+        <div><label>What to practise</label><select id="cfgScope"><option value="all" selected>Full exam (all 7 domains, blueprint-weighted)</option><option value="domain">One domain (all its topics mixed)</option><option value="topic">One topic only</option><option value="asv">ASV Guidelines questions only</option></select></div>
         <div id="cfgDomWrap" class="hidden"><label>Domain</label><select id="cfgDom"></select></div>
         <div id="cfgSubWrap" class="hidden"><label>Topic</label><select id="cfgSub"></select></div>
         <div><label>Total questions</label><input id="cfgTotal" type="number" value="350" min="20" max="1500"></div>
@@ -279,7 +279,7 @@ function fillScopeSelects(){
   subSel.innerHTML=subs.map(function(t){return '<option value="'+t+'"'+(t===curSub?' selected':'')+'>'+t+' ('+cnt[t]+')</option>';}).join('');
   var m=document.getElementById('cfgScope').value;
   document.getElementById('cfgDomWrap').classList.toggle('hidden',m==='all'||m==='asv');
-  var asvOpt=document.querySelector('#cfgScope option[value="asv"]'); if(asvOpt)asvOpt.textContent='ASV Guidelines (2022) questions only ('+window.MOCK.mcqs.filter(function(q){return q.source==='asv'&&inExam(q,uc);}).length+')';
+  var asvOpt=document.querySelector('#cfgScope option[value="asv"]'); if(asvOpt)asvOpt.textContent='ASV Guidelines questions only ('+window.MOCK.mcqs.filter(function(q){return q.source==='asv'&&inExam(q,uc);}).length+')';
   document.getElementById('cfgSubWrap').classList.toggle('hidden',m!=='topic');
   document.getElementById('bpCard').classList.toggle('hidden',m!=='all');
 }
