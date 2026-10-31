@@ -10,7 +10,7 @@ JITEMS = [
  "Cardiac compressions first, then warming",
  "The project addressed 28 clinical questions and produced 59 treatment recommendations."),
 (937, "The International Renal Interest Society guidelines discuss acute kidney injury in cats and dogs. Which statement is consistent with them?",
- "Hospital-acquired AKI is increasing, partly through increased recognition and treatment intensity, and mortality remains high despite advances such as renal replacement therapy",
+ "Hospital-acquired acute kidney injury (AKI) is increasing, partly through increased recognition and treatment intensity, and mortality remains high despite advances such as renal replacement therapy",
  "Hospital-acquired AKI is rare, and mortality is low",
  "AKI requires a decrease in kidney function by definition",
  "AKI is injury to the renal parenchyma with or without a decrease in function, and can come from ischaemia, inflammation, nephrotoxins or infections."),

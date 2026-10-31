@@ -70,7 +70,7 @@ JITEMS = [
  "Carers supported the shooting",
  "Legally feral cats can be managed with lethal methods in Australia."),
 (569, "Weibo posts about stray cats in China were analysed. Which finding is correct?",
- "TNR had high support, and knowledge of ecological impact was positively correlated with support for lethal control",
+ "Trap-neuter-return (TNR) had high support, and knowledge of ecological impact was positively correlated with support for lethal control",
  "TNR had little support",
  "Ecological knowledge was linked to opposition to lethal control",
  "There was irresponsible feeding behaviour."),

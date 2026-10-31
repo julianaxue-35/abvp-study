@@ -79,7 +79,7 @@ JITEMS = [
  "Restrictive ordinances make lifesaving impossible",
  "TNR is prohibited everywhere",
  "Data covered January 2015 to December 2023."),
-(47, "Adopters of cats assessed with the Feline Spectrum Assessment were surveyed. Which finding is correct?",
+(47, "Shelter cats were scored with the Feline Spectrum Assessment, a scale of how socially engaged a cat is with people, and their adopters were then surveyed. Which finding is correct for the lowest-scoring ('undersocial') cats?",
  "As likelihood of being undersocial rose, cats were more fearful and less affectionate, and adopters were slightly less satisfied, so cats with the lowest scores may be better suited to TNR or barn placement",
  "Undersocial cats were more affectionate",
  "Adopter satisfaction was higher for undersocial cats",

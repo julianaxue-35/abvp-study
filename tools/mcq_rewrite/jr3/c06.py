@@ -73,7 +73,7 @@ JITEMS3 = [
  "Resistant and wild-type worms clustered separately, with large mitochondrial differences, so resistance is a mitochondrial trait"),
 (1331,"Amastigotes were found in all dogs, and apoptosis was lower in affected dogs, with collagen deposition lower in infected dogs",
  "Amastigotes were found in healthy dogs, and collagen deposition was lower in infected dogs, with apoptosis lower in affected dogs"),
-(1333,"DNA methods had higher sensitivities than flotation, and the sieving protocol had the highest specificity, in the Bayesian analysis",
+(1333,"DNA methods had higher sensitivities than flotation, and the sieving protocol had the highest specificity",
  "All methods had specificity below 50%, and sensitivities were similar between parasitological and DNA methods, in the Bayesian analysis"),
 (1335,"Treatment had no effect on worms at any time, and L3 from treated dogs developed normally, so doxycycline is ineffective",
  "Treatment killed microfilariae, with no effect on developing larvae or adult worms, so doxycycline is ineffective against embryogenesis"),

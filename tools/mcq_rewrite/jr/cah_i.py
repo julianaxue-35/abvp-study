@@ -120,7 +120,7 @@ JITEMS = [
  "Feline Grimace Scale",
  "Inflammatory and oxidative stress markers were also measured."),
 (1058, "A spayed German Shepherd with vulvar discharge was tested for ovarian remnant. What was unexpected?",
- "AMH, considered the gold standard, was negative despite an ovarian remnant",
+ "Anti-Müllerian hormone (AMH), considered the gold standard, was negative despite an ovarian remnant",
  "AMH was strongly positive",
  "The dog was intact",
  "The dog was 6 years old."),

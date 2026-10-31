@@ -307,7 +307,7 @@ JITEMS2 = [
  "To compare killed vaccines with recombinant vaccines for cats in the two regions",
  "To test cats for FIV and FeLV using the same blood and urine samples",
  "Leptospirosis is a re-emergent zoonosis with renal and hepatic injury, and PCR was done on blood and urine from the Californian cats."),
-(427,"AST and the AST/ALT ratio were higher in azotaemic dogs, and higher in renal than pre-renal azotaemia, suggesting a renal origin of the AST increase",
+(427,"Aspartate aminotransferase (AST) and the AST/alanine aminotransferase (ALT) ratio were higher in azotaemic dogs, and higher in renal than pre-renal azotaemia, suggesting a renal origin of the AST increase",
  "AST and the AST/ALT ratio were lower in azotaemic dogs, and lower in renal than pre-renal azotaemia",
  "ALT alone rose in renal azotaemia, and AST did not differ between azotaemic and non-azotaemic dogs",
  "AST and the AST/ALT ratio correlated with renal indices such as sodium fractional excretion."),

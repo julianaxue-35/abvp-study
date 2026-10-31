@@ -94,7 +94,7 @@ JITEMS = [
  "Unrelated cats with multiple feeding areas",
  "Intact females living outdoors",
  "Five cat behaviour experts also rated the videos."),
-(290, "The Fe-BARQ survey tool was used with Spanish owners. Which finding is correct?",
+(290, "Spanish cat owners completed the Fe-BARQ (Feline Behavioral Assessment and Research Questionnaire). Which owner and cat factors were associated with the behaviours reported?",
  "Behaviours varied with breed, gender, reproductive status, age and source of acquisition, living environment and owner experience",
  "Behaviour was unrelated to any factor",
  "Only breed mattered",

@@ -144,9 +144,9 @@
 "sub": "Epidemiology of Homelessness",
 "q": "Surveys of private practices and high-quality, high-volume spay-neuter (HQHVSN) clinics examined referral of pyometra. Which finding shows a partnership opportunity?",
 "o": [
-"Most HQHVSN clinics (95%) could treat most pyometras with similar estimated survival and much lower cost, a partnership opportunity",
-"Most HQHVSN clinics (95%) could treat uncomplicated pyometras and estimated lower survival at a similar cost to practices",
-"Few HQHVSN clinics (15%) could treat pyometra, so private practices remain the main option for most cases"
+"Most high-quality, high-volume spay-neuter (HQHVSN) clinics (95%) could treat most pyometras with similar estimated survival and much lower cost, a partnership opportunity",
+"Most high-quality, high-volume spay-neuter (HQHVSN) clinics (95%) could treat uncomplicated pyometras and estimated lower survival at a similar cost to practices",
+"Few high-quality, high-volume spay-neuter (HQHVSN) clinics (15%) could treat pyometra, so private practices remain the main option for most cases"
 ],
 "a": 0,
 "e": "Referral was the only option for cases where treatment disrupts clinic flow.",
@@ -202,7 +202,7 @@
 "type": "mcq",
 "domain": "Physical Health",
 "sub": "Nutrition & Husbandry",
-"q": "Veterinary professionals visually estimated the weights of cats in traps at TNR clinics to set anaesthetic doses. Which pattern was found?",
+"q": "Veterinary professionals visually estimated the weights of cats in traps at trap-neuter-return (TNR) clinics to set anaesthetic doses. Which pattern was found?",
 "o": [
 "Heavier cats were underestimated and lighter cats overestimated, and veterinarians were more accurate than students and technicians",
 "Heavier cats were overestimated and lighter cats underestimated, and technicians were more accurate than veterinarians, with the deviation crossing zero at 8 kg",
@@ -547,7 +547,7 @@
 "type": "mcq",
 "domain": "Physical Health",
 "sub": "Sanitation & Biosecurity",
-"q": "A biosecurity framework for HQHVSN clinics serving free-roaming cats aims to limit avian influenza (HPAI) transmission. Which measure is included?",
+"q": "A biosecurity framework for high-quality, high-volume spay-neuter (HQHVSN) clinics serving free-roaming cats aims to limit avian influenza (HPAI) transmission. Which measure is included?",
 "o": [
 "Shared holding for feral cats and pets, scheduling feral surgeries throughout the day, and isolation after test results",
 "Separate intake areas, but staff moving between feral and pet areas, and isolation of cats with fever",
@@ -596,7 +596,7 @@
 "o": [
 "Most were men, 75% belonged to a formal organisation, time was the main difficulty, and they wanted education on adoption, among members of the association",
 "Most were women, 75% had no affiliation, and the main difficulty was hostile neighbours, with no wish for education",
-"Most were women, 75% had no organisational affiliation, finances were the main difficulty, and they wanted education on TNR planning"
+"Most were women, 75% had no organisational affiliation, finances were the main difficulty, and they wanted education on trap-neuter-return (TNR) planning"
 ],
 "a": 2,
 "e": "A smaller subset (16%) held stronger opinions.",
@@ -622,10 +622,10 @@
 "type": "mcq",
 "domain": "Shelter Management",
 "sub": "Mental Health & Self-Care",
-"q": "A 2023 survey of 243 US shelter staff measured well-being with PROMIS and ProQOL. Which finding is correct?",
+"q": "A 2023 survey of 243 US shelter staff measured mental health (PROMIS, a patient-reported health measure) and professional quality of life including burnout (ProQOL). How did staff compare with the general US population, and how many had high burnout scores?",
 "o": [
 "Well-being matched the general population, and fewer than a fifth had high burnout scores",
-"Anxiety and depression exceeded the general population, but compassion satisfaction was low and burnout was rare, in the 243 staff surveyed",
+"Anxiety and depression exceeded the general population, but compassion satisfaction was low and burnout was rare",
 "Anger, anxiety, depression and fatigue exceeded the general US population, and over half had high burnout scores"
 ],
 "a": 2,
@@ -697,11 +697,11 @@
 "type": "mcq",
 "domain": "Companion Animal Homelessness",
 "sub": "Adoption & Placement",
-"q": "Adopters of cats assessed with the Feline Spectrum Assessment were surveyed. Which finding is correct?",
+"q": "Shelter cats were scored with the Feline Spectrum Assessment, a scale of how socially engaged a cat is with people, and their adopters were then surveyed. Which finding is correct for the lowest-scoring ('undersocial') cats?",
 "o": [
 "Undersocial cats were more fearful but as affectionate, and adopters equally satisfied, so they can be placed in typical homes",
-"Undersocial cats were more fearful and less affectionate and adopters slightly less satisfied, so the lowest-scoring cats may suit TNR or barn placement",
-"Undersocial cats were less fearful and more affectionate, and adopters more satisfied, so TNR is rarely needed"
+"Undersocial cats were more fearful and less affectionate and adopters slightly less satisfied, so the lowest-scoring cats may suit trap-neuter-return (TNR) or barn placement",
+"Undersocial cats were less fearful and more affectionate, and adopters more satisfied, so trap-neuter-return (TNR) is rarely needed"
 ],
 "a": 1,
 "e": "Cats with questionable sociability are routinely adopted into typical homes.",
@@ -714,7 +714,7 @@
 "sub": "Spay-Neuter",
 "q": "Ninety-nine deceased free-roaming cats from two Florida counties were tested for infections. Which finding is correct?",
 "o": [
-"Females were at higher risk of FeLV and FIV, and Bartonella had the highest prevalence, found only in female cats, in the two Florida counties",
+"Females were at higher risk of FeLV and FIV, and Bartonella had the highest prevalence, found only in female cats",
 "Males were at higher risk of FeLV and FIV, and Mycoplasma haemominutum had the highest prevalence, found only in male cats",
 "Males were at higher risk of FeLV and FIV, but Mycoplasma haemominutum was found mostly in female cats"
 ],
@@ -835,7 +835,7 @@
 "q": "The SPCA Hong Kong applied trap-neuter-return (Cat Colony Care Program) to feral cats on a remote island. What was the long-term result?",
 "o": [
 "Initial numbers over 100 near restaurants and walkways fell until only one cat was sighted between 2019 and 2023",
-"Initial numbers of about 20 rose to over 100 after neutering because returned cats attracted immigration, within a year of the first surgeries",
+"Initial numbers of about 20 rose to over 100 after neutering because returned cats attracted immigration",
 "Initial numbers over 100 stayed stable for years because most cats were neutered but not returned"
 ],
 "a": 0,
@@ -849,7 +849,7 @@
 "sub": "Animal ID & Stats",
 "q": "Loudoun County's Tag! You're Home! Program asks finders to return healthy, social, un-microchipped adult cats to their neighbourhoods with a collar bearing shelter contact details. What was the result?",
 "o": [
-"Over 80% of enrolled cats were returned to the shelter within a week, and adult stray intake rose by 9%, in the Loudoun County programme",
+"Over 80% of enrolled cats were returned to the shelter within a week, and adult stray intake rose by 9%",
 "Over 80% of enrolled cats did not need intake, 31% were confirmed returned to owners, and adult stray intake fell by 9%",
 "About 30% of enrolled cats did not need intake, and return-to-owner fell as intake stayed unchanged"
 ],
@@ -894,9 +894,9 @@
 "sub": "Facility/Environment",
 "q": "In a randomised trial, shelter cats were given a hiding den or no den. Which finding is correct?",
 "o": [
-"Den cats had 33.7% lower URI incidence, and the effect on length of stay was mediated through reduced URI",
-"Den cats had milder URI but the same incidence, and length of stay was reduced directly by the den, in the randomised trial",
-"Den cats had 33.7% higher URI incidence but a shorter length of stay through reduced stress"
+"Den cats had 33.7% lower upper respiratory infection (URI) incidence, and the effect on length of stay was mediated through reduced URI",
+"Den cats had milder upper respiratory infection (URI) but the same incidence, and length of stay was reduced directly by the den",
+"Den cats had 33.7% higher upper respiratory infection (URI) incidence but a shorter length of stay through reduced stress"
 ],
 "a": 0,
 "e": "Cats diagnosed with URI were 27.2% less likely to be adopted at any given time.",
@@ -911,7 +911,7 @@
 "o": [
 "With supply of cats declining and adopters more willing, shelters face pressure to adopt out cats once considered unadoptable, whose welfare in homes was unstudied",
 "With supply of cats rising, shelters face pressure to euthanise undersocialised cats, whose welfare in shelters was already well studied in earlier work, according to the survey of adopters",
-"With shelter TNR programmes prohibited, shelters must adopt out undersocialised cats, whose welfare in homes is already known to be good from earlier work"
+"With shelter trap-neuter-return (TNR) programmes prohibited, shelters must adopt out undersocialised cats, whose welfare in homes is already known to be good from earlier work"
 ],
 "a": 0,
 "e": "TNR or alternative placement is typically considered more appropriate for poorly socialised cats, especially adults.",
@@ -940,7 +940,7 @@
 "q": "A modified Delphi method among experts identified the 20 highest-priority questions on access to veterinary care. Which themes did they focus on?",
 "o": [
 "Equity, engaging communities and pet owners, supporting practitioners, and delivering care",
-"Drug development, diagnostic technology, referral hospital capacity and insurance products, in the modified Delphi",
+"Drug development, diagnostic technology, referral hospital capacity and insurance products",
 "Shelter design, kennel materials, intake protocols and staff scheduling"
 ],
 "a": 0,
@@ -1042,7 +1042,7 @@
 "type": "mcq",
 "domain": "Companion Animal Homelessness",
 "sub": "Spay-Neuter",
-"q": "HQHVSN veterinarians were surveyed about volunteer spay-neuter trips to low-resource communities. Which two questions did the study ask?",
+"q": "High-quality, high-volume spay-neuter (HQHVSN) veterinarians were surveyed about volunteer spay-neuter trips to low-resource communities. Which two questions did the study ask?",
 "o": [
 "How much do HQHVSN veterinarians charge on spaycations, and how do they compare with local clinics?",
 "Why do HQHVSN veterinarians go on spaycations, and are spaycations a good thing?",
@@ -1059,8 +1059,8 @@
 "sub": "Management & Leadership",
 "q": "A shelter is finding it hard to recruit a veterinarian of record to buy wholesale medical supplies. A survey of shelter administrators and veterinarians found what difference in expectations?",
 "o": [
-"Administrators were more concerned about VCPR legal requirements and expected to pay more than veterinarians wanted, among shelter administrators and veterinarians",
-"Veterinarians were more concerned about meeting VCPR legal requirements and expected higher pay than administrators expected to offer",
+"Administrators were more concerned about veterinarian-client-patient relationship (VCPR) legal requirements and expected to pay more than veterinarians wanted, among shelter administrators and veterinarians",
+"Veterinarians were more concerned about meeting veterinarian-client-patient relationship (VCPR) legal requirements and expected higher pay than administrators expected to offer",
 "Both groups had similar concerns and expectations, so the difficulty was simply a lack of available veterinarians"
 ],
 "a": 1,
@@ -1164,7 +1164,7 @@
 "sub": "Parasites",
 "q": "In Quito, Ecuador, dog faeces were tested for intestinal parasites in households. Which finding is correct?",
 "o": [
-"Prevalence of households with infected dogs was 80%, whipworm was commonest in indoor dogs, and wealth was unrelated to ownership, in households sampled in Quito",
+"Prevalence of households with infected dogs was 80%, whipworm was commonest in indoor dogs, and wealth was unrelated to ownership",
 "Prevalence of households with infected dogs was 28%, but no single parasite dominated and dog numbers did not matter",
 "Prevalence of households with infected dogs was 28%, hookworm was commonest in indoor dogs, and wealth interacted with dog numbers in responsible ownership"
 ],
@@ -1254,7 +1254,7 @@
 "sub": "General",
 "q": "A behavioural rehabilitation programme (desensitisation, counterconditioning and operant conditioning) treated extremely fearful shelter dogs from 2013 to 2020. What were the outcomes?",
 "o": [
-"Graduation was 26% after an average of 96 days, with no improvement on the standardised assessment, and adoption of graduates was uncommon, for the 2013 to 2020 cohort",
+"Graduation was 26% after an average of 96 days, with no improvement on the standardised assessment, and adoption of graduates was uncommon",
 "Graduation was 86% after an average of 96 days, with significant improvement on a standardised assessment, then 99% adoption and 96% satisfaction",
 "Graduation was 86% after an average of 9 days, and dogs were adopted at 50% with 60% adopter satisfaction after the programme ended"
 ],
@@ -1284,7 +1284,7 @@
 "o": [
 "Defer behaviour-based decisions to allow time for habituation, because many tense cats improve in socialisation",
 "Recommend behavioural euthanasia at intake, because tense scores rarely improve with time",
-"Restrict adoption to homes without other pets, because return rates are much higher than for other cats, in the 195 hoarded cats"
+"Restrict adoption to homes without other pets, because return rates are much higher than for other cats"
 ],
 "a": 0,
 "e": "Most cats that scored tense at intake showed improved socialisation later, and return rates for hoarded cats (10%) did not differ significantly from non-hoarded cats (7.1%).",
@@ -1364,7 +1364,7 @@
 "type": "mcq",
 "domain": "Companion Animal Homelessness",
 "sub": "Spay-Neuter",
-"q": "A stochastic simulation compared lethal removal, non-lethal removal, TNR, combinations and no intervention for free-roaming cats. What was found?",
+"q": "A stochastic simulation compared lethal removal, non-lethal removal, trap-neuter-return (TNR), combinations and no intervention for free-roaming cats. What was found?",
 "o": [
 "Cost-effective reduction needs sufficient intensity, removal declined numbers faster early, and sterilisation-based strategies cost substantially less for comparable 45% reductions",
 "Low-intensity management was as effective as high-intensity, and sterilisation strategies cost more than removal for a comparable 45% reduction",
@@ -1378,7 +1378,7 @@
 "type": "mcq",
 "domain": "Companion Animal Homelessness",
 "sub": "Spay-Neuter",
-"q": "A survey of 410 TNR practitioners in the USA examined ear-tipping. Which finding is correct?",
+"q": "A survey of 410 trap-neuter-return (TNR) practitioners in the USA examined ear-tipping. Which finding is correct?",
 "o": [
 "Most tipped the right ear (81%) using measuring devices, the median bleeding rate was 25%, and one technique was superior",
 "Most tipped the left ear (81%) by visual estimation, the median post-hemostasis bleeding rate was 5%, and techniques varied without a clearly superior method",
@@ -1392,7 +1392,7 @@
 "type": "mcq",
 "domain": "Companion Animal Homelessness",
 "sub": "Spay-Neuter",
-"q": "A survey of 8,708 New South Wales residents identified 'semi-owners' of unowned cats (7%). Which finding is correct?",
+"q": "A survey of 8,708 New South Wales residents identified 'semi-owners' (7%), people who feed or care for an unowned cat without considering it their own. Which finding describes semi-owners?",
 "o": [
 "They were more likely female, urban, renting and from lower socioeconomic areas, and most also owned cats",
 "They were more likely male, rural and owning property in higher socioeconomic areas, and few owned other cats",
@@ -1408,9 +1408,9 @@
 "sub": "Infectious Disease",
 "q": "Sixty-one shelter cats with upper respiratory disease received intranasal maropitant or saline twice daily for 7 days. What was found?",
 "o": [
-"Maropitant significantly reduced nasal discharge and sneezing, supporting routine use in URI, in cats given intranasal drops",
+"Maropitant significantly reduced nasal discharge and sneezing, supporting routine use in upper respiratory infection (URI), in cats given intranasal drops",
 "No significant difference in clinical scores, so there is no evidence to support routine use",
-"Maropitant significantly worsened conjunctivitis scores, so it should be avoided in URI"
+"Maropitant significantly worsened conjunctivitis scores, so it should be avoided in upper respiratory infection (URI)"
 ],
 "a": 1,
 "e": "Conjunctivitis, blepharospasm, ocular discharge and nasal discharge were scored with visual analogue scales.",
@@ -1504,7 +1504,7 @@
 "type": "mcq",
 "domain": "Companion Animal Homelessness",
 "sub": "Shelter Diversion",
-"q": "Data on 148,826 animals from a self-rehoming platform (Rehome) were analysed for diversion from shelter intake. Which finding is correct?",
+"q": "Data on 148,826 animals from a self-rehoming platform (Rehome, where owners rehome their own pet instead of surrendering it to a shelter) were analysed. What proportion of animals were diverted away from shelter intake, and how did the owner's deadline affect this?",
 "o": [
 "About 87% of dogs and 86% of cats were diverted, and owners who set deadlines over 8 weeks were over twice as likely to keep or rehome the animal",
 "About 13% of dogs and 14% of cats were diverted, and most animals were surrendered to shelters whatever the deadline",
@@ -1535,7 +1535,7 @@
 "q": "A survey of 3,945 pet owners in several countries examined relinquishment during COVID-19. Which finding is correct?",
 "o": [
 "Households with children were 4.6 times more likely to consider or have relinquished a pet, and online acquisition was not associated with risk",
-"Households without children were 4.6 times more likely to relinquish, and online acquisition was strongly associated with risk, in the four-country survey",
+"Households without children were 4.6 times more likely to relinquish, and online acquisition was strongly associated with risk",
 "Households with children were 4.6 times more likely to relinquish, and online acquisition greatly increased the risk"
 ],
 "a": 0,
@@ -1630,7 +1630,7 @@
 "type": "mcq",
 "domain": "Companion Animal Homelessness",
 "sub": "Spay-Neuter",
-"q": "Complications of the ovarian pedicle tie were reviewed in 15,927 cats at a large HQHVSN clinic. What was found?",
+"q": "Complications of the ovarian pedicle tie were reviewed in 15,927 cats at a large high-quality, high-volume spay-neuter (HQHVSN) clinic. What was found?",
 "o": [
 "About 1.2% had pedicle-related haemorrhage, some fatal, and novice surgeons had significantly more complications",
 "Only 0.12% had pedicle-related haemorrhage, all corrected intraoperatively, with no pedicle-related deaths and no link to surgeon experience",
@@ -1688,9 +1688,9 @@
 "sub": "Medical (Non-Infectious)",
 "q": "Twenty-nine shelter cats with renal proteinuria were investigated for AA amyloidosis. Which urinary finding was more frequent in affected cats?",
 "o": [
-"Tubular proteinuria, lower UPC and urine amyloid A-to-creatinine ratios, and lower urine apolipoprotein C-III",
-"Glomerular proteinuria, similar UPC and amyloid A-to-creatinine ratios, and higher urine albumin alone",
-"Mixed proteinuria, higher UPC and urine amyloid A-to-creatinine ratios, and higher urine apolipoprotein C-III"
+"Tubular proteinuria, lower urine protein:creatinine ratio (UPC) and urine amyloid A-to-creatinine ratios, and lower urine apolipoprotein C-III",
+"Glomerular proteinuria, similar urine protein:creatinine ratio (UPC) and amyloid A-to-creatinine ratios, and higher urine albumin alone",
+"Mixed proteinuria, higher urine protein:creatinine ratio (UPC) and urine amyloid A-to-creatinine ratios, and higher urine apolipoprotein C-III"
 ],
 "a": 2,
 "e": "Nineteen cats had AA amyloidosis, associated with glomerulosclerosis and interstitial fibrosis.",
@@ -1870,8 +1870,8 @@
 "sub": "Medical (Non-Infectious)",
 "q": "Nine shelter cats with systemic AA amyloidosis had kidney tissue examined. Which finding is correct?",
 "o": [
-"Amyloid was in the cortex (glomeruli) and medulla, all cats had proteinuria and raised SDMA, so renal involvement should be considered in shelter cats with CKD",
-"Amyloid was confined to the medulla, most cats had no proteinuria and normal SDMA, so renal involvement is unlikely in shelter cats with CKD",
+"Amyloid was in the cortex (glomeruli) and medulla, all cats had proteinuria and raised symmetric dimethylarginine (SDMA), so renal involvement should be considered in shelter cats with chronic kidney disease (CKD)",
+"Amyloid was confined to the medulla, most cats had no proteinuria and normal symmetric dimethylarginine (SDMA), so renal involvement is unlikely in shelter cats with chronic kidney disease (CKD)",
 "Amyloid was AL type in the glomeruli, all cats had proteinuria, and extrarenal deposits were absent from every cat"
 ],
 "a": 0,
@@ -1926,7 +1926,7 @@
 "sub": "Infectious Disease",
 "q": "Pets in Ontario households with human COVID-19 cases were tested for SARS-CoV-2. Which finding is correct?",
 "o": [
-"Most swabs were PCR positive (70% dogs, 77% cats), but few sera were seropositive, and seropositivity was unrelated to bedding, in the Ontario households studied",
+"Most swabs were PCR positive (70% dogs, 77% cats), but few sera were seropositive, and seropositivity was unrelated to bedding",
 "Few swabs were PCR positive, but dogs had higher seropositivity than cats, unrelated to sleeping arrangements",
 "Few swabs were PCR positive (2% dogs, 7.7% cats), but about half of sera were seropositive, and seropositivity was higher in cats that slept on owners' beds"
 ],
@@ -2052,7 +2052,7 @@
 "sub": "Spay-Neuter",
 "q": "Memphis Animal Services implemented five best practices in 2017. What were the results?",
 "o": [
-"Cat live release rose from 35% to 52%, dog live release from 25% to 40%, and kitten euthanasia fell from 59% to 40%, after the five practices, in Memphis Animal Services",
+"Cat live release rose from 35% to 52%, dog live release from 25% to 40%, and kitten euthanasia fell from 59% to 40%, after the five practices",
 "Cat live release rose from 35% to 92%, dog live release from 25% to 87%, kitten euthanasia fell from 59% to 3%, and intake stopped correlating with euthanasia",
 "Live release rose for cats and dogs, but euthanasia correlated more strongly with intake than before the changes, and kitten euthanasia was unchanged"
 ],
@@ -2066,9 +2066,9 @@
 "sub": "Infectious Disease",
 "q": "A survey of 139 Florida shelters examined FeLV and FIV management. Which finding is correct?",
 "o": [
-"Few shelters (17%) tested, testing of TNR cats was commonest, and most positive cats were euthanised whatever the shelter type",
+"Few shelters (17%) tested, testing of trap-neuter-return (TNR) cats was commonest, and most positive cats were euthanised whatever the shelter type",
 "83% tested at least some cats, screening adoptable cats was commonest, and euthanasia was more common for FeLV-positive than FIV-positive cats and in municipal shelters",
-"83% tested at least some cats, testing of TNR cats was commonest, and euthanasia was more common for FIV-positive than FeLV-positive cats"
+"83% tested at least some cats, testing of trap-neuter-return (TNR) cats was commonest, and euthanasia was more common for FIV-positive than FeLV-positive cats"
 ],
 "a": 1,
 "e": "Common outcomes for positive cats were adoption (64%), transfer (54%) and euthanasia (43%).",
@@ -2164,7 +2164,7 @@
 "sub": "Animal Cruelty",
 "q": "Interviews with 24 Colorado law enforcement and animal protection personnel identified obstacles to abuse investigations. Which combination is correct, along with a recommendation for worker wellbeing?",
 "o": [
-"Too many veterinarians involved, delayed laboratory results, unclear species definitions and low pay; mandatory rotation of officers, in Colorado",
+"Too many veterinarians involved, delayed laboratory results, unclear species definitions and low pay; mandatory rotation of officers",
 "Public reluctance to report, absence of state statutes, lack of shelters and weak penalties; higher fines for offenders",
 "Too few places and resources for removed animals, difficulty working with district attorneys, limited training and too few investigators"
 ],
@@ -2275,7 +2275,7 @@
 "type": "mcq",
 "domain": "Companion Animal Homelessness",
 "sub": "Spay-Neuter",
-"q": "TNR and trap-neuter-adoption were combined in a Brazilian colony of 157 cats over 18 months. What was found?",
+"q": "Trap-neuter-return (TNR) and trap-neuter-adoption were combined in a Brazilian colony of 157 cats over 18 months. What was found?",
 "o": [
 "Colony size rose 47.8% and 98.8% were sterilised, with adoption causing immigration of new cats",
 "Colony size fell 47.8% but 10% were sterilised, with adoption accounting for most of the decline",
@@ -2289,7 +2289,7 @@
 "type": "mcq",
 "domain": "Companion Animal Homelessness",
 "sub": "Spay-Neuter",
-"q": "Córdoba, Spain, managed 225 cat groups by TNR from 2020. What were the results?",
+"q": "Córdoba, Spain, managed 225 cat groups by trap-neuter-return (TNR) from 2020. What were the results?",
 "o": [
 "Sterilisation coverage was 20%, the population doubled, and costs averaged EUR 62 per resident annually, with no citizen science involved",
 "Sterilisation coverage was 95%, the population fell 2.68% while modelling suggests about 70% growth was prevented, and costs averaged EUR 0.62 per resident annually",
@@ -2307,7 +2307,7 @@
 "o": [
 "Erythrocytosis (71%), thrombocytosis (52%) and raised creatinine (50%)",
 "Anaemia (71%, mostly non-regenerative), thrombocytopenia (52%) and raised aspartate aminotransferase (50%)",
-"Hypoglycaemia (71%), hypercalcaemia (52%) and raised bilirubin (50%) without changes in blood counts, in 41 FeLV-positive cats"
+"Hypoglycaemia (71%), hypercalcaemia (52%) and raised bilirubin (50%) without changes in blood counts"
 ],
 "a": 1,
 "e": "The main presenting complaints were abnormal blood counts, pleural effusion and anorexia, and mean age at diagnosis was 9 years.",
@@ -2389,7 +2389,7 @@
 "sub": "Epidemiology of Homelessness",
 "q": "Pets for Life and Penn Vet offered free veterinary telehealth appointments in underserved ZIP codes, with students as part of rotations. What was examined?",
 "o": [
-"Surgical outcomes and complication rates for pets seen through telehealth compared with in-clinic surgery, at Pets for Life and Penn Vet",
+"Surgical outcomes and complication rates for pets seen through telehealth compared with in-clinic surgery",
 "Laboratory test turnaround times and diagnostic accuracy of telehealth appointments for underserved pets",
 "Telehealth's role in addressing barriers to care, client perceptions, the human-animal bond and changes in student empathy"
 ],
@@ -2404,7 +2404,7 @@
 "q": "A survey of 131 foster caregivers examined motivations. Which finding is correct?",
 "o": [
 "Motivations were mostly animal- or community-based, and 18- to 29-year-olds were most likely to expect companionship and emotional support",
-"Motivations were mostly financial, and 18- to 29-year-olds were least likely to expect companionship and emotional support, among 131 foster caregivers",
+"Motivations were mostly financial, and 18- to 29-year-olds were least likely to expect companionship and emotional support",
 "Motivations were mostly animal-based, and older caregivers were most likely to expect companionship and emotional support"
 ],
 "a": 0,
@@ -2447,7 +2447,7 @@
 "o": [
 "Male sex and diarrhoea were associated with lower daily weight gain, and mortality was high (25%)",
 "Lethargy and female sex were associated with lower daily weight gain, and mortality was low (2.5%)",
-"Diet type alone determined daily weight gain, and mortality was 20% in those kittens under 9 weeks, in the 203 kittens studied"
+"Diet type alone determined daily weight gain, and mortality was 20% in those kittens under 9 weeks"
 ],
 "a": 1,
 "e": "Average weight gain was higher than in catteries and laboratories, and daily monitoring supports interventions.",
@@ -2473,7 +2473,7 @@
 "sub": "Shelter Diversion",
 "q": "Reasons for relinquishing 32,081 dogs to BC SPCA shelters (2008 to 2019) were analysed. Which finding is correct?",
 "o": [
-"Relinquishment fell to 5% of intake, and the main reasons were behaviour (60%), health (17%) and cost (15%), in BC SPCA shelters from 2008 to 2019",
+"Relinquishment fell to 5% of intake, and the main reasons were behaviour (60%), health (17%) and cost (15%)",
 "Relinquishment stayed at 31 to 35% of intake, and behaviour was the main reason in most cases",
 "Relinquishment stayed at 31 to 35% of intake, and the main reasons were too many dogs (19%), housing (17%) and personal issues (15%)"
 ],
@@ -2545,7 +2545,7 @@
 "o": [
 "Free or reduced-cost vaccine, with door-to-door delivery for owners who will not travel",
 "Full cost recovery at central points, because most owners were willing to pay",
-"Education campaigns alone, because cost and distance were not reported as barriers, in Addis Ababa"
+"Education campaigns alone, because cost and distance were not reported as barriers"
 ],
 "a": 0,
 "e": "94% of owners were willing to pay, but the median price was less than cost, and 41.5% were unwilling to travel. Free or low-cost vaccine is needed to reach and sustain 70% coverage.",
@@ -2559,7 +2559,7 @@
 "o": [
 "External pressure from leadership and stakeholders, funder expectations, time horizons, and perceptions of shelters and shelter veterinarians",
 "Lack of student interest, low clinical caseloads and equipment costs, with accreditation pressure and funder expectations seen as minor",
-"Accreditation standards, licensure requirements and laboratory access, with leadership pressure and perceptions of shelters seen as minor, at the 2019 conference"
+"Accreditation standards, licensure requirements and laboratory access, with leadership pressure and perceptions of shelters seen as minor"
 ],
 "a": 0,
 "e": "Addressing these challenges is considered critical for stability in academic training in shelter medicine.",
@@ -2572,7 +2572,7 @@
 "sub": "Zoonotic Disease",
 "q": "A survey in Quito, Ecuador, estimated human-to-dog ratios and tested dog faeces. Which finding is correct?",
 "o": [
-"The ratio was 3.5 people per stray dog and 58 per confined dog, and Toxocara was the commonest parasite in indoor dogs, in households in Quito",
+"The ratio was 3.5 people per stray dog and 58 per confined dog, and Toxocara was the commonest parasite in indoor dogs",
 "The ratio was 58 people per stray dog and 3.5 per confined dog, and hookworm (Ancylostoma) was the commonest parasite in indoor dogs",
 "The ratios were about equal at 20 people per dog, and Giardia was the commonest parasite in indoor dogs"
 ],
@@ -2599,7 +2599,7 @@
 "type": "mcq",
 "domain": "Companion Animal Homelessness",
 "sub": "Spay-Neuter",
-"q": "A 2005 Ricker model (from fisheries) suggested TNR reduced cat populations only modestly. Why is it inappropriate according to a re-analysis of two long-term programmes?",
+"q": "A 2005 Ricker model (from fisheries) suggested trap-neuter-return (TNR) reduced cat populations only modestly. Why is it inappropriate according to a re-analysis of two long-term programmes?",
 "o": [
 "It accounts for cat movement in and out of the area, but it underestimates the effect of adoption programmes on population size",
 "It cannot account for key aspects of TNR programmes, and the wild population swings it predicts do not match the relative stability of free-roaming cat populations",
@@ -2615,9 +2615,9 @@
 "sub": "Ethics",
 "q": "A city debates how to manage free-living cats that prey on native wildlife. Which description of the debate fits a review of moral pluralism in cat management?",
 "o": [
-"Settled science, because TNR has been shown to protect wildlife in most settings, so little moral disagreement remains",
+"Settled science, because trap-neuter-return (TNR) has been shown to protect wildlife in most settings, so little moral disagreement remains",
 "A dispute over cost, because both sides share the same view of the value of individual cats, so moral pluralism is irrelevant",
-"A stalemate between advocates of eradication because of wildlife impacts and advocates of alternatives such as TNR, resting on different moral imperatives"
+"A stalemate between advocates of eradication because of wildlife impacts and advocates of alternatives such as trap-neuter-return (TNR), resting on different moral imperatives"
 ],
 "a": 2,
 "e": "The authors review the tensions over time between eradication and alternatives, and discuss how to move beyond the stalemate.",
@@ -2812,7 +2812,7 @@
 "q": "Breeding dams in a UK commercial breeding establishment received four weeks of extra positive human interaction. What was measured?",
 "o": [
 "Affective state by attention bias test, human sociability by stranger approach test, and hair cortisol",
-"Litter size and puppy birth weight, recorded after the four weeks of extra interaction, in a UK breeding establishment",
+"Litter size and puppy birth weight, recorded after the four weeks of extra interaction",
 "Body weight and coat condition of the dams, recorded before and after the four weeks"
 ],
 "a": 0,
@@ -3107,7 +3107,7 @@
 "o": [
 "About 5% of dogs had a behaviour problem of moderately serious to serious intensity, mostly aggression",
 "Almost all dogs (99.12%) showed at least one problem of moderately serious to serious intensity, or multiple moderate problems",
-"About half of dogs had a behaviour problem, and only aggression and separation were reported as serious, in the Dog Aging Project"
+"About half of dogs had a behaviour problem, and only aggression and separation were reported as serious"
 ],
 "a": 1,
 "e": "Categories included aggression, separation, fear and anxiety, and housesoiling.",
@@ -3148,7 +3148,7 @@
 "q": "The Shelter Quality Protocol was used in 19 long-term shelters in Minas Gerais, Brazil (588 dogs). Which hazards were predominant?",
 "o": [
 "Lack of rehoming and admission policies, preventive healthcare programmes and trained staff, and inadequate bedding, difficult-to-clean surfaces and behaviour problems",
-"Excess veterinary staff, abundant rehabilitation programmes, and well-designed kennels with adequate bedding, easy-to-clean surfaces and few behaviour problems, in 19 shelters in Minas Gerais",
+"Excess veterinary staff, abundant rehabilitation programmes, and well-designed kennels with adequate bedding, easy-to-clean surfaces and few behaviour problems",
 "Overly strict admission policies, excessive vaccination and too many volunteers, with well-cleaned surfaces, adequate bedding and few behaviour problems"
 ],
 "a": 0,
@@ -3231,7 +3231,7 @@
 "sub": "Assessment & Decision",
 "q": "The Guide Dogs UK Puppy Profiling Assessment (eight subtests) was applied to 7-week-old puppies at a US guide dog organisation. What was the question?",
 "o": [
-"Whether puppies can be vaccinated at 7 weeks without reducing their test performance later, at 7 weeks of age",
+"Whether puppies can be vaccinated at 7 weeks without reducing their test performance later",
 "Whether the standardised behavioural test can predict success in another guide dog population",
 "Whether puppies prefer men or women in the follow and restraint subtests at 7 weeks"
 ],
@@ -3400,7 +3400,7 @@
 "q": "A survey of 618 cat guardians examined laser pointer play and abnormal repetitive behaviours. Which finding is correct?",
 "o": [
 "Frequency of laser play was associated with all surveyed abnormal repetitive behaviours except overgrooming, and indoor-only and young cats were more likely to show them",
-"Frequency of laser play was associated with fewer abnormal repetitive behaviours, and indoor-only and young cats were less likely to show them, in 618 cat guardians surveyed",
+"Frequency of laser play was associated with fewer abnormal repetitive behaviours, and indoor-only and young cats were less likely to show them",
 "Laser play was unrelated to any abnormal repetitive behaviour, and only overgrooming was linked to indoor-only status"
 ],
 "a": 0,
@@ -3455,7 +3455,7 @@
 "sub": "Nutrition & Husbandry",
 "q": "In a randomised study of overweight cats on a weight loss plan, food toys were compared with bowls. What was found?",
 "o": [
-"Food toys significantly raised quality of life, and most cats ate low-calorie vegetables plain, without any palatability additive, in the randomised study of overweight cats",
+"Food toys significantly raised quality of life, and most cats ate low-calorie vegetables plain, without any palatability additive",
 "Owner-perceived quality of life rose during weight loss, the food toy had no effect, and low-calorie vegetables were eaten mostly with a palatability additive",
 "Quality of life fell during weight loss, and cats refused low-calorie vegetables even with an additive, and food toys made no difference"
 ],
@@ -3539,7 +3539,7 @@
 "sub": "Common Behavior Problems",
 "q": "Thirty-one cats were tested with two litter trays, one sprayed with a semiochemical (from cat anal glands). What was found?",
 "o": [
-"Cats urinated and defecated significantly more in the sprayed tray and explored it more, in 31 cats",
+"Cats urinated and defecated significantly more in the sprayed tray and explored it more",
 "Cats urinated and defecated significantly less in the sprayed tray and explored it less",
 "Cats used both trays equally, and exploration did not differ between them"
 ],
@@ -3581,7 +3581,7 @@
 "sub": "Assessment & Decision",
 "q": "Sociability of group-housed cats towards a familiar caregiver was monitored for a year in a private no-kill shelter. What was found?",
 "o": [
-"Most cats (81%) were friendly at first, but most became less sociable during their stay, and deterioration was more common than improvement, in a private no-kill shelter",
+"Most cats (81%) were friendly at first, but most became less sociable during their stay, and deterioration was more common than improvement",
 "Most cats (81%) were friendly at first assessment, most did not change score, and among those that changed, improvement was significantly more common than deterioration",
 "Most cats (81%) were unfriendly at first assessment, and most did not change score during the year, with improvement rarer than deterioration"
 ],
@@ -3595,7 +3595,7 @@
 "sub": "Common Behavior Problems",
 "q": "Five cats in a crossover 10-minute choice test were given two garbage cans, one sprayed with a semiochemical. What was found?",
 "o": [
-"Cats explored and stayed near the treated can more, latency to approach was shorter, and first choice favoured it, in the five cats tested",
+"Cats explored and stayed near the treated can more, latency to approach was shorter, and first choice favoured it",
 "Cats explored and stayed near the treated can less, latency to approach tended to be longer, and first choice did not differ",
 "Cats did not differ between cans in exploration, time near, latency or first choice"
 ],
@@ -3638,7 +3638,7 @@
 "q": "Urinary cortisol, oxytocin and creatinine were measured in 49 domestic cats and related to owner interaction. What was found?",
 "o": [
 "Frequent tactile and auditory communication by owners was positively correlated with urinary oxytocin",
-"Frequent tactile and auditory communication by owners was negatively correlated with urinary oxytocin, in 49 cats",
+"Frequent tactile and auditory communication by owners was negatively correlated with urinary oxytocin",
 "Urinary cortisol alone was related to owner interaction, and oxytocin did not correlate with it"
 ],
 "a": 0,
@@ -3694,7 +3694,7 @@
 "q": "Owner-ascribed personality (the 'Feline Five') was compared with prey brought home by cats. What was found?",
 "o": [
 "Cats that brought home prey scored high for extraversion or low for neuroticism",
-"Cats that brought home prey scored low for extraversion or high for neuroticism, in the Feline Five",
+"Cats that brought home prey scored low for extraversion or high for neuroticism",
 "Cats that brought home prey scored high for agreeableness and low for dominance"
 ],
 "a": 0,
@@ -3777,7 +3777,7 @@
 "sub": "Body Language",
 "q": "Twelve cat café cats were tested with vocal, visual, bimodal or no communication from a human. What was found?",
 "o": [
-"Cats approached fastest with vocal communication alone, and slowest with visual and bimodal communication, in 12 cat café cats",
+"Cats approached fastest with vocal communication alone, and slowest with visual and bimodal communication",
 "Cats approached at the same speed whatever the mode of communication used, but tail-wagging differed",
 "Cats approached faster with visual and bimodal communication than with no communication or vocal communication only"
 ],
@@ -3904,7 +3904,7 @@
 "q": "Hair cortisol was measured in 55 cats from 25 households. What was found?",
 "o": [
 "Cats with behavioural problems such as house soiling or aggression toward household members had significantly higher hair cortisol, and outdoor cats tended to have lower levels",
-"Cats with behavioural problems such as house soiling had significantly lower hair cortisol, and outdoor cats tended to have higher levels than indoor cats, in the 55 cats sampled",
+"Cats with behavioural problems such as house soiling had significantly lower hair cortisol, and outdoor cats tended to have higher levels than indoor cats",
 "Cats with behavioural problems did not differ in hair cortisol, but indoor cats had significantly lower levels than outdoor cats in the 25 households"
 ],
 "a": 0,
@@ -3931,7 +3931,7 @@
 "sub": "General",
 "q": "A collar impregnated with a pheromone complex (13% FELIWAY Optimum) was compared with a regular collar in 624 cats. What was found?",
 "o": [
-"The pheromone collar was no better than the regular collar for urination, scratching or inter-cat conflict, in 624 cats",
+"The pheromone collar was no better than the regular collar for urination, scratching or inter-cat conflict",
 "The pheromone collar gave significantly better improvement in problem urination, scratching and inter-cat conflict",
 "The pheromone collar improved fear scores but worsened problem urination and inter-cat conflict"
 ],
@@ -3999,7 +3999,7 @@
 "type": "mcq",
 "domain": "Behavioral Health",
 "sub": "Assessment & Decision",
-"q": "The Fe-BARQ survey tool was used with Spanish owners. Which finding is correct?",
+"q": "Spanish cat owners completed the Fe-BARQ (Feline Behavioral Assessment and Research Questionnaire). Which owner and cat factors were associated with the behaviours reported?",
 "o": [
 "Behaviours were unrelated to breed, gender, reproductive status, age, source of acquisition, living environment or owner experience",
 "Behaviours varied with breed, gender, reproductive status, age, source of acquisition, living environment and owner experience",
@@ -4017,7 +4017,7 @@
 "o": [
 "No guardian had doubts about initial care or introductions, and personality dimensions were unrelated to any behaviour reported by adopters",
 "Many guardians had doubts about initial care and introductions, and personality dimensions correlated with events, such as 'soliciting' with inappropriate urination",
-"Most adopters already had other cats and needed no advice, and personality dimensions were unrelated to behavioural events such as inappropriate urination, in 133 adopters"
+"Most adopters already had other cats and needed no advice, and personality dimensions were unrelated to behavioural events such as inappropriate urination"
 ],
 "a": 1,
 "e": "The 133 respondents mostly adopted female cats aged 6 months or less.",
@@ -4213,7 +4213,7 @@
 "o": [
 "The dog's age and weight, while coat length, colour and sex had no effect on early adoption",
 "Coat colour and sex, while age and weight had no effect on early adoption",
-"Coat length only, while age, weight, colour and sex had no effect on early adoption, in the 162 dogs studied"
+"Coat length only, while age, weight, colour and sex had no effect on early adoption"
 ],
 "a": 0,
 "e": "Behaviour also mattered during adopter decision making.",
@@ -4267,9 +4267,9 @@
 "sub": "Data & Analysis",
 "q": "A web tool analysed return-to-owner data from Dallas Animal Services. Which finding is correct?",
 "o": [
-"Most returned strays travelled over 10 miles from home, and microchips made little difference to RTO rate",
-"70% of returned strays travelled 1 mile or less from home, and adult at-large strays with a microchip had a 71% RTO rate versus 39% without",
-"70% of returned strays travelled 1 mile or less from home, and microchipped strays had a lower RTO rate than unchipped strays"
+"Most returned strays travelled over 10 miles from home, and microchips made little difference to return to owner (RTO) rate",
+"70% of returned strays travelled 1 mile or less from home, and adult at-large strays with a microchip had a 71% return to owner (RTO) rate versus 39% without",
+"70% of returned strays travelled 1 mile or less from home, and microchipped strays had a lower return to owner (RTO) rate than unchipped strays"
 ],
 "a": 1,
 "e": "The results influenced hold time for strays, highlighted areas for microchip programmes and motivated neighbourhood-based owner searches.",
@@ -4311,7 +4311,7 @@
 "o": [
 "Fostering fell during the pandemic, and the pattern is likely to be permanent, so recruitment should focus on retention",
 "Fostering increased, particularly among people working from home, but the increase is probably ephemeral, and emotional support may help retention",
-"Fostering rose mainly among older women with dogs, and the increase is expected to last after the pandemic, among the fosters surveyed in the pandemic"
+"Fostering rose mainly among older women with dogs, and the increase is expected to last after the pandemic"
 ],
 "a": 1,
 "e": "Increases were seen in younger, male and more educated volunteers, and those without their own dog.",
@@ -4463,11 +4463,11 @@
 "type": "mcq",
 "domain": "Companion Animal Homelessness",
 "sub": "Spay-Neuter",
-"q": "A survey of 118 HQHVSN clinics examined pyometra management. Which finding is correct?",
+"q": "A survey of 118 high-quality, high-volume spay-neuter (HQHVSN) clinics examined pyometra management. Which finding is correct?",
 "o": [
 "Most (86%) were willing to treat non-incidental pyometras, nearly all felt they had the resources, and most charged less than emergency clinics (median $200 dogs, $125 cats)",
 "Few clinics (14%) were willing to treat pyometra, and most charged more than emergency clinics (median $2,000 for dogs and $1,250 for cats)",
-"Most clinics were willing to treat pyometra, but each reported that it severely disrupted its surgery flow, and most lacked the resources to do so, in the survey of 118 clinics"
+"Most clinics were willing to treat pyometra, but each reported that it severely disrupted its surgery flow, and most lacked the resources to do so"
 ],
 "a": 0,
 "e": "Clinics performed a median of 25 spays and neuters per day.",
@@ -4775,7 +4775,7 @@
 "o": [
 "Vaccination coverage and disease prevalence in intakes, by the Social Vulnerability Index of the source tract",
 "Staff wellbeing and turnover, by the Social Vulnerability Index of the shelter's location",
-"Relationships between social vulnerability and intakes and adoptions, and animal flow between SVI groups"
+"Relationships between social vulnerability and intakes and adoptions, and animal flow between social vulnerability index (SVI) groups"
 ],
 "a": 2,
 "e": "Census tract was derived from addresses.",
@@ -4885,7 +4885,7 @@
 "sub": "General",
 "q": "Twenty-two healthy dogs received a single dose of oral gabapentin or placebo before a veterinary visit. What was found?",
 "o": [
-"Gabapentin markedly lowered salivary cortisol and eye surface temperature and improved greeting scores, in the 22 dogs given the tablet",
+"Gabapentin markedly lowered salivary cortisol and eye surface temperature and improved greeting scores",
 "Gabapentin markedly raised salivary cortisol and eye surface temperature, with worse greeting scores",
 "Greeting scores, eye surface temperature and salivary cortisol did not differ substantially between treatments"
 ],
@@ -4899,7 +4899,7 @@
 "sub": "General",
 "q": "Cats with aggression, fear or house-soiling received venlafaxine or placebo for 60 days in a double-blind pilot trial. What was found?",
 "o": [
-"Improvement was significantly higher with placebo, from day 30 by veterinarian scoring and by day 60 by owner scoring, in the 60-day pilot trial",
+"Improvement was significantly higher with placebo, from day 30 by veterinarian scoring and by day 60 by owner scoring",
 "Improvement did not differ between venlafaxine and placebo at any time by either veterinarian or owner scoring",
 "Improvement was significantly higher with venlafaxine, from day 30 by veterinarian scoring and by day 60 by both veterinarian and owner scoring"
 ],
@@ -5236,7 +5236,7 @@
 "q": "In 20 dogs and cats with dermatophytosis, adhesive tape impression, trichogram, Wood's lamp and fungal culture were compared. Which test detected the fewest cases?",
 "o": [
 "Wood's lamp (65%), significantly worse than adhesive tape impression (100%)",
-"Adhesive tape impression (65%), significantly worse than Wood's lamp (100%), among 20 dogs and cats",
+"Adhesive tape impression (65%), significantly worse than Wood's lamp (100%)",
 "Fungal culture (65%), significantly worse than trichogram (100%)"
 ],
 "a": 0,
@@ -5361,7 +5361,7 @@
 "sub": "Vaccination",
 "q": "A reduced-volume (0.5 mL) non-adjuvanted feline vaccine was compared with a conventional 1 mL vaccine in 398 cats. What was found?",
 "o": [
-"It caused more local reactions and had lower immunogenicity, in the 398 cats vaccinated",
+"It caused more local reactions and had lower immunogenicity",
 "It was well tolerated with fewer local events and the same immunogenicity",
 "It had lower immunogenicity but caused no adverse events"
 ],
@@ -5473,7 +5473,7 @@
 "sub": "Infectious Disease",
 "q": "A retrospective study of 454 cats in the Brazilian semiarid region found which retrovirus prevalence and risk factors?",
 "o": [
-"FeLV 30.2% and FIV 1.1%, with FeLV associated with female sex, young age and purebred status, in the 454 cats tested",
+"FeLV 30.2% and FIV 1.1%, with FeLV associated with female sex, young age and purebred status",
 "FIV 30.2% and FeLV 1.1%, with FIV associated with male sex, age over 19 months and crossbreed",
 "Both about 1%, with FIV and FeLV associated with each other but no other risk factor"
 ],
@@ -5796,7 +5796,7 @@
 "q": "Shelter and foster cats in California's Central Valley (n = 128) were tested for SARS-CoV-2 and feline enteric coronavirus (FECV). What was found?",
 "o": [
 "SARS-CoV-2 was not detected in any cat, while FECV was detected in 18% of shelter-housed cats",
-"SARS-CoV-2 was detected in most cats, and FECV was not detected in any cat, in the Central Valley sample",
+"SARS-CoV-2 was detected in most cats, and FECV was not detected in any cat",
 "Neither virus was detected in any cat, including shelter-housed and foster cats"
 ],
 "a": 0,
@@ -5809,7 +5809,7 @@
 "sub": "Infectious Disease",
 "q": "Records of 307 cats with FIP treated with regulated veterinary compounded remdesivir or GS-441524 were reviewed. What was the purpose?",
 "o": [
-"To evaluate black market products of unknown composition against regulated products, using surveys of owners who bought unlicensed drugs, from 307 cats with FIP",
+"To evaluate black market products of unknown composition against regulated products, using surveys of owners who bought unlicensed drugs",
 "To test unapproved vaccines against regulated treatment in cats with FIP, using records from veterinary practices that prescribed them",
 "To describe treatment using legally sourced products containing known amounts of drug, rather than unregulated products of unknown composition"
 ],
@@ -5961,11 +5961,11 @@
 "type": "mcq",
 "domain": "Physical Health",
 "sub": "Parasites",
-"q": "Dogs with Babesia canis infection were compared by azotaemia type. Which finding is correct?",
+"q": "Dogs with Babesia canis infection were grouped as non-azotaemic, pre-renal azotaemic (raised kidney values from reduced blood flow) or renal azotaemic (kidney damage). How did aspartate aminotransferase (AST) and the AST/alanine aminotransferase (ALT) ratio compare, and what was the suggested source of the AST change?",
 "o": [
-"AST and the AST/ALT ratio were lower in azotaemic dogs, and lower in renal than pre-renal azotaemia, suggesting a hepatic origin of the AST change, in dogs with Babesia canis",
-"AST and the AST/ALT ratio were higher in azotaemic dogs, and higher in renal than pre-renal azotaemia, suggesting a renal origin of the AST increase",
-"ALT alone rose in renal azotaemia, and AST did not differ between azotaemic and non-azotaemic dogs, so AST is not related to renal indices"
+"Aspartate aminotransferase (AST) and the AST/alanine aminotransferase (ALT) ratio were lower in azotaemic dogs, and lower in renal than pre-renal azotaemia, suggesting a hepatic origin of the AST change, in dogs with Babesia canis",
+"Aspartate aminotransferase (AST) and the AST/alanine aminotransferase (ALT) ratio were higher in azotaemic dogs, and higher in renal than pre-renal azotaemia, suggesting a renal origin of the AST increase",
+"Alanine aminotransferase (ALT) alone rose in renal azotaemia, and aspartate aminotransferase (AST) did not differ between azotaemic and non-azotaemic dogs, so AST is not related to renal indices"
 ],
 "a": 1,
 "e": "AST and the AST/ALT ratio correlated with renal indices such as sodium fractional excretion.",
@@ -6062,7 +6062,7 @@
 "q": "Bartonella henselae was identified by PCR in 8% of 75 healthy cats in Upper Egypt, and seroprevalence was 46% among 100 humans. Which finding is correct?",
 "o": [
 "Infection in people was much higher in rural regions (79.5%) than urban regions (24.6%), and the organism could not be cultured from the cats",
-"Infection in people was much higher in urban regions (79.5%) than rural regions (24.6%), and the organism was cultured from most cats, in 100 humans and 75 cats",
+"Infection in people was much higher in urban regions (79.5%) than rural regions (24.6%), and the organism was cultured from most cats",
 "Infection was significantly higher in cat owners than in other people, and the organism was cultured from cat blood and claws"
 ],
 "a": 0,
@@ -6117,7 +6117,7 @@
 "sub": "Rabies",
 "q": "According to 2021 rabies surveillance in the United States, which statement is correct?",
 "o": [
-"Domestic animals accounted for most rabid animals, and dogs were the most commonly reported rabid domestic species, in 2021 surveillance",
+"Domestic animals accounted for most rabid animals, and dogs were the most commonly reported rabid domestic species",
 "Wildlife accounted for about half of rabid animals, and cattle were the most commonly reported rabid domestic species",
 "Wildlife accounted for over 90% of rabid animals, and cats were the most commonly reported rabid domestic species, ahead of dogs"
 ],
@@ -6189,7 +6189,7 @@
 "o": [
 "Canine parvovirus, distemper virus, adenovirus and Leptospira, with rabies titres",
 "Babesia canis, Ehrlichia canis, Hepatozoon canis, Leishmania infantum, Brucella canis and Dirofilaria immitis, with rabies titres",
-"Bordetella bronchiseptica, canine influenza, Streptococcus zooepidemicus and Mycoplasma, with rabies titres, in the 151 imported dogs"
+"Bordetella bronchiseptica, canine influenza, Streptococcus zooepidemicus and Mycoplasma, with rabies titres"
 ],
 "a": 1,
 "e": "Increased dog relocation can spread pathogens and vectors, so data on exotic infections in imported dogs help assess risk.",
@@ -6229,7 +6229,7 @@
 "sub": "Zoonotic Disease",
 "q": "Serological screening of 240 Dutch shelter cats found neutralising antibodies to SARS-CoV-2 in two cats, both PCR negative. What conclusion is drawn?",
 "o": [
-"Shelter cats are a major reservoir of SARS-CoV-2 and should be quarantined before adoption, in the Dutch shelters",
+"Shelter cats are a major reservoir of SARS-CoV-2 and should be quarantined before adoption",
 "It is unlikely that shelter cats are a reservoir of SARS-CoV-2 or a significant public health risk",
 "The seropositive cats were actively shedding virus and should be isolated or euthanised"
 ],
@@ -6244,7 +6244,7 @@
 "q": "Clients of two community-based veterinary programmes in North Carolina were surveyed about their experiences. What was found?",
 "o": [
 "Most had positive experiences with both veterinary services and communication, and respect and communication were considered essential to community programmes",
-"Most had negative experiences with veterinary services and communication, and cost was considered the essential factor in community programmes, in North Carolina",
+"Most had negative experiences with veterinary services and communication, and cost was considered the essential factor in community programmes",
 "Most had positive experiences with veterinary services but were not asked about communication, so respect and communication were not assessed"
 ],
 "a": 0,
@@ -6328,7 +6328,7 @@
 "q": "Records of 1,567 rabbits at BC SPCA shelters were analysed. Which finding is correct?",
 "o": [
 "Most were surrendered by owners (40.2%), 96.9% for human-related reasons, intakes peaked in May, and median length of stay was 29 days",
-"Most were strays (40.2%), 96.9% surrendered for medical reasons, intakes peaked in December, and median length of stay was 9 days, at the BC SPCA",
+"Most were strays (40.2%), 96.9% surrendered for medical reasons, intakes peaked in December, and median length of stay was 9 days",
 "Most were surrendered by owners, intakes rose steadily over the study period, and median length of stay was 129 days"
 ],
 "a": 0,
@@ -6355,7 +6355,7 @@
 "sub": "Stress",
 "q": "Long-term (over 1 year) and short-term shelter dogs in Austrian no-kill shelters were compared. Which characteristics were more common in long-term dogs?",
 "o": [
-"Female sex, younger age at admission, higher amicability and lower arousal were more common in long-term dogs, with lower welfare scores, in the Austrian sanctuaries",
+"Female sex, younger age at admission, higher amicability and lower arousal were more common in long-term dogs, with lower welfare scores",
 "'Dangerous breed', male sex, older age at admission, higher aggression and arousal and lower amicability, although welfare scores did not differ",
 "'Dangerous breed', female sex and younger age, with higher amicability and lower welfare scores, were more common in long-term dogs"
 ],
@@ -6411,7 +6411,7 @@
 "sub": "Infectious Disease",
 "q": "H5N1 viruses from cats in South Korea, with PB2 mutations E627K or D701N, were tested in mice and ferrets. What was found?",
 "o": [
-"Both isolates were non-pathogenic in mice and ferrets, and no ferret-to-ferret transmission occurred, despite PB2 mutations in the viruses, in the South Korean cat isolates",
+"Both isolates were non-pathogenic in mice and ferrets, and no ferret-to-ferret transmission occurred, despite PB2 mutations in the viruses",
 "Both isolates infected mice but not ferrets, and contact infection between ferrets did not occur, so mammalian adaptation was not shown",
 "Both isolates caused fatal infections in mice and ferrets, and contact infection between ferrets confirmed high pathogenicity and transmission in mammals"
 ],
@@ -6467,7 +6467,7 @@
 "sub": "Parasites",
 "q": "The first case of Dirofilaria repens in a dog resident in Scotland was reported, alongside a review of UK infections. What concern is raised?",
 "o": [
-"The UK is permanently free of filarial infections, so no surveillance is needed, and no case has ever been recorded in a dog resident in the UK, in Scotland",
+"The UK is permanently free of filarial infections, so no surveillance is needed, and no case has ever been recorded in a dog resident in the UK",
 "Climate change and spread of invasive mosquitoes may expose the UK to outbreaks, and infections are a diagnostic challenge for unfamiliar clinicians",
 "These parasites spread by direct contact between dogs, so kennel biosecurity is the main concern, and mosquitoes and climate change are irrelevant"
 ],
@@ -6761,7 +6761,7 @@
 "sub": "Parasites",
 "q": "Sheltered dogs at the US-Mexico border were tested during a Rocky Mountain spotted fever epidemic. Which finding is correct?",
 "o": [
-"No dog had active infection, and exposure to the three pathogens was found only in Mexico, with no exposure at the San Diego shelter, at the US-Mexico border",
+"No dog had active infection, and exposure to the three pathogens was found only in Mexico, with no exposure at the San Diego shelter",
 "Active Rickettsia rickettsii infection was found in 2 of 78 dogs in Tijuana, and dogs at all four locations showed exposure to all three pathogens",
 "Active Rickettsia rickettsii infection was found in most dogs, and Ehrlichia canis was found only in San Diego, with Anaplasma absent"
 ],
@@ -6927,7 +6927,7 @@
 "type": "mcq",
 "domain": "Physical Health",
 "sub": "Medical (Non-Infectious)",
-"q": "A pilot trial gave the NSAID robenacoxib or placebo to 109 cats with degenerative joint disease pain. Which finding is correct?",
+"q": "A pilot trial gave the non-steroidal anti-inflammatory drug (NSAID) robenacoxib or placebo to 109 cats with degenerative joint disease pain. Which finding is correct?",
 "o": [
 "Owner-assessed disability fell 4.9% at 6 weeks, activity data clearly showed large increases, and adverse events were far more frequent with treatment",
 "Owner-assessed disability fell about 49% at 6 weeks and more treated cats were successes, with similar adverse effects",
@@ -6985,7 +6985,7 @@
 "sub": "Surgery & Anesthesia",
 "q": "Cats undergoing ovariohysterectomy received targeted bupivacaine, bupivacaine-lidocaine-epinephrine, dexamethasone or meloxicam at ovarian ligaments, uterine body and incision. Postoperative pain was assessed with the 0 to 10 Numeric Pain Rating Scale. What was found about time?",
 "o": [
-"Overall pain scores were significantly lower 1 hour after recovery than 3 hours after recovery, and evaluators agreed well, in 151 cats",
+"Overall pain scores were significantly lower 1 hour after recovery than 3 hours after recovery, and evaluators agreed well",
 "Overall pain scores were significantly higher 1 hour after recovery than 3 hours after recovery, and evaluators agreed well (ICC about 0.79)",
 "Overall pain scores did not change over time in any group, and evaluators agreed poorly (ICC about 0.29)"
 ],
@@ -7322,8 +7322,8 @@
 "q": "A worldwide cohort of 55,022 dogs from 405 centres examined anaesthetic-related death. Which finding is correct?",
 "o": [
 "Mortality was 5%, most deaths were intraoperative (81%), risk fell with age and obesity, and locoregional anaesthesia was linked to higher mortality, in 55,019 dogs",
-"Mortality was 0.69%, most deaths were postoperative (81%), risk rose with age, obesity and higher ASA status, and locoregional anaesthesia was linked to lower mortality",
-"Mortality was 0.69%, most deaths were postoperative, ASA status was unrelated to risk, and locoregional anaesthesia was linked to higher mortality"
+"Mortality was 0.69%, most deaths were postoperative (81%), risk rose with age, obesity and higher American Society of Anesthesiologists (ASA) physical status, and locoregional anaesthesia was linked to lower mortality",
+"Mortality was 0.69%, most deaths were postoperative, American Society of Anesthesiologists (ASA) physical status was unrelated to risk, and locoregional anaesthesia was linked to higher mortality"
 ],
 "a": 1,
 "e": "Urgent and unscheduled procedures and short procedures also had higher mortality.",
@@ -7335,9 +7335,9 @@
 "sub": "Surgery & Anesthesia",
 "q": "A worldwide cohort of 14,962 cats examined anaesthetic-related death. Which finding is correct?",
 "o": [
-"Mortality was 6.3%, mostly intraoperative; cachexia and higher ASA status raised risk, mechanical ventilation lowered mortality, and alpha-2 agonists raised it, in 14,962 cats",
-"Mortality was 0.63%, mostly postoperative; cachexia and higher ASA status raised risk, mechanical ventilation increased mortality, and alpha-2 agonists, pure opioids and locoregional techniques lowered it",
-"Mortality was 0.63%, mostly postoperative; cachexia lowered risk, ASA status was unrelated to mortality, and locoregional techniques increased mortality"
+"Mortality was 6.3%, mostly intraoperative; cachexia and higher American Society of Anesthesiologists (ASA) physical status raised risk, mechanical ventilation lowered mortality, and alpha-2 agonists raised it, in 14,962 cats",
+"Mortality was 0.63%, mostly postoperative; cachexia and higher American Society of Anesthesiologists (ASA) physical status raised risk, mechanical ventilation increased mortality, and alpha-2 agonists, pure opioids and locoregional techniques lowered it",
+"Mortality was 0.63%, mostly postoperative; cachexia lowered risk, American Society of Anesthesiologists (ASA) physical status was unrelated to mortality, and locoregional techniques increased mortality"
 ],
 "a": 1,
 "e": "Abdominal, orthopaedic, neurosurgical and thoracic procedures showed elevated mortality.",
@@ -7347,7 +7347,7 @@
 "type": "mcq",
 "domain": "Companion Animal Homelessness",
 "sub": "Spay-Neuter",
-"q": "Female cats at TNR clinics were assigned to a chlorhexidine solution rinse or 70% isopropyl alcohol rinse after surgical scrub. What was the concern?",
+"q": "Female cats at trap-neuter-return (TNR) clinics were assigned to a chlorhexidine solution rinse or 70% isopropyl alcohol rinse after surgical scrub. What was the concern?",
 "o": [
 "Alcohol raises body temperature through evaporation, so clinics use it to warm cats, and the study compared shivering after recovery",
 "Chlorhexidine solution damages skin and delays healing, so clinics use alcohol, and the study compared wound complications after recovery",
@@ -7363,9 +7363,9 @@
 "sub": "Spay-Neuter",
 "q": "Hematology in 138 healthy-appearing shelter dogs presenting for spay or castration was compared by age. What was found?",
 "o": [
-"Juveniles had lower mean haematocrit and PCV than adults, whether or not dogs with infectious agents or parasites were included",
-"Juveniles had higher mean haematocrit and PCV than adults, whether or not dogs with infectious agents or parasites were included",
-"Juveniles and adults did not differ in haematocrit or PCV, whether or not dogs with infectious agents were included"
+"Juveniles had lower mean haematocrit and packed cell volume (PCV) than adults, whether or not dogs with infectious agents or parasites were included",
+"Juveniles had higher mean haematocrit and packed cell volume (PCV) than adults, whether or not dogs with infectious agents or parasites were included",
+"Juveniles and adults did not differ in haematocrit or packed cell volume (PCV), whether or not dogs with infectious agents were included"
 ],
 "a": 0,
 "e": "Dogs were tested for heartworm, Anaplasma, Borrelia and Ehrlichia.",
@@ -7377,9 +7377,9 @@
 "sub": "Spay-Neuter",
 "q": "Anti-Müllerian hormone was measured in intact cats, spayed cats and cats with heat signs after spaying. What was found?",
 "o": [
-"AMH was significantly lower in cats with ovarian remnant syndrome than in spayed cats, so it cannot help diagnose the condition",
-"AMH was significantly higher in cats with ovarian remnant syndrome than in spayed cats, so it can help diagnose the condition",
-"AMH did not differ between spayed cats and cats with heat signs after spaying, so it cannot help diagnose the condition"
+"Anti-Müllerian hormone (AMH) was significantly lower in cats with ovarian remnant syndrome than in spayed cats, so it cannot help diagnose the condition",
+"Anti-Müllerian hormone (AMH) was significantly higher in cats with ovarian remnant syndrome than in spayed cats, so it can help diagnose the condition",
+"Anti-Müllerian hormone (AMH) did not differ between spayed cats and cats with heat signs after spaying, so it cannot help diagnose the condition"
 ],
 "a": 1,
 "e": "AMH differentiates intact from gonadectomised animals.",
@@ -7419,7 +7419,7 @@
 "sub": "Spay-Neuter",
 "q": "Queens with pyometra treated by ovariohysterectomy in a nonspecialised hospital (n = 134) were reviewed. What was found?",
 "o": [
-"Survival to discharge was 50%, uterine rupture occurred in 4%, and abnormal ionised calcium or depressed mentation predicted poorer outcomes, in the 134 queens reviewed",
+"Survival to discharge was 50%, uterine rupture occurred in 4%, and abnormal ionised calcium or depressed mentation predicted poorer outcomes",
 "Survival to discharge was 100%, uterine rupture occurred in most queens, and age or body weight predicted poorer outcomes",
 "Survival to discharge was 100%, uterine rupture occurred in 4%, and abnormal ionised calcium or depressed mentation predicted poorer outcomes"
 ],
@@ -7433,9 +7433,9 @@
 "sub": "Spay-Neuter",
 "q": "Bitches with pyometra (n = 405) treated by ovariohysterectomy at a nonspecialised hospital were reviewed. What was found?",
 "o": [
-"Survival to discharge was 60%, uterine rupture occurred in 3%, and high BUN or a heart murmur were linked to greater odds of death",
-"Survival to discharge was 97%, uterine rupture occurred in 30%, and young age or low BUN were linked to greater odds of death",
-"Survival to discharge was 97%, uterine rupture occurred in 3%, and high BUN or a heart murmur were linked to greater odds of death"
+"Survival to discharge was 60%, uterine rupture occurred in 3%, and high blood urea nitrogen (BUN) or a heart murmur were linked to greater odds of death",
+"Survival to discharge was 97%, uterine rupture occurred in 30%, and young age or low blood urea nitrogen (BUN) were linked to greater odds of death",
+"Survival to discharge was 97%, uterine rupture occurred in 3%, and high blood urea nitrogen (BUN) or a heart murmur were linked to greater odds of death"
 ],
 "a": 2,
 "e": "Forty-four percent stayed in hospital two or more nights.",
@@ -7448,7 +7448,7 @@
 "q": "Owners of 306 pets completed surveys after surgery for pyometra. What was the aim?",
 "o": [
 "To investigate long-term complications, survival, general health, quality of life and longevity after hospital discharge in bitches and queens",
-"To compare surgical techniques for pyometra by measuring intraoperative complications in bitches and queens treated at the hospital, among the 306 surveyed owners",
+"To compare surgical techniques for pyometra by measuring intraoperative complications in bitches and queens treated at the hospital",
 "To measure anaesthetic depth and recovery quality during pyometra surgery in bitches and queens treated at the hospital"
 ],
 "a": 0,
@@ -7519,7 +7519,7 @@
 "o": [
 "Concurrent ovariohysterectomy caused poor mothering and higher maternal mortality, and shortened the time to nursing, compared with caesarean section alone",
 "No difference in mortality, complications, mothering ability or puppy survival to weaning, though surgery and time to nursing were longer with ovariohysterectomy",
-"Puppy survival to weaning was lower with concurrent ovariohysterectomy, and mothering ability was unaffected, with no difference in surgery time or complications, in the 125 bitches"
+"Puppy survival to weaning was lower with concurrent ovariohysterectomy, and mothering ability was unaffected, with no difference in surgery time or complications"
 ],
 "a": 1,
 "e": "All 90 bitches with survey responses survived to weaning.",
@@ -7546,7 +7546,7 @@
 "q": "AAVMC-accredited veterinary schools were surveyed on teaching of feline ovarian pedicle ligation. What was found?",
 "o": [
 "Almost all (97.1%) teach double ligation, about half (48.6%) teach the pedicle tie, and 45.7% teach both",
-"About half (48.6%) teach double ligation, almost all (97.1%) teach the pedicle tie, and 45.7% teach both, in the AAVMC survey",
+"About half (48.6%) teach double ligation, almost all (97.1%) teach the pedicle tie, and 45.7% teach both",
 "Most teach only the pedicle tie (97.1%), and none teach double ligation, though 45.7% teach both"
 ],
 "a": 0,
@@ -7585,7 +7585,7 @@
 "type": "mcq",
 "domain": "Companion Animal Homelessness",
 "sub": "Epidemiology of Homelessness",
-"q": "Two surveys of private practices and HQHVSN clinics were compared for pyometra treatment. Which finding shows a barrier to partnership?",
+"q": "Two surveys of private practices and high-quality, high-volume spay-neuter (HQHVSN) clinics were compared for pyometra treatment. Which finding shows a barrier to partnership?",
 "o": [
 "Most practices readily referred pyometra cases to HQHVSN clinics, and economic euthanasia was estimated for under 1% of patients",
 "Practices estimated economic euthanasia for 13% of patients unable to access care, yet 80% would be reluctant to refer to an HQHVSN clinic",
@@ -7616,7 +7616,7 @@
 "q": "In 51 bitches with pyometra treated by ovariohysterectomy, antimicrobial susceptibility was reviewed. What was found?",
 "o": [
 "All had a good outcome without surgical site infection, but 30% never received a fully effective antimicrobial, and 5 of 16 peritonitis cases got an in vitro ineffective drug",
-"Antimicrobials were fully effective in all cases, and all peritonitis cases received an effective drug, with no surgical site infections in any bitch, in the 51 bitches reviewed",
+"Antimicrobials were fully effective in all cases, and all peritonitis cases received an effective drug, with no surgical site infections in any bitch",
 "Surgical site infections occurred in most bitches, and 30% never received any antimicrobial, with peritonitis or sepsis shortening hospital stay"
 ],
 "a": 0,
@@ -7629,7 +7629,7 @@
 "sub": "Spay-Neuter",
 "q": "Polydioxanone suture sizes (2-0 to 5-0) were tested on feline ventral abdominal wall samples. What was found?",
 "o": [
-"Suture material failure became more frequent with increasing suture size, with 2-0 failing in 6 of 8 samples, in the feline abdominal wall samples",
+"Suture material failure became more frequent with increasing suture size, with 2-0 failing in 6 of 8 samples",
 "Suture material failure became less frequent with increasing suture size, with 5-0 failing in 6 of 8 samples",
 "Suture sizes failed similarly by suture line failure, with little effect of suture size"
 ],
@@ -7655,11 +7655,11 @@
 "type": "mcq",
 "domain": "Companion Animal Homelessness",
 "sub": "Spay-Neuter",
-"q": "A survey of 142 private practice veterinarians examined use of the feline ovarian pedicle tie. Which finding is correct?",
+"q": "A survey of 142 private practice veterinarians examined use of the feline ovarian pedicle tie (tying the ovarian pedicle in a knot with itself). Where did users learn it, how often was it used, and how comfortable were they teaching it?",
 "o": [
-"Users mostly learned it at veterinary school (60%), few used it in all cases, and most were uncomfortable teaching it, among 142 private practice veterinarians",
-"Users mostly learned it at an HQHVSN facility or from a colleague (32% each), nearly half used it in all cases, and 99% were comfortable teaching it",
-"Users mostly learned it at an HQHVSN facility, nearly half used it in all cases, but only 9% were comfortable teaching it"
+"Users mostly learned it at veterinary school (60%), few used it in all cases, and most were uncomfortable teaching it",
+"Users mostly learned it at an high-quality, high-volume spay-neuter (HQHVSN) facility or from a colleague (32% each), nearly half used it in all cases, and 99% were comfortable teaching it",
+"Users mostly learned it at an high-quality, high-volume spay-neuter (HQHVSN) facility, nearly half used it in all cases, but only 9% were comfortable teaching it"
 ],
 "a": 1,
 "e": "It is faster than double ligation with very low haemorrhage risk.",
@@ -7783,7 +7783,7 @@
 "sub": "Spay-Neuter",
 "q": "The population dynamics of cats in Onomichi were followed after a TTVARM event with route censuses and GPS. What was found?",
 "o": [
-"Colonies were closed and static, with all 30 cats remaining after the event, so the programme supported lifetime management of the colonies, in the Onomichi programme",
+"Colonies were closed and static, with all 30 cats remaining after the event, so the programme supported lifetime management of the colonies",
 "Only 11 of 30 cats remained, while 13 non-neutered cats immigrated, so the programme had limited efficacy and could not support lifetime management",
 "Only 11 of 30 cats remained, but no non-neutered cats immigrated, so the programme was highly effective and supported lifetime management"
 ],
@@ -7811,7 +7811,7 @@
 "sub": "Spay-Neuter",
 "q": "Necropsies were performed on 598 unsocialised free-ranging cats euthanised by Danish welfare organisations. What was found?",
 "o": [
-"Most cats had major welfare findings, most were emaciated, and FIV and FeLV were the commonest findings, in the 598 necropsied cats",
+"Most cats had major welfare findings, most were emaciated, and FIV and FeLV were the commonest findings",
 "More than 83% had no major finding, but most were emaciated, and gross lesions were the commonest finding",
 "More than 83% had no major welfare finding, most had normal body condition, and ectoparasites were the commonest finding"
 ],
@@ -7825,7 +7825,7 @@
 "sub": "Spay-Neuter",
 "q": "A review examined the social behaviour of free-ranging cats. What did it conclude?",
 "o": [
-"Free-ranging cats are solitary and show few preferential affiliations with others, in the review of the literature",
+"Free-ranging cats are solitary and show few preferential affiliations with others",
 "Free-ranging cats form tight matrilineal groups with strong preferential bonds and few loose associations",
 "Social dynamics differ between groups, from strong bonds and preferential affiliations to loose association with little interaction"
 ],
@@ -7867,7 +7867,7 @@
 "sub": "Spay-Neuter",
 "q": "A questionnaire and GPS study estimated Denmark's unowned free-ranging cat population. What was found?",
 "o": [
-"About 890,000 cats at about 20 per km2, mostly urban, roughly two-thirds socialised, in Denmark's population estimate",
+"About 890,000 cats at about 20 per km2, mostly urban, roughly two-thirds socialised",
 "About 89,000 cats at about 2 per km2, mostly rural, roughly two-thirds unsocialised",
 "About 9,000 cats at about 0.2 per km2, mostly rural, roughly two-thirds socialised"
 ],
@@ -7881,7 +7881,7 @@
 "sub": "Spay-Neuter",
 "q": "GPS tracking of free-ranging cats on a Chinese campus compared home range by sex and season. What was found?",
 "o": [
-"Females had larger ranges than males in breeding season, and female ranges shrank outside breeding season while male ranges grew, in the Chinese campus study",
+"Females had larger ranges than males in breeding season, and female ranges shrank outside breeding season while male ranges grew",
 "Ranges did not vary by season or sex, though males were more active at night",
 "Males had larger ranges than females in breeding season, and male ranges shrank outside breeding season while female ranges grew"
 ],
@@ -7993,9 +7993,9 @@
 "sub": "Spay-Neuter",
 "q": "Weibo posts about stray cats in China were analysed. Which finding is correct?",
 "o": [
-"TNR had little support, and knowledge of ecological impact was positively correlated with support for TNR, in the Weibo posts",
-"TNR had high support, and knowledge of ecological impact was correlated with opposition to lethal control",
-"TNR had high support, and knowledge of ecological impact was positively correlated with support for lethal control"
+"Trap-neuter-return (TNR) had little support, and knowledge of ecological impact was positively correlated with support for TNR",
+"Trap-neuter-return (TNR) had high support, and knowledge of ecological impact was correlated with opposition to lethal control",
+"Trap-neuter-return (TNR) had high support, and knowledge of ecological impact was positively correlated with support for lethal control"
 ],
 "a": 2,
 "e": "There was irresponsible feeding behaviour.",
@@ -8008,7 +8008,7 @@
 "q": "GPS tracking of Cape Town cats compared seasons. What was found?",
 "o": [
 "Home ranges were larger in summer (3.00 ha) than winter (0.87 ha), and urban-edge cats used protected areas more than urban cats",
-"Home ranges were larger in winter (3.00 ha) than summer (0.87 ha), and urban cats used protected areas more than urban-edge cats, in Cape Town cats",
+"Home ranges were larger in winter (3.00 ha) than summer (0.87 ha), and urban cats used protected areas more than urban-edge cats",
 "Home ranges did not differ by season, and no cat entered protected areas"
 ],
 "a": 0,
@@ -8037,7 +8037,7 @@
 "o": [
 "Higher free-roaming cat density in Campbelltown, but no significant difference in cat events or wildlife events between areas",
 "Higher free-roaming cat density in the Blue Mountains, and significantly more cat events there",
-"Equal free-roaming cat density in both areas, but significantly more wildlife events in Campbelltown, in the camera trap data"
+"Equal free-roaming cat density in both areas, but significantly more wildlife events in Campbelltown"
 ],
 "a": 0,
 "e": "Density was 0.31 vs 0.21 cats per ha.",
@@ -8078,7 +8078,7 @@
 "q": "Caregivers were interviewed about an assistive approach with free sterilisation and preventive care. What was found?",
 "o": [
 "Strong emotional bonds, improved quality of life, better perceived cat welfare, and negative views of municipal agencies",
-"Weak emotional bonds, reduced quality of life, worse perceived cat welfare, and positive views of municipal agencies, in the caregiver interviews",
+"Weak emotional bonds, reduced quality of life, worse perceived cat welfare, and positive views of municipal agencies",
 "Strong emotional bonds, but caregivers welcomed trap-adopt-kill and reported little change in quality of life"
 ],
 "a": 0,
@@ -8105,7 +8105,7 @@
 "sub": "Common Behavior Problems",
 "q": "Former street dogs adopted into Denmark were compared with Danish-reared dogs using owner and veterinarian questionnaires. What was found?",
 "o": [
-"Former street dogs showed fewer problem behaviours than Danish-reared dogs, and owners reported greater problems than veterinarians, in the Danish survey",
+"Former street dogs showed fewer problem behaviours than Danish-reared dogs, and owners reported greater problems than veterinarians",
 "Former street dogs showed 9 of 45 behaviours more often, all related to fear, aggression and stress, and veterinarians reported greater problems than owners",
 "Former street dogs and Danish-reared dogs did not differ in any behaviour, and veterinarians agreed with owners"
 ],
@@ -8134,7 +8134,7 @@
 "q": "A rancher blames wolves for killing livestock, and compensation depends on identifying the predator. What does a scoping review of tooth marks on bone say about distinguishing wolves from domestic dogs?",
 "o": [
 "Current evidence is inconclusive, so tooth mark patterns cannot separate them beyond reasonable doubt, and complementary tools are needed",
-"Tooth mark patterns reliably distinguish wolves from dogs, so no complementary tools are needed for compensation decisions, in the scoping review",
+"Tooth mark patterns reliably distinguish wolves from dogs, so no complementary tools are needed for compensation decisions",
 "Tooth mark patterns can identify individual dogs, so a single study is enough to determine the predator"
 ],
 "a": 0,
@@ -8343,7 +8343,7 @@
 "sub": "Epidemiology of Homelessness",
 "q": "ASPCA programme data described grooming and matting concerns. What was the aim?",
 "o": [
-"To show grooming is rarely needed and call for funding to be directed to other services, in the ASPCA programme data",
+"To show grooming is rarely needed and call for funding to be directed to other services",
 "To show the scope of grooming and matting concerns and call for research on access to grooming services",
 "To compare vaccine uptake with grooming uptake among clients of the same programmes"
 ],
@@ -8372,7 +8372,7 @@
 "q": "Low-income clients of a Worcester community veterinary clinic were surveyed about video telehealth during COVID-19. What was the aim?",
 "o": [
 "To assess needs and perceived barriers and incentives to telehealth as a way to increase care access",
-"To compare the efficacy of vaccine types delivered through telehealth appointments, at the Worcester clinic",
+"To compare the efficacy of vaccine types delivered through telehealth appointments",
 "To assess drug pricing, comparing telehealth and in-person visit costs"
 ],
 "a": 0,
@@ -8470,7 +8470,7 @@
 "q": "A scoping review developed a definition of veterinary care desert. Which three themes were common?",
 "o": [
 "Ethnicity, breed and species",
-"Vaccination, sterilisation and microchipping, in the scoping review",
+"Vaccination, sterilisation and microchipping",
 "Accessibility, affordability and availability"
 ],
 "a": 2,
@@ -8540,7 +8540,7 @@
 "q": "Fifty low-income ASPCA clients were interviewed about their pets' quality of life. What was found?",
 "o": [
 "They perceived quality of life similarly to more affluent samples, and 60% of excerpts linked the human-animal bond with quality of life",
-"They perceived quality of life very differently from more affluent samples, and 6% of excerpts linked the bond with quality of life, in the New York interviews",
+"They perceived quality of life very differently from more affluent samples, and 6% of excerpts linked the bond with quality of life",
 "They perceived quality of life similarly to affluent samples, but bond and quality of life were seldom linked in their accounts"
 ],
 "a": 0,
@@ -8567,7 +8567,7 @@
 "sub": "Epidemiology of Homelessness",
 "q": "A scoping review of 77 publications examined how access to veterinary care is defined. What did it note?",
 "o": [
-"Access has one universal definition that is consistent across communities, in the scoping review",
+"Access has one universal definition that is consistent across communities",
 "Access concerns the cost of care and is the same across communities",
 "Access lacks a consistent definition and is not homogenous across communities"
 ],
@@ -8596,7 +8596,7 @@
 "q": "Twenty Blue Cross service users were interviewed about financial hardship and pets. What was found?",
 "o": [
 "All described rising costs of pet care, and most had struggled financially from changed circumstances",
-"Costs were seen as negligible, and most participants had not struggled financially, in 20 Blue Cross interviews",
+"Costs were seen as negligible, and most participants had not struggled financially",
 "None used free or reduced-cost care, and all described stable circumstances"
 ],
 "a": 0,
@@ -8651,7 +8651,7 @@
 "sub": "Management & Leadership",
 "q": "A survey of 651 animal shelter volunteers examined satisfaction and 'voice'. Which conclusion is best supported?",
 "o": [
-"Volunteer traits mattered more than shelter factors, and open-admission shelters had higher satisfaction, with voice unrelated to satisfaction, among the 651 volunteers",
+"Volunteer traits mattered more than shelter factors, and open-admission shelters had higher satisfaction, with voice unrelated to satisfaction",
 "Volunteers who felt they had less opportunity for voice were less satisfied, and satisfaction was higher at limited-intake shelters with higher save rates",
 "Voice had little effect on satisfaction, and save rate did not matter to volunteers, with individual traits the strongest predictor"
 ],
@@ -8679,7 +8679,7 @@
 "sub": "Nutrition & Husbandry",
 "q": "In 24 unregulated cat shelters in Hong Kong, husbandry practices were compared with health. Which association was found?",
 "o": [
-"A dull coat was linked to regular veterinary input and more frequent disinfection, and satisfactory body condition was unrelated to any husbandry practice, in the 24 unregulated shelters",
+"A dull coat was linked to regular veterinary input and more frequent disinfection, and satisfactory body condition was unrelated to any husbandry practice",
 "Satisfactory body condition was linked to regular veterinary input and more than once daily disinfection and water changes, and oculo-nasal discharge to no regular veterinary input and less frequent water changes",
 "Oculo-nasal discharge was linked to regular veterinary input and more frequent water changes, and satisfactory body condition to no regular veterinary input"
 ],
@@ -8708,7 +8708,7 @@
 "q": "A study estimated cat admissions to Australian pounds, shelters and rescues for 2018 to 2019. What gap did it address?",
 "o": [
 "Comprehensive admission and outcome data for stray and owner-relinquished cats are lacking, hindering assessment of management strategies",
-"Data are complete and public, but no assessment of management strategies has been carried out for stray and owner-relinquished cats, in Australia for 2018 to 2019",
+"Data are complete and public, but no assessment of management strategies has been carried out for stray and owner-relinquished cats",
 "Dog admission data are lacking, while cat data are complete for pounds, shelters and rescues, so strategies could be assessed"
 ],
 "a": 0,
@@ -8806,7 +8806,7 @@
 "q": "In an experiment with 680 participants, artificial photo backgrounds were applied to shelter dog photos. What was measured?",
 "o": [
 "Online clicking and perceived human-directed sociability",
-"Dog weight and age recorded from the photograph, in the 680-person experiment",
+"Dog weight and age recorded from the photograph",
 "Adoption fees and length of stay for each dog"
 ],
 "a": 0,
@@ -8833,7 +8833,7 @@
 "sub": "Shelter Diversion",
 "q": "A review examined human allergy to cats. Which outcomes were quantified?",
 "o": [
-"Vaccination rates and neutering rates of cats owned by allergic people, in the review of allergy to cats",
+"Vaccination rates and neutering rates of cats owned by allergic people",
 "Avoiding ownership, relinquishing owned cats and returning cats after adoption",
 "Veterinary costs and insurance uptake of cats owned by allergic people"
 ],
@@ -8876,7 +8876,7 @@
 "q": "Seventy-five detained juveniles in the Dutch Cell Dogs programme were assessed for stress and self-esteem over 8 weeks. What was found?",
 "o": [
 "Only the cross-sectional association between bond quality and self-esteem at week 4 was significant, and cross-lagged paths were not",
-"The bond strongly predicted decreased stress at all time points, and cross-lagged paths were significant, in the 75 detained juveniles",
+"The bond strongly predicted decreased stress at all time points, and cross-lagged paths were significant",
 "The bond predicted self-esteem patterns over time, but the cross-sectional association at week 4 was not significant"
 ],
 "a": 0,
@@ -8931,7 +8931,7 @@
 "sub": "Mental Health & Self-Care",
 "q": "Interviews with 11 Canadian animal protection and welfare workers explored the effects of surrender and seizure work. Which themes and approach were identified?",
 "o": [
-"Feeling overprepared and receiving excessive support, with stricter discipline proposed to prevent burnout, in the 11 workers interviewed",
+"Feeling overprepared and receiving excessive support, with stricter discipline proposed to prevent burnout",
 "Low workload and high pay, with no intervention needed because burnout and compassion fatigue were absent",
 "Feeling unprepared and forced strength, with trauma-informed practice proposed to prevent compassion fatigue and burnout"
 ],
@@ -8973,7 +8973,7 @@
 "sub": "Mental Health & Self-Care",
 "q": "A systematic review of 30 studies on stress and suicidality in veterinarians categorised stressors with a bio-psycho-social model. What was the main finding?",
 "o": [
-"Biological stressors such as needlesticks were the main stressor, and PPE training is a starting point, with social stressors rarely reported, in the review of 30 studies",
+"Biological stressors such as needlesticks were the main stressor, and PPE training is a starting point, with social stressors rarely reported",
 "Financial stressors were the most significant category, and debt relief is a potential starting point, with social stressors rarely reported",
 "Social stressors were most prominent, human-to-human interactions were the main stressor, and communication training is a potential starting point"
 ],
@@ -9285,7 +9285,7 @@
 "q": "A Danish survey of 2,112 adults examined socioeconomic position and dog ownership. Which finding is correct?",
 "o": [
 "Ownership was not linked to income, education or occupation after adjusting for life course and lifestyle, and lower-income owners were more likely to have mixed-breed dogs",
-"Ownership was strongly linked to income, and lower-income owners were more likely to have pedigree dogs, after adjusting for life course, in the Danish survey of adults",
+"Ownership was strongly linked to income, and lower-income owners were more likely to have pedigree dogs, after adjusting for life course",
 "Ownership was highest in low-income neighbourhoods, and high dog prices were more common among low-income families, after adjusting for life course"
 ],
 "a": 0,
@@ -9312,7 +9312,7 @@
 "sub": "Ethics",
 "q": "Ninety-one Australian men completed the Animal Empathy Scale. What appeared most influential?",
 "o": [
-"Childhood exposure appearing most influential, among the 91 Australian men",
+"Childhood exposure appearing most influential",
 "Media exposure appearing most influential",
 "The responsibility and sacrifice of pet care appearing most influential"
 ],
@@ -9326,9 +9326,9 @@
 "sub": "Study Design",
 "q": "A Delphi study of over fifty experts prioritised canine health and welfare research in the UK and compared it with funding. Which finding is correct?",
 "o": [
-"Top priorities were mostly molecular diagnostics, and the most underfunded topics were cancer treatments, in the UK Delphi study",
+"Top priorities were mostly molecular diagnostics, and the most underfunded topics were cancer treatments",
 "Top priorities mostly concerned the human-canine relationship, and the most underfunded topics concerned real-world welfare, especially breeding and supply",
-"Priorities and funding were closely matched, with breeding and supply the best funded topics, in the UK Delphi study of canine welfare"
+"Priorities and funding were closely matched, with breeding and supply the best funded topics"
 ],
 "a": 1,
 "e": "Among chronic disorders in primary care, periodontal disease, anal sac disorders, overgrown nails and patellar luxation were the most underfunded.",
@@ -9341,7 +9341,7 @@
 "q": "A survey of current and former shelter veterinarians and non-shelter veterinarians examined retention. Which finding is correct?",
 "o": [
 "Former shelter veterinarians rated interactions with administrative staff, multi-veterinarian teams and mentorship lower, and more often felt unhappy and left out",
-"Former shelter veterinarians rated these workplace factors higher than current ones, and less often felt unhappy or left out at work, in the survey of veterinarians",
+"Former shelter veterinarians rated these workplace factors higher than current ones, and less often felt unhappy or left out at work",
 "Loneliness and fulfilment were very different between groups, and current veterinarians did fewer administrative duties than former shelter veterinarians"
 ],
 "a": 0,
@@ -9453,7 +9453,7 @@
 "sub": "Transfer Programs",
 "q": "CDC data on dogs denied entry to the US were compared across 2018 to 2020. What was found?",
 "o": [
-"458 dogs were denied entry in 2020, a 52% decrease from the 2018-2019 average, in the 2018 to 2020 CDC data",
+"458 dogs were denied entry in 2020, a 52% decrease from the 2018-2019 average",
 "458 dogs were denied entry in 2020, a 52% increase over the 2018-2019 average",
 "No dogs were denied entry in 2020, compared with 458 in 2018-2019"
 ],
@@ -9509,7 +9509,7 @@
 "sub": "Medical (Non-Infectious)",
 "q": "'Good Life Frameworks' were developed for beef cattle, broiler chickens and pigs. How do they promote positive welfare?",
 "o": [
-"Through animal-based measures that have been fully validated for positive emotions, assessed at slaughter, and equal to the legal minimum, in the Good Life Frameworks",
+"Through animal-based measures that have been fully validated for positive emotions, assessed at slaughter, and equal to the legal minimum",
 "Through tiers (Welfare +, ++, +++) of resources that give increasing opportunities for a good life above the legal minimum, evaluated by resource provision",
 "Through a single pass-fail standard equal to the legal minimum, evaluated by mortality rates, with no tiers above the legal minimum"
 ],
@@ -9537,7 +9537,7 @@
 "sub": "Medical (Non-Infectious)",
 "q": "A systematic review examined the link between animal welfare and antimicrobial use in captive animals. Which conclusion is best supported?",
 "o": [
-"In farm animals, better welfare often goes with higher antimicrobial use and poor welfare with lower use, in the systematic review",
+"In farm animals, better welfare often goes with higher antimicrobial use and poor welfare with lower use",
 "In farm animals, better welfare often goes with lower antimicrobial use and poor welfare with higher use",
 "There is no relation between welfare and antimicrobial use in any species"
 ],
@@ -9607,7 +9607,7 @@
 "sub": "Medical (Non-Infectious)",
 "q": "Nine equine behaviourists were interviewed about how well caregivers recognise fear in horses. Which theme emerged?",
 "o": [
-"Caregivers reliably recognise subtle signs such as facial tension, and rarely miss fear or anxiety, so recognition is not a welfare concern, in the nine interviews",
+"Caregivers reliably recognise subtle signs such as facial tension, and rarely miss fear or anxiety, so recognition is not a welfare concern",
 "Caregivers over-interpret normal behaviour as fear, and often see fear signs where none exist, so over-recognition is the main welfare concern",
 "Caregivers are often poor at recognising fear and anxiety, and those who do usually see only overt signs such as rearing or running away, not subtle signs"
 ],
@@ -9622,7 +9622,7 @@
 "q": "A survey of 754 ferret caretakers in 17 countries described housing and enrichment. Which problem was most frequently reported?",
 "o": [
 "Ingestion of unsuitable chew toys and rubber items causing internal blockages, narrow tunnels trapping ferrets, and fabrics that catch claws",
-"Overuse of digging substrates causing respiratory disease, and wire cages causing pododermatitis, with tunnels and hammocks reported as safe, in the survey of 754 caretakers",
+"Overuse of digging substrates causing respiratory disease, and wire cages causing pododermatitis, with tunnels and hammocks reported as safe",
 "Tunnels disliked by ferrets, and hammocks unsafe because ferrets fell from them, with chew toys and rubber items reported as safe"
 ],
 "a": 0,
@@ -9691,7 +9691,7 @@
 "sub": "Medical (Non-Infectious)",
 "q": "A review of horse fibre requirements states a minimum forage intake and foraging time. What is a consequence of feeding starch instead?",
 "o": [
-"Starch has no adverse consequences for gut or behaviour, in the review of horse fibre",
+"Starch has no adverse consequences for gut or behaviour",
 "Starch risks gastric ulcers, hindgut acidosis and laminitis",
 "Starch reduces ulcer risk and hindgut acidosis"
 ],
@@ -9803,7 +9803,7 @@
 "sub": "Medical (Non-Infectious)",
 "q": "A survey of 423 pet rabbit owners in Spain and Latin America described behaviour problems. Which finding is correct?",
 "o": [
-"Aggression was commonest, followed by inappropriate elimination and compulsive disorders, and problems were more frequent in neutered males, in the 423 owners surveyed",
+"Aggression was commonest, followed by inappropriate elimination and compulsive disorders, and problems were more frequent in neutered males",
 "Inappropriate elimination was commonest, followed by non-social fear, destructive behaviour and compulsive disorders, and problems were more frequent in entire females",
 "Behaviour problems were uncommon, each rabbit had one, and problems were unrelated to sex or neuter status"
 ],
@@ -9817,7 +9817,7 @@
 "sub": "Medical (Non-Infectious)",
 "q": "A scoping review of 151 studies examined hiding spaces for farmed animals. Which species featured most?",
 "o": [
-"Pigs (48% of papers), followed by sheep and goats, in the scoping review",
+"Pigs (48% of papers), followed by sheep and goats",
 "Chickens (48% of papers), followed by cattle, foxes and fish",
 "Cattle (48% of papers), followed by horses and deer"
 ],
@@ -9859,7 +9859,7 @@
 "sub": "Disaster",
 "q": "Veterinary and animal care workers (N = 93) were surveyed after Australia's Black Summer bushfires. What was explored?",
 "o": [
-"Their salaries and working hours, before and after the bushfires, in 93 workers",
+"Their salaries and working hours, before and after the bushfires",
 "Their disaster experiences, distress and trauma, including posttraumatic stress measures",
 "Their bushfire prevention methods and preparedness plans before the fires"
 ],
@@ -9902,7 +9902,7 @@
 "q": "UK 'Pandemic Puppies' (bought in 2020) were compared with 2019 puppies. Which finding is correct?",
 "o": [
 "Pandemic puppies were less likely to have attended puppy classes (28.9% vs 67.9%) and to have had visitors to the home",
-"Pandemic puppies were more likely to have attended puppy classes (67.9% vs 28.9%) and to have had visitors to the home, in the UK survey",
+"Pandemic puppies were more likely to have attended puppy classes (67.9% vs 28.9%) and to have had visitors to the home",
 "Pandemic puppies did not differ from 2019 puppies in class attendance or visitors to the home"
 ],
 "a": 0,
@@ -9929,7 +9929,7 @@
 "sub": "Animals & Public Safety",
 "q": "A dog bite prevention programme for pre-school children in Turkey included an interactive presentation, a drama session ('Being a Tree') and meeting a dog. What did the evaluation find?",
 "o": [
-"Scores did not change after the programme, and older children scored lower than younger children, and the tree concept was not learned, in Turkish preschool children",
+"Scores did not change after the programme, and older children scored lower than younger children, and the tree concept was not learned",
 "Scores improved only in the oldest children, who alone learned the 'Being a Tree' concept, with no improvement at one week",
 "Scores improved after the programme and at one week, older children scored higher, and the 'Being a Tree' concept could be learned by all ages"
 ],
@@ -9943,7 +9943,7 @@
 "sub": "Zoonotic Disease",
 "q": "Free-roaming cats trapped in Murcia, Spain, were tested for Chlamydia felis, Coxiella burnetii and Toxoplasma gondii. Which result was found?",
 "o": [
-"Seroprevalence was highest for C. felis (42%), and there were no age differences for any pathogen, in Murcia cats",
+"Seroprevalence was highest for C. felis (42%), and there were no age differences for any pathogen",
 "Fewer than 10% of cats were seropositive for any agent, and adults did not differ from juveniles",
 "Seroprevalence was highest for T. gondii (42%), and adult cats were more likely to be seropositive to C. burnetii"
 ],
@@ -9971,9 +9971,9 @@
 "sub": "Epidemiology of Homelessness",
 "q": "Forty-four people experiencing homelessness with animals in Seattle were interviewed. What was studied?",
 "o": [
-"The effect of housing status on rabies vaccination of the animals, among 44 people experiencing homelessness with pets in Seattle",
+"The effect of housing status on rabies vaccination of the animals",
 "The effect of pet ownership on healthcare-seeking for themselves and their animals",
-"The effect of shelter length of stay on the animals' health, among 44 people experiencing homelessness with pets in Seattle"
+"The effect of shelter length of stay on the animals' health"
 ],
 "a": 1,
 "e": "Barriers and facilitators were also collected.",
@@ -10099,7 +10099,7 @@
 "o": [
 "Fewer task orientations but more looking at the owner, interpreted as seeking direction",
 "More task orientation and less looking at the owner, interpreted as persistence",
-"No behavioural differences from other dogs in task orientation or looking at the owner, in an unsolvable task"
+"No behavioural differences from other dogs in task orientation or looking at the owner"
 ],
 "a": 0,
 "e": "High approach and avoidance sensitivities predicted less looking.",
@@ -10125,8 +10125,8 @@
 "sub": "General",
 "q": "Veterans walked shelter dogs in an 8-week programme, and dog stress was assessed with heart rate variability. What was explored?",
 "o": [
-"Whether the dogs reduced the veterans' PTSD symptoms, in the 25 shelter dogs walked",
-"Whether the walks and the veteran's PTSD status stressed the dogs",
+"Whether the dogs reduced the veterans' post-traumatic stress disorder (PTSD) symptoms",
+"Whether the walks and the veteran's post-traumatic stress disorder (PTSD) status stressed the dogs",
 "Whether the dogs preferred male or female veterans"
 ],
 "a": 1,
@@ -10210,7 +10210,7 @@
 "q": "A framework proposes to value animals beyond monetary terms in animal health decisions. Which method does it suggest?",
 "o": [
 "Using market price as the measure of an animal's value in health decisions, with no trade-off scenarios or health metrics",
-"Replacing DALY and zDALY with a single market-based metric, with no trade-off scenarios for what participants would give up",
+"Replacing disability-adjusted life year (DALY) and zDALY with a single market-based metric, with no trade-off scenarios for what participants would give up",
 "Exploring trade-offs in hypothetical scenarios, in which participants choose what they would give up to cure an animal (a human health condition, money or lifetime)"
 ],
 "a": 2,
@@ -10335,7 +10335,7 @@
 "sub": "Animals & Public Safety",
 "q": "A national online survey of 729 dog bite incidents in Portugal found what pattern?",
 "o": [
-"Most dogs were female strangers, most bites needed surgery, and euthanasia was the usual outcome, whatever the severity of injury, in 729 incidents",
+"Most dogs were female strangers, most bites needed surgery, and euthanasia was the usual outcome, whatever the severity of injury",
 "Most dogs were male and known to the person, most bites needed surgery, and injury severity did not affect euthanasia of the dog",
 "Most dogs were male and known to the person, most bites needed no medical intervention, and major injury raised the odds of the dog being euthanised (4.3 times)"
 ],
@@ -10350,7 +10350,7 @@
 "q": "Researchers built the STOP-R index to estimate a country's rabies elimination capacity when surveillance is poor. Which set of country-level indicators does it use?",
 "o": [
 "Literacy rate, infant mortality, electricity access, political stability and natural hazards",
-"Dog density, human population, vaccine price, healthcare spending and average income, in the STOP-R index",
+"Dog density, human population, vaccine price, healthcare spending and average income",
 "Number of veterinarians, road density, rainfall, urbanisation and vaccine coverage"
 ],
 "a": 0,
@@ -10364,7 +10364,7 @@
 "q": "A review of 648,492 dog and cat bite emergency visits in California found what difference between species?",
 "o": [
 "Dog bite incidence was highest in children under 10, cat bite incidence highest in adults over 80 and females, and bacteria were isolated from 21.5% of cat bites vs 3% of dog bites",
-"Cat bite incidence was highest in young children, dog bite incidence highest in adults over 80, and bacteria were isolated from 21.5% of dog bites vs 3% of cat bites, in California emergency visits",
+"Cat bite incidence was highest in young children, dog bite incidence highest in adults over 80, and bacteria were isolated from 21.5% of dog bites vs 3% of cat bites",
 "Both bite types were most common in adult males, and bacteria were isolated from about 12% of both dog and cat bites"
 ],
 "a": 0,
@@ -10435,7 +10435,7 @@
 "o": [
 "Sexually intact dogs should be screened for Brucella before breeding, purchase, or domestic or international transport",
 "Screening is required for spayed dogs, and is not needed for dogs used for breeding",
-"Screening is unnecessary, because testing rules are uniform among states and enforced at airports, in the case report"
+"Screening is unnecessary, because testing rules are uniform among states and enforced at airports"
 ],
 "a": 0,
 "e": "Testing requirements vary by state, and many dogs have unknown health histories, so exposures of passengers, crew and clinic staff needed risk assessment.",
@@ -10449,7 +10449,7 @@
 "o": [
 "Antimicrobial stewardship and biosurveillance that includes companion animals in a One Health framework",
 "That household dogs pose no zoonotic risk, because human strains were unrelated to dog strains",
-"That resistance determinants were absent from dog strains, so surveillance of dogs is unnecessary, in 87 household dogs"
+"That resistance determinants were absent from dog strains, so surveillance of dogs is unnecessary"
 ],
 "a": 0,
 "e": "All strains carried resistance determinants for drug classes rated critically or highly important by the WHO.",
@@ -10462,7 +10462,7 @@
 "q": "The species most affected by highly pathogenic avian influenza H5 in the Netherlands changed from geese in 2020-21 to sea birds in 2021-22. What surveillance strategy do the authors recommend?",
 "o": [
 "Monitoring live and dead wild birds, because future trends are hard to predict or model",
-"Predicting outbreaks with models built on the previous year's most affected species, in the Netherlands",
+"Predicting outbreaks with models built on the previous year's most affected species",
 "Testing waterfowl, because they were the first group affected"
 ],
 "a": 0,
@@ -10573,7 +10573,7 @@
 "sub": "Zoonotic Disease",
 "q": "A rescue plans to import dogs from a region endemic for Leishmania infantum. Which risk management strategies did an interdisciplinary working group recommend for imported dogs?",
 "o": [
-"Rabies vaccination and quarantine for 10 days, in the working group",
+"Rabies vaccination and quarantine for 10 days",
 "Tick preventives, bathing and routine deworming",
 "Sand fly insecticides and repellents, sterilisation and treatment"
 ],
@@ -10587,7 +10587,7 @@
 "sub": "Zoonotic Disease",
 "q": "A 10-year survey compared Master of Public Health and dual DVM/MPH students on entering and leaving a public health programme. What was found?",
 "o": [
-"Dual-degree students were more satisfied with career preparation services, and the competencies most valued at completion were clinical skills and laboratory diagnostics, in the 10-year survey",
+"Dual-degree students were more satisfied with career preparation services, and the competencies most valued at completion were clinical skills and laboratory diagnostics",
 "Both groups valued pharmacology and laboratory diagnostics most at completion, and dual-degree students were more concerned about career preparation services",
 "Dual-degree students had more concern about career preparation services, and the competencies most valued at completion were epidemiology, biostatistics and behavioural health"
 ],
@@ -10602,7 +10602,7 @@
 "q": "Veterinary and medical students took part in classic classroom problem-based learning and a field simulation on zoonotic disease. What were the results?",
 "o": [
 "Satisfaction was higher with field simulation, while attainment of knowledge was comparable between the two",
-"Knowledge attainment was much higher with field simulation, while satisfaction was similar, in the students' evaluation",
+"Knowledge attainment was much higher with field simulation, while satisfaction was similar",
 "Classic classroom learning gave better satisfaction and better knowledge attainment"
 ],
 "a": 0,
@@ -10630,7 +10630,7 @@
 "q": "Seventeen cats with discospondylitis were reviewed. Which findings are correct?",
 "o": [
 "All had spinal hyperaesthesia, few were pyrexic, cultures were positive in only two, and all were treated non-surgically with prolonged antibiotics",
-"Most were pyrexic, cultures were positive in most, and surgical stabilisation was required in most, with a median antibiotic course of 3 weeks, in the 17 cats reviewed",
+"Most were pyrexic, cultures were positive in most, and surgical stabilisation was required in most, with a median antibiotic course of 3 weeks",
 "Spinal pain was uncommon, most cats were young females, and cultures were positive in most, with a median antibiotic course of 3 weeks"
 ],
 "a": 0,
@@ -10714,7 +10714,7 @@
 "q": "Canine blood xenotransfusion to anaemic cats was compared with type-matched feline blood. Which finding is correct?",
 "o": [
 "Haemolytic anaemia was the commonest reason for xenotransfusion, and adverse effects were less frequent (19.4% vs 37.1%), in anaemic cats",
-"Financial constraints were the commonest reason, and post-transfusion PCV was lower in xenotransfused cats, with similar adverse effects",
+"Financial constraints were the commonest reason, and post-transfusion packed cell volume (PCV) was lower in xenotransfused cats, with similar adverse effects",
 "Financial constraints were the commonest reason for xenotransfusion, and transfusion-related adverse effects were more frequent (37.1% vs 19.4%)"
 ],
 "a": 2,
@@ -10741,7 +10741,7 @@
 "sub": "Medical (Non-Infectious)",
 "q": "One hundred and one dogs with hip osteoarthritis pain received green-lipped mussel plus krill oil extract, Biota orientalis extract, meloxicam or placebo. Which result was found at 6 weeks?",
 "o": [
-"Peak vertical force improved most with Biota orientalis extract, and meloxicam was no better than placebo, in 101 dogs with hip osteoarthritis",
+"Peak vertical force improved most with Biota orientalis extract, and meloxicam was no better than placebo",
 "Peak vertical force improved more with the mussel-krill extract and meloxicam than with placebo or Biota orientalis extract",
 "The four groups improved similarly in peak vertical force at 6 weeks"
 ],
@@ -10769,7 +10769,7 @@
 "sub": "Medical (Non-Infectious)",
 "q": "Twenty-two puppies were fed a food containing a novel prebiotic fibre blend for at least 90 days. What was found?",
 "o": [
-"Growth was stunted, blood tests were abnormal, and faecal scores fell with decreasing faecal moisture, in the 22 puppies fed the fibre blend",
+"Growth was stunted, blood tests were abnormal, and faecal scores fell with decreasing faecal moisture",
 "Puppies grew as expected, blood tests were normal, and faecal scores rose linearly with decreasing faecal moisture",
 "Puppies grew as expected, but faecal moisture increased and diarrhoea developed in most"
 ],
@@ -10853,7 +10853,7 @@
 "sub": "General",
 "q": "UK owners who bought 'Pandemic Puppies' in 2020 were compared with 2019 purchasers. Which finding is correct?",
 "o": [
-"They were less likely to be first-time owners, and more likely to seek breeders performing health testing, in UK purchasers of 2020",
+"They were less likely to be first-time owners, and more likely to seek breeders performing health testing",
 "They had considered buying a puppy before, and were more likely to seek breeders performing health testing",
 "They were more likely to be first-time owners with children, and less likely to seek breeders performing health testing"
 ],
@@ -11119,9 +11119,9 @@
 "sub": "Stress",
 "q": "Shelter dog activity was analysed with automated video before and during COVID-19 quarantine in a New York shelter. What was the design?",
 "o": [
-"A single day of observation during quarantine, with 34 dogs, and manual coding, compared with the same day one year earlier, in a New York shelter",
+"A single day of observation during quarantine, with 34 dogs, and manual coding, compared with the same day one year earlier",
 "Two two-week periods (before safety measures and during quarantine) with a matched sample of 34 dogs, and automated analysis compared with manual coding",
-"A comparison of shelter dogs and home dogs during quarantine, with automated analysis, in the same New York shelter"
+"A comparison of shelter dogs and home dogs during quarantine, with automated analysis"
 ],
 "a": 1,
 "e": "Shelters are stressful environments, and pandemic changes could affect behaviour.",
@@ -11133,7 +11133,7 @@
 "sub": "General",
 "q": "Owners reported walking practices of young dogs at 16 weeks, 9 months and 15 months. Which finding is correct?",
 "o": [
-"Dogs were most commonly walked once weekly, puppies about 3 hours per walk, and older dogs about 30 minutes daily, mostly on lead, in the owner reports",
+"Dogs were most commonly walked once weekly, puppies about 3 hours per walk, and older dogs about 30 minutes daily, mostly on lead",
 "Dogs were most commonly walked twice daily, puppies for longer than older dogs, with most time on lead at each age",
 "Dogs were most commonly walked twice daily, puppies about 30 minutes in total, and older dogs about 1 hour on weekdays and 2 hours at weekends"
 ],
@@ -11176,7 +11176,7 @@
 "q": "In Part II of a study of veterinary consultations, owners' actions were related to dog behaviour. What was examined?",
 "o": [
 "Whether owners' stress scores and actions were related to dogs' stress-related behaviour, emotional state and tolerance of handling, and to dogs' eye contact with owners",
-"Whether dog breed and coat colour were related to stress-related behaviour, emotional state and tolerance of handling during the consultation, in Part II of the study",
+"Whether dog breed and coat colour were related to stress-related behaviour, emotional state and tolerance of handling during the consultation",
 "Whether the duration of the visit and the room used were related to stress-related behaviour, emotional state and tolerance of handling"
 ],
 "a": 0,
@@ -11190,7 +11190,7 @@
 "q": "Two long-lasting dog-appeasing pheromone analog devices (a 3-month collar and a 2-month diffusing gel) were compared with 1-month reference products. How was efficacy assessed?",
 "o": [
 "By owners regularly completing questionnaires on general behaviours and fears and specific signs of stress",
-"By measuring blood cortisol weekly in each dog, from samples taken by the veterinarian, in the two pheromone products",
+"By measuring blood cortisol weekly in each dog, from samples taken by the veterinarian",
 "By counting barks with a collar sensor over the study period"
 ],
 "a": 0,
@@ -11245,7 +11245,7 @@
 "sub": "Common Behavior Problems",
 "q": "A UK survey of dog owners during and after lockdown examined separation-related behaviours. What was the hypothesis?",
 "o": [
-"That dogs left alone more during lockdown would show fewer separation-related behaviours later, when time alone increased again, in the UK survey",
+"That dogs left alone more during lockdown would show fewer separation-related behaviours later, when time alone increased again",
 "That separation-related behaviour is largely genetic, and unaffected by changes in time left alone after lockdown",
 "That dogs whose time left alone decreased most would be at greatest risk of new separation-related behaviour when time alone increased again"
 ],
@@ -11260,7 +11260,7 @@
 "q": "The Dog ARS questionnaire for inattention and hyperactivity/impulsivity was re-assessed in 319 dogs. What was found?",
 "o": [
 "The factor structure replicated with good internal consistency and test-retest reliability, and owner-trainer agreement was fair to moderate",
-"The factor structure could not be replicated, and test-retest reliability was poor, with owners and trainers disagreeing on most items, in 319 dogs",
+"The factor structure could not be replicated, and test-retest reliability was poor, with owners and trainers disagreeing on most items",
 "The factor structure replicated, and owners and trainers agreed closely on items, with excellent internal consistency"
 ],
 "a": 0,
@@ -11273,7 +11273,7 @@
 "sub": "Learning Theory",
 "q": "Dogs watched their caregiver interact with a remote-controlled realistic fake dog. What were the possible responses examined?",
 "o": [
-"Aggression toward the fake dog, with responses to the caregiver too infrequent to analyse, and no comparison with a control condition, in the remote-controlled dog study",
+"Aggression toward the fake dog, with responses to the caregiver too infrequent to analyse, and no comparison with a control condition",
 "Fear of the fake dog, with responses to the caregiver too infrequent to analyse, and no comparison with a control condition",
 "Jealousy-consistent behaviour, synchronising with the caregiver's behaviour, or responding to the caregiver without regard to the third party"
 ],
@@ -11316,7 +11316,7 @@
 "q": "Rehoming organisations in the UK and US described their pre-adoption dog behaviour screening. What was found?",
 "o": [
 "Most used pass/fail scoring, at least partially, so certain outcomes could lead to a dog being deemed unadoptable, and the value of the information sought was compared with scientific evidence",
-"Few used pass/fail scoring, and most relied on validated tests, so few dogs were deemed unadoptable, and the value of the information was well supported, in the UK and US organisations",
+"Few used pass/fail scoring, and most relied on validated tests, so few dogs were deemed unadoptable, and the value of the information was well supported",
 "Most organisations did not assess dogs before adoption, so comparison of screening with scientific evidence was not possible in either country"
 ],
 "a": 0,
@@ -11358,7 +11358,7 @@
 "q": "Cases at a US veterinary behaviour clinic from 1997 to 2017 were reviewed. Which finding is correct?",
 "o": [
 "Most dogs presented for aggression (72.2%), dogs from shelters, rescues or strays increased, and Herding and Terrier groups were overrepresented",
-"Most dogs presented for fears (72.2%), dogs from breeders increased, and Toy and Working groups were overrepresented, at a US clinic from 1997 to 2017",
+"Most dogs presented for fears (72.2%), dogs from breeders increased, and Toy and Working groups were overrepresented",
 "Most dogs presented for aggression, but dogs from breeders increased, and Toy breeds were overrepresented"
 ],
 "a": 0,
@@ -11385,7 +11385,7 @@
 "sub": "General",
 "q": "A narrative systematic review of canine socialisation identified 29 studies. What does it recommend?",
 "o": [
-"More experiments with unsocialised control puppies, to confirm the effect of poor socialisation, in the narrative review",
+"More experiments with unsocialised control puppies, to confirm the effect of poor socialisation",
 "Research into minimum necessary socialisation levels and breed differences in the timing of effective socialisation",
 "Little further research, since the optimal socialisation programme is established for most breeds"
 ],
@@ -11399,7 +11399,7 @@
 "sub": "General",
 "q": "Twenty-nine puppies of one to two months interacted with familiar and unfamiliar humans. What was found?",
 "o": [
-"Puppies synchronised with familiar humans, and not with unfamiliar humans, in 29 puppies",
+"Puppies synchronised with familiar humans, and not with unfamiliar humans",
 "Puppies showed no synchrony with either familiar or unfamiliar humans",
 "Puppies showed locomotor synchrony with humans, and familiarity did not affect its degree"
 ],
@@ -11456,7 +11456,7 @@
 "q": "Aggression in Brazilian pet dogs was investigated using questionnaires and the C-BARQ. What was the aim?",
 "o": [
 "To examine how morphological, social and environmental factors affect aggression expression in pet dogs",
-"To measure blood hormone levels in aggressive pet dogs and compare them with controls, in Brazilian pet dogs",
+"To measure blood hormone levels in aggressive pet dogs and compare them with controls",
 "To evaluate a vaccine for aggression, using owner-reported scores from the C-BARQ"
 ],
 "a": 0,
@@ -11511,7 +11511,7 @@
 "sub": "Animal Handling",
 "q": "A review of collars, harnesses and head collars for walking dogs advises what for dogs that pull?",
 "o": [
-"Choke and prong collars give the best balance between discomfort and reduced pulling, and front-clip harnesses need caution in dogs that pull, in the review of walking equipment",
+"Choke and prong collars give the best balance between discomfort and reduced pulling, and front-clip harnesses need caution in dogs that pull",
 "Head collars are the most comfortable device for dogs that pull, and front-clip harnesses need caution because they increase pulling",
 "Non-tightening front-clip harnesses appear to give the best balance between discomfort and reduced pulling, and tightening harnesses, martingales and head collars need caution"
 ],
@@ -11540,7 +11540,7 @@
 "q": "The Association of Shelter Veterinarians' rabbit housing guidelines set minimum standards. Which is included?",
 "o": [
 "Space and environment that enable natural behaviours, hiding and enrichment, light cycles suited to crepuscular animals, and flooring that reduces pododermatitis",
-"Continuous bright light, wire flooring and absence of hiding places, to ease cleaning, with housing based on cat standards, in the ASV rabbit guidelines",
+"Continuous bright light, wire flooring and absence of hiding places, to ease cleaning, with housing based on cat standards",
 "Housing based on cat standards adapted by size, with wire flooring, continuous light, and hiding places excluded to aid cleaning"
 ],
 "a": 0,
@@ -11569,7 +11569,7 @@
 "q": "Five veterinary surface disinfectants were tested against 9 carbapenemase-producing Enterobacterales strains. What was found?",
 "o": [
 "At the manufacturer's contact time all products achieved at least a 3-log kill against all strains except one Enterobacter hormaechei strain",
-"At the manufacturer's contact time all products failed against most strains, with less than 1-log kill, in the five disinfectants tested",
+"At the manufacturer's contact time all products failed against most strains, with less than 1-log kill",
 "Only accelerated hydrogen peroxide achieved a 3-log kill, and the other four products failed against all strains"
 ],
 "a": 0,
@@ -11610,7 +11610,7 @@
 "sub": "Shelter Diversion",
 "q": "An AJPH commentary by ASPCA teams calls for including pets in public health. Which challenges were named?",
 "o": [
-"Oversupply of pet-inclusive housing, family resilience during disasters, and abundant veterinary care access, in the AJPH commentary",
+"Oversupply of pet-inclusive housing, family resilience during disasters, and abundant veterinary care access",
 "Excess pet ownership, insufficient shelter space, and a surplus of veterinarians",
 "Shortage of pet-inclusive rental housing, family vulnerability during disasters, and increasing lack of veterinary care access"
 ],
@@ -11666,7 +11666,7 @@
 "sub": "Zoonotic Disease",
 "q": "A decade of research in Madagascar assessed how free-roaming dogs affect lemurs. Which finding is correct?",
 "o": [
-"Dogs have a small effect on wildlife, because they avoid forests and protected areas, and carry few pathogens or resistant bacteria, in Madagascar",
+"Dogs have a small effect on wildlife, because they avoid forests and protected areas, and carry few pathogens or resistant bacteria",
 "Dogs in and around protected areas prey on and displace native wildlife, and they carry pathogens and antimicrobial resistance that may kill lemurs",
 "Dogs harm lemurs mainly by competing for fruit, and disease and predation are minor, with the Mad Dog Initiative promoting more dogs"
 ],
@@ -11678,7 +11678,7 @@
 "type": "mcq",
 "domain": "Companion Animal Homelessness",
 "sub": "Spay-Neuter",
-"q": "Follow-up data from 212 HQHVSN clinics (Jan 2019 to June 2023) asked what?",
+"q": "Follow-up data from 212 high-quality, high-volume spay-neuter (HQHVSN) clinics (Jan 2019 to June 2023) asked what?",
 "o": [
 "Whether clinics stopped performing surgery permanently after the 2020 shutdown",
 "Whether anaesthetic drug costs rose and limited surgical numbers after the 2020 shutdown",
@@ -11765,7 +11765,7 @@
 "sub": "Euthanasia",
 "q": "A 'Cat Friendly' decision-making document addresses end-of-life decisions for cats. For whom is it mainly written?",
 "o": [
-"Owners of pedigree cats, mainly in private veterinary practice, with a focus on advanced medical care in later life, in the Cat Friendly document",
+"Owners of pedigree cats, mainly in private veterinary practice, with a focus on advanced medical care in later life",
 "Veterinary pharmacologists developing euthanasia drugs for cats, with a focus on drug dosing for end-of-life care",
 "People working with unowned cats, mainly in cat homing centres and trap-neuter-return or community cat neutering programmes"
 ],
@@ -11864,7 +11864,7 @@
 "sub": "Infectious Disease",
 "q": "Forty-five cats with FIP and immune-mediated haemolytic anaemia were reviewed. Which finding is correct?",
 "o": [
-"Anaemia was regenerative in most, thrombocytopenia was rare, few cats received antivirals, and 73% survived to last follow-up, in the 45 cats reviewed",
+"Anaemia was regenerative in most, thrombocytopenia was rare, few cats received antivirals, and 73% survived to last follow-up",
 "All cats died within a week, and anaemia was non-regenerative in 80%, despite treatment with nucleoside analogues and glucocorticoids",
 "Anaemia was non-regenerative in 80%, thrombocytopenia occurred in 40%, all received nucleoside analogues and most glucocorticoids, and 73% survived to last follow-up"
 ],
@@ -11936,7 +11936,7 @@
 "sub": "Infectious Disease",
 "q": "In 629 cats with FIP in Iran treated with GS-441524 for at least 12 weeks, what was the outcome?",
 "o": [
-"Survival was 30% with a high relapse rate (60%), and prognosis depended on disease form and presentation, in 629 cats in Iran",
+"Survival was 30% with a high relapse rate (60%), and prognosis depended on disease form and presentation",
 "Survival was 94.12%, and prognosis did not depend on any disease form or presentation factor",
 "Survival was 94.12% with a very low relapse rate (0.63%), and prognosis depended on disease form and presentation"
 ],
@@ -12062,7 +12062,7 @@
 "sub": "Stress",
 "q": "Physiological and behavioural stress were measured in 26 shelter dogs during routine health checks. Which correlation was found?",
 "o": [
-"Oxytocin was positively correlated with cortisol and with body temperature, and hormones were more sensitive than behavioural assessment, in 26 shelter dogs",
+"Oxytocin was positively correlated with cortisol and with body temperature, and hormones were more sensitive than behavioural assessment",
 "Oxytocin was negatively correlated with cortisol, especially in relaxed dogs, and with body temperature, and behavioural assessment may be more sensitive than hormones alone",
 "Serotonin correlated strongly with behaviour scores, and oxytocin did not correlate with cortisol or body temperature, with interleukin-6 also related"
 ],
@@ -12076,7 +12076,7 @@
 "sub": "Facility/Environment",
 "q": "Cats spent their first five days in a shelter under standard, dim, or dim blue-depleted light. Which finding is correct?",
 "o": [
-"Cortisol was higher under dim blue-depleted light than standard light on day 5, and behavioural stress markers rose over time in the shelter, in the five-day trial",
+"Cortisol was higher under dim blue-depleted light than standard light on day 5, and behavioural stress markers rose over time in the shelter",
 "Cortisol was lower under dim blue-depleted light than standard light on day 5, and behavioural stress markers declined over time in the shelter",
 "Light had little effect on cortisol on day 5, and activity showed no daily rhythm in any condition"
 ],
@@ -12104,7 +12104,7 @@
 "sub": "QOL & Needs Assessment",
 "q": "Fourteen Taiwanese experts rated 59 welfare conditions for shelter dogs using the Five Domains model. Which conditions had the most impact on individual dogs?",
 "o": [
-"Limited access to toys, insufficient foraging and barking noise, in the Taiwanese expert ratings",
+"Limited access to toys, insufficient foraging and barking noise",
 "Excess veterinary care, abundant space and frequent human contact",
 "Depressive disorders, fear- or anxiety-related disorders and limited space"
 ],
@@ -12118,7 +12118,7 @@
 "sub": "QOL & Needs Assessment",
 "q": "A quality-of-life tool for dogs was developed from the Framework of Dogs' Needs for use before and after adoption. What did the pilot find?",
 "o": [
-"Owners refused to take part, so the tool was abandoned and not refined for larger studies, and the time commitment was excessive, in the pilot with 14 owners",
+"Owners refused to take part, so the tool was abandoned and not refined for larger studies, and the time commitment was excessive",
 "Feasibility of participant-recorded videos was a challenge, but the time commitment was acceptable, and the tool was refined for larger studies",
 "The tool used blood biomarkers, so participant videos and time commitment were not assessed, and it was not refined for larger studies"
 ],
@@ -12160,8 +12160,8 @@
 "sub": "Spay-Neuter",
 "q": "Spain's PACF plan under Law 7/2023 establishes what?",
 "o": [
-"A nationwide obligation for TNR-based management of community cat colonies",
-"A nationwide ban on TNR in urban and rural areas",
+"A nationwide obligation for trap-neuter-return (TNR)-based management of community cat colonies",
+"A nationwide ban on trap-neuter-return (TNR) in urban and rural areas",
 "A nationwide requirement to cull community cat colonies within protected areas"
 ],
 "a": 0,
@@ -12203,7 +12203,7 @@
 "q": "A multi-site randomised controlled trial of free-roaming dog sterilisation used which design?",
 "o": [
 "Before After Control Intervention (BACI), comparing intervention and control sites before and after sterilisation",
-"A retrospective case series, comparing sites before and after the introduction of sterilisation in one city, in the multi-site trial",
+"A retrospective case series, comparing sites before and after the introduction of sterilisation in one city",
 "A cross-sectional survey, comparing intervention and control sites at a single time point after sterilisation"
 ],
 "a": 0,
@@ -12244,7 +12244,7 @@
 "sub": "Non-Surgical Sterilization",
 "q": "A review of reversible feline contraception notes which problem with progestins?",
 "o": [
-"Reduced risk of uterine infections, mammary tumours and metabolic complications, in the review of reversible contraception",
+"Reduced risk of uterine infections, mammary tumours and metabolic complications",
 "Increased risk of uterine infections, mammary tumours and metabolic complications",
 "Permanent sterility after a single course, with little effect on uterine infections"
 ],
@@ -12259,7 +12259,7 @@
 "q": "Feline anti-Mullerian hormone analog gene therapy was tested in cats. What was found?",
 "o": [
 "A single intramuscular vector disrupted folliculogenesis and induced pregnancy loss",
-"A single intramuscular vector caused permanent sterility in male cats, in the gene therapy study",
+"A single intramuscular vector caused permanent sterility in male cats",
 "A single intramuscular vector had little effect on folliculogenesis or pregnancy"
 ],
 "a": 0,
@@ -12286,7 +12286,7 @@
 "sub": "Spay-Neuter",
 "q": "A retrospective study examined gonadectomy in French Bulldogs. What was the outcome of interest?",
 "o": [
-"Risk of brachycephalic airway syndrome in relation to gonadectomy and age at gonadectomy, in a retrospective study",
+"Risk of brachycephalic airway syndrome in relation to gonadectomy and age at gonadectomy",
 "Risk of intervertebral disc herniation in relation to gonadectomy and age at gonadectomy",
 "Risk of parvovirus infection in relation to gonadectomy and age at gonadectomy"
 ],
@@ -12328,9 +12328,9 @@
 "sub": "Epidemiology of Homelessness",
 "q": "A survey of 1,177 US adults examined perceived access to veterinary care. What was examined?",
 "o": [
-"Antibiotic prescribing patterns among veterinarians and owners, in a sample representative of the US population",
+"Antibiotic prescribing patterns among veterinarians and owners",
 "Relationships between demographics, perceived access and care-seeking decisions",
-"Vaccination protocols used by veterinarians and owners, in a sample representative of the US population"
+"Vaccination protocols used by veterinarians and owners"
 ],
 "a": 1,
 "e": "The sample was representative of the US population.",
@@ -12342,7 +12342,7 @@
 "sub": "Epidemiology of Homelessness",
 "q": "Two US One Health Clinics were surveyed. What was the purpose?",
 "o": [
-"To compare drug prices between the veterinary and human health services of the two clinics, and satisfaction with each, in the two One Health clinics",
+"To compare drug prices between the veterinary and human health services of the two clinics, and satisfaction with each",
 "To assess how joint access to veterinary and human health services engages people with their own healthcare through the human-animal bond",
 "To assess shelter intake and outcomes among the clients of the two clinics, and the trust clients placed in each"
 ],
@@ -12358,7 +12358,7 @@
 "o": [
 "To reassess the support needed by low-income clients so services align with community needs",
 "To set new higher prices for wealthy clients who use the community clinic",
-"To recruit more students to the community clinic, using client contact lists, in the 2024 survey of 51 clients"
+"To recruit more students to the community clinic, using client contact lists"
 ],
 "a": 0,
 "e": "Surveys were done in person or by phone.",
@@ -12413,7 +12413,7 @@
 "q": "WisCARES is described as which model?",
 "o": [
 "A service-learning clinic where veterinarians, nurses and social workers collaborate in a One Health access-to-care setting",
-"A referral-only specialty hospital where residents treat complex cases, with no social work involvement, at the University of Wisconsin",
+"A referral-only specialty hospital where residents treat complex cases, with no social work involvement",
 "A boarding facility where students supervise pets of clients who are hospitalised, with no social work involvement"
 ],
 "a": 0,
@@ -12496,7 +12496,7 @@
 "sub": "Animal Cruelty",
 "q": "Three pets were found dead alongside human victims in suspected murder-suicide incidents in Japan. What did the necropsies show?",
 "o": [
-"The pets died from a different cause than the humans, suggesting that they were killed separately, at a different time of day",
+"The pets died from a different cause than the humans, suggesting that they were killed separately",
 "The humans and pets died from the same cause, suggesting that perpetrators kill pets by the same methods used on the human victims",
 "The pets died of natural disease at the time of the incident, unrelated to the human deaths, with no evidence of trauma"
 ],
@@ -12510,7 +12510,7 @@
 "sub": "General",
 "q": "A dog is found with a rope around its neck and forelimbs. The autopsy shows lesions compatible with strangulation, and the stomach contains food mixed with blackish microgranules. What is the most appropriate next step?",
 "o": [
-"Record strangulation as the cause of death, because a visible lethal mechanism makes further testing unnecessary, in the published case of overkilling",
+"Record strangulation as the cause of death, because a visible lethal mechanism makes further testing unnecessary",
 "Complete toxicological testing of the stomach contents and organs, because several methods of killing can be used on the same animal",
 "Skip toxicology, because poisoning would have caused obvious gross lesions in the organs"
 ],
@@ -12524,7 +12524,7 @@
 "sub": "Animal Cruelty",
 "q": "A person is bitten through clothing, and there is no visible saliva or blood. Which finding from a published case shows that the offending dog can still be identified?",
 "o": [
-"Trace DNA cannot be used unless visible saliva or blood is present on the clothing, so the dog cannot be identified, in the published case",
+"Trace DNA cannot be used unless visible saliva or blood is present on the clothing, so the dog cannot be identified",
 "Bite mark measurements on the skin are the accepted way to identify the dog, and trace DNA from clothing is unreliable",
 "Short tandem repeat typing of trace DNA from the clothing gave a complete match at all 19 loci with one of three suspect dogs"
 ],
@@ -12608,7 +12608,7 @@
 "sub": "Medical (Non-Infectious)",
 "q": "The RECOVER guidelines address resuscitation of newborn puppies and kittens. Which steps start the iterative approach?",
 "o": [
-"Immediate epinephrine, followed by airway clearance and tactile stimulation, with temperature control left until after CPR, in the RECOVER guidelines",
+"Immediate epinephrine, followed by airway clearance and tactile stimulation, with temperature control left until after CPR",
 "Cardiac compressions first, then warming and airway clearance, with positive pressure ventilation left until after epinephrine",
 "Airway clearance, tactile stimulation and temperature control, followed by positive pressure ventilation and, when needed, CPR"
 ],
@@ -12706,9 +12706,9 @@
 "sub": "Medical (Non-Infectious)",
 "q": "The International Renal Interest Society guidelines discuss acute kidney injury in cats and dogs. Which statement is consistent with them?",
 "o": [
-"Hospital-acquired AKI is uncommon, and mortality is low thanks to advances such as renal replacement therapy, with detection rising through screening, in the IRIS guidelines",
-"Hospital-acquired AKI is increasing, but AKI by definition requires a decrease in kidney function, and mortality remains low despite treatment intensity",
-"Hospital-acquired AKI is increasing, partly through increased recognition and treatment intensity, and mortality remains high despite advances such as renal replacement therapy"
+"Hospital-acquired acute kidney injury (AKI) is uncommon, and mortality is low thanks to advances such as renal replacement therapy, with detection rising through screening",
+"Hospital-acquired acute kidney injury (AKI) is increasing, but AKI by definition requires a decrease in kidney function, and mortality remains low despite treatment intensity",
+"Hospital-acquired acute kidney injury (AKI) is increasing, partly through increased recognition and treatment intensity, and mortality remains high despite advances such as renal replacement therapy"
 ],
 "a": 2,
 "e": "AKI is injury to the renal parenchyma with or without a decrease in function, and can come from ischaemia, inflammation, nephrotoxins or infections.",
@@ -12721,7 +12721,7 @@
 "q": "A review of early-life risk factors proposes 'developmental programming' for adult chronic disease in dogs and cats. Which factors are listed?",
 "o": [
 "Maternal nutrition, establishment of the gut microbiome, maternal behaviour, weaning, growth rate, socialisation, rehoming and neutering",
-"Adult diet and adult exercise, with breed and coat colour, and no factors from gestation, suckling or growth before neutering, in the developmental programming review",
+"Adult diet and adult exercise, with breed and coat colour, and no factors from gestation, suckling or growth before neutering",
 "Coat colour, breed name and registry status, with adult diet, and no factors from gestation, suckling or growth before neutering"
 ],
 "a": 0,
@@ -12776,7 +12776,7 @@
 "sub": "General",
 "q": "Behaviours of 120 shelter dogs during 707 harnessing and leash walks were recorded. Which finding is correct?",
 "o": [
-"Pulling predicted shorter stays, and jumping was rare during harnessing, with grabbing the leash most prevalent during walks, in the 120 shelter dogs",
+"Pulling predicted shorter stays, and jumping was rare during harnessing, with grabbing the leash most prevalent during walks",
 "Jumping on handlers (45%) was most prevalent during harnessing, pulling (86%) during walks, and grabbing the leash predicted longer stays",
 "Dog age was unrelated to behaviour, and pulling was rare during walks, with jumping on handlers most prevalent during harnessing"
 ],
@@ -12832,7 +12832,7 @@
 "sub": "General",
 "q": "Owner-perceived undesirable behaviours were tracked in dogs at 6, 9, 12, 15 and 18 months. Which finding is correct?",
 "o": [
-"The lowest percentage was at 12 months (42.1%), and digging and chewing were the most common undesirable behaviours, in the 6 to 18 month follow-up",
+"The lowest percentage was at 12 months (42.1%), and digging and chewing were the most common undesirable behaviours",
 "The highest percentage was at 6 months (42.1%), and toileting and mouthing were the most common undesirable behaviours",
 "The highest percentage was at 12 months (42.1%), and barking, jumping up, pulling on the lead and recall issues were most common"
 ],
@@ -12847,7 +12847,7 @@
 "q": "The Pandemic Puppies project examined owner-dog relationship factors in dogs reaching early adulthood (n = 794). What was the concern?",
 "o": [
 "That impulsive purchasing, poor-welfare sources and deficits in early-life experiences might cause problem behaviours, weak relationships and relinquishment",
-"That pandemic puppies were well socialised and bought from responsible sources, so relationships would be stronger and relinquishment lower, in 794 dogs",
+"That pandemic puppies were well socialised and bought from responsible sources, so relationships would be stronger and relinquishment lower",
 "That puppies were bought from shelters, so problem behaviours would be fewer, with relationships stronger and relinquishment lower"
 ],
 "a": 0,
@@ -12903,7 +12903,7 @@
 "q": "A review of 78 studies on cortisol in dogs discusses sample types. Which conclusion is correct?",
 "o": [
 "Non-invasive matrices such as saliva, hair and urine are increasingly used and reflect acute and chronic stress, and different matrices give complementary information",
-"Blood is the preferred and best matrix, since it reflects chronic stress, and non-invasive matrices give less information, in the review of 78 studies",
+"Blood is the preferred and best matrix, since it reflects chronic stress, and non-invasive matrices give less information",
 "Hair reflects acute stress, and saliva and urine reflect chronic stress, so matrices are not complementary"
 ],
 "a": 0,
@@ -12944,7 +12944,7 @@
 "sub": "Common Behavior Problems",
 "q": "Twenty-seven cats in a Swedish cat café were observed for 227 hours. What was found?",
 "o": [
-"Cats avoided elevated structures, especially at high customer occupancy, cat-cat interactions were frequent and agonistic, and cat-human interactions were rare, in the Swedish cat café",
+"Cats avoided elevated structures, especially at high customer occupancy, cat-cat interactions were frequent and agonistic, and cat-human interactions were rare",
 "Elevated structures were unimportant, cat-cat interactions were frequent and affiliative, and cat-human interactions were absent for 4.4% of time",
 "Elevated structures were important, particularly at high customer occupancy, cat-cat interactions were infrequent and mostly affiliative, and cat-human interactions were absent for 44.4% of time"
 ],
@@ -12972,7 +12972,7 @@
 "sub": "Common Behavior Problems",
 "q": "Glutamine repeats in the androgen receptor gene were analysed in 280 neutered cats with Fe-BARQ behaviour scores. What was found?",
 "o": [
-"Allele type had no relation to behaviour, with sex-specific differences absent, and eight alleles with 15 to 22 repeats found, in 280 neutered cats",
+"Allele type had no relation to behaviour, with sex-specific differences absent, and eight alleles with 15 to 22 repeats found",
 "Cats with short-type alleles had higher purring scores, with sex-specific differences in vocalisation and stranger-directed behaviour",
 "Cats with long-type alleles were more aggressive toward strangers, and purred less, with sex-specific differences absent"
 ],
@@ -13056,9 +13056,9 @@
 "sub": "Facility/Environment",
 "q": "Eight dog shelters in Chiang Mai were assessed for space, density and human-dog interaction. Which associations were found?",
 "o": [
-"Higher density was linked to better body condition, and veterinary services made little difference to disease, in the eight shelters",
+"Higher density was linked to better body condition, and veterinary services made little difference to disease",
 "Higher density was linked to lameness, coughing and skin conditions, and lower density to higher body condition scores, and lack of veterinary services was linked to more disease",
-"Structured human-dog interaction affected health, and density and veterinary services did not, in the eight shelters"
+"Structured human-dog interaction affected health, and density and veterinary services did not"
 ],
 "a": 1,
 "e": "Shelters with adequate space and structured interaction had better welfare, and the authors call for national guidelines.",
@@ -13084,7 +13084,7 @@
 "sub": "General",
 "q": "An online survey of 444 Taiwanese dog owners traced the pathway to relinquishment. What was the strongest predictor of successful ownership?",
 "o": [
-"The price of the dog, since owners who paid more chose more appropriate acquisition channels and used more effective training, among 444 Taiwanese owners",
+"The price of the dog, since owners who paid more chose more appropriate acquisition channels and used more effective training",
 "Owners' knowledge and motivations, since better-prepared owners chose more appropriate acquisition channels and used more effective training",
 "The dog's breed, since owners of pedigree dogs chose more appropriate acquisition channels and used more effective training"
 ],
@@ -13141,7 +13141,7 @@
 "q": "RSPCA England and Wales data were analysed with which design?",
 "o": [
 "Interrupted time series, controlling for pre-existing trends across the pandemic and cost-of-living crisis",
-"A randomised controlled trial, assigning animals to intervention or control, across the pandemic and cost-of-living crisis",
+"A randomised controlled trial, assigning animals to intervention or control",
 "A single case report, describing one shelter's experience during the pandemic and cost-of-living crisis, without comparison series"
 ],
 "a": 0,
@@ -13210,7 +13210,7 @@
 "sub": "Adoption & Placement",
 "q": "A survey of 357 people examined adopted northern Canadian community dogs. What was the concern?",
 "o": [
-"Diet and nutrition after adoption, and the availability of raw feeding in the new environment, in 357 respondents",
+"Diet and nutrition after adoption, and the availability of raw feeding in the new environment",
 "Post-adoption behaviour and adjustment after a change to an environment that may restrict autonomy",
 "Rabies vaccination coverage after adoption, and access to veterinary care in the new environment"
 ],
@@ -13252,7 +13252,7 @@
 "sub": "Vaccination",
 "q": "An oral modified-live vaccine combining Bordetella bronchiseptica and canine parainfluenza was tested by challenge one year after a single dose. What was found?",
 "o": [
-"It gave no protection at one year, with 74% of vaccinated dogs sick versus 9% of placebo dogs, in the Bordetella study",
+"It gave no protection at one year, with 74% of vaccinated dogs sick versus 9% of placebo dogs",
 "It prevented disease for at least one year, with only 9% of vaccinated dogs sick versus 74% of placebo dogs in the Bordetella study",
 "It protected against Bordetella at one year but not against parainfluenza virus, with 9% of vaccinated dogs sick versus 74% of placebo dogs"
 ],
@@ -13266,7 +13266,7 @@
 "sub": "Zoonotic Disease",
 "q": "In a study of 140 dogs and cats with skin lesions, which factors affected dermatophytosis?",
 "o": [
-"Older age increased risk, and indoor-outdoor housing in cats was linked to higher risk than indoor housing, in 140 dogs and cats with skin lesions",
+"Older age increased risk, and indoor-outdoor housing in cats was linked to higher risk than indoor housing",
 "Sex was the strongest factor, and housing had little effect on risk in cats",
 "Younger age (under 1 year) increased risk, and indoor-outdoor housing in cats was linked to lower risk than indoor housing"
 ],
@@ -13518,7 +13518,7 @@
 "sub": "Infectious Disease",
 "q": "A meta-analysis of 38 studies examined canine brucellosis in China. Which finding is correct?",
 "o": [
-"Prevalence was higher in owned pet dogs and in southern regions, and PCR gave the highest positivity rate, in 38 studies from China",
+"Prevalence was higher in owned pet dogs and in southern regions, and PCR gave the highest positivity rate",
 "Prevalence was similar in stray and pet dogs and across regions, and serum agglutination gave the highest positivity rate",
 "Prevalence was higher in stray dogs (22.6%) and in northern and northwestern regions (highest in Xinjiang), and ELISA gave the highest positivity rate"
 ],
@@ -13630,8 +13630,8 @@
 "sub": "Infectious Disease",
 "q": "A training programme on antimicrobial use was given to 54 companion animal veterinarians in Quebec. What was measured?",
 "o": [
-"Client satisfaction before and after training, with a difference-in-differences comparison, in the 54 Quebec veterinarians",
-"Vaccination rates before and after training, with a difference-in-differences comparison, in the 54 Quebec veterinarians",
+"Client satisfaction before and after training, with a difference-in-differences comparison",
+"Vaccination rates before and after training, with a difference-in-differences comparison",
 "The change in prescription rates of highly important antimicrobials before and after training"
 ],
 "a": 2,
@@ -13644,7 +13644,7 @@
 "sub": "Infectious Disease",
 "q": "Antimicrobial susceptibility of 1,278 feline Staphylococcus isolates over 15 years was analysed. Which finding is correct?",
 "o": [
-"Resistance was rare (under 5%), multidrug resistance was 1%, and susceptibility was lowest to vancomycin, across the 15 years",
+"Resistance was rare (under 5%), multidrug resistance was 1%, and susceptibility was lowest to vancomycin",
 "Resistance to at least one drug was seen in 54%, multidrug resistance was 19% and commonest in S. pseudintermedius (46%), and susceptibility was lowest to penicillin and highest to vancomycin and rifampin",
 "Resistance to at least one drug was 54%, multidrug resistance was commonest in S. felis, and susceptibility was highest to penicillin"
 ],
@@ -13686,7 +13686,7 @@
 "sub": "Infectious Disease",
 "q": "Ehrlichia canis was genotyped (TRP36 gene) from dogs and ticks in Iran. Which finding is correct?",
 "o": [
-"E. canis was found in 21.4% of blood samples but absent from ticks, and 60% of isolates clustered with the Taiwan group, in Iranian dogs and ticks",
+"E. canis was found in 21.4% of blood samples but absent from ticks, and 60% of isolates clustered with the Taiwan group",
 "E. canis was found in 21.4% of blood and 39.19% of tick samples, and the isolates were near identical",
 "E. canis was found in 21.4% of blood and 39.19% of tick samples, and 60% of isolates clustered with the Taiwan genotypic group"
 ],
@@ -13743,7 +13743,7 @@
 "q": "Two cohabiting cats, their owner and a veterinarian who had a needlestick injury during sampling were infected with Mycobacterium bovis of the same spoligotype. What lesson does this teach?",
 "o": [
 "Zoonotic tuberculosis can come from companion animals even without livestock contact, and veterinary staff face an occupational risk from sharps",
-"M. bovis in cats poses no human risk, because cats are dead-end hosts, and the veterinarian was infected from the owner, in the cats and the veterinarian",
+"M. bovis in cats poses no human risk, because cats are dead-end hosts, and the veterinarian was infected from the owner",
 "Owners are infected through raw milk from livestock, so cats are irrelevant to human infection, and sharps injuries carry no risk"
 ],
 "a": 0,
@@ -13757,7 +13757,7 @@
 "q": "In Gran Canaria, 46.4% of 644 dogs tested positive for Dirofilaria immitis antigen. What was found about the owners?",
 "o": [
 "Owners of infected dogs reported allergic disease more often (65.89% vs 24.64%), and dog habitat was associated with both infection and allergy",
-"Owners of infected dogs reported allergic disease less often (24.64% vs 65.89%), and dog habitat was unrelated to infection, in 644 dogs in Gran Canaria",
+"Owners of infected dogs reported allergic disease less often (24.64% vs 65.89%), and dog habitat was unrelated to infection",
 "Owner allergies were related to dog breed and age, and not to infection or habitat"
 ],
 "a": 0,
@@ -13854,7 +13854,7 @@
 "sub": "Parasites",
 "q": "Multiple anthelmintic drug resistance (MADR) has been found in canine hookworm (Ancylostoma caninum) in the US. What does the position paper say?",
 "o": [
-"Resistance is confined to greyhounds, and pyrantel remains fully effective in pet dogs, with no benzimidazole resistance mutations, in the US position paper",
+"Resistance is confined to greyhounds, and pyrantel remains fully effective in pet dogs, with no benzimidazole resistance mutations",
 "Resistance to all registered anthelmintic classes exists, originated on greyhound farms and kennels, and now affects dogs of any breed, age, size and sex across the USA",
 "Resistance affects puppies, and macrocyclic lactones remain fully effective in dogs, with no benzimidazole resistance mutations"
 ],
@@ -13868,7 +13868,7 @@
 "sub": "Parasites",
 "q": "Free-roaming cats in the eastern Tennessee valley were tested for tick-borne pathogens. Which finding is correct?",
 "o": [
-"Borrelia seroprevalence fell from 41.3% (2013 to 2014) to 9.7% (2019 to 2020), suggesting cats are not sentinels, in the eastern Tennessee valley",
+"Borrelia seroprevalence fell from 41.3% (2013 to 2014) to 9.7% (2019 to 2020), suggesting cats are not sentinels",
 "Borrelia seroprevalence rose from 9.7% (2013 to 2014) to 41.3% (2019 to 2020), suggesting free-roaming cats can act as sentinels",
 "Borrelia seroprevalence was unchanged between periods, and significant risk factors were identified"
 ],
@@ -13952,7 +13952,7 @@
 "sub": "General",
 "q": "A legislator cites 'the Link' between bestiality and interpersonal violence to justify tougher bestiality laws. What does a review of the US legislation and Link literature conclude about this evidence?",
 "o": [
-"The data show that bestiality directly causes violence against people, in the review of US legislation",
+"The data show that bestiality directly causes violence against people",
 "The data are strong and consistent, and show that most people convicted of bestiality also commit violence against people",
 "The data linking bestiality to interpersonal violence are limited and of questionable generalisability to the broad public"
 ],
@@ -13966,7 +13966,7 @@
 "sub": "Animal Cruelty",
 "q": "A shelter veterinarian assumes that dogs bred for fighting have a high pain threshold and treats their wounds with minimal analgesia. What does a review of the welfare of fighting dogs say about this assumption?",
 "o": [
-"It is correct, because fighting breeds are selected for a reduced response to pain, so minimal analgesia is appropriate, in the review of fighting dogs",
+"It is correct, because fighting breeds are selected for a reduced response to pain, so minimal analgesia is appropriate",
 "It is erroneous, because these dogs suffer physical, psychological, emotional and sensory harm, including hyperalgesia and allodynia",
 "It is correct for acute wounds, but not for chronic pain or psychological harm, so short courses of analgesia are appropriate"
 ],
@@ -14008,7 +14008,7 @@
 "sub": "General",
 "q": "A large group of fight-bred dogs has been seized in a raid, and the shelter wants to screen them for aggression toward other dogs. Which sequence is supported by a study of 292 such dogs?",
 "o": [
-"Test with an opposite-sex live stimulus dog alone, because it is the safest live test for both dogs, and skip the model dog, in the study of 292 dogs",
+"Test with an opposite-sex live stimulus dog alone, because it is the safest live test for both dogs, and skip the model dog",
 "Test with a life-sized model dog first, and use a same-sex live stimulus dog only if the dog shows no aggression or ambiguous behaviour toward the model",
 "Test with a live same-sex stimulus dog first, because the model dog cannot detect aggressive dogs, then use the model dog for reactive dogs"
 ],
@@ -14177,7 +14177,7 @@
 "q": "Skeletonised remains of a woman in a locked, garbage-filled room show punctures, denticulated edges and narrow grooves consistent with felid dentition, and no evidence of canine or rodent scavenging. What does the report conclude?",
 "o": [
 "Indoor cats can scavenge human remains, and damage extended to bone, probably driven by extreme starvation",
-"Damage to the bone was caused by rodents, because cats scavenge soft tissue, in a locked room",
+"Damage to the bone was caused by rodents, because cats scavenge soft tissue",
 "The findings indicate that the woman was killed by the cats, since bone damage preceded death"
 ],
 "a": 0,
@@ -14190,7 +14190,7 @@
 "sub": "Animal Cruelty",
 "q": "A 10-year review of 123 fatal animal attacks in Türkiye separated fatalities into direct and indirect groups. Which statement is correct?",
 "o": [
-"Indirect deaths were mostly rural and linked to venomous animals, while direct deaths were mostly urban and linked to dogs, in Türkiye over 10 years",
+"Indirect deaths were mostly rural and linked to venomous animals, while direct deaths were mostly urban and linked to dogs",
 "Indirect deaths, such as traffic collisions and cardiac events triggered by animal encounters, were mostly urban and linked to uncontrolled dog populations",
 "Direct deaths were mostly urban and linked to uncontrolled dog populations, while indirect deaths were mostly rural and linked to venomous animals"
 ],
@@ -14260,7 +14260,7 @@
 "sub": "Surgery & Anesthesia",
 "q": "A quadratus lumborum block was performed with 0.4 mL/kg bupivacaine per side in cats undergoing ovariohysterectomy, using a conventional lateral recumbency or a novel sternal recumbency approach. What was the aim?",
 "o": [
-"To eliminate the need for general anaesthesia, by using the sternal approach, and to reduce needle proximity to organs, in the cats' block",
+"To eliminate the need for general anaesthesia, by using the sternal approach, and to reduce needle proximity to organs",
 "To see whether the sternal approach could reduce isoflurane requirements and improve procedural safety, for example by reducing needle proximity to abdominal organs",
 "To compare bupivacaine with lidocaine, using the sternal approach in both groups, and to compare heart rate and blood pressure"
 ],
@@ -14316,7 +14316,7 @@
 "sub": "Surgery & Anesthesia",
 "q": "Dexmedetomidine constant rate infusions of 1, 2 or 3 µg/kg/h were compared in 73 cats undergoing ovariectomy. What was found?",
 "o": [
-"All infusion rates reduced isoflurane requirement at all times, and blood pressure did not differ, in 73 cats",
+"All infusion rates reduced isoflurane requirement at all times, and blood pressure did not differ",
 "Isoflurane requirement was reduced only at 3 µg/kg/h at one time point, and blood pressure was higher in the 3 µg/kg/h group",
 "The 1 µg/kg/h rate reduced isoflurane requirement the most, and blood pressure was lower with higher rates"
 ],
@@ -14344,7 +14344,7 @@
 "sub": "Surgery & Anesthesia",
 "q": "A review of feline chronic pain management argues for which approach?",
 "o": [
-"A single clinician approach, with the caregiver left out of decisions, focused on pain scores and analgesic dosing, in the review of chronic pain",
+"A single clinician approach, with the caregiver left out of decisions, focused on pain scores and analgesic dosing",
 "A team approach of client care staff, veterinarians, nurses, support staff, the cat and the caregiver, focused on quality of life",
 "Short-term analgesia, without a treatment plan, focused on radiographic disease and its progression"
 ],
@@ -14359,7 +14359,7 @@
 "q": "An Ohio survey examined pain assessment in cats after elective sterilisation. Which finding is correct?",
 "o": [
 "Only 20.5% used objective pain scoring preoperatively, 23% at 3 hours postoperatively, and 14.2% before discharge",
-"Most respondents used an objective pain scale preoperatively, at 3 hours postoperatively and before discharge, in the Ohio survey",
+"Most respondents used an objective pain scale preoperatively, at 3 hours postoperatively and before discharge",
 "No respondent used an objective pain scale or any analgesic at any stage"
 ],
 "a": 0,
@@ -14400,9 +14400,9 @@
 "sub": "Surgery & Anesthesia",
 "q": "Postmortem submissions of cats that died perianaesthetically were compared between a referral hospital and general practices in Saskatchewan. What was found?",
 "o": [
-"Referral deaths were mostly healthy cats, and general practice deaths were mostly euthanasia, with a similar ASA status in both",
-"Referral deaths were mostly euthanasia with high ASA status, whereas general practice deaths were mostly unassisted with low ASA status and often undiagnosed conditions",
-"Both groups had similar ASA status and causes of death, and reporting of gross findings was consistent between the two settings"
+"Referral deaths were mostly healthy cats, and general practice deaths were mostly euthanasia, with a similar American Society of Anesthesiologists (ASA) physical status in both",
+"Referral deaths were mostly euthanasia with high American Society of Anesthesiologists (ASA) physical status, whereas general practice deaths were mostly unassisted with low ASA status and often undiagnosed conditions",
+"Both groups had similar American Society of Anesthesiologists (ASA) physical status and causes of death, and reporting of gross findings was consistent between the two settings"
 ],
 "a": 1,
 "e": "Reporting of gross findings and tissues collected was inconsistent, so a postmortem checklist is proposed.",
@@ -14484,8 +14484,8 @@
 "sub": "Spay-Neuter",
 "q": "A spayed German Shepherd with vulvar discharge was tested for ovarian remnant. What was unexpected?",
 "o": [
-"AMH, considered the gold standard, was negative despite an ovarian remnant",
-"AMH was strongly positive, despite the dog having been spayed, in a 6-year-old German Shepherd",
+"Anti-Müllerian hormone (AMH), considered the gold standard, was negative despite an ovarian remnant",
+"Anti-Müllerian hormone (AMH) was strongly positive, despite the dog having been spayed",
 "The dog was found to be intact at surgery, despite the spay history"
 ],
 "a": 0,
@@ -14610,7 +14610,7 @@
 "sub": "Spay-Neuter",
 "q": "A study examined post-neutering complications and caregiver burden. What is the premise?",
 "o": [
-"Neutering has no long-term complications, so it does not affect caregiver burden, and it reduces reproductive disease, in the study of caregiver burden",
+"Neutering has no long-term complications, so it does not affect caregiver burden, and it reduces reproductive disease",
 "Neutering reduces caregiver tasks, since neutered dogs need less care over time, and it prevents obesity and cancers",
 "Neutering is linked to musculoskeletal disorders, obesity, some cancers and other conditions that may require ongoing care, burdening caregivers"
 ],
@@ -14667,7 +14667,7 @@
 "q": "Japanese data on 7,802 excisional biopsies examined canine mammary tumours. What did the background note?",
 "o": [
 "At least nearly half of canine mammary tumours are malignant",
-"Most canine mammary tumours are benign, in Japan",
+"Most canine mammary tumours are benign",
 "Canine mammary tumours are rare in bitches of any age"
 ],
 "a": 0,
@@ -14709,7 +14709,7 @@
 "q": "At a catch-neuter-vaccinate-release facility in Goa, a 22-parameter welfare score was used before and after a staff training intervention. What was found?",
 "o": [
 "Total welfare scores improved significantly after the training, and staff knowledge scores also improved",
-"Welfare scores were unchanged after the training, though staff knowledge scores improved, in Goa",
+"Welfare scores were unchanged after the training, though staff knowledge scores improved",
 "Welfare scores worsened after the training, because staff spent more time on handling"
 ],
 "a": 0,
@@ -14722,9 +14722,9 @@
 "sub": "Spay-Neuter",
 "q": "Stable isotope analysis of cat fur (δ13C, δ15N, δ34S) was used in British Columbia. What was studied?",
 "o": [
-"Genetic diversity before and after TNR, to test immigration of new cats",
-"Disease prevalence before and after TNR, to test transmission between cats",
-"Dietary patterns before and after TNR, to test reliance on wild prey"
+"Genetic diversity before and after trap-neuter-return (TNR), to test immigration of new cats",
+"Disease prevalence before and after trap-neuter-return (TNR), to test transmission between cats",
+"Dietary patterns before and after trap-neuter-return (TNR), to test reliance on wild prey"
 ],
 "a": 2,
 "e": "It was a pilot study.",
@@ -14734,7 +14734,7 @@
 "type": "mcq",
 "domain": "Companion Animal Homelessness",
 "sub": "Spay-Neuter",
-"q": "A TNR campaign on La Graciosa in July 2024 achieved what?",
+"q": "A trap-neuter-return (TNR) campaign on La Graciosa in July 2024 achieved what?",
 "o": [
 "A 14% sterilisation rate in urban areas, with little community involvement",
 "Eradication of cats from the island, with community involvement",
@@ -14751,7 +14751,7 @@
 "q": "The Keeping Cats Safe at Home project (RSPCA NSW, 2021 to 2024) trialled what?",
 "o": [
 "Mass culling of free-roaming cats to reduce impacts on wildlife",
-"TNR programmes to reduce the number of free-roaming cats",
+"Trap-neuter-return (TNR) programmes to reduce the number of free-roaming cats",
 "Human behaviour change strategies to increase cat containment"
 ],
 "a": 2,
@@ -14779,7 +14779,7 @@
 "q": "A paper reviewed traditional cat management in Australia. What did it conclude?",
 "o": [
 "Containment mandates often increased complaints, intake and euthanasia without reducing cat problems, and ignore financial constraints and semi-owned cats",
-"Containment mandates reduced complaints, intake and euthanasia, and address financial constraints and semi-owned cats, so they are recommended, in Australia",
+"Containment mandates reduced complaints, intake and euthanasia, and address financial constraints and semi-owned cats, so they are recommended",
 "Containment mandates reduced intake but increased euthanasia, and enforcement effectively addresses semi-owned cats, so they are recommended"
 ],
 "a": 0,
@@ -14806,9 +14806,9 @@
 "sub": "Spay-Neuter",
 "q": "Simulations compared sterilisation regimes over 20 years for Canary Island cats. What constraint is described?",
 "o": [
-"Regional resolutions restrict TNR in and around protected areas, narrowing municipal action despite national Law 7/2023",
-"National law bans TNR in and around protected areas, and regional resolutions endorse it, widening municipal action",
-"No restrictions apply to TNR in protected areas, since national and regional rules agree, so municipal action is unconstrained"
+"Regional resolutions restrict trap-neuter-return (TNR) in and around protected areas, narrowing municipal action despite national Law 7/2023",
+"National law bans trap-neuter-return (TNR) in and around protected areas, and regional resolutions endorse it, widening municipal action",
+"No restrictions apply to trap-neuter-return (TNR) in protected areas, since national and regional rules agree, so municipal action is unconstrained"
 ],
 "a": 0,
 "e": "The intensive regime was about 60 to 70% per year.",
@@ -14834,7 +14834,7 @@
 "sub": "Spay-Neuter",
 "q": "A paper on Australian urban cats stated which about sterilisation barriers?",
 "o": [
-"Sterilisation is free everywhere in Australia, so unplanned litters are due to owner choice, in Australia",
+"Sterilisation is free everywhere in Australia, so unplanned litters are due to owner choice",
 "Financial barriers in low-income areas cause unplanned litters, sustaining the free-roaming population",
 "Containment laws are effective in low-income areas, so unplanned litters are rare"
 ],
@@ -14890,7 +14890,7 @@
 "sub": "Rabies",
 "q": "Which technique was the most common in studies enumerating free-roaming dogs in a scoping review of 52 publications?",
 "o": [
-"Radio-collar telemetry, which was used in most of the 52 publications enumerating free-roaming dogs, in the scoping review",
+"Radio-collar telemetry, which was used in most of the 52 publications enumerating free-roaming dogs",
 "Aerial drone counts, which were used in most of the 52 publications enumerating free-roaming dogs",
 "Photographic mark capture-recapture, which was used in most of the 52 publications enumerating free-roaming dogs"
 ],
@@ -14904,7 +14904,7 @@
 "sub": "Spay-Neuter",
 "q": "A scoping review assessed socio-economic aspects of dog population management. Why?",
 "o": [
-"Socio-economic impacts are usually evaluated, so resource allocation is well informed, in the scoping review",
+"Socio-economic impacts are usually evaluated, so resource allocation is well informed",
 "Socio-economic impacts are rarely evaluated, which limits resource allocation and evidence-based policy",
 "Economics is irrelevant to dog population management, so evaluation focuses on numbers alone"
 ],
@@ -14972,7 +14972,7 @@
 "type": "mcq",
 "domain": "Companion Animal Homelessness",
 "sub": "Spay-Neuter",
-"q": "Visual weight estimation of 308 trapped TNR cats was assessed. Which metrics were used?",
+"q": "Visual weight estimation of 308 trapped trap-neuter-return (TNR) cats was assessed. Which metrics were used?",
 "o": [
 "Mean body condition score of the cats, judged by the estimators",
 "The percentage of estimates within 10% (PW10) and 20% (PW20) of actual weight",
@@ -15058,8 +15058,8 @@
 "sub": "Spay-Neuter",
 "q": "Israeli passersby (n = 700) were interviewed on free-roaming cat control. What is the context?",
 "o": [
-"TNR has eliminated free-roaming cats, and public engagement is no longer needed",
-"Cat numbers remain high despite extensive TNR, and public engagement is important for campaign success",
+"Trap-neuter-return (TNR) has eliminated free-roaming cats, and public engagement is no longer needed",
+"Cat numbers remain high despite extensive trap-neuter-return (TNR), and public engagement is important for campaign success",
 "There are few cats in Israel, and public engagement is unrelated to campaign success"
 ],
 "a": 1,
@@ -15884,9 +15884,9 @@
 "sub": "Spay-Neuter",
 "q": "A paper on kittens born to free-roaming unowned cats discusses which conflict?",
 "o": [
-"Most people agree on kitten outcomes, with kittens becoming pets, so there is little conflict between homing organisations and TNR",
-"Kittens are seldom picked up by homing organisations, so the question of outcomes arises in TNR programmes, where decisions stir little emotion",
-"Some believe kittens should become pets while others believe they should be returned via TNR"
+"Most people agree on kitten outcomes, with kittens becoming pets, so there is little conflict between homing organisations and trap-neuter-return (TNR)",
+"Kittens are seldom picked up by homing organisations, so the question of outcomes arises in trap-neuter-return (TNR) programmes, where decisions stir little emotion",
+"Some believe kittens should become pets while others believe they should be returned via trap-neuter-return (TNR)"
 ],
 "a": 2,
 "e": "Decisions stir strong emotions.",
@@ -15942,7 +15942,7 @@
 "type": "mcq",
 "domain": "Companion Animal Homelessness",
 "sub": "Spay-Neuter",
-"q": "A commentary argues that targeted TNR has a track record unmatched by lethal methods. What shift is noted?",
+"q": "A commentary argues that targeted trap-neuter-return (TNR) has a track record unmatched by lethal methods. What shift is noted?",
 "o": [
 "Stray cats now make over 95% of some shelters' intake, with data showing a significant rise",
 "Targeted TNR has failed everywhere, with stray cat intake unchanged in shelters",
@@ -16060,7 +16060,7 @@
 "o": [
 "Biomarkers and behaviours were similar across juniors, adults and seniors, with little difference in Bacteroides, acetate or thyroxine",
 "Bacteroides and faecal acetate were higher in seniors, and thyroxine, playing, exploring and activity were higher in juniors",
-"Seniors had higher playing, exploring and thyroxine, and juniors had higher Bacteroides and faecal acetate, in the Beagle cohort"
+"Seniors had higher playing, exploring and thyroxine, and juniors had higher Bacteroides and faecal acetate"
 ],
 "a": 1,
 "e": "The gut communicates with the nervous system through the gut-brain axis.",
@@ -16298,7 +16298,7 @@
 "o": [
 "Children in the programme improved more than controls in welfare knowledge, behaviour toward animals and empathy, regardless of sex and severity of harm",
 "Improvement was seen in boys with severe animal harm, and not in girls or in less severe cases, compared with matched controls",
-"There was no difference from controls in knowledge, behaviour or empathy, whatever the sex or severity, in the matched-control evaluation"
+"There was no difference from controls in knowledge, behaviour or empathy, whatever the sex or severity"
 ],
 "a": 0,
 "e": "Referred children also improved in belief in animal minds and affective empathy, and younger children showed marginally greater improvement.",
@@ -16549,8 +16549,8 @@
 "q": "A focus group study of 47 delegates from 33 countries explored challenges in applied animal behaviour and welfare research. What was the aim?",
 "o": [
 "To describe the challenges researchers face within institutional and regulatory frameworks, and to identify potential solutions",
-"To evaluate a vaccine used in applied ethology research, and to identify potential solutions, among 47 delegates from 33 countries",
-"To rank researchers by publication output, and to identify potential solutions, among 47 delegates from 33 countries"
+"To evaluate a vaccine used in applied ethology research, and to identify potential solutions",
+"To rank researchers by publication output, and to identify potential solutions"
 ],
 "a": 0,
 "e": "Participants attended the 56th Congress of the International Society of Applied Ethology.",
@@ -16604,9 +16604,9 @@
 "sub": "General",
 "q": "Breeding rabbit does were housed in enriched cages during gestation and lactation, and female offspring were studied. Which finding is correct?",
 "o": [
-"Enrichment had no effects on offspring memory, weaning weight or response to novel objects, in the female offspring studied",
+"Enrichment had no effects on offspring memory, weaning weight or response to novel objects",
 "Prepartum enrichment improved offspring object-recognition memory, lactation enrichment gave heavier weaned offspring, and enriched-lineage offspring were more cautious with novel objects",
-"Enrichment reduced weaning weights and memory, and enriched-lineage offspring were bolder with novel objects, in the female offspring studied"
+"Enrichment reduced weaning weights and memory, and enriched-lineage offspring were bolder with novel objects"
 ],
 "a": 1,
 "e": "Moving rabbits from enriched to conventional cages may induce negative emotional states.",
@@ -16772,9 +16772,9 @@
 "sub": "General",
 "q": "Interviews with 21 cat walkers in seven countries explored their experiences. Which theme is included?",
 "o": [
-"Cat walking has few benefits, and few challenges, with safety concerns minor, among the 21 cat walkers interviewed",
+"Cat walking has few benefits, and few challenges, with safety concerns minor",
 "Benefits of walking, challenges (largely from dogs and their owners and judgment from others), safety, cat individuality and attitudes across geographic contexts",
-"Cat walking is common everywhere and easy, with few challenges from dogs or judgment, among the 21 cat walkers interviewed"
+"Cat walking is common everywhere and easy, with few challenges from dogs or judgment"
 ],
 "a": 1,
 "e": "Walking can mitigate roaming risks while allowing outdoor access.",
@@ -17204,7 +17204,7 @@
 "type": "mcq",
 "domain": "Companion Animal Homelessness",
 "sub": "Spay-Neuter",
-"q": "A trial TNR programme on Cheung Chau Island covered which topics?",
+"q": "A trial trap-neuter-return (TNR) programme on Cheung Chau Island covered which topics?",
 "o": [
 "Population size estimates and the effect of TNR on free-roaming cats, with culling of unsocialised animals",
 "Population size estimates and the effect of TNR over 3 years on free-roaming dogs, with rehoming where possible",
@@ -17291,8 +17291,8 @@
 "q": "Bile and liver cultures from 309 dogs and cats with hepatobiliary disease were reviewed. Which finding is correct?",
 "o": [
 "Most cultures were monobacterial with gram-negative bacteria predominant (E. coli commonest), and resistance to several antibiotic classes was higher in later years",
-"Most cultures were polymicrobial with gram-positive bacteria predominant, and resistance was stable across years, in 309 dogs and cats",
-"Enterococcus was the commonest isolate, and resistance to antibiotic classes was rare in later years, in 309 dogs and cats"
+"Most cultures were polymicrobial with gram-positive bacteria predominant, and resistance was stable across years",
+"Enterococcus was the commonest isolate, and resistance to antibiotic classes was rare in later years"
 ],
 "a": 0,
 "e": "Resistance of gram-negative bacteria to amoxicillin-clavulanic acid was 33% and to aminopenicillins 47%.",
@@ -17442,7 +17442,7 @@
 "type": "mcq",
 "domain": "Physical Health",
 "sub": "Surgery & Anesthesia",
-"q": "Breed-specific anaesthetic mortality was analysed in 55,019 dogs. Which finding is correct after adjusting for ASA status?",
+"q": "Breed-specific anaesthetic mortality was analysed in 55,019 dogs. Which finding is correct after adjusting for American Society of Anesthesiologists (ASA) physical status?",
 "o": [
 "Brachycephalic dogs had a significantly higher adjusted risk, and Chihuahuas did not differ significantly, after adjusting for ASA status",
 "Excess risk persisted for Chihuahuas (RR 1.80) and Spanish Water Dogs, while brachycephalic breeds and MDR1-associated breeds did not differ significantly",
@@ -17486,7 +17486,7 @@
 "sub": "Animal Cruelty",
 "q": "A comparative review of veterinary abuse reporting in South Korea, Canada and the United States reached which conclusion?",
 "o": [
-"Voluntary reporting achieved the highest compliance, so mandatory laws with enforcement are unnecessary, in the three jurisdictions",
+"Voluntary reporting achieved the highest compliance, so mandatory laws with enforcement are unnecessary",
 "Voluntary reporting in South Korea led to underreporting, while mandatory systems with enforcement mechanisms achieved higher compliance",
 "The three jurisdictions had similar mandatory frameworks, with equal compliance and enforcement, and no licence penalties"
 ],
@@ -18424,9 +18424,9 @@
 "sub": "Parasites",
 "q": "Sedimentation-flotation, a sequential sieving protocol and two DNA methods were compared for detecting Toxocara in faeces using a Bayesian latent class analysis. What was found?",
 "o": [
-"DNA methods had higher sensitivities than flotation, and the sieving protocol had the highest specificity, in the Bayesian analysis",
+"DNA methods had higher sensitivities than flotation, and the sieving protocol had the highest specificity",
 "Parasitological methods had higher sensitivities than DNA methods, and the sieving protocol had the highest sensitivity but the lowest specificity",
-"The methods had specificity below 50%, and sensitivities were similar between parasitological and DNA methods, in the Bayesian analysis"
+"The methods had specificity below 50%, and sensitivities were similar between parasitological and DNA methods"
 ],
 "a": 1,
 "e": "The analysis is used because no gold standard exists.",
@@ -18704,7 +18704,7 @@
 "sub": "Spay-Neuter",
 "q": "Studies comparing shelter-based community-cat strategies (impound/removal vs. sterilize-and-return vs. leave-in-place with referral), including return-to-field at Florida shelters, support which conclusion about the shelter's role in free-roaming cat management?",
 "o": [
-"Traditional impoundment and removal is the most effective way to lower community cat populations, and TNR adds little benefit",
+"Traditional impoundment and removal is the most effective way to lower community cat populations, and trap-neuter-return (TNR) adds little benefit",
 "Sterilize-and-return (TNR/RTF) is associated with reduced shelter intake and euthanasia, whereas removal short of eradication is largely ineffective",
 "Shelters should test and euthanize all community cats to prevent disease, since return raises intake in the following year"
 ],
@@ -18716,7 +18716,7 @@
 "type": "mcq",
 "domain": "Companion Animal Homelessness",
 "sub": "Spay-Neuter",
-"q": "Randomized controlled trials comparing ear-tipping techniques and a national survey of TNR ear-tipping practice arrived at which shared conclusion?",
+"q": "Randomized controlled trials comparing ear-tipping techniques and a national survey of trap-neuter-return (TNR) ear-tipping practice arrived at which shared conclusion?",
 "o": [
 "One specific cutting tool and hemostatic agent is clearly superior and should be adopted as the universal standard for TNR",
 "Ear-tipping should be abandoned because bleeding complications are unacceptably high in both trial arms and in the survey",
@@ -18816,7 +18816,7 @@
 "sub": "Surgery & Anesthesia",
 "q": "Studies of perioperative hypothermia in high-quality high-volume spay/neuter (HQHVSN) settings, including a trial of peripheral warming/insulation in cats, support which conclusion?",
 "o": [
-"Perioperative hypothermia is rare in HQHVSN and needs no mitigation, whatever the temperature of the surgical suite",
+"Perioperative hypothermia is rare in high-quality, high-volume spay-neuter (HQHVSN) and needs no mitigation, whatever the temperature of the surgical suite",
 "Perioperative hypothermia is common and depends on room temperature; extremity insulation and active warming limit core heat loss",
 "Cotton toddler socks on the extremities fully prevent hypothermia, and room temperature has no effect on its incidence"
 ],
@@ -18859,7 +18859,7 @@
 "q": "Post-adoption studies of undersocialized cats and kittens (and the analysis of increasing pressure to place them) most consistently conclude that:",
 "o": [
 "Many undersocialized cats, especially younger kittens, reach acceptable post-adoption behavior and adopter satisfaction",
-"Undersocialized cats invariably fail in homes and should be diverted to TNR rather than placed for adoption",
+"Undersocialized cats invariably fail in homes and should be diverted to trap-neuter-return (TNR) rather than placed for adoption",
 "Older undersocialized cats adapt to homes better than young kittens, and satisfaction does not depend on time in the home"
 ],
 "a": 0,

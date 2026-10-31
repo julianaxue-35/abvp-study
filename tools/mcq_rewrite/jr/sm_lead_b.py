@@ -95,7 +95,7 @@ JITEMS = [
  "Shelter funding source only",
  "A Cox model with a shelter random effect showed that phenotypic characteristics predict hazard of euthanasia."),
 (308, "A web tool analysed return-to-owner data from Dallas Animal Services. Which finding is correct?",
- "70% of returned strays travelled 1 mile or less from home, and adult at-large strays with a microchip had a 71% RTO rate versus 39% without",
+ "70% of returned strays travelled 1 mile or less from home, and adult at-large strays with a microchip had a 71% return to owner (RTO) rate versus 39% without",
  "Most returned strays travelled more than 10 miles, and microchips made no difference",
  "Microchipped strays had a lower RTO rate than unchipped strays",
  "The results influenced hold time for strays, highlighted areas for microchip programmes and motivated neighbourhood-based owner searches."),

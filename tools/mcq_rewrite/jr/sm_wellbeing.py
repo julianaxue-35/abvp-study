@@ -4,7 +4,7 @@ JITEMS = [
  "Most systems integrated environmental and public health data at collection",
  "Most systems covered non-infectious disease only",
  "About half of systems relied on data submitted by veterinary professionals, and 42.4% extracted data from electronic health records and laboratory data."),
-(41, "A 2023 survey of 243 US shelter staff measured well-being with PROMIS and ProQOL. Which finding is correct?",
+(41, "A 2023 survey of 243 US shelter staff measured mental health (PROMIS, a patient-reported health measure) and professional quality of life including burnout (ProQOL). How did staff compare with the general US population, and how many had high burnout scores?",
  "Anger, anxiety, depression and fatigue were higher than in the general US population, and over half had high burnout scores",
  "Well-being scores matched the general population, and burnout was rare",
  "Compassion satisfaction was low in most staff, and secondary traumatic stress was rare",

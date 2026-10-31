@@ -11,7 +11,7 @@ JITEMS2 = [
  "It accounts for cat movement in and out of the area, but it underestimates the effect of adoption programmes",
  "It correctly predicted the documented population reductions, but its assumptions about fisheries cannot be tested",
  "A stochastic model that accounts for cat movement is better suited to predicting sterilisation effort."),
-(193,"A stalemate between advocates of eradication because of wildlife impacts and advocates of alternatives such as TNR, resting on different moral imperatives",
+(193,"A stalemate between advocates of eradication because of wildlife impacts and advocates of alternatives such as trap-neuter-return (TNR), resting on different moral imperatives",
  "Settled science, because TNR has been shown to protect wildlife in every setting where it has been used",
  "Only a dispute over cost, because both sides share the same ethical view on the value of individual cats",
  "The authors review the tensions over time between eradication and alternatives, and discuss how to move beyond the stalemate."),

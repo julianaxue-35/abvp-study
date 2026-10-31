@@ -85,7 +85,7 @@ JITEMS = [
  "Participants reported more loneliness",
  "Seventy-three participants were randomised."),
 (716, "Veterans walked shelter dogs in an 8-week programme, and dog stress was assessed with heart rate variability. What was explored?",
- "Whether the walks and the veteran's PTSD status stressed the dogs",
+ "Whether the walks and the veteran's post-traumatic stress disorder (PTSD) status stressed the dogs",
  "Whether dogs reduce human PTSD",
  "Whether dogs prefer men",
  "Twenty-five dogs had 38 walks with 28 veterans."),
