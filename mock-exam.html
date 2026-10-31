@@ -75,10 +75,10 @@
   .navrow{display:flex;gap:10px;align-items:center;margin-top:18px;flex-wrap:wrap}
   .flagbtn.on{background:var(--warn);color:#fff}
   /* ---- sketch pad ---- */
-  #sketch{position:absolute;inset:0;background:#fffef9;border-radius:14px;z-index:20;display:flex;flex-direction:column}
-  #sketch .sbar{display:flex;gap:10px;align-items:center;padding:10px 14px;border-bottom:1px solid var(--line);background:#f0ece0;border-radius:14px 14px 0 0}
+  #sketch{position:absolute;inset:0;background:transparent;border-radius:14px;z-index:20;pointer-events:none}
+  #sketch .sbar{position:absolute;top:8px;right:8px;display:flex;gap:10px;align-items:center;padding:8px 12px;border:1px solid var(--line);background:rgba(240,236,224,.96);border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.12);pointer-events:auto;z-index:2}
   #sketch .sbar b{font-size:13px}
-  #sketchCanvas{flex:1;width:100%;cursor:crosshair;touch-action:none;border-radius:0 0 14px 14px}
+  #sketchCanvas{position:absolute;inset:0;width:100%;height:100%;cursor:crosshair;touch-action:none;border-radius:14px;pointer-events:auto;background:rgba(255,254,225,.12)}
   .sketchnote{font-size:11.5px;color:var(--bad);font-weight:600}
   /* ---- palette ---- */
   #palette,#flagPanel,#notePanel{position:fixed;top:0;right:0;bottom:0;width:300px;background:var(--paper2);border-left:1px solid var(--line);box-shadow:-6px 0 24px rgba(0,0,0,.12);z-index:40;padding:16px;overflow:auto;transform:translateX(100%);transition:transform .2s}
@@ -113,14 +113,14 @@
 <div id="startScreen">
   <header class="top"><div class="wrap">
     <h1>ABVP SMP RVS — Mock Exam Day</h1>
-    <p class="sub">A blueprint-weighted, timed simulation of the 350-item Combined RVS Exam (8am–5pm of exam time, with up to three 45-minute coffee breaks) — with a break button, live pacing, and a Prometric-style sketch pad that hides the question while you calculate.</p>
+    <p class="sub">A blueprint-weighted, timed simulation of the 350-item Combined RVS Exam (8am–5pm of exam time, with up to three 45-minute coffee breaks) — with a break button, live pacing, and a sketch pad you can draw on right over the open question.</p>
   </div></header>
   <div class="wrap">
     <div class="card">
       <h3 style="margin-top:0">Set up your exam</h3>
       <div class="cfg">
         <div><label>Your initials</label><input id="cfgInit" type="text" maxlength="5" placeholder="e.g. JX" autocomplete="off" style="text-transform:uppercase"></div>
-        <div><label>What to practise</label><select id="cfgScope"><option value="all" selected>Full exam (all 7 domains, blueprint-weighted)</option><option value="domain">One domain (all its topics mixed)</option><option value="topic">One topic only</option></select></div>
+        <div><label>What to practise</label><select id="cfgScope"><option value="all" selected>Full exam (all 7 domains, blueprint-weighted)</option><option value="domain">One domain (all its topics mixed)</option><option value="topic">One topic only</option><option value="asv">ASV Guidelines (2022) questions only</option></select></div>
         <div id="cfgDomWrap" class="hidden"><label>Domain</label><select id="cfgDom"></select></div>
         <div id="cfgSubWrap" class="hidden"><label>Topic</label><select id="cfgSub"></select></div>
         <div><label>Total questions</label><input id="cfgTotal" type="number" value="350" min="20" max="1500"></div>
@@ -140,7 +140,7 @@
       <ul class="tips">
         <li><b>Pace:</b> at ~1 min/question you must average steady progress. The bar at the top tells you live whether you're <b>On pace, Ahead (slow down — you may be rushing), or Behind (speed up)</b>.</li>
         <li><b>Flag & move on.</b> Don't burn 3 minutes on one item — flag it, answer your best guess, and return via the palette (≡) if time allows. Unanswered = wrong; a guess is never worse.</li>
-        <li><b>Calculations:</b> open the <b>Sketch pad</b> for metrics/biostats items. It covers the question while open (as in the real exam) — read and note the numbers first, then sketch.</li>
+        <li><b>Calculations:</b> open the <b>Sketch pad</b> for metrics/biostats items. You can draw straight over the question while it stays visible; click <b>Done</b> to go back to the options.</li>
         <li><b>3-option style:</b> the real ABVP stems are clinical vignettes, often a/b/c. Read the lead-in carefully (it sometimes completes the sentence).</li>
         <li><b>Breaks:</b> you have up to <b>3 coffee breaks of 45 minutes</b> (☕ button on the exam bar). The exam clock stops while you are on a break, so eat, hydrate and reset.</li>
       </ul>
@@ -172,7 +172,7 @@
   <div class="wrap"><div class="card qcard" id="qcard">
     <!-- question injected here -->
     <div id="sketch" class="hidden">
-      <div class="sbar"><b>✏️ Sketch pad</b><span class="sketchnote">The question is hidden while this is open.</span>
+      <div class="sbar"><b>✏️ Sketch pad</b><span class="sketchnote">Draw right on the question &mdash; click Done to answer.</span>
         <button class="btn alt sm" style="margin-left:auto" onclick="clearSketch()">Clear</button>
         <button class="btn sm" onclick="toggleSketch()">Done</button></div>
       <canvas id="sketchCanvas"></canvas>
@@ -199,7 +199,7 @@
 
 <div id="notePanel">
   <div style="display:flex;justify-content:space-between;align-items:center"><b>📝 Notepad</b><span><button class="btn alt sm" onclick="clearNotes()">Clear</button> <button class="btn alt sm" onclick="toggleNotes(true)">✕</button></span></div>
-  <textarea id="noteText" placeholder="Type notes here. They stay while this exam is in progress and are cleared when you start a new exam." oninput="saveNotes()"></textarea>
+  <textarea id="noteText" placeholder="Type notes for this question. Each question keeps its own note while this exam is in progress; all are cleared when you start a new exam." oninput="saveNotes()"></textarea>
   <div style="font-size:11.5px;color:var(--muted);margin-top:6px">Saved automatically on this device for this exam only.</div>
 </div>
 <div id="flagPanel">
@@ -261,6 +261,7 @@ function getScope(){
 function useCardsNow(){return document.getElementById('cfgCards').value==='1';}
 function inScope(q,sc,useCards){
   if(!inExam(q,useCards))return false;
+  if(sc.mode==='asv')return q.source==='asv';
   if(sc.mode==='all')return true;
   if(q.domain!==sc.domain)return false;
   return sc.mode==='domain'||q.sub===sc.sub;
@@ -277,7 +278,8 @@ function fillScopeSelects(){
   var subs=Object.keys(cnt).sort();
   subSel.innerHTML=subs.map(function(t){return '<option value="'+t+'"'+(t===curSub?' selected':'')+'>'+t+' ('+cnt[t]+')</option>';}).join('');
   var m=document.getElementById('cfgScope').value;
-  document.getElementById('cfgDomWrap').classList.toggle('hidden',m==='all');
+  document.getElementById('cfgDomWrap').classList.toggle('hidden',m==='all'||m==='asv');
+  var asvOpt=document.querySelector('#cfgScope option[value="asv"]'); if(asvOpt)asvOpt.textContent='ASV Guidelines (2022) questions only ('+window.MOCK.mcqs.filter(function(q){return q.source==='asv'&&inExam(q,uc);}).length+')';
   document.getElementById('cfgSubWrap').classList.toggle('hidden',m!=='topic');
   document.getElementById('bpCard').classList.toggle('hidden',m!=='all');
 }
@@ -345,7 +347,7 @@ function showUserStats(){
   var total=0,mast=0,retry=0, sc=getScope();
   window.MOCK.mcqs.forEach(function(q){ if(!inScope(q,sc,useCards))return; total++; var st=seen[qid(q)]; if(st==='correct')mast++; else if(st==='wrong')retry++; });
   var fresh=total-mast-retry;
-  if(rec.runs) el.innerHTML='<b>Welcome back, '+init+'</b> ('+rec.runs+' run'+(rec.runs>1?'s':'')+') — <span style="color:var(--good)">'+mast+' mastered</span> · <span style="color:var(--warn)">'+retry+' to retry</span> · '+fresh+' new available. Your next run pulls <b>wrong answers + new questions first</b>'+(sc.mode==='all'?'':' (in this '+(sc.mode==='topic'?'topic':'domain')+')')+'. <a href="#" onclick="resetUser(event)">reset</a>';
+  if(rec.runs) el.innerHTML='<b>Welcome back, '+init+'</b> ('+rec.runs+' run'+(rec.runs>1?'s':'')+') — <span style="color:var(--good)">'+mast+' mastered</span> · <span style="color:var(--warn)">'+retry+' to retry</span> · '+fresh+' new available. Your next run pulls <b>wrong answers + new questions first</b>'+(sc.mode==='all'?'':' (in this '+(sc.mode==='topic'?'topic':sc.mode==='asv'?'set of ASV questions':'domain')+')')+'. <a href="#" onclick="resetUser(event)">reset</a>';
   else el.innerHTML='<b>New: '+init+'</b> — progress will be saved under these initials so future runs skip what you\'ve mastered.';
 }
 function renderBank(){
@@ -571,6 +573,7 @@ function endBreak(auto){
 
 /* ===================== render question ===================== */
 function render(){
+  if(document.getElementById('notePanel').classList.contains('open'))showNote();
   var it=S.items[S.cur]; S.seen[S.cur]=true;
   var r=sessRange();
   var h='<div class="qhead"><span>Question '+(S.cur-r[0]+1)+'</span>'+
@@ -618,7 +621,7 @@ function toggleSketch(){
 function initSketch(){
   var cv=document.getElementById('sketchCanvas');
   cv.width=cv.offsetWidth; cv.height=cv.offsetHeight;
-  sctx=cv.getContext('2d'); sctx.lineWidth=2.2; sctx.lineCap='round'; sctx.strokeStyle='#0f3d3a';
+  sctx=cv.getContext('2d'); sctx.lineWidth=2.2; sctx.lineCap='round'; sctx.lineJoin='round'; sctx.strokeStyle='#1a56db';
   if(S.sketchData[S.cur]){var img=new Image();img.onload=function(){sctx.drawImage(img,0,0);};img.src=S.sketchData[S.cur];}
   cv.onpointerdown=function(e){sketching=true;var p=pos(e,cv);sctx.beginPath();sctx.moveTo(p.x,p.y);};
   cv.onpointermove=function(e){if(!sketching)return;var p=pos(e,cv);sctx.lineTo(p.x,p.y);sctx.stroke();};
@@ -675,13 +678,16 @@ function toggleFlagged(forceClose){
 }
 /* typed notepad: kept only for the exam in progress (sessionStorage), wiped when a new exam starts */
 var NOTE_KEY='abvpmock:notes';
-function saveNotes(){try{sessionStorage.setItem(NOTE_KEY,document.getElementById('noteText').value);}catch(e){}}
-function clearNotes(){if(!document.getElementById('noteText').value||confirm('Clear your notes?')){document.getElementById('noteText').value='';saveNotes();}}
+/* one note per question, stored by question position as JSON */
+function loadNotes(){try{return JSON.parse(sessionStorage.getItem(NOTE_KEY)||'{}')||{};}catch(e){return {};}}
+function saveNotes(){var n=loadNotes(),v=document.getElementById('noteText').value; if(v)n[S.cur]=v; else delete n[S.cur]; try{sessionStorage.setItem(NOTE_KEY,JSON.stringify(n));}catch(e){}}
+function showNote(){document.getElementById('noteText').value=loadNotes()[S.cur]||'';}
+function clearNotes(){if(!document.getElementById('noteText').value||confirm('Clear the note for this question?')){document.getElementById('noteText').value='';saveNotes();}}
 function toggleNotes(forceClose){
   var p=document.getElementById('notePanel');
   if(forceClose||p.classList.contains('open')){p.classList.remove('open');return;}
   document.getElementById('palette').classList.remove('open'); toggleFlagged(true);
-  try{document.getElementById('noteText').value=sessionStorage.getItem(NOTE_KEY)||'';}catch(e){}
+  showNote();
   p.classList.add('open'); document.getElementById('noteText').focus();
 }
 function jumpFlag(i){S.cur=i;toggleFlagged(true);render();}
