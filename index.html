@@ -580,7 +580,7 @@ function progStrip(){
   if(!window.ABVP)return '';
   var a=ABVP.stats();
   if(!a)return '<div class="pstrip"><span>Track your MCQ progress across every question bank and the mock exam.</span><button onclick="ABVP.openAsk()">Set initials</button></div>';
-  return '<div class="pstrip"><span>&#128100; <b>'+a.init+'</b> &middot; '+a.all.n+' answered &middot; <b>'+ABVP.pct(a.all.ok,a.all.n)+'%</b> correct</span><button onclick="ABVP.openPanel()">My progress</button></div>';
+  return '<div class="pstrip"><span>&#128100; <b>'+a.init+'</b> &middot; '+a.all.n+' answered &middot; <b>'+ABVP.pct(a.all.cor,a.all.att)+'%</b> average over all attempts</span><button onclick="ABVP.openPanel()">My progress</button></div>';
 }
 window.ABVPonChange=function(){ if(typeof S!=="undefined"&&S.view!=="topic")render(); };
 function renderHome(){
