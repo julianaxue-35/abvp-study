@@ -325,13 +325,23 @@ renderTime();
 function qid(it){if(it._id)return it._id;var s=(it.q||'')+'|'+((it.o&&it.o[0])||'');var h=0;for(var i=0;i<s.length;i++){h=(h*31+s.charCodeAt(i))|0;}return 'q'+(h>>>0);}
 function ukey(init){return 'abvpmock:'+init.toUpperCase();}
 function loadUser(init){try{return JSON.parse(localStorage.getItem(ukey(init)))||{seen:{},runs:0};}catch(e){return {seen:{},runs:0};}}
+/* what the exam treats as seen/mastered: the mock's own history plus EVERY answer saved by the shared tracker
+   (question banks, earlier mocks), so questions already answered correctly anywhere are not served again first */
+function mergedSeen(init){
+  var out=Object.assign({},(loadUser(init).seen)||{});
+  if(window.ABVP&&init){
+    var P=ABVP.profile(ABVP.load(),init), r=(P&&P.r)||{};
+    window.MOCK.mcqs.forEach(function(q){ if(!q.q)return; var c=r[ABVP.key(q.q)]; if(c) out[qid(q)]=c.r?'correct':'wrong'; });
+  }
+  return out;
+}
 function saveUser(init,rec){try{localStorage.setItem(ukey(init),JSON.stringify(rec));}catch(e){}}
 function inExam(q,useCards){return !!window.MOCK.blueprint[q.domain] && (useCards||q.source!=='fc');}
 function showUserStats(){
   renderBank();
   var init=(document.getElementById('cfgInit').value||'').trim().toUpperCase();
   var el=document.getElementById('userStats'); if(!init){el.textContent='';return;}
-  var rec=loadUser(init), seen=rec.seen||{}, useCards=document.getElementById('cfgCards').value==='1';
+  var rec=loadUser(init), seen=mergedSeen(init), useCards=document.getElementById('cfgCards').value==='1';
   var total=0,mast=0,retry=0, sc=getScope();
   window.MOCK.mcqs.forEach(function(q){ if(!inScope(q,sc,useCards))return; total++; var st=seen[qid(q)]; if(st==='correct')mast++; else if(st==='wrong')retry++; });
   var fresh=total-mast-retry;
@@ -341,7 +351,7 @@ function showUserStats(){
 function renderBank(){
   var init=(document.getElementById('cfgInit').value||'').trim().toUpperCase();
   var el=document.getElementById('bankProgress'); if(!init){el.innerHTML='';return;}
-  var seen=(loadUser(init).seen)||{}, uc=useCardsNow(), dom={}, T={t:0,m:0,r:0};
+  var seen=mergedSeen(init), uc=useCardsNow(), dom={}, T={t:0,m:0,r:0};
   window.MOCK.mcqs.forEach(function(q){
     if(!inExam(q,uc))return;
     var d=dom[q.domain]=dom[q.domain]||{t:0,m:0,r:0,subs:{}}, sb=d.subs[q.sub||'General']=d.subs[q.sub||'General']||{t:0,m:0,r:0};
@@ -462,7 +472,7 @@ function startExam(){
   if(!init){alert('Please enter your initials first so your progress can be saved.');document.getElementById('cfgInit').focus();return;}
   try{localStorage.setItem('abvpmock:lastInit',init);}catch(e){}
   if(window.ABVP){ABVP.setCur(init);migrateSeen(init);}
-  S.user=init; S.rec=loadUser(init); var seen=S.rec.seen||{};
+  S.user=init; S.rec=loadUser(init); S.rec.seen=S.rec.seen||{}; var seen=mergedSeen(init);
   var total=Math.max(2,parseInt(document.getElementById('cfgTotal').value)||350);
   var useCards=document.getElementById('cfgCards').value==='1';
   S.single=true; S.breaksLeft=3; S.breakUsed=0;
