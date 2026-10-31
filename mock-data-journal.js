@@ -4181,14 +4181,14 @@
 "type": "mcq",
 "domain": "Behavioral Health",
 "sub": "QOL & Needs Assessment",
-"q": "A Delphi method was used to weight measures of the Shelter Quality protocol. What was achieved?",
+"q": "In a Delphi study, experts weighted the measures of the Shelter Quality protocol for dog welfare. Consensus was defined as a standard deviation of the weightings of 5 or less. Which result was reported?",
 "o": [
-"Expert consensus (standard deviation of weightings 5 or less) was easily reached for the four principles: good feeding, housing, health and appropriate behaviour",
-"Experts could not reach consensus on weightings, and standard deviations of weightings were above 20, so the protocol could not be weighted",
-"Experts weighted the housing principle, and left feeding, health and appropriate behaviour unweighted because consensus was not reached"
+"Consensus was easily reached on the weightings of the four principles: good feeding, good housing, good health and appropriate behaviour",
+"Consensus could not be reached on any weightings, with standard deviations above 20, so the protocol could not be weighted",
+"Consensus was reached only for the housing principle, so feeding, health and appropriate behaviour were left unweighted"
 ],
 "a": 0,
-"e": "The European regulatory framework lacks standardisation of minimum shelter requirements.",
+"e": "Consensus (standard deviation of 5 or less) was easily reached for the four principle weightings, and animal-based measures reached consensus faster than resource-based ones. The weights allow one overall welfare score to compare shelters, because European regulation lacks standardised minimum shelter requirements.",
 "source": "journal"
 },
 {
@@ -13586,14 +13586,14 @@
 "type": "mcq",
 "domain": "Physical Health",
 "sub": "Infectious Disease",
-"q": "Fifteen dogs with Brucella canis discospondylitis were compared with 25 dogs with other causes. Which finding is correct?",
+"q": "A case-control study compared 15 dogs with Brucella canis discospondylitis (cases) with 25 dogs with discospondylitis from other causes (controls). Which finding was reported?",
 "o": [
-"Cases were older than controls (median 5.7 vs 2.6 years), and all had been kennel housed, in 15 dogs with discospondylitis",
-"Cases were younger (median 2.6 years vs 5.7 years), and none had a history of being bred or kennel housing",
-"Cases were younger than controls, and all had a history of being bred"
+"Cases were older than controls (median 5.7 vs 2.6 years), and all had been kennel housed",
+"Cases were younger than controls (median 2.6 vs 5.7 years), and none had a history of being bred or kennel housing",
+"Cases were younger than controls (median 2.6 vs 5.7 years), and all had a history of being bred"
 ],
 "a": 1,
-"e": "Early recognition can allow precautions to limit zoonotic transmission.",
+"e": "Cases were younger and none had a history of being bred or kennel housing, so Brucella canis should still be considered in discospondylitis regardless of breeding history. Early recognition allows precautions to limit zoonotic transmission.",
 "source": "journal"
 },
 {

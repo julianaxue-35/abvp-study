@@ -81,8 +81,10 @@
   #sketchCanvas{flex:1;width:100%;cursor:crosshair;touch-action:none;border-radius:0 0 14px 14px}
   .sketchnote{font-size:11.5px;color:var(--bad);font-weight:600}
   /* ---- palette ---- */
-  #palette,#flagPanel{position:fixed;top:0;right:0;bottom:0;width:300px;background:var(--paper2);border-left:1px solid var(--line);box-shadow:-6px 0 24px rgba(0,0,0,.12);z-index:40;padding:16px;overflow:auto;transform:translateX(100%);transition:transform .2s}
-  #palette.open,#flagPanel.open{transform:none}
+  #palette,#flagPanel,#notePanel{position:fixed;top:0;right:0;bottom:0;width:300px;background:var(--paper2);border-left:1px solid var(--line);box-shadow:-6px 0 24px rgba(0,0,0,.12);z-index:40;padding:16px;overflow:auto;transform:translateX(100%);transition:transform .2s}
+  #palette.open,#flagPanel.open,#notePanel.open{transform:none}
+  #notePanel{width:340px;max-width:92vw;display:flex;flex-direction:column}
+  #noteText{flex:1;min-height:240px;width:100%;margin-top:10px;border:1px solid var(--line);border-radius:8px;padding:10px;font:inherit;font-size:14px;line-height:1.45;resize:none;background:#fff;color:inherit}
   .flagitem{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;border:1px solid var(--warn);background:#fbf1e2;border-radius:8px;padding:8px 10px;margin-top:8px;cursor:pointer;font:inherit;font-size:13px;color:inherit}
   .flagitem b{flex:0 0 auto}
   .flagitem small{display:block;color:var(--muted);font-size:11px;margin-top:2px}
@@ -160,6 +162,7 @@
     <div class="meta-r">
       <div><div class="sesslabel" id="sessLabel">Session 1</div><span id="progress">0 / 0</span></div>
       <button class="btn alt sm" onclick="pauseExam()">⏸ Pause</button>
+      <button class="btn alt sm" onclick="toggleNotes()">📝 Notes</button>
       <button class="btn alt sm" id="flagBtn" onclick="toggleFlagged()">⚑ Flagged (0)</button>
       <button class="btn alt sm" onclick="togglePalette()">≡ Palette</button>
       <button class="btn alt sm" onclick="exitToHub()">← Hub</button>
@@ -197,6 +200,11 @@
   <p style="font-size:12.5px;color:var(--muted)">The countdown is just a guide; the timer can be paused and Session 2 starts only when you click.</p>
 </div></div></div>
 
+<div id="notePanel">
+  <div style="display:flex;justify-content:space-between;align-items:center"><b>📝 Notepad</b><span><button class="btn alt sm" onclick="clearNotes()">Clear</button> <button class="btn alt sm" onclick="toggleNotes(true)">✕</button></span></div>
+  <textarea id="noteText" placeholder="Type notes here. They stay while this exam is in progress and are cleared when you start a new exam." oninput="saveNotes()"></textarea>
+  <div style="font-size:11.5px;color:var(--muted);margin-top:6px">Saved automatically on this device for this exam only.</div>
+</div>
 <div id="flagPanel">
   <div style="display:flex;justify-content:space-between;align-items:center"><b>Flagged questions</b><button class="btn alt sm" onclick="toggleFlagged(true)">✕</button></div>
   <div id="flagList"></div>
@@ -319,7 +327,7 @@ renderBlueprint();
 renderTime();
 
 /* ===================== per-initials progress (localStorage) ===================== */
-function qid(it){var s=(it.q||'')+'|'+((it.o&&it.o[0])||'');var h=0;for(var i=0;i<s.length;i++){h=(h*31+s.charCodeAt(i))|0;}return 'q'+(h>>>0);}
+function qid(it){if(it._id)return it._id;var s=(it.q||'')+'|'+((it.o&&it.o[0])||'');var h=0;for(var i=0;i<s.length;i++){h=(h*31+s.charCodeAt(i))|0;}return 'q'+(h>>>0);}
 function ukey(init){return 'abvpmock:'+init.toUpperCase();}
 function loadUser(init){try{return JSON.parse(localStorage.getItem(ukey(init)))||{seen:{},runs:0};}catch(e){return {seen:{},runs:0};}}
 function saveUser(init,rec){try{localStorage.setItem(ukey(init),JSON.stringify(rec));}catch(e){}}
@@ -405,6 +413,18 @@ window.ABVPonInit=function(v){var f=document.getElementById('cfgInit');if(f){f.v
 document.getElementById('cfgCards').addEventListener('change',showUserStats);
 
 /* ===================== build exam ===================== */
+/* fresh option order every run, so a returning missed question can't be answered from remembered position.
+   keeps the original id (progress key) and never lands the correct answer where it sat last time */
+function shuffleOpts(q,pos){
+  if(q.type!=='mcq'||!q.o||q.o.length<2||typeof q.a!=='number')return q;
+  var id=qid(q), c=Object.assign({},q); c._id=id;
+  if(q.o.some(function(o){return /\b(all|none|both)\b.*\b(above|these|the above)\b|\b[A-E]\s+(and|&)\s+[A-E]\b/i.test(o);}))return c;
+  var n=q.o.length,order,tries=0;
+  do{ order=shuffle(q.o.map(function(_,i){return i;})); tries++; }
+  while(tries<20 && order.indexOf(q.a)===(pos[id]!==undefined?pos[id]:q.a));
+  c.o=order.map(function(i){return q.o[i];}); c.a=order.indexOf(q.a);
+  return c;
+}
 function shuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
 /* ===== question selection: per topic ~90% hub knowledge / ~10% journal articles ===== */
 var JOURNAL_SHARE=0.10, JN_WEIGHT={jsmcah:4,shelter:3,'':1};
@@ -462,7 +482,8 @@ function startExam(){
       picked=picked.concat(pickMixed(pool,need[d],seen));
     });
   } else { picked=pickMixed(scopePool(sc,useCards),total,seen); }
-  picked=shuffle(picked);
+  picked=shuffle(picked).map(function(q){return shuffleOpts(q,(S.rec.pos||{}));});
+  try{sessionStorage.removeItem(NOTE_KEY);}catch(e){} document.getElementById('noteText').value='';
   S.items=picked; S.ans=picked.map(()=>null); S.flag=picked.map(()=>false);
   S.seen=picked.map(()=>false); S.sketchData=picked.map(()=>null);
   S.half=S.single?picked.length:Math.ceil(picked.length/2);
@@ -511,7 +532,7 @@ function completeExam(){
 }
 function endSession(){
   if(S.timer)clearInterval(S.timer);
-  togglePalette(true); toggleFlagged(true);
+  togglePalette(true); toggleFlagged(true); toggleNotes(true);
   if(S.session===1 && S.lunchLeft>0){ showLunch(); }
   else if(S.session===1 && !S.single){ startSession(2); }
   else{ showResults(); }
@@ -595,6 +616,7 @@ function togglePalette(forceClose){
   var p=document.getElementById('palette');
   if(forceClose){p.classList.remove('open');return;}
   if(p.classList.contains('open')){p.classList.remove('open');return;}
+  toggleNotes(true); toggleFlagged(true);
   var r=sessRange(),g='';
   for(var i=r[0];i<r[1];i++){
     var cls='pcell'+(S.ans[i]!==null?' ans':'')+(S.flag[i]?' flag':'')+(i===S.cur?' cur':'');
@@ -609,7 +631,7 @@ function pauseExam(){
   if(S.timer)clearInterval(S.timer);
   S.pauseRemaining=Math.max(0,Math.round((S.sessEnd-Date.now())/1000));
   document.getElementById('palette').classList.remove('open');
-  toggleFlagged(true);
+  toggleFlagged(true); toggleNotes(true);
   document.getElementById('examScreen').classList.add('hidden');
   document.getElementById('pauseScreen').classList.remove('hidden');
   window.scrollTo(0,0);
@@ -625,7 +647,7 @@ function flagCount(){var r=sessRange(),n=0;for(var i=r[0];i<r[1];i++)if(S.flag[i
 function toggleFlagged(forceClose){
   var p=document.getElementById('flagPanel');
   if(forceClose||p.classList.contains('open')){p.classList.remove('open');return;}
-  document.getElementById('palette').classList.remove('open');
+  document.getElementById('palette').classList.remove('open'); toggleNotes(true);
   var r=sessRange(),h='';
   for(var i=r[0];i<r[1];i++){ if(!S.flag[i])continue;
     var t=esc(((S.items[i].qpre||'')+S.items[i].q).slice(0,110))+(((S.items[i].qpre||'')+S.items[i].q).length>110?'…':'');
@@ -633,6 +655,17 @@ function toggleFlagged(forceClose){
   }
   document.getElementById('flagList').innerHTML=h||'<p style="color:var(--muted);font-size:13px">No flagged questions yet.</p>';
   p.classList.add('open');
+}
+/* typed notepad: kept only for the exam in progress (sessionStorage), wiped when a new exam starts */
+var NOTE_KEY='abvpmock:notes';
+function saveNotes(){try{sessionStorage.setItem(NOTE_KEY,document.getElementById('noteText').value);}catch(e){}}
+function clearNotes(){if(!document.getElementById('noteText').value||confirm('Clear your notes?')){document.getElementById('noteText').value='';saveNotes();}}
+function toggleNotes(forceClose){
+  var p=document.getElementById('notePanel');
+  if(forceClose||p.classList.contains('open')){p.classList.remove('open');return;}
+  document.getElementById('palette').classList.remove('open'); toggleFlagged(true);
+  try{document.getElementById('noteText').value=sessionStorage.getItem(NOTE_KEY)||'';}catch(e){}
+  p.classList.add('open'); document.getElementById('noteText').focus();
 }
 function jumpFlag(i){S.cur=i;toggleFlagged(true);render();}
 function exitToHub(){
@@ -659,7 +692,7 @@ function showResults(){
   });
   // persist per-initials progress: answered items recorded correct/wrong
   if(S.user&&S.rec){
-    S.items.forEach(function(it,i){var a=S.ans[i];if(a===null)return;S.rec.seen[qid(it)]=(a===it.a)?'correct':'wrong';});
+    S.rec.pos=S.rec.pos||{};S.items.forEach(function(it,i){var a=S.ans[i];if(a===null)return;S.rec.seen[qid(it)]=(a===it.a)?'correct':'wrong';if(it.type==='mcq')S.rec.pos[qid(it)]=it.a;});
     S.rec.runs=(S.rec.runs||0)+1; saveUser(S.user,S.rec);
   }
   // shared tracker: every answered MCQ also counts toward the subdomain question banks
