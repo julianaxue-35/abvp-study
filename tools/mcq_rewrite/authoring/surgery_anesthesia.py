@@ -75,11 +75,11 @@ ITEMS = [
  "Mask maintenance causes stress, uncontrolled loss of consciousness, gas waste and aspiration risk through an unprotected airway. Frequent masking signals an unstable protocol, so use intubation or better injectable sedation and analgesia."),
 
 ([14],
- "Which dogs should be intubated for a routine spay?",
- "All dogs, regardless of breed, age, body condition or fasting status",
- "Only overweight or brachycephalic dogs",
- "Only dogs with unknown fasting status",
- "All dogs undergoing a routine spay should be intubated, following the ASV high-quality, high-volume spay-neuter guidelines. An endotracheal tube protects the airway from aspiration and obstruction and allows oxygen delivery and ventilation. Risk is highest in unfasted or unknown-fasting, overweight and brachycephalic dogs, but a fasted, lean or young dog is not exempt."),
+ "Which dog most needs an endotracheal tube for a routine spay?",
+ "An overweight brachycephalic dog with unknown fasting status",
+ "A fasted, lean adult Greyhound with a normal airway",
+ "A fasted 5-month-old Labrador Retriever undergoing a short procedure",
+ "Aspiration and airway-obstruction risk is highest in unfasted or unknown-fasting dogs, overweight dogs and brachycephalic dogs, so these are prioritised for intubation."),
 
 ([15],
  "Which is a recognised drawback of endotracheal intubation in an anaesthetised patient?",
