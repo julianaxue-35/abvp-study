@@ -145,7 +145,7 @@
     var g=a.page[pg]||{n:0,ok:0,att:0,cor:0};
     var denom=tot||document.querySelectorAll('.q').length;
     bar.innerHTML='<b>'+a.init+'</b><span>'+g.n+' / '+denom+' answered in this bank</span><span><b>'+pct(g.cor,g.att)+'%</b> average over all '+g.att+' attempts</span><span>'+pct(g.ok,g.n)+'% correct on latest answers</span>'+
-      '<span class="trk"><i style="width:'+pct(g.n,denom)+'%"></i></span><button id="abvpBarReset">Reset this bank</button>';
+      '<span class="trk"><i style="width:'+pct(g.n,denom)+'%"></i></span><span style="font-size:12px;opacity:.8">Order: wrong first, then unanswered, then correct</span><button id="abvpBarReset">Reset this bank</button>';
     document.getElementById('abvpBarReset').onclick=function(){
       if(confirm('Clear '+a.init+"'s saved answers for this bank only?")){clearPage(pg);refreshAll();}};
   }
@@ -159,7 +159,7 @@
       ask.querySelector('#abvpNo').onclick=function(){ask.classList.remove('show');pendingAnswer=null;};
       var go=function(){var v=setCur(ask.querySelector('#abvpInit').value); if(!v)return; ask.classList.remove('show');
         if(pendingAnswer){rec(pendingAnswer.stem,pendingAnswer.ok,pendingAnswer.meta);pendingAnswer=null;}
-        refreshAll(); if(root.ABVPonInit)try{root.ABVPonInit(v);}catch(e){}};
+        refreshAll(); sortBank(); if(root.ABVPonInit)try{root.ABVPonInit(v);}catch(e){}};
       ask.querySelector('#abvpGo').onclick=go;
       ask.querySelector('#abvpInit').addEventListener('keydown',function(e){if(e.key==='Enter')go();});
     }
@@ -222,6 +222,41 @@
     if(anchor) anchor.parentNode.insertBefore(bar,anchor); else q.parentNode.insertBefore(bar,q);
   }
 
+  /* study order: questions you got wrong come first, then unseen ones, then ones you already got right (original order kept within each group).
+     Runs on load and whenever the page rebuilds its card list (filters, reset); never reorders while answers are on screen. */
+  var sorting=false, sortObs=null;
+  function bankParent(){
+    var h=document.getElementById('qhost'); if(h&&h.querySelector('.q')) return h;
+    var q=document.querySelector('.q'); return q?q.parentNode:h;
+  }
+  function sortBank(){
+    if(sorting) return; var host=bankParent(); if(!host) return;
+    var kids=[].slice.call(host.children), cards=kids.filter(function(k){return k.classList&&k.classList.contains('q');});
+    if(cards.length<2) return;
+    if(host.querySelector('.q .opt.correct,.q .opt.wrong')) return;
+    var first=kids.indexOf(cards[0]), last=kids.indexOf(cards[cards.length-1]);
+    for(var i=first;i<=last;i++) if(cards.indexOf(kids[i])<0) return;
+    var init=cur(), R=init?profile(load(),init).r:{};
+    var rank=cards.map(function(c,i){
+      var st=c.querySelector('.stem'), o=st?R[key(st.innerHTML)]:null;
+      return {c:c,i:i,r:o?(o.r?2:0):1};});
+    var sorted=rank.slice().sort(function(a,b){return a.r-b.r||a.i-b.i;});
+    if(sorted.every(function(x,i){return x.c===cards[i];})) return;
+    sorting=true;
+    var ref=kids[last].nextSibling, frag=document.createDocumentFragment();
+    sorted.forEach(function(x){frag.appendChild(x.c);});
+    host.insertBefore(frag,ref);
+    setTimeout(function(){sorting=false;},0);
+  }
+  function watchBank(){
+    var host=bankParent(); if(!host) return; sortBank();
+    if(window.MutationObserver){
+      sortObs=new MutationObserver(function(){ if(!sorting) sortBank(); });
+      sortObs.observe(host,{childList:true});
+    }
+  }
+  API.sortBank=sortBank;
+
   /* consistent question totals on every bank page: tab label + "All" chip, counted from what the page really renders */
   function bankTotal(){
     try{ if(typeof Q!=='undefined'&&Array.isArray(Q)&&Q.length) return Q.length; }catch(e){}
@@ -241,7 +276,7 @@
     pill=el('button',{id:'abvpPill',type:'button','aria-label':'Progress'}); pill.onclick=openPanel; document.body.appendChild(pill);
     var hook=false; var scr=document.querySelectorAll('script[src*="progress.js"]');
     for(var i=0;i<scr.length;i++) if(scr[i].hasAttribute('data-hook')) hook=true;
-    if(hook) hookBank();
+    if(hook){ hookBank(); watchBank(); }
     refreshAll();
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
