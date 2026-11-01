@@ -203,11 +203,11 @@ ITEMS = [
  "In-utero or perinatal feline panleukopenia virus infection produces non-progressive cerebellar hypoplasia with normal mentation. Progressive signs or altered mentation would point toward hydrocephalus or encephalitis."),
 
 ("Feline panleukopenia", [189],
- "An FIV-positive adult cat in a shelter requires protection against feline panleukopenia. Which product is appropriate?",
- "An inactivated feline panleukopenia vaccine",
- "A modified live virus (MLV) FVRCP vaccine, as for other cats",
+ "A healthy, asymptomatic adult cat that tests FIV-positive is admitted to a shelter with ongoing panleukopenia risk. Which vaccine approach is most appropriate?",
+ "An MLV FVRCP vaccine at intake, because rapid protection matters most in a shelter",
+ "An inactivated vaccine only, because MLV is contraindicated in every FIV-positive cat",
  "No vaccination, because FIV-positive cats cannot respond to any vaccine",
- "Modified live virus vaccine can precipitate vaccine-induced panleukopenia in immunocompromised cats, so FIV-positive cats receive an inactivated product."),
+ "In a shelter, rapid protection against panleukopenia is the priority, and a single MLV dose provides it. Inactivated vaccine needs two doses weeks apart and is mainly reserved for clinically ill or immunosuppressed cats and for private-client settings. FIV-positive cats do respond to vaccines."),
 
 ("Feline panleukopenia", [191],
  "During a feline panleukopenia outbreak, which statement about antibody titre testing to triage exposed cats is correct?",

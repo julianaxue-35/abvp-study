@@ -65,7 +65,7 @@ T(2057,"When does shedding of canine distemper virus start and stop?","From abou
 T(2058,"What is the mortality rate of dogs showing signs of canine distemper?","About 50% (±20%)","About 5%","About 90%"),
 T(2059,"In addition to vaccination, which management practice keeps puppies safe from distemper?","Housing juvenile animals outside the shelter","Feeding a raw diet","Using footbaths"),
 T(2060,"Which vaccine should be used when vaccinating raccoons or ferrets against canine distemper?","PureVax Ferret recombinant vaccine (1 mL)","Any modified live canine vaccine","A killed canine vaccine"),
-T(2061,"What quarantine period should be used for canine distemper outbreaks?","4–6 weeks","3 days","6 months"),
+T(2061,"During a canine distemper outbreak, holding exposed dogs for the full 6-week incubation period is not recommended in shelters. What is the preferred way to release exposed, asymptomatic dogs?","Pair antibody titre with RT-PCR about 2 weeks after last exposure","Hold every exposed dog for the full 6 weeks of possible incubation","Release exposed dogs after 7 days if no clinical signs develop","Canine distemper signs can take up to 6 weeks to appear, but holding dogs that long is not recommended in shelters. Pairing antibody titre with RT-PCR about 2 weeks after the last exposure allows earlier release of protected dogs; otherwise a minimum 14-day hold applies."),
 T(2062,"What type of virus is influenza A?","A single-stranded RNA orthomyxovirus","A paramyxovirus","A double-stranded DNA herpesvirus"),
 T(2063,"Canine influenza virus H3N8 was first described in","racing greyhound kennels with respiratory outbreaks","shelter dogs in Chicago","dog daycares in Florida"),
 T(2064,"Most dogs with H3N8 recover in","10–30 days","1–2 days","3 months"),

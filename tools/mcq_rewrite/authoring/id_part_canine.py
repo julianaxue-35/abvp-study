@@ -182,7 +182,7 @@ ITEMS = [
  "Vaccinate every incoming dog at entry, house dogs about 25 ft (7.6 m) or more from exposed dogs, and use separate staff and supplies",
  "Vaccinate only dogs that show clinical signs, and keep all dogs in the same ward with separate cages",
  "Move exposed dogs to the adoption floor after 7 days and admit new dogs to the intake ward",
- "A clean break means vaccinating every incoming dog at entry, housing them about 25 ft (7.6 m) (ideally in a separate ward or building) from exposed dogs, with separate staff and supplies."),
+ "A clean break means vaccinating every incoming dog at entry, housing them at least about 25 ft (7.6 m) from exposed dogs, with separate staff and supplies. A separate ward or building is ideal, but where that is not possible a maintained gap in the same building (empty kennels, curtains) is used."),
 
 ([49],
  "A recently MLV-vaccinated dog tests RT-PCR positive for canine distemper virus. Which vaccine is not detected by this assay?",
