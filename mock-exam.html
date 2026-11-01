@@ -465,8 +465,18 @@ function pickMixed(pool,n,seen){
     var H=ordered(t.h,seen,false), J=ordered(t.j,seen,true);
     out=out.concat(H.slice(0,nH),J.slice(0,nJ)); leftH=leftH.concat(H.slice(nH)); leftJ=leftJ.concat(J.slice(nJ));
   });
-  // top up from anything left (hub first) if rounding/caps left us short
-  if(out.length<n) out=out.concat(shuffle(leftH).concat(shuffle(leftJ)).slice(0,n-out.length));
+  // never serve a question already answered correctly while wrong/unseen ones are still left in this pool:
+  // swap each mastered pick for a leftover wrong/unseen one (same hub/journal kind first)
+  var isJ=function(q){return q.source==='journal';}, mastered=function(q){return seen[qid(q)]==='correct';};
+  var spare=ordered(leftH.filter(function(q){return !mastered(q);}),seen,false).concat(ordered(leftJ.filter(function(q){return !mastered(q);}),seen,true));
+  for(var oi=0;oi<out.length&&spare.length;oi++){
+    if(!mastered(out[oi]))continue;
+    var si=-1; for(var sj=0;sj<spare.length;sj++){ if(isJ(spare[sj])===isJ(out[oi])){si=sj;break;} }
+    if(si<0)si=0;
+    out[oi]=spare.splice(si,1)[0];
+  }
+  // top up from anything left (wrong/unseen first, mastered last) if rounding/caps left us short
+  if(out.length<n){var picked=out.slice(); var rest=ordered(leftH,seen,false).concat(ordered(leftJ,seen,true)).filter(function(q){return picked.indexOf(q)<0;}); out=out.concat(rest.slice(0,n-out.length));}
   return out.slice(0,n);
 }
 function startExam(){
