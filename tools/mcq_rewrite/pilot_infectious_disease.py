@@ -207,7 +207,7 @@ ITEMS = [
  "An MLV FVRCP vaccine at intake, because rapid protection matters most in a shelter",
  "An inactivated vaccine only, because MLV is contraindicated in every FIV-positive cat",
  "No vaccination, because FIV-positive cats cannot respond to any vaccine",
- "In a shelter, rapid protection against panleukopenia is the priority, and a single MLV dose provides it. Inactivated vaccine needs two doses weeks apart and is mainly reserved for clinically ill or immunosuppressed cats and for private-client settings. FIV-positive cats do respond to vaccines."),
+ "The ASV guidelines recommend modified live or recombinant vaccines for all core vaccines except rabies in shelters, because they give faster protection, and they make no exception for a healthy FIV-positive cat. Inactivated products need two doses weeks apart and are mainly used in private practice or for clinically ill or immunosuppressed cats."),
 
 ("Feline panleukopenia", [191],
  "During a feline panleukopenia outbreak, which statement about antibody titre testing to triage exposed cats is correct?",
