@@ -6983,14 +6983,14 @@
 "type": "mcq",
 "domain": "Physical Health",
 "sub": "Surgery & Anesthesia",
-"q": "Cats undergoing ovariohysterectomy received targeted bupivacaine, bupivacaine-lidocaine-epinephrine, dexamethasone or meloxicam at ovarian ligaments, uterine body and incision. Postoperative pain was assessed with the 0 to 10 Numeric Pain Rating Scale. What was found about time?",
+"q": "In a randomised, double-blinded trial, 151 cats undergoing ovariohysterectomy each received one of four targeted infiltrations at the ovarian suspensory ligaments, uterine body and incision: bupivacaine alone, bupivacaine-lidocaine-epinephrine alone, dexamethasone alone, or meloxicam alone (no untreated control group). Pain was scored on the 0 to 10 Numeric Pain Rating Scale at 1 hour and 3 hours after anaesthetic recovery. What was found when scores were compared across time?",
 "o": [
-"Overall pain scores were significantly lower 1 hour after recovery than 3 hours after recovery, and evaluators agreed well",
-"Overall pain scores were significantly higher 1 hour after recovery than 3 hours after recovery, and evaluators agreed well (ICC about 0.79)",
-"Overall pain scores did not change over time in any group, and evaluators agreed poorly (ICC about 0.29)"
+"In the treatment groups, overall pain scores were significantly lower 1 hour after recovery than 3 hours after recovery, and evaluators agreed well",
+"In all four treatment groups, overall pain scores were significantly higher 1 hour after recovery than 3 hours after recovery, and evaluators agreed well (ICC about 0.79)",
+"Overall pain scores did not change over time in any treatment group, and evaluators agreed poorly (ICC about 0.29)"
 ],
 "a": 1,
-"e": "The trial included 151 cats under a standardised anaesthetic protocol including buprenorphine, ketamine, dexmedetomidine and isoflurane.",
+"e": "Scores fell between 1 and 3 hours in every group (P below 0.0001) and evaluator agreement was good (ICC about 0.79). Between-group differences were small: none at 1 hour, and at 3 hours only meloxicam scored lower than bupivacaine-lidocaine-epinephrine.",
 "source": "journal"
 },
 {
