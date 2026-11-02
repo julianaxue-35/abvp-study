@@ -132,10 +132,18 @@
   function el(tag,attrs,html){var e=document.createElement(tag);for(var k in (attrs||{}))e.setAttribute(k,attrs[k]);if(html!=null)e.innerHTML=html;return e;}
   var pill,panel,ask,pendingAnswer=null;
 
+  /* questions answered today (local midnight): distinct questions whose latest answer is dated today */
+  function todayCount(){
+    var init=cur(); if(!init) return 0;
+    var P=profile(load(),init), r=(P&&P.r)||{}, d=new Date(); d.setHours(0,0,0,0); var t0=d.getTime(), n=0;
+    for(var k in r){ if(r[k]&&r[k].t>=t0) n++; }
+    return n;
+  }
+  API.todayCount=todayCount;
   function refreshPill(){
     if(!pill) return; var a=stats();
     if(!a){pill.className='need';pill.id='abvpPill';pill.textContent='Set your initials';return;}
-    pill.className='';pill.textContent=a.init+' · '+(a.all.n?pct(a.all.cor,a.all.att)+'% avg · '+a.all.n+' done':'no answers yet');
+    pill.className='';pill.textContent=a.init+' · '+(a.all.n?pct(a.all.cor,a.all.att)+'% avg · '+a.all.n+' done · '+todayCount()+' today':'no answers yet');
   }
   function refreshBar(){
     var bar=document.getElementById('abvpBar'); if(!bar) return;
@@ -177,7 +185,7 @@
     var box=panel.querySelector('#abvpPanelBox'), h='<h3>Your progress'+(a?' — '+a.init:'')+'</h3>';
     if(!a) h+='<p>Set your initials to start tracking.</p>';
     else{
-      h+='<p style="margin:0 0 4px">'+a.all.n+' questions answered · <b>'+pct(a.all.cor,a.all.att)+'%</b> average across all '+a.all.att+' attempts.</p><p style="margin:0 0 8px;font-size:12px;color:#5b6f69">'+pct(a.all.ok,a.all.n)+'% correct on your latest answer to each question. Attempts before this update are estimated for questions answered more than twice.</p><table>';
+      h+='<p style="margin:0 0 4px"><b>'+todayCount()+' answered today.</b></p><p style="margin:0 0 4px">'+a.all.n+' questions answered · <b>'+pct(a.all.cor,a.all.att)+'%</b> average across all '+a.all.att+' attempts.</p><p style="margin:0 0 8px;font-size:12px;color:#5b6f69">'+pct(a.all.ok,a.all.n)+'% correct on your latest answer to each question. Attempts before this update are estimated for questions answered more than twice.</p><table>';
       var order=['Physical Health','Shelter Management','Behavioral Health','Companion Animal Homelessness','Community & Public Health','Animals & Public Policy','Research & Biostats'];
       Object.keys(a.dom).sort(function(x,y){var i=order.indexOf(x),j=order.indexOf(y);return (i<0?99:i)-(j<0?99:j);}).forEach(function(d){
         var v=a.dom[d];h+='<tr><td>'+d+'</td><td style="text-align:right;white-space:nowrap">'+v.cor+' / '+v.att+' · <b>'+pct(v.cor,v.att)+'%</b> avg</td></tr>';});
