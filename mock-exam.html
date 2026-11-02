@@ -497,6 +497,16 @@ function startExam(){
       var pool=window.MOCK.mcqs.filter(q=>q.domain===d && (useCards||q.source!=='fc'));
       picked=picked.concat(pickMixed(pool,need[d],seen));
     });
+    // a domain that has run out of unanswered/wrong questions would repeat mastered ones: borrow unmastered
+    // journal-article questions from anywhere in the exam first (bumping journal share above 10%), then hub questions
+    var mst=function(q){return seen[qid(q)]==='correct';}, have={};
+    picked.forEach(function(q){have[qid(q)]=1;});
+    if(picked.some(mst)){
+      var avail=window.MOCK.mcqs.filter(function(q){return inExam(q,useCards)&&!have[qid(q)]&&!mst(q);});
+      var fill=ordered(avail.filter(function(q){return q.source==='journal';}),seen,true)
+        .concat(ordered(avail.filter(function(q){return q.source!=='journal';}),seen,false));
+      picked=picked.map(function(q){return (mst(q)&&fill.length)?fill.shift():q;});
+    }
   } else { picked=pickMixed(scopePool(sc,useCards),total,seen); }
   picked=shuffle(picked).map(function(q){return shuffleOpts(q,(S.rec.pos||{}));});
   try{sessionStorage.removeItem(NOTE_KEY);}catch(e){} document.getElementById('noteText').value='';
