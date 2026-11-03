@@ -92,7 +92,7 @@ T(2215,"What is the first step in the infection response for cats with ringworm?
 T(2216,"What is the recommended treatment protocol for ringworm?","Itraconazole for 21 days plus lime sulfur dips twice weekly","Griseofulvin alone for 12 weeks","Fluconazole for 3 days plus monthly bathing"),
 T(2217,"Although lime sulfur is called a 'dip', how should it be applied to a cat?","Topically to the fur, by spray bottle or portable garden sprayer","By full immersion in a tub","Mixed into the food"),
 T(2218,"For lime sulfur to be effective, how should it be applied?","Soak the cat to the skin","Light mist over the coat","Apply to lesions only"),
-T(2219,"Clipping the hair of cats with dermatophytosis is","recommended","contraindicated","recommended only for long-haired cats"),
+T(2219,"In a shelter cat with dermatophytosis (ringworm), when is clipping the coat recommended?","Only for long-haired, matted or severely affected cats; it is unnecessary for short- or medium-haired cats","For every affected cat, whatever its coat length","Never, because clipping spreads the infection"),
 T(2220,"What dose of itraconazole is recommended for ringworm treatment?","5–10 mg/kg once daily","50 mg/kg once daily","0.5 mg/kg once daily"),
 T(2221,"What should be checked if a cat on itraconazole becomes anorexic?","Liver values","Kidney values","Thyroid values"),
 T(2222,"How is mycological cure defined in the literature?","Three negative cultures","One negative culture","Resolution of lesions"),

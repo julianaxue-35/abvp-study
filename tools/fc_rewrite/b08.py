@@ -31,7 +31,7 @@ T(2293,"Which are protective factors for feline retroviruses?","Female, indoor l
 T(2294,"Which group of cats has the highest prevalence of feline retroviruses?","Sick feral cats","Healthy indoor kittens","Owned neutered cats"),
 T(2295,"Which is more likely to affect long-term survival in cats?","FeLV","FIV","They are equal"),
 T(2296,"How soon are infected cats shedding FeLV or FIV?","About 1 week after infection","6 months","12 months"),
-T(2298,"How long after initial infection before animals can test positive on ELISA?","About 28 days, so retest in 1 month","24 hours","6 months"),
+T(2298,"A cat has a negative FeLV antigen (ELISA) test but may have been exposed recently. About how long after infection can the test first turn positive, and when should the cat be retested?","About 28 days after infection; retest about 1 month after the last possible exposure","About 7 days after infection; retest 2 weeks after exposure","About 3 months after infection; retest 6 months after exposure"),
 T(2299,"What does 'discordant' mean in FeLV diagnosis?","Two tests give results that disagree","Both tests are positive","Both tests are negative"),
 T(2300,"What testing schedule is recommended for FeLV-discordant cats?","Retest at 60 days, then yearly","Retest in 7 days, then monthly","No further testing"),
 T(2301,"PCR testing of which body fluid correlates highly with blood antigen tests?","Saliva","Urine","Tears"),
