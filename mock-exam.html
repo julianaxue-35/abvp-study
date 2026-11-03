@@ -230,7 +230,7 @@
       <button class="btn alt sm" onclick="filterRev('flag')">Flagged only</button></div>
     <div id="revList"></div>
   </div>
-  <div class="card" style="text-align:center"><button class="btn" onclick="location.reload()">↻ New mock exam</button></div>
+  <div class="card" style="text-align:center"><button class="btn" onclick="newMock()">↻ New mock exam</button></div>
 </div></div>
 
 <script src="mock-data.js"></script>
@@ -716,13 +716,19 @@ function exitToHub(){
 }
 
 /* ===================== results ===================== */
-function showResults(){
+var RES_KEY='abvpmock:results:v1';
+function saveResultsSnap(){try{sessionStorage.setItem(RES_KEY,JSON.stringify({items:S.items,ans:S.ans,flag:S.flag,scope:S.scope,user:S.user,single:S.single,half:S.half}));}catch(e){}}
+function clearResultsSnap(){try{sessionStorage.removeItem(RES_KEY);}catch(e){}}
+function newMock(){clearResultsSnap();location.reload();}
+function showResults(restored){
   if(S.timer)clearInterval(S.timer); if(S.breakTimer)clearInterval(S.breakTimer);
   document.getElementById('examScreen').classList.add('hidden');
   document.getElementById('breakScreen').classList.add('hidden');
   document.getElementById('palette').classList.remove('open');
+  document.getElementById('startScreen').classList.add('hidden');
   document.getElementById('resultScreen').classList.remove('hidden');
   window.scrollTo(0,0);
+  if(!restored)saveResultsSnap();
   // scoring: mcq correct; card got. graded = mcq answered + card got/missed
   var gk=function(it){return (S.scope&&S.scope.mode!=='all')?(it.sub||'General'):it.domain;};
   var gkeys=(S.scope&&S.scope.mode!=='all')?Array.from(new Set(S.items.map(gk))).sort():DOM_ORDER;
@@ -734,12 +740,12 @@ function showResults(){
     else { if(a==='got'||a==='missed'){domStat[d].graded++;totG++; if(a==='got'){domStat[d].correct++;totC++;}} }
   });
   // persist per-initials progress: answered items recorded correct/wrong
-  if(S.user&&S.rec){
+  if(!restored&&S.user&&S.rec){
     S.rec.pos=S.rec.pos||{};S.items.forEach(function(it,i){var a=S.ans[i];if(a===null)return;S.rec.seen[qid(it)]=(a===it.a)?'correct':'wrong';if(it.type==='mcq')S.rec.pos[qid(it)]=it.a;});
     S.rec.runs=(S.rec.runs||0)+1; saveUser(S.user,S.rec);
   }
   // shared tracker: every answered MCQ also counts toward the subdomain question banks
-  if(S.user&&window.ABVP){
+  if(!restored&&S.user&&window.ABVP){
     ABVP.setCur(S.user);
     S.items.forEach(function(it,i){var a=S.ans[i];if(a===null||it.type!=='mcq')return;ABVP.rec(it.q,a===it.a,{d:it.domain,s:it.sub||'General'});});
     ABVP.refresh();
@@ -763,6 +769,10 @@ function showResults(){
     'Aim to finish with a few minutes to revisit flagged questions.';
   buildReview();
 }
+/* refresh on the results page: restore results/review instead of dropping back to setup (no re-saving of progress) */
+(function(){try{var j=sessionStorage.getItem(RES_KEY);if(!j)return;var d=JSON.parse(j);if(!d||!d.items||!d.items.length)return;
+  S.items=d.items;S.ans=d.ans;S.flag=d.flag;S.scope=d.scope;S.user=d.user;S.single=d.single;S.half=d.half;
+  showResults(true);}catch(e){}})();
 var revData=[];
 function buildReview(){
   revData=[];
