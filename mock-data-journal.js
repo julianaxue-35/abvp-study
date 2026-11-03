@@ -16,7 +16,8 @@
 "a": 1,
 "e": "The median rose about 25% to $122,500.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -31,7 +32,8 @@
 "a": 0,
 "e": "The gap narrowed but did not close.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -46,7 +48,8 @@
 "a": 2,
 "e": "A modified Comfort from Companion Animals Scale was used, and 90.2% had provided food, water or shelter.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -61,7 +64,8 @@
 "a": 1,
 "e": "Larger organisations more often let adopters take animals straight home.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -76,7 +80,8 @@
 "a": 0,
 "e": "Most respondents considered pets part of the family (76%).",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -91,7 +96,8 @@
 "a": 1,
 "e": "The group was 59 cats, 36 dogs and a few wildlife species with a median age of 1 year.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -106,7 +112,8 @@
 "a": 2,
 "e": "Clients interested in surrender were about 10 times more likely to have a successful outcome. Re-collection was more likely among clients who identified as rescuers and when human service agencies were involved.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -121,7 +128,8 @@
 "a": 0,
 "e": "Hoarded cats had similar live outcomes (89.2% vs 88.3%) but needed about twice the shelter time. Emaciation, moderate to severe dental disease and multiple medical conditions were associated with non-live outcomes.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -136,7 +144,8 @@
 "a": 1,
 "e": "The authors support the technique when specialised equipment and care are not available, since the outcome is acceptable.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -151,7 +160,8 @@
 "a": 0,
 "e": "Referral was the only option for cases where treatment disrupts clinic flow.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -166,7 +176,8 @@
 "a": 0,
 "e": "Acepromazine with hydromorphone (26%) and with butorphanol (23%) were the top canine premedications.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -181,7 +192,8 @@
 "a": 2,
 "e": "S. zooepidemicus was detected the week before one dog was isolated and later died.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -196,7 +208,8 @@
 "a": 2,
 "e": "Forty-eight percent said their pets were not spayed or neutered.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -211,7 +224,8 @@
 "a": 0,
 "e": "Veterinarians had 54% of estimates within 20% of actual weight, and the deviation crossed zero at about 4 kg.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -226,7 +240,8 @@
 "a": 2,
 "e": "Twenty-one percent could not access other pet needs.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -241,7 +256,8 @@
 "a": 2,
 "e": "Burkholderia had not been previously associated with severe ocular disease in cats with URTD, and calicivirus was found in only one eye.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -256,7 +272,8 @@
 "a": 0,
 "e": "After controlling for body weight, non-legislated dogs were more likely to be adopted.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -271,7 +288,8 @@
 "a": 0,
 "e": "Legislated dogs were more likely to be returned to owner, and total live outcomes did not differ.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -286,7 +304,8 @@
 "a": 2,
 "e": "CPMA was added to the shelter's standard protocol for 51 of the cases.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -301,7 +320,8 @@
 "a": 1,
 "e": "Only one dog had a non-fatal adverse event after CPMA.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -316,7 +336,8 @@
 "a": 0,
 "e": "Clients were satisfied with 88% of ear tips.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -331,7 +352,8 @@
 "a": 0,
 "e": "The virus had been thought eradicated from live bird markets in 2006, and raised concern for cats, agriculture and human health.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -346,7 +368,8 @@
 "a": 0,
 "e": "Titres were measured before surgery and 28 days after, and the results support vaccinating free-roaming dogs at spay-neuter events.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -361,7 +384,8 @@
 "a": 2,
 "e": "Sixty-five percent lived in or near poverty.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -376,7 +400,8 @@
 "a": 0,
 "e": "Puppies with clinical signs were tested immediately and treated at the partner shelter's treatment centre, including monoclonal antibody.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -391,7 +416,8 @@
 "a": 2,
 "e": "The technique is similar to that used for feline spermatic cords.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -406,7 +432,8 @@
 "a": 0,
 "e": "Locoregional anaesthesia is not standard across HQHVSN protocols because evidence of safety, efficiency and cost-effectiveness has been lacking.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -421,7 +448,8 @@
 "a": 1,
 "e": "Directed acyclic graphs were used to select confounders.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -436,7 +464,8 @@
 "a": 0,
 "e": "Writing to publish is a teachable skill, and shelter medicine generates observations worth publishing.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -451,7 +480,8 @@
 "a": 1,
 "e": "The USDA collects large amounts of data but has faced challenges organising and using it effectively.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -466,7 +496,8 @@
 "a": 0,
 "e": "It is estimated that 71% of cats become hypothermic under anaesthesia, and cotton socks are ineffective possibly due to poor insulation.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -481,7 +512,8 @@
 "a": 1,
 "e": "Caregiver-cat bonds strengthened, and the diet was ad libitum dry kitten food with a daily wet meal.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -496,7 +528,8 @@
 "a": 0,
 "e": "The third brand infected a median of 14% of cells with immediate reconstitution, and it was used for storage trials.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -511,7 +544,8 @@
 "a": 1,
 "e": "Blankets and electric heating pads were used only in the immediate postoperative period.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -526,7 +560,8 @@
 "a": 2,
 "e": "Seroprevalence was 8%, and 144 samples were inconclusive, mostly positive for N1 only.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -541,7 +576,8 @@
 "a": 0,
 "e": "Haematoma occurred in 11% of controls, 9% and 6% in the treated groups, and the earlier 1:400,000 dilution also failed.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -556,7 +592,8 @@
 "a": 2,
 "e": "The protocol also includes hand hygiene, N95 masks and gowns during outbreaks, dedicated equipment and rodent control.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -571,7 +608,8 @@
 "a": 0,
 "e": "Documented impacts of the access crisis include longer stays, fewer adoptions, more disease and more euthanasia.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -586,7 +624,8 @@
 "a": 2,
 "e": "It is a protocol-based book on practical point-of-care tests.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -601,7 +640,8 @@
 "a": 2,
 "e": "A smaller subset (16%) held stronger opinions.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -616,7 +656,8 @@
 "a": 1,
 "e": "All 43 treated cats had live outcomes, and management covered recognition, risk assessment, decontamination and communication.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -631,7 +672,8 @@
 "a": 2,
 "e": "Nearly half (49.4%) had high compassion satisfaction, 53.5% had high burnout, and secondary traumatic stress was very common (90.9%).",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -646,7 +688,8 @@
 "a": 1,
 "e": "Rehome may reduce shelter intake.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -661,7 +704,8 @@
 "a": 0,
 "e": "Excessive early fear can cause lasting fearfulness, aggression, relinquishment and euthanasia.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -676,7 +720,8 @@
 "a": 2,
 "e": "The platform removed the need for in-person visits and reduced decision fatigue.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -691,7 +736,8 @@
 "a": 1,
 "e": "Data covered January 2015 to December 2023.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -706,7 +752,8 @@
 "a": 1,
 "e": "Cats with questionable sociability are routinely adopted into typical homes.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -721,7 +768,8 @@
 "a": 1,
 "e": "Prevalence was similar to or higher than in TNR-enrolled cats in Florida.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -736,7 +784,8 @@
 "a": 0,
 "e": "Swabs were taken from the conjunctiva, oropharynx, rectum and haircoat.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -751,7 +800,8 @@
 "a": 2,
 "e": "The median procedure time was 10 seconds.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -766,7 +816,8 @@
 "a": 1,
 "e": "In the absence of maternally derived antibodies, kittens about 9 weeks old are susceptible but respond well to vaccination.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -781,7 +832,8 @@
 "a": 0,
 "e": "Culture results were available within 7 days in 93.6% of cats and 100% of dogs.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -796,7 +848,8 @@
 "a": 1,
 "e": "Trauma (5 times) and diarrhoea (almost 3 times) also raised risk, and the findings can guide monitoring, intervention and euthanasia decisions.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -811,7 +864,8 @@
 "a": 1,
 "e": "Little research exists on veterinarians' motivations.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -826,7 +880,8 @@
 "a": 1,
 "e": "Of the dogs, 73 survived, 23 died, two were euthanised and 15 were lost to follow-up.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -841,7 +896,8 @@
 "a": 0,
 "e": "Cats were neutered and returned, rehomed, or euthanised after assessment.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -856,7 +912,8 @@
 "a": 1,
 "e": "Cats returned to owners were found a median of 0.27 km from home, about 2.7 city blocks.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -871,7 +928,8 @@
 "a": 2,
 "e": "These dogs account for 42% of adoptions but 72% of inventory.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -886,7 +944,8 @@
 "a": 1,
 "e": "Of 482 survey respondents, 76% changed needles, and the CDC does not recommend the practice.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -901,7 +960,8 @@
 "a": 0,
 "e": "Cats diagnosed with URI were 27.2% less likely to be adopted at any given time.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -916,7 +976,8 @@
 "a": 0,
 "e": "TNR or alternative placement is typically considered more appropriate for poorly socialised cats, especially adults.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -931,7 +992,8 @@
 "a": 1,
 "e": "The survey covered vacancies, hiring efforts and delays in animal care.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -946,7 +1008,8 @@
 "a": 0,
 "e": "The authors also provided a landscape of existing research.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -961,7 +1024,8 @@
 "a": 1,
 "e": "The survey also covered non-medication alternatives and barriers.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -976,7 +1040,8 @@
 "a": 2,
 "e": "Fifty-three percent performed TNR and/or return-to-field.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -991,7 +1056,8 @@
 "a": 1,
 "e": "Fifty-five cats were treated, with overall survival of 85.5%.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -1006,7 +1072,8 @@
 "a": 2,
 "e": "There were 358 admissions of 328 animals from 244 families.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -1021,7 +1088,8 @@
 "a": 0,
 "e": "Veterinarian non-leaders reported the least positive attitudes.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -1036,7 +1104,8 @@
 "a": 0,
 "e": "Lack of effective communication was cited most often.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -1051,7 +1120,8 @@
 "a": 1,
 "e": "Responses were coded inductively by reflexive thematic analysis.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -1066,7 +1136,8 @@
 "a": 1,
 "e": "The authors describe a disconnect over financial, legal and ethical aspects, and view describing the differences as the first step to bridging the gap.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -1081,7 +1152,8 @@
 "a": 1,
 "e": "Employees at clinics were aggregated by county and normalised by human and companion animal populations.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -1096,7 +1168,8 @@
 "a": 1,
 "e": "It has been demonstrated to be appropriate for novice surgeons under supervision.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -1111,7 +1184,8 @@
 "a": 1,
 "e": "It is intended for cats that cannot be returned to their original location.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -1126,7 +1200,8 @@
 "a": 1,
 "e": "The concept of 'capacity for caring' quantifies a community's ability and willingness to provide for community cats.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -1141,7 +1216,8 @@
 "a": 2,
 "e": "Ancylostoma can be transmitted to humans, particularly children, and the authors offer health policy options.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -1156,7 +1232,8 @@
 "a": 0,
 "e": "Prealtered dogs had shorter median lengths of stay.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -1171,7 +1248,8 @@
 "a": 2,
 "e": "The results can inform policymakers formulating public policies and education programmes.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -1186,7 +1264,8 @@
 "a": 2,
 "e": "ACE scores range from 0 to 10, and shelter workers already report higher anger, anxiety, depression and fatigue than the general population.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -1201,7 +1280,8 @@
 "a": 0,
 "e": "Adoptions were 82% higher in viewing periods versus 4% in appointment-only periods.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -1216,7 +1296,8 @@
 "a": 0,
 "e": "The study was retrospective and not randomised.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -1231,7 +1312,8 @@
 "a": 0,
 "e": "Economic euthanasia was discussed in 14% of cases.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -1246,7 +1328,8 @@
 "a": 2,
 "e": "The guidelines address program design, implementation and sustainability.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -1288,7 +1371,8 @@
 ],
 "a": 0,
 "e": "Most cats that scored tense at intake showed improved socialisation later, and return rates for hoarded cats (10%) did not differ significantly from non-hoarded cats (7.1%).",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -1302,7 +1386,8 @@
 ],
 "a": 2,
 "e": "It was the first documented management of an MDR Bordetella outbreak in shelter cats.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -1344,7 +1429,8 @@
 ],
 "a": 0,
 "e": "Destructive behaviour was an uncommon surrender reason (0.18%), unchanged by the ban.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -1358,7 +1444,8 @@
 ],
 "a": 0,
 "e": "Owner-requested euthanasias decreased after the ban.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -1372,7 +1459,8 @@
 ],
 "a": 0,
 "e": "Low-intensity management was as effective as high-intensity.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -1386,7 +1474,8 @@
 ],
 "a": 1,
 "e": "Nearly all respondents recognised the ear tip as indicating sterilisation.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -2030,7 +2119,8 @@
 ],
 "a": 1,
 "e": "Most free-roaming cats remain in communities regardless of shelter intervention.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -2044,7 +2134,8 @@
 ],
 "a": 1,
 "e": "The analysis projected a deficit of more than 2.7 million surgeries nationally.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -2114,7 +2205,8 @@
 ],
 "a": 2,
 "e": "Psychotropic medication use in shelters predicted more stranger-directed aggression.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -2227,7 +2319,8 @@
 "a": 2,
 "e": "All students developed more positive perspectives on nonprofit clinics.",
 "source": "journal",
-"jn": "shelter"
+"jn": "shelter",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -2311,7 +2404,8 @@
 ],
 "a": 1,
 "e": "The main presenting complaints were abnormal blood counts, pleural effusion and anorexia, and mean age at diagnosis was 9 years.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -2325,7 +2419,8 @@
 ],
 "a": 0,
 "e": "Twenty-five percent of dogs were still excreting RNA after 62 days of monitoring.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -2339,7 +2434,8 @@
 ],
 "a": 2,
 "e": "It is a viable alternative to no treatment when arsenical treatment is not possible, though three-dose melarsomine remains the safest and most effective.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -2353,7 +2449,8 @@
 ],
 "a": 1,
 "e": "Relocation programmes balance animal populations and resources between communities.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -2367,7 +2464,8 @@
 ],
 "a": 2,
 "e": "Mean rectal temperature at 45 minutes in dogs was 35.9 and 36.0 °C, and 35.1 °C in cats for both groups.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -2381,7 +2479,8 @@
 ],
 "a": 1,
 "e": "Nine cats were IgM positive, nine IgG positive, and six both. The authors note that the sample size prevented statistically significant results.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -2395,7 +2494,8 @@
 ],
 "a": 2,
 "e": "Cost and transportation are commonly cited barriers to care.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -2409,7 +2509,8 @@
 ],
 "a": 0,
 "e": "Male caregivers were less likely to foster for emotional support.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -2423,7 +2524,8 @@
 ],
 "a": 1,
 "e": "Returns reduce the animals' chances of future adoption and owners' willingness to adopt again.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -2437,7 +2539,8 @@
 ],
 "a": 0,
 "e": "Some shelters tried to expand foster networks, but the proportion in foster care did not differ between years.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -2451,7 +2554,8 @@
 ],
 "a": 1,
 "e": "Average weight gain was higher than in catteries and laboratories, and daily monitoring supports interventions.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -2465,7 +2569,8 @@
 ],
 "a": 1,
 "e": "A fourth cat stayed healthy in the shelter but died of FIP 6 weeks after adoption.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -2479,7 +2584,8 @@
 ],
 "a": 2,
 "e": "Region, health status, breed, age and sex predicted specific reasons.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -2493,7 +2599,8 @@
 ],
 "a": 1,
 "e": "Owner-related reasons such as cost and housing fall more heavily on the socially vulnerable.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -2507,7 +2614,8 @@
 ],
 "a": 2,
 "e": "Shelters may perpetuate inequities in pet ownership.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -2521,7 +2629,8 @@
 ],
 "a": 1,
 "e": "Ten of 11 sick cats and five of nine controls shed astrovirus, but samples taken a year before and after the outbreak had none, so the virus was temporarily associated with the outbreak.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -2535,7 +2644,8 @@
 ],
 "a": 0,
 "e": "Dedicated nurseries are one way of meeting the needs of kittens too young for neutering and rehoming.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -2549,7 +2659,8 @@
 ],
 "a": 0,
 "e": "94% of owners were willing to pay, but the median price was less than cost, and 41.5% were unwilling to travel. Free or low-cost vaccine is needed to reach and sustain 70% coverage.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -2564,7 +2675,8 @@
 "a": 0,
 "e": "Addressing these challenges is considered critical for stability in academic training in shelter medicine.",
 "source": "journal",
-"jn": "shelter"
+"jn": "shelter",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -2579,7 +2691,8 @@
 "a": 1,
 "e": "Households with dogs infected with intestinal parasites made up 28%, and responsible pet ownership was influenced by an interaction between number of dogs and household living conditions.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -2593,7 +2706,8 @@
 ],
 "a": 2,
 "e": "Feline heartworm infection is associated with persistent pulmonary pathology even when clinical signs are absent, and prevention is important.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -2607,7 +2721,8 @@
 ],
 "a": 1,
 "e": "A stochastic model that accounts for cat movement is better suited to predicting sterilisation effort.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -2621,7 +2736,8 @@
 ],
 "a": 2,
 "e": "The authors review the tensions over time between eradication and alternatives, and discuss how to move beyond the stalemate.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -2635,7 +2751,8 @@
 ],
 "a": 0,
 "e": "Harm disproportionately affects vulnerable community members and their pets.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -4371,7 +4488,8 @@
 ],
 "a": 1,
 "e": "There was no difference by settlement size.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -4385,7 +4503,8 @@
 ],
 "a": 0,
 "e": "Recordkeeping is often a challenge in large-scale programmes.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -4400,7 +4519,8 @@
 "a": 1,
 "e": "The outbreak did not respond to antimicrobials, and vaccination status did not prevent it.",
 "source": "journal",
-"jn": "shelter"
+"jn": "shelter",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -4415,7 +4535,8 @@
 "a": 1,
 "e": "The outbreak did not respond to antimicrobials, and vaccination status did not prevent it.",
 "source": "journal",
-"jn": "shelter"
+"jn": "shelter",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -4429,7 +4550,8 @@
 ],
 "a": 1,
 "e": "In humans, low vitamin D is a risk factor for respiratory infections and repletion can be protective.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -4443,7 +4565,8 @@
 ],
 "a": 0,
 "e": "Propensity score matching reduced demographic bias.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -4457,7 +4580,8 @@
 ],
 "a": 0,
 "e": "Cardiac diagnostics may serve as a prognostic aid, and adopters received a complete medical history.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -11503,7 +11627,8 @@
 ],
 "a": 0,
 "e": "People who use drugs face stigma in healthcare.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -11517,7 +11642,8 @@
 ],
 "a": 2,
 "e": "Aversive collars such as choke, prong or electric are generally discouraged.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -11531,7 +11657,8 @@
 ],
 "a": 0,
 "e": "Most research has focused on the effects of negative situations on learning.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -11546,7 +11673,8 @@
 "a": 0,
 "e": "It also has an appendix on RHDV2 mitigation, biosecurity and vaccination within a Capacity for Care approach.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -11560,7 +11688,8 @@
 ],
 "a": 2,
 "e": "After a week, adopted or transferred dogs stood with front paws on the cage and wagged tails more than euthanised dogs.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -11574,7 +11703,8 @@
 ],
 "a": 0,
 "e": "The exception showed a 2-log reduction with accelerated hydrogen peroxide and a 1-log reduction with a quaternary ammonium product.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -11588,7 +11718,8 @@
 ],
 "a": 1,
 "e": "Americans more often cited welfare, public health and wildlife risks.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -11602,7 +11733,8 @@
 ],
 "a": 0,
 "e": "Toxoplasmal meningoencephalitis is sporadic and often misdiagnosed before death, frequently ending in euthanasia in resource-limited settings.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -11616,7 +11748,8 @@
 ],
 "a": 2,
 "e": "About 6.3 million pets enter US shelters yearly.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -11630,7 +11763,8 @@
 ],
 "a": 0,
 "e": "It is a semi-quantitative competency-based survey.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -11644,7 +11778,8 @@
 ],
 "a": 2,
 "e": "Thousands of cats are newly diagnosed each year and known FeLV-infected cats are increasingly adopted from shelters.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -11658,7 +11793,8 @@
 ],
 "a": 0,
 "e": "Dosage, route and extensions were based on initial condition and response.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -11672,7 +11808,8 @@
 ],
 "a": 1,
 "e": "The Mad Dog Initiative works to humanely reduce dog populations in protected areas, and invasive species are the second greatest threat to biodiversity after habitat loss.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -11686,7 +11823,8 @@
 ],
 "a": 2,
 "e": "A previous study projected a deficit of 2.7 million surgeries.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -11700,7 +11838,8 @@
 ],
 "a": 0,
 "e": "Support came from Maddie's Fund.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -11715,7 +11854,8 @@
 "a": 0,
 "e": "The crisis causes prolonged length of stay and higher euthanasia.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -11772,7 +11912,8 @@
 "a": 2,
 "e": "It offers guidance on making confident and compassionate decisions, including how to avoid euthanasia and when to use it to support cat welfare.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -11800,7 +11941,8 @@
 ],
 "a": 2,
 "e": "The piece frames recognition and reporting of cruelty as a professional obligation and calls on educators to prepare graduates to do it confidently.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -11814,7 +11956,8 @@
 ],
 "a": 1,
 "e": "The case report was indexed under burn management, forensics and maltreatment, so microwave injury in a kitten is handled as suspected non-accidental injury with forensic documentation.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -11828,7 +11971,8 @@
 ],
 "a": 1,
 "e": "The case report was indexed under burn management, forensics and maltreatment, so microwave injury in a kitten is handled as suspected non-accidental injury with forensic documentation.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -11842,7 +11986,8 @@
 ],
 "a": 1,
 "e": "The report documents very high viral loads and neurotropism in a cat with minimal outdoor access and supports indirect environmental contamination or unrecognised transport hosts.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -11856,7 +12001,8 @@
 ],
 "a": 1,
 "e": "Blood was collected at 1, 2, 4, 6 and 12 hours after dosing.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -11870,7 +12016,8 @@
 ],
 "a": 2,
 "e": "Median haematocrit was 18%, and diagnosis was by saline agglutination and/or Coombs test.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -11884,7 +12031,8 @@
 ],
 "a": 0,
 "e": "Anaplasma DNA was detected in chickens and turkeys, and no Rickettsia was amplified from ectoparasites.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -11899,7 +12047,8 @@
 "a": 1,
 "e": "Leadership and consulting roles had the highest incomes, followed by faculty, and part-time veterinarians earned $85 per hour while working fewer hours.",
 "source": "journal",
-"jn": "shelter"
+"jn": "shelter",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -11914,7 +12063,8 @@
 "a": 0,
 "e": "The Guidelines were offered as a review, commentary and surgical manual.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -11928,7 +12078,8 @@
 ],
 "a": 1,
 "e": "The virus was first seen outside Asia in 2015, and viruses from China seeded recent outbreaks.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -12740,7 +12891,8 @@
 ],
 "a": 0,
 "e": "It reviews ectoparasites, helminths and protozoa of dogs and cats.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -12754,7 +12906,8 @@
 ],
 "a": 2,
 "e": "The review notes limited data on epidemiology, clinical presentation and zoonotic importance of feline vector-borne diseases.",
-"source": "journal"
+"source": "journal",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -15891,7 +16044,8 @@
 "a": 2,
 "e": "Decisions stir strong emotions.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -15906,7 +16060,8 @@
 "a": 1,
 "e": "Unowned populations can become a nuisance and suffer when resources are limited.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -15921,7 +16076,8 @@
 "a": 0,
 "e": "They are usually identified when relinquished to homing organisations.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -15936,7 +16092,8 @@
 "a": 0,
 "e": "There are seven principles in total.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -15951,7 +16108,8 @@
 "a": 2,
 "e": "It responds to a commentary in Biological Invasions.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -15966,7 +16124,8 @@
 "a": 0,
 "e": "Shelter and community practices will feel it acutely.",
 "source": "journal",
-"jn": "jsmcah"
+"jn": "jsmcah",
+"jset": 1
 },
 {
 "type": "mcq",
@@ -18704,7 +18863,7 @@
 "sub": "Spay-Neuter",
 "q": "Studies comparing shelter-based community-cat strategies (impound/removal vs. sterilize-and-return vs. leave-in-place with referral), including return-to-field at Florida shelters, support which conclusion about the shelter's role in free-roaming cat management?",
 "o": [
-"Traditional impoundment and removal is the most effective way to lower community cat populations, and trap-neuter-return (TNR) adds little benefit",
+"Traditional impoundment and removal is the most effective way to lower community cat populations, and TNR adds little benefit",
 "Sterilize-and-return (TNR/RTF) is associated with reduced shelter intake and euthanasia, whereas removal short of eradication is largely ineffective",
 "Shelters should test and euthanize all community cats to prevent disease, since return raises intake in the following year"
 ],
@@ -18716,7 +18875,7 @@
 "type": "mcq",
 "domain": "Companion Animal Homelessness",
 "sub": "Spay-Neuter",
-"q": "Randomized controlled trials comparing ear-tipping techniques and a national survey of trap-neuter-return (TNR) ear-tipping practice arrived at which shared conclusion?",
+"q": "Randomized controlled trials comparing ear-tipping techniques and a national survey of TNR ear-tipping practice arrived at which shared conclusion?",
 "o": [
 "One specific cutting tool and hemostatic agent is clearly superior and should be adopted as the universal standard for TNR",
 "Ear-tipping should be abandoned because bleeding complications are unacceptably high in both trial arms and in the survey",
@@ -18816,7 +18975,7 @@
 "sub": "Surgery & Anesthesia",
 "q": "Studies of perioperative hypothermia in high-quality high-volume spay/neuter (HQHVSN) settings, including a trial of peripheral warming/insulation in cats, support which conclusion?",
 "o": [
-"Perioperative hypothermia is rare in high-quality, high-volume spay-neuter (HQHVSN) and needs no mitigation, whatever the temperature of the surgical suite",
+"Perioperative hypothermia is rare in HQHVSN and needs no mitigation, whatever the temperature of the surgical suite",
 "Perioperative hypothermia is common and depends on room temperature; extremity insulation and active warming limit core heat loss",
 "Cotton toddler socks on the extremities fully prevent hypothermia, and room temperature has no effect on its incidence"
 ],
@@ -18859,7 +19018,7 @@
 "q": "Post-adoption studies of undersocialized cats and kittens (and the analysis of increasing pressure to place them) most consistently conclude that:",
 "o": [
 "Many undersocialized cats, especially younger kittens, reach acceptable post-adoption behavior and adopter satisfaction",
-"Undersocialized cats invariably fail in homes and should be diverted to trap-neuter-return (TNR) rather than placed for adoption",
+"Undersocialized cats invariably fail in homes and should be diverted to TNR rather than placed for adoption",
 "Older undersocialized cats adapt to homes better than young kittens, and satisfaction does not depend on time in the home"
 ],
 "a": 0,

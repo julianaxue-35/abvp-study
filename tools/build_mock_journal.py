@@ -92,6 +92,23 @@ def dom_sub(page):
     return FOLDER_DOMAIN.get(folder, "General"), PAGE_SUB.get(page, "General")
 
 
+def _nt(s):
+    return re.sub(r"[^a-z0-9]+", " ", (s or "").lower().replace("\u00a0", " ")).strip()
+
+# Titles from the "Diplomate Publications" sheet (Diplomate publications spreadsheet 2025.xlsx).
+_DIP = set()
+_dp = os.path.join(HERE, "diplomate_titles.json")
+if os.path.exists(_dp):
+    _DIP = {_nt(t) for t in json.load(open(_dp, encoding="utf-8"))}
+
+def in_focus_set(r):
+    """True for the mock-exam 'JSMCAH + Diplomate studies' subset (2021-2025 only).
+    Only these journal questions count toward the running average; other journal
+    questions stay practisable but are excluded (see build_qindex.js / progress.js)."""
+    y = r.get("year") or 0
+    if not (2021 <= y <= 2025): return False
+    return journal_tier(r) == "jsmcah" or _nt(r.get("title")) in _DIP
+
 def journal_tier(r):
     """Mock-exam emphasis tier: 'jsmcah' (Journal of Shelter Medicine and Community Animal Health),
     'shelter' (other shelter-medicine papers, by title) or '' (everything else)."""
@@ -114,7 +131,8 @@ def main():
         for m in r.get("mcqs", []):
             mocks.append({"type": "mcq", "domain": dom, "sub": sub,
                           "q": m["q"], "o": m["o"], "a": m["a"], "e": m["e"], "source": "journal",
-                          **({"jn": journal_tier(r)} if journal_tier(r) else {})})
+                          **({"jn": journal_tier(r)} if journal_tier(r) else {}),
+                          **({"jset": 1} if in_focus_set(r) else {})})
     for s in synth:
         dom, sub = dom_sub(s.get("subdomain_page", ""))
         mocks.append({"type": "mcq", "domain": dom, "sub": sub,

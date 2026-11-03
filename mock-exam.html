@@ -120,7 +120,7 @@
       <h3 style="margin-top:0">Set up your exam</h3>
       <div class="cfg">
         <div><label>Your initials</label><input id="cfgInit" type="text" maxlength="5" placeholder="e.g. JX" autocomplete="off" style="text-transform:uppercase"></div>
-        <div><label>What to practise</label><select id="cfgScope"><option value="all" selected>Full exam (all 7 domains, blueprint-weighted)</option><option value="domain">One domain (all its topics mixed)</option><option value="topic">One topic only</option><option value="asv">ASV Guidelines questions only</option></select></div>
+        <div><label>What to practise</label><select id="cfgScope"><option value="all" selected>Full exam (all 7 domains, blueprint-weighted)</option><option value="domain">One domain (all its topics mixed)</option><option value="topic">One topic only</option><option value="asv">ASV Guidelines questions only</option><option value="jset">JSMCAH + Diplomate studies (2021&ndash;2025) only</option></select></div>
         <div id="cfgDomWrap" class="hidden"><label>Domain</label><select id="cfgDom"></select></div>
         <div id="cfgSubWrap" class="hidden"><label>Topic</label><select id="cfgSub"></select></div>
         <div><label>Total questions</label><input id="cfgTotal" type="number" value="350" min="20" max="1500"></div>
@@ -262,6 +262,7 @@ function useCardsNow(){return document.getElementById('cfgCards').value==='1';}
 function inScope(q,sc,useCards){
   if(!inExam(q,useCards))return false;
   if(sc.mode==='asv')return q.source==='asv';
+  if(sc.mode==='jset')return q.source==='journal'&&!!q.jset;
   if(sc.mode==='all')return true;
   if(q.domain!==sc.domain)return false;
   return sc.mode==='domain'||q.sub===sc.sub;
@@ -278,7 +279,8 @@ function fillScopeSelects(){
   var subs=Object.keys(cnt).sort();
   subSel.innerHTML=subs.map(function(t){return '<option value="'+t+'"'+(t===curSub?' selected':'')+'>'+t+' ('+cnt[t]+')</option>';}).join('');
   var m=document.getElementById('cfgScope').value;
-  document.getElementById('cfgDomWrap').classList.toggle('hidden',m==='all'||m==='asv');
+  document.getElementById('cfgDomWrap').classList.toggle('hidden',m==='all'||m==='asv'||m==='jset');
+  var jsOpt=document.querySelector('#cfgScope option[value="jset"]'); if(jsOpt)jsOpt.textContent='JSMCAH + Diplomate studies (2021\u20132025) only ('+window.MOCK.mcqs.filter(function(q){return q.source==='journal'&&q.jset&&inExam(q,uc);}).length+')';
   var asvOpt=document.querySelector('#cfgScope option[value="asv"]'); if(asvOpt)asvOpt.textContent='ASV Guidelines questions only ('+window.MOCK.mcqs.filter(function(q){return q.source==='asv'&&inExam(q,uc);}).length+')';
   document.getElementById('cfgSubWrap').classList.toggle('hidden',m!=='topic');
   document.getElementById('bpCard').classList.toggle('hidden',m!=='all');
@@ -396,6 +398,7 @@ function renderRunning(gkeys,gk){
   window.MOCK.mcqs.forEach(function(q){
     if(!q.q||q.type!=='mcq'||!window.MOCK.blueprint[q.domain])return;
     var c=P.r[ABVP.key(q.q)]; if(!c)return;
+    if(q.source==='journal'&&!q.jset)return; /* other journal questions do not count toward the average */
     var d=by[q.domain]=by[q.domain]||{n:0,ok:0,subs:{}}, sb=d.subs[q.sub||'General']=d.subs[q.sub||'General']||{n:0,ok:0};
     [d,sb].forEach(function(o){o.n++;o.ok+=c.r?1:0;});
   });
@@ -406,7 +409,7 @@ function renderRunning(gkeys,gk){
     Object.keys(d.subs).sort().forEach(function(t){var o=d.subs[t];
       rows+='<tr><td>&nbsp;&nbsp;&nbsp;'+t+'</td><td style="white-space:nowrap">'+o.ok+' / '+o.n+'</td><td>'+Math.round(o.ok/o.n*100)+'%</td></tr>';});
   });
-  host.innerHTML=rows?'<div style="border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:#fff"><b>Running accuracy for '+ABVP.cur()+'</b> <span style="font-size:12px;color:var(--muted)">(every question you have answered anywhere &mdash; this exam and the subdomain banks &mdash; latest answer each)</span><table class="bp" style="margin-top:6px"><thead><tr><th>Area</th><th>Correct / answered</th><th>%</th></tr></thead><tbody>'+rows+'</tbody></table></div>':'';
+  host.innerHTML=rows?'<div style="border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:#fff"><b>Running accuracy for '+ABVP.cur()+'</b> <span style="font-size:12px;color:var(--muted)">(every question you have answered anywhere &mdash; this exam and the subdomain banks &mdash; latest answer each; journal questions count only if they are JSMCAH or Diplomate studies, 2021&ndash;2025)</span><table class="bp" style="margin-top:6px"><thead><tr><th>Area</th><th>Correct / answered</th><th>%</th></tr></thead><tbody>'+rows+'</tbody></table></div>':'';
 }
 function resetUser(e){e.preventDefault();var init=(document.getElementById('cfgInit').value||'').trim().toUpperCase();if(init&&confirm('Reset all saved progress for '+init+'?')){localStorage.removeItem(ukey(init));showUserStats();}}
 document.getElementById('cfgInit').addEventListener('input',showUserStats);

@@ -47,6 +47,8 @@
     return parts.length>=2?parts.slice(-2).join('/'):(parts[0]||'');
   }
   function idx(){return (root.ABVPIDX&&root.ABVPIDX.pages)||{};}
+  var XS=null;
+  function excl(){ if(XS) return XS; XS={}; var a=(root.ABVPIDX&&root.ABVPIDX.x)||[]; for(var i=0;i<a.length;i++) XS[a[i]]=1; return XS; }
   var H2P=null;
   function h2p(){
     if(H2P) return H2P; H2P={}; var P=idx();
@@ -77,9 +79,11 @@
 
   /* ---------- stats ---------- */
   function agg(P){
-    var out={all:{n:0,ok:0,att:0,cor:0},page:{},dom:{}};
+    var out={all:{n:0,ok:0,att:0,cor:0},page:{},dom:{}}, X=excl();
     for(var h in P.r){
       var c=P.r[h], att=c.n||1, cor=(c.c!==undefined)?c.c:legacyCorrect(c);
+      /* journal questions outside the JSMCAH + Diplomate (2021-2025) subset do not count toward the average or domain totals */
+      if(X[h]){ if(c.p){var g0=out.page[c.p]=out.page[c.p]||{n:0,ok:0,att:0,cor:0};g0.n++;g0.ok+=c.r?1:0;g0.att+=att;g0.cor+=cor;} continue; }
       out.all.n++; out.all.ok+=c.r?1:0; out.all.att+=att; out.all.cor+=cor;
       if(c.p){var g=out.page[c.p]=out.page[c.p]||{n:0,ok:0,att:0,cor:0};g.n++;g.ok+=c.r?1:0;g.att+=att;g.cor+=cor;}
       if(c.d){var d=out.dom[c.d]=out.dom[c.d]||{n:0,ok:0,att:0,cor:0};d.n++;d.ok+=c.r?1:0;d.att+=att;d.cor+=cor;}
@@ -111,7 +115,7 @@
 
   var API={key:key,norm:norm,cur:cur,setCur:setCur,rec:rec,stats:stats,total:total,pct:pct,clearPage:clearPage,
            exportCode:exportCode,importCode:importCode,pagePath:pagePath,listInits:function(){return Object.keys(load().u);},
-           load:load,save:save,profile:profile,cleanInit:cleanInit,agg:agg,idx:idx};
+           isExcluded:function(stem){return !!excl()[key(stem)];},load:load,save:save,profile:profile,cleanInit:cleanInit,agg:agg,idx:idx};
   root.ABVP=API;
   if(typeof document==='undefined') return;
 

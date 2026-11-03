@@ -25,7 +25,18 @@ for(const d of dirs){
     out[rel]={d:dom,h:hs};
   }
 }
-fs.writeFileSync(path.join(root,'qindex.js'),'window.ABVPIDX={pages:'+JSON.stringify(out)+'};\n');
+// Journal questions outside the mock exam's "JSMCAH + Diplomate studies (2021-2025)" subset do not count toward the
+// running average (progress.js agg() skips these stem hashes). jset is set by tools/build_mock_journal.py.
+const jctx={window:{MOCK:{mcqs:[]}}};vm.createContext(jctx);vm.runInContext(fs.readFileSync(path.join(root,'mock-data-journal.js'),'utf8'),jctx);
+const xs=new Set(),keep=new Set();
+for(const q of jctx.window.MOCK.mcqs){ if(q.source!=='journal'||!q.q) continue; (q.jset?keep:xs).add(key(q.q)); }
+const cat=JSON.parse(fs.readFileSync(path.join(__dirname,'journal-catalog.json'),'utf8'));
+// catalog stems for out-of-focus articles too (covers questions held back from the mock pool, e.g. 2026 articles)
+const focusStems=new Set(keep);
+for(const a of cat) for(const m of (a.mcqs||[])) if(m&&m.q&&!focusStems.has(key(m.q))) xs.add(key(m.q));
+keep.forEach(h=>xs.delete(h));
+fs.writeFileSync(path.join(root,'qindex.js'),'window.ABVPIDX={pages:'+JSON.stringify(out)+',x:'+JSON.stringify([...xs])+'};\n');
+console.log('journal subset questions counting toward average:',keep.size,'| journal questions excluded from average:',xs.size);
 const n=Object.values(out).reduce((a,v)=>a+v.h.length,0);
 console.log('pages',Object.keys(out).length,'questions',n);
 for(const [p,v] of Object.entries(out)) if(!v.d) console.log('no domain:',p,v.h.length);
