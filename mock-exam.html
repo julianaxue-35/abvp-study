@@ -756,6 +756,12 @@ function showResults(restored){
   document.getElementById('overallScore').textContent=pct+'%';
   document.getElementById('overallSub').innerHTML=totC+' / '+totG+' correct ('+S.items.length+' items, '+(S.items.length-totG)+' unanswered count as incorrect on the real exam)'+
     (S.user?'<br><span style="color:var(--good)">Saved for '+S.user+'.</span> Next time you enter '+S.user+', the ones you missed will return alongside fresh questions — mastered items are skipped until the pool runs out.':'');
+  // ASV questions: this run + running total for these initials
+  var aRun=0,aOk=0; S.items.forEach(function(it,i){if(it.type==='mcq'&&it.source==='asv'&&S.ans[i]!==null){aRun++; if(S.ans[i]===it.a)aOk++;}});
+  var aTot=0,aDone=0; try{var sn=S.user?mergedSeen(S.user):{}; window.MOCK.mcqs.forEach(function(q){if(q.source!=='asv')return;aTot++;if(sn[qid(q)])aDone++;});}catch(e){}
+  var asvEl=document.getElementById('asvResult');
+  if(!asvEl){asvEl=document.createElement('div');asvEl.id='asvResult';asvEl.style.cssText='font-size:13px;margin-top:10px;padding:8px 12px;border-radius:10px;background:#eef0f8;text-align:left';var os=document.getElementById('overallSub');os.parentNode.appendChild(asvEl);}
+  asvEl.innerHTML='<b>ASV questions this run:</b> '+aRun+' answered, '+aOk+' correct'+(aRun?' ('+Math.round(aOk/aRun*100)+'%)':'')+(S.user&&aTot?' &middot; <b>Overall for '+S.user+':</b> '+aDone+' / '+aTot+' ASV questions done ('+Math.round(aDone/aTot*100)+'%)':'');
   document.getElementById('domScores').innerHTML=gkeys.map(function(d){
     var st=domStat[d],p=st.graded?Math.round(st.correct/st.graded*100):0;
     return '<div class="scorebox"><div style="font-size:12px;color:var(--muted)">'+d+'</div>'+
