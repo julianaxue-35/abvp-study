@@ -353,17 +353,18 @@ function showUserStats(){
 function renderBank(){
   var init=(document.getElementById('cfgInit').value||'').trim().toUpperCase();
   var el=document.getElementById('bankProgress'); if(!init){el.innerHTML='';return;}
-  var seen=mergedSeen(init), uc=useCardsNow(), dom={}, T={t:0,m:0,r:0};
+  var seen=mergedSeen(init), uc=useCardsNow(), dom={}, T={t:0,m:0,r:0}, A={t:0,m:0,r:0};
   window.MOCK.mcqs.forEach(function(q){
     if(!inExam(q,uc))return;
     var d=dom[q.domain]=dom[q.domain]||{t:0,m:0,r:0,subs:{}}, sb=d.subs[q.sub||'General']=d.subs[q.sub||'General']||{t:0,m:0,r:0};
-    var st=seen[qid(q)]; [T,d,sb].forEach(function(o){o.t++; if(st==='correct')o.m++; else if(st==='wrong')o.r++;});
+    var st=seen[qid(q)]; [T,d,sb].concat(q.source==='asv'?[A]:[]).forEach(function(o){o.t++; if(st==='correct')o.m++; else if(st==='wrong')o.r++;});
   });
   var bar=function(o){var dn=o.m+o.r,p=o.t?dn/o.t*100:0,pm=o.t?o.m/o.t*100:0;
     return '<div class="bar" style="height:7px"><i style="width:'+pm+'%;background:var(--good)"></i><i style="width:'+(p-pm)+'%;background:var(--warn)"></i></div>';};
   var line=function(label,o,bold){var dn=o.m+o.r;return '<tr><td>'+(bold?'<b>'+label+'</b>':label)+'</td><td style="white-space:nowrap">'+dn+' / '+o.t+' ('+(o.t?Math.round(dn/o.t*100):0)+'%)</td><td style="min-width:90px">'+bar(o)+'</td></tr>';};
   var h='<details open style="border:1px solid var(--line);border-radius:10px;padding:8px 12px;background:#fff"><summary style="cursor:pointer;font-size:14px"><b>Question bank progress for '+init+':</b> '+(T.m+T.r)+' of '+T.t+' questions done ('+(T.t?Math.round((T.m+T.r)/T.t*100):0)+'%) — <span style="color:var(--good)">'+T.m+' mastered</span> · <span style="color:var(--warn)">'+T.r+' to retry</span> · '+(T.t-T.m-T.r)+' not yet seen</summary>'+
     '<table class="bp" style="margin-top:8px"><thead><tr><th>Domain</th><th>Done</th><th></th></tr></thead><tbody>'+
+    (A.t?line('ASV questions (all domains)',A,true).replace('<tr>','<tr style="background:#eef0f8">'):'')+
     DOM_ORDER.filter(function(k){return dom[k];}).map(function(k){
       var d=dom[k];return line(k,d,true)+Object.keys(d.subs).sort().map(function(t){return line('&nbsp;&nbsp;&nbsp;'+t,d.subs[t]);}).join('');}).join('')+
     '</tbody></table><div style="font-size:12px;color:var(--muted);margin-top:4px">Green = answered correctly (mastered), orange = answered wrong (will come back). A question counts as done once you have answered it in a finished exam.</div></details>';
