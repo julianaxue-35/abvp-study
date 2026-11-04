@@ -117,6 +117,9 @@
     .btn{padding:12px 16px;min-height:44px}
     .btn.sm{padding:9px 12px;min-height:40px}
     table.bp{display:block;overflow-x:auto;white-space:nowrap}
+    #bankProgress table.bp{display:table;white-space:normal;overflow:visible}
+    #bankProgress table.bp td{padding:5px 6px}
+    #bankProgress table.bp td:nth-child(3){min-width:0!important;width:22%}
     .exambar{padding:8px 0}
     .exambar .row{gap:8px}
     .clock{font-size:19px}
@@ -403,6 +406,21 @@ function renderBank(){
     DOM_ORDER.filter(function(k){return dom[k];}).map(function(k){
       var d=dom[k];return line(k,d,true)+Object.keys(d.subs).sort().map(function(t){return line('&nbsp;&nbsp;&nbsp;'+t,d.subs[t]);}).join('');}).join('')+
     '</tbody></table><div style="font-size:12px;color:var(--muted);margin-top:4px">Green = answered correctly (mastered), orange = answered wrong (will come back). A question counts as done once you have answered it in a finished exam.</div></details>';
+  /* journal question progress (separate from the primary-question bank above) */
+  var JT={t:0,m:0,r:0}, JS={t:0,m:0,r:0}, jd={};
+  window.MOCK.mcqs.forEach(function(q){
+    if(q.source!=='journal'||!window.MOCK.blueprint[q.domain])return;
+    var d=jd[q.domain]=jd[q.domain]||{t:0,m:0,r:0}, st=seen[qid(q)];
+    [JT,d].concat(q.jset?[JS]:[]).forEach(function(o){o.t++; if(st==='correct')o.m++; else if(st==='wrong')o.r++;});
+  });
+  if(JT.t){
+    h='<details open style="border:1px solid var(--line);border-radius:10px;padding:8px 12px;background:#fff;margin-bottom:8px"><summary style="cursor:pointer;font-size:14px"><b>Journal question progress for '+init+':</b> '+(JT.m+JT.r)+' of '+JT.t+' done ('+Math.round((JT.m+JT.r)/JT.t*100)+'%) — <span style="color:var(--good)">'+JT.m+' correct</span> · <span style="color:var(--warn)">'+JT.r+' to retry</span></summary>'+
+      '<table class="bp" style="margin-top:8px"><thead><tr><th>Set</th><th>Done</th><th></th></tr></thead><tbody>'+
+      line('JSMCAH + Diplomate studies (2021&ndash;2025)',JS,true).replace('<tr>','<tr style="background:#eef0f8">')+
+      line('All journal questions',JT,true)+
+      DOM_ORDER.filter(function(k){return jd[k];}).map(function(k){return line('&nbsp;&nbsp;&nbsp;'+k,jd[k]);}).join('')+
+      '</tbody></table></details>'+h;
+  }
   el.innerHTML=h;
 }
 

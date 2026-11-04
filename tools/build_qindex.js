@@ -37,7 +37,8 @@ for(const a of cat) for(const m of (a.mcqs||[])) if(m&&m.q&&!focusStems.has(key(
 keep.forEach(h=>xs.delete(h));
 // every journal-derived stem (subset or not): excluded from bank progress counts (primary questions only)
 const jall=new Set([...xs,...keep]);
-fs.writeFileSync(path.join(root,'qindex.js'),'window.ABVPIDX={pages:'+JSON.stringify(out)+',x:'+JSON.stringify([...xs])+',j:'+JSON.stringify([...jall])+'};\n');
+const jm=new Set();for(const q of jctx.window.MOCK.mcqs){ if(q.source==='journal'&&q.q) jm.add(key(q.q)); }  // journal questions in the mock pool (2021-2025)
+fs.writeFileSync(path.join(root,'qindex.js'),'window.ABVPIDX={pages:'+JSON.stringify(out)+',x:'+JSON.stringify([...xs])+',j:'+JSON.stringify([...jall])+',jm:'+JSON.stringify([...jm])+',k:'+JSON.stringify([...keep])+'};\n');
 console.log('journal subset questions counting toward average:',keep.size,'| journal questions excluded from average:',xs.size);
 const n=Object.values(out).reduce((a,v)=>a+v.h.length,0);
 console.log('pages',Object.keys(out).length,'questions',n);

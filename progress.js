@@ -49,6 +49,17 @@
   function idx(){return (root.ABVPIDX&&root.ABVPIDX.pages)||{};}
   var JS_=null;
   function jset(){ if(JS_) return JS_; JS_={}; var a=(root.ABVPIDX&&root.ABVPIDX.j)||[]; for(var i=0;i<a.length;i++) JS_[a[i]]=1; return JS_; }
+  /* journal-question progress: all in-exam journal questions (jm) and the JSMCAH + Diplomate subset (k) */
+  function jprog(){
+    var init=cur(), I=root.ABVPIDX||{}, out={all:{t:(I.jm||[]).length,m:0,r:0},sub:{t:(I.k||[]).length,m:0,r:0}};
+    if(!init) return out;
+    var P=profile(load(),init), A={},B={}, i;
+    (I.jm||[]).forEach(function(h){A[h]=1;}); (I.k||[]).forEach(function(h){B[h]=1;});
+    for(var h in P.r){ var c=P.r[h];
+      if(A[h]){ if(c.r) out.all.m++; else out.all.r++; }
+      if(B[h]){ if(c.r) out.sub.m++; else out.sub.r++; } }
+    return out;
+  }
   var XS=null;
   function excl(){ if(XS) return XS; XS={}; var a=(root.ABVPIDX&&root.ABVPIDX.x)||[]; for(var i=0;i<a.length;i++) XS[a[i]]=1; return XS; }
   var H2P=null;
@@ -117,7 +128,7 @@
     return add;
   }
 
-  var API={key:key,norm:norm,cur:cur,setCur:setCur,rec:rec,stats:stats,total:total,pct:pct,clearPage:clearPage,
+  var API={jprog:jprog,key:key,norm:norm,cur:cur,setCur:setCur,rec:rec,stats:stats,total:total,pct:pct,clearPage:clearPage,
            exportCode:exportCode,importCode:importCode,pagePath:pagePath,listInits:function(){return Object.keys(load().u);},
            isExcluded:function(stem){return !!excl()[key(stem)];},load:load,save:save,profile:profile,cleanInit:cleanInit,agg:agg,idx:idx};
   root.ABVP=API;
@@ -194,6 +205,10 @@
     if(!a) h+='<p>Set your initials to start tracking.</p>';
     else{
       h+='<p style="margin:0 0 4px"><b>'+todayCount()+' answered today.</b></p><p style="margin:0 0 4px"><b>'+a.prim.n+' primary (non-journal) questions answered</b> · '+a.all.n+' counted toward the average · <b>'+pct(a.all.cor,a.all.att)+'%</b> average across all '+a.all.att+' attempts.</p><p style="margin:0 0 8px;font-size:12px;color:#5b6f69">'+pct(a.all.ok,a.all.n)+'% correct on your latest answer to each question. Attempts before this update are estimated for questions answered more than twice.</p><table>';
+      var jp=jprog(), jbar=function(label,o){var dn=o.m+o.r,pm=o.t?o.m/o.t*100:0,pd=o.t?dn/o.t*100:0;
+        return '<p style="margin:8px 0 2px"><b>'+label+'</b>: '+dn+' / '+o.t+' done ('+pct(dn,o.t)+'%) · <span style="color:#1f7a4d">'+o.m+' correct</span> · <span style="color:#b5651d">'+o.r+' to retry</span></p>'+
+          '<div style="height:8px;background:#dbe7e3;border-radius:5px;overflow:hidden;display:flex"><i style="width:'+pm+'%;background:#1f7a4d"></i><i style="width:'+(pd-pm)+'%;background:#b5651d"></i></div>';};
+      h+=jbar('Journal questions (all)',jp.all)+jbar('JSMCAH + Diplomate studies',jp.sub)+'<div style="margin-bottom:8px"></div>';
       var order=['Physical Health','Shelter Management','Behavioral Health','Companion Animal Homelessness','Community & Public Health','Animals & Public Policy','Research & Biostats'];
       Object.keys(a.dom).sort(function(x,y){var i=order.indexOf(x),j=order.indexOf(y);return (i<0?99:i)-(j<0?99:j);}).forEach(function(d){
         var v=a.dom[d];h+='<tr><td>'+d+'</td><td style="text-align:right;white-space:nowrap">'+v.cor+' / '+v.att+' · <b>'+pct(v.cor,v.att)+'%</b> avg</td></tr>';});
