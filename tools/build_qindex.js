@@ -35,7 +35,9 @@ const cat=JSON.parse(fs.readFileSync(path.join(__dirname,'journal-catalog.json')
 const focusStems=new Set(keep);
 for(const a of cat) for(const m of (a.mcqs||[])) if(m&&m.q&&!focusStems.has(key(m.q))) xs.add(key(m.q));
 keep.forEach(h=>xs.delete(h));
-fs.writeFileSync(path.join(root,'qindex.js'),'window.ABVPIDX={pages:'+JSON.stringify(out)+',x:'+JSON.stringify([...xs])+'};\n');
+// every journal-derived stem (subset or not): excluded from bank progress counts (primary questions only)
+const jall=new Set([...xs,...keep]);
+fs.writeFileSync(path.join(root,'qindex.js'),'window.ABVPIDX={pages:'+JSON.stringify(out)+',x:'+JSON.stringify([...xs])+',j:'+JSON.stringify([...jall])+'};\n');
 console.log('journal subset questions counting toward average:',keep.size,'| journal questions excluded from average:',xs.size);
 const n=Object.values(out).reduce((a,v)=>a+v.h.length,0);
 console.log('pages',Object.keys(out).length,'questions',n);
