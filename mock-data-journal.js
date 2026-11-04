@@ -519,14 +519,14 @@
 "type": "mcq",
 "domain": "Physical Health",
 "sub": "Vaccination",
-"q": "Shelters may reconstitute modified-live canine distemper vaccine hours before use. In a cell culture model, which finding was reported?",
+"q": "Shelters may reconstitute modified-live canine distemper vaccine hours before use. In a cell culture model, how did storage time and temperature (up to 24 hours at room temperature before and after reconstitution) affect infection of cells?",
 "o": [
-"Two of three quadrivalent brands, including the commonest, did not infect cells beyond baseline",
-"The three quadrivalent brands infected cells robustly whatever the storage time, so brands did not differ",
-"Two of three quadrivalent brands infected more cells after 24 hours at room temperature than when freshly reconstituted"
+"No significant difference in median cell infection rates was detected between storage conditions",
+"Infection rates fell significantly with longer storage at room temperature",
+"Infection rates rose significantly with longer storage at room temperature"
 ],
 "a": 0,
-"e": "The third brand infected a median of 14% of cells with immediate reconstitution, and it was used for storage trials.",
+"e": "Median infection stayed about 9-15% across every time and temperature condition (Kruskal-Wallis p = 0.95). These trials used the one brand that infected cells robustly. Because cell culture may not reflect the immune response of vaccinated dogs, the clinical implications are unknown.",
 "source": "journal",
 "jn": "jsmcah",
 "jset": 1
